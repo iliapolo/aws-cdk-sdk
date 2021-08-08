@@ -15,9 +15,25 @@ export interface KinesisVideoArchivedMediaGetClipInput {
   /**
    * @schema KinesisVideoArchivedMediaGetClipInput#ClipFragmentSelector
    */
-  readonly clipFragmentSelector: KinesisVideoArchivedMediaClipFragmentSelector;
+  readonly clipFragmentSelector?: KinesisVideoArchivedMediaClipFragmentSelector;
 
 }
+
+/**
+ * Converts an object of type 'KinesisVideoArchivedMediaGetClipInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaGetClipInput(obj: KinesisVideoArchivedMediaGetClipInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StreamName': obj.streamName,
+    'StreamARN': obj.streamArn,
+    'ClipFragmentSelector': toJson_KinesisVideoArchivedMediaClipFragmentSelector(obj.clipFragmentSelector),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema KinesisVideoArchivedMediaGetClipOutput
@@ -34,6 +50,21 @@ export interface KinesisVideoArchivedMediaGetClipOutput {
   readonly payload?: any;
 
 }
+
+/**
+ * Converts an object of type 'KinesisVideoArchivedMediaGetClipOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaGetClipOutput(obj: KinesisVideoArchivedMediaGetClipOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContentType': obj.contentType,
+    'Payload': obj.payload,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema KinesisVideoArchivedMediaGetDashStreamingSessionUrlInput
@@ -82,6 +113,27 @@ export interface KinesisVideoArchivedMediaGetDashStreamingSessionUrlInput {
 }
 
 /**
+ * Converts an object of type 'KinesisVideoArchivedMediaGetDashStreamingSessionUrlInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaGetDashStreamingSessionUrlInput(obj: KinesisVideoArchivedMediaGetDashStreamingSessionUrlInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StreamName': obj.streamName,
+    'StreamARN': obj.streamArn,
+    'PlaybackMode': obj.playbackMode,
+    'DisplayFragmentTimestamp': obj.displayFragmentTimestamp,
+    'DisplayFragmentNumber': obj.displayFragmentNumber,
+    'DASHFragmentSelector': toJson_KinesisVideoArchivedMediaDashFragmentSelector(obj.dashFragmentSelector),
+    'Expires': obj.expires,
+    'MaxManifestFragmentResults': obj.maxManifestFragmentResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema KinesisVideoArchivedMediaGetDashStreamingSessionUrlOutput
  */
 export interface KinesisVideoArchivedMediaGetDashStreamingSessionUrlOutput {
@@ -91,6 +143,20 @@ export interface KinesisVideoArchivedMediaGetDashStreamingSessionUrlOutput {
   readonly dashStreamingSessionUrl?: string;
 
 }
+
+/**
+ * Converts an object of type 'KinesisVideoArchivedMediaGetDashStreamingSessionUrlOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaGetDashStreamingSessionUrlOutput(obj: KinesisVideoArchivedMediaGetDashStreamingSessionUrlOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DASHStreamingSessionURL': obj.dashStreamingSessionUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema KinesisVideoArchivedMediaGetHlsStreamingSessionUrlInput
@@ -144,6 +210,28 @@ export interface KinesisVideoArchivedMediaGetHlsStreamingSessionUrlInput {
 }
 
 /**
+ * Converts an object of type 'KinesisVideoArchivedMediaGetHlsStreamingSessionUrlInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaGetHlsStreamingSessionUrlInput(obj: KinesisVideoArchivedMediaGetHlsStreamingSessionUrlInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StreamName': obj.streamName,
+    'StreamARN': obj.streamArn,
+    'PlaybackMode': obj.playbackMode,
+    'HLSFragmentSelector': toJson_KinesisVideoArchivedMediaHlsFragmentSelector(obj.hlsFragmentSelector),
+    'ContainerFormat': obj.containerFormat,
+    'DiscontinuityMode': obj.discontinuityMode,
+    'DisplayFragmentTimestamp': obj.displayFragmentTimestamp,
+    'Expires': obj.expires,
+    'MaxMediaPlaylistFragmentResults': obj.maxMediaPlaylistFragmentResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema KinesisVideoArchivedMediaGetHlsStreamingSessionUrlOutput
  */
 export interface KinesisVideoArchivedMediaGetHlsStreamingSessionUrlOutput {
@@ -155,20 +243,55 @@ export interface KinesisVideoArchivedMediaGetHlsStreamingSessionUrlOutput {
 }
 
 /**
+ * Converts an object of type 'KinesisVideoArchivedMediaGetHlsStreamingSessionUrlOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaGetHlsStreamingSessionUrlOutput(obj: KinesisVideoArchivedMediaGetHlsStreamingSessionUrlOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HLSStreamingSessionURL': obj.hlsStreamingSessionUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema KinesisVideoArchivedMediaGetMediaForFragmentListInput
  */
 export interface KinesisVideoArchivedMediaGetMediaForFragmentListInput {
   /**
    * @schema KinesisVideoArchivedMediaGetMediaForFragmentListInput#StreamName
    */
-  readonly streamName: string;
+  readonly streamName?: string;
+
+  /**
+   * @schema KinesisVideoArchivedMediaGetMediaForFragmentListInput#StreamARN
+   */
+  readonly streamArn?: string;
 
   /**
    * @schema KinesisVideoArchivedMediaGetMediaForFragmentListInput#Fragments
    */
-  readonly fragments: string[];
+  readonly fragments?: string[];
 
 }
+
+/**
+ * Converts an object of type 'KinesisVideoArchivedMediaGetMediaForFragmentListInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaGetMediaForFragmentListInput(obj: KinesisVideoArchivedMediaGetMediaForFragmentListInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StreamName': obj.streamName,
+    'StreamARN': obj.streamArn,
+    'Fragments': obj.fragments?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema KinesisVideoArchivedMediaGetMediaForFragmentListOutput
@@ -187,13 +310,33 @@ export interface KinesisVideoArchivedMediaGetMediaForFragmentListOutput {
 }
 
 /**
+ * Converts an object of type 'KinesisVideoArchivedMediaGetMediaForFragmentListOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaGetMediaForFragmentListOutput(obj: KinesisVideoArchivedMediaGetMediaForFragmentListOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContentType': obj.contentType,
+    'Payload': obj.payload,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema KinesisVideoArchivedMediaListFragmentsInput
  */
 export interface KinesisVideoArchivedMediaListFragmentsInput {
   /**
    * @schema KinesisVideoArchivedMediaListFragmentsInput#StreamName
    */
-  readonly streamName: string;
+  readonly streamName?: string;
+
+  /**
+   * @schema KinesisVideoArchivedMediaListFragmentsInput#StreamARN
+   */
+  readonly streamArn?: string;
 
   /**
    * @schema KinesisVideoArchivedMediaListFragmentsInput#MaxResults
@@ -213,6 +356,24 @@ export interface KinesisVideoArchivedMediaListFragmentsInput {
 }
 
 /**
+ * Converts an object of type 'KinesisVideoArchivedMediaListFragmentsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaListFragmentsInput(obj: KinesisVideoArchivedMediaListFragmentsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StreamName': obj.streamName,
+    'StreamARN': obj.streamArn,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+    'FragmentSelector': toJson_KinesisVideoArchivedMediaFragmentSelector(obj.fragmentSelector),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema KinesisVideoArchivedMediaListFragmentsOutput
  */
 export interface KinesisVideoArchivedMediaListFragmentsOutput {
@@ -229,20 +390,50 @@ export interface KinesisVideoArchivedMediaListFragmentsOutput {
 }
 
 /**
+ * Converts an object of type 'KinesisVideoArchivedMediaListFragmentsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaListFragmentsOutput(obj: KinesisVideoArchivedMediaListFragmentsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Fragments': obj.fragments?.map(y => toJson_KinesisVideoArchivedMediaFragment(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema KinesisVideoArchivedMediaClipFragmentSelector
  */
 export interface KinesisVideoArchivedMediaClipFragmentSelector {
   /**
    * @schema KinesisVideoArchivedMediaClipFragmentSelector#FragmentSelectorType
    */
-  readonly fragmentSelectorType: string;
+  readonly fragmentSelectorType?: string;
 
   /**
    * @schema KinesisVideoArchivedMediaClipFragmentSelector#TimestampRange
    */
-  readonly timestampRange: KinesisVideoArchivedMediaClipTimestampRange;
+  readonly timestampRange?: KinesisVideoArchivedMediaClipTimestampRange;
 
 }
+
+/**
+ * Converts an object of type 'KinesisVideoArchivedMediaClipFragmentSelector' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaClipFragmentSelector(obj: KinesisVideoArchivedMediaClipFragmentSelector | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FragmentSelectorType': obj.fragmentSelectorType,
+    'TimestampRange': toJson_KinesisVideoArchivedMediaClipTimestampRange(obj.timestampRange),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema KinesisVideoArchivedMediaDashFragmentSelector
@@ -261,6 +452,21 @@ export interface KinesisVideoArchivedMediaDashFragmentSelector {
 }
 
 /**
+ * Converts an object of type 'KinesisVideoArchivedMediaDashFragmentSelector' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaDashFragmentSelector(obj: KinesisVideoArchivedMediaDashFragmentSelector | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FragmentSelectorType': obj.fragmentSelectorType,
+    'TimestampRange': toJson_KinesisVideoArchivedMediaDashTimestampRange(obj.timestampRange),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema KinesisVideoArchivedMediaHlsFragmentSelector
  */
 export interface KinesisVideoArchivedMediaHlsFragmentSelector {
@@ -277,20 +483,50 @@ export interface KinesisVideoArchivedMediaHlsFragmentSelector {
 }
 
 /**
+ * Converts an object of type 'KinesisVideoArchivedMediaHlsFragmentSelector' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaHlsFragmentSelector(obj: KinesisVideoArchivedMediaHlsFragmentSelector | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FragmentSelectorType': obj.fragmentSelectorType,
+    'TimestampRange': toJson_KinesisVideoArchivedMediaHlsTimestampRange(obj.timestampRange),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema KinesisVideoArchivedMediaFragmentSelector
  */
 export interface KinesisVideoArchivedMediaFragmentSelector {
   /**
    * @schema KinesisVideoArchivedMediaFragmentSelector#FragmentSelectorType
    */
-  readonly fragmentSelectorType: string;
+  readonly fragmentSelectorType?: string;
 
   /**
    * @schema KinesisVideoArchivedMediaFragmentSelector#TimestampRange
    */
-  readonly timestampRange: KinesisVideoArchivedMediaTimestampRange;
+  readonly timestampRange?: KinesisVideoArchivedMediaTimestampRange;
 
 }
+
+/**
+ * Converts an object of type 'KinesisVideoArchivedMediaFragmentSelector' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaFragmentSelector(obj: KinesisVideoArchivedMediaFragmentSelector | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FragmentSelectorType': obj.fragmentSelectorType,
+    'TimestampRange': toJson_KinesisVideoArchivedMediaTimestampRange(obj.timestampRange),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema KinesisVideoArchivedMediaFragment
@@ -324,20 +560,53 @@ export interface KinesisVideoArchivedMediaFragment {
 }
 
 /**
+ * Converts an object of type 'KinesisVideoArchivedMediaFragment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaFragment(obj: KinesisVideoArchivedMediaFragment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FragmentNumber': obj.fragmentNumber,
+    'FragmentSizeInBytes': obj.fragmentSizeInBytes,
+    'ProducerTimestamp': obj.producerTimestamp,
+    'ServerTimestamp': obj.serverTimestamp,
+    'FragmentLengthInMilliseconds': obj.fragmentLengthInMilliseconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema KinesisVideoArchivedMediaClipTimestampRange
  */
 export interface KinesisVideoArchivedMediaClipTimestampRange {
   /**
    * @schema KinesisVideoArchivedMediaClipTimestampRange#StartTimestamp
    */
-  readonly startTimestamp: string;
+  readonly startTimestamp?: string;
 
   /**
    * @schema KinesisVideoArchivedMediaClipTimestampRange#EndTimestamp
    */
-  readonly endTimestamp: string;
+  readonly endTimestamp?: string;
 
 }
+
+/**
+ * Converts an object of type 'KinesisVideoArchivedMediaClipTimestampRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaClipTimestampRange(obj: KinesisVideoArchivedMediaClipTimestampRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StartTimestamp': obj.startTimestamp,
+    'EndTimestamp': obj.endTimestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema KinesisVideoArchivedMediaDashTimestampRange
@@ -356,6 +625,21 @@ export interface KinesisVideoArchivedMediaDashTimestampRange {
 }
 
 /**
+ * Converts an object of type 'KinesisVideoArchivedMediaDashTimestampRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaDashTimestampRange(obj: KinesisVideoArchivedMediaDashTimestampRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StartTimestamp': obj.startTimestamp,
+    'EndTimestamp': obj.endTimestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema KinesisVideoArchivedMediaHlsTimestampRange
  */
 export interface KinesisVideoArchivedMediaHlsTimestampRange {
@@ -372,17 +656,47 @@ export interface KinesisVideoArchivedMediaHlsTimestampRange {
 }
 
 /**
+ * Converts an object of type 'KinesisVideoArchivedMediaHlsTimestampRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaHlsTimestampRange(obj: KinesisVideoArchivedMediaHlsTimestampRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StartTimestamp': obj.startTimestamp,
+    'EndTimestamp': obj.endTimestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema KinesisVideoArchivedMediaTimestampRange
  */
 export interface KinesisVideoArchivedMediaTimestampRange {
   /**
    * @schema KinesisVideoArchivedMediaTimestampRange#StartTimestamp
    */
-  readonly startTimestamp: string;
+  readonly startTimestamp?: string;
 
   /**
    * @schema KinesisVideoArchivedMediaTimestampRange#EndTimestamp
    */
-  readonly endTimestamp: string;
+  readonly endTimestamp?: string;
 
 }
+
+/**
+ * Converts an object of type 'KinesisVideoArchivedMediaTimestampRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoArchivedMediaTimestampRange(obj: KinesisVideoArchivedMediaTimestampRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StartTimestamp': obj.startTimestamp,
+    'EndTimestamp': obj.endTimestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

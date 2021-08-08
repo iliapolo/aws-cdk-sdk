@@ -127,6 +127,10 @@ export class ServiceDiscoveryClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'UntagResource', props);
   }
 
+  public updateHttpNamespace(input: shapes.ServiceDiscoveryUpdateHttpNamespaceRequest): ServiceDiscoveryResponsesUpdateHttpNamespace {
+    return new ServiceDiscoveryResponsesUpdateHttpNamespace(this, this.__resources, input);
+  }
+
   public updateInstanceCustomHealthStatus(input: shapes.ServiceDiscoveryUpdateInstanceCustomHealthStatusRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -142,6 +146,14 @@ export class ServiceDiscoveryClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'UpdateInstanceCustomHealthStatus', props);
+  }
+
+  public updatePrivateDnsNamespace(input: shapes.ServiceDiscoveryUpdatePrivateDnsNamespaceRequest): ServiceDiscoveryResponsesUpdatePrivateDnsNamespace {
+    return new ServiceDiscoveryResponsesUpdatePrivateDnsNamespace(this, this.__resources, input);
+  }
+
+  public updatePublicDnsNamespace(input: shapes.ServiceDiscoveryUpdatePublicDnsNamespaceRequest): ServiceDiscoveryResponsesUpdatePublicDnsNamespace {
+    return new ServiceDiscoveryResponsesUpdatePublicDnsNamespace(this, this.__resources, input);
   }
 
   public updateService(input: shapes.ServiceDiscoveryUpdateServiceRequest): ServiceDiscoveryResponsesUpdateService {
@@ -196,6 +208,13 @@ export class ServiceDiscoveryResponsesCreatePrivateDnsNamespace {
           Description: this.__input.description,
           Vpc: this.__input.vpc,
           Tags: this.__input.tags,
+          Properties: {
+            DnsProperties: {
+              SOA: {
+                TTL: this.__input.properties?.dnsProperties.soa.ttl,
+              },
+            },
+          },
         },
       },
     };
@@ -223,6 +242,13 @@ export class ServiceDiscoveryResponsesCreatePublicDnsNamespace {
           CreatorRequestId: this.__input.creatorRequestId,
           Description: this.__input.description,
           Tags: this.__input.tags,
+          Properties: {
+            DnsProperties: {
+              SOA: {
+                TTL: this.__input.properties?.dnsProperties.soa.ttl,
+              },
+            },
+          },
         },
       },
     };
@@ -275,6 +301,7 @@ export class ServiceDiscoveryResponsesCreateServiceService {
             FailureThreshold: this.__input.healthCheckCustomConfig?.failureThreshold,
           },
           Tags: this.__input.tags,
+          Type: this.__input.type,
         },
       },
     };
@@ -309,6 +336,7 @@ export class ServiceDiscoveryResponsesCreateServiceService {
             FailureThreshold: this.__input.healthCheckCustomConfig?.failureThreshold,
           },
           Tags: this.__input.tags,
+          Type: this.__input.type,
         },
       },
     };
@@ -343,6 +371,7 @@ export class ServiceDiscoveryResponsesCreateServiceService {
             FailureThreshold: this.__input.healthCheckCustomConfig?.failureThreshold,
           },
           Tags: this.__input.tags,
+          Type: this.__input.type,
         },
       },
     };
@@ -377,6 +406,7 @@ export class ServiceDiscoveryResponsesCreateServiceService {
             FailureThreshold: this.__input.healthCheckCustomConfig?.failureThreshold,
           },
           Tags: this.__input.tags,
+          Type: this.__input.type,
         },
       },
     };
@@ -411,6 +441,7 @@ export class ServiceDiscoveryResponsesCreateServiceService {
             FailureThreshold: this.__input.healthCheckCustomConfig?.failureThreshold,
           },
           Tags: this.__input.tags,
+          Type: this.__input.type,
         },
       },
     };
@@ -445,6 +476,7 @@ export class ServiceDiscoveryResponsesCreateServiceService {
             FailureThreshold: this.__input.healthCheckCustomConfig?.failureThreshold,
           },
           Tags: this.__input.tags,
+          Type: this.__input.type,
         },
       },
     };
@@ -454,6 +486,41 @@ export class ServiceDiscoveryResponsesCreateServiceService {
 
   public get dnsConfig(): ServiceDiscoveryResponsesCreateServiceServiceDnsConfig {
     return new ServiceDiscoveryResponsesCreateServiceServiceDnsConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createService',
+        service: 'ServiceDiscovery',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceDiscovery.CreateService.Service.Type'),
+        outputPath: 'Service.Type',
+        parameters: {
+          Name: this.__input.name,
+          NamespaceId: this.__input.namespaceId,
+          CreatorRequestId: this.__input.creatorRequestId,
+          Description: this.__input.description,
+          DnsConfig: {
+            NamespaceId: this.__input.dnsConfig?.namespaceId,
+            RoutingPolicy: this.__input.dnsConfig?.routingPolicy,
+            DnsRecords: this.__input.dnsConfig?.dnsRecords,
+          },
+          HealthCheckConfig: {
+            Type: this.__input.healthCheckConfig?.type,
+            ResourcePath: this.__input.healthCheckConfig?.resourcePath,
+            FailureThreshold: this.__input.healthCheckConfig?.failureThreshold,
+          },
+          HealthCheckCustomConfig: {
+            FailureThreshold: this.__input.healthCheckCustomConfig?.failureThreshold,
+          },
+          Tags: this.__input.tags,
+          Type: this.__input.type,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateService.Service.Type', props);
+    return resource.getResponseField('Service.Type') as unknown as string;
   }
 
   public get healthCheckConfig(): ServiceDiscoveryResponsesCreateServiceServiceHealthCheckConfig {
@@ -491,6 +558,7 @@ export class ServiceDiscoveryResponsesCreateServiceService {
             FailureThreshold: this.__input.healthCheckCustomConfig?.failureThreshold,
           },
           Tags: this.__input.tags,
+          Type: this.__input.type,
         },
       },
     };
@@ -525,6 +593,7 @@ export class ServiceDiscoveryResponsesCreateServiceService {
             FailureThreshold: this.__input.healthCheckCustomConfig?.failureThreshold,
           },
           Tags: this.__input.tags,
+          Type: this.__input.type,
         },
       },
     };
@@ -566,6 +635,7 @@ export class ServiceDiscoveryResponsesCreateServiceServiceDnsConfig {
             FailureThreshold: this.__input.healthCheckCustomConfig?.failureThreshold,
           },
           Tags: this.__input.tags,
+          Type: this.__input.type,
         },
       },
     };
@@ -600,6 +670,7 @@ export class ServiceDiscoveryResponsesCreateServiceServiceDnsConfig {
             FailureThreshold: this.__input.healthCheckCustomConfig?.failureThreshold,
           },
           Tags: this.__input.tags,
+          Type: this.__input.type,
         },
       },
     };
@@ -634,6 +705,7 @@ export class ServiceDiscoveryResponsesCreateServiceServiceDnsConfig {
             FailureThreshold: this.__input.healthCheckCustomConfig?.failureThreshold,
           },
           Tags: this.__input.tags,
+          Type: this.__input.type,
         },
       },
     };
@@ -675,6 +747,7 @@ export class ServiceDiscoveryResponsesCreateServiceServiceHealthCheckConfig {
             FailureThreshold: this.__input.healthCheckCustomConfig?.failureThreshold,
           },
           Tags: this.__input.tags,
+          Type: this.__input.type,
         },
       },
     };
@@ -709,6 +782,7 @@ export class ServiceDiscoveryResponsesCreateServiceServiceHealthCheckConfig {
             FailureThreshold: this.__input.healthCheckCustomConfig?.failureThreshold,
           },
           Tags: this.__input.tags,
+          Type: this.__input.type,
         },
       },
     };
@@ -743,6 +817,7 @@ export class ServiceDiscoveryResponsesCreateServiceServiceHealthCheckConfig {
             FailureThreshold: this.__input.healthCheckCustomConfig?.failureThreshold,
           },
           Tags: this.__input.tags,
+          Type: this.__input.type,
         },
       },
     };
@@ -784,6 +859,7 @@ export class ServiceDiscoveryResponsesCreateServiceServiceHealthCheckCustomConfi
             FailureThreshold: this.__input.healthCheckCustomConfig?.failureThreshold,
           },
           Tags: this.__input.tags,
+          Type: this.__input.type,
         },
       },
     };
@@ -1185,6 +1261,34 @@ export class ServiceDiscoveryResponsesFetchNamespaceNamespacePropertiesDnsProper
     return resource.getResponseField('Namespace.Properties.DnsProperties.HostedZoneId') as unknown as string;
   }
 
+  public get soa(): ServiceDiscoveryResponsesFetchNamespaceNamespacePropertiesDnsPropertiesSoa {
+    return new ServiceDiscoveryResponsesFetchNamespaceNamespacePropertiesDnsPropertiesSoa(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ServiceDiscoveryResponsesFetchNamespaceNamespacePropertiesDnsPropertiesSoa {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ServiceDiscoveryGetNamespaceRequest) {
+  }
+
+  public get ttl(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getNamespace',
+        service: 'ServiceDiscovery',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceDiscovery.GetNamespace.Namespace.Properties.DnsProperties.SOA.TTL'),
+        outputPath: 'Namespace.Properties.DnsProperties.SOA.TTL',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetNamespace.Namespace.Properties.DnsProperties.SOA.TTL', props);
+    return resource.getResponseField('Namespace.Properties.DnsProperties.SOA.TTL') as unknown as number;
+  }
+
 }
 
 export class ServiceDiscoveryResponsesFetchNamespaceNamespacePropertiesHttpProperties {
@@ -1485,6 +1589,23 @@ export class ServiceDiscoveryResponsesFetchServiceService {
 
   public get dnsConfig(): ServiceDiscoveryResponsesFetchServiceServiceDnsConfig {
     return new ServiceDiscoveryResponsesFetchServiceServiceDnsConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getService',
+        service: 'ServiceDiscovery',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceDiscovery.GetService.Service.Type'),
+        outputPath: 'Service.Type',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetService.Service.Type', props);
+    return resource.getResponseField('Service.Type') as unknown as string;
   }
 
   public get healthCheckConfig(): ServiceDiscoveryResponsesFetchServiceServiceHealthCheckConfig {
@@ -1897,6 +2018,104 @@ export class ServiceDiscoveryResponsesRegisterInstance {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RegisterInstance.OperationId', props);
+    return resource.getResponseField('OperationId') as unknown as string;
+  }
+
+}
+
+export class ServiceDiscoveryResponsesUpdateHttpNamespace {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ServiceDiscoveryUpdateHttpNamespaceRequest) {
+  }
+
+  public get operationId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateHttpNamespace',
+        service: 'ServiceDiscovery',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceDiscovery.UpdateHttpNamespace.OperationId'),
+        outputPath: 'OperationId',
+        parameters: {
+          Id: this.__input.id,
+          UpdaterRequestId: this.__input.updaterRequestId,
+          Namespace: {
+            Description: this.__input.namespace.description,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateHttpNamespace.OperationId', props);
+    return resource.getResponseField('OperationId') as unknown as string;
+  }
+
+}
+
+export class ServiceDiscoveryResponsesUpdatePrivateDnsNamespace {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ServiceDiscoveryUpdatePrivateDnsNamespaceRequest) {
+  }
+
+  public get operationId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updatePrivateDnsNamespace',
+        service: 'ServiceDiscovery',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceDiscovery.UpdatePrivateDnsNamespace.OperationId'),
+        outputPath: 'OperationId',
+        parameters: {
+          Id: this.__input.id,
+          UpdaterRequestId: this.__input.updaterRequestId,
+          Namespace: {
+            Description: this.__input.namespace.description,
+            Properties: {
+              DnsProperties: {
+                SOA: {
+                  TTL: this.__input.namespace.properties?.dnsProperties.soa.ttl,
+                },
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdatePrivateDnsNamespace.OperationId', props);
+    return resource.getResponseField('OperationId') as unknown as string;
+  }
+
+}
+
+export class ServiceDiscoveryResponsesUpdatePublicDnsNamespace {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ServiceDiscoveryUpdatePublicDnsNamespaceRequest) {
+  }
+
+  public get operationId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updatePublicDnsNamespace',
+        service: 'ServiceDiscovery',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceDiscovery.UpdatePublicDnsNamespace.OperationId'),
+        outputPath: 'OperationId',
+        parameters: {
+          Id: this.__input.id,
+          UpdaterRequestId: this.__input.updaterRequestId,
+          Namespace: {
+            Description: this.__input.namespace.description,
+            Properties: {
+              DnsProperties: {
+                SOA: {
+                  TTL: this.__input.namespace.properties?.dnsProperties.soa.ttl,
+                },
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdatePublicDnsNamespace.OperationId', props);
     return resource.getResponseField('OperationId') as unknown as string;
   }
 

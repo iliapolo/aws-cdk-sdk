@@ -16,6 +16,14 @@ export class NetworkManagerClient extends cdk.Construct {
     return new NetworkManagerResponsesAssociateLink(this, this.__resources, input);
   }
 
+  public associateTransitGatewayConnectPeer(input: shapes.NetworkManagerAssociateTransitGatewayConnectPeerRequest): NetworkManagerResponsesAssociateTransitGatewayConnectPeer {
+    return new NetworkManagerResponsesAssociateTransitGatewayConnectPeer(this, this.__resources, input);
+  }
+
+  public createConnection(input: shapes.NetworkManagerCreateConnectionRequest): NetworkManagerResponsesCreateConnection {
+    return new NetworkManagerResponsesCreateConnection(this, this.__resources, input);
+  }
+
   public createDevice(input: shapes.NetworkManagerCreateDeviceRequest): NetworkManagerResponsesCreateDevice {
     return new NetworkManagerResponsesCreateDevice(this, this.__resources, input);
   }
@@ -30,6 +38,10 @@ export class NetworkManagerClient extends cdk.Construct {
 
   public createSite(input: shapes.NetworkManagerCreateSiteRequest): NetworkManagerResponsesCreateSite {
     return new NetworkManagerResponsesCreateSite(this, this.__resources, input);
+  }
+
+  public deleteConnection(input: shapes.NetworkManagerDeleteConnectionRequest): NetworkManagerResponsesDeleteConnection {
+    return new NetworkManagerResponsesDeleteConnection(this, this.__resources, input);
   }
 
   public deleteDevice(input: shapes.NetworkManagerDeleteDeviceRequest): NetworkManagerResponsesDeleteDevice {
@@ -64,6 +76,14 @@ export class NetworkManagerClient extends cdk.Construct {
     return new NetworkManagerResponsesDisassociateLink(this, this.__resources, input);
   }
 
+  public disassociateTransitGatewayConnectPeer(input: shapes.NetworkManagerDisassociateTransitGatewayConnectPeerRequest): NetworkManagerResponsesDisassociateTransitGatewayConnectPeer {
+    return new NetworkManagerResponsesDisassociateTransitGatewayConnectPeer(this, this.__resources, input);
+  }
+
+  public fetchConnections(input: shapes.NetworkManagerGetConnectionsRequest): NetworkManagerResponsesFetchConnections {
+    return new NetworkManagerResponsesFetchConnections(this, this.__resources, input);
+  }
+
   public fetchCustomerGatewayAssociations(input: shapes.NetworkManagerGetCustomerGatewayAssociationsRequest): NetworkManagerResponsesFetchCustomerGatewayAssociations {
     return new NetworkManagerResponsesFetchCustomerGatewayAssociations(this, this.__resources, input);
   }
@@ -82,6 +102,10 @@ export class NetworkManagerClient extends cdk.Construct {
 
   public fetchSites(input: shapes.NetworkManagerGetSitesRequest): NetworkManagerResponsesFetchSites {
     return new NetworkManagerResponsesFetchSites(this, this.__resources, input);
+  }
+
+  public fetchTransitGatewayConnectPeerAssociations(input: shapes.NetworkManagerGetTransitGatewayConnectPeerAssociationsRequest): NetworkManagerResponsesFetchTransitGatewayConnectPeerAssociations {
+    return new NetworkManagerResponsesFetchTransitGatewayConnectPeerAssociations(this, this.__resources, input);
   }
 
   public fetchTransitGatewayRegistrations(input: shapes.NetworkManagerGetTransitGatewayRegistrationsRequest): NetworkManagerResponsesFetchTransitGatewayRegistrations {
@@ -126,6 +150,10 @@ export class NetworkManagerClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'UntagResource', props);
+  }
+
+  public updateConnection(input: shapes.NetworkManagerUpdateConnectionRequest): NetworkManagerResponsesUpdateConnection {
+    return new NetworkManagerResponsesUpdateConnection(this, this.__resources, input);
   }
 
   public updateDevice(input: shapes.NetworkManagerUpdateDeviceRequest): NetworkManagerResponsesUpdateDevice {
@@ -358,6 +386,395 @@ export class NetworkManagerResponsesAssociateLinkLinkAssociation {
 
 }
 
+export class NetworkManagerResponsesAssociateTransitGatewayConnectPeer {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerAssociateTransitGatewayConnectPeerRequest) {
+  }
+
+  public get transitGatewayConnectPeerAssociation(): NetworkManagerResponsesAssociateTransitGatewayConnectPeerTransitGatewayConnectPeerAssociation {
+    return new NetworkManagerResponsesAssociateTransitGatewayConnectPeerTransitGatewayConnectPeerAssociation(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class NetworkManagerResponsesAssociateTransitGatewayConnectPeerTransitGatewayConnectPeerAssociation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerAssociateTransitGatewayConnectPeerRequest) {
+  }
+
+  public get transitGatewayConnectPeerArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateTransitGatewayConnectPeer',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.AssociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerArn'),
+        outputPath: 'TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerArn',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          TransitGatewayConnectPeerArn: this.__input.transitGatewayConnectPeerArn,
+          DeviceId: this.__input.deviceId,
+          LinkId: this.__input.linkId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerArn', props);
+    return resource.getResponseField('TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerArn') as unknown as string;
+  }
+
+  public get globalNetworkId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateTransitGatewayConnectPeer',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.AssociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.GlobalNetworkId'),
+        outputPath: 'TransitGatewayConnectPeerAssociation.GlobalNetworkId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          TransitGatewayConnectPeerArn: this.__input.transitGatewayConnectPeerArn,
+          DeviceId: this.__input.deviceId,
+          LinkId: this.__input.linkId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.GlobalNetworkId', props);
+    return resource.getResponseField('TransitGatewayConnectPeerAssociation.GlobalNetworkId') as unknown as string;
+  }
+
+  public get deviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateTransitGatewayConnectPeer',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.AssociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.DeviceId'),
+        outputPath: 'TransitGatewayConnectPeerAssociation.DeviceId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          TransitGatewayConnectPeerArn: this.__input.transitGatewayConnectPeerArn,
+          DeviceId: this.__input.deviceId,
+          LinkId: this.__input.linkId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.DeviceId', props);
+    return resource.getResponseField('TransitGatewayConnectPeerAssociation.DeviceId') as unknown as string;
+  }
+
+  public get linkId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateTransitGatewayConnectPeer',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.AssociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.LinkId'),
+        outputPath: 'TransitGatewayConnectPeerAssociation.LinkId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          TransitGatewayConnectPeerArn: this.__input.transitGatewayConnectPeerArn,
+          DeviceId: this.__input.deviceId,
+          LinkId: this.__input.linkId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.LinkId', props);
+    return resource.getResponseField('TransitGatewayConnectPeerAssociation.LinkId') as unknown as string;
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateTransitGatewayConnectPeer',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.AssociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.State'),
+        outputPath: 'TransitGatewayConnectPeerAssociation.State',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          TransitGatewayConnectPeerArn: this.__input.transitGatewayConnectPeerArn,
+          DeviceId: this.__input.deviceId,
+          LinkId: this.__input.linkId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.State', props);
+    return resource.getResponseField('TransitGatewayConnectPeerAssociation.State') as unknown as string;
+  }
+
+}
+
+export class NetworkManagerResponsesCreateConnection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerCreateConnectionRequest) {
+  }
+
+  public get connection(): NetworkManagerResponsesCreateConnectionConnection {
+    return new NetworkManagerResponsesCreateConnectionConnection(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class NetworkManagerResponsesCreateConnectionConnection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerCreateConnectionRequest) {
+  }
+
+  public get connectionId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.CreateConnection.Connection.ConnectionId'),
+        outputPath: 'Connection.ConnectionId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          DeviceId: this.__input.deviceId,
+          ConnectedDeviceId: this.__input.connectedDeviceId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.Connection.ConnectionId', props);
+    return resource.getResponseField('Connection.ConnectionId') as unknown as string;
+  }
+
+  public get connectionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.CreateConnection.Connection.ConnectionArn'),
+        outputPath: 'Connection.ConnectionArn',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          DeviceId: this.__input.deviceId,
+          ConnectedDeviceId: this.__input.connectedDeviceId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.Connection.ConnectionArn', props);
+    return resource.getResponseField('Connection.ConnectionArn') as unknown as string;
+  }
+
+  public get globalNetworkId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.CreateConnection.Connection.GlobalNetworkId'),
+        outputPath: 'Connection.GlobalNetworkId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          DeviceId: this.__input.deviceId,
+          ConnectedDeviceId: this.__input.connectedDeviceId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.Connection.GlobalNetworkId', props);
+    return resource.getResponseField('Connection.GlobalNetworkId') as unknown as string;
+  }
+
+  public get deviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.CreateConnection.Connection.DeviceId'),
+        outputPath: 'Connection.DeviceId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          DeviceId: this.__input.deviceId,
+          ConnectedDeviceId: this.__input.connectedDeviceId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.Connection.DeviceId', props);
+    return resource.getResponseField('Connection.DeviceId') as unknown as string;
+  }
+
+  public get connectedDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.CreateConnection.Connection.ConnectedDeviceId'),
+        outputPath: 'Connection.ConnectedDeviceId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          DeviceId: this.__input.deviceId,
+          ConnectedDeviceId: this.__input.connectedDeviceId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.Connection.ConnectedDeviceId', props);
+    return resource.getResponseField('Connection.ConnectedDeviceId') as unknown as string;
+  }
+
+  public get linkId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.CreateConnection.Connection.LinkId'),
+        outputPath: 'Connection.LinkId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          DeviceId: this.__input.deviceId,
+          ConnectedDeviceId: this.__input.connectedDeviceId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.Connection.LinkId', props);
+    return resource.getResponseField('Connection.LinkId') as unknown as string;
+  }
+
+  public get connectedLinkId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.CreateConnection.Connection.ConnectedLinkId'),
+        outputPath: 'Connection.ConnectedLinkId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          DeviceId: this.__input.deviceId,
+          ConnectedDeviceId: this.__input.connectedDeviceId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.Connection.ConnectedLinkId', props);
+    return resource.getResponseField('Connection.ConnectedLinkId') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.CreateConnection.Connection.Description'),
+        outputPath: 'Connection.Description',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          DeviceId: this.__input.deviceId,
+          ConnectedDeviceId: this.__input.connectedDeviceId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.Connection.Description', props);
+    return resource.getResponseField('Connection.Description') as unknown as string;
+  }
+
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.CreateConnection.Connection.CreatedAt'),
+        outputPath: 'Connection.CreatedAt',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          DeviceId: this.__input.deviceId,
+          ConnectedDeviceId: this.__input.connectedDeviceId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.Connection.CreatedAt', props);
+    return resource.getResponseField('Connection.CreatedAt') as unknown as string;
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.CreateConnection.Connection.State'),
+        outputPath: 'Connection.State',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          DeviceId: this.__input.deviceId,
+          ConnectedDeviceId: this.__input.connectedDeviceId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.Connection.State', props);
+    return resource.getResponseField('Connection.State') as unknown as string;
+  }
+
+  public get tags(): shapes.NetworkManagerTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.CreateConnection.Connection.Tags'),
+        outputPath: 'Connection.Tags',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          DeviceId: this.__input.deviceId,
+          ConnectedDeviceId: this.__input.connectedDeviceId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.Connection.Tags', props);
+    return resource.getResponseField('Connection.Tags') as unknown as shapes.NetworkManagerTag[];
+  }
+
+}
+
 export class NetworkManagerResponsesCreateDevice {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerCreateDeviceRequest) {
@@ -384,6 +801,10 @@ export class NetworkManagerResponsesCreateDeviceDevice {
         outputPath: 'Device.DeviceId',
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -413,6 +834,10 @@ export class NetworkManagerResponsesCreateDeviceDevice {
         outputPath: 'Device.DeviceArn',
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -442,6 +867,10 @@ export class NetworkManagerResponsesCreateDeviceDevice {
         outputPath: 'Device.GlobalNetworkId',
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -461,6 +890,10 @@ export class NetworkManagerResponsesCreateDeviceDevice {
     return resource.getResponseField('Device.GlobalNetworkId') as unknown as string;
   }
 
+  public get awsLocation(): NetworkManagerResponsesCreateDeviceDeviceAwsLocation {
+    return new NetworkManagerResponsesCreateDeviceDeviceAwsLocation(this.__scope, this.__resources, this.__input);
+  }
+
   public get description(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -471,6 +904,10 @@ export class NetworkManagerResponsesCreateDeviceDevice {
         outputPath: 'Device.Description',
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -500,6 +937,10 @@ export class NetworkManagerResponsesCreateDeviceDevice {
         outputPath: 'Device.Type',
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -529,6 +970,10 @@ export class NetworkManagerResponsesCreateDeviceDevice {
         outputPath: 'Device.Vendor',
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -558,6 +1003,10 @@ export class NetworkManagerResponsesCreateDeviceDevice {
         outputPath: 'Device.Model',
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -587,6 +1036,10 @@ export class NetworkManagerResponsesCreateDeviceDevice {
         outputPath: 'Device.SerialNumber',
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -620,6 +1073,10 @@ export class NetworkManagerResponsesCreateDeviceDevice {
         outputPath: 'Device.SiteId',
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -649,6 +1106,10 @@ export class NetworkManagerResponsesCreateDeviceDevice {
         outputPath: 'Device.CreatedAt',
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -678,6 +1139,10 @@ export class NetworkManagerResponsesCreateDeviceDevice {
         outputPath: 'Device.State',
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -707,6 +1172,10 @@ export class NetworkManagerResponsesCreateDeviceDevice {
         outputPath: 'Device.Tags',
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -728,6 +1197,79 @@ export class NetworkManagerResponsesCreateDeviceDevice {
 
 }
 
+export class NetworkManagerResponsesCreateDeviceDeviceAwsLocation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerCreateDeviceRequest) {
+  }
+
+  public get zone(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDevice',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.CreateDevice.Device.AWSLocation.Zone'),
+        outputPath: 'Device.AWSLocation.Zone',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
+          Description: this.__input.description,
+          Type: this.__input.type,
+          Vendor: this.__input.vendor,
+          Model: this.__input.model,
+          SerialNumber: this.__input.serialNumber,
+          Location: {
+            Address: this.__input.location?.address,
+            Latitude: this.__input.location?.latitude,
+            Longitude: this.__input.location?.longitude,
+          },
+          SiteId: this.__input.siteId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDevice.Device.AWSLocation.Zone', props);
+    return resource.getResponseField('Device.AWSLocation.Zone') as unknown as string;
+  }
+
+  public get subnetArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDevice',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.CreateDevice.Device.AWSLocation.SubnetArn'),
+        outputPath: 'Device.AWSLocation.SubnetArn',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
+          Description: this.__input.description,
+          Type: this.__input.type,
+          Vendor: this.__input.vendor,
+          Model: this.__input.model,
+          SerialNumber: this.__input.serialNumber,
+          Location: {
+            Address: this.__input.location?.address,
+            Latitude: this.__input.location?.latitude,
+            Longitude: this.__input.location?.longitude,
+          },
+          SiteId: this.__input.siteId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDevice.Device.AWSLocation.SubnetArn', props);
+    return resource.getResponseField('Device.AWSLocation.SubnetArn') as unknown as string;
+  }
+
+}
+
 export class NetworkManagerResponsesCreateDeviceDeviceLocation {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerCreateDeviceRequest) {
@@ -743,6 +1285,10 @@ export class NetworkManagerResponsesCreateDeviceDeviceLocation {
         outputPath: 'Device.Location.Address',
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -772,6 +1318,10 @@ export class NetworkManagerResponsesCreateDeviceDeviceLocation {
         outputPath: 'Device.Location.Latitude',
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -801,6 +1351,10 @@ export class NetworkManagerResponsesCreateDeviceDeviceLocation {
         outputPath: 'Device.Location.Longitude',
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -1558,6 +2112,222 @@ export class NetworkManagerResponsesCreateSiteSiteLocation {
 
 }
 
+export class NetworkManagerResponsesDeleteConnection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerDeleteConnectionRequest) {
+  }
+
+  public get connection(): NetworkManagerResponsesDeleteConnectionConnection {
+    return new NetworkManagerResponsesDeleteConnectionConnection(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class NetworkManagerResponsesDeleteConnectionConnection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerDeleteConnectionRequest) {
+  }
+
+  public get connectionId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.DeleteConnection.Connection.ConnectionId'),
+        outputPath: 'Connection.ConnectionId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.Connection.ConnectionId', props);
+    return resource.getResponseField('Connection.ConnectionId') as unknown as string;
+  }
+
+  public get connectionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.DeleteConnection.Connection.ConnectionArn'),
+        outputPath: 'Connection.ConnectionArn',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.Connection.ConnectionArn', props);
+    return resource.getResponseField('Connection.ConnectionArn') as unknown as string;
+  }
+
+  public get globalNetworkId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.DeleteConnection.Connection.GlobalNetworkId'),
+        outputPath: 'Connection.GlobalNetworkId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.Connection.GlobalNetworkId', props);
+    return resource.getResponseField('Connection.GlobalNetworkId') as unknown as string;
+  }
+
+  public get deviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.DeleteConnection.Connection.DeviceId'),
+        outputPath: 'Connection.DeviceId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.Connection.DeviceId', props);
+    return resource.getResponseField('Connection.DeviceId') as unknown as string;
+  }
+
+  public get connectedDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.DeleteConnection.Connection.ConnectedDeviceId'),
+        outputPath: 'Connection.ConnectedDeviceId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.Connection.ConnectedDeviceId', props);
+    return resource.getResponseField('Connection.ConnectedDeviceId') as unknown as string;
+  }
+
+  public get linkId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.DeleteConnection.Connection.LinkId'),
+        outputPath: 'Connection.LinkId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.Connection.LinkId', props);
+    return resource.getResponseField('Connection.LinkId') as unknown as string;
+  }
+
+  public get connectedLinkId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.DeleteConnection.Connection.ConnectedLinkId'),
+        outputPath: 'Connection.ConnectedLinkId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.Connection.ConnectedLinkId', props);
+    return resource.getResponseField('Connection.ConnectedLinkId') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.DeleteConnection.Connection.Description'),
+        outputPath: 'Connection.Description',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.Connection.Description', props);
+    return resource.getResponseField('Connection.Description') as unknown as string;
+  }
+
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.DeleteConnection.Connection.CreatedAt'),
+        outputPath: 'Connection.CreatedAt',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.Connection.CreatedAt', props);
+    return resource.getResponseField('Connection.CreatedAt') as unknown as string;
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.DeleteConnection.Connection.State'),
+        outputPath: 'Connection.State',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.Connection.State', props);
+    return resource.getResponseField('Connection.State') as unknown as string;
+  }
+
+  public get tags(): shapes.NetworkManagerTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.DeleteConnection.Connection.Tags'),
+        outputPath: 'Connection.Tags',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.Connection.Tags', props);
+    return resource.getResponseField('Connection.Tags') as unknown as shapes.NetworkManagerTag[];
+  }
+
+}
+
 export class NetworkManagerResponsesDeleteDevice {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerDeleteDeviceRequest) {
@@ -1626,6 +2396,10 @@ export class NetworkManagerResponsesDeleteDeviceDevice {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteDevice.Device.GlobalNetworkId', props);
     return resource.getResponseField('Device.GlobalNetworkId') as unknown as string;
+  }
+
+  public get awsLocation(): NetworkManagerResponsesDeleteDeviceDeviceAwsLocation {
+    return new NetworkManagerResponsesDeleteDeviceDeviceAwsLocation(this.__scope, this.__resources, this.__input);
   }
 
   public get description(): string {
@@ -1792,6 +2566,49 @@ export class NetworkManagerResponsesDeleteDeviceDevice {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteDevice.Device.Tags', props);
     return resource.getResponseField('Device.Tags') as unknown as shapes.NetworkManagerTag[];
+  }
+
+}
+
+export class NetworkManagerResponsesDeleteDeviceDeviceAwsLocation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerDeleteDeviceRequest) {
+  }
+
+  public get zone(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteDevice',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.DeleteDevice.Device.AWSLocation.Zone'),
+        outputPath: 'Device.AWSLocation.Zone',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          DeviceId: this.__input.deviceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteDevice.Device.AWSLocation.Zone', props);
+    return resource.getResponseField('Device.AWSLocation.Zone') as unknown as string;
+  }
+
+  public get subnetArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteDevice',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.DeleteDevice.Device.AWSLocation.SubnetArn'),
+        outputPath: 'Device.AWSLocation.SubnetArn',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          DeviceId: this.__input.deviceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteDevice.Device.AWSLocation.SubnetArn', props);
+    return resource.getResponseField('Device.AWSLocation.SubnetArn') as unknown as string;
   }
 
 }
@@ -2779,6 +3596,163 @@ export class NetworkManagerResponsesDisassociateLinkLinkAssociation {
 
 }
 
+export class NetworkManagerResponsesDisassociateTransitGatewayConnectPeer {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerDisassociateTransitGatewayConnectPeerRequest) {
+  }
+
+  public get transitGatewayConnectPeerAssociation(): NetworkManagerResponsesDisassociateTransitGatewayConnectPeerTransitGatewayConnectPeerAssociation {
+    return new NetworkManagerResponsesDisassociateTransitGatewayConnectPeerTransitGatewayConnectPeerAssociation(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class NetworkManagerResponsesDisassociateTransitGatewayConnectPeerTransitGatewayConnectPeerAssociation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerDisassociateTransitGatewayConnectPeerRequest) {
+  }
+
+  public get transitGatewayConnectPeerArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateTransitGatewayConnectPeer',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.DisassociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerArn'),
+        outputPath: 'TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerArn',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          TransitGatewayConnectPeerArn: this.__input.transitGatewayConnectPeerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerArn', props);
+    return resource.getResponseField('TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerArn') as unknown as string;
+  }
+
+  public get globalNetworkId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateTransitGatewayConnectPeer',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.DisassociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.GlobalNetworkId'),
+        outputPath: 'TransitGatewayConnectPeerAssociation.GlobalNetworkId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          TransitGatewayConnectPeerArn: this.__input.transitGatewayConnectPeerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.GlobalNetworkId', props);
+    return resource.getResponseField('TransitGatewayConnectPeerAssociation.GlobalNetworkId') as unknown as string;
+  }
+
+  public get deviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateTransitGatewayConnectPeer',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.DisassociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.DeviceId'),
+        outputPath: 'TransitGatewayConnectPeerAssociation.DeviceId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          TransitGatewayConnectPeerArn: this.__input.transitGatewayConnectPeerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.DeviceId', props);
+    return resource.getResponseField('TransitGatewayConnectPeerAssociation.DeviceId') as unknown as string;
+  }
+
+  public get linkId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateTransitGatewayConnectPeer',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.DisassociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.LinkId'),
+        outputPath: 'TransitGatewayConnectPeerAssociation.LinkId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          TransitGatewayConnectPeerArn: this.__input.transitGatewayConnectPeerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.LinkId', props);
+    return resource.getResponseField('TransitGatewayConnectPeerAssociation.LinkId') as unknown as string;
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateTransitGatewayConnectPeer',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.DisassociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.State'),
+        outputPath: 'TransitGatewayConnectPeerAssociation.State',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          TransitGatewayConnectPeerArn: this.__input.transitGatewayConnectPeerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateTransitGatewayConnectPeer.TransitGatewayConnectPeerAssociation.State', props);
+    return resource.getResponseField('TransitGatewayConnectPeerAssociation.State') as unknown as string;
+  }
+
+}
+
+export class NetworkManagerResponsesFetchConnections {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerGetConnectionsRequest) {
+  }
+
+  public get connections(): shapes.NetworkManagerConnection[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getConnections',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.GetConnections.Connections'),
+        outputPath: 'Connections',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionIds: this.__input.connectionIds,
+          DeviceId: this.__input.deviceId,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetConnections.Connections', props);
+    return resource.getResponseField('Connections') as unknown as shapes.NetworkManagerConnection[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getConnections',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.GetConnections.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionIds: this.__input.connectionIds,
+          DeviceId: this.__input.deviceId,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetConnections.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
 export class NetworkManagerResponsesFetchCustomerGatewayAssociations {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerGetCustomerGatewayAssociationsRequest) {
@@ -3024,6 +3998,53 @@ export class NetworkManagerResponsesFetchSites {
 
 }
 
+export class NetworkManagerResponsesFetchTransitGatewayConnectPeerAssociations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerGetTransitGatewayConnectPeerAssociationsRequest) {
+  }
+
+  public get transitGatewayConnectPeerAssociations(): shapes.NetworkManagerTransitGatewayConnectPeerAssociation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getTransitGatewayConnectPeerAssociations',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.GetTransitGatewayConnectPeerAssociations.TransitGatewayConnectPeerAssociations'),
+        outputPath: 'TransitGatewayConnectPeerAssociations',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          TransitGatewayConnectPeerArns: this.__input.transitGatewayConnectPeerArns,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetTransitGatewayConnectPeerAssociations.TransitGatewayConnectPeerAssociations', props);
+    return resource.getResponseField('TransitGatewayConnectPeerAssociations') as unknown as shapes.NetworkManagerTransitGatewayConnectPeerAssociation[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getTransitGatewayConnectPeerAssociations',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.GetTransitGatewayConnectPeerAssociations.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          TransitGatewayConnectPeerArns: this.__input.transitGatewayConnectPeerArns,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetTransitGatewayConnectPeerAssociations.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
 export class NetworkManagerResponsesFetchTransitGatewayRegistrations {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerGetTransitGatewayRegistrationsRequest) {
@@ -3196,6 +4217,255 @@ export class NetworkManagerResponsesRegisterTransitGatewayTransitGatewayRegistra
 
 }
 
+export class NetworkManagerResponsesUpdateConnection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerUpdateConnectionRequest) {
+  }
+
+  public get connection(): NetworkManagerResponsesUpdateConnectionConnection {
+    return new NetworkManagerResponsesUpdateConnectionConnection(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class NetworkManagerResponsesUpdateConnectionConnection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerUpdateConnectionRequest) {
+  }
+
+  public get connectionId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.UpdateConnection.Connection.ConnectionId'),
+        outputPath: 'Connection.ConnectionId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.Connection.ConnectionId', props);
+    return resource.getResponseField('Connection.ConnectionId') as unknown as string;
+  }
+
+  public get connectionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.UpdateConnection.Connection.ConnectionArn'),
+        outputPath: 'Connection.ConnectionArn',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.Connection.ConnectionArn', props);
+    return resource.getResponseField('Connection.ConnectionArn') as unknown as string;
+  }
+
+  public get globalNetworkId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.UpdateConnection.Connection.GlobalNetworkId'),
+        outputPath: 'Connection.GlobalNetworkId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.Connection.GlobalNetworkId', props);
+    return resource.getResponseField('Connection.GlobalNetworkId') as unknown as string;
+  }
+
+  public get deviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.UpdateConnection.Connection.DeviceId'),
+        outputPath: 'Connection.DeviceId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.Connection.DeviceId', props);
+    return resource.getResponseField('Connection.DeviceId') as unknown as string;
+  }
+
+  public get connectedDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.UpdateConnection.Connection.ConnectedDeviceId'),
+        outputPath: 'Connection.ConnectedDeviceId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.Connection.ConnectedDeviceId', props);
+    return resource.getResponseField('Connection.ConnectedDeviceId') as unknown as string;
+  }
+
+  public get linkId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.UpdateConnection.Connection.LinkId'),
+        outputPath: 'Connection.LinkId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.Connection.LinkId', props);
+    return resource.getResponseField('Connection.LinkId') as unknown as string;
+  }
+
+  public get connectedLinkId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.UpdateConnection.Connection.ConnectedLinkId'),
+        outputPath: 'Connection.ConnectedLinkId',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.Connection.ConnectedLinkId', props);
+    return resource.getResponseField('Connection.ConnectedLinkId') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.UpdateConnection.Connection.Description'),
+        outputPath: 'Connection.Description',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.Connection.Description', props);
+    return resource.getResponseField('Connection.Description') as unknown as string;
+  }
+
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.UpdateConnection.Connection.CreatedAt'),
+        outputPath: 'Connection.CreatedAt',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.Connection.CreatedAt', props);
+    return resource.getResponseField('Connection.CreatedAt') as unknown as string;
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.UpdateConnection.Connection.State'),
+        outputPath: 'Connection.State',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.Connection.State', props);
+    return resource.getResponseField('Connection.State') as unknown as string;
+  }
+
+  public get tags(): shapes.NetworkManagerTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.UpdateConnection.Connection.Tags'),
+        outputPath: 'Connection.Tags',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          ConnectionId: this.__input.connectionId,
+          LinkId: this.__input.linkId,
+          ConnectedLinkId: this.__input.connectedLinkId,
+          Description: this.__input.description,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.Connection.Tags', props);
+    return resource.getResponseField('Connection.Tags') as unknown as shapes.NetworkManagerTag[];
+  }
+
+}
+
 export class NetworkManagerResponsesUpdateDevice {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerUpdateDeviceRequest) {
@@ -3223,6 +4493,10 @@ export class NetworkManagerResponsesUpdateDeviceDevice {
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
           DeviceId: this.__input.deviceId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -3252,6 +4526,10 @@ export class NetworkManagerResponsesUpdateDeviceDevice {
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
           DeviceId: this.__input.deviceId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -3281,6 +4559,10 @@ export class NetworkManagerResponsesUpdateDeviceDevice {
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
           DeviceId: this.__input.deviceId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -3299,6 +4581,10 @@ export class NetworkManagerResponsesUpdateDeviceDevice {
     return resource.getResponseField('Device.GlobalNetworkId') as unknown as string;
   }
 
+  public get awsLocation(): NetworkManagerResponsesUpdateDeviceDeviceAwsLocation {
+    return new NetworkManagerResponsesUpdateDeviceDeviceAwsLocation(this.__scope, this.__resources, this.__input);
+  }
+
   public get description(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -3310,6 +4596,10 @@ export class NetworkManagerResponsesUpdateDeviceDevice {
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
           DeviceId: this.__input.deviceId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -3339,6 +4629,10 @@ export class NetworkManagerResponsesUpdateDeviceDevice {
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
           DeviceId: this.__input.deviceId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -3368,6 +4662,10 @@ export class NetworkManagerResponsesUpdateDeviceDevice {
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
           DeviceId: this.__input.deviceId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -3397,6 +4695,10 @@ export class NetworkManagerResponsesUpdateDeviceDevice {
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
           DeviceId: this.__input.deviceId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -3426,6 +4728,10 @@ export class NetworkManagerResponsesUpdateDeviceDevice {
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
           DeviceId: this.__input.deviceId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -3459,6 +4765,10 @@ export class NetworkManagerResponsesUpdateDeviceDevice {
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
           DeviceId: this.__input.deviceId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -3488,6 +4798,10 @@ export class NetworkManagerResponsesUpdateDeviceDevice {
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
           DeviceId: this.__input.deviceId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -3517,6 +4831,10 @@ export class NetworkManagerResponsesUpdateDeviceDevice {
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
           DeviceId: this.__input.deviceId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -3546,6 +4864,10 @@ export class NetworkManagerResponsesUpdateDeviceDevice {
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
           DeviceId: this.__input.deviceId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -3566,6 +4888,79 @@ export class NetworkManagerResponsesUpdateDeviceDevice {
 
 }
 
+export class NetworkManagerResponsesUpdateDeviceDeviceAwsLocation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerUpdateDeviceRequest) {
+  }
+
+  public get zone(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateDevice',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.UpdateDevice.Device.AWSLocation.Zone'),
+        outputPath: 'Device.AWSLocation.Zone',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          DeviceId: this.__input.deviceId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
+          Description: this.__input.description,
+          Type: this.__input.type,
+          Vendor: this.__input.vendor,
+          Model: this.__input.model,
+          SerialNumber: this.__input.serialNumber,
+          Location: {
+            Address: this.__input.location?.address,
+            Latitude: this.__input.location?.latitude,
+            Longitude: this.__input.location?.longitude,
+          },
+          SiteId: this.__input.siteId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateDevice.Device.AWSLocation.Zone', props);
+    return resource.getResponseField('Device.AWSLocation.Zone') as unknown as string;
+  }
+
+  public get subnetArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateDevice',
+        service: 'NetworkManager',
+        physicalResourceId: cr.PhysicalResourceId.of('NetworkManager.UpdateDevice.Device.AWSLocation.SubnetArn'),
+        outputPath: 'Device.AWSLocation.SubnetArn',
+        parameters: {
+          GlobalNetworkId: this.__input.globalNetworkId,
+          DeviceId: this.__input.deviceId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
+          Description: this.__input.description,
+          Type: this.__input.type,
+          Vendor: this.__input.vendor,
+          Model: this.__input.model,
+          SerialNumber: this.__input.serialNumber,
+          Location: {
+            Address: this.__input.location?.address,
+            Latitude: this.__input.location?.latitude,
+            Longitude: this.__input.location?.longitude,
+          },
+          SiteId: this.__input.siteId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateDevice.Device.AWSLocation.SubnetArn', props);
+    return resource.getResponseField('Device.AWSLocation.SubnetArn') as unknown as string;
+  }
+
+}
+
 export class NetworkManagerResponsesUpdateDeviceDeviceLocation {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.NetworkManagerUpdateDeviceRequest) {
@@ -3582,6 +4977,10 @@ export class NetworkManagerResponsesUpdateDeviceDeviceLocation {
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
           DeviceId: this.__input.deviceId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -3611,6 +5010,10 @@ export class NetworkManagerResponsesUpdateDeviceDeviceLocation {
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
           DeviceId: this.__input.deviceId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,
@@ -3640,6 +5043,10 @@ export class NetworkManagerResponsesUpdateDeviceDeviceLocation {
         parameters: {
           GlobalNetworkId: this.__input.globalNetworkId,
           DeviceId: this.__input.deviceId,
+          AWSLocation: {
+            Zone: this.__input.awsLocation?.zone,
+            SubnetArn: this.__input.awsLocation?.subnetArn,
+          },
           Description: this.__input.description,
           Type: this.__input.type,
           Vendor: this.__input.vendor,

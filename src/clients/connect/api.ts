@@ -24,6 +24,28 @@ export class ConnectClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'AssociateApprovedOrigin', props);
   }
 
+  public associateBot(input: shapes.ConnectAssociateBotRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateBot',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.AssociateBot'),
+        parameters: {
+          InstanceId: input.instanceId,
+          LexBot: {
+            Name: input.lexBot?.name,
+            LexRegion: input.lexBot?.lexRegion,
+          },
+          LexV2Bot: {
+            AliasArn: input.lexV2Bot?.aliasArn,
+          },
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'AssociateBot', props);
+  }
+
   public associateInstanceStorageConfig(input: shapes.ConnectAssociateInstanceStorageConfigRequest): ConnectResponsesAssociateInstanceStorageConfig {
     return new ConnectResponsesAssociateInstanceStorageConfig(this, this.__resources, input);
   }
@@ -63,6 +85,23 @@ export class ConnectClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'AssociateLexBot', props);
   }
 
+  public associateQueueQuickConnects(input: shapes.ConnectAssociateQueueQuickConnectsRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateQueueQuickConnects',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.AssociateQueueQuickConnects'),
+        parameters: {
+          InstanceId: input.instanceId,
+          QueueId: input.queueId,
+          QuickConnectIds: input.quickConnectIds,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'AssociateQueueQuickConnects', props);
+  }
+
   public associateRoutingProfileQueues(input: shapes.ConnectAssociateRoutingProfileQueuesRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -84,16 +123,40 @@ export class ConnectClient extends cdk.Construct {
     return new ConnectResponsesAssociateSecurityKey(this, this.__resources, input);
   }
 
+  public createAgentStatus(input: shapes.ConnectCreateAgentStatusRequest): ConnectResponsesCreateAgentStatus {
+    return new ConnectResponsesCreateAgentStatus(this, this.__resources, input);
+  }
+
   public createContactFlow(input: shapes.ConnectCreateContactFlowRequest): ConnectResponsesCreateContactFlow {
     return new ConnectResponsesCreateContactFlow(this, this.__resources, input);
+  }
+
+  public createHoursOfOperation(input: shapes.ConnectCreateHoursOfOperationRequest): ConnectResponsesCreateHoursOfOperation {
+    return new ConnectResponsesCreateHoursOfOperation(this, this.__resources, input);
   }
 
   public createInstance(input: shapes.ConnectCreateInstanceRequest): ConnectResponsesCreateInstance {
     return new ConnectResponsesCreateInstance(this, this.__resources, input);
   }
 
+  public createIntegrationAssociation(input: shapes.ConnectCreateIntegrationAssociationRequest): ConnectResponsesCreateIntegrationAssociation {
+    return new ConnectResponsesCreateIntegrationAssociation(this, this.__resources, input);
+  }
+
+  public createQueue(input: shapes.ConnectCreateQueueRequest): ConnectResponsesCreateQueue {
+    return new ConnectResponsesCreateQueue(this, this.__resources, input);
+  }
+
+  public createQuickConnect(input: shapes.ConnectCreateQuickConnectRequest): ConnectResponsesCreateQuickConnect {
+    return new ConnectResponsesCreateQuickConnect(this, this.__resources, input);
+  }
+
   public createRoutingProfile(input: shapes.ConnectCreateRoutingProfileRequest): ConnectResponsesCreateRoutingProfile {
     return new ConnectResponsesCreateRoutingProfile(this, this.__resources, input);
+  }
+
+  public createUseCase(input: shapes.ConnectCreateUseCaseRequest): ConnectResponsesCreateUseCase {
+    return new ConnectResponsesCreateUseCase(this, this.__resources, input);
   }
 
   public createUser(input: shapes.ConnectCreateUserRequest): ConnectResponsesCreateUser {
@@ -102,6 +165,22 @@ export class ConnectClient extends cdk.Construct {
 
   public createUserHierarchyGroup(input: shapes.ConnectCreateUserHierarchyGroupRequest): ConnectResponsesCreateUserHierarchyGroup {
     return new ConnectResponsesCreateUserHierarchyGroup(this, this.__resources, input);
+  }
+
+  public deleteHoursOfOperation(input: shapes.ConnectDeleteHoursOfOperationRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteHoursOfOperation',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DeleteHoursOfOperation'),
+        parameters: {
+          InstanceId: input.instanceId,
+          HoursOfOperationId: input.hoursOfOperationId,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteHoursOfOperation', props);
   }
 
   public deleteInstance(input: shapes.ConnectDeleteInstanceRequest): void {
@@ -117,6 +196,55 @@ export class ConnectClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'DeleteInstance', props);
+  }
+
+  public deleteIntegrationAssociation(input: shapes.ConnectDeleteIntegrationAssociationRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteIntegrationAssociation',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DeleteIntegrationAssociation'),
+        parameters: {
+          InstanceId: input.instanceId,
+          IntegrationAssociationId: input.integrationAssociationId,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteIntegrationAssociation', props);
+  }
+
+  public deleteQuickConnect(input: shapes.ConnectDeleteQuickConnectRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteQuickConnect',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DeleteQuickConnect'),
+        parameters: {
+          InstanceId: input.instanceId,
+          QuickConnectId: input.quickConnectId,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteQuickConnect', props);
+  }
+
+  public deleteUseCase(input: shapes.ConnectDeleteUseCaseRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteUseCase',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DeleteUseCase'),
+        parameters: {
+          InstanceId: input.instanceId,
+          IntegrationAssociationId: input.integrationAssociationId,
+          UseCaseId: input.useCaseId,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteUseCase', props);
   }
 
   public deleteUser(input: shapes.ConnectDeleteUserRequest): void {
@@ -151,8 +279,16 @@ export class ConnectClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeleteUserHierarchyGroup', props);
   }
 
+  public describeAgentStatus(input: shapes.ConnectDescribeAgentStatusRequest): ConnectResponsesDescribeAgentStatus {
+    return new ConnectResponsesDescribeAgentStatus(this, this.__resources, input);
+  }
+
   public describeContactFlow(input: shapes.ConnectDescribeContactFlowRequest): ConnectResponsesDescribeContactFlow {
     return new ConnectResponsesDescribeContactFlow(this, this.__resources, input);
+  }
+
+  public describeHoursOfOperation(input: shapes.ConnectDescribeHoursOfOperationRequest): ConnectResponsesDescribeHoursOfOperation {
+    return new ConnectResponsesDescribeHoursOfOperation(this, this.__resources, input);
   }
 
   public describeInstance(input: shapes.ConnectDescribeInstanceRequest): ConnectResponsesDescribeInstance {
@@ -165,6 +301,14 @@ export class ConnectClient extends cdk.Construct {
 
   public describeInstanceStorageConfig(input: shapes.ConnectDescribeInstanceStorageConfigRequest): ConnectResponsesDescribeInstanceStorageConfig {
     return new ConnectResponsesDescribeInstanceStorageConfig(this, this.__resources, input);
+  }
+
+  public describeQueue(input: shapes.ConnectDescribeQueueRequest): ConnectResponsesDescribeQueue {
+    return new ConnectResponsesDescribeQueue(this, this.__resources, input);
+  }
+
+  public describeQuickConnect(input: shapes.ConnectDescribeQuickConnectRequest): ConnectResponsesDescribeQuickConnect {
+    return new ConnectResponsesDescribeQuickConnect(this, this.__resources, input);
   }
 
   public describeRoutingProfile(input: shapes.ConnectDescribeRoutingProfileRequest): ConnectResponsesDescribeRoutingProfile {
@@ -197,6 +341,28 @@ export class ConnectClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'DisassociateApprovedOrigin', props);
+  }
+
+  public disassociateBot(input: shapes.ConnectDisassociateBotRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateBot',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DisassociateBot'),
+        parameters: {
+          InstanceId: input.instanceId,
+          LexBot: {
+            Name: input.lexBot?.name,
+            LexRegion: input.lexBot?.lexRegion,
+          },
+          LexV2Bot: {
+            AliasArn: input.lexV2Bot?.aliasArn,
+          },
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DisassociateBot', props);
   }
 
   public disassociateInstanceStorageConfig(input: shapes.ConnectDisassociateInstanceStorageConfigRequest): void {
@@ -249,6 +415,23 @@ export class ConnectClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DisassociateLexBot', props);
   }
 
+  public disassociateQueueQuickConnects(input: shapes.ConnectDisassociateQueueQuickConnectsRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateQueueQuickConnects',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DisassociateQueueQuickConnects'),
+        parameters: {
+          InstanceId: input.instanceId,
+          QueueId: input.queueId,
+          QuickConnectIds: input.quickConnectIds,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DisassociateQueueQuickConnects', props);
+  }
+
   public disassociateRoutingProfileQueues(input: shapes.ConnectDisassociateRoutingProfileQueuesRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -298,8 +481,16 @@ export class ConnectClient extends cdk.Construct {
     return new ConnectResponsesFetchMetricData(this, this.__resources, input);
   }
 
+  public listAgentStatuses(input: shapes.ConnectListAgentStatusRequest): ConnectResponsesListAgentStatuses {
+    return new ConnectResponsesListAgentStatuses(this, this.__resources, input);
+  }
+
   public listApprovedOrigins(input: shapes.ConnectListApprovedOriginsRequest): ConnectResponsesListApprovedOrigins {
     return new ConnectResponsesListApprovedOrigins(this, this.__resources, input);
+  }
+
+  public listBots(input: shapes.ConnectListBotsRequest): ConnectResponsesListBots {
+    return new ConnectResponsesListBots(this, this.__resources, input);
   }
 
   public listContactFlows(input: shapes.ConnectListContactFlowsRequest): ConnectResponsesListContactFlows {
@@ -322,6 +513,10 @@ export class ConnectClient extends cdk.Construct {
     return new ConnectResponsesListInstances(this, this.__resources, input);
   }
 
+  public listIntegrationAssociations(input: shapes.ConnectListIntegrationAssociationsRequest): ConnectResponsesListIntegrationAssociations {
+    return new ConnectResponsesListIntegrationAssociations(this, this.__resources, input);
+  }
+
   public listLambdaFunctions(input: shapes.ConnectListLambdaFunctionsRequest): ConnectResponsesListLambdaFunctions {
     return new ConnectResponsesListLambdaFunctions(this, this.__resources, input);
   }
@@ -338,8 +533,16 @@ export class ConnectClient extends cdk.Construct {
     return new ConnectResponsesListPrompts(this, this.__resources, input);
   }
 
+  public listQueueQuickConnects(input: shapes.ConnectListQueueQuickConnectsRequest): ConnectResponsesListQueueQuickConnects {
+    return new ConnectResponsesListQueueQuickConnects(this, this.__resources, input);
+  }
+
   public listQueues(input: shapes.ConnectListQueuesRequest): ConnectResponsesListQueues {
     return new ConnectResponsesListQueues(this, this.__resources, input);
+  }
+
+  public listQuickConnects(input: shapes.ConnectListQuickConnectsRequest): ConnectResponsesListQuickConnects {
+    return new ConnectResponsesListQuickConnects(this, this.__resources, input);
   }
 
   public listRoutingProfileQueues(input: shapes.ConnectListRoutingProfileQueuesRequest): ConnectResponsesListRoutingProfileQueues {
@@ -360,6 +563,10 @@ export class ConnectClient extends cdk.Construct {
 
   public listTagsForResource(input: shapes.ConnectListTagsForResourceRequest): ConnectResponsesListTagsForResource {
     return new ConnectResponsesListTagsForResource(this, this.__resources, input);
+  }
+
+  public listUseCases(input: shapes.ConnectListUseCasesRequest): ConnectResponsesListUseCases {
+    return new ConnectResponsesListUseCases(this, this.__resources, input);
   }
 
   public listUserHierarchyGroups(input: shapes.ConnectListUserHierarchyGroupsRequest): ConnectResponsesListUserHierarchyGroups {
@@ -413,6 +620,10 @@ export class ConnectClient extends cdk.Construct {
 
   public startOutboundVoiceContact(input: shapes.ConnectStartOutboundVoiceContactRequest): ConnectResponsesStartOutboundVoiceContact {
     return new ConnectResponsesStartOutboundVoiceContact(this, this.__resources, input);
+  }
+
+  public startTaskContact(input: shapes.ConnectStartTaskContactRequest): ConnectResponsesStartTaskContact {
+    return new ConnectResponsesStartTaskContact(this, this.__resources, input);
   }
 
   public stopContact(input: shapes.ConnectStopContactRequest): void {
@@ -497,6 +708,27 @@ export class ConnectClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'UntagResource', props);
   }
 
+  public updateAgentStatus(input: shapes.ConnectUpdateAgentStatusRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAgentStatus',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.UpdateAgentStatus'),
+        parameters: {
+          InstanceId: input.instanceId,
+          AgentStatusId: input.agentStatusId,
+          Name: input.name,
+          Description: input.description,
+          State: input.state,
+          DisplayOrder: input.displayOrder,
+          ResetOrderNumber: input.resetOrderNumber,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateAgentStatus', props);
+  }
+
   public updateContactAttributes(input: shapes.ConnectUpdateContactAttributesRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -547,6 +779,26 @@ export class ConnectClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'UpdateContactFlowName', props);
+  }
+
+  public updateHoursOfOperation(input: shapes.ConnectUpdateHoursOfOperationRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateHoursOfOperation',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.UpdateHoursOfOperation'),
+        parameters: {
+          InstanceId: input.instanceId,
+          HoursOfOperationId: input.hoursOfOperationId,
+          Name: input.name,
+          Description: input.description,
+          TimeZone: input.timeZone,
+          Config: input.config,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateHoursOfOperation', props);
   }
 
   public updateInstanceAttribute(input: shapes.ConnectUpdateInstanceAttributeRequest): void {
@@ -607,6 +859,144 @@ export class ConnectClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'UpdateInstanceStorageConfig', props);
+  }
+
+  public updateQueueHoursOfOperation(input: shapes.ConnectUpdateQueueHoursOfOperationRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateQueueHoursOfOperation',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.UpdateQueueHoursOfOperation'),
+        parameters: {
+          InstanceId: input.instanceId,
+          QueueId: input.queueId,
+          HoursOfOperationId: input.hoursOfOperationId,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateQueueHoursOfOperation', props);
+  }
+
+  public updateQueueMaxContacts(input: shapes.ConnectUpdateQueueMaxContactsRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateQueueMaxContacts',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.UpdateQueueMaxContacts'),
+        parameters: {
+          InstanceId: input.instanceId,
+          QueueId: input.queueId,
+          MaxContacts: input.maxContacts,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateQueueMaxContacts', props);
+  }
+
+  public updateQueueName(input: shapes.ConnectUpdateQueueNameRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateQueueName',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.UpdateQueueName'),
+        parameters: {
+          InstanceId: input.instanceId,
+          QueueId: input.queueId,
+          Name: input.name,
+          Description: input.description,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateQueueName', props);
+  }
+
+  public updateQueueOutboundCallerConfig(input: shapes.ConnectUpdateQueueOutboundCallerConfigRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateQueueOutboundCallerConfig',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.UpdateQueueOutboundCallerConfig'),
+        parameters: {
+          InstanceId: input.instanceId,
+          QueueId: input.queueId,
+          OutboundCallerConfig: {
+            OutboundCallerIdName: input.outboundCallerConfig.outboundCallerIdName,
+            OutboundCallerIdNumberId: input.outboundCallerConfig.outboundCallerIdNumberId,
+            OutboundFlowId: input.outboundCallerConfig.outboundFlowId,
+          },
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateQueueOutboundCallerConfig', props);
+  }
+
+  public updateQueueStatus(input: shapes.ConnectUpdateQueueStatusRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateQueueStatus',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.UpdateQueueStatus'),
+        parameters: {
+          InstanceId: input.instanceId,
+          QueueId: input.queueId,
+          Status: input.status,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateQueueStatus', props);
+  }
+
+  public updateQuickConnectConfig(input: shapes.ConnectUpdateQuickConnectConfigRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateQuickConnectConfig',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.UpdateQuickConnectConfig'),
+        parameters: {
+          InstanceId: input.instanceId,
+          QuickConnectId: input.quickConnectId,
+          QuickConnectConfig: {
+            QuickConnectType: input.quickConnectConfig.quickConnectType,
+            UserConfig: {
+              UserId: input.quickConnectConfig.userConfig?.userId,
+              ContactFlowId: input.quickConnectConfig.userConfig?.contactFlowId,
+            },
+            QueueConfig: {
+              QueueId: input.quickConnectConfig.queueConfig?.queueId,
+              ContactFlowId: input.quickConnectConfig.queueConfig?.contactFlowId,
+            },
+            PhoneConfig: {
+              PhoneNumber: input.quickConnectConfig.phoneConfig?.phoneNumber,
+            },
+          },
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateQuickConnectConfig', props);
+  }
+
+  public updateQuickConnectName(input: shapes.ConnectUpdateQuickConnectNameRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateQuickConnectName',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.UpdateQuickConnectName'),
+        parameters: {
+          InstanceId: input.instanceId,
+          QuickConnectId: input.quickConnectId,
+          Name: input.name,
+          Description: input.description,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateQuickConnectName', props);
   }
 
   public updateRoutingProfileConcurrency(input: shapes.ConnectUpdateRoutingProfileConcurrencyRequest): void {
@@ -899,6 +1289,57 @@ export class ConnectResponsesAssociateSecurityKey {
 
 }
 
+export class ConnectResponsesCreateAgentStatus {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectCreateAgentStatusRequest) {
+  }
+
+  public get agentStatusArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAgentStatus',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.CreateAgentStatus.AgentStatusARN'),
+        outputPath: 'AgentStatusARN',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          Name: this.__input.name,
+          Description: this.__input.description,
+          State: this.__input.state,
+          DisplayOrder: this.__input.displayOrder,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAgentStatus.AgentStatusARN', props);
+    return resource.getResponseField('AgentStatusARN') as unknown as string;
+  }
+
+  public get agentStatusId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAgentStatus',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.CreateAgentStatus.AgentStatusId'),
+        outputPath: 'AgentStatusId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          Name: this.__input.name,
+          Description: this.__input.description,
+          State: this.__input.state,
+          DisplayOrder: this.__input.displayOrder,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAgentStatus.AgentStatusId', props);
+    return resource.getResponseField('AgentStatusId') as unknown as string;
+  }
+
+}
+
 export class ConnectResponsesCreateContactFlow {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectCreateContactFlowRequest) {
@@ -946,6 +1387,57 @@ export class ConnectResponsesCreateContactFlow {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateContactFlow.ContactFlowArn', props);
     return resource.getResponseField('ContactFlowArn') as unknown as string;
+  }
+
+}
+
+export class ConnectResponsesCreateHoursOfOperation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectCreateHoursOfOperationRequest) {
+  }
+
+  public get hoursOfOperationId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createHoursOfOperation',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.CreateHoursOfOperation.HoursOfOperationId'),
+        outputPath: 'HoursOfOperationId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          Name: this.__input.name,
+          Description: this.__input.description,
+          TimeZone: this.__input.timeZone,
+          Config: this.__input.config,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateHoursOfOperation.HoursOfOperationId', props);
+    return resource.getResponseField('HoursOfOperationId') as unknown as string;
+  }
+
+  public get hoursOfOperationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createHoursOfOperation',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.CreateHoursOfOperation.HoursOfOperationArn'),
+        outputPath: 'HoursOfOperationArn',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          Name: this.__input.name,
+          Description: this.__input.description,
+          TimeZone: this.__input.timeZone,
+          Config: this.__input.config,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateHoursOfOperation.HoursOfOperationArn', props);
+    return resource.getResponseField('HoursOfOperationArn') as unknown as string;
   }
 
 }
@@ -1001,6 +1493,197 @@ export class ConnectResponsesCreateInstance {
 
 }
 
+export class ConnectResponsesCreateIntegrationAssociation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectCreateIntegrationAssociationRequest) {
+  }
+
+  public get integrationAssociationId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createIntegrationAssociation',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.CreateIntegrationAssociation.IntegrationAssociationId'),
+        outputPath: 'IntegrationAssociationId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          IntegrationType: this.__input.integrationType,
+          IntegrationArn: this.__input.integrationArn,
+          SourceApplicationUrl: this.__input.sourceApplicationUrl,
+          SourceApplicationName: this.__input.sourceApplicationName,
+          SourceType: this.__input.sourceType,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateIntegrationAssociation.IntegrationAssociationId', props);
+    return resource.getResponseField('IntegrationAssociationId') as unknown as string;
+  }
+
+  public get integrationAssociationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createIntegrationAssociation',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.CreateIntegrationAssociation.IntegrationAssociationArn'),
+        outputPath: 'IntegrationAssociationArn',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          IntegrationType: this.__input.integrationType,
+          IntegrationArn: this.__input.integrationArn,
+          SourceApplicationUrl: this.__input.sourceApplicationUrl,
+          SourceApplicationName: this.__input.sourceApplicationName,
+          SourceType: this.__input.sourceType,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateIntegrationAssociation.IntegrationAssociationArn', props);
+    return resource.getResponseField('IntegrationAssociationArn') as unknown as string;
+  }
+
+}
+
+export class ConnectResponsesCreateQueue {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectCreateQueueRequest) {
+  }
+
+  public get queueArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createQueue',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.CreateQueue.QueueArn'),
+        outputPath: 'QueueArn',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          Name: this.__input.name,
+          Description: this.__input.description,
+          OutboundCallerConfig: {
+            OutboundCallerIdName: this.__input.outboundCallerConfig?.outboundCallerIdName,
+            OutboundCallerIdNumberId: this.__input.outboundCallerConfig?.outboundCallerIdNumberId,
+            OutboundFlowId: this.__input.outboundCallerConfig?.outboundFlowId,
+          },
+          HoursOfOperationId: this.__input.hoursOfOperationId,
+          MaxContacts: this.__input.maxContacts,
+          QuickConnectIds: this.__input.quickConnectIds,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateQueue.QueueArn', props);
+    return resource.getResponseField('QueueArn') as unknown as string;
+  }
+
+  public get queueId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createQueue',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.CreateQueue.QueueId'),
+        outputPath: 'QueueId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          Name: this.__input.name,
+          Description: this.__input.description,
+          OutboundCallerConfig: {
+            OutboundCallerIdName: this.__input.outboundCallerConfig?.outboundCallerIdName,
+            OutboundCallerIdNumberId: this.__input.outboundCallerConfig?.outboundCallerIdNumberId,
+            OutboundFlowId: this.__input.outboundCallerConfig?.outboundFlowId,
+          },
+          HoursOfOperationId: this.__input.hoursOfOperationId,
+          MaxContacts: this.__input.maxContacts,
+          QuickConnectIds: this.__input.quickConnectIds,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateQueue.QueueId', props);
+    return resource.getResponseField('QueueId') as unknown as string;
+  }
+
+}
+
+export class ConnectResponsesCreateQuickConnect {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectCreateQuickConnectRequest) {
+  }
+
+  public get quickConnectArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createQuickConnect',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.CreateQuickConnect.QuickConnectARN'),
+        outputPath: 'QuickConnectARN',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          Name: this.__input.name,
+          Description: this.__input.description,
+          QuickConnectConfig: {
+            QuickConnectType: this.__input.quickConnectConfig.quickConnectType,
+            UserConfig: {
+              UserId: this.__input.quickConnectConfig.userConfig?.userId,
+              ContactFlowId: this.__input.quickConnectConfig.userConfig?.contactFlowId,
+            },
+            QueueConfig: {
+              QueueId: this.__input.quickConnectConfig.queueConfig?.queueId,
+              ContactFlowId: this.__input.quickConnectConfig.queueConfig?.contactFlowId,
+            },
+            PhoneConfig: {
+              PhoneNumber: this.__input.quickConnectConfig.phoneConfig?.phoneNumber,
+            },
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateQuickConnect.QuickConnectARN', props);
+    return resource.getResponseField('QuickConnectARN') as unknown as string;
+  }
+
+  public get quickConnectId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createQuickConnect',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.CreateQuickConnect.QuickConnectId'),
+        outputPath: 'QuickConnectId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          Name: this.__input.name,
+          Description: this.__input.description,
+          QuickConnectConfig: {
+            QuickConnectType: this.__input.quickConnectConfig.quickConnectType,
+            UserConfig: {
+              UserId: this.__input.quickConnectConfig.userConfig?.userId,
+              ContactFlowId: this.__input.quickConnectConfig.userConfig?.contactFlowId,
+            },
+            QueueConfig: {
+              QueueId: this.__input.quickConnectConfig.queueConfig?.queueId,
+              ContactFlowId: this.__input.quickConnectConfig.queueConfig?.contactFlowId,
+            },
+            PhoneConfig: {
+              PhoneNumber: this.__input.quickConnectConfig.phoneConfig?.phoneNumber,
+            },
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateQuickConnect.QuickConnectId', props);
+    return resource.getResponseField('QuickConnectId') as unknown as string;
+  }
+
+}
+
 export class ConnectResponsesCreateRoutingProfile {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectCreateRoutingProfileRequest) {
@@ -1050,6 +1733,53 @@ export class ConnectResponsesCreateRoutingProfile {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateRoutingProfile.RoutingProfileId', props);
     return resource.getResponseField('RoutingProfileId') as unknown as string;
+  }
+
+}
+
+export class ConnectResponsesCreateUseCase {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectCreateUseCaseRequest) {
+  }
+
+  public get useCaseId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUseCase',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.CreateUseCase.UseCaseId'),
+        outputPath: 'UseCaseId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          IntegrationAssociationId: this.__input.integrationAssociationId,
+          UseCaseType: this.__input.useCaseType,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUseCase.UseCaseId', props);
+    return resource.getResponseField('UseCaseId') as unknown as string;
+  }
+
+  public get useCaseArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUseCase',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.CreateUseCase.UseCaseArn'),
+        outputPath: 'UseCaseArn',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          IntegrationAssociationId: this.__input.integrationAssociationId,
+          UseCaseType: this.__input.useCaseType,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUseCase.UseCaseArn', props);
+    return resource.getResponseField('UseCaseArn') as unknown as string;
   }
 
 }
@@ -1172,6 +1902,168 @@ export class ConnectResponsesCreateUserHierarchyGroup {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateUserHierarchyGroup.HierarchyGroupArn', props);
     return resource.getResponseField('HierarchyGroupArn') as unknown as string;
+  }
+
+}
+
+export class ConnectResponsesDescribeAgentStatus {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectDescribeAgentStatusRequest) {
+  }
+
+  public get agentStatus(): ConnectResponsesDescribeAgentStatusAgentStatus {
+    return new ConnectResponsesDescribeAgentStatusAgentStatus(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ConnectResponsesDescribeAgentStatusAgentStatus {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectDescribeAgentStatusRequest) {
+  }
+
+  public get agentStatusArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAgentStatus',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeAgentStatus.AgentStatus.AgentStatusARN'),
+        outputPath: 'AgentStatus.AgentStatusARN',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          AgentStatusId: this.__input.agentStatusId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAgentStatus.AgentStatus.AgentStatusARN', props);
+    return resource.getResponseField('AgentStatus.AgentStatusARN') as unknown as string;
+  }
+
+  public get agentStatusId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAgentStatus',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeAgentStatus.AgentStatus.AgentStatusId'),
+        outputPath: 'AgentStatus.AgentStatusId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          AgentStatusId: this.__input.agentStatusId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAgentStatus.AgentStatus.AgentStatusId', props);
+    return resource.getResponseField('AgentStatus.AgentStatusId') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAgentStatus',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeAgentStatus.AgentStatus.Name'),
+        outputPath: 'AgentStatus.Name',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          AgentStatusId: this.__input.agentStatusId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAgentStatus.AgentStatus.Name', props);
+    return resource.getResponseField('AgentStatus.Name') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAgentStatus',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeAgentStatus.AgentStatus.Description'),
+        outputPath: 'AgentStatus.Description',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          AgentStatusId: this.__input.agentStatusId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAgentStatus.AgentStatus.Description', props);
+    return resource.getResponseField('AgentStatus.Description') as unknown as string;
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAgentStatus',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeAgentStatus.AgentStatus.Type'),
+        outputPath: 'AgentStatus.Type',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          AgentStatusId: this.__input.agentStatusId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAgentStatus.AgentStatus.Type', props);
+    return resource.getResponseField('AgentStatus.Type') as unknown as string;
+  }
+
+  public get displayOrder(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAgentStatus',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeAgentStatus.AgentStatus.DisplayOrder'),
+        outputPath: 'AgentStatus.DisplayOrder',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          AgentStatusId: this.__input.agentStatusId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAgentStatus.AgentStatus.DisplayOrder', props);
+    return resource.getResponseField('AgentStatus.DisplayOrder') as unknown as number;
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAgentStatus',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeAgentStatus.AgentStatus.State'),
+        outputPath: 'AgentStatus.State',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          AgentStatusId: this.__input.agentStatusId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAgentStatus.AgentStatus.State', props);
+    return resource.getResponseField('AgentStatus.State') as unknown as string;
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAgentStatus',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeAgentStatus.AgentStatus.Tags'),
+        outputPath: 'AgentStatus.Tags',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          AgentStatusId: this.__input.agentStatusId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAgentStatus.AgentStatus.Tags', props);
+    return resource.getResponseField('AgentStatus.Tags') as unknown as Record<string, string>;
   }
 
 }
@@ -1316,6 +2208,150 @@ export class ConnectResponsesDescribeContactFlowContactFlow {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeContactFlow.ContactFlow.Tags', props);
     return resource.getResponseField('ContactFlow.Tags') as unknown as Record<string, string>;
+  }
+
+}
+
+export class ConnectResponsesDescribeHoursOfOperation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectDescribeHoursOfOperationRequest) {
+  }
+
+  public get hoursOfOperation(): ConnectResponsesDescribeHoursOfOperationHoursOfOperation {
+    return new ConnectResponsesDescribeHoursOfOperationHoursOfOperation(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ConnectResponsesDescribeHoursOfOperationHoursOfOperation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectDescribeHoursOfOperationRequest) {
+  }
+
+  public get hoursOfOperationId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeHoursOfOperation',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeHoursOfOperation.HoursOfOperation.HoursOfOperationId'),
+        outputPath: 'HoursOfOperation.HoursOfOperationId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          HoursOfOperationId: this.__input.hoursOfOperationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeHoursOfOperation.HoursOfOperation.HoursOfOperationId', props);
+    return resource.getResponseField('HoursOfOperation.HoursOfOperationId') as unknown as string;
+  }
+
+  public get hoursOfOperationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeHoursOfOperation',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeHoursOfOperation.HoursOfOperation.HoursOfOperationArn'),
+        outputPath: 'HoursOfOperation.HoursOfOperationArn',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          HoursOfOperationId: this.__input.hoursOfOperationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeHoursOfOperation.HoursOfOperation.HoursOfOperationArn', props);
+    return resource.getResponseField('HoursOfOperation.HoursOfOperationArn') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeHoursOfOperation',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeHoursOfOperation.HoursOfOperation.Name'),
+        outputPath: 'HoursOfOperation.Name',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          HoursOfOperationId: this.__input.hoursOfOperationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeHoursOfOperation.HoursOfOperation.Name', props);
+    return resource.getResponseField('HoursOfOperation.Name') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeHoursOfOperation',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeHoursOfOperation.HoursOfOperation.Description'),
+        outputPath: 'HoursOfOperation.Description',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          HoursOfOperationId: this.__input.hoursOfOperationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeHoursOfOperation.HoursOfOperation.Description', props);
+    return resource.getResponseField('HoursOfOperation.Description') as unknown as string;
+  }
+
+  public get timeZone(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeHoursOfOperation',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeHoursOfOperation.HoursOfOperation.TimeZone'),
+        outputPath: 'HoursOfOperation.TimeZone',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          HoursOfOperationId: this.__input.hoursOfOperationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeHoursOfOperation.HoursOfOperation.TimeZone', props);
+    return resource.getResponseField('HoursOfOperation.TimeZone') as unknown as string;
+  }
+
+  public get config(): shapes.ConnectHoursOfOperationConfig[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeHoursOfOperation',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeHoursOfOperation.HoursOfOperation.Config'),
+        outputPath: 'HoursOfOperation.Config',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          HoursOfOperationId: this.__input.hoursOfOperationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeHoursOfOperation.HoursOfOperation.Config', props);
+    return resource.getResponseField('HoursOfOperation.Config') as unknown as shapes.ConnectHoursOfOperationConfig[];
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeHoursOfOperation',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeHoursOfOperation.HoursOfOperation.Tags'),
+        outputPath: 'HoursOfOperation.Tags',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          HoursOfOperationId: this.__input.hoursOfOperationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeHoursOfOperation.HoursOfOperation.Tags', props);
+    return resource.getResponseField('HoursOfOperation.Tags') as unknown as Record<string, string>;
   }
 
 }
@@ -1881,6 +2917,493 @@ export class ConnectResponsesDescribeInstanceStorageConfigStorageConfigKinesisFi
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeInstanceStorageConfig.StorageConfig.KinesisFirehoseConfig.FirehoseArn', props);
     return resource.getResponseField('StorageConfig.KinesisFirehoseConfig.FirehoseArn') as unknown as string;
+  }
+
+}
+
+export class ConnectResponsesDescribeQueue {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectDescribeQueueRequest) {
+  }
+
+  public get queue(): ConnectResponsesDescribeQueueQueue {
+    return new ConnectResponsesDescribeQueueQueue(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ConnectResponsesDescribeQueueQueue {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectDescribeQueueRequest) {
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQueue',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQueue.Queue.Name'),
+        outputPath: 'Queue.Name',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QueueId: this.__input.queueId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQueue.Queue.Name', props);
+    return resource.getResponseField('Queue.Name') as unknown as string;
+  }
+
+  public get queueArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQueue',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQueue.Queue.QueueArn'),
+        outputPath: 'Queue.QueueArn',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QueueId: this.__input.queueId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQueue.Queue.QueueArn', props);
+    return resource.getResponseField('Queue.QueueArn') as unknown as string;
+  }
+
+  public get queueId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQueue',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQueue.Queue.QueueId'),
+        outputPath: 'Queue.QueueId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QueueId: this.__input.queueId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQueue.Queue.QueueId', props);
+    return resource.getResponseField('Queue.QueueId') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQueue',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQueue.Queue.Description'),
+        outputPath: 'Queue.Description',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QueueId: this.__input.queueId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQueue.Queue.Description', props);
+    return resource.getResponseField('Queue.Description') as unknown as string;
+  }
+
+  public get outboundCallerConfig(): ConnectResponsesDescribeQueueQueueOutboundCallerConfig {
+    return new ConnectResponsesDescribeQueueQueueOutboundCallerConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get hoursOfOperationId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQueue',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQueue.Queue.HoursOfOperationId'),
+        outputPath: 'Queue.HoursOfOperationId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QueueId: this.__input.queueId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQueue.Queue.HoursOfOperationId', props);
+    return resource.getResponseField('Queue.HoursOfOperationId') as unknown as string;
+  }
+
+  public get maxContacts(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQueue',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQueue.Queue.MaxContacts'),
+        outputPath: 'Queue.MaxContacts',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QueueId: this.__input.queueId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQueue.Queue.MaxContacts', props);
+    return resource.getResponseField('Queue.MaxContacts') as unknown as number;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQueue',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQueue.Queue.Status'),
+        outputPath: 'Queue.Status',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QueueId: this.__input.queueId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQueue.Queue.Status', props);
+    return resource.getResponseField('Queue.Status') as unknown as string;
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQueue',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQueue.Queue.Tags'),
+        outputPath: 'Queue.Tags',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QueueId: this.__input.queueId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQueue.Queue.Tags', props);
+    return resource.getResponseField('Queue.Tags') as unknown as Record<string, string>;
+  }
+
+}
+
+export class ConnectResponsesDescribeQueueQueueOutboundCallerConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectDescribeQueueRequest) {
+  }
+
+  public get outboundCallerIdName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQueue',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQueue.Queue.OutboundCallerConfig.OutboundCallerIdName'),
+        outputPath: 'Queue.OutboundCallerConfig.OutboundCallerIdName',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QueueId: this.__input.queueId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQueue.Queue.OutboundCallerConfig.OutboundCallerIdName', props);
+    return resource.getResponseField('Queue.OutboundCallerConfig.OutboundCallerIdName') as unknown as string;
+  }
+
+  public get outboundCallerIdNumberId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQueue',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQueue.Queue.OutboundCallerConfig.OutboundCallerIdNumberId'),
+        outputPath: 'Queue.OutboundCallerConfig.OutboundCallerIdNumberId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QueueId: this.__input.queueId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQueue.Queue.OutboundCallerConfig.OutboundCallerIdNumberId', props);
+    return resource.getResponseField('Queue.OutboundCallerConfig.OutboundCallerIdNumberId') as unknown as string;
+  }
+
+  public get outboundFlowId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQueue',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQueue.Queue.OutboundCallerConfig.OutboundFlowId'),
+        outputPath: 'Queue.OutboundCallerConfig.OutboundFlowId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QueueId: this.__input.queueId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQueue.Queue.OutboundCallerConfig.OutboundFlowId', props);
+    return resource.getResponseField('Queue.OutboundCallerConfig.OutboundFlowId') as unknown as string;
+  }
+
+}
+
+export class ConnectResponsesDescribeQuickConnect {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectDescribeQuickConnectRequest) {
+  }
+
+  public get quickConnect(): ConnectResponsesDescribeQuickConnectQuickConnect {
+    return new ConnectResponsesDescribeQuickConnectQuickConnect(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ConnectResponsesDescribeQuickConnectQuickConnect {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectDescribeQuickConnectRequest) {
+  }
+
+  public get quickConnectArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQuickConnect',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQuickConnect.QuickConnect.QuickConnectARN'),
+        outputPath: 'QuickConnect.QuickConnectARN',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QuickConnectId: this.__input.quickConnectId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQuickConnect.QuickConnect.QuickConnectARN', props);
+    return resource.getResponseField('QuickConnect.QuickConnectARN') as unknown as string;
+  }
+
+  public get quickConnectId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQuickConnect',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQuickConnect.QuickConnect.QuickConnectId'),
+        outputPath: 'QuickConnect.QuickConnectId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QuickConnectId: this.__input.quickConnectId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQuickConnect.QuickConnect.QuickConnectId', props);
+    return resource.getResponseField('QuickConnect.QuickConnectId') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQuickConnect',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQuickConnect.QuickConnect.Name'),
+        outputPath: 'QuickConnect.Name',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QuickConnectId: this.__input.quickConnectId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQuickConnect.QuickConnect.Name', props);
+    return resource.getResponseField('QuickConnect.Name') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQuickConnect',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQuickConnect.QuickConnect.Description'),
+        outputPath: 'QuickConnect.Description',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QuickConnectId: this.__input.quickConnectId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQuickConnect.QuickConnect.Description', props);
+    return resource.getResponseField('QuickConnect.Description') as unknown as string;
+  }
+
+  public get quickConnectConfig(): ConnectResponsesDescribeQuickConnectQuickConnectQuickConnectConfig {
+    return new ConnectResponsesDescribeQuickConnectQuickConnectQuickConnectConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQuickConnect',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQuickConnect.QuickConnect.Tags'),
+        outputPath: 'QuickConnect.Tags',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QuickConnectId: this.__input.quickConnectId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQuickConnect.QuickConnect.Tags', props);
+    return resource.getResponseField('QuickConnect.Tags') as unknown as Record<string, string>;
+  }
+
+}
+
+export class ConnectResponsesDescribeQuickConnectQuickConnectQuickConnectConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectDescribeQuickConnectRequest) {
+  }
+
+  public get quickConnectType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQuickConnect',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQuickConnect.QuickConnect.QuickConnectConfig.QuickConnectType'),
+        outputPath: 'QuickConnect.QuickConnectConfig.QuickConnectType',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QuickConnectId: this.__input.quickConnectId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQuickConnect.QuickConnect.QuickConnectConfig.QuickConnectType', props);
+    return resource.getResponseField('QuickConnect.QuickConnectConfig.QuickConnectType') as unknown as string;
+  }
+
+  public get userConfig(): ConnectResponsesDescribeQuickConnectQuickConnectQuickConnectConfigUserConfig {
+    return new ConnectResponsesDescribeQuickConnectQuickConnectQuickConnectConfigUserConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get queueConfig(): ConnectResponsesDescribeQuickConnectQuickConnectQuickConnectConfigQueueConfig {
+    return new ConnectResponsesDescribeQuickConnectQuickConnectQuickConnectConfigQueueConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get phoneConfig(): ConnectResponsesDescribeQuickConnectQuickConnectQuickConnectConfigPhoneConfig {
+    return new ConnectResponsesDescribeQuickConnectQuickConnectQuickConnectConfigPhoneConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ConnectResponsesDescribeQuickConnectQuickConnectQuickConnectConfigUserConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectDescribeQuickConnectRequest) {
+  }
+
+  public get userId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQuickConnect',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQuickConnect.QuickConnect.QuickConnectConfig.UserConfig.UserId'),
+        outputPath: 'QuickConnect.QuickConnectConfig.UserConfig.UserId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QuickConnectId: this.__input.quickConnectId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQuickConnect.QuickConnect.QuickConnectConfig.UserConfig.UserId', props);
+    return resource.getResponseField('QuickConnect.QuickConnectConfig.UserConfig.UserId') as unknown as string;
+  }
+
+  public get contactFlowId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQuickConnect',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQuickConnect.QuickConnect.QuickConnectConfig.UserConfig.ContactFlowId'),
+        outputPath: 'QuickConnect.QuickConnectConfig.UserConfig.ContactFlowId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QuickConnectId: this.__input.quickConnectId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQuickConnect.QuickConnect.QuickConnectConfig.UserConfig.ContactFlowId', props);
+    return resource.getResponseField('QuickConnect.QuickConnectConfig.UserConfig.ContactFlowId') as unknown as string;
+  }
+
+}
+
+export class ConnectResponsesDescribeQuickConnectQuickConnectQuickConnectConfigQueueConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectDescribeQuickConnectRequest) {
+  }
+
+  public get queueId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQuickConnect',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQuickConnect.QuickConnect.QuickConnectConfig.QueueConfig.QueueId'),
+        outputPath: 'QuickConnect.QuickConnectConfig.QueueConfig.QueueId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QuickConnectId: this.__input.quickConnectId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQuickConnect.QuickConnect.QuickConnectConfig.QueueConfig.QueueId', props);
+    return resource.getResponseField('QuickConnect.QuickConnectConfig.QueueConfig.QueueId') as unknown as string;
+  }
+
+  public get contactFlowId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQuickConnect',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQuickConnect.QuickConnect.QuickConnectConfig.QueueConfig.ContactFlowId'),
+        outputPath: 'QuickConnect.QuickConnectConfig.QueueConfig.ContactFlowId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QuickConnectId: this.__input.quickConnectId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQuickConnect.QuickConnect.QuickConnectConfig.QueueConfig.ContactFlowId', props);
+    return resource.getResponseField('QuickConnect.QuickConnectConfig.QueueConfig.ContactFlowId') as unknown as string;
+  }
+
+}
+
+export class ConnectResponsesDescribeQuickConnectQuickConnectQuickConnectConfigPhoneConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectDescribeQuickConnectRequest) {
+  }
+
+  public get phoneNumber(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeQuickConnect',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.DescribeQuickConnect.QuickConnect.QuickConnectConfig.PhoneConfig.PhoneNumber'),
+        outputPath: 'QuickConnect.QuickConnectConfig.PhoneConfig.PhoneNumber',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QuickConnectId: this.__input.quickConnectId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeQuickConnect.QuickConnect.QuickConnectConfig.PhoneConfig.PhoneNumber', props);
+    return resource.getResponseField('QuickConnect.QuickConnectConfig.PhoneConfig.PhoneNumber') as unknown as string;
   }
 
 }
@@ -3365,6 +4888,53 @@ export class ConnectResponsesFetchMetricData {
 
 }
 
+export class ConnectResponsesListAgentStatuses {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectListAgentStatusRequest) {
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAgentStatuses',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.ListAgentStatuses.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          AgentStatusTypes: this.__input.agentStatusTypes,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAgentStatuses.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+  public get agentStatusSummaryList(): shapes.ConnectAgentStatusSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAgentStatuses',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.ListAgentStatuses.AgentStatusSummaryList'),
+        outputPath: 'AgentStatusSummaryList',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          AgentStatusTypes: this.__input.agentStatusTypes,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAgentStatuses.AgentStatusSummaryList', props);
+    return resource.getResponseField('AgentStatusSummaryList') as unknown as shapes.ConnectAgentStatusSummary[];
+  }
+
+}
+
 export class ConnectResponsesListApprovedOrigins {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectListApprovedOriginsRequest) {
@@ -3405,6 +4975,53 @@ export class ConnectResponsesListApprovedOrigins {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListApprovedOrigins.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class ConnectResponsesListBots {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectListBotsRequest) {
+  }
+
+  public get lexBots(): shapes.ConnectLexBotConfig[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listBots',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.ListBots.LexBots'),
+        outputPath: 'LexBots',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          LexVersion: this.__input.lexVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListBots.LexBots', props);
+    return resource.getResponseField('LexBots') as unknown as shapes.ConnectLexBotConfig[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listBots',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.ListBots.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          LexVersion: this.__input.lexVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListBots.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
 
@@ -3637,6 +5254,51 @@ export class ConnectResponsesListInstances {
 
 }
 
+export class ConnectResponsesListIntegrationAssociations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectListIntegrationAssociationsRequest) {
+  }
+
+  public get integrationAssociationSummaryList(): shapes.ConnectIntegrationAssociationSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listIntegrationAssociations',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.ListIntegrationAssociations.IntegrationAssociationSummaryList'),
+        outputPath: 'IntegrationAssociationSummaryList',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListIntegrationAssociations.IntegrationAssociationSummaryList', props);
+    return resource.getResponseField('IntegrationAssociationSummaryList') as unknown as shapes.ConnectIntegrationAssociationSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listIntegrationAssociations',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.ListIntegrationAssociations.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListIntegrationAssociations.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
 export class ConnectResponsesListLambdaFunctions {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectListLambdaFunctionsRequest) {
@@ -3821,6 +5483,53 @@ export class ConnectResponsesListPrompts {
 
 }
 
+export class ConnectResponsesListQueueQuickConnects {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectListQueueQuickConnectsRequest) {
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listQueueQuickConnects',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.ListQueueQuickConnects.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QueueId: this.__input.queueId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListQueueQuickConnects.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+  public get quickConnectSummaryList(): shapes.ConnectQuickConnectSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listQueueQuickConnects',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.ListQueueQuickConnects.QuickConnectSummaryList'),
+        outputPath: 'QuickConnectSummaryList',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          QueueId: this.__input.queueId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListQueueQuickConnects.QuickConnectSummaryList', props);
+    return resource.getResponseField('QuickConnectSummaryList') as unknown as shapes.ConnectQuickConnectSummary[];
+  }
+
+}
+
 export class ConnectResponsesListQueues {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectListQueuesRequest) {
@@ -3863,6 +5572,53 @@ export class ConnectResponsesListQueues {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListQueues.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class ConnectResponsesListQuickConnects {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectListQuickConnectsRequest) {
+  }
+
+  public get quickConnectSummaryList(): shapes.ConnectQuickConnectSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listQuickConnects',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.ListQuickConnects.QuickConnectSummaryList'),
+        outputPath: 'QuickConnectSummaryList',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          QuickConnectTypes: this.__input.quickConnectTypes,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListQuickConnects.QuickConnectSummaryList', props);
+    return resource.getResponseField('QuickConnectSummaryList') as unknown as shapes.ConnectQuickConnectSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listQuickConnects',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.ListQuickConnects.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          QuickConnectTypes: this.__input.quickConnectTypes,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListQuickConnects.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
 
@@ -4074,6 +5830,53 @@ export class ConnectResponsesListTagsForResource {
 
 }
 
+export class ConnectResponsesListUseCases {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectListUseCasesRequest) {
+  }
+
+  public get useCaseSummaryList(): shapes.ConnectUseCase[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listUseCases',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.ListUseCases.UseCaseSummaryList'),
+        outputPath: 'UseCaseSummaryList',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          IntegrationAssociationId: this.__input.integrationAssociationId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListUseCases.UseCaseSummaryList', props);
+    return resource.getResponseField('UseCaseSummaryList') as unknown as shapes.ConnectUseCase[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listUseCases',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.ListUseCases.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          IntegrationAssociationId: this.__input.integrationAssociationId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListUseCases.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
 export class ConnectResponsesListUserHierarchyGroups {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectListUserHierarchyGroupsRequest) {
@@ -4277,6 +6080,37 @@ export class ConnectResponsesStartOutboundVoiceContact {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'StartOutboundVoiceContact.ContactId', props);
+    return resource.getResponseField('ContactId') as unknown as string;
+  }
+
+}
+
+export class ConnectResponsesStartTaskContact {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectStartTaskContactRequest) {
+  }
+
+  public get contactId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startTaskContact',
+        service: 'Connect',
+        physicalResourceId: cr.PhysicalResourceId.of('Connect.StartTaskContact.ContactId'),
+        outputPath: 'ContactId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          PreviousContactId: this.__input.previousContactId,
+          ContactFlowId: this.__input.contactFlowId,
+          Attributes: this.__input.attributes,
+          Name: this.__input.name,
+          References: this.__input.references,
+          Description: this.__input.description,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartTaskContact.ContactId', props);
     return resource.getResponseField('ContactId') as unknown as string;
   }
 

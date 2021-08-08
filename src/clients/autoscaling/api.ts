@@ -139,6 +139,7 @@ export class AutoScalingClient extends cdk.Construct {
           Tags: input.tags,
           ServiceLinkedRoleARN: input.serviceLinkedRoleArn,
           MaxInstanceLifetime: input.maxInstanceLifetime,
+          Context: input.context,
         },
       },
     };
@@ -309,6 +310,22 @@ export class AutoScalingClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeleteTags', props);
   }
 
+  public deleteWarmPool(input: shapes.AutoScalingDeleteWarmPoolType): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteWarmPool',
+        service: 'AutoScaling',
+        physicalResourceId: cr.PhysicalResourceId.of('AutoScaling.DeleteWarmPool'),
+        parameters: {
+          AutoScalingGroupName: input.autoScalingGroupName,
+          ForceDelete: input.forceDelete,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteWarmPool', props);
+  }
+
   public describeAccountLimits(): AutoScalingResponsesDescribeAccountLimits {
     return new AutoScalingResponsesDescribeAccountLimits(this, this.__resources);
   }
@@ -383,6 +400,10 @@ export class AutoScalingClient extends cdk.Construct {
 
   public describeTerminationPolicyTypes(): AutoScalingResponsesDescribeTerminationPolicyTypes {
     return new AutoScalingResponsesDescribeTerminationPolicyTypes(this, this.__resources);
+  }
+
+  public describeWarmPool(input: shapes.AutoScalingDescribeWarmPoolType): AutoScalingResponsesDescribeWarmPool {
+    return new AutoScalingResponsesDescribeWarmPool(this, this.__resources, input);
   }
 
   public detachInstances(input: shapes.AutoScalingDetachInstancesQuery): AutoScalingResponsesDetachInstances {
@@ -481,6 +502,10 @@ export class AutoScalingClient extends cdk.Construct {
     return new AutoScalingResponsesExitStandby(this, this.__resources, input);
   }
 
+  public fetchPredictiveScalingForecast(input: shapes.AutoScalingGetPredictiveScalingForecastType): AutoScalingResponsesFetchPredictiveScalingForecast {
+    return new AutoScalingResponsesFetchPredictiveScalingForecast(this, this.__resources, input);
+  }
+
   public putLifecycleHook(input: shapes.AutoScalingPutLifecycleHookType): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -541,10 +566,29 @@ export class AutoScalingClient extends cdk.Construct {
           MinSize: input.minSize,
           MaxSize: input.maxSize,
           DesiredCapacity: input.desiredCapacity,
+          TimeZone: input.timeZone,
         },
       },
     };
     new cr.AwsCustomResource(this, 'PutScheduledUpdateGroupAction', props);
+  }
+
+  public putWarmPool(input: shapes.AutoScalingPutWarmPoolType): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putWarmPool',
+        service: 'AutoScaling',
+        physicalResourceId: cr.PhysicalResourceId.of('AutoScaling.PutWarmPool'),
+        parameters: {
+          AutoScalingGroupName: input.autoScalingGroupName,
+          MaxGroupPreparedCapacity: input.maxGroupPreparedCapacity,
+          MinSize: input.minSize,
+          PoolState: input.poolState,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'PutWarmPool', props);
   }
 
   public recordLifecycleActionHeartbeat(input: shapes.AutoScalingRecordLifecycleActionHeartbeatType): void {
@@ -703,6 +747,7 @@ export class AutoScalingClient extends cdk.Construct {
           ServiceLinkedRoleARN: input.serviceLinkedRoleArn,
           MaxInstanceLifetime: input.maxInstanceLifetime,
           CapacityRebalance: input.capacityRebalance,
+          Context: input.context,
         },
       },
     };
@@ -1353,6 +1398,7 @@ export class AutoScalingResponsesDescribeScalingActivities {
         parameters: {
           ActivityIds: this.__input.activityIds,
           AutoScalingGroupName: this.__input.autoScalingGroupName,
+          IncludeDeletedGroups: this.__input.includeDeletedGroups,
           MaxRecords: this.__input.maxRecords,
           NextToken: this.__input.nextToken,
         },
@@ -1373,6 +1419,7 @@ export class AutoScalingResponsesDescribeScalingActivities {
         parameters: {
           ActivityIds: this.__input.activityIds,
           AutoScalingGroupName: this.__input.autoScalingGroupName,
+          IncludeDeletedGroups: this.__input.includeDeletedGroups,
           MaxRecords: this.__input.maxRecords,
           NextToken: this.__input.nextToken,
         },
@@ -1522,6 +1569,138 @@ export class AutoScalingResponsesDescribeTerminationPolicyTypes {
 
 }
 
+export class AutoScalingResponsesDescribeWarmPool {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AutoScalingDescribeWarmPoolType) {
+  }
+
+  public get warmPoolConfiguration(): AutoScalingResponsesDescribeWarmPoolWarmPoolConfiguration {
+    return new AutoScalingResponsesDescribeWarmPoolWarmPoolConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get instances(): shapes.AutoScalingInstance[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeWarmPool',
+        service: 'AutoScaling',
+        physicalResourceId: cr.PhysicalResourceId.of('AutoScaling.DescribeWarmPool.Instances'),
+        outputPath: 'Instances',
+        parameters: {
+          AutoScalingGroupName: this.__input.autoScalingGroupName,
+          MaxRecords: this.__input.maxRecords,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeWarmPool.Instances', props);
+    return resource.getResponseField('Instances') as unknown as shapes.AutoScalingInstance[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeWarmPool',
+        service: 'AutoScaling',
+        physicalResourceId: cr.PhysicalResourceId.of('AutoScaling.DescribeWarmPool.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          AutoScalingGroupName: this.__input.autoScalingGroupName,
+          MaxRecords: this.__input.maxRecords,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeWarmPool.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class AutoScalingResponsesDescribeWarmPoolWarmPoolConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AutoScalingDescribeWarmPoolType) {
+  }
+
+  public get maxGroupPreparedCapacity(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeWarmPool',
+        service: 'AutoScaling',
+        physicalResourceId: cr.PhysicalResourceId.of('AutoScaling.DescribeWarmPool.WarmPoolConfiguration.MaxGroupPreparedCapacity'),
+        outputPath: 'WarmPoolConfiguration.MaxGroupPreparedCapacity',
+        parameters: {
+          AutoScalingGroupName: this.__input.autoScalingGroupName,
+          MaxRecords: this.__input.maxRecords,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeWarmPool.WarmPoolConfiguration.MaxGroupPreparedCapacity', props);
+    return resource.getResponseField('WarmPoolConfiguration.MaxGroupPreparedCapacity') as unknown as number;
+  }
+
+  public get minSize(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeWarmPool',
+        service: 'AutoScaling',
+        physicalResourceId: cr.PhysicalResourceId.of('AutoScaling.DescribeWarmPool.WarmPoolConfiguration.MinSize'),
+        outputPath: 'WarmPoolConfiguration.MinSize',
+        parameters: {
+          AutoScalingGroupName: this.__input.autoScalingGroupName,
+          MaxRecords: this.__input.maxRecords,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeWarmPool.WarmPoolConfiguration.MinSize', props);
+    return resource.getResponseField('WarmPoolConfiguration.MinSize') as unknown as number;
+  }
+
+  public get poolState(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeWarmPool',
+        service: 'AutoScaling',
+        physicalResourceId: cr.PhysicalResourceId.of('AutoScaling.DescribeWarmPool.WarmPoolConfiguration.PoolState'),
+        outputPath: 'WarmPoolConfiguration.PoolState',
+        parameters: {
+          AutoScalingGroupName: this.__input.autoScalingGroupName,
+          MaxRecords: this.__input.maxRecords,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeWarmPool.WarmPoolConfiguration.PoolState', props);
+    return resource.getResponseField('WarmPoolConfiguration.PoolState') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeWarmPool',
+        service: 'AutoScaling',
+        physicalResourceId: cr.PhysicalResourceId.of('AutoScaling.DescribeWarmPool.WarmPoolConfiguration.Status'),
+        outputPath: 'WarmPoolConfiguration.Status',
+        parameters: {
+          AutoScalingGroupName: this.__input.autoScalingGroupName,
+          MaxRecords: this.__input.maxRecords,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeWarmPool.WarmPoolConfiguration.Status', props);
+    return resource.getResponseField('WarmPoolConfiguration.Status') as unknown as string;
+  }
+
+}
+
 export class AutoScalingResponsesDetachInstances {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AutoScalingDetachInstancesQuery) {
@@ -1599,6 +1778,104 @@ export class AutoScalingResponsesExitStandby {
 
 }
 
+export class AutoScalingResponsesFetchPredictiveScalingForecast {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AutoScalingGetPredictiveScalingForecastType) {
+  }
+
+  public get loadForecast(): shapes.AutoScalingLoadForecast[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getPredictiveScalingForecast',
+        service: 'AutoScaling',
+        physicalResourceId: cr.PhysicalResourceId.of('AutoScaling.GetPredictiveScalingForecast.LoadForecast'),
+        outputPath: 'LoadForecast',
+        parameters: {
+          AutoScalingGroupName: this.__input.autoScalingGroupName,
+          PolicyName: this.__input.policyName,
+          StartTime: this.__input.startTime,
+          EndTime: this.__input.endTime,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetPredictiveScalingForecast.LoadForecast', props);
+    return resource.getResponseField('LoadForecast') as unknown as shapes.AutoScalingLoadForecast[];
+  }
+
+  public get capacityForecast(): AutoScalingResponsesFetchPredictiveScalingForecastCapacityForecast {
+    return new AutoScalingResponsesFetchPredictiveScalingForecastCapacityForecast(this.__scope, this.__resources, this.__input);
+  }
+
+  public get updateTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getPredictiveScalingForecast',
+        service: 'AutoScaling',
+        physicalResourceId: cr.PhysicalResourceId.of('AutoScaling.GetPredictiveScalingForecast.UpdateTime'),
+        outputPath: 'UpdateTime',
+        parameters: {
+          AutoScalingGroupName: this.__input.autoScalingGroupName,
+          PolicyName: this.__input.policyName,
+          StartTime: this.__input.startTime,
+          EndTime: this.__input.endTime,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetPredictiveScalingForecast.UpdateTime', props);
+    return resource.getResponseField('UpdateTime') as unknown as string;
+  }
+
+}
+
+export class AutoScalingResponsesFetchPredictiveScalingForecastCapacityForecast {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AutoScalingGetPredictiveScalingForecastType) {
+  }
+
+  public get timestamps(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getPredictiveScalingForecast',
+        service: 'AutoScaling',
+        physicalResourceId: cr.PhysicalResourceId.of('AutoScaling.GetPredictiveScalingForecast.CapacityForecast.Timestamps'),
+        outputPath: 'CapacityForecast.Timestamps',
+        parameters: {
+          AutoScalingGroupName: this.__input.autoScalingGroupName,
+          PolicyName: this.__input.policyName,
+          StartTime: this.__input.startTime,
+          EndTime: this.__input.endTime,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetPredictiveScalingForecast.CapacityForecast.Timestamps', props);
+    return resource.getResponseField('CapacityForecast.Timestamps') as unknown as string[];
+  }
+
+  public get values(): number[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getPredictiveScalingForecast',
+        service: 'AutoScaling',
+        physicalResourceId: cr.PhysicalResourceId.of('AutoScaling.GetPredictiveScalingForecast.CapacityForecast.Values'),
+        outputPath: 'CapacityForecast.Values',
+        parameters: {
+          AutoScalingGroupName: this.__input.autoScalingGroupName,
+          PolicyName: this.__input.policyName,
+          StartTime: this.__input.startTime,
+          EndTime: this.__input.endTime,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetPredictiveScalingForecast.CapacityForecast.Values', props);
+    return resource.getResponseField('CapacityForecast.Values') as unknown as number[];
+  }
+
+}
+
 export class AutoScalingResponsesPutScalingPolicy {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AutoScalingPutScalingPolicyType) {
@@ -1640,6 +1917,13 @@ export class AutoScalingResponsesPutScalingPolicy {
             DisableScaleIn: this.__input.targetTrackingConfiguration?.disableScaleIn,
           },
           Enabled: this.__input.enabled,
+          PredictiveScalingConfiguration: {
+            MetricSpecifications: this.__input.predictiveScalingConfiguration?.metricSpecifications,
+            Mode: this.__input.predictiveScalingConfiguration?.mode,
+            SchedulingBufferTime: this.__input.predictiveScalingConfiguration?.schedulingBufferTime,
+            MaxCapacityBreachBehavior: this.__input.predictiveScalingConfiguration?.maxCapacityBreachBehavior,
+            MaxCapacityBuffer: this.__input.predictiveScalingConfiguration?.maxCapacityBuffer,
+          },
         },
       },
     };
@@ -1683,6 +1967,13 @@ export class AutoScalingResponsesPutScalingPolicy {
             DisableScaleIn: this.__input.targetTrackingConfiguration?.disableScaleIn,
           },
           Enabled: this.__input.enabled,
+          PredictiveScalingConfiguration: {
+            MetricSpecifications: this.__input.predictiveScalingConfiguration?.metricSpecifications,
+            Mode: this.__input.predictiveScalingConfiguration?.mode,
+            SchedulingBufferTime: this.__input.predictiveScalingConfiguration?.schedulingBufferTime,
+            MaxCapacityBreachBehavior: this.__input.predictiveScalingConfiguration?.maxCapacityBreachBehavior,
+            MaxCapacityBuffer: this.__input.predictiveScalingConfiguration?.maxCapacityBuffer,
+          },
         },
       },
     };
@@ -1708,9 +1999,37 @@ export class AutoScalingResponsesStartInstanceRefresh {
         parameters: {
           AutoScalingGroupName: this.__input.autoScalingGroupName,
           Strategy: this.__input.strategy,
+          DesiredConfiguration: {
+            LaunchTemplate: {
+              LaunchTemplateId: this.__input.desiredConfiguration?.launchTemplate?.launchTemplateId,
+              LaunchTemplateName: this.__input.desiredConfiguration?.launchTemplate?.launchTemplateName,
+              Version: this.__input.desiredConfiguration?.launchTemplate?.version,
+            },
+            MixedInstancesPolicy: {
+              LaunchTemplate: {
+                LaunchTemplateSpecification: {
+                  LaunchTemplateId: this.__input.desiredConfiguration?.mixedInstancesPolicy?.launchTemplate?.launchTemplateSpecification?.launchTemplateId,
+                  LaunchTemplateName: this.__input.desiredConfiguration?.mixedInstancesPolicy?.launchTemplate?.launchTemplateSpecification?.launchTemplateName,
+                  Version: this.__input.desiredConfiguration?.mixedInstancesPolicy?.launchTemplate?.launchTemplateSpecification?.version,
+                },
+                Overrides: this.__input.desiredConfiguration?.mixedInstancesPolicy?.launchTemplate?.overrides,
+              },
+              InstancesDistribution: {
+                OnDemandAllocationStrategy: this.__input.desiredConfiguration?.mixedInstancesPolicy?.instancesDistribution?.onDemandAllocationStrategy,
+                OnDemandBaseCapacity: this.__input.desiredConfiguration?.mixedInstancesPolicy?.instancesDistribution?.onDemandBaseCapacity,
+                OnDemandPercentageAboveBaseCapacity: this.__input.desiredConfiguration?.mixedInstancesPolicy?.instancesDistribution?.onDemandPercentageAboveBaseCapacity,
+                SpotAllocationStrategy: this.__input.desiredConfiguration?.mixedInstancesPolicy?.instancesDistribution?.spotAllocationStrategy,
+                SpotInstancePools: this.__input.desiredConfiguration?.mixedInstancesPolicy?.instancesDistribution?.spotInstancePools,
+                SpotMaxPrice: this.__input.desiredConfiguration?.mixedInstancesPolicy?.instancesDistribution?.spotMaxPrice,
+              },
+            },
+          },
           Preferences: {
             MinHealthyPercentage: this.__input.preferences?.minHealthyPercentage,
             InstanceWarmup: this.__input.preferences?.instanceWarmup,
+            CheckpointPercentages: this.__input.preferences?.checkpointPercentages,
+            CheckpointDelay: this.__input.preferences?.checkpointDelay,
+            SkipMatching: this.__input.preferences?.skipMatching,
           },
         },
       },
@@ -1915,6 +2234,42 @@ export class AutoScalingResponsesTerminateInstanceInAutoScalingGroupActivity {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'TerminateInstanceInAutoScalingGroup.Activity.Details', props);
     return resource.getResponseField('Activity.Details') as unknown as string;
+  }
+
+  public get autoScalingGroupState(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'terminateInstanceInAutoScalingGroup',
+        service: 'AutoScaling',
+        physicalResourceId: cr.PhysicalResourceId.of('AutoScaling.TerminateInstanceInAutoScalingGroup.Activity.AutoScalingGroupState'),
+        outputPath: 'Activity.AutoScalingGroupState',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          ShouldDecrementDesiredCapacity: this.__input.shouldDecrementDesiredCapacity,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'TerminateInstanceInAutoScalingGroup.Activity.AutoScalingGroupState', props);
+    return resource.getResponseField('Activity.AutoScalingGroupState') as unknown as string;
+  }
+
+  public get autoScalingGroupArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'terminateInstanceInAutoScalingGroup',
+        service: 'AutoScaling',
+        physicalResourceId: cr.PhysicalResourceId.of('AutoScaling.TerminateInstanceInAutoScalingGroup.Activity.AutoScalingGroupARN'),
+        outputPath: 'Activity.AutoScalingGroupARN',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          ShouldDecrementDesiredCapacity: this.__input.shouldDecrementDesiredCapacity,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'TerminateInstanceInAutoScalingGroup.Activity.AutoScalingGroupARN', props);
+    return resource.getResponseField('Activity.AutoScalingGroupARN') as unknown as string;
   }
 
 }

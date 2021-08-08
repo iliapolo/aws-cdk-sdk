@@ -223,6 +223,11 @@ export class GroundStationResponsesCreateConfig {
               dataflowEndpointName: this.__input.configData.dataflowEndpointConfig?.dataflowEndpointName,
               dataflowEndpointRegion: this.__input.configData.dataflowEndpointConfig?.dataflowEndpointRegion,
             },
+            s3RecordingConfig: {
+              bucketArn: this.__input.configData.s3RecordingConfig?.bucketArn,
+              prefix: this.__input.configData.s3RecordingConfig?.prefix,
+              roleArn: this.__input.configData.s3RecordingConfig?.roleArn,
+            },
             trackingConfig: {
               autotrack: this.__input.configData.trackingConfig?.autotrack,
             },
@@ -300,6 +305,11 @@ export class GroundStationResponsesCreateConfig {
               dataflowEndpointName: this.__input.configData.dataflowEndpointConfig?.dataflowEndpointName,
               dataflowEndpointRegion: this.__input.configData.dataflowEndpointConfig?.dataflowEndpointRegion,
             },
+            s3RecordingConfig: {
+              bucketArn: this.__input.configData.s3RecordingConfig?.bucketArn,
+              prefix: this.__input.configData.s3RecordingConfig?.prefix,
+              roleArn: this.__input.configData.s3RecordingConfig?.roleArn,
+            },
             trackingConfig: {
               autotrack: this.__input.configData.trackingConfig?.autotrack,
             },
@@ -376,6 +386,11 @@ export class GroundStationResponsesCreateConfig {
             dataflowEndpointConfig: {
               dataflowEndpointName: this.__input.configData.dataflowEndpointConfig?.dataflowEndpointName,
               dataflowEndpointRegion: this.__input.configData.dataflowEndpointConfig?.dataflowEndpointRegion,
+            },
+            s3RecordingConfig: {
+              bucketArn: this.__input.configData.s3RecordingConfig?.bucketArn,
+              prefix: this.__input.configData.s3RecordingConfig?.prefix,
+              roleArn: this.__input.configData.s3RecordingConfig?.roleArn,
             },
             trackingConfig: {
               autotrack: this.__input.configData.trackingConfig?.autotrack,
@@ -955,6 +970,10 @@ export class GroundStationResponsesFetchConfigConfigData {
     return new GroundStationResponsesFetchConfigConfigDataDataflowEndpointConfig(this.__scope, this.__resources, this.__input);
   }
 
+  public get s3RecordingConfig(): GroundStationResponsesFetchConfigConfigDataS3RecordingConfig {
+    return new GroundStationResponsesFetchConfigConfigDataS3RecordingConfig(this.__scope, this.__resources, this.__input);
+  }
+
   public get trackingConfig(): GroundStationResponsesFetchConfigConfigDataTrackingConfig {
     return new GroundStationResponsesFetchConfigConfigDataTrackingConfig(this.__scope, this.__resources, this.__input);
   }
@@ -1470,6 +1489,67 @@ export class GroundStationResponsesFetchConfigConfigDataDataflowEndpointConfig {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetConfig.configData.dataflowEndpointConfig.dataflowEndpointRegion', props);
     return resource.getResponseField('configData.dataflowEndpointConfig.dataflowEndpointRegion') as unknown as string;
+  }
+
+}
+
+export class GroundStationResponsesFetchConfigConfigDataS3RecordingConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GroundStationGetConfigRequest) {
+  }
+
+  public get bucketArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getConfig',
+        service: 'GroundStation',
+        physicalResourceId: cr.PhysicalResourceId.of('GroundStation.GetConfig.configData.s3RecordingConfig.bucketArn'),
+        outputPath: 'configData.s3RecordingConfig.bucketArn',
+        parameters: {
+          configId: this.__input.configId,
+          configType: this.__input.configType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetConfig.configData.s3RecordingConfig.bucketArn', props);
+    return resource.getResponseField('configData.s3RecordingConfig.bucketArn') as unknown as string;
+  }
+
+  public get prefix(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getConfig',
+        service: 'GroundStation',
+        physicalResourceId: cr.PhysicalResourceId.of('GroundStation.GetConfig.configData.s3RecordingConfig.prefix'),
+        outputPath: 'configData.s3RecordingConfig.prefix',
+        parameters: {
+          configId: this.__input.configId,
+          configType: this.__input.configType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetConfig.configData.s3RecordingConfig.prefix', props);
+    return resource.getResponseField('configData.s3RecordingConfig.prefix') as unknown as string;
+  }
+
+  public get roleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getConfig',
+        service: 'GroundStation',
+        physicalResourceId: cr.PhysicalResourceId.of('GroundStation.GetConfig.configData.s3RecordingConfig.roleArn'),
+        outputPath: 'configData.s3RecordingConfig.roleArn',
+        parameters: {
+          configId: this.__input.configId,
+          configType: this.__input.configType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetConfig.configData.s3RecordingConfig.roleArn', props);
+    return resource.getResponseField('configData.s3RecordingConfig.roleArn') as unknown as string;
   }
 
 }
@@ -2356,6 +2436,11 @@ export class GroundStationResponsesUpdateConfig {
               dataflowEndpointName: this.__input.configData.dataflowEndpointConfig?.dataflowEndpointName,
               dataflowEndpointRegion: this.__input.configData.dataflowEndpointConfig?.dataflowEndpointRegion,
             },
+            s3RecordingConfig: {
+              bucketArn: this.__input.configData.s3RecordingConfig?.bucketArn,
+              prefix: this.__input.configData.s3RecordingConfig?.prefix,
+              roleArn: this.__input.configData.s3RecordingConfig?.roleArn,
+            },
             trackingConfig: {
               autotrack: this.__input.configData.trackingConfig?.autotrack,
             },
@@ -2434,6 +2519,11 @@ export class GroundStationResponsesUpdateConfig {
               dataflowEndpointName: this.__input.configData.dataflowEndpointConfig?.dataflowEndpointName,
               dataflowEndpointRegion: this.__input.configData.dataflowEndpointConfig?.dataflowEndpointRegion,
             },
+            s3RecordingConfig: {
+              bucketArn: this.__input.configData.s3RecordingConfig?.bucketArn,
+              prefix: this.__input.configData.s3RecordingConfig?.prefix,
+              roleArn: this.__input.configData.s3RecordingConfig?.roleArn,
+            },
             trackingConfig: {
               autotrack: this.__input.configData.trackingConfig?.autotrack,
             },
@@ -2511,6 +2601,11 @@ export class GroundStationResponsesUpdateConfig {
             dataflowEndpointConfig: {
               dataflowEndpointName: this.__input.configData.dataflowEndpointConfig?.dataflowEndpointName,
               dataflowEndpointRegion: this.__input.configData.dataflowEndpointConfig?.dataflowEndpointRegion,
+            },
+            s3RecordingConfig: {
+              bucketArn: this.__input.configData.s3RecordingConfig?.bucketArn,
+              prefix: this.__input.configData.s3RecordingConfig?.prefix,
+              roleArn: this.__input.configData.s3RecordingConfig?.roleArn,
             },
             trackingConfig: {
               autotrack: this.__input.configData.trackingConfig?.autotrack,

@@ -5,14 +5,29 @@ export interface GreengrassAssociateRoleToGroupRequest {
   /**
    * @schema GreengrassAssociateRoleToGroupRequest#GroupId
    */
-  readonly groupId: string;
+  readonly groupId?: string;
 
   /**
    * @schema GreengrassAssociateRoleToGroupRequest#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassAssociateRoleToGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassAssociateRoleToGroupRequest(obj: GreengrassAssociateRoleToGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupId': obj.groupId,
+    'RoleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassAssociateRoleToGroupResponse
@@ -26,15 +41,43 @@ export interface GreengrassAssociateRoleToGroupResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassAssociateRoleToGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassAssociateRoleToGroupResponse(obj: GreengrassAssociateRoleToGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AssociatedAt': obj.associatedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassAssociateServiceRoleToAccountRequest
  */
 export interface GreengrassAssociateServiceRoleToAccountRequest {
   /**
    * @schema GreengrassAssociateServiceRoleToAccountRequest#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassAssociateServiceRoleToAccountRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassAssociateServiceRoleToAccountRequest(obj: GreengrassAssociateServiceRoleToAccountRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassAssociateServiceRoleToAccountResponse
@@ -46,6 +89,20 @@ export interface GreengrassAssociateServiceRoleToAccountResponse {
   readonly associatedAt?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassAssociateServiceRoleToAccountResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassAssociateServiceRoleToAccountResponse(obj: GreengrassAssociateServiceRoleToAccountResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AssociatedAt': obj.associatedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateConnectorDefinitionRequest
@@ -72,6 +129,23 @@ export interface GreengrassCreateConnectorDefinitionRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateConnectorDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateConnectorDefinitionRequest(obj: GreengrassCreateConnectorDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'InitialVersion': toJson_GreengrassConnectorDefinitionVersion(obj.initialVersion),
+    'Name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateConnectorDefinitionResponse
@@ -115,6 +189,26 @@ export interface GreengrassCreateConnectorDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassCreateConnectorDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateConnectorDefinitionResponse(obj: GreengrassCreateConnectorDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'LatestVersion': obj.latestVersion,
+    'LatestVersionArn': obj.latestVersionArn,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassCreateConnectorDefinitionVersionRequest
  */
 export interface GreengrassCreateConnectorDefinitionVersionRequest {
@@ -126,7 +220,7 @@ export interface GreengrassCreateConnectorDefinitionVersionRequest {
   /**
    * @schema GreengrassCreateConnectorDefinitionVersionRequest#ConnectorDefinitionId
    */
-  readonly connectorDefinitionId: string;
+  readonly connectorDefinitionId?: string;
 
   /**
    * @schema GreengrassCreateConnectorDefinitionVersionRequest#Connectors
@@ -134,6 +228,22 @@ export interface GreengrassCreateConnectorDefinitionVersionRequest {
   readonly connectors?: GreengrassConnector[];
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateConnectorDefinitionVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateConnectorDefinitionVersionRequest(obj: GreengrassCreateConnectorDefinitionVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'ConnectorDefinitionId': obj.connectorDefinitionId,
+    'Connectors': obj.connectors?.map(y => toJson_GreengrassConnector(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateConnectorDefinitionVersionResponse
@@ -162,6 +272,23 @@ export interface GreengrassCreateConnectorDefinitionVersionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassCreateConnectorDefinitionVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateConnectorDefinitionVersionResponse(obj: GreengrassCreateConnectorDefinitionVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassCreateCoreDefinitionRequest
  */
 export interface GreengrassCreateCoreDefinitionRequest {
@@ -186,6 +313,23 @@ export interface GreengrassCreateCoreDefinitionRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateCoreDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateCoreDefinitionRequest(obj: GreengrassCreateCoreDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'InitialVersion': toJson_GreengrassCoreDefinitionVersion(obj.initialVersion),
+    'Name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateCoreDefinitionResponse
@@ -229,6 +373,26 @@ export interface GreengrassCreateCoreDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassCreateCoreDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateCoreDefinitionResponse(obj: GreengrassCreateCoreDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'LatestVersion': obj.latestVersion,
+    'LatestVersionArn': obj.latestVersionArn,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassCreateCoreDefinitionVersionRequest
  */
 export interface GreengrassCreateCoreDefinitionVersionRequest {
@@ -240,7 +404,7 @@ export interface GreengrassCreateCoreDefinitionVersionRequest {
   /**
    * @schema GreengrassCreateCoreDefinitionVersionRequest#CoreDefinitionId
    */
-  readonly coreDefinitionId: string;
+  readonly coreDefinitionId?: string;
 
   /**
    * @schema GreengrassCreateCoreDefinitionVersionRequest#Cores
@@ -248,6 +412,22 @@ export interface GreengrassCreateCoreDefinitionVersionRequest {
   readonly cores?: GreengrassCore[];
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateCoreDefinitionVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateCoreDefinitionVersionRequest(obj: GreengrassCreateCoreDefinitionVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'CoreDefinitionId': obj.coreDefinitionId,
+    'Cores': obj.cores?.map(y => toJson_GreengrassCore(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateCoreDefinitionVersionResponse
@@ -276,6 +456,23 @@ export interface GreengrassCreateCoreDefinitionVersionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassCreateCoreDefinitionVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateCoreDefinitionVersionResponse(obj: GreengrassCreateCoreDefinitionVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassCreateDeploymentRequest
  */
 export interface GreengrassCreateDeploymentRequest {
@@ -292,12 +489,12 @@ export interface GreengrassCreateDeploymentRequest {
   /**
    * @schema GreengrassCreateDeploymentRequest#DeploymentType
    */
-  readonly deploymentType: string;
+  readonly deploymentType?: string;
 
   /**
    * @schema GreengrassCreateDeploymentRequest#GroupId
    */
-  readonly groupId: string;
+  readonly groupId?: string;
 
   /**
    * @schema GreengrassCreateDeploymentRequest#GroupVersionId
@@ -305,6 +502,24 @@ export interface GreengrassCreateDeploymentRequest {
   readonly groupVersionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateDeploymentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateDeploymentRequest(obj: GreengrassCreateDeploymentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'DeploymentId': obj.deploymentId,
+    'DeploymentType': obj.deploymentType,
+    'GroupId': obj.groupId,
+    'GroupVersionId': obj.groupVersionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateDeploymentResponse
@@ -321,6 +536,21 @@ export interface GreengrassCreateDeploymentResponse {
   readonly deploymentId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateDeploymentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateDeploymentResponse(obj: GreengrassCreateDeploymentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeploymentArn': obj.deploymentArn,
+    'DeploymentId': obj.deploymentId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateDeviceDefinitionRequest
@@ -347,6 +577,23 @@ export interface GreengrassCreateDeviceDefinitionRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateDeviceDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateDeviceDefinitionRequest(obj: GreengrassCreateDeviceDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'InitialVersion': toJson_GreengrassDeviceDefinitionVersion(obj.initialVersion),
+    'Name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateDeviceDefinitionResponse
@@ -390,6 +637,26 @@ export interface GreengrassCreateDeviceDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassCreateDeviceDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateDeviceDefinitionResponse(obj: GreengrassCreateDeviceDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'LatestVersion': obj.latestVersion,
+    'LatestVersionArn': obj.latestVersionArn,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassCreateDeviceDefinitionVersionRequest
  */
 export interface GreengrassCreateDeviceDefinitionVersionRequest {
@@ -401,7 +668,7 @@ export interface GreengrassCreateDeviceDefinitionVersionRequest {
   /**
    * @schema GreengrassCreateDeviceDefinitionVersionRequest#DeviceDefinitionId
    */
-  readonly deviceDefinitionId: string;
+  readonly deviceDefinitionId?: string;
 
   /**
    * @schema GreengrassCreateDeviceDefinitionVersionRequest#Devices
@@ -409,6 +676,22 @@ export interface GreengrassCreateDeviceDefinitionVersionRequest {
   readonly devices?: GreengrassDevice[];
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateDeviceDefinitionVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateDeviceDefinitionVersionRequest(obj: GreengrassCreateDeviceDefinitionVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'DeviceDefinitionId': obj.deviceDefinitionId,
+    'Devices': obj.devices?.map(y => toJson_GreengrassDevice(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateDeviceDefinitionVersionResponse
@@ -437,6 +720,23 @@ export interface GreengrassCreateDeviceDefinitionVersionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassCreateDeviceDefinitionVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateDeviceDefinitionVersionResponse(obj: GreengrassCreateDeviceDefinitionVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassCreateFunctionDefinitionRequest
  */
 export interface GreengrassCreateFunctionDefinitionRequest {
@@ -461,6 +761,23 @@ export interface GreengrassCreateFunctionDefinitionRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateFunctionDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateFunctionDefinitionRequest(obj: GreengrassCreateFunctionDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'InitialVersion': toJson_GreengrassFunctionDefinitionVersion(obj.initialVersion),
+    'Name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateFunctionDefinitionResponse
@@ -504,6 +821,26 @@ export interface GreengrassCreateFunctionDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassCreateFunctionDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateFunctionDefinitionResponse(obj: GreengrassCreateFunctionDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'LatestVersion': obj.latestVersion,
+    'LatestVersionArn': obj.latestVersionArn,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassCreateFunctionDefinitionVersionRequest
  */
 export interface GreengrassCreateFunctionDefinitionVersionRequest {
@@ -520,7 +857,7 @@ export interface GreengrassCreateFunctionDefinitionVersionRequest {
   /**
    * @schema GreengrassCreateFunctionDefinitionVersionRequest#FunctionDefinitionId
    */
-  readonly functionDefinitionId: string;
+  readonly functionDefinitionId?: string;
 
   /**
    * @schema GreengrassCreateFunctionDefinitionVersionRequest#Functions
@@ -528,6 +865,23 @@ export interface GreengrassCreateFunctionDefinitionVersionRequest {
   readonly functions?: GreengrassFunction[];
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateFunctionDefinitionVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateFunctionDefinitionVersionRequest(obj: GreengrassCreateFunctionDefinitionVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'DefaultConfig': toJson_GreengrassFunctionDefaultConfig(obj.defaultConfig),
+    'FunctionDefinitionId': obj.functionDefinitionId,
+    'Functions': obj.functions?.map(y => toJson_GreengrassFunction(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateFunctionDefinitionVersionResponse
@@ -556,6 +910,23 @@ export interface GreengrassCreateFunctionDefinitionVersionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassCreateFunctionDefinitionVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateFunctionDefinitionVersionResponse(obj: GreengrassCreateFunctionDefinitionVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassCreateGroupRequest
  */
 export interface GreengrassCreateGroupRequest {
@@ -580,6 +951,23 @@ export interface GreengrassCreateGroupRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateGroupRequest(obj: GreengrassCreateGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'InitialVersion': toJson_GreengrassGroupVersion(obj.initialVersion),
+    'Name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateGroupResponse
@@ -623,6 +1011,26 @@ export interface GreengrassCreateGroupResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassCreateGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateGroupResponse(obj: GreengrassCreateGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'LatestVersion': obj.latestVersion,
+    'LatestVersionArn': obj.latestVersionArn,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassCreateGroupCertificateAuthorityRequest
  */
 export interface GreengrassCreateGroupCertificateAuthorityRequest {
@@ -634,9 +1042,24 @@ export interface GreengrassCreateGroupCertificateAuthorityRequest {
   /**
    * @schema GreengrassCreateGroupCertificateAuthorityRequest#GroupId
    */
-  readonly groupId: string;
+  readonly groupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateGroupCertificateAuthorityRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateGroupCertificateAuthorityRequest(obj: GreengrassCreateGroupCertificateAuthorityRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'GroupId': obj.groupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateGroupCertificateAuthorityResponse
@@ -648,6 +1071,20 @@ export interface GreengrassCreateGroupCertificateAuthorityResponse {
   readonly groupCertificateAuthorityArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateGroupCertificateAuthorityResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateGroupCertificateAuthorityResponse(obj: GreengrassCreateGroupCertificateAuthorityResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupCertificateAuthorityArn': obj.groupCertificateAuthorityArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateGroupVersionRequest
@@ -681,7 +1118,7 @@ export interface GreengrassCreateGroupVersionRequest {
   /**
    * @schema GreengrassCreateGroupVersionRequest#GroupId
    */
-  readonly groupId: string;
+  readonly groupId?: string;
 
   /**
    * @schema GreengrassCreateGroupVersionRequest#LoggerDefinitionVersionArn
@@ -699,6 +1136,28 @@ export interface GreengrassCreateGroupVersionRequest {
   readonly subscriptionDefinitionVersionArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateGroupVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateGroupVersionRequest(obj: GreengrassCreateGroupVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'ConnectorDefinitionVersionArn': obj.connectorDefinitionVersionArn,
+    'CoreDefinitionVersionArn': obj.coreDefinitionVersionArn,
+    'DeviceDefinitionVersionArn': obj.deviceDefinitionVersionArn,
+    'FunctionDefinitionVersionArn': obj.functionDefinitionVersionArn,
+    'GroupId': obj.groupId,
+    'LoggerDefinitionVersionArn': obj.loggerDefinitionVersionArn,
+    'ResourceDefinitionVersionArn': obj.resourceDefinitionVersionArn,
+    'SubscriptionDefinitionVersionArn': obj.subscriptionDefinitionVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateGroupVersionResponse
@@ -727,6 +1186,23 @@ export interface GreengrassCreateGroupVersionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassCreateGroupVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateGroupVersionResponse(obj: GreengrassCreateGroupVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassCreateLoggerDefinitionRequest
  */
 export interface GreengrassCreateLoggerDefinitionRequest {
@@ -751,6 +1227,23 @@ export interface GreengrassCreateLoggerDefinitionRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateLoggerDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateLoggerDefinitionRequest(obj: GreengrassCreateLoggerDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'InitialVersion': toJson_GreengrassLoggerDefinitionVersion(obj.initialVersion),
+    'Name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateLoggerDefinitionResponse
@@ -794,6 +1287,26 @@ export interface GreengrassCreateLoggerDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassCreateLoggerDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateLoggerDefinitionResponse(obj: GreengrassCreateLoggerDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'LatestVersion': obj.latestVersion,
+    'LatestVersionArn': obj.latestVersionArn,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassCreateLoggerDefinitionVersionRequest
  */
 export interface GreengrassCreateLoggerDefinitionVersionRequest {
@@ -805,7 +1318,7 @@ export interface GreengrassCreateLoggerDefinitionVersionRequest {
   /**
    * @schema GreengrassCreateLoggerDefinitionVersionRequest#LoggerDefinitionId
    */
-  readonly loggerDefinitionId: string;
+  readonly loggerDefinitionId?: string;
 
   /**
    * @schema GreengrassCreateLoggerDefinitionVersionRequest#Loggers
@@ -813,6 +1326,22 @@ export interface GreengrassCreateLoggerDefinitionVersionRequest {
   readonly loggers?: GreengrassLogger[];
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateLoggerDefinitionVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateLoggerDefinitionVersionRequest(obj: GreengrassCreateLoggerDefinitionVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'LoggerDefinitionId': obj.loggerDefinitionId,
+    'Loggers': obj.loggers?.map(y => toJson_GreengrassLogger(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateLoggerDefinitionVersionResponse
@@ -841,6 +1370,23 @@ export interface GreengrassCreateLoggerDefinitionVersionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassCreateLoggerDefinitionVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateLoggerDefinitionVersionResponse(obj: GreengrassCreateLoggerDefinitionVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassCreateResourceDefinitionRequest
  */
 export interface GreengrassCreateResourceDefinitionRequest {
@@ -865,6 +1411,23 @@ export interface GreengrassCreateResourceDefinitionRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateResourceDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateResourceDefinitionRequest(obj: GreengrassCreateResourceDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'InitialVersion': toJson_GreengrassResourceDefinitionVersion(obj.initialVersion),
+    'Name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateResourceDefinitionResponse
@@ -908,6 +1471,26 @@ export interface GreengrassCreateResourceDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassCreateResourceDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateResourceDefinitionResponse(obj: GreengrassCreateResourceDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'LatestVersion': obj.latestVersion,
+    'LatestVersionArn': obj.latestVersionArn,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassCreateResourceDefinitionVersionRequest
  */
 export interface GreengrassCreateResourceDefinitionVersionRequest {
@@ -919,7 +1502,7 @@ export interface GreengrassCreateResourceDefinitionVersionRequest {
   /**
    * @schema GreengrassCreateResourceDefinitionVersionRequest#ResourceDefinitionId
    */
-  readonly resourceDefinitionId: string;
+  readonly resourceDefinitionId?: string;
 
   /**
    * @schema GreengrassCreateResourceDefinitionVersionRequest#Resources
@@ -927,6 +1510,22 @@ export interface GreengrassCreateResourceDefinitionVersionRequest {
   readonly resources?: GreengrassResource[];
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateResourceDefinitionVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateResourceDefinitionVersionRequest(obj: GreengrassCreateResourceDefinitionVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'ResourceDefinitionId': obj.resourceDefinitionId,
+    'Resources': obj.resources?.map(y => toJson_GreengrassResource(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateResourceDefinitionVersionResponse
@@ -955,6 +1554,23 @@ export interface GreengrassCreateResourceDefinitionVersionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassCreateResourceDefinitionVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateResourceDefinitionVersionResponse(obj: GreengrassCreateResourceDefinitionVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassCreateSoftwareUpdateJobRequest
  */
 export interface GreengrassCreateSoftwareUpdateJobRequest {
@@ -966,12 +1582,12 @@ export interface GreengrassCreateSoftwareUpdateJobRequest {
   /**
    * @schema GreengrassCreateSoftwareUpdateJobRequest#S3UrlSignerRole
    */
-  readonly s3UrlSignerRole: string;
+  readonly s3UrlSignerRole?: string;
 
   /**
    * @schema GreengrassCreateSoftwareUpdateJobRequest#SoftwareToUpdate
    */
-  readonly softwareToUpdate: string;
+  readonly softwareToUpdate?: string;
 
   /**
    * @schema GreengrassCreateSoftwareUpdateJobRequest#UpdateAgentLogLevel
@@ -981,19 +1597,39 @@ export interface GreengrassCreateSoftwareUpdateJobRequest {
   /**
    * @schema GreengrassCreateSoftwareUpdateJobRequest#UpdateTargets
    */
-  readonly updateTargets: string[];
+  readonly updateTargets?: string[];
 
   /**
    * @schema GreengrassCreateSoftwareUpdateJobRequest#UpdateTargetsArchitecture
    */
-  readonly updateTargetsArchitecture: string;
+  readonly updateTargetsArchitecture?: string;
 
   /**
    * @schema GreengrassCreateSoftwareUpdateJobRequest#UpdateTargetsOperatingSystem
    */
-  readonly updateTargetsOperatingSystem: string;
+  readonly updateTargetsOperatingSystem?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateSoftwareUpdateJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateSoftwareUpdateJobRequest(obj: GreengrassCreateSoftwareUpdateJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'S3UrlSignerRole': obj.s3UrlSignerRole,
+    'SoftwareToUpdate': obj.softwareToUpdate,
+    'UpdateAgentLogLevel': obj.updateAgentLogLevel,
+    'UpdateTargets': obj.updateTargets?.map(y => y),
+    'UpdateTargetsArchitecture': obj.updateTargetsArchitecture,
+    'UpdateTargetsOperatingSystem': obj.updateTargetsOperatingSystem,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateSoftwareUpdateJobResponse
@@ -1015,6 +1651,22 @@ export interface GreengrassCreateSoftwareUpdateJobResponse {
   readonly platformSoftwareVersion?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateSoftwareUpdateJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateSoftwareUpdateJobResponse(obj: GreengrassCreateSoftwareUpdateJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IotJobArn': obj.iotJobArn,
+    'IotJobId': obj.iotJobId,
+    'PlatformSoftwareVersion': obj.platformSoftwareVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateSubscriptionDefinitionRequest
@@ -1041,6 +1693,23 @@ export interface GreengrassCreateSubscriptionDefinitionRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateSubscriptionDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateSubscriptionDefinitionRequest(obj: GreengrassCreateSubscriptionDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'InitialVersion': toJson_GreengrassSubscriptionDefinitionVersion(obj.initialVersion),
+    'Name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateSubscriptionDefinitionResponse
@@ -1084,6 +1753,26 @@ export interface GreengrassCreateSubscriptionDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassCreateSubscriptionDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateSubscriptionDefinitionResponse(obj: GreengrassCreateSubscriptionDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'LatestVersion': obj.latestVersion,
+    'LatestVersionArn': obj.latestVersionArn,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassCreateSubscriptionDefinitionVersionRequest
  */
 export interface GreengrassCreateSubscriptionDefinitionVersionRequest {
@@ -1095,7 +1784,7 @@ export interface GreengrassCreateSubscriptionDefinitionVersionRequest {
   /**
    * @schema GreengrassCreateSubscriptionDefinitionVersionRequest#SubscriptionDefinitionId
    */
-  readonly subscriptionDefinitionId: string;
+  readonly subscriptionDefinitionId?: string;
 
   /**
    * @schema GreengrassCreateSubscriptionDefinitionVersionRequest#Subscriptions
@@ -1103,6 +1792,22 @@ export interface GreengrassCreateSubscriptionDefinitionVersionRequest {
   readonly subscriptions?: GreengrassSubscription[];
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCreateSubscriptionDefinitionVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateSubscriptionDefinitionVersionRequest(obj: GreengrassCreateSubscriptionDefinitionVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'SubscriptionDefinitionId': obj.subscriptionDefinitionId,
+    'Subscriptions': obj.subscriptions?.map(y => toJson_GreengrassSubscription(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCreateSubscriptionDefinitionVersionResponse
@@ -1131,15 +1836,46 @@ export interface GreengrassCreateSubscriptionDefinitionVersionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassCreateSubscriptionDefinitionVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCreateSubscriptionDefinitionVersionResponse(obj: GreengrassCreateSubscriptionDefinitionVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassDeleteConnectorDefinitionRequest
  */
 export interface GreengrassDeleteConnectorDefinitionRequest {
   /**
    * @schema GreengrassDeleteConnectorDefinitionRequest#ConnectorDefinitionId
    */
-  readonly connectorDefinitionId: string;
+  readonly connectorDefinitionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassDeleteConnectorDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDeleteConnectorDefinitionRequest(obj: GreengrassDeleteConnectorDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConnectorDefinitionId': obj.connectorDefinitionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassDeleteConnectorDefinitionResponse
@@ -1148,15 +1884,42 @@ export interface GreengrassDeleteConnectorDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassDeleteConnectorDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDeleteConnectorDefinitionResponse(obj: GreengrassDeleteConnectorDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassDeleteCoreDefinitionRequest
  */
 export interface GreengrassDeleteCoreDefinitionRequest {
   /**
    * @schema GreengrassDeleteCoreDefinitionRequest#CoreDefinitionId
    */
-  readonly coreDefinitionId: string;
+  readonly coreDefinitionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassDeleteCoreDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDeleteCoreDefinitionRequest(obj: GreengrassDeleteCoreDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CoreDefinitionId': obj.coreDefinitionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassDeleteCoreDefinitionResponse
@@ -1165,15 +1928,42 @@ export interface GreengrassDeleteCoreDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassDeleteCoreDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDeleteCoreDefinitionResponse(obj: GreengrassDeleteCoreDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassDeleteDeviceDefinitionRequest
  */
 export interface GreengrassDeleteDeviceDefinitionRequest {
   /**
    * @schema GreengrassDeleteDeviceDefinitionRequest#DeviceDefinitionId
    */
-  readonly deviceDefinitionId: string;
+  readonly deviceDefinitionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassDeleteDeviceDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDeleteDeviceDefinitionRequest(obj: GreengrassDeleteDeviceDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceDefinitionId': obj.deviceDefinitionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassDeleteDeviceDefinitionResponse
@@ -1182,15 +1972,42 @@ export interface GreengrassDeleteDeviceDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassDeleteDeviceDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDeleteDeviceDefinitionResponse(obj: GreengrassDeleteDeviceDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassDeleteFunctionDefinitionRequest
  */
 export interface GreengrassDeleteFunctionDefinitionRequest {
   /**
    * @schema GreengrassDeleteFunctionDefinitionRequest#FunctionDefinitionId
    */
-  readonly functionDefinitionId: string;
+  readonly functionDefinitionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassDeleteFunctionDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDeleteFunctionDefinitionRequest(obj: GreengrassDeleteFunctionDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FunctionDefinitionId': obj.functionDefinitionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassDeleteFunctionDefinitionResponse
@@ -1199,15 +2016,42 @@ export interface GreengrassDeleteFunctionDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassDeleteFunctionDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDeleteFunctionDefinitionResponse(obj: GreengrassDeleteFunctionDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassDeleteGroupRequest
  */
 export interface GreengrassDeleteGroupRequest {
   /**
    * @schema GreengrassDeleteGroupRequest#GroupId
    */
-  readonly groupId: string;
+  readonly groupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassDeleteGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDeleteGroupRequest(obj: GreengrassDeleteGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupId': obj.groupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassDeleteGroupResponse
@@ -1216,15 +2060,42 @@ export interface GreengrassDeleteGroupResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassDeleteGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDeleteGroupResponse(obj: GreengrassDeleteGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassDeleteLoggerDefinitionRequest
  */
 export interface GreengrassDeleteLoggerDefinitionRequest {
   /**
    * @schema GreengrassDeleteLoggerDefinitionRequest#LoggerDefinitionId
    */
-  readonly loggerDefinitionId: string;
+  readonly loggerDefinitionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassDeleteLoggerDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDeleteLoggerDefinitionRequest(obj: GreengrassDeleteLoggerDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LoggerDefinitionId': obj.loggerDefinitionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassDeleteLoggerDefinitionResponse
@@ -1233,15 +2104,42 @@ export interface GreengrassDeleteLoggerDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassDeleteLoggerDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDeleteLoggerDefinitionResponse(obj: GreengrassDeleteLoggerDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassDeleteResourceDefinitionRequest
  */
 export interface GreengrassDeleteResourceDefinitionRequest {
   /**
    * @schema GreengrassDeleteResourceDefinitionRequest#ResourceDefinitionId
    */
-  readonly resourceDefinitionId: string;
+  readonly resourceDefinitionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassDeleteResourceDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDeleteResourceDefinitionRequest(obj: GreengrassDeleteResourceDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceDefinitionId': obj.resourceDefinitionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassDeleteResourceDefinitionResponse
@@ -1250,15 +2148,42 @@ export interface GreengrassDeleteResourceDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassDeleteResourceDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDeleteResourceDefinitionResponse(obj: GreengrassDeleteResourceDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassDeleteSubscriptionDefinitionRequest
  */
 export interface GreengrassDeleteSubscriptionDefinitionRequest {
   /**
    * @schema GreengrassDeleteSubscriptionDefinitionRequest#SubscriptionDefinitionId
    */
-  readonly subscriptionDefinitionId: string;
+  readonly subscriptionDefinitionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassDeleteSubscriptionDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDeleteSubscriptionDefinitionRequest(obj: GreengrassDeleteSubscriptionDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscriptionDefinitionId': obj.subscriptionDefinitionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassDeleteSubscriptionDefinitionResponse
@@ -1267,15 +2192,42 @@ export interface GreengrassDeleteSubscriptionDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassDeleteSubscriptionDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDeleteSubscriptionDefinitionResponse(obj: GreengrassDeleteSubscriptionDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassDisassociateRoleFromGroupRequest
  */
 export interface GreengrassDisassociateRoleFromGroupRequest {
   /**
    * @schema GreengrassDisassociateRoleFromGroupRequest#GroupId
    */
-  readonly groupId: string;
+  readonly groupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassDisassociateRoleFromGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDisassociateRoleFromGroupRequest(obj: GreengrassDisassociateRoleFromGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupId': obj.groupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassDisassociateRoleFromGroupResponse
@@ -1289,10 +2241,37 @@ export interface GreengrassDisassociateRoleFromGroupResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassDisassociateRoleFromGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDisassociateRoleFromGroupResponse(obj: GreengrassDisassociateRoleFromGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DisassociatedAt': obj.disassociatedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassDisassociateServiceRoleFromAccountRequest
  */
 export interface GreengrassDisassociateServiceRoleFromAccountRequest {
 }
+
+/**
+ * Converts an object of type 'GreengrassDisassociateServiceRoleFromAccountRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDisassociateServiceRoleFromAccountRequest(obj: GreengrassDisassociateServiceRoleFromAccountRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassDisassociateServiceRoleFromAccountResponse
@@ -1306,15 +2285,43 @@ export interface GreengrassDisassociateServiceRoleFromAccountResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassDisassociateServiceRoleFromAccountResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDisassociateServiceRoleFromAccountResponse(obj: GreengrassDisassociateServiceRoleFromAccountResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DisassociatedAt': obj.disassociatedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetAssociatedRoleRequest
  */
 export interface GreengrassGetAssociatedRoleRequest {
   /**
    * @schema GreengrassGetAssociatedRoleRequest#GroupId
    */
-  readonly groupId: string;
+  readonly groupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetAssociatedRoleRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetAssociatedRoleRequest(obj: GreengrassGetAssociatedRoleRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupId': obj.groupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetAssociatedRoleResponse
@@ -1333,15 +2340,44 @@ export interface GreengrassGetAssociatedRoleResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetAssociatedRoleResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetAssociatedRoleResponse(obj: GreengrassGetAssociatedRoleResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AssociatedAt': obj.associatedAt,
+    'RoleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetBulkDeploymentStatusRequest
  */
 export interface GreengrassGetBulkDeploymentStatusRequest {
   /**
    * @schema GreengrassGetBulkDeploymentStatusRequest#BulkDeploymentId
    */
-  readonly bulkDeploymentId: string;
+  readonly bulkDeploymentId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetBulkDeploymentStatusRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetBulkDeploymentStatusRequest(obj: GreengrassGetBulkDeploymentStatusRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BulkDeploymentId': obj.bulkDeploymentId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetBulkDeploymentStatusResponse
@@ -1380,15 +2416,48 @@ export interface GreengrassGetBulkDeploymentStatusResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetBulkDeploymentStatusResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetBulkDeploymentStatusResponse(obj: GreengrassGetBulkDeploymentStatusResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BulkDeploymentMetrics': toJson_GreengrassBulkDeploymentMetrics(obj.bulkDeploymentMetrics),
+    'BulkDeploymentStatus': obj.bulkDeploymentStatus,
+    'CreatedAt': obj.createdAt,
+    'ErrorDetails': obj.errorDetails?.map(y => toJson_GreengrassErrorDetail(y)),
+    'ErrorMessage': obj.errorMessage,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetConnectivityInfoRequest
  */
 export interface GreengrassGetConnectivityInfoRequest {
   /**
    * @schema GreengrassGetConnectivityInfoRequest#ThingName
    */
-  readonly thingName: string;
+  readonly thingName?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetConnectivityInfoRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetConnectivityInfoRequest(obj: GreengrassGetConnectivityInfoRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ThingName': obj.thingName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetConnectivityInfoResponse
@@ -1407,15 +2476,44 @@ export interface GreengrassGetConnectivityInfoResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetConnectivityInfoResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetConnectivityInfoResponse(obj: GreengrassGetConnectivityInfoResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConnectivityInfo': obj.connectivityInfo?.map(y => toJson_GreengrassConnectivityInfo(y)),
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetConnectorDefinitionRequest
  */
 export interface GreengrassGetConnectorDefinitionRequest {
   /**
    * @schema GreengrassGetConnectorDefinitionRequest#ConnectorDefinitionId
    */
-  readonly connectorDefinitionId: string;
+  readonly connectorDefinitionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetConnectorDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetConnectorDefinitionRequest(obj: GreengrassGetConnectorDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConnectorDefinitionId': obj.connectorDefinitionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetConnectorDefinitionResponse
@@ -1464,18 +2562,39 @@ export interface GreengrassGetConnectorDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetConnectorDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetConnectorDefinitionResponse(obj: GreengrassGetConnectorDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'LatestVersion': obj.latestVersion,
+    'LatestVersionArn': obj.latestVersionArn,
+    'Name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetConnectorDefinitionVersionRequest
  */
 export interface GreengrassGetConnectorDefinitionVersionRequest {
   /**
    * @schema GreengrassGetConnectorDefinitionVersionRequest#ConnectorDefinitionId
    */
-  readonly connectorDefinitionId: string;
+  readonly connectorDefinitionId?: string;
 
   /**
    * @schema GreengrassGetConnectorDefinitionVersionRequest#ConnectorDefinitionVersionId
    */
-  readonly connectorDefinitionVersionId: string;
+  readonly connectorDefinitionVersionId?: string;
 
   /**
    * @schema GreengrassGetConnectorDefinitionVersionRequest#NextToken
@@ -1483,6 +2602,22 @@ export interface GreengrassGetConnectorDefinitionVersionRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetConnectorDefinitionVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetConnectorDefinitionVersionRequest(obj: GreengrassGetConnectorDefinitionVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConnectorDefinitionId': obj.connectorDefinitionId,
+    'ConnectorDefinitionVersionId': obj.connectorDefinitionVersionId,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetConnectorDefinitionVersionResponse
@@ -1521,15 +2656,48 @@ export interface GreengrassGetConnectorDefinitionVersionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetConnectorDefinitionVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetConnectorDefinitionVersionResponse(obj: GreengrassGetConnectorDefinitionVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Definition': toJson_GreengrassConnectorDefinitionVersion(obj.definition),
+    'Id': obj.id,
+    'NextToken': obj.nextToken,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetCoreDefinitionRequest
  */
 export interface GreengrassGetCoreDefinitionRequest {
   /**
    * @schema GreengrassGetCoreDefinitionRequest#CoreDefinitionId
    */
-  readonly coreDefinitionId: string;
+  readonly coreDefinitionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetCoreDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetCoreDefinitionRequest(obj: GreengrassGetCoreDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CoreDefinitionId': obj.coreDefinitionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetCoreDefinitionResponse
@@ -1578,20 +2746,56 @@ export interface GreengrassGetCoreDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetCoreDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetCoreDefinitionResponse(obj: GreengrassGetCoreDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'LatestVersion': obj.latestVersion,
+    'LatestVersionArn': obj.latestVersionArn,
+    'Name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetCoreDefinitionVersionRequest
  */
 export interface GreengrassGetCoreDefinitionVersionRequest {
   /**
    * @schema GreengrassGetCoreDefinitionVersionRequest#CoreDefinitionId
    */
-  readonly coreDefinitionId: string;
+  readonly coreDefinitionId?: string;
 
   /**
    * @schema GreengrassGetCoreDefinitionVersionRequest#CoreDefinitionVersionId
    */
-  readonly coreDefinitionVersionId: string;
+  readonly coreDefinitionVersionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetCoreDefinitionVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetCoreDefinitionVersionRequest(obj: GreengrassGetCoreDefinitionVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CoreDefinitionId': obj.coreDefinitionId,
+    'CoreDefinitionVersionId': obj.coreDefinitionVersionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetCoreDefinitionVersionResponse
@@ -1630,20 +2834,54 @@ export interface GreengrassGetCoreDefinitionVersionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetCoreDefinitionVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetCoreDefinitionVersionResponse(obj: GreengrassGetCoreDefinitionVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Definition': toJson_GreengrassCoreDefinitionVersion(obj.definition),
+    'Id': obj.id,
+    'NextToken': obj.nextToken,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetDeploymentStatusRequest
  */
 export interface GreengrassGetDeploymentStatusRequest {
   /**
    * @schema GreengrassGetDeploymentStatusRequest#DeploymentId
    */
-  readonly deploymentId: string;
+  readonly deploymentId?: string;
 
   /**
    * @schema GreengrassGetDeploymentStatusRequest#GroupId
    */
-  readonly groupId: string;
+  readonly groupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetDeploymentStatusRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetDeploymentStatusRequest(obj: GreengrassGetDeploymentStatusRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeploymentId': obj.deploymentId,
+    'GroupId': obj.groupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetDeploymentStatusResponse
@@ -1677,15 +2915,47 @@ export interface GreengrassGetDeploymentStatusResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetDeploymentStatusResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetDeploymentStatusResponse(obj: GreengrassGetDeploymentStatusResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeploymentStatus': obj.deploymentStatus,
+    'DeploymentType': obj.deploymentType,
+    'ErrorDetails': obj.errorDetails?.map(y => toJson_GreengrassErrorDetail(y)),
+    'ErrorMessage': obj.errorMessage,
+    'UpdatedAt': obj.updatedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetDeviceDefinitionRequest
  */
 export interface GreengrassGetDeviceDefinitionRequest {
   /**
    * @schema GreengrassGetDeviceDefinitionRequest#DeviceDefinitionId
    */
-  readonly deviceDefinitionId: string;
+  readonly deviceDefinitionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetDeviceDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetDeviceDefinitionRequest(obj: GreengrassGetDeviceDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceDefinitionId': obj.deviceDefinitionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetDeviceDefinitionResponse
@@ -1734,18 +3004,39 @@ export interface GreengrassGetDeviceDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetDeviceDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetDeviceDefinitionResponse(obj: GreengrassGetDeviceDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'LatestVersion': obj.latestVersion,
+    'LatestVersionArn': obj.latestVersionArn,
+    'Name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetDeviceDefinitionVersionRequest
  */
 export interface GreengrassGetDeviceDefinitionVersionRequest {
   /**
    * @schema GreengrassGetDeviceDefinitionVersionRequest#DeviceDefinitionId
    */
-  readonly deviceDefinitionId: string;
+  readonly deviceDefinitionId?: string;
 
   /**
    * @schema GreengrassGetDeviceDefinitionVersionRequest#DeviceDefinitionVersionId
    */
-  readonly deviceDefinitionVersionId: string;
+  readonly deviceDefinitionVersionId?: string;
 
   /**
    * @schema GreengrassGetDeviceDefinitionVersionRequest#NextToken
@@ -1753,6 +3044,22 @@ export interface GreengrassGetDeviceDefinitionVersionRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetDeviceDefinitionVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetDeviceDefinitionVersionRequest(obj: GreengrassGetDeviceDefinitionVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceDefinitionId': obj.deviceDefinitionId,
+    'DeviceDefinitionVersionId': obj.deviceDefinitionVersionId,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetDeviceDefinitionVersionResponse
@@ -1791,15 +3098,48 @@ export interface GreengrassGetDeviceDefinitionVersionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetDeviceDefinitionVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetDeviceDefinitionVersionResponse(obj: GreengrassGetDeviceDefinitionVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Definition': toJson_GreengrassDeviceDefinitionVersion(obj.definition),
+    'Id': obj.id,
+    'NextToken': obj.nextToken,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetFunctionDefinitionRequest
  */
 export interface GreengrassGetFunctionDefinitionRequest {
   /**
    * @schema GreengrassGetFunctionDefinitionRequest#FunctionDefinitionId
    */
-  readonly functionDefinitionId: string;
+  readonly functionDefinitionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetFunctionDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetFunctionDefinitionRequest(obj: GreengrassGetFunctionDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FunctionDefinitionId': obj.functionDefinitionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetFunctionDefinitionResponse
@@ -1848,18 +3188,39 @@ export interface GreengrassGetFunctionDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetFunctionDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetFunctionDefinitionResponse(obj: GreengrassGetFunctionDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'LatestVersion': obj.latestVersion,
+    'LatestVersionArn': obj.latestVersionArn,
+    'Name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetFunctionDefinitionVersionRequest
  */
 export interface GreengrassGetFunctionDefinitionVersionRequest {
   /**
    * @schema GreengrassGetFunctionDefinitionVersionRequest#FunctionDefinitionId
    */
-  readonly functionDefinitionId: string;
+  readonly functionDefinitionId?: string;
 
   /**
    * @schema GreengrassGetFunctionDefinitionVersionRequest#FunctionDefinitionVersionId
    */
-  readonly functionDefinitionVersionId: string;
+  readonly functionDefinitionVersionId?: string;
 
   /**
    * @schema GreengrassGetFunctionDefinitionVersionRequest#NextToken
@@ -1867,6 +3228,22 @@ export interface GreengrassGetFunctionDefinitionVersionRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetFunctionDefinitionVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetFunctionDefinitionVersionRequest(obj: GreengrassGetFunctionDefinitionVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FunctionDefinitionId': obj.functionDefinitionId,
+    'FunctionDefinitionVersionId': obj.functionDefinitionVersionId,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetFunctionDefinitionVersionResponse
@@ -1905,15 +3282,48 @@ export interface GreengrassGetFunctionDefinitionVersionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetFunctionDefinitionVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetFunctionDefinitionVersionResponse(obj: GreengrassGetFunctionDefinitionVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Definition': toJson_GreengrassFunctionDefinitionVersion(obj.definition),
+    'Id': obj.id,
+    'NextToken': obj.nextToken,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetGroupRequest
  */
 export interface GreengrassGetGroupRequest {
   /**
    * @schema GreengrassGetGroupRequest#GroupId
    */
-  readonly groupId: string;
+  readonly groupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetGroupRequest(obj: GreengrassGetGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupId': obj.groupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetGroupResponse
@@ -1962,20 +3372,56 @@ export interface GreengrassGetGroupResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetGroupResponse(obj: GreengrassGetGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'LatestVersion': obj.latestVersion,
+    'LatestVersionArn': obj.latestVersionArn,
+    'Name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetGroupCertificateAuthorityRequest
  */
 export interface GreengrassGetGroupCertificateAuthorityRequest {
   /**
    * @schema GreengrassGetGroupCertificateAuthorityRequest#CertificateAuthorityId
    */
-  readonly certificateAuthorityId: string;
+  readonly certificateAuthorityId?: string;
 
   /**
    * @schema GreengrassGetGroupCertificateAuthorityRequest#GroupId
    */
-  readonly groupId: string;
+  readonly groupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetGroupCertificateAuthorityRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetGroupCertificateAuthorityRequest(obj: GreengrassGetGroupCertificateAuthorityRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CertificateAuthorityId': obj.certificateAuthorityId,
+    'GroupId': obj.groupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetGroupCertificateAuthorityResponse
@@ -1999,15 +3445,45 @@ export interface GreengrassGetGroupCertificateAuthorityResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetGroupCertificateAuthorityResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetGroupCertificateAuthorityResponse(obj: GreengrassGetGroupCertificateAuthorityResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupCertificateAuthorityArn': obj.groupCertificateAuthorityArn,
+    'GroupCertificateAuthorityId': obj.groupCertificateAuthorityId,
+    'PemEncodedCertificate': obj.pemEncodedCertificate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetGroupCertificateConfigurationRequest
  */
 export interface GreengrassGetGroupCertificateConfigurationRequest {
   /**
    * @schema GreengrassGetGroupCertificateConfigurationRequest#GroupId
    */
-  readonly groupId: string;
+  readonly groupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetGroupCertificateConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetGroupCertificateConfigurationRequest(obj: GreengrassGetGroupCertificateConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupId': obj.groupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetGroupCertificateConfigurationResponse
@@ -2031,20 +3507,51 @@ export interface GreengrassGetGroupCertificateConfigurationResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetGroupCertificateConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetGroupCertificateConfigurationResponse(obj: GreengrassGetGroupCertificateConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CertificateAuthorityExpiryInMilliseconds': obj.certificateAuthorityExpiryInMilliseconds,
+    'CertificateExpiryInMilliseconds': obj.certificateExpiryInMilliseconds,
+    'GroupId': obj.groupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetGroupVersionRequest
  */
 export interface GreengrassGetGroupVersionRequest {
   /**
    * @schema GreengrassGetGroupVersionRequest#GroupId
    */
-  readonly groupId: string;
+  readonly groupId?: string;
 
   /**
    * @schema GreengrassGetGroupVersionRequest#GroupVersionId
    */
-  readonly groupVersionId: string;
+  readonly groupVersionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetGroupVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetGroupVersionRequest(obj: GreengrassGetGroupVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupId': obj.groupId,
+    'GroupVersionId': obj.groupVersionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetGroupVersionResponse
@@ -2078,15 +3585,47 @@ export interface GreengrassGetGroupVersionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetGroupVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetGroupVersionResponse(obj: GreengrassGetGroupVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Definition': toJson_GreengrassGroupVersion(obj.definition),
+    'Id': obj.id,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetLoggerDefinitionRequest
  */
 export interface GreengrassGetLoggerDefinitionRequest {
   /**
    * @schema GreengrassGetLoggerDefinitionRequest#LoggerDefinitionId
    */
-  readonly loggerDefinitionId: string;
+  readonly loggerDefinitionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetLoggerDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetLoggerDefinitionRequest(obj: GreengrassGetLoggerDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LoggerDefinitionId': obj.loggerDefinitionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetLoggerDefinitionResponse
@@ -2135,18 +3674,39 @@ export interface GreengrassGetLoggerDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetLoggerDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetLoggerDefinitionResponse(obj: GreengrassGetLoggerDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'LatestVersion': obj.latestVersion,
+    'LatestVersionArn': obj.latestVersionArn,
+    'Name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetLoggerDefinitionVersionRequest
  */
 export interface GreengrassGetLoggerDefinitionVersionRequest {
   /**
    * @schema GreengrassGetLoggerDefinitionVersionRequest#LoggerDefinitionId
    */
-  readonly loggerDefinitionId: string;
+  readonly loggerDefinitionId?: string;
 
   /**
    * @schema GreengrassGetLoggerDefinitionVersionRequest#LoggerDefinitionVersionId
    */
-  readonly loggerDefinitionVersionId: string;
+  readonly loggerDefinitionVersionId?: string;
 
   /**
    * @schema GreengrassGetLoggerDefinitionVersionRequest#NextToken
@@ -2154,6 +3714,22 @@ export interface GreengrassGetLoggerDefinitionVersionRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetLoggerDefinitionVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetLoggerDefinitionVersionRequest(obj: GreengrassGetLoggerDefinitionVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LoggerDefinitionId': obj.loggerDefinitionId,
+    'LoggerDefinitionVersionId': obj.loggerDefinitionVersionId,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetLoggerDefinitionVersionResponse
@@ -2187,15 +3763,47 @@ export interface GreengrassGetLoggerDefinitionVersionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetLoggerDefinitionVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetLoggerDefinitionVersionResponse(obj: GreengrassGetLoggerDefinitionVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Definition': toJson_GreengrassLoggerDefinitionVersion(obj.definition),
+    'Id': obj.id,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetResourceDefinitionRequest
  */
 export interface GreengrassGetResourceDefinitionRequest {
   /**
    * @schema GreengrassGetResourceDefinitionRequest#ResourceDefinitionId
    */
-  readonly resourceDefinitionId: string;
+  readonly resourceDefinitionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetResourceDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetResourceDefinitionRequest(obj: GreengrassGetResourceDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceDefinitionId': obj.resourceDefinitionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetResourceDefinitionResponse
@@ -2244,20 +3852,56 @@ export interface GreengrassGetResourceDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetResourceDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetResourceDefinitionResponse(obj: GreengrassGetResourceDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'LatestVersion': obj.latestVersion,
+    'LatestVersionArn': obj.latestVersionArn,
+    'Name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetResourceDefinitionVersionRequest
  */
 export interface GreengrassGetResourceDefinitionVersionRequest {
   /**
    * @schema GreengrassGetResourceDefinitionVersionRequest#ResourceDefinitionId
    */
-  readonly resourceDefinitionId: string;
+  readonly resourceDefinitionId?: string;
 
   /**
    * @schema GreengrassGetResourceDefinitionVersionRequest#ResourceDefinitionVersionId
    */
-  readonly resourceDefinitionVersionId: string;
+  readonly resourceDefinitionVersionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetResourceDefinitionVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetResourceDefinitionVersionRequest(obj: GreengrassGetResourceDefinitionVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceDefinitionId': obj.resourceDefinitionId,
+    'ResourceDefinitionVersionId': obj.resourceDefinitionVersionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetResourceDefinitionVersionResponse
@@ -2291,10 +3935,41 @@ export interface GreengrassGetResourceDefinitionVersionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetResourceDefinitionVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetResourceDefinitionVersionResponse(obj: GreengrassGetResourceDefinitionVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Definition': toJson_GreengrassResourceDefinitionVersion(obj.definition),
+    'Id': obj.id,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetServiceRoleForAccountRequest
  */
 export interface GreengrassGetServiceRoleForAccountRequest {
 }
+
+/**
+ * Converts an object of type 'GreengrassGetServiceRoleForAccountRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetServiceRoleForAccountRequest(obj: GreengrassGetServiceRoleForAccountRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetServiceRoleForAccountResponse
@@ -2313,15 +3988,44 @@ export interface GreengrassGetServiceRoleForAccountResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetServiceRoleForAccountResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetServiceRoleForAccountResponse(obj: GreengrassGetServiceRoleForAccountResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AssociatedAt': obj.associatedAt,
+    'RoleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetSubscriptionDefinitionRequest
  */
 export interface GreengrassGetSubscriptionDefinitionRequest {
   /**
    * @schema GreengrassGetSubscriptionDefinitionRequest#SubscriptionDefinitionId
    */
-  readonly subscriptionDefinitionId: string;
+  readonly subscriptionDefinitionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetSubscriptionDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetSubscriptionDefinitionRequest(obj: GreengrassGetSubscriptionDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscriptionDefinitionId': obj.subscriptionDefinitionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetSubscriptionDefinitionResponse
@@ -2370,6 +4074,27 @@ export interface GreengrassGetSubscriptionDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetSubscriptionDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetSubscriptionDefinitionResponse(obj: GreengrassGetSubscriptionDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'LatestVersion': obj.latestVersion,
+    'LatestVersionArn': obj.latestVersionArn,
+    'Name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetSubscriptionDefinitionVersionRequest
  */
 export interface GreengrassGetSubscriptionDefinitionVersionRequest {
@@ -2381,14 +4106,30 @@ export interface GreengrassGetSubscriptionDefinitionVersionRequest {
   /**
    * @schema GreengrassGetSubscriptionDefinitionVersionRequest#SubscriptionDefinitionId
    */
-  readonly subscriptionDefinitionId: string;
+  readonly subscriptionDefinitionId?: string;
 
   /**
    * @schema GreengrassGetSubscriptionDefinitionVersionRequest#SubscriptionDefinitionVersionId
    */
-  readonly subscriptionDefinitionVersionId: string;
+  readonly subscriptionDefinitionVersionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetSubscriptionDefinitionVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetSubscriptionDefinitionVersionRequest(obj: GreengrassGetSubscriptionDefinitionVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'SubscriptionDefinitionId': obj.subscriptionDefinitionId,
+    'SubscriptionDefinitionVersionId': obj.subscriptionDefinitionVersionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetSubscriptionDefinitionVersionResponse
@@ -2427,15 +4168,48 @@ export interface GreengrassGetSubscriptionDefinitionVersionResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetSubscriptionDefinitionVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetSubscriptionDefinitionVersionResponse(obj: GreengrassGetSubscriptionDefinitionVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Definition': toJson_GreengrassSubscriptionDefinitionVersion(obj.definition),
+    'Id': obj.id,
+    'NextToken': obj.nextToken,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGetThingRuntimeConfigurationRequest
  */
 export interface GreengrassGetThingRuntimeConfigurationRequest {
   /**
    * @schema GreengrassGetThingRuntimeConfigurationRequest#ThingName
    */
-  readonly thingName: string;
+  readonly thingName?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGetThingRuntimeConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetThingRuntimeConfigurationRequest(obj: GreengrassGetThingRuntimeConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ThingName': obj.thingName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGetThingRuntimeConfigurationResponse
@@ -2449,13 +4223,27 @@ export interface GreengrassGetThingRuntimeConfigurationResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassGetThingRuntimeConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGetThingRuntimeConfigurationResponse(obj: GreengrassGetThingRuntimeConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RuntimeConfiguration': toJson_GreengrassRuntimeConfiguration(obj.runtimeConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListBulkDeploymentDetailedReportsRequest
  */
 export interface GreengrassListBulkDeploymentDetailedReportsRequest {
   /**
    * @schema GreengrassListBulkDeploymentDetailedReportsRequest#BulkDeploymentId
    */
-  readonly bulkDeploymentId: string;
+  readonly bulkDeploymentId?: string;
 
   /**
    * @schema GreengrassListBulkDeploymentDetailedReportsRequest#MaxResults
@@ -2468,6 +4256,22 @@ export interface GreengrassListBulkDeploymentDetailedReportsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListBulkDeploymentDetailedReportsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListBulkDeploymentDetailedReportsRequest(obj: GreengrassListBulkDeploymentDetailedReportsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BulkDeploymentId': obj.bulkDeploymentId,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListBulkDeploymentDetailedReportsResponse
@@ -2486,6 +4290,21 @@ export interface GreengrassListBulkDeploymentDetailedReportsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListBulkDeploymentDetailedReportsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListBulkDeploymentDetailedReportsResponse(obj: GreengrassListBulkDeploymentDetailedReportsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Deployments': obj.deployments?.map(y => toJson_GreengrassBulkDeploymentResult(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListBulkDeploymentsRequest
  */
 export interface GreengrassListBulkDeploymentsRequest {
@@ -2500,6 +4319,21 @@ export interface GreengrassListBulkDeploymentsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListBulkDeploymentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListBulkDeploymentsRequest(obj: GreengrassListBulkDeploymentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListBulkDeploymentsResponse
@@ -2518,13 +4352,28 @@ export interface GreengrassListBulkDeploymentsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListBulkDeploymentsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListBulkDeploymentsResponse(obj: GreengrassListBulkDeploymentsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BulkDeployments': obj.bulkDeployments?.map(y => toJson_GreengrassBulkDeployment(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListConnectorDefinitionVersionsRequest
  */
 export interface GreengrassListConnectorDefinitionVersionsRequest {
   /**
    * @schema GreengrassListConnectorDefinitionVersionsRequest#ConnectorDefinitionId
    */
-  readonly connectorDefinitionId: string;
+  readonly connectorDefinitionId?: string;
 
   /**
    * @schema GreengrassListConnectorDefinitionVersionsRequest#MaxResults
@@ -2537,6 +4386,22 @@ export interface GreengrassListConnectorDefinitionVersionsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListConnectorDefinitionVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListConnectorDefinitionVersionsRequest(obj: GreengrassListConnectorDefinitionVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConnectorDefinitionId': obj.connectorDefinitionId,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListConnectorDefinitionVersionsResponse
@@ -2555,6 +4420,21 @@ export interface GreengrassListConnectorDefinitionVersionsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListConnectorDefinitionVersionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListConnectorDefinitionVersionsResponse(obj: GreengrassListConnectorDefinitionVersionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'Versions': obj.versions?.map(y => toJson_GreengrassVersionInformation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListConnectorDefinitionsRequest
  */
 export interface GreengrassListConnectorDefinitionsRequest {
@@ -2569,6 +4449,21 @@ export interface GreengrassListConnectorDefinitionsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListConnectorDefinitionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListConnectorDefinitionsRequest(obj: GreengrassListConnectorDefinitionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListConnectorDefinitionsResponse
@@ -2587,13 +4482,28 @@ export interface GreengrassListConnectorDefinitionsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListConnectorDefinitionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListConnectorDefinitionsResponse(obj: GreengrassListConnectorDefinitionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Definitions': obj.definitions?.map(y => toJson_GreengrassDefinitionInformation(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListCoreDefinitionVersionsRequest
  */
 export interface GreengrassListCoreDefinitionVersionsRequest {
   /**
    * @schema GreengrassListCoreDefinitionVersionsRequest#CoreDefinitionId
    */
-  readonly coreDefinitionId: string;
+  readonly coreDefinitionId?: string;
 
   /**
    * @schema GreengrassListCoreDefinitionVersionsRequest#MaxResults
@@ -2606,6 +4516,22 @@ export interface GreengrassListCoreDefinitionVersionsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListCoreDefinitionVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListCoreDefinitionVersionsRequest(obj: GreengrassListCoreDefinitionVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CoreDefinitionId': obj.coreDefinitionId,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListCoreDefinitionVersionsResponse
@@ -2624,6 +4550,21 @@ export interface GreengrassListCoreDefinitionVersionsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListCoreDefinitionVersionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListCoreDefinitionVersionsResponse(obj: GreengrassListCoreDefinitionVersionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'Versions': obj.versions?.map(y => toJson_GreengrassVersionInformation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListCoreDefinitionsRequest
  */
 export interface GreengrassListCoreDefinitionsRequest {
@@ -2638,6 +4579,21 @@ export interface GreengrassListCoreDefinitionsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListCoreDefinitionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListCoreDefinitionsRequest(obj: GreengrassListCoreDefinitionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListCoreDefinitionsResponse
@@ -2656,13 +4612,28 @@ export interface GreengrassListCoreDefinitionsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListCoreDefinitionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListCoreDefinitionsResponse(obj: GreengrassListCoreDefinitionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Definitions': obj.definitions?.map(y => toJson_GreengrassDefinitionInformation(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListDeploymentsRequest
  */
 export interface GreengrassListDeploymentsRequest {
   /**
    * @schema GreengrassListDeploymentsRequest#GroupId
    */
-  readonly groupId: string;
+  readonly groupId?: string;
 
   /**
    * @schema GreengrassListDeploymentsRequest#MaxResults
@@ -2675,6 +4646,22 @@ export interface GreengrassListDeploymentsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListDeploymentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListDeploymentsRequest(obj: GreengrassListDeploymentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupId': obj.groupId,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListDeploymentsResponse
@@ -2693,13 +4680,28 @@ export interface GreengrassListDeploymentsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListDeploymentsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListDeploymentsResponse(obj: GreengrassListDeploymentsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Deployments': obj.deployments?.map(y => toJson_GreengrassDeployment(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListDeviceDefinitionVersionsRequest
  */
 export interface GreengrassListDeviceDefinitionVersionsRequest {
   /**
    * @schema GreengrassListDeviceDefinitionVersionsRequest#DeviceDefinitionId
    */
-  readonly deviceDefinitionId: string;
+  readonly deviceDefinitionId?: string;
 
   /**
    * @schema GreengrassListDeviceDefinitionVersionsRequest#MaxResults
@@ -2712,6 +4714,22 @@ export interface GreengrassListDeviceDefinitionVersionsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListDeviceDefinitionVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListDeviceDefinitionVersionsRequest(obj: GreengrassListDeviceDefinitionVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceDefinitionId': obj.deviceDefinitionId,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListDeviceDefinitionVersionsResponse
@@ -2730,6 +4748,21 @@ export interface GreengrassListDeviceDefinitionVersionsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListDeviceDefinitionVersionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListDeviceDefinitionVersionsResponse(obj: GreengrassListDeviceDefinitionVersionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'Versions': obj.versions?.map(y => toJson_GreengrassVersionInformation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListDeviceDefinitionsRequest
  */
 export interface GreengrassListDeviceDefinitionsRequest {
@@ -2744,6 +4777,21 @@ export interface GreengrassListDeviceDefinitionsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListDeviceDefinitionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListDeviceDefinitionsRequest(obj: GreengrassListDeviceDefinitionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListDeviceDefinitionsResponse
@@ -2762,13 +4810,28 @@ export interface GreengrassListDeviceDefinitionsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListDeviceDefinitionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListDeviceDefinitionsResponse(obj: GreengrassListDeviceDefinitionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Definitions': obj.definitions?.map(y => toJson_GreengrassDefinitionInformation(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListFunctionDefinitionVersionsRequest
  */
 export interface GreengrassListFunctionDefinitionVersionsRequest {
   /**
    * @schema GreengrassListFunctionDefinitionVersionsRequest#FunctionDefinitionId
    */
-  readonly functionDefinitionId: string;
+  readonly functionDefinitionId?: string;
 
   /**
    * @schema GreengrassListFunctionDefinitionVersionsRequest#MaxResults
@@ -2781,6 +4844,22 @@ export interface GreengrassListFunctionDefinitionVersionsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListFunctionDefinitionVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListFunctionDefinitionVersionsRequest(obj: GreengrassListFunctionDefinitionVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FunctionDefinitionId': obj.functionDefinitionId,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListFunctionDefinitionVersionsResponse
@@ -2799,6 +4878,21 @@ export interface GreengrassListFunctionDefinitionVersionsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListFunctionDefinitionVersionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListFunctionDefinitionVersionsResponse(obj: GreengrassListFunctionDefinitionVersionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'Versions': obj.versions?.map(y => toJson_GreengrassVersionInformation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListFunctionDefinitionsRequest
  */
 export interface GreengrassListFunctionDefinitionsRequest {
@@ -2813,6 +4907,21 @@ export interface GreengrassListFunctionDefinitionsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListFunctionDefinitionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListFunctionDefinitionsRequest(obj: GreengrassListFunctionDefinitionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListFunctionDefinitionsResponse
@@ -2831,15 +4940,44 @@ export interface GreengrassListFunctionDefinitionsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListFunctionDefinitionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListFunctionDefinitionsResponse(obj: GreengrassListFunctionDefinitionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Definitions': obj.definitions?.map(y => toJson_GreengrassDefinitionInformation(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListGroupCertificateAuthoritiesRequest
  */
 export interface GreengrassListGroupCertificateAuthoritiesRequest {
   /**
    * @schema GreengrassListGroupCertificateAuthoritiesRequest#GroupId
    */
-  readonly groupId: string;
+  readonly groupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListGroupCertificateAuthoritiesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListGroupCertificateAuthoritiesRequest(obj: GreengrassListGroupCertificateAuthoritiesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupId': obj.groupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListGroupCertificateAuthoritiesResponse
@@ -2853,13 +4991,27 @@ export interface GreengrassListGroupCertificateAuthoritiesResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListGroupCertificateAuthoritiesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListGroupCertificateAuthoritiesResponse(obj: GreengrassListGroupCertificateAuthoritiesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupCertificateAuthorities': obj.groupCertificateAuthorities?.map(y => toJson_GreengrassGroupCertificateAuthorityProperties(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListGroupVersionsRequest
  */
 export interface GreengrassListGroupVersionsRequest {
   /**
    * @schema GreengrassListGroupVersionsRequest#GroupId
    */
-  readonly groupId: string;
+  readonly groupId?: string;
 
   /**
    * @schema GreengrassListGroupVersionsRequest#MaxResults
@@ -2872,6 +5024,22 @@ export interface GreengrassListGroupVersionsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListGroupVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListGroupVersionsRequest(obj: GreengrassListGroupVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupId': obj.groupId,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListGroupVersionsResponse
@@ -2890,6 +5058,21 @@ export interface GreengrassListGroupVersionsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListGroupVersionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListGroupVersionsResponse(obj: GreengrassListGroupVersionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'Versions': obj.versions?.map(y => toJson_GreengrassVersionInformation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListGroupsRequest
  */
 export interface GreengrassListGroupsRequest {
@@ -2904,6 +5087,21 @@ export interface GreengrassListGroupsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListGroupsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListGroupsRequest(obj: GreengrassListGroupsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListGroupsResponse
@@ -2922,13 +5120,28 @@ export interface GreengrassListGroupsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListGroupsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListGroupsResponse(obj: GreengrassListGroupsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Groups': obj.groups?.map(y => toJson_GreengrassGroupInformation(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListLoggerDefinitionVersionsRequest
  */
 export interface GreengrassListLoggerDefinitionVersionsRequest {
   /**
    * @schema GreengrassListLoggerDefinitionVersionsRequest#LoggerDefinitionId
    */
-  readonly loggerDefinitionId: string;
+  readonly loggerDefinitionId?: string;
 
   /**
    * @schema GreengrassListLoggerDefinitionVersionsRequest#MaxResults
@@ -2941,6 +5154,22 @@ export interface GreengrassListLoggerDefinitionVersionsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListLoggerDefinitionVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListLoggerDefinitionVersionsRequest(obj: GreengrassListLoggerDefinitionVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LoggerDefinitionId': obj.loggerDefinitionId,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListLoggerDefinitionVersionsResponse
@@ -2959,6 +5188,21 @@ export interface GreengrassListLoggerDefinitionVersionsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListLoggerDefinitionVersionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListLoggerDefinitionVersionsResponse(obj: GreengrassListLoggerDefinitionVersionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'Versions': obj.versions?.map(y => toJson_GreengrassVersionInformation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListLoggerDefinitionsRequest
  */
 export interface GreengrassListLoggerDefinitionsRequest {
@@ -2973,6 +5217,21 @@ export interface GreengrassListLoggerDefinitionsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListLoggerDefinitionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListLoggerDefinitionsRequest(obj: GreengrassListLoggerDefinitionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListLoggerDefinitionsResponse
@@ -2991,6 +5250,21 @@ export interface GreengrassListLoggerDefinitionsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListLoggerDefinitionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListLoggerDefinitionsResponse(obj: GreengrassListLoggerDefinitionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Definitions': obj.definitions?.map(y => toJson_GreengrassDefinitionInformation(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListResourceDefinitionVersionsRequest
  */
 export interface GreengrassListResourceDefinitionVersionsRequest {
@@ -3007,9 +5281,25 @@ export interface GreengrassListResourceDefinitionVersionsRequest {
   /**
    * @schema GreengrassListResourceDefinitionVersionsRequest#ResourceDefinitionId
    */
-  readonly resourceDefinitionId: string;
+  readonly resourceDefinitionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListResourceDefinitionVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListResourceDefinitionVersionsRequest(obj: GreengrassListResourceDefinitionVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+    'ResourceDefinitionId': obj.resourceDefinitionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListResourceDefinitionVersionsResponse
@@ -3028,6 +5318,21 @@ export interface GreengrassListResourceDefinitionVersionsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListResourceDefinitionVersionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListResourceDefinitionVersionsResponse(obj: GreengrassListResourceDefinitionVersionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'Versions': obj.versions?.map(y => toJson_GreengrassVersionInformation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListResourceDefinitionsRequest
  */
 export interface GreengrassListResourceDefinitionsRequest {
@@ -3042,6 +5347,21 @@ export interface GreengrassListResourceDefinitionsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListResourceDefinitionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListResourceDefinitionsRequest(obj: GreengrassListResourceDefinitionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListResourceDefinitionsResponse
@@ -3060,6 +5380,21 @@ export interface GreengrassListResourceDefinitionsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListResourceDefinitionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListResourceDefinitionsResponse(obj: GreengrassListResourceDefinitionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Definitions': obj.definitions?.map(y => toJson_GreengrassDefinitionInformation(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListSubscriptionDefinitionVersionsRequest
  */
 export interface GreengrassListSubscriptionDefinitionVersionsRequest {
@@ -3076,9 +5411,25 @@ export interface GreengrassListSubscriptionDefinitionVersionsRequest {
   /**
    * @schema GreengrassListSubscriptionDefinitionVersionsRequest#SubscriptionDefinitionId
    */
-  readonly subscriptionDefinitionId: string;
+  readonly subscriptionDefinitionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListSubscriptionDefinitionVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListSubscriptionDefinitionVersionsRequest(obj: GreengrassListSubscriptionDefinitionVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+    'SubscriptionDefinitionId': obj.subscriptionDefinitionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListSubscriptionDefinitionVersionsResponse
@@ -3097,6 +5448,21 @@ export interface GreengrassListSubscriptionDefinitionVersionsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListSubscriptionDefinitionVersionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListSubscriptionDefinitionVersionsResponse(obj: GreengrassListSubscriptionDefinitionVersionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'Versions': obj.versions?.map(y => toJson_GreengrassVersionInformation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListSubscriptionDefinitionsRequest
  */
 export interface GreengrassListSubscriptionDefinitionsRequest {
@@ -3111,6 +5477,21 @@ export interface GreengrassListSubscriptionDefinitionsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListSubscriptionDefinitionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListSubscriptionDefinitionsRequest(obj: GreengrassListSubscriptionDefinitionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListSubscriptionDefinitionsResponse
@@ -3129,15 +5510,44 @@ export interface GreengrassListSubscriptionDefinitionsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassListSubscriptionDefinitionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListSubscriptionDefinitionsResponse(obj: GreengrassListSubscriptionDefinitionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Definitions': obj.definitions?.map(y => toJson_GreengrassDefinitionInformation(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassListTagsForResourceRequest
  */
 export interface GreengrassListTagsForResourceRequest {
   /**
    * @schema GreengrassListTagsForResourceRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListTagsForResourceRequest(obj: GreengrassListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassListTagsForResourceResponse
@@ -3149,6 +5559,20 @@ export interface GreengrassListTagsForResourceResponse {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'GreengrassListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassListTagsForResourceResponse(obj: GreengrassListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassResetDeploymentsRequest
@@ -3167,9 +5591,25 @@ export interface GreengrassResetDeploymentsRequest {
   /**
    * @schema GreengrassResetDeploymentsRequest#GroupId
    */
-  readonly groupId: string;
+  readonly groupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassResetDeploymentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassResetDeploymentsRequest(obj: GreengrassResetDeploymentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'Force': obj.force,
+    'GroupId': obj.groupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassResetDeploymentsResponse
@@ -3188,6 +5628,21 @@ export interface GreengrassResetDeploymentsResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassResetDeploymentsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassResetDeploymentsResponse(obj: GreengrassResetDeploymentsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeploymentArn': obj.deploymentArn,
+    'DeploymentId': obj.deploymentId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassStartBulkDeploymentRequest
  */
 export interface GreengrassStartBulkDeploymentRequest {
@@ -3199,12 +5654,12 @@ export interface GreengrassStartBulkDeploymentRequest {
   /**
    * @schema GreengrassStartBulkDeploymentRequest#ExecutionRoleArn
    */
-  readonly executionRoleArn: string;
+  readonly executionRoleArn?: string;
 
   /**
    * @schema GreengrassStartBulkDeploymentRequest#InputFileUri
    */
-  readonly inputFileUri: string;
+  readonly inputFileUri?: string;
 
   /**
    * @schema GreengrassStartBulkDeploymentRequest#tags
@@ -3212,6 +5667,23 @@ export interface GreengrassStartBulkDeploymentRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'GreengrassStartBulkDeploymentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassStartBulkDeploymentRequest(obj: GreengrassStartBulkDeploymentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmznClientToken': obj.amznClientToken,
+    'ExecutionRoleArn': obj.executionRoleArn,
+    'InputFileUri': obj.inputFileUri,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassStartBulkDeploymentResponse
@@ -3230,15 +5702,44 @@ export interface GreengrassStartBulkDeploymentResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassStartBulkDeploymentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassStartBulkDeploymentResponse(obj: GreengrassStartBulkDeploymentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BulkDeploymentArn': obj.bulkDeploymentArn,
+    'BulkDeploymentId': obj.bulkDeploymentId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassStopBulkDeploymentRequest
  */
 export interface GreengrassStopBulkDeploymentRequest {
   /**
    * @schema GreengrassStopBulkDeploymentRequest#BulkDeploymentId
    */
-  readonly bulkDeploymentId: string;
+  readonly bulkDeploymentId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassStopBulkDeploymentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassStopBulkDeploymentRequest(obj: GreengrassStopBulkDeploymentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BulkDeploymentId': obj.bulkDeploymentId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassStopBulkDeploymentResponse
@@ -3247,13 +5748,26 @@ export interface GreengrassStopBulkDeploymentResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassStopBulkDeploymentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassStopBulkDeploymentResponse(obj: GreengrassStopBulkDeploymentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassTagResourceRequest
  */
 export interface GreengrassTagResourceRequest {
   /**
    * @schema GreengrassTagResourceRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema GreengrassTagResourceRequest#tags
@@ -3263,20 +5777,50 @@ export interface GreengrassTagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'GreengrassTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassTagResourceRequest(obj: GreengrassTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassUntagResourceRequest
  */
 export interface GreengrassUntagResourceRequest {
   /**
    * @schema GreengrassUntagResourceRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema GreengrassUntagResourceRequest#TagKeys
    */
-  readonly tagKeys: string[];
+  readonly tagKeys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'GreengrassUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUntagResourceRequest(obj: GreengrassUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassUpdateConnectivityInfoRequest
@@ -3290,9 +5834,24 @@ export interface GreengrassUpdateConnectivityInfoRequest {
   /**
    * @schema GreengrassUpdateConnectivityInfoRequest#ThingName
    */
-  readonly thingName: string;
+  readonly thingName?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassUpdateConnectivityInfoRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateConnectivityInfoRequest(obj: GreengrassUpdateConnectivityInfoRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConnectivityInfo': obj.connectivityInfo?.map(y => toJson_GreengrassConnectivityInfo(y)),
+    'ThingName': obj.thingName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassUpdateConnectivityInfoResponse
@@ -3311,13 +5870,28 @@ export interface GreengrassUpdateConnectivityInfoResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassUpdateConnectivityInfoResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateConnectivityInfoResponse(obj: GreengrassUpdateConnectivityInfoResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Message': obj.message,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassUpdateConnectorDefinitionRequest
  */
 export interface GreengrassUpdateConnectorDefinitionRequest {
   /**
    * @schema GreengrassUpdateConnectorDefinitionRequest#ConnectorDefinitionId
    */
-  readonly connectorDefinitionId: string;
+  readonly connectorDefinitionId?: string;
 
   /**
    * @schema GreengrassUpdateConnectorDefinitionRequest#Name
@@ -3327,10 +5901,38 @@ export interface GreengrassUpdateConnectorDefinitionRequest {
 }
 
 /**
+ * Converts an object of type 'GreengrassUpdateConnectorDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateConnectorDefinitionRequest(obj: GreengrassUpdateConnectorDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConnectorDefinitionId': obj.connectorDefinitionId,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassUpdateConnectorDefinitionResponse
  */
 export interface GreengrassUpdateConnectorDefinitionResponse {
 }
+
+/**
+ * Converts an object of type 'GreengrassUpdateConnectorDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateConnectorDefinitionResponse(obj: GreengrassUpdateConnectorDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassUpdateCoreDefinitionRequest
@@ -3339,7 +5941,7 @@ export interface GreengrassUpdateCoreDefinitionRequest {
   /**
    * @schema GreengrassUpdateCoreDefinitionRequest#CoreDefinitionId
    */
-  readonly coreDefinitionId: string;
+  readonly coreDefinitionId?: string;
 
   /**
    * @schema GreengrassUpdateCoreDefinitionRequest#Name
@@ -3349,10 +5951,38 @@ export interface GreengrassUpdateCoreDefinitionRequest {
 }
 
 /**
+ * Converts an object of type 'GreengrassUpdateCoreDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateCoreDefinitionRequest(obj: GreengrassUpdateCoreDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CoreDefinitionId': obj.coreDefinitionId,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassUpdateCoreDefinitionResponse
  */
 export interface GreengrassUpdateCoreDefinitionResponse {
 }
+
+/**
+ * Converts an object of type 'GreengrassUpdateCoreDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateCoreDefinitionResponse(obj: GreengrassUpdateCoreDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassUpdateDeviceDefinitionRequest
@@ -3361,7 +5991,7 @@ export interface GreengrassUpdateDeviceDefinitionRequest {
   /**
    * @schema GreengrassUpdateDeviceDefinitionRequest#DeviceDefinitionId
    */
-  readonly deviceDefinitionId: string;
+  readonly deviceDefinitionId?: string;
 
   /**
    * @schema GreengrassUpdateDeviceDefinitionRequest#Name
@@ -3371,10 +6001,38 @@ export interface GreengrassUpdateDeviceDefinitionRequest {
 }
 
 /**
+ * Converts an object of type 'GreengrassUpdateDeviceDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateDeviceDefinitionRequest(obj: GreengrassUpdateDeviceDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceDefinitionId': obj.deviceDefinitionId,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassUpdateDeviceDefinitionResponse
  */
 export interface GreengrassUpdateDeviceDefinitionResponse {
 }
+
+/**
+ * Converts an object of type 'GreengrassUpdateDeviceDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateDeviceDefinitionResponse(obj: GreengrassUpdateDeviceDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassUpdateFunctionDefinitionRequest
@@ -3383,7 +6041,7 @@ export interface GreengrassUpdateFunctionDefinitionRequest {
   /**
    * @schema GreengrassUpdateFunctionDefinitionRequest#FunctionDefinitionId
    */
-  readonly functionDefinitionId: string;
+  readonly functionDefinitionId?: string;
 
   /**
    * @schema GreengrassUpdateFunctionDefinitionRequest#Name
@@ -3393,10 +6051,38 @@ export interface GreengrassUpdateFunctionDefinitionRequest {
 }
 
 /**
+ * Converts an object of type 'GreengrassUpdateFunctionDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateFunctionDefinitionRequest(obj: GreengrassUpdateFunctionDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FunctionDefinitionId': obj.functionDefinitionId,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassUpdateFunctionDefinitionResponse
  */
 export interface GreengrassUpdateFunctionDefinitionResponse {
 }
+
+/**
+ * Converts an object of type 'GreengrassUpdateFunctionDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateFunctionDefinitionResponse(obj: GreengrassUpdateFunctionDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassUpdateGroupRequest
@@ -3405,7 +6091,7 @@ export interface GreengrassUpdateGroupRequest {
   /**
    * @schema GreengrassUpdateGroupRequest#GroupId
    */
-  readonly groupId: string;
+  readonly groupId?: string;
 
   /**
    * @schema GreengrassUpdateGroupRequest#Name
@@ -3415,10 +6101,38 @@ export interface GreengrassUpdateGroupRequest {
 }
 
 /**
+ * Converts an object of type 'GreengrassUpdateGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateGroupRequest(obj: GreengrassUpdateGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupId': obj.groupId,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassUpdateGroupResponse
  */
 export interface GreengrassUpdateGroupResponse {
 }
+
+/**
+ * Converts an object of type 'GreengrassUpdateGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateGroupResponse(obj: GreengrassUpdateGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassUpdateGroupCertificateConfigurationRequest
@@ -3432,9 +6146,24 @@ export interface GreengrassUpdateGroupCertificateConfigurationRequest {
   /**
    * @schema GreengrassUpdateGroupCertificateConfigurationRequest#GroupId
    */
-  readonly groupId: string;
+  readonly groupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassUpdateGroupCertificateConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateGroupCertificateConfigurationRequest(obj: GreengrassUpdateGroupCertificateConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CertificateExpiryInMilliseconds': obj.certificateExpiryInMilliseconds,
+    'GroupId': obj.groupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassUpdateGroupCertificateConfigurationResponse
@@ -3458,13 +6187,29 @@ export interface GreengrassUpdateGroupCertificateConfigurationResponse {
 }
 
 /**
+ * Converts an object of type 'GreengrassUpdateGroupCertificateConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateGroupCertificateConfigurationResponse(obj: GreengrassUpdateGroupCertificateConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CertificateAuthorityExpiryInMilliseconds': obj.certificateAuthorityExpiryInMilliseconds,
+    'CertificateExpiryInMilliseconds': obj.certificateExpiryInMilliseconds,
+    'GroupId': obj.groupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassUpdateLoggerDefinitionRequest
  */
 export interface GreengrassUpdateLoggerDefinitionRequest {
   /**
    * @schema GreengrassUpdateLoggerDefinitionRequest#LoggerDefinitionId
    */
-  readonly loggerDefinitionId: string;
+  readonly loggerDefinitionId?: string;
 
   /**
    * @schema GreengrassUpdateLoggerDefinitionRequest#Name
@@ -3474,10 +6219,38 @@ export interface GreengrassUpdateLoggerDefinitionRequest {
 }
 
 /**
+ * Converts an object of type 'GreengrassUpdateLoggerDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateLoggerDefinitionRequest(obj: GreengrassUpdateLoggerDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LoggerDefinitionId': obj.loggerDefinitionId,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassUpdateLoggerDefinitionResponse
  */
 export interface GreengrassUpdateLoggerDefinitionResponse {
 }
+
+/**
+ * Converts an object of type 'GreengrassUpdateLoggerDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateLoggerDefinitionResponse(obj: GreengrassUpdateLoggerDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassUpdateResourceDefinitionRequest
@@ -3491,15 +6264,43 @@ export interface GreengrassUpdateResourceDefinitionRequest {
   /**
    * @schema GreengrassUpdateResourceDefinitionRequest#ResourceDefinitionId
    */
-  readonly resourceDefinitionId: string;
+  readonly resourceDefinitionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassUpdateResourceDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateResourceDefinitionRequest(obj: GreengrassUpdateResourceDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'ResourceDefinitionId': obj.resourceDefinitionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassUpdateResourceDefinitionResponse
  */
 export interface GreengrassUpdateResourceDefinitionResponse {
 }
+
+/**
+ * Converts an object of type 'GreengrassUpdateResourceDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateResourceDefinitionResponse(obj: GreengrassUpdateResourceDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassUpdateSubscriptionDefinitionRequest
@@ -3513,15 +6314,43 @@ export interface GreengrassUpdateSubscriptionDefinitionRequest {
   /**
    * @schema GreengrassUpdateSubscriptionDefinitionRequest#SubscriptionDefinitionId
    */
-  readonly subscriptionDefinitionId: string;
+  readonly subscriptionDefinitionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassUpdateSubscriptionDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateSubscriptionDefinitionRequest(obj: GreengrassUpdateSubscriptionDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'SubscriptionDefinitionId': obj.subscriptionDefinitionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassUpdateSubscriptionDefinitionResponse
  */
 export interface GreengrassUpdateSubscriptionDefinitionResponse {
 }
+
+/**
+ * Converts an object of type 'GreengrassUpdateSubscriptionDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateSubscriptionDefinitionResponse(obj: GreengrassUpdateSubscriptionDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassUpdateThingRuntimeConfigurationRequest
@@ -3535,15 +6364,43 @@ export interface GreengrassUpdateThingRuntimeConfigurationRequest {
   /**
    * @schema GreengrassUpdateThingRuntimeConfigurationRequest#ThingName
    */
-  readonly thingName: string;
+  readonly thingName?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassUpdateThingRuntimeConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateThingRuntimeConfigurationRequest(obj: GreengrassUpdateThingRuntimeConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TelemetryConfiguration': toJson_GreengrassTelemetryConfigurationUpdate(obj.telemetryConfiguration),
+    'ThingName': obj.thingName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassUpdateThingRuntimeConfigurationResponse
  */
 export interface GreengrassUpdateThingRuntimeConfigurationResponse {
 }
+
+/**
+ * Converts an object of type 'GreengrassUpdateThingRuntimeConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassUpdateThingRuntimeConfigurationResponse(obj: GreengrassUpdateThingRuntimeConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassConnectorDefinitionVersion
@@ -3557,18 +6414,32 @@ export interface GreengrassConnectorDefinitionVersion {
 }
 
 /**
+ * Converts an object of type 'GreengrassConnectorDefinitionVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassConnectorDefinitionVersion(obj: GreengrassConnectorDefinitionVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Connectors': obj.connectors?.map(y => toJson_GreengrassConnector(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassConnector
  */
 export interface GreengrassConnector {
   /**
    * @schema GreengrassConnector#ConnectorArn
    */
-  readonly connectorArn: string;
+  readonly connectorArn?: string;
 
   /**
    * @schema GreengrassConnector#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
   /**
    * @schema GreengrassConnector#Parameters
@@ -3576,6 +6447,22 @@ export interface GreengrassConnector {
   readonly parameters?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'GreengrassConnector' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassConnector(obj: GreengrassConnector | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConnectorArn': obj.connectorArn,
+    'Id': obj.id,
+    'Parameters': ((obj.parameters) === undefined) ? undefined : (Object.entries(obj.parameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassCoreDefinitionVersion
@@ -3589,18 +6476,32 @@ export interface GreengrassCoreDefinitionVersion {
 }
 
 /**
+ * Converts an object of type 'GreengrassCoreDefinitionVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCoreDefinitionVersion(obj: GreengrassCoreDefinitionVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Cores': obj.cores?.map(y => toJson_GreengrassCore(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassCore
  */
 export interface GreengrassCore {
   /**
    * @schema GreengrassCore#CertificateArn
    */
-  readonly certificateArn: string;
+  readonly certificateArn?: string;
 
   /**
    * @schema GreengrassCore#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
   /**
    * @schema GreengrassCore#SyncShadow
@@ -3610,9 +6511,26 @@ export interface GreengrassCore {
   /**
    * @schema GreengrassCore#ThingArn
    */
-  readonly thingArn: string;
+  readonly thingArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassCore' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassCore(obj: GreengrassCore | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CertificateArn': obj.certificateArn,
+    'Id': obj.id,
+    'SyncShadow': obj.syncShadow,
+    'ThingArn': obj.thingArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassDeviceDefinitionVersion
@@ -3626,18 +6544,32 @@ export interface GreengrassDeviceDefinitionVersion {
 }
 
 /**
+ * Converts an object of type 'GreengrassDeviceDefinitionVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDeviceDefinitionVersion(obj: GreengrassDeviceDefinitionVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Devices': obj.devices?.map(y => toJson_GreengrassDevice(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassDevice
  */
 export interface GreengrassDevice {
   /**
    * @schema GreengrassDevice#CertificateArn
    */
-  readonly certificateArn: string;
+  readonly certificateArn?: string;
 
   /**
    * @schema GreengrassDevice#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
   /**
    * @schema GreengrassDevice#SyncShadow
@@ -3647,9 +6579,26 @@ export interface GreengrassDevice {
   /**
    * @schema GreengrassDevice#ThingArn
    */
-  readonly thingArn: string;
+  readonly thingArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassDevice' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDevice(obj: GreengrassDevice | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CertificateArn': obj.certificateArn,
+    'Id': obj.id,
+    'SyncShadow': obj.syncShadow,
+    'ThingArn': obj.thingArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassFunctionDefinitionVersion
@@ -3668,6 +6617,21 @@ export interface GreengrassFunctionDefinitionVersion {
 }
 
 /**
+ * Converts an object of type 'GreengrassFunctionDefinitionVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassFunctionDefinitionVersion(obj: GreengrassFunctionDefinitionVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DefaultConfig': toJson_GreengrassFunctionDefaultConfig(obj.defaultConfig),
+    'Functions': obj.functions?.map(y => toJson_GreengrassFunction(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassFunctionDefaultConfig
  */
 export interface GreengrassFunctionDefaultConfig {
@@ -3677,6 +6641,20 @@ export interface GreengrassFunctionDefaultConfig {
   readonly execution?: GreengrassFunctionDefaultExecutionConfig;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassFunctionDefaultConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassFunctionDefaultConfig(obj: GreengrassFunctionDefaultConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Execution': toJson_GreengrassFunctionDefaultExecutionConfig(obj.execution),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassFunction
@@ -3695,9 +6673,25 @@ export interface GreengrassFunction {
   /**
    * @schema GreengrassFunction#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassFunction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassFunction(obj: GreengrassFunction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FunctionArn': obj.functionArn,
+    'FunctionConfiguration': toJson_GreengrassFunctionConfiguration(obj.functionConfiguration),
+    'Id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGroupVersion
@@ -3741,6 +6735,26 @@ export interface GreengrassGroupVersion {
 }
 
 /**
+ * Converts an object of type 'GreengrassGroupVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGroupVersion(obj: GreengrassGroupVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConnectorDefinitionVersionArn': obj.connectorDefinitionVersionArn,
+    'CoreDefinitionVersionArn': obj.coreDefinitionVersionArn,
+    'DeviceDefinitionVersionArn': obj.deviceDefinitionVersionArn,
+    'FunctionDefinitionVersionArn': obj.functionDefinitionVersionArn,
+    'LoggerDefinitionVersionArn': obj.loggerDefinitionVersionArn,
+    'ResourceDefinitionVersionArn': obj.resourceDefinitionVersionArn,
+    'SubscriptionDefinitionVersionArn': obj.subscriptionDefinitionVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassLoggerDefinitionVersion
  */
 export interface GreengrassLoggerDefinitionVersion {
@@ -3752,23 +6766,37 @@ export interface GreengrassLoggerDefinitionVersion {
 }
 
 /**
+ * Converts an object of type 'GreengrassLoggerDefinitionVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassLoggerDefinitionVersion(obj: GreengrassLoggerDefinitionVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Loggers': obj.loggers?.map(y => toJson_GreengrassLogger(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassLogger
  */
 export interface GreengrassLogger {
   /**
    * @schema GreengrassLogger#Component
    */
-  readonly component: string;
+  readonly component?: string;
 
   /**
    * @schema GreengrassLogger#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
   /**
    * @schema GreengrassLogger#Level
    */
-  readonly level: string;
+  readonly level?: string;
 
   /**
    * @schema GreengrassLogger#Space
@@ -3778,9 +6806,27 @@ export interface GreengrassLogger {
   /**
    * @schema GreengrassLogger#Type
    */
-  readonly type: string;
+  readonly type?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassLogger' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassLogger(obj: GreengrassLogger | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Component': obj.component,
+    'Id': obj.id,
+    'Level': obj.level,
+    'Space': obj.space,
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassResourceDefinitionVersion
@@ -3794,25 +6840,55 @@ export interface GreengrassResourceDefinitionVersion {
 }
 
 /**
+ * Converts an object of type 'GreengrassResourceDefinitionVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassResourceDefinitionVersion(obj: GreengrassResourceDefinitionVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Resources': obj.resources?.map(y => toJson_GreengrassResource(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassResource
  */
 export interface GreengrassResource {
   /**
    * @schema GreengrassResource#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
   /**
    * @schema GreengrassResource#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema GreengrassResource#ResourceDataContainer
    */
-  readonly resourceDataContainer: GreengrassResourceDataContainer;
+  readonly resourceDataContainer?: GreengrassResourceDataContainer;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassResource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassResource(obj: GreengrassResource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+    'Name': obj.name,
+    'ResourceDataContainer': toJson_GreengrassResourceDataContainer(obj.resourceDataContainer),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassSubscriptionDefinitionVersion
@@ -3826,30 +6902,61 @@ export interface GreengrassSubscriptionDefinitionVersion {
 }
 
 /**
+ * Converts an object of type 'GreengrassSubscriptionDefinitionVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassSubscriptionDefinitionVersion(obj: GreengrassSubscriptionDefinitionVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Subscriptions': obj.subscriptions?.map(y => toJson_GreengrassSubscription(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassSubscription
  */
 export interface GreengrassSubscription {
   /**
    * @schema GreengrassSubscription#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
   /**
    * @schema GreengrassSubscription#Source
    */
-  readonly source: string;
+  readonly source?: string;
 
   /**
    * @schema GreengrassSubscription#Subject
    */
-  readonly subject: string;
+  readonly subject?: string;
 
   /**
    * @schema GreengrassSubscription#Target
    */
-  readonly target: string;
+  readonly target?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassSubscription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassSubscription(obj: GreengrassSubscription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+    'Source': obj.source,
+    'Subject': obj.subject,
+    'Target': obj.target,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassBulkDeploymentMetrics
@@ -3873,6 +6980,22 @@ export interface GreengrassBulkDeploymentMetrics {
 }
 
 /**
+ * Converts an object of type 'GreengrassBulkDeploymentMetrics' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassBulkDeploymentMetrics(obj: GreengrassBulkDeploymentMetrics | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InvalidInputRecords': obj.invalidInputRecords,
+    'RecordsProcessed': obj.recordsProcessed,
+    'RetryAttempts': obj.retryAttempts,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassErrorDetail
  */
 export interface GreengrassErrorDetail {
@@ -3887,6 +7010,21 @@ export interface GreengrassErrorDetail {
   readonly detailedErrorMessage?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassErrorDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassErrorDetail(obj: GreengrassErrorDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DetailedErrorCode': obj.detailedErrorCode,
+    'DetailedErrorMessage': obj.detailedErrorMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassConnectivityInfo
@@ -3915,6 +7053,23 @@ export interface GreengrassConnectivityInfo {
 }
 
 /**
+ * Converts an object of type 'GreengrassConnectivityInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassConnectivityInfo(obj: GreengrassConnectivityInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HostAddress': obj.hostAddress,
+    'Id': obj.id,
+    'Metadata': obj.metadata,
+    'PortNumber': obj.portNumber,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassRuntimeConfiguration
  */
 export interface GreengrassRuntimeConfiguration {
@@ -3924,6 +7079,20 @@ export interface GreengrassRuntimeConfiguration {
   readonly telemetryConfiguration?: GreengrassTelemetryConfiguration;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassRuntimeConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassRuntimeConfiguration(obj: GreengrassRuntimeConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TelemetryConfiguration': toJson_GreengrassTelemetryConfiguration(obj.telemetryConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassBulkDeploymentResult
@@ -3972,6 +7141,27 @@ export interface GreengrassBulkDeploymentResult {
 }
 
 /**
+ * Converts an object of type 'GreengrassBulkDeploymentResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassBulkDeploymentResult(obj: GreengrassBulkDeploymentResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreatedAt': obj.createdAt,
+    'DeploymentArn': obj.deploymentArn,
+    'DeploymentId': obj.deploymentId,
+    'DeploymentStatus': obj.deploymentStatus,
+    'DeploymentType': obj.deploymentType,
+    'ErrorDetails': obj.errorDetails?.map(y => toJson_GreengrassErrorDetail(y)),
+    'ErrorMessage': obj.errorMessage,
+    'GroupArn': obj.groupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassBulkDeployment
  */
 export interface GreengrassBulkDeployment {
@@ -3991,6 +7181,22 @@ export interface GreengrassBulkDeployment {
   readonly createdAt?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassBulkDeployment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassBulkDeployment(obj: GreengrassBulkDeployment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BulkDeploymentArn': obj.bulkDeploymentArn,
+    'BulkDeploymentId': obj.bulkDeploymentId,
+    'CreatedAt': obj.createdAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassVersionInformation
@@ -4017,6 +7223,23 @@ export interface GreengrassVersionInformation {
   readonly version?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassVersionInformation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassVersionInformation(obj: GreengrassVersionInformation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassDefinitionInformation
@@ -4065,6 +7288,27 @@ export interface GreengrassDefinitionInformation {
 }
 
 /**
+ * Converts an object of type 'GreengrassDefinitionInformation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDefinitionInformation(obj: GreengrassDefinitionInformation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'LatestVersion': obj.latestVersion,
+    'LatestVersionArn': obj.latestVersionArn,
+    'Name': obj.name,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassDeployment
  */
 export interface GreengrassDeployment {
@@ -4096,6 +7340,24 @@ export interface GreengrassDeployment {
 }
 
 /**
+ * Converts an object of type 'GreengrassDeployment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassDeployment(obj: GreengrassDeployment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreatedAt': obj.createdAt,
+    'DeploymentArn': obj.deploymentArn,
+    'DeploymentId': obj.deploymentId,
+    'DeploymentType': obj.deploymentType,
+    'GroupArn': obj.groupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassGroupCertificateAuthorityProperties
  */
 export interface GreengrassGroupCertificateAuthorityProperties {
@@ -4110,6 +7372,21 @@ export interface GreengrassGroupCertificateAuthorityProperties {
   readonly groupCertificateAuthorityId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassGroupCertificateAuthorityProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGroupCertificateAuthorityProperties(obj: GreengrassGroupCertificateAuthorityProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupCertificateAuthorityArn': obj.groupCertificateAuthorityArn,
+    'GroupCertificateAuthorityId': obj.groupCertificateAuthorityId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGroupInformation
@@ -4153,15 +7430,49 @@ export interface GreengrassGroupInformation {
 }
 
 /**
+ * Converts an object of type 'GreengrassGroupInformation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGroupInformation(obj: GreengrassGroupInformation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreationTimestamp': obj.creationTimestamp,
+    'Id': obj.id,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'LatestVersion': obj.latestVersion,
+    'LatestVersionArn': obj.latestVersionArn,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassTelemetryConfigurationUpdate
  */
 export interface GreengrassTelemetryConfigurationUpdate {
   /**
    * @schema GreengrassTelemetryConfigurationUpdate#Telemetry
    */
-  readonly telemetry: string;
+  readonly telemetry?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassTelemetryConfigurationUpdate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassTelemetryConfigurationUpdate(obj: GreengrassTelemetryConfigurationUpdate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Telemetry': obj.telemetry,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassFunctionDefaultExecutionConfig
@@ -4178,6 +7489,21 @@ export interface GreengrassFunctionDefaultExecutionConfig {
   readonly runAs?: GreengrassFunctionRunAsConfig;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassFunctionDefaultExecutionConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassFunctionDefaultExecutionConfig(obj: GreengrassFunctionDefaultExecutionConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IsolationMode': obj.isolationMode,
+    'RunAs': toJson_GreengrassFunctionRunAsConfig(obj.runAs),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassFunctionConfiguration
@@ -4221,6 +7547,26 @@ export interface GreengrassFunctionConfiguration {
 }
 
 /**
+ * Converts an object of type 'GreengrassFunctionConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassFunctionConfiguration(obj: GreengrassFunctionConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EncodingType': obj.encodingType,
+    'Environment': toJson_GreengrassFunctionConfigurationEnvironment(obj.environment),
+    'ExecArgs': obj.execArgs,
+    'Executable': obj.executable,
+    'MemorySize': obj.memorySize,
+    'Pinned': obj.pinned,
+    'Timeout': obj.timeout,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassResourceDataContainer
  */
 export interface GreengrassResourceDataContainer {
@@ -4252,6 +7598,24 @@ export interface GreengrassResourceDataContainer {
 }
 
 /**
+ * Converts an object of type 'GreengrassResourceDataContainer' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassResourceDataContainer(obj: GreengrassResourceDataContainer | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocalDeviceResourceData': toJson_GreengrassLocalDeviceResourceData(obj.localDeviceResourceData),
+    'LocalVolumeResourceData': toJson_GreengrassLocalVolumeResourceData(obj.localVolumeResourceData),
+    'S3MachineLearningModelResourceData': toJson_GreengrassS3MachineLearningModelResourceData(obj.s3MachineLearningModelResourceData),
+    'SageMakerMachineLearningModelResourceData': toJson_GreengrassSageMakerMachineLearningModelResourceData(obj.sageMakerMachineLearningModelResourceData),
+    'SecretsManagerSecretResourceData': toJson_GreengrassSecretsManagerSecretResourceData(obj.secretsManagerSecretResourceData),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassTelemetryConfiguration
  */
 export interface GreengrassTelemetryConfiguration {
@@ -4263,9 +7627,24 @@ export interface GreengrassTelemetryConfiguration {
   /**
    * @schema GreengrassTelemetryConfiguration#Telemetry
    */
-  readonly telemetry: string;
+  readonly telemetry?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassTelemetryConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassTelemetryConfiguration(obj: GreengrassTelemetryConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConfigurationSyncStatus': obj.configurationSyncStatus,
+    'Telemetry': obj.telemetry,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassFunctionRunAsConfig
@@ -4282,6 +7661,21 @@ export interface GreengrassFunctionRunAsConfig {
   readonly uid?: number;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassFunctionRunAsConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassFunctionRunAsConfig(obj: GreengrassFunctionRunAsConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Gid': obj.gid,
+    'Uid': obj.uid,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassFunctionConfigurationEnvironment
@@ -4310,6 +7704,23 @@ export interface GreengrassFunctionConfigurationEnvironment {
 }
 
 /**
+ * Converts an object of type 'GreengrassFunctionConfigurationEnvironment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassFunctionConfigurationEnvironment(obj: GreengrassFunctionConfigurationEnvironment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AccessSysfs': obj.accessSysfs,
+    'Execution': toJson_GreengrassFunctionExecutionConfig(obj.execution),
+    'ResourceAccessPolicies': obj.resourceAccessPolicies?.map(y => toJson_GreengrassResourceAccessPolicy(y)),
+    'Variables': ((obj.variables) === undefined) ? undefined : (Object.entries(obj.variables).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassLocalDeviceResourceData
  */
 export interface GreengrassLocalDeviceResourceData {
@@ -4324,6 +7735,21 @@ export interface GreengrassLocalDeviceResourceData {
   readonly sourcePath?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassLocalDeviceResourceData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassLocalDeviceResourceData(obj: GreengrassLocalDeviceResourceData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupOwnerSetting': toJson_GreengrassGroupOwnerSetting(obj.groupOwnerSetting),
+    'SourcePath': obj.sourcePath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassLocalVolumeResourceData
@@ -4347,6 +7773,22 @@ export interface GreengrassLocalVolumeResourceData {
 }
 
 /**
+ * Converts an object of type 'GreengrassLocalVolumeResourceData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassLocalVolumeResourceData(obj: GreengrassLocalVolumeResourceData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DestinationPath': obj.destinationPath,
+    'GroupOwnerSetting': toJson_GreengrassGroupOwnerSetting(obj.groupOwnerSetting),
+    'SourcePath': obj.sourcePath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassS3MachineLearningModelResourceData
  */
 export interface GreengrassS3MachineLearningModelResourceData {
@@ -4366,6 +7808,22 @@ export interface GreengrassS3MachineLearningModelResourceData {
   readonly s3Uri?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassS3MachineLearningModelResourceData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassS3MachineLearningModelResourceData(obj: GreengrassS3MachineLearningModelResourceData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DestinationPath': obj.destinationPath,
+    'OwnerSetting': toJson_GreengrassResourceDownloadOwnerSetting(obj.ownerSetting),
+    'S3Uri': obj.s3Uri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassSageMakerMachineLearningModelResourceData
@@ -4389,6 +7847,22 @@ export interface GreengrassSageMakerMachineLearningModelResourceData {
 }
 
 /**
+ * Converts an object of type 'GreengrassSageMakerMachineLearningModelResourceData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassSageMakerMachineLearningModelResourceData(obj: GreengrassSageMakerMachineLearningModelResourceData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DestinationPath': obj.destinationPath,
+    'OwnerSetting': toJson_GreengrassResourceDownloadOwnerSetting(obj.ownerSetting),
+    'SageMakerJobArn': obj.sageMakerJobArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassSecretsManagerSecretResourceData
  */
 export interface GreengrassSecretsManagerSecretResourceData {
@@ -4403,6 +7877,21 @@ export interface GreengrassSecretsManagerSecretResourceData {
   readonly additionalStagingLabelsToDownload?: string[];
 
 }
+
+/**
+ * Converts an object of type 'GreengrassSecretsManagerSecretResourceData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassSecretsManagerSecretResourceData(obj: GreengrassSecretsManagerSecretResourceData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ARN': obj.arn,
+    'AdditionalStagingLabelsToDownload': obj.additionalStagingLabelsToDownload?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassFunctionExecutionConfig
@@ -4421,6 +7910,21 @@ export interface GreengrassFunctionExecutionConfig {
 }
 
 /**
+ * Converts an object of type 'GreengrassFunctionExecutionConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassFunctionExecutionConfig(obj: GreengrassFunctionExecutionConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IsolationMode': obj.isolationMode,
+    'RunAs': toJson_GreengrassFunctionRunAsConfig(obj.runAs),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassResourceAccessPolicy
  */
 export interface GreengrassResourceAccessPolicy {
@@ -4432,9 +7936,24 @@ export interface GreengrassResourceAccessPolicy {
   /**
    * @schema GreengrassResourceAccessPolicy#ResourceId
    */
-  readonly resourceId: string;
+  readonly resourceId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassResourceAccessPolicy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassResourceAccessPolicy(obj: GreengrassResourceAccessPolicy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Permission': obj.permission,
+    'ResourceId': obj.resourceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GreengrassGroupOwnerSetting
@@ -4453,17 +7972,47 @@ export interface GreengrassGroupOwnerSetting {
 }
 
 /**
+ * Converts an object of type 'GreengrassGroupOwnerSetting' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassGroupOwnerSetting(obj: GreengrassGroupOwnerSetting | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AutoAddGroupOwner': obj.autoAddGroupOwner,
+    'GroupOwner': obj.groupOwner,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GreengrassResourceDownloadOwnerSetting
  */
 export interface GreengrassResourceDownloadOwnerSetting {
   /**
    * @schema GreengrassResourceDownloadOwnerSetting#GroupOwner
    */
-  readonly groupOwner: string;
+  readonly groupOwner?: string;
 
   /**
    * @schema GreengrassResourceDownloadOwnerSetting#GroupPermission
    */
-  readonly groupPermission: string;
+  readonly groupPermission?: string;
 
 }
+
+/**
+ * Converts an object of type 'GreengrassResourceDownloadOwnerSetting' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GreengrassResourceDownloadOwnerSetting(obj: GreengrassResourceDownloadOwnerSetting | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupOwner': obj.groupOwner,
+    'GroupPermission': obj.groupPermission,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

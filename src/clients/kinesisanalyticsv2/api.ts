@@ -117,6 +117,10 @@ export class KinesisAnalyticsV2Client extends cdk.Construct {
     return new KinesisAnalyticsV2ResponsesDescribeApplicationSnapshot(this, this.__resources, input);
   }
 
+  public describeApplicationVersion(input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest): KinesisAnalyticsV2ResponsesDescribeApplicationVersion {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersion(this, this.__resources, input);
+  }
+
   public discoverInputSchema(input: shapes.KinesisAnalyticsV2DiscoverInputSchemaRequest): KinesisAnalyticsV2ResponsesDiscoverInputSchema {
     return new KinesisAnalyticsV2ResponsesDiscoverInputSchema(this, this.__resources, input);
   }
@@ -125,12 +129,20 @@ export class KinesisAnalyticsV2Client extends cdk.Construct {
     return new KinesisAnalyticsV2ResponsesListApplicationSnapshots(this, this.__resources, input);
   }
 
+  public listApplicationVersions(input: shapes.KinesisAnalyticsV2ListApplicationVersionsRequest): KinesisAnalyticsV2ResponsesListApplicationVersions {
+    return new KinesisAnalyticsV2ResponsesListApplicationVersions(this, this.__resources, input);
+  }
+
   public listApplications(input: shapes.KinesisAnalyticsV2ListApplicationsRequest): KinesisAnalyticsV2ResponsesListApplications {
     return new KinesisAnalyticsV2ResponsesListApplications(this, this.__resources, input);
   }
 
   public listTagsForResource(input: shapes.KinesisAnalyticsV2ListTagsForResourceRequest): KinesisAnalyticsV2ResponsesListTagsForResource {
     return new KinesisAnalyticsV2ResponsesListTagsForResource(this, this.__resources, input);
+  }
+
+  public rollbackApplication(input: shapes.KinesisAnalyticsV2RollbackApplicationRequest): KinesisAnalyticsV2ResponsesRollbackApplication {
+    return new KinesisAnalyticsV2ResponsesRollbackApplication(this, this.__resources, input);
   }
 
   public startApplication(input: shapes.KinesisAnalyticsV2StartApplicationRequest): void {
@@ -144,12 +156,12 @@ export class KinesisAnalyticsV2Client extends cdk.Construct {
           ApplicationName: input.applicationName,
           RunConfiguration: {
             FlinkRunConfiguration: {
-              AllowNonRestoredState: input.runConfiguration.flinkRunConfiguration?.allowNonRestoredState,
+              AllowNonRestoredState: input.runConfiguration?.flinkRunConfiguration?.allowNonRestoredState,
             },
-            SqlRunConfigurations: input.runConfiguration.sqlRunConfigurations,
+            SqlRunConfigurations: input.runConfiguration?.sqlRunConfigurations,
             ApplicationRestoreConfiguration: {
-              ApplicationRestoreType: input.runConfiguration.applicationRestoreConfiguration?.applicationRestoreType,
-              SnapshotName: input.runConfiguration.applicationRestoreConfiguration?.snapshotName,
+              ApplicationRestoreType: input.runConfiguration?.applicationRestoreConfiguration?.applicationRestoreType,
+              SnapshotName: input.runConfiguration?.applicationRestoreConfiguration?.snapshotName,
             },
           },
         },
@@ -210,6 +222,10 @@ export class KinesisAnalyticsV2Client extends cdk.Construct {
     return new KinesisAnalyticsV2ResponsesUpdateApplication(this, this.__resources, input);
   }
 
+  public updateApplicationMaintenanceConfiguration(input: shapes.KinesisAnalyticsV2UpdateApplicationMaintenanceConfigurationRequest): KinesisAnalyticsV2ResponsesUpdateApplicationMaintenanceConfiguration {
+    return new KinesisAnalyticsV2ResponsesUpdateApplicationMaintenanceConfiguration(this, this.__resources, input);
+  }
+
 }
 
 export class KinesisAnalyticsV2ResponsesAddApplicationCloudWatchLoggingOption {
@@ -231,6 +247,7 @@ export class KinesisAnalyticsV2ResponsesAddApplicationCloudWatchLoggingOption {
           CloudWatchLoggingOption: {
             LogStreamARN: this.__input.cloudWatchLoggingOption.logStreamArn,
           },
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -252,6 +269,7 @@ export class KinesisAnalyticsV2ResponsesAddApplicationCloudWatchLoggingOption {
           CloudWatchLoggingOption: {
             LogStreamARN: this.__input.cloudWatchLoggingOption.logStreamArn,
           },
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -273,6 +291,7 @@ export class KinesisAnalyticsV2ResponsesAddApplicationCloudWatchLoggingOption {
           CloudWatchLoggingOption: {
             LogStreamARN: this.__input.cloudWatchLoggingOption.logStreamArn,
           },
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -847,6 +866,7 @@ export class KinesisAnalyticsV2ResponsesAddApplicationVpcConfiguration {
             SubnetIds: this.__input.vpcConfiguration.subnetIds,
             SecurityGroupIds: this.__input.vpcConfiguration.securityGroupIds,
           },
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -869,6 +889,7 @@ export class KinesisAnalyticsV2ResponsesAddApplicationVpcConfiguration {
             SubnetIds: this.__input.vpcConfiguration.subnetIds,
             SecurityGroupIds: this.__input.vpcConfiguration.securityGroupIds,
           },
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -902,6 +923,7 @@ export class KinesisAnalyticsV2ResponsesAddApplicationVpcConfigurationVpcConfigu
             SubnetIds: this.__input.vpcConfiguration.subnetIds,
             SecurityGroupIds: this.__input.vpcConfiguration.securityGroupIds,
           },
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -924,6 +946,7 @@ export class KinesisAnalyticsV2ResponsesAddApplicationVpcConfigurationVpcConfigu
             SubnetIds: this.__input.vpcConfiguration.subnetIds,
             SecurityGroupIds: this.__input.vpcConfiguration.securityGroupIds,
           },
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -946,6 +969,7 @@ export class KinesisAnalyticsV2ResponsesAddApplicationVpcConfigurationVpcConfigu
             SubnetIds: this.__input.vpcConfiguration.subnetIds,
             SecurityGroupIds: this.__input.vpcConfiguration.securityGroupIds,
           },
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -968,6 +992,7 @@ export class KinesisAnalyticsV2ResponsesAddApplicationVpcConfigurationVpcConfigu
             SubnetIds: this.__input.vpcConfiguration.subnetIds,
             SecurityGroupIds: this.__input.vpcConfiguration.securityGroupIds,
           },
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -1036,24 +1061,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetail {
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -1104,24 +1147,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetail {
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -1172,24 +1233,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetail {
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -1240,24 +1319,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetail {
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -1308,24 +1405,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetail {
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -1376,24 +1491,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetail {
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -1444,24 +1577,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetail {
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -1512,24 +1663,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetail {
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -1580,24 +1749,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetail {
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -1652,29 +1839,481 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetail {
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateApplication.ApplicationDetail.CloudWatchLoggingOptionDescriptions', props);
     return resource.getResponseField('ApplicationDetail.CloudWatchLoggingOptionDescriptions') as unknown as shapes.KinesisAnalyticsV2CloudWatchLoggingOptionDescription[];
+  }
+
+  public get applicationMaintenanceConfigurationDescription(): KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationMaintenanceConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationMaintenanceConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get applicationVersionUpdatedFrom(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.CreateApplication.ApplicationDetail.ApplicationVersionUpdatedFrom'),
+        outputPath: 'ApplicationDetail.ApplicationVersionUpdatedFrom',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationDescription: this.__input.applicationDescription,
+          RuntimeEnvironment: this.__input.runtimeEnvironment,
+          ServiceExecutionRole: this.__input.serviceExecutionRole,
+          ApplicationConfiguration: {
+            SqlApplicationConfiguration: {
+              Inputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.inputs,
+              Outputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.outputs,
+              ReferenceDataSources: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.referenceDataSources,
+            },
+            FlinkApplicationConfiguration: {
+              CheckpointConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.configurationType,
+                CheckpointingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointingEnabled,
+                CheckpointInterval: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointInterval,
+                MinPauseBetweenCheckpoints: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.minPauseBetweenCheckpoints,
+              },
+              MonitoringConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.configurationType,
+                MetricsLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.metricsLevel,
+                LogLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              ParallelismConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.configurationType,
+                Parallelism: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelism,
+                ParallelismPerKPU: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelismPerKpu,
+                AutoScalingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.autoScalingEnabled,
+              },
+            },
+            EnvironmentProperties: {
+              PropertyGroups: this.__input.applicationConfiguration?.environmentProperties?.propertyGroups,
+            },
+            ApplicationCodeConfiguration: {
+              CodeContent: {
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
+                ZipFileContent: {
+                },
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
+                },
+              },
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
+            },
+            ApplicationSnapshotConfiguration: {
+              SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
+            },
+            VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
+          },
+          CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
+          Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateApplication.ApplicationDetail.ApplicationVersionUpdatedFrom', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationVersionUpdatedFrom') as unknown as number;
+  }
+
+  public get applicationVersionRolledBackFrom(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.CreateApplication.ApplicationDetail.ApplicationVersionRolledBackFrom'),
+        outputPath: 'ApplicationDetail.ApplicationVersionRolledBackFrom',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationDescription: this.__input.applicationDescription,
+          RuntimeEnvironment: this.__input.runtimeEnvironment,
+          ServiceExecutionRole: this.__input.serviceExecutionRole,
+          ApplicationConfiguration: {
+            SqlApplicationConfiguration: {
+              Inputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.inputs,
+              Outputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.outputs,
+              ReferenceDataSources: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.referenceDataSources,
+            },
+            FlinkApplicationConfiguration: {
+              CheckpointConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.configurationType,
+                CheckpointingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointingEnabled,
+                CheckpointInterval: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointInterval,
+                MinPauseBetweenCheckpoints: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.minPauseBetweenCheckpoints,
+              },
+              MonitoringConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.configurationType,
+                MetricsLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.metricsLevel,
+                LogLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              ParallelismConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.configurationType,
+                Parallelism: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelism,
+                ParallelismPerKPU: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelismPerKpu,
+                AutoScalingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.autoScalingEnabled,
+              },
+            },
+            EnvironmentProperties: {
+              PropertyGroups: this.__input.applicationConfiguration?.environmentProperties?.propertyGroups,
+            },
+            ApplicationCodeConfiguration: {
+              CodeContent: {
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
+                ZipFileContent: {
+                },
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
+                },
+              },
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
+            },
+            ApplicationSnapshotConfiguration: {
+              SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
+            },
+            VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
+          },
+          CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
+          Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateApplication.ApplicationDetail.ApplicationVersionRolledBackFrom', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationVersionRolledBackFrom') as unknown as number;
+  }
+
+  public get conditionalToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.CreateApplication.ApplicationDetail.ConditionalToken'),
+        outputPath: 'ApplicationDetail.ConditionalToken',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationDescription: this.__input.applicationDescription,
+          RuntimeEnvironment: this.__input.runtimeEnvironment,
+          ServiceExecutionRole: this.__input.serviceExecutionRole,
+          ApplicationConfiguration: {
+            SqlApplicationConfiguration: {
+              Inputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.inputs,
+              Outputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.outputs,
+              ReferenceDataSources: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.referenceDataSources,
+            },
+            FlinkApplicationConfiguration: {
+              CheckpointConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.configurationType,
+                CheckpointingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointingEnabled,
+                CheckpointInterval: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointInterval,
+                MinPauseBetweenCheckpoints: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.minPauseBetweenCheckpoints,
+              },
+              MonitoringConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.configurationType,
+                MetricsLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.metricsLevel,
+                LogLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              ParallelismConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.configurationType,
+                Parallelism: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelism,
+                ParallelismPerKPU: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelismPerKpu,
+                AutoScalingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.autoScalingEnabled,
+              },
+            },
+            EnvironmentProperties: {
+              PropertyGroups: this.__input.applicationConfiguration?.environmentProperties?.propertyGroups,
+            },
+            ApplicationCodeConfiguration: {
+              CodeContent: {
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
+                ZipFileContent: {
+                },
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
+                },
+              },
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
+            },
+            ApplicationSnapshotConfiguration: {
+              SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
+            },
+            VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
+          },
+          CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
+          Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateApplication.ApplicationDetail.ConditionalToken', props);
+    return resource.getResponseField('ApplicationDetail.ConditionalToken') as unknown as string;
+  }
+
+  public get applicationVersionRolledBackTo(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.CreateApplication.ApplicationDetail.ApplicationVersionRolledBackTo'),
+        outputPath: 'ApplicationDetail.ApplicationVersionRolledBackTo',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationDescription: this.__input.applicationDescription,
+          RuntimeEnvironment: this.__input.runtimeEnvironment,
+          ServiceExecutionRole: this.__input.serviceExecutionRole,
+          ApplicationConfiguration: {
+            SqlApplicationConfiguration: {
+              Inputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.inputs,
+              Outputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.outputs,
+              ReferenceDataSources: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.referenceDataSources,
+            },
+            FlinkApplicationConfiguration: {
+              CheckpointConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.configurationType,
+                CheckpointingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointingEnabled,
+                CheckpointInterval: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointInterval,
+                MinPauseBetweenCheckpoints: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.minPauseBetweenCheckpoints,
+              },
+              MonitoringConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.configurationType,
+                MetricsLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.metricsLevel,
+                LogLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              ParallelismConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.configurationType,
+                Parallelism: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelism,
+                ParallelismPerKPU: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelismPerKpu,
+                AutoScalingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.autoScalingEnabled,
+              },
+            },
+            EnvironmentProperties: {
+              PropertyGroups: this.__input.applicationConfiguration?.environmentProperties?.propertyGroups,
+            },
+            ApplicationCodeConfiguration: {
+              CodeContent: {
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
+                ZipFileContent: {
+                },
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
+                },
+              },
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
+            },
+            ApplicationSnapshotConfiguration: {
+              SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
+            },
+            VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
+          },
+          CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
+          Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateApplication.ApplicationDetail.ApplicationVersionRolledBackTo', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationVersionRolledBackTo') as unknown as number;
+  }
+
+  public get applicationMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.CreateApplication.ApplicationDetail.ApplicationMode'),
+        outputPath: 'ApplicationDetail.ApplicationMode',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationDescription: this.__input.applicationDescription,
+          RuntimeEnvironment: this.__input.runtimeEnvironment,
+          ServiceExecutionRole: this.__input.serviceExecutionRole,
+          ApplicationConfiguration: {
+            SqlApplicationConfiguration: {
+              Inputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.inputs,
+              Outputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.outputs,
+              ReferenceDataSources: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.referenceDataSources,
+            },
+            FlinkApplicationConfiguration: {
+              CheckpointConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.configurationType,
+                CheckpointingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointingEnabled,
+                CheckpointInterval: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointInterval,
+                MinPauseBetweenCheckpoints: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.minPauseBetweenCheckpoints,
+              },
+              MonitoringConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.configurationType,
+                MetricsLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.metricsLevel,
+                LogLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              ParallelismConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.configurationType,
+                Parallelism: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelism,
+                ParallelismPerKPU: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelismPerKpu,
+                AutoScalingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.autoScalingEnabled,
+              },
+            },
+            EnvironmentProperties: {
+              PropertyGroups: this.__input.applicationConfiguration?.environmentProperties?.propertyGroups,
+            },
+            ApplicationCodeConfiguration: {
+              CodeContent: {
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
+                ZipFileContent: {
+                },
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
+                },
+              },
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
+            },
+            ApplicationSnapshotConfiguration: {
+              SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
+            },
+            VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
+          },
+          CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
+          Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateApplication.ApplicationDetail.ApplicationMode', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationMode') as unknown as string;
   }
 
 }
@@ -1751,29 +2390,51 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateApplication.ApplicationDetail.ApplicationConfigurationDescription.VpcConfigurationDescriptions', props);
     return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.VpcConfigurationDescriptions') as unknown as shapes.KinesisAnalyticsV2VpcConfigurationDescription[];
+  }
+
+  public get zeppelinApplicationConfigurationDescription(): KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescription(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -1826,24 +2487,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -1894,24 +2573,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -1962,24 +2659,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -2037,24 +2752,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -2116,24 +2849,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -2184,24 +2935,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -2252,24 +3021,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -2331,24 +3118,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -2399,24 +3204,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -2467,24 +3290,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -2557,24 +3398,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -2625,24 +3484,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -2700,24 +3577,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -2787,24 +3682,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -2862,24 +3775,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -2930,24 +3861,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -2998,24 +3947,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -3066,24 +4033,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -3141,24 +4126,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -3209,24 +4212,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -3277,24 +4298,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -3352,24 +4391,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -3420,24 +4477,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -3488,24 +4563,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -3556,24 +4649,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -3624,24 +4735,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -3699,24 +4828,42 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
@@ -3774,29 +4921,718 @@ export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplic
             },
             ApplicationCodeConfiguration: {
               CodeContent: {
-                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.textContent,
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
                 ZipFileContent: {
                 },
                 S3ContentLocation: {
-                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.bucketArn,
-                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.fileKey,
-                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContent?.s3ContentLocation?.objectVersion,
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
                 },
               },
-              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration.codeContentType,
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
             },
             ApplicationSnapshotConfiguration: {
               SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
             },
             VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
           },
           CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
           Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateApplication.ApplicationDetail.ApplicationConfigurationDescription.ApplicationSnapshotConfigurationDescription.SnapshotsEnabled', props);
     return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ApplicationSnapshotConfigurationDescription.SnapshotsEnabled') as unknown as boolean;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2CreateApplicationRequest) {
+  }
+
+  public get monitoringConfigurationDescription(): KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionMonitoringConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionMonitoringConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get catalogConfigurationDescription(): KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get deployAsApplicationConfigurationDescription(): KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get customArtifactsConfigurationDescription(): shapes.KinesisAnalyticsV2CustomArtifactConfigurationDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.CreateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationDescription: this.__input.applicationDescription,
+          RuntimeEnvironment: this.__input.runtimeEnvironment,
+          ServiceExecutionRole: this.__input.serviceExecutionRole,
+          ApplicationConfiguration: {
+            SqlApplicationConfiguration: {
+              Inputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.inputs,
+              Outputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.outputs,
+              ReferenceDataSources: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.referenceDataSources,
+            },
+            FlinkApplicationConfiguration: {
+              CheckpointConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.configurationType,
+                CheckpointingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointingEnabled,
+                CheckpointInterval: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointInterval,
+                MinPauseBetweenCheckpoints: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.minPauseBetweenCheckpoints,
+              },
+              MonitoringConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.configurationType,
+                MetricsLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.metricsLevel,
+                LogLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              ParallelismConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.configurationType,
+                Parallelism: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelism,
+                ParallelismPerKPU: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelismPerKpu,
+                AutoScalingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.autoScalingEnabled,
+              },
+            },
+            EnvironmentProperties: {
+              PropertyGroups: this.__input.applicationConfiguration?.environmentProperties?.propertyGroups,
+            },
+            ApplicationCodeConfiguration: {
+              CodeContent: {
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
+                ZipFileContent: {
+                },
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
+                },
+              },
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
+            },
+            ApplicationSnapshotConfiguration: {
+              SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
+            },
+            VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
+          },
+          CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
+          Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription') as unknown as shapes.KinesisAnalyticsV2CustomArtifactConfigurationDescription[];
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionMonitoringConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2CreateApplicationRequest) {
+  }
+
+  public get logLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.CreateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationDescription: this.__input.applicationDescription,
+          RuntimeEnvironment: this.__input.runtimeEnvironment,
+          ServiceExecutionRole: this.__input.serviceExecutionRole,
+          ApplicationConfiguration: {
+            SqlApplicationConfiguration: {
+              Inputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.inputs,
+              Outputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.outputs,
+              ReferenceDataSources: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.referenceDataSources,
+            },
+            FlinkApplicationConfiguration: {
+              CheckpointConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.configurationType,
+                CheckpointingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointingEnabled,
+                CheckpointInterval: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointInterval,
+                MinPauseBetweenCheckpoints: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.minPauseBetweenCheckpoints,
+              },
+              MonitoringConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.configurationType,
+                MetricsLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.metricsLevel,
+                LogLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              ParallelismConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.configurationType,
+                Parallelism: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelism,
+                ParallelismPerKPU: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelismPerKpu,
+                AutoScalingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.autoScalingEnabled,
+              },
+            },
+            EnvironmentProperties: {
+              PropertyGroups: this.__input.applicationConfiguration?.environmentProperties?.propertyGroups,
+            },
+            ApplicationCodeConfiguration: {
+              CodeContent: {
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
+                ZipFileContent: {
+                },
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
+                },
+              },
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
+            },
+            ApplicationSnapshotConfiguration: {
+              SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
+            },
+            VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
+          },
+          CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
+          Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2CreateApplicationRequest) {
+  }
+
+  public get glueDataCatalogConfigurationDescription(): KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescriptionGlueDataCatalogConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescriptionGlueDataCatalogConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescriptionGlueDataCatalogConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2CreateApplicationRequest) {
+  }
+
+  public get databaseArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.CreateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationDescription: this.__input.applicationDescription,
+          RuntimeEnvironment: this.__input.runtimeEnvironment,
+          ServiceExecutionRole: this.__input.serviceExecutionRole,
+          ApplicationConfiguration: {
+            SqlApplicationConfiguration: {
+              Inputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.inputs,
+              Outputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.outputs,
+              ReferenceDataSources: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.referenceDataSources,
+            },
+            FlinkApplicationConfiguration: {
+              CheckpointConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.configurationType,
+                CheckpointingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointingEnabled,
+                CheckpointInterval: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointInterval,
+                MinPauseBetweenCheckpoints: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.minPauseBetweenCheckpoints,
+              },
+              MonitoringConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.configurationType,
+                MetricsLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.metricsLevel,
+                LogLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              ParallelismConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.configurationType,
+                Parallelism: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelism,
+                ParallelismPerKPU: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelismPerKpu,
+                AutoScalingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.autoScalingEnabled,
+              },
+            },
+            EnvironmentProperties: {
+              PropertyGroups: this.__input.applicationConfiguration?.environmentProperties?.propertyGroups,
+            },
+            ApplicationCodeConfiguration: {
+              CodeContent: {
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
+                ZipFileContent: {
+                },
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
+                },
+              },
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
+            },
+            ApplicationSnapshotConfiguration: {
+              SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
+            },
+            VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
+          },
+          CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
+          Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2CreateApplicationRequest) {
+  }
+
+  public get s3ContentLocationDescription(): KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescriptionS3ContentLocationDescription {
+    return new KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescriptionS3ContentLocationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescriptionS3ContentLocationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2CreateApplicationRequest) {
+  }
+
+  public get bucketArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.CreateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationDescription: this.__input.applicationDescription,
+          RuntimeEnvironment: this.__input.runtimeEnvironment,
+          ServiceExecutionRole: this.__input.serviceExecutionRole,
+          ApplicationConfiguration: {
+            SqlApplicationConfiguration: {
+              Inputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.inputs,
+              Outputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.outputs,
+              ReferenceDataSources: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.referenceDataSources,
+            },
+            FlinkApplicationConfiguration: {
+              CheckpointConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.configurationType,
+                CheckpointingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointingEnabled,
+                CheckpointInterval: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointInterval,
+                MinPauseBetweenCheckpoints: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.minPauseBetweenCheckpoints,
+              },
+              MonitoringConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.configurationType,
+                MetricsLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.metricsLevel,
+                LogLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              ParallelismConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.configurationType,
+                Parallelism: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelism,
+                ParallelismPerKPU: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelismPerKpu,
+                AutoScalingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.autoScalingEnabled,
+              },
+            },
+            EnvironmentProperties: {
+              PropertyGroups: this.__input.applicationConfiguration?.environmentProperties?.propertyGroups,
+            },
+            ApplicationCodeConfiguration: {
+              CodeContent: {
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
+                ZipFileContent: {
+                },
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
+                },
+              },
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
+            },
+            ApplicationSnapshotConfiguration: {
+              SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
+            },
+            VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
+          },
+          CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
+          Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN') as unknown as string;
+  }
+
+  public get basePath(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.CreateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationDescription: this.__input.applicationDescription,
+          RuntimeEnvironment: this.__input.runtimeEnvironment,
+          ServiceExecutionRole: this.__input.serviceExecutionRole,
+          ApplicationConfiguration: {
+            SqlApplicationConfiguration: {
+              Inputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.inputs,
+              Outputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.outputs,
+              ReferenceDataSources: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.referenceDataSources,
+            },
+            FlinkApplicationConfiguration: {
+              CheckpointConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.configurationType,
+                CheckpointingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointingEnabled,
+                CheckpointInterval: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointInterval,
+                MinPauseBetweenCheckpoints: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.minPauseBetweenCheckpoints,
+              },
+              MonitoringConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.configurationType,
+                MetricsLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.metricsLevel,
+                LogLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              ParallelismConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.configurationType,
+                Parallelism: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelism,
+                ParallelismPerKPU: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelismPerKpu,
+                AutoScalingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.autoScalingEnabled,
+              },
+            },
+            EnvironmentProperties: {
+              PropertyGroups: this.__input.applicationConfiguration?.environmentProperties?.propertyGroups,
+            },
+            ApplicationCodeConfiguration: {
+              CodeContent: {
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
+                ZipFileContent: {
+                },
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
+                },
+              },
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
+            },
+            ApplicationSnapshotConfiguration: {
+              SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
+            },
+            VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
+          },
+          CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
+          Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesCreateApplicationApplicationDetailApplicationMaintenanceConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2CreateApplicationRequest) {
+  }
+
+  public get applicationMaintenanceWindowStartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.CreateApplication.ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime'),
+        outputPath: 'ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationDescription: this.__input.applicationDescription,
+          RuntimeEnvironment: this.__input.runtimeEnvironment,
+          ServiceExecutionRole: this.__input.serviceExecutionRole,
+          ApplicationConfiguration: {
+            SqlApplicationConfiguration: {
+              Inputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.inputs,
+              Outputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.outputs,
+              ReferenceDataSources: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.referenceDataSources,
+            },
+            FlinkApplicationConfiguration: {
+              CheckpointConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.configurationType,
+                CheckpointingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointingEnabled,
+                CheckpointInterval: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointInterval,
+                MinPauseBetweenCheckpoints: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.minPauseBetweenCheckpoints,
+              },
+              MonitoringConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.configurationType,
+                MetricsLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.metricsLevel,
+                LogLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              ParallelismConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.configurationType,
+                Parallelism: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelism,
+                ParallelismPerKPU: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelismPerKpu,
+                AutoScalingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.autoScalingEnabled,
+              },
+            },
+            EnvironmentProperties: {
+              PropertyGroups: this.__input.applicationConfiguration?.environmentProperties?.propertyGroups,
+            },
+            ApplicationCodeConfiguration: {
+              CodeContent: {
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
+                ZipFileContent: {
+                },
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
+                },
+              },
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
+            },
+            ApplicationSnapshotConfiguration: {
+              SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
+            },
+            VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
+          },
+          CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
+          Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateApplication.ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime') as unknown as string;
+  }
+
+  public get applicationMaintenanceWindowEndTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.CreateApplication.ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime'),
+        outputPath: 'ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationDescription: this.__input.applicationDescription,
+          RuntimeEnvironment: this.__input.runtimeEnvironment,
+          ServiceExecutionRole: this.__input.serviceExecutionRole,
+          ApplicationConfiguration: {
+            SqlApplicationConfiguration: {
+              Inputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.inputs,
+              Outputs: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.outputs,
+              ReferenceDataSources: this.__input.applicationConfiguration?.sqlApplicationConfiguration?.referenceDataSources,
+            },
+            FlinkApplicationConfiguration: {
+              CheckpointConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.configurationType,
+                CheckpointingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointingEnabled,
+                CheckpointInterval: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.checkpointInterval,
+                MinPauseBetweenCheckpoints: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.checkpointConfiguration?.minPauseBetweenCheckpoints,
+              },
+              MonitoringConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.configurationType,
+                MetricsLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.metricsLevel,
+                LogLevel: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              ParallelismConfiguration: {
+                ConfigurationType: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.configurationType,
+                Parallelism: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelism,
+                ParallelismPerKPU: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.parallelismPerKpu,
+                AutoScalingEnabled: this.__input.applicationConfiguration?.flinkApplicationConfiguration?.parallelismConfiguration?.autoScalingEnabled,
+              },
+            },
+            EnvironmentProperties: {
+              PropertyGroups: this.__input.applicationConfiguration?.environmentProperties?.propertyGroups,
+            },
+            ApplicationCodeConfiguration: {
+              CodeContent: {
+                TextContent: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.textContent,
+                ZipFileContent: {
+                },
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.bucketArn,
+                  FileKey: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.fileKey,
+                  ObjectVersion: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContent?.s3ContentLocation?.objectVersion,
+                },
+              },
+              CodeContentType: this.__input.applicationConfiguration?.applicationCodeConfiguration?.codeContentType,
+            },
+            ApplicationSnapshotConfiguration: {
+              SnapshotsEnabled: this.__input.applicationConfiguration?.applicationSnapshotConfiguration?.snapshotsEnabled,
+            },
+            VpcConfigurations: this.__input.applicationConfiguration?.vpcConfigurations,
+            ZeppelinApplicationConfiguration: {
+              MonitoringConfiguration: {
+                LogLevel: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.monitoringConfiguration?.logLevel,
+              },
+              CatalogConfiguration: {
+                GlueDataCatalogConfiguration: {
+                  DatabaseARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.catalogConfiguration?.glueDataCatalogConfiguration.databaseArn,
+                },
+              },
+              DeployAsApplicationConfiguration: {
+                S3ContentLocation: {
+                  BucketARN: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.bucketArn,
+                  BasePath: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.deployAsApplicationConfiguration?.s3ContentLocation.basePath,
+                },
+              },
+              CustomArtifactsConfiguration: this.__input.applicationConfiguration?.zeppelinApplicationConfiguration?.customArtifactsConfiguration,
+            },
+          },
+          CloudWatchLoggingOptions: this.__input.cloudWatchLoggingOptions,
+          Tags: this.__input.tags,
+          ApplicationMode: this.__input.applicationMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateApplication.ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime') as unknown as string;
   }
 
 }
@@ -3844,6 +5680,7 @@ export class KinesisAnalyticsV2ResponsesDeleteApplicationCloudWatchLoggingOption
           ApplicationName: this.__input.applicationName,
           CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
           CloudWatchLoggingOptionId: this.__input.cloudWatchLoggingOptionId,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -3863,6 +5700,7 @@ export class KinesisAnalyticsV2ResponsesDeleteApplicationCloudWatchLoggingOption
           ApplicationName: this.__input.applicationName,
           CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
           CloudWatchLoggingOptionId: this.__input.cloudWatchLoggingOptionId,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -3882,6 +5720,7 @@ export class KinesisAnalyticsV2ResponsesDeleteApplicationCloudWatchLoggingOption
           ApplicationName: this.__input.applicationName,
           CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
           CloudWatchLoggingOptionId: this.__input.cloudWatchLoggingOptionId,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -4043,6 +5882,7 @@ export class KinesisAnalyticsV2ResponsesDeleteApplicationVpcConfiguration {
           ApplicationName: this.__input.applicationName,
           CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
           VpcConfigurationId: this.__input.vpcConfigurationId,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -4062,6 +5902,7 @@ export class KinesisAnalyticsV2ResponsesDeleteApplicationVpcConfiguration {
           ApplicationName: this.__input.applicationName,
           CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
           VpcConfigurationId: this.__input.vpcConfigurationId,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -4271,6 +6112,100 @@ export class KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetail {
     return resource.getResponseField('ApplicationDetail.CloudWatchLoggingOptionDescriptions') as unknown as shapes.KinesisAnalyticsV2CloudWatchLoggingOptionDescription[];
   }
 
+  public get applicationMaintenanceConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationMaintenanceConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationMaintenanceConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get applicationVersionUpdatedFrom(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplication.ApplicationDetail.ApplicationVersionUpdatedFrom'),
+        outputPath: 'ApplicationDetail.ApplicationVersionUpdatedFrom',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          IncludeAdditionalDetails: this.__input.includeAdditionalDetails,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplication.ApplicationDetail.ApplicationVersionUpdatedFrom', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationVersionUpdatedFrom') as unknown as number;
+  }
+
+  public get applicationVersionRolledBackFrom(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplication.ApplicationDetail.ApplicationVersionRolledBackFrom'),
+        outputPath: 'ApplicationDetail.ApplicationVersionRolledBackFrom',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          IncludeAdditionalDetails: this.__input.includeAdditionalDetails,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplication.ApplicationDetail.ApplicationVersionRolledBackFrom', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationVersionRolledBackFrom') as unknown as number;
+  }
+
+  public get conditionalToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplication.ApplicationDetail.ConditionalToken'),
+        outputPath: 'ApplicationDetail.ConditionalToken',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          IncludeAdditionalDetails: this.__input.includeAdditionalDetails,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplication.ApplicationDetail.ConditionalToken', props);
+    return resource.getResponseField('ApplicationDetail.ConditionalToken') as unknown as string;
+  }
+
+  public get applicationVersionRolledBackTo(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplication.ApplicationDetail.ApplicationVersionRolledBackTo'),
+        outputPath: 'ApplicationDetail.ApplicationVersionRolledBackTo',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          IncludeAdditionalDetails: this.__input.includeAdditionalDetails,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplication.ApplicationDetail.ApplicationVersionRolledBackTo', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationVersionRolledBackTo') as unknown as number;
+  }
+
+  public get applicationMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplication.ApplicationDetail.ApplicationMode'),
+        outputPath: 'ApplicationDetail.ApplicationMode',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          IncludeAdditionalDetails: this.__input.includeAdditionalDetails,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplication.ApplicationDetail.ApplicationMode', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationMode') as unknown as string;
+  }
+
 }
 
 export class KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescription {
@@ -4318,6 +6253,10 @@ export class KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailAppl
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplication.ApplicationDetail.ApplicationConfigurationDescription.VpcConfigurationDescriptions', props);
     return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.VpcConfigurationDescriptions') as unknown as shapes.KinesisAnalyticsV2VpcConfigurationDescription[];
+  }
+
+  public get zeppelinApplicationConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescription(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -4945,6 +6884,201 @@ export class KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailAppl
 
 }
 
+export class KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationRequest) {
+  }
+
+  public get monitoringConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionMonitoringConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionMonitoringConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get catalogConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get deployAsApplicationConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get customArtifactsConfigurationDescription(): shapes.KinesisAnalyticsV2CustomArtifactConfigurationDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          IncludeAdditionalDetails: this.__input.includeAdditionalDetails,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription') as unknown as shapes.KinesisAnalyticsV2CustomArtifactConfigurationDescription[];
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionMonitoringConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationRequest) {
+  }
+
+  public get logLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          IncludeAdditionalDetails: this.__input.includeAdditionalDetails,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationRequest) {
+  }
+
+  public get glueDataCatalogConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescriptionGlueDataCatalogConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescriptionGlueDataCatalogConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescriptionGlueDataCatalogConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationRequest) {
+  }
+
+  public get databaseArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          IncludeAdditionalDetails: this.__input.includeAdditionalDetails,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationRequest) {
+  }
+
+  public get s3ContentLocationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescriptionS3ContentLocationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescriptionS3ContentLocationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescriptionS3ContentLocationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationRequest) {
+  }
+
+  public get bucketArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          IncludeAdditionalDetails: this.__input.includeAdditionalDetails,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN') as unknown as string;
+  }
+
+  public get basePath(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          IncludeAdditionalDetails: this.__input.includeAdditionalDetails,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationApplicationDetailApplicationMaintenanceConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationRequest) {
+  }
+
+  public get applicationMaintenanceWindowStartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplication.ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime'),
+        outputPath: 'ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          IncludeAdditionalDetails: this.__input.includeAdditionalDetails,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplication.ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime') as unknown as string;
+  }
+
+  public get applicationMaintenanceWindowEndTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplication.ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime'),
+        outputPath: 'ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          IncludeAdditionalDetails: this.__input.includeAdditionalDetails,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplication.ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime') as unknown as string;
+  }
+
+}
+
 export class KinesisAnalyticsV2ResponsesDescribeApplicationSnapshot {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationSnapshotRequest) {
@@ -5031,6 +7165,1173 @@ export class KinesisAnalyticsV2ResponsesDescribeApplicationSnapshotSnapshotDetai
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationSnapshot.SnapshotDetails.SnapshotCreationTimestamp', props);
     return resource.getResponseField('SnapshotDetails.SnapshotCreationTimestamp') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersion {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get applicationVersionDetail(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetail {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetail(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetail {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get applicationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationARN'),
+        outputPath: 'ApplicationVersionDetail.ApplicationARN',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationARN', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationARN') as unknown as string;
+  }
+
+  public get applicationDescription(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationDescription'),
+        outputPath: 'ApplicationVersionDetail.ApplicationDescription',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationDescription', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationDescription') as unknown as string;
+  }
+
+  public get applicationName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationName'),
+        outputPath: 'ApplicationVersionDetail.ApplicationName',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationName', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationName') as unknown as string;
+  }
+
+  public get runtimeEnvironment(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.RuntimeEnvironment'),
+        outputPath: 'ApplicationVersionDetail.RuntimeEnvironment',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.RuntimeEnvironment', props);
+    return resource.getResponseField('ApplicationVersionDetail.RuntimeEnvironment') as unknown as string;
+  }
+
+  public get serviceExecutionRole(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ServiceExecutionRole'),
+        outputPath: 'ApplicationVersionDetail.ServiceExecutionRole',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ServiceExecutionRole', props);
+    return resource.getResponseField('ApplicationVersionDetail.ServiceExecutionRole') as unknown as string;
+  }
+
+  public get applicationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationStatus'),
+        outputPath: 'ApplicationVersionDetail.ApplicationStatus',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationStatus', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationStatus') as unknown as string;
+  }
+
+  public get applicationVersionId(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationVersionId'),
+        outputPath: 'ApplicationVersionDetail.ApplicationVersionId',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationVersionId', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationVersionId') as unknown as number;
+  }
+
+  public get createTimestamp(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.CreateTimestamp'),
+        outputPath: 'ApplicationVersionDetail.CreateTimestamp',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.CreateTimestamp', props);
+    return resource.getResponseField('ApplicationVersionDetail.CreateTimestamp') as unknown as string;
+  }
+
+  public get lastUpdateTimestamp(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.LastUpdateTimestamp'),
+        outputPath: 'ApplicationVersionDetail.LastUpdateTimestamp',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.LastUpdateTimestamp', props);
+    return resource.getResponseField('ApplicationVersionDetail.LastUpdateTimestamp') as unknown as string;
+  }
+
+  public get applicationConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get cloudWatchLoggingOptionDescriptions(): shapes.KinesisAnalyticsV2CloudWatchLoggingOptionDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.CloudWatchLoggingOptionDescriptions'),
+        outputPath: 'ApplicationVersionDetail.CloudWatchLoggingOptionDescriptions',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.CloudWatchLoggingOptionDescriptions', props);
+    return resource.getResponseField('ApplicationVersionDetail.CloudWatchLoggingOptionDescriptions') as unknown as shapes.KinesisAnalyticsV2CloudWatchLoggingOptionDescription[];
+  }
+
+  public get applicationMaintenanceConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationMaintenanceConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationMaintenanceConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get applicationVersionUpdatedFrom(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationVersionUpdatedFrom'),
+        outputPath: 'ApplicationVersionDetail.ApplicationVersionUpdatedFrom',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationVersionUpdatedFrom', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationVersionUpdatedFrom') as unknown as number;
+  }
+
+  public get applicationVersionRolledBackFrom(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationVersionRolledBackFrom'),
+        outputPath: 'ApplicationVersionDetail.ApplicationVersionRolledBackFrom',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationVersionRolledBackFrom', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationVersionRolledBackFrom') as unknown as number;
+  }
+
+  public get conditionalToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ConditionalToken'),
+        outputPath: 'ApplicationVersionDetail.ConditionalToken',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ConditionalToken', props);
+    return resource.getResponseField('ApplicationVersionDetail.ConditionalToken') as unknown as string;
+  }
+
+  public get applicationVersionRolledBackTo(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationVersionRolledBackTo'),
+        outputPath: 'ApplicationVersionDetail.ApplicationVersionRolledBackTo',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationVersionRolledBackTo', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationVersionRolledBackTo') as unknown as number;
+  }
+
+  public get applicationMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationMode'),
+        outputPath: 'ApplicationVersionDetail.ApplicationMode',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationMode', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationMode') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get sqlApplicationConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionSqlApplicationConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionSqlApplicationConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get applicationCodeConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionApplicationCodeConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionApplicationCodeConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get runConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionRunConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionRunConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get flinkApplicationConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get environmentPropertyDescriptions(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionEnvironmentPropertyDescriptions {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionEnvironmentPropertyDescriptions(this.__scope, this.__resources, this.__input);
+  }
+
+  public get applicationSnapshotConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionApplicationSnapshotConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionApplicationSnapshotConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get vpcConfigurationDescriptions(): shapes.KinesisAnalyticsV2VpcConfigurationDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.VpcConfigurationDescriptions'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.VpcConfigurationDescriptions',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.VpcConfigurationDescriptions', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.VpcConfigurationDescriptions') as unknown as shapes.KinesisAnalyticsV2VpcConfigurationDescription[];
+  }
+
+  public get zeppelinApplicationConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionSqlApplicationConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get inputDescriptions(): shapes.KinesisAnalyticsV2InputDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.InputDescriptions'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.InputDescriptions',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.InputDescriptions', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.InputDescriptions') as unknown as shapes.KinesisAnalyticsV2InputDescription[];
+  }
+
+  public get outputDescriptions(): shapes.KinesisAnalyticsV2OutputDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.OutputDescriptions'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.OutputDescriptions',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.OutputDescriptions', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.OutputDescriptions') as unknown as shapes.KinesisAnalyticsV2OutputDescription[];
+  }
+
+  public get referenceDataSourceDescriptions(): shapes.KinesisAnalyticsV2ReferenceDataSourceDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.ReferenceDataSourceDescriptions'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.ReferenceDataSourceDescriptions',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.ReferenceDataSourceDescriptions', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.ReferenceDataSourceDescriptions') as unknown as shapes.KinesisAnalyticsV2ReferenceDataSourceDescription[];
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionApplicationCodeConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get codeContentType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentType'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentType',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentType', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentType') as unknown as string;
+  }
+
+  public get codeContentDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionApplicationCodeConfigurationDescriptionCodeContentDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionApplicationCodeConfigurationDescriptionCodeContentDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionApplicationCodeConfigurationDescriptionCodeContentDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get textContent(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.TextContent'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.TextContent',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.TextContent', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.TextContent') as unknown as string;
+  }
+
+  public get codeMd5(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.CodeMD5'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.CodeMD5',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.CodeMD5', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.CodeMD5') as unknown as string;
+  }
+
+  public get codeSize(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.CodeSize'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.CodeSize',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.CodeSize', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.CodeSize') as unknown as number;
+  }
+
+  public get s3ApplicationCodeLocationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionApplicationCodeConfigurationDescriptionCodeContentDescriptionS3ApplicationCodeLocationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionApplicationCodeConfigurationDescriptionCodeContentDescriptionS3ApplicationCodeLocationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionApplicationCodeConfigurationDescriptionCodeContentDescriptionS3ApplicationCodeLocationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get bucketArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.BucketARN'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.BucketARN',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.BucketARN', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.BucketARN') as unknown as string;
+  }
+
+  public get fileKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.FileKey'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.FileKey',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.FileKey', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.FileKey') as unknown as string;
+  }
+
+  public get objectVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.ObjectVersion'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.ObjectVersion',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.ObjectVersion', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.ObjectVersion') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionRunConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get applicationRestoreConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionRunConfigurationDescriptionApplicationRestoreConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionRunConfigurationDescriptionApplicationRestoreConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get flinkRunConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionRunConfigurationDescriptionFlinkRunConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionRunConfigurationDescriptionFlinkRunConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionRunConfigurationDescriptionApplicationRestoreConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get applicationRestoreType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.RunConfigurationDescription.ApplicationRestoreConfigurationDescription.ApplicationRestoreType'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.RunConfigurationDescription.ApplicationRestoreConfigurationDescription.ApplicationRestoreType',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.RunConfigurationDescription.ApplicationRestoreConfigurationDescription.ApplicationRestoreType', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.RunConfigurationDescription.ApplicationRestoreConfigurationDescription.ApplicationRestoreType') as unknown as string;
+  }
+
+  public get snapshotName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.RunConfigurationDescription.ApplicationRestoreConfigurationDescription.SnapshotName'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.RunConfigurationDescription.ApplicationRestoreConfigurationDescription.SnapshotName',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.RunConfigurationDescription.ApplicationRestoreConfigurationDescription.SnapshotName', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.RunConfigurationDescription.ApplicationRestoreConfigurationDescription.SnapshotName') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionRunConfigurationDescriptionFlinkRunConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get allowNonRestoredState(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.RunConfigurationDescription.FlinkRunConfigurationDescription.AllowNonRestoredState'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.RunConfigurationDescription.FlinkRunConfigurationDescription.AllowNonRestoredState',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.RunConfigurationDescription.FlinkRunConfigurationDescription.AllowNonRestoredState', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.RunConfigurationDescription.FlinkRunConfigurationDescription.AllowNonRestoredState') as unknown as boolean;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get checkpointConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescriptionCheckpointConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescriptionCheckpointConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get monitoringConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescriptionMonitoringConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescriptionMonitoringConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get parallelismConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescriptionParallelismConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescriptionParallelismConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get jobPlanDescription(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.JobPlanDescription'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.JobPlanDescription',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.JobPlanDescription', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.JobPlanDescription') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescriptionCheckpointConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get configurationType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.ConfigurationType'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.ConfigurationType',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.ConfigurationType', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.ConfigurationType') as unknown as string;
+  }
+
+  public get checkpointingEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.CheckpointingEnabled'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.CheckpointingEnabled',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.CheckpointingEnabled', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.CheckpointingEnabled') as unknown as boolean;
+  }
+
+  public get checkpointInterval(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.CheckpointInterval'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.CheckpointInterval',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.CheckpointInterval', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.CheckpointInterval') as unknown as number;
+  }
+
+  public get minPauseBetweenCheckpoints(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.MinPauseBetweenCheckpoints'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.MinPauseBetweenCheckpoints',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.MinPauseBetweenCheckpoints', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.MinPauseBetweenCheckpoints') as unknown as number;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescriptionMonitoringConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get configurationType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.ConfigurationType'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.ConfigurationType',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.ConfigurationType', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.ConfigurationType') as unknown as string;
+  }
+
+  public get metricsLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.MetricsLevel'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.MetricsLevel',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.MetricsLevel', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.MetricsLevel') as unknown as string;
+  }
+
+  public get logLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescriptionParallelismConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get configurationType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.ConfigurationType'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.ConfigurationType',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.ConfigurationType', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.ConfigurationType') as unknown as string;
+  }
+
+  public get parallelism(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.Parallelism'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.Parallelism',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.Parallelism', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.Parallelism') as unknown as number;
+  }
+
+  public get parallelismPerKpu(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.ParallelismPerKPU'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.ParallelismPerKPU',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.ParallelismPerKPU', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.ParallelismPerKPU') as unknown as number;
+  }
+
+  public get currentParallelism(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.CurrentParallelism'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.CurrentParallelism',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.CurrentParallelism', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.CurrentParallelism') as unknown as number;
+  }
+
+  public get autoScalingEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.AutoScalingEnabled'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.AutoScalingEnabled',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.AutoScalingEnabled', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.AutoScalingEnabled') as unknown as boolean;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionEnvironmentPropertyDescriptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get propertyGroupDescriptions(): shapes.KinesisAnalyticsV2PropertyGroup[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.EnvironmentPropertyDescriptions.PropertyGroupDescriptions'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.EnvironmentPropertyDescriptions.PropertyGroupDescriptions',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.EnvironmentPropertyDescriptions.PropertyGroupDescriptions', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.EnvironmentPropertyDescriptions.PropertyGroupDescriptions') as unknown as shapes.KinesisAnalyticsV2PropertyGroup[];
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionApplicationSnapshotConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get snapshotsEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationSnapshotConfigurationDescription.SnapshotsEnabled'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationSnapshotConfigurationDescription.SnapshotsEnabled',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationSnapshotConfigurationDescription.SnapshotsEnabled', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.ApplicationSnapshotConfigurationDescription.SnapshotsEnabled') as unknown as boolean;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get monitoringConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionMonitoringConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionMonitoringConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get catalogConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get deployAsApplicationConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get customArtifactsConfigurationDescription(): shapes.KinesisAnalyticsV2CustomArtifactConfigurationDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription') as unknown as shapes.KinesisAnalyticsV2CustomArtifactConfigurationDescription[];
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionMonitoringConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get logLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get glueDataCatalogConfigurationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescriptionGlueDataCatalogConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescriptionGlueDataCatalogConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescriptionGlueDataCatalogConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get databaseArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get s3ContentLocationDescription(): KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescriptionS3ContentLocationDescription {
+    return new KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescriptionS3ContentLocationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescriptionS3ContentLocationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get bucketArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN') as unknown as string;
+  }
+
+  public get basePath(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath'),
+        outputPath: 'ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesDescribeApplicationVersionApplicationVersionDetailApplicationMaintenanceConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2DescribeApplicationVersionRequest) {
+  }
+
+  public get applicationMaintenanceWindowStartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime'),
+        outputPath: 'ApplicationVersionDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime') as unknown as string;
+  }
+
+  public get applicationMaintenanceWindowEndTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApplicationVersion',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.DescribeApplicationVersion.ApplicationVersionDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime'),
+        outputPath: 'ApplicationVersionDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationVersionId: this.__input.applicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApplicationVersion.ApplicationVersionDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime', props);
+    return resource.getResponseField('ApplicationVersionDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime') as unknown as string;
   }
 
 }
@@ -5412,6 +8713,51 @@ export class KinesisAnalyticsV2ResponsesListApplicationSnapshots {
 
 }
 
+export class KinesisAnalyticsV2ResponsesListApplicationVersions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2ListApplicationVersionsRequest) {
+  }
+
+  public get applicationVersionSummaries(): shapes.KinesisAnalyticsV2ApplicationVersionSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listApplicationVersions',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.ListApplicationVersions.ApplicationVersionSummaries'),
+        outputPath: 'ApplicationVersionSummaries',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          Limit: this.__input.limit,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListApplicationVersions.ApplicationVersionSummaries', props);
+    return resource.getResponseField('ApplicationVersionSummaries') as unknown as shapes.KinesisAnalyticsV2ApplicationVersionSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listApplicationVersions',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.ListApplicationVersions.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          Limit: this.__input.limit,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListApplicationVersions.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
 export class KinesisAnalyticsV2ResponsesListApplications {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2ListApplicationsRequest) {
@@ -5475,6 +8821,1173 @@ export class KinesisAnalyticsV2ResponsesListTagsForResource {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListTagsForResource.Tags', props);
     return resource.getResponseField('Tags') as unknown as shapes.KinesisAnalyticsV2Tag[];
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplication {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get applicationDetail(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetail {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetail(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetail {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get applicationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationARN'),
+        outputPath: 'ApplicationDetail.ApplicationARN',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationARN', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationARN') as unknown as string;
+  }
+
+  public get applicationDescription(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationDescription'),
+        outputPath: 'ApplicationDetail.ApplicationDescription',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationDescription', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationDescription') as unknown as string;
+  }
+
+  public get applicationName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationName'),
+        outputPath: 'ApplicationDetail.ApplicationName',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationName', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationName') as unknown as string;
+  }
+
+  public get runtimeEnvironment(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.RuntimeEnvironment'),
+        outputPath: 'ApplicationDetail.RuntimeEnvironment',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.RuntimeEnvironment', props);
+    return resource.getResponseField('ApplicationDetail.RuntimeEnvironment') as unknown as string;
+  }
+
+  public get serviceExecutionRole(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ServiceExecutionRole'),
+        outputPath: 'ApplicationDetail.ServiceExecutionRole',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ServiceExecutionRole', props);
+    return resource.getResponseField('ApplicationDetail.ServiceExecutionRole') as unknown as string;
+  }
+
+  public get applicationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationStatus'),
+        outputPath: 'ApplicationDetail.ApplicationStatus',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationStatus', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationStatus') as unknown as string;
+  }
+
+  public get applicationVersionId(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationVersionId'),
+        outputPath: 'ApplicationDetail.ApplicationVersionId',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationVersionId', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationVersionId') as unknown as number;
+  }
+
+  public get createTimestamp(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.CreateTimestamp'),
+        outputPath: 'ApplicationDetail.CreateTimestamp',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.CreateTimestamp', props);
+    return resource.getResponseField('ApplicationDetail.CreateTimestamp') as unknown as string;
+  }
+
+  public get lastUpdateTimestamp(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.LastUpdateTimestamp'),
+        outputPath: 'ApplicationDetail.LastUpdateTimestamp',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.LastUpdateTimestamp', props);
+    return resource.getResponseField('ApplicationDetail.LastUpdateTimestamp') as unknown as string;
+  }
+
+  public get applicationConfigurationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get cloudWatchLoggingOptionDescriptions(): shapes.KinesisAnalyticsV2CloudWatchLoggingOptionDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.CloudWatchLoggingOptionDescriptions'),
+        outputPath: 'ApplicationDetail.CloudWatchLoggingOptionDescriptions',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.CloudWatchLoggingOptionDescriptions', props);
+    return resource.getResponseField('ApplicationDetail.CloudWatchLoggingOptionDescriptions') as unknown as shapes.KinesisAnalyticsV2CloudWatchLoggingOptionDescription[];
+  }
+
+  public get applicationMaintenanceConfigurationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationMaintenanceConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationMaintenanceConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get applicationVersionUpdatedFrom(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationVersionUpdatedFrom'),
+        outputPath: 'ApplicationDetail.ApplicationVersionUpdatedFrom',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationVersionUpdatedFrom', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationVersionUpdatedFrom') as unknown as number;
+  }
+
+  public get applicationVersionRolledBackFrom(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationVersionRolledBackFrom'),
+        outputPath: 'ApplicationDetail.ApplicationVersionRolledBackFrom',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationVersionRolledBackFrom', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationVersionRolledBackFrom') as unknown as number;
+  }
+
+  public get conditionalToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ConditionalToken'),
+        outputPath: 'ApplicationDetail.ConditionalToken',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ConditionalToken', props);
+    return resource.getResponseField('ApplicationDetail.ConditionalToken') as unknown as string;
+  }
+
+  public get applicationVersionRolledBackTo(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationVersionRolledBackTo'),
+        outputPath: 'ApplicationDetail.ApplicationVersionRolledBackTo',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationVersionRolledBackTo', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationVersionRolledBackTo') as unknown as number;
+  }
+
+  public get applicationMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationMode'),
+        outputPath: 'ApplicationDetail.ApplicationMode',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationMode', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationMode') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get sqlApplicationConfigurationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionSqlApplicationConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionSqlApplicationConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get applicationCodeConfigurationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionApplicationCodeConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionApplicationCodeConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get runConfigurationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionRunConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionRunConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get flinkApplicationConfigurationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get environmentPropertyDescriptions(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionEnvironmentPropertyDescriptions {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionEnvironmentPropertyDescriptions(this.__scope, this.__resources, this.__input);
+  }
+
+  public get applicationSnapshotConfigurationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionApplicationSnapshotConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionApplicationSnapshotConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get vpcConfigurationDescriptions(): shapes.KinesisAnalyticsV2VpcConfigurationDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.VpcConfigurationDescriptions'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.VpcConfigurationDescriptions',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.VpcConfigurationDescriptions', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.VpcConfigurationDescriptions') as unknown as shapes.KinesisAnalyticsV2VpcConfigurationDescription[];
+  }
+
+  public get zeppelinApplicationConfigurationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionSqlApplicationConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get inputDescriptions(): shapes.KinesisAnalyticsV2InputDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.InputDescriptions'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.InputDescriptions',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.InputDescriptions', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.InputDescriptions') as unknown as shapes.KinesisAnalyticsV2InputDescription[];
+  }
+
+  public get outputDescriptions(): shapes.KinesisAnalyticsV2OutputDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.OutputDescriptions'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.OutputDescriptions',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.OutputDescriptions', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.OutputDescriptions') as unknown as shapes.KinesisAnalyticsV2OutputDescription[];
+  }
+
+  public get referenceDataSourceDescriptions(): shapes.KinesisAnalyticsV2ReferenceDataSourceDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.ReferenceDataSourceDescriptions'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.ReferenceDataSourceDescriptions',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.ReferenceDataSourceDescriptions', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.SqlApplicationConfigurationDescription.ReferenceDataSourceDescriptions') as unknown as shapes.KinesisAnalyticsV2ReferenceDataSourceDescription[];
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionApplicationCodeConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get codeContentType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentType'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentType',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentType', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentType') as unknown as string;
+  }
+
+  public get codeContentDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionApplicationCodeConfigurationDescriptionCodeContentDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionApplicationCodeConfigurationDescriptionCodeContentDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionApplicationCodeConfigurationDescriptionCodeContentDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get textContent(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.TextContent'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.TextContent',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.TextContent', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.TextContent') as unknown as string;
+  }
+
+  public get codeMd5(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.CodeMD5'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.CodeMD5',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.CodeMD5', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.CodeMD5') as unknown as string;
+  }
+
+  public get codeSize(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.CodeSize'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.CodeSize',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.CodeSize', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.CodeSize') as unknown as number;
+  }
+
+  public get s3ApplicationCodeLocationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionApplicationCodeConfigurationDescriptionCodeContentDescriptionS3ApplicationCodeLocationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionApplicationCodeConfigurationDescriptionCodeContentDescriptionS3ApplicationCodeLocationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionApplicationCodeConfigurationDescriptionCodeContentDescriptionS3ApplicationCodeLocationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get bucketArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.BucketARN'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.BucketARN',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.BucketARN', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.BucketARN') as unknown as string;
+  }
+
+  public get fileKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.FileKey'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.FileKey',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.FileKey', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.FileKey') as unknown as string;
+  }
+
+  public get objectVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.ObjectVersion'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.ObjectVersion',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.ObjectVersion', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ApplicationCodeConfigurationDescription.CodeContentDescription.S3ApplicationCodeLocationDescription.ObjectVersion') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionRunConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get applicationRestoreConfigurationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionRunConfigurationDescriptionApplicationRestoreConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionRunConfigurationDescriptionApplicationRestoreConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get flinkRunConfigurationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionRunConfigurationDescriptionFlinkRunConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionRunConfigurationDescriptionFlinkRunConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionRunConfigurationDescriptionApplicationRestoreConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get applicationRestoreType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.RunConfigurationDescription.ApplicationRestoreConfigurationDescription.ApplicationRestoreType'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.RunConfigurationDescription.ApplicationRestoreConfigurationDescription.ApplicationRestoreType',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.RunConfigurationDescription.ApplicationRestoreConfigurationDescription.ApplicationRestoreType', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.RunConfigurationDescription.ApplicationRestoreConfigurationDescription.ApplicationRestoreType') as unknown as string;
+  }
+
+  public get snapshotName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.RunConfigurationDescription.ApplicationRestoreConfigurationDescription.SnapshotName'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.RunConfigurationDescription.ApplicationRestoreConfigurationDescription.SnapshotName',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.RunConfigurationDescription.ApplicationRestoreConfigurationDescription.SnapshotName', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.RunConfigurationDescription.ApplicationRestoreConfigurationDescription.SnapshotName') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionRunConfigurationDescriptionFlinkRunConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get allowNonRestoredState(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.RunConfigurationDescription.FlinkRunConfigurationDescription.AllowNonRestoredState'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.RunConfigurationDescription.FlinkRunConfigurationDescription.AllowNonRestoredState',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.RunConfigurationDescription.FlinkRunConfigurationDescription.AllowNonRestoredState', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.RunConfigurationDescription.FlinkRunConfigurationDescription.AllowNonRestoredState') as unknown as boolean;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get checkpointConfigurationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescriptionCheckpointConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescriptionCheckpointConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get monitoringConfigurationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescriptionMonitoringConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescriptionMonitoringConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get parallelismConfigurationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescriptionParallelismConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescriptionParallelismConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get jobPlanDescription(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.JobPlanDescription'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.JobPlanDescription',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.JobPlanDescription', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.JobPlanDescription') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescriptionCheckpointConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get configurationType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.ConfigurationType'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.ConfigurationType',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.ConfigurationType', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.ConfigurationType') as unknown as string;
+  }
+
+  public get checkpointingEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.CheckpointingEnabled'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.CheckpointingEnabled',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.CheckpointingEnabled', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.CheckpointingEnabled') as unknown as boolean;
+  }
+
+  public get checkpointInterval(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.CheckpointInterval'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.CheckpointInterval',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.CheckpointInterval', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.CheckpointInterval') as unknown as number;
+  }
+
+  public get minPauseBetweenCheckpoints(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.MinPauseBetweenCheckpoints'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.MinPauseBetweenCheckpoints',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.MinPauseBetweenCheckpoints', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.CheckpointConfigurationDescription.MinPauseBetweenCheckpoints') as unknown as number;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescriptionMonitoringConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get configurationType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.ConfigurationType'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.ConfigurationType',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.ConfigurationType', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.ConfigurationType') as unknown as string;
+  }
+
+  public get metricsLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.MetricsLevel'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.MetricsLevel',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.MetricsLevel', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.MetricsLevel') as unknown as string;
+  }
+
+  public get logLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionFlinkApplicationConfigurationDescriptionParallelismConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get configurationType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.ConfigurationType'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.ConfigurationType',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.ConfigurationType', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.ConfigurationType') as unknown as string;
+  }
+
+  public get parallelism(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.Parallelism'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.Parallelism',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.Parallelism', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.Parallelism') as unknown as number;
+  }
+
+  public get parallelismPerKpu(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.ParallelismPerKPU'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.ParallelismPerKPU',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.ParallelismPerKPU', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.ParallelismPerKPU') as unknown as number;
+  }
+
+  public get currentParallelism(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.CurrentParallelism'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.CurrentParallelism',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.CurrentParallelism', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.CurrentParallelism') as unknown as number;
+  }
+
+  public get autoScalingEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.AutoScalingEnabled'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.AutoScalingEnabled',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.AutoScalingEnabled', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.FlinkApplicationConfigurationDescription.ParallelismConfigurationDescription.AutoScalingEnabled') as unknown as boolean;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionEnvironmentPropertyDescriptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get propertyGroupDescriptions(): shapes.KinesisAnalyticsV2PropertyGroup[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.EnvironmentPropertyDescriptions.PropertyGroupDescriptions'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.EnvironmentPropertyDescriptions.PropertyGroupDescriptions',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.EnvironmentPropertyDescriptions.PropertyGroupDescriptions', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.EnvironmentPropertyDescriptions.PropertyGroupDescriptions') as unknown as shapes.KinesisAnalyticsV2PropertyGroup[];
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionApplicationSnapshotConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get snapshotsEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ApplicationSnapshotConfigurationDescription.SnapshotsEnabled'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ApplicationSnapshotConfigurationDescription.SnapshotsEnabled',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ApplicationSnapshotConfigurationDescription.SnapshotsEnabled', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ApplicationSnapshotConfigurationDescription.SnapshotsEnabled') as unknown as boolean;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get monitoringConfigurationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionMonitoringConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionMonitoringConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get catalogConfigurationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get deployAsApplicationConfigurationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get customArtifactsConfigurationDescription(): shapes.KinesisAnalyticsV2CustomArtifactConfigurationDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription') as unknown as shapes.KinesisAnalyticsV2CustomArtifactConfigurationDescription[];
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionMonitoringConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get logLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get glueDataCatalogConfigurationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescriptionGlueDataCatalogConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescriptionGlueDataCatalogConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescriptionGlueDataCatalogConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get databaseArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get s3ContentLocationDescription(): KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescriptionS3ContentLocationDescription {
+    return new KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescriptionS3ContentLocationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescriptionS3ContentLocationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get bucketArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN') as unknown as string;
+  }
+
+  public get basePath(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesRollbackApplicationApplicationDetailApplicationMaintenanceConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2RollbackApplicationRequest) {
+  }
+
+  public get applicationMaintenanceWindowStartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime'),
+        outputPath: 'ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime') as unknown as string;
+  }
+
+  public get applicationMaintenanceWindowEndTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rollbackApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.RollbackApplication.ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime'),
+        outputPath: 'ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RollbackApplication.ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime') as unknown as string;
   }
 
 }
@@ -5551,6 +10064,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -5563,6 +10093,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -5626,6 +10157,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -5638,6 +10186,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -5701,6 +10250,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -5713,6 +10279,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -5776,6 +10343,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -5788,6 +10372,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -5851,6 +10436,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -5863,6 +10465,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -5926,6 +10529,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -5938,6 +10558,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -6001,6 +10622,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -6013,6 +10651,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -6076,6 +10715,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -6088,6 +10744,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -6151,6 +10808,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -6163,6 +10837,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -6230,6 +10905,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -6242,11 +10934,481 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetail {
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApplication.ApplicationDetail.CloudWatchLoggingOptionDescriptions', props);
     return resource.getResponseField('ApplicationDetail.CloudWatchLoggingOptionDescriptions') as unknown as shapes.KinesisAnalyticsV2CloudWatchLoggingOptionDescription[];
+  }
+
+  public get applicationMaintenanceConfigurationDescription(): KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationMaintenanceConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationMaintenanceConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get applicationVersionUpdatedFrom(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.UpdateApplication.ApplicationDetail.ApplicationVersionUpdatedFrom'),
+        outputPath: 'ApplicationDetail.ApplicationVersionUpdatedFrom',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+          ApplicationConfigurationUpdate: {
+            SqlApplicationConfigurationUpdate: {
+              InputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.inputUpdates,
+              OutputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.outputUpdates,
+              ReferenceDataSourceUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.referenceDataSourceUpdates,
+            },
+            ApplicationCodeConfigurationUpdate: {
+              CodeContentTypeUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentTypeUpdate,
+              CodeContentUpdate: {
+                TextContentUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.textContentUpdate,
+                ZipFileContentUpdate: {
+                },
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.bucketArnUpdate,
+                  FileKeyUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.fileKeyUpdate,
+                  ObjectVersionUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.objectVersionUpdate,
+                },
+              },
+            },
+            FlinkApplicationConfigurationUpdate: {
+              CheckpointConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.configurationTypeUpdate,
+                CheckpointingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointingEnabledUpdate,
+                CheckpointIntervalUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointIntervalUpdate,
+                MinPauseBetweenCheckpointsUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.minPauseBetweenCheckpointsUpdate,
+              },
+              MonitoringConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.configurationTypeUpdate,
+                MetricsLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.metricsLevelUpdate,
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              ParallelismConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.configurationTypeUpdate,
+                ParallelismUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismUpdate,
+                ParallelismPerKPUUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismPerKpuUpdate,
+                AutoScalingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.autoScalingEnabledUpdate,
+              },
+            },
+            EnvironmentPropertyUpdates: {
+              PropertyGroups: this.__input.applicationConfigurationUpdate?.environmentPropertyUpdates?.propertyGroups,
+            },
+            ApplicationSnapshotConfigurationUpdate: {
+              SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
+            },
+            VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
+          },
+          ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
+          RunConfigurationUpdate: {
+            FlinkRunConfiguration: {
+              AllowNonRestoredState: this.__input.runConfigurationUpdate?.flinkRunConfiguration?.allowNonRestoredState,
+            },
+            ApplicationRestoreConfiguration: {
+              ApplicationRestoreType: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.applicationRestoreType,
+              SnapshotName: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.snapshotName,
+            },
+          },
+          CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApplication.ApplicationDetail.ApplicationVersionUpdatedFrom', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationVersionUpdatedFrom') as unknown as number;
+  }
+
+  public get applicationVersionRolledBackFrom(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.UpdateApplication.ApplicationDetail.ApplicationVersionRolledBackFrom'),
+        outputPath: 'ApplicationDetail.ApplicationVersionRolledBackFrom',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+          ApplicationConfigurationUpdate: {
+            SqlApplicationConfigurationUpdate: {
+              InputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.inputUpdates,
+              OutputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.outputUpdates,
+              ReferenceDataSourceUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.referenceDataSourceUpdates,
+            },
+            ApplicationCodeConfigurationUpdate: {
+              CodeContentTypeUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentTypeUpdate,
+              CodeContentUpdate: {
+                TextContentUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.textContentUpdate,
+                ZipFileContentUpdate: {
+                },
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.bucketArnUpdate,
+                  FileKeyUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.fileKeyUpdate,
+                  ObjectVersionUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.objectVersionUpdate,
+                },
+              },
+            },
+            FlinkApplicationConfigurationUpdate: {
+              CheckpointConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.configurationTypeUpdate,
+                CheckpointingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointingEnabledUpdate,
+                CheckpointIntervalUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointIntervalUpdate,
+                MinPauseBetweenCheckpointsUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.minPauseBetweenCheckpointsUpdate,
+              },
+              MonitoringConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.configurationTypeUpdate,
+                MetricsLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.metricsLevelUpdate,
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              ParallelismConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.configurationTypeUpdate,
+                ParallelismUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismUpdate,
+                ParallelismPerKPUUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismPerKpuUpdate,
+                AutoScalingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.autoScalingEnabledUpdate,
+              },
+            },
+            EnvironmentPropertyUpdates: {
+              PropertyGroups: this.__input.applicationConfigurationUpdate?.environmentPropertyUpdates?.propertyGroups,
+            },
+            ApplicationSnapshotConfigurationUpdate: {
+              SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
+            },
+            VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
+          },
+          ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
+          RunConfigurationUpdate: {
+            FlinkRunConfiguration: {
+              AllowNonRestoredState: this.__input.runConfigurationUpdate?.flinkRunConfiguration?.allowNonRestoredState,
+            },
+            ApplicationRestoreConfiguration: {
+              ApplicationRestoreType: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.applicationRestoreType,
+              SnapshotName: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.snapshotName,
+            },
+          },
+          CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApplication.ApplicationDetail.ApplicationVersionRolledBackFrom', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationVersionRolledBackFrom') as unknown as number;
+  }
+
+  public get conditionalToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.UpdateApplication.ApplicationDetail.ConditionalToken'),
+        outputPath: 'ApplicationDetail.ConditionalToken',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+          ApplicationConfigurationUpdate: {
+            SqlApplicationConfigurationUpdate: {
+              InputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.inputUpdates,
+              OutputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.outputUpdates,
+              ReferenceDataSourceUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.referenceDataSourceUpdates,
+            },
+            ApplicationCodeConfigurationUpdate: {
+              CodeContentTypeUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentTypeUpdate,
+              CodeContentUpdate: {
+                TextContentUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.textContentUpdate,
+                ZipFileContentUpdate: {
+                },
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.bucketArnUpdate,
+                  FileKeyUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.fileKeyUpdate,
+                  ObjectVersionUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.objectVersionUpdate,
+                },
+              },
+            },
+            FlinkApplicationConfigurationUpdate: {
+              CheckpointConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.configurationTypeUpdate,
+                CheckpointingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointingEnabledUpdate,
+                CheckpointIntervalUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointIntervalUpdate,
+                MinPauseBetweenCheckpointsUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.minPauseBetweenCheckpointsUpdate,
+              },
+              MonitoringConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.configurationTypeUpdate,
+                MetricsLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.metricsLevelUpdate,
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              ParallelismConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.configurationTypeUpdate,
+                ParallelismUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismUpdate,
+                ParallelismPerKPUUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismPerKpuUpdate,
+                AutoScalingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.autoScalingEnabledUpdate,
+              },
+            },
+            EnvironmentPropertyUpdates: {
+              PropertyGroups: this.__input.applicationConfigurationUpdate?.environmentPropertyUpdates?.propertyGroups,
+            },
+            ApplicationSnapshotConfigurationUpdate: {
+              SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
+            },
+            VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
+          },
+          ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
+          RunConfigurationUpdate: {
+            FlinkRunConfiguration: {
+              AllowNonRestoredState: this.__input.runConfigurationUpdate?.flinkRunConfiguration?.allowNonRestoredState,
+            },
+            ApplicationRestoreConfiguration: {
+              ApplicationRestoreType: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.applicationRestoreType,
+              SnapshotName: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.snapshotName,
+            },
+          },
+          CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApplication.ApplicationDetail.ConditionalToken', props);
+    return resource.getResponseField('ApplicationDetail.ConditionalToken') as unknown as string;
+  }
+
+  public get applicationVersionRolledBackTo(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.UpdateApplication.ApplicationDetail.ApplicationVersionRolledBackTo'),
+        outputPath: 'ApplicationDetail.ApplicationVersionRolledBackTo',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+          ApplicationConfigurationUpdate: {
+            SqlApplicationConfigurationUpdate: {
+              InputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.inputUpdates,
+              OutputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.outputUpdates,
+              ReferenceDataSourceUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.referenceDataSourceUpdates,
+            },
+            ApplicationCodeConfigurationUpdate: {
+              CodeContentTypeUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentTypeUpdate,
+              CodeContentUpdate: {
+                TextContentUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.textContentUpdate,
+                ZipFileContentUpdate: {
+                },
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.bucketArnUpdate,
+                  FileKeyUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.fileKeyUpdate,
+                  ObjectVersionUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.objectVersionUpdate,
+                },
+              },
+            },
+            FlinkApplicationConfigurationUpdate: {
+              CheckpointConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.configurationTypeUpdate,
+                CheckpointingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointingEnabledUpdate,
+                CheckpointIntervalUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointIntervalUpdate,
+                MinPauseBetweenCheckpointsUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.minPauseBetweenCheckpointsUpdate,
+              },
+              MonitoringConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.configurationTypeUpdate,
+                MetricsLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.metricsLevelUpdate,
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              ParallelismConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.configurationTypeUpdate,
+                ParallelismUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismUpdate,
+                ParallelismPerKPUUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismPerKpuUpdate,
+                AutoScalingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.autoScalingEnabledUpdate,
+              },
+            },
+            EnvironmentPropertyUpdates: {
+              PropertyGroups: this.__input.applicationConfigurationUpdate?.environmentPropertyUpdates?.propertyGroups,
+            },
+            ApplicationSnapshotConfigurationUpdate: {
+              SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
+            },
+            VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
+          },
+          ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
+          RunConfigurationUpdate: {
+            FlinkRunConfiguration: {
+              AllowNonRestoredState: this.__input.runConfigurationUpdate?.flinkRunConfiguration?.allowNonRestoredState,
+            },
+            ApplicationRestoreConfiguration: {
+              ApplicationRestoreType: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.applicationRestoreType,
+              SnapshotName: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.snapshotName,
+            },
+          },
+          CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApplication.ApplicationDetail.ApplicationVersionRolledBackTo', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationVersionRolledBackTo') as unknown as number;
+  }
+
+  public get applicationMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.UpdateApplication.ApplicationDetail.ApplicationMode'),
+        outputPath: 'ApplicationDetail.ApplicationMode',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+          ApplicationConfigurationUpdate: {
+            SqlApplicationConfigurationUpdate: {
+              InputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.inputUpdates,
+              OutputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.outputUpdates,
+              ReferenceDataSourceUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.referenceDataSourceUpdates,
+            },
+            ApplicationCodeConfigurationUpdate: {
+              CodeContentTypeUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentTypeUpdate,
+              CodeContentUpdate: {
+                TextContentUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.textContentUpdate,
+                ZipFileContentUpdate: {
+                },
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.bucketArnUpdate,
+                  FileKeyUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.fileKeyUpdate,
+                  ObjectVersionUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.objectVersionUpdate,
+                },
+              },
+            },
+            FlinkApplicationConfigurationUpdate: {
+              CheckpointConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.configurationTypeUpdate,
+                CheckpointingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointingEnabledUpdate,
+                CheckpointIntervalUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointIntervalUpdate,
+                MinPauseBetweenCheckpointsUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.minPauseBetweenCheckpointsUpdate,
+              },
+              MonitoringConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.configurationTypeUpdate,
+                MetricsLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.metricsLevelUpdate,
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              ParallelismConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.configurationTypeUpdate,
+                ParallelismUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismUpdate,
+                ParallelismPerKPUUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismPerKpuUpdate,
+                AutoScalingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.autoScalingEnabledUpdate,
+              },
+            },
+            EnvironmentPropertyUpdates: {
+              PropertyGroups: this.__input.applicationConfigurationUpdate?.environmentPropertyUpdates?.propertyGroups,
+            },
+            ApplicationSnapshotConfigurationUpdate: {
+              SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
+            },
+            VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
+          },
+          ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
+          RunConfigurationUpdate: {
+            FlinkRunConfiguration: {
+              AllowNonRestoredState: this.__input.runConfigurationUpdate?.flinkRunConfiguration?.allowNonRestoredState,
+            },
+            ApplicationRestoreConfiguration: {
+              ApplicationRestoreType: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.applicationRestoreType,
+              SnapshotName: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.snapshotName,
+            },
+          },
+          CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApplication.ApplicationDetail.ApplicationMode', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationMode') as unknown as string;
   }
 
 }
@@ -6336,6 +11498,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -6348,11 +11527,16 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApplication.ApplicationDetail.ApplicationConfigurationDescription.VpcConfigurationDescriptions', props);
     return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.VpcConfigurationDescriptions') as unknown as shapes.KinesisAnalyticsV2VpcConfigurationDescription[];
+  }
+
+  public get zeppelinApplicationConfigurationDescription(): KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescription(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -6418,6 +11602,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -6430,6 +11631,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -6493,6 +11695,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -6505,6 +11724,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -6568,6 +11788,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -6580,6 +11817,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -6650,6 +11888,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -6662,6 +11917,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -6736,6 +11992,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -6748,6 +12021,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -6811,6 +12085,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -6823,6 +12114,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -6886,6 +12178,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -6898,6 +12207,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -6972,6 +12282,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -6984,6 +12311,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -7047,6 +12375,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -7059,6 +12404,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -7122,6 +12468,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -7134,6 +12497,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -7219,6 +12583,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -7231,6 +12612,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -7294,6 +12676,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -7306,6 +12705,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -7376,6 +12776,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -7388,6 +12805,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -7470,6 +12888,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -7482,6 +12917,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -7552,6 +12988,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -7564,6 +13017,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -7627,6 +13081,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -7639,6 +13110,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -7702,6 +13174,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -7714,6 +13203,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -7777,6 +13267,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -7789,6 +13296,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -7859,6 +13367,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -7871,6 +13396,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -7934,6 +13460,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -7946,6 +13489,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -8009,6 +13553,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -8021,6 +13582,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -8091,6 +13653,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -8103,6 +13682,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -8166,6 +13746,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -8178,6 +13775,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -8241,6 +13839,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -8253,6 +13868,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -8316,6 +13932,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -8328,6 +13961,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -8391,6 +14025,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -8403,6 +14054,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -8473,6 +14125,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -8485,6 +14154,7 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
@@ -8555,6 +14225,23 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
               SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
             },
             VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
           },
           ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
           RunConfigurationUpdate: {
@@ -8567,11 +14254,810 @@ export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplic
             },
           },
           CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApplication.ApplicationDetail.ApplicationConfigurationDescription.ApplicationSnapshotConfigurationDescription.SnapshotsEnabled', props);
     return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ApplicationSnapshotConfigurationDescription.SnapshotsEnabled') as unknown as boolean;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2UpdateApplicationRequest) {
+  }
+
+  public get monitoringConfigurationDescription(): KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionMonitoringConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionMonitoringConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get catalogConfigurationDescription(): KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get deployAsApplicationConfigurationDescription(): KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get customArtifactsConfigurationDescription(): shapes.KinesisAnalyticsV2CustomArtifactConfigurationDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.UpdateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+          ApplicationConfigurationUpdate: {
+            SqlApplicationConfigurationUpdate: {
+              InputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.inputUpdates,
+              OutputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.outputUpdates,
+              ReferenceDataSourceUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.referenceDataSourceUpdates,
+            },
+            ApplicationCodeConfigurationUpdate: {
+              CodeContentTypeUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentTypeUpdate,
+              CodeContentUpdate: {
+                TextContentUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.textContentUpdate,
+                ZipFileContentUpdate: {
+                },
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.bucketArnUpdate,
+                  FileKeyUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.fileKeyUpdate,
+                  ObjectVersionUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.objectVersionUpdate,
+                },
+              },
+            },
+            FlinkApplicationConfigurationUpdate: {
+              CheckpointConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.configurationTypeUpdate,
+                CheckpointingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointingEnabledUpdate,
+                CheckpointIntervalUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointIntervalUpdate,
+                MinPauseBetweenCheckpointsUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.minPauseBetweenCheckpointsUpdate,
+              },
+              MonitoringConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.configurationTypeUpdate,
+                MetricsLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.metricsLevelUpdate,
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              ParallelismConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.configurationTypeUpdate,
+                ParallelismUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismUpdate,
+                ParallelismPerKPUUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismPerKpuUpdate,
+                AutoScalingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.autoScalingEnabledUpdate,
+              },
+            },
+            EnvironmentPropertyUpdates: {
+              PropertyGroups: this.__input.applicationConfigurationUpdate?.environmentPropertyUpdates?.propertyGroups,
+            },
+            ApplicationSnapshotConfigurationUpdate: {
+              SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
+            },
+            VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
+          },
+          ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
+          RunConfigurationUpdate: {
+            FlinkRunConfiguration: {
+              AllowNonRestoredState: this.__input.runConfigurationUpdate?.flinkRunConfiguration?.allowNonRestoredState,
+            },
+            ApplicationRestoreConfiguration: {
+              ApplicationRestoreType: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.applicationRestoreType,
+              SnapshotName: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.snapshotName,
+            },
+          },
+          CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CustomArtifactsConfigurationDescription') as unknown as shapes.KinesisAnalyticsV2CustomArtifactConfigurationDescription[];
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionMonitoringConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2UpdateApplicationRequest) {
+  }
+
+  public get logLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.UpdateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+          ApplicationConfigurationUpdate: {
+            SqlApplicationConfigurationUpdate: {
+              InputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.inputUpdates,
+              OutputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.outputUpdates,
+              ReferenceDataSourceUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.referenceDataSourceUpdates,
+            },
+            ApplicationCodeConfigurationUpdate: {
+              CodeContentTypeUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentTypeUpdate,
+              CodeContentUpdate: {
+                TextContentUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.textContentUpdate,
+                ZipFileContentUpdate: {
+                },
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.bucketArnUpdate,
+                  FileKeyUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.fileKeyUpdate,
+                  ObjectVersionUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.objectVersionUpdate,
+                },
+              },
+            },
+            FlinkApplicationConfigurationUpdate: {
+              CheckpointConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.configurationTypeUpdate,
+                CheckpointingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointingEnabledUpdate,
+                CheckpointIntervalUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointIntervalUpdate,
+                MinPauseBetweenCheckpointsUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.minPauseBetweenCheckpointsUpdate,
+              },
+              MonitoringConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.configurationTypeUpdate,
+                MetricsLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.metricsLevelUpdate,
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              ParallelismConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.configurationTypeUpdate,
+                ParallelismUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismUpdate,
+                ParallelismPerKPUUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismPerKpuUpdate,
+                AutoScalingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.autoScalingEnabledUpdate,
+              },
+            },
+            EnvironmentPropertyUpdates: {
+              PropertyGroups: this.__input.applicationConfigurationUpdate?.environmentPropertyUpdates?.propertyGroups,
+            },
+            ApplicationSnapshotConfigurationUpdate: {
+              SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
+            },
+            VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
+          },
+          ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
+          RunConfigurationUpdate: {
+            FlinkRunConfiguration: {
+              AllowNonRestoredState: this.__input.runConfigurationUpdate?.flinkRunConfiguration?.allowNonRestoredState,
+            },
+            ApplicationRestoreConfiguration: {
+              ApplicationRestoreType: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.applicationRestoreType,
+              SnapshotName: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.snapshotName,
+            },
+          },
+          CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.MonitoringConfigurationDescription.LogLevel') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2UpdateApplicationRequest) {
+  }
+
+  public get glueDataCatalogConfigurationDescription(): KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescriptionGlueDataCatalogConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescriptionGlueDataCatalogConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionCatalogConfigurationDescriptionGlueDataCatalogConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2UpdateApplicationRequest) {
+  }
+
+  public get databaseArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.UpdateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+          ApplicationConfigurationUpdate: {
+            SqlApplicationConfigurationUpdate: {
+              InputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.inputUpdates,
+              OutputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.outputUpdates,
+              ReferenceDataSourceUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.referenceDataSourceUpdates,
+            },
+            ApplicationCodeConfigurationUpdate: {
+              CodeContentTypeUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentTypeUpdate,
+              CodeContentUpdate: {
+                TextContentUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.textContentUpdate,
+                ZipFileContentUpdate: {
+                },
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.bucketArnUpdate,
+                  FileKeyUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.fileKeyUpdate,
+                  ObjectVersionUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.objectVersionUpdate,
+                },
+              },
+            },
+            FlinkApplicationConfigurationUpdate: {
+              CheckpointConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.configurationTypeUpdate,
+                CheckpointingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointingEnabledUpdate,
+                CheckpointIntervalUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointIntervalUpdate,
+                MinPauseBetweenCheckpointsUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.minPauseBetweenCheckpointsUpdate,
+              },
+              MonitoringConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.configurationTypeUpdate,
+                MetricsLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.metricsLevelUpdate,
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              ParallelismConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.configurationTypeUpdate,
+                ParallelismUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismUpdate,
+                ParallelismPerKPUUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismPerKpuUpdate,
+                AutoScalingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.autoScalingEnabledUpdate,
+              },
+            },
+            EnvironmentPropertyUpdates: {
+              PropertyGroups: this.__input.applicationConfigurationUpdate?.environmentPropertyUpdates?.propertyGroups,
+            },
+            ApplicationSnapshotConfigurationUpdate: {
+              SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
+            },
+            VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
+          },
+          ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
+          RunConfigurationUpdate: {
+            FlinkRunConfiguration: {
+              AllowNonRestoredState: this.__input.runConfigurationUpdate?.flinkRunConfiguration?.allowNonRestoredState,
+            },
+            ApplicationRestoreConfiguration: {
+              ApplicationRestoreType: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.applicationRestoreType,
+              SnapshotName: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.snapshotName,
+            },
+          },
+          CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.CatalogConfigurationDescription.GlueDataCatalogConfigurationDescription.DatabaseARN') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2UpdateApplicationRequest) {
+  }
+
+  public get s3ContentLocationDescription(): KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescriptionS3ContentLocationDescription {
+    return new KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescriptionS3ContentLocationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationConfigurationDescriptionZeppelinApplicationConfigurationDescriptionDeployAsApplicationConfigurationDescriptionS3ContentLocationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2UpdateApplicationRequest) {
+  }
+
+  public get bucketArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.UpdateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+          ApplicationConfigurationUpdate: {
+            SqlApplicationConfigurationUpdate: {
+              InputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.inputUpdates,
+              OutputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.outputUpdates,
+              ReferenceDataSourceUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.referenceDataSourceUpdates,
+            },
+            ApplicationCodeConfigurationUpdate: {
+              CodeContentTypeUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentTypeUpdate,
+              CodeContentUpdate: {
+                TextContentUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.textContentUpdate,
+                ZipFileContentUpdate: {
+                },
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.bucketArnUpdate,
+                  FileKeyUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.fileKeyUpdate,
+                  ObjectVersionUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.objectVersionUpdate,
+                },
+              },
+            },
+            FlinkApplicationConfigurationUpdate: {
+              CheckpointConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.configurationTypeUpdate,
+                CheckpointingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointingEnabledUpdate,
+                CheckpointIntervalUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointIntervalUpdate,
+                MinPauseBetweenCheckpointsUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.minPauseBetweenCheckpointsUpdate,
+              },
+              MonitoringConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.configurationTypeUpdate,
+                MetricsLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.metricsLevelUpdate,
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              ParallelismConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.configurationTypeUpdate,
+                ParallelismUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismUpdate,
+                ParallelismPerKPUUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismPerKpuUpdate,
+                AutoScalingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.autoScalingEnabledUpdate,
+              },
+            },
+            EnvironmentPropertyUpdates: {
+              PropertyGroups: this.__input.applicationConfigurationUpdate?.environmentPropertyUpdates?.propertyGroups,
+            },
+            ApplicationSnapshotConfigurationUpdate: {
+              SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
+            },
+            VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
+          },
+          ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
+          RunConfigurationUpdate: {
+            FlinkRunConfiguration: {
+              AllowNonRestoredState: this.__input.runConfigurationUpdate?.flinkRunConfiguration?.allowNonRestoredState,
+            },
+            ApplicationRestoreConfiguration: {
+              ApplicationRestoreType: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.applicationRestoreType,
+              SnapshotName: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.snapshotName,
+            },
+          },
+          CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BucketARN') as unknown as string;
+  }
+
+  public get basePath(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.UpdateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath'),
+        outputPath: 'ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+          ApplicationConfigurationUpdate: {
+            SqlApplicationConfigurationUpdate: {
+              InputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.inputUpdates,
+              OutputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.outputUpdates,
+              ReferenceDataSourceUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.referenceDataSourceUpdates,
+            },
+            ApplicationCodeConfigurationUpdate: {
+              CodeContentTypeUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentTypeUpdate,
+              CodeContentUpdate: {
+                TextContentUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.textContentUpdate,
+                ZipFileContentUpdate: {
+                },
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.bucketArnUpdate,
+                  FileKeyUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.fileKeyUpdate,
+                  ObjectVersionUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.objectVersionUpdate,
+                },
+              },
+            },
+            FlinkApplicationConfigurationUpdate: {
+              CheckpointConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.configurationTypeUpdate,
+                CheckpointingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointingEnabledUpdate,
+                CheckpointIntervalUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointIntervalUpdate,
+                MinPauseBetweenCheckpointsUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.minPauseBetweenCheckpointsUpdate,
+              },
+              MonitoringConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.configurationTypeUpdate,
+                MetricsLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.metricsLevelUpdate,
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              ParallelismConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.configurationTypeUpdate,
+                ParallelismUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismUpdate,
+                ParallelismPerKPUUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismPerKpuUpdate,
+                AutoScalingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.autoScalingEnabledUpdate,
+              },
+            },
+            EnvironmentPropertyUpdates: {
+              PropertyGroups: this.__input.applicationConfigurationUpdate?.environmentPropertyUpdates?.propertyGroups,
+            },
+            ApplicationSnapshotConfigurationUpdate: {
+              SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
+            },
+            VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
+          },
+          ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
+          RunConfigurationUpdate: {
+            FlinkRunConfiguration: {
+              AllowNonRestoredState: this.__input.runConfigurationUpdate?.flinkRunConfiguration?.allowNonRestoredState,
+            },
+            ApplicationRestoreConfiguration: {
+              ApplicationRestoreType: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.applicationRestoreType,
+              SnapshotName: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.snapshotName,
+            },
+          },
+          CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApplication.ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationConfigurationDescription.ZeppelinApplicationConfigurationDescription.DeployAsApplicationConfigurationDescription.S3ContentLocationDescription.BasePath') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesUpdateApplicationApplicationDetailApplicationMaintenanceConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2UpdateApplicationRequest) {
+  }
+
+  public get applicationMaintenanceWindowStartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.UpdateApplication.ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime'),
+        outputPath: 'ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+          ApplicationConfigurationUpdate: {
+            SqlApplicationConfigurationUpdate: {
+              InputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.inputUpdates,
+              OutputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.outputUpdates,
+              ReferenceDataSourceUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.referenceDataSourceUpdates,
+            },
+            ApplicationCodeConfigurationUpdate: {
+              CodeContentTypeUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentTypeUpdate,
+              CodeContentUpdate: {
+                TextContentUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.textContentUpdate,
+                ZipFileContentUpdate: {
+                },
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.bucketArnUpdate,
+                  FileKeyUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.fileKeyUpdate,
+                  ObjectVersionUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.objectVersionUpdate,
+                },
+              },
+            },
+            FlinkApplicationConfigurationUpdate: {
+              CheckpointConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.configurationTypeUpdate,
+                CheckpointingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointingEnabledUpdate,
+                CheckpointIntervalUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointIntervalUpdate,
+                MinPauseBetweenCheckpointsUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.minPauseBetweenCheckpointsUpdate,
+              },
+              MonitoringConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.configurationTypeUpdate,
+                MetricsLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.metricsLevelUpdate,
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              ParallelismConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.configurationTypeUpdate,
+                ParallelismUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismUpdate,
+                ParallelismPerKPUUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismPerKpuUpdate,
+                AutoScalingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.autoScalingEnabledUpdate,
+              },
+            },
+            EnvironmentPropertyUpdates: {
+              PropertyGroups: this.__input.applicationConfigurationUpdate?.environmentPropertyUpdates?.propertyGroups,
+            },
+            ApplicationSnapshotConfigurationUpdate: {
+              SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
+            },
+            VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
+          },
+          ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
+          RunConfigurationUpdate: {
+            FlinkRunConfiguration: {
+              AllowNonRestoredState: this.__input.runConfigurationUpdate?.flinkRunConfiguration?.allowNonRestoredState,
+            },
+            ApplicationRestoreConfiguration: {
+              ApplicationRestoreType: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.applicationRestoreType,
+              SnapshotName: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.snapshotName,
+            },
+          },
+          CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApplication.ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime') as unknown as string;
+  }
+
+  public get applicationMaintenanceWindowEndTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApplication',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.UpdateApplication.ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime'),
+        outputPath: 'ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          CurrentApplicationVersionId: this.__input.currentApplicationVersionId,
+          ApplicationConfigurationUpdate: {
+            SqlApplicationConfigurationUpdate: {
+              InputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.inputUpdates,
+              OutputUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.outputUpdates,
+              ReferenceDataSourceUpdates: this.__input.applicationConfigurationUpdate?.sqlApplicationConfigurationUpdate?.referenceDataSourceUpdates,
+            },
+            ApplicationCodeConfigurationUpdate: {
+              CodeContentTypeUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentTypeUpdate,
+              CodeContentUpdate: {
+                TextContentUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.textContentUpdate,
+                ZipFileContentUpdate: {
+                },
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.bucketArnUpdate,
+                  FileKeyUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.fileKeyUpdate,
+                  ObjectVersionUpdate: this.__input.applicationConfigurationUpdate?.applicationCodeConfigurationUpdate?.codeContentUpdate?.s3ContentLocationUpdate?.objectVersionUpdate,
+                },
+              },
+            },
+            FlinkApplicationConfigurationUpdate: {
+              CheckpointConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.configurationTypeUpdate,
+                CheckpointingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointingEnabledUpdate,
+                CheckpointIntervalUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.checkpointIntervalUpdate,
+                MinPauseBetweenCheckpointsUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.checkpointConfigurationUpdate?.minPauseBetweenCheckpointsUpdate,
+              },
+              MonitoringConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.configurationTypeUpdate,
+                MetricsLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.metricsLevelUpdate,
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              ParallelismConfigurationUpdate: {
+                ConfigurationTypeUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.configurationTypeUpdate,
+                ParallelismUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismUpdate,
+                ParallelismPerKPUUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.parallelismPerKpuUpdate,
+                AutoScalingEnabledUpdate: this.__input.applicationConfigurationUpdate?.flinkApplicationConfigurationUpdate?.parallelismConfigurationUpdate?.autoScalingEnabledUpdate,
+              },
+            },
+            EnvironmentPropertyUpdates: {
+              PropertyGroups: this.__input.applicationConfigurationUpdate?.environmentPropertyUpdates?.propertyGroups,
+            },
+            ApplicationSnapshotConfigurationUpdate: {
+              SnapshotsEnabledUpdate: this.__input.applicationConfigurationUpdate?.applicationSnapshotConfigurationUpdate?.snapshotsEnabledUpdate,
+            },
+            VpcConfigurationUpdates: this.__input.applicationConfigurationUpdate?.vpcConfigurationUpdates,
+            ZeppelinApplicationConfigurationUpdate: {
+              MonitoringConfigurationUpdate: {
+                LogLevelUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.monitoringConfigurationUpdate?.logLevelUpdate,
+              },
+              CatalogConfigurationUpdate: {
+                GlueDataCatalogConfigurationUpdate: {
+                  DatabaseARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.catalogConfigurationUpdate?.glueDataCatalogConfigurationUpdate.databaseArnUpdate,
+                },
+              },
+              DeployAsApplicationConfigurationUpdate: {
+                S3ContentLocationUpdate: {
+                  BucketARNUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.bucketArnUpdate,
+                  BasePathUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.deployAsApplicationConfigurationUpdate?.s3ContentLocationUpdate.basePathUpdate,
+                },
+              },
+              CustomArtifactsConfigurationUpdate: this.__input.applicationConfigurationUpdate?.zeppelinApplicationConfigurationUpdate?.customArtifactsConfigurationUpdate,
+            },
+          },
+          ServiceExecutionRoleUpdate: this.__input.serviceExecutionRoleUpdate,
+          RunConfigurationUpdate: {
+            FlinkRunConfiguration: {
+              AllowNonRestoredState: this.__input.runConfigurationUpdate?.flinkRunConfiguration?.allowNonRestoredState,
+            },
+            ApplicationRestoreConfiguration: {
+              ApplicationRestoreType: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.applicationRestoreType,
+              SnapshotName: this.__input.runConfigurationUpdate?.applicationRestoreConfiguration?.snapshotName,
+            },
+          },
+          CloudWatchLoggingOptionUpdates: this.__input.cloudWatchLoggingOptionUpdates,
+          ConditionalToken: this.__input.conditionalToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApplication.ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime', props);
+    return resource.getResponseField('ApplicationDetail.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime') as unknown as string;
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesUpdateApplicationMaintenanceConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2UpdateApplicationMaintenanceConfigurationRequest) {
+  }
+
+  public get applicationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApplicationMaintenanceConfiguration',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.UpdateApplicationMaintenanceConfiguration.ApplicationARN'),
+        outputPath: 'ApplicationARN',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationMaintenanceConfigurationUpdate: {
+            ApplicationMaintenanceWindowStartTimeUpdate: this.__input.applicationMaintenanceConfigurationUpdate.applicationMaintenanceWindowStartTimeUpdate,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApplicationMaintenanceConfiguration.ApplicationARN', props);
+    return resource.getResponseField('ApplicationARN') as unknown as string;
+  }
+
+  public get applicationMaintenanceConfigurationDescription(): KinesisAnalyticsV2ResponsesUpdateApplicationMaintenanceConfigurationApplicationMaintenanceConfigurationDescription {
+    return new KinesisAnalyticsV2ResponsesUpdateApplicationMaintenanceConfigurationApplicationMaintenanceConfigurationDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class KinesisAnalyticsV2ResponsesUpdateApplicationMaintenanceConfigurationApplicationMaintenanceConfigurationDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KinesisAnalyticsV2UpdateApplicationMaintenanceConfigurationRequest) {
+  }
+
+  public get applicationMaintenanceWindowStartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApplicationMaintenanceConfiguration',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.UpdateApplicationMaintenanceConfiguration.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime'),
+        outputPath: 'ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationMaintenanceConfigurationUpdate: {
+            ApplicationMaintenanceWindowStartTimeUpdate: this.__input.applicationMaintenanceConfigurationUpdate.applicationMaintenanceWindowStartTimeUpdate,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApplicationMaintenanceConfiguration.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime', props);
+    return resource.getResponseField('ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowStartTime') as unknown as string;
+  }
+
+  public get applicationMaintenanceWindowEndTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApplicationMaintenanceConfiguration',
+        service: 'KinesisAnalyticsV2',
+        physicalResourceId: cr.PhysicalResourceId.of('KinesisAnalyticsV2.UpdateApplicationMaintenanceConfiguration.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime'),
+        outputPath: 'ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime',
+        parameters: {
+          ApplicationName: this.__input.applicationName,
+          ApplicationMaintenanceConfigurationUpdate: {
+            ApplicationMaintenanceWindowStartTimeUpdate: this.__input.applicationMaintenanceConfigurationUpdate.applicationMaintenanceWindowStartTimeUpdate,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApplicationMaintenanceConfiguration.ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime', props);
+    return resource.getResponseField('ApplicationMaintenanceConfigurationDescription.ApplicationMaintenanceWindowEndTime') as unknown as string;
   }
 
 }

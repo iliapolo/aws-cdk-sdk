@@ -839,9 +839,14 @@ export class LambdaResponsesCreateEventSourceMapping {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -877,9 +882,14 @@ export class LambdaResponsesCreateEventSourceMapping {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -915,9 +925,14 @@ export class LambdaResponsesCreateEventSourceMapping {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -953,9 +968,14 @@ export class LambdaResponsesCreateEventSourceMapping {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -991,9 +1011,14 @@ export class LambdaResponsesCreateEventSourceMapping {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -1029,9 +1054,14 @@ export class LambdaResponsesCreateEventSourceMapping {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -1067,9 +1097,14 @@ export class LambdaResponsesCreateEventSourceMapping {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -1105,9 +1140,14 @@ export class LambdaResponsesCreateEventSourceMapping {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -1143,9 +1183,14 @@ export class LambdaResponsesCreateEventSourceMapping {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -1181,9 +1226,14 @@ export class LambdaResponsesCreateEventSourceMapping {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -1219,9 +1269,14 @@ export class LambdaResponsesCreateEventSourceMapping {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -1257,9 +1312,14 @@ export class LambdaResponsesCreateEventSourceMapping {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -1299,9 +1359,14 @@ export class LambdaResponsesCreateEventSourceMapping {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -1337,9 +1402,14 @@ export class LambdaResponsesCreateEventSourceMapping {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -1375,14 +1445,23 @@ export class LambdaResponsesCreateEventSourceMapping {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateEventSourceMapping.SourceAccessConfigurations', props);
     return resource.getResponseField('SourceAccessConfigurations') as unknown as shapes.LambdaSourceAccessConfiguration[];
+  }
+
+  public get selfManagedEventSource(): LambdaResponsesCreateEventSourceMappingSelfManagedEventSource {
+    return new LambdaResponsesCreateEventSourceMappingSelfManagedEventSource(this.__scope, this.__resources, this.__input);
   }
 
   public get maximumRecordAgeInSeconds(): number {
@@ -1413,9 +1492,14 @@ export class LambdaResponsesCreateEventSourceMapping {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -1451,9 +1535,14 @@ export class LambdaResponsesCreateEventSourceMapping {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -1489,14 +1578,105 @@ export class LambdaResponsesCreateEventSourceMapping {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateEventSourceMapping.MaximumRetryAttempts', props);
     return resource.getResponseField('MaximumRetryAttempts') as unknown as number;
+  }
+
+  public get tumblingWindowInSeconds(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEventSourceMapping',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.CreateEventSourceMapping.TumblingWindowInSeconds'),
+        outputPath: 'TumblingWindowInSeconds',
+        parameters: {
+          EventSourceArn: this.__input.eventSourceArn,
+          FunctionName: this.__input.functionName,
+          Enabled: this.__input.enabled,
+          BatchSize: this.__input.batchSize,
+          MaximumBatchingWindowInSeconds: this.__input.maximumBatchingWindowInSeconds,
+          ParallelizationFactor: this.__input.parallelizationFactor,
+          StartingPosition: this.__input.startingPosition,
+          StartingPositionTimestamp: this.__input.startingPositionTimestamp,
+          DestinationConfig: {
+            OnSuccess: {
+              Destination: this.__input.destinationConfig?.onSuccess?.destination,
+            },
+            OnFailure: {
+              Destination: this.__input.destinationConfig?.onFailure?.destination,
+            },
+          },
+          MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
+          BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
+          MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          Topics: this.__input.topics,
+          Queues: this.__input.queues,
+          SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEventSourceMapping.TumblingWindowInSeconds', props);
+    return resource.getResponseField('TumblingWindowInSeconds') as unknown as number;
+  }
+
+  public get functionResponseTypes(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEventSourceMapping',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.CreateEventSourceMapping.FunctionResponseTypes'),
+        outputPath: 'FunctionResponseTypes',
+        parameters: {
+          EventSourceArn: this.__input.eventSourceArn,
+          FunctionName: this.__input.functionName,
+          Enabled: this.__input.enabled,
+          BatchSize: this.__input.batchSize,
+          MaximumBatchingWindowInSeconds: this.__input.maximumBatchingWindowInSeconds,
+          ParallelizationFactor: this.__input.parallelizationFactor,
+          StartingPosition: this.__input.startingPosition,
+          StartingPositionTimestamp: this.__input.startingPositionTimestamp,
+          DestinationConfig: {
+            OnSuccess: {
+              Destination: this.__input.destinationConfig?.onSuccess?.destination,
+            },
+            OnFailure: {
+              Destination: this.__input.destinationConfig?.onFailure?.destination,
+            },
+          },
+          MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
+          BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
+          MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          Topics: this.__input.topics,
+          Queues: this.__input.queues,
+          SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEventSourceMapping.FunctionResponseTypes', props);
+    return resource.getResponseField('FunctionResponseTypes') as unknown as string[];
   }
 
 }
@@ -1549,9 +1729,14 @@ export class LambdaResponsesCreateEventSourceMappingDestinationConfigOnSuccess {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -1594,14 +1779,69 @@ export class LambdaResponsesCreateEventSourceMappingDestinationConfigOnFailure {
           MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
           BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
           Topics: this.__input.topics,
           Queues: this.__input.queues,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateEventSourceMapping.DestinationConfig.OnFailure.Destination', props);
     return resource.getResponseField('DestinationConfig.OnFailure.Destination') as unknown as string;
+  }
+
+}
+
+export class LambdaResponsesCreateEventSourceMappingSelfManagedEventSource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaCreateEventSourceMappingRequest) {
+  }
+
+  public get endpoints(): Record<string, string[]> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEventSourceMapping',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.CreateEventSourceMapping.SelfManagedEventSource.Endpoints'),
+        outputPath: 'SelfManagedEventSource.Endpoints',
+        parameters: {
+          EventSourceArn: this.__input.eventSourceArn,
+          FunctionName: this.__input.functionName,
+          Enabled: this.__input.enabled,
+          BatchSize: this.__input.batchSize,
+          MaximumBatchingWindowInSeconds: this.__input.maximumBatchingWindowInSeconds,
+          ParallelizationFactor: this.__input.parallelizationFactor,
+          StartingPosition: this.__input.startingPosition,
+          StartingPositionTimestamp: this.__input.startingPositionTimestamp,
+          DestinationConfig: {
+            OnSuccess: {
+              Destination: this.__input.destinationConfig?.onSuccess?.destination,
+            },
+            OnFailure: {
+              Destination: this.__input.destinationConfig?.onFailure?.destination,
+            },
+          },
+          MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
+          BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
+          MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          Topics: this.__input.topics,
+          Queues: this.__input.queues,
+          SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          SelfManagedEventSource: {
+            Endpoints: this.__input.selfManagedEventSource?.endpoints,
+          },
+          FunctionResponseTypes: this.__input.functionResponseTypes,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEventSourceMapping.SelfManagedEventSource.Endpoints', props);
+    return resource.getResponseField('SelfManagedEventSource.Endpoints') as unknown as Record<string, string[]>;
   }
 
 }
@@ -1630,6 +1870,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -1639,6 +1880,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -1652,6 +1894,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -1679,6 +1926,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -1688,6 +1936,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -1701,6 +1950,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -1728,6 +1982,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -1737,6 +1992,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -1750,6 +2006,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -1777,6 +2038,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -1786,6 +2048,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -1799,6 +2062,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -1826,6 +2094,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -1835,6 +2104,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -1848,6 +2118,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -1875,6 +2150,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -1884,6 +2160,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -1897,6 +2174,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -1924,6 +2206,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -1933,6 +2216,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -1946,6 +2230,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -1973,6 +2262,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -1982,6 +2272,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -1995,6 +2286,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2022,6 +2318,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2031,6 +2328,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2044,6 +2342,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2071,6 +2374,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2080,6 +2384,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2093,6 +2398,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2120,6 +2430,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2129,6 +2440,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2142,6 +2454,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2169,6 +2486,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2178,6 +2496,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2191,6 +2510,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2230,6 +2554,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2239,6 +2564,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2252,6 +2578,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2283,6 +2614,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2292,6 +2624,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2305,6 +2638,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2332,6 +2670,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2341,6 +2680,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2354,6 +2694,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2381,6 +2726,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2390,6 +2736,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2403,6 +2750,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2430,6 +2782,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2439,6 +2792,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2452,6 +2806,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2479,6 +2838,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2488,6 +2848,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2501,6 +2862,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2528,6 +2894,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2537,6 +2904,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2550,6 +2918,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2577,6 +2950,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2586,6 +2960,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2599,6 +2974,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2626,6 +3006,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2635,6 +3016,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2648,6 +3030,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2675,6 +3062,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2684,6 +3072,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2697,6 +3086,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2724,6 +3118,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2733,6 +3128,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2746,12 +3142,77 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.FileSystemConfigs', props);
     return resource.getResponseField('FileSystemConfigs') as unknown as shapes.LambdaFileSystemConfig[];
+  }
+
+  public get packageType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.CreateFunction.PackageType'),
+        outputPath: 'PackageType',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Runtime: this.__input.runtime,
+          Role: this.__input.role,
+          Handler: this.__input.handler,
+          Code: {
+            ZipFile: {
+            },
+            S3Bucket: this.__input.code.s3Bucket,
+            S3Key: this.__input.code.s3Key,
+            S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
+          },
+          Description: this.__input.description,
+          Timeout: this.__input.timeout,
+          MemorySize: this.__input.memorySize,
+          Publish: this.__input.publish,
+          VpcConfig: {
+            SubnetIds: this.__input.vpcConfig?.subnetIds,
+            SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          PackageType: this.__input.packageType,
+          DeadLetterConfig: {
+            TargetArn: this.__input.deadLetterConfig?.targetArn,
+          },
+          Environment: {
+            Variables: this.__input.environment?.variables,
+          },
+          KMSKeyArn: this.__input.kmsKeyArn,
+          TracingConfig: {
+            Mode: this.__input.tracingConfig?.mode,
+          },
+          Tags: this.__input.tags,
+          Layers: this.__input.layers,
+          FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
+          CodeSigningConfigArn: this.__input.codeSigningConfigArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.PackageType', props);
+    return resource.getResponseField('PackageType') as unknown as string;
+  }
+
+  public get imageConfigResponse(): LambdaResponsesCreateFunctionImageConfigResponse {
+    return new LambdaResponsesCreateFunctionImageConfigResponse(this.__scope, this.__resources, this.__input);
   }
 
   public get signingProfileVersionArn(): string {
@@ -2773,6 +3234,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2782,6 +3244,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2795,6 +3258,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2822,6 +3290,7 @@ export class LambdaResponsesCreateFunction {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2831,6 +3300,7 @@ export class LambdaResponsesCreateFunction {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2844,6 +3314,11 @@ export class LambdaResponsesCreateFunction {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2878,6 +3353,7 @@ export class LambdaResponsesCreateFunctionVpcConfig {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2887,6 +3363,7 @@ export class LambdaResponsesCreateFunctionVpcConfig {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2900,6 +3377,11 @@ export class LambdaResponsesCreateFunctionVpcConfig {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2927,6 +3409,7 @@ export class LambdaResponsesCreateFunctionVpcConfig {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2936,6 +3419,7 @@ export class LambdaResponsesCreateFunctionVpcConfig {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2949,6 +3433,11 @@ export class LambdaResponsesCreateFunctionVpcConfig {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -2976,6 +3465,7 @@ export class LambdaResponsesCreateFunctionVpcConfig {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -2985,6 +3475,7 @@ export class LambdaResponsesCreateFunctionVpcConfig {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -2998,6 +3489,11 @@ export class LambdaResponsesCreateFunctionVpcConfig {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -3032,6 +3528,7 @@ export class LambdaResponsesCreateFunctionDeadLetterConfig {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -3041,6 +3538,7 @@ export class LambdaResponsesCreateFunctionDeadLetterConfig {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -3054,6 +3552,11 @@ export class LambdaResponsesCreateFunctionDeadLetterConfig {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -3088,6 +3591,7 @@ export class LambdaResponsesCreateFunctionEnvironment {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -3097,6 +3601,7 @@ export class LambdaResponsesCreateFunctionEnvironment {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -3110,6 +3615,11 @@ export class LambdaResponsesCreateFunctionEnvironment {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -3148,6 +3658,7 @@ export class LambdaResponsesCreateFunctionEnvironmentError {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -3157,6 +3668,7 @@ export class LambdaResponsesCreateFunctionEnvironmentError {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -3170,6 +3682,11 @@ export class LambdaResponsesCreateFunctionEnvironmentError {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -3197,6 +3714,7 @@ export class LambdaResponsesCreateFunctionEnvironmentError {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -3206,6 +3724,7 @@ export class LambdaResponsesCreateFunctionEnvironmentError {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -3219,6 +3738,11 @@ export class LambdaResponsesCreateFunctionEnvironmentError {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
@@ -3253,6 +3777,7 @@ export class LambdaResponsesCreateFunctionTracingConfig {
             S3Bucket: this.__input.code.s3Bucket,
             S3Key: this.__input.code.s3Key,
             S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
           },
           Description: this.__input.description,
           Timeout: this.__input.timeout,
@@ -3262,6 +3787,7 @@ export class LambdaResponsesCreateFunctionTracingConfig {
             SubnetIds: this.__input.vpcConfig?.subnetIds,
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
           },
+          PackageType: this.__input.packageType,
           DeadLetterConfig: {
             TargetArn: this.__input.deadLetterConfig?.targetArn,
           },
@@ -3275,12 +3801,326 @@ export class LambdaResponsesCreateFunctionTracingConfig {
           Tags: this.__input.tags,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
           CodeSigningConfigArn: this.__input.codeSigningConfigArn,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.TracingConfig.Mode', props);
     return resource.getResponseField('TracingConfig.Mode') as unknown as string;
+  }
+
+}
+
+export class LambdaResponsesCreateFunctionImageConfigResponse {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaCreateFunctionRequest) {
+  }
+
+  public get imageConfig(): LambdaResponsesCreateFunctionImageConfigResponseImageConfig {
+    return new LambdaResponsesCreateFunctionImageConfigResponseImageConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get error(): LambdaResponsesCreateFunctionImageConfigResponseError {
+    return new LambdaResponsesCreateFunctionImageConfigResponseError(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class LambdaResponsesCreateFunctionImageConfigResponseImageConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaCreateFunctionRequest) {
+  }
+
+  public get entryPoint(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.CreateFunction.ImageConfigResponse.ImageConfig.EntryPoint'),
+        outputPath: 'ImageConfigResponse.ImageConfig.EntryPoint',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Runtime: this.__input.runtime,
+          Role: this.__input.role,
+          Handler: this.__input.handler,
+          Code: {
+            ZipFile: {
+            },
+            S3Bucket: this.__input.code.s3Bucket,
+            S3Key: this.__input.code.s3Key,
+            S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
+          },
+          Description: this.__input.description,
+          Timeout: this.__input.timeout,
+          MemorySize: this.__input.memorySize,
+          Publish: this.__input.publish,
+          VpcConfig: {
+            SubnetIds: this.__input.vpcConfig?.subnetIds,
+            SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          PackageType: this.__input.packageType,
+          DeadLetterConfig: {
+            TargetArn: this.__input.deadLetterConfig?.targetArn,
+          },
+          Environment: {
+            Variables: this.__input.environment?.variables,
+          },
+          KMSKeyArn: this.__input.kmsKeyArn,
+          TracingConfig: {
+            Mode: this.__input.tracingConfig?.mode,
+          },
+          Tags: this.__input.tags,
+          Layers: this.__input.layers,
+          FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
+          CodeSigningConfigArn: this.__input.codeSigningConfigArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.ImageConfigResponse.ImageConfig.EntryPoint', props);
+    return resource.getResponseField('ImageConfigResponse.ImageConfig.EntryPoint') as unknown as string[];
+  }
+
+  public get command(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.CreateFunction.ImageConfigResponse.ImageConfig.Command'),
+        outputPath: 'ImageConfigResponse.ImageConfig.Command',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Runtime: this.__input.runtime,
+          Role: this.__input.role,
+          Handler: this.__input.handler,
+          Code: {
+            ZipFile: {
+            },
+            S3Bucket: this.__input.code.s3Bucket,
+            S3Key: this.__input.code.s3Key,
+            S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
+          },
+          Description: this.__input.description,
+          Timeout: this.__input.timeout,
+          MemorySize: this.__input.memorySize,
+          Publish: this.__input.publish,
+          VpcConfig: {
+            SubnetIds: this.__input.vpcConfig?.subnetIds,
+            SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          PackageType: this.__input.packageType,
+          DeadLetterConfig: {
+            TargetArn: this.__input.deadLetterConfig?.targetArn,
+          },
+          Environment: {
+            Variables: this.__input.environment?.variables,
+          },
+          KMSKeyArn: this.__input.kmsKeyArn,
+          TracingConfig: {
+            Mode: this.__input.tracingConfig?.mode,
+          },
+          Tags: this.__input.tags,
+          Layers: this.__input.layers,
+          FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
+          CodeSigningConfigArn: this.__input.codeSigningConfigArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.ImageConfigResponse.ImageConfig.Command', props);
+    return resource.getResponseField('ImageConfigResponse.ImageConfig.Command') as unknown as string[];
+  }
+
+  public get workingDirectory(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.CreateFunction.ImageConfigResponse.ImageConfig.WorkingDirectory'),
+        outputPath: 'ImageConfigResponse.ImageConfig.WorkingDirectory',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Runtime: this.__input.runtime,
+          Role: this.__input.role,
+          Handler: this.__input.handler,
+          Code: {
+            ZipFile: {
+            },
+            S3Bucket: this.__input.code.s3Bucket,
+            S3Key: this.__input.code.s3Key,
+            S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
+          },
+          Description: this.__input.description,
+          Timeout: this.__input.timeout,
+          MemorySize: this.__input.memorySize,
+          Publish: this.__input.publish,
+          VpcConfig: {
+            SubnetIds: this.__input.vpcConfig?.subnetIds,
+            SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          PackageType: this.__input.packageType,
+          DeadLetterConfig: {
+            TargetArn: this.__input.deadLetterConfig?.targetArn,
+          },
+          Environment: {
+            Variables: this.__input.environment?.variables,
+          },
+          KMSKeyArn: this.__input.kmsKeyArn,
+          TracingConfig: {
+            Mode: this.__input.tracingConfig?.mode,
+          },
+          Tags: this.__input.tags,
+          Layers: this.__input.layers,
+          FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
+          CodeSigningConfigArn: this.__input.codeSigningConfigArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.ImageConfigResponse.ImageConfig.WorkingDirectory', props);
+    return resource.getResponseField('ImageConfigResponse.ImageConfig.WorkingDirectory') as unknown as string;
+  }
+
+}
+
+export class LambdaResponsesCreateFunctionImageConfigResponseError {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaCreateFunctionRequest) {
+  }
+
+  public get errorCode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.CreateFunction.ImageConfigResponse.Error.ErrorCode'),
+        outputPath: 'ImageConfigResponse.Error.ErrorCode',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Runtime: this.__input.runtime,
+          Role: this.__input.role,
+          Handler: this.__input.handler,
+          Code: {
+            ZipFile: {
+            },
+            S3Bucket: this.__input.code.s3Bucket,
+            S3Key: this.__input.code.s3Key,
+            S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
+          },
+          Description: this.__input.description,
+          Timeout: this.__input.timeout,
+          MemorySize: this.__input.memorySize,
+          Publish: this.__input.publish,
+          VpcConfig: {
+            SubnetIds: this.__input.vpcConfig?.subnetIds,
+            SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          PackageType: this.__input.packageType,
+          DeadLetterConfig: {
+            TargetArn: this.__input.deadLetterConfig?.targetArn,
+          },
+          Environment: {
+            Variables: this.__input.environment?.variables,
+          },
+          KMSKeyArn: this.__input.kmsKeyArn,
+          TracingConfig: {
+            Mode: this.__input.tracingConfig?.mode,
+          },
+          Tags: this.__input.tags,
+          Layers: this.__input.layers,
+          FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
+          CodeSigningConfigArn: this.__input.codeSigningConfigArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.ImageConfigResponse.Error.ErrorCode', props);
+    return resource.getResponseField('ImageConfigResponse.Error.ErrorCode') as unknown as string;
+  }
+
+  public get message(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.CreateFunction.ImageConfigResponse.Error.Message'),
+        outputPath: 'ImageConfigResponse.Error.Message',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Runtime: this.__input.runtime,
+          Role: this.__input.role,
+          Handler: this.__input.handler,
+          Code: {
+            ZipFile: {
+            },
+            S3Bucket: this.__input.code.s3Bucket,
+            S3Key: this.__input.code.s3Key,
+            S3ObjectVersion: this.__input.code.s3ObjectVersion,
+            ImageUri: this.__input.code.imageUri,
+          },
+          Description: this.__input.description,
+          Timeout: this.__input.timeout,
+          MemorySize: this.__input.memorySize,
+          Publish: this.__input.publish,
+          VpcConfig: {
+            SubnetIds: this.__input.vpcConfig?.subnetIds,
+            SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          PackageType: this.__input.packageType,
+          DeadLetterConfig: {
+            TargetArn: this.__input.deadLetterConfig?.targetArn,
+          },
+          Environment: {
+            Variables: this.__input.environment?.variables,
+          },
+          KMSKeyArn: this.__input.kmsKeyArn,
+          TracingConfig: {
+            Mode: this.__input.tracingConfig?.mode,
+          },
+          Tags: this.__input.tags,
+          Layers: this.__input.layers,
+          FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
+          CodeSigningConfigArn: this.__input.codeSigningConfigArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.ImageConfigResponse.Error.Message', props);
+    return resource.getResponseField('ImageConfigResponse.Error.Message') as unknown as string;
   }
 
 }
@@ -3549,6 +4389,10 @@ export class LambdaResponsesDeleteEventSourceMapping {
     return resource.getResponseField('SourceAccessConfigurations') as unknown as shapes.LambdaSourceAccessConfiguration[];
   }
 
+  public get selfManagedEventSource(): LambdaResponsesDeleteEventSourceMappingSelfManagedEventSource {
+    return new LambdaResponsesDeleteEventSourceMappingSelfManagedEventSource(this.__scope, this.__resources, this.__input);
+  }
+
   public get maximumRecordAgeInSeconds(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -3598,6 +4442,40 @@ export class LambdaResponsesDeleteEventSourceMapping {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEventSourceMapping.MaximumRetryAttempts', props);
     return resource.getResponseField('MaximumRetryAttempts') as unknown as number;
+  }
+
+  public get tumblingWindowInSeconds(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEventSourceMapping',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.DeleteEventSourceMapping.TumblingWindowInSeconds'),
+        outputPath: 'TumblingWindowInSeconds',
+        parameters: {
+          UUID: this.__input.uuid,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEventSourceMapping.TumblingWindowInSeconds', props);
+    return resource.getResponseField('TumblingWindowInSeconds') as unknown as number;
+  }
+
+  public get functionResponseTypes(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEventSourceMapping',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.DeleteEventSourceMapping.FunctionResponseTypes'),
+        outputPath: 'FunctionResponseTypes',
+        parameters: {
+          UUID: this.__input.uuid,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEventSourceMapping.FunctionResponseTypes', props);
+    return resource.getResponseField('FunctionResponseTypes') as unknown as string[];
   }
 
 }
@@ -3661,6 +4539,30 @@ export class LambdaResponsesDeleteEventSourceMappingDestinationConfigOnFailure {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEventSourceMapping.DestinationConfig.OnFailure.Destination', props);
     return resource.getResponseField('DestinationConfig.OnFailure.Destination') as unknown as string;
+  }
+
+}
+
+export class LambdaResponsesDeleteEventSourceMappingSelfManagedEventSource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaDeleteEventSourceMappingRequest) {
+  }
+
+  public get endpoints(): Record<string, string[]> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEventSourceMapping',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.DeleteEventSourceMapping.SelfManagedEventSource.Endpoints'),
+        outputPath: 'SelfManagedEventSource.Endpoints',
+        parameters: {
+          UUID: this.__input.uuid,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEventSourceMapping.SelfManagedEventSource.Endpoints', props);
+    return resource.getResponseField('SelfManagedEventSource.Endpoints') as unknown as Record<string, string[]>;
   }
 
 }
@@ -4338,6 +5240,10 @@ export class LambdaResponsesFetchEventSourceMapping {
     return resource.getResponseField('SourceAccessConfigurations') as unknown as shapes.LambdaSourceAccessConfiguration[];
   }
 
+  public get selfManagedEventSource(): LambdaResponsesFetchEventSourceMappingSelfManagedEventSource {
+    return new LambdaResponsesFetchEventSourceMappingSelfManagedEventSource(this.__scope, this.__resources, this.__input);
+  }
+
   public get maximumRecordAgeInSeconds(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -4387,6 +5293,40 @@ export class LambdaResponsesFetchEventSourceMapping {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetEventSourceMapping.MaximumRetryAttempts', props);
     return resource.getResponseField('MaximumRetryAttempts') as unknown as number;
+  }
+
+  public get tumblingWindowInSeconds(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getEventSourceMapping',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.GetEventSourceMapping.TumblingWindowInSeconds'),
+        outputPath: 'TumblingWindowInSeconds',
+        parameters: {
+          UUID: this.__input.uuid,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetEventSourceMapping.TumblingWindowInSeconds', props);
+    return resource.getResponseField('TumblingWindowInSeconds') as unknown as number;
+  }
+
+  public get functionResponseTypes(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getEventSourceMapping',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.GetEventSourceMapping.FunctionResponseTypes'),
+        outputPath: 'FunctionResponseTypes',
+        parameters: {
+          UUID: this.__input.uuid,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetEventSourceMapping.FunctionResponseTypes', props);
+    return resource.getResponseField('FunctionResponseTypes') as unknown as string[];
   }
 
 }
@@ -4450,6 +5390,30 @@ export class LambdaResponsesFetchEventSourceMappingDestinationConfigOnFailure {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetEventSourceMapping.DestinationConfig.OnFailure.Destination', props);
     return resource.getResponseField('DestinationConfig.OnFailure.Destination') as unknown as string;
+  }
+
+}
+
+export class LambdaResponsesFetchEventSourceMappingSelfManagedEventSource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaGetEventSourceMappingRequest) {
+  }
+
+  public get endpoints(): Record<string, string[]> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getEventSourceMapping',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.GetEventSourceMapping.SelfManagedEventSource.Endpoints'),
+        outputPath: 'SelfManagedEventSource.Endpoints',
+        parameters: {
+          UUID: this.__input.uuid,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetEventSourceMapping.SelfManagedEventSource.Endpoints', props);
+    return resource.getResponseField('SelfManagedEventSource.Endpoints') as unknown as Record<string, string[]>;
   }
 
 }
@@ -4530,6 +5494,42 @@ export class LambdaResponsesFetchFunctionCode {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetFunction.Code.Location', props);
     return resource.getResponseField('Code.Location') as unknown as string;
+  }
+
+  public get imageUri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFunction',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.GetFunction.Code.ImageUri'),
+        outputPath: 'Code.ImageUri',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Qualifier: this.__input.qualifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFunction.Code.ImageUri', props);
+    return resource.getResponseField('Code.ImageUri') as unknown as string;
+  }
+
+  public get resolvedImageUri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFunction',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.GetFunction.Code.ResolvedImageUri'),
+        outputPath: 'Code.ResolvedImageUri',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Qualifier: this.__input.qualifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFunction.Code.ResolvedImageUri', props);
+    return resource.getResponseField('Code.ResolvedImageUri') as unknown as string;
   }
 
 }
@@ -5034,6 +6034,28 @@ export class LambdaResponsesFetchFunctionConfiguration {
     return resource.getResponseField('FileSystemConfigs') as unknown as shapes.LambdaFileSystemConfig[];
   }
 
+  public get packageType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFunctionConfiguration',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.GetFunctionConfiguration.PackageType'),
+        outputPath: 'PackageType',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Qualifier: this.__input.qualifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFunctionConfiguration.PackageType', props);
+    return resource.getResponseField('PackageType') as unknown as string;
+  }
+
+  public get imageConfigResponse(): LambdaResponsesFetchFunctionConfigurationImageConfigResponse {
+    return new LambdaResponsesFetchFunctionConfigurationImageConfigResponse(this.__scope, this.__resources, this.__input);
+  }
+
   public get signingProfileVersionArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -5251,6 +6273,125 @@ export class LambdaResponsesFetchFunctionConfigurationTracingConfig {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetFunctionConfiguration.TracingConfig.Mode', props);
     return resource.getResponseField('TracingConfig.Mode') as unknown as string;
+  }
+
+}
+
+export class LambdaResponsesFetchFunctionConfigurationImageConfigResponse {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaGetFunctionConfigurationRequest) {
+  }
+
+  public get imageConfig(): LambdaResponsesFetchFunctionConfigurationImageConfigResponseImageConfig {
+    return new LambdaResponsesFetchFunctionConfigurationImageConfigResponseImageConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get error(): LambdaResponsesFetchFunctionConfigurationImageConfigResponseError {
+    return new LambdaResponsesFetchFunctionConfigurationImageConfigResponseError(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class LambdaResponsesFetchFunctionConfigurationImageConfigResponseImageConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaGetFunctionConfigurationRequest) {
+  }
+
+  public get entryPoint(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFunctionConfiguration',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.GetFunctionConfiguration.ImageConfigResponse.ImageConfig.EntryPoint'),
+        outputPath: 'ImageConfigResponse.ImageConfig.EntryPoint',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Qualifier: this.__input.qualifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFunctionConfiguration.ImageConfigResponse.ImageConfig.EntryPoint', props);
+    return resource.getResponseField('ImageConfigResponse.ImageConfig.EntryPoint') as unknown as string[];
+  }
+
+  public get command(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFunctionConfiguration',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.GetFunctionConfiguration.ImageConfigResponse.ImageConfig.Command'),
+        outputPath: 'ImageConfigResponse.ImageConfig.Command',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Qualifier: this.__input.qualifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFunctionConfiguration.ImageConfigResponse.ImageConfig.Command', props);
+    return resource.getResponseField('ImageConfigResponse.ImageConfig.Command') as unknown as string[];
+  }
+
+  public get workingDirectory(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFunctionConfiguration',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.GetFunctionConfiguration.ImageConfigResponse.ImageConfig.WorkingDirectory'),
+        outputPath: 'ImageConfigResponse.ImageConfig.WorkingDirectory',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Qualifier: this.__input.qualifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFunctionConfiguration.ImageConfigResponse.ImageConfig.WorkingDirectory', props);
+    return resource.getResponseField('ImageConfigResponse.ImageConfig.WorkingDirectory') as unknown as string;
+  }
+
+}
+
+export class LambdaResponsesFetchFunctionConfigurationImageConfigResponseError {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaGetFunctionConfigurationRequest) {
+  }
+
+  public get errorCode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFunctionConfiguration',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.GetFunctionConfiguration.ImageConfigResponse.Error.ErrorCode'),
+        outputPath: 'ImageConfigResponse.Error.ErrorCode',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Qualifier: this.__input.qualifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFunctionConfiguration.ImageConfigResponse.Error.ErrorCode', props);
+    return resource.getResponseField('ImageConfigResponse.Error.ErrorCode') as unknown as string;
+  }
+
+  public get message(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFunctionConfiguration',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.GetFunctionConfiguration.ImageConfigResponse.Error.Message'),
+        outputPath: 'ImageConfigResponse.Error.Message',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Qualifier: this.__input.qualifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFunctionConfiguration.ImageConfigResponse.Error.Message', props);
+    return resource.getResponseField('ImageConfigResponse.Error.Message') as unknown as string;
   }
 
 }
@@ -7511,6 +8652,30 @@ export class LambdaResponsesPublishVersion {
     return resource.getResponseField('FileSystemConfigs') as unknown as shapes.LambdaFileSystemConfig[];
   }
 
+  public get packageType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'publishVersion',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.PublishVersion.PackageType'),
+        outputPath: 'PackageType',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          CodeSha256: this.__input.codeSha256,
+          Description: this.__input.description,
+          RevisionId: this.__input.revisionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PublishVersion.PackageType', props);
+    return resource.getResponseField('PackageType') as unknown as string;
+  }
+
+  public get imageConfigResponse(): LambdaResponsesPublishVersionImageConfigResponse {
+    return new LambdaResponsesPublishVersionImageConfigResponse(this.__scope, this.__resources, this.__input);
+  }
+
   public get signingProfileVersionArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -7748,6 +8913,135 @@ export class LambdaResponsesPublishVersionTracingConfig {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'PublishVersion.TracingConfig.Mode', props);
     return resource.getResponseField('TracingConfig.Mode') as unknown as string;
+  }
+
+}
+
+export class LambdaResponsesPublishVersionImageConfigResponse {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaPublishVersionRequest) {
+  }
+
+  public get imageConfig(): LambdaResponsesPublishVersionImageConfigResponseImageConfig {
+    return new LambdaResponsesPublishVersionImageConfigResponseImageConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get error(): LambdaResponsesPublishVersionImageConfigResponseError {
+    return new LambdaResponsesPublishVersionImageConfigResponseError(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class LambdaResponsesPublishVersionImageConfigResponseImageConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaPublishVersionRequest) {
+  }
+
+  public get entryPoint(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'publishVersion',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.PublishVersion.ImageConfigResponse.ImageConfig.EntryPoint'),
+        outputPath: 'ImageConfigResponse.ImageConfig.EntryPoint',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          CodeSha256: this.__input.codeSha256,
+          Description: this.__input.description,
+          RevisionId: this.__input.revisionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PublishVersion.ImageConfigResponse.ImageConfig.EntryPoint', props);
+    return resource.getResponseField('ImageConfigResponse.ImageConfig.EntryPoint') as unknown as string[];
+  }
+
+  public get command(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'publishVersion',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.PublishVersion.ImageConfigResponse.ImageConfig.Command'),
+        outputPath: 'ImageConfigResponse.ImageConfig.Command',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          CodeSha256: this.__input.codeSha256,
+          Description: this.__input.description,
+          RevisionId: this.__input.revisionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PublishVersion.ImageConfigResponse.ImageConfig.Command', props);
+    return resource.getResponseField('ImageConfigResponse.ImageConfig.Command') as unknown as string[];
+  }
+
+  public get workingDirectory(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'publishVersion',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.PublishVersion.ImageConfigResponse.ImageConfig.WorkingDirectory'),
+        outputPath: 'ImageConfigResponse.ImageConfig.WorkingDirectory',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          CodeSha256: this.__input.codeSha256,
+          Description: this.__input.description,
+          RevisionId: this.__input.revisionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PublishVersion.ImageConfigResponse.ImageConfig.WorkingDirectory', props);
+    return resource.getResponseField('ImageConfigResponse.ImageConfig.WorkingDirectory') as unknown as string;
+  }
+
+}
+
+export class LambdaResponsesPublishVersionImageConfigResponseError {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaPublishVersionRequest) {
+  }
+
+  public get errorCode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'publishVersion',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.PublishVersion.ImageConfigResponse.Error.ErrorCode'),
+        outputPath: 'ImageConfigResponse.Error.ErrorCode',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          CodeSha256: this.__input.codeSha256,
+          Description: this.__input.description,
+          RevisionId: this.__input.revisionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PublishVersion.ImageConfigResponse.Error.ErrorCode', props);
+    return resource.getResponseField('ImageConfigResponse.Error.ErrorCode') as unknown as string;
+  }
+
+  public get message(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'publishVersion',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.PublishVersion.ImageConfigResponse.Error.Message'),
+        outputPath: 'ImageConfigResponse.Error.Message',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          CodeSha256: this.__input.codeSha256,
+          Description: this.__input.description,
+          RevisionId: this.__input.revisionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PublishVersion.ImageConfigResponse.Error.Message', props);
+    return resource.getResponseField('ImageConfigResponse.Error.Message') as unknown as string;
   }
 
 }
@@ -8527,6 +9821,8 @@ export class LambdaResponsesUpdateEventSourceMapping {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -8561,6 +9857,8 @@ export class LambdaResponsesUpdateEventSourceMapping {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -8595,6 +9893,8 @@ export class LambdaResponsesUpdateEventSourceMapping {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -8629,6 +9929,8 @@ export class LambdaResponsesUpdateEventSourceMapping {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -8663,6 +9965,8 @@ export class LambdaResponsesUpdateEventSourceMapping {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -8697,6 +10001,8 @@ export class LambdaResponsesUpdateEventSourceMapping {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -8731,6 +10037,8 @@ export class LambdaResponsesUpdateEventSourceMapping {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -8765,6 +10073,8 @@ export class LambdaResponsesUpdateEventSourceMapping {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -8799,6 +10109,8 @@ export class LambdaResponsesUpdateEventSourceMapping {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -8833,6 +10145,8 @@ export class LambdaResponsesUpdateEventSourceMapping {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -8867,6 +10181,8 @@ export class LambdaResponsesUpdateEventSourceMapping {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -8901,6 +10217,8 @@ export class LambdaResponsesUpdateEventSourceMapping {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -8939,6 +10257,8 @@ export class LambdaResponsesUpdateEventSourceMapping {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -8973,6 +10293,8 @@ export class LambdaResponsesUpdateEventSourceMapping {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -9007,11 +10329,17 @@ export class LambdaResponsesUpdateEventSourceMapping {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateEventSourceMapping.SourceAccessConfigurations', props);
     return resource.getResponseField('SourceAccessConfigurations') as unknown as shapes.LambdaSourceAccessConfiguration[];
+  }
+
+  public get selfManagedEventSource(): LambdaResponsesUpdateEventSourceMappingSelfManagedEventSource {
+    return new LambdaResponsesUpdateEventSourceMappingSelfManagedEventSource(this.__scope, this.__resources, this.__input);
   }
 
   public get maximumRecordAgeInSeconds(): number {
@@ -9041,6 +10369,8 @@ export class LambdaResponsesUpdateEventSourceMapping {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -9075,6 +10405,8 @@ export class LambdaResponsesUpdateEventSourceMapping {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -9109,11 +10441,85 @@ export class LambdaResponsesUpdateEventSourceMapping {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateEventSourceMapping.MaximumRetryAttempts', props);
     return resource.getResponseField('MaximumRetryAttempts') as unknown as number;
+  }
+
+  public get tumblingWindowInSeconds(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateEventSourceMapping',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.UpdateEventSourceMapping.TumblingWindowInSeconds'),
+        outputPath: 'TumblingWindowInSeconds',
+        parameters: {
+          UUID: this.__input.uuid,
+          FunctionName: this.__input.functionName,
+          Enabled: this.__input.enabled,
+          BatchSize: this.__input.batchSize,
+          MaximumBatchingWindowInSeconds: this.__input.maximumBatchingWindowInSeconds,
+          DestinationConfig: {
+            OnSuccess: {
+              Destination: this.__input.destinationConfig?.onSuccess?.destination,
+            },
+            OnFailure: {
+              Destination: this.__input.destinationConfig?.onFailure?.destination,
+            },
+          },
+          MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
+          BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
+          MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          ParallelizationFactor: this.__input.parallelizationFactor,
+          SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateEventSourceMapping.TumblingWindowInSeconds', props);
+    return resource.getResponseField('TumblingWindowInSeconds') as unknown as number;
+  }
+
+  public get functionResponseTypes(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateEventSourceMapping',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.UpdateEventSourceMapping.FunctionResponseTypes'),
+        outputPath: 'FunctionResponseTypes',
+        parameters: {
+          UUID: this.__input.uuid,
+          FunctionName: this.__input.functionName,
+          Enabled: this.__input.enabled,
+          BatchSize: this.__input.batchSize,
+          MaximumBatchingWindowInSeconds: this.__input.maximumBatchingWindowInSeconds,
+          DestinationConfig: {
+            OnSuccess: {
+              Destination: this.__input.destinationConfig?.onSuccess?.destination,
+            },
+            OnFailure: {
+              Destination: this.__input.destinationConfig?.onFailure?.destination,
+            },
+          },
+          MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
+          BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
+          MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          ParallelizationFactor: this.__input.parallelizationFactor,
+          SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateEventSourceMapping.FunctionResponseTypes', props);
+    return resource.getResponseField('FunctionResponseTypes') as unknown as string[];
   }
 
 }
@@ -9165,6 +10571,8 @@ export class LambdaResponsesUpdateEventSourceMappingDestinationConfigOnSuccess {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
@@ -9206,11 +10614,56 @@ export class LambdaResponsesUpdateEventSourceMappingDestinationConfigOnFailure {
           MaximumRetryAttempts: this.__input.maximumRetryAttempts,
           ParallelizationFactor: this.__input.parallelizationFactor,
           SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateEventSourceMapping.DestinationConfig.OnFailure.Destination', props);
     return resource.getResponseField('DestinationConfig.OnFailure.Destination') as unknown as string;
+  }
+
+}
+
+export class LambdaResponsesUpdateEventSourceMappingSelfManagedEventSource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaUpdateEventSourceMappingRequest) {
+  }
+
+  public get endpoints(): Record<string, string[]> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateEventSourceMapping',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.UpdateEventSourceMapping.SelfManagedEventSource.Endpoints'),
+        outputPath: 'SelfManagedEventSource.Endpoints',
+        parameters: {
+          UUID: this.__input.uuid,
+          FunctionName: this.__input.functionName,
+          Enabled: this.__input.enabled,
+          BatchSize: this.__input.batchSize,
+          MaximumBatchingWindowInSeconds: this.__input.maximumBatchingWindowInSeconds,
+          DestinationConfig: {
+            OnSuccess: {
+              Destination: this.__input.destinationConfig?.onSuccess?.destination,
+            },
+            OnFailure: {
+              Destination: this.__input.destinationConfig?.onFailure?.destination,
+            },
+          },
+          MaximumRecordAgeInSeconds: this.__input.maximumRecordAgeInSeconds,
+          BisectBatchOnFunctionError: this.__input.bisectBatchOnFunctionError,
+          MaximumRetryAttempts: this.__input.maximumRetryAttempts,
+          ParallelizationFactor: this.__input.parallelizationFactor,
+          SourceAccessConfigurations: this.__input.sourceAccessConfigurations,
+          TumblingWindowInSeconds: this.__input.tumblingWindowInSeconds,
+          FunctionResponseTypes: this.__input.functionResponseTypes,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateEventSourceMapping.SelfManagedEventSource.Endpoints', props);
+    return resource.getResponseField('SelfManagedEventSource.Endpoints') as unknown as Record<string, string[]>;
   }
 
 }
@@ -9235,6 +10688,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9260,6 +10714,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9285,6 +10740,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9310,6 +10766,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9335,6 +10792,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9360,6 +10818,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9385,6 +10844,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9410,6 +10870,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9435,6 +10896,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9460,6 +10922,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9485,6 +10948,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9510,6 +10974,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9547,6 +11012,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9576,6 +11042,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9601,6 +11068,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9626,6 +11094,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9651,6 +11120,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9676,6 +11146,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9701,6 +11172,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9726,6 +11198,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9751,6 +11224,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9776,6 +11250,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9801,6 +11276,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9809,6 +11285,36 @@ export class LambdaResponsesUpdateFunctionCode {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunctionCode.FileSystemConfigs', props);
     return resource.getResponseField('FileSystemConfigs') as unknown as shapes.LambdaFileSystemConfig[];
+  }
+
+  public get packageType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunctionCode',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.UpdateFunctionCode.PackageType'),
+        outputPath: 'PackageType',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          ZipFile: {
+          },
+          S3Bucket: this.__input.s3Bucket,
+          S3Key: this.__input.s3Key,
+          S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
+          Publish: this.__input.publish,
+          DryRun: this.__input.dryRun,
+          RevisionId: this.__input.revisionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunctionCode.PackageType', props);
+    return resource.getResponseField('PackageType') as unknown as string;
+  }
+
+  public get imageConfigResponse(): LambdaResponsesUpdateFunctionCodeImageConfigResponse {
+    return new LambdaResponsesUpdateFunctionCodeImageConfigResponse(this.__scope, this.__resources, this.__input);
   }
 
   public get signingProfileVersionArn(): string {
@@ -9826,6 +11332,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9851,6 +11358,7 @@ export class LambdaResponsesUpdateFunctionCode {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9883,6 +11391,7 @@ export class LambdaResponsesUpdateFunctionCodeVpcConfig {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9908,6 +11417,7 @@ export class LambdaResponsesUpdateFunctionCodeVpcConfig {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9933,6 +11443,7 @@ export class LambdaResponsesUpdateFunctionCodeVpcConfig {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9965,6 +11476,7 @@ export class LambdaResponsesUpdateFunctionCodeDeadLetterConfig {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -9997,6 +11509,7 @@ export class LambdaResponsesUpdateFunctionCodeEnvironment {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -10033,6 +11546,7 @@ export class LambdaResponsesUpdateFunctionCodeEnvironmentError {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -10058,6 +11572,7 @@ export class LambdaResponsesUpdateFunctionCodeEnvironmentError {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -10090,6 +11605,7 @@ export class LambdaResponsesUpdateFunctionCodeTracingConfig {
           S3Bucket: this.__input.s3Bucket,
           S3Key: this.__input.s3Key,
           S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
           Publish: this.__input.publish,
           DryRun: this.__input.dryRun,
           RevisionId: this.__input.revisionId,
@@ -10098,6 +11614,165 @@ export class LambdaResponsesUpdateFunctionCodeTracingConfig {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunctionCode.TracingConfig.Mode', props);
     return resource.getResponseField('TracingConfig.Mode') as unknown as string;
+  }
+
+}
+
+export class LambdaResponsesUpdateFunctionCodeImageConfigResponse {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaUpdateFunctionCodeRequest) {
+  }
+
+  public get imageConfig(): LambdaResponsesUpdateFunctionCodeImageConfigResponseImageConfig {
+    return new LambdaResponsesUpdateFunctionCodeImageConfigResponseImageConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get error(): LambdaResponsesUpdateFunctionCodeImageConfigResponseError {
+    return new LambdaResponsesUpdateFunctionCodeImageConfigResponseError(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class LambdaResponsesUpdateFunctionCodeImageConfigResponseImageConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaUpdateFunctionCodeRequest) {
+  }
+
+  public get entryPoint(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunctionCode',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.UpdateFunctionCode.ImageConfigResponse.ImageConfig.EntryPoint'),
+        outputPath: 'ImageConfigResponse.ImageConfig.EntryPoint',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          ZipFile: {
+          },
+          S3Bucket: this.__input.s3Bucket,
+          S3Key: this.__input.s3Key,
+          S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
+          Publish: this.__input.publish,
+          DryRun: this.__input.dryRun,
+          RevisionId: this.__input.revisionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunctionCode.ImageConfigResponse.ImageConfig.EntryPoint', props);
+    return resource.getResponseField('ImageConfigResponse.ImageConfig.EntryPoint') as unknown as string[];
+  }
+
+  public get command(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunctionCode',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.UpdateFunctionCode.ImageConfigResponse.ImageConfig.Command'),
+        outputPath: 'ImageConfigResponse.ImageConfig.Command',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          ZipFile: {
+          },
+          S3Bucket: this.__input.s3Bucket,
+          S3Key: this.__input.s3Key,
+          S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
+          Publish: this.__input.publish,
+          DryRun: this.__input.dryRun,
+          RevisionId: this.__input.revisionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunctionCode.ImageConfigResponse.ImageConfig.Command', props);
+    return resource.getResponseField('ImageConfigResponse.ImageConfig.Command') as unknown as string[];
+  }
+
+  public get workingDirectory(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunctionCode',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.UpdateFunctionCode.ImageConfigResponse.ImageConfig.WorkingDirectory'),
+        outputPath: 'ImageConfigResponse.ImageConfig.WorkingDirectory',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          ZipFile: {
+          },
+          S3Bucket: this.__input.s3Bucket,
+          S3Key: this.__input.s3Key,
+          S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
+          Publish: this.__input.publish,
+          DryRun: this.__input.dryRun,
+          RevisionId: this.__input.revisionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunctionCode.ImageConfigResponse.ImageConfig.WorkingDirectory', props);
+    return resource.getResponseField('ImageConfigResponse.ImageConfig.WorkingDirectory') as unknown as string;
+  }
+
+}
+
+export class LambdaResponsesUpdateFunctionCodeImageConfigResponseError {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaUpdateFunctionCodeRequest) {
+  }
+
+  public get errorCode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunctionCode',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.UpdateFunctionCode.ImageConfigResponse.Error.ErrorCode'),
+        outputPath: 'ImageConfigResponse.Error.ErrorCode',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          ZipFile: {
+          },
+          S3Bucket: this.__input.s3Bucket,
+          S3Key: this.__input.s3Key,
+          S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
+          Publish: this.__input.publish,
+          DryRun: this.__input.dryRun,
+          RevisionId: this.__input.revisionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunctionCode.ImageConfigResponse.Error.ErrorCode', props);
+    return resource.getResponseField('ImageConfigResponse.Error.ErrorCode') as unknown as string;
+  }
+
+  public get message(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunctionCode',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.UpdateFunctionCode.ImageConfigResponse.Error.Message'),
+        outputPath: 'ImageConfigResponse.Error.Message',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          ZipFile: {
+          },
+          S3Bucket: this.__input.s3Bucket,
+          S3Key: this.__input.s3Key,
+          S3ObjectVersion: this.__input.s3ObjectVersion,
+          ImageUri: this.__input.imageUri,
+          Publish: this.__input.publish,
+          DryRun: this.__input.dryRun,
+          RevisionId: this.__input.revisionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunctionCode.ImageConfigResponse.Error.Message', props);
+    return resource.getResponseField('ImageConfigResponse.Error.Message') as unknown as string;
   }
 
 }
@@ -10140,6 +11815,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10180,6 +11860,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10220,6 +11905,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10260,6 +11950,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10300,6 +11995,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10340,6 +12040,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10380,6 +12085,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10420,6 +12130,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10460,6 +12175,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10500,6 +12220,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10540,6 +12265,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10580,6 +12310,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10632,6 +12367,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10676,6 +12416,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10716,6 +12461,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10756,6 +12506,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10796,6 +12551,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10836,6 +12596,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10876,6 +12641,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10916,6 +12686,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10956,6 +12731,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -10996,6 +12776,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -11036,11 +12821,65 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunctionConfiguration.FileSystemConfigs', props);
     return resource.getResponseField('FileSystemConfigs') as unknown as shapes.LambdaFileSystemConfig[];
+  }
+
+  public get packageType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunctionConfiguration',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.UpdateFunctionConfiguration.PackageType'),
+        outputPath: 'PackageType',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Role: this.__input.role,
+          Handler: this.__input.handler,
+          Description: this.__input.description,
+          Timeout: this.__input.timeout,
+          MemorySize: this.__input.memorySize,
+          VpcConfig: {
+            SubnetIds: this.__input.vpcConfig?.subnetIds,
+            SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          Environment: {
+            Variables: this.__input.environment?.variables,
+          },
+          Runtime: this.__input.runtime,
+          DeadLetterConfig: {
+            TargetArn: this.__input.deadLetterConfig?.targetArn,
+          },
+          KMSKeyArn: this.__input.kmsKeyArn,
+          TracingConfig: {
+            Mode: this.__input.tracingConfig?.mode,
+          },
+          RevisionId: this.__input.revisionId,
+          Layers: this.__input.layers,
+          FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunctionConfiguration.PackageType', props);
+    return resource.getResponseField('PackageType') as unknown as string;
+  }
+
+  public get imageConfigResponse(): LambdaResponsesUpdateFunctionConfigurationImageConfigResponse {
+    return new LambdaResponsesUpdateFunctionConfigurationImageConfigResponse(this.__scope, this.__resources, this.__input);
   }
 
   public get signingProfileVersionArn(): string {
@@ -11076,6 +12915,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -11116,6 +12960,11 @@ export class LambdaResponsesUpdateFunctionConfiguration {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -11163,6 +13012,11 @@ export class LambdaResponsesUpdateFunctionConfigurationVpcConfig {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -11203,6 +13057,11 @@ export class LambdaResponsesUpdateFunctionConfigurationVpcConfig {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -11243,6 +13102,11 @@ export class LambdaResponsesUpdateFunctionConfigurationVpcConfig {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -11290,6 +13154,11 @@ export class LambdaResponsesUpdateFunctionConfigurationDeadLetterConfig {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -11337,6 +13206,11 @@ export class LambdaResponsesUpdateFunctionConfigurationEnvironment {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -11388,6 +13262,11 @@ export class LambdaResponsesUpdateFunctionConfigurationEnvironmentError {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -11428,6 +13307,11 @@ export class LambdaResponsesUpdateFunctionConfigurationEnvironmentError {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
@@ -11475,11 +13359,270 @@ export class LambdaResponsesUpdateFunctionConfigurationTracingConfig {
           RevisionId: this.__input.revisionId,
           Layers: this.__input.layers,
           FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunctionConfiguration.TracingConfig.Mode', props);
     return resource.getResponseField('TracingConfig.Mode') as unknown as string;
+  }
+
+}
+
+export class LambdaResponsesUpdateFunctionConfigurationImageConfigResponse {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaUpdateFunctionConfigurationRequest) {
+  }
+
+  public get imageConfig(): LambdaResponsesUpdateFunctionConfigurationImageConfigResponseImageConfig {
+    return new LambdaResponsesUpdateFunctionConfigurationImageConfigResponseImageConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get error(): LambdaResponsesUpdateFunctionConfigurationImageConfigResponseError {
+    return new LambdaResponsesUpdateFunctionConfigurationImageConfigResponseError(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class LambdaResponsesUpdateFunctionConfigurationImageConfigResponseImageConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaUpdateFunctionConfigurationRequest) {
+  }
+
+  public get entryPoint(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunctionConfiguration',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.UpdateFunctionConfiguration.ImageConfigResponse.ImageConfig.EntryPoint'),
+        outputPath: 'ImageConfigResponse.ImageConfig.EntryPoint',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Role: this.__input.role,
+          Handler: this.__input.handler,
+          Description: this.__input.description,
+          Timeout: this.__input.timeout,
+          MemorySize: this.__input.memorySize,
+          VpcConfig: {
+            SubnetIds: this.__input.vpcConfig?.subnetIds,
+            SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          Environment: {
+            Variables: this.__input.environment?.variables,
+          },
+          Runtime: this.__input.runtime,
+          DeadLetterConfig: {
+            TargetArn: this.__input.deadLetterConfig?.targetArn,
+          },
+          KMSKeyArn: this.__input.kmsKeyArn,
+          TracingConfig: {
+            Mode: this.__input.tracingConfig?.mode,
+          },
+          RevisionId: this.__input.revisionId,
+          Layers: this.__input.layers,
+          FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunctionConfiguration.ImageConfigResponse.ImageConfig.EntryPoint', props);
+    return resource.getResponseField('ImageConfigResponse.ImageConfig.EntryPoint') as unknown as string[];
+  }
+
+  public get command(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunctionConfiguration',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.UpdateFunctionConfiguration.ImageConfigResponse.ImageConfig.Command'),
+        outputPath: 'ImageConfigResponse.ImageConfig.Command',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Role: this.__input.role,
+          Handler: this.__input.handler,
+          Description: this.__input.description,
+          Timeout: this.__input.timeout,
+          MemorySize: this.__input.memorySize,
+          VpcConfig: {
+            SubnetIds: this.__input.vpcConfig?.subnetIds,
+            SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          Environment: {
+            Variables: this.__input.environment?.variables,
+          },
+          Runtime: this.__input.runtime,
+          DeadLetterConfig: {
+            TargetArn: this.__input.deadLetterConfig?.targetArn,
+          },
+          KMSKeyArn: this.__input.kmsKeyArn,
+          TracingConfig: {
+            Mode: this.__input.tracingConfig?.mode,
+          },
+          RevisionId: this.__input.revisionId,
+          Layers: this.__input.layers,
+          FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunctionConfiguration.ImageConfigResponse.ImageConfig.Command', props);
+    return resource.getResponseField('ImageConfigResponse.ImageConfig.Command') as unknown as string[];
+  }
+
+  public get workingDirectory(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunctionConfiguration',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.UpdateFunctionConfiguration.ImageConfigResponse.ImageConfig.WorkingDirectory'),
+        outputPath: 'ImageConfigResponse.ImageConfig.WorkingDirectory',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Role: this.__input.role,
+          Handler: this.__input.handler,
+          Description: this.__input.description,
+          Timeout: this.__input.timeout,
+          MemorySize: this.__input.memorySize,
+          VpcConfig: {
+            SubnetIds: this.__input.vpcConfig?.subnetIds,
+            SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          Environment: {
+            Variables: this.__input.environment?.variables,
+          },
+          Runtime: this.__input.runtime,
+          DeadLetterConfig: {
+            TargetArn: this.__input.deadLetterConfig?.targetArn,
+          },
+          KMSKeyArn: this.__input.kmsKeyArn,
+          TracingConfig: {
+            Mode: this.__input.tracingConfig?.mode,
+          },
+          RevisionId: this.__input.revisionId,
+          Layers: this.__input.layers,
+          FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunctionConfiguration.ImageConfigResponse.ImageConfig.WorkingDirectory', props);
+    return resource.getResponseField('ImageConfigResponse.ImageConfig.WorkingDirectory') as unknown as string;
+  }
+
+}
+
+export class LambdaResponsesUpdateFunctionConfigurationImageConfigResponseError {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LambdaUpdateFunctionConfigurationRequest) {
+  }
+
+  public get errorCode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunctionConfiguration',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.UpdateFunctionConfiguration.ImageConfigResponse.Error.ErrorCode'),
+        outputPath: 'ImageConfigResponse.Error.ErrorCode',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Role: this.__input.role,
+          Handler: this.__input.handler,
+          Description: this.__input.description,
+          Timeout: this.__input.timeout,
+          MemorySize: this.__input.memorySize,
+          VpcConfig: {
+            SubnetIds: this.__input.vpcConfig?.subnetIds,
+            SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          Environment: {
+            Variables: this.__input.environment?.variables,
+          },
+          Runtime: this.__input.runtime,
+          DeadLetterConfig: {
+            TargetArn: this.__input.deadLetterConfig?.targetArn,
+          },
+          KMSKeyArn: this.__input.kmsKeyArn,
+          TracingConfig: {
+            Mode: this.__input.tracingConfig?.mode,
+          },
+          RevisionId: this.__input.revisionId,
+          Layers: this.__input.layers,
+          FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunctionConfiguration.ImageConfigResponse.Error.ErrorCode', props);
+    return resource.getResponseField('ImageConfigResponse.Error.ErrorCode') as unknown as string;
+  }
+
+  public get message(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunctionConfiguration',
+        service: 'Lambda',
+        physicalResourceId: cr.PhysicalResourceId.of('Lambda.UpdateFunctionConfiguration.ImageConfigResponse.Error.Message'),
+        outputPath: 'ImageConfigResponse.Error.Message',
+        parameters: {
+          FunctionName: this.__input.functionName,
+          Role: this.__input.role,
+          Handler: this.__input.handler,
+          Description: this.__input.description,
+          Timeout: this.__input.timeout,
+          MemorySize: this.__input.memorySize,
+          VpcConfig: {
+            SubnetIds: this.__input.vpcConfig?.subnetIds,
+            SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          Environment: {
+            Variables: this.__input.environment?.variables,
+          },
+          Runtime: this.__input.runtime,
+          DeadLetterConfig: {
+            TargetArn: this.__input.deadLetterConfig?.targetArn,
+          },
+          KMSKeyArn: this.__input.kmsKeyArn,
+          TracingConfig: {
+            Mode: this.__input.tracingConfig?.mode,
+          },
+          RevisionId: this.__input.revisionId,
+          Layers: this.__input.layers,
+          FileSystemConfigs: this.__input.fileSystemConfigs,
+          ImageConfig: {
+            EntryPoint: this.__input.imageConfig?.entryPoint,
+            Command: this.__input.imageConfig?.command,
+            WorkingDirectory: this.__input.imageConfig?.workingDirectory,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunctionConfiguration.ImageConfigResponse.Error.Message', props);
+    return resource.getResponseField('ImageConfigResponse.Error.Message') as unknown as string;
   }
 
 }

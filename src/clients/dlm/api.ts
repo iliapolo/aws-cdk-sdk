@@ -86,12 +86,22 @@ export class DlmClient extends cdk.Construct {
           PolicyDetails: {
             PolicyType: input.policyDetails?.policyType,
             ResourceTypes: input.policyDetails?.resourceTypes,
+            ResourceLocations: input.policyDetails?.resourceLocations,
             TargetTags: input.policyDetails?.targetTags,
             Schedules: input.policyDetails?.schedules,
             Parameters: {
               ExcludeBootVolume: input.policyDetails?.parameters?.excludeBootVolume,
               NoReboot: input.policyDetails?.parameters?.noReboot,
             },
+            EventSource: {
+              Type: input.policyDetails?.eventSource?.type,
+              Parameters: {
+                EventType: input.policyDetails?.eventSource?.parameters?.eventType,
+                SnapshotOwner: input.policyDetails?.eventSource?.parameters?.snapshotOwner,
+                DescriptionRegex: input.policyDetails?.eventSource?.parameters?.descriptionRegex,
+              },
+            },
+            Actions: input.policyDetails?.actions,
           },
         },
       },
@@ -121,12 +131,22 @@ export class DLMResponsesCreateLifecyclePolicy {
           PolicyDetails: {
             PolicyType: this.__input.policyDetails.policyType,
             ResourceTypes: this.__input.policyDetails.resourceTypes,
+            ResourceLocations: this.__input.policyDetails.resourceLocations,
             TargetTags: this.__input.policyDetails.targetTags,
             Schedules: this.__input.policyDetails.schedules,
             Parameters: {
               ExcludeBootVolume: this.__input.policyDetails.parameters?.excludeBootVolume,
               NoReboot: this.__input.policyDetails.parameters?.noReboot,
             },
+            EventSource: {
+              Type: this.__input.policyDetails.eventSource?.type,
+              Parameters: {
+                EventType: this.__input.policyDetails.eventSource?.parameters?.eventType,
+                SnapshotOwner: this.__input.policyDetails.eventSource?.parameters?.snapshotOwner,
+                DescriptionRegex: this.__input.policyDetails.eventSource?.parameters?.descriptionRegex,
+              },
+            },
+            Actions: this.__input.policyDetails.actions,
           },
           Tags: this.__input.tags,
         },
@@ -380,6 +400,23 @@ export class DLMResponsesFetchLifecyclePolicyPolicyPolicyDetails {
     return resource.getResponseField('Policy.PolicyDetails.ResourceTypes') as unknown as string[];
   }
 
+  public get resourceLocations(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getLifecyclePolicy',
+        service: 'DLM',
+        physicalResourceId: cr.PhysicalResourceId.of('DLM.GetLifecyclePolicy.Policy.PolicyDetails.ResourceLocations'),
+        outputPath: 'Policy.PolicyDetails.ResourceLocations',
+        parameters: {
+          PolicyId: this.__input.policyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetLifecyclePolicy.Policy.PolicyDetails.ResourceLocations', props);
+    return resource.getResponseField('Policy.PolicyDetails.ResourceLocations') as unknown as string[];
+  }
+
   public get targetTags(): shapes.DlmTag[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -416,6 +453,27 @@ export class DLMResponsesFetchLifecyclePolicyPolicyPolicyDetails {
 
   public get parameters(): DLMResponsesFetchLifecyclePolicyPolicyPolicyDetailsParameters {
     return new DLMResponsesFetchLifecyclePolicyPolicyPolicyDetailsParameters(this.__scope, this.__resources, this.__input);
+  }
+
+  public get eventSource(): DLMResponsesFetchLifecyclePolicyPolicyPolicyDetailsEventSource {
+    return new DLMResponsesFetchLifecyclePolicyPolicyPolicyDetailsEventSource(this.__scope, this.__resources, this.__input);
+  }
+
+  public get actions(): shapes.DlmAction[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getLifecyclePolicy',
+        service: 'DLM',
+        physicalResourceId: cr.PhysicalResourceId.of('DLM.GetLifecyclePolicy.Policy.PolicyDetails.Actions'),
+        outputPath: 'Policy.PolicyDetails.Actions',
+        parameters: {
+          PolicyId: this.__input.policyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetLifecyclePolicy.Policy.PolicyDetails.Actions', props);
+    return resource.getResponseField('Policy.PolicyDetails.Actions') as unknown as shapes.DlmAction[];
   }
 
 }
@@ -457,6 +515,92 @@ export class DLMResponsesFetchLifecyclePolicyPolicyPolicyDetailsParameters {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetLifecyclePolicy.Policy.PolicyDetails.Parameters.NoReboot', props);
     return resource.getResponseField('Policy.PolicyDetails.Parameters.NoReboot') as unknown as boolean;
+  }
+
+}
+
+export class DLMResponsesFetchLifecyclePolicyPolicyPolicyDetailsEventSource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DlmGetLifecyclePolicyRequest) {
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getLifecyclePolicy',
+        service: 'DLM',
+        physicalResourceId: cr.PhysicalResourceId.of('DLM.GetLifecyclePolicy.Policy.PolicyDetails.EventSource.Type'),
+        outputPath: 'Policy.PolicyDetails.EventSource.Type',
+        parameters: {
+          PolicyId: this.__input.policyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetLifecyclePolicy.Policy.PolicyDetails.EventSource.Type', props);
+    return resource.getResponseField('Policy.PolicyDetails.EventSource.Type') as unknown as string;
+  }
+
+  public get parameters(): DLMResponsesFetchLifecyclePolicyPolicyPolicyDetailsEventSourceParameters {
+    return new DLMResponsesFetchLifecyclePolicyPolicyPolicyDetailsEventSourceParameters(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class DLMResponsesFetchLifecyclePolicyPolicyPolicyDetailsEventSourceParameters {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DlmGetLifecyclePolicyRequest) {
+  }
+
+  public get eventType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getLifecyclePolicy',
+        service: 'DLM',
+        physicalResourceId: cr.PhysicalResourceId.of('DLM.GetLifecyclePolicy.Policy.PolicyDetails.EventSource.Parameters.EventType'),
+        outputPath: 'Policy.PolicyDetails.EventSource.Parameters.EventType',
+        parameters: {
+          PolicyId: this.__input.policyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetLifecyclePolicy.Policy.PolicyDetails.EventSource.Parameters.EventType', props);
+    return resource.getResponseField('Policy.PolicyDetails.EventSource.Parameters.EventType') as unknown as string;
+  }
+
+  public get snapshotOwner(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getLifecyclePolicy',
+        service: 'DLM',
+        physicalResourceId: cr.PhysicalResourceId.of('DLM.GetLifecyclePolicy.Policy.PolicyDetails.EventSource.Parameters.SnapshotOwner'),
+        outputPath: 'Policy.PolicyDetails.EventSource.Parameters.SnapshotOwner',
+        parameters: {
+          PolicyId: this.__input.policyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetLifecyclePolicy.Policy.PolicyDetails.EventSource.Parameters.SnapshotOwner', props);
+    return resource.getResponseField('Policy.PolicyDetails.EventSource.Parameters.SnapshotOwner') as unknown as string[];
+  }
+
+  public get descriptionRegex(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getLifecyclePolicy',
+        service: 'DLM',
+        physicalResourceId: cr.PhysicalResourceId.of('DLM.GetLifecyclePolicy.Policy.PolicyDetails.EventSource.Parameters.DescriptionRegex'),
+        outputPath: 'Policy.PolicyDetails.EventSource.Parameters.DescriptionRegex',
+        parameters: {
+          PolicyId: this.__input.policyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetLifecyclePolicy.Policy.PolicyDetails.EventSource.Parameters.DescriptionRegex', props);
+    return resource.getResponseField('Policy.PolicyDetails.EventSource.Parameters.DescriptionRegex') as unknown as string;
   }
 
 }

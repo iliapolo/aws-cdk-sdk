@@ -5,7 +5,7 @@ export interface FirehoseCreateDeliveryStreamInput {
   /**
    * @schema FirehoseCreateDeliveryStreamInput#DeliveryStreamName
    */
-  readonly deliveryStreamName: string;
+  readonly deliveryStreamName?: string;
 
   /**
    * @schema FirehoseCreateDeliveryStreamInput#DeliveryStreamType
@@ -60,6 +60,30 @@ export interface FirehoseCreateDeliveryStreamInput {
 }
 
 /**
+ * Converts an object of type 'FirehoseCreateDeliveryStreamInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseCreateDeliveryStreamInput(obj: FirehoseCreateDeliveryStreamInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeliveryStreamName': obj.deliveryStreamName,
+    'DeliveryStreamType': obj.deliveryStreamType,
+    'KinesisStreamSourceConfiguration': toJson_FirehoseKinesisStreamSourceConfiguration(obj.kinesisStreamSourceConfiguration),
+    'DeliveryStreamEncryptionConfigurationInput': toJson_FirehoseDeliveryStreamEncryptionConfigurationInput(obj.deliveryStreamEncryptionConfigurationInput),
+    'S3DestinationConfiguration': toJson_FirehoseS3DestinationConfiguration(obj.s3DestinationConfiguration),
+    'ExtendedS3DestinationConfiguration': toJson_FirehoseExtendedS3DestinationConfiguration(obj.extendedS3DestinationConfiguration),
+    'RedshiftDestinationConfiguration': toJson_FirehoseRedshiftDestinationConfiguration(obj.redshiftDestinationConfiguration),
+    'ElasticsearchDestinationConfiguration': toJson_FirehoseElasticsearchDestinationConfiguration(obj.elasticsearchDestinationConfiguration),
+    'SplunkDestinationConfiguration': toJson_FirehoseSplunkDestinationConfiguration(obj.splunkDestinationConfiguration),
+    'HttpEndpointDestinationConfiguration': toJson_FirehoseHttpEndpointDestinationConfiguration(obj.httpEndpointDestinationConfiguration),
+    'Tags': obj.tags?.map(y => toJson_FirehoseTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseCreateDeliveryStreamOutput
  */
 export interface FirehoseCreateDeliveryStreamOutput {
@@ -71,13 +95,27 @@ export interface FirehoseCreateDeliveryStreamOutput {
 }
 
 /**
+ * Converts an object of type 'FirehoseCreateDeliveryStreamOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseCreateDeliveryStreamOutput(obj: FirehoseCreateDeliveryStreamOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeliveryStreamARN': obj.deliveryStreamArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseDeleteDeliveryStreamInput
  */
 export interface FirehoseDeleteDeliveryStreamInput {
   /**
    * @schema FirehoseDeleteDeliveryStreamInput#DeliveryStreamName
    */
-  readonly deliveryStreamName: string;
+  readonly deliveryStreamName?: string;
 
   /**
    * @schema FirehoseDeleteDeliveryStreamInput#AllowForceDelete
@@ -87,10 +125,38 @@ export interface FirehoseDeleteDeliveryStreamInput {
 }
 
 /**
+ * Converts an object of type 'FirehoseDeleteDeliveryStreamInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseDeleteDeliveryStreamInput(obj: FirehoseDeleteDeliveryStreamInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeliveryStreamName': obj.deliveryStreamName,
+    'AllowForceDelete': obj.allowForceDelete,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseDeleteDeliveryStreamOutput
  */
 export interface FirehoseDeleteDeliveryStreamOutput {
 }
+
+/**
+ * Converts an object of type 'FirehoseDeleteDeliveryStreamOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseDeleteDeliveryStreamOutput(obj: FirehoseDeleteDeliveryStreamOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseDescribeDeliveryStreamInput
@@ -99,7 +165,7 @@ export interface FirehoseDescribeDeliveryStreamInput {
   /**
    * @schema FirehoseDescribeDeliveryStreamInput#DeliveryStreamName
    */
-  readonly deliveryStreamName: string;
+  readonly deliveryStreamName?: string;
 
   /**
    * @schema FirehoseDescribeDeliveryStreamInput#Limit
@@ -114,15 +180,45 @@ export interface FirehoseDescribeDeliveryStreamInput {
 }
 
 /**
+ * Converts an object of type 'FirehoseDescribeDeliveryStreamInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseDescribeDeliveryStreamInput(obj: FirehoseDescribeDeliveryStreamInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeliveryStreamName': obj.deliveryStreamName,
+    'Limit': obj.limit,
+    'ExclusiveStartDestinationId': obj.exclusiveStartDestinationId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseDescribeDeliveryStreamOutput
  */
 export interface FirehoseDescribeDeliveryStreamOutput {
   /**
    * @schema FirehoseDescribeDeliveryStreamOutput#DeliveryStreamDescription
    */
-  readonly deliveryStreamDescription: FirehoseDeliveryStreamDescription;
+  readonly deliveryStreamDescription?: FirehoseDeliveryStreamDescription;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseDescribeDeliveryStreamOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseDescribeDeliveryStreamOutput(obj: FirehoseDescribeDeliveryStreamOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeliveryStreamDescription': toJson_FirehoseDeliveryStreamDescription(obj.deliveryStreamDescription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseListDeliveryStreamsInput
@@ -146,20 +242,51 @@ export interface FirehoseListDeliveryStreamsInput {
 }
 
 /**
+ * Converts an object of type 'FirehoseListDeliveryStreamsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseListDeliveryStreamsInput(obj: FirehoseListDeliveryStreamsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Limit': obj.limit,
+    'DeliveryStreamType': obj.deliveryStreamType,
+    'ExclusiveStartDeliveryStreamName': obj.exclusiveStartDeliveryStreamName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseListDeliveryStreamsOutput
  */
 export interface FirehoseListDeliveryStreamsOutput {
   /**
    * @schema FirehoseListDeliveryStreamsOutput#DeliveryStreamNames
    */
-  readonly deliveryStreamNames: string[];
+  readonly deliveryStreamNames?: string[];
 
   /**
    * @schema FirehoseListDeliveryStreamsOutput#HasMoreDeliveryStreams
    */
-  readonly hasMoreDeliveryStreams: boolean;
+  readonly hasMoreDeliveryStreams?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseListDeliveryStreamsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseListDeliveryStreamsOutput(obj: FirehoseListDeliveryStreamsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeliveryStreamNames': obj.deliveryStreamNames?.map(y => y),
+    'HasMoreDeliveryStreams': obj.hasMoreDeliveryStreams,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseListTagsForDeliveryStreamInput
@@ -168,7 +295,7 @@ export interface FirehoseListTagsForDeliveryStreamInput {
   /**
    * @schema FirehoseListTagsForDeliveryStreamInput#DeliveryStreamName
    */
-  readonly deliveryStreamName: string;
+  readonly deliveryStreamName?: string;
 
   /**
    * @schema FirehoseListTagsForDeliveryStreamInput#ExclusiveStartTagKey
@@ -183,20 +310,51 @@ export interface FirehoseListTagsForDeliveryStreamInput {
 }
 
 /**
+ * Converts an object of type 'FirehoseListTagsForDeliveryStreamInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseListTagsForDeliveryStreamInput(obj: FirehoseListTagsForDeliveryStreamInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeliveryStreamName': obj.deliveryStreamName,
+    'ExclusiveStartTagKey': obj.exclusiveStartTagKey,
+    'Limit': obj.limit,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseListTagsForDeliveryStreamOutput
  */
 export interface FirehoseListTagsForDeliveryStreamOutput {
   /**
    * @schema FirehoseListTagsForDeliveryStreamOutput#Tags
    */
-  readonly tags: FirehoseTag[];
+  readonly tags?: FirehoseTag[];
 
   /**
    * @schema FirehoseListTagsForDeliveryStreamOutput#HasMoreTags
    */
-  readonly hasMoreTags: boolean;
+  readonly hasMoreTags?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseListTagsForDeliveryStreamOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseListTagsForDeliveryStreamOutput(obj: FirehoseListTagsForDeliveryStreamOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Tags': obj.tags?.map(y => toJson_FirehoseTag(y)),
+    'HasMoreTags': obj.hasMoreTags,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehosePutRecordInput
@@ -205,14 +363,29 @@ export interface FirehosePutRecordInput {
   /**
    * @schema FirehosePutRecordInput#DeliveryStreamName
    */
-  readonly deliveryStreamName: string;
+  readonly deliveryStreamName?: string;
 
   /**
    * @schema FirehosePutRecordInput#Record
    */
-  readonly record: FirehoseRecord;
+  readonly record?: FirehoseRecord;
 
 }
+
+/**
+ * Converts an object of type 'FirehosePutRecordInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehosePutRecordInput(obj: FirehosePutRecordInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeliveryStreamName': obj.deliveryStreamName,
+    'Record': toJson_FirehoseRecord(obj.record),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehosePutRecordOutput
@@ -221,7 +394,7 @@ export interface FirehosePutRecordOutput {
   /**
    * @schema FirehosePutRecordOutput#RecordId
    */
-  readonly recordId: string;
+  readonly recordId?: string;
 
   /**
    * @schema FirehosePutRecordOutput#Encrypted
@@ -231,20 +404,50 @@ export interface FirehosePutRecordOutput {
 }
 
 /**
+ * Converts an object of type 'FirehosePutRecordOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehosePutRecordOutput(obj: FirehosePutRecordOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RecordId': obj.recordId,
+    'Encrypted': obj.encrypted,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehosePutRecordBatchInput
  */
 export interface FirehosePutRecordBatchInput {
   /**
    * @schema FirehosePutRecordBatchInput#DeliveryStreamName
    */
-  readonly deliveryStreamName: string;
+  readonly deliveryStreamName?: string;
 
   /**
    * @schema FirehosePutRecordBatchInput#Records
    */
-  readonly records: FirehoseRecord[];
+  readonly records?: FirehoseRecord[];
 
 }
+
+/**
+ * Converts an object of type 'FirehosePutRecordBatchInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehosePutRecordBatchInput(obj: FirehosePutRecordBatchInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeliveryStreamName': obj.deliveryStreamName,
+    'Records': obj.records?.map(y => toJson_FirehoseRecord(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehosePutRecordBatchOutput
@@ -253,7 +456,7 @@ export interface FirehosePutRecordBatchOutput {
   /**
    * @schema FirehosePutRecordBatchOutput#FailedPutCount
    */
-  readonly failedPutCount: number;
+  readonly failedPutCount?: number;
 
   /**
    * @schema FirehosePutRecordBatchOutput#Encrypted
@@ -263,9 +466,25 @@ export interface FirehosePutRecordBatchOutput {
   /**
    * @schema FirehosePutRecordBatchOutput#RequestResponses
    */
-  readonly requestResponses: FirehosePutRecordBatchResponseEntry[];
+  readonly requestResponses?: FirehosePutRecordBatchResponseEntry[];
 
 }
+
+/**
+ * Converts an object of type 'FirehosePutRecordBatchOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehosePutRecordBatchOutput(obj: FirehosePutRecordBatchOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FailedPutCount': obj.failedPutCount,
+    'Encrypted': obj.encrypted,
+    'RequestResponses': obj.requestResponses?.map(y => toJson_FirehosePutRecordBatchResponseEntry(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseStartDeliveryStreamEncryptionInput
@@ -274,7 +493,7 @@ export interface FirehoseStartDeliveryStreamEncryptionInput {
   /**
    * @schema FirehoseStartDeliveryStreamEncryptionInput#DeliveryStreamName
    */
-  readonly deliveryStreamName: string;
+  readonly deliveryStreamName?: string;
 
   /**
    * @schema FirehoseStartDeliveryStreamEncryptionInput#DeliveryStreamEncryptionConfigurationInput
@@ -284,10 +503,38 @@ export interface FirehoseStartDeliveryStreamEncryptionInput {
 }
 
 /**
+ * Converts an object of type 'FirehoseStartDeliveryStreamEncryptionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseStartDeliveryStreamEncryptionInput(obj: FirehoseStartDeliveryStreamEncryptionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeliveryStreamName': obj.deliveryStreamName,
+    'DeliveryStreamEncryptionConfigurationInput': toJson_FirehoseDeliveryStreamEncryptionConfigurationInput(obj.deliveryStreamEncryptionConfigurationInput),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseStartDeliveryStreamEncryptionOutput
  */
 export interface FirehoseStartDeliveryStreamEncryptionOutput {
 }
+
+/**
+ * Converts an object of type 'FirehoseStartDeliveryStreamEncryptionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseStartDeliveryStreamEncryptionOutput(obj: FirehoseStartDeliveryStreamEncryptionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseStopDeliveryStreamEncryptionInput
@@ -296,9 +543,23 @@ export interface FirehoseStopDeliveryStreamEncryptionInput {
   /**
    * @schema FirehoseStopDeliveryStreamEncryptionInput#DeliveryStreamName
    */
-  readonly deliveryStreamName: string;
+  readonly deliveryStreamName?: string;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseStopDeliveryStreamEncryptionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseStopDeliveryStreamEncryptionInput(obj: FirehoseStopDeliveryStreamEncryptionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeliveryStreamName': obj.deliveryStreamName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseStopDeliveryStreamEncryptionOutput
@@ -307,20 +568,48 @@ export interface FirehoseStopDeliveryStreamEncryptionOutput {
 }
 
 /**
+ * Converts an object of type 'FirehoseStopDeliveryStreamEncryptionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseStopDeliveryStreamEncryptionOutput(obj: FirehoseStopDeliveryStreamEncryptionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseTagDeliveryStreamInput
  */
 export interface FirehoseTagDeliveryStreamInput {
   /**
    * @schema FirehoseTagDeliveryStreamInput#DeliveryStreamName
    */
-  readonly deliveryStreamName: string;
+  readonly deliveryStreamName?: string;
 
   /**
    * @schema FirehoseTagDeliveryStreamInput#Tags
    */
-  readonly tags: FirehoseTag[];
+  readonly tags?: FirehoseTag[];
 
 }
+
+/**
+ * Converts an object of type 'FirehoseTagDeliveryStreamInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseTagDeliveryStreamInput(obj: FirehoseTagDeliveryStreamInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeliveryStreamName': obj.deliveryStreamName,
+    'Tags': obj.tags?.map(y => toJson_FirehoseTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseTagDeliveryStreamOutput
@@ -329,20 +618,48 @@ export interface FirehoseTagDeliveryStreamOutput {
 }
 
 /**
+ * Converts an object of type 'FirehoseTagDeliveryStreamOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseTagDeliveryStreamOutput(obj: FirehoseTagDeliveryStreamOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseUntagDeliveryStreamInput
  */
 export interface FirehoseUntagDeliveryStreamInput {
   /**
    * @schema FirehoseUntagDeliveryStreamInput#DeliveryStreamName
    */
-  readonly deliveryStreamName: string;
+  readonly deliveryStreamName?: string;
 
   /**
    * @schema FirehoseUntagDeliveryStreamInput#TagKeys
    */
-  readonly tagKeys: string[];
+  readonly tagKeys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'FirehoseUntagDeliveryStreamInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseUntagDeliveryStreamInput(obj: FirehoseUntagDeliveryStreamInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeliveryStreamName': obj.deliveryStreamName,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseUntagDeliveryStreamOutput
@@ -351,23 +668,36 @@ export interface FirehoseUntagDeliveryStreamOutput {
 }
 
 /**
+ * Converts an object of type 'FirehoseUntagDeliveryStreamOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseUntagDeliveryStreamOutput(obj: FirehoseUntagDeliveryStreamOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseUpdateDestinationInput
  */
 export interface FirehoseUpdateDestinationInput {
   /**
    * @schema FirehoseUpdateDestinationInput#DeliveryStreamName
    */
-  readonly deliveryStreamName: string;
+  readonly deliveryStreamName?: string;
 
   /**
    * @schema FirehoseUpdateDestinationInput#CurrentDeliveryStreamVersionId
    */
-  readonly currentDeliveryStreamVersionId: string;
+  readonly currentDeliveryStreamVersionId?: string;
 
   /**
    * @schema FirehoseUpdateDestinationInput#DestinationId
    */
-  readonly destinationId: string;
+  readonly destinationId?: string;
 
   /**
    * @schema FirehoseUpdateDestinationInput#S3DestinationUpdate
@@ -402,10 +732,45 @@ export interface FirehoseUpdateDestinationInput {
 }
 
 /**
+ * Converts an object of type 'FirehoseUpdateDestinationInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseUpdateDestinationInput(obj: FirehoseUpdateDestinationInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeliveryStreamName': obj.deliveryStreamName,
+    'CurrentDeliveryStreamVersionId': obj.currentDeliveryStreamVersionId,
+    'DestinationId': obj.destinationId,
+    'S3DestinationUpdate': toJson_FirehoseS3DestinationUpdate(obj.s3DestinationUpdate),
+    'ExtendedS3DestinationUpdate': toJson_FirehoseExtendedS3DestinationUpdate(obj.extendedS3DestinationUpdate),
+    'RedshiftDestinationUpdate': toJson_FirehoseRedshiftDestinationUpdate(obj.redshiftDestinationUpdate),
+    'ElasticsearchDestinationUpdate': toJson_FirehoseElasticsearchDestinationUpdate(obj.elasticsearchDestinationUpdate),
+    'SplunkDestinationUpdate': toJson_FirehoseSplunkDestinationUpdate(obj.splunkDestinationUpdate),
+    'HttpEndpointDestinationUpdate': toJson_FirehoseHttpEndpointDestinationUpdate(obj.httpEndpointDestinationUpdate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseUpdateDestinationOutput
  */
 export interface FirehoseUpdateDestinationOutput {
 }
+
+/**
+ * Converts an object of type 'FirehoseUpdateDestinationOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseUpdateDestinationOutput(obj: FirehoseUpdateDestinationOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseKinesisStreamSourceConfiguration
@@ -414,14 +779,29 @@ export interface FirehoseKinesisStreamSourceConfiguration {
   /**
    * @schema FirehoseKinesisStreamSourceConfiguration#KinesisStreamARN
    */
-  readonly kinesisStreamArn: string;
+  readonly kinesisStreamArn?: string;
 
   /**
    * @schema FirehoseKinesisStreamSourceConfiguration#RoleARN
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseKinesisStreamSourceConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseKinesisStreamSourceConfiguration(obj: FirehoseKinesisStreamSourceConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'KinesisStreamARN': obj.kinesisStreamArn,
+    'RoleARN': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseDeliveryStreamEncryptionConfigurationInput
@@ -435,9 +815,24 @@ export interface FirehoseDeliveryStreamEncryptionConfigurationInput {
   /**
    * @schema FirehoseDeliveryStreamEncryptionConfigurationInput#KeyType
    */
-  readonly keyType: string;
+  readonly keyType?: string;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseDeliveryStreamEncryptionConfigurationInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseDeliveryStreamEncryptionConfigurationInput(obj: FirehoseDeliveryStreamEncryptionConfigurationInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'KeyARN': obj.keyArn,
+    'KeyType': obj.keyType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseS3DestinationConfiguration
@@ -446,12 +841,12 @@ export interface FirehoseS3DestinationConfiguration {
   /**
    * @schema FirehoseS3DestinationConfiguration#RoleARN
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema FirehoseS3DestinationConfiguration#BucketARN
    */
-  readonly bucketArn: string;
+  readonly bucketArn?: string;
 
   /**
    * @schema FirehoseS3DestinationConfiguration#Prefix
@@ -486,18 +881,39 @@ export interface FirehoseS3DestinationConfiguration {
 }
 
 /**
+ * Converts an object of type 'FirehoseS3DestinationConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseS3DestinationConfiguration(obj: FirehoseS3DestinationConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoleARN': obj.roleArn,
+    'BucketARN': obj.bucketArn,
+    'Prefix': obj.prefix,
+    'ErrorOutputPrefix': obj.errorOutputPrefix,
+    'BufferingHints': toJson_FirehoseBufferingHints(obj.bufferingHints),
+    'CompressionFormat': obj.compressionFormat,
+    'EncryptionConfiguration': toJson_FirehoseEncryptionConfiguration(obj.encryptionConfiguration),
+    'CloudWatchLoggingOptions': toJson_FirehoseCloudWatchLoggingOptions(obj.cloudWatchLoggingOptions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseExtendedS3DestinationConfiguration
  */
 export interface FirehoseExtendedS3DestinationConfiguration {
   /**
    * @schema FirehoseExtendedS3DestinationConfiguration#RoleARN
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema FirehoseExtendedS3DestinationConfiguration#BucketARN
    */
-  readonly bucketArn: string;
+  readonly bucketArn?: string;
 
   /**
    * @schema FirehoseExtendedS3DestinationConfiguration#Prefix
@@ -552,33 +968,58 @@ export interface FirehoseExtendedS3DestinationConfiguration {
 }
 
 /**
+ * Converts an object of type 'FirehoseExtendedS3DestinationConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseExtendedS3DestinationConfiguration(obj: FirehoseExtendedS3DestinationConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoleARN': obj.roleArn,
+    'BucketARN': obj.bucketArn,
+    'Prefix': obj.prefix,
+    'ErrorOutputPrefix': obj.errorOutputPrefix,
+    'BufferingHints': toJson_FirehoseBufferingHints(obj.bufferingHints),
+    'CompressionFormat': obj.compressionFormat,
+    'EncryptionConfiguration': toJson_FirehoseEncryptionConfiguration(obj.encryptionConfiguration),
+    'CloudWatchLoggingOptions': toJson_FirehoseCloudWatchLoggingOptions(obj.cloudWatchLoggingOptions),
+    'ProcessingConfiguration': toJson_FirehoseProcessingConfiguration(obj.processingConfiguration),
+    'S3BackupMode': obj.s3BackupMode,
+    'S3BackupConfiguration': toJson_FirehoseS3DestinationConfiguration(obj.s3BackupConfiguration),
+    'DataFormatConversionConfiguration': toJson_FirehoseDataFormatConversionConfiguration(obj.dataFormatConversionConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseRedshiftDestinationConfiguration
  */
 export interface FirehoseRedshiftDestinationConfiguration {
   /**
    * @schema FirehoseRedshiftDestinationConfiguration#RoleARN
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema FirehoseRedshiftDestinationConfiguration#ClusterJDBCURL
    */
-  readonly clusterJdbcurl: string;
+  readonly clusterJdbcurl?: string;
 
   /**
    * @schema FirehoseRedshiftDestinationConfiguration#CopyCommand
    */
-  readonly copyCommand: FirehoseCopyCommand;
+  readonly copyCommand?: FirehoseCopyCommand;
 
   /**
    * @schema FirehoseRedshiftDestinationConfiguration#Username
    */
-  readonly username: string;
+  readonly username?: string;
 
   /**
    * @schema FirehoseRedshiftDestinationConfiguration#Password
    */
-  readonly password: string;
+  readonly password?: string;
 
   /**
    * @schema FirehoseRedshiftDestinationConfiguration#RetryOptions
@@ -588,7 +1029,7 @@ export interface FirehoseRedshiftDestinationConfiguration {
   /**
    * @schema FirehoseRedshiftDestinationConfiguration#S3Configuration
    */
-  readonly s3Configuration: FirehoseS3DestinationConfiguration;
+  readonly s3Configuration?: FirehoseS3DestinationConfiguration;
 
   /**
    * @schema FirehoseRedshiftDestinationConfiguration#ProcessingConfiguration
@@ -613,13 +1054,37 @@ export interface FirehoseRedshiftDestinationConfiguration {
 }
 
 /**
+ * Converts an object of type 'FirehoseRedshiftDestinationConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseRedshiftDestinationConfiguration(obj: FirehoseRedshiftDestinationConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoleARN': obj.roleArn,
+    'ClusterJDBCURL': obj.clusterJdbcurl,
+    'CopyCommand': toJson_FirehoseCopyCommand(obj.copyCommand),
+    'Username': obj.username,
+    'Password': obj.password,
+    'RetryOptions': toJson_FirehoseRedshiftRetryOptions(obj.retryOptions),
+    'S3Configuration': toJson_FirehoseS3DestinationConfiguration(obj.s3Configuration),
+    'ProcessingConfiguration': toJson_FirehoseProcessingConfiguration(obj.processingConfiguration),
+    'S3BackupMode': obj.s3BackupMode,
+    'S3BackupConfiguration': toJson_FirehoseS3DestinationConfiguration(obj.s3BackupConfiguration),
+    'CloudWatchLoggingOptions': toJson_FirehoseCloudWatchLoggingOptions(obj.cloudWatchLoggingOptions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseElasticsearchDestinationConfiguration
  */
 export interface FirehoseElasticsearchDestinationConfiguration {
   /**
    * @schema FirehoseElasticsearchDestinationConfiguration#RoleARN
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema FirehoseElasticsearchDestinationConfiguration#DomainARN
@@ -634,7 +1099,7 @@ export interface FirehoseElasticsearchDestinationConfiguration {
   /**
    * @schema FirehoseElasticsearchDestinationConfiguration#IndexName
    */
-  readonly indexName: string;
+  readonly indexName?: string;
 
   /**
    * @schema FirehoseElasticsearchDestinationConfiguration#TypeName
@@ -664,7 +1129,7 @@ export interface FirehoseElasticsearchDestinationConfiguration {
   /**
    * @schema FirehoseElasticsearchDestinationConfiguration#S3Configuration
    */
-  readonly s3Configuration: FirehoseS3DestinationConfiguration;
+  readonly s3Configuration?: FirehoseS3DestinationConfiguration;
 
   /**
    * @schema FirehoseElasticsearchDestinationConfiguration#ProcessingConfiguration
@@ -684,23 +1149,49 @@ export interface FirehoseElasticsearchDestinationConfiguration {
 }
 
 /**
+ * Converts an object of type 'FirehoseElasticsearchDestinationConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseElasticsearchDestinationConfiguration(obj: FirehoseElasticsearchDestinationConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoleARN': obj.roleArn,
+    'DomainARN': obj.domainArn,
+    'ClusterEndpoint': obj.clusterEndpoint,
+    'IndexName': obj.indexName,
+    'TypeName': obj.typeName,
+    'IndexRotationPeriod': obj.indexRotationPeriod,
+    'BufferingHints': toJson_FirehoseElasticsearchBufferingHints(obj.bufferingHints),
+    'RetryOptions': toJson_FirehoseElasticsearchRetryOptions(obj.retryOptions),
+    'S3BackupMode': obj.s3BackupMode,
+    'S3Configuration': toJson_FirehoseS3DestinationConfiguration(obj.s3Configuration),
+    'ProcessingConfiguration': toJson_FirehoseProcessingConfiguration(obj.processingConfiguration),
+    'CloudWatchLoggingOptions': toJson_FirehoseCloudWatchLoggingOptions(obj.cloudWatchLoggingOptions),
+    'VpcConfiguration': toJson_FirehoseVpcConfiguration(obj.vpcConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseSplunkDestinationConfiguration
  */
 export interface FirehoseSplunkDestinationConfiguration {
   /**
    * @schema FirehoseSplunkDestinationConfiguration#HECEndpoint
    */
-  readonly hecEndpoint: string;
+  readonly hecEndpoint?: string;
 
   /**
    * @schema FirehoseSplunkDestinationConfiguration#HECEndpointType
    */
-  readonly hecEndpointType: string;
+  readonly hecEndpointType?: string;
 
   /**
    * @schema FirehoseSplunkDestinationConfiguration#HECToken
    */
-  readonly hecToken: string;
+  readonly hecToken?: string;
 
   /**
    * @schema FirehoseSplunkDestinationConfiguration#HECAcknowledgmentTimeoutInSeconds
@@ -720,7 +1211,7 @@ export interface FirehoseSplunkDestinationConfiguration {
   /**
    * @schema FirehoseSplunkDestinationConfiguration#S3Configuration
    */
-  readonly s3Configuration: FirehoseS3DestinationConfiguration;
+  readonly s3Configuration?: FirehoseS3DestinationConfiguration;
 
   /**
    * @schema FirehoseSplunkDestinationConfiguration#ProcessingConfiguration
@@ -735,13 +1226,35 @@ export interface FirehoseSplunkDestinationConfiguration {
 }
 
 /**
+ * Converts an object of type 'FirehoseSplunkDestinationConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseSplunkDestinationConfiguration(obj: FirehoseSplunkDestinationConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HECEndpoint': obj.hecEndpoint,
+    'HECEndpointType': obj.hecEndpointType,
+    'HECToken': obj.hecToken,
+    'HECAcknowledgmentTimeoutInSeconds': obj.hecAcknowledgmentTimeoutInSeconds,
+    'RetryOptions': toJson_FirehoseSplunkRetryOptions(obj.retryOptions),
+    'S3BackupMode': obj.s3BackupMode,
+    'S3Configuration': toJson_FirehoseS3DestinationConfiguration(obj.s3Configuration),
+    'ProcessingConfiguration': toJson_FirehoseProcessingConfiguration(obj.processingConfiguration),
+    'CloudWatchLoggingOptions': toJson_FirehoseCloudWatchLoggingOptions(obj.cloudWatchLoggingOptions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseHttpEndpointDestinationConfiguration
  */
 export interface FirehoseHttpEndpointDestinationConfiguration {
   /**
    * @schema FirehoseHttpEndpointDestinationConfiguration#EndpointConfiguration
    */
-  readonly endpointConfiguration: FirehoseHttpEndpointConfiguration;
+  readonly endpointConfiguration?: FirehoseHttpEndpointConfiguration;
 
   /**
    * @schema FirehoseHttpEndpointDestinationConfiguration#BufferingHints
@@ -781,9 +1294,31 @@ export interface FirehoseHttpEndpointDestinationConfiguration {
   /**
    * @schema FirehoseHttpEndpointDestinationConfiguration#S3Configuration
    */
-  readonly s3Configuration: FirehoseS3DestinationConfiguration;
+  readonly s3Configuration?: FirehoseS3DestinationConfiguration;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseHttpEndpointDestinationConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseHttpEndpointDestinationConfiguration(obj: FirehoseHttpEndpointDestinationConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointConfiguration': toJson_FirehoseHttpEndpointConfiguration(obj.endpointConfiguration),
+    'BufferingHints': toJson_FirehoseHttpEndpointBufferingHints(obj.bufferingHints),
+    'CloudWatchLoggingOptions': toJson_FirehoseCloudWatchLoggingOptions(obj.cloudWatchLoggingOptions),
+    'RequestConfiguration': toJson_FirehoseHttpEndpointRequestConfiguration(obj.requestConfiguration),
+    'ProcessingConfiguration': toJson_FirehoseProcessingConfiguration(obj.processingConfiguration),
+    'RoleARN': obj.roleArn,
+    'RetryOptions': toJson_FirehoseHttpEndpointRetryOptions(obj.retryOptions),
+    'S3BackupMode': obj.s3BackupMode,
+    'S3Configuration': toJson_FirehoseS3DestinationConfiguration(obj.s3Configuration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseTag
@@ -792,7 +1327,7 @@ export interface FirehoseTag {
   /**
    * @schema FirehoseTag#Key
    */
-  readonly key: string;
+  readonly key?: string;
 
   /**
    * @schema FirehoseTag#Value
@@ -802,23 +1337,38 @@ export interface FirehoseTag {
 }
 
 /**
+ * Converts an object of type 'FirehoseTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseTag(obj: FirehoseTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseDeliveryStreamDescription
  */
 export interface FirehoseDeliveryStreamDescription {
   /**
    * @schema FirehoseDeliveryStreamDescription#DeliveryStreamName
    */
-  readonly deliveryStreamName: string;
+  readonly deliveryStreamName?: string;
 
   /**
    * @schema FirehoseDeliveryStreamDescription#DeliveryStreamARN
    */
-  readonly deliveryStreamArn: string;
+  readonly deliveryStreamArn?: string;
 
   /**
    * @schema FirehoseDeliveryStreamDescription#DeliveryStreamStatus
    */
-  readonly deliveryStreamStatus: string;
+  readonly deliveryStreamStatus?: string;
 
   /**
    * @schema FirehoseDeliveryStreamDescription#FailureDescription
@@ -833,12 +1383,12 @@ export interface FirehoseDeliveryStreamDescription {
   /**
    * @schema FirehoseDeliveryStreamDescription#DeliveryStreamType
    */
-  readonly deliveryStreamType: string;
+  readonly deliveryStreamType?: string;
 
   /**
    * @schema FirehoseDeliveryStreamDescription#VersionId
    */
-  readonly versionId: string;
+  readonly versionId?: string;
 
   /**
    * @schema FirehoseDeliveryStreamDescription#CreateTimestamp
@@ -858,14 +1408,39 @@ export interface FirehoseDeliveryStreamDescription {
   /**
    * @schema FirehoseDeliveryStreamDescription#Destinations
    */
-  readonly destinations: FirehoseDestinationDescription[];
+  readonly destinations?: FirehoseDestinationDescription[];
 
   /**
    * @schema FirehoseDeliveryStreamDescription#HasMoreDestinations
    */
-  readonly hasMoreDestinations: boolean;
+  readonly hasMoreDestinations?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseDeliveryStreamDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseDeliveryStreamDescription(obj: FirehoseDeliveryStreamDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeliveryStreamName': obj.deliveryStreamName,
+    'DeliveryStreamARN': obj.deliveryStreamArn,
+    'DeliveryStreamStatus': obj.deliveryStreamStatus,
+    'FailureDescription': toJson_FirehoseFailureDescription(obj.failureDescription),
+    'DeliveryStreamEncryptionConfiguration': toJson_FirehoseDeliveryStreamEncryptionConfiguration(obj.deliveryStreamEncryptionConfiguration),
+    'DeliveryStreamType': obj.deliveryStreamType,
+    'VersionId': obj.versionId,
+    'CreateTimestamp': obj.createTimestamp,
+    'LastUpdateTimestamp': obj.lastUpdateTimestamp,
+    'Source': toJson_FirehoseSourceDescription(obj.source),
+    'Destinations': obj.destinations?.map(y => toJson_FirehoseDestinationDescription(y)),
+    'HasMoreDestinations': obj.hasMoreDestinations,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseRecord
@@ -874,9 +1449,23 @@ export interface FirehoseRecord {
   /**
    * @schema FirehoseRecord#Data
    */
-  readonly data: any;
+  readonly data?: any;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseRecord' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseRecord(obj: FirehoseRecord | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Data': obj.data,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehosePutRecordBatchResponseEntry
@@ -898,6 +1487,22 @@ export interface FirehosePutRecordBatchResponseEntry {
   readonly errorMessage?: string;
 
 }
+
+/**
+ * Converts an object of type 'FirehosePutRecordBatchResponseEntry' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehosePutRecordBatchResponseEntry(obj: FirehosePutRecordBatchResponseEntry | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RecordId': obj.recordId,
+    'ErrorCode': obj.errorCode,
+    'ErrorMessage': obj.errorMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseS3DestinationUpdate
@@ -944,6 +1549,27 @@ export interface FirehoseS3DestinationUpdate {
   readonly cloudWatchLoggingOptions?: FirehoseCloudWatchLoggingOptions;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseS3DestinationUpdate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseS3DestinationUpdate(obj: FirehoseS3DestinationUpdate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoleARN': obj.roleArn,
+    'BucketARN': obj.bucketArn,
+    'Prefix': obj.prefix,
+    'ErrorOutputPrefix': obj.errorOutputPrefix,
+    'BufferingHints': toJson_FirehoseBufferingHints(obj.bufferingHints),
+    'CompressionFormat': obj.compressionFormat,
+    'EncryptionConfiguration': toJson_FirehoseEncryptionConfiguration(obj.encryptionConfiguration),
+    'CloudWatchLoggingOptions': toJson_FirehoseCloudWatchLoggingOptions(obj.cloudWatchLoggingOptions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseExtendedS3DestinationUpdate
@@ -1012,6 +1638,31 @@ export interface FirehoseExtendedS3DestinationUpdate {
 }
 
 /**
+ * Converts an object of type 'FirehoseExtendedS3DestinationUpdate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseExtendedS3DestinationUpdate(obj: FirehoseExtendedS3DestinationUpdate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoleARN': obj.roleArn,
+    'BucketARN': obj.bucketArn,
+    'Prefix': obj.prefix,
+    'ErrorOutputPrefix': obj.errorOutputPrefix,
+    'BufferingHints': toJson_FirehoseBufferingHints(obj.bufferingHints),
+    'CompressionFormat': obj.compressionFormat,
+    'EncryptionConfiguration': toJson_FirehoseEncryptionConfiguration(obj.encryptionConfiguration),
+    'CloudWatchLoggingOptions': toJson_FirehoseCloudWatchLoggingOptions(obj.cloudWatchLoggingOptions),
+    'ProcessingConfiguration': toJson_FirehoseProcessingConfiguration(obj.processingConfiguration),
+    'S3BackupMode': obj.s3BackupMode,
+    'S3BackupUpdate': toJson_FirehoseS3DestinationUpdate(obj.s3BackupUpdate),
+    'DataFormatConversionConfiguration': toJson_FirehoseDataFormatConversionConfiguration(obj.dataFormatConversionConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseRedshiftDestinationUpdate
  */
 export interface FirehoseRedshiftDestinationUpdate {
@@ -1071,6 +1722,30 @@ export interface FirehoseRedshiftDestinationUpdate {
   readonly cloudWatchLoggingOptions?: FirehoseCloudWatchLoggingOptions;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseRedshiftDestinationUpdate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseRedshiftDestinationUpdate(obj: FirehoseRedshiftDestinationUpdate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoleARN': obj.roleArn,
+    'ClusterJDBCURL': obj.clusterJdbcurl,
+    'CopyCommand': toJson_FirehoseCopyCommand(obj.copyCommand),
+    'Username': obj.username,
+    'Password': obj.password,
+    'RetryOptions': toJson_FirehoseRedshiftRetryOptions(obj.retryOptions),
+    'S3Update': toJson_FirehoseS3DestinationUpdate(obj.s3Update),
+    'ProcessingConfiguration': toJson_FirehoseProcessingConfiguration(obj.processingConfiguration),
+    'S3BackupMode': obj.s3BackupMode,
+    'S3BackupUpdate': toJson_FirehoseS3DestinationUpdate(obj.s3BackupUpdate),
+    'CloudWatchLoggingOptions': toJson_FirehoseCloudWatchLoggingOptions(obj.cloudWatchLoggingOptions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseElasticsearchDestinationUpdate
@@ -1134,6 +1809,30 @@ export interface FirehoseElasticsearchDestinationUpdate {
 }
 
 /**
+ * Converts an object of type 'FirehoseElasticsearchDestinationUpdate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseElasticsearchDestinationUpdate(obj: FirehoseElasticsearchDestinationUpdate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoleARN': obj.roleArn,
+    'DomainARN': obj.domainArn,
+    'ClusterEndpoint': obj.clusterEndpoint,
+    'IndexName': obj.indexName,
+    'TypeName': obj.typeName,
+    'IndexRotationPeriod': obj.indexRotationPeriod,
+    'BufferingHints': toJson_FirehoseElasticsearchBufferingHints(obj.bufferingHints),
+    'RetryOptions': toJson_FirehoseElasticsearchRetryOptions(obj.retryOptions),
+    'S3Update': toJson_FirehoseS3DestinationUpdate(obj.s3Update),
+    'ProcessingConfiguration': toJson_FirehoseProcessingConfiguration(obj.processingConfiguration),
+    'CloudWatchLoggingOptions': toJson_FirehoseCloudWatchLoggingOptions(obj.cloudWatchLoggingOptions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseSplunkDestinationUpdate
  */
 export interface FirehoseSplunkDestinationUpdate {
@@ -1183,6 +1882,28 @@ export interface FirehoseSplunkDestinationUpdate {
   readonly cloudWatchLoggingOptions?: FirehoseCloudWatchLoggingOptions;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseSplunkDestinationUpdate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseSplunkDestinationUpdate(obj: FirehoseSplunkDestinationUpdate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HECEndpoint': obj.hecEndpoint,
+    'HECEndpointType': obj.hecEndpointType,
+    'HECToken': obj.hecToken,
+    'HECAcknowledgmentTimeoutInSeconds': obj.hecAcknowledgmentTimeoutInSeconds,
+    'RetryOptions': toJson_FirehoseSplunkRetryOptions(obj.retryOptions),
+    'S3BackupMode': obj.s3BackupMode,
+    'S3Update': toJson_FirehoseS3DestinationUpdate(obj.s3Update),
+    'ProcessingConfiguration': toJson_FirehoseProcessingConfiguration(obj.processingConfiguration),
+    'CloudWatchLoggingOptions': toJson_FirehoseCloudWatchLoggingOptions(obj.cloudWatchLoggingOptions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseHttpEndpointDestinationUpdate
@@ -1236,6 +1957,28 @@ export interface FirehoseHttpEndpointDestinationUpdate {
 }
 
 /**
+ * Converts an object of type 'FirehoseHttpEndpointDestinationUpdate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseHttpEndpointDestinationUpdate(obj: FirehoseHttpEndpointDestinationUpdate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointConfiguration': toJson_FirehoseHttpEndpointConfiguration(obj.endpointConfiguration),
+    'BufferingHints': toJson_FirehoseHttpEndpointBufferingHints(obj.bufferingHints),
+    'CloudWatchLoggingOptions': toJson_FirehoseCloudWatchLoggingOptions(obj.cloudWatchLoggingOptions),
+    'RequestConfiguration': toJson_FirehoseHttpEndpointRequestConfiguration(obj.requestConfiguration),
+    'ProcessingConfiguration': toJson_FirehoseProcessingConfiguration(obj.processingConfiguration),
+    'RoleARN': obj.roleArn,
+    'RetryOptions': toJson_FirehoseHttpEndpointRetryOptions(obj.retryOptions),
+    'S3BackupMode': obj.s3BackupMode,
+    'S3Update': toJson_FirehoseS3DestinationUpdate(obj.s3Update),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseBufferingHints
  */
 export interface FirehoseBufferingHints {
@@ -1252,6 +1995,21 @@ export interface FirehoseBufferingHints {
 }
 
 /**
+ * Converts an object of type 'FirehoseBufferingHints' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseBufferingHints(obj: FirehoseBufferingHints | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SizeInMBs': obj.sizeInMBs,
+    'IntervalInSeconds': obj.intervalInSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseEncryptionConfiguration
  */
 export interface FirehoseEncryptionConfiguration {
@@ -1266,6 +2024,21 @@ export interface FirehoseEncryptionConfiguration {
   readonly kmsEncryptionConfig?: FirehoseKmsEncryptionConfig;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseEncryptionConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseEncryptionConfiguration(obj: FirehoseEncryptionConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NoEncryptionConfig': obj.noEncryptionConfig,
+    'KMSEncryptionConfig': toJson_FirehoseKmsEncryptionConfig(obj.kmsEncryptionConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseCloudWatchLoggingOptions
@@ -1289,6 +2062,22 @@ export interface FirehoseCloudWatchLoggingOptions {
 }
 
 /**
+ * Converts an object of type 'FirehoseCloudWatchLoggingOptions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseCloudWatchLoggingOptions(obj: FirehoseCloudWatchLoggingOptions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Enabled': obj.enabled,
+    'LogGroupName': obj.logGroupName,
+    'LogStreamName': obj.logStreamName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseProcessingConfiguration
  */
 export interface FirehoseProcessingConfiguration {
@@ -1303,6 +2092,21 @@ export interface FirehoseProcessingConfiguration {
   readonly processors?: FirehoseProcessor[];
 
 }
+
+/**
+ * Converts an object of type 'FirehoseProcessingConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseProcessingConfiguration(obj: FirehoseProcessingConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Enabled': obj.enabled,
+    'Processors': obj.processors?.map(y => toJson_FirehoseProcessor(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseDataFormatConversionConfiguration
@@ -1331,13 +2135,30 @@ export interface FirehoseDataFormatConversionConfiguration {
 }
 
 /**
+ * Converts an object of type 'FirehoseDataFormatConversionConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseDataFormatConversionConfiguration(obj: FirehoseDataFormatConversionConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SchemaConfiguration': toJson_FirehoseSchemaConfiguration(obj.schemaConfiguration),
+    'InputFormatConfiguration': toJson_FirehoseInputFormatConfiguration(obj.inputFormatConfiguration),
+    'OutputFormatConfiguration': toJson_FirehoseOutputFormatConfiguration(obj.outputFormatConfiguration),
+    'Enabled': obj.enabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseCopyCommand
  */
 export interface FirehoseCopyCommand {
   /**
    * @schema FirehoseCopyCommand#DataTableName
    */
-  readonly dataTableName: string;
+  readonly dataTableName?: string;
 
   /**
    * @schema FirehoseCopyCommand#DataTableColumns
@@ -1352,6 +2173,22 @@ export interface FirehoseCopyCommand {
 }
 
 /**
+ * Converts an object of type 'FirehoseCopyCommand' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseCopyCommand(obj: FirehoseCopyCommand | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataTableName': obj.dataTableName,
+    'DataTableColumns': obj.dataTableColumns,
+    'CopyOptions': obj.copyOptions,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseRedshiftRetryOptions
  */
 export interface FirehoseRedshiftRetryOptions {
@@ -1361,6 +2198,20 @@ export interface FirehoseRedshiftRetryOptions {
   readonly durationInSeconds?: number;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseRedshiftRetryOptions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseRedshiftRetryOptions(obj: FirehoseRedshiftRetryOptions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DurationInSeconds': obj.durationInSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseElasticsearchBufferingHints
@@ -1379,6 +2230,21 @@ export interface FirehoseElasticsearchBufferingHints {
 }
 
 /**
+ * Converts an object of type 'FirehoseElasticsearchBufferingHints' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseElasticsearchBufferingHints(obj: FirehoseElasticsearchBufferingHints | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IntervalInSeconds': obj.intervalInSeconds,
+    'SizeInMBs': obj.sizeInMBs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseElasticsearchRetryOptions
  */
 export interface FirehoseElasticsearchRetryOptions {
@@ -1390,25 +2256,55 @@ export interface FirehoseElasticsearchRetryOptions {
 }
 
 /**
+ * Converts an object of type 'FirehoseElasticsearchRetryOptions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseElasticsearchRetryOptions(obj: FirehoseElasticsearchRetryOptions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DurationInSeconds': obj.durationInSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseVpcConfiguration
  */
 export interface FirehoseVpcConfiguration {
   /**
    * @schema FirehoseVpcConfiguration#SubnetIds
    */
-  readonly subnetIds: string[];
+  readonly subnetIds?: string[];
 
   /**
    * @schema FirehoseVpcConfiguration#RoleARN
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema FirehoseVpcConfiguration#SecurityGroupIds
    */
-  readonly securityGroupIds: string[];
+  readonly securityGroupIds?: string[];
 
 }
+
+/**
+ * Converts an object of type 'FirehoseVpcConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseVpcConfiguration(obj: FirehoseVpcConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubnetIds': obj.subnetIds?.map(y => y),
+    'RoleARN': obj.roleArn,
+    'SecurityGroupIds': obj.securityGroupIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseSplunkRetryOptions
@@ -1422,13 +2318,27 @@ export interface FirehoseSplunkRetryOptions {
 }
 
 /**
+ * Converts an object of type 'FirehoseSplunkRetryOptions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseSplunkRetryOptions(obj: FirehoseSplunkRetryOptions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DurationInSeconds': obj.durationInSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseHttpEndpointConfiguration
  */
 export interface FirehoseHttpEndpointConfiguration {
   /**
    * @schema FirehoseHttpEndpointConfiguration#Url
    */
-  readonly url: string;
+  readonly url?: string;
 
   /**
    * @schema FirehoseHttpEndpointConfiguration#Name
@@ -1441,6 +2351,22 @@ export interface FirehoseHttpEndpointConfiguration {
   readonly accessKey?: string;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseHttpEndpointConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseHttpEndpointConfiguration(obj: FirehoseHttpEndpointConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Url': obj.url,
+    'Name': obj.name,
+    'AccessKey': obj.accessKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseHttpEndpointBufferingHints
@@ -1459,6 +2385,21 @@ export interface FirehoseHttpEndpointBufferingHints {
 }
 
 /**
+ * Converts an object of type 'FirehoseHttpEndpointBufferingHints' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseHttpEndpointBufferingHints(obj: FirehoseHttpEndpointBufferingHints | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SizeInMBs': obj.sizeInMBs,
+    'IntervalInSeconds': obj.intervalInSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseHttpEndpointRequestConfiguration
  */
 export interface FirehoseHttpEndpointRequestConfiguration {
@@ -1475,6 +2416,21 @@ export interface FirehoseHttpEndpointRequestConfiguration {
 }
 
 /**
+ * Converts an object of type 'FirehoseHttpEndpointRequestConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseHttpEndpointRequestConfiguration(obj: FirehoseHttpEndpointRequestConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContentEncoding': obj.contentEncoding,
+    'CommonAttributes': obj.commonAttributes?.map(y => toJson_FirehoseHttpEndpointCommonAttribute(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseHttpEndpointRetryOptions
  */
 export interface FirehoseHttpEndpointRetryOptions {
@@ -1486,20 +2442,49 @@ export interface FirehoseHttpEndpointRetryOptions {
 }
 
 /**
+ * Converts an object of type 'FirehoseHttpEndpointRetryOptions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseHttpEndpointRetryOptions(obj: FirehoseHttpEndpointRetryOptions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DurationInSeconds': obj.durationInSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseFailureDescription
  */
 export interface FirehoseFailureDescription {
   /**
    * @schema FirehoseFailureDescription#Type
    */
-  readonly type: string;
+  readonly type?: string;
 
   /**
    * @schema FirehoseFailureDescription#Details
    */
-  readonly details: string;
+  readonly details?: string;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseFailureDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseFailureDescription(obj: FirehoseFailureDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'Details': obj.details,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseDeliveryStreamEncryptionConfiguration
@@ -1528,6 +2513,23 @@ export interface FirehoseDeliveryStreamEncryptionConfiguration {
 }
 
 /**
+ * Converts an object of type 'FirehoseDeliveryStreamEncryptionConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseDeliveryStreamEncryptionConfiguration(obj: FirehoseDeliveryStreamEncryptionConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'KeyARN': obj.keyArn,
+    'KeyType': obj.keyType,
+    'Status': obj.status,
+    'FailureDescription': toJson_FirehoseFailureDescription(obj.failureDescription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseSourceDescription
  */
 export interface FirehoseSourceDescription {
@@ -1539,13 +2541,27 @@ export interface FirehoseSourceDescription {
 }
 
 /**
+ * Converts an object of type 'FirehoseSourceDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseSourceDescription(obj: FirehoseSourceDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'KinesisStreamSourceDescription': toJson_FirehoseKinesisStreamSourceDescription(obj.kinesisStreamSourceDescription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseDestinationDescription
  */
 export interface FirehoseDestinationDescription {
   /**
    * @schema FirehoseDestinationDescription#DestinationId
    */
-  readonly destinationId: string;
+  readonly destinationId?: string;
 
   /**
    * @schema FirehoseDestinationDescription#S3DestinationDescription
@@ -1580,15 +2596,49 @@ export interface FirehoseDestinationDescription {
 }
 
 /**
+ * Converts an object of type 'FirehoseDestinationDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseDestinationDescription(obj: FirehoseDestinationDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DestinationId': obj.destinationId,
+    'S3DestinationDescription': toJson_FirehoseS3DestinationDescription(obj.s3DestinationDescription),
+    'ExtendedS3DestinationDescription': toJson_FirehoseExtendedS3DestinationDescription(obj.extendedS3DestinationDescription),
+    'RedshiftDestinationDescription': toJson_FirehoseRedshiftDestinationDescription(obj.redshiftDestinationDescription),
+    'ElasticsearchDestinationDescription': toJson_FirehoseElasticsearchDestinationDescription(obj.elasticsearchDestinationDescription),
+    'SplunkDestinationDescription': toJson_FirehoseSplunkDestinationDescription(obj.splunkDestinationDescription),
+    'HttpEndpointDestinationDescription': toJson_FirehoseHttpEndpointDestinationDescription(obj.httpEndpointDestinationDescription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseKmsEncryptionConfig
  */
 export interface FirehoseKmsEncryptionConfig {
   /**
    * @schema FirehoseKmsEncryptionConfig#AWSKMSKeyARN
    */
-  readonly awskmsKeyArn: string;
+  readonly awskmsKeyArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseKmsEncryptionConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseKmsEncryptionConfig(obj: FirehoseKmsEncryptionConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AWSKMSKeyARN': obj.awskmsKeyArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseProcessor
@@ -1597,7 +2647,7 @@ export interface FirehoseProcessor {
   /**
    * @schema FirehoseProcessor#Type
    */
-  readonly type: string;
+  readonly type?: string;
 
   /**
    * @schema FirehoseProcessor#Parameters
@@ -1605,6 +2655,21 @@ export interface FirehoseProcessor {
   readonly parameters?: FirehoseProcessorParameter[];
 
 }
+
+/**
+ * Converts an object of type 'FirehoseProcessor' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseProcessor(obj: FirehoseProcessor | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'Parameters': obj.parameters?.map(y => toJson_FirehoseProcessorParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseSchemaConfiguration
@@ -1643,6 +2708,25 @@ export interface FirehoseSchemaConfiguration {
 }
 
 /**
+ * Converts an object of type 'FirehoseSchemaConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseSchemaConfiguration(obj: FirehoseSchemaConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoleARN': obj.roleArn,
+    'CatalogId': obj.catalogId,
+    'DatabaseName': obj.databaseName,
+    'TableName': obj.tableName,
+    'Region': obj.region,
+    'VersionId': obj.versionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseInputFormatConfiguration
  */
 export interface FirehoseInputFormatConfiguration {
@@ -1652,6 +2736,20 @@ export interface FirehoseInputFormatConfiguration {
   readonly deserializer?: FirehoseDeserializer;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseInputFormatConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseInputFormatConfiguration(obj: FirehoseInputFormatConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Deserializer': toJson_FirehoseDeserializer(obj.deserializer),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseOutputFormatConfiguration
@@ -1665,20 +2763,49 @@ export interface FirehoseOutputFormatConfiguration {
 }
 
 /**
+ * Converts an object of type 'FirehoseOutputFormatConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseOutputFormatConfiguration(obj: FirehoseOutputFormatConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Serializer': toJson_FirehoseSerializer(obj.serializer),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseHttpEndpointCommonAttribute
  */
 export interface FirehoseHttpEndpointCommonAttribute {
   /**
    * @schema FirehoseHttpEndpointCommonAttribute#AttributeName
    */
-  readonly attributeName: string;
+  readonly attributeName?: string;
 
   /**
    * @schema FirehoseHttpEndpointCommonAttribute#AttributeValue
    */
-  readonly attributeValue: string;
+  readonly attributeValue?: string;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseHttpEndpointCommonAttribute' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseHttpEndpointCommonAttribute(obj: FirehoseHttpEndpointCommonAttribute | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AttributeName': obj.attributeName,
+    'AttributeValue': obj.attributeValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseKinesisStreamSourceDescription
@@ -1702,18 +2829,34 @@ export interface FirehoseKinesisStreamSourceDescription {
 }
 
 /**
+ * Converts an object of type 'FirehoseKinesisStreamSourceDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseKinesisStreamSourceDescription(obj: FirehoseKinesisStreamSourceDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'KinesisStreamARN': obj.kinesisStreamArn,
+    'RoleARN': obj.roleArn,
+    'DeliveryStartTimestamp': obj.deliveryStartTimestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseS3DestinationDescription
  */
 export interface FirehoseS3DestinationDescription {
   /**
    * @schema FirehoseS3DestinationDescription#RoleARN
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema FirehoseS3DestinationDescription#BucketARN
    */
-  readonly bucketArn: string;
+  readonly bucketArn?: string;
 
   /**
    * @schema FirehoseS3DestinationDescription#Prefix
@@ -1728,17 +2871,17 @@ export interface FirehoseS3DestinationDescription {
   /**
    * @schema FirehoseS3DestinationDescription#BufferingHints
    */
-  readonly bufferingHints: FirehoseBufferingHints;
+  readonly bufferingHints?: FirehoseBufferingHints;
 
   /**
    * @schema FirehoseS3DestinationDescription#CompressionFormat
    */
-  readonly compressionFormat: string;
+  readonly compressionFormat?: string;
 
   /**
    * @schema FirehoseS3DestinationDescription#EncryptionConfiguration
    */
-  readonly encryptionConfiguration: FirehoseEncryptionConfiguration;
+  readonly encryptionConfiguration?: FirehoseEncryptionConfiguration;
 
   /**
    * @schema FirehoseS3DestinationDescription#CloudWatchLoggingOptions
@@ -1748,18 +2891,39 @@ export interface FirehoseS3DestinationDescription {
 }
 
 /**
+ * Converts an object of type 'FirehoseS3DestinationDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseS3DestinationDescription(obj: FirehoseS3DestinationDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoleARN': obj.roleArn,
+    'BucketARN': obj.bucketArn,
+    'Prefix': obj.prefix,
+    'ErrorOutputPrefix': obj.errorOutputPrefix,
+    'BufferingHints': toJson_FirehoseBufferingHints(obj.bufferingHints),
+    'CompressionFormat': obj.compressionFormat,
+    'EncryptionConfiguration': toJson_FirehoseEncryptionConfiguration(obj.encryptionConfiguration),
+    'CloudWatchLoggingOptions': toJson_FirehoseCloudWatchLoggingOptions(obj.cloudWatchLoggingOptions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseExtendedS3DestinationDescription
  */
 export interface FirehoseExtendedS3DestinationDescription {
   /**
    * @schema FirehoseExtendedS3DestinationDescription#RoleARN
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema FirehoseExtendedS3DestinationDescription#BucketARN
    */
-  readonly bucketArn: string;
+  readonly bucketArn?: string;
 
   /**
    * @schema FirehoseExtendedS3DestinationDescription#Prefix
@@ -1774,17 +2938,17 @@ export interface FirehoseExtendedS3DestinationDescription {
   /**
    * @schema FirehoseExtendedS3DestinationDescription#BufferingHints
    */
-  readonly bufferingHints: FirehoseBufferingHints;
+  readonly bufferingHints?: FirehoseBufferingHints;
 
   /**
    * @schema FirehoseExtendedS3DestinationDescription#CompressionFormat
    */
-  readonly compressionFormat: string;
+  readonly compressionFormat?: string;
 
   /**
    * @schema FirehoseExtendedS3DestinationDescription#EncryptionConfiguration
    */
-  readonly encryptionConfiguration: FirehoseEncryptionConfiguration;
+  readonly encryptionConfiguration?: FirehoseEncryptionConfiguration;
 
   /**
    * @schema FirehoseExtendedS3DestinationDescription#CloudWatchLoggingOptions
@@ -1814,28 +2978,53 @@ export interface FirehoseExtendedS3DestinationDescription {
 }
 
 /**
+ * Converts an object of type 'FirehoseExtendedS3DestinationDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseExtendedS3DestinationDescription(obj: FirehoseExtendedS3DestinationDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoleARN': obj.roleArn,
+    'BucketARN': obj.bucketArn,
+    'Prefix': obj.prefix,
+    'ErrorOutputPrefix': obj.errorOutputPrefix,
+    'BufferingHints': toJson_FirehoseBufferingHints(obj.bufferingHints),
+    'CompressionFormat': obj.compressionFormat,
+    'EncryptionConfiguration': toJson_FirehoseEncryptionConfiguration(obj.encryptionConfiguration),
+    'CloudWatchLoggingOptions': toJson_FirehoseCloudWatchLoggingOptions(obj.cloudWatchLoggingOptions),
+    'ProcessingConfiguration': toJson_FirehoseProcessingConfiguration(obj.processingConfiguration),
+    'S3BackupMode': obj.s3BackupMode,
+    'S3BackupDescription': toJson_FirehoseS3DestinationDescription(obj.s3BackupDescription),
+    'DataFormatConversionConfiguration': toJson_FirehoseDataFormatConversionConfiguration(obj.dataFormatConversionConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseRedshiftDestinationDescription
  */
 export interface FirehoseRedshiftDestinationDescription {
   /**
    * @schema FirehoseRedshiftDestinationDescription#RoleARN
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema FirehoseRedshiftDestinationDescription#ClusterJDBCURL
    */
-  readonly clusterJdbcurl: string;
+  readonly clusterJdbcurl?: string;
 
   /**
    * @schema FirehoseRedshiftDestinationDescription#CopyCommand
    */
-  readonly copyCommand: FirehoseCopyCommand;
+  readonly copyCommand?: FirehoseCopyCommand;
 
   /**
    * @schema FirehoseRedshiftDestinationDescription#Username
    */
-  readonly username: string;
+  readonly username?: string;
 
   /**
    * @schema FirehoseRedshiftDestinationDescription#RetryOptions
@@ -1845,7 +3034,7 @@ export interface FirehoseRedshiftDestinationDescription {
   /**
    * @schema FirehoseRedshiftDestinationDescription#S3DestinationDescription
    */
-  readonly s3DestinationDescription: FirehoseS3DestinationDescription;
+  readonly s3DestinationDescription?: FirehoseS3DestinationDescription;
 
   /**
    * @schema FirehoseRedshiftDestinationDescription#ProcessingConfiguration
@@ -1868,6 +3057,29 @@ export interface FirehoseRedshiftDestinationDescription {
   readonly cloudWatchLoggingOptions?: FirehoseCloudWatchLoggingOptions;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseRedshiftDestinationDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseRedshiftDestinationDescription(obj: FirehoseRedshiftDestinationDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoleARN': obj.roleArn,
+    'ClusterJDBCURL': obj.clusterJdbcurl,
+    'CopyCommand': toJson_FirehoseCopyCommand(obj.copyCommand),
+    'Username': obj.username,
+    'RetryOptions': toJson_FirehoseRedshiftRetryOptions(obj.retryOptions),
+    'S3DestinationDescription': toJson_FirehoseS3DestinationDescription(obj.s3DestinationDescription),
+    'ProcessingConfiguration': toJson_FirehoseProcessingConfiguration(obj.processingConfiguration),
+    'S3BackupMode': obj.s3BackupMode,
+    'S3BackupDescription': toJson_FirehoseS3DestinationDescription(obj.s3BackupDescription),
+    'CloudWatchLoggingOptions': toJson_FirehoseCloudWatchLoggingOptions(obj.cloudWatchLoggingOptions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseElasticsearchDestinationDescription
@@ -1941,6 +3153,32 @@ export interface FirehoseElasticsearchDestinationDescription {
 }
 
 /**
+ * Converts an object of type 'FirehoseElasticsearchDestinationDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseElasticsearchDestinationDescription(obj: FirehoseElasticsearchDestinationDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoleARN': obj.roleArn,
+    'DomainARN': obj.domainArn,
+    'ClusterEndpoint': obj.clusterEndpoint,
+    'IndexName': obj.indexName,
+    'TypeName': obj.typeName,
+    'IndexRotationPeriod': obj.indexRotationPeriod,
+    'BufferingHints': toJson_FirehoseElasticsearchBufferingHints(obj.bufferingHints),
+    'RetryOptions': toJson_FirehoseElasticsearchRetryOptions(obj.retryOptions),
+    'S3BackupMode': obj.s3BackupMode,
+    'S3DestinationDescription': toJson_FirehoseS3DestinationDescription(obj.s3DestinationDescription),
+    'ProcessingConfiguration': toJson_FirehoseProcessingConfiguration(obj.processingConfiguration),
+    'CloudWatchLoggingOptions': toJson_FirehoseCloudWatchLoggingOptions(obj.cloudWatchLoggingOptions),
+    'VpcConfigurationDescription': toJson_FirehoseVpcConfigurationDescription(obj.vpcConfigurationDescription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseSplunkDestinationDescription
  */
 export interface FirehoseSplunkDestinationDescription {
@@ -1990,6 +3228,28 @@ export interface FirehoseSplunkDestinationDescription {
   readonly cloudWatchLoggingOptions?: FirehoseCloudWatchLoggingOptions;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseSplunkDestinationDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseSplunkDestinationDescription(obj: FirehoseSplunkDestinationDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HECEndpoint': obj.hecEndpoint,
+    'HECEndpointType': obj.hecEndpointType,
+    'HECToken': obj.hecToken,
+    'HECAcknowledgmentTimeoutInSeconds': obj.hecAcknowledgmentTimeoutInSeconds,
+    'RetryOptions': toJson_FirehoseSplunkRetryOptions(obj.retryOptions),
+    'S3BackupMode': obj.s3BackupMode,
+    'S3DestinationDescription': toJson_FirehoseS3DestinationDescription(obj.s3DestinationDescription),
+    'ProcessingConfiguration': toJson_FirehoseProcessingConfiguration(obj.processingConfiguration),
+    'CloudWatchLoggingOptions': toJson_FirehoseCloudWatchLoggingOptions(obj.cloudWatchLoggingOptions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseHttpEndpointDestinationDescription
@@ -2043,20 +3303,57 @@ export interface FirehoseHttpEndpointDestinationDescription {
 }
 
 /**
+ * Converts an object of type 'FirehoseHttpEndpointDestinationDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseHttpEndpointDestinationDescription(obj: FirehoseHttpEndpointDestinationDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointConfiguration': toJson_FirehoseHttpEndpointDescription(obj.endpointConfiguration),
+    'BufferingHints': toJson_FirehoseHttpEndpointBufferingHints(obj.bufferingHints),
+    'CloudWatchLoggingOptions': toJson_FirehoseCloudWatchLoggingOptions(obj.cloudWatchLoggingOptions),
+    'RequestConfiguration': toJson_FirehoseHttpEndpointRequestConfiguration(obj.requestConfiguration),
+    'ProcessingConfiguration': toJson_FirehoseProcessingConfiguration(obj.processingConfiguration),
+    'RoleARN': obj.roleArn,
+    'RetryOptions': toJson_FirehoseHttpEndpointRetryOptions(obj.retryOptions),
+    'S3BackupMode': obj.s3BackupMode,
+    'S3DestinationDescription': toJson_FirehoseS3DestinationDescription(obj.s3DestinationDescription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseProcessorParameter
  */
 export interface FirehoseProcessorParameter {
   /**
    * @schema FirehoseProcessorParameter#ParameterName
    */
-  readonly parameterName: string;
+  readonly parameterName?: string;
 
   /**
    * @schema FirehoseProcessorParameter#ParameterValue
    */
-  readonly parameterValue: string;
+  readonly parameterValue?: string;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseProcessorParameter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseProcessorParameter(obj: FirehoseProcessorParameter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ParameterName': obj.parameterName,
+    'ParameterValue': obj.parameterValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseDeserializer
@@ -2075,6 +3372,21 @@ export interface FirehoseDeserializer {
 }
 
 /**
+ * Converts an object of type 'FirehoseDeserializer' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseDeserializer(obj: FirehoseDeserializer | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OpenXJsonSerDe': toJson_FirehoseOpenXJsonSerDe(obj.openXJsonSerDe),
+    'HiveJsonSerDe': toJson_FirehoseHiveJsonSerDe(obj.hiveJsonSerDe),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseSerializer
  */
 export interface FirehoseSerializer {
@@ -2091,30 +3403,62 @@ export interface FirehoseSerializer {
 }
 
 /**
+ * Converts an object of type 'FirehoseSerializer' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseSerializer(obj: FirehoseSerializer | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ParquetSerDe': toJson_FirehoseParquetSerDe(obj.parquetSerDe),
+    'OrcSerDe': toJson_FirehoseOrcSerDe(obj.orcSerDe),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseVpcConfigurationDescription
  */
 export interface FirehoseVpcConfigurationDescription {
   /**
    * @schema FirehoseVpcConfigurationDescription#SubnetIds
    */
-  readonly subnetIds: string[];
+  readonly subnetIds?: string[];
 
   /**
    * @schema FirehoseVpcConfigurationDescription#RoleARN
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema FirehoseVpcConfigurationDescription#SecurityGroupIds
    */
-  readonly securityGroupIds: string[];
+  readonly securityGroupIds?: string[];
 
   /**
    * @schema FirehoseVpcConfigurationDescription#VpcId
    */
-  readonly vpcId: string;
+  readonly vpcId?: string;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseVpcConfigurationDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseVpcConfigurationDescription(obj: FirehoseVpcConfigurationDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubnetIds': obj.subnetIds?.map(y => y),
+    'RoleARN': obj.roleArn,
+    'SecurityGroupIds': obj.securityGroupIds?.map(y => y),
+    'VpcId': obj.vpcId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseHttpEndpointDescription
@@ -2131,6 +3475,21 @@ export interface FirehoseHttpEndpointDescription {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseHttpEndpointDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseHttpEndpointDescription(obj: FirehoseHttpEndpointDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Url': obj.url,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseOpenXJsonSerDe
@@ -2154,6 +3513,22 @@ export interface FirehoseOpenXJsonSerDe {
 }
 
 /**
+ * Converts an object of type 'FirehoseOpenXJsonSerDe' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseOpenXJsonSerDe(obj: FirehoseOpenXJsonSerDe | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConvertDotsInJsonKeysToUnderscores': obj.convertDotsInJsonKeysToUnderscores,
+    'CaseInsensitive': obj.caseInsensitive,
+    'ColumnToJsonKeyMappings': ((obj.columnToJsonKeyMappings) === undefined) ? undefined : (Object.entries(obj.columnToJsonKeyMappings).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FirehoseHiveJsonSerDe
  */
 export interface FirehoseHiveJsonSerDe {
@@ -2163,6 +3538,20 @@ export interface FirehoseHiveJsonSerDe {
   readonly timestampFormats?: string[];
 
 }
+
+/**
+ * Converts an object of type 'FirehoseHiveJsonSerDe' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseHiveJsonSerDe(obj: FirehoseHiveJsonSerDe | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TimestampFormats': obj.timestampFormats?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseParquetSerDe
@@ -2199,6 +3588,25 @@ export interface FirehoseParquetSerDe {
   readonly writerVersion?: string;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseParquetSerDe' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseParquetSerDe(obj: FirehoseParquetSerDe | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BlockSizeBytes': obj.blockSizeBytes,
+    'PageSizeBytes': obj.pageSizeBytes,
+    'Compression': obj.compression,
+    'EnableDictionaryCompression': obj.enableDictionaryCompression,
+    'MaxPaddingBytes': obj.maxPaddingBytes,
+    'WriterVersion': obj.writerVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FirehoseOrcSerDe
@@ -2255,3 +3663,26 @@ export interface FirehoseOrcSerDe {
   readonly formatVersion?: string;
 
 }
+
+/**
+ * Converts an object of type 'FirehoseOrcSerDe' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FirehoseOrcSerDe(obj: FirehoseOrcSerDe | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StripeSizeBytes': obj.stripeSizeBytes,
+    'BlockSizeBytes': obj.blockSizeBytes,
+    'RowIndexStride': obj.rowIndexStride,
+    'EnablePadding': obj.enablePadding,
+    'PaddingTolerance': obj.paddingTolerance,
+    'Compression': obj.compression,
+    'BloomFilterColumns': obj.bloomFilterColumns?.map(y => y),
+    'BloomFilterFalsePositiveProbability': obj.bloomFilterFalsePositiveProbability,
+    'DictionaryKeyThreshold': obj.dictionaryKeyThreshold,
+    'FormatVersion': obj.formatVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

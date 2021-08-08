@@ -919,6 +919,24 @@ export class ElastiCacheResponsesCompleteMigrationReplicationGroup {
     return resource.getResponseField('ReplicationGroup.UserGroupIds') as unknown as string[];
   }
 
+  public get logDeliveryConfigurations(): shapes.ElastiCacheLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'completeMigration',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.CompleteMigration.ReplicationGroup.LogDeliveryConfigurations'),
+        outputPath: 'ReplicationGroup.LogDeliveryConfigurations',
+        parameters: {
+          ReplicationGroupId: this.__input.replicationGroupId,
+          Force: this.__input.force,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CompleteMigration.ReplicationGroup.LogDeliveryConfigurations', props);
+    return resource.getResponseField('ReplicationGroup.LogDeliveryConfigurations') as unknown as shapes.ElastiCacheLogDeliveryConfiguration[];
+  }
+
 }
 
 export class ElastiCacheResponsesCompleteMigrationReplicationGroupGlobalReplicationGroupInfo {
@@ -1029,6 +1047,24 @@ export class ElastiCacheResponsesCompleteMigrationReplicationGroupPendingModifie
 
   public get userGroups(): ElastiCacheResponsesCompleteMigrationReplicationGroupPendingModifiedValuesUserGroups {
     return new ElastiCacheResponsesCompleteMigrationReplicationGroupPendingModifiedValuesUserGroups(this.__scope, this.__resources, this.__input);
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCachePendingLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'completeMigration',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.CompleteMigration.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations'),
+        outputPath: 'ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations',
+        parameters: {
+          ReplicationGroupId: this.__input.replicationGroupId,
+          Force: this.__input.force,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CompleteMigration.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations', props);
+    return resource.getResponseField('ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations') as unknown as shapes.ElastiCachePendingLogDeliveryConfiguration[];
   }
 
 }
@@ -1184,6 +1220,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1204,6 +1241,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1224,6 +1262,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1244,6 +1283,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1264,6 +1304,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1284,6 +1325,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1304,6 +1346,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1324,6 +1367,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1344,6 +1388,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1364,6 +1409,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1384,6 +1430,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1404,6 +1451,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1424,6 +1472,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1444,6 +1493,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1464,6 +1514,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1484,6 +1535,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1504,6 +1556,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1524,6 +1577,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1544,6 +1598,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1564,6 +1619,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1584,6 +1640,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1604,6 +1661,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1624,6 +1682,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1644,6 +1703,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1664,6 +1724,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1684,6 +1745,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1704,6 +1766,7 @@ export class ElastiCacheResponsesCopySnapshotSnapshot {
           TargetSnapshotName: this.__input.targetSnapshotName,
           TargetBucket: this.__input.targetBucket,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1764,6 +1827,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -1810,6 +1874,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -1852,6 +1917,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -1894,6 +1960,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -1936,6 +2003,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -1978,6 +2046,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2020,6 +2089,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2062,6 +2132,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2104,6 +2175,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2146,6 +2218,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2188,6 +2261,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2238,6 +2312,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2284,6 +2359,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2326,6 +2402,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2368,6 +2445,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2410,6 +2488,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2452,6 +2531,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2494,6 +2574,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2536,6 +2617,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2578,6 +2660,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2620,6 +2703,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2662,6 +2746,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2704,6 +2789,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2746,11 +2832,98 @@ export class ElastiCacheResponsesCreateCacheClusterCacheCluster {
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateCacheCluster.CacheCluster.ARN', props);
     return resource.getResponseField('CacheCluster.ARN') as unknown as string;
+  }
+
+  public get replicationGroupLogDeliveryEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCacheCluster',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.CreateCacheCluster.CacheCluster.ReplicationGroupLogDeliveryEnabled'),
+        outputPath: 'CacheCluster.ReplicationGroupLogDeliveryEnabled',
+        parameters: {
+          CacheClusterId: this.__input.cacheClusterId,
+          ReplicationGroupId: this.__input.replicationGroupId,
+          AZMode: this.__input.azMode,
+          PreferredAvailabilityZone: this.__input.preferredAvailabilityZone,
+          PreferredAvailabilityZones: this.__input.preferredAvailabilityZones,
+          NumCacheNodes: this.__input.numCacheNodes,
+          CacheNodeType: this.__input.cacheNodeType,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
+          CacheSubnetGroupName: this.__input.cacheSubnetGroupName,
+          CacheSecurityGroupNames: this.__input.cacheSecurityGroupNames,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          Tags: this.__input.tags,
+          SnapshotArns: this.__input.snapshotArns,
+          SnapshotName: this.__input.snapshotName,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          Port: this.__input.port,
+          NotificationTopicArn: this.__input.notificationTopicArn,
+          AutoMinorVersionUpgrade: this.__input.autoMinorVersionUpgrade,
+          SnapshotRetentionLimit: this.__input.snapshotRetentionLimit,
+          SnapshotWindow: this.__input.snapshotWindow,
+          AuthToken: this.__input.authToken,
+          OutpostMode: this.__input.outpostMode,
+          PreferredOutpostArn: this.__input.preferredOutpostArn,
+          PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCacheCluster.CacheCluster.ReplicationGroupLogDeliveryEnabled', props);
+    return resource.getResponseField('CacheCluster.ReplicationGroupLogDeliveryEnabled') as unknown as boolean;
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCacheLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCacheCluster',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.CreateCacheCluster.CacheCluster.LogDeliveryConfigurations'),
+        outputPath: 'CacheCluster.LogDeliveryConfigurations',
+        parameters: {
+          CacheClusterId: this.__input.cacheClusterId,
+          ReplicationGroupId: this.__input.replicationGroupId,
+          AZMode: this.__input.azMode,
+          PreferredAvailabilityZone: this.__input.preferredAvailabilityZone,
+          PreferredAvailabilityZones: this.__input.preferredAvailabilityZones,
+          NumCacheNodes: this.__input.numCacheNodes,
+          CacheNodeType: this.__input.cacheNodeType,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
+          CacheSubnetGroupName: this.__input.cacheSubnetGroupName,
+          CacheSecurityGroupNames: this.__input.cacheSecurityGroupNames,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          Tags: this.__input.tags,
+          SnapshotArns: this.__input.snapshotArns,
+          SnapshotName: this.__input.snapshotName,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          Port: this.__input.port,
+          NotificationTopicArn: this.__input.notificationTopicArn,
+          AutoMinorVersionUpgrade: this.__input.autoMinorVersionUpgrade,
+          SnapshotRetentionLimit: this.__input.snapshotRetentionLimit,
+          SnapshotWindow: this.__input.snapshotWindow,
+          AuthToken: this.__input.authToken,
+          OutpostMode: this.__input.outpostMode,
+          PreferredOutpostArn: this.__input.preferredOutpostArn,
+          PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCacheCluster.CacheCluster.LogDeliveryConfigurations', props);
+    return resource.getResponseField('CacheCluster.LogDeliveryConfigurations') as unknown as shapes.ElastiCacheLogDeliveryConfiguration[];
   }
 
 }
@@ -2795,6 +2968,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheClusterConfigurationEndp
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2837,6 +3011,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheClusterConfigurationEndp
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2886,6 +3061,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheClusterPendingModifiedVa
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2928,6 +3104,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheClusterPendingModifiedVa
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -2970,6 +3147,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheClusterPendingModifiedVa
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -3012,6 +3190,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheClusterPendingModifiedVa
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -3054,11 +3233,55 @@ export class ElastiCacheResponsesCreateCacheClusterCacheClusterPendingModifiedVa
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateCacheCluster.CacheCluster.PendingModifiedValues.AuthTokenStatus', props);
     return resource.getResponseField('CacheCluster.PendingModifiedValues.AuthTokenStatus') as unknown as string;
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCachePendingLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCacheCluster',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.CreateCacheCluster.CacheCluster.PendingModifiedValues.LogDeliveryConfigurations'),
+        outputPath: 'CacheCluster.PendingModifiedValues.LogDeliveryConfigurations',
+        parameters: {
+          CacheClusterId: this.__input.cacheClusterId,
+          ReplicationGroupId: this.__input.replicationGroupId,
+          AZMode: this.__input.azMode,
+          PreferredAvailabilityZone: this.__input.preferredAvailabilityZone,
+          PreferredAvailabilityZones: this.__input.preferredAvailabilityZones,
+          NumCacheNodes: this.__input.numCacheNodes,
+          CacheNodeType: this.__input.cacheNodeType,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
+          CacheSubnetGroupName: this.__input.cacheSubnetGroupName,
+          CacheSecurityGroupNames: this.__input.cacheSecurityGroupNames,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          Tags: this.__input.tags,
+          SnapshotArns: this.__input.snapshotArns,
+          SnapshotName: this.__input.snapshotName,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          Port: this.__input.port,
+          NotificationTopicArn: this.__input.notificationTopicArn,
+          AutoMinorVersionUpgrade: this.__input.autoMinorVersionUpgrade,
+          SnapshotRetentionLimit: this.__input.snapshotRetentionLimit,
+          SnapshotWindow: this.__input.snapshotWindow,
+          AuthToken: this.__input.authToken,
+          OutpostMode: this.__input.outpostMode,
+          PreferredOutpostArn: this.__input.preferredOutpostArn,
+          PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCacheCluster.CacheCluster.PendingModifiedValues.LogDeliveryConfigurations', props);
+    return resource.getResponseField('CacheCluster.PendingModifiedValues.LogDeliveryConfigurations') as unknown as shapes.ElastiCachePendingLogDeliveryConfiguration[];
   }
 
 }
@@ -3103,6 +3326,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheClusterNotificationConfi
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -3145,6 +3369,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheClusterNotificationConfi
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -3194,6 +3419,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheClusterCacheParameterGro
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -3236,6 +3462,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheClusterCacheParameterGro
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -3278,6 +3505,7 @@ export class ElastiCacheResponsesCreateCacheClusterCacheClusterCacheParameterGro
           OutpostMode: this.__input.outpostMode,
           PreferredOutpostArn: this.__input.preferredOutpostArn,
           PreferredOutpostArns: this.__input.preferredOutpostArns,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -3315,6 +3543,7 @@ export class ElastiCacheResponsesCreateCacheParameterGroupCacheParameterGroup {
           CacheParameterGroupName: this.__input.cacheParameterGroupName,
           CacheParameterGroupFamily: this.__input.cacheParameterGroupFamily,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3334,6 +3563,7 @@ export class ElastiCacheResponsesCreateCacheParameterGroupCacheParameterGroup {
           CacheParameterGroupName: this.__input.cacheParameterGroupName,
           CacheParameterGroupFamily: this.__input.cacheParameterGroupFamily,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3353,6 +3583,7 @@ export class ElastiCacheResponsesCreateCacheParameterGroupCacheParameterGroup {
           CacheParameterGroupName: this.__input.cacheParameterGroupName,
           CacheParameterGroupFamily: this.__input.cacheParameterGroupFamily,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3372,6 +3603,7 @@ export class ElastiCacheResponsesCreateCacheParameterGroupCacheParameterGroup {
           CacheParameterGroupName: this.__input.cacheParameterGroupName,
           CacheParameterGroupFamily: this.__input.cacheParameterGroupFamily,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3391,6 +3623,7 @@ export class ElastiCacheResponsesCreateCacheParameterGroupCacheParameterGroup {
           CacheParameterGroupName: this.__input.cacheParameterGroupName,
           CacheParameterGroupFamily: this.__input.cacheParameterGroupFamily,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3427,6 +3660,7 @@ export class ElastiCacheResponsesCreateCacheSecurityGroupCacheSecurityGroup {
         parameters: {
           CacheSecurityGroupName: this.__input.cacheSecurityGroupName,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3445,6 +3679,7 @@ export class ElastiCacheResponsesCreateCacheSecurityGroupCacheSecurityGroup {
         parameters: {
           CacheSecurityGroupName: this.__input.cacheSecurityGroupName,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3463,6 +3698,7 @@ export class ElastiCacheResponsesCreateCacheSecurityGroupCacheSecurityGroup {
         parameters: {
           CacheSecurityGroupName: this.__input.cacheSecurityGroupName,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3481,6 +3717,7 @@ export class ElastiCacheResponsesCreateCacheSecurityGroupCacheSecurityGroup {
         parameters: {
           CacheSecurityGroupName: this.__input.cacheSecurityGroupName,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3499,6 +3736,7 @@ export class ElastiCacheResponsesCreateCacheSecurityGroupCacheSecurityGroup {
         parameters: {
           CacheSecurityGroupName: this.__input.cacheSecurityGroupName,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3536,6 +3774,7 @@ export class ElastiCacheResponsesCreateCacheSubnetGroupCacheSubnetGroup {
           CacheSubnetGroupName: this.__input.cacheSubnetGroupName,
           CacheSubnetGroupDescription: this.__input.cacheSubnetGroupDescription,
           SubnetIds: this.__input.subnetIds,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3555,6 +3794,7 @@ export class ElastiCacheResponsesCreateCacheSubnetGroupCacheSubnetGroup {
           CacheSubnetGroupName: this.__input.cacheSubnetGroupName,
           CacheSubnetGroupDescription: this.__input.cacheSubnetGroupDescription,
           SubnetIds: this.__input.subnetIds,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3574,6 +3814,7 @@ export class ElastiCacheResponsesCreateCacheSubnetGroupCacheSubnetGroup {
           CacheSubnetGroupName: this.__input.cacheSubnetGroupName,
           CacheSubnetGroupDescription: this.__input.cacheSubnetGroupDescription,
           SubnetIds: this.__input.subnetIds,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3593,6 +3834,7 @@ export class ElastiCacheResponsesCreateCacheSubnetGroupCacheSubnetGroup {
           CacheSubnetGroupName: this.__input.cacheSubnetGroupName,
           CacheSubnetGroupDescription: this.__input.cacheSubnetGroupDescription,
           SubnetIds: this.__input.subnetIds,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3612,6 +3854,7 @@ export class ElastiCacheResponsesCreateCacheSubnetGroupCacheSubnetGroup {
           CacheSubnetGroupName: this.__input.cacheSubnetGroupName,
           CacheSubnetGroupDescription: this.__input.cacheSubnetGroupDescription,
           SubnetIds: this.__input.subnetIds,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3943,6 +4186,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -3991,6 +4235,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4043,6 +4288,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4095,6 +4341,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4143,6 +4390,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4191,6 +4439,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4239,6 +4488,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4287,6 +4537,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4339,6 +4590,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4387,6 +4639,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4435,6 +4688,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4483,6 +4737,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4531,6 +4786,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4579,6 +4835,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4627,6 +4884,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4675,6 +4933,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4723,6 +4982,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4771,6 +5031,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4819,6 +5080,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4867,11 +5129,61 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroup {
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateReplicationGroup.ReplicationGroup.UserGroupIds', props);
     return resource.getResponseField('ReplicationGroup.UserGroupIds') as unknown as string[];
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCacheLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createReplicationGroup',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.CreateReplicationGroup.ReplicationGroup.LogDeliveryConfigurations'),
+        outputPath: 'ReplicationGroup.LogDeliveryConfigurations',
+        parameters: {
+          ReplicationGroupId: this.__input.replicationGroupId,
+          ReplicationGroupDescription: this.__input.replicationGroupDescription,
+          GlobalReplicationGroupId: this.__input.globalReplicationGroupId,
+          PrimaryClusterId: this.__input.primaryClusterId,
+          AutomaticFailoverEnabled: this.__input.automaticFailoverEnabled,
+          MultiAZEnabled: this.__input.multiAzEnabled,
+          NumCacheClusters: this.__input.numCacheClusters,
+          PreferredCacheClusterAZs: this.__input.preferredCacheClusterAZs,
+          NumNodeGroups: this.__input.numNodeGroups,
+          ReplicasPerNodeGroup: this.__input.replicasPerNodeGroup,
+          NodeGroupConfiguration: this.__input.nodeGroupConfiguration,
+          CacheNodeType: this.__input.cacheNodeType,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
+          CacheSubnetGroupName: this.__input.cacheSubnetGroupName,
+          CacheSecurityGroupNames: this.__input.cacheSecurityGroupNames,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          Tags: this.__input.tags,
+          SnapshotArns: this.__input.snapshotArns,
+          SnapshotName: this.__input.snapshotName,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          Port: this.__input.port,
+          NotificationTopicArn: this.__input.notificationTopicArn,
+          AutoMinorVersionUpgrade: this.__input.autoMinorVersionUpgrade,
+          SnapshotRetentionLimit: this.__input.snapshotRetentionLimit,
+          SnapshotWindow: this.__input.snapshotWindow,
+          AuthToken: this.__input.authToken,
+          TransitEncryptionEnabled: this.__input.transitEncryptionEnabled,
+          AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
+          KmsKeyId: this.__input.kmsKeyId,
+          UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateReplicationGroup.ReplicationGroup.LogDeliveryConfigurations', props);
+    return resource.getResponseField('ReplicationGroup.LogDeliveryConfigurations') as unknown as shapes.ElastiCacheLogDeliveryConfiguration[];
   }
 
 }
@@ -4922,6 +5234,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroupGlobalRep
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -4970,6 +5283,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroupGlobalRep
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -5025,6 +5339,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroupPendingMo
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -5073,6 +5388,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroupPendingMo
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -5125,6 +5441,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroupPendingMo
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -5134,6 +5451,55 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroupPendingMo
 
   public get userGroups(): ElastiCacheResponsesCreateReplicationGroupReplicationGroupPendingModifiedValuesUserGroups {
     return new ElastiCacheResponsesCreateReplicationGroupReplicationGroupPendingModifiedValuesUserGroups(this.__scope, this.__resources, this.__input);
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCachePendingLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createReplicationGroup',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.CreateReplicationGroup.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations'),
+        outputPath: 'ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations',
+        parameters: {
+          ReplicationGroupId: this.__input.replicationGroupId,
+          ReplicationGroupDescription: this.__input.replicationGroupDescription,
+          GlobalReplicationGroupId: this.__input.globalReplicationGroupId,
+          PrimaryClusterId: this.__input.primaryClusterId,
+          AutomaticFailoverEnabled: this.__input.automaticFailoverEnabled,
+          MultiAZEnabled: this.__input.multiAzEnabled,
+          NumCacheClusters: this.__input.numCacheClusters,
+          PreferredCacheClusterAZs: this.__input.preferredCacheClusterAZs,
+          NumNodeGroups: this.__input.numNodeGroups,
+          ReplicasPerNodeGroup: this.__input.replicasPerNodeGroup,
+          NodeGroupConfiguration: this.__input.nodeGroupConfiguration,
+          CacheNodeType: this.__input.cacheNodeType,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
+          CacheSubnetGroupName: this.__input.cacheSubnetGroupName,
+          CacheSecurityGroupNames: this.__input.cacheSecurityGroupNames,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          Tags: this.__input.tags,
+          SnapshotArns: this.__input.snapshotArns,
+          SnapshotName: this.__input.snapshotName,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          Port: this.__input.port,
+          NotificationTopicArn: this.__input.notificationTopicArn,
+          AutoMinorVersionUpgrade: this.__input.autoMinorVersionUpgrade,
+          SnapshotRetentionLimit: this.__input.snapshotRetentionLimit,
+          SnapshotWindow: this.__input.snapshotWindow,
+          AuthToken: this.__input.authToken,
+          TransitEncryptionEnabled: this.__input.transitEncryptionEnabled,
+          AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
+          KmsKeyId: this.__input.kmsKeyId,
+          UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateReplicationGroup.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations', props);
+    return resource.getResponseField('ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations') as unknown as shapes.ElastiCachePendingLogDeliveryConfiguration[];
   }
 
 }
@@ -5195,6 +5561,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroupPendingMo
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -5250,6 +5617,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroupPendingMo
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -5298,6 +5666,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroupPendingMo
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -5353,6 +5722,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroupConfigura
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -5401,6 +5771,7 @@ export class ElastiCacheResponsesCreateReplicationGroupReplicationGroupConfigura
           AtRestEncryptionEnabled: this.__input.atRestEncryptionEnabled,
           KmsKeyId: this.__input.kmsKeyId,
           UserGroupIds: this.__input.userGroupIds,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -5439,6 +5810,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5459,6 +5831,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5479,6 +5852,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5499,6 +5873,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5519,6 +5894,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5539,6 +5915,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5559,6 +5936,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5579,6 +5957,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5599,6 +5978,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5619,6 +5999,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5639,6 +6020,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5659,6 +6041,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5679,6 +6062,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5699,6 +6083,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5719,6 +6104,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5739,6 +6125,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5759,6 +6146,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5779,6 +6167,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5799,6 +6188,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5819,6 +6209,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5839,6 +6230,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5859,6 +6251,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5879,6 +6272,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5899,6 +6293,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5919,6 +6314,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5939,6 +6335,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5959,6 +6356,7 @@ export class ElastiCacheResponsesCreateSnapshotSnapshot {
           CacheClusterId: this.__input.cacheClusterId,
           SnapshotName: this.__input.snapshotName,
           KmsKeyId: this.__input.kmsKeyId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -5988,6 +6386,7 @@ export class ElastiCacheResponsesCreateUser {
           Passwords: this.__input.passwords,
           AccessString: this.__input.accessString,
           NoPasswordRequired: this.__input.noPasswordRequired,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -6010,6 +6409,7 @@ export class ElastiCacheResponsesCreateUser {
           Passwords: this.__input.passwords,
           AccessString: this.__input.accessString,
           NoPasswordRequired: this.__input.noPasswordRequired,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -6032,6 +6432,7 @@ export class ElastiCacheResponsesCreateUser {
           Passwords: this.__input.passwords,
           AccessString: this.__input.accessString,
           NoPasswordRequired: this.__input.noPasswordRequired,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -6054,6 +6455,7 @@ export class ElastiCacheResponsesCreateUser {
           Passwords: this.__input.passwords,
           AccessString: this.__input.accessString,
           NoPasswordRequired: this.__input.noPasswordRequired,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -6076,6 +6478,7 @@ export class ElastiCacheResponsesCreateUser {
           Passwords: this.__input.passwords,
           AccessString: this.__input.accessString,
           NoPasswordRequired: this.__input.noPasswordRequired,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -6098,6 +6501,7 @@ export class ElastiCacheResponsesCreateUser {
           Passwords: this.__input.passwords,
           AccessString: this.__input.accessString,
           NoPasswordRequired: this.__input.noPasswordRequired,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -6124,6 +6528,7 @@ export class ElastiCacheResponsesCreateUser {
           Passwords: this.__input.passwords,
           AccessString: this.__input.accessString,
           NoPasswordRequired: this.__input.noPasswordRequired,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -6153,6 +6558,7 @@ export class ElastiCacheResponsesCreateUserAuthentication {
           Passwords: this.__input.passwords,
           AccessString: this.__input.accessString,
           NoPasswordRequired: this.__input.noPasswordRequired,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -6175,6 +6581,7 @@ export class ElastiCacheResponsesCreateUserAuthentication {
           Passwords: this.__input.passwords,
           AccessString: this.__input.accessString,
           NoPasswordRequired: this.__input.noPasswordRequired,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -6201,6 +6608,7 @@ export class ElastiCacheResponsesCreateUserGroup {
           UserGroupId: this.__input.userGroupId,
           Engine: this.__input.engine,
           UserIds: this.__input.userIds,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -6220,6 +6628,7 @@ export class ElastiCacheResponsesCreateUserGroup {
           UserGroupId: this.__input.userGroupId,
           Engine: this.__input.engine,
           UserIds: this.__input.userIds,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -6239,6 +6648,7 @@ export class ElastiCacheResponsesCreateUserGroup {
           UserGroupId: this.__input.userGroupId,
           Engine: this.__input.engine,
           UserIds: this.__input.userIds,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -6258,6 +6668,7 @@ export class ElastiCacheResponsesCreateUserGroup {
           UserGroupId: this.__input.userGroupId,
           Engine: this.__input.engine,
           UserIds: this.__input.userIds,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -6281,6 +6692,7 @@ export class ElastiCacheResponsesCreateUserGroup {
           UserGroupId: this.__input.userGroupId,
           Engine: this.__input.engine,
           UserIds: this.__input.userIds,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -6300,6 +6712,7 @@ export class ElastiCacheResponsesCreateUserGroup {
           UserGroupId: this.__input.userGroupId,
           Engine: this.__input.engine,
           UserIds: this.__input.userIds,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -6326,6 +6739,7 @@ export class ElastiCacheResponsesCreateUserGroupPendingChanges {
           UserGroupId: this.__input.userGroupId,
           Engine: this.__input.engine,
           UserIds: this.__input.userIds,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -6345,6 +6759,7 @@ export class ElastiCacheResponsesCreateUserGroupPendingChanges {
           UserGroupId: this.__input.userGroupId,
           Engine: this.__input.engine,
           UserIds: this.__input.userIds,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -7093,6 +7508,27 @@ export class ElastiCacheResponsesDecreaseReplicaCountReplicationGroup {
     return resource.getResponseField('ReplicationGroup.UserGroupIds') as unknown as string[];
   }
 
+  public get logDeliveryConfigurations(): shapes.ElastiCacheLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'decreaseReplicaCount',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.DecreaseReplicaCount.ReplicationGroup.LogDeliveryConfigurations'),
+        outputPath: 'ReplicationGroup.LogDeliveryConfigurations',
+        parameters: {
+          ReplicationGroupId: this.__input.replicationGroupId,
+          NewReplicaCount: this.__input.newReplicaCount,
+          ReplicaConfiguration: this.__input.replicaConfiguration,
+          ReplicasToRemove: this.__input.replicasToRemove,
+          ApplyImmediately: this.__input.applyImmediately,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DecreaseReplicaCount.ReplicationGroup.LogDeliveryConfigurations', props);
+    return resource.getResponseField('ReplicationGroup.LogDeliveryConfigurations') as unknown as shapes.ElastiCacheLogDeliveryConfiguration[];
+  }
+
 }
 
 export class ElastiCacheResponsesDecreaseReplicaCountReplicationGroupGlobalReplicationGroupInfo {
@@ -7218,6 +7654,27 @@ export class ElastiCacheResponsesDecreaseReplicaCountReplicationGroupPendingModi
 
   public get userGroups(): ElastiCacheResponsesDecreaseReplicaCountReplicationGroupPendingModifiedValuesUserGroups {
     return new ElastiCacheResponsesDecreaseReplicaCountReplicationGroupPendingModifiedValuesUserGroups(this.__scope, this.__resources, this.__input);
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCachePendingLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'decreaseReplicaCount',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.DecreaseReplicaCount.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations'),
+        outputPath: 'ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations',
+        parameters: {
+          ReplicationGroupId: this.__input.replicationGroupId,
+          NewReplicaCount: this.__input.newReplicaCount,
+          ReplicaConfiguration: this.__input.replicaConfiguration,
+          ReplicasToRemove: this.__input.replicasToRemove,
+          ApplyImmediately: this.__input.applyImmediately,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DecreaseReplicaCount.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations', props);
+    return resource.getResponseField('ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations') as unknown as shapes.ElastiCachePendingLogDeliveryConfiguration[];
   }
 
 }
@@ -7823,6 +8280,42 @@ export class ElastiCacheResponsesDeleteCacheClusterCacheCluster {
     return resource.getResponseField('CacheCluster.ARN') as unknown as string;
   }
 
+  public get replicationGroupLogDeliveryEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCacheCluster',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.DeleteCacheCluster.CacheCluster.ReplicationGroupLogDeliveryEnabled'),
+        outputPath: 'CacheCluster.ReplicationGroupLogDeliveryEnabled',
+        parameters: {
+          CacheClusterId: this.__input.cacheClusterId,
+          FinalSnapshotIdentifier: this.__input.finalSnapshotIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCacheCluster.CacheCluster.ReplicationGroupLogDeliveryEnabled', props);
+    return resource.getResponseField('CacheCluster.ReplicationGroupLogDeliveryEnabled') as unknown as boolean;
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCacheLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCacheCluster',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.DeleteCacheCluster.CacheCluster.LogDeliveryConfigurations'),
+        outputPath: 'CacheCluster.LogDeliveryConfigurations',
+        parameters: {
+          CacheClusterId: this.__input.cacheClusterId,
+          FinalSnapshotIdentifier: this.__input.finalSnapshotIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCacheCluster.CacheCluster.LogDeliveryConfigurations', props);
+    return resource.getResponseField('CacheCluster.LogDeliveryConfigurations') as unknown as shapes.ElastiCacheLogDeliveryConfiguration[];
+  }
+
 }
 
 export class ElastiCacheResponsesDeleteCacheClusterCacheClusterConfigurationEndpoint {
@@ -7961,6 +8454,24 @@ export class ElastiCacheResponsesDeleteCacheClusterCacheClusterPendingModifiedVa
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCacheCluster.CacheCluster.PendingModifiedValues.AuthTokenStatus', props);
     return resource.getResponseField('CacheCluster.PendingModifiedValues.AuthTokenStatus') as unknown as string;
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCachePendingLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCacheCluster',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.DeleteCacheCluster.CacheCluster.PendingModifiedValues.LogDeliveryConfigurations'),
+        outputPath: 'CacheCluster.PendingModifiedValues.LogDeliveryConfigurations',
+        parameters: {
+          CacheClusterId: this.__input.cacheClusterId,
+          FinalSnapshotIdentifier: this.__input.finalSnapshotIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCacheCluster.CacheCluster.PendingModifiedValues.LogDeliveryConfigurations', props);
+    return resource.getResponseField('CacheCluster.PendingModifiedValues.LogDeliveryConfigurations') as unknown as shapes.ElastiCachePendingLogDeliveryConfiguration[];
   }
 
 }
@@ -8729,6 +9240,25 @@ export class ElastiCacheResponsesDeleteReplicationGroupReplicationGroup {
     return resource.getResponseField('ReplicationGroup.UserGroupIds') as unknown as string[];
   }
 
+  public get logDeliveryConfigurations(): shapes.ElastiCacheLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteReplicationGroup',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.DeleteReplicationGroup.ReplicationGroup.LogDeliveryConfigurations'),
+        outputPath: 'ReplicationGroup.LogDeliveryConfigurations',
+        parameters: {
+          ReplicationGroupId: this.__input.replicationGroupId,
+          RetainPrimaryCluster: this.__input.retainPrimaryCluster,
+          FinalSnapshotIdentifier: this.__input.finalSnapshotIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteReplicationGroup.ReplicationGroup.LogDeliveryConfigurations', props);
+    return resource.getResponseField('ReplicationGroup.LogDeliveryConfigurations') as unknown as shapes.ElastiCacheLogDeliveryConfiguration[];
+  }
+
 }
 
 export class ElastiCacheResponsesDeleteReplicationGroupReplicationGroupGlobalReplicationGroupInfo {
@@ -8844,6 +9374,25 @@ export class ElastiCacheResponsesDeleteReplicationGroupReplicationGroupPendingMo
 
   public get userGroups(): ElastiCacheResponsesDeleteReplicationGroupReplicationGroupPendingModifiedValuesUserGroups {
     return new ElastiCacheResponsesDeleteReplicationGroupReplicationGroupPendingModifiedValuesUserGroups(this.__scope, this.__resources, this.__input);
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCachePendingLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteReplicationGroup',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.DeleteReplicationGroup.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations'),
+        outputPath: 'ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations',
+        parameters: {
+          ReplicationGroupId: this.__input.replicationGroupId,
+          RetainPrimaryCluster: this.__input.retainPrimaryCluster,
+          FinalSnapshotIdentifier: this.__input.finalSnapshotIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteReplicationGroup.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations', props);
+    return resource.getResponseField('ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations') as unknown as shapes.ElastiCachePendingLogDeliveryConfiguration[];
   }
 
 }
@@ -11921,6 +12470,26 @@ export class ElastiCacheResponsesIncreaseReplicaCountReplicationGroup {
     return resource.getResponseField('ReplicationGroup.UserGroupIds') as unknown as string[];
   }
 
+  public get logDeliveryConfigurations(): shapes.ElastiCacheLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'increaseReplicaCount',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.IncreaseReplicaCount.ReplicationGroup.LogDeliveryConfigurations'),
+        outputPath: 'ReplicationGroup.LogDeliveryConfigurations',
+        parameters: {
+          ReplicationGroupId: this.__input.replicationGroupId,
+          NewReplicaCount: this.__input.newReplicaCount,
+          ReplicaConfiguration: this.__input.replicaConfiguration,
+          ApplyImmediately: this.__input.applyImmediately,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'IncreaseReplicaCount.ReplicationGroup.LogDeliveryConfigurations', props);
+    return resource.getResponseField('ReplicationGroup.LogDeliveryConfigurations') as unknown as shapes.ElastiCacheLogDeliveryConfiguration[];
+  }
+
 }
 
 export class ElastiCacheResponsesIncreaseReplicaCountReplicationGroupGlobalReplicationGroupInfo {
@@ -12041,6 +12610,26 @@ export class ElastiCacheResponsesIncreaseReplicaCountReplicationGroupPendingModi
 
   public get userGroups(): ElastiCacheResponsesIncreaseReplicaCountReplicationGroupPendingModifiedValuesUserGroups {
     return new ElastiCacheResponsesIncreaseReplicaCountReplicationGroupPendingModifiedValuesUserGroups(this.__scope, this.__resources, this.__input);
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCachePendingLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'increaseReplicaCount',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.IncreaseReplicaCount.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations'),
+        outputPath: 'ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations',
+        parameters: {
+          ReplicationGroupId: this.__input.replicationGroupId,
+          NewReplicaCount: this.__input.newReplicaCount,
+          ReplicaConfiguration: this.__input.replicaConfiguration,
+          ApplyImmediately: this.__input.applyImmediately,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'IncreaseReplicaCount.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations', props);
+    return resource.getResponseField('ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations') as unknown as shapes.ElastiCachePendingLogDeliveryConfiguration[];
   }
 
 }
@@ -12288,6 +12877,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12327,6 +12917,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12362,6 +12953,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12397,6 +12989,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12432,6 +13025,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12467,6 +13061,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12502,6 +13097,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12537,6 +13133,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12572,6 +13169,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12607,6 +13205,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12642,6 +13241,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12685,6 +13285,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12724,6 +13325,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12759,6 +13361,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12794,6 +13397,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12829,6 +13433,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12864,6 +13469,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12899,6 +13505,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12934,6 +13541,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -12969,6 +13577,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -13004,6 +13613,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -13039,6 +13649,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -13074,6 +13685,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -13109,11 +13721,84 @@ export class ElastiCacheResponsesModifyCacheClusterCacheCluster {
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyCacheCluster.CacheCluster.ARN', props);
     return resource.getResponseField('CacheCluster.ARN') as unknown as string;
+  }
+
+  public get replicationGroupLogDeliveryEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyCacheCluster',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.ModifyCacheCluster.CacheCluster.ReplicationGroupLogDeliveryEnabled'),
+        outputPath: 'CacheCluster.ReplicationGroupLogDeliveryEnabled',
+        parameters: {
+          CacheClusterId: this.__input.cacheClusterId,
+          NumCacheNodes: this.__input.numCacheNodes,
+          CacheNodeIdsToRemove: this.__input.cacheNodeIdsToRemove,
+          AZMode: this.__input.azMode,
+          NewAvailabilityZones: this.__input.newAvailabilityZones,
+          CacheSecurityGroupNames: this.__input.cacheSecurityGroupNames,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          NotificationTopicArn: this.__input.notificationTopicArn,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
+          NotificationTopicStatus: this.__input.notificationTopicStatus,
+          ApplyImmediately: this.__input.applyImmediately,
+          EngineVersion: this.__input.engineVersion,
+          AutoMinorVersionUpgrade: this.__input.autoMinorVersionUpgrade,
+          SnapshotRetentionLimit: this.__input.snapshotRetentionLimit,
+          SnapshotWindow: this.__input.snapshotWindow,
+          CacheNodeType: this.__input.cacheNodeType,
+          AuthToken: this.__input.authToken,
+          AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyCacheCluster.CacheCluster.ReplicationGroupLogDeliveryEnabled', props);
+    return resource.getResponseField('CacheCluster.ReplicationGroupLogDeliveryEnabled') as unknown as boolean;
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCacheLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyCacheCluster',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.ModifyCacheCluster.CacheCluster.LogDeliveryConfigurations'),
+        outputPath: 'CacheCluster.LogDeliveryConfigurations',
+        parameters: {
+          CacheClusterId: this.__input.cacheClusterId,
+          NumCacheNodes: this.__input.numCacheNodes,
+          CacheNodeIdsToRemove: this.__input.cacheNodeIdsToRemove,
+          AZMode: this.__input.azMode,
+          NewAvailabilityZones: this.__input.newAvailabilityZones,
+          CacheSecurityGroupNames: this.__input.cacheSecurityGroupNames,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          NotificationTopicArn: this.__input.notificationTopicArn,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
+          NotificationTopicStatus: this.__input.notificationTopicStatus,
+          ApplyImmediately: this.__input.applyImmediately,
+          EngineVersion: this.__input.engineVersion,
+          AutoMinorVersionUpgrade: this.__input.autoMinorVersionUpgrade,
+          SnapshotRetentionLimit: this.__input.snapshotRetentionLimit,
+          SnapshotWindow: this.__input.snapshotWindow,
+          CacheNodeType: this.__input.cacheNodeType,
+          AuthToken: this.__input.authToken,
+          AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyCacheCluster.CacheCluster.LogDeliveryConfigurations', props);
+    return resource.getResponseField('CacheCluster.LogDeliveryConfigurations') as unknown as shapes.ElastiCacheLogDeliveryConfiguration[];
   }
 
 }
@@ -13151,6 +13836,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheClusterConfigurationEndp
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -13186,6 +13872,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheClusterConfigurationEndp
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -13228,6 +13915,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheClusterPendingModifiedVa
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -13263,6 +13951,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheClusterPendingModifiedVa
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -13298,6 +13987,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheClusterPendingModifiedVa
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -13333,6 +14023,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheClusterPendingModifiedVa
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -13368,11 +14059,48 @@ export class ElastiCacheResponsesModifyCacheClusterCacheClusterPendingModifiedVa
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyCacheCluster.CacheCluster.PendingModifiedValues.AuthTokenStatus', props);
     return resource.getResponseField('CacheCluster.PendingModifiedValues.AuthTokenStatus') as unknown as string;
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCachePendingLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyCacheCluster',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.ModifyCacheCluster.CacheCluster.PendingModifiedValues.LogDeliveryConfigurations'),
+        outputPath: 'CacheCluster.PendingModifiedValues.LogDeliveryConfigurations',
+        parameters: {
+          CacheClusterId: this.__input.cacheClusterId,
+          NumCacheNodes: this.__input.numCacheNodes,
+          CacheNodeIdsToRemove: this.__input.cacheNodeIdsToRemove,
+          AZMode: this.__input.azMode,
+          NewAvailabilityZones: this.__input.newAvailabilityZones,
+          CacheSecurityGroupNames: this.__input.cacheSecurityGroupNames,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          NotificationTopicArn: this.__input.notificationTopicArn,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
+          NotificationTopicStatus: this.__input.notificationTopicStatus,
+          ApplyImmediately: this.__input.applyImmediately,
+          EngineVersion: this.__input.engineVersion,
+          AutoMinorVersionUpgrade: this.__input.autoMinorVersionUpgrade,
+          SnapshotRetentionLimit: this.__input.snapshotRetentionLimit,
+          SnapshotWindow: this.__input.snapshotWindow,
+          CacheNodeType: this.__input.cacheNodeType,
+          AuthToken: this.__input.authToken,
+          AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyCacheCluster.CacheCluster.PendingModifiedValues.LogDeliveryConfigurations', props);
+    return resource.getResponseField('CacheCluster.PendingModifiedValues.LogDeliveryConfigurations') as unknown as shapes.ElastiCachePendingLogDeliveryConfiguration[];
   }
 
 }
@@ -13410,6 +14138,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheClusterNotificationConfi
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -13445,6 +14174,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheClusterNotificationConfi
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -13487,6 +14217,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheClusterCacheParameterGro
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -13522,6 +14253,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheClusterCacheParameterGro
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -13557,6 +14289,7 @@ export class ElastiCacheResponsesModifyCacheClusterCacheClusterCacheParameterGro
           CacheNodeType: this.__input.cacheNodeType,
           AuthToken: this.__input.authToken,
           AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -13733,6 +14466,7 @@ export class ElastiCacheResponsesModifyGlobalReplicationGroupGlobalReplicationGr
           ApplyImmediately: this.__input.applyImmediately,
           CacheNodeType: this.__input.cacheNodeType,
           EngineVersion: this.__input.engineVersion,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
           GlobalReplicationGroupDescription: this.__input.globalReplicationGroupDescription,
           AutomaticFailoverEnabled: this.__input.automaticFailoverEnabled,
         },
@@ -13755,6 +14489,7 @@ export class ElastiCacheResponsesModifyGlobalReplicationGroupGlobalReplicationGr
           ApplyImmediately: this.__input.applyImmediately,
           CacheNodeType: this.__input.cacheNodeType,
           EngineVersion: this.__input.engineVersion,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
           GlobalReplicationGroupDescription: this.__input.globalReplicationGroupDescription,
           AutomaticFailoverEnabled: this.__input.automaticFailoverEnabled,
         },
@@ -13777,6 +14512,7 @@ export class ElastiCacheResponsesModifyGlobalReplicationGroupGlobalReplicationGr
           ApplyImmediately: this.__input.applyImmediately,
           CacheNodeType: this.__input.cacheNodeType,
           EngineVersion: this.__input.engineVersion,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
           GlobalReplicationGroupDescription: this.__input.globalReplicationGroupDescription,
           AutomaticFailoverEnabled: this.__input.automaticFailoverEnabled,
         },
@@ -13799,6 +14535,7 @@ export class ElastiCacheResponsesModifyGlobalReplicationGroupGlobalReplicationGr
           ApplyImmediately: this.__input.applyImmediately,
           CacheNodeType: this.__input.cacheNodeType,
           EngineVersion: this.__input.engineVersion,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
           GlobalReplicationGroupDescription: this.__input.globalReplicationGroupDescription,
           AutomaticFailoverEnabled: this.__input.automaticFailoverEnabled,
         },
@@ -13821,6 +14558,7 @@ export class ElastiCacheResponsesModifyGlobalReplicationGroupGlobalReplicationGr
           ApplyImmediately: this.__input.applyImmediately,
           CacheNodeType: this.__input.cacheNodeType,
           EngineVersion: this.__input.engineVersion,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
           GlobalReplicationGroupDescription: this.__input.globalReplicationGroupDescription,
           AutomaticFailoverEnabled: this.__input.automaticFailoverEnabled,
         },
@@ -13843,6 +14581,7 @@ export class ElastiCacheResponsesModifyGlobalReplicationGroupGlobalReplicationGr
           ApplyImmediately: this.__input.applyImmediately,
           CacheNodeType: this.__input.cacheNodeType,
           EngineVersion: this.__input.engineVersion,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
           GlobalReplicationGroupDescription: this.__input.globalReplicationGroupDescription,
           AutomaticFailoverEnabled: this.__input.automaticFailoverEnabled,
         },
@@ -13865,6 +14604,7 @@ export class ElastiCacheResponsesModifyGlobalReplicationGroupGlobalReplicationGr
           ApplyImmediately: this.__input.applyImmediately,
           CacheNodeType: this.__input.cacheNodeType,
           EngineVersion: this.__input.engineVersion,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
           GlobalReplicationGroupDescription: this.__input.globalReplicationGroupDescription,
           AutomaticFailoverEnabled: this.__input.automaticFailoverEnabled,
         },
@@ -13887,6 +14627,7 @@ export class ElastiCacheResponsesModifyGlobalReplicationGroupGlobalReplicationGr
           ApplyImmediately: this.__input.applyImmediately,
           CacheNodeType: this.__input.cacheNodeType,
           EngineVersion: this.__input.engineVersion,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
           GlobalReplicationGroupDescription: this.__input.globalReplicationGroupDescription,
           AutomaticFailoverEnabled: this.__input.automaticFailoverEnabled,
         },
@@ -13909,6 +14650,7 @@ export class ElastiCacheResponsesModifyGlobalReplicationGroupGlobalReplicationGr
           ApplyImmediately: this.__input.applyImmediately,
           CacheNodeType: this.__input.cacheNodeType,
           EngineVersion: this.__input.engineVersion,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
           GlobalReplicationGroupDescription: this.__input.globalReplicationGroupDescription,
           AutomaticFailoverEnabled: this.__input.automaticFailoverEnabled,
         },
@@ -13931,6 +14673,7 @@ export class ElastiCacheResponsesModifyGlobalReplicationGroupGlobalReplicationGr
           ApplyImmediately: this.__input.applyImmediately,
           CacheNodeType: this.__input.cacheNodeType,
           EngineVersion: this.__input.engineVersion,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
           GlobalReplicationGroupDescription: this.__input.globalReplicationGroupDescription,
           AutomaticFailoverEnabled: this.__input.automaticFailoverEnabled,
         },
@@ -13953,6 +14696,7 @@ export class ElastiCacheResponsesModifyGlobalReplicationGroupGlobalReplicationGr
           ApplyImmediately: this.__input.applyImmediately,
           CacheNodeType: this.__input.cacheNodeType,
           EngineVersion: this.__input.engineVersion,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
           GlobalReplicationGroupDescription: this.__input.globalReplicationGroupDescription,
           AutomaticFailoverEnabled: this.__input.automaticFailoverEnabled,
         },
@@ -13975,6 +14719,7 @@ export class ElastiCacheResponsesModifyGlobalReplicationGroupGlobalReplicationGr
           ApplyImmediately: this.__input.applyImmediately,
           CacheNodeType: this.__input.cacheNodeType,
           EngineVersion: this.__input.engineVersion,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
           GlobalReplicationGroupDescription: this.__input.globalReplicationGroupDescription,
           AutomaticFailoverEnabled: this.__input.automaticFailoverEnabled,
         },
@@ -13997,6 +14742,7 @@ export class ElastiCacheResponsesModifyGlobalReplicationGroupGlobalReplicationGr
           ApplyImmediately: this.__input.applyImmediately,
           CacheNodeType: this.__input.cacheNodeType,
           EngineVersion: this.__input.engineVersion,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
           GlobalReplicationGroupDescription: this.__input.globalReplicationGroupDescription,
           AutomaticFailoverEnabled: this.__input.automaticFailoverEnabled,
         },
@@ -14057,6 +14803,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14097,6 +14844,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14141,6 +14889,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14185,6 +14934,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14225,6 +14975,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14265,6 +15016,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14305,6 +15057,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14345,6 +15098,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14389,6 +15143,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14429,6 +15184,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14469,6 +15225,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14509,6 +15266,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14549,6 +15307,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14589,6 +15348,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14629,6 +15389,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14669,6 +15430,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14709,6 +15471,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14749,6 +15512,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14789,6 +15553,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14829,11 +15594,53 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroup {
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyReplicationGroup.ReplicationGroup.UserGroupIds', props);
     return resource.getResponseField('ReplicationGroup.UserGroupIds') as unknown as string[];
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCacheLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyReplicationGroup',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.ModifyReplicationGroup.ReplicationGroup.LogDeliveryConfigurations'),
+        outputPath: 'ReplicationGroup.LogDeliveryConfigurations',
+        parameters: {
+          ReplicationGroupId: this.__input.replicationGroupId,
+          ReplicationGroupDescription: this.__input.replicationGroupDescription,
+          PrimaryClusterId: this.__input.primaryClusterId,
+          SnapshottingClusterId: this.__input.snapshottingClusterId,
+          AutomaticFailoverEnabled: this.__input.automaticFailoverEnabled,
+          MultiAZEnabled: this.__input.multiAzEnabled,
+          NodeGroupId: this.__input.nodeGroupId,
+          CacheSecurityGroupNames: this.__input.cacheSecurityGroupNames,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          NotificationTopicArn: this.__input.notificationTopicArn,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
+          NotificationTopicStatus: this.__input.notificationTopicStatus,
+          ApplyImmediately: this.__input.applyImmediately,
+          EngineVersion: this.__input.engineVersion,
+          AutoMinorVersionUpgrade: this.__input.autoMinorVersionUpgrade,
+          SnapshotRetentionLimit: this.__input.snapshotRetentionLimit,
+          SnapshotWindow: this.__input.snapshotWindow,
+          CacheNodeType: this.__input.cacheNodeType,
+          AuthToken: this.__input.authToken,
+          AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
+          UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
+          RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyReplicationGroup.ReplicationGroup.LogDeliveryConfigurations', props);
+    return resource.getResponseField('ReplicationGroup.LogDeliveryConfigurations') as unknown as shapes.ElastiCacheLogDeliveryConfiguration[];
   }
 
 }
@@ -14876,6 +15683,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroupGlobalRep
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14916,6 +15724,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroupGlobalRep
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -14963,6 +15772,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroupPendingMo
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -15003,6 +15813,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroupPendingMo
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -15047,6 +15858,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroupPendingMo
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -15056,6 +15868,47 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroupPendingMo
 
   public get userGroups(): ElastiCacheResponsesModifyReplicationGroupReplicationGroupPendingModifiedValuesUserGroups {
     return new ElastiCacheResponsesModifyReplicationGroupReplicationGroupPendingModifiedValuesUserGroups(this.__scope, this.__resources, this.__input);
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCachePendingLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyReplicationGroup',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.ModifyReplicationGroup.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations'),
+        outputPath: 'ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations',
+        parameters: {
+          ReplicationGroupId: this.__input.replicationGroupId,
+          ReplicationGroupDescription: this.__input.replicationGroupDescription,
+          PrimaryClusterId: this.__input.primaryClusterId,
+          SnapshottingClusterId: this.__input.snapshottingClusterId,
+          AutomaticFailoverEnabled: this.__input.automaticFailoverEnabled,
+          MultiAZEnabled: this.__input.multiAzEnabled,
+          NodeGroupId: this.__input.nodeGroupId,
+          CacheSecurityGroupNames: this.__input.cacheSecurityGroupNames,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          NotificationTopicArn: this.__input.notificationTopicArn,
+          CacheParameterGroupName: this.__input.cacheParameterGroupName,
+          NotificationTopicStatus: this.__input.notificationTopicStatus,
+          ApplyImmediately: this.__input.applyImmediately,
+          EngineVersion: this.__input.engineVersion,
+          AutoMinorVersionUpgrade: this.__input.autoMinorVersionUpgrade,
+          SnapshotRetentionLimit: this.__input.snapshotRetentionLimit,
+          SnapshotWindow: this.__input.snapshotWindow,
+          CacheNodeType: this.__input.cacheNodeType,
+          AuthToken: this.__input.authToken,
+          AuthTokenUpdateStrategy: this.__input.authTokenUpdateStrategy,
+          UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
+          UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
+          RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyReplicationGroup.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations', props);
+    return resource.getResponseField('ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations') as unknown as shapes.ElastiCachePendingLogDeliveryConfiguration[];
   }
 
 }
@@ -15109,6 +15962,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroupPendingMo
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -15156,6 +16010,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroupPendingMo
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -15196,6 +16051,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroupPendingMo
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -15243,6 +16099,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroupConfigura
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -15283,6 +16140,7 @@ export class ElastiCacheResponsesModifyReplicationGroupReplicationGroupConfigura
           UserGroupIdsToAdd: this.__input.userGroupIdsToAdd,
           UserGroupIdsToRemove: this.__input.userGroupIdsToRemove,
           RemoveUserGroups: this.__input.removeUserGroups,
+          LogDeliveryConfigurations: this.__input.logDeliveryConfigurations,
         },
       },
     };
@@ -15760,6 +16618,28 @@ export class ElastiCacheResponsesModifyReplicationGroupShardConfigurationReplica
     return resource.getResponseField('ReplicationGroup.UserGroupIds') as unknown as string[];
   }
 
+  public get logDeliveryConfigurations(): shapes.ElastiCacheLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyReplicationGroupShardConfiguration',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.ModifyReplicationGroupShardConfiguration.ReplicationGroup.LogDeliveryConfigurations'),
+        outputPath: 'ReplicationGroup.LogDeliveryConfigurations',
+        parameters: {
+          ReplicationGroupId: this.__input.replicationGroupId,
+          NodeGroupCount: this.__input.nodeGroupCount,
+          ApplyImmediately: this.__input.applyImmediately,
+          ReshardingConfiguration: this.__input.reshardingConfiguration,
+          NodeGroupsToRemove: this.__input.nodeGroupsToRemove,
+          NodeGroupsToRetain: this.__input.nodeGroupsToRetain,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyReplicationGroupShardConfiguration.ReplicationGroup.LogDeliveryConfigurations', props);
+    return resource.getResponseField('ReplicationGroup.LogDeliveryConfigurations') as unknown as shapes.ElastiCacheLogDeliveryConfiguration[];
+  }
+
 }
 
 export class ElastiCacheResponsesModifyReplicationGroupShardConfigurationReplicationGroupGlobalReplicationGroupInfo {
@@ -15890,6 +16770,28 @@ export class ElastiCacheResponsesModifyReplicationGroupShardConfigurationReplica
 
   public get userGroups(): ElastiCacheResponsesModifyReplicationGroupShardConfigurationReplicationGroupPendingModifiedValuesUserGroups {
     return new ElastiCacheResponsesModifyReplicationGroupShardConfigurationReplicationGroupPendingModifiedValuesUserGroups(this.__scope, this.__resources, this.__input);
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCachePendingLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyReplicationGroupShardConfiguration',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.ModifyReplicationGroupShardConfiguration.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations'),
+        outputPath: 'ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations',
+        parameters: {
+          ReplicationGroupId: this.__input.replicationGroupId,
+          NodeGroupCount: this.__input.nodeGroupCount,
+          ApplyImmediately: this.__input.applyImmediately,
+          ReshardingConfiguration: this.__input.reshardingConfiguration,
+          NodeGroupsToRemove: this.__input.nodeGroupsToRemove,
+          NodeGroupsToRetain: this.__input.nodeGroupsToRetain,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyReplicationGroupShardConfiguration.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations', props);
+    return resource.getResponseField('ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations') as unknown as shapes.ElastiCachePendingLogDeliveryConfiguration[];
   }
 
 }
@@ -16441,6 +17343,7 @@ export class ElastiCacheResponsesPurchaseReservedCacheNodesOfferingReservedCache
           ReservedCacheNodesOfferingId: this.__input.reservedCacheNodesOfferingId,
           ReservedCacheNodeId: this.__input.reservedCacheNodeId,
           CacheNodeCount: this.__input.cacheNodeCount,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -16460,6 +17363,7 @@ export class ElastiCacheResponsesPurchaseReservedCacheNodesOfferingReservedCache
           ReservedCacheNodesOfferingId: this.__input.reservedCacheNodesOfferingId,
           ReservedCacheNodeId: this.__input.reservedCacheNodeId,
           CacheNodeCount: this.__input.cacheNodeCount,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -16479,6 +17383,7 @@ export class ElastiCacheResponsesPurchaseReservedCacheNodesOfferingReservedCache
           ReservedCacheNodesOfferingId: this.__input.reservedCacheNodesOfferingId,
           ReservedCacheNodeId: this.__input.reservedCacheNodeId,
           CacheNodeCount: this.__input.cacheNodeCount,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -16498,6 +17403,7 @@ export class ElastiCacheResponsesPurchaseReservedCacheNodesOfferingReservedCache
           ReservedCacheNodesOfferingId: this.__input.reservedCacheNodesOfferingId,
           ReservedCacheNodeId: this.__input.reservedCacheNodeId,
           CacheNodeCount: this.__input.cacheNodeCount,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -16517,6 +17423,7 @@ export class ElastiCacheResponsesPurchaseReservedCacheNodesOfferingReservedCache
           ReservedCacheNodesOfferingId: this.__input.reservedCacheNodesOfferingId,
           ReservedCacheNodeId: this.__input.reservedCacheNodeId,
           CacheNodeCount: this.__input.cacheNodeCount,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -16536,6 +17443,7 @@ export class ElastiCacheResponsesPurchaseReservedCacheNodesOfferingReservedCache
           ReservedCacheNodesOfferingId: this.__input.reservedCacheNodesOfferingId,
           ReservedCacheNodeId: this.__input.reservedCacheNodeId,
           CacheNodeCount: this.__input.cacheNodeCount,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -16555,6 +17463,7 @@ export class ElastiCacheResponsesPurchaseReservedCacheNodesOfferingReservedCache
           ReservedCacheNodesOfferingId: this.__input.reservedCacheNodesOfferingId,
           ReservedCacheNodeId: this.__input.reservedCacheNodeId,
           CacheNodeCount: this.__input.cacheNodeCount,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -16574,6 +17483,7 @@ export class ElastiCacheResponsesPurchaseReservedCacheNodesOfferingReservedCache
           ReservedCacheNodesOfferingId: this.__input.reservedCacheNodesOfferingId,
           ReservedCacheNodeId: this.__input.reservedCacheNodeId,
           CacheNodeCount: this.__input.cacheNodeCount,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -16593,6 +17503,7 @@ export class ElastiCacheResponsesPurchaseReservedCacheNodesOfferingReservedCache
           ReservedCacheNodesOfferingId: this.__input.reservedCacheNodesOfferingId,
           ReservedCacheNodeId: this.__input.reservedCacheNodeId,
           CacheNodeCount: this.__input.cacheNodeCount,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -16612,6 +17523,7 @@ export class ElastiCacheResponsesPurchaseReservedCacheNodesOfferingReservedCache
           ReservedCacheNodesOfferingId: this.__input.reservedCacheNodesOfferingId,
           ReservedCacheNodeId: this.__input.reservedCacheNodeId,
           CacheNodeCount: this.__input.cacheNodeCount,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -16631,6 +17543,7 @@ export class ElastiCacheResponsesPurchaseReservedCacheNodesOfferingReservedCache
           ReservedCacheNodesOfferingId: this.__input.reservedCacheNodesOfferingId,
           ReservedCacheNodeId: this.__input.reservedCacheNodeId,
           CacheNodeCount: this.__input.cacheNodeCount,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -16650,6 +17563,7 @@ export class ElastiCacheResponsesPurchaseReservedCacheNodesOfferingReservedCache
           ReservedCacheNodesOfferingId: this.__input.reservedCacheNodesOfferingId,
           ReservedCacheNodeId: this.__input.reservedCacheNodeId,
           CacheNodeCount: this.__input.cacheNodeCount,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -16669,6 +17583,7 @@ export class ElastiCacheResponsesPurchaseReservedCacheNodesOfferingReservedCache
           ReservedCacheNodesOfferingId: this.__input.reservedCacheNodesOfferingId,
           ReservedCacheNodeId: this.__input.reservedCacheNodeId,
           CacheNodeCount: this.__input.cacheNodeCount,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -17394,6 +18309,42 @@ export class ElastiCacheResponsesRebootCacheClusterCacheCluster {
     return resource.getResponseField('CacheCluster.ARN') as unknown as string;
   }
 
+  public get replicationGroupLogDeliveryEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rebootCacheCluster',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.RebootCacheCluster.CacheCluster.ReplicationGroupLogDeliveryEnabled'),
+        outputPath: 'CacheCluster.ReplicationGroupLogDeliveryEnabled',
+        parameters: {
+          CacheClusterId: this.__input.cacheClusterId,
+          CacheNodeIdsToReboot: this.__input.cacheNodeIdsToReboot,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RebootCacheCluster.CacheCluster.ReplicationGroupLogDeliveryEnabled', props);
+    return resource.getResponseField('CacheCluster.ReplicationGroupLogDeliveryEnabled') as unknown as boolean;
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCacheLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rebootCacheCluster',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.RebootCacheCluster.CacheCluster.LogDeliveryConfigurations'),
+        outputPath: 'CacheCluster.LogDeliveryConfigurations',
+        parameters: {
+          CacheClusterId: this.__input.cacheClusterId,
+          CacheNodeIdsToReboot: this.__input.cacheNodeIdsToReboot,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RebootCacheCluster.CacheCluster.LogDeliveryConfigurations', props);
+    return resource.getResponseField('CacheCluster.LogDeliveryConfigurations') as unknown as shapes.ElastiCacheLogDeliveryConfiguration[];
+  }
+
 }
 
 export class ElastiCacheResponsesRebootCacheClusterCacheClusterConfigurationEndpoint {
@@ -17532,6 +18483,24 @@ export class ElastiCacheResponsesRebootCacheClusterCacheClusterPendingModifiedVa
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RebootCacheCluster.CacheCluster.PendingModifiedValues.AuthTokenStatus', props);
     return resource.getResponseField('CacheCluster.PendingModifiedValues.AuthTokenStatus') as unknown as string;
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCachePendingLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rebootCacheCluster',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.RebootCacheCluster.CacheCluster.PendingModifiedValues.LogDeliveryConfigurations'),
+        outputPath: 'CacheCluster.PendingModifiedValues.LogDeliveryConfigurations',
+        parameters: {
+          CacheClusterId: this.__input.cacheClusterId,
+          CacheNodeIdsToReboot: this.__input.cacheNodeIdsToReboot,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RebootCacheCluster.CacheCluster.PendingModifiedValues.LogDeliveryConfigurations', props);
+    return resource.getResponseField('CacheCluster.PendingModifiedValues.LogDeliveryConfigurations') as unknown as shapes.ElastiCachePendingLogDeliveryConfiguration[];
   }
 
 }
@@ -18192,6 +19161,24 @@ export class ElastiCacheResponsesStartMigrationReplicationGroup {
     return resource.getResponseField('ReplicationGroup.UserGroupIds') as unknown as string[];
   }
 
+  public get logDeliveryConfigurations(): shapes.ElastiCacheLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startMigration',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.StartMigration.ReplicationGroup.LogDeliveryConfigurations'),
+        outputPath: 'ReplicationGroup.LogDeliveryConfigurations',
+        parameters: {
+          ReplicationGroupId: this.__input.replicationGroupId,
+          CustomerNodeEndpointList: this.__input.customerNodeEndpointList,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartMigration.ReplicationGroup.LogDeliveryConfigurations', props);
+    return resource.getResponseField('ReplicationGroup.LogDeliveryConfigurations') as unknown as shapes.ElastiCacheLogDeliveryConfiguration[];
+  }
+
 }
 
 export class ElastiCacheResponsesStartMigrationReplicationGroupGlobalReplicationGroupInfo {
@@ -18302,6 +19289,24 @@ export class ElastiCacheResponsesStartMigrationReplicationGroupPendingModifiedVa
 
   public get userGroups(): ElastiCacheResponsesStartMigrationReplicationGroupPendingModifiedValuesUserGroups {
     return new ElastiCacheResponsesStartMigrationReplicationGroupPendingModifiedValuesUserGroups(this.__scope, this.__resources, this.__input);
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCachePendingLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startMigration',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.StartMigration.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations'),
+        outputPath: 'ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations',
+        parameters: {
+          ReplicationGroupId: this.__input.replicationGroupId,
+          CustomerNodeEndpointList: this.__input.customerNodeEndpointList,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartMigration.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations', props);
+    return resource.getResponseField('ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations') as unknown as shapes.ElastiCachePendingLogDeliveryConfiguration[];
   }
 
 }
@@ -18816,6 +19821,24 @@ export class ElastiCacheResponsesTestFailoverReplicationGroup {
     return resource.getResponseField('ReplicationGroup.UserGroupIds') as unknown as string[];
   }
 
+  public get logDeliveryConfigurations(): shapes.ElastiCacheLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'testFailover',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.TestFailover.ReplicationGroup.LogDeliveryConfigurations'),
+        outputPath: 'ReplicationGroup.LogDeliveryConfigurations',
+        parameters: {
+          ReplicationGroupId: this.__input.replicationGroupId,
+          NodeGroupId: this.__input.nodeGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'TestFailover.ReplicationGroup.LogDeliveryConfigurations', props);
+    return resource.getResponseField('ReplicationGroup.LogDeliveryConfigurations') as unknown as shapes.ElastiCacheLogDeliveryConfiguration[];
+  }
+
 }
 
 export class ElastiCacheResponsesTestFailoverReplicationGroupGlobalReplicationGroupInfo {
@@ -18926,6 +19949,24 @@ export class ElastiCacheResponsesTestFailoverReplicationGroupPendingModifiedValu
 
   public get userGroups(): ElastiCacheResponsesTestFailoverReplicationGroupPendingModifiedValuesUserGroups {
     return new ElastiCacheResponsesTestFailoverReplicationGroupPendingModifiedValuesUserGroups(this.__scope, this.__resources, this.__input);
+  }
+
+  public get logDeliveryConfigurations(): shapes.ElastiCachePendingLogDeliveryConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'testFailover',
+        service: 'ElastiCache',
+        physicalResourceId: cr.PhysicalResourceId.of('ElastiCache.TestFailover.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations'),
+        outputPath: 'ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations',
+        parameters: {
+          ReplicationGroupId: this.__input.replicationGroupId,
+          NodeGroupId: this.__input.nodeGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'TestFailover.ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations', props);
+    return resource.getResponseField('ReplicationGroup.PendingModifiedValues.LogDeliveryConfigurations') as unknown as shapes.ElastiCachePendingLogDeliveryConfiguration[];
   }
 
 }

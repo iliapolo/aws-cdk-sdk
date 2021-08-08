@@ -12,6 +12,10 @@ export class Ec2InstanceConnectClient extends cdk.Construct {
     return new EC2InstanceConnectResponsesSendSshPublicKey(this, this.__resources, input);
   }
 
+  public sendSerialConsoleSshPublicKey(input: shapes.Ec2InstanceConnectSendSerialConsoleSshPublicKeyRequest): EC2InstanceConnectResponsesSendSerialConsoleSshPublicKey {
+    return new EC2InstanceConnectResponsesSendSerialConsoleSshPublicKey(this, this.__resources, input);
+  }
+
 }
 
 export class EC2InstanceConnectResponsesSendSshPublicKey {
@@ -56,6 +60,51 @@ export class EC2InstanceConnectResponsesSendSshPublicKey {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'SendSSHPublicKey.Success', props);
+    return resource.getResponseField('Success') as unknown as boolean;
+  }
+
+}
+
+export class EC2InstanceConnectResponsesSendSerialConsoleSshPublicKey {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2InstanceConnectSendSerialConsoleSshPublicKeyRequest) {
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'sendSerialConsoleSshPublicKey',
+        service: 'EC2InstanceConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2InstanceConnect.SendSerialConsoleSSHPublicKey.RequestId'),
+        outputPath: 'RequestId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          SerialPort: this.__input.serialPort,
+          SSHPublicKey: this.__input.sshPublicKey,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SendSerialConsoleSSHPublicKey.RequestId', props);
+    return resource.getResponseField('RequestId') as unknown as string;
+  }
+
+  public get success(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'sendSerialConsoleSshPublicKey',
+        service: 'EC2InstanceConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2InstanceConnect.SendSerialConsoleSSHPublicKey.Success'),
+        outputPath: 'Success',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          SerialPort: this.__input.serialPort,
+          SSHPublicKey: this.__input.sshPublicKey,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SendSerialConsoleSSHPublicKey.Success', props);
     return resource.getResponseField('Success') as unknown as boolean;
   }
 

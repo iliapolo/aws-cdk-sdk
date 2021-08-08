@@ -60,6 +60,10 @@ export class AppStreamClient extends cdk.Construct {
     return new AppStreamResponsesCreateStreamingUrl(this, this.__resources, input);
   }
 
+  public createUpdatedImage(input: shapes.AppStreamCreateUpdatedImageRequest): AppStreamResponsesCreateUpdatedImage {
+    return new AppStreamResponsesCreateUpdatedImage(this, this.__resources, input);
+  }
+
   public createUsageReportSubscription(): AppStreamResponsesCreateUsageReportSubscription {
     return new AppStreamResponsesCreateUsageReportSubscription(this, this.__resources);
   }
@@ -3096,6 +3100,486 @@ export class AppStreamResponsesCreateStreamingUrl {
 
 }
 
+export class AppStreamResponsesCreateUpdatedImage {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AppStreamCreateUpdatedImageRequest) {
+  }
+
+  public get image(): AppStreamResponsesCreateUpdatedImageImage {
+    return new AppStreamResponsesCreateUpdatedImageImage(this.__scope, this.__resources, this.__input);
+  }
+
+  public get canUpdateImage(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.canUpdateImage'),
+        outputPath: 'canUpdateImage',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.canUpdateImage', props);
+    return resource.getResponseField('canUpdateImage') as unknown as boolean;
+  }
+
+}
+
+export class AppStreamResponsesCreateUpdatedImageImage {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AppStreamCreateUpdatedImageRequest) {
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.Name'),
+        outputPath: 'image.Name',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.Name', props);
+    return resource.getResponseField('image.Name') as unknown as string;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.Arn'),
+        outputPath: 'image.Arn',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.Arn', props);
+    return resource.getResponseField('image.Arn') as unknown as string;
+  }
+
+  public get baseImageArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.BaseImageArn'),
+        outputPath: 'image.BaseImageArn',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.BaseImageArn', props);
+    return resource.getResponseField('image.BaseImageArn') as unknown as string;
+  }
+
+  public get displayName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.DisplayName'),
+        outputPath: 'image.DisplayName',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.DisplayName', props);
+    return resource.getResponseField('image.DisplayName') as unknown as string;
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.State'),
+        outputPath: 'image.State',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.State', props);
+    return resource.getResponseField('image.State') as unknown as string;
+  }
+
+  public get visibility(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.Visibility'),
+        outputPath: 'image.Visibility',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.Visibility', props);
+    return resource.getResponseField('image.Visibility') as unknown as string;
+  }
+
+  public get imageBuilderSupported(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.ImageBuilderSupported'),
+        outputPath: 'image.ImageBuilderSupported',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.ImageBuilderSupported', props);
+    return resource.getResponseField('image.ImageBuilderSupported') as unknown as boolean;
+  }
+
+  public get imageBuilderName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.ImageBuilderName'),
+        outputPath: 'image.ImageBuilderName',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.ImageBuilderName', props);
+    return resource.getResponseField('image.ImageBuilderName') as unknown as string;
+  }
+
+  public get platform(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.Platform'),
+        outputPath: 'image.Platform',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.Platform', props);
+    return resource.getResponseField('image.Platform') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.Description'),
+        outputPath: 'image.Description',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.Description', props);
+    return resource.getResponseField('image.Description') as unknown as string;
+  }
+
+  public get stateChangeReason(): AppStreamResponsesCreateUpdatedImageImageStateChangeReason {
+    return new AppStreamResponsesCreateUpdatedImageImageStateChangeReason(this.__scope, this.__resources, this.__input);
+  }
+
+  public get applications(): shapes.AppStreamApplication[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.Applications'),
+        outputPath: 'image.Applications',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.Applications', props);
+    return resource.getResponseField('image.Applications') as unknown as shapes.AppStreamApplication[];
+  }
+
+  public get createdTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.CreatedTime'),
+        outputPath: 'image.CreatedTime',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.CreatedTime', props);
+    return resource.getResponseField('image.CreatedTime') as unknown as string;
+  }
+
+  public get publicBaseImageReleasedDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.PublicBaseImageReleasedDate'),
+        outputPath: 'image.PublicBaseImageReleasedDate',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.PublicBaseImageReleasedDate', props);
+    return resource.getResponseField('image.PublicBaseImageReleasedDate') as unknown as string;
+  }
+
+  public get appstreamAgentVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.AppstreamAgentVersion'),
+        outputPath: 'image.AppstreamAgentVersion',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.AppstreamAgentVersion', props);
+    return resource.getResponseField('image.AppstreamAgentVersion') as unknown as string;
+  }
+
+  public get imagePermissions(): AppStreamResponsesCreateUpdatedImageImageImagePermissions {
+    return new AppStreamResponsesCreateUpdatedImageImageImagePermissions(this.__scope, this.__resources, this.__input);
+  }
+
+  public get imageErrors(): shapes.AppStreamResourceError[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.ImageErrors'),
+        outputPath: 'image.ImageErrors',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.ImageErrors', props);
+    return resource.getResponseField('image.ImageErrors') as unknown as shapes.AppStreamResourceError[];
+  }
+
+}
+
+export class AppStreamResponsesCreateUpdatedImageImageStateChangeReason {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AppStreamCreateUpdatedImageRequest) {
+  }
+
+  public get code(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.StateChangeReason.Code'),
+        outputPath: 'image.StateChangeReason.Code',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.StateChangeReason.Code', props);
+    return resource.getResponseField('image.StateChangeReason.Code') as unknown as string;
+  }
+
+  public get message(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.StateChangeReason.Message'),
+        outputPath: 'image.StateChangeReason.Message',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.StateChangeReason.Message', props);
+    return resource.getResponseField('image.StateChangeReason.Message') as unknown as string;
+  }
+
+}
+
+export class AppStreamResponsesCreateUpdatedImageImageImagePermissions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AppStreamCreateUpdatedImageRequest) {
+  }
+
+  public get allowFleet(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.ImagePermissions.allowFleet'),
+        outputPath: 'image.ImagePermissions.allowFleet',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.ImagePermissions.allowFleet', props);
+    return resource.getResponseField('image.ImagePermissions.allowFleet') as unknown as boolean;
+  }
+
+  public get allowImageBuilder(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createUpdatedImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.CreateUpdatedImage.image.ImagePermissions.allowImageBuilder'),
+        outputPath: 'image.ImagePermissions.allowImageBuilder',
+        parameters: {
+          existingImageName: this.__input.existingImageName,
+          newImageName: this.__input.newImageName,
+          newImageDescription: this.__input.newImageDescription,
+          newImageDisplayName: this.__input.newImageDisplayName,
+          newImageTags: this.__input.newImageTags,
+          dryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateUpdatedImage.image.ImagePermissions.allowImageBuilder', props);
+    return resource.getResponseField('image.ImagePermissions.allowImageBuilder') as unknown as boolean;
+  }
+
+}
+
 export class AppStreamResponsesCreateUsageReportSubscription {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
@@ -3395,6 +3879,23 @@ export class AppStreamResponsesDeleteImageImage {
 
   public get imagePermissions(): AppStreamResponsesDeleteImageImageImagePermissions {
     return new AppStreamResponsesDeleteImageImageImagePermissions(this.__scope, this.__resources, this.__input);
+  }
+
+  public get imageErrors(): shapes.AppStreamResourceError[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteImage',
+        service: 'AppStream',
+        physicalResourceId: cr.PhysicalResourceId.of('AppStream.DeleteImage.Image.ImageErrors'),
+        outputPath: 'Image.ImageErrors',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteImage.Image.ImageErrors', props);
+    return resource.getResponseField('Image.ImageErrors') as unknown as shapes.AppStreamResourceError[];
   }
 
 }

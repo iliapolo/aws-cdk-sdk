@@ -15,6 +15,21 @@ export interface CodeCommitAssociateApprovalRuleTemplateWithRepositoryInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitAssociateApprovalRuleTemplateWithRepositoryInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitAssociateApprovalRuleTemplateWithRepositoryInput(obj: CodeCommitAssociateApprovalRuleTemplateWithRepositoryInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplateName': obj.approvalRuleTemplateName,
+    'repositoryName': obj.repositoryName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesInput
  */
 export interface CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesInput {
@@ -31,6 +46,21 @@ export interface CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesInp
 }
 
 /**
+ * Converts an object of type 'CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesInput(obj: CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplateName': obj.approvalRuleTemplateName,
+    'repositoryNames': obj.repositoryNames?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesOutput
  */
 export interface CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
@@ -45,6 +75,21 @@ export interface CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesOut
   readonly errors: CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesError[];
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesOutput(obj: CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'associatedRepositoryNames': obj.associatedRepositoryNames?.map(y => y),
+    'errors': obj.errors?.map(y => toJson_CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesError(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitBatchDescribeMergeConflictsInput
@@ -103,6 +148,29 @@ export interface CodeCommitBatchDescribeMergeConflictsInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitBatchDescribeMergeConflictsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitBatchDescribeMergeConflictsInput(obj: CodeCommitBatchDescribeMergeConflictsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'destinationCommitSpecifier': obj.destinationCommitSpecifier,
+    'sourceCommitSpecifier': obj.sourceCommitSpecifier,
+    'mergeOption': obj.mergeOption,
+    'maxMergeHunks': obj.maxMergeHunks,
+    'maxConflictFiles': obj.maxConflictFiles,
+    'filePaths': obj.filePaths?.map(y => y),
+    'conflictDetailLevel': obj.conflictDetailLevel,
+    'conflictResolutionStrategy': obj.conflictResolutionStrategy,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitBatchDescribeMergeConflictsOutput
  */
 export interface CodeCommitBatchDescribeMergeConflictsOutput {
@@ -139,6 +207,25 @@ export interface CodeCommitBatchDescribeMergeConflictsOutput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitBatchDescribeMergeConflictsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitBatchDescribeMergeConflictsOutput(obj: CodeCommitBatchDescribeMergeConflictsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'conflicts': obj.conflicts?.map(y => toJson_CodeCommitConflict(y)),
+    'nextToken': obj.nextToken,
+    'errors': obj.errors?.map(y => toJson_CodeCommitBatchDescribeMergeConflictsError(y)),
+    'destinationCommitId': obj.destinationCommitId,
+    'sourceCommitId': obj.sourceCommitId,
+    'baseCommitId': obj.baseCommitId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitBatchDisassociateApprovalRuleTemplateFromRepositoriesInput
  */
 export interface CodeCommitBatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
@@ -153,6 +240,21 @@ export interface CodeCommitBatchDisassociateApprovalRuleTemplateFromRepositories
   readonly repositoryNames: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitBatchDisassociateApprovalRuleTemplateFromRepositoriesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitBatchDisassociateApprovalRuleTemplateFromRepositoriesInput(obj: CodeCommitBatchDisassociateApprovalRuleTemplateFromRepositoriesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplateName': obj.approvalRuleTemplateName,
+    'repositoryNames': obj.repositoryNames?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitBatchDisassociateApprovalRuleTemplateFromRepositoriesOutput
@@ -171,6 +273,21 @@ export interface CodeCommitBatchDisassociateApprovalRuleTemplateFromRepositories
 }
 
 /**
+ * Converts an object of type 'CodeCommitBatchDisassociateApprovalRuleTemplateFromRepositoriesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitBatchDisassociateApprovalRuleTemplateFromRepositoriesOutput(obj: CodeCommitBatchDisassociateApprovalRuleTemplateFromRepositoriesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'disassociatedRepositoryNames': obj.disassociatedRepositoryNames?.map(y => y),
+    'errors': obj.errors?.map(y => toJson_CodeCommitBatchDisassociateApprovalRuleTemplateFromRepositoriesError(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitBatchGetCommitsInput
  */
 export interface CodeCommitBatchGetCommitsInput {
@@ -185,6 +302,21 @@ export interface CodeCommitBatchGetCommitsInput {
   readonly repositoryName: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitBatchGetCommitsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitBatchGetCommitsInput(obj: CodeCommitBatchGetCommitsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commitIds': obj.commitIds?.map(y => y),
+    'repositoryName': obj.repositoryName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitBatchGetCommitsOutput
@@ -203,6 +335,21 @@ export interface CodeCommitBatchGetCommitsOutput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitBatchGetCommitsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitBatchGetCommitsOutput(obj: CodeCommitBatchGetCommitsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commits': obj.commits?.map(y => toJson_CodeCommitCommit(y)),
+    'errors': obj.errors?.map(y => toJson_CodeCommitBatchGetCommitsError(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitBatchGetRepositoriesInput
  */
 export interface CodeCommitBatchGetRepositoriesInput {
@@ -212,6 +359,20 @@ export interface CodeCommitBatchGetRepositoriesInput {
   readonly repositoryNames: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitBatchGetRepositoriesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitBatchGetRepositoriesInput(obj: CodeCommitBatchGetRepositoriesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryNames': obj.repositoryNames?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitBatchGetRepositoriesOutput
@@ -228,6 +389,21 @@ export interface CodeCommitBatchGetRepositoriesOutput {
   readonly repositoriesNotFound?: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitBatchGetRepositoriesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitBatchGetRepositoriesOutput(obj: CodeCommitBatchGetRepositoriesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositories': obj.repositories?.map(y => toJson_CodeCommitRepositoryMetadata(y)),
+    'repositoriesNotFound': obj.repositoriesNotFound?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitCreateApprovalRuleTemplateInput
@@ -251,6 +427,22 @@ export interface CodeCommitCreateApprovalRuleTemplateInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitCreateApprovalRuleTemplateInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitCreateApprovalRuleTemplateInput(obj: CodeCommitCreateApprovalRuleTemplateInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplateName': obj.approvalRuleTemplateName,
+    'approvalRuleTemplateContent': obj.approvalRuleTemplateContent,
+    'approvalRuleTemplateDescription': obj.approvalRuleTemplateDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitCreateApprovalRuleTemplateOutput
  */
 export interface CodeCommitCreateApprovalRuleTemplateOutput {
@@ -260,6 +452,20 @@ export interface CodeCommitCreateApprovalRuleTemplateOutput {
   readonly approvalRuleTemplate: CodeCommitApprovalRuleTemplate;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitCreateApprovalRuleTemplateOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitCreateApprovalRuleTemplateOutput(obj: CodeCommitCreateApprovalRuleTemplateOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplate': toJson_CodeCommitApprovalRuleTemplate(obj.approvalRuleTemplate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitCreateBranchInput
@@ -281,6 +487,22 @@ export interface CodeCommitCreateBranchInput {
   readonly commitId: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitCreateBranchInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitCreateBranchInput(obj: CodeCommitCreateBranchInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'branchName': obj.branchName,
+    'commitId': obj.commitId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitCreateCommitInput
@@ -339,6 +561,29 @@ export interface CodeCommitCreateCommitInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitCreateCommitInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitCreateCommitInput(obj: CodeCommitCreateCommitInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'branchName': obj.branchName,
+    'parentCommitId': obj.parentCommitId,
+    'authorName': obj.authorName,
+    'email': obj.email,
+    'commitMessage': obj.commitMessage,
+    'keepEmptyFolders': obj.keepEmptyFolders,
+    'putFiles': obj.putFiles?.map(y => toJson_CodeCommitPutFileEntry(y)),
+    'deleteFiles': obj.deleteFiles?.map(y => toJson_CodeCommitDeleteFileEntry(y)),
+    'setFileModes': obj.setFileModes?.map(y => toJson_CodeCommitSetFileModeEntry(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitCreateCommitOutput
  */
 export interface CodeCommitCreateCommitOutput {
@@ -370,6 +615,24 @@ export interface CodeCommitCreateCommitOutput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitCreateCommitOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitCreateCommitOutput(obj: CodeCommitCreateCommitOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commitId': obj.commitId,
+    'treeId': obj.treeId,
+    'filesAdded': obj.filesAdded?.map(y => toJson_CodeCommitFileMetadata(y)),
+    'filesUpdated': obj.filesUpdated?.map(y => toJson_CodeCommitFileMetadata(y)),
+    'filesDeleted': obj.filesDeleted?.map(y => toJson_CodeCommitFileMetadata(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitCreatePullRequestInput
  */
 export interface CodeCommitCreatePullRequestInput {
@@ -396,6 +659,23 @@ export interface CodeCommitCreatePullRequestInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitCreatePullRequestInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitCreatePullRequestInput(obj: CodeCommitCreatePullRequestInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'title': obj.title,
+    'description': obj.description,
+    'targets': obj.targets?.map(y => toJson_CodeCommitTarget(y)),
+    'clientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitCreatePullRequestOutput
  */
 export interface CodeCommitCreatePullRequestOutput {
@@ -405,6 +685,20 @@ export interface CodeCommitCreatePullRequestOutput {
   readonly pullRequest: CodeCommitPullRequest;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitCreatePullRequestOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitCreatePullRequestOutput(obj: CodeCommitCreatePullRequestOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequest': toJson_CodeCommitPullRequest(obj.pullRequest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitCreatePullRequestApprovalRuleInput
@@ -428,6 +722,22 @@ export interface CodeCommitCreatePullRequestApprovalRuleInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitCreatePullRequestApprovalRuleInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitCreatePullRequestApprovalRuleInput(obj: CodeCommitCreatePullRequestApprovalRuleInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'approvalRuleName': obj.approvalRuleName,
+    'approvalRuleContent': obj.approvalRuleContent,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitCreatePullRequestApprovalRuleOutput
  */
 export interface CodeCommitCreatePullRequestApprovalRuleOutput {
@@ -437,6 +747,20 @@ export interface CodeCommitCreatePullRequestApprovalRuleOutput {
   readonly approvalRule: CodeCommitApprovalRule;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitCreatePullRequestApprovalRuleOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitCreatePullRequestApprovalRuleOutput(obj: CodeCommitCreatePullRequestApprovalRuleOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRule': toJson_CodeCommitApprovalRule(obj.approvalRule),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitCreateRepositoryInput
@@ -460,6 +784,22 @@ export interface CodeCommitCreateRepositoryInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitCreateRepositoryInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitCreateRepositoryInput(obj: CodeCommitCreateRepositoryInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'repositoryDescription': obj.repositoryDescription,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitCreateRepositoryOutput
  */
 export interface CodeCommitCreateRepositoryOutput {
@@ -469,6 +809,20 @@ export interface CodeCommitCreateRepositoryOutput {
   readonly repositoryMetadata?: CodeCommitRepositoryMetadata;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitCreateRepositoryOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitCreateRepositoryOutput(obj: CodeCommitCreateRepositoryOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryMetadata': toJson_CodeCommitRepositoryMetadata(obj.repositoryMetadata),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitCreateUnreferencedMergeCommitInput
@@ -532,6 +886,30 @@ export interface CodeCommitCreateUnreferencedMergeCommitInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitCreateUnreferencedMergeCommitInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitCreateUnreferencedMergeCommitInput(obj: CodeCommitCreateUnreferencedMergeCommitInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'sourceCommitSpecifier': obj.sourceCommitSpecifier,
+    'destinationCommitSpecifier': obj.destinationCommitSpecifier,
+    'mergeOption': obj.mergeOption,
+    'conflictDetailLevel': obj.conflictDetailLevel,
+    'conflictResolutionStrategy': obj.conflictResolutionStrategy,
+    'authorName': obj.authorName,
+    'email': obj.email,
+    'commitMessage': obj.commitMessage,
+    'keepEmptyFolders': obj.keepEmptyFolders,
+    'conflictResolution': toJson_CodeCommitConflictResolution(obj.conflictResolution),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitCreateUnreferencedMergeCommitOutput
  */
 export interface CodeCommitCreateUnreferencedMergeCommitOutput {
@@ -548,6 +926,21 @@ export interface CodeCommitCreateUnreferencedMergeCommitOutput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitCreateUnreferencedMergeCommitOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitCreateUnreferencedMergeCommitOutput(obj: CodeCommitCreateUnreferencedMergeCommitOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commitId': obj.commitId,
+    'treeId': obj.treeId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitDeleteApprovalRuleTemplateInput
  */
 export interface CodeCommitDeleteApprovalRuleTemplateInput {
@@ -559,6 +952,20 @@ export interface CodeCommitDeleteApprovalRuleTemplateInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitDeleteApprovalRuleTemplateInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDeleteApprovalRuleTemplateInput(obj: CodeCommitDeleteApprovalRuleTemplateInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplateName': obj.approvalRuleTemplateName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitDeleteApprovalRuleTemplateOutput
  */
 export interface CodeCommitDeleteApprovalRuleTemplateOutput {
@@ -568,6 +975,20 @@ export interface CodeCommitDeleteApprovalRuleTemplateOutput {
   readonly approvalRuleTemplateId: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitDeleteApprovalRuleTemplateOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDeleteApprovalRuleTemplateOutput(obj: CodeCommitDeleteApprovalRuleTemplateOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplateId': obj.approvalRuleTemplateId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitDeleteBranchInput
@@ -586,6 +1007,21 @@ export interface CodeCommitDeleteBranchInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitDeleteBranchInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDeleteBranchInput(obj: CodeCommitDeleteBranchInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'branchName': obj.branchName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitDeleteBranchOutput
  */
 export interface CodeCommitDeleteBranchOutput {
@@ -595,6 +1031,20 @@ export interface CodeCommitDeleteBranchOutput {
   readonly deletedBranch?: CodeCommitBranchInfo;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitDeleteBranchOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDeleteBranchOutput(obj: CodeCommitDeleteBranchOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deletedBranch': toJson_CodeCommitBranchInfo(obj.deletedBranch),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitDeleteCommentContentInput
@@ -608,6 +1058,20 @@ export interface CodeCommitDeleteCommentContentInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitDeleteCommentContentInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDeleteCommentContentInput(obj: CodeCommitDeleteCommentContentInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commentId': obj.commentId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitDeleteCommentContentOutput
  */
 export interface CodeCommitDeleteCommentContentOutput {
@@ -617,6 +1081,20 @@ export interface CodeCommitDeleteCommentContentOutput {
   readonly comment?: CodeCommitComment;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitDeleteCommentContentOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDeleteCommentContentOutput(obj: CodeCommitDeleteCommentContentOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'comment': toJson_CodeCommitComment(obj.comment),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitDeleteFileInput
@@ -665,6 +1143,27 @@ export interface CodeCommitDeleteFileInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitDeleteFileInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDeleteFileInput(obj: CodeCommitDeleteFileInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'branchName': obj.branchName,
+    'filePath': obj.filePath,
+    'parentCommitId': obj.parentCommitId,
+    'keepEmptyFolders': obj.keepEmptyFolders,
+    'commitMessage': obj.commitMessage,
+    'name': obj.name,
+    'email': obj.email,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitDeleteFileOutput
  */
 export interface CodeCommitDeleteFileOutput {
@@ -691,6 +1190,23 @@ export interface CodeCommitDeleteFileOutput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitDeleteFileOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDeleteFileOutput(obj: CodeCommitDeleteFileOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commitId': obj.commitId,
+    'blobId': obj.blobId,
+    'treeId': obj.treeId,
+    'filePath': obj.filePath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitDeletePullRequestApprovalRuleInput
  */
 export interface CodeCommitDeletePullRequestApprovalRuleInput {
@@ -707,6 +1223,21 @@ export interface CodeCommitDeletePullRequestApprovalRuleInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitDeletePullRequestApprovalRuleInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDeletePullRequestApprovalRuleInput(obj: CodeCommitDeletePullRequestApprovalRuleInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'approvalRuleName': obj.approvalRuleName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitDeletePullRequestApprovalRuleOutput
  */
 export interface CodeCommitDeletePullRequestApprovalRuleOutput {
@@ -716,6 +1247,20 @@ export interface CodeCommitDeletePullRequestApprovalRuleOutput {
   readonly approvalRuleId: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitDeletePullRequestApprovalRuleOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDeletePullRequestApprovalRuleOutput(obj: CodeCommitDeletePullRequestApprovalRuleOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleId': obj.approvalRuleId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitDeleteRepositoryInput
@@ -729,6 +1274,20 @@ export interface CodeCommitDeleteRepositoryInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitDeleteRepositoryInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDeleteRepositoryInput(obj: CodeCommitDeleteRepositoryInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitDeleteRepositoryOutput
  */
 export interface CodeCommitDeleteRepositoryOutput {
@@ -738,6 +1297,20 @@ export interface CodeCommitDeleteRepositoryOutput {
   readonly repositoryId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitDeleteRepositoryOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDeleteRepositoryOutput(obj: CodeCommitDeleteRepositoryOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryId': obj.repositoryId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitDescribeMergeConflictsInput
@@ -791,6 +1364,28 @@ export interface CodeCommitDescribeMergeConflictsInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitDescribeMergeConflictsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDescribeMergeConflictsInput(obj: CodeCommitDescribeMergeConflictsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'destinationCommitSpecifier': obj.destinationCommitSpecifier,
+    'sourceCommitSpecifier': obj.sourceCommitSpecifier,
+    'mergeOption': obj.mergeOption,
+    'maxMergeHunks': obj.maxMergeHunks,
+    'filePath': obj.filePath,
+    'conflictDetailLevel': obj.conflictDetailLevel,
+    'conflictResolutionStrategy': obj.conflictResolutionStrategy,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitDescribeMergeConflictsOutput
  */
 export interface CodeCommitDescribeMergeConflictsOutput {
@@ -827,6 +1422,25 @@ export interface CodeCommitDescribeMergeConflictsOutput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitDescribeMergeConflictsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDescribeMergeConflictsOutput(obj: CodeCommitDescribeMergeConflictsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'conflictMetadata': toJson_CodeCommitConflictMetadata(obj.conflictMetadata),
+    'mergeHunks': obj.mergeHunks?.map(y => toJson_CodeCommitMergeHunk(y)),
+    'nextToken': obj.nextToken,
+    'destinationCommitId': obj.destinationCommitId,
+    'sourceCommitId': obj.sourceCommitId,
+    'baseCommitId': obj.baseCommitId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitDescribePullRequestEventsInput
  */
 export interface CodeCommitDescribePullRequestEventsInput {
@@ -858,6 +1472,24 @@ export interface CodeCommitDescribePullRequestEventsInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitDescribePullRequestEventsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDescribePullRequestEventsInput(obj: CodeCommitDescribePullRequestEventsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'pullRequestEventType': obj.pullRequestEventType,
+    'actorArn': obj.actorArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitDescribePullRequestEventsOutput
  */
 export interface CodeCommitDescribePullRequestEventsOutput {
@@ -872,6 +1504,21 @@ export interface CodeCommitDescribePullRequestEventsOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitDescribePullRequestEventsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDescribePullRequestEventsOutput(obj: CodeCommitDescribePullRequestEventsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestEvents': obj.pullRequestEvents?.map(y => toJson_CodeCommitPullRequestEvent(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitDisassociateApprovalRuleTemplateFromRepositoryInput
@@ -890,6 +1537,21 @@ export interface CodeCommitDisassociateApprovalRuleTemplateFromRepositoryInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitDisassociateApprovalRuleTemplateFromRepositoryInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDisassociateApprovalRuleTemplateFromRepositoryInput(obj: CodeCommitDisassociateApprovalRuleTemplateFromRepositoryInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplateName': obj.approvalRuleTemplateName,
+    'repositoryName': obj.repositoryName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitEvaluatePullRequestApprovalRulesInput
  */
 export interface CodeCommitEvaluatePullRequestApprovalRulesInput {
@@ -906,6 +1568,21 @@ export interface CodeCommitEvaluatePullRequestApprovalRulesInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitEvaluatePullRequestApprovalRulesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitEvaluatePullRequestApprovalRulesInput(obj: CodeCommitEvaluatePullRequestApprovalRulesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'revisionId': obj.revisionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitEvaluatePullRequestApprovalRulesOutput
  */
 export interface CodeCommitEvaluatePullRequestApprovalRulesOutput {
@@ -915,6 +1592,20 @@ export interface CodeCommitEvaluatePullRequestApprovalRulesOutput {
   readonly evaluation: CodeCommitEvaluation;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitEvaluatePullRequestApprovalRulesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitEvaluatePullRequestApprovalRulesOutput(obj: CodeCommitEvaluatePullRequestApprovalRulesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'evaluation': toJson_CodeCommitEvaluation(obj.evaluation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitGetApprovalRuleTemplateInput
@@ -928,6 +1619,20 @@ export interface CodeCommitGetApprovalRuleTemplateInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetApprovalRuleTemplateInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetApprovalRuleTemplateInput(obj: CodeCommitGetApprovalRuleTemplateInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplateName': obj.approvalRuleTemplateName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetApprovalRuleTemplateOutput
  */
 export interface CodeCommitGetApprovalRuleTemplateOutput {
@@ -937,6 +1642,20 @@ export interface CodeCommitGetApprovalRuleTemplateOutput {
   readonly approvalRuleTemplate: CodeCommitApprovalRuleTemplate;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitGetApprovalRuleTemplateOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetApprovalRuleTemplateOutput(obj: CodeCommitGetApprovalRuleTemplateOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplate': toJson_CodeCommitApprovalRuleTemplate(obj.approvalRuleTemplate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitGetBlobInput
@@ -955,6 +1674,21 @@ export interface CodeCommitGetBlobInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetBlobInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetBlobInput(obj: CodeCommitGetBlobInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'blobId': obj.blobId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetBlobOutput
  */
 export interface CodeCommitGetBlobOutput {
@@ -964,6 +1698,20 @@ export interface CodeCommitGetBlobOutput {
   readonly content: any;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitGetBlobOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetBlobOutput(obj: CodeCommitGetBlobOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'content': obj.content,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitGetBranchInput
@@ -982,6 +1730,21 @@ export interface CodeCommitGetBranchInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetBranchInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetBranchInput(obj: CodeCommitGetBranchInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'branchName': obj.branchName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetBranchOutput
  */
 export interface CodeCommitGetBranchOutput {
@@ -991,6 +1754,20 @@ export interface CodeCommitGetBranchOutput {
   readonly branch?: CodeCommitBranchInfo;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitGetBranchOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetBranchOutput(obj: CodeCommitGetBranchOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'branch': toJson_CodeCommitBranchInfo(obj.branch),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitGetCommentInput
@@ -1004,6 +1781,20 @@ export interface CodeCommitGetCommentInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetCommentInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetCommentInput(obj: CodeCommitGetCommentInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commentId': obj.commentId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetCommentOutput
  */
 export interface CodeCommitGetCommentOutput {
@@ -1013,6 +1804,20 @@ export interface CodeCommitGetCommentOutput {
   readonly comment?: CodeCommitComment;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitGetCommentOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetCommentOutput(obj: CodeCommitGetCommentOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'comment': toJson_CodeCommitComment(obj.comment),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitGetCommentReactionsInput
@@ -1041,6 +1846,23 @@ export interface CodeCommitGetCommentReactionsInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetCommentReactionsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetCommentReactionsInput(obj: CodeCommitGetCommentReactionsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commentId': obj.commentId,
+    'reactionUserArn': obj.reactionUserArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetCommentReactionsOutput
  */
 export interface CodeCommitGetCommentReactionsOutput {
@@ -1055,6 +1877,21 @@ export interface CodeCommitGetCommentReactionsOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitGetCommentReactionsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetCommentReactionsOutput(obj: CodeCommitGetCommentReactionsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reactionsForComment': obj.reactionsForComment?.map(y => toJson_CodeCommitReactionForComment(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitGetCommentsForComparedCommitInput
@@ -1088,6 +1925,24 @@ export interface CodeCommitGetCommentsForComparedCommitInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetCommentsForComparedCommitInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetCommentsForComparedCommitInput(obj: CodeCommitGetCommentsForComparedCommitInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'beforeCommitId': obj.beforeCommitId,
+    'afterCommitId': obj.afterCommitId,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetCommentsForComparedCommitOutput
  */
 export interface CodeCommitGetCommentsForComparedCommitOutput {
@@ -1102,6 +1957,21 @@ export interface CodeCommitGetCommentsForComparedCommitOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitGetCommentsForComparedCommitOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetCommentsForComparedCommitOutput(obj: CodeCommitGetCommentsForComparedCommitOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commentsForComparedCommitData': obj.commentsForComparedCommitData?.map(y => toJson_CodeCommitCommentsForComparedCommit(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitGetCommentsForPullRequestInput
@@ -1140,6 +2010,25 @@ export interface CodeCommitGetCommentsForPullRequestInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetCommentsForPullRequestInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetCommentsForPullRequestInput(obj: CodeCommitGetCommentsForPullRequestInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'repositoryName': obj.repositoryName,
+    'beforeCommitId': obj.beforeCommitId,
+    'afterCommitId': obj.afterCommitId,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetCommentsForPullRequestOutput
  */
 export interface CodeCommitGetCommentsForPullRequestOutput {
@@ -1154,6 +2043,21 @@ export interface CodeCommitGetCommentsForPullRequestOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitGetCommentsForPullRequestOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetCommentsForPullRequestOutput(obj: CodeCommitGetCommentsForPullRequestOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commentsForPullRequestData': obj.commentsForPullRequestData?.map(y => toJson_CodeCommitCommentsForPullRequest(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitGetCommitInput
@@ -1172,6 +2076,21 @@ export interface CodeCommitGetCommitInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetCommitInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetCommitInput(obj: CodeCommitGetCommitInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'commitId': obj.commitId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetCommitOutput
  */
 export interface CodeCommitGetCommitOutput {
@@ -1181,6 +2100,20 @@ export interface CodeCommitGetCommitOutput {
   readonly commit: CodeCommitCommit;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitGetCommitOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetCommitOutput(obj: CodeCommitGetCommitOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commit': toJson_CodeCommitCommit(obj.commit),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitGetDifferencesInput
@@ -1224,6 +2157,26 @@ export interface CodeCommitGetDifferencesInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetDifferencesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetDifferencesInput(obj: CodeCommitGetDifferencesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'beforeCommitSpecifier': obj.beforeCommitSpecifier,
+    'afterCommitSpecifier': obj.afterCommitSpecifier,
+    'beforePath': obj.beforePath,
+    'afterPath': obj.afterPath,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetDifferencesOutput
  */
 export interface CodeCommitGetDifferencesOutput {
@@ -1238,6 +2191,21 @@ export interface CodeCommitGetDifferencesOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitGetDifferencesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetDifferencesOutput(obj: CodeCommitGetDifferencesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'differences': obj.differences?.map(y => toJson_CodeCommitDifference(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitGetFileInput
@@ -1259,6 +2227,22 @@ export interface CodeCommitGetFileInput {
   readonly filePath: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitGetFileInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetFileInput(obj: CodeCommitGetFileInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'commitSpecifier': obj.commitSpecifier,
+    'filePath': obj.filePath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitGetFileOutput
@@ -1297,6 +2281,25 @@ export interface CodeCommitGetFileOutput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetFileOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetFileOutput(obj: CodeCommitGetFileOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commitId': obj.commitId,
+    'blobId': obj.blobId,
+    'filePath': obj.filePath,
+    'fileMode': obj.fileMode,
+    'fileSize': obj.fileSize,
+    'fileContent': obj.fileContent,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetFolderInput
  */
 export interface CodeCommitGetFolderInput {
@@ -1316,6 +2319,22 @@ export interface CodeCommitGetFolderInput {
   readonly folderPath: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitGetFolderInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetFolderInput(obj: CodeCommitGetFolderInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'commitSpecifier': obj.commitSpecifier,
+    'folderPath': obj.folderPath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitGetFolderOutput
@@ -1359,6 +2378,26 @@ export interface CodeCommitGetFolderOutput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetFolderOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetFolderOutput(obj: CodeCommitGetFolderOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commitId': obj.commitId,
+    'folderPath': obj.folderPath,
+    'treeId': obj.treeId,
+    'subFolders': obj.subFolders?.map(y => toJson_CodeCommitFolder(y)),
+    'files': obj.files?.map(y => toJson_CodeCommitFile(y)),
+    'symbolicLinks': obj.symbolicLinks?.map(y => toJson_CodeCommitSymbolicLink(y)),
+    'subModules': obj.subModules?.map(y => toJson_CodeCommitSubModule(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetMergeCommitInput
  */
 export interface CodeCommitGetMergeCommitInput {
@@ -1390,6 +2429,24 @@ export interface CodeCommitGetMergeCommitInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetMergeCommitInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetMergeCommitInput(obj: CodeCommitGetMergeCommitInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'sourceCommitSpecifier': obj.sourceCommitSpecifier,
+    'destinationCommitSpecifier': obj.destinationCommitSpecifier,
+    'conflictDetailLevel': obj.conflictDetailLevel,
+    'conflictResolutionStrategy': obj.conflictResolutionStrategy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetMergeCommitOutput
  */
 export interface CodeCommitGetMergeCommitOutput {
@@ -1414,6 +2471,23 @@ export interface CodeCommitGetMergeCommitOutput {
   readonly mergedCommitId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitGetMergeCommitOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetMergeCommitOutput(obj: CodeCommitGetMergeCommitOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sourceCommitId': obj.sourceCommitId,
+    'destinationCommitId': obj.destinationCommitId,
+    'baseCommitId': obj.baseCommitId,
+    'mergedCommitId': obj.mergedCommitId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitGetMergeConflictsInput
@@ -1462,6 +2536,27 @@ export interface CodeCommitGetMergeConflictsInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetMergeConflictsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetMergeConflictsInput(obj: CodeCommitGetMergeConflictsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'destinationCommitSpecifier': obj.destinationCommitSpecifier,
+    'sourceCommitSpecifier': obj.sourceCommitSpecifier,
+    'mergeOption': obj.mergeOption,
+    'conflictDetailLevel': obj.conflictDetailLevel,
+    'maxConflictFiles': obj.maxConflictFiles,
+    'conflictResolutionStrategy': obj.conflictResolutionStrategy,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetMergeConflictsOutput
  */
 export interface CodeCommitGetMergeConflictsOutput {
@@ -1498,6 +2593,25 @@ export interface CodeCommitGetMergeConflictsOutput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetMergeConflictsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetMergeConflictsOutput(obj: CodeCommitGetMergeConflictsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'mergeable': obj.mergeable,
+    'destinationCommitId': obj.destinationCommitId,
+    'sourceCommitId': obj.sourceCommitId,
+    'baseCommitId': obj.baseCommitId,
+    'conflictMetadataList': obj.conflictMetadataList?.map(y => toJson_CodeCommitConflictMetadata(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetMergeOptionsInput
  */
 export interface CodeCommitGetMergeOptionsInput {
@@ -1529,6 +2643,24 @@ export interface CodeCommitGetMergeOptionsInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetMergeOptionsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetMergeOptionsInput(obj: CodeCommitGetMergeOptionsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'sourceCommitSpecifier': obj.sourceCommitSpecifier,
+    'destinationCommitSpecifier': obj.destinationCommitSpecifier,
+    'conflictDetailLevel': obj.conflictDetailLevel,
+    'conflictResolutionStrategy': obj.conflictResolutionStrategy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetMergeOptionsOutput
  */
 export interface CodeCommitGetMergeOptionsOutput {
@@ -1555,6 +2687,23 @@ export interface CodeCommitGetMergeOptionsOutput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetMergeOptionsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetMergeOptionsOutput(obj: CodeCommitGetMergeOptionsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'mergeOptions': obj.mergeOptions?.map(y => y),
+    'sourceCommitId': obj.sourceCommitId,
+    'destinationCommitId': obj.destinationCommitId,
+    'baseCommitId': obj.baseCommitId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetPullRequestInput
  */
 export interface CodeCommitGetPullRequestInput {
@@ -1566,6 +2715,20 @@ export interface CodeCommitGetPullRequestInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetPullRequestInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetPullRequestInput(obj: CodeCommitGetPullRequestInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetPullRequestOutput
  */
 export interface CodeCommitGetPullRequestOutput {
@@ -1575,6 +2738,20 @@ export interface CodeCommitGetPullRequestOutput {
   readonly pullRequest: CodeCommitPullRequest;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitGetPullRequestOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetPullRequestOutput(obj: CodeCommitGetPullRequestOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequest': toJson_CodeCommitPullRequest(obj.pullRequest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitGetPullRequestApprovalStatesInput
@@ -1593,6 +2770,21 @@ export interface CodeCommitGetPullRequestApprovalStatesInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetPullRequestApprovalStatesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetPullRequestApprovalStatesInput(obj: CodeCommitGetPullRequestApprovalStatesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'revisionId': obj.revisionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetPullRequestApprovalStatesOutput
  */
 export interface CodeCommitGetPullRequestApprovalStatesOutput {
@@ -1602,6 +2794,20 @@ export interface CodeCommitGetPullRequestApprovalStatesOutput {
   readonly approvals?: CodeCommitApproval[];
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitGetPullRequestApprovalStatesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetPullRequestApprovalStatesOutput(obj: CodeCommitGetPullRequestApprovalStatesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvals': obj.approvals?.map(y => toJson_CodeCommitApproval(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitGetPullRequestOverrideStateInput
@@ -1620,6 +2826,21 @@ export interface CodeCommitGetPullRequestOverrideStateInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetPullRequestOverrideStateInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetPullRequestOverrideStateInput(obj: CodeCommitGetPullRequestOverrideStateInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'revisionId': obj.revisionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetPullRequestOverrideStateOutput
  */
 export interface CodeCommitGetPullRequestOverrideStateOutput {
@@ -1636,6 +2857,21 @@ export interface CodeCommitGetPullRequestOverrideStateOutput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetPullRequestOverrideStateOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetPullRequestOverrideStateOutput(obj: CodeCommitGetPullRequestOverrideStateOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'overridden': obj.overridden,
+    'overrider': obj.overrider,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetRepositoryInput
  */
 export interface CodeCommitGetRepositoryInput {
@@ -1645,6 +2881,20 @@ export interface CodeCommitGetRepositoryInput {
   readonly repositoryName: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitGetRepositoryInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetRepositoryInput(obj: CodeCommitGetRepositoryInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitGetRepositoryOutput
@@ -1658,6 +2908,20 @@ export interface CodeCommitGetRepositoryOutput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetRepositoryOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetRepositoryOutput(obj: CodeCommitGetRepositoryOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryMetadata': toJson_CodeCommitRepositoryMetadata(obj.repositoryMetadata),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitGetRepositoryTriggersInput
  */
 export interface CodeCommitGetRepositoryTriggersInput {
@@ -1667,6 +2931,20 @@ export interface CodeCommitGetRepositoryTriggersInput {
   readonly repositoryName: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitGetRepositoryTriggersInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetRepositoryTriggersInput(obj: CodeCommitGetRepositoryTriggersInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitGetRepositoryTriggersOutput
@@ -1685,6 +2963,21 @@ export interface CodeCommitGetRepositoryTriggersOutput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitGetRepositoryTriggersOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitGetRepositoryTriggersOutput(obj: CodeCommitGetRepositoryTriggersOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configurationId': obj.configurationId,
+    'triggers': obj.triggers?.map(y => toJson_CodeCommitRepositoryTrigger(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitListApprovalRuleTemplatesInput
  */
 export interface CodeCommitListApprovalRuleTemplatesInput {
@@ -1701,6 +2994,21 @@ export interface CodeCommitListApprovalRuleTemplatesInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitListApprovalRuleTemplatesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitListApprovalRuleTemplatesInput(obj: CodeCommitListApprovalRuleTemplatesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitListApprovalRuleTemplatesOutput
  */
 export interface CodeCommitListApprovalRuleTemplatesOutput {
@@ -1715,6 +3023,21 @@ export interface CodeCommitListApprovalRuleTemplatesOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitListApprovalRuleTemplatesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitListApprovalRuleTemplatesOutput(obj: CodeCommitListApprovalRuleTemplatesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplateNames': obj.approvalRuleTemplateNames?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitListAssociatedApprovalRuleTemplatesForRepositoryInput
@@ -1738,6 +3061,22 @@ export interface CodeCommitListAssociatedApprovalRuleTemplatesForRepositoryInput
 }
 
 /**
+ * Converts an object of type 'CodeCommitListAssociatedApprovalRuleTemplatesForRepositoryInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitListAssociatedApprovalRuleTemplatesForRepositoryInput(obj: CodeCommitListAssociatedApprovalRuleTemplatesForRepositoryInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitListAssociatedApprovalRuleTemplatesForRepositoryOutput
  */
 export interface CodeCommitListAssociatedApprovalRuleTemplatesForRepositoryOutput {
@@ -1752,6 +3091,21 @@ export interface CodeCommitListAssociatedApprovalRuleTemplatesForRepositoryOutpu
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitListAssociatedApprovalRuleTemplatesForRepositoryOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitListAssociatedApprovalRuleTemplatesForRepositoryOutput(obj: CodeCommitListAssociatedApprovalRuleTemplatesForRepositoryOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplateNames': obj.approvalRuleTemplateNames?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitListBranchesInput
@@ -1770,6 +3124,21 @@ export interface CodeCommitListBranchesInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitListBranchesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitListBranchesInput(obj: CodeCommitListBranchesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitListBranchesOutput
  */
 export interface CodeCommitListBranchesOutput {
@@ -1784,6 +3153,21 @@ export interface CodeCommitListBranchesOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitListBranchesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitListBranchesOutput(obj: CodeCommitListBranchesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'branches': obj.branches?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitListPullRequestsInput
@@ -1817,6 +3201,24 @@ export interface CodeCommitListPullRequestsInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitListPullRequestsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitListPullRequestsInput(obj: CodeCommitListPullRequestsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'authorArn': obj.authorArn,
+    'pullRequestStatus': obj.pullRequestStatus,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitListPullRequestsOutput
  */
 export interface CodeCommitListPullRequestsOutput {
@@ -1831,6 +3233,21 @@ export interface CodeCommitListPullRequestsOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitListPullRequestsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitListPullRequestsOutput(obj: CodeCommitListPullRequestsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestIds': obj.pullRequestIds?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitListRepositoriesInput
@@ -1854,6 +3271,22 @@ export interface CodeCommitListRepositoriesInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitListRepositoriesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitListRepositoriesInput(obj: CodeCommitListRepositoriesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'sortBy': obj.sortBy,
+    'order': obj.order,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitListRepositoriesOutput
  */
 export interface CodeCommitListRepositoriesOutput {
@@ -1868,6 +3301,21 @@ export interface CodeCommitListRepositoriesOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitListRepositoriesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitListRepositoriesOutput(obj: CodeCommitListRepositoriesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositories': obj.repositories?.map(y => toJson_CodeCommitRepositoryNameIdPair(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitListRepositoriesForApprovalRuleTemplateInput
@@ -1891,6 +3339,22 @@ export interface CodeCommitListRepositoriesForApprovalRuleTemplateInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitListRepositoriesForApprovalRuleTemplateInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitListRepositoriesForApprovalRuleTemplateInput(obj: CodeCommitListRepositoriesForApprovalRuleTemplateInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplateName': obj.approvalRuleTemplateName,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitListRepositoriesForApprovalRuleTemplateOutput
  */
 export interface CodeCommitListRepositoriesForApprovalRuleTemplateOutput {
@@ -1905,6 +3369,21 @@ export interface CodeCommitListRepositoriesForApprovalRuleTemplateOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitListRepositoriesForApprovalRuleTemplateOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitListRepositoriesForApprovalRuleTemplateOutput(obj: CodeCommitListRepositoriesForApprovalRuleTemplateOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryNames': obj.repositoryNames?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitListTagsForResourceInput
@@ -1923,6 +3402,21 @@ export interface CodeCommitListTagsForResourceInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitListTagsForResourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitListTagsForResourceInput(obj: CodeCommitListTagsForResourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitListTagsForResourceOutput
  */
 export interface CodeCommitListTagsForResourceOutput {
@@ -1937,6 +3431,21 @@ export interface CodeCommitListTagsForResourceOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitListTagsForResourceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitListTagsForResourceOutput(obj: CodeCommitListTagsForResourceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitMergeBranchesByFastForwardInput
@@ -1965,6 +3474,23 @@ export interface CodeCommitMergeBranchesByFastForwardInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitMergeBranchesByFastForwardInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitMergeBranchesByFastForwardInput(obj: CodeCommitMergeBranchesByFastForwardInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'sourceCommitSpecifier': obj.sourceCommitSpecifier,
+    'destinationCommitSpecifier': obj.destinationCommitSpecifier,
+    'targetBranch': obj.targetBranch,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitMergeBranchesByFastForwardOutput
  */
 export interface CodeCommitMergeBranchesByFastForwardOutput {
@@ -1979,6 +3505,21 @@ export interface CodeCommitMergeBranchesByFastForwardOutput {
   readonly treeId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitMergeBranchesByFastForwardOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitMergeBranchesByFastForwardOutput(obj: CodeCommitMergeBranchesByFastForwardOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commitId': obj.commitId,
+    'treeId': obj.treeId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitMergeBranchesBySquashInput
@@ -2042,6 +3583,30 @@ export interface CodeCommitMergeBranchesBySquashInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitMergeBranchesBySquashInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitMergeBranchesBySquashInput(obj: CodeCommitMergeBranchesBySquashInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'sourceCommitSpecifier': obj.sourceCommitSpecifier,
+    'destinationCommitSpecifier': obj.destinationCommitSpecifier,
+    'targetBranch': obj.targetBranch,
+    'conflictDetailLevel': obj.conflictDetailLevel,
+    'conflictResolutionStrategy': obj.conflictResolutionStrategy,
+    'authorName': obj.authorName,
+    'email': obj.email,
+    'commitMessage': obj.commitMessage,
+    'keepEmptyFolders': obj.keepEmptyFolders,
+    'conflictResolution': toJson_CodeCommitConflictResolution(obj.conflictResolution),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitMergeBranchesBySquashOutput
  */
 export interface CodeCommitMergeBranchesBySquashOutput {
@@ -2056,6 +3621,21 @@ export interface CodeCommitMergeBranchesBySquashOutput {
   readonly treeId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitMergeBranchesBySquashOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitMergeBranchesBySquashOutput(obj: CodeCommitMergeBranchesBySquashOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commitId': obj.commitId,
+    'treeId': obj.treeId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitMergeBranchesByThreeWayInput
@@ -2119,6 +3699,30 @@ export interface CodeCommitMergeBranchesByThreeWayInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitMergeBranchesByThreeWayInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitMergeBranchesByThreeWayInput(obj: CodeCommitMergeBranchesByThreeWayInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'sourceCommitSpecifier': obj.sourceCommitSpecifier,
+    'destinationCommitSpecifier': obj.destinationCommitSpecifier,
+    'targetBranch': obj.targetBranch,
+    'conflictDetailLevel': obj.conflictDetailLevel,
+    'conflictResolutionStrategy': obj.conflictResolutionStrategy,
+    'authorName': obj.authorName,
+    'email': obj.email,
+    'commitMessage': obj.commitMessage,
+    'keepEmptyFolders': obj.keepEmptyFolders,
+    'conflictResolution': toJson_CodeCommitConflictResolution(obj.conflictResolution),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitMergeBranchesByThreeWayOutput
  */
 export interface CodeCommitMergeBranchesByThreeWayOutput {
@@ -2133,6 +3737,21 @@ export interface CodeCommitMergeBranchesByThreeWayOutput {
   readonly treeId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitMergeBranchesByThreeWayOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitMergeBranchesByThreeWayOutput(obj: CodeCommitMergeBranchesByThreeWayOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commitId': obj.commitId,
+    'treeId': obj.treeId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitMergePullRequestByFastForwardInput
@@ -2156,6 +3775,22 @@ export interface CodeCommitMergePullRequestByFastForwardInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitMergePullRequestByFastForwardInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitMergePullRequestByFastForwardInput(obj: CodeCommitMergePullRequestByFastForwardInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'repositoryName': obj.repositoryName,
+    'sourceCommitId': obj.sourceCommitId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitMergePullRequestByFastForwardOutput
  */
 export interface CodeCommitMergePullRequestByFastForwardOutput {
@@ -2165,6 +3800,20 @@ export interface CodeCommitMergePullRequestByFastForwardOutput {
   readonly pullRequest?: CodeCommitPullRequest;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitMergePullRequestByFastForwardOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitMergePullRequestByFastForwardOutput(obj: CodeCommitMergePullRequestByFastForwardOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequest': toJson_CodeCommitPullRequest(obj.pullRequest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitMergePullRequestBySquashInput
@@ -2223,6 +3872,29 @@ export interface CodeCommitMergePullRequestBySquashInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitMergePullRequestBySquashInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitMergePullRequestBySquashInput(obj: CodeCommitMergePullRequestBySquashInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'repositoryName': obj.repositoryName,
+    'sourceCommitId': obj.sourceCommitId,
+    'conflictDetailLevel': obj.conflictDetailLevel,
+    'conflictResolutionStrategy': obj.conflictResolutionStrategy,
+    'commitMessage': obj.commitMessage,
+    'authorName': obj.authorName,
+    'email': obj.email,
+    'keepEmptyFolders': obj.keepEmptyFolders,
+    'conflictResolution': toJson_CodeCommitConflictResolution(obj.conflictResolution),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitMergePullRequestBySquashOutput
  */
 export interface CodeCommitMergePullRequestBySquashOutput {
@@ -2232,6 +3904,20 @@ export interface CodeCommitMergePullRequestBySquashOutput {
   readonly pullRequest?: CodeCommitPullRequest;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitMergePullRequestBySquashOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitMergePullRequestBySquashOutput(obj: CodeCommitMergePullRequestBySquashOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequest': toJson_CodeCommitPullRequest(obj.pullRequest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitMergePullRequestByThreeWayInput
@@ -2290,6 +3976,29 @@ export interface CodeCommitMergePullRequestByThreeWayInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitMergePullRequestByThreeWayInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitMergePullRequestByThreeWayInput(obj: CodeCommitMergePullRequestByThreeWayInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'repositoryName': obj.repositoryName,
+    'sourceCommitId': obj.sourceCommitId,
+    'conflictDetailLevel': obj.conflictDetailLevel,
+    'conflictResolutionStrategy': obj.conflictResolutionStrategy,
+    'commitMessage': obj.commitMessage,
+    'authorName': obj.authorName,
+    'email': obj.email,
+    'keepEmptyFolders': obj.keepEmptyFolders,
+    'conflictResolution': toJson_CodeCommitConflictResolution(obj.conflictResolution),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitMergePullRequestByThreeWayOutput
  */
 export interface CodeCommitMergePullRequestByThreeWayOutput {
@@ -2299,6 +4008,20 @@ export interface CodeCommitMergePullRequestByThreeWayOutput {
   readonly pullRequest?: CodeCommitPullRequest;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitMergePullRequestByThreeWayOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitMergePullRequestByThreeWayOutput(obj: CodeCommitMergePullRequestByThreeWayOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequest': toJson_CodeCommitPullRequest(obj.pullRequest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitOverridePullRequestApprovalRulesInput
@@ -2320,6 +4043,22 @@ export interface CodeCommitOverridePullRequestApprovalRulesInput {
   readonly overrideStatus: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitOverridePullRequestApprovalRulesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitOverridePullRequestApprovalRulesInput(obj: CodeCommitOverridePullRequestApprovalRulesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'revisionId': obj.revisionId,
+    'overrideStatus': obj.overrideStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitPostCommentForComparedCommitInput
@@ -2356,6 +4095,25 @@ export interface CodeCommitPostCommentForComparedCommitInput {
   readonly clientRequestToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitPostCommentForComparedCommitInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPostCommentForComparedCommitInput(obj: CodeCommitPostCommentForComparedCommitInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'beforeCommitId': obj.beforeCommitId,
+    'afterCommitId': obj.afterCommitId,
+    'location': toJson_CodeCommitLocation(obj.location),
+    'content': obj.content,
+    'clientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitPostCommentForComparedCommitOutput
@@ -2399,6 +4157,26 @@ export interface CodeCommitPostCommentForComparedCommitOutput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitPostCommentForComparedCommitOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPostCommentForComparedCommitOutput(obj: CodeCommitPostCommentForComparedCommitOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'beforeCommitId': obj.beforeCommitId,
+    'afterCommitId': obj.afterCommitId,
+    'beforeBlobId': obj.beforeBlobId,
+    'afterBlobId': obj.afterBlobId,
+    'location': toJson_CodeCommitLocation(obj.location),
+    'comment': toJson_CodeCommitComment(obj.comment),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitPostCommentForPullRequestInput
  */
 export interface CodeCommitPostCommentForPullRequestInput {
@@ -2438,6 +4216,26 @@ export interface CodeCommitPostCommentForPullRequestInput {
   readonly clientRequestToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitPostCommentForPullRequestInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPostCommentForPullRequestInput(obj: CodeCommitPostCommentForPullRequestInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'repositoryName': obj.repositoryName,
+    'beforeCommitId': obj.beforeCommitId,
+    'afterCommitId': obj.afterCommitId,
+    'location': toJson_CodeCommitLocation(obj.location),
+    'content': obj.content,
+    'clientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitPostCommentForPullRequestOutput
@@ -2486,6 +4284,27 @@ export interface CodeCommitPostCommentForPullRequestOutput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitPostCommentForPullRequestOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPostCommentForPullRequestOutput(obj: CodeCommitPostCommentForPullRequestOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'pullRequestId': obj.pullRequestId,
+    'beforeCommitId': obj.beforeCommitId,
+    'afterCommitId': obj.afterCommitId,
+    'beforeBlobId': obj.beforeBlobId,
+    'afterBlobId': obj.afterBlobId,
+    'location': toJson_CodeCommitLocation(obj.location),
+    'comment': toJson_CodeCommitComment(obj.comment),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitPostCommentReplyInput
  */
 export interface CodeCommitPostCommentReplyInput {
@@ -2507,6 +4326,22 @@ export interface CodeCommitPostCommentReplyInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitPostCommentReplyInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPostCommentReplyInput(obj: CodeCommitPostCommentReplyInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'inReplyTo': obj.inReplyTo,
+    'clientRequestToken': obj.clientRequestToken,
+    'content': obj.content,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitPostCommentReplyOutput
  */
 export interface CodeCommitPostCommentReplyOutput {
@@ -2516,6 +4351,20 @@ export interface CodeCommitPostCommentReplyOutput {
   readonly comment?: CodeCommitComment;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitPostCommentReplyOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPostCommentReplyOutput(obj: CodeCommitPostCommentReplyOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'comment': toJson_CodeCommitComment(obj.comment),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitPutCommentReactionInput
@@ -2532,6 +4381,21 @@ export interface CodeCommitPutCommentReactionInput {
   readonly reactionValue: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitPutCommentReactionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPutCommentReactionInput(obj: CodeCommitPutCommentReactionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commentId': obj.commentId,
+    'reactionValue': obj.reactionValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitPutFileInput
@@ -2585,6 +4449,28 @@ export interface CodeCommitPutFileInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitPutFileInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPutFileInput(obj: CodeCommitPutFileInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'branchName': obj.branchName,
+    'fileContent': obj.fileContent,
+    'filePath': obj.filePath,
+    'fileMode': obj.fileMode,
+    'parentCommitId': obj.parentCommitId,
+    'commitMessage': obj.commitMessage,
+    'name': obj.name,
+    'email': obj.email,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitPutFileOutput
  */
 export interface CodeCommitPutFileOutput {
@@ -2606,6 +4492,22 @@ export interface CodeCommitPutFileOutput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitPutFileOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPutFileOutput(obj: CodeCommitPutFileOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commitId': obj.commitId,
+    'blobId': obj.blobId,
+    'treeId': obj.treeId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitPutRepositoryTriggersInput
  */
 export interface CodeCommitPutRepositoryTriggersInput {
@@ -2622,6 +4524,21 @@ export interface CodeCommitPutRepositoryTriggersInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitPutRepositoryTriggersInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPutRepositoryTriggersInput(obj: CodeCommitPutRepositoryTriggersInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'triggers': obj.triggers?.map(y => toJson_CodeCommitRepositoryTrigger(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitPutRepositoryTriggersOutput
  */
 export interface CodeCommitPutRepositoryTriggersOutput {
@@ -2631,6 +4548,20 @@ export interface CodeCommitPutRepositoryTriggersOutput {
   readonly configurationId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitPutRepositoryTriggersOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPutRepositoryTriggersOutput(obj: CodeCommitPutRepositoryTriggersOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configurationId': obj.configurationId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitTagResourceInput
@@ -2649,6 +4580,21 @@ export interface CodeCommitTagResourceInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitTagResourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitTagResourceInput(obj: CodeCommitTagResourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitTestRepositoryTriggersInput
  */
 export interface CodeCommitTestRepositoryTriggersInput {
@@ -2663,6 +4609,21 @@ export interface CodeCommitTestRepositoryTriggersInput {
   readonly triggers: CodeCommitRepositoryTrigger[];
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitTestRepositoryTriggersInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitTestRepositoryTriggersInput(obj: CodeCommitTestRepositoryTriggersInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'triggers': obj.triggers?.map(y => toJson_CodeCommitRepositoryTrigger(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitTestRepositoryTriggersOutput
@@ -2681,6 +4642,21 @@ export interface CodeCommitTestRepositoryTriggersOutput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitTestRepositoryTriggersOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitTestRepositoryTriggersOutput(obj: CodeCommitTestRepositoryTriggersOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'successfulExecutions': obj.successfulExecutions?.map(y => y),
+    'failedExecutions': obj.failedExecutions?.map(y => toJson_CodeCommitRepositoryTriggerExecutionFailure(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitUntagResourceInput
  */
 export interface CodeCommitUntagResourceInput {
@@ -2695,6 +4671,21 @@ export interface CodeCommitUntagResourceInput {
   readonly tagKeys: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitUntagResourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUntagResourceInput(obj: CodeCommitUntagResourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitUpdateApprovalRuleTemplateContentInput
@@ -2718,6 +4709,22 @@ export interface CodeCommitUpdateApprovalRuleTemplateContentInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitUpdateApprovalRuleTemplateContentInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdateApprovalRuleTemplateContentInput(obj: CodeCommitUpdateApprovalRuleTemplateContentInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplateName': obj.approvalRuleTemplateName,
+    'newRuleContent': obj.newRuleContent,
+    'existingRuleContentSha256': obj.existingRuleContentSha256,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitUpdateApprovalRuleTemplateContentOutput
  */
 export interface CodeCommitUpdateApprovalRuleTemplateContentOutput {
@@ -2727,6 +4734,20 @@ export interface CodeCommitUpdateApprovalRuleTemplateContentOutput {
   readonly approvalRuleTemplate: CodeCommitApprovalRuleTemplate;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitUpdateApprovalRuleTemplateContentOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdateApprovalRuleTemplateContentOutput(obj: CodeCommitUpdateApprovalRuleTemplateContentOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplate': toJson_CodeCommitApprovalRuleTemplate(obj.approvalRuleTemplate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitUpdateApprovalRuleTemplateDescriptionInput
@@ -2745,6 +4766,21 @@ export interface CodeCommitUpdateApprovalRuleTemplateDescriptionInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitUpdateApprovalRuleTemplateDescriptionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdateApprovalRuleTemplateDescriptionInput(obj: CodeCommitUpdateApprovalRuleTemplateDescriptionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplateName': obj.approvalRuleTemplateName,
+    'approvalRuleTemplateDescription': obj.approvalRuleTemplateDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitUpdateApprovalRuleTemplateDescriptionOutput
  */
 export interface CodeCommitUpdateApprovalRuleTemplateDescriptionOutput {
@@ -2754,6 +4790,20 @@ export interface CodeCommitUpdateApprovalRuleTemplateDescriptionOutput {
   readonly approvalRuleTemplate: CodeCommitApprovalRuleTemplate;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitUpdateApprovalRuleTemplateDescriptionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdateApprovalRuleTemplateDescriptionOutput(obj: CodeCommitUpdateApprovalRuleTemplateDescriptionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplate': toJson_CodeCommitApprovalRuleTemplate(obj.approvalRuleTemplate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitUpdateApprovalRuleTemplateNameInput
@@ -2772,6 +4822,21 @@ export interface CodeCommitUpdateApprovalRuleTemplateNameInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitUpdateApprovalRuleTemplateNameInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdateApprovalRuleTemplateNameInput(obj: CodeCommitUpdateApprovalRuleTemplateNameInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'oldApprovalRuleTemplateName': obj.oldApprovalRuleTemplateName,
+    'newApprovalRuleTemplateName': obj.newApprovalRuleTemplateName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitUpdateApprovalRuleTemplateNameOutput
  */
 export interface CodeCommitUpdateApprovalRuleTemplateNameOutput {
@@ -2781,6 +4846,20 @@ export interface CodeCommitUpdateApprovalRuleTemplateNameOutput {
   readonly approvalRuleTemplate: CodeCommitApprovalRuleTemplate;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitUpdateApprovalRuleTemplateNameOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdateApprovalRuleTemplateNameOutput(obj: CodeCommitUpdateApprovalRuleTemplateNameOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplate': toJson_CodeCommitApprovalRuleTemplate(obj.approvalRuleTemplate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitUpdateCommentInput
@@ -2799,6 +4878,21 @@ export interface CodeCommitUpdateCommentInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitUpdateCommentInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdateCommentInput(obj: CodeCommitUpdateCommentInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commentId': obj.commentId,
+    'content': obj.content,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitUpdateCommentOutput
  */
 export interface CodeCommitUpdateCommentOutput {
@@ -2808,6 +4902,20 @@ export interface CodeCommitUpdateCommentOutput {
   readonly comment?: CodeCommitComment;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitUpdateCommentOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdateCommentOutput(obj: CodeCommitUpdateCommentOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'comment': toJson_CodeCommitComment(obj.comment),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitUpdateDefaultBranchInput
@@ -2824,6 +4932,21 @@ export interface CodeCommitUpdateDefaultBranchInput {
   readonly defaultBranchName: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitUpdateDefaultBranchInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdateDefaultBranchInput(obj: CodeCommitUpdateDefaultBranchInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'defaultBranchName': obj.defaultBranchName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitUpdatePullRequestApprovalRuleContentInput
@@ -2852,6 +4975,23 @@ export interface CodeCommitUpdatePullRequestApprovalRuleContentInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitUpdatePullRequestApprovalRuleContentInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdatePullRequestApprovalRuleContentInput(obj: CodeCommitUpdatePullRequestApprovalRuleContentInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'approvalRuleName': obj.approvalRuleName,
+    'existingRuleContentSha256': obj.existingRuleContentSha256,
+    'newRuleContent': obj.newRuleContent,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitUpdatePullRequestApprovalRuleContentOutput
  */
 export interface CodeCommitUpdatePullRequestApprovalRuleContentOutput {
@@ -2861,6 +5001,20 @@ export interface CodeCommitUpdatePullRequestApprovalRuleContentOutput {
   readonly approvalRule: CodeCommitApprovalRule;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitUpdatePullRequestApprovalRuleContentOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdatePullRequestApprovalRuleContentOutput(obj: CodeCommitUpdatePullRequestApprovalRuleContentOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRule': toJson_CodeCommitApprovalRule(obj.approvalRule),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitUpdatePullRequestApprovalStateInput
@@ -2884,6 +5038,22 @@ export interface CodeCommitUpdatePullRequestApprovalStateInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitUpdatePullRequestApprovalStateInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdatePullRequestApprovalStateInput(obj: CodeCommitUpdatePullRequestApprovalStateInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'revisionId': obj.revisionId,
+    'approvalState': obj.approvalState,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitUpdatePullRequestDescriptionInput
  */
 export interface CodeCommitUpdatePullRequestDescriptionInput {
@@ -2900,6 +5070,21 @@ export interface CodeCommitUpdatePullRequestDescriptionInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitUpdatePullRequestDescriptionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdatePullRequestDescriptionInput(obj: CodeCommitUpdatePullRequestDescriptionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitUpdatePullRequestDescriptionOutput
  */
 export interface CodeCommitUpdatePullRequestDescriptionOutput {
@@ -2909,6 +5094,20 @@ export interface CodeCommitUpdatePullRequestDescriptionOutput {
   readonly pullRequest: CodeCommitPullRequest;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitUpdatePullRequestDescriptionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdatePullRequestDescriptionOutput(obj: CodeCommitUpdatePullRequestDescriptionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequest': toJson_CodeCommitPullRequest(obj.pullRequest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitUpdatePullRequestStatusInput
@@ -2927,6 +5126,21 @@ export interface CodeCommitUpdatePullRequestStatusInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitUpdatePullRequestStatusInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdatePullRequestStatusInput(obj: CodeCommitUpdatePullRequestStatusInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'pullRequestStatus': obj.pullRequestStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitUpdatePullRequestStatusOutput
  */
 export interface CodeCommitUpdatePullRequestStatusOutput {
@@ -2936,6 +5150,20 @@ export interface CodeCommitUpdatePullRequestStatusOutput {
   readonly pullRequest: CodeCommitPullRequest;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitUpdatePullRequestStatusOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdatePullRequestStatusOutput(obj: CodeCommitUpdatePullRequestStatusOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequest': toJson_CodeCommitPullRequest(obj.pullRequest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitUpdatePullRequestTitleInput
@@ -2954,6 +5182,21 @@ export interface CodeCommitUpdatePullRequestTitleInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitUpdatePullRequestTitleInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdatePullRequestTitleInput(obj: CodeCommitUpdatePullRequestTitleInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'title': obj.title,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitUpdatePullRequestTitleOutput
  */
 export interface CodeCommitUpdatePullRequestTitleOutput {
@@ -2963,6 +5206,20 @@ export interface CodeCommitUpdatePullRequestTitleOutput {
   readonly pullRequest: CodeCommitPullRequest;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitUpdatePullRequestTitleOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdatePullRequestTitleOutput(obj: CodeCommitUpdatePullRequestTitleOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequest': toJson_CodeCommitPullRequest(obj.pullRequest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitUpdateRepositoryDescriptionInput
@@ -2981,6 +5238,21 @@ export interface CodeCommitUpdateRepositoryDescriptionInput {
 }
 
 /**
+ * Converts an object of type 'CodeCommitUpdateRepositoryDescriptionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdateRepositoryDescriptionInput(obj: CodeCommitUpdateRepositoryDescriptionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'repositoryDescription': obj.repositoryDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitUpdateRepositoryNameInput
  */
 export interface CodeCommitUpdateRepositoryNameInput {
@@ -2995,6 +5267,21 @@ export interface CodeCommitUpdateRepositoryNameInput {
   readonly newName: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitUpdateRepositoryNameInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUpdateRepositoryNameInput(obj: CodeCommitUpdateRepositoryNameInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'oldName': obj.oldName,
+    'newName': obj.newName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesError
@@ -3018,6 +5305,22 @@ export interface CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesErr
 }
 
 /**
+ * Converts an object of type 'CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesError' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesError(obj: CodeCommitBatchAssociateApprovalRuleTemplateWithRepositoriesError | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'errorCode': obj.errorCode,
+    'errorMessage': obj.errorMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitConflict
  */
 export interface CodeCommitConflict {
@@ -3032,6 +5335,21 @@ export interface CodeCommitConflict {
   readonly mergeHunks?: CodeCommitMergeHunk[];
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitConflict' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitConflict(obj: CodeCommitConflict | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'conflictMetadata': toJson_CodeCommitConflictMetadata(obj.conflictMetadata),
+    'mergeHunks': obj.mergeHunks?.map(y => toJson_CodeCommitMergeHunk(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitBatchDescribeMergeConflictsError
@@ -3055,6 +5373,22 @@ export interface CodeCommitBatchDescribeMergeConflictsError {
 }
 
 /**
+ * Converts an object of type 'CodeCommitBatchDescribeMergeConflictsError' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitBatchDescribeMergeConflictsError(obj: CodeCommitBatchDescribeMergeConflictsError | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filePath': obj.filePath,
+    'exceptionName': obj.exceptionName,
+    'message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitBatchDisassociateApprovalRuleTemplateFromRepositoriesError
  */
 export interface CodeCommitBatchDisassociateApprovalRuleTemplateFromRepositoriesError {
@@ -3074,6 +5408,22 @@ export interface CodeCommitBatchDisassociateApprovalRuleTemplateFromRepositories
   readonly errorMessage?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitBatchDisassociateApprovalRuleTemplateFromRepositoriesError' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitBatchDisassociateApprovalRuleTemplateFromRepositoriesError(obj: CodeCommitBatchDisassociateApprovalRuleTemplateFromRepositoriesError | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'errorCode': obj.errorCode,
+    'errorMessage': obj.errorMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitCommit
@@ -3117,6 +5467,26 @@ export interface CodeCommitCommit {
 }
 
 /**
+ * Converts an object of type 'CodeCommitCommit' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitCommit(obj: CodeCommitCommit | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commitId': obj.commitId,
+    'treeId': obj.treeId,
+    'parents': obj.parents?.map(y => y),
+    'message': obj.message,
+    'author': toJson_CodeCommitUserInfo(obj.author),
+    'committer': toJson_CodeCommitUserInfo(obj.committer),
+    'additionalData': obj.additionalData,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitBatchGetCommitsError
  */
 export interface CodeCommitBatchGetCommitsError {
@@ -3136,6 +5506,22 @@ export interface CodeCommitBatchGetCommitsError {
   readonly errorMessage?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitBatchGetCommitsError' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitBatchGetCommitsError(obj: CodeCommitBatchGetCommitsError | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commitId': obj.commitId,
+    'errorCode': obj.errorCode,
+    'errorMessage': obj.errorMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitRepositoryMetadata
@@ -3194,6 +5580,29 @@ export interface CodeCommitRepositoryMetadata {
 }
 
 /**
+ * Converts an object of type 'CodeCommitRepositoryMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitRepositoryMetadata(obj: CodeCommitRepositoryMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'repositoryId': obj.repositoryId,
+    'repositoryName': obj.repositoryName,
+    'repositoryDescription': obj.repositoryDescription,
+    'defaultBranch': obj.defaultBranch,
+    'lastModifiedDate': obj.lastModifiedDate,
+    'creationDate': obj.creationDate,
+    'cloneUrlHttp': obj.cloneUrlHttp,
+    'cloneUrlSsh': obj.cloneUrlSsh,
+    'Arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitApprovalRuleTemplate
  */
 export interface CodeCommitApprovalRuleTemplate {
@@ -3240,6 +5649,27 @@ export interface CodeCommitApprovalRuleTemplate {
 }
 
 /**
+ * Converts an object of type 'CodeCommitApprovalRuleTemplate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitApprovalRuleTemplate(obj: CodeCommitApprovalRuleTemplate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplateId': obj.approvalRuleTemplateId,
+    'approvalRuleTemplateName': obj.approvalRuleTemplateName,
+    'approvalRuleTemplateDescription': obj.approvalRuleTemplateDescription,
+    'approvalRuleTemplateContent': obj.approvalRuleTemplateContent,
+    'ruleContentSha256': obj.ruleContentSha256,
+    'lastModifiedDate': obj.lastModifiedDate,
+    'creationDate': obj.creationDate,
+    'lastModifiedUser': obj.lastModifiedUser,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitPutFileEntry
  */
 export interface CodeCommitPutFileEntry {
@@ -3266,6 +5696,23 @@ export interface CodeCommitPutFileEntry {
 }
 
 /**
+ * Converts an object of type 'CodeCommitPutFileEntry' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPutFileEntry(obj: CodeCommitPutFileEntry | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filePath': obj.filePath,
+    'fileMode': obj.fileMode,
+    'fileContent': obj.fileContent,
+    'sourceFile': toJson_CodeCommitSourceFileSpecifier(obj.sourceFile),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitDeleteFileEntry
  */
 export interface CodeCommitDeleteFileEntry {
@@ -3275,6 +5722,20 @@ export interface CodeCommitDeleteFileEntry {
   readonly filePath: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitDeleteFileEntry' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDeleteFileEntry(obj: CodeCommitDeleteFileEntry | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filePath': obj.filePath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitSetFileModeEntry
@@ -3291,6 +5752,21 @@ export interface CodeCommitSetFileModeEntry {
   readonly fileMode: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitSetFileModeEntry' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitSetFileModeEntry(obj: CodeCommitSetFileModeEntry | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filePath': obj.filePath,
+    'fileMode': obj.fileMode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitFileMetadata
@@ -3314,6 +5790,22 @@ export interface CodeCommitFileMetadata {
 }
 
 /**
+ * Converts an object of type 'CodeCommitFileMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitFileMetadata(obj: CodeCommitFileMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'absolutePath': obj.absolutePath,
+    'blobId': obj.blobId,
+    'fileMode': obj.fileMode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitTarget
  */
 export interface CodeCommitTarget {
@@ -3333,6 +5825,22 @@ export interface CodeCommitTarget {
   readonly destinationReference?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitTarget' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitTarget(obj: CodeCommitTarget | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'sourceReference': obj.sourceReference,
+    'destinationReference': obj.destinationReference,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitPullRequest
@@ -3396,6 +5904,30 @@ export interface CodeCommitPullRequest {
 }
 
 /**
+ * Converts an object of type 'CodeCommitPullRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPullRequest(obj: CodeCommitPullRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'title': obj.title,
+    'description': obj.description,
+    'lastActivityDate': obj.lastActivityDate,
+    'creationDate': obj.creationDate,
+    'pullRequestStatus': obj.pullRequestStatus,
+    'authorArn': obj.authorArn,
+    'pullRequestTargets': obj.pullRequestTargets?.map(y => toJson_CodeCommitPullRequestTarget(y)),
+    'clientRequestToken': obj.clientRequestToken,
+    'revisionId': obj.revisionId,
+    'approvalRules': obj.approvalRules?.map(y => toJson_CodeCommitApprovalRule(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitApprovalRule
  */
 export interface CodeCommitApprovalRule {
@@ -3442,6 +5974,27 @@ export interface CodeCommitApprovalRule {
 }
 
 /**
+ * Converts an object of type 'CodeCommitApprovalRule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitApprovalRule(obj: CodeCommitApprovalRule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleId': obj.approvalRuleId,
+    'approvalRuleName': obj.approvalRuleName,
+    'approvalRuleContent': obj.approvalRuleContent,
+    'ruleContentSha256': obj.ruleContentSha256,
+    'lastModifiedDate': obj.lastModifiedDate,
+    'creationDate': obj.creationDate,
+    'lastModifiedUser': obj.lastModifiedUser,
+    'originApprovalRuleTemplate': toJson_CodeCommitOriginApprovalRuleTemplate(obj.originApprovalRuleTemplate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitConflictResolution
  */
 export interface CodeCommitConflictResolution {
@@ -3463,6 +6016,22 @@ export interface CodeCommitConflictResolution {
 }
 
 /**
+ * Converts an object of type 'CodeCommitConflictResolution' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitConflictResolution(obj: CodeCommitConflictResolution | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'replaceContents': obj.replaceContents?.map(y => toJson_CodeCommitReplaceContentEntry(y)),
+    'deleteFiles': obj.deleteFiles?.map(y => toJson_CodeCommitDeleteFileEntry(y)),
+    'setFileModes': obj.setFileModes?.map(y => toJson_CodeCommitSetFileModeEntry(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitBranchInfo
  */
 export interface CodeCommitBranchInfo {
@@ -3477,6 +6046,21 @@ export interface CodeCommitBranchInfo {
   readonly commitId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitBranchInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitBranchInfo(obj: CodeCommitBranchInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'branchName': obj.branchName,
+    'commitId': obj.commitId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitComment
@@ -3535,6 +6119,29 @@ export interface CodeCommitComment {
 }
 
 /**
+ * Converts an object of type 'CodeCommitComment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitComment(obj: CodeCommitComment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commentId': obj.commentId,
+    'content': obj.content,
+    'inReplyTo': obj.inReplyTo,
+    'creationDate': obj.creationDate,
+    'lastModifiedDate': obj.lastModifiedDate,
+    'authorArn': obj.authorArn,
+    'deleted': obj.deleted,
+    'clientRequestToken': obj.clientRequestToken,
+    'callerReactions': obj.callerReactions?.map(y => y),
+    'reactionCounts': ((obj.reactionCounts) === undefined) ? undefined : (Object.entries(obj.reactionCounts).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitConflictMetadata
  */
 export interface CodeCommitConflictMetadata {
@@ -3591,6 +6198,29 @@ export interface CodeCommitConflictMetadata {
 }
 
 /**
+ * Converts an object of type 'CodeCommitConflictMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitConflictMetadata(obj: CodeCommitConflictMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filePath': obj.filePath,
+    'fileSizes': toJson_CodeCommitFileSizes(obj.fileSizes),
+    'fileModes': toJson_CodeCommitFileModes(obj.fileModes),
+    'objectTypes': toJson_CodeCommitObjectTypes(obj.objectTypes),
+    'numberOfConflicts': obj.numberOfConflicts,
+    'isBinaryFile': toJson_CodeCommitIsBinaryFile(obj.isBinaryFile),
+    'contentConflict': obj.contentConflict,
+    'fileModeConflict': obj.fileModeConflict,
+    'objectTypeConflict': obj.objectTypeConflict,
+    'mergeOperations': toJson_CodeCommitMergeOperations(obj.mergeOperations),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitMergeHunk
  */
 export interface CodeCommitMergeHunk {
@@ -3615,6 +6245,23 @@ export interface CodeCommitMergeHunk {
   readonly base?: CodeCommitMergeHunkDetail;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitMergeHunk' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitMergeHunk(obj: CodeCommitMergeHunk | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'isConflict': obj.isConflict,
+    'source': toJson_CodeCommitMergeHunkDetail(obj.source),
+    'destination': toJson_CodeCommitMergeHunkDetail(obj.destination),
+    'base': toJson_CodeCommitMergeHunkDetail(obj.base),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitPullRequestEvent
@@ -3678,6 +6325,30 @@ export interface CodeCommitPullRequestEvent {
 }
 
 /**
+ * Converts an object of type 'CodeCommitPullRequestEvent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPullRequestEvent(obj: CodeCommitPullRequestEvent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'eventDate': obj.eventDate,
+    'pullRequestEventType': obj.pullRequestEventType,
+    'actorArn': obj.actorArn,
+    'pullRequestCreatedEventMetadata': toJson_CodeCommitPullRequestCreatedEventMetadata(obj.pullRequestCreatedEventMetadata),
+    'pullRequestStatusChangedEventMetadata': toJson_CodeCommitPullRequestStatusChangedEventMetadata(obj.pullRequestStatusChangedEventMetadata),
+    'pullRequestSourceReferenceUpdatedEventMetadata': toJson_CodeCommitPullRequestSourceReferenceUpdatedEventMetadata(obj.pullRequestSourceReferenceUpdatedEventMetadata),
+    'pullRequestMergedStateChangedEventMetadata': toJson_CodeCommitPullRequestMergedStateChangedEventMetadata(obj.pullRequestMergedStateChangedEventMetadata),
+    'approvalRuleEventMetadata': toJson_CodeCommitApprovalRuleEventMetadata(obj.approvalRuleEventMetadata),
+    'approvalStateChangedEventMetadata': toJson_CodeCommitApprovalStateChangedEventMetadata(obj.approvalStateChangedEventMetadata),
+    'approvalRuleOverriddenEventMetadata': toJson_CodeCommitApprovalRuleOverriddenEventMetadata(obj.approvalRuleOverriddenEventMetadata),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitEvaluation
  */
 export interface CodeCommitEvaluation {
@@ -3704,6 +6375,23 @@ export interface CodeCommitEvaluation {
 }
 
 /**
+ * Converts an object of type 'CodeCommitEvaluation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitEvaluation(obj: CodeCommitEvaluation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approved': obj.approved,
+    'overridden': obj.overridden,
+    'approvalRulesSatisfied': obj.approvalRulesSatisfied?.map(y => y),
+    'approvalRulesNotSatisfied': obj.approvalRulesNotSatisfied?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitReactionForComment
  */
 export interface CodeCommitReactionForComment {
@@ -3723,6 +6411,22 @@ export interface CodeCommitReactionForComment {
   readonly reactionsFromDeletedUsersCount?: number;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitReactionForComment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitReactionForComment(obj: CodeCommitReactionForComment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reaction': toJson_CodeCommitReactionValueFormats(obj.reaction),
+    'reactionUsers': obj.reactionUsers?.map(y => y),
+    'reactionsFromDeletedUsersCount': obj.reactionsFromDeletedUsersCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitCommentsForComparedCommit
@@ -3764,6 +6468,26 @@ export interface CodeCommitCommentsForComparedCommit {
   readonly comments?: CodeCommitComment[];
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitCommentsForComparedCommit' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitCommentsForComparedCommit(obj: CodeCommitCommentsForComparedCommit | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'beforeCommitId': obj.beforeCommitId,
+    'afterCommitId': obj.afterCommitId,
+    'beforeBlobId': obj.beforeBlobId,
+    'afterBlobId': obj.afterBlobId,
+    'location': toJson_CodeCommitLocation(obj.location),
+    'comments': obj.comments?.map(y => toJson_CodeCommitComment(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitCommentsForPullRequest
@@ -3812,6 +6536,27 @@ export interface CodeCommitCommentsForPullRequest {
 }
 
 /**
+ * Converts an object of type 'CodeCommitCommentsForPullRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitCommentsForPullRequest(obj: CodeCommitCommentsForPullRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestId': obj.pullRequestId,
+    'repositoryName': obj.repositoryName,
+    'beforeCommitId': obj.beforeCommitId,
+    'afterCommitId': obj.afterCommitId,
+    'beforeBlobId': obj.beforeBlobId,
+    'afterBlobId': obj.afterBlobId,
+    'location': toJson_CodeCommitLocation(obj.location),
+    'comments': obj.comments?.map(y => toJson_CodeCommitComment(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitDifference
  */
 export interface CodeCommitDifference {
@@ -3833,6 +6578,22 @@ export interface CodeCommitDifference {
 }
 
 /**
+ * Converts an object of type 'CodeCommitDifference' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitDifference(obj: CodeCommitDifference | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'beforeBlob': toJson_CodeCommitBlobMetadata(obj.beforeBlob),
+    'afterBlob': toJson_CodeCommitBlobMetadata(obj.afterBlob),
+    'changeType': obj.changeType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitFolder
  */
 export interface CodeCommitFolder {
@@ -3852,6 +6613,22 @@ export interface CodeCommitFolder {
   readonly relativePath?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitFolder' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitFolder(obj: CodeCommitFolder | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'treeId': obj.treeId,
+    'absolutePath': obj.absolutePath,
+    'relativePath': obj.relativePath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitFile
@@ -3880,6 +6657,23 @@ export interface CodeCommitFile {
 }
 
 /**
+ * Converts an object of type 'CodeCommitFile' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitFile(obj: CodeCommitFile | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'blobId': obj.blobId,
+    'absolutePath': obj.absolutePath,
+    'relativePath': obj.relativePath,
+    'fileMode': obj.fileMode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitSymbolicLink
  */
 export interface CodeCommitSymbolicLink {
@@ -3906,6 +6700,23 @@ export interface CodeCommitSymbolicLink {
 }
 
 /**
+ * Converts an object of type 'CodeCommitSymbolicLink' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitSymbolicLink(obj: CodeCommitSymbolicLink | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'blobId': obj.blobId,
+    'absolutePath': obj.absolutePath,
+    'relativePath': obj.relativePath,
+    'fileMode': obj.fileMode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitSubModule
  */
 export interface CodeCommitSubModule {
@@ -3927,6 +6738,22 @@ export interface CodeCommitSubModule {
 }
 
 /**
+ * Converts an object of type 'CodeCommitSubModule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitSubModule(obj: CodeCommitSubModule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'commitId': obj.commitId,
+    'absolutePath': obj.absolutePath,
+    'relativePath': obj.relativePath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitApproval
  */
 export interface CodeCommitApproval {
@@ -3941,6 +6768,21 @@ export interface CodeCommitApproval {
   readonly approvalState?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitApproval' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitApproval(obj: CodeCommitApproval | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'userArn': obj.userArn,
+    'approvalState': obj.approvalState,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitRepositoryTrigger
@@ -3974,6 +6816,24 @@ export interface CodeCommitRepositoryTrigger {
 }
 
 /**
+ * Converts an object of type 'CodeCommitRepositoryTrigger' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitRepositoryTrigger(obj: CodeCommitRepositoryTrigger | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'destinationArn': obj.destinationArn,
+    'customData': obj.customData,
+    'branches': obj.branches?.map(y => y),
+    'events': obj.events?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitRepositoryNameIdPair
  */
 export interface CodeCommitRepositoryNameIdPair {
@@ -3988,6 +6848,21 @@ export interface CodeCommitRepositoryNameIdPair {
   readonly repositoryId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitRepositoryNameIdPair' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitRepositoryNameIdPair(obj: CodeCommitRepositoryNameIdPair | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'repositoryId': obj.repositoryId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitLocation
@@ -4011,6 +6886,22 @@ export interface CodeCommitLocation {
 }
 
 /**
+ * Converts an object of type 'CodeCommitLocation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitLocation(obj: CodeCommitLocation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filePath': obj.filePath,
+    'filePosition': obj.filePosition,
+    'relativeFileVersion': obj.relativeFileVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitRepositoryTriggerExecutionFailure
  */
 export interface CodeCommitRepositoryTriggerExecutionFailure {
@@ -4025,6 +6916,21 @@ export interface CodeCommitRepositoryTriggerExecutionFailure {
   readonly failureMessage?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitRepositoryTriggerExecutionFailure' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitRepositoryTriggerExecutionFailure(obj: CodeCommitRepositoryTriggerExecutionFailure | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'trigger': obj.trigger,
+    'failureMessage': obj.failureMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitUserInfo
@@ -4048,6 +6954,22 @@ export interface CodeCommitUserInfo {
 }
 
 /**
+ * Converts an object of type 'CodeCommitUserInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitUserInfo(obj: CodeCommitUserInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'email': obj.email,
+    'date': obj.date,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitSourceFileSpecifier
  */
 export interface CodeCommitSourceFileSpecifier {
@@ -4062,6 +6984,21 @@ export interface CodeCommitSourceFileSpecifier {
   readonly isMove?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitSourceFileSpecifier' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitSourceFileSpecifier(obj: CodeCommitSourceFileSpecifier | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filePath': obj.filePath,
+    'isMove': obj.isMove,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitPullRequestTarget
@@ -4105,6 +7042,26 @@ export interface CodeCommitPullRequestTarget {
 }
 
 /**
+ * Converts an object of type 'CodeCommitPullRequestTarget' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPullRequestTarget(obj: CodeCommitPullRequestTarget | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'sourceReference': obj.sourceReference,
+    'destinationReference': obj.destinationReference,
+    'destinationCommit': obj.destinationCommit,
+    'sourceCommit': obj.sourceCommit,
+    'mergeBase': obj.mergeBase,
+    'mergeMetadata': toJson_CodeCommitMergeMetadata(obj.mergeMetadata),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitOriginApprovalRuleTemplate
  */
 export interface CodeCommitOriginApprovalRuleTemplate {
@@ -4119,6 +7076,21 @@ export interface CodeCommitOriginApprovalRuleTemplate {
   readonly approvalRuleTemplateName?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitOriginApprovalRuleTemplate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitOriginApprovalRuleTemplate(obj: CodeCommitOriginApprovalRuleTemplate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleTemplateId': obj.approvalRuleTemplateId,
+    'approvalRuleTemplateName': obj.approvalRuleTemplateName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitReplaceContentEntry
@@ -4147,6 +7119,23 @@ export interface CodeCommitReplaceContentEntry {
 }
 
 /**
+ * Converts an object of type 'CodeCommitReplaceContentEntry' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitReplaceContentEntry(obj: CodeCommitReplaceContentEntry | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filePath': obj.filePath,
+    'replacementType': obj.replacementType,
+    'content': obj.content,
+    'fileMode': obj.fileMode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitFileSizes
  */
 export interface CodeCommitFileSizes {
@@ -4166,6 +7155,22 @@ export interface CodeCommitFileSizes {
   readonly base?: number;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitFileSizes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitFileSizes(obj: CodeCommitFileSizes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'source': obj.source,
+    'destination': obj.destination,
+    'base': obj.base,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitFileModes
@@ -4189,6 +7194,22 @@ export interface CodeCommitFileModes {
 }
 
 /**
+ * Converts an object of type 'CodeCommitFileModes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitFileModes(obj: CodeCommitFileModes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'source': obj.source,
+    'destination': obj.destination,
+    'base': obj.base,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitObjectTypes
  */
 export interface CodeCommitObjectTypes {
@@ -4208,6 +7229,22 @@ export interface CodeCommitObjectTypes {
   readonly base?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitObjectTypes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitObjectTypes(obj: CodeCommitObjectTypes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'source': obj.source,
+    'destination': obj.destination,
+    'base': obj.base,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitIsBinaryFile
@@ -4231,6 +7268,22 @@ export interface CodeCommitIsBinaryFile {
 }
 
 /**
+ * Converts an object of type 'CodeCommitIsBinaryFile' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitIsBinaryFile(obj: CodeCommitIsBinaryFile | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'source': obj.source,
+    'destination': obj.destination,
+    'base': obj.base,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitMergeOperations
  */
 export interface CodeCommitMergeOperations {
@@ -4245,6 +7298,21 @@ export interface CodeCommitMergeOperations {
   readonly destination?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitMergeOperations' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitMergeOperations(obj: CodeCommitMergeOperations | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'source': obj.source,
+    'destination': obj.destination,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitMergeHunkDetail
@@ -4266,6 +7334,22 @@ export interface CodeCommitMergeHunkDetail {
   readonly hunkContent?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitMergeHunkDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitMergeHunkDetail(obj: CodeCommitMergeHunkDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'startLine': obj.startLine,
+    'endLine': obj.endLine,
+    'hunkContent': obj.hunkContent,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitPullRequestCreatedEventMetadata
@@ -4294,6 +7378,23 @@ export interface CodeCommitPullRequestCreatedEventMetadata {
 }
 
 /**
+ * Converts an object of type 'CodeCommitPullRequestCreatedEventMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPullRequestCreatedEventMetadata(obj: CodeCommitPullRequestCreatedEventMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'sourceCommitId': obj.sourceCommitId,
+    'destinationCommitId': obj.destinationCommitId,
+    'mergeBase': obj.mergeBase,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitPullRequestStatusChangedEventMetadata
  */
 export interface CodeCommitPullRequestStatusChangedEventMetadata {
@@ -4303,6 +7404,20 @@ export interface CodeCommitPullRequestStatusChangedEventMetadata {
   readonly pullRequestStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitPullRequestStatusChangedEventMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPullRequestStatusChangedEventMetadata(obj: CodeCommitPullRequestStatusChangedEventMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pullRequestStatus': obj.pullRequestStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitPullRequestSourceReferenceUpdatedEventMetadata
@@ -4331,6 +7446,23 @@ export interface CodeCommitPullRequestSourceReferenceUpdatedEventMetadata {
 }
 
 /**
+ * Converts an object of type 'CodeCommitPullRequestSourceReferenceUpdatedEventMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPullRequestSourceReferenceUpdatedEventMetadata(obj: CodeCommitPullRequestSourceReferenceUpdatedEventMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'beforeCommitId': obj.beforeCommitId,
+    'afterCommitId': obj.afterCommitId,
+    'mergeBase': obj.mergeBase,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitPullRequestMergedStateChangedEventMetadata
  */
 export interface CodeCommitPullRequestMergedStateChangedEventMetadata {
@@ -4350,6 +7482,22 @@ export interface CodeCommitPullRequestMergedStateChangedEventMetadata {
   readonly mergeMetadata?: CodeCommitMergeMetadata;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitPullRequestMergedStateChangedEventMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitPullRequestMergedStateChangedEventMetadata(obj: CodeCommitPullRequestMergedStateChangedEventMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+    'destinationReference': obj.destinationReference,
+    'mergeMetadata': toJson_CodeCommitMergeMetadata(obj.mergeMetadata),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitApprovalRuleEventMetadata
@@ -4373,6 +7521,22 @@ export interface CodeCommitApprovalRuleEventMetadata {
 }
 
 /**
+ * Converts an object of type 'CodeCommitApprovalRuleEventMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitApprovalRuleEventMetadata(obj: CodeCommitApprovalRuleEventMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvalRuleName': obj.approvalRuleName,
+    'approvalRuleId': obj.approvalRuleId,
+    'approvalRuleContent': obj.approvalRuleContent,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitApprovalStateChangedEventMetadata
  */
 export interface CodeCommitApprovalStateChangedEventMetadata {
@@ -4389,6 +7553,21 @@ export interface CodeCommitApprovalStateChangedEventMetadata {
 }
 
 /**
+ * Converts an object of type 'CodeCommitApprovalStateChangedEventMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitApprovalStateChangedEventMetadata(obj: CodeCommitApprovalStateChangedEventMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'revisionId': obj.revisionId,
+    'approvalStatus': obj.approvalStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitApprovalRuleOverriddenEventMetadata
  */
 export interface CodeCommitApprovalRuleOverriddenEventMetadata {
@@ -4403,6 +7582,21 @@ export interface CodeCommitApprovalRuleOverriddenEventMetadata {
   readonly overrideStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitApprovalRuleOverriddenEventMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitApprovalRuleOverriddenEventMetadata(obj: CodeCommitApprovalRuleOverriddenEventMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'revisionId': obj.revisionId,
+    'overrideStatus': obj.overrideStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitReactionValueFormats
@@ -4426,6 +7620,22 @@ export interface CodeCommitReactionValueFormats {
 }
 
 /**
+ * Converts an object of type 'CodeCommitReactionValueFormats' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitReactionValueFormats(obj: CodeCommitReactionValueFormats | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'emoji': obj.emoji,
+    'shortCode': obj.shortCode,
+    'unicode': obj.unicode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeCommitBlobMetadata
  */
 export interface CodeCommitBlobMetadata {
@@ -4445,6 +7655,22 @@ export interface CodeCommitBlobMetadata {
   readonly mode?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitBlobMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitBlobMetadata(obj: CodeCommitBlobMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'blobId': obj.blobId,
+    'path': obj.path,
+    'mode': obj.mode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeCommitMergeMetadata
@@ -4471,3 +7697,20 @@ export interface CodeCommitMergeMetadata {
   readonly mergeOption?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeCommitMergeMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeCommitMergeMetadata(obj: CodeCommitMergeMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'isMerged': obj.isMerged,
+    'mergedBy': obj.mergedBy,
+    'mergeCommitId': obj.mergeCommitId,
+    'mergeOption': obj.mergeOption,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

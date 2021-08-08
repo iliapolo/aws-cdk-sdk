@@ -311,6 +311,21 @@ export class IoTAnalyticsClient extends cdk.Construct {
               keyPrefix: input.datastoreStorage?.customerManagedS3?.keyPrefix,
               roleArn: input.datastoreStorage?.customerManagedS3?.roleArn,
             },
+            iotSiteWiseMultiLayerStorage: {
+              customerManagedS3Storage: {
+                bucket: input.datastoreStorage?.iotSiteWiseMultiLayerStorage?.customerManagedS3Storage.bucket,
+                keyPrefix: input.datastoreStorage?.iotSiteWiseMultiLayerStorage?.customerManagedS3Storage.keyPrefix,
+              },
+            },
+          },
+          fileFormatConfiguration: {
+            jsonConfiguration: {
+            },
+            parquetConfiguration: {
+              schemaDefinition: {
+                columns: input.fileFormatConfiguration?.parquetConfiguration?.schemaDefinition?.columns,
+              },
+            },
           },
         },
       },
@@ -689,12 +704,30 @@ export class IoTAnalyticsResponsesCreateDatastore {
               keyPrefix: this.__input.datastoreStorage?.customerManagedS3?.keyPrefix,
               roleArn: this.__input.datastoreStorage?.customerManagedS3?.roleArn,
             },
+            iotSiteWiseMultiLayerStorage: {
+              customerManagedS3Storage: {
+                bucket: this.__input.datastoreStorage?.iotSiteWiseMultiLayerStorage?.customerManagedS3Storage.bucket,
+                keyPrefix: this.__input.datastoreStorage?.iotSiteWiseMultiLayerStorage?.customerManagedS3Storage.keyPrefix,
+              },
+            },
           },
           retentionPeriod: {
             unlimited: this.__input.retentionPeriod?.unlimited,
             numberOfDays: this.__input.retentionPeriod?.numberOfDays,
           },
           tags: this.__input.tags,
+          fileFormatConfiguration: {
+            jsonConfiguration: {
+            },
+            parquetConfiguration: {
+              schemaDefinition: {
+                columns: this.__input.fileFormatConfiguration?.parquetConfiguration?.schemaDefinition?.columns,
+              },
+            },
+          },
+          datastorePartitions: {
+            partitions: this.__input.datastorePartitions?.partitions,
+          },
         },
       },
     };
@@ -720,12 +753,30 @@ export class IoTAnalyticsResponsesCreateDatastore {
               keyPrefix: this.__input.datastoreStorage?.customerManagedS3?.keyPrefix,
               roleArn: this.__input.datastoreStorage?.customerManagedS3?.roleArn,
             },
+            iotSiteWiseMultiLayerStorage: {
+              customerManagedS3Storage: {
+                bucket: this.__input.datastoreStorage?.iotSiteWiseMultiLayerStorage?.customerManagedS3Storage.bucket,
+                keyPrefix: this.__input.datastoreStorage?.iotSiteWiseMultiLayerStorage?.customerManagedS3Storage.keyPrefix,
+              },
+            },
           },
           retentionPeriod: {
             unlimited: this.__input.retentionPeriod?.unlimited,
             numberOfDays: this.__input.retentionPeriod?.numberOfDays,
           },
           tags: this.__input.tags,
+          fileFormatConfiguration: {
+            jsonConfiguration: {
+            },
+            parquetConfiguration: {
+              schemaDefinition: {
+                columns: this.__input.fileFormatConfiguration?.parquetConfiguration?.schemaDefinition?.columns,
+              },
+            },
+          },
+          datastorePartitions: {
+            partitions: this.__input.datastorePartitions?.partitions,
+          },
         },
       },
     };
@@ -762,12 +813,30 @@ export class IoTAnalyticsResponsesCreateDatastoreRetentionPeriod {
               keyPrefix: this.__input.datastoreStorage?.customerManagedS3?.keyPrefix,
               roleArn: this.__input.datastoreStorage?.customerManagedS3?.roleArn,
             },
+            iotSiteWiseMultiLayerStorage: {
+              customerManagedS3Storage: {
+                bucket: this.__input.datastoreStorage?.iotSiteWiseMultiLayerStorage?.customerManagedS3Storage.bucket,
+                keyPrefix: this.__input.datastoreStorage?.iotSiteWiseMultiLayerStorage?.customerManagedS3Storage.keyPrefix,
+              },
+            },
           },
           retentionPeriod: {
             unlimited: this.__input.retentionPeriod?.unlimited,
             numberOfDays: this.__input.retentionPeriod?.numberOfDays,
           },
           tags: this.__input.tags,
+          fileFormatConfiguration: {
+            jsonConfiguration: {
+            },
+            parquetConfiguration: {
+              schemaDefinition: {
+                columns: this.__input.fileFormatConfiguration?.parquetConfiguration?.schemaDefinition?.columns,
+              },
+            },
+          },
+          datastorePartitions: {
+            partitions: this.__input.datastorePartitions?.partitions,
+          },
         },
       },
     };
@@ -793,12 +862,30 @@ export class IoTAnalyticsResponsesCreateDatastoreRetentionPeriod {
               keyPrefix: this.__input.datastoreStorage?.customerManagedS3?.keyPrefix,
               roleArn: this.__input.datastoreStorage?.customerManagedS3?.roleArn,
             },
+            iotSiteWiseMultiLayerStorage: {
+              customerManagedS3Storage: {
+                bucket: this.__input.datastoreStorage?.iotSiteWiseMultiLayerStorage?.customerManagedS3Storage.bucket,
+                keyPrefix: this.__input.datastoreStorage?.iotSiteWiseMultiLayerStorage?.customerManagedS3Storage.keyPrefix,
+              },
+            },
           },
           retentionPeriod: {
             unlimited: this.__input.retentionPeriod?.unlimited,
             numberOfDays: this.__input.retentionPeriod?.numberOfDays,
           },
           tags: this.__input.tags,
+          fileFormatConfiguration: {
+            jsonConfiguration: {
+            },
+            parquetConfiguration: {
+              schemaDefinition: {
+                columns: this.__input.fileFormatConfiguration?.parquetConfiguration?.schemaDefinition?.columns,
+              },
+            },
+          },
+          datastorePartitions: {
+            partitions: this.__input.datastorePartitions?.partitions,
+          },
         },
       },
     };
@@ -1575,6 +1662,14 @@ export class IoTAnalyticsResponsesDescribeDatastoreDatastore {
     return resource.getResponseField('datastore.lastMessageArrivalTime') as unknown as string;
   }
 
+  public get fileFormatConfiguration(): IoTAnalyticsResponsesDescribeDatastoreDatastoreFileFormatConfiguration {
+    return new IoTAnalyticsResponsesDescribeDatastoreDatastoreFileFormatConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get datastorePartitions(): IoTAnalyticsResponsesDescribeDatastoreDatastoreDatastorePartitions {
+    return new IoTAnalyticsResponsesDescribeDatastoreDatastoreDatastorePartitions(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class IoTAnalyticsResponsesDescribeDatastoreDatastoreStorage {
@@ -1602,6 +1697,10 @@ export class IoTAnalyticsResponsesDescribeDatastoreDatastoreStorage {
 
   public get customerManagedS3(): IoTAnalyticsResponsesDescribeDatastoreDatastoreStorageCustomerManagedS3 {
     return new IoTAnalyticsResponsesDescribeDatastoreDatastoreStorageCustomerManagedS3(this.__scope, this.__resources, this.__input);
+  }
+
+  public get iotSiteWiseMultiLayerStorage(): IoTAnalyticsResponsesDescribeDatastoreDatastoreStorageIotSiteWiseMultiLayerStorage {
+    return new IoTAnalyticsResponsesDescribeDatastoreDatastoreStorageIotSiteWiseMultiLayerStorage(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -1667,6 +1766,60 @@ export class IoTAnalyticsResponsesDescribeDatastoreDatastoreStorageCustomerManag
 
 }
 
+export class IoTAnalyticsResponsesDescribeDatastoreDatastoreStorageIotSiteWiseMultiLayerStorage {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTAnalyticsDescribeDatastoreRequest) {
+  }
+
+  public get customerManagedS3Storage(): IoTAnalyticsResponsesDescribeDatastoreDatastoreStorageIotSiteWiseMultiLayerStorageCustomerManagedS3Storage {
+    return new IoTAnalyticsResponsesDescribeDatastoreDatastoreStorageIotSiteWiseMultiLayerStorageCustomerManagedS3Storage(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTAnalyticsResponsesDescribeDatastoreDatastoreStorageIotSiteWiseMultiLayerStorageCustomerManagedS3Storage {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTAnalyticsDescribeDatastoreRequest) {
+  }
+
+  public get bucket(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDatastore',
+        service: 'IoTAnalytics',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTAnalytics.DescribeDatastore.datastore.storage.iotSiteWiseMultiLayerStorage.customerManagedS3Storage.bucket'),
+        outputPath: 'datastore.storage.iotSiteWiseMultiLayerStorage.customerManagedS3Storage.bucket',
+        parameters: {
+          datastoreName: this.__input.datastoreName,
+          includeStatistics: this.__input.includeStatistics,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDatastore.datastore.storage.iotSiteWiseMultiLayerStorage.customerManagedS3Storage.bucket', props);
+    return resource.getResponseField('datastore.storage.iotSiteWiseMultiLayerStorage.customerManagedS3Storage.bucket') as unknown as string;
+  }
+
+  public get keyPrefix(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDatastore',
+        service: 'IoTAnalytics',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTAnalytics.DescribeDatastore.datastore.storage.iotSiteWiseMultiLayerStorage.customerManagedS3Storage.keyPrefix'),
+        outputPath: 'datastore.storage.iotSiteWiseMultiLayerStorage.customerManagedS3Storage.keyPrefix',
+        parameters: {
+          datastoreName: this.__input.datastoreName,
+          includeStatistics: this.__input.includeStatistics,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDatastore.datastore.storage.iotSiteWiseMultiLayerStorage.customerManagedS3Storage.keyPrefix', props);
+    return resource.getResponseField('datastore.storage.iotSiteWiseMultiLayerStorage.customerManagedS3Storage.keyPrefix') as unknown as string;
+  }
+
+}
+
 export class IoTAnalyticsResponsesDescribeDatastoreDatastoreRetentionPeriod {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTAnalyticsDescribeDatastoreRequest) {
@@ -1706,6 +1859,96 @@ export class IoTAnalyticsResponsesDescribeDatastoreDatastoreRetentionPeriod {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDatastore.datastore.retentionPeriod.numberOfDays', props);
     return resource.getResponseField('datastore.retentionPeriod.numberOfDays') as unknown as number;
+  }
+
+}
+
+export class IoTAnalyticsResponsesDescribeDatastoreDatastoreFileFormatConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTAnalyticsDescribeDatastoreRequest) {
+  }
+
+  public get jsonConfiguration(): any {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDatastore',
+        service: 'IoTAnalytics',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTAnalytics.DescribeDatastore.datastore.fileFormatConfiguration.jsonConfiguration'),
+        outputPath: 'datastore.fileFormatConfiguration.jsonConfiguration',
+        parameters: {
+          datastoreName: this.__input.datastoreName,
+          includeStatistics: this.__input.includeStatistics,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDatastore.datastore.fileFormatConfiguration.jsonConfiguration', props);
+    return resource.getResponseField('datastore.fileFormatConfiguration.jsonConfiguration') as unknown as any;
+  }
+
+  public get parquetConfiguration(): IoTAnalyticsResponsesDescribeDatastoreDatastoreFileFormatConfigurationParquetConfiguration {
+    return new IoTAnalyticsResponsesDescribeDatastoreDatastoreFileFormatConfigurationParquetConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTAnalyticsResponsesDescribeDatastoreDatastoreFileFormatConfigurationParquetConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTAnalyticsDescribeDatastoreRequest) {
+  }
+
+  public get schemaDefinition(): IoTAnalyticsResponsesDescribeDatastoreDatastoreFileFormatConfigurationParquetConfigurationSchemaDefinition {
+    return new IoTAnalyticsResponsesDescribeDatastoreDatastoreFileFormatConfigurationParquetConfigurationSchemaDefinition(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTAnalyticsResponsesDescribeDatastoreDatastoreFileFormatConfigurationParquetConfigurationSchemaDefinition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTAnalyticsDescribeDatastoreRequest) {
+  }
+
+  public get columns(): shapes.IoTAnalyticsColumn[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDatastore',
+        service: 'IoTAnalytics',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTAnalytics.DescribeDatastore.datastore.fileFormatConfiguration.parquetConfiguration.schemaDefinition.columns'),
+        outputPath: 'datastore.fileFormatConfiguration.parquetConfiguration.schemaDefinition.columns',
+        parameters: {
+          datastoreName: this.__input.datastoreName,
+          includeStatistics: this.__input.includeStatistics,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDatastore.datastore.fileFormatConfiguration.parquetConfiguration.schemaDefinition.columns', props);
+    return resource.getResponseField('datastore.fileFormatConfiguration.parquetConfiguration.schemaDefinition.columns') as unknown as shapes.IoTAnalyticsColumn[];
+  }
+
+}
+
+export class IoTAnalyticsResponsesDescribeDatastoreDatastoreDatastorePartitions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTAnalyticsDescribeDatastoreRequest) {
+  }
+
+  public get partitions(): shapes.IoTAnalyticsDatastorePartition[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDatastore',
+        service: 'IoTAnalytics',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTAnalytics.DescribeDatastore.datastore.datastorePartitions.partitions'),
+        outputPath: 'datastore.datastorePartitions.partitions',
+        parameters: {
+          datastoreName: this.__input.datastoreName,
+          includeStatistics: this.__input.includeStatistics,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDatastore.datastore.datastorePartitions.partitions', props);
+    return resource.getResponseField('datastore.datastorePartitions.partitions') as unknown as shapes.IoTAnalyticsDatastorePartition[];
   }
 
 }
@@ -2484,6 +2727,9 @@ export class IoTAnalyticsResponsesStartPipelineReprocessing {
           pipelineName: this.__input.pipelineName,
           startTime: this.__input.startTime,
           endTime: this.__input.endTime,
+          channelMessages: {
+            s3Paths: this.__input.channelMessages?.s3Paths,
+          },
         },
       },
     };

@@ -8,12 +8,47 @@ export class GlobalAcceleratorClient extends cdk.Construct {
     super(scope, id);
   }
 
+  public addCustomRoutingEndpoints(input: shapes.GlobalAcceleratorAddCustomRoutingEndpointsRequest): GlobalAcceleratorResponsesAddCustomRoutingEndpoints {
+    return new GlobalAcceleratorResponsesAddCustomRoutingEndpoints(this, this.__resources, input);
+  }
+
   public advertiseByoipCidr(input: shapes.GlobalAcceleratorAdvertiseByoipCidrRequest): GlobalAcceleratorResponsesAdvertiseByoipCidr {
     return new GlobalAcceleratorResponsesAdvertiseByoipCidr(this, this.__resources, input);
   }
 
+  public allowCustomRoutingTraffic(input: shapes.GlobalAcceleratorAllowCustomRoutingTrafficRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'allowCustomRoutingTraffic',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.AllowCustomRoutingTraffic'),
+        parameters: {
+          EndpointGroupArn: input.endpointGroupArn,
+          EndpointId: input.endpointId,
+          DestinationAddresses: input.destinationAddresses,
+          DestinationPorts: input.destinationPorts,
+          AllowAllTrafficToEndpoint: input.allowAllTrafficToEndpoint,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'AllowCustomRoutingTraffic', props);
+  }
+
   public createAccelerator(input: shapes.GlobalAcceleratorCreateAcceleratorRequest): GlobalAcceleratorResponsesCreateAccelerator {
     return new GlobalAcceleratorResponsesCreateAccelerator(this, this.__resources, input);
+  }
+
+  public createCustomRoutingAccelerator(input: shapes.GlobalAcceleratorCreateCustomRoutingAcceleratorRequest): GlobalAcceleratorResponsesCreateCustomRoutingAccelerator {
+    return new GlobalAcceleratorResponsesCreateCustomRoutingAccelerator(this, this.__resources, input);
+  }
+
+  public createCustomRoutingEndpointGroup(input: shapes.GlobalAcceleratorCreateCustomRoutingEndpointGroupRequest): GlobalAcceleratorResponsesCreateCustomRoutingEndpointGroup {
+    return new GlobalAcceleratorResponsesCreateCustomRoutingEndpointGroup(this, this.__resources, input);
+  }
+
+  public createCustomRoutingListener(input: shapes.GlobalAcceleratorCreateCustomRoutingListenerRequest): GlobalAcceleratorResponsesCreateCustomRoutingListener {
+    return new GlobalAcceleratorResponsesCreateCustomRoutingListener(this, this.__resources, input);
   }
 
   public createEndpointGroup(input: shapes.GlobalAcceleratorCreateEndpointGroupRequest): GlobalAcceleratorResponsesCreateEndpointGroup {
@@ -37,6 +72,51 @@ export class GlobalAcceleratorClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'DeleteAccelerator', props);
+  }
+
+  public deleteCustomRoutingAccelerator(input: shapes.GlobalAcceleratorDeleteCustomRoutingAcceleratorRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DeleteCustomRoutingAccelerator'),
+        parameters: {
+          AcceleratorArn: input.acceleratorArn,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteCustomRoutingAccelerator', props);
+  }
+
+  public deleteCustomRoutingEndpointGroup(input: shapes.GlobalAcceleratorDeleteCustomRoutingEndpointGroupRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCustomRoutingEndpointGroup',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DeleteCustomRoutingEndpointGroup'),
+        parameters: {
+          EndpointGroupArn: input.endpointGroupArn,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteCustomRoutingEndpointGroup', props);
+  }
+
+  public deleteCustomRoutingListener(input: shapes.GlobalAcceleratorDeleteCustomRoutingListenerRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCustomRoutingListener',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DeleteCustomRoutingListener'),
+        parameters: {
+          ListenerArn: input.listenerArn,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteCustomRoutingListener', props);
   }
 
   public deleteEndpointGroup(input: shapes.GlobalAcceleratorDeleteEndpointGroupRequest): void {
@@ -69,6 +149,25 @@ export class GlobalAcceleratorClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeleteListener', props);
   }
 
+  public denyCustomRoutingTraffic(input: shapes.GlobalAcceleratorDenyCustomRoutingTrafficRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'denyCustomRoutingTraffic',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DenyCustomRoutingTraffic'),
+        parameters: {
+          EndpointGroupArn: input.endpointGroupArn,
+          EndpointId: input.endpointId,
+          DestinationAddresses: input.destinationAddresses,
+          DestinationPorts: input.destinationPorts,
+          DenyAllTrafficToEndpoint: input.denyAllTrafficToEndpoint,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DenyCustomRoutingTraffic', props);
+  }
+
   public deprovisionByoipCidr(input: shapes.GlobalAcceleratorDeprovisionByoipCidrRequest): GlobalAcceleratorResponsesDeprovisionByoipCidr {
     return new GlobalAcceleratorResponsesDeprovisionByoipCidr(this, this.__resources, input);
   }
@@ -79,6 +178,22 @@ export class GlobalAcceleratorClient extends cdk.Construct {
 
   public describeAcceleratorAttributes(input: shapes.GlobalAcceleratorDescribeAcceleratorAttributesRequest): GlobalAcceleratorResponsesDescribeAcceleratorAttributes {
     return new GlobalAcceleratorResponsesDescribeAcceleratorAttributes(this, this.__resources, input);
+  }
+
+  public describeCustomRoutingAccelerator(input: shapes.GlobalAcceleratorDescribeCustomRoutingAcceleratorRequest): GlobalAcceleratorResponsesDescribeCustomRoutingAccelerator {
+    return new GlobalAcceleratorResponsesDescribeCustomRoutingAccelerator(this, this.__resources, input);
+  }
+
+  public describeCustomRoutingAcceleratorAttributes(input: shapes.GlobalAcceleratorDescribeCustomRoutingAcceleratorAttributesRequest): GlobalAcceleratorResponsesDescribeCustomRoutingAcceleratorAttributes {
+    return new GlobalAcceleratorResponsesDescribeCustomRoutingAcceleratorAttributes(this, this.__resources, input);
+  }
+
+  public describeCustomRoutingEndpointGroup(input: shapes.GlobalAcceleratorDescribeCustomRoutingEndpointGroupRequest): GlobalAcceleratorResponsesDescribeCustomRoutingEndpointGroup {
+    return new GlobalAcceleratorResponsesDescribeCustomRoutingEndpointGroup(this, this.__resources, input);
+  }
+
+  public describeCustomRoutingListener(input: shapes.GlobalAcceleratorDescribeCustomRoutingListenerRequest): GlobalAcceleratorResponsesDescribeCustomRoutingListener {
+    return new GlobalAcceleratorResponsesDescribeCustomRoutingListener(this, this.__resources, input);
   }
 
   public describeEndpointGroup(input: shapes.GlobalAcceleratorDescribeEndpointGroupRequest): GlobalAcceleratorResponsesDescribeEndpointGroup {
@@ -97,6 +212,26 @@ export class GlobalAcceleratorClient extends cdk.Construct {
     return new GlobalAcceleratorResponsesListByoipCidrs(this, this.__resources, input);
   }
 
+  public listCustomRoutingAccelerators(input: shapes.GlobalAcceleratorListCustomRoutingAcceleratorsRequest): GlobalAcceleratorResponsesListCustomRoutingAccelerators {
+    return new GlobalAcceleratorResponsesListCustomRoutingAccelerators(this, this.__resources, input);
+  }
+
+  public listCustomRoutingEndpointGroups(input: shapes.GlobalAcceleratorListCustomRoutingEndpointGroupsRequest): GlobalAcceleratorResponsesListCustomRoutingEndpointGroups {
+    return new GlobalAcceleratorResponsesListCustomRoutingEndpointGroups(this, this.__resources, input);
+  }
+
+  public listCustomRoutingListeners(input: shapes.GlobalAcceleratorListCustomRoutingListenersRequest): GlobalAcceleratorResponsesListCustomRoutingListeners {
+    return new GlobalAcceleratorResponsesListCustomRoutingListeners(this, this.__resources, input);
+  }
+
+  public listCustomRoutingPortMappings(input: shapes.GlobalAcceleratorListCustomRoutingPortMappingsRequest): GlobalAcceleratorResponsesListCustomRoutingPortMappings {
+    return new GlobalAcceleratorResponsesListCustomRoutingPortMappings(this, this.__resources, input);
+  }
+
+  public listCustomRoutingPortMappingsByDestination(input: shapes.GlobalAcceleratorListCustomRoutingPortMappingsByDestinationRequest): GlobalAcceleratorResponsesListCustomRoutingPortMappingsByDestination {
+    return new GlobalAcceleratorResponsesListCustomRoutingPortMappingsByDestination(this, this.__resources, input);
+  }
+
   public listEndpointGroups(input: shapes.GlobalAcceleratorListEndpointGroupsRequest): GlobalAcceleratorResponsesListEndpointGroups {
     return new GlobalAcceleratorResponsesListEndpointGroups(this, this.__resources, input);
   }
@@ -111,6 +246,22 @@ export class GlobalAcceleratorClient extends cdk.Construct {
 
   public provisionByoipCidr(input: shapes.GlobalAcceleratorProvisionByoipCidrRequest): GlobalAcceleratorResponsesProvisionByoipCidr {
     return new GlobalAcceleratorResponsesProvisionByoipCidr(this, this.__resources, input);
+  }
+
+  public removeCustomRoutingEndpoints(input: shapes.GlobalAcceleratorRemoveCustomRoutingEndpointsRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeCustomRoutingEndpoints',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.RemoveCustomRoutingEndpoints'),
+        parameters: {
+          EndpointIds: input.endpointIds,
+          EndpointGroupArn: input.endpointGroupArn,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'RemoveCustomRoutingEndpoints', props);
   }
 
   public tagResource(input: shapes.GlobalAcceleratorTagResourceRequest): void {
@@ -153,6 +304,18 @@ export class GlobalAcceleratorClient extends cdk.Construct {
     return new GlobalAcceleratorResponsesUpdateAcceleratorAttributes(this, this.__resources, input);
   }
 
+  public updateCustomRoutingAccelerator(input: shapes.GlobalAcceleratorUpdateCustomRoutingAcceleratorRequest): GlobalAcceleratorResponsesUpdateCustomRoutingAccelerator {
+    return new GlobalAcceleratorResponsesUpdateCustomRoutingAccelerator(this, this.__resources, input);
+  }
+
+  public updateCustomRoutingAcceleratorAttributes(input: shapes.GlobalAcceleratorUpdateCustomRoutingAcceleratorAttributesRequest): GlobalAcceleratorResponsesUpdateCustomRoutingAcceleratorAttributes {
+    return new GlobalAcceleratorResponsesUpdateCustomRoutingAcceleratorAttributes(this, this.__resources, input);
+  }
+
+  public updateCustomRoutingListener(input: shapes.GlobalAcceleratorUpdateCustomRoutingListenerRequest): GlobalAcceleratorResponsesUpdateCustomRoutingListener {
+    return new GlobalAcceleratorResponsesUpdateCustomRoutingListener(this, this.__resources, input);
+  }
+
   public updateEndpointGroup(input: shapes.GlobalAcceleratorUpdateEndpointGroupRequest): GlobalAcceleratorResponsesUpdateEndpointGroup {
     return new GlobalAcceleratorResponsesUpdateEndpointGroup(this, this.__resources, input);
   }
@@ -163,6 +326,49 @@ export class GlobalAcceleratorClient extends cdk.Construct {
 
   public withdrawByoipCidr(input: shapes.GlobalAcceleratorWithdrawByoipCidrRequest): GlobalAcceleratorResponsesWithdrawByoipCidr {
     return new GlobalAcceleratorResponsesWithdrawByoipCidr(this, this.__resources, input);
+  }
+
+}
+
+export class GlobalAcceleratorResponsesAddCustomRoutingEndpoints {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorAddCustomRoutingEndpointsRequest) {
+  }
+
+  public get endpointDescriptions(): shapes.GlobalAcceleratorCustomRoutingEndpointDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addCustomRoutingEndpoints',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.AddCustomRoutingEndpoints.EndpointDescriptions'),
+        outputPath: 'EndpointDescriptions',
+        parameters: {
+          EndpointConfigurations: this.__input.endpointConfigurations,
+          EndpointGroupArn: this.__input.endpointGroupArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddCustomRoutingEndpoints.EndpointDescriptions', props);
+    return resource.getResponseField('EndpointDescriptions') as unknown as shapes.GlobalAcceleratorCustomRoutingEndpointDescription[];
+  }
+
+  public get endpointGroupArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addCustomRoutingEndpoints',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.AddCustomRoutingEndpoints.EndpointGroupArn'),
+        outputPath: 'EndpointGroupArn',
+        parameters: {
+          EndpointConfigurations: this.__input.endpointConfigurations,
+          EndpointGroupArn: this.__input.endpointGroupArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddCustomRoutingEndpoints.EndpointGroupArn', props);
+    return resource.getResponseField('EndpointGroupArn') as unknown as string;
   }
 
 }
@@ -448,6 +654,376 @@ export class GlobalAcceleratorResponsesCreateAcceleratorAccelerator {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateAccelerator.Accelerator.LastModifiedTime', props);
     return resource.getResponseField('Accelerator.LastModifiedTime') as unknown as string;
+  }
+
+}
+
+export class GlobalAcceleratorResponsesCreateCustomRoutingAccelerator {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorCreateCustomRoutingAcceleratorRequest) {
+  }
+
+  public get accelerator(): GlobalAcceleratorResponsesCreateCustomRoutingAcceleratorAccelerator {
+    return new GlobalAcceleratorResponsesCreateCustomRoutingAcceleratorAccelerator(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class GlobalAcceleratorResponsesCreateCustomRoutingAcceleratorAccelerator {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorCreateCustomRoutingAcceleratorRequest) {
+  }
+
+  public get acceleratorArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.CreateCustomRoutingAccelerator.Accelerator.AcceleratorArn'),
+        outputPath: 'Accelerator.AcceleratorArn',
+        parameters: {
+          Name: this.__input.name,
+          IpAddressType: this.__input.ipAddressType,
+          IpAddresses: this.__input.ipAddresses,
+          Enabled: this.__input.enabled,
+          IdempotencyToken: this.__input.idempotencyToken,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCustomRoutingAccelerator.Accelerator.AcceleratorArn', props);
+    return resource.getResponseField('Accelerator.AcceleratorArn') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.CreateCustomRoutingAccelerator.Accelerator.Name'),
+        outputPath: 'Accelerator.Name',
+        parameters: {
+          Name: this.__input.name,
+          IpAddressType: this.__input.ipAddressType,
+          IpAddresses: this.__input.ipAddresses,
+          Enabled: this.__input.enabled,
+          IdempotencyToken: this.__input.idempotencyToken,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCustomRoutingAccelerator.Accelerator.Name', props);
+    return resource.getResponseField('Accelerator.Name') as unknown as string;
+  }
+
+  public get ipAddressType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.CreateCustomRoutingAccelerator.Accelerator.IpAddressType'),
+        outputPath: 'Accelerator.IpAddressType',
+        parameters: {
+          Name: this.__input.name,
+          IpAddressType: this.__input.ipAddressType,
+          IpAddresses: this.__input.ipAddresses,
+          Enabled: this.__input.enabled,
+          IdempotencyToken: this.__input.idempotencyToken,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCustomRoutingAccelerator.Accelerator.IpAddressType', props);
+    return resource.getResponseField('Accelerator.IpAddressType') as unknown as string;
+  }
+
+  public get enabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.CreateCustomRoutingAccelerator.Accelerator.Enabled'),
+        outputPath: 'Accelerator.Enabled',
+        parameters: {
+          Name: this.__input.name,
+          IpAddressType: this.__input.ipAddressType,
+          IpAddresses: this.__input.ipAddresses,
+          Enabled: this.__input.enabled,
+          IdempotencyToken: this.__input.idempotencyToken,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCustomRoutingAccelerator.Accelerator.Enabled', props);
+    return resource.getResponseField('Accelerator.Enabled') as unknown as boolean;
+  }
+
+  public get ipSets(): shapes.GlobalAcceleratorIpSet[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.CreateCustomRoutingAccelerator.Accelerator.IpSets'),
+        outputPath: 'Accelerator.IpSets',
+        parameters: {
+          Name: this.__input.name,
+          IpAddressType: this.__input.ipAddressType,
+          IpAddresses: this.__input.ipAddresses,
+          Enabled: this.__input.enabled,
+          IdempotencyToken: this.__input.idempotencyToken,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCustomRoutingAccelerator.Accelerator.IpSets', props);
+    return resource.getResponseField('Accelerator.IpSets') as unknown as shapes.GlobalAcceleratorIpSet[];
+  }
+
+  public get dnsName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.CreateCustomRoutingAccelerator.Accelerator.DnsName'),
+        outputPath: 'Accelerator.DnsName',
+        parameters: {
+          Name: this.__input.name,
+          IpAddressType: this.__input.ipAddressType,
+          IpAddresses: this.__input.ipAddresses,
+          Enabled: this.__input.enabled,
+          IdempotencyToken: this.__input.idempotencyToken,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCustomRoutingAccelerator.Accelerator.DnsName', props);
+    return resource.getResponseField('Accelerator.DnsName') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.CreateCustomRoutingAccelerator.Accelerator.Status'),
+        outputPath: 'Accelerator.Status',
+        parameters: {
+          Name: this.__input.name,
+          IpAddressType: this.__input.ipAddressType,
+          IpAddresses: this.__input.ipAddresses,
+          Enabled: this.__input.enabled,
+          IdempotencyToken: this.__input.idempotencyToken,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCustomRoutingAccelerator.Accelerator.Status', props);
+    return resource.getResponseField('Accelerator.Status') as unknown as string;
+  }
+
+  public get createdTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.CreateCustomRoutingAccelerator.Accelerator.CreatedTime'),
+        outputPath: 'Accelerator.CreatedTime',
+        parameters: {
+          Name: this.__input.name,
+          IpAddressType: this.__input.ipAddressType,
+          IpAddresses: this.__input.ipAddresses,
+          Enabled: this.__input.enabled,
+          IdempotencyToken: this.__input.idempotencyToken,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCustomRoutingAccelerator.Accelerator.CreatedTime', props);
+    return resource.getResponseField('Accelerator.CreatedTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.CreateCustomRoutingAccelerator.Accelerator.LastModifiedTime'),
+        outputPath: 'Accelerator.LastModifiedTime',
+        parameters: {
+          Name: this.__input.name,
+          IpAddressType: this.__input.ipAddressType,
+          IpAddresses: this.__input.ipAddresses,
+          Enabled: this.__input.enabled,
+          IdempotencyToken: this.__input.idempotencyToken,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCustomRoutingAccelerator.Accelerator.LastModifiedTime', props);
+    return resource.getResponseField('Accelerator.LastModifiedTime') as unknown as string;
+  }
+
+}
+
+export class GlobalAcceleratorResponsesCreateCustomRoutingEndpointGroup {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorCreateCustomRoutingEndpointGroupRequest) {
+  }
+
+  public get endpointGroup(): GlobalAcceleratorResponsesCreateCustomRoutingEndpointGroupEndpointGroup {
+    return new GlobalAcceleratorResponsesCreateCustomRoutingEndpointGroupEndpointGroup(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class GlobalAcceleratorResponsesCreateCustomRoutingEndpointGroupEndpointGroup {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorCreateCustomRoutingEndpointGroupRequest) {
+  }
+
+  public get endpointGroupArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCustomRoutingEndpointGroup',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.CreateCustomRoutingEndpointGroup.EndpointGroup.EndpointGroupArn'),
+        outputPath: 'EndpointGroup.EndpointGroupArn',
+        parameters: {
+          ListenerArn: this.__input.listenerArn,
+          EndpointGroupRegion: this.__input.endpointGroupRegion,
+          DestinationConfigurations: this.__input.destinationConfigurations,
+          IdempotencyToken: this.__input.idempotencyToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCustomRoutingEndpointGroup.EndpointGroup.EndpointGroupArn', props);
+    return resource.getResponseField('EndpointGroup.EndpointGroupArn') as unknown as string;
+  }
+
+  public get endpointGroupRegion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCustomRoutingEndpointGroup',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.CreateCustomRoutingEndpointGroup.EndpointGroup.EndpointGroupRegion'),
+        outputPath: 'EndpointGroup.EndpointGroupRegion',
+        parameters: {
+          ListenerArn: this.__input.listenerArn,
+          EndpointGroupRegion: this.__input.endpointGroupRegion,
+          DestinationConfigurations: this.__input.destinationConfigurations,
+          IdempotencyToken: this.__input.idempotencyToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCustomRoutingEndpointGroup.EndpointGroup.EndpointGroupRegion', props);
+    return resource.getResponseField('EndpointGroup.EndpointGroupRegion') as unknown as string;
+  }
+
+  public get destinationDescriptions(): shapes.GlobalAcceleratorCustomRoutingDestinationDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCustomRoutingEndpointGroup',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.CreateCustomRoutingEndpointGroup.EndpointGroup.DestinationDescriptions'),
+        outputPath: 'EndpointGroup.DestinationDescriptions',
+        parameters: {
+          ListenerArn: this.__input.listenerArn,
+          EndpointGroupRegion: this.__input.endpointGroupRegion,
+          DestinationConfigurations: this.__input.destinationConfigurations,
+          IdempotencyToken: this.__input.idempotencyToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCustomRoutingEndpointGroup.EndpointGroup.DestinationDescriptions', props);
+    return resource.getResponseField('EndpointGroup.DestinationDescriptions') as unknown as shapes.GlobalAcceleratorCustomRoutingDestinationDescription[];
+  }
+
+  public get endpointDescriptions(): shapes.GlobalAcceleratorCustomRoutingEndpointDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCustomRoutingEndpointGroup',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.CreateCustomRoutingEndpointGroup.EndpointGroup.EndpointDescriptions'),
+        outputPath: 'EndpointGroup.EndpointDescriptions',
+        parameters: {
+          ListenerArn: this.__input.listenerArn,
+          EndpointGroupRegion: this.__input.endpointGroupRegion,
+          DestinationConfigurations: this.__input.destinationConfigurations,
+          IdempotencyToken: this.__input.idempotencyToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCustomRoutingEndpointGroup.EndpointGroup.EndpointDescriptions', props);
+    return resource.getResponseField('EndpointGroup.EndpointDescriptions') as unknown as shapes.GlobalAcceleratorCustomRoutingEndpointDescription[];
+  }
+
+}
+
+export class GlobalAcceleratorResponsesCreateCustomRoutingListener {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorCreateCustomRoutingListenerRequest) {
+  }
+
+  public get listener(): GlobalAcceleratorResponsesCreateCustomRoutingListenerListener {
+    return new GlobalAcceleratorResponsesCreateCustomRoutingListenerListener(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class GlobalAcceleratorResponsesCreateCustomRoutingListenerListener {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorCreateCustomRoutingListenerRequest) {
+  }
+
+  public get listenerArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCustomRoutingListener',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.CreateCustomRoutingListener.Listener.ListenerArn'),
+        outputPath: 'Listener.ListenerArn',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+          PortRanges: this.__input.portRanges,
+          IdempotencyToken: this.__input.idempotencyToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCustomRoutingListener.Listener.ListenerArn', props);
+    return resource.getResponseField('Listener.ListenerArn') as unknown as string;
+  }
+
+  public get portRanges(): shapes.GlobalAcceleratorPortRange[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCustomRoutingListener',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.CreateCustomRoutingListener.Listener.PortRanges'),
+        outputPath: 'Listener.PortRanges',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+          PortRanges: this.__input.portRanges,
+          IdempotencyToken: this.__input.idempotencyToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCustomRoutingListener.Listener.PortRanges', props);
+    return resource.getResponseField('Listener.PortRanges') as unknown as shapes.GlobalAcceleratorPortRange[];
   }
 
 }
@@ -1151,6 +1727,384 @@ export class GlobalAcceleratorResponsesDescribeAcceleratorAttributesAcceleratorA
 
 }
 
+export class GlobalAcceleratorResponsesDescribeCustomRoutingAccelerator {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorDescribeCustomRoutingAcceleratorRequest) {
+  }
+
+  public get accelerator(): GlobalAcceleratorResponsesDescribeCustomRoutingAcceleratorAccelerator {
+    return new GlobalAcceleratorResponsesDescribeCustomRoutingAcceleratorAccelerator(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class GlobalAcceleratorResponsesDescribeCustomRoutingAcceleratorAccelerator {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorDescribeCustomRoutingAcceleratorRequest) {
+  }
+
+  public get acceleratorArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DescribeCustomRoutingAccelerator.Accelerator.AcceleratorArn'),
+        outputPath: 'Accelerator.AcceleratorArn',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomRoutingAccelerator.Accelerator.AcceleratorArn', props);
+    return resource.getResponseField('Accelerator.AcceleratorArn') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DescribeCustomRoutingAccelerator.Accelerator.Name'),
+        outputPath: 'Accelerator.Name',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomRoutingAccelerator.Accelerator.Name', props);
+    return resource.getResponseField('Accelerator.Name') as unknown as string;
+  }
+
+  public get ipAddressType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DescribeCustomRoutingAccelerator.Accelerator.IpAddressType'),
+        outputPath: 'Accelerator.IpAddressType',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomRoutingAccelerator.Accelerator.IpAddressType', props);
+    return resource.getResponseField('Accelerator.IpAddressType') as unknown as string;
+  }
+
+  public get enabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DescribeCustomRoutingAccelerator.Accelerator.Enabled'),
+        outputPath: 'Accelerator.Enabled',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomRoutingAccelerator.Accelerator.Enabled', props);
+    return resource.getResponseField('Accelerator.Enabled') as unknown as boolean;
+  }
+
+  public get ipSets(): shapes.GlobalAcceleratorIpSet[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DescribeCustomRoutingAccelerator.Accelerator.IpSets'),
+        outputPath: 'Accelerator.IpSets',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomRoutingAccelerator.Accelerator.IpSets', props);
+    return resource.getResponseField('Accelerator.IpSets') as unknown as shapes.GlobalAcceleratorIpSet[];
+  }
+
+  public get dnsName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DescribeCustomRoutingAccelerator.Accelerator.DnsName'),
+        outputPath: 'Accelerator.DnsName',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomRoutingAccelerator.Accelerator.DnsName', props);
+    return resource.getResponseField('Accelerator.DnsName') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DescribeCustomRoutingAccelerator.Accelerator.Status'),
+        outputPath: 'Accelerator.Status',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomRoutingAccelerator.Accelerator.Status', props);
+    return resource.getResponseField('Accelerator.Status') as unknown as string;
+  }
+
+  public get createdTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DescribeCustomRoutingAccelerator.Accelerator.CreatedTime'),
+        outputPath: 'Accelerator.CreatedTime',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomRoutingAccelerator.Accelerator.CreatedTime', props);
+    return resource.getResponseField('Accelerator.CreatedTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DescribeCustomRoutingAccelerator.Accelerator.LastModifiedTime'),
+        outputPath: 'Accelerator.LastModifiedTime',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomRoutingAccelerator.Accelerator.LastModifiedTime', props);
+    return resource.getResponseField('Accelerator.LastModifiedTime') as unknown as string;
+  }
+
+}
+
+export class GlobalAcceleratorResponsesDescribeCustomRoutingAcceleratorAttributes {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorDescribeCustomRoutingAcceleratorAttributesRequest) {
+  }
+
+  public get acceleratorAttributes(): GlobalAcceleratorResponsesDescribeCustomRoutingAcceleratorAttributesAcceleratorAttributes {
+    return new GlobalAcceleratorResponsesDescribeCustomRoutingAcceleratorAttributesAcceleratorAttributes(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class GlobalAcceleratorResponsesDescribeCustomRoutingAcceleratorAttributesAcceleratorAttributes {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorDescribeCustomRoutingAcceleratorAttributesRequest) {
+  }
+
+  public get flowLogsEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomRoutingAcceleratorAttributes',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DescribeCustomRoutingAcceleratorAttributes.AcceleratorAttributes.FlowLogsEnabled'),
+        outputPath: 'AcceleratorAttributes.FlowLogsEnabled',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomRoutingAcceleratorAttributes.AcceleratorAttributes.FlowLogsEnabled', props);
+    return resource.getResponseField('AcceleratorAttributes.FlowLogsEnabled') as unknown as boolean;
+  }
+
+  public get flowLogsS3Bucket(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomRoutingAcceleratorAttributes',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DescribeCustomRoutingAcceleratorAttributes.AcceleratorAttributes.FlowLogsS3Bucket'),
+        outputPath: 'AcceleratorAttributes.FlowLogsS3Bucket',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomRoutingAcceleratorAttributes.AcceleratorAttributes.FlowLogsS3Bucket', props);
+    return resource.getResponseField('AcceleratorAttributes.FlowLogsS3Bucket') as unknown as string;
+  }
+
+  public get flowLogsS3Prefix(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomRoutingAcceleratorAttributes',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DescribeCustomRoutingAcceleratorAttributes.AcceleratorAttributes.FlowLogsS3Prefix'),
+        outputPath: 'AcceleratorAttributes.FlowLogsS3Prefix',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomRoutingAcceleratorAttributes.AcceleratorAttributes.FlowLogsS3Prefix', props);
+    return resource.getResponseField('AcceleratorAttributes.FlowLogsS3Prefix') as unknown as string;
+  }
+
+}
+
+export class GlobalAcceleratorResponsesDescribeCustomRoutingEndpointGroup {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorDescribeCustomRoutingEndpointGroupRequest) {
+  }
+
+  public get endpointGroup(): GlobalAcceleratorResponsesDescribeCustomRoutingEndpointGroupEndpointGroup {
+    return new GlobalAcceleratorResponsesDescribeCustomRoutingEndpointGroupEndpointGroup(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class GlobalAcceleratorResponsesDescribeCustomRoutingEndpointGroupEndpointGroup {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorDescribeCustomRoutingEndpointGroupRequest) {
+  }
+
+  public get endpointGroupArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomRoutingEndpointGroup',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DescribeCustomRoutingEndpointGroup.EndpointGroup.EndpointGroupArn'),
+        outputPath: 'EndpointGroup.EndpointGroupArn',
+        parameters: {
+          EndpointGroupArn: this.__input.endpointGroupArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomRoutingEndpointGroup.EndpointGroup.EndpointGroupArn', props);
+    return resource.getResponseField('EndpointGroup.EndpointGroupArn') as unknown as string;
+  }
+
+  public get endpointGroupRegion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomRoutingEndpointGroup',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DescribeCustomRoutingEndpointGroup.EndpointGroup.EndpointGroupRegion'),
+        outputPath: 'EndpointGroup.EndpointGroupRegion',
+        parameters: {
+          EndpointGroupArn: this.__input.endpointGroupArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomRoutingEndpointGroup.EndpointGroup.EndpointGroupRegion', props);
+    return resource.getResponseField('EndpointGroup.EndpointGroupRegion') as unknown as string;
+  }
+
+  public get destinationDescriptions(): shapes.GlobalAcceleratorCustomRoutingDestinationDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomRoutingEndpointGroup',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DescribeCustomRoutingEndpointGroup.EndpointGroup.DestinationDescriptions'),
+        outputPath: 'EndpointGroup.DestinationDescriptions',
+        parameters: {
+          EndpointGroupArn: this.__input.endpointGroupArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomRoutingEndpointGroup.EndpointGroup.DestinationDescriptions', props);
+    return resource.getResponseField('EndpointGroup.DestinationDescriptions') as unknown as shapes.GlobalAcceleratorCustomRoutingDestinationDescription[];
+  }
+
+  public get endpointDescriptions(): shapes.GlobalAcceleratorCustomRoutingEndpointDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomRoutingEndpointGroup',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DescribeCustomRoutingEndpointGroup.EndpointGroup.EndpointDescriptions'),
+        outputPath: 'EndpointGroup.EndpointDescriptions',
+        parameters: {
+          EndpointGroupArn: this.__input.endpointGroupArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomRoutingEndpointGroup.EndpointGroup.EndpointDescriptions', props);
+    return resource.getResponseField('EndpointGroup.EndpointDescriptions') as unknown as shapes.GlobalAcceleratorCustomRoutingEndpointDescription[];
+  }
+
+}
+
+export class GlobalAcceleratorResponsesDescribeCustomRoutingListener {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorDescribeCustomRoutingListenerRequest) {
+  }
+
+  public get listener(): GlobalAcceleratorResponsesDescribeCustomRoutingListenerListener {
+    return new GlobalAcceleratorResponsesDescribeCustomRoutingListenerListener(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class GlobalAcceleratorResponsesDescribeCustomRoutingListenerListener {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorDescribeCustomRoutingListenerRequest) {
+  }
+
+  public get listenerArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomRoutingListener',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DescribeCustomRoutingListener.Listener.ListenerArn'),
+        outputPath: 'Listener.ListenerArn',
+        parameters: {
+          ListenerArn: this.__input.listenerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomRoutingListener.Listener.ListenerArn', props);
+    return resource.getResponseField('Listener.ListenerArn') as unknown as string;
+  }
+
+  public get portRanges(): shapes.GlobalAcceleratorPortRange[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomRoutingListener',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.DescribeCustomRoutingListener.Listener.PortRanges'),
+        outputPath: 'Listener.PortRanges',
+        parameters: {
+          ListenerArn: this.__input.listenerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomRoutingListener.Listener.PortRanges', props);
+    return resource.getResponseField('Listener.PortRanges') as unknown as shapes.GlobalAcceleratorPortRange[];
+  }
+
+}
+
 export class GlobalAcceleratorResponsesDescribeEndpointGroup {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorDescribeEndpointGroupRequest) {
@@ -1506,6 +2460,233 @@ export class GlobalAcceleratorResponsesListByoipCidrs {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListByoipCidrs.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class GlobalAcceleratorResponsesListCustomRoutingAccelerators {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorListCustomRoutingAcceleratorsRequest) {
+  }
+
+  public get accelerators(): shapes.GlobalAcceleratorCustomRoutingAccelerator[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listCustomRoutingAccelerators',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.ListCustomRoutingAccelerators.Accelerators'),
+        outputPath: 'Accelerators',
+        parameters: {
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListCustomRoutingAccelerators.Accelerators', props);
+    return resource.getResponseField('Accelerators') as unknown as shapes.GlobalAcceleratorCustomRoutingAccelerator[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listCustomRoutingAccelerators',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.ListCustomRoutingAccelerators.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListCustomRoutingAccelerators.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class GlobalAcceleratorResponsesListCustomRoutingEndpointGroups {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorListCustomRoutingEndpointGroupsRequest) {
+  }
+
+  public get endpointGroups(): shapes.GlobalAcceleratorCustomRoutingEndpointGroup[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listCustomRoutingEndpointGroups',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.ListCustomRoutingEndpointGroups.EndpointGroups'),
+        outputPath: 'EndpointGroups',
+        parameters: {
+          ListenerArn: this.__input.listenerArn,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListCustomRoutingEndpointGroups.EndpointGroups', props);
+    return resource.getResponseField('EndpointGroups') as unknown as shapes.GlobalAcceleratorCustomRoutingEndpointGroup[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listCustomRoutingEndpointGroups',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.ListCustomRoutingEndpointGroups.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          ListenerArn: this.__input.listenerArn,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListCustomRoutingEndpointGroups.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class GlobalAcceleratorResponsesListCustomRoutingListeners {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorListCustomRoutingListenersRequest) {
+  }
+
+  public get listeners(): shapes.GlobalAcceleratorCustomRoutingListener[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listCustomRoutingListeners',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.ListCustomRoutingListeners.Listeners'),
+        outputPath: 'Listeners',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListCustomRoutingListeners.Listeners', props);
+    return resource.getResponseField('Listeners') as unknown as shapes.GlobalAcceleratorCustomRoutingListener[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listCustomRoutingListeners',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.ListCustomRoutingListeners.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListCustomRoutingListeners.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class GlobalAcceleratorResponsesListCustomRoutingPortMappings {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorListCustomRoutingPortMappingsRequest) {
+  }
+
+  public get portMappings(): shapes.GlobalAcceleratorPortMapping[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listCustomRoutingPortMappings',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.ListCustomRoutingPortMappings.PortMappings'),
+        outputPath: 'PortMappings',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+          EndpointGroupArn: this.__input.endpointGroupArn,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListCustomRoutingPortMappings.PortMappings', props);
+    return resource.getResponseField('PortMappings') as unknown as shapes.GlobalAcceleratorPortMapping[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listCustomRoutingPortMappings',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.ListCustomRoutingPortMappings.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+          EndpointGroupArn: this.__input.endpointGroupArn,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListCustomRoutingPortMappings.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class GlobalAcceleratorResponsesListCustomRoutingPortMappingsByDestination {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorListCustomRoutingPortMappingsByDestinationRequest) {
+  }
+
+  public get destinationPortMappings(): shapes.GlobalAcceleratorDestinationPortMapping[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listCustomRoutingPortMappingsByDestination',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.ListCustomRoutingPortMappingsByDestination.DestinationPortMappings'),
+        outputPath: 'DestinationPortMappings',
+        parameters: {
+          EndpointId: this.__input.endpointId,
+          DestinationAddress: this.__input.destinationAddress,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListCustomRoutingPortMappingsByDestination.DestinationPortMappings', props);
+    return resource.getResponseField('DestinationPortMappings') as unknown as shapes.GlobalAcceleratorDestinationPortMapping[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listCustomRoutingPortMappingsByDestination',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.ListCustomRoutingPortMappingsByDestination.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          EndpointId: this.__input.endpointId,
+          DestinationAddress: this.__input.destinationAddress,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListCustomRoutingPortMappingsByDestination.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
 
@@ -1978,6 +3159,336 @@ export class GlobalAcceleratorResponsesUpdateAcceleratorAttributesAcceleratorAtt
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAcceleratorAttributes.AcceleratorAttributes.FlowLogsS3Prefix', props);
     return resource.getResponseField('AcceleratorAttributes.FlowLogsS3Prefix') as unknown as string;
+  }
+
+}
+
+export class GlobalAcceleratorResponsesUpdateCustomRoutingAccelerator {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorUpdateCustomRoutingAcceleratorRequest) {
+  }
+
+  public get accelerator(): GlobalAcceleratorResponsesUpdateCustomRoutingAcceleratorAccelerator {
+    return new GlobalAcceleratorResponsesUpdateCustomRoutingAcceleratorAccelerator(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class GlobalAcceleratorResponsesUpdateCustomRoutingAcceleratorAccelerator {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorUpdateCustomRoutingAcceleratorRequest) {
+  }
+
+  public get acceleratorArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.UpdateCustomRoutingAccelerator.Accelerator.AcceleratorArn'),
+        outputPath: 'Accelerator.AcceleratorArn',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+          Name: this.__input.name,
+          IpAddressType: this.__input.ipAddressType,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomRoutingAccelerator.Accelerator.AcceleratorArn', props);
+    return resource.getResponseField('Accelerator.AcceleratorArn') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.UpdateCustomRoutingAccelerator.Accelerator.Name'),
+        outputPath: 'Accelerator.Name',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+          Name: this.__input.name,
+          IpAddressType: this.__input.ipAddressType,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomRoutingAccelerator.Accelerator.Name', props);
+    return resource.getResponseField('Accelerator.Name') as unknown as string;
+  }
+
+  public get ipAddressType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.UpdateCustomRoutingAccelerator.Accelerator.IpAddressType'),
+        outputPath: 'Accelerator.IpAddressType',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+          Name: this.__input.name,
+          IpAddressType: this.__input.ipAddressType,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomRoutingAccelerator.Accelerator.IpAddressType', props);
+    return resource.getResponseField('Accelerator.IpAddressType') as unknown as string;
+  }
+
+  public get enabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.UpdateCustomRoutingAccelerator.Accelerator.Enabled'),
+        outputPath: 'Accelerator.Enabled',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+          Name: this.__input.name,
+          IpAddressType: this.__input.ipAddressType,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomRoutingAccelerator.Accelerator.Enabled', props);
+    return resource.getResponseField('Accelerator.Enabled') as unknown as boolean;
+  }
+
+  public get ipSets(): shapes.GlobalAcceleratorIpSet[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.UpdateCustomRoutingAccelerator.Accelerator.IpSets'),
+        outputPath: 'Accelerator.IpSets',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+          Name: this.__input.name,
+          IpAddressType: this.__input.ipAddressType,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomRoutingAccelerator.Accelerator.IpSets', props);
+    return resource.getResponseField('Accelerator.IpSets') as unknown as shapes.GlobalAcceleratorIpSet[];
+  }
+
+  public get dnsName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.UpdateCustomRoutingAccelerator.Accelerator.DnsName'),
+        outputPath: 'Accelerator.DnsName',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+          Name: this.__input.name,
+          IpAddressType: this.__input.ipAddressType,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomRoutingAccelerator.Accelerator.DnsName', props);
+    return resource.getResponseField('Accelerator.DnsName') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.UpdateCustomRoutingAccelerator.Accelerator.Status'),
+        outputPath: 'Accelerator.Status',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+          Name: this.__input.name,
+          IpAddressType: this.__input.ipAddressType,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomRoutingAccelerator.Accelerator.Status', props);
+    return resource.getResponseField('Accelerator.Status') as unknown as string;
+  }
+
+  public get createdTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.UpdateCustomRoutingAccelerator.Accelerator.CreatedTime'),
+        outputPath: 'Accelerator.CreatedTime',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+          Name: this.__input.name,
+          IpAddressType: this.__input.ipAddressType,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomRoutingAccelerator.Accelerator.CreatedTime', props);
+    return resource.getResponseField('Accelerator.CreatedTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomRoutingAccelerator',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.UpdateCustomRoutingAccelerator.Accelerator.LastModifiedTime'),
+        outputPath: 'Accelerator.LastModifiedTime',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+          Name: this.__input.name,
+          IpAddressType: this.__input.ipAddressType,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomRoutingAccelerator.Accelerator.LastModifiedTime', props);
+    return resource.getResponseField('Accelerator.LastModifiedTime') as unknown as string;
+  }
+
+}
+
+export class GlobalAcceleratorResponsesUpdateCustomRoutingAcceleratorAttributes {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorUpdateCustomRoutingAcceleratorAttributesRequest) {
+  }
+
+  public get acceleratorAttributes(): GlobalAcceleratorResponsesUpdateCustomRoutingAcceleratorAttributesAcceleratorAttributes {
+    return new GlobalAcceleratorResponsesUpdateCustomRoutingAcceleratorAttributesAcceleratorAttributes(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class GlobalAcceleratorResponsesUpdateCustomRoutingAcceleratorAttributesAcceleratorAttributes {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorUpdateCustomRoutingAcceleratorAttributesRequest) {
+  }
+
+  public get flowLogsEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomRoutingAcceleratorAttributes',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.UpdateCustomRoutingAcceleratorAttributes.AcceleratorAttributes.FlowLogsEnabled'),
+        outputPath: 'AcceleratorAttributes.FlowLogsEnabled',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+          FlowLogsEnabled: this.__input.flowLogsEnabled,
+          FlowLogsS3Bucket: this.__input.flowLogsS3Bucket,
+          FlowLogsS3Prefix: this.__input.flowLogsS3Prefix,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomRoutingAcceleratorAttributes.AcceleratorAttributes.FlowLogsEnabled', props);
+    return resource.getResponseField('AcceleratorAttributes.FlowLogsEnabled') as unknown as boolean;
+  }
+
+  public get flowLogsS3Bucket(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomRoutingAcceleratorAttributes',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.UpdateCustomRoutingAcceleratorAttributes.AcceleratorAttributes.FlowLogsS3Bucket'),
+        outputPath: 'AcceleratorAttributes.FlowLogsS3Bucket',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+          FlowLogsEnabled: this.__input.flowLogsEnabled,
+          FlowLogsS3Bucket: this.__input.flowLogsS3Bucket,
+          FlowLogsS3Prefix: this.__input.flowLogsS3Prefix,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomRoutingAcceleratorAttributes.AcceleratorAttributes.FlowLogsS3Bucket', props);
+    return resource.getResponseField('AcceleratorAttributes.FlowLogsS3Bucket') as unknown as string;
+  }
+
+  public get flowLogsS3Prefix(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomRoutingAcceleratorAttributes',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.UpdateCustomRoutingAcceleratorAttributes.AcceleratorAttributes.FlowLogsS3Prefix'),
+        outputPath: 'AcceleratorAttributes.FlowLogsS3Prefix',
+        parameters: {
+          AcceleratorArn: this.__input.acceleratorArn,
+          FlowLogsEnabled: this.__input.flowLogsEnabled,
+          FlowLogsS3Bucket: this.__input.flowLogsS3Bucket,
+          FlowLogsS3Prefix: this.__input.flowLogsS3Prefix,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomRoutingAcceleratorAttributes.AcceleratorAttributes.FlowLogsS3Prefix', props);
+    return resource.getResponseField('AcceleratorAttributes.FlowLogsS3Prefix') as unknown as string;
+  }
+
+}
+
+export class GlobalAcceleratorResponsesUpdateCustomRoutingListener {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorUpdateCustomRoutingListenerRequest) {
+  }
+
+  public get listener(): GlobalAcceleratorResponsesUpdateCustomRoutingListenerListener {
+    return new GlobalAcceleratorResponsesUpdateCustomRoutingListenerListener(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class GlobalAcceleratorResponsesUpdateCustomRoutingListenerListener {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlobalAcceleratorUpdateCustomRoutingListenerRequest) {
+  }
+
+  public get listenerArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomRoutingListener',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.UpdateCustomRoutingListener.Listener.ListenerArn'),
+        outputPath: 'Listener.ListenerArn',
+        parameters: {
+          ListenerArn: this.__input.listenerArn,
+          PortRanges: this.__input.portRanges,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomRoutingListener.Listener.ListenerArn', props);
+    return resource.getResponseField('Listener.ListenerArn') as unknown as string;
+  }
+
+  public get portRanges(): shapes.GlobalAcceleratorPortRange[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomRoutingListener',
+        service: 'GlobalAccelerator',
+        physicalResourceId: cr.PhysicalResourceId.of('GlobalAccelerator.UpdateCustomRoutingListener.Listener.PortRanges'),
+        outputPath: 'Listener.PortRanges',
+        parameters: {
+          ListenerArn: this.__input.listenerArn,
+          PortRanges: this.__input.portRanges,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomRoutingListener.Listener.PortRanges', props);
+    return resource.getResponseField('Listener.PortRanges') as unknown as shapes.GlobalAcceleratorPortRange[];
   }
 
 }

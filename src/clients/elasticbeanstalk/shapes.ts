@@ -15,6 +15,21 @@ export interface ElasticBeanstalkAbortEnvironmentUpdateMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkAbortEnvironmentUpdateMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkAbortEnvironmentUpdateMessage(obj: ElasticBeanstalkAbortEnvironmentUpdateMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentId': obj.environmentId,
+    'EnvironmentName': obj.environmentName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkApplyEnvironmentManagedActionRequest
  */
 export interface ElasticBeanstalkApplyEnvironmentManagedActionRequest {
@@ -31,9 +46,25 @@ export interface ElasticBeanstalkApplyEnvironmentManagedActionRequest {
   /**
    * @schema ElasticBeanstalkApplyEnvironmentManagedActionRequest#ActionId
    */
-  readonly actionId: string;
+  readonly actionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkApplyEnvironmentManagedActionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkApplyEnvironmentManagedActionRequest(obj: ElasticBeanstalkApplyEnvironmentManagedActionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentName': obj.environmentName,
+    'EnvironmentId': obj.environmentId,
+    'ActionId': obj.actionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkApplyEnvironmentManagedActionResult
@@ -62,20 +93,52 @@ export interface ElasticBeanstalkApplyEnvironmentManagedActionResult {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkApplyEnvironmentManagedActionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkApplyEnvironmentManagedActionResult(obj: ElasticBeanstalkApplyEnvironmentManagedActionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ActionId': obj.actionId,
+    'ActionDescription': obj.actionDescription,
+    'ActionType': obj.actionType,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkAssociateEnvironmentOperationsRoleMessage
  */
 export interface ElasticBeanstalkAssociateEnvironmentOperationsRoleMessage {
   /**
    * @schema ElasticBeanstalkAssociateEnvironmentOperationsRoleMessage#EnvironmentName
    */
-  readonly environmentName: string;
+  readonly environmentName?: string;
 
   /**
    * @schema ElasticBeanstalkAssociateEnvironmentOperationsRoleMessage#OperationsRole
    */
-  readonly operationsRole: string;
+  readonly operationsRole?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkAssociateEnvironmentOperationsRoleMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkAssociateEnvironmentOperationsRoleMessage(obj: ElasticBeanstalkAssociateEnvironmentOperationsRoleMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentName': obj.environmentName,
+    'OperationsRole': obj.operationsRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkCheckDnsAvailabilityMessage
@@ -84,9 +147,23 @@ export interface ElasticBeanstalkCheckDnsAvailabilityMessage {
   /**
    * @schema ElasticBeanstalkCheckDnsAvailabilityMessage#CNAMEPrefix
    */
-  readonly cnamePrefix: string;
+  readonly cnamePrefix?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkCheckDnsAvailabilityMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkCheckDnsAvailabilityMessage(obj: ElasticBeanstalkCheckDnsAvailabilityMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CNAMEPrefix': obj.cnamePrefix,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkCheckDnsAvailabilityResultMessage
@@ -103,6 +180,21 @@ export interface ElasticBeanstalkCheckDnsAvailabilityResultMessage {
   readonly fullyQualifiedCname?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkCheckDnsAvailabilityResultMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkCheckDnsAvailabilityResultMessage(obj: ElasticBeanstalkCheckDnsAvailabilityResultMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Available': obj.available,
+    'FullyQualifiedCNAME': obj.fullyQualifiedCname,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkComposeEnvironmentsMessage
@@ -126,6 +218,22 @@ export interface ElasticBeanstalkComposeEnvironmentsMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkComposeEnvironmentsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkComposeEnvironmentsMessage(obj: ElasticBeanstalkComposeEnvironmentsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'GroupName': obj.groupName,
+    'VersionLabels': obj.versionLabels?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkEnvironmentDescriptionsMessage
  */
 export interface ElasticBeanstalkEnvironmentDescriptionsMessage {
@@ -142,13 +250,28 @@ export interface ElasticBeanstalkEnvironmentDescriptionsMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkEnvironmentDescriptionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkEnvironmentDescriptionsMessage(obj: ElasticBeanstalkEnvironmentDescriptionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Environments': obj.environments?.map(y => toJson_ElasticBeanstalkEnvironmentDescription(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkCreateApplicationMessage
  */
 export interface ElasticBeanstalkCreateApplicationMessage {
   /**
    * @schema ElasticBeanstalkCreateApplicationMessage#ApplicationName
    */
-  readonly applicationName: string;
+  readonly applicationName?: string;
 
   /**
    * @schema ElasticBeanstalkCreateApplicationMessage#Description
@@ -168,6 +291,23 @@ export interface ElasticBeanstalkCreateApplicationMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkCreateApplicationMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkCreateApplicationMessage(obj: ElasticBeanstalkCreateApplicationMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'Description': obj.description,
+    'ResourceLifecycleConfig': toJson_ElasticBeanstalkApplicationResourceLifecycleConfig(obj.resourceLifecycleConfig),
+    'Tags': obj.tags?.map(y => toJson_ElasticBeanstalkTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkApplicationDescriptionMessage
  */
 export interface ElasticBeanstalkApplicationDescriptionMessage {
@@ -179,18 +319,32 @@ export interface ElasticBeanstalkApplicationDescriptionMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkApplicationDescriptionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkApplicationDescriptionMessage(obj: ElasticBeanstalkApplicationDescriptionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Application': toJson_ElasticBeanstalkApplicationDescription(obj.application),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkCreateApplicationVersionMessage
  */
 export interface ElasticBeanstalkCreateApplicationVersionMessage {
   /**
    * @schema ElasticBeanstalkCreateApplicationVersionMessage#ApplicationName
    */
-  readonly applicationName: string;
+  readonly applicationName?: string;
 
   /**
    * @schema ElasticBeanstalkCreateApplicationVersionMessage#VersionLabel
    */
-  readonly versionLabel: string;
+  readonly versionLabel?: string;
 
   /**
    * @schema ElasticBeanstalkCreateApplicationVersionMessage#Description
@@ -230,6 +384,28 @@ export interface ElasticBeanstalkCreateApplicationVersionMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkCreateApplicationVersionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkCreateApplicationVersionMessage(obj: ElasticBeanstalkCreateApplicationVersionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'VersionLabel': obj.versionLabel,
+    'Description': obj.description,
+    'SourceBuildInformation': toJson_ElasticBeanstalkSourceBuildInformation(obj.sourceBuildInformation),
+    'SourceBundle': toJson_ElasticBeanstalkS3Location(obj.sourceBundle),
+    'BuildConfiguration': toJson_ElasticBeanstalkBuildConfiguration(obj.buildConfiguration),
+    'AutoCreateApplication': obj.autoCreateApplication,
+    'Process': obj.process,
+    'Tags': obj.tags?.map(y => toJson_ElasticBeanstalkTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkApplicationVersionDescriptionMessage
  */
 export interface ElasticBeanstalkApplicationVersionDescriptionMessage {
@@ -241,18 +417,32 @@ export interface ElasticBeanstalkApplicationVersionDescriptionMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkApplicationVersionDescriptionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkApplicationVersionDescriptionMessage(obj: ElasticBeanstalkApplicationVersionDescriptionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationVersion': toJson_ElasticBeanstalkApplicationVersionDescription(obj.applicationVersion),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkCreateConfigurationTemplateMessage
  */
 export interface ElasticBeanstalkCreateConfigurationTemplateMessage {
   /**
    * @schema ElasticBeanstalkCreateConfigurationTemplateMessage#ApplicationName
    */
-  readonly applicationName: string;
+  readonly applicationName?: string;
 
   /**
    * @schema ElasticBeanstalkCreateConfigurationTemplateMessage#TemplateName
    */
-  readonly templateName: string;
+  readonly templateName?: string;
 
   /**
    * @schema ElasticBeanstalkCreateConfigurationTemplateMessage#SolutionStackName
@@ -290,6 +480,28 @@ export interface ElasticBeanstalkCreateConfigurationTemplateMessage {
   readonly tags?: ElasticBeanstalkTag[];
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkCreateConfigurationTemplateMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkCreateConfigurationTemplateMessage(obj: ElasticBeanstalkCreateConfigurationTemplateMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'TemplateName': obj.templateName,
+    'SolutionStackName': obj.solutionStackName,
+    'PlatformArn': obj.platformArn,
+    'SourceConfiguration': toJson_ElasticBeanstalkSourceConfiguration(obj.sourceConfiguration),
+    'EnvironmentId': obj.environmentId,
+    'Description': obj.description,
+    'OptionSettings': obj.optionSettings?.map(y => toJson_ElasticBeanstalkConfigurationOptionSetting(y)),
+    'Tags': obj.tags?.map(y => toJson_ElasticBeanstalkTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkConfigurationSettingsDescription
@@ -348,13 +560,36 @@ export interface ElasticBeanstalkConfigurationSettingsDescription {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkConfigurationSettingsDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkConfigurationSettingsDescription(obj: ElasticBeanstalkConfigurationSettingsDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SolutionStackName': obj.solutionStackName,
+    'PlatformArn': obj.platformArn,
+    'ApplicationName': obj.applicationName,
+    'TemplateName': obj.templateName,
+    'Description': obj.description,
+    'EnvironmentName': obj.environmentName,
+    'DeploymentStatus': obj.deploymentStatus,
+    'DateCreated': obj.dateCreated,
+    'DateUpdated': obj.dateUpdated,
+    'OptionSettings': obj.optionSettings?.map(y => toJson_ElasticBeanstalkConfigurationOptionSetting(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkCreateEnvironmentMessage
  */
 export interface ElasticBeanstalkCreateEnvironmentMessage {
   /**
    * @schema ElasticBeanstalkCreateEnvironmentMessage#ApplicationName
    */
-  readonly applicationName: string;
+  readonly applicationName?: string;
 
   /**
    * @schema ElasticBeanstalkCreateEnvironmentMessage#EnvironmentName
@@ -422,6 +657,33 @@ export interface ElasticBeanstalkCreateEnvironmentMessage {
   readonly operationsRole?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkCreateEnvironmentMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkCreateEnvironmentMessage(obj: ElasticBeanstalkCreateEnvironmentMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'EnvironmentName': obj.environmentName,
+    'GroupName': obj.groupName,
+    'Description': obj.description,
+    'CNAMEPrefix': obj.cnamePrefix,
+    'Tier': toJson_ElasticBeanstalkEnvironmentTier(obj.tier),
+    'Tags': obj.tags?.map(y => toJson_ElasticBeanstalkTag(y)),
+    'VersionLabel': obj.versionLabel,
+    'TemplateName': obj.templateName,
+    'SolutionStackName': obj.solutionStackName,
+    'PlatformArn': obj.platformArn,
+    'OptionSettings': obj.optionSettings?.map(y => toJson_ElasticBeanstalkConfigurationOptionSetting(y)),
+    'OptionsToRemove': obj.optionsToRemove?.map(y => toJson_ElasticBeanstalkOptionSpecification(y)),
+    'OperationsRole': obj.operationsRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkEnvironmentDescription
@@ -535,23 +797,57 @@ export interface ElasticBeanstalkEnvironmentDescription {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkEnvironmentDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkEnvironmentDescription(obj: ElasticBeanstalkEnvironmentDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentName': obj.environmentName,
+    'EnvironmentId': obj.environmentId,
+    'ApplicationName': obj.applicationName,
+    'VersionLabel': obj.versionLabel,
+    'SolutionStackName': obj.solutionStackName,
+    'PlatformArn': obj.platformArn,
+    'TemplateName': obj.templateName,
+    'Description': obj.description,
+    'EndpointURL': obj.endpointUrl,
+    'CNAME': obj.cname,
+    'DateCreated': obj.dateCreated,
+    'DateUpdated': obj.dateUpdated,
+    'Status': obj.status,
+    'AbortableOperationInProgress': obj.abortableOperationInProgress,
+    'Health': obj.health,
+    'HealthStatus': obj.healthStatus,
+    'Resources': toJson_ElasticBeanstalkEnvironmentResourcesDescription(obj.resources),
+    'Tier': toJson_ElasticBeanstalkEnvironmentTier(obj.tier),
+    'EnvironmentLinks': obj.environmentLinks?.map(y => toJson_ElasticBeanstalkEnvironmentLink(y)),
+    'EnvironmentArn': obj.environmentArn,
+    'OperationsRole': obj.operationsRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkCreatePlatformVersionRequest
  */
 export interface ElasticBeanstalkCreatePlatformVersionRequest {
   /**
    * @schema ElasticBeanstalkCreatePlatformVersionRequest#PlatformName
    */
-  readonly platformName: string;
+  readonly platformName?: string;
 
   /**
    * @schema ElasticBeanstalkCreatePlatformVersionRequest#PlatformVersion
    */
-  readonly platformVersion: string;
+  readonly platformVersion?: string;
 
   /**
    * @schema ElasticBeanstalkCreatePlatformVersionRequest#PlatformDefinitionBundle
    */
-  readonly platformDefinitionBundle: ElasticBeanstalkS3Location;
+  readonly platformDefinitionBundle?: ElasticBeanstalkS3Location;
 
   /**
    * @schema ElasticBeanstalkCreatePlatformVersionRequest#EnvironmentName
@@ -571,6 +867,25 @@ export interface ElasticBeanstalkCreatePlatformVersionRequest {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkCreatePlatformVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkCreatePlatformVersionRequest(obj: ElasticBeanstalkCreatePlatformVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PlatformName': obj.platformName,
+    'PlatformVersion': obj.platformVersion,
+    'PlatformDefinitionBundle': toJson_ElasticBeanstalkS3Location(obj.platformDefinitionBundle),
+    'EnvironmentName': obj.environmentName,
+    'OptionSettings': obj.optionSettings?.map(y => toJson_ElasticBeanstalkConfigurationOptionSetting(y)),
+    'Tags': obj.tags?.map(y => toJson_ElasticBeanstalkTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkCreatePlatformVersionResult
  */
 export interface ElasticBeanstalkCreatePlatformVersionResult {
@@ -587,6 +902,21 @@ export interface ElasticBeanstalkCreatePlatformVersionResult {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkCreatePlatformVersionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkCreatePlatformVersionResult(obj: ElasticBeanstalkCreatePlatformVersionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PlatformSummary': toJson_ElasticBeanstalkPlatformSummary(obj.platformSummary),
+    'Builder': toJson_ElasticBeanstalkBuilder(obj.builder),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkCreateStorageLocationResultMessage
  */
 export interface ElasticBeanstalkCreateStorageLocationResultMessage {
@@ -598,13 +928,27 @@ export interface ElasticBeanstalkCreateStorageLocationResultMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkCreateStorageLocationResultMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkCreateStorageLocationResultMessage(obj: ElasticBeanstalkCreateStorageLocationResultMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3Bucket': obj.s3Bucket,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkDeleteApplicationMessage
  */
 export interface ElasticBeanstalkDeleteApplicationMessage {
   /**
    * @schema ElasticBeanstalkDeleteApplicationMessage#ApplicationName
    */
-  readonly applicationName: string;
+  readonly applicationName?: string;
 
   /**
    * @schema ElasticBeanstalkDeleteApplicationMessage#TerminateEnvByForce
@@ -614,18 +958,33 @@ export interface ElasticBeanstalkDeleteApplicationMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkDeleteApplicationMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDeleteApplicationMessage(obj: ElasticBeanstalkDeleteApplicationMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'TerminateEnvByForce': obj.terminateEnvByForce,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkDeleteApplicationVersionMessage
  */
 export interface ElasticBeanstalkDeleteApplicationVersionMessage {
   /**
    * @schema ElasticBeanstalkDeleteApplicationVersionMessage#ApplicationName
    */
-  readonly applicationName: string;
+  readonly applicationName?: string;
 
   /**
    * @schema ElasticBeanstalkDeleteApplicationVersionMessage#VersionLabel
    */
-  readonly versionLabel: string;
+  readonly versionLabel?: string;
 
   /**
    * @schema ElasticBeanstalkDeleteApplicationVersionMessage#DeleteSourceBundle
@@ -635,20 +994,51 @@ export interface ElasticBeanstalkDeleteApplicationVersionMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkDeleteApplicationVersionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDeleteApplicationVersionMessage(obj: ElasticBeanstalkDeleteApplicationVersionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'VersionLabel': obj.versionLabel,
+    'DeleteSourceBundle': obj.deleteSourceBundle,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkDeleteConfigurationTemplateMessage
  */
 export interface ElasticBeanstalkDeleteConfigurationTemplateMessage {
   /**
    * @schema ElasticBeanstalkDeleteConfigurationTemplateMessage#ApplicationName
    */
-  readonly applicationName: string;
+  readonly applicationName?: string;
 
   /**
    * @schema ElasticBeanstalkDeleteConfigurationTemplateMessage#TemplateName
    */
-  readonly templateName: string;
+  readonly templateName?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkDeleteConfigurationTemplateMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDeleteConfigurationTemplateMessage(obj: ElasticBeanstalkDeleteConfigurationTemplateMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'TemplateName': obj.templateName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkDeleteEnvironmentConfigurationMessage
@@ -657,14 +1047,29 @@ export interface ElasticBeanstalkDeleteEnvironmentConfigurationMessage {
   /**
    * @schema ElasticBeanstalkDeleteEnvironmentConfigurationMessage#ApplicationName
    */
-  readonly applicationName: string;
+  readonly applicationName?: string;
 
   /**
    * @schema ElasticBeanstalkDeleteEnvironmentConfigurationMessage#EnvironmentName
    */
-  readonly environmentName: string;
+  readonly environmentName?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkDeleteEnvironmentConfigurationMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDeleteEnvironmentConfigurationMessage(obj: ElasticBeanstalkDeleteEnvironmentConfigurationMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'EnvironmentName': obj.environmentName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkDeletePlatformVersionRequest
@@ -678,6 +1083,20 @@ export interface ElasticBeanstalkDeletePlatformVersionRequest {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkDeletePlatformVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDeletePlatformVersionRequest(obj: ElasticBeanstalkDeletePlatformVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PlatformArn': obj.platformArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkDeletePlatformVersionResult
  */
 export interface ElasticBeanstalkDeletePlatformVersionResult {
@@ -689,6 +1108,20 @@ export interface ElasticBeanstalkDeletePlatformVersionResult {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkDeletePlatformVersionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDeletePlatformVersionResult(obj: ElasticBeanstalkDeletePlatformVersionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PlatformSummary': toJson_ElasticBeanstalkPlatformSummary(obj.platformSummary),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkDescribeAccountAttributesResult
  */
 export interface ElasticBeanstalkDescribeAccountAttributesResult {
@@ -698,6 +1131,20 @@ export interface ElasticBeanstalkDescribeAccountAttributesResult {
   readonly resourceQuotas?: ElasticBeanstalkResourceQuotas;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkDescribeAccountAttributesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDescribeAccountAttributesResult(obj: ElasticBeanstalkDescribeAccountAttributesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceQuotas': toJson_ElasticBeanstalkResourceQuotas(obj.resourceQuotas),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkDescribeApplicationVersionsMessage
@@ -726,6 +1173,23 @@ export interface ElasticBeanstalkDescribeApplicationVersionsMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkDescribeApplicationVersionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDescribeApplicationVersionsMessage(obj: ElasticBeanstalkDescribeApplicationVersionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'VersionLabels': obj.versionLabels?.map(y => y),
+    'MaxRecords': obj.maxRecords,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkApplicationVersionDescriptionsMessage
  */
 export interface ElasticBeanstalkApplicationVersionDescriptionsMessage {
@@ -742,6 +1206,21 @@ export interface ElasticBeanstalkApplicationVersionDescriptionsMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkApplicationVersionDescriptionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkApplicationVersionDescriptionsMessage(obj: ElasticBeanstalkApplicationVersionDescriptionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationVersions': obj.applicationVersions?.map(y => toJson_ElasticBeanstalkApplicationVersionDescription(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkDescribeApplicationsMessage
  */
 export interface ElasticBeanstalkDescribeApplicationsMessage {
@@ -753,6 +1232,20 @@ export interface ElasticBeanstalkDescribeApplicationsMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkDescribeApplicationsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDescribeApplicationsMessage(obj: ElasticBeanstalkDescribeApplicationsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationNames': obj.applicationNames?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkApplicationDescriptionsMessage
  */
 export interface ElasticBeanstalkApplicationDescriptionsMessage {
@@ -762,6 +1255,20 @@ export interface ElasticBeanstalkApplicationDescriptionsMessage {
   readonly applications?: ElasticBeanstalkApplicationDescription[];
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkApplicationDescriptionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkApplicationDescriptionsMessage(obj: ElasticBeanstalkApplicationDescriptionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Applications': obj.applications?.map(y => toJson_ElasticBeanstalkApplicationDescription(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkDescribeConfigurationOptionsMessage
@@ -800,6 +1307,25 @@ export interface ElasticBeanstalkDescribeConfigurationOptionsMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkDescribeConfigurationOptionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDescribeConfigurationOptionsMessage(obj: ElasticBeanstalkDescribeConfigurationOptionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'TemplateName': obj.templateName,
+    'EnvironmentName': obj.environmentName,
+    'SolutionStackName': obj.solutionStackName,
+    'PlatformArn': obj.platformArn,
+    'Options': obj.options?.map(y => toJson_ElasticBeanstalkOptionSpecification(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkConfigurationOptionsDescription
  */
 export interface ElasticBeanstalkConfigurationOptionsDescription {
@@ -821,13 +1347,29 @@ export interface ElasticBeanstalkConfigurationOptionsDescription {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkConfigurationOptionsDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkConfigurationOptionsDescription(obj: ElasticBeanstalkConfigurationOptionsDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SolutionStackName': obj.solutionStackName,
+    'PlatformArn': obj.platformArn,
+    'Options': obj.options?.map(y => toJson_ElasticBeanstalkConfigurationOptionDescription(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkDescribeConfigurationSettingsMessage
  */
 export interface ElasticBeanstalkDescribeConfigurationSettingsMessage {
   /**
    * @schema ElasticBeanstalkDescribeConfigurationSettingsMessage#ApplicationName
    */
-  readonly applicationName: string;
+  readonly applicationName?: string;
 
   /**
    * @schema ElasticBeanstalkDescribeConfigurationSettingsMessage#TemplateName
@@ -842,6 +1384,22 @@ export interface ElasticBeanstalkDescribeConfigurationSettingsMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkDescribeConfigurationSettingsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDescribeConfigurationSettingsMessage(obj: ElasticBeanstalkDescribeConfigurationSettingsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'TemplateName': obj.templateName,
+    'EnvironmentName': obj.environmentName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkConfigurationSettingsDescriptions
  */
 export interface ElasticBeanstalkConfigurationSettingsDescriptions {
@@ -851,6 +1409,20 @@ export interface ElasticBeanstalkConfigurationSettingsDescriptions {
   readonly configurationSettings?: ElasticBeanstalkConfigurationSettingsDescription[];
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkConfigurationSettingsDescriptions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkConfigurationSettingsDescriptions(obj: ElasticBeanstalkConfigurationSettingsDescriptions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConfigurationSettings': obj.configurationSettings?.map(y => toJson_ElasticBeanstalkConfigurationSettingsDescription(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkDescribeEnvironmentHealthRequest
@@ -872,6 +1444,22 @@ export interface ElasticBeanstalkDescribeEnvironmentHealthRequest {
   readonly attributeNames?: string[];
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkDescribeEnvironmentHealthRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDescribeEnvironmentHealthRequest(obj: ElasticBeanstalkDescribeEnvironmentHealthRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentName': obj.environmentName,
+    'EnvironmentId': obj.environmentId,
+    'AttributeNames': obj.attributeNames?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkDescribeEnvironmentHealthResult
@@ -920,6 +1508,27 @@ export interface ElasticBeanstalkDescribeEnvironmentHealthResult {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkDescribeEnvironmentHealthResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDescribeEnvironmentHealthResult(obj: ElasticBeanstalkDescribeEnvironmentHealthResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentName': obj.environmentName,
+    'HealthStatus': obj.healthStatus,
+    'Status': obj.status,
+    'Color': obj.color,
+    'Causes': obj.causes?.map(y => y),
+    'ApplicationMetrics': toJson_ElasticBeanstalkApplicationMetrics(obj.applicationMetrics),
+    'InstancesHealth': toJson_ElasticBeanstalkInstanceHealthSummary(obj.instancesHealth),
+    'RefreshedAt': obj.refreshedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkDescribeEnvironmentManagedActionHistoryRequest
  */
 export interface ElasticBeanstalkDescribeEnvironmentManagedActionHistoryRequest {
@@ -946,6 +1555,23 @@ export interface ElasticBeanstalkDescribeEnvironmentManagedActionHistoryRequest 
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkDescribeEnvironmentManagedActionHistoryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDescribeEnvironmentManagedActionHistoryRequest(obj: ElasticBeanstalkDescribeEnvironmentManagedActionHistoryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentId': obj.environmentId,
+    'EnvironmentName': obj.environmentName,
+    'NextToken': obj.nextToken,
+    'MaxItems': obj.maxItems,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkDescribeEnvironmentManagedActionHistoryResult
  */
 export interface ElasticBeanstalkDescribeEnvironmentManagedActionHistoryResult {
@@ -960,6 +1586,21 @@ export interface ElasticBeanstalkDescribeEnvironmentManagedActionHistoryResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkDescribeEnvironmentManagedActionHistoryResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDescribeEnvironmentManagedActionHistoryResult(obj: ElasticBeanstalkDescribeEnvironmentManagedActionHistoryResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ManagedActionHistoryItems': obj.managedActionHistoryItems?.map(y => toJson_ElasticBeanstalkManagedActionHistoryItem(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkDescribeEnvironmentManagedActionsRequest
@@ -983,6 +1624,22 @@ export interface ElasticBeanstalkDescribeEnvironmentManagedActionsRequest {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkDescribeEnvironmentManagedActionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDescribeEnvironmentManagedActionsRequest(obj: ElasticBeanstalkDescribeEnvironmentManagedActionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentName': obj.environmentName,
+    'EnvironmentId': obj.environmentId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkDescribeEnvironmentManagedActionsResult
  */
 export interface ElasticBeanstalkDescribeEnvironmentManagedActionsResult {
@@ -992,6 +1649,20 @@ export interface ElasticBeanstalkDescribeEnvironmentManagedActionsResult {
   readonly managedActions?: ElasticBeanstalkManagedAction[];
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkDescribeEnvironmentManagedActionsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDescribeEnvironmentManagedActionsResult(obj: ElasticBeanstalkDescribeEnvironmentManagedActionsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ManagedActions': obj.managedActions?.map(y => toJson_ElasticBeanstalkManagedAction(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkDescribeEnvironmentResourcesMessage
@@ -1010,6 +1681,21 @@ export interface ElasticBeanstalkDescribeEnvironmentResourcesMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkDescribeEnvironmentResourcesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDescribeEnvironmentResourcesMessage(obj: ElasticBeanstalkDescribeEnvironmentResourcesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentId': obj.environmentId,
+    'EnvironmentName': obj.environmentName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkEnvironmentResourceDescriptionsMessage
  */
 export interface ElasticBeanstalkEnvironmentResourceDescriptionsMessage {
@@ -1019,6 +1705,20 @@ export interface ElasticBeanstalkEnvironmentResourceDescriptionsMessage {
   readonly environmentResources?: ElasticBeanstalkEnvironmentResourceDescription;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkEnvironmentResourceDescriptionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkEnvironmentResourceDescriptionsMessage(obj: ElasticBeanstalkEnvironmentResourceDescriptionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentResources': toJson_ElasticBeanstalkEnvironmentResourceDescription(obj.environmentResources),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkDescribeEnvironmentsMessage
@@ -1065,6 +1765,27 @@ export interface ElasticBeanstalkDescribeEnvironmentsMessage {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkDescribeEnvironmentsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDescribeEnvironmentsMessage(obj: ElasticBeanstalkDescribeEnvironmentsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'VersionLabel': obj.versionLabel,
+    'EnvironmentIds': obj.environmentIds?.map(y => y),
+    'EnvironmentNames': obj.environmentNames?.map(y => y),
+    'IncludeDeleted': obj.includeDeleted,
+    'IncludedDeletedBackTo': obj.includedDeletedBackTo,
+    'MaxRecords': obj.maxRecords,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkDescribeEventsMessage
@@ -1133,6 +1854,31 @@ export interface ElasticBeanstalkDescribeEventsMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkDescribeEventsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDescribeEventsMessage(obj: ElasticBeanstalkDescribeEventsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'VersionLabel': obj.versionLabel,
+    'TemplateName': obj.templateName,
+    'EnvironmentId': obj.environmentId,
+    'EnvironmentName': obj.environmentName,
+    'PlatformArn': obj.platformArn,
+    'RequestId': obj.requestId,
+    'Severity': obj.severity,
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'MaxRecords': obj.maxRecords,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkEventDescriptionsMessage
  */
 export interface ElasticBeanstalkEventDescriptionsMessage {
@@ -1147,6 +1893,21 @@ export interface ElasticBeanstalkEventDescriptionsMessage {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkEventDescriptionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkEventDescriptionsMessage(obj: ElasticBeanstalkEventDescriptionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Events': obj.events?.map(y => toJson_ElasticBeanstalkEventDescription(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkDescribeInstancesHealthRequest
@@ -1175,6 +1936,23 @@ export interface ElasticBeanstalkDescribeInstancesHealthRequest {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkDescribeInstancesHealthRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDescribeInstancesHealthRequest(obj: ElasticBeanstalkDescribeInstancesHealthRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentName': obj.environmentName,
+    'EnvironmentId': obj.environmentId,
+    'AttributeNames': obj.attributeNames?.map(y => y),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkDescribeInstancesHealthResult
  */
 export interface ElasticBeanstalkDescribeInstancesHealthResult {
@@ -1196,6 +1974,22 @@ export interface ElasticBeanstalkDescribeInstancesHealthResult {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkDescribeInstancesHealthResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDescribeInstancesHealthResult(obj: ElasticBeanstalkDescribeInstancesHealthResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceHealthList': obj.instanceHealthList?.map(y => toJson_ElasticBeanstalkSingleInstanceHealth(y)),
+    'RefreshedAt': obj.refreshedAt,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkDescribePlatformVersionRequest
  */
 export interface ElasticBeanstalkDescribePlatformVersionRequest {
@@ -1205,6 +1999,20 @@ export interface ElasticBeanstalkDescribePlatformVersionRequest {
   readonly platformArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkDescribePlatformVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDescribePlatformVersionRequest(obj: ElasticBeanstalkDescribePlatformVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PlatformArn': obj.platformArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkDescribePlatformVersionResult
@@ -1218,15 +2026,43 @@ export interface ElasticBeanstalkDescribePlatformVersionResult {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkDescribePlatformVersionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDescribePlatformVersionResult(obj: ElasticBeanstalkDescribePlatformVersionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PlatformDescription': toJson_ElasticBeanstalkPlatformDescription(obj.platformDescription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkDisassociateEnvironmentOperationsRoleMessage
  */
 export interface ElasticBeanstalkDisassociateEnvironmentOperationsRoleMessage {
   /**
    * @schema ElasticBeanstalkDisassociateEnvironmentOperationsRoleMessage#EnvironmentName
    */
-  readonly environmentName: string;
+  readonly environmentName?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkDisassociateEnvironmentOperationsRoleMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDisassociateEnvironmentOperationsRoleMessage(obj: ElasticBeanstalkDisassociateEnvironmentOperationsRoleMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentName': obj.environmentName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkListAvailableSolutionStacksResultMessage
@@ -1243,6 +2079,21 @@ export interface ElasticBeanstalkListAvailableSolutionStacksResultMessage {
   readonly solutionStackDetails?: ElasticBeanstalkSolutionStackDescription[];
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkListAvailableSolutionStacksResultMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkListAvailableSolutionStacksResultMessage(obj: ElasticBeanstalkListAvailableSolutionStacksResultMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SolutionStacks': obj.solutionStacks?.map(y => y),
+    'SolutionStackDetails': obj.solutionStackDetails?.map(y => toJson_ElasticBeanstalkSolutionStackDescription(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkListPlatformBranchesRequest
@@ -1266,6 +2117,22 @@ export interface ElasticBeanstalkListPlatformBranchesRequest {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkListPlatformBranchesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkListPlatformBranchesRequest(obj: ElasticBeanstalkListPlatformBranchesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Filters': obj.filters?.map(y => toJson_ElasticBeanstalkSearchFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkListPlatformBranchesResult
  */
 export interface ElasticBeanstalkListPlatformBranchesResult {
@@ -1280,6 +2147,21 @@ export interface ElasticBeanstalkListPlatformBranchesResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkListPlatformBranchesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkListPlatformBranchesResult(obj: ElasticBeanstalkListPlatformBranchesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PlatformBranchSummaryList': obj.platformBranchSummaryList?.map(y => toJson_ElasticBeanstalkPlatformBranchSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkListPlatformVersionsRequest
@@ -1303,6 +2185,22 @@ export interface ElasticBeanstalkListPlatformVersionsRequest {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkListPlatformVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkListPlatformVersionsRequest(obj: ElasticBeanstalkListPlatformVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Filters': obj.filters?.map(y => toJson_ElasticBeanstalkPlatformFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkListPlatformVersionsResult
  */
 export interface ElasticBeanstalkListPlatformVersionsResult {
@@ -1319,15 +2217,44 @@ export interface ElasticBeanstalkListPlatformVersionsResult {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkListPlatformVersionsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkListPlatformVersionsResult(obj: ElasticBeanstalkListPlatformVersionsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PlatformSummaryList': obj.platformSummaryList?.map(y => toJson_ElasticBeanstalkPlatformSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkListTagsForResourceMessage
  */
 export interface ElasticBeanstalkListTagsForResourceMessage {
   /**
    * @schema ElasticBeanstalkListTagsForResourceMessage#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkListTagsForResourceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkListTagsForResourceMessage(obj: ElasticBeanstalkListTagsForResourceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkResourceTagsDescriptionMessage
@@ -1346,6 +2273,21 @@ export interface ElasticBeanstalkResourceTagsDescriptionMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkResourceTagsDescriptionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkResourceTagsDescriptionMessage(obj: ElasticBeanstalkResourceTagsDescriptionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'ResourceTags': obj.resourceTags?.map(y => toJson_ElasticBeanstalkTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkRebuildEnvironmentMessage
  */
 export interface ElasticBeanstalkRebuildEnvironmentMessage {
@@ -1360,6 +2302,21 @@ export interface ElasticBeanstalkRebuildEnvironmentMessage {
   readonly environmentName?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkRebuildEnvironmentMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkRebuildEnvironmentMessage(obj: ElasticBeanstalkRebuildEnvironmentMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentId': obj.environmentId,
+    'EnvironmentName': obj.environmentName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkRequestEnvironmentInfoMessage
@@ -1378,9 +2335,25 @@ export interface ElasticBeanstalkRequestEnvironmentInfoMessage {
   /**
    * @schema ElasticBeanstalkRequestEnvironmentInfoMessage#InfoType
    */
-  readonly infoType: string;
+  readonly infoType?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkRequestEnvironmentInfoMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkRequestEnvironmentInfoMessage(obj: ElasticBeanstalkRequestEnvironmentInfoMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentId': obj.environmentId,
+    'EnvironmentName': obj.environmentName,
+    'InfoType': obj.infoType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkRestartAppServerMessage
@@ -1399,6 +2372,21 @@ export interface ElasticBeanstalkRestartAppServerMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkRestartAppServerMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkRestartAppServerMessage(obj: ElasticBeanstalkRestartAppServerMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentId': obj.environmentId,
+    'EnvironmentName': obj.environmentName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkRetrieveEnvironmentInfoMessage
  */
 export interface ElasticBeanstalkRetrieveEnvironmentInfoMessage {
@@ -1415,9 +2403,25 @@ export interface ElasticBeanstalkRetrieveEnvironmentInfoMessage {
   /**
    * @schema ElasticBeanstalkRetrieveEnvironmentInfoMessage#InfoType
    */
-  readonly infoType: string;
+  readonly infoType?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkRetrieveEnvironmentInfoMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkRetrieveEnvironmentInfoMessage(obj: ElasticBeanstalkRetrieveEnvironmentInfoMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentId': obj.environmentId,
+    'EnvironmentName': obj.environmentName,
+    'InfoType': obj.infoType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkRetrieveEnvironmentInfoResultMessage
@@ -1429,6 +2433,20 @@ export interface ElasticBeanstalkRetrieveEnvironmentInfoResultMessage {
   readonly environmentInfo?: ElasticBeanstalkEnvironmentInfoDescription[];
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkRetrieveEnvironmentInfoResultMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkRetrieveEnvironmentInfoResultMessage(obj: ElasticBeanstalkRetrieveEnvironmentInfoResultMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentInfo': obj.environmentInfo?.map(y => toJson_ElasticBeanstalkEnvironmentInfoDescription(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkSwapEnvironmentCnamEsMessage
@@ -1457,6 +2475,23 @@ export interface ElasticBeanstalkSwapEnvironmentCnamEsMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkSwapEnvironmentCnamEsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkSwapEnvironmentCnamEsMessage(obj: ElasticBeanstalkSwapEnvironmentCnamEsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceEnvironmentId': obj.sourceEnvironmentId,
+    'SourceEnvironmentName': obj.sourceEnvironmentName,
+    'DestinationEnvironmentId': obj.destinationEnvironmentId,
+    'DestinationEnvironmentName': obj.destinationEnvironmentName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkTerminateEnvironmentMessage
  */
 export interface ElasticBeanstalkTerminateEnvironmentMessage {
@@ -1483,13 +2518,30 @@ export interface ElasticBeanstalkTerminateEnvironmentMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkTerminateEnvironmentMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkTerminateEnvironmentMessage(obj: ElasticBeanstalkTerminateEnvironmentMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentId': obj.environmentId,
+    'EnvironmentName': obj.environmentName,
+    'TerminateResources': obj.terminateResources,
+    'ForceTerminate': obj.forceTerminate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkUpdateApplicationMessage
  */
 export interface ElasticBeanstalkUpdateApplicationMessage {
   /**
    * @schema ElasticBeanstalkUpdateApplicationMessage#ApplicationName
    */
-  readonly applicationName: string;
+  readonly applicationName?: string;
 
   /**
    * @schema ElasticBeanstalkUpdateApplicationMessage#Description
@@ -1499,20 +2551,50 @@ export interface ElasticBeanstalkUpdateApplicationMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkUpdateApplicationMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkUpdateApplicationMessage(obj: ElasticBeanstalkUpdateApplicationMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkUpdateApplicationResourceLifecycleMessage
  */
 export interface ElasticBeanstalkUpdateApplicationResourceLifecycleMessage {
   /**
    * @schema ElasticBeanstalkUpdateApplicationResourceLifecycleMessage#ApplicationName
    */
-  readonly applicationName: string;
+  readonly applicationName?: string;
 
   /**
    * @schema ElasticBeanstalkUpdateApplicationResourceLifecycleMessage#ResourceLifecycleConfig
    */
-  readonly resourceLifecycleConfig: ElasticBeanstalkApplicationResourceLifecycleConfig;
+  readonly resourceLifecycleConfig?: ElasticBeanstalkApplicationResourceLifecycleConfig;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkUpdateApplicationResourceLifecycleMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkUpdateApplicationResourceLifecycleMessage(obj: ElasticBeanstalkUpdateApplicationResourceLifecycleMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'ResourceLifecycleConfig': toJson_ElasticBeanstalkApplicationResourceLifecycleConfig(obj.resourceLifecycleConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkApplicationResourceLifecycleDescriptionMessage
@@ -1531,18 +2613,33 @@ export interface ElasticBeanstalkApplicationResourceLifecycleDescriptionMessage 
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkApplicationResourceLifecycleDescriptionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkApplicationResourceLifecycleDescriptionMessage(obj: ElasticBeanstalkApplicationResourceLifecycleDescriptionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'ResourceLifecycleConfig': toJson_ElasticBeanstalkApplicationResourceLifecycleConfig(obj.resourceLifecycleConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkUpdateApplicationVersionMessage
  */
 export interface ElasticBeanstalkUpdateApplicationVersionMessage {
   /**
    * @schema ElasticBeanstalkUpdateApplicationVersionMessage#ApplicationName
    */
-  readonly applicationName: string;
+  readonly applicationName?: string;
 
   /**
    * @schema ElasticBeanstalkUpdateApplicationVersionMessage#VersionLabel
    */
-  readonly versionLabel: string;
+  readonly versionLabel?: string;
 
   /**
    * @schema ElasticBeanstalkUpdateApplicationVersionMessage#Description
@@ -1552,18 +2649,34 @@ export interface ElasticBeanstalkUpdateApplicationVersionMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkUpdateApplicationVersionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkUpdateApplicationVersionMessage(obj: ElasticBeanstalkUpdateApplicationVersionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'VersionLabel': obj.versionLabel,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkUpdateConfigurationTemplateMessage
  */
 export interface ElasticBeanstalkUpdateConfigurationTemplateMessage {
   /**
    * @schema ElasticBeanstalkUpdateConfigurationTemplateMessage#ApplicationName
    */
-  readonly applicationName: string;
+  readonly applicationName?: string;
 
   /**
    * @schema ElasticBeanstalkUpdateConfigurationTemplateMessage#TemplateName
    */
-  readonly templateName: string;
+  readonly templateName?: string;
 
   /**
    * @schema ElasticBeanstalkUpdateConfigurationTemplateMessage#Description
@@ -1581,6 +2694,24 @@ export interface ElasticBeanstalkUpdateConfigurationTemplateMessage {
   readonly optionsToRemove?: ElasticBeanstalkOptionSpecification[];
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkUpdateConfigurationTemplateMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkUpdateConfigurationTemplateMessage(obj: ElasticBeanstalkUpdateConfigurationTemplateMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'TemplateName': obj.templateName,
+    'Description': obj.description,
+    'OptionSettings': obj.optionSettings?.map(y => toJson_ElasticBeanstalkConfigurationOptionSetting(y)),
+    'OptionsToRemove': obj.optionsToRemove?.map(y => toJson_ElasticBeanstalkOptionSpecification(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkUpdateEnvironmentMessage
@@ -1649,13 +2780,38 @@ export interface ElasticBeanstalkUpdateEnvironmentMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkUpdateEnvironmentMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkUpdateEnvironmentMessage(obj: ElasticBeanstalkUpdateEnvironmentMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'EnvironmentId': obj.environmentId,
+    'EnvironmentName': obj.environmentName,
+    'GroupName': obj.groupName,
+    'Description': obj.description,
+    'Tier': toJson_ElasticBeanstalkEnvironmentTier(obj.tier),
+    'VersionLabel': obj.versionLabel,
+    'TemplateName': obj.templateName,
+    'SolutionStackName': obj.solutionStackName,
+    'PlatformArn': obj.platformArn,
+    'OptionSettings': obj.optionSettings?.map(y => toJson_ElasticBeanstalkConfigurationOptionSetting(y)),
+    'OptionsToRemove': obj.optionsToRemove?.map(y => toJson_ElasticBeanstalkOptionSpecification(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkUpdateTagsForResourceMessage
  */
 export interface ElasticBeanstalkUpdateTagsForResourceMessage {
   /**
    * @schema ElasticBeanstalkUpdateTagsForResourceMessage#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema ElasticBeanstalkUpdateTagsForResourceMessage#TagsToAdd
@@ -1670,13 +2826,29 @@ export interface ElasticBeanstalkUpdateTagsForResourceMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkUpdateTagsForResourceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkUpdateTagsForResourceMessage(obj: ElasticBeanstalkUpdateTagsForResourceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'TagsToAdd': obj.tagsToAdd?.map(y => toJson_ElasticBeanstalkTag(y)),
+    'TagsToRemove': obj.tagsToRemove?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkValidateConfigurationSettingsMessage
  */
 export interface ElasticBeanstalkValidateConfigurationSettingsMessage {
   /**
    * @schema ElasticBeanstalkValidateConfigurationSettingsMessage#ApplicationName
    */
-  readonly applicationName: string;
+  readonly applicationName?: string;
 
   /**
    * @schema ElasticBeanstalkValidateConfigurationSettingsMessage#TemplateName
@@ -1691,9 +2863,26 @@ export interface ElasticBeanstalkValidateConfigurationSettingsMessage {
   /**
    * @schema ElasticBeanstalkValidateConfigurationSettingsMessage#OptionSettings
    */
-  readonly optionSettings: ElasticBeanstalkConfigurationOptionSetting[];
+  readonly optionSettings?: ElasticBeanstalkConfigurationOptionSetting[];
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkValidateConfigurationSettingsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkValidateConfigurationSettingsMessage(obj: ElasticBeanstalkValidateConfigurationSettingsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'TemplateName': obj.templateName,
+    'EnvironmentName': obj.environmentName,
+    'OptionSettings': obj.optionSettings?.map(y => toJson_ElasticBeanstalkConfigurationOptionSetting(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkConfigurationSettingsValidationMessages
@@ -1705,6 +2894,20 @@ export interface ElasticBeanstalkConfigurationSettingsValidationMessages {
   readonly messages?: ElasticBeanstalkValidationMessage[];
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkConfigurationSettingsValidationMessages' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkConfigurationSettingsValidationMessages(obj: ElasticBeanstalkConfigurationSettingsValidationMessages | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Messages': obj.messages?.map(y => toJson_ElasticBeanstalkValidationMessage(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkApplicationResourceLifecycleConfig
@@ -1723,6 +2926,21 @@ export interface ElasticBeanstalkApplicationResourceLifecycleConfig {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkApplicationResourceLifecycleConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkApplicationResourceLifecycleConfig(obj: ElasticBeanstalkApplicationResourceLifecycleConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ServiceRole': obj.serviceRole,
+    'VersionLifecycleConfig': toJson_ElasticBeanstalkApplicationVersionLifecycleConfig(obj.versionLifecycleConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkTag
  */
 export interface ElasticBeanstalkTag {
@@ -1737,6 +2955,21 @@ export interface ElasticBeanstalkTag {
   readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkTag(obj: ElasticBeanstalkTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkApplicationDescription
@@ -1785,25 +3018,62 @@ export interface ElasticBeanstalkApplicationDescription {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkApplicationDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkApplicationDescription(obj: ElasticBeanstalkApplicationDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationArn': obj.applicationArn,
+    'ApplicationName': obj.applicationName,
+    'Description': obj.description,
+    'DateCreated': obj.dateCreated,
+    'DateUpdated': obj.dateUpdated,
+    'Versions': obj.versions?.map(y => y),
+    'ConfigurationTemplates': obj.configurationTemplates?.map(y => y),
+    'ResourceLifecycleConfig': toJson_ElasticBeanstalkApplicationResourceLifecycleConfig(obj.resourceLifecycleConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkSourceBuildInformation
  */
 export interface ElasticBeanstalkSourceBuildInformation {
   /**
    * @schema ElasticBeanstalkSourceBuildInformation#SourceType
    */
-  readonly sourceType: string;
+  readonly sourceType?: string;
 
   /**
    * @schema ElasticBeanstalkSourceBuildInformation#SourceRepository
    */
-  readonly sourceRepository: string;
+  readonly sourceRepository?: string;
 
   /**
    * @schema ElasticBeanstalkSourceBuildInformation#SourceLocation
    */
-  readonly sourceLocation: string;
+  readonly sourceLocation?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkSourceBuildInformation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkSourceBuildInformation(obj: ElasticBeanstalkSourceBuildInformation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceType': obj.sourceType,
+    'SourceRepository': obj.sourceRepository,
+    'SourceLocation': obj.sourceLocation,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkS3Location
@@ -1822,6 +3092,21 @@ export interface ElasticBeanstalkS3Location {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkS3Location' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkS3Location(obj: ElasticBeanstalkS3Location | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3Bucket': obj.s3Bucket,
+    'S3Key': obj.s3Key,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkBuildConfiguration
  */
 export interface ElasticBeanstalkBuildConfiguration {
@@ -1833,7 +3118,7 @@ export interface ElasticBeanstalkBuildConfiguration {
   /**
    * @schema ElasticBeanstalkBuildConfiguration#CodeBuildServiceRole
    */
-  readonly codeBuildServiceRole: string;
+  readonly codeBuildServiceRole?: string;
 
   /**
    * @schema ElasticBeanstalkBuildConfiguration#ComputeType
@@ -1843,7 +3128,7 @@ export interface ElasticBeanstalkBuildConfiguration {
   /**
    * @schema ElasticBeanstalkBuildConfiguration#Image
    */
-  readonly image: string;
+  readonly image?: string;
 
   /**
    * @schema ElasticBeanstalkBuildConfiguration#TimeoutInMinutes
@@ -1851,6 +3136,24 @@ export interface ElasticBeanstalkBuildConfiguration {
   readonly timeoutInMinutes?: number;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkBuildConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkBuildConfiguration(obj: ElasticBeanstalkBuildConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ArtifactName': obj.artifactName,
+    'CodeBuildServiceRole': obj.codeBuildServiceRole,
+    'ComputeType': obj.computeType,
+    'Image': obj.image,
+    'TimeoutInMinutes': obj.timeoutInMinutes,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkApplicationVersionDescription
@@ -1909,6 +3212,29 @@ export interface ElasticBeanstalkApplicationVersionDescription {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkApplicationVersionDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkApplicationVersionDescription(obj: ElasticBeanstalkApplicationVersionDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationVersionArn': obj.applicationVersionArn,
+    'ApplicationName': obj.applicationName,
+    'Description': obj.description,
+    'VersionLabel': obj.versionLabel,
+    'SourceBuildInformation': toJson_ElasticBeanstalkSourceBuildInformation(obj.sourceBuildInformation),
+    'BuildArn': obj.buildArn,
+    'SourceBundle': toJson_ElasticBeanstalkS3Location(obj.sourceBundle),
+    'DateCreated': obj.dateCreated,
+    'DateUpdated': obj.dateUpdated,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkSourceConfiguration
  */
 export interface ElasticBeanstalkSourceConfiguration {
@@ -1923,6 +3249,21 @@ export interface ElasticBeanstalkSourceConfiguration {
   readonly templateName?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkSourceConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkSourceConfiguration(obj: ElasticBeanstalkSourceConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationName': obj.applicationName,
+    'TemplateName': obj.templateName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkConfigurationOptionSetting
@@ -1951,6 +3292,23 @@ export interface ElasticBeanstalkConfigurationOptionSetting {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkConfigurationOptionSetting' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkConfigurationOptionSetting(obj: ElasticBeanstalkConfigurationOptionSetting | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceName': obj.resourceName,
+    'Namespace': obj.namespace,
+    'OptionName': obj.optionName,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkEnvironmentTier
  */
 export interface ElasticBeanstalkEnvironmentTier {
@@ -1970,6 +3328,22 @@ export interface ElasticBeanstalkEnvironmentTier {
   readonly version?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkEnvironmentTier' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkEnvironmentTier(obj: ElasticBeanstalkEnvironmentTier | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Type': obj.type,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkOptionSpecification
@@ -1993,6 +3367,22 @@ export interface ElasticBeanstalkOptionSpecification {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkOptionSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkOptionSpecification(obj: ElasticBeanstalkOptionSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceName': obj.resourceName,
+    'Namespace': obj.namespace,
+    'OptionName': obj.optionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkEnvironmentResourcesDescription
  */
 export interface ElasticBeanstalkEnvironmentResourcesDescription {
@@ -2002,6 +3392,20 @@ export interface ElasticBeanstalkEnvironmentResourcesDescription {
   readonly loadBalancer?: ElasticBeanstalkLoadBalancerDescription;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkEnvironmentResourcesDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkEnvironmentResourcesDescription(obj: ElasticBeanstalkEnvironmentResourcesDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LoadBalancer': toJson_ElasticBeanstalkLoadBalancerDescription(obj.loadBalancer),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkEnvironmentLink
@@ -2018,6 +3422,21 @@ export interface ElasticBeanstalkEnvironmentLink {
   readonly environmentName?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkEnvironmentLink' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkEnvironmentLink(obj: ElasticBeanstalkEnvironmentLink | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LinkName': obj.linkName,
+    'EnvironmentName': obj.environmentName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkPlatformSummary
@@ -2086,6 +3505,31 @@ export interface ElasticBeanstalkPlatformSummary {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkPlatformSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkPlatformSummary(obj: ElasticBeanstalkPlatformSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PlatformArn': obj.platformArn,
+    'PlatformOwner': obj.platformOwner,
+    'PlatformStatus': obj.platformStatus,
+    'PlatformCategory': obj.platformCategory,
+    'OperatingSystemName': obj.operatingSystemName,
+    'OperatingSystemVersion': obj.operatingSystemVersion,
+    'SupportedTierList': obj.supportedTierList?.map(y => y),
+    'SupportedAddonList': obj.supportedAddonList?.map(y => y),
+    'PlatformLifecycleState': obj.platformLifecycleState,
+    'PlatformVersion': obj.platformVersion,
+    'PlatformBranchName': obj.platformBranchName,
+    'PlatformBranchLifecycleState': obj.platformBranchLifecycleState,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkBuilder
  */
 export interface ElasticBeanstalkBuilder {
@@ -2095,6 +3539,20 @@ export interface ElasticBeanstalkBuilder {
   readonly arn?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkBuilder' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkBuilder(obj: ElasticBeanstalkBuilder | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ARN': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkResourceQuotas
@@ -2126,6 +3584,24 @@ export interface ElasticBeanstalkResourceQuotas {
   readonly customPlatformQuota?: ElasticBeanstalkResourceQuota;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkResourceQuotas' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkResourceQuotas(obj: ElasticBeanstalkResourceQuotas | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ApplicationQuota': toJson_ElasticBeanstalkResourceQuota(obj.applicationQuota),
+    'ApplicationVersionQuota': toJson_ElasticBeanstalkResourceQuota(obj.applicationVersionQuota),
+    'EnvironmentQuota': toJson_ElasticBeanstalkResourceQuota(obj.environmentQuota),
+    'ConfigurationTemplateQuota': toJson_ElasticBeanstalkResourceQuota(obj.configurationTemplateQuota),
+    'CustomPlatformQuota': toJson_ElasticBeanstalkResourceQuota(obj.customPlatformQuota),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkConfigurationOptionDescription
@@ -2189,6 +3665,30 @@ export interface ElasticBeanstalkConfigurationOptionDescription {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkConfigurationOptionDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkConfigurationOptionDescription(obj: ElasticBeanstalkConfigurationOptionDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Namespace': obj.namespace,
+    'Name': obj.name,
+    'DefaultValue': obj.defaultValue,
+    'ChangeSeverity': obj.changeSeverity,
+    'UserDefined': obj.userDefined,
+    'ValueType': obj.valueType,
+    'ValueOptions': obj.valueOptions?.map(y => y),
+    'MinValue': obj.minValue,
+    'MaxValue': obj.maxValue,
+    'MaxLength': obj.maxLength,
+    'Regex': toJson_ElasticBeanstalkOptionRestrictionRegex(obj.regex),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkApplicationMetrics
  */
 export interface ElasticBeanstalkApplicationMetrics {
@@ -2213,6 +3713,23 @@ export interface ElasticBeanstalkApplicationMetrics {
   readonly latency?: ElasticBeanstalkLatency;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkApplicationMetrics' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkApplicationMetrics(obj: ElasticBeanstalkApplicationMetrics | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Duration': obj.duration,
+    'RequestCount': obj.requestCount,
+    'StatusCodes': toJson_ElasticBeanstalkStatusCodes(obj.statusCodes),
+    'Latency': toJson_ElasticBeanstalkLatency(obj.latency),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkInstanceHealthSummary
@@ -2261,6 +3778,27 @@ export interface ElasticBeanstalkInstanceHealthSummary {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkInstanceHealthSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkInstanceHealthSummary(obj: ElasticBeanstalkInstanceHealthSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NoData': obj.noData,
+    'Unknown': obj.unknown,
+    'Pending': obj.pending,
+    'Ok': obj.ok,
+    'Info': obj.info,
+    'Warning': obj.warning,
+    'Degraded': obj.degraded,
+    'Severe': obj.severe,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkManagedActionHistoryItem
  */
 export interface ElasticBeanstalkManagedActionHistoryItem {
@@ -2307,6 +3845,27 @@ export interface ElasticBeanstalkManagedActionHistoryItem {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkManagedActionHistoryItem' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkManagedActionHistoryItem(obj: ElasticBeanstalkManagedActionHistoryItem | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ActionId': obj.actionId,
+    'ActionType': obj.actionType,
+    'ActionDescription': obj.actionDescription,
+    'FailureType': obj.failureType,
+    'Status': obj.status,
+    'FailureDescription': obj.failureDescription,
+    'ExecutedTime': obj.executedTime,
+    'FinishedTime': obj.finishedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkManagedAction
  */
 export interface ElasticBeanstalkManagedAction {
@@ -2336,6 +3895,24 @@ export interface ElasticBeanstalkManagedAction {
   readonly windowStartTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkManagedAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkManagedAction(obj: ElasticBeanstalkManagedAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ActionId': obj.actionId,
+    'ActionDescription': obj.actionDescription,
+    'ActionType': obj.actionType,
+    'Status': obj.status,
+    'WindowStartTime': obj.windowStartTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkEnvironmentResourceDescription
@@ -2382,6 +3959,27 @@ export interface ElasticBeanstalkEnvironmentResourceDescription {
   readonly queues?: ElasticBeanstalkQueue[];
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkEnvironmentResourceDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkEnvironmentResourceDescription(obj: ElasticBeanstalkEnvironmentResourceDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnvironmentName': obj.environmentName,
+    'AutoScalingGroups': obj.autoScalingGroups?.map(y => toJson_ElasticBeanstalkAutoScalingGroup(y)),
+    'Instances': obj.instances?.map(y => toJson_ElasticBeanstalkInstance(y)),
+    'LaunchConfigurations': obj.launchConfigurations?.map(y => toJson_ElasticBeanstalkLaunchConfiguration(y)),
+    'LaunchTemplates': obj.launchTemplates?.map(y => toJson_ElasticBeanstalkLaunchTemplate(y)),
+    'LoadBalancers': obj.loadBalancers?.map(y => toJson_ElasticBeanstalkLoadBalancer(y)),
+    'Triggers': obj.triggers?.map(y => toJson_ElasticBeanstalkTrigger(y)),
+    'Queues': obj.queues?.map(y => toJson_ElasticBeanstalkQueue(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkEventDescription
@@ -2433,6 +4031,28 @@ export interface ElasticBeanstalkEventDescription {
   readonly severity?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkEventDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkEventDescription(obj: ElasticBeanstalkEventDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EventDate': obj.eventDate,
+    'Message': obj.message,
+    'ApplicationName': obj.applicationName,
+    'VersionLabel': obj.versionLabel,
+    'TemplateName': obj.templateName,
+    'EnvironmentName': obj.environmentName,
+    'PlatformArn': obj.platformArn,
+    'RequestId': obj.requestId,
+    'Severity': obj.severity,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkSingleInstanceHealth
@@ -2489,6 +4109,29 @@ export interface ElasticBeanstalkSingleInstanceHealth {
   readonly instanceType?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkSingleInstanceHealth' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkSingleInstanceHealth(obj: ElasticBeanstalkSingleInstanceHealth | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceId': obj.instanceId,
+    'HealthStatus': obj.healthStatus,
+    'Color': obj.color,
+    'Causes': obj.causes?.map(y => y),
+    'LaunchedAt': obj.launchedAt,
+    'ApplicationMetrics': toJson_ElasticBeanstalkApplicationMetrics(obj.applicationMetrics),
+    'System': toJson_ElasticBeanstalkSystemStatus(obj.system),
+    'Deployment': toJson_ElasticBeanstalkDeployment(obj.deployment),
+    'AvailabilityZone': obj.availabilityZone,
+    'InstanceType': obj.instanceType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkPlatformDescription
@@ -2602,6 +4245,40 @@ export interface ElasticBeanstalkPlatformDescription {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkPlatformDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkPlatformDescription(obj: ElasticBeanstalkPlatformDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PlatformArn': obj.platformArn,
+    'PlatformOwner': obj.platformOwner,
+    'PlatformName': obj.platformName,
+    'PlatformVersion': obj.platformVersion,
+    'SolutionStackName': obj.solutionStackName,
+    'PlatformStatus': obj.platformStatus,
+    'DateCreated': obj.dateCreated,
+    'DateUpdated': obj.dateUpdated,
+    'PlatformCategory': obj.platformCategory,
+    'Description': obj.description,
+    'Maintainer': obj.maintainer,
+    'OperatingSystemName': obj.operatingSystemName,
+    'OperatingSystemVersion': obj.operatingSystemVersion,
+    'ProgrammingLanguages': obj.programmingLanguages?.map(y => toJson_ElasticBeanstalkPlatformProgrammingLanguage(y)),
+    'Frameworks': obj.frameworks?.map(y => toJson_ElasticBeanstalkPlatformFramework(y)),
+    'CustomAmiList': obj.customAmiList?.map(y => toJson_ElasticBeanstalkCustomAmi(y)),
+    'SupportedTierList': obj.supportedTierList?.map(y => y),
+    'SupportedAddonList': obj.supportedAddonList?.map(y => y),
+    'PlatformLifecycleState': obj.platformLifecycleState,
+    'PlatformBranchName': obj.platformBranchName,
+    'PlatformBranchLifecycleState': obj.platformBranchLifecycleState,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkSolutionStackDescription
  */
 export interface ElasticBeanstalkSolutionStackDescription {
@@ -2616,6 +4293,21 @@ export interface ElasticBeanstalkSolutionStackDescription {
   readonly permittedFileTypes?: string[];
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkSolutionStackDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkSolutionStackDescription(obj: ElasticBeanstalkSolutionStackDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SolutionStackName': obj.solutionStackName,
+    'PermittedFileTypes': obj.permittedFileTypes?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkSearchFilter
@@ -2637,6 +4329,22 @@ export interface ElasticBeanstalkSearchFilter {
   readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkSearchFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkSearchFilter(obj: ElasticBeanstalkSearchFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Attribute': obj.attribute,
+    'Operator': obj.operator,
+    'Values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkPlatformBranchSummary
@@ -2670,6 +4378,24 @@ export interface ElasticBeanstalkPlatformBranchSummary {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkPlatformBranchSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkPlatformBranchSummary(obj: ElasticBeanstalkPlatformBranchSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PlatformName': obj.platformName,
+    'BranchName': obj.branchName,
+    'LifecycleState': obj.lifecycleState,
+    'BranchOrder': obj.branchOrder,
+    'SupportedTierList': obj.supportedTierList?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkPlatformFilter
  */
 export interface ElasticBeanstalkPlatformFilter {
@@ -2689,6 +4415,22 @@ export interface ElasticBeanstalkPlatformFilter {
   readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkPlatformFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkPlatformFilter(obj: ElasticBeanstalkPlatformFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'Operator': obj.operator,
+    'Values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkEnvironmentInfoDescription
@@ -2717,6 +4459,23 @@ export interface ElasticBeanstalkEnvironmentInfoDescription {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkEnvironmentInfoDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkEnvironmentInfoDescription(obj: ElasticBeanstalkEnvironmentInfoDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InfoType': obj.infoType,
+    'Ec2InstanceId': obj.ec2InstanceId,
+    'SampleTimestamp': obj.sampleTimestamp,
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkValidationMessage
  */
 export interface ElasticBeanstalkValidationMessage {
@@ -2743,6 +4502,23 @@ export interface ElasticBeanstalkValidationMessage {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkValidationMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkValidationMessage(obj: ElasticBeanstalkValidationMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Message': obj.message,
+    'Severity': obj.severity,
+    'Namespace': obj.namespace,
+    'OptionName': obj.optionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkApplicationVersionLifecycleConfig
  */
 export interface ElasticBeanstalkApplicationVersionLifecycleConfig {
@@ -2757,6 +4533,21 @@ export interface ElasticBeanstalkApplicationVersionLifecycleConfig {
   readonly maxAgeRule?: ElasticBeanstalkMaxAgeRule;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkApplicationVersionLifecycleConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkApplicationVersionLifecycleConfig(obj: ElasticBeanstalkApplicationVersionLifecycleConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxCountRule': toJson_ElasticBeanstalkMaxCountRule(obj.maxCountRule),
+    'MaxAgeRule': toJson_ElasticBeanstalkMaxAgeRule(obj.maxAgeRule),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkLoadBalancerDescription
@@ -2780,6 +4571,22 @@ export interface ElasticBeanstalkLoadBalancerDescription {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkLoadBalancerDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkLoadBalancerDescription(obj: ElasticBeanstalkLoadBalancerDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LoadBalancerName': obj.loadBalancerName,
+    'Domain': obj.domain,
+    'Listeners': obj.listeners?.map(y => toJson_ElasticBeanstalkListener(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkResourceQuota
  */
 export interface ElasticBeanstalkResourceQuota {
@@ -2789,6 +4596,20 @@ export interface ElasticBeanstalkResourceQuota {
   readonly maximum?: number;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkResourceQuota' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkResourceQuota(obj: ElasticBeanstalkResourceQuota | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Maximum': obj.maximum,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkOptionRestrictionRegex
@@ -2805,6 +4626,21 @@ export interface ElasticBeanstalkOptionRestrictionRegex {
   readonly label?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkOptionRestrictionRegex' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkOptionRestrictionRegex(obj: ElasticBeanstalkOptionRestrictionRegex | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Pattern': obj.pattern,
+    'Label': obj.label,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkStatusCodes
@@ -2831,6 +4667,23 @@ export interface ElasticBeanstalkStatusCodes {
   readonly status5Xx?: number;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkStatusCodes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkStatusCodes(obj: ElasticBeanstalkStatusCodes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status2xx': obj.status2Xx,
+    'Status3xx': obj.status3Xx,
+    'Status4xx': obj.status4Xx,
+    'Status5xx': obj.status5Xx,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkLatency
@@ -2879,6 +4732,27 @@ export interface ElasticBeanstalkLatency {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkLatency' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkLatency(obj: ElasticBeanstalkLatency | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'P999': obj.p999,
+    'P99': obj.p99,
+    'P95': obj.p95,
+    'P90': obj.p90,
+    'P85': obj.p85,
+    'P75': obj.p75,
+    'P50': obj.p50,
+    'P10': obj.p10,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkAutoScalingGroup
  */
 export interface ElasticBeanstalkAutoScalingGroup {
@@ -2888,6 +4762,20 @@ export interface ElasticBeanstalkAutoScalingGroup {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkAutoScalingGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkAutoScalingGroup(obj: ElasticBeanstalkAutoScalingGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkInstance
@@ -2901,6 +4789,20 @@ export interface ElasticBeanstalkInstance {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkInstance' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkInstance(obj: ElasticBeanstalkInstance | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkLaunchConfiguration
  */
 export interface ElasticBeanstalkLaunchConfiguration {
@@ -2910,6 +4812,20 @@ export interface ElasticBeanstalkLaunchConfiguration {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkLaunchConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkLaunchConfiguration(obj: ElasticBeanstalkLaunchConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkLaunchTemplate
@@ -2923,6 +4839,20 @@ export interface ElasticBeanstalkLaunchTemplate {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkLaunchTemplate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkLaunchTemplate(obj: ElasticBeanstalkLaunchTemplate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkLoadBalancer
  */
 export interface ElasticBeanstalkLoadBalancer {
@@ -2934,6 +4864,20 @@ export interface ElasticBeanstalkLoadBalancer {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkLoadBalancer' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkLoadBalancer(obj: ElasticBeanstalkLoadBalancer | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkTrigger
  */
 export interface ElasticBeanstalkTrigger {
@@ -2943,6 +4887,20 @@ export interface ElasticBeanstalkTrigger {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkTrigger' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkTrigger(obj: ElasticBeanstalkTrigger | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkQueue
@@ -2961,6 +4919,21 @@ export interface ElasticBeanstalkQueue {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkQueue' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkQueue(obj: ElasticBeanstalkQueue | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'URL': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkSystemStatus
  */
 export interface ElasticBeanstalkSystemStatus {
@@ -2975,6 +4948,21 @@ export interface ElasticBeanstalkSystemStatus {
   readonly loadAverage?: number[];
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkSystemStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkSystemStatus(obj: ElasticBeanstalkSystemStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CPUUtilization': toJson_ElasticBeanstalkCpuUtilization(obj.cpuUtilization),
+    'LoadAverage': obj.loadAverage?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkDeployment
@@ -3003,6 +4991,23 @@ export interface ElasticBeanstalkDeployment {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkDeployment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkDeployment(obj: ElasticBeanstalkDeployment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VersionLabel': obj.versionLabel,
+    'DeploymentId': obj.deploymentId,
+    'Status': obj.status,
+    'DeploymentTime': obj.deploymentTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkPlatformProgrammingLanguage
  */
 export interface ElasticBeanstalkPlatformProgrammingLanguage {
@@ -3017,6 +5022,21 @@ export interface ElasticBeanstalkPlatformProgrammingLanguage {
   readonly version?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkPlatformProgrammingLanguage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkPlatformProgrammingLanguage(obj: ElasticBeanstalkPlatformProgrammingLanguage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkPlatformFramework
@@ -3035,6 +5055,21 @@ export interface ElasticBeanstalkPlatformFramework {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkPlatformFramework' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkPlatformFramework(obj: ElasticBeanstalkPlatformFramework | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkCustomAmi
  */
 export interface ElasticBeanstalkCustomAmi {
@@ -3051,13 +5086,28 @@ export interface ElasticBeanstalkCustomAmi {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkCustomAmi' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkCustomAmi(obj: ElasticBeanstalkCustomAmi | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VirtualizationType': obj.virtualizationType,
+    'ImageId': obj.imageId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkMaxCountRule
  */
 export interface ElasticBeanstalkMaxCountRule {
   /**
    * @schema ElasticBeanstalkMaxCountRule#Enabled
    */
-  readonly enabled: boolean;
+  readonly enabled?: boolean;
 
   /**
    * @schema ElasticBeanstalkMaxCountRule#MaxCount
@@ -3072,13 +5122,29 @@ export interface ElasticBeanstalkMaxCountRule {
 }
 
 /**
+ * Converts an object of type 'ElasticBeanstalkMaxCountRule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkMaxCountRule(obj: ElasticBeanstalkMaxCountRule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Enabled': obj.enabled,
+    'MaxCount': obj.maxCount,
+    'DeleteSourceFromS3': obj.deleteSourceFromS3,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElasticBeanstalkMaxAgeRule
  */
 export interface ElasticBeanstalkMaxAgeRule {
   /**
    * @schema ElasticBeanstalkMaxAgeRule#Enabled
    */
-  readonly enabled: boolean;
+  readonly enabled?: boolean;
 
   /**
    * @schema ElasticBeanstalkMaxAgeRule#MaxAgeInDays
@@ -3091,6 +5157,22 @@ export interface ElasticBeanstalkMaxAgeRule {
   readonly deleteSourceFromS3?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkMaxAgeRule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkMaxAgeRule(obj: ElasticBeanstalkMaxAgeRule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Enabled': obj.enabled,
+    'MaxAgeInDays': obj.maxAgeInDays,
+    'DeleteSourceFromS3': obj.deleteSourceFromS3,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkListener
@@ -3107,6 +5189,21 @@ export interface ElasticBeanstalkListener {
   readonly port?: number;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkListener' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkListener(obj: ElasticBeanstalkListener | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Protocol': obj.protocol,
+    'Port': obj.port,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElasticBeanstalkCpuUtilization
@@ -3153,3 +5250,24 @@ export interface ElasticBeanstalkCpuUtilization {
   readonly privileged?: number;
 
 }
+
+/**
+ * Converts an object of type 'ElasticBeanstalkCpuUtilization' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElasticBeanstalkCpuUtilization(obj: ElasticBeanstalkCpuUtilization | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'User': obj.user,
+    'Nice': obj.nice,
+    'System': obj.system,
+    'Idle': obj.idle,
+    'IOWait': obj.ioWait,
+    'IRQ': obj.irq,
+    'SoftIRQ': obj.softIrq,
+    'Privileged': obj.privileged,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

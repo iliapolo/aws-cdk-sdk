@@ -5,9 +5,23 @@ export interface AlexaForBusinessApproveSkillRequest {
   /**
    * @schema AlexaForBusinessApproveSkillRequest#SkillId
    */
-  readonly skillId: string;
+  readonly skillId?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessApproveSkillRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessApproveSkillRequest(obj: AlexaForBusinessApproveSkillRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillId': obj.skillId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessApproveSkillResponse
@@ -16,20 +30,48 @@ export interface AlexaForBusinessApproveSkillResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessApproveSkillResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessApproveSkillResponse(obj: AlexaForBusinessApproveSkillResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessAssociateContactWithAddressBookRequest
  */
 export interface AlexaForBusinessAssociateContactWithAddressBookRequest {
   /**
    * @schema AlexaForBusinessAssociateContactWithAddressBookRequest#ContactArn
    */
-  readonly contactArn: string;
+  readonly contactArn?: string;
 
   /**
    * @schema AlexaForBusinessAssociateContactWithAddressBookRequest#AddressBookArn
    */
-  readonly addressBookArn: string;
+  readonly addressBookArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessAssociateContactWithAddressBookRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessAssociateContactWithAddressBookRequest(obj: AlexaForBusinessAssociateContactWithAddressBookRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContactArn': obj.contactArn,
+    'AddressBookArn': obj.addressBookArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessAssociateContactWithAddressBookResponse
@@ -38,26 +80,67 @@ export interface AlexaForBusinessAssociateContactWithAddressBookResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessAssociateContactWithAddressBookResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessAssociateContactWithAddressBookResponse(obj: AlexaForBusinessAssociateContactWithAddressBookResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessAssociateDeviceWithNetworkProfileRequest
  */
 export interface AlexaForBusinessAssociateDeviceWithNetworkProfileRequest {
   /**
    * @schema AlexaForBusinessAssociateDeviceWithNetworkProfileRequest#DeviceArn
    */
-  readonly deviceArn: string;
+  readonly deviceArn?: string;
 
   /**
    * @schema AlexaForBusinessAssociateDeviceWithNetworkProfileRequest#NetworkProfileArn
    */
-  readonly networkProfileArn: string;
+  readonly networkProfileArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessAssociateDeviceWithNetworkProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessAssociateDeviceWithNetworkProfileRequest(obj: AlexaForBusinessAssociateDeviceWithNetworkProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceArn': obj.deviceArn,
+    'NetworkProfileArn': obj.networkProfileArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessAssociateDeviceWithNetworkProfileResponse
  */
 export interface AlexaForBusinessAssociateDeviceWithNetworkProfileResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessAssociateDeviceWithNetworkProfileResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessAssociateDeviceWithNetworkProfileResponse(obj: AlexaForBusinessAssociateDeviceWithNetworkProfileResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessAssociateDeviceWithRoomRequest
@@ -76,10 +159,38 @@ export interface AlexaForBusinessAssociateDeviceWithRoomRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessAssociateDeviceWithRoomRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessAssociateDeviceWithRoomRequest(obj: AlexaForBusinessAssociateDeviceWithRoomRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceArn': obj.deviceArn,
+    'RoomArn': obj.roomArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessAssociateDeviceWithRoomResponse
  */
 export interface AlexaForBusinessAssociateDeviceWithRoomResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessAssociateDeviceWithRoomResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessAssociateDeviceWithRoomResponse(obj: AlexaForBusinessAssociateDeviceWithRoomResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessAssociateSkillGroupWithRoomRequest
@@ -98,10 +209,38 @@ export interface AlexaForBusinessAssociateSkillGroupWithRoomRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessAssociateSkillGroupWithRoomRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessAssociateSkillGroupWithRoomRequest(obj: AlexaForBusinessAssociateSkillGroupWithRoomRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillGroupArn': obj.skillGroupArn,
+    'RoomArn': obj.roomArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessAssociateSkillGroupWithRoomResponse
  */
 export interface AlexaForBusinessAssociateSkillGroupWithRoomResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessAssociateSkillGroupWithRoomResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessAssociateSkillGroupWithRoomResponse(obj: AlexaForBusinessAssociateSkillGroupWithRoomResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessAssociateSkillWithSkillGroupRequest
@@ -115,9 +254,24 @@ export interface AlexaForBusinessAssociateSkillWithSkillGroupRequest {
   /**
    * @schema AlexaForBusinessAssociateSkillWithSkillGroupRequest#SkillId
    */
-  readonly skillId: string;
+  readonly skillId?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessAssociateSkillWithSkillGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessAssociateSkillWithSkillGroupRequest(obj: AlexaForBusinessAssociateSkillWithSkillGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillGroupArn': obj.skillGroupArn,
+    'SkillId': obj.skillId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessAssociateSkillWithSkillGroupResponse
@@ -126,15 +280,42 @@ export interface AlexaForBusinessAssociateSkillWithSkillGroupResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessAssociateSkillWithSkillGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessAssociateSkillWithSkillGroupResponse(obj: AlexaForBusinessAssociateSkillWithSkillGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessAssociateSkillWithUsersRequest
  */
 export interface AlexaForBusinessAssociateSkillWithUsersRequest {
   /**
    * @schema AlexaForBusinessAssociateSkillWithUsersRequest#SkillId
    */
-  readonly skillId: string;
+  readonly skillId?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessAssociateSkillWithUsersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessAssociateSkillWithUsersRequest(obj: AlexaForBusinessAssociateSkillWithUsersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillId': obj.skillId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessAssociateSkillWithUsersResponse
@@ -143,13 +324,26 @@ export interface AlexaForBusinessAssociateSkillWithUsersResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessAssociateSkillWithUsersResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessAssociateSkillWithUsersResponse(obj: AlexaForBusinessAssociateSkillWithUsersResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessCreateAddressBookRequest
  */
 export interface AlexaForBusinessCreateAddressBookRequest {
   /**
    * @schema AlexaForBusinessCreateAddressBookRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema AlexaForBusinessCreateAddressBookRequest#Description
@@ -161,7 +355,29 @@ export interface AlexaForBusinessCreateAddressBookRequest {
    */
   readonly clientRequestToken?: string;
 
+  /**
+   * @schema AlexaForBusinessCreateAddressBookRequest#Tags
+   */
+  readonly tags?: AlexaForBusinessTag[];
+
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessCreateAddressBookRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateAddressBookRequest(obj: AlexaForBusinessCreateAddressBookRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Description': obj.description,
+    'ClientRequestToken': obj.clientRequestToken,
+    'Tags': obj.tags?.map(y => toJson_AlexaForBusinessTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessCreateAddressBookResponse
@@ -173,6 +389,20 @@ export interface AlexaForBusinessCreateAddressBookResponse {
   readonly addressBookArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessCreateAddressBookResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateAddressBookResponse(obj: AlexaForBusinessCreateAddressBookResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AddressBookArn': obj.addressBookArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessCreateBusinessReportScheduleRequest
@@ -196,12 +426,12 @@ export interface AlexaForBusinessCreateBusinessReportScheduleRequest {
   /**
    * @schema AlexaForBusinessCreateBusinessReportScheduleRequest#Format
    */
-  readonly format: string;
+  readonly format?: string;
 
   /**
    * @schema AlexaForBusinessCreateBusinessReportScheduleRequest#ContentRange
    */
-  readonly contentRange: AlexaForBusinessBusinessReportContentRange;
+  readonly contentRange?: AlexaForBusinessBusinessReportContentRange;
 
   /**
    * @schema AlexaForBusinessCreateBusinessReportScheduleRequest#Recurrence
@@ -221,6 +451,27 @@ export interface AlexaForBusinessCreateBusinessReportScheduleRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessCreateBusinessReportScheduleRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateBusinessReportScheduleRequest(obj: AlexaForBusinessCreateBusinessReportScheduleRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ScheduleName': obj.scheduleName,
+    'S3BucketName': obj.s3BucketName,
+    'S3KeyPrefix': obj.s3KeyPrefix,
+    'Format': obj.format,
+    'ContentRange': toJson_AlexaForBusinessBusinessReportContentRange(obj.contentRange),
+    'Recurrence': toJson_AlexaForBusinessBusinessReportRecurrence(obj.recurrence),
+    'ClientRequestToken': obj.clientRequestToken,
+    'Tags': obj.tags?.map(y => toJson_AlexaForBusinessTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessCreateBusinessReportScheduleResponse
  */
 export interface AlexaForBusinessCreateBusinessReportScheduleResponse {
@@ -232,18 +483,32 @@ export interface AlexaForBusinessCreateBusinessReportScheduleResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessCreateBusinessReportScheduleResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateBusinessReportScheduleResponse(obj: AlexaForBusinessCreateBusinessReportScheduleResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ScheduleArn': obj.scheduleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessCreateConferenceProviderRequest
  */
 export interface AlexaForBusinessCreateConferenceProviderRequest {
   /**
    * @schema AlexaForBusinessCreateConferenceProviderRequest#ConferenceProviderName
    */
-  readonly conferenceProviderName: string;
+  readonly conferenceProviderName?: string;
 
   /**
    * @schema AlexaForBusinessCreateConferenceProviderRequest#ConferenceProviderType
    */
-  readonly conferenceProviderType: string;
+  readonly conferenceProviderType?: string;
 
   /**
    * @schema AlexaForBusinessCreateConferenceProviderRequest#IPDialIn
@@ -258,14 +523,39 @@ export interface AlexaForBusinessCreateConferenceProviderRequest {
   /**
    * @schema AlexaForBusinessCreateConferenceProviderRequest#MeetingSetting
    */
-  readonly meetingSetting: AlexaForBusinessMeetingSetting;
+  readonly meetingSetting?: AlexaForBusinessMeetingSetting;
 
   /**
    * @schema AlexaForBusinessCreateConferenceProviderRequest#ClientRequestToken
    */
   readonly clientRequestToken?: string;
 
+  /**
+   * @schema AlexaForBusinessCreateConferenceProviderRequest#Tags
+   */
+  readonly tags?: AlexaForBusinessTag[];
+
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessCreateConferenceProviderRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateConferenceProviderRequest(obj: AlexaForBusinessCreateConferenceProviderRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConferenceProviderName': obj.conferenceProviderName,
+    'ConferenceProviderType': obj.conferenceProviderType,
+    'IPDialIn': toJson_AlexaForBusinessIpDialIn(obj.ipDialIn),
+    'PSTNDialIn': toJson_AlexaForBusinessPstnDialIn(obj.pstnDialIn),
+    'MeetingSetting': toJson_AlexaForBusinessMeetingSetting(obj.meetingSetting),
+    'ClientRequestToken': obj.clientRequestToken,
+    'Tags': obj.tags?.map(y => toJson_AlexaForBusinessTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessCreateConferenceProviderResponse
@@ -279,6 +569,20 @@ export interface AlexaForBusinessCreateConferenceProviderResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessCreateConferenceProviderResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateConferenceProviderResponse(obj: AlexaForBusinessCreateConferenceProviderResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConferenceProviderArn': obj.conferenceProviderArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessCreateContactRequest
  */
 export interface AlexaForBusinessCreateContactRequest {
@@ -290,7 +594,7 @@ export interface AlexaForBusinessCreateContactRequest {
   /**
    * @schema AlexaForBusinessCreateContactRequest#FirstName
    */
-  readonly firstName: string;
+  readonly firstName?: string;
 
   /**
    * @schema AlexaForBusinessCreateContactRequest#LastName
@@ -317,7 +621,33 @@ export interface AlexaForBusinessCreateContactRequest {
    */
   readonly clientRequestToken?: string;
 
+  /**
+   * @schema AlexaForBusinessCreateContactRequest#Tags
+   */
+  readonly tags?: AlexaForBusinessTag[];
+
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessCreateContactRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateContactRequest(obj: AlexaForBusinessCreateContactRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DisplayName': obj.displayName,
+    'FirstName': obj.firstName,
+    'LastName': obj.lastName,
+    'PhoneNumber': obj.phoneNumber,
+    'PhoneNumbers': obj.phoneNumbers?.map(y => toJson_AlexaForBusinessPhoneNumber(y)),
+    'SipAddresses': obj.sipAddresses?.map(y => toJson_AlexaForBusinessSipAddress(y)),
+    'ClientRequestToken': obj.clientRequestToken,
+    'Tags': obj.tags?.map(y => toJson_AlexaForBusinessTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessCreateContactResponse
@@ -331,13 +661,27 @@ export interface AlexaForBusinessCreateContactResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessCreateContactResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateContactResponse(obj: AlexaForBusinessCreateContactResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContactArn': obj.contactArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessCreateGatewayGroupRequest
  */
 export interface AlexaForBusinessCreateGatewayGroupRequest {
   /**
    * @schema AlexaForBusinessCreateGatewayGroupRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema AlexaForBusinessCreateGatewayGroupRequest#Description
@@ -347,9 +691,31 @@ export interface AlexaForBusinessCreateGatewayGroupRequest {
   /**
    * @schema AlexaForBusinessCreateGatewayGroupRequest#ClientRequestToken
    */
-  readonly clientRequestToken: string;
+  readonly clientRequestToken?: string;
+
+  /**
+   * @schema AlexaForBusinessCreateGatewayGroupRequest#Tags
+   */
+  readonly tags?: AlexaForBusinessTag[];
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessCreateGatewayGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateGatewayGroupRequest(obj: AlexaForBusinessCreateGatewayGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Description': obj.description,
+    'ClientRequestToken': obj.clientRequestToken,
+    'Tags': obj.tags?.map(y => toJson_AlexaForBusinessTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessCreateGatewayGroupResponse
@@ -363,13 +729,27 @@ export interface AlexaForBusinessCreateGatewayGroupResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessCreateGatewayGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateGatewayGroupResponse(obj: AlexaForBusinessCreateGatewayGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GatewayGroupArn': obj.gatewayGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessCreateNetworkProfileRequest
  */
 export interface AlexaForBusinessCreateNetworkProfileRequest {
   /**
    * @schema AlexaForBusinessCreateNetworkProfileRequest#NetworkProfileName
    */
-  readonly networkProfileName: string;
+  readonly networkProfileName?: string;
 
   /**
    * @schema AlexaForBusinessCreateNetworkProfileRequest#Description
@@ -379,12 +759,12 @@ export interface AlexaForBusinessCreateNetworkProfileRequest {
   /**
    * @schema AlexaForBusinessCreateNetworkProfileRequest#Ssid
    */
-  readonly ssid: string;
+  readonly ssid?: string;
 
   /**
    * @schema AlexaForBusinessCreateNetworkProfileRequest#SecurityType
    */
-  readonly securityType: string;
+  readonly securityType?: string;
 
   /**
    * @schema AlexaForBusinessCreateNetworkProfileRequest#EapMethod
@@ -414,9 +794,38 @@ export interface AlexaForBusinessCreateNetworkProfileRequest {
   /**
    * @schema AlexaForBusinessCreateNetworkProfileRequest#ClientRequestToken
    */
-  readonly clientRequestToken: string;
+  readonly clientRequestToken?: string;
+
+  /**
+   * @schema AlexaForBusinessCreateNetworkProfileRequest#Tags
+   */
+  readonly tags?: AlexaForBusinessTag[];
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessCreateNetworkProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateNetworkProfileRequest(obj: AlexaForBusinessCreateNetworkProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NetworkProfileName': obj.networkProfileName,
+    'Description': obj.description,
+    'Ssid': obj.ssid,
+    'SecurityType': obj.securityType,
+    'EapMethod': obj.eapMethod,
+    'CurrentPassword': obj.currentPassword,
+    'NextPassword': obj.nextPassword,
+    'CertificateAuthorityArn': obj.certificateAuthorityArn,
+    'TrustAnchors': obj.trustAnchors?.map(y => y),
+    'ClientRequestToken': obj.clientRequestToken,
+    'Tags': obj.tags?.map(y => toJson_AlexaForBusinessTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessCreateNetworkProfileResponse
@@ -430,38 +839,52 @@ export interface AlexaForBusinessCreateNetworkProfileResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessCreateNetworkProfileResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateNetworkProfileResponse(obj: AlexaForBusinessCreateNetworkProfileResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NetworkProfileArn': obj.networkProfileArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessCreateProfileRequest
  */
 export interface AlexaForBusinessCreateProfileRequest {
   /**
    * @schema AlexaForBusinessCreateProfileRequest#ProfileName
    */
-  readonly profileName: string;
+  readonly profileName?: string;
 
   /**
    * @schema AlexaForBusinessCreateProfileRequest#Timezone
    */
-  readonly timezone: string;
+  readonly timezone?: string;
 
   /**
    * @schema AlexaForBusinessCreateProfileRequest#Address
    */
-  readonly address: string;
+  readonly address?: string;
 
   /**
    * @schema AlexaForBusinessCreateProfileRequest#DistanceUnit
    */
-  readonly distanceUnit: string;
+  readonly distanceUnit?: string;
 
   /**
    * @schema AlexaForBusinessCreateProfileRequest#TemperatureUnit
    */
-  readonly temperatureUnit: string;
+  readonly temperatureUnit?: string;
 
   /**
    * @schema AlexaForBusinessCreateProfileRequest#WakeWord
    */
-  readonly wakeWord: string;
+  readonly wakeWord?: string;
 
   /**
    * @schema AlexaForBusinessCreateProfileRequest#Locale
@@ -489,6 +912,11 @@ export interface AlexaForBusinessCreateProfileRequest {
   readonly pstnEnabled?: boolean;
 
   /**
+   * @schema AlexaForBusinessCreateProfileRequest#DataRetentionOptIn
+   */
+  readonly dataRetentionOptIn?: boolean;
+
+  /**
    * @schema AlexaForBusinessCreateProfileRequest#MeetingRoomConfiguration
    */
   readonly meetingRoomConfiguration?: AlexaForBusinessCreateMeetingRoomConfiguration;
@@ -499,6 +927,33 @@ export interface AlexaForBusinessCreateProfileRequest {
   readonly tags?: AlexaForBusinessTag[];
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessCreateProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateProfileRequest(obj: AlexaForBusinessCreateProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProfileName': obj.profileName,
+    'Timezone': obj.timezone,
+    'Address': obj.address,
+    'DistanceUnit': obj.distanceUnit,
+    'TemperatureUnit': obj.temperatureUnit,
+    'WakeWord': obj.wakeWord,
+    'Locale': obj.locale,
+    'ClientRequestToken': obj.clientRequestToken,
+    'SetupModeDisabled': obj.setupModeDisabled,
+    'MaxVolumeLimit': obj.maxVolumeLimit,
+    'PSTNEnabled': obj.pstnEnabled,
+    'DataRetentionOptIn': obj.dataRetentionOptIn,
+    'MeetingRoomConfiguration': toJson_AlexaForBusinessCreateMeetingRoomConfiguration(obj.meetingRoomConfiguration),
+    'Tags': obj.tags?.map(y => toJson_AlexaForBusinessTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessCreateProfileResponse
@@ -512,13 +967,27 @@ export interface AlexaForBusinessCreateProfileResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessCreateProfileResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateProfileResponse(obj: AlexaForBusinessCreateProfileResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProfileArn': obj.profileArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessCreateRoomRequest
  */
 export interface AlexaForBusinessCreateRoomRequest {
   /**
    * @schema AlexaForBusinessCreateRoomRequest#RoomName
    */
-  readonly roomName: string;
+  readonly roomName?: string;
 
   /**
    * @schema AlexaForBusinessCreateRoomRequest#Description
@@ -548,6 +1017,25 @@ export interface AlexaForBusinessCreateRoomRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessCreateRoomRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateRoomRequest(obj: AlexaForBusinessCreateRoomRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomName': obj.roomName,
+    'Description': obj.description,
+    'ProfileArn': obj.profileArn,
+    'ProviderCalendarId': obj.providerCalendarId,
+    'ClientRequestToken': obj.clientRequestToken,
+    'Tags': obj.tags?.map(y => toJson_AlexaForBusinessTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessCreateRoomResponse
  */
 export interface AlexaForBusinessCreateRoomResponse {
@@ -559,13 +1047,27 @@ export interface AlexaForBusinessCreateRoomResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessCreateRoomResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateRoomResponse(obj: AlexaForBusinessCreateRoomResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomArn': obj.roomArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessCreateSkillGroupRequest
  */
 export interface AlexaForBusinessCreateSkillGroupRequest {
   /**
    * @schema AlexaForBusinessCreateSkillGroupRequest#SkillGroupName
    */
-  readonly skillGroupName: string;
+  readonly skillGroupName?: string;
 
   /**
    * @schema AlexaForBusinessCreateSkillGroupRequest#Description
@@ -585,6 +1087,23 @@ export interface AlexaForBusinessCreateSkillGroupRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessCreateSkillGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateSkillGroupRequest(obj: AlexaForBusinessCreateSkillGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillGroupName': obj.skillGroupName,
+    'Description': obj.description,
+    'ClientRequestToken': obj.clientRequestToken,
+    'Tags': obj.tags?.map(y => toJson_AlexaForBusinessTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessCreateSkillGroupResponse
  */
 export interface AlexaForBusinessCreateSkillGroupResponse {
@@ -596,13 +1115,27 @@ export interface AlexaForBusinessCreateSkillGroupResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessCreateSkillGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateSkillGroupResponse(obj: AlexaForBusinessCreateSkillGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillGroupArn': obj.skillGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessCreateUserRequest
  */
 export interface AlexaForBusinessCreateUserRequest {
   /**
    * @schema AlexaForBusinessCreateUserRequest#UserId
    */
-  readonly userId: string;
+  readonly userId?: string;
 
   /**
    * @schema AlexaForBusinessCreateUserRequest#FirstName
@@ -632,6 +1165,25 @@ export interface AlexaForBusinessCreateUserRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessCreateUserRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateUserRequest(obj: AlexaForBusinessCreateUserRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserId': obj.userId,
+    'FirstName': obj.firstName,
+    'LastName': obj.lastName,
+    'Email': obj.email,
+    'ClientRequestToken': obj.clientRequestToken,
+    'Tags': obj.tags?.map(y => toJson_AlexaForBusinessTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessCreateUserResponse
  */
 export interface AlexaForBusinessCreateUserResponse {
@@ -643,15 +1195,43 @@ export interface AlexaForBusinessCreateUserResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessCreateUserResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateUserResponse(obj: AlexaForBusinessCreateUserResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserArn': obj.userArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDeleteAddressBookRequest
  */
 export interface AlexaForBusinessDeleteAddressBookRequest {
   /**
    * @schema AlexaForBusinessDeleteAddressBookRequest#AddressBookArn
    */
-  readonly addressBookArn: string;
+  readonly addressBookArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDeleteAddressBookRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteAddressBookRequest(obj: AlexaForBusinessDeleteAddressBookRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AddressBookArn': obj.addressBookArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDeleteAddressBookResponse
@@ -660,15 +1240,42 @@ export interface AlexaForBusinessDeleteAddressBookResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDeleteAddressBookResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteAddressBookResponse(obj: AlexaForBusinessDeleteAddressBookResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDeleteBusinessReportScheduleRequest
  */
 export interface AlexaForBusinessDeleteBusinessReportScheduleRequest {
   /**
    * @schema AlexaForBusinessDeleteBusinessReportScheduleRequest#ScheduleArn
    */
-  readonly scheduleArn: string;
+  readonly scheduleArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDeleteBusinessReportScheduleRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteBusinessReportScheduleRequest(obj: AlexaForBusinessDeleteBusinessReportScheduleRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ScheduleArn': obj.scheduleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDeleteBusinessReportScheduleResponse
@@ -677,15 +1284,42 @@ export interface AlexaForBusinessDeleteBusinessReportScheduleResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDeleteBusinessReportScheduleResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteBusinessReportScheduleResponse(obj: AlexaForBusinessDeleteBusinessReportScheduleResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDeleteConferenceProviderRequest
  */
 export interface AlexaForBusinessDeleteConferenceProviderRequest {
   /**
    * @schema AlexaForBusinessDeleteConferenceProviderRequest#ConferenceProviderArn
    */
-  readonly conferenceProviderArn: string;
+  readonly conferenceProviderArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDeleteConferenceProviderRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteConferenceProviderRequest(obj: AlexaForBusinessDeleteConferenceProviderRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConferenceProviderArn': obj.conferenceProviderArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDeleteConferenceProviderResponse
@@ -694,15 +1328,42 @@ export interface AlexaForBusinessDeleteConferenceProviderResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDeleteConferenceProviderResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteConferenceProviderResponse(obj: AlexaForBusinessDeleteConferenceProviderResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDeleteContactRequest
  */
 export interface AlexaForBusinessDeleteContactRequest {
   /**
    * @schema AlexaForBusinessDeleteContactRequest#ContactArn
    */
-  readonly contactArn: string;
+  readonly contactArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDeleteContactRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteContactRequest(obj: AlexaForBusinessDeleteContactRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContactArn': obj.contactArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDeleteContactResponse
@@ -711,15 +1372,42 @@ export interface AlexaForBusinessDeleteContactResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDeleteContactResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteContactResponse(obj: AlexaForBusinessDeleteContactResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDeleteDeviceRequest
  */
 export interface AlexaForBusinessDeleteDeviceRequest {
   /**
    * @schema AlexaForBusinessDeleteDeviceRequest#DeviceArn
    */
-  readonly deviceArn: string;
+  readonly deviceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDeleteDeviceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteDeviceRequest(obj: AlexaForBusinessDeleteDeviceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceArn': obj.deviceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDeleteDeviceResponse
@@ -728,20 +1416,48 @@ export interface AlexaForBusinessDeleteDeviceResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDeleteDeviceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteDeviceResponse(obj: AlexaForBusinessDeleteDeviceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDeleteDeviceUsageDataRequest
  */
 export interface AlexaForBusinessDeleteDeviceUsageDataRequest {
   /**
    * @schema AlexaForBusinessDeleteDeviceUsageDataRequest#DeviceArn
    */
-  readonly deviceArn: string;
+  readonly deviceArn?: string;
 
   /**
    * @schema AlexaForBusinessDeleteDeviceUsageDataRequest#DeviceUsageType
    */
-  readonly deviceUsageType: string;
+  readonly deviceUsageType?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDeleteDeviceUsageDataRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteDeviceUsageDataRequest(obj: AlexaForBusinessDeleteDeviceUsageDataRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceArn': obj.deviceArn,
+    'DeviceUsageType': obj.deviceUsageType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDeleteDeviceUsageDataResponse
@@ -750,15 +1466,42 @@ export interface AlexaForBusinessDeleteDeviceUsageDataResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDeleteDeviceUsageDataResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteDeviceUsageDataResponse(obj: AlexaForBusinessDeleteDeviceUsageDataResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDeleteGatewayGroupRequest
  */
 export interface AlexaForBusinessDeleteGatewayGroupRequest {
   /**
    * @schema AlexaForBusinessDeleteGatewayGroupRequest#GatewayGroupArn
    */
-  readonly gatewayGroupArn: string;
+  readonly gatewayGroupArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDeleteGatewayGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteGatewayGroupRequest(obj: AlexaForBusinessDeleteGatewayGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GatewayGroupArn': obj.gatewayGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDeleteGatewayGroupResponse
@@ -767,21 +1510,61 @@ export interface AlexaForBusinessDeleteGatewayGroupResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDeleteGatewayGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteGatewayGroupResponse(obj: AlexaForBusinessDeleteGatewayGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDeleteNetworkProfileRequest
  */
 export interface AlexaForBusinessDeleteNetworkProfileRequest {
   /**
    * @schema AlexaForBusinessDeleteNetworkProfileRequest#NetworkProfileArn
    */
-  readonly networkProfileArn: string;
+  readonly networkProfileArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDeleteNetworkProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteNetworkProfileRequest(obj: AlexaForBusinessDeleteNetworkProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NetworkProfileArn': obj.networkProfileArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDeleteNetworkProfileResponse
  */
 export interface AlexaForBusinessDeleteNetworkProfileResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDeleteNetworkProfileResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteNetworkProfileResponse(obj: AlexaForBusinessDeleteNetworkProfileResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDeleteProfileRequest
@@ -795,10 +1578,37 @@ export interface AlexaForBusinessDeleteProfileRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDeleteProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteProfileRequest(obj: AlexaForBusinessDeleteProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProfileArn': obj.profileArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDeleteProfileResponse
  */
 export interface AlexaForBusinessDeleteProfileResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDeleteProfileResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteProfileResponse(obj: AlexaForBusinessDeleteProfileResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDeleteRoomRequest
@@ -812,10 +1622,37 @@ export interface AlexaForBusinessDeleteRoomRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDeleteRoomRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteRoomRequest(obj: AlexaForBusinessDeleteRoomRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomArn': obj.roomArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDeleteRoomResponse
  */
 export interface AlexaForBusinessDeleteRoomResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDeleteRoomResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteRoomResponse(obj: AlexaForBusinessDeleteRoomResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDeleteRoomSkillParameterRequest
@@ -829,14 +1666,30 @@ export interface AlexaForBusinessDeleteRoomSkillParameterRequest {
   /**
    * @schema AlexaForBusinessDeleteRoomSkillParameterRequest#SkillId
    */
-  readonly skillId: string;
+  readonly skillId?: string;
 
   /**
    * @schema AlexaForBusinessDeleteRoomSkillParameterRequest#ParameterKey
    */
-  readonly parameterKey: string;
+  readonly parameterKey?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDeleteRoomSkillParameterRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteRoomSkillParameterRequest(obj: AlexaForBusinessDeleteRoomSkillParameterRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomArn': obj.roomArn,
+    'SkillId': obj.skillId,
+    'ParameterKey': obj.parameterKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDeleteRoomSkillParameterResponse
@@ -845,13 +1698,26 @@ export interface AlexaForBusinessDeleteRoomSkillParameterResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDeleteRoomSkillParameterResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteRoomSkillParameterResponse(obj: AlexaForBusinessDeleteRoomSkillParameterResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDeleteSkillAuthorizationRequest
  */
 export interface AlexaForBusinessDeleteSkillAuthorizationRequest {
   /**
    * @schema AlexaForBusinessDeleteSkillAuthorizationRequest#SkillId
    */
-  readonly skillId: string;
+  readonly skillId?: string;
 
   /**
    * @schema AlexaForBusinessDeleteSkillAuthorizationRequest#RoomArn
@@ -861,10 +1727,38 @@ export interface AlexaForBusinessDeleteSkillAuthorizationRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDeleteSkillAuthorizationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteSkillAuthorizationRequest(obj: AlexaForBusinessDeleteSkillAuthorizationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillId': obj.skillId,
+    'RoomArn': obj.roomArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDeleteSkillAuthorizationResponse
  */
 export interface AlexaForBusinessDeleteSkillAuthorizationResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDeleteSkillAuthorizationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteSkillAuthorizationResponse(obj: AlexaForBusinessDeleteSkillAuthorizationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDeleteSkillGroupRequest
@@ -878,10 +1772,37 @@ export interface AlexaForBusinessDeleteSkillGroupRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDeleteSkillGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteSkillGroupRequest(obj: AlexaForBusinessDeleteSkillGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillGroupArn': obj.skillGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDeleteSkillGroupResponse
  */
 export interface AlexaForBusinessDeleteSkillGroupResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDeleteSkillGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteSkillGroupResponse(obj: AlexaForBusinessDeleteSkillGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDeleteUserRequest
@@ -895,9 +1816,24 @@ export interface AlexaForBusinessDeleteUserRequest {
   /**
    * @schema AlexaForBusinessDeleteUserRequest#EnrollmentId
    */
-  readonly enrollmentId: string;
+  readonly enrollmentId?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDeleteUserRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteUserRequest(obj: AlexaForBusinessDeleteUserRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserArn': obj.userArn,
+    'EnrollmentId': obj.enrollmentId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDeleteUserResponse
@@ -906,26 +1842,67 @@ export interface AlexaForBusinessDeleteUserResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDeleteUserResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeleteUserResponse(obj: AlexaForBusinessDeleteUserResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDisassociateContactFromAddressBookRequest
  */
 export interface AlexaForBusinessDisassociateContactFromAddressBookRequest {
   /**
    * @schema AlexaForBusinessDisassociateContactFromAddressBookRequest#ContactArn
    */
-  readonly contactArn: string;
+  readonly contactArn?: string;
 
   /**
    * @schema AlexaForBusinessDisassociateContactFromAddressBookRequest#AddressBookArn
    */
-  readonly addressBookArn: string;
+  readonly addressBookArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDisassociateContactFromAddressBookRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDisassociateContactFromAddressBookRequest(obj: AlexaForBusinessDisassociateContactFromAddressBookRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContactArn': obj.contactArn,
+    'AddressBookArn': obj.addressBookArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDisassociateContactFromAddressBookResponse
  */
 export interface AlexaForBusinessDisassociateContactFromAddressBookResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDisassociateContactFromAddressBookResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDisassociateContactFromAddressBookResponse(obj: AlexaForBusinessDisassociateContactFromAddressBookResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDisassociateDeviceFromRoomRequest
@@ -939,10 +1916,37 @@ export interface AlexaForBusinessDisassociateDeviceFromRoomRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDisassociateDeviceFromRoomRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDisassociateDeviceFromRoomRequest(obj: AlexaForBusinessDisassociateDeviceFromRoomRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceArn': obj.deviceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDisassociateDeviceFromRoomResponse
  */
 export interface AlexaForBusinessDisassociateDeviceFromRoomResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDisassociateDeviceFromRoomResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDisassociateDeviceFromRoomResponse(obj: AlexaForBusinessDisassociateDeviceFromRoomResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDisassociateSkillFromSkillGroupRequest
@@ -956,9 +1960,24 @@ export interface AlexaForBusinessDisassociateSkillFromSkillGroupRequest {
   /**
    * @schema AlexaForBusinessDisassociateSkillFromSkillGroupRequest#SkillId
    */
-  readonly skillId: string;
+  readonly skillId?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDisassociateSkillFromSkillGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDisassociateSkillFromSkillGroupRequest(obj: AlexaForBusinessDisassociateSkillFromSkillGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillGroupArn': obj.skillGroupArn,
+    'SkillId': obj.skillId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDisassociateSkillFromSkillGroupResponse
@@ -967,21 +1986,61 @@ export interface AlexaForBusinessDisassociateSkillFromSkillGroupResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDisassociateSkillFromSkillGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDisassociateSkillFromSkillGroupResponse(obj: AlexaForBusinessDisassociateSkillFromSkillGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDisassociateSkillFromUsersRequest
  */
 export interface AlexaForBusinessDisassociateSkillFromUsersRequest {
   /**
    * @schema AlexaForBusinessDisassociateSkillFromUsersRequest#SkillId
    */
-  readonly skillId: string;
+  readonly skillId?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDisassociateSkillFromUsersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDisassociateSkillFromUsersRequest(obj: AlexaForBusinessDisassociateSkillFromUsersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillId': obj.skillId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDisassociateSkillFromUsersResponse
  */
 export interface AlexaForBusinessDisassociateSkillFromUsersResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDisassociateSkillFromUsersResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDisassociateSkillFromUsersResponse(obj: AlexaForBusinessDisassociateSkillFromUsersResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDisassociateSkillGroupFromRoomRequest
@@ -1000,10 +2059,38 @@ export interface AlexaForBusinessDisassociateSkillGroupFromRoomRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDisassociateSkillGroupFromRoomRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDisassociateSkillGroupFromRoomRequest(obj: AlexaForBusinessDisassociateSkillGroupFromRoomRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillGroupArn': obj.skillGroupArn,
+    'RoomArn': obj.roomArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDisassociateSkillGroupFromRoomResponse
  */
 export interface AlexaForBusinessDisassociateSkillGroupFromRoomResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDisassociateSkillGroupFromRoomResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDisassociateSkillGroupFromRoomResponse(obj: AlexaForBusinessDisassociateSkillGroupFromRoomResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessForgetSmartHomeAppliancesRequest
@@ -1012,9 +2099,23 @@ export interface AlexaForBusinessForgetSmartHomeAppliancesRequest {
   /**
    * @schema AlexaForBusinessForgetSmartHomeAppliancesRequest#RoomArn
    */
-  readonly roomArn: string;
+  readonly roomArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessForgetSmartHomeAppliancesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessForgetSmartHomeAppliancesRequest(obj: AlexaForBusinessForgetSmartHomeAppliancesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomArn': obj.roomArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessForgetSmartHomeAppliancesResponse
@@ -1023,15 +2124,42 @@ export interface AlexaForBusinessForgetSmartHomeAppliancesResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessForgetSmartHomeAppliancesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessForgetSmartHomeAppliancesResponse(obj: AlexaForBusinessForgetSmartHomeAppliancesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessGetAddressBookRequest
  */
 export interface AlexaForBusinessGetAddressBookRequest {
   /**
    * @schema AlexaForBusinessGetAddressBookRequest#AddressBookArn
    */
-  readonly addressBookArn: string;
+  readonly addressBookArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessGetAddressBookRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetAddressBookRequest(obj: AlexaForBusinessGetAddressBookRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AddressBookArn': obj.addressBookArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessGetAddressBookResponse
@@ -1045,10 +2173,37 @@ export interface AlexaForBusinessGetAddressBookResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessGetAddressBookResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetAddressBookResponse(obj: AlexaForBusinessGetAddressBookResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AddressBook': toJson_AlexaForBusinessAddressBook(obj.addressBook),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessGetConferencePreferenceRequest
  */
 export interface AlexaForBusinessGetConferencePreferenceRequest {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessGetConferencePreferenceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetConferencePreferenceRequest(obj: AlexaForBusinessGetConferencePreferenceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessGetConferencePreferenceResponse
@@ -1062,15 +2217,43 @@ export interface AlexaForBusinessGetConferencePreferenceResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessGetConferencePreferenceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetConferencePreferenceResponse(obj: AlexaForBusinessGetConferencePreferenceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Preference': toJson_AlexaForBusinessConferencePreference(obj.preference),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessGetConferenceProviderRequest
  */
 export interface AlexaForBusinessGetConferenceProviderRequest {
   /**
    * @schema AlexaForBusinessGetConferenceProviderRequest#ConferenceProviderArn
    */
-  readonly conferenceProviderArn: string;
+  readonly conferenceProviderArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessGetConferenceProviderRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetConferenceProviderRequest(obj: AlexaForBusinessGetConferenceProviderRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConferenceProviderArn': obj.conferenceProviderArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessGetConferenceProviderResponse
@@ -1084,15 +2267,43 @@ export interface AlexaForBusinessGetConferenceProviderResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessGetConferenceProviderResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetConferenceProviderResponse(obj: AlexaForBusinessGetConferenceProviderResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConferenceProvider': toJson_AlexaForBusinessConferenceProvider(obj.conferenceProvider),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessGetContactRequest
  */
 export interface AlexaForBusinessGetContactRequest {
   /**
    * @schema AlexaForBusinessGetContactRequest#ContactArn
    */
-  readonly contactArn: string;
+  readonly contactArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessGetContactRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetContactRequest(obj: AlexaForBusinessGetContactRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContactArn': obj.contactArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessGetContactResponse
@@ -1106,6 +2317,20 @@ export interface AlexaForBusinessGetContactResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessGetContactResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetContactResponse(obj: AlexaForBusinessGetContactResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Contact': toJson_AlexaForBusinessContact(obj.contact),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessGetDeviceRequest
  */
 export interface AlexaForBusinessGetDeviceRequest {
@@ -1115,6 +2340,20 @@ export interface AlexaForBusinessGetDeviceRequest {
   readonly deviceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessGetDeviceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetDeviceRequest(obj: AlexaForBusinessGetDeviceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceArn': obj.deviceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessGetDeviceResponse
@@ -1128,15 +2367,43 @@ export interface AlexaForBusinessGetDeviceResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessGetDeviceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetDeviceResponse(obj: AlexaForBusinessGetDeviceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Device': toJson_AlexaForBusinessDevice(obj.device),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessGetGatewayRequest
  */
 export interface AlexaForBusinessGetGatewayRequest {
   /**
    * @schema AlexaForBusinessGetGatewayRequest#GatewayArn
    */
-  readonly gatewayArn: string;
+  readonly gatewayArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessGetGatewayRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetGatewayRequest(obj: AlexaForBusinessGetGatewayRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GatewayArn': obj.gatewayArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessGetGatewayResponse
@@ -1150,15 +2417,43 @@ export interface AlexaForBusinessGetGatewayResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessGetGatewayResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetGatewayResponse(obj: AlexaForBusinessGetGatewayResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Gateway': toJson_AlexaForBusinessGateway(obj.gateway),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessGetGatewayGroupRequest
  */
 export interface AlexaForBusinessGetGatewayGroupRequest {
   /**
    * @schema AlexaForBusinessGetGatewayGroupRequest#GatewayGroupArn
    */
-  readonly gatewayGroupArn: string;
+  readonly gatewayGroupArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessGetGatewayGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetGatewayGroupRequest(obj: AlexaForBusinessGetGatewayGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GatewayGroupArn': obj.gatewayGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessGetGatewayGroupResponse
@@ -1172,10 +2467,37 @@ export interface AlexaForBusinessGetGatewayGroupResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessGetGatewayGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetGatewayGroupResponse(obj: AlexaForBusinessGetGatewayGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GatewayGroup': toJson_AlexaForBusinessGatewayGroup(obj.gatewayGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessGetInvitationConfigurationRequest
  */
 export interface AlexaForBusinessGetInvitationConfigurationRequest {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessGetInvitationConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetInvitationConfigurationRequest(obj: AlexaForBusinessGetInvitationConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessGetInvitationConfigurationResponse
@@ -1199,15 +2521,45 @@ export interface AlexaForBusinessGetInvitationConfigurationResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessGetInvitationConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetInvitationConfigurationResponse(obj: AlexaForBusinessGetInvitationConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OrganizationName': obj.organizationName,
+    'ContactEmail': obj.contactEmail,
+    'PrivateSkillIds': obj.privateSkillIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessGetNetworkProfileRequest
  */
 export interface AlexaForBusinessGetNetworkProfileRequest {
   /**
    * @schema AlexaForBusinessGetNetworkProfileRequest#NetworkProfileArn
    */
-  readonly networkProfileArn: string;
+  readonly networkProfileArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessGetNetworkProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetNetworkProfileRequest(obj: AlexaForBusinessGetNetworkProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NetworkProfileArn': obj.networkProfileArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessGetNetworkProfileResponse
@@ -1221,6 +2573,20 @@ export interface AlexaForBusinessGetNetworkProfileResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessGetNetworkProfileResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetNetworkProfileResponse(obj: AlexaForBusinessGetNetworkProfileResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NetworkProfile': toJson_AlexaForBusinessNetworkProfile(obj.networkProfile),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessGetProfileRequest
  */
 export interface AlexaForBusinessGetProfileRequest {
@@ -1230,6 +2596,20 @@ export interface AlexaForBusinessGetProfileRequest {
   readonly profileArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessGetProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetProfileRequest(obj: AlexaForBusinessGetProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProfileArn': obj.profileArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessGetProfileResponse
@@ -1243,6 +2623,20 @@ export interface AlexaForBusinessGetProfileResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessGetProfileResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetProfileResponse(obj: AlexaForBusinessGetProfileResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Profile': toJson_AlexaForBusinessProfile(obj.profile),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessGetRoomRequest
  */
 export interface AlexaForBusinessGetRoomRequest {
@@ -1252,6 +2646,20 @@ export interface AlexaForBusinessGetRoomRequest {
   readonly roomArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessGetRoomRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetRoomRequest(obj: AlexaForBusinessGetRoomRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomArn': obj.roomArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessGetRoomResponse
@@ -1265,6 +2673,20 @@ export interface AlexaForBusinessGetRoomResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessGetRoomResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetRoomResponse(obj: AlexaForBusinessGetRoomResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Room': toJson_AlexaForBusinessRoom(obj.room),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessGetRoomSkillParameterRequest
  */
 export interface AlexaForBusinessGetRoomSkillParameterRequest {
@@ -1276,14 +2698,30 @@ export interface AlexaForBusinessGetRoomSkillParameterRequest {
   /**
    * @schema AlexaForBusinessGetRoomSkillParameterRequest#SkillId
    */
-  readonly skillId: string;
+  readonly skillId?: string;
 
   /**
    * @schema AlexaForBusinessGetRoomSkillParameterRequest#ParameterKey
    */
-  readonly parameterKey: string;
+  readonly parameterKey?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessGetRoomSkillParameterRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetRoomSkillParameterRequest(obj: AlexaForBusinessGetRoomSkillParameterRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomArn': obj.roomArn,
+    'SkillId': obj.skillId,
+    'ParameterKey': obj.parameterKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessGetRoomSkillParameterResponse
@@ -1297,6 +2735,20 @@ export interface AlexaForBusinessGetRoomSkillParameterResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessGetRoomSkillParameterResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetRoomSkillParameterResponse(obj: AlexaForBusinessGetRoomSkillParameterResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomSkillParameter': toJson_AlexaForBusinessRoomSkillParameter(obj.roomSkillParameter),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessGetSkillGroupRequest
  */
 export interface AlexaForBusinessGetSkillGroupRequest {
@@ -1308,6 +2760,20 @@ export interface AlexaForBusinessGetSkillGroupRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessGetSkillGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetSkillGroupRequest(obj: AlexaForBusinessGetSkillGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillGroupArn': obj.skillGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessGetSkillGroupResponse
  */
 export interface AlexaForBusinessGetSkillGroupResponse {
@@ -1317,6 +2783,20 @@ export interface AlexaForBusinessGetSkillGroupResponse {
   readonly skillGroup?: AlexaForBusinessSkillGroup;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessGetSkillGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGetSkillGroupResponse(obj: AlexaForBusinessGetSkillGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillGroup': toJson_AlexaForBusinessSkillGroup(obj.skillGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessListBusinessReportSchedulesRequest
@@ -1335,6 +2815,21 @@ export interface AlexaForBusinessListBusinessReportSchedulesRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessListBusinessReportSchedulesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListBusinessReportSchedulesRequest(obj: AlexaForBusinessListBusinessReportSchedulesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessListBusinessReportSchedulesResponse
  */
 export interface AlexaForBusinessListBusinessReportSchedulesResponse {
@@ -1349,6 +2844,21 @@ export interface AlexaForBusinessListBusinessReportSchedulesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessListBusinessReportSchedulesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListBusinessReportSchedulesResponse(obj: AlexaForBusinessListBusinessReportSchedulesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BusinessReportSchedules': obj.businessReportSchedules?.map(y => toJson_AlexaForBusinessBusinessReportSchedule(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessListConferenceProvidersRequest
@@ -1367,6 +2877,21 @@ export interface AlexaForBusinessListConferenceProvidersRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessListConferenceProvidersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListConferenceProvidersRequest(obj: AlexaForBusinessListConferenceProvidersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessListConferenceProvidersResponse
  */
 export interface AlexaForBusinessListConferenceProvidersResponse {
@@ -1383,13 +2908,28 @@ export interface AlexaForBusinessListConferenceProvidersResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessListConferenceProvidersResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListConferenceProvidersResponse(obj: AlexaForBusinessListConferenceProvidersResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConferenceProviders': obj.conferenceProviders?.map(y => toJson_AlexaForBusinessConferenceProvider(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessListDeviceEventsRequest
  */
 export interface AlexaForBusinessListDeviceEventsRequest {
   /**
    * @schema AlexaForBusinessListDeviceEventsRequest#DeviceArn
    */
-  readonly deviceArn: string;
+  readonly deviceArn?: string;
 
   /**
    * @schema AlexaForBusinessListDeviceEventsRequest#EventType
@@ -1409,6 +2949,23 @@ export interface AlexaForBusinessListDeviceEventsRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessListDeviceEventsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListDeviceEventsRequest(obj: AlexaForBusinessListDeviceEventsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceArn': obj.deviceArn,
+    'EventType': obj.eventType,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessListDeviceEventsResponse
  */
 export interface AlexaForBusinessListDeviceEventsResponse {
@@ -1423,6 +2980,21 @@ export interface AlexaForBusinessListDeviceEventsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessListDeviceEventsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListDeviceEventsResponse(obj: AlexaForBusinessListDeviceEventsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceEvents': obj.deviceEvents?.map(y => toJson_AlexaForBusinessDeviceEvent(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessListGatewayGroupsRequest
@@ -1441,6 +3013,21 @@ export interface AlexaForBusinessListGatewayGroupsRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessListGatewayGroupsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListGatewayGroupsRequest(obj: AlexaForBusinessListGatewayGroupsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessListGatewayGroupsResponse
  */
 export interface AlexaForBusinessListGatewayGroupsResponse {
@@ -1455,6 +3042,21 @@ export interface AlexaForBusinessListGatewayGroupsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessListGatewayGroupsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListGatewayGroupsResponse(obj: AlexaForBusinessListGatewayGroupsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GatewayGroups': obj.gatewayGroups?.map(y => toJson_AlexaForBusinessGatewayGroupSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessListGatewaysRequest
@@ -1478,6 +3080,22 @@ export interface AlexaForBusinessListGatewaysRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessListGatewaysRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListGatewaysRequest(obj: AlexaForBusinessListGatewaysRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GatewayGroupArn': obj.gatewayGroupArn,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessListGatewaysResponse
  */
 export interface AlexaForBusinessListGatewaysResponse {
@@ -1492,6 +3110,21 @@ export interface AlexaForBusinessListGatewaysResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessListGatewaysResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListGatewaysResponse(obj: AlexaForBusinessListGatewaysResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Gateways': obj.gateways?.map(y => toJson_AlexaForBusinessGatewaySummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessListSkillsRequest
@@ -1525,6 +3158,24 @@ export interface AlexaForBusinessListSkillsRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessListSkillsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListSkillsRequest(obj: AlexaForBusinessListSkillsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillGroupArn': obj.skillGroupArn,
+    'EnablementType': obj.enablementType,
+    'SkillType': obj.skillType,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessListSkillsResponse
  */
 export interface AlexaForBusinessListSkillsResponse {
@@ -1539,6 +3190,21 @@ export interface AlexaForBusinessListSkillsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessListSkillsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListSkillsResponse(obj: AlexaForBusinessListSkillsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillSummaries': obj.skillSummaries?.map(y => toJson_AlexaForBusinessSkillSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessListSkillsStoreCategoriesRequest
@@ -1557,6 +3223,21 @@ export interface AlexaForBusinessListSkillsStoreCategoriesRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessListSkillsStoreCategoriesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListSkillsStoreCategoriesRequest(obj: AlexaForBusinessListSkillsStoreCategoriesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessListSkillsStoreCategoriesResponse
  */
 export interface AlexaForBusinessListSkillsStoreCategoriesResponse {
@@ -1573,13 +3254,28 @@ export interface AlexaForBusinessListSkillsStoreCategoriesResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessListSkillsStoreCategoriesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListSkillsStoreCategoriesResponse(obj: AlexaForBusinessListSkillsStoreCategoriesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CategoryList': obj.categoryList?.map(y => toJson_AlexaForBusinessCategory(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessListSkillsStoreSkillsByCategoryRequest
  */
 export interface AlexaForBusinessListSkillsStoreSkillsByCategoryRequest {
   /**
    * @schema AlexaForBusinessListSkillsStoreSkillsByCategoryRequest#CategoryId
    */
-  readonly categoryId: number;
+  readonly categoryId?: number;
 
   /**
    * @schema AlexaForBusinessListSkillsStoreSkillsByCategoryRequest#NextToken
@@ -1592,6 +3288,22 @@ export interface AlexaForBusinessListSkillsStoreSkillsByCategoryRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessListSkillsStoreSkillsByCategoryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListSkillsStoreSkillsByCategoryRequest(obj: AlexaForBusinessListSkillsStoreSkillsByCategoryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CategoryId': obj.categoryId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessListSkillsStoreSkillsByCategoryResponse
@@ -1610,13 +3322,28 @@ export interface AlexaForBusinessListSkillsStoreSkillsByCategoryResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessListSkillsStoreSkillsByCategoryResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListSkillsStoreSkillsByCategoryResponse(obj: AlexaForBusinessListSkillsStoreSkillsByCategoryResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillsStoreSkills': obj.skillsStoreSkills?.map(y => toJson_AlexaForBusinessSkillsStoreSkill(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessListSmartHomeAppliancesRequest
  */
 export interface AlexaForBusinessListSmartHomeAppliancesRequest {
   /**
    * @schema AlexaForBusinessListSmartHomeAppliancesRequest#RoomArn
    */
-  readonly roomArn: string;
+  readonly roomArn?: string;
 
   /**
    * @schema AlexaForBusinessListSmartHomeAppliancesRequest#MaxResults
@@ -1629,6 +3356,22 @@ export interface AlexaForBusinessListSmartHomeAppliancesRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessListSmartHomeAppliancesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListSmartHomeAppliancesRequest(obj: AlexaForBusinessListSmartHomeAppliancesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomArn': obj.roomArn,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessListSmartHomeAppliancesResponse
@@ -1647,13 +3390,28 @@ export interface AlexaForBusinessListSmartHomeAppliancesResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessListSmartHomeAppliancesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListSmartHomeAppliancesResponse(obj: AlexaForBusinessListSmartHomeAppliancesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SmartHomeAppliances': obj.smartHomeAppliances?.map(y => toJson_AlexaForBusinessSmartHomeAppliance(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessListTagsRequest
  */
 export interface AlexaForBusinessListTagsRequest {
   /**
    * @schema AlexaForBusinessListTagsRequest#Arn
    */
-  readonly arn: string;
+  readonly arn?: string;
 
   /**
    * @schema AlexaForBusinessListTagsRequest#NextToken
@@ -1666,6 +3424,22 @@ export interface AlexaForBusinessListTagsRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessListTagsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListTagsRequest(obj: AlexaForBusinessListTagsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessListTagsResponse
@@ -1684,15 +3458,44 @@ export interface AlexaForBusinessListTagsResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessListTagsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessListTagsResponse(obj: AlexaForBusinessListTagsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Tags': obj.tags?.map(y => toJson_AlexaForBusinessTag(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessPutConferencePreferenceRequest
  */
 export interface AlexaForBusinessPutConferencePreferenceRequest {
   /**
    * @schema AlexaForBusinessPutConferencePreferenceRequest#ConferencePreference
    */
-  readonly conferencePreference: AlexaForBusinessConferencePreference;
+  readonly conferencePreference?: AlexaForBusinessConferencePreference;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessPutConferencePreferenceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessPutConferencePreferenceRequest(obj: AlexaForBusinessPutConferencePreferenceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConferencePreference': toJson_AlexaForBusinessConferencePreference(obj.conferencePreference),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessPutConferencePreferenceResponse
@@ -1701,13 +3504,26 @@ export interface AlexaForBusinessPutConferencePreferenceResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessPutConferencePreferenceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessPutConferencePreferenceResponse(obj: AlexaForBusinessPutConferencePreferenceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessPutInvitationConfigurationRequest
  */
 export interface AlexaForBusinessPutInvitationConfigurationRequest {
   /**
    * @schema AlexaForBusinessPutInvitationConfigurationRequest#OrganizationName
    */
-  readonly organizationName: string;
+  readonly organizationName?: string;
 
   /**
    * @schema AlexaForBusinessPutInvitationConfigurationRequest#ContactEmail
@@ -1722,10 +3538,39 @@ export interface AlexaForBusinessPutInvitationConfigurationRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessPutInvitationConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessPutInvitationConfigurationRequest(obj: AlexaForBusinessPutInvitationConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OrganizationName': obj.organizationName,
+    'ContactEmail': obj.contactEmail,
+    'PrivateSkillIds': obj.privateSkillIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessPutInvitationConfigurationResponse
  */
 export interface AlexaForBusinessPutInvitationConfigurationResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessPutInvitationConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessPutInvitationConfigurationResponse(obj: AlexaForBusinessPutInvitationConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessPutRoomSkillParameterRequest
@@ -1739,14 +3584,30 @@ export interface AlexaForBusinessPutRoomSkillParameterRequest {
   /**
    * @schema AlexaForBusinessPutRoomSkillParameterRequest#SkillId
    */
-  readonly skillId: string;
+  readonly skillId?: string;
 
   /**
    * @schema AlexaForBusinessPutRoomSkillParameterRequest#RoomSkillParameter
    */
-  readonly roomSkillParameter: AlexaForBusinessRoomSkillParameter;
+  readonly roomSkillParameter?: AlexaForBusinessRoomSkillParameter;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessPutRoomSkillParameterRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessPutRoomSkillParameterRequest(obj: AlexaForBusinessPutRoomSkillParameterRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomArn': obj.roomArn,
+    'SkillId': obj.skillId,
+    'RoomSkillParameter': toJson_AlexaForBusinessRoomSkillParameter(obj.roomSkillParameter),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessPutRoomSkillParameterResponse
@@ -1755,18 +3616,31 @@ export interface AlexaForBusinessPutRoomSkillParameterResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessPutRoomSkillParameterResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessPutRoomSkillParameterResponse(obj: AlexaForBusinessPutRoomSkillParameterResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessPutSkillAuthorizationRequest
  */
 export interface AlexaForBusinessPutSkillAuthorizationRequest {
   /**
    * @schema AlexaForBusinessPutSkillAuthorizationRequest#AuthorizationResult
    */
-  readonly authorizationResult: { [key: string]: string };
+  readonly authorizationResult?: { [key: string]: string };
 
   /**
    * @schema AlexaForBusinessPutSkillAuthorizationRequest#SkillId
    */
-  readonly skillId: string;
+  readonly skillId?: string;
 
   /**
    * @schema AlexaForBusinessPutSkillAuthorizationRequest#RoomArn
@@ -1776,10 +3650,39 @@ export interface AlexaForBusinessPutSkillAuthorizationRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessPutSkillAuthorizationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessPutSkillAuthorizationRequest(obj: AlexaForBusinessPutSkillAuthorizationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AuthorizationResult': ((obj.authorizationResult) === undefined) ? undefined : (Object.entries(obj.authorizationResult).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'SkillId': obj.skillId,
+    'RoomArn': obj.roomArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessPutSkillAuthorizationResponse
  */
 export interface AlexaForBusinessPutSkillAuthorizationResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessPutSkillAuthorizationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessPutSkillAuthorizationResponse(obj: AlexaForBusinessPutSkillAuthorizationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessRegisterAvsDeviceRequest
@@ -1788,17 +3691,17 @@ export interface AlexaForBusinessRegisterAvsDeviceRequest {
   /**
    * @schema AlexaForBusinessRegisterAvsDeviceRequest#ClientId
    */
-  readonly clientId: string;
+  readonly clientId?: string;
 
   /**
    * @schema AlexaForBusinessRegisterAvsDeviceRequest#UserCode
    */
-  readonly userCode: string;
+  readonly userCode?: string;
 
   /**
    * @schema AlexaForBusinessRegisterAvsDeviceRequest#ProductId
    */
-  readonly productId: string;
+  readonly productId?: string;
 
   /**
    * @schema AlexaForBusinessRegisterAvsDeviceRequest#DeviceSerialNumber
@@ -1808,14 +3711,39 @@ export interface AlexaForBusinessRegisterAvsDeviceRequest {
   /**
    * @schema AlexaForBusinessRegisterAvsDeviceRequest#AmazonId
    */
-  readonly amazonId: string;
+  readonly amazonId?: string;
 
   /**
    * @schema AlexaForBusinessRegisterAvsDeviceRequest#RoomArn
    */
   readonly roomArn?: string;
 
+  /**
+   * @schema AlexaForBusinessRegisterAvsDeviceRequest#Tags
+   */
+  readonly tags?: AlexaForBusinessTag[];
+
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessRegisterAvsDeviceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessRegisterAvsDeviceRequest(obj: AlexaForBusinessRegisterAvsDeviceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ClientId': obj.clientId,
+    'UserCode': obj.userCode,
+    'ProductId': obj.productId,
+    'DeviceSerialNumber': obj.deviceSerialNumber,
+    'AmazonId': obj.amazonId,
+    'RoomArn': obj.roomArn,
+    'Tags': obj.tags?.map(y => toJson_AlexaForBusinessTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessRegisterAvsDeviceResponse
@@ -1829,15 +3757,43 @@ export interface AlexaForBusinessRegisterAvsDeviceResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessRegisterAvsDeviceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessRegisterAvsDeviceResponse(obj: AlexaForBusinessRegisterAvsDeviceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceArn': obj.deviceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessRejectSkillRequest
  */
 export interface AlexaForBusinessRejectSkillRequest {
   /**
    * @schema AlexaForBusinessRejectSkillRequest#SkillId
    */
-  readonly skillId: string;
+  readonly skillId?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessRejectSkillRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessRejectSkillRequest(obj: AlexaForBusinessRejectSkillRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillId': obj.skillId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessRejectSkillResponse
@@ -1846,20 +3802,48 @@ export interface AlexaForBusinessRejectSkillResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessRejectSkillResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessRejectSkillResponse(obj: AlexaForBusinessRejectSkillResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessResolveRoomRequest
  */
 export interface AlexaForBusinessResolveRoomRequest {
   /**
    * @schema AlexaForBusinessResolveRoomRequest#UserId
    */
-  readonly userId: string;
+  readonly userId?: string;
 
   /**
    * @schema AlexaForBusinessResolveRoomRequest#SkillId
    */
-  readonly skillId: string;
+  readonly skillId?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessResolveRoomRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessResolveRoomRequest(obj: AlexaForBusinessResolveRoomRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserId': obj.userId,
+    'SkillId': obj.skillId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessResolveRoomResponse
@@ -1883,6 +3867,22 @@ export interface AlexaForBusinessResolveRoomResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessResolveRoomResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessResolveRoomResponse(obj: AlexaForBusinessResolveRoomResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomArn': obj.roomArn,
+    'RoomName': obj.roomName,
+    'RoomSkillParameters': obj.roomSkillParameters?.map(y => toJson_AlexaForBusinessRoomSkillParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessRevokeInvitationRequest
  */
 export interface AlexaForBusinessRevokeInvitationRequest {
@@ -1899,10 +3899,38 @@ export interface AlexaForBusinessRevokeInvitationRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessRevokeInvitationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessRevokeInvitationRequest(obj: AlexaForBusinessRevokeInvitationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserArn': obj.userArn,
+    'EnrollmentId': obj.enrollmentId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessRevokeInvitationResponse
  */
 export interface AlexaForBusinessRevokeInvitationResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessRevokeInvitationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessRevokeInvitationResponse(obj: AlexaForBusinessRevokeInvitationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessSearchAddressBooksRequest
@@ -1931,6 +3959,23 @@ export interface AlexaForBusinessSearchAddressBooksRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessSearchAddressBooksRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSearchAddressBooksRequest(obj: AlexaForBusinessSearchAddressBooksRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Filters': obj.filters?.map(y => toJson_AlexaForBusinessFilter(y)),
+    'SortCriteria': obj.sortCriteria?.map(y => toJson_AlexaForBusinessSort(y)),
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessSearchAddressBooksResponse
  */
 export interface AlexaForBusinessSearchAddressBooksResponse {
@@ -1950,6 +3995,22 @@ export interface AlexaForBusinessSearchAddressBooksResponse {
   readonly totalCount?: number;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessSearchAddressBooksResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSearchAddressBooksResponse(obj: AlexaForBusinessSearchAddressBooksResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AddressBooks': obj.addressBooks?.map(y => toJson_AlexaForBusinessAddressBookData(y)),
+    'NextToken': obj.nextToken,
+    'TotalCount': obj.totalCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessSearchContactsRequest
@@ -1978,6 +4039,23 @@ export interface AlexaForBusinessSearchContactsRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessSearchContactsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSearchContactsRequest(obj: AlexaForBusinessSearchContactsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Filters': obj.filters?.map(y => toJson_AlexaForBusinessFilter(y)),
+    'SortCriteria': obj.sortCriteria?.map(y => toJson_AlexaForBusinessSort(y)),
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessSearchContactsResponse
  */
 export interface AlexaForBusinessSearchContactsResponse {
@@ -1997,6 +4075,22 @@ export interface AlexaForBusinessSearchContactsResponse {
   readonly totalCount?: number;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessSearchContactsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSearchContactsResponse(obj: AlexaForBusinessSearchContactsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Contacts': obj.contacts?.map(y => toJson_AlexaForBusinessContactData(y)),
+    'NextToken': obj.nextToken,
+    'TotalCount': obj.totalCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessSearchDevicesRequest
@@ -2025,6 +4119,23 @@ export interface AlexaForBusinessSearchDevicesRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessSearchDevicesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSearchDevicesRequest(obj: AlexaForBusinessSearchDevicesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'Filters': obj.filters?.map(y => toJson_AlexaForBusinessFilter(y)),
+    'SortCriteria': obj.sortCriteria?.map(y => toJson_AlexaForBusinessSort(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessSearchDevicesResponse
  */
 export interface AlexaForBusinessSearchDevicesResponse {
@@ -2044,6 +4155,22 @@ export interface AlexaForBusinessSearchDevicesResponse {
   readonly totalCount?: number;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessSearchDevicesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSearchDevicesResponse(obj: AlexaForBusinessSearchDevicesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Devices': obj.devices?.map(y => toJson_AlexaForBusinessDeviceData(y)),
+    'NextToken': obj.nextToken,
+    'TotalCount': obj.totalCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessSearchNetworkProfilesRequest
@@ -2072,6 +4199,23 @@ export interface AlexaForBusinessSearchNetworkProfilesRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessSearchNetworkProfilesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSearchNetworkProfilesRequest(obj: AlexaForBusinessSearchNetworkProfilesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'Filters': obj.filters?.map(y => toJson_AlexaForBusinessFilter(y)),
+    'SortCriteria': obj.sortCriteria?.map(y => toJson_AlexaForBusinessSort(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessSearchNetworkProfilesResponse
  */
 export interface AlexaForBusinessSearchNetworkProfilesResponse {
@@ -2091,6 +4235,22 @@ export interface AlexaForBusinessSearchNetworkProfilesResponse {
   readonly totalCount?: number;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessSearchNetworkProfilesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSearchNetworkProfilesResponse(obj: AlexaForBusinessSearchNetworkProfilesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NetworkProfiles': obj.networkProfiles?.map(y => toJson_AlexaForBusinessNetworkProfileData(y)),
+    'NextToken': obj.nextToken,
+    'TotalCount': obj.totalCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessSearchProfilesRequest
@@ -2119,6 +4279,23 @@ export interface AlexaForBusinessSearchProfilesRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessSearchProfilesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSearchProfilesRequest(obj: AlexaForBusinessSearchProfilesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'Filters': obj.filters?.map(y => toJson_AlexaForBusinessFilter(y)),
+    'SortCriteria': obj.sortCriteria?.map(y => toJson_AlexaForBusinessSort(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessSearchProfilesResponse
  */
 export interface AlexaForBusinessSearchProfilesResponse {
@@ -2138,6 +4315,22 @@ export interface AlexaForBusinessSearchProfilesResponse {
   readonly totalCount?: number;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessSearchProfilesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSearchProfilesResponse(obj: AlexaForBusinessSearchProfilesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Profiles': obj.profiles?.map(y => toJson_AlexaForBusinessProfileData(y)),
+    'NextToken': obj.nextToken,
+    'TotalCount': obj.totalCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessSearchRoomsRequest
@@ -2166,6 +4359,23 @@ export interface AlexaForBusinessSearchRoomsRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessSearchRoomsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSearchRoomsRequest(obj: AlexaForBusinessSearchRoomsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'Filters': obj.filters?.map(y => toJson_AlexaForBusinessFilter(y)),
+    'SortCriteria': obj.sortCriteria?.map(y => toJson_AlexaForBusinessSort(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessSearchRoomsResponse
  */
 export interface AlexaForBusinessSearchRoomsResponse {
@@ -2185,6 +4395,22 @@ export interface AlexaForBusinessSearchRoomsResponse {
   readonly totalCount?: number;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessSearchRoomsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSearchRoomsResponse(obj: AlexaForBusinessSearchRoomsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Rooms': obj.rooms?.map(y => toJson_AlexaForBusinessRoomData(y)),
+    'NextToken': obj.nextToken,
+    'TotalCount': obj.totalCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessSearchSkillGroupsRequest
@@ -2213,6 +4439,23 @@ export interface AlexaForBusinessSearchSkillGroupsRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessSearchSkillGroupsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSearchSkillGroupsRequest(obj: AlexaForBusinessSearchSkillGroupsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'Filters': obj.filters?.map(y => toJson_AlexaForBusinessFilter(y)),
+    'SortCriteria': obj.sortCriteria?.map(y => toJson_AlexaForBusinessSort(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessSearchSkillGroupsResponse
  */
 export interface AlexaForBusinessSearchSkillGroupsResponse {
@@ -2232,6 +4475,22 @@ export interface AlexaForBusinessSearchSkillGroupsResponse {
   readonly totalCount?: number;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessSearchSkillGroupsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSearchSkillGroupsResponse(obj: AlexaForBusinessSearchSkillGroupsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillGroups': obj.skillGroups?.map(y => toJson_AlexaForBusinessSkillGroupData(y)),
+    'NextToken': obj.nextToken,
+    'TotalCount': obj.totalCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessSearchUsersRequest
@@ -2260,6 +4519,23 @@ export interface AlexaForBusinessSearchUsersRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessSearchUsersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSearchUsersRequest(obj: AlexaForBusinessSearchUsersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'Filters': obj.filters?.map(y => toJson_AlexaForBusinessFilter(y)),
+    'SortCriteria': obj.sortCriteria?.map(y => toJson_AlexaForBusinessSort(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessSearchUsersResponse
  */
 export interface AlexaForBusinessSearchUsersResponse {
@@ -2281,18 +4557,34 @@ export interface AlexaForBusinessSearchUsersResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessSearchUsersResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSearchUsersResponse(obj: AlexaForBusinessSearchUsersResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Users': obj.users?.map(y => toJson_AlexaForBusinessUserData(y)),
+    'NextToken': obj.nextToken,
+    'TotalCount': obj.totalCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessSendAnnouncementRequest
  */
 export interface AlexaForBusinessSendAnnouncementRequest {
   /**
    * @schema AlexaForBusinessSendAnnouncementRequest#RoomFilters
    */
-  readonly roomFilters: AlexaForBusinessFilter[];
+  readonly roomFilters?: AlexaForBusinessFilter[];
 
   /**
    * @schema AlexaForBusinessSendAnnouncementRequest#Content
    */
-  readonly content: AlexaForBusinessContent;
+  readonly content?: AlexaForBusinessContent;
 
   /**
    * @schema AlexaForBusinessSendAnnouncementRequest#TimeToLiveInSeconds
@@ -2302,9 +4594,26 @@ export interface AlexaForBusinessSendAnnouncementRequest {
   /**
    * @schema AlexaForBusinessSendAnnouncementRequest#ClientRequestToken
    */
-  readonly clientRequestToken: string;
+  readonly clientRequestToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessSendAnnouncementRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSendAnnouncementRequest(obj: AlexaForBusinessSendAnnouncementRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomFilters': obj.roomFilters?.map(y => toJson_AlexaForBusinessFilter(y)),
+    'Content': toJson_AlexaForBusinessContent(obj.content),
+    'TimeToLiveInSeconds': obj.timeToLiveInSeconds,
+    'ClientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessSendAnnouncementResponse
@@ -2318,6 +4627,20 @@ export interface AlexaForBusinessSendAnnouncementResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessSendAnnouncementResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSendAnnouncementResponse(obj: AlexaForBusinessSendAnnouncementResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AnnouncementArn': obj.announcementArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessSendInvitationRequest
  */
 export interface AlexaForBusinessSendInvitationRequest {
@@ -2329,10 +4652,37 @@ export interface AlexaForBusinessSendInvitationRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessSendInvitationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSendInvitationRequest(obj: AlexaForBusinessSendInvitationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserArn': obj.userArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessSendInvitationResponse
  */
 export interface AlexaForBusinessSendInvitationResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessSendInvitationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSendInvitationResponse(obj: AlexaForBusinessSendInvitationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessStartDeviceSyncRequest
@@ -2351,9 +4701,25 @@ export interface AlexaForBusinessStartDeviceSyncRequest {
   /**
    * @schema AlexaForBusinessStartDeviceSyncRequest#Features
    */
-  readonly features: string[];
+  readonly features?: string[];
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessStartDeviceSyncRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessStartDeviceSyncRequest(obj: AlexaForBusinessStartDeviceSyncRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomArn': obj.roomArn,
+    'DeviceArn': obj.deviceArn,
+    'Features': obj.features?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessStartDeviceSyncResponse
@@ -2362,15 +4728,42 @@ export interface AlexaForBusinessStartDeviceSyncResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessStartDeviceSyncResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessStartDeviceSyncResponse(obj: AlexaForBusinessStartDeviceSyncResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessStartSmartHomeApplianceDiscoveryRequest
  */
 export interface AlexaForBusinessStartSmartHomeApplianceDiscoveryRequest {
   /**
    * @schema AlexaForBusinessStartSmartHomeApplianceDiscoveryRequest#RoomArn
    */
-  readonly roomArn: string;
+  readonly roomArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessStartSmartHomeApplianceDiscoveryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessStartSmartHomeApplianceDiscoveryRequest(obj: AlexaForBusinessStartSmartHomeApplianceDiscoveryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomArn': obj.roomArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessStartSmartHomeApplianceDiscoveryResponse
@@ -2379,20 +4772,48 @@ export interface AlexaForBusinessStartSmartHomeApplianceDiscoveryResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessStartSmartHomeApplianceDiscoveryResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessStartSmartHomeApplianceDiscoveryResponse(obj: AlexaForBusinessStartSmartHomeApplianceDiscoveryResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessTagResourceRequest
  */
 export interface AlexaForBusinessTagResourceRequest {
   /**
    * @schema AlexaForBusinessTagResourceRequest#Arn
    */
-  readonly arn: string;
+  readonly arn?: string;
 
   /**
    * @schema AlexaForBusinessTagResourceRequest#Tags
    */
-  readonly tags: AlexaForBusinessTag[];
+  readonly tags?: AlexaForBusinessTag[];
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessTagResourceRequest(obj: AlexaForBusinessTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Tags': obj.tags?.map(y => toJson_AlexaForBusinessTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessTagResourceResponse
@@ -2401,20 +4822,48 @@ export interface AlexaForBusinessTagResourceResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessTagResourceResponse(obj: AlexaForBusinessTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessUntagResourceRequest
  */
 export interface AlexaForBusinessUntagResourceRequest {
   /**
    * @schema AlexaForBusinessUntagResourceRequest#Arn
    */
-  readonly arn: string;
+  readonly arn?: string;
 
   /**
    * @schema AlexaForBusinessUntagResourceRequest#TagKeys
    */
-  readonly tagKeys: string[];
+  readonly tagKeys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUntagResourceRequest(obj: AlexaForBusinessUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessUntagResourceResponse
@@ -2423,13 +4872,26 @@ export interface AlexaForBusinessUntagResourceResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUntagResourceResponse(obj: AlexaForBusinessUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessUpdateAddressBookRequest
  */
 export interface AlexaForBusinessUpdateAddressBookRequest {
   /**
    * @schema AlexaForBusinessUpdateAddressBookRequest#AddressBookArn
    */
-  readonly addressBookArn: string;
+  readonly addressBookArn?: string;
 
   /**
    * @schema AlexaForBusinessUpdateAddressBookRequest#Name
@@ -2444,10 +4906,39 @@ export interface AlexaForBusinessUpdateAddressBookRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessUpdateAddressBookRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateAddressBookRequest(obj: AlexaForBusinessUpdateAddressBookRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AddressBookArn': obj.addressBookArn,
+    'Name': obj.name,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessUpdateAddressBookResponse
  */
 export interface AlexaForBusinessUpdateAddressBookResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessUpdateAddressBookResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateAddressBookResponse(obj: AlexaForBusinessUpdateAddressBookResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessUpdateBusinessReportScheduleRequest
@@ -2456,7 +4947,7 @@ export interface AlexaForBusinessUpdateBusinessReportScheduleRequest {
   /**
    * @schema AlexaForBusinessUpdateBusinessReportScheduleRequest#ScheduleArn
    */
-  readonly scheduleArn: string;
+  readonly scheduleArn?: string;
 
   /**
    * @schema AlexaForBusinessUpdateBusinessReportScheduleRequest#S3BucketName
@@ -2486,10 +4977,42 @@ export interface AlexaForBusinessUpdateBusinessReportScheduleRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessUpdateBusinessReportScheduleRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateBusinessReportScheduleRequest(obj: AlexaForBusinessUpdateBusinessReportScheduleRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ScheduleArn': obj.scheduleArn,
+    'S3BucketName': obj.s3BucketName,
+    'S3KeyPrefix': obj.s3KeyPrefix,
+    'Format': obj.format,
+    'ScheduleName': obj.scheduleName,
+    'Recurrence': toJson_AlexaForBusinessBusinessReportRecurrence(obj.recurrence),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessUpdateBusinessReportScheduleResponse
  */
 export interface AlexaForBusinessUpdateBusinessReportScheduleResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessUpdateBusinessReportScheduleResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateBusinessReportScheduleResponse(obj: AlexaForBusinessUpdateBusinessReportScheduleResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessUpdateConferenceProviderRequest
@@ -2498,12 +5021,12 @@ export interface AlexaForBusinessUpdateConferenceProviderRequest {
   /**
    * @schema AlexaForBusinessUpdateConferenceProviderRequest#ConferenceProviderArn
    */
-  readonly conferenceProviderArn: string;
+  readonly conferenceProviderArn?: string;
 
   /**
    * @schema AlexaForBusinessUpdateConferenceProviderRequest#ConferenceProviderType
    */
-  readonly conferenceProviderType: string;
+  readonly conferenceProviderType?: string;
 
   /**
    * @schema AlexaForBusinessUpdateConferenceProviderRequest#IPDialIn
@@ -2518,9 +5041,27 @@ export interface AlexaForBusinessUpdateConferenceProviderRequest {
   /**
    * @schema AlexaForBusinessUpdateConferenceProviderRequest#MeetingSetting
    */
-  readonly meetingSetting: AlexaForBusinessMeetingSetting;
+  readonly meetingSetting?: AlexaForBusinessMeetingSetting;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessUpdateConferenceProviderRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateConferenceProviderRequest(obj: AlexaForBusinessUpdateConferenceProviderRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConferenceProviderArn': obj.conferenceProviderArn,
+    'ConferenceProviderType': obj.conferenceProviderType,
+    'IPDialIn': toJson_AlexaForBusinessIpDialIn(obj.ipDialIn),
+    'PSTNDialIn': toJson_AlexaForBusinessPstnDialIn(obj.pstnDialIn),
+    'MeetingSetting': toJson_AlexaForBusinessMeetingSetting(obj.meetingSetting),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessUpdateConferenceProviderResponse
@@ -2529,13 +5070,26 @@ export interface AlexaForBusinessUpdateConferenceProviderResponse {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessUpdateConferenceProviderResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateConferenceProviderResponse(obj: AlexaForBusinessUpdateConferenceProviderResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessUpdateContactRequest
  */
 export interface AlexaForBusinessUpdateContactRequest {
   /**
    * @schema AlexaForBusinessUpdateContactRequest#ContactArn
    */
-  readonly contactArn: string;
+  readonly contactArn?: string;
 
   /**
    * @schema AlexaForBusinessUpdateContactRequest#DisplayName
@@ -2570,10 +5124,43 @@ export interface AlexaForBusinessUpdateContactRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessUpdateContactRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateContactRequest(obj: AlexaForBusinessUpdateContactRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContactArn': obj.contactArn,
+    'DisplayName': obj.displayName,
+    'FirstName': obj.firstName,
+    'LastName': obj.lastName,
+    'PhoneNumber': obj.phoneNumber,
+    'PhoneNumbers': obj.phoneNumbers?.map(y => toJson_AlexaForBusinessPhoneNumber(y)),
+    'SipAddresses': obj.sipAddresses?.map(y => toJson_AlexaForBusinessSipAddress(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessUpdateContactResponse
  */
 export interface AlexaForBusinessUpdateContactResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessUpdateContactResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateContactResponse(obj: AlexaForBusinessUpdateContactResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessUpdateDeviceRequest
@@ -2592,10 +5179,38 @@ export interface AlexaForBusinessUpdateDeviceRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessUpdateDeviceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateDeviceRequest(obj: AlexaForBusinessUpdateDeviceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceArn': obj.deviceArn,
+    'DeviceName': obj.deviceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessUpdateDeviceResponse
  */
 export interface AlexaForBusinessUpdateDeviceResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessUpdateDeviceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateDeviceResponse(obj: AlexaForBusinessUpdateDeviceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessUpdateGatewayRequest
@@ -2604,7 +5219,7 @@ export interface AlexaForBusinessUpdateGatewayRequest {
   /**
    * @schema AlexaForBusinessUpdateGatewayRequest#GatewayArn
    */
-  readonly gatewayArn: string;
+  readonly gatewayArn?: string;
 
   /**
    * @schema AlexaForBusinessUpdateGatewayRequest#Name
@@ -2624,10 +5239,40 @@ export interface AlexaForBusinessUpdateGatewayRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessUpdateGatewayRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateGatewayRequest(obj: AlexaForBusinessUpdateGatewayRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GatewayArn': obj.gatewayArn,
+    'Name': obj.name,
+    'Description': obj.description,
+    'SoftwareVersion': obj.softwareVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessUpdateGatewayResponse
  */
 export interface AlexaForBusinessUpdateGatewayResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessUpdateGatewayResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateGatewayResponse(obj: AlexaForBusinessUpdateGatewayResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessUpdateGatewayGroupRequest
@@ -2636,7 +5281,7 @@ export interface AlexaForBusinessUpdateGatewayGroupRequest {
   /**
    * @schema AlexaForBusinessUpdateGatewayGroupRequest#GatewayGroupArn
    */
-  readonly gatewayGroupArn: string;
+  readonly gatewayGroupArn?: string;
 
   /**
    * @schema AlexaForBusinessUpdateGatewayGroupRequest#Name
@@ -2651,10 +5296,39 @@ export interface AlexaForBusinessUpdateGatewayGroupRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessUpdateGatewayGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateGatewayGroupRequest(obj: AlexaForBusinessUpdateGatewayGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GatewayGroupArn': obj.gatewayGroupArn,
+    'Name': obj.name,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessUpdateGatewayGroupResponse
  */
 export interface AlexaForBusinessUpdateGatewayGroupResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessUpdateGatewayGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateGatewayGroupResponse(obj: AlexaForBusinessUpdateGatewayGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessUpdateNetworkProfileRequest
@@ -2663,7 +5337,7 @@ export interface AlexaForBusinessUpdateNetworkProfileRequest {
   /**
    * @schema AlexaForBusinessUpdateNetworkProfileRequest#NetworkProfileArn
    */
-  readonly networkProfileArn: string;
+  readonly networkProfileArn?: string;
 
   /**
    * @schema AlexaForBusinessUpdateNetworkProfileRequest#NetworkProfileName
@@ -2698,10 +5372,43 @@ export interface AlexaForBusinessUpdateNetworkProfileRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessUpdateNetworkProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateNetworkProfileRequest(obj: AlexaForBusinessUpdateNetworkProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NetworkProfileArn': obj.networkProfileArn,
+    'NetworkProfileName': obj.networkProfileName,
+    'Description': obj.description,
+    'CurrentPassword': obj.currentPassword,
+    'NextPassword': obj.nextPassword,
+    'CertificateAuthorityArn': obj.certificateAuthorityArn,
+    'TrustAnchors': obj.trustAnchors?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessUpdateNetworkProfileResponse
  */
 export interface AlexaForBusinessUpdateNetworkProfileResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessUpdateNetworkProfileResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateNetworkProfileResponse(obj: AlexaForBusinessUpdateNetworkProfileResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessUpdateProfileRequest
@@ -2768,6 +5475,11 @@ export interface AlexaForBusinessUpdateProfileRequest {
   readonly pstnEnabled?: boolean;
 
   /**
+   * @schema AlexaForBusinessUpdateProfileRequest#DataRetentionOptIn
+   */
+  readonly dataRetentionOptIn?: boolean;
+
+  /**
    * @schema AlexaForBusinessUpdateProfileRequest#MeetingRoomConfiguration
    */
   readonly meetingRoomConfiguration?: AlexaForBusinessUpdateMeetingRoomConfiguration;
@@ -2775,10 +5487,50 @@ export interface AlexaForBusinessUpdateProfileRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessUpdateProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateProfileRequest(obj: AlexaForBusinessUpdateProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProfileArn': obj.profileArn,
+    'ProfileName': obj.profileName,
+    'IsDefault': obj.isDefault,
+    'Timezone': obj.timezone,
+    'Address': obj.address,
+    'DistanceUnit': obj.distanceUnit,
+    'TemperatureUnit': obj.temperatureUnit,
+    'WakeWord': obj.wakeWord,
+    'Locale': obj.locale,
+    'SetupModeDisabled': obj.setupModeDisabled,
+    'MaxVolumeLimit': obj.maxVolumeLimit,
+    'PSTNEnabled': obj.pstnEnabled,
+    'DataRetentionOptIn': obj.dataRetentionOptIn,
+    'MeetingRoomConfiguration': toJson_AlexaForBusinessUpdateMeetingRoomConfiguration(obj.meetingRoomConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessUpdateProfileResponse
  */
 export interface AlexaForBusinessUpdateProfileResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessUpdateProfileResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateProfileResponse(obj: AlexaForBusinessUpdateProfileResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessUpdateRoomRequest
@@ -2812,10 +5564,41 @@ export interface AlexaForBusinessUpdateRoomRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessUpdateRoomRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateRoomRequest(obj: AlexaForBusinessUpdateRoomRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomArn': obj.roomArn,
+    'RoomName': obj.roomName,
+    'Description': obj.description,
+    'ProviderCalendarId': obj.providerCalendarId,
+    'ProfileArn': obj.profileArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessUpdateRoomResponse
  */
 export interface AlexaForBusinessUpdateRoomResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessUpdateRoomResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateRoomResponse(obj: AlexaForBusinessUpdateRoomResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessUpdateSkillGroupRequest
@@ -2839,10 +5622,70 @@ export interface AlexaForBusinessUpdateSkillGroupRequest {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessUpdateSkillGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateSkillGroupRequest(obj: AlexaForBusinessUpdateSkillGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillGroupArn': obj.skillGroupArn,
+    'SkillGroupName': obj.skillGroupName,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessUpdateSkillGroupResponse
  */
 export interface AlexaForBusinessUpdateSkillGroupResponse {
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessUpdateSkillGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateSkillGroupResponse(obj: AlexaForBusinessUpdateSkillGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AlexaForBusinessTag
+ */
+export interface AlexaForBusinessTag {
+  /**
+   * @schema AlexaForBusinessTag#Key
+   */
+  readonly key?: string;
+
+  /**
+   * @schema AlexaForBusinessTag#Value
+   */
+  readonly value?: string;
+
+}
+
+/**
+ * Converts an object of type 'AlexaForBusinessTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessTag(obj: AlexaForBusinessTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessBusinessReportContentRange
@@ -2851,9 +5694,23 @@ export interface AlexaForBusinessBusinessReportContentRange {
   /**
    * @schema AlexaForBusinessBusinessReportContentRange#Interval
    */
-  readonly interval: string;
+  readonly interval?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessBusinessReportContentRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessBusinessReportContentRange(obj: AlexaForBusinessBusinessReportContentRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Interval': obj.interval,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessBusinessReportRecurrence
@@ -2867,20 +5724,18 @@ export interface AlexaForBusinessBusinessReportRecurrence {
 }
 
 /**
- * @schema AlexaForBusinessTag
+ * Converts an object of type 'AlexaForBusinessBusinessReportRecurrence' to JSON representation.
  */
-export interface AlexaForBusinessTag {
-  /**
-   * @schema AlexaForBusinessTag#Key
-   */
-  readonly key: string;
-
-  /**
-   * @schema AlexaForBusinessTag#Value
-   */
-  readonly value: string;
-
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessBusinessReportRecurrence(obj: AlexaForBusinessBusinessReportRecurrence | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StartDate': obj.startDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
 }
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessIpDialIn
@@ -2889,14 +5744,29 @@ export interface AlexaForBusinessIpDialIn {
   /**
    * @schema AlexaForBusinessIpDialIn#Endpoint
    */
-  readonly endpoint: string;
+  readonly endpoint?: string;
 
   /**
    * @schema AlexaForBusinessIpDialIn#CommsProtocol
    */
-  readonly commsProtocol: string;
+  readonly commsProtocol?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessIpDialIn' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessIpDialIn(obj: AlexaForBusinessIpDialIn | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Endpoint': obj.endpoint,
+    'CommsProtocol': obj.commsProtocol,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessPstnDialIn
@@ -2905,24 +5775,41 @@ export interface AlexaForBusinessPstnDialIn {
   /**
    * @schema AlexaForBusinessPstnDialIn#CountryCode
    */
-  readonly countryCode: string;
+  readonly countryCode?: string;
 
   /**
    * @schema AlexaForBusinessPstnDialIn#PhoneNumber
    */
-  readonly phoneNumber: string;
+  readonly phoneNumber?: string;
 
   /**
    * @schema AlexaForBusinessPstnDialIn#OneClickIdDelay
    */
-  readonly oneClickIdDelay: string;
+  readonly oneClickIdDelay?: string;
 
   /**
    * @schema AlexaForBusinessPstnDialIn#OneClickPinDelay
    */
-  readonly oneClickPinDelay: string;
+  readonly oneClickPinDelay?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessPstnDialIn' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessPstnDialIn(obj: AlexaForBusinessPstnDialIn | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CountryCode': obj.countryCode,
+    'PhoneNumber': obj.phoneNumber,
+    'OneClickIdDelay': obj.oneClickIdDelay,
+    'OneClickPinDelay': obj.oneClickPinDelay,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessMeetingSetting
@@ -2931,9 +5818,23 @@ export interface AlexaForBusinessMeetingSetting {
   /**
    * @schema AlexaForBusinessMeetingSetting#RequirePin
    */
-  readonly requirePin: string;
+  readonly requirePin?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessMeetingSetting' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessMeetingSetting(obj: AlexaForBusinessMeetingSetting | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RequirePin': obj.requirePin,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessPhoneNumber
@@ -2942,14 +5843,29 @@ export interface AlexaForBusinessPhoneNumber {
   /**
    * @schema AlexaForBusinessPhoneNumber#Number
    */
-  readonly number: string;
+  readonly number?: string;
 
   /**
    * @schema AlexaForBusinessPhoneNumber#Type
    */
-  readonly type: string;
+  readonly type?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessPhoneNumber' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessPhoneNumber(obj: AlexaForBusinessPhoneNumber | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Number': obj.number,
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessSipAddress
@@ -2958,14 +5874,29 @@ export interface AlexaForBusinessSipAddress {
   /**
    * @schema AlexaForBusinessSipAddress#Uri
    */
-  readonly uri: string;
+  readonly uri?: string;
 
   /**
    * @schema AlexaForBusinessSipAddress#Type
    */
-  readonly type: string;
+  readonly type?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessSipAddress' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSipAddress(obj: AlexaForBusinessSipAddress | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Uri': obj.uri,
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessCreateMeetingRoomConfiguration
@@ -2994,6 +5925,23 @@ export interface AlexaForBusinessCreateMeetingRoomConfiguration {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessCreateMeetingRoomConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateMeetingRoomConfiguration(obj: AlexaForBusinessCreateMeetingRoomConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomUtilizationMetricsEnabled': obj.roomUtilizationMetricsEnabled,
+    'EndOfMeetingReminder': toJson_AlexaForBusinessCreateEndOfMeetingReminder(obj.endOfMeetingReminder),
+    'InstantBooking': toJson_AlexaForBusinessCreateInstantBooking(obj.instantBooking),
+    'RequireCheckIn': toJson_AlexaForBusinessCreateRequireCheckIn(obj.requireCheckIn),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessAddressBook
  */
 export interface AlexaForBusinessAddressBook {
@@ -3015,6 +5963,22 @@ export interface AlexaForBusinessAddressBook {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessAddressBook' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessAddressBook(obj: AlexaForBusinessAddressBook | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AddressBookArn': obj.addressBookArn,
+    'Name': obj.name,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessConferencePreference
  */
 export interface AlexaForBusinessConferencePreference {
@@ -3024,6 +5988,20 @@ export interface AlexaForBusinessConferencePreference {
   readonly defaultConferenceProviderArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessConferencePreference' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessConferencePreference(obj: AlexaForBusinessConferencePreference | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DefaultConferenceProviderArn': obj.defaultConferenceProviderArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessConferenceProvider
@@ -3060,6 +6038,25 @@ export interface AlexaForBusinessConferenceProvider {
   readonly meetingSetting?: AlexaForBusinessMeetingSetting;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessConferenceProvider' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessConferenceProvider(obj: AlexaForBusinessConferenceProvider | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Name': obj.name,
+    'Type': obj.type,
+    'IPDialIn': toJson_AlexaForBusinessIpDialIn(obj.ipDialIn),
+    'PSTNDialIn': toJson_AlexaForBusinessPstnDialIn(obj.pstnDialIn),
+    'MeetingSetting': toJson_AlexaForBusinessMeetingSetting(obj.meetingSetting),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessContact
@@ -3101,6 +6098,26 @@ export interface AlexaForBusinessContact {
   readonly sipAddresses?: AlexaForBusinessSipAddress[];
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessContact' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessContact(obj: AlexaForBusinessContact | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContactArn': obj.contactArn,
+    'DisplayName': obj.displayName,
+    'FirstName': obj.firstName,
+    'LastName': obj.lastName,
+    'PhoneNumber': obj.phoneNumber,
+    'PhoneNumbers': obj.phoneNumbers?.map(y => toJson_AlexaForBusinessPhoneNumber(y)),
+    'SipAddresses': obj.sipAddresses?.map(y => toJson_AlexaForBusinessSipAddress(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDevice
@@ -3159,6 +6176,29 @@ export interface AlexaForBusinessDevice {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDevice' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDevice(obj: AlexaForBusinessDevice | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceArn': obj.deviceArn,
+    'DeviceSerialNumber': obj.deviceSerialNumber,
+    'DeviceType': obj.deviceType,
+    'DeviceName': obj.deviceName,
+    'SoftwareVersion': obj.softwareVersion,
+    'MacAddress': obj.macAddress,
+    'RoomArn': obj.roomArn,
+    'DeviceStatus': obj.deviceStatus,
+    'DeviceStatusInfo': toJson_AlexaForBusinessDeviceStatusInfo(obj.deviceStatusInfo),
+    'NetworkProfileInfo': toJson_AlexaForBusinessDeviceNetworkProfileInfo(obj.networkProfileInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessGateway
  */
 export interface AlexaForBusinessGateway {
@@ -3190,6 +6230,24 @@ export interface AlexaForBusinessGateway {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessGateway' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGateway(obj: AlexaForBusinessGateway | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Name': obj.name,
+    'Description': obj.description,
+    'GatewayGroupArn': obj.gatewayGroupArn,
+    'SoftwareVersion': obj.softwareVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessGatewayGroup
  */
 export interface AlexaForBusinessGatewayGroup {
@@ -3209,6 +6267,22 @@ export interface AlexaForBusinessGatewayGroup {
   readonly description?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessGatewayGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGatewayGroup(obj: AlexaForBusinessGatewayGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Name': obj.name,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessNetworkProfile
@@ -3265,6 +6339,29 @@ export interface AlexaForBusinessNetworkProfile {
   readonly trustAnchors?: string[];
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessNetworkProfile' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessNetworkProfile(obj: AlexaForBusinessNetworkProfile | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NetworkProfileArn': obj.networkProfileArn,
+    'NetworkProfileName': obj.networkProfileName,
+    'Description': obj.description,
+    'Ssid': obj.ssid,
+    'SecurityType': obj.securityType,
+    'EapMethod': obj.eapMethod,
+    'CurrentPassword': obj.currentPassword,
+    'NextPassword': obj.nextPassword,
+    'CertificateAuthorityArn': obj.certificateAuthorityArn,
+    'TrustAnchors': obj.trustAnchors?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessProfile
@@ -3331,6 +6428,11 @@ export interface AlexaForBusinessProfile {
   readonly pstnEnabled?: boolean;
 
   /**
+   * @schema AlexaForBusinessProfile#DataRetentionOptIn
+   */
+  readonly dataRetentionOptIn?: boolean;
+
+  /**
    * @schema AlexaForBusinessProfile#AddressBookArn
    */
   readonly addressBookArn?: string;
@@ -3341,6 +6443,34 @@ export interface AlexaForBusinessProfile {
   readonly meetingRoomConfiguration?: AlexaForBusinessMeetingRoomConfiguration;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessProfile' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessProfile(obj: AlexaForBusinessProfile | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProfileArn': obj.profileArn,
+    'ProfileName': obj.profileName,
+    'IsDefault': obj.isDefault,
+    'Address': obj.address,
+    'Timezone': obj.timezone,
+    'DistanceUnit': obj.distanceUnit,
+    'TemperatureUnit': obj.temperatureUnit,
+    'WakeWord': obj.wakeWord,
+    'Locale': obj.locale,
+    'SetupModeDisabled': obj.setupModeDisabled,
+    'MaxVolumeLimit': obj.maxVolumeLimit,
+    'PSTNEnabled': obj.pstnEnabled,
+    'DataRetentionOptIn': obj.dataRetentionOptIn,
+    'AddressBookArn': obj.addressBookArn,
+    'MeetingRoomConfiguration': toJson_AlexaForBusinessMeetingRoomConfiguration(obj.meetingRoomConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessRoom
@@ -3374,20 +6504,53 @@ export interface AlexaForBusinessRoom {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessRoom' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessRoom(obj: AlexaForBusinessRoom | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomArn': obj.roomArn,
+    'RoomName': obj.roomName,
+    'Description': obj.description,
+    'ProviderCalendarId': obj.providerCalendarId,
+    'ProfileArn': obj.profileArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessRoomSkillParameter
  */
 export interface AlexaForBusinessRoomSkillParameter {
   /**
    * @schema AlexaForBusinessRoomSkillParameter#ParameterKey
    */
-  readonly parameterKey: string;
+  readonly parameterKey?: string;
 
   /**
    * @schema AlexaForBusinessRoomSkillParameter#ParameterValue
    */
-  readonly parameterValue: string;
+  readonly parameterValue?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessRoomSkillParameter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessRoomSkillParameter(obj: AlexaForBusinessRoomSkillParameter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ParameterKey': obj.parameterKey,
+    'ParameterValue': obj.parameterValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessSkillGroup
@@ -3409,6 +6572,22 @@ export interface AlexaForBusinessSkillGroup {
   readonly description?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessSkillGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSkillGroup(obj: AlexaForBusinessSkillGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillGroupArn': obj.skillGroupArn,
+    'SkillGroupName': obj.skillGroupName,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessBusinessReportSchedule
@@ -3457,6 +6636,27 @@ export interface AlexaForBusinessBusinessReportSchedule {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessBusinessReportSchedule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessBusinessReportSchedule(obj: AlexaForBusinessBusinessReportSchedule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ScheduleArn': obj.scheduleArn,
+    'ScheduleName': obj.scheduleName,
+    'S3BucketName': obj.s3BucketName,
+    'S3KeyPrefix': obj.s3KeyPrefix,
+    'Format': obj.format,
+    'ContentRange': toJson_AlexaForBusinessBusinessReportContentRange(obj.contentRange),
+    'Recurrence': toJson_AlexaForBusinessBusinessReportRecurrence(obj.recurrence),
+    'LastBusinessReport': toJson_AlexaForBusinessBusinessReport(obj.lastBusinessReport),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDeviceEvent
  */
 export interface AlexaForBusinessDeviceEvent {
@@ -3478,6 +6678,22 @@ export interface AlexaForBusinessDeviceEvent {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDeviceEvent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeviceEvent(obj: AlexaForBusinessDeviceEvent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'Value': obj.value,
+    'Timestamp': obj.timestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessGatewayGroupSummary
  */
 export interface AlexaForBusinessGatewayGroupSummary {
@@ -3497,6 +6713,22 @@ export interface AlexaForBusinessGatewayGroupSummary {
   readonly description?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessGatewayGroupSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGatewayGroupSummary(obj: AlexaForBusinessGatewayGroupSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Name': obj.name,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessGatewaySummary
@@ -3530,6 +6762,24 @@ export interface AlexaForBusinessGatewaySummary {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessGatewaySummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessGatewaySummary(obj: AlexaForBusinessGatewaySummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Name': obj.name,
+    'Description': obj.description,
+    'GatewayGroupArn': obj.gatewayGroupArn,
+    'SoftwareVersion': obj.softwareVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessSkillSummary
  */
 export interface AlexaForBusinessSkillSummary {
@@ -3561,6 +6811,24 @@ export interface AlexaForBusinessSkillSummary {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessSkillSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSkillSummary(obj: AlexaForBusinessSkillSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillId': obj.skillId,
+    'SkillName': obj.skillName,
+    'SupportsLinking': obj.supportsLinking,
+    'EnablementType': obj.enablementType,
+    'SkillType': obj.skillType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessCategory
  */
 export interface AlexaForBusinessCategory {
@@ -3575,6 +6843,21 @@ export interface AlexaForBusinessCategory {
   readonly categoryName?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessCategory' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCategory(obj: AlexaForBusinessCategory | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CategoryId': obj.categoryId,
+    'CategoryName': obj.categoryName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessSkillsStoreSkill
@@ -3618,6 +6901,26 @@ export interface AlexaForBusinessSkillsStoreSkill {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessSkillsStoreSkill' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSkillsStoreSkill(obj: AlexaForBusinessSkillsStoreSkill | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillId': obj.skillId,
+    'SkillName': obj.skillName,
+    'ShortDescription': obj.shortDescription,
+    'IconUrl': obj.iconUrl,
+    'SampleUtterances': obj.sampleUtterances?.map(y => y),
+    'SkillDetails': toJson_AlexaForBusinessSkillDetails(obj.skillDetails),
+    'SupportsLinking': obj.supportsLinking,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessSmartHomeAppliance
  */
 export interface AlexaForBusinessSmartHomeAppliance {
@@ -3639,20 +6942,51 @@ export interface AlexaForBusinessSmartHomeAppliance {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessSmartHomeAppliance' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSmartHomeAppliance(obj: AlexaForBusinessSmartHomeAppliance | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FriendlyName': obj.friendlyName,
+    'Description': obj.description,
+    'ManufacturerName': obj.manufacturerName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessFilter
  */
 export interface AlexaForBusinessFilter {
   /**
    * @schema AlexaForBusinessFilter#Key
    */
-  readonly key: string;
+  readonly key?: string;
 
   /**
    * @schema AlexaForBusinessFilter#Values
    */
-  readonly values: string[];
+  readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessFilter(obj: AlexaForBusinessFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessSort
@@ -3661,14 +6995,29 @@ export interface AlexaForBusinessSort {
   /**
    * @schema AlexaForBusinessSort#Key
    */
-  readonly key: string;
+  readonly key?: string;
 
   /**
    * @schema AlexaForBusinessSort#Value
    */
-  readonly value: string;
+  readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessSort' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSort(obj: AlexaForBusinessSort | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessAddressBookData
@@ -3690,6 +7039,22 @@ export interface AlexaForBusinessAddressBookData {
   readonly description?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessAddressBookData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessAddressBookData(obj: AlexaForBusinessAddressBookData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AddressBookArn': obj.addressBookArn,
+    'Name': obj.name,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessContactData
@@ -3731,6 +7096,26 @@ export interface AlexaForBusinessContactData {
   readonly sipAddresses?: AlexaForBusinessSipAddress[];
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessContactData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessContactData(obj: AlexaForBusinessContactData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContactArn': obj.contactArn,
+    'DisplayName': obj.displayName,
+    'FirstName': obj.firstName,
+    'LastName': obj.lastName,
+    'PhoneNumber': obj.phoneNumber,
+    'PhoneNumbers': obj.phoneNumbers?.map(y => toJson_AlexaForBusinessPhoneNumber(y)),
+    'SipAddresses': obj.sipAddresses?.map(y => toJson_AlexaForBusinessSipAddress(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDeviceData
@@ -3804,6 +7189,32 @@ export interface AlexaForBusinessDeviceData {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDeviceData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeviceData(obj: AlexaForBusinessDeviceData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceArn': obj.deviceArn,
+    'DeviceSerialNumber': obj.deviceSerialNumber,
+    'DeviceType': obj.deviceType,
+    'DeviceName': obj.deviceName,
+    'SoftwareVersion': obj.softwareVersion,
+    'MacAddress': obj.macAddress,
+    'DeviceStatus': obj.deviceStatus,
+    'NetworkProfileArn': obj.networkProfileArn,
+    'NetworkProfileName': obj.networkProfileName,
+    'RoomArn': obj.roomArn,
+    'RoomName': obj.roomName,
+    'DeviceStatusInfo': toJson_AlexaForBusinessDeviceStatusInfo(obj.deviceStatusInfo),
+    'CreatedTime': obj.createdTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessNetworkProfileData
  */
 export interface AlexaForBusinessNetworkProfileData {
@@ -3843,6 +7254,26 @@ export interface AlexaForBusinessNetworkProfileData {
   readonly certificateAuthorityArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessNetworkProfileData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessNetworkProfileData(obj: AlexaForBusinessNetworkProfileData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NetworkProfileArn': obj.networkProfileArn,
+    'NetworkProfileName': obj.networkProfileName,
+    'Description': obj.description,
+    'Ssid': obj.ssid,
+    'SecurityType': obj.securityType,
+    'EapMethod': obj.eapMethod,
+    'CertificateAuthorityArn': obj.certificateAuthorityArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessProfileData
@@ -3896,6 +7327,28 @@ export interface AlexaForBusinessProfileData {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessProfileData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessProfileData(obj: AlexaForBusinessProfileData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProfileArn': obj.profileArn,
+    'ProfileName': obj.profileName,
+    'IsDefault': obj.isDefault,
+    'Address': obj.address,
+    'Timezone': obj.timezone,
+    'DistanceUnit': obj.distanceUnit,
+    'TemperatureUnit': obj.temperatureUnit,
+    'WakeWord': obj.wakeWord,
+    'Locale': obj.locale,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessRoomData
  */
 export interface AlexaForBusinessRoomData {
@@ -3932,6 +7385,25 @@ export interface AlexaForBusinessRoomData {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessRoomData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessRoomData(obj: AlexaForBusinessRoomData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomArn': obj.roomArn,
+    'RoomName': obj.roomName,
+    'Description': obj.description,
+    'ProviderCalendarId': obj.providerCalendarId,
+    'ProfileArn': obj.profileArn,
+    'ProfileName': obj.profileName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessSkillGroupData
  */
 export interface AlexaForBusinessSkillGroupData {
@@ -3951,6 +7423,22 @@ export interface AlexaForBusinessSkillGroupData {
   readonly description?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessSkillGroupData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSkillGroupData(obj: AlexaForBusinessSkillGroupData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkillGroupArn': obj.skillGroupArn,
+    'SkillGroupName': obj.skillGroupName,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessUserData
@@ -3989,6 +7477,25 @@ export interface AlexaForBusinessUserData {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessUserData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUserData(obj: AlexaForBusinessUserData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserArn': obj.userArn,
+    'FirstName': obj.firstName,
+    'LastName': obj.lastName,
+    'Email': obj.email,
+    'EnrollmentStatus': obj.enrollmentStatus,
+    'EnrollmentId': obj.enrollmentId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessContent
  */
 export interface AlexaForBusinessContent {
@@ -4008,6 +7515,22 @@ export interface AlexaForBusinessContent {
   readonly audioList?: AlexaForBusinessAudio[];
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessContent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessContent(obj: AlexaForBusinessContent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TextList': obj.textList?.map(y => toJson_AlexaForBusinessText(y)),
+    'SsmlList': obj.ssmlList?.map(y => toJson_AlexaForBusinessSsml(y)),
+    'AudioList': obj.audioList?.map(y => toJson_AlexaForBusinessAudio(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessUpdateMeetingRoomConfiguration
@@ -4036,25 +7559,58 @@ export interface AlexaForBusinessUpdateMeetingRoomConfiguration {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessUpdateMeetingRoomConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateMeetingRoomConfiguration(obj: AlexaForBusinessUpdateMeetingRoomConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomUtilizationMetricsEnabled': obj.roomUtilizationMetricsEnabled,
+    'EndOfMeetingReminder': toJson_AlexaForBusinessUpdateEndOfMeetingReminder(obj.endOfMeetingReminder),
+    'InstantBooking': toJson_AlexaForBusinessUpdateInstantBooking(obj.instantBooking),
+    'RequireCheckIn': toJson_AlexaForBusinessUpdateRequireCheckIn(obj.requireCheckIn),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessCreateEndOfMeetingReminder
  */
 export interface AlexaForBusinessCreateEndOfMeetingReminder {
   /**
    * @schema AlexaForBusinessCreateEndOfMeetingReminder#ReminderAtMinutes
    */
-  readonly reminderAtMinutes: number[];
+  readonly reminderAtMinutes?: number[];
 
   /**
    * @schema AlexaForBusinessCreateEndOfMeetingReminder#ReminderType
    */
-  readonly reminderType: string;
+  readonly reminderType?: string;
 
   /**
    * @schema AlexaForBusinessCreateEndOfMeetingReminder#Enabled
    */
-  readonly enabled: boolean;
+  readonly enabled?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessCreateEndOfMeetingReminder' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateEndOfMeetingReminder(obj: AlexaForBusinessCreateEndOfMeetingReminder | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReminderAtMinutes': obj.reminderAtMinutes?.map(y => y),
+    'ReminderType': obj.reminderType,
+    'Enabled': obj.enabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessCreateInstantBooking
@@ -4063,14 +7619,29 @@ export interface AlexaForBusinessCreateInstantBooking {
   /**
    * @schema AlexaForBusinessCreateInstantBooking#DurationInMinutes
    */
-  readonly durationInMinutes: number;
+  readonly durationInMinutes?: number;
 
   /**
    * @schema AlexaForBusinessCreateInstantBooking#Enabled
    */
-  readonly enabled: boolean;
+  readonly enabled?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessCreateInstantBooking' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateInstantBooking(obj: AlexaForBusinessCreateInstantBooking | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DurationInMinutes': obj.durationInMinutes,
+    'Enabled': obj.enabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessCreateRequireCheckIn
@@ -4079,14 +7650,29 @@ export interface AlexaForBusinessCreateRequireCheckIn {
   /**
    * @schema AlexaForBusinessCreateRequireCheckIn#ReleaseAfterMinutes
    */
-  readonly releaseAfterMinutes: number;
+  readonly releaseAfterMinutes?: number;
 
   /**
    * @schema AlexaForBusinessCreateRequireCheckIn#Enabled
    */
-  readonly enabled: boolean;
+  readonly enabled?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessCreateRequireCheckIn' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessCreateRequireCheckIn(obj: AlexaForBusinessCreateRequireCheckIn | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReleaseAfterMinutes': obj.releaseAfterMinutes,
+    'Enabled': obj.enabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDeviceStatusInfo
@@ -4110,6 +7696,22 @@ export interface AlexaForBusinessDeviceStatusInfo {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessDeviceStatusInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeviceStatusInfo(obj: AlexaForBusinessDeviceStatusInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceStatusDetails': obj.deviceStatusDetails?.map(y => toJson_AlexaForBusinessDeviceStatusDetail(y)),
+    'ConnectionStatus': obj.connectionStatus,
+    'ConnectionStatusUpdatedTime': obj.connectionStatusUpdatedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDeviceNetworkProfileInfo
  */
 export interface AlexaForBusinessDeviceNetworkProfileInfo {
@@ -4129,6 +7731,22 @@ export interface AlexaForBusinessDeviceNetworkProfileInfo {
   readonly certificateExpirationTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDeviceNetworkProfileInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeviceNetworkProfileInfo(obj: AlexaForBusinessDeviceNetworkProfileInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NetworkProfileArn': obj.networkProfileArn,
+    'CertificateArn': obj.certificateArn,
+    'CertificateExpirationTime': obj.certificateExpirationTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessMeetingRoomConfiguration
@@ -4155,6 +7773,23 @@ export interface AlexaForBusinessMeetingRoomConfiguration {
   readonly requireCheckIn?: AlexaForBusinessRequireCheckIn;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessMeetingRoomConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessMeetingRoomConfiguration(obj: AlexaForBusinessMeetingRoomConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoomUtilizationMetricsEnabled': obj.roomUtilizationMetricsEnabled,
+    'EndOfMeetingReminder': toJson_AlexaForBusinessEndOfMeetingReminder(obj.endOfMeetingReminder),
+    'InstantBooking': toJson_AlexaForBusinessInstantBooking(obj.instantBooking),
+    'RequireCheckIn': toJson_AlexaForBusinessRequireCheckIn(obj.requireCheckIn),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessBusinessReport
@@ -4186,6 +7821,24 @@ export interface AlexaForBusinessBusinessReport {
   readonly downloadUrl?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessBusinessReport' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessBusinessReport(obj: AlexaForBusinessBusinessReport | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'FailureCode': obj.failureCode,
+    'S3Location': toJson_AlexaForBusinessBusinessReportS3Location(obj.s3Location),
+    'DeliveryTime': obj.deliveryTime,
+    'DownloadUrl': obj.downloadUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessSkillDetails
@@ -4244,20 +7897,58 @@ export interface AlexaForBusinessSkillDetails {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessSkillDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSkillDetails(obj: AlexaForBusinessSkillDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProductDescription': obj.productDescription,
+    'InvocationPhrase': obj.invocationPhrase,
+    'ReleaseDate': obj.releaseDate,
+    'EndUserLicenseAgreement': obj.endUserLicenseAgreement,
+    'GenericKeywords': obj.genericKeywords?.map(y => y),
+    'BulletPoints': obj.bulletPoints?.map(y => y),
+    'NewInThisVersionBulletPoints': obj.newInThisVersionBulletPoints?.map(y => y),
+    'SkillTypes': obj.skillTypes?.map(y => y),
+    'Reviews': ((obj.reviews) === undefined) ? undefined : (Object.entries(obj.reviews).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'DeveloperInfo': toJson_AlexaForBusinessDeveloperInfo(obj.developerInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessText
  */
 export interface AlexaForBusinessText {
   /**
    * @schema AlexaForBusinessText#Locale
    */
-  readonly locale: string;
+  readonly locale?: string;
 
   /**
    * @schema AlexaForBusinessText#Value
    */
-  readonly value: string;
+  readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessText' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessText(obj: AlexaForBusinessText | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Locale': obj.locale,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessSsml
@@ -4266,14 +7957,29 @@ export interface AlexaForBusinessSsml {
   /**
    * @schema AlexaForBusinessSsml#Locale
    */
-  readonly locale: string;
+  readonly locale?: string;
 
   /**
    * @schema AlexaForBusinessSsml#Value
    */
-  readonly value: string;
+  readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessSsml' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessSsml(obj: AlexaForBusinessSsml | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Locale': obj.locale,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessAudio
@@ -4282,14 +7988,29 @@ export interface AlexaForBusinessAudio {
   /**
    * @schema AlexaForBusinessAudio#Locale
    */
-  readonly locale: string;
+  readonly locale?: string;
 
   /**
    * @schema AlexaForBusinessAudio#Location
    */
-  readonly location: string;
+  readonly location?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessAudio' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessAudio(obj: AlexaForBusinessAudio | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Locale': obj.locale,
+    'Location': obj.location,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessUpdateEndOfMeetingReminder
@@ -4313,6 +8034,22 @@ export interface AlexaForBusinessUpdateEndOfMeetingReminder {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessUpdateEndOfMeetingReminder' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateEndOfMeetingReminder(obj: AlexaForBusinessUpdateEndOfMeetingReminder | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReminderAtMinutes': obj.reminderAtMinutes?.map(y => y),
+    'ReminderType': obj.reminderType,
+    'Enabled': obj.enabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessUpdateInstantBooking
  */
 export interface AlexaForBusinessUpdateInstantBooking {
@@ -4327,6 +8064,21 @@ export interface AlexaForBusinessUpdateInstantBooking {
   readonly enabled?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessUpdateInstantBooking' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateInstantBooking(obj: AlexaForBusinessUpdateInstantBooking | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DurationInMinutes': obj.durationInMinutes,
+    'Enabled': obj.enabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessUpdateRequireCheckIn
@@ -4345,6 +8097,21 @@ export interface AlexaForBusinessUpdateRequireCheckIn {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessUpdateRequireCheckIn' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessUpdateRequireCheckIn(obj: AlexaForBusinessUpdateRequireCheckIn | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReleaseAfterMinutes': obj.releaseAfterMinutes,
+    'Enabled': obj.enabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessDeviceStatusDetail
  */
 export interface AlexaForBusinessDeviceStatusDetail {
@@ -4359,6 +8126,21 @@ export interface AlexaForBusinessDeviceStatusDetail {
   readonly code?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDeviceStatusDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeviceStatusDetail(obj: AlexaForBusinessDeviceStatusDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Feature': obj.feature,
+    'Code': obj.code,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessEndOfMeetingReminder
@@ -4382,6 +8164,22 @@ export interface AlexaForBusinessEndOfMeetingReminder {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessEndOfMeetingReminder' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessEndOfMeetingReminder(obj: AlexaForBusinessEndOfMeetingReminder | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReminderAtMinutes': obj.reminderAtMinutes?.map(y => y),
+    'ReminderType': obj.reminderType,
+    'Enabled': obj.enabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessInstantBooking
  */
 export interface AlexaForBusinessInstantBooking {
@@ -4396,6 +8194,21 @@ export interface AlexaForBusinessInstantBooking {
   readonly enabled?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessInstantBooking' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessInstantBooking(obj: AlexaForBusinessInstantBooking | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DurationInMinutes': obj.durationInMinutes,
+    'Enabled': obj.enabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessRequireCheckIn
@@ -4414,6 +8227,21 @@ export interface AlexaForBusinessRequireCheckIn {
 }
 
 /**
+ * Converts an object of type 'AlexaForBusinessRequireCheckIn' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessRequireCheckIn(obj: AlexaForBusinessRequireCheckIn | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReleaseAfterMinutes': obj.releaseAfterMinutes,
+    'Enabled': obj.enabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AlexaForBusinessBusinessReportS3Location
  */
 export interface AlexaForBusinessBusinessReportS3Location {
@@ -4428,6 +8256,21 @@ export interface AlexaForBusinessBusinessReportS3Location {
   readonly bucketName?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessBusinessReportS3Location' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessBusinessReportS3Location(obj: AlexaForBusinessBusinessReportS3Location | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Path': obj.path,
+    'BucketName': obj.bucketName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AlexaForBusinessDeveloperInfo
@@ -4454,3 +8297,20 @@ export interface AlexaForBusinessDeveloperInfo {
   readonly url?: string;
 
 }
+
+/**
+ * Converts an object of type 'AlexaForBusinessDeveloperInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AlexaForBusinessDeveloperInfo(obj: AlexaForBusinessDeveloperInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeveloperName': obj.developerName,
+    'PrivacyPolicy': obj.privacyPolicy,
+    'Email': obj.email,
+    'Url': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

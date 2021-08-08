@@ -756,6 +756,10 @@ export class IamClient extends cdk.Construct {
     return new IAMResponsesListGroupsForUser(this, this.__resources, input);
   }
 
+  public listInstanceProfileTags(input: shapes.IamListInstanceProfileTagsRequest): IAMResponsesListInstanceProfileTags {
+    return new IAMResponsesListInstanceProfileTags(this, this.__resources, input);
+  }
+
   public listInstanceProfiles(input: shapes.IamListInstanceProfilesRequest): IAMResponsesListInstanceProfiles {
     return new IAMResponsesListInstanceProfiles(this, this.__resources, input);
   }
@@ -764,8 +768,16 @@ export class IamClient extends cdk.Construct {
     return new IAMResponsesListInstanceProfilesForRole(this, this.__resources, input);
   }
 
+  public listMfaDeviceTags(input: shapes.IamListMfaDeviceTagsRequest): IAMResponsesListMfaDeviceTags {
+    return new IAMResponsesListMfaDeviceTags(this, this.__resources, input);
+  }
+
   public listMfaDevices(input: shapes.IamListMfaDevicesRequest): IAMResponsesListMfaDevices {
     return new IAMResponsesListMfaDevices(this, this.__resources, input);
+  }
+
+  public listOpenIdConnectProviderTags(input: shapes.IamListOpenIdConnectProviderTagsRequest): IAMResponsesListOpenIdConnectProviderTags {
+    return new IAMResponsesListOpenIdConnectProviderTags(this, this.__resources, input);
   }
 
   public listOpenIdConnectProviders(): IAMResponsesListOpenIdConnectProviders {
@@ -778,6 +790,10 @@ export class IamClient extends cdk.Construct {
 
   public listPoliciesGrantingServiceAccess(input: shapes.IamListPoliciesGrantingServiceAccessRequest): IAMResponsesListPoliciesGrantingServiceAccess {
     return new IAMResponsesListPoliciesGrantingServiceAccess(this, this.__resources, input);
+  }
+
+  public listPolicyTags(input: shapes.IamListPolicyTagsRequest): IAMResponsesListPolicyTags {
+    return new IAMResponsesListPolicyTags(this, this.__resources, input);
   }
 
   public listPolicyVersions(input: shapes.IamListPolicyVersionsRequest): IAMResponsesListPolicyVersions {
@@ -796,12 +812,20 @@ export class IamClient extends cdk.Construct {
     return new IAMResponsesListRoles(this, this.__resources, input);
   }
 
+  public listSamlProviderTags(input: shapes.IamListSamlProviderTagsRequest): IAMResponsesListSamlProviderTags {
+    return new IAMResponsesListSamlProviderTags(this, this.__resources, input);
+  }
+
   public listSamlProviders(): IAMResponsesListSamlProviders {
     return new IAMResponsesListSamlProviders(this, this.__resources);
   }
 
   public listSshPublicKeys(input: shapes.IamListSshPublicKeysRequest): IAMResponsesListSshPublicKeys {
     return new IAMResponsesListSshPublicKeys(this, this.__resources, input);
+  }
+
+  public listServerCertificateTags(input: shapes.IamListServerCertificateTagsRequest): IAMResponsesListServerCertificateTags {
+    return new IAMResponsesListServerCertificateTags(this, this.__resources, input);
   }
 
   public listServerCertificates(input: shapes.IamListServerCertificatesRequest): IAMResponsesListServerCertificates {
@@ -1024,6 +1048,70 @@ export class IamClient extends cdk.Construct {
     return new IAMResponsesSimulatePrincipalPolicy(this, this.__resources, input);
   }
 
+  public tagInstanceProfile(input: shapes.IamTagInstanceProfileRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'tagInstanceProfile',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.TagInstanceProfile'),
+        parameters: {
+          InstanceProfileName: input.instanceProfileName,
+          Tags: input.tags,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'TagInstanceProfile', props);
+  }
+
+  public tagMfaDevice(input: shapes.IamTagMfaDeviceRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'tagMfaDevice',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.TagMFADevice'),
+        parameters: {
+          SerialNumber: input.serialNumber,
+          Tags: input.tags,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'TagMFADevice', props);
+  }
+
+  public tagOpenIdConnectProvider(input: shapes.IamTagOpenIdConnectProviderRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'tagOpenIdConnectProvider',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.TagOpenIDConnectProvider'),
+        parameters: {
+          OpenIDConnectProviderArn: input.openIdConnectProviderArn,
+          Tags: input.tags,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'TagOpenIDConnectProvider', props);
+  }
+
+  public tagPolicy(input: shapes.IamTagPolicyRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'tagPolicy',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.TagPolicy'),
+        parameters: {
+          PolicyArn: input.policyArn,
+          Tags: input.tags,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'TagPolicy', props);
+  }
+
   public tagRole(input: shapes.IamTagRoleRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -1038,6 +1126,38 @@ export class IamClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'TagRole', props);
+  }
+
+  public tagSamlProvider(input: shapes.IamTagSamlProviderRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'tagSamlProvider',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.TagSAMLProvider'),
+        parameters: {
+          SAMLProviderArn: input.samlProviderArn,
+          Tags: input.tags,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'TagSAMLProvider', props);
+  }
+
+  public tagServerCertificate(input: shapes.IamTagServerCertificateRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'tagServerCertificate',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.TagServerCertificate'),
+        parameters: {
+          ServerCertificateName: input.serverCertificateName,
+          Tags: input.tags,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'TagServerCertificate', props);
   }
 
   public tagUser(input: shapes.IamTagUserRequest): void {
@@ -1056,6 +1176,70 @@ export class IamClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'TagUser', props);
   }
 
+  public untagInstanceProfile(input: shapes.IamUntagInstanceProfileRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'untagInstanceProfile',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.UntagInstanceProfile'),
+        parameters: {
+          InstanceProfileName: input.instanceProfileName,
+          TagKeys: input.tagKeys,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UntagInstanceProfile', props);
+  }
+
+  public untagMfaDevice(input: shapes.IamUntagMfaDeviceRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'untagMfaDevice',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.UntagMFADevice'),
+        parameters: {
+          SerialNumber: input.serialNumber,
+          TagKeys: input.tagKeys,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UntagMFADevice', props);
+  }
+
+  public untagOpenIdConnectProvider(input: shapes.IamUntagOpenIdConnectProviderRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'untagOpenIdConnectProvider',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.UntagOpenIDConnectProvider'),
+        parameters: {
+          OpenIDConnectProviderArn: input.openIdConnectProviderArn,
+          TagKeys: input.tagKeys,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UntagOpenIDConnectProvider', props);
+  }
+
+  public untagPolicy(input: shapes.IamUntagPolicyRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'untagPolicy',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.UntagPolicy'),
+        parameters: {
+          PolicyArn: input.policyArn,
+          TagKeys: input.tagKeys,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UntagPolicy', props);
+  }
+
   public untagRole(input: shapes.IamUntagRoleRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -1070,6 +1254,38 @@ export class IamClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'UntagRole', props);
+  }
+
+  public untagSamlProvider(input: shapes.IamUntagSamlProviderRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'untagSamlProvider',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.UntagSAMLProvider'),
+        parameters: {
+          SAMLProviderArn: input.samlProviderArn,
+          TagKeys: input.tagKeys,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UntagSAMLProvider', props);
+  }
+
+  public untagServerCertificate(input: shapes.IamUntagServerCertificateRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'untagServerCertificate',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.UntagServerCertificate'),
+        parameters: {
+          ServerCertificateName: input.serverCertificateName,
+          TagKeys: input.tagKeys,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UntagServerCertificate', props);
   }
 
   public untagUser(input: shapes.IamUntagUserRequest): void {
@@ -1556,6 +1772,7 @@ export class IAMResponsesCreateInstanceProfileInstanceProfile {
         parameters: {
           InstanceProfileName: this.__input.instanceProfileName,
           Path: this.__input.path,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1574,6 +1791,7 @@ export class IAMResponsesCreateInstanceProfileInstanceProfile {
         parameters: {
           InstanceProfileName: this.__input.instanceProfileName,
           Path: this.__input.path,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1592,6 +1810,7 @@ export class IAMResponsesCreateInstanceProfileInstanceProfile {
         parameters: {
           InstanceProfileName: this.__input.instanceProfileName,
           Path: this.__input.path,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1610,6 +1829,7 @@ export class IAMResponsesCreateInstanceProfileInstanceProfile {
         parameters: {
           InstanceProfileName: this.__input.instanceProfileName,
           Path: this.__input.path,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1628,6 +1848,7 @@ export class IAMResponsesCreateInstanceProfileInstanceProfile {
         parameters: {
           InstanceProfileName: this.__input.instanceProfileName,
           Path: this.__input.path,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1646,11 +1867,31 @@ export class IAMResponsesCreateInstanceProfileInstanceProfile {
         parameters: {
           InstanceProfileName: this.__input.instanceProfileName,
           Path: this.__input.path,
+          Tags: this.__input.tags,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateInstanceProfile.InstanceProfile.Roles', props);
     return resource.getResponseField('InstanceProfile.Roles') as unknown as shapes.IamRole[];
+  }
+
+  public get tags(): shapes.IamTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createInstanceProfile',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.CreateInstanceProfile.InstanceProfile.Tags'),
+        outputPath: 'InstanceProfile.Tags',
+        parameters: {
+          InstanceProfileName: this.__input.instanceProfileName,
+          Path: this.__input.path,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateInstanceProfile.InstanceProfile.Tags', props);
+    return resource.getResponseField('InstanceProfile.Tags') as unknown as shapes.IamTag[];
   }
 
 }
@@ -1747,11 +1988,32 @@ export class IAMResponsesCreateOpenIdConnectProvider {
           Url: this.__input.url,
           ClientIDList: this.__input.clientIdList,
           ThumbprintList: this.__input.thumbprintList,
+          Tags: this.__input.tags,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateOpenIDConnectProvider.OpenIDConnectProviderArn', props);
     return resource.getResponseField('OpenIDConnectProviderArn') as unknown as string;
+  }
+
+  public get tags(): shapes.IamTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createOpenIdConnectProvider',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.CreateOpenIDConnectProvider.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          Url: this.__input.url,
+          ClientIDList: this.__input.clientIdList,
+          ThumbprintList: this.__input.thumbprintList,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateOpenIDConnectProvider.Tags', props);
+    return resource.getResponseField('Tags') as unknown as shapes.IamTag[];
   }
 
 }
@@ -1785,6 +2047,7 @@ export class IAMResponsesCreatePolicyPolicy {
           Path: this.__input.path,
           PolicyDocument: this.__input.policyDocument,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1805,6 +2068,7 @@ export class IAMResponsesCreatePolicyPolicy {
           Path: this.__input.path,
           PolicyDocument: this.__input.policyDocument,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1825,6 +2089,7 @@ export class IAMResponsesCreatePolicyPolicy {
           Path: this.__input.path,
           PolicyDocument: this.__input.policyDocument,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1845,6 +2110,7 @@ export class IAMResponsesCreatePolicyPolicy {
           Path: this.__input.path,
           PolicyDocument: this.__input.policyDocument,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1865,6 +2131,7 @@ export class IAMResponsesCreatePolicyPolicy {
           Path: this.__input.path,
           PolicyDocument: this.__input.policyDocument,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1885,6 +2152,7 @@ export class IAMResponsesCreatePolicyPolicy {
           Path: this.__input.path,
           PolicyDocument: this.__input.policyDocument,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1905,6 +2173,7 @@ export class IAMResponsesCreatePolicyPolicy {
           Path: this.__input.path,
           PolicyDocument: this.__input.policyDocument,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1925,6 +2194,7 @@ export class IAMResponsesCreatePolicyPolicy {
           Path: this.__input.path,
           PolicyDocument: this.__input.policyDocument,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1945,6 +2215,7 @@ export class IAMResponsesCreatePolicyPolicy {
           Path: this.__input.path,
           PolicyDocument: this.__input.policyDocument,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1965,6 +2236,7 @@ export class IAMResponsesCreatePolicyPolicy {
           Path: this.__input.path,
           PolicyDocument: this.__input.policyDocument,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1985,11 +2257,33 @@ export class IAMResponsesCreatePolicyPolicy {
           Path: this.__input.path,
           PolicyDocument: this.__input.policyDocument,
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreatePolicy.Policy.UpdateDate', props);
     return resource.getResponseField('Policy.UpdateDate') as unknown as string;
+  }
+
+  public get tags(): shapes.IamTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPolicy',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.CreatePolicy.Policy.Tags'),
+        outputPath: 'Policy.Tags',
+        parameters: {
+          PolicyName: this.__input.policyName,
+          Path: this.__input.path,
+          PolicyDocument: this.__input.policyDocument,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePolicy.Policy.Tags', props);
+    return resource.getResponseField('Policy.Tags') as unknown as shapes.IamTag[];
   }
 
 }
@@ -2443,11 +2737,31 @@ export class IAMResponsesCreateSamlProvider {
         parameters: {
           SAMLMetadataDocument: this.__input.samlMetadataDocument,
           Name: this.__input.name,
+          Tags: this.__input.tags,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateSAMLProvider.SAMLProviderArn', props);
     return resource.getResponseField('SAMLProviderArn') as unknown as string;
+  }
+
+  public get tags(): shapes.IamTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createSamlProvider',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.CreateSAMLProvider.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          SAMLMetadataDocument: this.__input.samlMetadataDocument,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateSAMLProvider.Tags', props);
+    return resource.getResponseField('Tags') as unknown as shapes.IamTag[];
   }
 
 }
@@ -3119,6 +3433,7 @@ export class IAMResponsesCreateVirtualMfaDeviceVirtualMfaDevice {
         parameters: {
           Path: this.__input.path,
           VirtualMFADeviceName: this.__input.virtualMfaDeviceName,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3137,6 +3452,7 @@ export class IAMResponsesCreateVirtualMfaDeviceVirtualMfaDevice {
         parameters: {
           Path: this.__input.path,
           VirtualMFADeviceName: this.__input.virtualMfaDeviceName,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3155,6 +3471,7 @@ export class IAMResponsesCreateVirtualMfaDeviceVirtualMfaDevice {
         parameters: {
           Path: this.__input.path,
           VirtualMFADeviceName: this.__input.virtualMfaDeviceName,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3177,11 +3494,31 @@ export class IAMResponsesCreateVirtualMfaDeviceVirtualMfaDevice {
         parameters: {
           Path: this.__input.path,
           VirtualMFADeviceName: this.__input.virtualMfaDeviceName,
+          Tags: this.__input.tags,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateVirtualMFADevice.VirtualMFADevice.EnableDate', props);
     return resource.getResponseField('VirtualMFADevice.EnableDate') as unknown as string;
+  }
+
+  public get tags(): shapes.IamTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createVirtualMfaDevice',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.CreateVirtualMFADevice.VirtualMFADevice.Tags'),
+        outputPath: 'VirtualMFADevice.Tags',
+        parameters: {
+          Path: this.__input.path,
+          VirtualMFADeviceName: this.__input.virtualMfaDeviceName,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateVirtualMFADevice.VirtualMFADevice.Tags', props);
+    return resource.getResponseField('VirtualMFADevice.Tags') as unknown as shapes.IamTag[];
   }
 
 }
@@ -3202,6 +3539,7 @@ export class IAMResponsesCreateVirtualMfaDeviceVirtualMfaDeviceUser {
         parameters: {
           Path: this.__input.path,
           VirtualMFADeviceName: this.__input.virtualMfaDeviceName,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3220,6 +3558,7 @@ export class IAMResponsesCreateVirtualMfaDeviceVirtualMfaDeviceUser {
         parameters: {
           Path: this.__input.path,
           VirtualMFADeviceName: this.__input.virtualMfaDeviceName,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3238,6 +3577,7 @@ export class IAMResponsesCreateVirtualMfaDeviceVirtualMfaDeviceUser {
         parameters: {
           Path: this.__input.path,
           VirtualMFADeviceName: this.__input.virtualMfaDeviceName,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3256,6 +3596,7 @@ export class IAMResponsesCreateVirtualMfaDeviceVirtualMfaDeviceUser {
         parameters: {
           Path: this.__input.path,
           VirtualMFADeviceName: this.__input.virtualMfaDeviceName,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3274,6 +3615,7 @@ export class IAMResponsesCreateVirtualMfaDeviceVirtualMfaDeviceUser {
         parameters: {
           Path: this.__input.path,
           VirtualMFADeviceName: this.__input.virtualMfaDeviceName,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3292,6 +3634,7 @@ export class IAMResponsesCreateVirtualMfaDeviceVirtualMfaDeviceUser {
         parameters: {
           Path: this.__input.path,
           VirtualMFADeviceName: this.__input.virtualMfaDeviceName,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3314,6 +3657,7 @@ export class IAMResponsesCreateVirtualMfaDeviceVirtualMfaDeviceUser {
         parameters: {
           Path: this.__input.path,
           VirtualMFADeviceName: this.__input.virtualMfaDeviceName,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3339,6 +3683,7 @@ export class IAMResponsesCreateVirtualMfaDeviceVirtualMfaDeviceUserPermissionsBo
         parameters: {
           Path: this.__input.path,
           VirtualMFADeviceName: this.__input.virtualMfaDeviceName,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3357,6 +3702,7 @@ export class IAMResponsesCreateVirtualMfaDeviceVirtualMfaDeviceUserPermissionsBo
         parameters: {
           Path: this.__input.path,
           VirtualMFADeviceName: this.__input.virtualMfaDeviceName,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -4308,6 +4654,23 @@ export class IAMResponsesFetchInstanceProfileInstanceProfile {
     return resource.getResponseField('InstanceProfile.Roles') as unknown as shapes.IamRole[];
   }
 
+  public get tags(): shapes.IamTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getInstanceProfile',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.GetInstanceProfile.InstanceProfile.Tags'),
+        outputPath: 'InstanceProfile.Tags',
+        parameters: {
+          InstanceProfileName: this.__input.instanceProfileName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetInstanceProfile.InstanceProfile.Tags', props);
+    return resource.getResponseField('InstanceProfile.Tags') as unknown as shapes.IamTag[];
+  }
+
 }
 
 export class IAMResponsesFetchLoginProfile {
@@ -4450,6 +4813,23 @@ export class IAMResponsesFetchOpenIdConnectProvider {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetOpenIDConnectProvider.CreateDate', props);
     return resource.getResponseField('CreateDate') as unknown as string;
+  }
+
+  public get tags(): shapes.IamTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getOpenIdConnectProvider',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.GetOpenIDConnectProvider.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          OpenIDConnectProviderArn: this.__input.openIdConnectProviderArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetOpenIDConnectProvider.Tags', props);
+    return resource.getResponseField('Tags') as unknown as shapes.IamTag[];
   }
 
 }
@@ -4873,6 +5253,23 @@ export class IAMResponsesFetchPolicyPolicy {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetPolicy.Policy.UpdateDate', props);
     return resource.getResponseField('Policy.UpdateDate') as unknown as string;
+  }
+
+  public get tags(): shapes.IamTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getPolicy',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.GetPolicy.Policy.Tags'),
+        outputPath: 'Policy.Tags',
+        parameters: {
+          PolicyArn: this.__input.policyArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetPolicy.Policy.Tags', props);
+    return resource.getResponseField('Policy.Tags') as unknown as shapes.IamTag[];
   }
 
 }
@@ -5345,6 +5742,23 @@ export class IAMResponsesFetchSamlProvider {
     return resource.getResponseField('ValidUntil') as unknown as string;
   }
 
+  public get tags(): shapes.IamTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getSamlProvider',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.GetSAMLProvider.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          SAMLProviderArn: this.__input.samlProviderArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetSAMLProvider.Tags', props);
+    return resource.getResponseField('Tags') as unknown as shapes.IamTag[];
+  }
+
 }
 
 export class IAMResponsesFetchSshPublicKey {
@@ -5531,6 +5945,23 @@ export class IAMResponsesFetchServerCertificateServerCertificate {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetServerCertificate.ServerCertificate.CertificateChain', props);
     return resource.getResponseField('ServerCertificate.CertificateChain') as unknown as string;
+  }
+
+  public get tags(): shapes.IamTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getServerCertificate',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.GetServerCertificate.ServerCertificate.Tags'),
+        outputPath: 'ServerCertificate.Tags',
+        parameters: {
+          ServerCertificateName: this.__input.serverCertificateName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetServerCertificate.ServerCertificate.Tags', props);
+    return resource.getResponseField('ServerCertificate.Tags') as unknown as shapes.IamTag[];
   }
 
 }
@@ -6958,6 +7389,70 @@ export class IAMResponsesListGroupsForUser {
 
 }
 
+export class IAMResponsesListInstanceProfileTags {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IamListInstanceProfileTagsRequest) {
+  }
+
+  public get tags(): shapes.IamTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listInstanceProfileTags',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.ListInstanceProfileTags.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          InstanceProfileName: this.__input.instanceProfileName,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListInstanceProfileTags.Tags', props);
+    return resource.getResponseField('Tags') as unknown as shapes.IamTag[];
+  }
+
+  public get isTruncated(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listInstanceProfileTags',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.ListInstanceProfileTags.IsTruncated'),
+        outputPath: 'IsTruncated',
+        parameters: {
+          InstanceProfileName: this.__input.instanceProfileName,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListInstanceProfileTags.IsTruncated', props);
+    return resource.getResponseField('IsTruncated') as unknown as boolean;
+  }
+
+  public get marker(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listInstanceProfileTags',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.ListInstanceProfileTags.Marker'),
+        outputPath: 'Marker',
+        parameters: {
+          InstanceProfileName: this.__input.instanceProfileName,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListInstanceProfileTags.Marker', props);
+    return resource.getResponseField('Marker') as unknown as string;
+  }
+
+}
+
 export class IAMResponsesListInstanceProfiles {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IamListInstanceProfilesRequest) {
@@ -7086,6 +7581,70 @@ export class IAMResponsesListInstanceProfilesForRole {
 
 }
 
+export class IAMResponsesListMfaDeviceTags {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IamListMfaDeviceTagsRequest) {
+  }
+
+  public get tags(): shapes.IamTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listMfaDeviceTags',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.ListMFADeviceTags.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          SerialNumber: this.__input.serialNumber,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListMFADeviceTags.Tags', props);
+    return resource.getResponseField('Tags') as unknown as shapes.IamTag[];
+  }
+
+  public get isTruncated(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listMfaDeviceTags',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.ListMFADeviceTags.IsTruncated'),
+        outputPath: 'IsTruncated',
+        parameters: {
+          SerialNumber: this.__input.serialNumber,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListMFADeviceTags.IsTruncated', props);
+    return resource.getResponseField('IsTruncated') as unknown as boolean;
+  }
+
+  public get marker(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listMfaDeviceTags',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.ListMFADeviceTags.Marker'),
+        outputPath: 'Marker',
+        parameters: {
+          SerialNumber: this.__input.serialNumber,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListMFADeviceTags.Marker', props);
+    return resource.getResponseField('Marker') as unknown as string;
+  }
+
+}
+
 export class IAMResponsesListMfaDevices {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IamListMfaDevicesRequest) {
@@ -7145,6 +7704,70 @@ export class IAMResponsesListMfaDevices {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListMFADevices.Marker', props);
+    return resource.getResponseField('Marker') as unknown as string;
+  }
+
+}
+
+export class IAMResponsesListOpenIdConnectProviderTags {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IamListOpenIdConnectProviderTagsRequest) {
+  }
+
+  public get tags(): shapes.IamTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listOpenIdConnectProviderTags',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.ListOpenIDConnectProviderTags.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          OpenIDConnectProviderArn: this.__input.openIdConnectProviderArn,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListOpenIDConnectProviderTags.Tags', props);
+    return resource.getResponseField('Tags') as unknown as shapes.IamTag[];
+  }
+
+  public get isTruncated(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listOpenIdConnectProviderTags',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.ListOpenIDConnectProviderTags.IsTruncated'),
+        outputPath: 'IsTruncated',
+        parameters: {
+          OpenIDConnectProviderArn: this.__input.openIdConnectProviderArn,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListOpenIDConnectProviderTags.IsTruncated', props);
+    return resource.getResponseField('IsTruncated') as unknown as boolean;
+  }
+
+  public get marker(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listOpenIdConnectProviderTags',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.ListOpenIDConnectProviderTags.Marker'),
+        outputPath: 'Marker',
+        parameters: {
+          OpenIDConnectProviderArn: this.__input.openIdConnectProviderArn,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListOpenIDConnectProviderTags.Marker', props);
     return resource.getResponseField('Marker') as unknown as string;
   }
 
@@ -7305,6 +7928,70 @@ export class IAMResponsesListPoliciesGrantingServiceAccess {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListPoliciesGrantingServiceAccess.Marker', props);
+    return resource.getResponseField('Marker') as unknown as string;
+  }
+
+}
+
+export class IAMResponsesListPolicyTags {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IamListPolicyTagsRequest) {
+  }
+
+  public get tags(): shapes.IamTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listPolicyTags',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.ListPolicyTags.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          PolicyArn: this.__input.policyArn,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListPolicyTags.Tags', props);
+    return resource.getResponseField('Tags') as unknown as shapes.IamTag[];
+  }
+
+  public get isTruncated(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listPolicyTags',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.ListPolicyTags.IsTruncated'),
+        outputPath: 'IsTruncated',
+        parameters: {
+          PolicyArn: this.__input.policyArn,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListPolicyTags.IsTruncated', props);
+    return resource.getResponseField('IsTruncated') as unknown as boolean;
+  }
+
+  public get marker(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listPolicyTags',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.ListPolicyTags.Marker'),
+        outputPath: 'Marker',
+        parameters: {
+          PolicyArn: this.__input.policyArn,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListPolicyTags.Marker', props);
     return resource.getResponseField('Marker') as unknown as string;
   }
 
@@ -7566,6 +8253,70 @@ export class IAMResponsesListRoles {
 
 }
 
+export class IAMResponsesListSamlProviderTags {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IamListSamlProviderTagsRequest) {
+  }
+
+  public get tags(): shapes.IamTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listSamlProviderTags',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.ListSAMLProviderTags.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          SAMLProviderArn: this.__input.samlProviderArn,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListSAMLProviderTags.Tags', props);
+    return resource.getResponseField('Tags') as unknown as shapes.IamTag[];
+  }
+
+  public get isTruncated(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listSamlProviderTags',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.ListSAMLProviderTags.IsTruncated'),
+        outputPath: 'IsTruncated',
+        parameters: {
+          SAMLProviderArn: this.__input.samlProviderArn,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListSAMLProviderTags.IsTruncated', props);
+    return resource.getResponseField('IsTruncated') as unknown as boolean;
+  }
+
+  public get marker(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listSamlProviderTags',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.ListSAMLProviderTags.Marker'),
+        outputPath: 'Marker',
+        parameters: {
+          SAMLProviderArn: this.__input.samlProviderArn,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListSAMLProviderTags.Marker', props);
+    return resource.getResponseField('Marker') as unknown as string;
+  }
+
+}
+
 export class IAMResponsesListSamlProviders {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
@@ -7648,6 +8399,70 @@ export class IAMResponsesListSshPublicKeys {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListSSHPublicKeys.Marker', props);
+    return resource.getResponseField('Marker') as unknown as string;
+  }
+
+}
+
+export class IAMResponsesListServerCertificateTags {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IamListServerCertificateTagsRequest) {
+  }
+
+  public get tags(): shapes.IamTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listServerCertificateTags',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.ListServerCertificateTags.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          ServerCertificateName: this.__input.serverCertificateName,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListServerCertificateTags.Tags', props);
+    return resource.getResponseField('Tags') as unknown as shapes.IamTag[];
+  }
+
+  public get isTruncated(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listServerCertificateTags',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.ListServerCertificateTags.IsTruncated'),
+        outputPath: 'IsTruncated',
+        parameters: {
+          ServerCertificateName: this.__input.serverCertificateName,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListServerCertificateTags.IsTruncated', props);
+    return resource.getResponseField('IsTruncated') as unknown as boolean;
+  }
+
+  public get marker(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listServerCertificateTags',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.ListServerCertificateTags.Marker'),
+        outputPath: 'Marker',
+        parameters: {
+          ServerCertificateName: this.__input.serverCertificateName,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListServerCertificateTags.Marker', props);
     return resource.getResponseField('Marker') as unknown as string;
   }
 
@@ -8819,6 +9634,28 @@ export class IAMResponsesUploadServerCertificate {
     return new IAMResponsesUploadServerCertificateServerCertificateMetadata(this.__scope, this.__resources, this.__input);
   }
 
+  public get tags(): shapes.IamTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'uploadServerCertificate',
+        service: 'IAM',
+        physicalResourceId: cr.PhysicalResourceId.of('IAM.UploadServerCertificate.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          Path: this.__input.path,
+          ServerCertificateName: this.__input.serverCertificateName,
+          CertificateBody: this.__input.certificateBody,
+          PrivateKey: this.__input.privateKey,
+          CertificateChain: this.__input.certificateChain,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UploadServerCertificate.Tags', props);
+    return resource.getResponseField('Tags') as unknown as shapes.IamTag[];
+  }
+
 }
 
 export class IAMResponsesUploadServerCertificateServerCertificateMetadata {
@@ -8840,6 +9677,7 @@ export class IAMResponsesUploadServerCertificateServerCertificateMetadata {
           CertificateBody: this.__input.certificateBody,
           PrivateKey: this.__input.privateKey,
           CertificateChain: this.__input.certificateChain,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -8861,6 +9699,7 @@ export class IAMResponsesUploadServerCertificateServerCertificateMetadata {
           CertificateBody: this.__input.certificateBody,
           PrivateKey: this.__input.privateKey,
           CertificateChain: this.__input.certificateChain,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -8882,6 +9721,7 @@ export class IAMResponsesUploadServerCertificateServerCertificateMetadata {
           CertificateBody: this.__input.certificateBody,
           PrivateKey: this.__input.privateKey,
           CertificateChain: this.__input.certificateChain,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -8903,6 +9743,7 @@ export class IAMResponsesUploadServerCertificateServerCertificateMetadata {
           CertificateBody: this.__input.certificateBody,
           PrivateKey: this.__input.privateKey,
           CertificateChain: this.__input.certificateChain,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -8924,6 +9765,7 @@ export class IAMResponsesUploadServerCertificateServerCertificateMetadata {
           CertificateBody: this.__input.certificateBody,
           PrivateKey: this.__input.privateKey,
           CertificateChain: this.__input.certificateChain,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -8945,6 +9787,7 @@ export class IAMResponsesUploadServerCertificateServerCertificateMetadata {
           CertificateBody: this.__input.certificateBody,
           PrivateKey: this.__input.privateKey,
           CertificateChain: this.__input.certificateChain,
+          Tags: this.__input.tags,
         },
       },
     };

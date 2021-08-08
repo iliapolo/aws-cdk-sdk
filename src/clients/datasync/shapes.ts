@@ -5,9 +5,23 @@ export interface DataSyncCancelTaskExecutionRequest {
   /**
    * @schema DataSyncCancelTaskExecutionRequest#TaskExecutionArn
    */
-  readonly taskExecutionArn: string;
+  readonly taskExecutionArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncCancelTaskExecutionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncCancelTaskExecutionRequest(obj: DataSyncCancelTaskExecutionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TaskExecutionArn': obj.taskExecutionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncCancelTaskExecutionResponse
@@ -16,13 +30,26 @@ export interface DataSyncCancelTaskExecutionResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncCancelTaskExecutionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncCancelTaskExecutionResponse(obj: DataSyncCancelTaskExecutionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncCreateAgentRequest
  */
 export interface DataSyncCreateAgentRequest {
   /**
    * @schema DataSyncCreateAgentRequest#ActivationKey
    */
-  readonly activationKey: string;
+  readonly activationKey?: string;
 
   /**
    * @schema DataSyncCreateAgentRequest#AgentName
@@ -52,6 +79,25 @@ export interface DataSyncCreateAgentRequest {
 }
 
 /**
+ * Converts an object of type 'DataSyncCreateAgentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncCreateAgentRequest(obj: DataSyncCreateAgentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ActivationKey': obj.activationKey,
+    'AgentName': obj.agentName,
+    'Tags': obj.tags?.map(y => toJson_DataSyncTagListEntry(y)),
+    'VpcEndpointId': obj.vpcEndpointId,
+    'SubnetArns': obj.subnetArns?.map(y => y),
+    'SecurityGroupArns': obj.securityGroupArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncCreateAgentResponse
  */
 export interface DataSyncCreateAgentResponse {
@@ -61,6 +107,20 @@ export interface DataSyncCreateAgentResponse {
   readonly agentArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncCreateAgentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncCreateAgentResponse(obj: DataSyncCreateAgentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AgentArn': obj.agentArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncCreateLocationEfsRequest
@@ -74,12 +134,12 @@ export interface DataSyncCreateLocationEfsRequest {
   /**
    * @schema DataSyncCreateLocationEfsRequest#EfsFilesystemArn
    */
-  readonly efsFilesystemArn: string;
+  readonly efsFilesystemArn?: string;
 
   /**
    * @schema DataSyncCreateLocationEfsRequest#Ec2Config
    */
-  readonly ec2Config: DataSyncEc2Config;
+  readonly ec2Config?: DataSyncEc2Config;
 
   /**
    * @schema DataSyncCreateLocationEfsRequest#Tags
@@ -87,6 +147,23 @@ export interface DataSyncCreateLocationEfsRequest {
   readonly tags?: DataSyncTagListEntry[];
 
 }
+
+/**
+ * Converts an object of type 'DataSyncCreateLocationEfsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncCreateLocationEfsRequest(obj: DataSyncCreateLocationEfsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Subdirectory': obj.subdirectory,
+    'EfsFilesystemArn': obj.efsFilesystemArn,
+    'Ec2Config': toJson_DataSyncEc2Config(obj.ec2Config),
+    'Tags': obj.tags?.map(y => toJson_DataSyncTagListEntry(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncCreateLocationEfsResponse
@@ -100,6 +177,20 @@ export interface DataSyncCreateLocationEfsResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncCreateLocationEfsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncCreateLocationEfsResponse(obj: DataSyncCreateLocationEfsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncCreateLocationFsxWindowsRequest
  */
 export interface DataSyncCreateLocationFsxWindowsRequest {
@@ -111,12 +202,12 @@ export interface DataSyncCreateLocationFsxWindowsRequest {
   /**
    * @schema DataSyncCreateLocationFsxWindowsRequest#FsxFilesystemArn
    */
-  readonly fsxFilesystemArn: string;
+  readonly fsxFilesystemArn?: string;
 
   /**
    * @schema DataSyncCreateLocationFsxWindowsRequest#SecurityGroupArns
    */
-  readonly securityGroupArns: string[];
+  readonly securityGroupArns?: string[];
 
   /**
    * @schema DataSyncCreateLocationFsxWindowsRequest#Tags
@@ -126,7 +217,7 @@ export interface DataSyncCreateLocationFsxWindowsRequest {
   /**
    * @schema DataSyncCreateLocationFsxWindowsRequest#User
    */
-  readonly user: string;
+  readonly user?: string;
 
   /**
    * @schema DataSyncCreateLocationFsxWindowsRequest#Domain
@@ -136,9 +227,29 @@ export interface DataSyncCreateLocationFsxWindowsRequest {
   /**
    * @schema DataSyncCreateLocationFsxWindowsRequest#Password
    */
-  readonly password: string;
+  readonly password?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncCreateLocationFsxWindowsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncCreateLocationFsxWindowsRequest(obj: DataSyncCreateLocationFsxWindowsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Subdirectory': obj.subdirectory,
+    'FsxFilesystemArn': obj.fsxFilesystemArn,
+    'SecurityGroupArns': obj.securityGroupArns?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_DataSyncTagListEntry(y)),
+    'User': obj.user,
+    'Domain': obj.domain,
+    'Password': obj.password,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncCreateLocationFsxWindowsResponse
@@ -152,23 +263,37 @@ export interface DataSyncCreateLocationFsxWindowsResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncCreateLocationFsxWindowsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncCreateLocationFsxWindowsResponse(obj: DataSyncCreateLocationFsxWindowsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncCreateLocationNfsRequest
  */
 export interface DataSyncCreateLocationNfsRequest {
   /**
    * @schema DataSyncCreateLocationNfsRequest#Subdirectory
    */
-  readonly subdirectory: string;
+  readonly subdirectory?: string;
 
   /**
    * @schema DataSyncCreateLocationNfsRequest#ServerHostname
    */
-  readonly serverHostname: string;
+  readonly serverHostname?: string;
 
   /**
    * @schema DataSyncCreateLocationNfsRequest#OnPremConfig
    */
-  readonly onPremConfig: DataSyncOnPremConfig;
+  readonly onPremConfig?: DataSyncOnPremConfig;
 
   /**
    * @schema DataSyncCreateLocationNfsRequest#MountOptions
@@ -183,6 +308,24 @@ export interface DataSyncCreateLocationNfsRequest {
 }
 
 /**
+ * Converts an object of type 'DataSyncCreateLocationNfsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncCreateLocationNfsRequest(obj: DataSyncCreateLocationNfsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Subdirectory': obj.subdirectory,
+    'ServerHostname': obj.serverHostname,
+    'OnPremConfig': toJson_DataSyncOnPremConfig(obj.onPremConfig),
+    'MountOptions': toJson_DataSyncNfsMountOptions(obj.mountOptions),
+    'Tags': obj.tags?.map(y => toJson_DataSyncTagListEntry(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncCreateLocationNfsResponse
  */
 export interface DataSyncCreateLocationNfsResponse {
@@ -194,13 +337,27 @@ export interface DataSyncCreateLocationNfsResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncCreateLocationNfsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncCreateLocationNfsResponse(obj: DataSyncCreateLocationNfsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncCreateLocationObjectStorageRequest
  */
 export interface DataSyncCreateLocationObjectStorageRequest {
   /**
    * @schema DataSyncCreateLocationObjectStorageRequest#ServerHostname
    */
-  readonly serverHostname: string;
+  readonly serverHostname?: string;
 
   /**
    * @schema DataSyncCreateLocationObjectStorageRequest#ServerPort
@@ -220,7 +377,7 @@ export interface DataSyncCreateLocationObjectStorageRequest {
   /**
    * @schema DataSyncCreateLocationObjectStorageRequest#BucketName
    */
-  readonly bucketName: string;
+  readonly bucketName?: string;
 
   /**
    * @schema DataSyncCreateLocationObjectStorageRequest#AccessKey
@@ -235,7 +392,7 @@ export interface DataSyncCreateLocationObjectStorageRequest {
   /**
    * @schema DataSyncCreateLocationObjectStorageRequest#AgentArns
    */
-  readonly agentArns: string[];
+  readonly agentArns?: string[];
 
   /**
    * @schema DataSyncCreateLocationObjectStorageRequest#Tags
@@ -243,6 +400,28 @@ export interface DataSyncCreateLocationObjectStorageRequest {
   readonly tags?: DataSyncTagListEntry[];
 
 }
+
+/**
+ * Converts an object of type 'DataSyncCreateLocationObjectStorageRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncCreateLocationObjectStorageRequest(obj: DataSyncCreateLocationObjectStorageRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ServerHostname': obj.serverHostname,
+    'ServerPort': obj.serverPort,
+    'ServerProtocol': obj.serverProtocol,
+    'Subdirectory': obj.subdirectory,
+    'BucketName': obj.bucketName,
+    'AccessKey': obj.accessKey,
+    'SecretKey': obj.secretKey,
+    'AgentArns': obj.agentArns?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_DataSyncTagListEntry(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncCreateLocationObjectStorageResponse
@@ -256,6 +435,20 @@ export interface DataSyncCreateLocationObjectStorageResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncCreateLocationObjectStorageResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncCreateLocationObjectStorageResponse(obj: DataSyncCreateLocationObjectStorageResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncCreateLocationS3Request
  */
 export interface DataSyncCreateLocationS3Request {
@@ -267,7 +460,7 @@ export interface DataSyncCreateLocationS3Request {
   /**
    * @schema DataSyncCreateLocationS3Request#S3BucketArn
    */
-  readonly s3BucketArn: string;
+  readonly s3BucketArn?: string;
 
   /**
    * @schema DataSyncCreateLocationS3Request#S3StorageClass
@@ -277,7 +470,7 @@ export interface DataSyncCreateLocationS3Request {
   /**
    * @schema DataSyncCreateLocationS3Request#S3Config
    */
-  readonly s3Config: DataSyncS3Config;
+  readonly s3Config?: DataSyncS3Config;
 
   /**
    * @schema DataSyncCreateLocationS3Request#AgentArns
@@ -292,6 +485,25 @@ export interface DataSyncCreateLocationS3Request {
 }
 
 /**
+ * Converts an object of type 'DataSyncCreateLocationS3Request' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncCreateLocationS3Request(obj: DataSyncCreateLocationS3Request | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Subdirectory': obj.subdirectory,
+    'S3BucketArn': obj.s3BucketArn,
+    'S3StorageClass': obj.s3StorageClass,
+    'S3Config': toJson_DataSyncS3Config(obj.s3Config),
+    'AgentArns': obj.agentArns?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_DataSyncTagListEntry(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncCreateLocationS3Response
  */
 export interface DataSyncCreateLocationS3Response {
@@ -303,23 +515,37 @@ export interface DataSyncCreateLocationS3Response {
 }
 
 /**
+ * Converts an object of type 'DataSyncCreateLocationS3Response' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncCreateLocationS3Response(obj: DataSyncCreateLocationS3Response | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncCreateLocationSmbRequest
  */
 export interface DataSyncCreateLocationSmbRequest {
   /**
    * @schema DataSyncCreateLocationSmbRequest#Subdirectory
    */
-  readonly subdirectory: string;
+  readonly subdirectory?: string;
 
   /**
    * @schema DataSyncCreateLocationSmbRequest#ServerHostname
    */
-  readonly serverHostname: string;
+  readonly serverHostname?: string;
 
   /**
    * @schema DataSyncCreateLocationSmbRequest#User
    */
-  readonly user: string;
+  readonly user?: string;
 
   /**
    * @schema DataSyncCreateLocationSmbRequest#Domain
@@ -329,12 +555,12 @@ export interface DataSyncCreateLocationSmbRequest {
   /**
    * @schema DataSyncCreateLocationSmbRequest#Password
    */
-  readonly password: string;
+  readonly password?: string;
 
   /**
    * @schema DataSyncCreateLocationSmbRequest#AgentArns
    */
-  readonly agentArns: string[];
+  readonly agentArns?: string[];
 
   /**
    * @schema DataSyncCreateLocationSmbRequest#MountOptions
@@ -349,6 +575,27 @@ export interface DataSyncCreateLocationSmbRequest {
 }
 
 /**
+ * Converts an object of type 'DataSyncCreateLocationSmbRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncCreateLocationSmbRequest(obj: DataSyncCreateLocationSmbRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Subdirectory': obj.subdirectory,
+    'ServerHostname': obj.serverHostname,
+    'User': obj.user,
+    'Domain': obj.domain,
+    'Password': obj.password,
+    'AgentArns': obj.agentArns?.map(y => y),
+    'MountOptions': toJson_DataSyncSmbMountOptions(obj.mountOptions),
+    'Tags': obj.tags?.map(y => toJson_DataSyncTagListEntry(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncCreateLocationSmbResponse
  */
 export interface DataSyncCreateLocationSmbResponse {
@@ -360,18 +607,32 @@ export interface DataSyncCreateLocationSmbResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncCreateLocationSmbResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncCreateLocationSmbResponse(obj: DataSyncCreateLocationSmbResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncCreateTaskRequest
  */
 export interface DataSyncCreateTaskRequest {
   /**
    * @schema DataSyncCreateTaskRequest#SourceLocationArn
    */
-  readonly sourceLocationArn: string;
+  readonly sourceLocationArn?: string;
 
   /**
    * @schema DataSyncCreateTaskRequest#DestinationLocationArn
    */
-  readonly destinationLocationArn: string;
+  readonly destinationLocationArn?: string;
 
   /**
    * @schema DataSyncCreateTaskRequest#CloudWatchLogGroupArn
@@ -406,6 +667,27 @@ export interface DataSyncCreateTaskRequest {
 }
 
 /**
+ * Converts an object of type 'DataSyncCreateTaskRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncCreateTaskRequest(obj: DataSyncCreateTaskRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceLocationArn': obj.sourceLocationArn,
+    'DestinationLocationArn': obj.destinationLocationArn,
+    'CloudWatchLogGroupArn': obj.cloudWatchLogGroupArn,
+    'Name': obj.name,
+    'Options': toJson_DataSyncOptions(obj.options),
+    'Excludes': obj.excludes?.map(y => toJson_DataSyncFilterRule(y)),
+    'Schedule': toJson_DataSyncTaskSchedule(obj.schedule),
+    'Tags': obj.tags?.map(y => toJson_DataSyncTagListEntry(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncCreateTaskResponse
  */
 export interface DataSyncCreateTaskResponse {
@@ -417,15 +699,43 @@ export interface DataSyncCreateTaskResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncCreateTaskResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncCreateTaskResponse(obj: DataSyncCreateTaskResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TaskArn': obj.taskArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncDeleteAgentRequest
  */
 export interface DataSyncDeleteAgentRequest {
   /**
    * @schema DataSyncDeleteAgentRequest#AgentArn
    */
-  readonly agentArn: string;
+  readonly agentArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncDeleteAgentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDeleteAgentRequest(obj: DataSyncDeleteAgentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AgentArn': obj.agentArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncDeleteAgentResponse
@@ -434,15 +744,42 @@ export interface DataSyncDeleteAgentResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncDeleteAgentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDeleteAgentResponse(obj: DataSyncDeleteAgentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncDeleteLocationRequest
  */
 export interface DataSyncDeleteLocationRequest {
   /**
    * @schema DataSyncDeleteLocationRequest#LocationArn
    */
-  readonly locationArn: string;
+  readonly locationArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncDeleteLocationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDeleteLocationRequest(obj: DataSyncDeleteLocationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncDeleteLocationResponse
@@ -451,15 +788,42 @@ export interface DataSyncDeleteLocationResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncDeleteLocationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDeleteLocationResponse(obj: DataSyncDeleteLocationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncDeleteTaskRequest
  */
 export interface DataSyncDeleteTaskRequest {
   /**
    * @schema DataSyncDeleteTaskRequest#TaskArn
    */
-  readonly taskArn: string;
+  readonly taskArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncDeleteTaskRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDeleteTaskRequest(obj: DataSyncDeleteTaskRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TaskArn': obj.taskArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncDeleteTaskResponse
@@ -468,15 +832,42 @@ export interface DataSyncDeleteTaskResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncDeleteTaskResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDeleteTaskResponse(obj: DataSyncDeleteTaskResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncDescribeAgentRequest
  */
 export interface DataSyncDescribeAgentRequest {
   /**
    * @schema DataSyncDescribeAgentRequest#AgentArn
    */
-  readonly agentArn: string;
+  readonly agentArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncDescribeAgentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDescribeAgentRequest(obj: DataSyncDescribeAgentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AgentArn': obj.agentArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncDescribeAgentResponse
@@ -520,15 +911,49 @@ export interface DataSyncDescribeAgentResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncDescribeAgentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDescribeAgentResponse(obj: DataSyncDescribeAgentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AgentArn': obj.agentArn,
+    'Name': obj.name,
+    'Status': obj.status,
+    'LastConnectionTime': obj.lastConnectionTime,
+    'CreationTime': obj.creationTime,
+    'EndpointType': obj.endpointType,
+    'PrivateLinkConfig': toJson_DataSyncPrivateLinkConfig(obj.privateLinkConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncDescribeLocationEfsRequest
  */
 export interface DataSyncDescribeLocationEfsRequest {
   /**
    * @schema DataSyncDescribeLocationEfsRequest#LocationArn
    */
-  readonly locationArn: string;
+  readonly locationArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncDescribeLocationEfsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDescribeLocationEfsRequest(obj: DataSyncDescribeLocationEfsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncDescribeLocationEfsResponse
@@ -557,15 +982,46 @@ export interface DataSyncDescribeLocationEfsResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncDescribeLocationEfsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDescribeLocationEfsResponse(obj: DataSyncDescribeLocationEfsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+    'LocationUri': obj.locationUri,
+    'Ec2Config': toJson_DataSyncEc2Config(obj.ec2Config),
+    'CreationTime': obj.creationTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncDescribeLocationFsxWindowsRequest
  */
 export interface DataSyncDescribeLocationFsxWindowsRequest {
   /**
    * @schema DataSyncDescribeLocationFsxWindowsRequest#LocationArn
    */
-  readonly locationArn: string;
+  readonly locationArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncDescribeLocationFsxWindowsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDescribeLocationFsxWindowsRequest(obj: DataSyncDescribeLocationFsxWindowsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncDescribeLocationFsxWindowsResponse
@@ -604,15 +1060,48 @@ export interface DataSyncDescribeLocationFsxWindowsResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncDescribeLocationFsxWindowsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDescribeLocationFsxWindowsResponse(obj: DataSyncDescribeLocationFsxWindowsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+    'LocationUri': obj.locationUri,
+    'SecurityGroupArns': obj.securityGroupArns?.map(y => y),
+    'CreationTime': obj.creationTime,
+    'User': obj.user,
+    'Domain': obj.domain,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncDescribeLocationNfsRequest
  */
 export interface DataSyncDescribeLocationNfsRequest {
   /**
    * @schema DataSyncDescribeLocationNfsRequest#LocationArn
    */
-  readonly locationArn: string;
+  readonly locationArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncDescribeLocationNfsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDescribeLocationNfsRequest(obj: DataSyncDescribeLocationNfsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncDescribeLocationNfsResponse
@@ -646,15 +1135,47 @@ export interface DataSyncDescribeLocationNfsResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncDescribeLocationNfsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDescribeLocationNfsResponse(obj: DataSyncDescribeLocationNfsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+    'LocationUri': obj.locationUri,
+    'OnPremConfig': toJson_DataSyncOnPremConfig(obj.onPremConfig),
+    'MountOptions': toJson_DataSyncNfsMountOptions(obj.mountOptions),
+    'CreationTime': obj.creationTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncDescribeLocationObjectStorageRequest
  */
 export interface DataSyncDescribeLocationObjectStorageRequest {
   /**
    * @schema DataSyncDescribeLocationObjectStorageRequest#LocationArn
    */
-  readonly locationArn: string;
+  readonly locationArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncDescribeLocationObjectStorageRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDescribeLocationObjectStorageRequest(obj: DataSyncDescribeLocationObjectStorageRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncDescribeLocationObjectStorageResponse
@@ -698,15 +1219,49 @@ export interface DataSyncDescribeLocationObjectStorageResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncDescribeLocationObjectStorageResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDescribeLocationObjectStorageResponse(obj: DataSyncDescribeLocationObjectStorageResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+    'LocationUri': obj.locationUri,
+    'AccessKey': obj.accessKey,
+    'ServerPort': obj.serverPort,
+    'ServerProtocol': obj.serverProtocol,
+    'AgentArns': obj.agentArns?.map(y => y),
+    'CreationTime': obj.creationTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncDescribeLocationS3Request
  */
 export interface DataSyncDescribeLocationS3Request {
   /**
    * @schema DataSyncDescribeLocationS3Request#LocationArn
    */
-  readonly locationArn: string;
+  readonly locationArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncDescribeLocationS3Request' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDescribeLocationS3Request(obj: DataSyncDescribeLocationS3Request | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncDescribeLocationS3Response
@@ -745,15 +1300,48 @@ export interface DataSyncDescribeLocationS3Response {
 }
 
 /**
+ * Converts an object of type 'DataSyncDescribeLocationS3Response' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDescribeLocationS3Response(obj: DataSyncDescribeLocationS3Response | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+    'LocationUri': obj.locationUri,
+    'S3StorageClass': obj.s3StorageClass,
+    'S3Config': toJson_DataSyncS3Config(obj.s3Config),
+    'AgentArns': obj.agentArns?.map(y => y),
+    'CreationTime': obj.creationTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncDescribeLocationSmbRequest
  */
 export interface DataSyncDescribeLocationSmbRequest {
   /**
    * @schema DataSyncDescribeLocationSmbRequest#LocationArn
    */
-  readonly locationArn: string;
+  readonly locationArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncDescribeLocationSmbRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDescribeLocationSmbRequest(obj: DataSyncDescribeLocationSmbRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncDescribeLocationSmbResponse
@@ -797,15 +1385,49 @@ export interface DataSyncDescribeLocationSmbResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncDescribeLocationSmbResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDescribeLocationSmbResponse(obj: DataSyncDescribeLocationSmbResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+    'LocationUri': obj.locationUri,
+    'AgentArns': obj.agentArns?.map(y => y),
+    'User': obj.user,
+    'Domain': obj.domain,
+    'MountOptions': toJson_DataSyncSmbMountOptions(obj.mountOptions),
+    'CreationTime': obj.creationTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncDescribeTaskRequest
  */
 export interface DataSyncDescribeTaskRequest {
   /**
    * @schema DataSyncDescribeTaskRequest#TaskArn
    */
-  readonly taskArn: string;
+  readonly taskArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncDescribeTaskRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDescribeTaskRequest(obj: DataSyncDescribeTaskRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TaskArn': obj.taskArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncDescribeTaskResponse
@@ -889,15 +1511,57 @@ export interface DataSyncDescribeTaskResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncDescribeTaskResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDescribeTaskResponse(obj: DataSyncDescribeTaskResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TaskArn': obj.taskArn,
+    'Status': obj.status,
+    'Name': obj.name,
+    'CurrentTaskExecutionArn': obj.currentTaskExecutionArn,
+    'SourceLocationArn': obj.sourceLocationArn,
+    'DestinationLocationArn': obj.destinationLocationArn,
+    'CloudWatchLogGroupArn': obj.cloudWatchLogGroupArn,
+    'SourceNetworkInterfaceArns': obj.sourceNetworkInterfaceArns?.map(y => y),
+    'DestinationNetworkInterfaceArns': obj.destinationNetworkInterfaceArns?.map(y => y),
+    'Options': toJson_DataSyncOptions(obj.options),
+    'Excludes': obj.excludes?.map(y => toJson_DataSyncFilterRule(y)),
+    'Schedule': toJson_DataSyncTaskSchedule(obj.schedule),
+    'ErrorCode': obj.errorCode,
+    'ErrorDetail': obj.errorDetail,
+    'CreationTime': obj.creationTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncDescribeTaskExecutionRequest
  */
 export interface DataSyncDescribeTaskExecutionRequest {
   /**
    * @schema DataSyncDescribeTaskExecutionRequest#TaskExecutionArn
    */
-  readonly taskExecutionArn: string;
+  readonly taskExecutionArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncDescribeTaskExecutionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDescribeTaskExecutionRequest(obj: DataSyncDescribeTaskExecutionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TaskExecutionArn': obj.taskExecutionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncDescribeTaskExecutionResponse
@@ -966,6 +1630,31 @@ export interface DataSyncDescribeTaskExecutionResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncDescribeTaskExecutionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncDescribeTaskExecutionResponse(obj: DataSyncDescribeTaskExecutionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TaskExecutionArn': obj.taskExecutionArn,
+    'Status': obj.status,
+    'Options': toJson_DataSyncOptions(obj.options),
+    'Excludes': obj.excludes?.map(y => toJson_DataSyncFilterRule(y)),
+    'Includes': obj.includes?.map(y => toJson_DataSyncFilterRule(y)),
+    'StartTime': obj.startTime,
+    'EstimatedFilesToTransfer': obj.estimatedFilesToTransfer,
+    'EstimatedBytesToTransfer': obj.estimatedBytesToTransfer,
+    'FilesTransferred': obj.filesTransferred,
+    'BytesWritten': obj.bytesWritten,
+    'BytesTransferred': obj.bytesTransferred,
+    'Result': toJson_DataSyncTaskExecutionResultDetail(obj.result),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncListAgentsRequest
  */
 export interface DataSyncListAgentsRequest {
@@ -982,6 +1671,21 @@ export interface DataSyncListAgentsRequest {
 }
 
 /**
+ * Converts an object of type 'DataSyncListAgentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncListAgentsRequest(obj: DataSyncListAgentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncListAgentsResponse
  */
 export interface DataSyncListAgentsResponse {
@@ -996,6 +1700,21 @@ export interface DataSyncListAgentsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncListAgentsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncListAgentsResponse(obj: DataSyncListAgentsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Agents': obj.agents?.map(y => toJson_DataSyncAgentListEntry(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncListLocationsRequest
@@ -1019,6 +1738,22 @@ export interface DataSyncListLocationsRequest {
 }
 
 /**
+ * Converts an object of type 'DataSyncListLocationsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncListLocationsRequest(obj: DataSyncListLocationsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+    'Filters': obj.filters?.map(y => toJson_DataSyncLocationFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncListLocationsResponse
  */
 export interface DataSyncListLocationsResponse {
@@ -1035,13 +1770,28 @@ export interface DataSyncListLocationsResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncListLocationsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncListLocationsResponse(obj: DataSyncListLocationsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Locations': obj.locations?.map(y => toJson_DataSyncLocationListEntry(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncListTagsForResourceRequest
  */
 export interface DataSyncListTagsForResourceRequest {
   /**
    * @schema DataSyncListTagsForResourceRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema DataSyncListTagsForResourceRequest#MaxResults
@@ -1054,6 +1804,22 @@ export interface DataSyncListTagsForResourceRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncListTagsForResourceRequest(obj: DataSyncListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncListTagsForResourceResponse
@@ -1070,6 +1836,21 @@ export interface DataSyncListTagsForResourceResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncListTagsForResourceResponse(obj: DataSyncListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Tags': obj.tags?.map(y => toJson_DataSyncTagListEntry(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncListTaskExecutionsRequest
@@ -1093,6 +1874,22 @@ export interface DataSyncListTaskExecutionsRequest {
 }
 
 /**
+ * Converts an object of type 'DataSyncListTaskExecutionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncListTaskExecutionsRequest(obj: DataSyncListTaskExecutionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TaskArn': obj.taskArn,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncListTaskExecutionsResponse
  */
 export interface DataSyncListTaskExecutionsResponse {
@@ -1107,6 +1904,21 @@ export interface DataSyncListTaskExecutionsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncListTaskExecutionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncListTaskExecutionsResponse(obj: DataSyncListTaskExecutionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TaskExecutions': obj.taskExecutions?.map(y => toJson_DataSyncTaskExecutionListEntry(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncListTasksRequest
@@ -1130,6 +1942,22 @@ export interface DataSyncListTasksRequest {
 }
 
 /**
+ * Converts an object of type 'DataSyncListTasksRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncListTasksRequest(obj: DataSyncListTasksRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+    'Filters': obj.filters?.map(y => toJson_DataSyncTaskFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncListTasksResponse
  */
 export interface DataSyncListTasksResponse {
@@ -1146,13 +1974,28 @@ export interface DataSyncListTasksResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncListTasksResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncListTasksResponse(obj: DataSyncListTasksResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Tasks': obj.tasks?.map(y => toJson_DataSyncTaskListEntry(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncStartTaskExecutionRequest
  */
 export interface DataSyncStartTaskExecutionRequest {
   /**
    * @schema DataSyncStartTaskExecutionRequest#TaskArn
    */
-  readonly taskArn: string;
+  readonly taskArn?: string;
 
   /**
    * @schema DataSyncStartTaskExecutionRequest#OverrideOptions
@@ -1167,6 +2010,22 @@ export interface DataSyncStartTaskExecutionRequest {
 }
 
 /**
+ * Converts an object of type 'DataSyncStartTaskExecutionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncStartTaskExecutionRequest(obj: DataSyncStartTaskExecutionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TaskArn': obj.taskArn,
+    'OverrideOptions': toJson_DataSyncOptions(obj.overrideOptions),
+    'Includes': obj.includes?.map(y => toJson_DataSyncFilterRule(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncStartTaskExecutionResponse
  */
 export interface DataSyncStartTaskExecutionResponse {
@@ -1178,20 +2037,49 @@ export interface DataSyncStartTaskExecutionResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncStartTaskExecutionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncStartTaskExecutionResponse(obj: DataSyncStartTaskExecutionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TaskExecutionArn': obj.taskExecutionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncTagResourceRequest
  */
 export interface DataSyncTagResourceRequest {
   /**
    * @schema DataSyncTagResourceRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema DataSyncTagResourceRequest#Tags
    */
-  readonly tags: DataSyncTagListEntry[];
+  readonly tags?: DataSyncTagListEntry[];
 
 }
+
+/**
+ * Converts an object of type 'DataSyncTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncTagResourceRequest(obj: DataSyncTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'Tags': obj.tags?.map(y => toJson_DataSyncTagListEntry(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncTagResourceResponse
@@ -1200,20 +2088,48 @@ export interface DataSyncTagResourceResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncTagResourceResponse(obj: DataSyncTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncUntagResourceRequest
  */
 export interface DataSyncUntagResourceRequest {
   /**
    * @schema DataSyncUntagResourceRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema DataSyncUntagResourceRequest#Keys
    */
-  readonly keys: string[];
+  readonly keys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'DataSyncUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncUntagResourceRequest(obj: DataSyncUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'Keys': obj.keys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncUntagResourceResponse
@@ -1222,13 +2138,26 @@ export interface DataSyncUntagResourceResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncUntagResourceResponse(obj: DataSyncUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncUpdateAgentRequest
  */
 export interface DataSyncUpdateAgentRequest {
   /**
    * @schema DataSyncUpdateAgentRequest#AgentArn
    */
-  readonly agentArn: string;
+  readonly agentArn?: string;
 
   /**
    * @schema DataSyncUpdateAgentRequest#Name
@@ -1238,10 +2167,260 @@ export interface DataSyncUpdateAgentRequest {
 }
 
 /**
+ * Converts an object of type 'DataSyncUpdateAgentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncUpdateAgentRequest(obj: DataSyncUpdateAgentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AgentArn': obj.agentArn,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncUpdateAgentResponse
  */
 export interface DataSyncUpdateAgentResponse {
 }
+
+/**
+ * Converts an object of type 'DataSyncUpdateAgentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncUpdateAgentResponse(obj: DataSyncUpdateAgentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema DataSyncUpdateLocationNfsRequest
+ */
+export interface DataSyncUpdateLocationNfsRequest {
+  /**
+   * @schema DataSyncUpdateLocationNfsRequest#LocationArn
+   */
+  readonly locationArn?: string;
+
+  /**
+   * @schema DataSyncUpdateLocationNfsRequest#Subdirectory
+   */
+  readonly subdirectory?: string;
+
+  /**
+   * @schema DataSyncUpdateLocationNfsRequest#OnPremConfig
+   */
+  readonly onPremConfig?: DataSyncOnPremConfig;
+
+  /**
+   * @schema DataSyncUpdateLocationNfsRequest#MountOptions
+   */
+  readonly mountOptions?: DataSyncNfsMountOptions;
+
+}
+
+/**
+ * Converts an object of type 'DataSyncUpdateLocationNfsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncUpdateLocationNfsRequest(obj: DataSyncUpdateLocationNfsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+    'Subdirectory': obj.subdirectory,
+    'OnPremConfig': toJson_DataSyncOnPremConfig(obj.onPremConfig),
+    'MountOptions': toJson_DataSyncNfsMountOptions(obj.mountOptions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema DataSyncUpdateLocationNfsResponse
+ */
+export interface DataSyncUpdateLocationNfsResponse {
+}
+
+/**
+ * Converts an object of type 'DataSyncUpdateLocationNfsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncUpdateLocationNfsResponse(obj: DataSyncUpdateLocationNfsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema DataSyncUpdateLocationObjectStorageRequest
+ */
+export interface DataSyncUpdateLocationObjectStorageRequest {
+  /**
+   * @schema DataSyncUpdateLocationObjectStorageRequest#LocationArn
+   */
+  readonly locationArn?: string;
+
+  /**
+   * @schema DataSyncUpdateLocationObjectStorageRequest#ServerPort
+   */
+  readonly serverPort?: number;
+
+  /**
+   * @schema DataSyncUpdateLocationObjectStorageRequest#ServerProtocol
+   */
+  readonly serverProtocol?: string;
+
+  /**
+   * @schema DataSyncUpdateLocationObjectStorageRequest#Subdirectory
+   */
+  readonly subdirectory?: string;
+
+  /**
+   * @schema DataSyncUpdateLocationObjectStorageRequest#AccessKey
+   */
+  readonly accessKey?: string;
+
+  /**
+   * @schema DataSyncUpdateLocationObjectStorageRequest#SecretKey
+   */
+  readonly secretKey?: string;
+
+  /**
+   * @schema DataSyncUpdateLocationObjectStorageRequest#AgentArns
+   */
+  readonly agentArns?: string[];
+
+}
+
+/**
+ * Converts an object of type 'DataSyncUpdateLocationObjectStorageRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncUpdateLocationObjectStorageRequest(obj: DataSyncUpdateLocationObjectStorageRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+    'ServerPort': obj.serverPort,
+    'ServerProtocol': obj.serverProtocol,
+    'Subdirectory': obj.subdirectory,
+    'AccessKey': obj.accessKey,
+    'SecretKey': obj.secretKey,
+    'AgentArns': obj.agentArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema DataSyncUpdateLocationObjectStorageResponse
+ */
+export interface DataSyncUpdateLocationObjectStorageResponse {
+}
+
+/**
+ * Converts an object of type 'DataSyncUpdateLocationObjectStorageResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncUpdateLocationObjectStorageResponse(obj: DataSyncUpdateLocationObjectStorageResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema DataSyncUpdateLocationSmbRequest
+ */
+export interface DataSyncUpdateLocationSmbRequest {
+  /**
+   * @schema DataSyncUpdateLocationSmbRequest#LocationArn
+   */
+  readonly locationArn?: string;
+
+  /**
+   * @schema DataSyncUpdateLocationSmbRequest#Subdirectory
+   */
+  readonly subdirectory?: string;
+
+  /**
+   * @schema DataSyncUpdateLocationSmbRequest#User
+   */
+  readonly user?: string;
+
+  /**
+   * @schema DataSyncUpdateLocationSmbRequest#Domain
+   */
+  readonly domain?: string;
+
+  /**
+   * @schema DataSyncUpdateLocationSmbRequest#Password
+   */
+  readonly password?: string;
+
+  /**
+   * @schema DataSyncUpdateLocationSmbRequest#AgentArns
+   */
+  readonly agentArns?: string[];
+
+  /**
+   * @schema DataSyncUpdateLocationSmbRequest#MountOptions
+   */
+  readonly mountOptions?: DataSyncSmbMountOptions;
+
+}
+
+/**
+ * Converts an object of type 'DataSyncUpdateLocationSmbRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncUpdateLocationSmbRequest(obj: DataSyncUpdateLocationSmbRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+    'Subdirectory': obj.subdirectory,
+    'User': obj.user,
+    'Domain': obj.domain,
+    'Password': obj.password,
+    'AgentArns': obj.agentArns?.map(y => y),
+    'MountOptions': toJson_DataSyncSmbMountOptions(obj.mountOptions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema DataSyncUpdateLocationSmbResponse
+ */
+export interface DataSyncUpdateLocationSmbResponse {
+}
+
+/**
+ * Converts an object of type 'DataSyncUpdateLocationSmbResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncUpdateLocationSmbResponse(obj: DataSyncUpdateLocationSmbResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncUpdateTaskRequest
@@ -1250,7 +2429,7 @@ export interface DataSyncUpdateTaskRequest {
   /**
    * @schema DataSyncUpdateTaskRequest#TaskArn
    */
-  readonly taskArn: string;
+  readonly taskArn?: string;
 
   /**
    * @schema DataSyncUpdateTaskRequest#Options
@@ -1280,10 +2459,42 @@ export interface DataSyncUpdateTaskRequest {
 }
 
 /**
+ * Converts an object of type 'DataSyncUpdateTaskRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncUpdateTaskRequest(obj: DataSyncUpdateTaskRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TaskArn': obj.taskArn,
+    'Options': toJson_DataSyncOptions(obj.options),
+    'Excludes': obj.excludes?.map(y => toJson_DataSyncFilterRule(y)),
+    'Schedule': toJson_DataSyncTaskSchedule(obj.schedule),
+    'Name': obj.name,
+    'CloudWatchLogGroupArn': obj.cloudWatchLogGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncUpdateTaskResponse
  */
 export interface DataSyncUpdateTaskResponse {
 }
+
+/**
+ * Converts an object of type 'DataSyncUpdateTaskResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncUpdateTaskResponse(obj: DataSyncUpdateTaskResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncUpdateTaskExecutionRequest
@@ -1292,14 +2503,29 @@ export interface DataSyncUpdateTaskExecutionRequest {
   /**
    * @schema DataSyncUpdateTaskExecutionRequest#TaskExecutionArn
    */
-  readonly taskExecutionArn: string;
+  readonly taskExecutionArn?: string;
 
   /**
    * @schema DataSyncUpdateTaskExecutionRequest#Options
    */
-  readonly options: DataSyncOptions;
+  readonly options?: DataSyncOptions;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncUpdateTaskExecutionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncUpdateTaskExecutionRequest(obj: DataSyncUpdateTaskExecutionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TaskExecutionArn': obj.taskExecutionArn,
+    'Options': toJson_DataSyncOptions(obj.options),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncUpdateTaskExecutionResponse
@@ -1308,13 +2534,26 @@ export interface DataSyncUpdateTaskExecutionResponse {
 }
 
 /**
+ * Converts an object of type 'DataSyncUpdateTaskExecutionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncUpdateTaskExecutionResponse(obj: DataSyncUpdateTaskExecutionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncTagListEntry
  */
 export interface DataSyncTagListEntry {
   /**
    * @schema DataSyncTagListEntry#Key
    */
-  readonly key: string;
+  readonly key?: string;
 
   /**
    * @schema DataSyncTagListEntry#Value
@@ -1324,20 +2563,50 @@ export interface DataSyncTagListEntry {
 }
 
 /**
+ * Converts an object of type 'DataSyncTagListEntry' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncTagListEntry(obj: DataSyncTagListEntry | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncEc2Config
  */
 export interface DataSyncEc2Config {
   /**
    * @schema DataSyncEc2Config#SubnetArn
    */
-  readonly subnetArn: string;
+  readonly subnetArn?: string;
 
   /**
    * @schema DataSyncEc2Config#SecurityGroupArns
    */
-  readonly securityGroupArns: string[];
+  readonly securityGroupArns?: string[];
 
 }
+
+/**
+ * Converts an object of type 'DataSyncEc2Config' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncEc2Config(obj: DataSyncEc2Config | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubnetArn': obj.subnetArn,
+    'SecurityGroupArns': obj.securityGroupArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncOnPremConfig
@@ -1346,9 +2615,23 @@ export interface DataSyncOnPremConfig {
   /**
    * @schema DataSyncOnPremConfig#AgentArns
    */
-  readonly agentArns: string[];
+  readonly agentArns?: string[];
 
 }
+
+/**
+ * Converts an object of type 'DataSyncOnPremConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncOnPremConfig(obj: DataSyncOnPremConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AgentArns': obj.agentArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncNfsMountOptions
@@ -1362,15 +2645,43 @@ export interface DataSyncNfsMountOptions {
 }
 
 /**
+ * Converts an object of type 'DataSyncNfsMountOptions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncNfsMountOptions(obj: DataSyncNfsMountOptions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncS3Config
  */
 export interface DataSyncS3Config {
   /**
    * @schema DataSyncS3Config#BucketAccessRoleArn
    */
-  readonly bucketAccessRoleArn: string;
+  readonly bucketAccessRoleArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncS3Config' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncS3Config(obj: DataSyncS3Config | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BucketAccessRoleArn': obj.bucketAccessRoleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncSmbMountOptions
@@ -1382,6 +2693,20 @@ export interface DataSyncSmbMountOptions {
   readonly version?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncSmbMountOptions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncSmbMountOptions(obj: DataSyncSmbMountOptions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncOptions
@@ -1452,7 +2777,39 @@ export interface DataSyncOptions {
    */
   readonly transferMode?: string;
 
+  /**
+   * @schema DataSyncOptions#SecurityDescriptorCopyFlags
+   */
+  readonly securityDescriptorCopyFlags?: string;
+
 }
+
+/**
+ * Converts an object of type 'DataSyncOptions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncOptions(obj: DataSyncOptions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VerifyMode': obj.verifyMode,
+    'OverwriteMode': obj.overwriteMode,
+    'Atime': obj.atime,
+    'Mtime': obj.mtime,
+    'Uid': obj.uid,
+    'Gid': obj.gid,
+    'PreserveDeletedFiles': obj.preserveDeletedFiles,
+    'PreserveDevices': obj.preserveDevices,
+    'PosixPermissions': obj.posixPermissions,
+    'BytesPerSecond': obj.bytesPerSecond,
+    'TaskQueueing': obj.taskQueueing,
+    'LogLevel': obj.logLevel,
+    'TransferMode': obj.transferMode,
+    'SecurityDescriptorCopyFlags': obj.securityDescriptorCopyFlags,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncFilterRule
@@ -1471,15 +2828,44 @@ export interface DataSyncFilterRule {
 }
 
 /**
+ * Converts an object of type 'DataSyncFilterRule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncFilterRule(obj: DataSyncFilterRule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FilterType': obj.filterType,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncTaskSchedule
  */
 export interface DataSyncTaskSchedule {
   /**
    * @schema DataSyncTaskSchedule#ScheduleExpression
    */
-  readonly scheduleExpression: string;
+  readonly scheduleExpression?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncTaskSchedule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncTaskSchedule(obj: DataSyncTaskSchedule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ScheduleExpression': obj.scheduleExpression,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncPrivateLinkConfig
@@ -1506,6 +2892,23 @@ export interface DataSyncPrivateLinkConfig {
   readonly securityGroupArns?: string[];
 
 }
+
+/**
+ * Converts an object of type 'DataSyncPrivateLinkConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncPrivateLinkConfig(obj: DataSyncPrivateLinkConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VpcEndpointId': obj.vpcEndpointId,
+    'PrivateLinkEndpoint': obj.privateLinkEndpoint,
+    'SubnetArns': obj.subnetArns?.map(y => y),
+    'SecurityGroupArns': obj.securityGroupArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncTaskExecutionResultDetail
@@ -1559,6 +2962,28 @@ export interface DataSyncTaskExecutionResultDetail {
 }
 
 /**
+ * Converts an object of type 'DataSyncTaskExecutionResultDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncTaskExecutionResultDetail(obj: DataSyncTaskExecutionResultDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PrepareDuration': obj.prepareDuration,
+    'PrepareStatus': obj.prepareStatus,
+    'TotalDuration': obj.totalDuration,
+    'TransferDuration': obj.transferDuration,
+    'TransferStatus': obj.transferStatus,
+    'VerifyDuration': obj.verifyDuration,
+    'VerifyStatus': obj.verifyStatus,
+    'ErrorCode': obj.errorCode,
+    'ErrorDetail': obj.errorDetail,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncAgentListEntry
  */
 export interface DataSyncAgentListEntry {
@@ -1580,25 +3005,57 @@ export interface DataSyncAgentListEntry {
 }
 
 /**
+ * Converts an object of type 'DataSyncAgentListEntry' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncAgentListEntry(obj: DataSyncAgentListEntry | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AgentArn': obj.agentArn,
+    'Name': obj.name,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncLocationFilter
  */
 export interface DataSyncLocationFilter {
   /**
    * @schema DataSyncLocationFilter#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema DataSyncLocationFilter#Values
    */
-  readonly values: string[];
+  readonly values?: string[];
 
   /**
    * @schema DataSyncLocationFilter#Operator
    */
-  readonly operator: string;
+  readonly operator?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncLocationFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncLocationFilter(obj: DataSyncLocationFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Values': obj.values?.map(y => y),
+    'Operator': obj.operator,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncLocationListEntry
@@ -1617,6 +3074,21 @@ export interface DataSyncLocationListEntry {
 }
 
 /**
+ * Converts an object of type 'DataSyncLocationListEntry' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncLocationListEntry(obj: DataSyncLocationListEntry | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocationArn': obj.locationArn,
+    'LocationUri': obj.locationUri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncTaskExecutionListEntry
  */
 export interface DataSyncTaskExecutionListEntry {
@@ -1633,25 +3105,56 @@ export interface DataSyncTaskExecutionListEntry {
 }
 
 /**
+ * Converts an object of type 'DataSyncTaskExecutionListEntry' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncTaskExecutionListEntry(obj: DataSyncTaskExecutionListEntry | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TaskExecutionArn': obj.taskExecutionArn,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataSyncTaskFilter
  */
 export interface DataSyncTaskFilter {
   /**
    * @schema DataSyncTaskFilter#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema DataSyncTaskFilter#Values
    */
-  readonly values: string[];
+  readonly values?: string[];
 
   /**
    * @schema DataSyncTaskFilter#Operator
    */
-  readonly operator: string;
+  readonly operator?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncTaskFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncTaskFilter(obj: DataSyncTaskFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Values': obj.values?.map(y => y),
+    'Operator': obj.operator,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataSyncTaskListEntry
@@ -1673,3 +3176,19 @@ export interface DataSyncTaskListEntry {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataSyncTaskListEntry' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataSyncTaskListEntry(obj: DataSyncTaskListEntry | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TaskArn': obj.taskArn,
+    'Status': obj.status,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

@@ -25,6 +25,23 @@ export interface IoTSiteWiseAssociateAssetsRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseAssociateAssetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssociateAssetsRequest(obj: IoTSiteWiseAssociateAssetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetId': obj.assetId,
+    'hierarchyId': obj.hierarchyId,
+    'childAssetId': obj.childAssetId,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseBatchAssociateProjectAssetsRequest
  */
 export interface IoTSiteWiseBatchAssociateProjectAssetsRequest {
@@ -46,6 +63,22 @@ export interface IoTSiteWiseBatchAssociateProjectAssetsRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseBatchAssociateProjectAssetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseBatchAssociateProjectAssetsRequest(obj: IoTSiteWiseBatchAssociateProjectAssetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectId': obj.projectId,
+    'assetIds': obj.assetIds?.map(y => y),
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseBatchAssociateProjectAssetsResponse
  */
 export interface IoTSiteWiseBatchAssociateProjectAssetsResponse {
@@ -55,6 +88,20 @@ export interface IoTSiteWiseBatchAssociateProjectAssetsResponse {
   readonly errors?: IoTSiteWiseAssetErrorDetails[];
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseBatchAssociateProjectAssetsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseBatchAssociateProjectAssetsResponse(obj: IoTSiteWiseBatchAssociateProjectAssetsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'errors': obj.errors?.map(y => toJson_IoTSiteWiseAssetErrorDetails(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseBatchDisassociateProjectAssetsRequest
@@ -78,6 +125,22 @@ export interface IoTSiteWiseBatchDisassociateProjectAssetsRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseBatchDisassociateProjectAssetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseBatchDisassociateProjectAssetsRequest(obj: IoTSiteWiseBatchDisassociateProjectAssetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectId': obj.projectId,
+    'assetIds': obj.assetIds?.map(y => y),
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseBatchDisassociateProjectAssetsResponse
  */
 export interface IoTSiteWiseBatchDisassociateProjectAssetsResponse {
@@ -87,6 +150,20 @@ export interface IoTSiteWiseBatchDisassociateProjectAssetsResponse {
   readonly errors?: IoTSiteWiseAssetErrorDetails[];
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseBatchDisassociateProjectAssetsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseBatchDisassociateProjectAssetsResponse(obj: IoTSiteWiseBatchDisassociateProjectAssetsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'errors': obj.errors?.map(y => toJson_IoTSiteWiseAssetErrorDetails(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseBatchPutAssetPropertyValueRequest
@@ -100,6 +177,20 @@ export interface IoTSiteWiseBatchPutAssetPropertyValueRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseBatchPutAssetPropertyValueRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseBatchPutAssetPropertyValueRequest(obj: IoTSiteWiseBatchPutAssetPropertyValueRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'entries': obj.entries?.map(y => toJson_IoTSiteWisePutAssetPropertyValueEntry(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseBatchPutAssetPropertyValueResponse
  */
 export interface IoTSiteWiseBatchPutAssetPropertyValueResponse {
@@ -109,6 +200,20 @@ export interface IoTSiteWiseBatchPutAssetPropertyValueResponse {
   readonly errorEntries: IoTSiteWiseBatchPutAssetPropertyErrorEntry[];
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseBatchPutAssetPropertyValueResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseBatchPutAssetPropertyValueResponse(obj: IoTSiteWiseBatchPutAssetPropertyValueResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'errorEntries': obj.errorEntries?.map(y => toJson_IoTSiteWiseBatchPutAssetPropertyErrorEntry(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseCreateAccessPolicyRequest
@@ -142,6 +247,24 @@ export interface IoTSiteWiseCreateAccessPolicyRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseCreateAccessPolicyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseCreateAccessPolicyRequest(obj: IoTSiteWiseCreateAccessPolicyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessPolicyIdentity': toJson_IoTSiteWiseIdentity(obj.accessPolicyIdentity),
+    'accessPolicyResource': toJson_IoTSiteWiseResource(obj.accessPolicyResource),
+    'accessPolicyPermission': obj.accessPolicyPermission,
+    'clientToken': obj.clientToken,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseCreateAccessPolicyResponse
  */
 export interface IoTSiteWiseCreateAccessPolicyResponse {
@@ -156,6 +279,21 @@ export interface IoTSiteWiseCreateAccessPolicyResponse {
   readonly accessPolicyArn: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseCreateAccessPolicyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseCreateAccessPolicyResponse(obj: IoTSiteWiseCreateAccessPolicyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessPolicyId': obj.accessPolicyId,
+    'accessPolicyArn': obj.accessPolicyArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseCreateAssetRequest
@@ -184,6 +322,23 @@ export interface IoTSiteWiseCreateAssetRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseCreateAssetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseCreateAssetRequest(obj: IoTSiteWiseCreateAssetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetName': obj.assetName,
+    'assetModelId': obj.assetModelId,
+    'clientToken': obj.clientToken,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseCreateAssetResponse
  */
 export interface IoTSiteWiseCreateAssetResponse {
@@ -203,6 +358,22 @@ export interface IoTSiteWiseCreateAssetResponse {
   readonly assetStatus: IoTSiteWiseAssetStatus;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseCreateAssetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseCreateAssetResponse(obj: IoTSiteWiseCreateAssetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetId': obj.assetId,
+    'assetArn': obj.assetArn,
+    'assetStatus': toJson_IoTSiteWiseAssetStatus(obj.assetStatus),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseCreateAssetModelRequest
@@ -229,6 +400,11 @@ export interface IoTSiteWiseCreateAssetModelRequest {
   readonly assetModelHierarchies?: IoTSiteWiseAssetModelHierarchyDefinition[];
 
   /**
+   * @schema IoTSiteWiseCreateAssetModelRequest#assetModelCompositeModels
+   */
+  readonly assetModelCompositeModels?: IoTSiteWiseAssetModelCompositeModelDefinition[];
+
+  /**
    * @schema IoTSiteWiseCreateAssetModelRequest#clientToken
    */
   readonly clientToken?: string;
@@ -239,6 +415,26 @@ export interface IoTSiteWiseCreateAssetModelRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseCreateAssetModelRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseCreateAssetModelRequest(obj: IoTSiteWiseCreateAssetModelRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetModelName': obj.assetModelName,
+    'assetModelDescription': obj.assetModelDescription,
+    'assetModelProperties': obj.assetModelProperties?.map(y => toJson_IoTSiteWiseAssetModelPropertyDefinition(y)),
+    'assetModelHierarchies': obj.assetModelHierarchies?.map(y => toJson_IoTSiteWiseAssetModelHierarchyDefinition(y)),
+    'assetModelCompositeModels': obj.assetModelCompositeModels?.map(y => toJson_IoTSiteWiseAssetModelCompositeModelDefinition(y)),
+    'clientToken': obj.clientToken,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseCreateAssetModelResponse
@@ -260,6 +456,22 @@ export interface IoTSiteWiseCreateAssetModelResponse {
   readonly assetModelStatus: IoTSiteWiseAssetModelStatus;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseCreateAssetModelResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseCreateAssetModelResponse(obj: IoTSiteWiseCreateAssetModelResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetModelId': obj.assetModelId,
+    'assetModelArn': obj.assetModelArn,
+    'assetModelStatus': toJson_IoTSiteWiseAssetModelStatus(obj.assetModelStatus),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseCreateDashboardRequest
@@ -298,6 +510,25 @@ export interface IoTSiteWiseCreateDashboardRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseCreateDashboardRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseCreateDashboardRequest(obj: IoTSiteWiseCreateDashboardRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectId': obj.projectId,
+    'dashboardName': obj.dashboardName,
+    'dashboardDescription': obj.dashboardDescription,
+    'dashboardDefinition': obj.dashboardDefinition,
+    'clientToken': obj.clientToken,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseCreateDashboardResponse
  */
 export interface IoTSiteWiseCreateDashboardResponse {
@@ -312,6 +543,21 @@ export interface IoTSiteWiseCreateDashboardResponse {
   readonly dashboardArn: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseCreateDashboardResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseCreateDashboardResponse(obj: IoTSiteWiseCreateDashboardResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dashboardId': obj.dashboardId,
+    'dashboardArn': obj.dashboardArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseCreateGatewayRequest
@@ -335,6 +581,22 @@ export interface IoTSiteWiseCreateGatewayRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseCreateGatewayRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseCreateGatewayRequest(obj: IoTSiteWiseCreateGatewayRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewayName': obj.gatewayName,
+    'gatewayPlatform': toJson_IoTSiteWiseGatewayPlatform(obj.gatewayPlatform),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseCreateGatewayResponse
  */
 export interface IoTSiteWiseCreateGatewayResponse {
@@ -349,6 +611,21 @@ export interface IoTSiteWiseCreateGatewayResponse {
   readonly gatewayArn: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseCreateGatewayResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseCreateGatewayResponse(obj: IoTSiteWiseCreateGatewayResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewayId': obj.gatewayId,
+    'gatewayArn': obj.gatewayArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseCreatePortalRequest
@@ -394,7 +671,40 @@ export interface IoTSiteWiseCreatePortalRequest {
    */
   readonly portalAuthMode?: string;
 
+  /**
+   * @schema IoTSiteWiseCreatePortalRequest#notificationSenderEmail
+   */
+  readonly notificationSenderEmail?: string;
+
+  /**
+   * @schema IoTSiteWiseCreatePortalRequest#alarms
+   */
+  readonly alarms?: IoTSiteWiseAlarms;
+
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseCreatePortalRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseCreatePortalRequest(obj: IoTSiteWiseCreatePortalRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'portalName': obj.portalName,
+    'portalDescription': obj.portalDescription,
+    'portalContactEmail': obj.portalContactEmail,
+    'clientToken': obj.clientToken,
+    'portalLogoImageFile': toJson_IoTSiteWiseImageFile(obj.portalLogoImageFile),
+    'roleArn': obj.roleArn,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'portalAuthMode': obj.portalAuthMode,
+    'notificationSenderEmail': obj.notificationSenderEmail,
+    'alarms': toJson_IoTSiteWiseAlarms(obj.alarms),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseCreatePortalResponse
@@ -428,31 +738,22 @@ export interface IoTSiteWiseCreatePortalResponse {
 }
 
 /**
- * @schema IoTSiteWiseCreatePresignedPortalUrlRequest
+ * Converts an object of type 'IoTSiteWiseCreatePortalResponse' to JSON representation.
  */
-export interface IoTSiteWiseCreatePresignedPortalUrlRequest {
-  /**
-   * @schema IoTSiteWiseCreatePresignedPortalUrlRequest#portalId
-   */
-  readonly portalId: string;
-
-  /**
-   * @schema IoTSiteWiseCreatePresignedPortalUrlRequest#sessionDurationSeconds
-   */
-  readonly sessionDurationSeconds?: number;
-
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseCreatePortalResponse(obj: IoTSiteWiseCreatePortalResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'portalId': obj.portalId,
+    'portalArn': obj.portalArn,
+    'portalStartUrl': obj.portalStartUrl,
+    'portalStatus': toJson_IoTSiteWisePortalStatus(obj.portalStatus),
+    'ssoApplicationId': obj.ssoApplicationId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
 }
-
-/**
- * @schema IoTSiteWiseCreatePresignedPortalUrlResponse
- */
-export interface IoTSiteWiseCreatePresignedPortalUrlResponse {
-  /**
-   * @schema IoTSiteWiseCreatePresignedPortalUrlResponse#presignedPortalUrl
-   */
-  readonly presignedPortalUrl: string;
-
-}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseCreateProjectRequest
@@ -486,6 +787,24 @@ export interface IoTSiteWiseCreateProjectRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseCreateProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseCreateProjectRequest(obj: IoTSiteWiseCreateProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'portalId': obj.portalId,
+    'projectName': obj.projectName,
+    'projectDescription': obj.projectDescription,
+    'clientToken': obj.clientToken,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseCreateProjectResponse
  */
 export interface IoTSiteWiseCreateProjectResponse {
@@ -500,6 +819,21 @@ export interface IoTSiteWiseCreateProjectResponse {
   readonly projectArn: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseCreateProjectResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseCreateProjectResponse(obj: IoTSiteWiseCreateProjectResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectId': obj.projectId,
+    'projectArn': obj.projectArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDeleteAccessPolicyRequest
@@ -518,10 +852,38 @@ export interface IoTSiteWiseDeleteAccessPolicyRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseDeleteAccessPolicyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDeleteAccessPolicyRequest(obj: IoTSiteWiseDeleteAccessPolicyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessPolicyId': obj.accessPolicyId,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseDeleteAccessPolicyResponse
  */
 export interface IoTSiteWiseDeleteAccessPolicyResponse {
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDeleteAccessPolicyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDeleteAccessPolicyResponse(obj: IoTSiteWiseDeleteAccessPolicyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDeleteAssetRequest
@@ -540,6 +902,21 @@ export interface IoTSiteWiseDeleteAssetRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseDeleteAssetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDeleteAssetRequest(obj: IoTSiteWiseDeleteAssetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetId': obj.assetId,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseDeleteAssetResponse
  */
 export interface IoTSiteWiseDeleteAssetResponse {
@@ -549,6 +926,20 @@ export interface IoTSiteWiseDeleteAssetResponse {
   readonly assetStatus: IoTSiteWiseAssetStatus;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDeleteAssetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDeleteAssetResponse(obj: IoTSiteWiseDeleteAssetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetStatus': toJson_IoTSiteWiseAssetStatus(obj.assetStatus),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDeleteAssetModelRequest
@@ -567,6 +958,21 @@ export interface IoTSiteWiseDeleteAssetModelRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseDeleteAssetModelRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDeleteAssetModelRequest(obj: IoTSiteWiseDeleteAssetModelRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetModelId': obj.assetModelId,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseDeleteAssetModelResponse
  */
 export interface IoTSiteWiseDeleteAssetModelResponse {
@@ -576,6 +982,20 @@ export interface IoTSiteWiseDeleteAssetModelResponse {
   readonly assetModelStatus: IoTSiteWiseAssetModelStatus;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDeleteAssetModelResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDeleteAssetModelResponse(obj: IoTSiteWiseDeleteAssetModelResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetModelStatus': toJson_IoTSiteWiseAssetModelStatus(obj.assetModelStatus),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDeleteDashboardRequest
@@ -594,10 +1014,38 @@ export interface IoTSiteWiseDeleteDashboardRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseDeleteDashboardRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDeleteDashboardRequest(obj: IoTSiteWiseDeleteDashboardRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dashboardId': obj.dashboardId,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseDeleteDashboardResponse
  */
 export interface IoTSiteWiseDeleteDashboardResponse {
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDeleteDashboardResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDeleteDashboardResponse(obj: IoTSiteWiseDeleteDashboardResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDeleteGatewayRequest
@@ -609,6 +1057,20 @@ export interface IoTSiteWiseDeleteGatewayRequest {
   readonly gatewayId: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDeleteGatewayRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDeleteGatewayRequest(obj: IoTSiteWiseDeleteGatewayRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewayId': obj.gatewayId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDeletePortalRequest
@@ -627,6 +1089,21 @@ export interface IoTSiteWiseDeletePortalRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseDeletePortalRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDeletePortalRequest(obj: IoTSiteWiseDeletePortalRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'portalId': obj.portalId,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseDeletePortalResponse
  */
 export interface IoTSiteWiseDeletePortalResponse {
@@ -636,6 +1113,20 @@ export interface IoTSiteWiseDeletePortalResponse {
   readonly portalStatus: IoTSiteWisePortalStatus;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDeletePortalResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDeletePortalResponse(obj: IoTSiteWiseDeletePortalResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'portalStatus': toJson_IoTSiteWisePortalStatus(obj.portalStatus),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDeleteProjectRequest
@@ -654,10 +1145,38 @@ export interface IoTSiteWiseDeleteProjectRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseDeleteProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDeleteProjectRequest(obj: IoTSiteWiseDeleteProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectId': obj.projectId,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseDeleteProjectResponse
  */
 export interface IoTSiteWiseDeleteProjectResponse {
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDeleteProjectResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDeleteProjectResponse(obj: IoTSiteWiseDeleteProjectResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDescribeAccessPolicyRequest
@@ -669,6 +1188,20 @@ export interface IoTSiteWiseDescribeAccessPolicyRequest {
   readonly accessPolicyId: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDescribeAccessPolicyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeAccessPolicyRequest(obj: IoTSiteWiseDescribeAccessPolicyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessPolicyId': obj.accessPolicyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDescribeAccessPolicyResponse
@@ -712,6 +1245,26 @@ export interface IoTSiteWiseDescribeAccessPolicyResponse {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseDescribeAccessPolicyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeAccessPolicyResponse(obj: IoTSiteWiseDescribeAccessPolicyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessPolicyId': obj.accessPolicyId,
+    'accessPolicyArn': obj.accessPolicyArn,
+    'accessPolicyIdentity': toJson_IoTSiteWiseIdentity(obj.accessPolicyIdentity),
+    'accessPolicyResource': toJson_IoTSiteWiseResource(obj.accessPolicyResource),
+    'accessPolicyPermission': obj.accessPolicyPermission,
+    'accessPolicyCreationDate': obj.accessPolicyCreationDate,
+    'accessPolicyLastUpdateDate': obj.accessPolicyLastUpdateDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseDescribeAssetRequest
  */
 export interface IoTSiteWiseDescribeAssetRequest {
@@ -721,6 +1274,20 @@ export interface IoTSiteWiseDescribeAssetRequest {
   readonly assetId: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDescribeAssetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeAssetRequest(obj: IoTSiteWiseDescribeAssetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetId': obj.assetId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDescribeAssetResponse
@@ -757,6 +1324,11 @@ export interface IoTSiteWiseDescribeAssetResponse {
   readonly assetHierarchies: IoTSiteWiseAssetHierarchy[];
 
   /**
+   * @schema IoTSiteWiseDescribeAssetResponse#assetCompositeModels
+   */
+  readonly assetCompositeModels?: IoTSiteWiseAssetCompositeModel[];
+
+  /**
    * @schema IoTSiteWiseDescribeAssetResponse#assetCreationDate
    */
   readonly assetCreationDate: string;
@@ -774,6 +1346,29 @@ export interface IoTSiteWiseDescribeAssetResponse {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseDescribeAssetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeAssetResponse(obj: IoTSiteWiseDescribeAssetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetId': obj.assetId,
+    'assetArn': obj.assetArn,
+    'assetName': obj.assetName,
+    'assetModelId': obj.assetModelId,
+    'assetProperties': obj.assetProperties?.map(y => toJson_IoTSiteWiseAssetProperty(y)),
+    'assetHierarchies': obj.assetHierarchies?.map(y => toJson_IoTSiteWiseAssetHierarchy(y)),
+    'assetCompositeModels': obj.assetCompositeModels?.map(y => toJson_IoTSiteWiseAssetCompositeModel(y)),
+    'assetCreationDate': obj.assetCreationDate,
+    'assetLastUpdateDate': obj.assetLastUpdateDate,
+    'assetStatus': toJson_IoTSiteWiseAssetStatus(obj.assetStatus),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseDescribeAssetModelRequest
  */
 export interface IoTSiteWiseDescribeAssetModelRequest {
@@ -783,6 +1378,20 @@ export interface IoTSiteWiseDescribeAssetModelRequest {
   readonly assetModelId: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDescribeAssetModelRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeAssetModelRequest(obj: IoTSiteWiseDescribeAssetModelRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetModelId': obj.assetModelId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDescribeAssetModelResponse
@@ -819,6 +1428,11 @@ export interface IoTSiteWiseDescribeAssetModelResponse {
   readonly assetModelHierarchies: IoTSiteWiseAssetModelHierarchy[];
 
   /**
+   * @schema IoTSiteWiseDescribeAssetModelResponse#assetModelCompositeModels
+   */
+  readonly assetModelCompositeModels?: IoTSiteWiseAssetModelCompositeModel[];
+
+  /**
    * @schema IoTSiteWiseDescribeAssetModelResponse#assetModelCreationDate
    */
   readonly assetModelCreationDate: string;
@@ -836,6 +1450,29 @@ export interface IoTSiteWiseDescribeAssetModelResponse {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseDescribeAssetModelResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeAssetModelResponse(obj: IoTSiteWiseDescribeAssetModelResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetModelId': obj.assetModelId,
+    'assetModelArn': obj.assetModelArn,
+    'assetModelName': obj.assetModelName,
+    'assetModelDescription': obj.assetModelDescription,
+    'assetModelProperties': obj.assetModelProperties?.map(y => toJson_IoTSiteWiseAssetModelProperty(y)),
+    'assetModelHierarchies': obj.assetModelHierarchies?.map(y => toJson_IoTSiteWiseAssetModelHierarchy(y)),
+    'assetModelCompositeModels': obj.assetModelCompositeModels?.map(y => toJson_IoTSiteWiseAssetModelCompositeModel(y)),
+    'assetModelCreationDate': obj.assetModelCreationDate,
+    'assetModelLastUpdateDate': obj.assetModelLastUpdateDate,
+    'assetModelStatus': toJson_IoTSiteWiseAssetModelStatus(obj.assetModelStatus),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseDescribeAssetPropertyRequest
  */
 export interface IoTSiteWiseDescribeAssetPropertyRequest {
@@ -850,6 +1487,21 @@ export interface IoTSiteWiseDescribeAssetPropertyRequest {
   readonly propertyId: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDescribeAssetPropertyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeAssetPropertyRequest(obj: IoTSiteWiseDescribeAssetPropertyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetId': obj.assetId,
+    'propertyId': obj.propertyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDescribeAssetPropertyResponse
@@ -873,9 +1525,32 @@ export interface IoTSiteWiseDescribeAssetPropertyResponse {
   /**
    * @schema IoTSiteWiseDescribeAssetPropertyResponse#assetProperty
    */
-  readonly assetProperty: IoTSiteWiseProperty;
+  readonly assetProperty?: IoTSiteWiseProperty;
+
+  /**
+   * @schema IoTSiteWiseDescribeAssetPropertyResponse#compositeModel
+   */
+  readonly compositeModel?: IoTSiteWiseCompositeModelProperty;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDescribeAssetPropertyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeAssetPropertyResponse(obj: IoTSiteWiseDescribeAssetPropertyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetId': obj.assetId,
+    'assetName': obj.assetName,
+    'assetModelId': obj.assetModelId,
+    'assetProperty': toJson_IoTSiteWiseProperty(obj.assetProperty),
+    'compositeModel': toJson_IoTSiteWiseCompositeModelProperty(obj.compositeModel),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDescribeDashboardRequest
@@ -887,6 +1562,20 @@ export interface IoTSiteWiseDescribeDashboardRequest {
   readonly dashboardId: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDescribeDashboardRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeDashboardRequest(obj: IoTSiteWiseDescribeDashboardRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dashboardId': obj.dashboardId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDescribeDashboardResponse
@@ -935,10 +1624,44 @@ export interface IoTSiteWiseDescribeDashboardResponse {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseDescribeDashboardResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeDashboardResponse(obj: IoTSiteWiseDescribeDashboardResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dashboardId': obj.dashboardId,
+    'dashboardArn': obj.dashboardArn,
+    'dashboardName': obj.dashboardName,
+    'projectId': obj.projectId,
+    'dashboardDescription': obj.dashboardDescription,
+    'dashboardDefinition': obj.dashboardDefinition,
+    'dashboardCreationDate': obj.dashboardCreationDate,
+    'dashboardLastUpdateDate': obj.dashboardLastUpdateDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseDescribeDefaultEncryptionConfigurationRequest
  */
 export interface IoTSiteWiseDescribeDefaultEncryptionConfigurationRequest {
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDescribeDefaultEncryptionConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeDefaultEncryptionConfigurationRequest(obj: IoTSiteWiseDescribeDefaultEncryptionConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDescribeDefaultEncryptionConfigurationResponse
@@ -962,6 +1685,22 @@ export interface IoTSiteWiseDescribeDefaultEncryptionConfigurationResponse {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseDescribeDefaultEncryptionConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeDefaultEncryptionConfigurationResponse(obj: IoTSiteWiseDescribeDefaultEncryptionConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'encryptionType': obj.encryptionType,
+    'kmsKeyArn': obj.kmsKeyArn,
+    'configurationStatus': toJson_IoTSiteWiseConfigurationStatus(obj.configurationStatus),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseDescribeGatewayRequest
  */
 export interface IoTSiteWiseDescribeGatewayRequest {
@@ -971,6 +1710,20 @@ export interface IoTSiteWiseDescribeGatewayRequest {
   readonly gatewayId: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDescribeGatewayRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeGatewayRequest(obj: IoTSiteWiseDescribeGatewayRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewayId': obj.gatewayId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDescribeGatewayResponse
@@ -1014,6 +1767,26 @@ export interface IoTSiteWiseDescribeGatewayResponse {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseDescribeGatewayResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeGatewayResponse(obj: IoTSiteWiseDescribeGatewayResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewayId': obj.gatewayId,
+    'gatewayName': obj.gatewayName,
+    'gatewayArn': obj.gatewayArn,
+    'gatewayPlatform': toJson_IoTSiteWiseGatewayPlatform(obj.gatewayPlatform),
+    'gatewayCapabilitySummaries': obj.gatewayCapabilitySummaries?.map(y => toJson_IoTSiteWiseGatewayCapabilitySummary(y)),
+    'creationDate': obj.creationDate,
+    'lastUpdateDate': obj.lastUpdateDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseDescribeGatewayCapabilityConfigurationRequest
  */
 export interface IoTSiteWiseDescribeGatewayCapabilityConfigurationRequest {
@@ -1028,6 +1801,21 @@ export interface IoTSiteWiseDescribeGatewayCapabilityConfigurationRequest {
   readonly capabilityNamespace: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDescribeGatewayCapabilityConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeGatewayCapabilityConfigurationRequest(obj: IoTSiteWiseDescribeGatewayCapabilityConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewayId': obj.gatewayId,
+    'capabilityNamespace': obj.capabilityNamespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDescribeGatewayCapabilityConfigurationResponse
@@ -1056,10 +1844,40 @@ export interface IoTSiteWiseDescribeGatewayCapabilityConfigurationResponse {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseDescribeGatewayCapabilityConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeGatewayCapabilityConfigurationResponse(obj: IoTSiteWiseDescribeGatewayCapabilityConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewayId': obj.gatewayId,
+    'capabilityNamespace': obj.capabilityNamespace,
+    'capabilityConfiguration': obj.capabilityConfiguration,
+    'capabilitySyncStatus': obj.capabilitySyncStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseDescribeLoggingOptionsRequest
  */
 export interface IoTSiteWiseDescribeLoggingOptionsRequest {
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDescribeLoggingOptionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeLoggingOptionsRequest(obj: IoTSiteWiseDescribeLoggingOptionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDescribeLoggingOptionsResponse
@@ -1073,6 +1891,20 @@ export interface IoTSiteWiseDescribeLoggingOptionsResponse {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseDescribeLoggingOptionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeLoggingOptionsResponse(obj: IoTSiteWiseDescribeLoggingOptionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loggingOptions': toJson_IoTSiteWiseLoggingOptions(obj.loggingOptions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseDescribePortalRequest
  */
 export interface IoTSiteWiseDescribePortalRequest {
@@ -1082,6 +1914,20 @@ export interface IoTSiteWiseDescribePortalRequest {
   readonly portalId: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDescribePortalRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribePortalRequest(obj: IoTSiteWiseDescribePortalRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'portalId': obj.portalId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDescribePortalResponse
@@ -1152,7 +1998,45 @@ export interface IoTSiteWiseDescribePortalResponse {
    */
   readonly portalAuthMode?: string;
 
+  /**
+   * @schema IoTSiteWiseDescribePortalResponse#notificationSenderEmail
+   */
+  readonly notificationSenderEmail?: string;
+
+  /**
+   * @schema IoTSiteWiseDescribePortalResponse#alarms
+   */
+  readonly alarms?: IoTSiteWiseAlarms;
+
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDescribePortalResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribePortalResponse(obj: IoTSiteWiseDescribePortalResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'portalId': obj.portalId,
+    'portalArn': obj.portalArn,
+    'portalName': obj.portalName,
+    'portalDescription': obj.portalDescription,
+    'portalClientId': obj.portalClientId,
+    'portalStartUrl': obj.portalStartUrl,
+    'portalContactEmail': obj.portalContactEmail,
+    'portalStatus': toJson_IoTSiteWisePortalStatus(obj.portalStatus),
+    'portalCreationDate': obj.portalCreationDate,
+    'portalLastUpdateDate': obj.portalLastUpdateDate,
+    'portalLogoImageLocation': toJson_IoTSiteWiseImageLocation(obj.portalLogoImageLocation),
+    'roleArn': obj.roleArn,
+    'portalAuthMode': obj.portalAuthMode,
+    'notificationSenderEmail': obj.notificationSenderEmail,
+    'alarms': toJson_IoTSiteWiseAlarms(obj.alarms),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDescribeProjectRequest
@@ -1164,6 +2048,20 @@ export interface IoTSiteWiseDescribeProjectRequest {
   readonly projectId: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDescribeProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeProjectRequest(obj: IoTSiteWiseDescribeProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectId': obj.projectId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseDescribeProjectResponse
@@ -1207,6 +2105,88 @@ export interface IoTSiteWiseDescribeProjectResponse {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseDescribeProjectResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeProjectResponse(obj: IoTSiteWiseDescribeProjectResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectId': obj.projectId,
+    'projectArn': obj.projectArn,
+    'projectName': obj.projectName,
+    'portalId': obj.portalId,
+    'projectDescription': obj.projectDescription,
+    'projectCreationDate': obj.projectCreationDate,
+    'projectLastUpdateDate': obj.projectLastUpdateDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseDescribeStorageConfigurationRequest
+ */
+export interface IoTSiteWiseDescribeStorageConfigurationRequest {
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseDescribeStorageConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeStorageConfigurationRequest(obj: IoTSiteWiseDescribeStorageConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseDescribeStorageConfigurationResponse
+ */
+export interface IoTSiteWiseDescribeStorageConfigurationResponse {
+  /**
+   * @schema IoTSiteWiseDescribeStorageConfigurationResponse#storageType
+   */
+  readonly storageType: string;
+
+  /**
+   * @schema IoTSiteWiseDescribeStorageConfigurationResponse#multiLayerStorage
+   */
+  readonly multiLayerStorage?: IoTSiteWiseMultiLayerStorage;
+
+  /**
+   * @schema IoTSiteWiseDescribeStorageConfigurationResponse#configurationStatus
+   */
+  readonly configurationStatus: IoTSiteWiseConfigurationStatus;
+
+  /**
+   * @schema IoTSiteWiseDescribeStorageConfigurationResponse#lastUpdateDate
+   */
+  readonly lastUpdateDate?: string;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseDescribeStorageConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDescribeStorageConfigurationResponse(obj: IoTSiteWiseDescribeStorageConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'storageType': obj.storageType,
+    'multiLayerStorage': toJson_IoTSiteWiseMultiLayerStorage(obj.multiLayerStorage),
+    'configurationStatus': toJson_IoTSiteWiseConfigurationStatus(obj.configurationStatus),
+    'lastUpdateDate': obj.lastUpdateDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseDisassociateAssetsRequest
  */
 export interface IoTSiteWiseDisassociateAssetsRequest {
@@ -1231,6 +2211,23 @@ export interface IoTSiteWiseDisassociateAssetsRequest {
   readonly clientToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseDisassociateAssetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDisassociateAssetsRequest(obj: IoTSiteWiseDisassociateAssetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetId': obj.assetId,
+    'hierarchyId': obj.hierarchyId,
+    'childAssetId': obj.childAssetId,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseGetAssetPropertyAggregatesRequest
@@ -1294,6 +2291,30 @@ export interface IoTSiteWiseGetAssetPropertyAggregatesRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseGetAssetPropertyAggregatesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseGetAssetPropertyAggregatesRequest(obj: IoTSiteWiseGetAssetPropertyAggregatesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetId': obj.assetId,
+    'propertyId': obj.propertyId,
+    'propertyAlias': obj.propertyAlias,
+    'aggregateTypes': obj.aggregateTypes?.map(y => y),
+    'resolution': obj.resolution,
+    'qualities': obj.qualities?.map(y => y),
+    'startDate': obj.startDate,
+    'endDate': obj.endDate,
+    'timeOrdering': obj.timeOrdering,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseGetAssetPropertyAggregatesResponse
  */
 export interface IoTSiteWiseGetAssetPropertyAggregatesResponse {
@@ -1308,6 +2329,21 @@ export interface IoTSiteWiseGetAssetPropertyAggregatesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseGetAssetPropertyAggregatesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseGetAssetPropertyAggregatesResponse(obj: IoTSiteWiseGetAssetPropertyAggregatesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'aggregatedValues': obj.aggregatedValues?.map(y => toJson_IoTSiteWiseAggregatedValue(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseGetAssetPropertyValueRequest
@@ -1331,6 +2367,22 @@ export interface IoTSiteWiseGetAssetPropertyValueRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseGetAssetPropertyValueRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseGetAssetPropertyValueRequest(obj: IoTSiteWiseGetAssetPropertyValueRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetId': obj.assetId,
+    'propertyId': obj.propertyId,
+    'propertyAlias': obj.propertyAlias,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseGetAssetPropertyValueResponse
  */
 export interface IoTSiteWiseGetAssetPropertyValueResponse {
@@ -1340,6 +2392,20 @@ export interface IoTSiteWiseGetAssetPropertyValueResponse {
   readonly propertyValue?: IoTSiteWiseAssetPropertyValue;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseGetAssetPropertyValueResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseGetAssetPropertyValueResponse(obj: IoTSiteWiseGetAssetPropertyValueResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'propertyValue': toJson_IoTSiteWiseAssetPropertyValue(obj.propertyValue),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseGetAssetPropertyValueHistoryRequest
@@ -1393,6 +2459,28 @@ export interface IoTSiteWiseGetAssetPropertyValueHistoryRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseGetAssetPropertyValueHistoryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseGetAssetPropertyValueHistoryRequest(obj: IoTSiteWiseGetAssetPropertyValueHistoryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetId': obj.assetId,
+    'propertyId': obj.propertyId,
+    'propertyAlias': obj.propertyAlias,
+    'startDate': obj.startDate,
+    'endDate': obj.endDate,
+    'qualities': obj.qualities?.map(y => y),
+    'timeOrdering': obj.timeOrdering,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseGetAssetPropertyValueHistoryResponse
  */
 export interface IoTSiteWiseGetAssetPropertyValueHistoryResponse {
@@ -1407,6 +2495,143 @@ export interface IoTSiteWiseGetAssetPropertyValueHistoryResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseGetAssetPropertyValueHistoryResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseGetAssetPropertyValueHistoryResponse(obj: IoTSiteWiseGetAssetPropertyValueHistoryResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetPropertyValueHistory': obj.assetPropertyValueHistory?.map(y => toJson_IoTSiteWiseAssetPropertyValue(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest
+ */
+export interface IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest {
+  /**
+   * @schema IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest#assetId
+   */
+  readonly assetId?: string;
+
+  /**
+   * @schema IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest#propertyId
+   */
+  readonly propertyId?: string;
+
+  /**
+   * @schema IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest#propertyAlias
+   */
+  readonly propertyAlias?: string;
+
+  /**
+   * @schema IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest#startTimeInSeconds
+   */
+  readonly startTimeInSeconds: number;
+
+  /**
+   * @schema IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest#startTimeOffsetInNanos
+   */
+  readonly startTimeOffsetInNanos?: number;
+
+  /**
+   * @schema IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest#endTimeInSeconds
+   */
+  readonly endTimeInSeconds: number;
+
+  /**
+   * @schema IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest#endTimeOffsetInNanos
+   */
+  readonly endTimeOffsetInNanos?: number;
+
+  /**
+   * @schema IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest#quality
+   */
+  readonly quality: string;
+
+  /**
+   * @schema IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest#intervalInSeconds
+   */
+  readonly intervalInSeconds: number;
+
+  /**
+   * @schema IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest#nextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest#maxResults
+   */
+  readonly maxResults?: number;
+
+  /**
+   * @schema IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest#type
+   */
+  readonly type: string;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest(obj: IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetId': obj.assetId,
+    'propertyId': obj.propertyId,
+    'propertyAlias': obj.propertyAlias,
+    'startTimeInSeconds': obj.startTimeInSeconds,
+    'startTimeOffsetInNanos': obj.startTimeOffsetInNanos,
+    'endTimeInSeconds': obj.endTimeInSeconds,
+    'endTimeOffsetInNanos': obj.endTimeOffsetInNanos,
+    'quality': obj.quality,
+    'intervalInSeconds': obj.intervalInSeconds,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseGetInterpolatedAssetPropertyValuesResponse
+ */
+export interface IoTSiteWiseGetInterpolatedAssetPropertyValuesResponse {
+  /**
+   * @schema IoTSiteWiseGetInterpolatedAssetPropertyValuesResponse#interpolatedAssetPropertyValues
+   */
+  readonly interpolatedAssetPropertyValues: IoTSiteWiseInterpolatedAssetPropertyValue[];
+
+  /**
+   * @schema IoTSiteWiseGetInterpolatedAssetPropertyValuesResponse#nextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseGetInterpolatedAssetPropertyValuesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseGetInterpolatedAssetPropertyValuesResponse(obj: IoTSiteWiseGetInterpolatedAssetPropertyValuesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'interpolatedAssetPropertyValues': obj.interpolatedAssetPropertyValues?.map(y => toJson_IoTSiteWiseInterpolatedAssetPropertyValue(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseListAccessPoliciesRequest
@@ -1450,6 +2675,26 @@ export interface IoTSiteWiseListAccessPoliciesRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseListAccessPoliciesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListAccessPoliciesRequest(obj: IoTSiteWiseListAccessPoliciesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'identityType': obj.identityType,
+    'identityId': obj.identityId,
+    'resourceType': obj.resourceType,
+    'resourceId': obj.resourceId,
+    'iamArn': obj.iamArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseListAccessPoliciesResponse
  */
 export interface IoTSiteWiseListAccessPoliciesResponse {
@@ -1464,6 +2709,21 @@ export interface IoTSiteWiseListAccessPoliciesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseListAccessPoliciesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListAccessPoliciesResponse(obj: IoTSiteWiseListAccessPoliciesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessPolicySummaries': obj.accessPolicySummaries?.map(y => toJson_IoTSiteWiseAccessPolicySummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseListAssetModelsRequest
@@ -1482,6 +2742,21 @@ export interface IoTSiteWiseListAssetModelsRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseListAssetModelsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListAssetModelsRequest(obj: IoTSiteWiseListAssetModelsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseListAssetModelsResponse
  */
 export interface IoTSiteWiseListAssetModelsResponse {
@@ -1496,6 +2771,95 @@ export interface IoTSiteWiseListAssetModelsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseListAssetModelsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListAssetModelsResponse(obj: IoTSiteWiseListAssetModelsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetModelSummaries': obj.assetModelSummaries?.map(y => toJson_IoTSiteWiseAssetModelSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseListAssetRelationshipsRequest
+ */
+export interface IoTSiteWiseListAssetRelationshipsRequest {
+  /**
+   * @schema IoTSiteWiseListAssetRelationshipsRequest#assetId
+   */
+  readonly assetId: string;
+
+  /**
+   * @schema IoTSiteWiseListAssetRelationshipsRequest#traversalType
+   */
+  readonly traversalType: string;
+
+  /**
+   * @schema IoTSiteWiseListAssetRelationshipsRequest#nextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema IoTSiteWiseListAssetRelationshipsRequest#maxResults
+   */
+  readonly maxResults?: number;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseListAssetRelationshipsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListAssetRelationshipsRequest(obj: IoTSiteWiseListAssetRelationshipsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetId': obj.assetId,
+    'traversalType': obj.traversalType,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseListAssetRelationshipsResponse
+ */
+export interface IoTSiteWiseListAssetRelationshipsResponse {
+  /**
+   * @schema IoTSiteWiseListAssetRelationshipsResponse#assetRelationshipSummaries
+   */
+  readonly assetRelationshipSummaries: IoTSiteWiseAssetRelationshipSummary[];
+
+  /**
+   * @schema IoTSiteWiseListAssetRelationshipsResponse#nextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseListAssetRelationshipsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListAssetRelationshipsResponse(obj: IoTSiteWiseListAssetRelationshipsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetRelationshipSummaries': obj.assetRelationshipSummaries?.map(y => toJson_IoTSiteWiseAssetRelationshipSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseListAssetsRequest
@@ -1524,6 +2888,23 @@ export interface IoTSiteWiseListAssetsRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseListAssetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListAssetsRequest(obj: IoTSiteWiseListAssetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'assetModelId': obj.assetModelId,
+    'filter': obj.filter,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseListAssetsResponse
  */
 export interface IoTSiteWiseListAssetsResponse {
@@ -1538,6 +2919,21 @@ export interface IoTSiteWiseListAssetsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseListAssetsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListAssetsResponse(obj: IoTSiteWiseListAssetsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetSummaries': obj.assetSummaries?.map(y => toJson_IoTSiteWiseAssetSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseListAssociatedAssetsRequest
@@ -1571,6 +2967,24 @@ export interface IoTSiteWiseListAssociatedAssetsRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseListAssociatedAssetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListAssociatedAssetsRequest(obj: IoTSiteWiseListAssociatedAssetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetId': obj.assetId,
+    'hierarchyId': obj.hierarchyId,
+    'traversalDirection': obj.traversalDirection,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseListAssociatedAssetsResponse
  */
 export interface IoTSiteWiseListAssociatedAssetsResponse {
@@ -1585,6 +2999,21 @@ export interface IoTSiteWiseListAssociatedAssetsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseListAssociatedAssetsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListAssociatedAssetsResponse(obj: IoTSiteWiseListAssociatedAssetsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetSummaries': obj.assetSummaries?.map(y => toJson_IoTSiteWiseAssociatedAssetsSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseListDashboardsRequest
@@ -1608,6 +3037,22 @@ export interface IoTSiteWiseListDashboardsRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseListDashboardsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListDashboardsRequest(obj: IoTSiteWiseListDashboardsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectId': obj.projectId,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseListDashboardsResponse
  */
 export interface IoTSiteWiseListDashboardsResponse {
@@ -1622,6 +3067,21 @@ export interface IoTSiteWiseListDashboardsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseListDashboardsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListDashboardsResponse(obj: IoTSiteWiseListDashboardsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dashboardSummaries': obj.dashboardSummaries?.map(y => toJson_IoTSiteWiseDashboardSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseListGatewaysRequest
@@ -1640,6 +3100,21 @@ export interface IoTSiteWiseListGatewaysRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseListGatewaysRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListGatewaysRequest(obj: IoTSiteWiseListGatewaysRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseListGatewaysResponse
  */
 export interface IoTSiteWiseListGatewaysResponse {
@@ -1654,6 +3129,21 @@ export interface IoTSiteWiseListGatewaysResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseListGatewaysResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListGatewaysResponse(obj: IoTSiteWiseListGatewaysResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewaySummaries': obj.gatewaySummaries?.map(y => toJson_IoTSiteWiseGatewaySummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseListPortalsRequest
@@ -1672,6 +3162,21 @@ export interface IoTSiteWiseListPortalsRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseListPortalsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListPortalsRequest(obj: IoTSiteWiseListPortalsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseListPortalsResponse
  */
 export interface IoTSiteWiseListPortalsResponse {
@@ -1686,6 +3191,21 @@ export interface IoTSiteWiseListPortalsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseListPortalsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListPortalsResponse(obj: IoTSiteWiseListPortalsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'portalSummaries': obj.portalSummaries?.map(y => toJson_IoTSiteWisePortalSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseListProjectAssetsRequest
@@ -1709,6 +3229,22 @@ export interface IoTSiteWiseListProjectAssetsRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseListProjectAssetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListProjectAssetsRequest(obj: IoTSiteWiseListProjectAssetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectId': obj.projectId,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseListProjectAssetsResponse
  */
 export interface IoTSiteWiseListProjectAssetsResponse {
@@ -1723,6 +3259,21 @@ export interface IoTSiteWiseListProjectAssetsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseListProjectAssetsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListProjectAssetsResponse(obj: IoTSiteWiseListProjectAssetsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetIds': obj.assetIds?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseListProjectsRequest
@@ -1746,6 +3297,22 @@ export interface IoTSiteWiseListProjectsRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseListProjectsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListProjectsRequest(obj: IoTSiteWiseListProjectsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'portalId': obj.portalId,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseListProjectsResponse
  */
 export interface IoTSiteWiseListProjectsResponse {
@@ -1762,6 +3329,21 @@ export interface IoTSiteWiseListProjectsResponse {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseListProjectsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListProjectsResponse(obj: IoTSiteWiseListProjectsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectSummaries': obj.projectSummaries?.map(y => toJson_IoTSiteWiseProjectSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseListTagsForResourceRequest
  */
 export interface IoTSiteWiseListTagsForResourceRequest {
@@ -1773,6 +3355,20 @@ export interface IoTSiteWiseListTagsForResourceRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListTagsForResourceRequest(obj: IoTSiteWiseListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseListTagsForResourceResponse
  */
 export interface IoTSiteWiseListTagsForResourceResponse {
@@ -1782,6 +3378,20 @@ export interface IoTSiteWiseListTagsForResourceResponse {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseListTagsForResourceResponse(obj: IoTSiteWiseListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWisePutDefaultEncryptionConfigurationRequest
@@ -1798,6 +3408,21 @@ export interface IoTSiteWisePutDefaultEncryptionConfigurationRequest {
   readonly kmsKeyId?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWisePutDefaultEncryptionConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWisePutDefaultEncryptionConfigurationRequest(obj: IoTSiteWisePutDefaultEncryptionConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'encryptionType': obj.encryptionType,
+    'kmsKeyId': obj.kmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWisePutDefaultEncryptionConfigurationResponse
@@ -1821,6 +3446,22 @@ export interface IoTSiteWisePutDefaultEncryptionConfigurationResponse {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWisePutDefaultEncryptionConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWisePutDefaultEncryptionConfigurationResponse(obj: IoTSiteWisePutDefaultEncryptionConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'encryptionType': obj.encryptionType,
+    'kmsKeyArn': obj.kmsKeyArn,
+    'configurationStatus': toJson_IoTSiteWiseConfigurationStatus(obj.configurationStatus),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWisePutLoggingOptionsRequest
  */
 export interface IoTSiteWisePutLoggingOptionsRequest {
@@ -1832,10 +3473,105 @@ export interface IoTSiteWisePutLoggingOptionsRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWisePutLoggingOptionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWisePutLoggingOptionsRequest(obj: IoTSiteWisePutLoggingOptionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loggingOptions': toJson_IoTSiteWiseLoggingOptions(obj.loggingOptions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWisePutLoggingOptionsResponse
  */
 export interface IoTSiteWisePutLoggingOptionsResponse {
 }
+
+/**
+ * Converts an object of type 'IoTSiteWisePutLoggingOptionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWisePutLoggingOptionsResponse(obj: IoTSiteWisePutLoggingOptionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWisePutStorageConfigurationRequest
+ */
+export interface IoTSiteWisePutStorageConfigurationRequest {
+  /**
+   * @schema IoTSiteWisePutStorageConfigurationRequest#storageType
+   */
+  readonly storageType: string;
+
+  /**
+   * @schema IoTSiteWisePutStorageConfigurationRequest#multiLayerStorage
+   */
+  readonly multiLayerStorage?: IoTSiteWiseMultiLayerStorage;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWisePutStorageConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWisePutStorageConfigurationRequest(obj: IoTSiteWisePutStorageConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'storageType': obj.storageType,
+    'multiLayerStorage': toJson_IoTSiteWiseMultiLayerStorage(obj.multiLayerStorage),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWisePutStorageConfigurationResponse
+ */
+export interface IoTSiteWisePutStorageConfigurationResponse {
+  /**
+   * @schema IoTSiteWisePutStorageConfigurationResponse#storageType
+   */
+  readonly storageType: string;
+
+  /**
+   * @schema IoTSiteWisePutStorageConfigurationResponse#multiLayerStorage
+   */
+  readonly multiLayerStorage?: IoTSiteWiseMultiLayerStorage;
+
+  /**
+   * @schema IoTSiteWisePutStorageConfigurationResponse#configurationStatus
+   */
+  readonly configurationStatus: IoTSiteWiseConfigurationStatus;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWisePutStorageConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWisePutStorageConfigurationResponse(obj: IoTSiteWisePutStorageConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'storageType': obj.storageType,
+    'multiLayerStorage': toJson_IoTSiteWiseMultiLayerStorage(obj.multiLayerStorage),
+    'configurationStatus': toJson_IoTSiteWiseConfigurationStatus(obj.configurationStatus),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseTagResourceRequest
@@ -1854,10 +3590,38 @@ export interface IoTSiteWiseTagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseTagResourceRequest(obj: IoTSiteWiseTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseTagResourceResponse
  */
 export interface IoTSiteWiseTagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseTagResourceResponse(obj: IoTSiteWiseTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseUntagResourceRequest
@@ -1876,10 +3640,38 @@ export interface IoTSiteWiseUntagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUntagResourceRequest(obj: IoTSiteWiseUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseUntagResourceResponse
  */
 export interface IoTSiteWiseUntagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUntagResourceResponse(obj: IoTSiteWiseUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseUpdateAccessPolicyRequest
@@ -1913,10 +3705,41 @@ export interface IoTSiteWiseUpdateAccessPolicyRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseUpdateAccessPolicyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUpdateAccessPolicyRequest(obj: IoTSiteWiseUpdateAccessPolicyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessPolicyId': obj.accessPolicyId,
+    'accessPolicyIdentity': toJson_IoTSiteWiseIdentity(obj.accessPolicyIdentity),
+    'accessPolicyResource': toJson_IoTSiteWiseResource(obj.accessPolicyResource),
+    'accessPolicyPermission': obj.accessPolicyPermission,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseUpdateAccessPolicyResponse
  */
 export interface IoTSiteWiseUpdateAccessPolicyResponse {
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseUpdateAccessPolicyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUpdateAccessPolicyResponse(obj: IoTSiteWiseUpdateAccessPolicyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseUpdateAssetRequest
@@ -1940,6 +3763,22 @@ export interface IoTSiteWiseUpdateAssetRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseUpdateAssetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUpdateAssetRequest(obj: IoTSiteWiseUpdateAssetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetId': obj.assetId,
+    'assetName': obj.assetName,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseUpdateAssetResponse
  */
 export interface IoTSiteWiseUpdateAssetResponse {
@@ -1949,6 +3788,20 @@ export interface IoTSiteWiseUpdateAssetResponse {
   readonly assetStatus: IoTSiteWiseAssetStatus;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseUpdateAssetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUpdateAssetResponse(obj: IoTSiteWiseUpdateAssetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetStatus': toJson_IoTSiteWiseAssetStatus(obj.assetStatus),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseUpdateAssetModelRequest
@@ -1980,11 +3833,36 @@ export interface IoTSiteWiseUpdateAssetModelRequest {
   readonly assetModelHierarchies?: IoTSiteWiseAssetModelHierarchy[];
 
   /**
+   * @schema IoTSiteWiseUpdateAssetModelRequest#assetModelCompositeModels
+   */
+  readonly assetModelCompositeModels?: IoTSiteWiseAssetModelCompositeModel[];
+
+  /**
    * @schema IoTSiteWiseUpdateAssetModelRequest#clientToken
    */
   readonly clientToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseUpdateAssetModelRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUpdateAssetModelRequest(obj: IoTSiteWiseUpdateAssetModelRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetModelId': obj.assetModelId,
+    'assetModelName': obj.assetModelName,
+    'assetModelDescription': obj.assetModelDescription,
+    'assetModelProperties': obj.assetModelProperties?.map(y => toJson_IoTSiteWiseAssetModelProperty(y)),
+    'assetModelHierarchies': obj.assetModelHierarchies?.map(y => toJson_IoTSiteWiseAssetModelHierarchy(y)),
+    'assetModelCompositeModels': obj.assetModelCompositeModels?.map(y => toJson_IoTSiteWiseAssetModelCompositeModel(y)),
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseUpdateAssetModelResponse
@@ -1996,6 +3874,20 @@ export interface IoTSiteWiseUpdateAssetModelResponse {
   readonly assetModelStatus: IoTSiteWiseAssetModelStatus;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseUpdateAssetModelResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUpdateAssetModelResponse(obj: IoTSiteWiseUpdateAssetModelResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetModelStatus': toJson_IoTSiteWiseAssetModelStatus(obj.assetModelStatus),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseUpdateAssetPropertyRequest
@@ -2029,6 +3921,24 @@ export interface IoTSiteWiseUpdateAssetPropertyRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseUpdateAssetPropertyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUpdateAssetPropertyRequest(obj: IoTSiteWiseUpdateAssetPropertyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetId': obj.assetId,
+    'propertyId': obj.propertyId,
+    'propertyAlias': obj.propertyAlias,
+    'propertyNotificationState': obj.propertyNotificationState,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseUpdateDashboardRequest
  */
 export interface IoTSiteWiseUpdateDashboardRequest {
@@ -2060,10 +3970,41 @@ export interface IoTSiteWiseUpdateDashboardRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseUpdateDashboardRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUpdateDashboardRequest(obj: IoTSiteWiseUpdateDashboardRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dashboardId': obj.dashboardId,
+    'dashboardName': obj.dashboardName,
+    'dashboardDescription': obj.dashboardDescription,
+    'dashboardDefinition': obj.dashboardDefinition,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseUpdateDashboardResponse
  */
 export interface IoTSiteWiseUpdateDashboardResponse {
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseUpdateDashboardResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUpdateDashboardResponse(obj: IoTSiteWiseUpdateDashboardResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseUpdateGatewayRequest
@@ -2080,6 +4021,21 @@ export interface IoTSiteWiseUpdateGatewayRequest {
   readonly gatewayName: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseUpdateGatewayRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUpdateGatewayRequest(obj: IoTSiteWiseUpdateGatewayRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewayId': obj.gatewayId,
+    'gatewayName': obj.gatewayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseUpdateGatewayCapabilityConfigurationRequest
@@ -2103,6 +4059,22 @@ export interface IoTSiteWiseUpdateGatewayCapabilityConfigurationRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseUpdateGatewayCapabilityConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUpdateGatewayCapabilityConfigurationRequest(obj: IoTSiteWiseUpdateGatewayCapabilityConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewayId': obj.gatewayId,
+    'capabilityNamespace': obj.capabilityNamespace,
+    'capabilityConfiguration': obj.capabilityConfiguration,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseUpdateGatewayCapabilityConfigurationResponse
  */
 export interface IoTSiteWiseUpdateGatewayCapabilityConfigurationResponse {
@@ -2117,6 +4089,21 @@ export interface IoTSiteWiseUpdateGatewayCapabilityConfigurationResponse {
   readonly capabilitySyncStatus: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseUpdateGatewayCapabilityConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUpdateGatewayCapabilityConfigurationResponse(obj: IoTSiteWiseUpdateGatewayCapabilityConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'capabilityNamespace': obj.capabilityNamespace,
+    'capabilitySyncStatus': obj.capabilitySyncStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseUpdatePortalRequest
@@ -2157,7 +4144,39 @@ export interface IoTSiteWiseUpdatePortalRequest {
    */
   readonly clientToken?: string;
 
+  /**
+   * @schema IoTSiteWiseUpdatePortalRequest#notificationSenderEmail
+   */
+  readonly notificationSenderEmail?: string;
+
+  /**
+   * @schema IoTSiteWiseUpdatePortalRequest#alarms
+   */
+  readonly alarms?: IoTSiteWiseAlarms;
+
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseUpdatePortalRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUpdatePortalRequest(obj: IoTSiteWiseUpdatePortalRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'portalId': obj.portalId,
+    'portalName': obj.portalName,
+    'portalDescription': obj.portalDescription,
+    'portalContactEmail': obj.portalContactEmail,
+    'portalLogoImage': toJson_IoTSiteWiseImage(obj.portalLogoImage),
+    'roleArn': obj.roleArn,
+    'clientToken': obj.clientToken,
+    'notificationSenderEmail': obj.notificationSenderEmail,
+    'alarms': toJson_IoTSiteWiseAlarms(obj.alarms),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseUpdatePortalResponse
@@ -2169,6 +4188,20 @@ export interface IoTSiteWiseUpdatePortalResponse {
   readonly portalStatus: IoTSiteWisePortalStatus;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseUpdatePortalResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUpdatePortalResponse(obj: IoTSiteWiseUpdatePortalResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'portalStatus': toJson_IoTSiteWisePortalStatus(obj.portalStatus),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseUpdateProjectRequest
@@ -2197,10 +4230,40 @@ export interface IoTSiteWiseUpdateProjectRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseUpdateProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUpdateProjectRequest(obj: IoTSiteWiseUpdateProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectId': obj.projectId,
+    'projectName': obj.projectName,
+    'projectDescription': obj.projectDescription,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseUpdateProjectResponse
  */
 export interface IoTSiteWiseUpdateProjectResponse {
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseUpdateProjectResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUpdateProjectResponse(obj: IoTSiteWiseUpdateProjectResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseAssetErrorDetails
@@ -2222,6 +4285,22 @@ export interface IoTSiteWiseAssetErrorDetails {
   readonly message: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseAssetErrorDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssetErrorDetails(obj: IoTSiteWiseAssetErrorDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assetId': obj.assetId,
+    'code': obj.code,
+    'message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWisePutAssetPropertyValueEntry
@@ -2255,6 +4334,24 @@ export interface IoTSiteWisePutAssetPropertyValueEntry {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWisePutAssetPropertyValueEntry' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWisePutAssetPropertyValueEntry(obj: IoTSiteWisePutAssetPropertyValueEntry | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'entryId': obj.entryId,
+    'assetId': obj.assetId,
+    'propertyId': obj.propertyId,
+    'propertyAlias': obj.propertyAlias,
+    'propertyValues': obj.propertyValues?.map(y => toJson_IoTSiteWiseAssetPropertyValue(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseBatchPutAssetPropertyErrorEntry
  */
 export interface IoTSiteWiseBatchPutAssetPropertyErrorEntry {
@@ -2269,6 +4366,21 @@ export interface IoTSiteWiseBatchPutAssetPropertyErrorEntry {
   readonly errors: IoTSiteWiseBatchPutAssetPropertyError[];
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseBatchPutAssetPropertyErrorEntry' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseBatchPutAssetPropertyErrorEntry(obj: IoTSiteWiseBatchPutAssetPropertyErrorEntry | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'entryId': obj.entryId,
+    'errors': obj.errors?.map(y => toJson_IoTSiteWiseBatchPutAssetPropertyError(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseIdentity
@@ -2289,7 +4401,29 @@ export interface IoTSiteWiseIdentity {
    */
   readonly iamUser?: IoTSiteWiseIamUserIdentity;
 
+  /**
+   * @schema IoTSiteWiseIdentity#iamRole
+   */
+  readonly iamRole?: IoTSiteWiseIamRoleIdentity;
+
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseIdentity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseIdentity(obj: IoTSiteWiseIdentity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'user': toJson_IoTSiteWiseUserIdentity(obj.user),
+    'group': toJson_IoTSiteWiseGroupIdentity(obj.group),
+    'iamUser': toJson_IoTSiteWiseIamUserIdentity(obj.iamUser),
+    'iamRole': toJson_IoTSiteWiseIamRoleIdentity(obj.iamRole),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseResource
@@ -2308,6 +4442,21 @@ export interface IoTSiteWiseResource {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseResource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseResource(obj: IoTSiteWiseResource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'portal': toJson_IoTSiteWisePortalResource(obj.portal),
+    'project': toJson_IoTSiteWiseProjectResource(obj.project),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseAssetStatus
  */
 export interface IoTSiteWiseAssetStatus {
@@ -2324,6 +4473,21 @@ export interface IoTSiteWiseAssetStatus {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseAssetStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssetStatus(obj: IoTSiteWiseAssetStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'state': obj.state,
+    'error': toJson_IoTSiteWiseErrorDetails(obj.error),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseAssetModelPropertyDefinition
  */
 export interface IoTSiteWiseAssetModelPropertyDefinition {
@@ -2338,6 +4502,11 @@ export interface IoTSiteWiseAssetModelPropertyDefinition {
   readonly dataType: string;
 
   /**
+   * @schema IoTSiteWiseAssetModelPropertyDefinition#dataTypeSpec
+   */
+  readonly dataTypeSpec?: string;
+
+  /**
    * @schema IoTSiteWiseAssetModelPropertyDefinition#unit
    */
   readonly unit?: string;
@@ -2348,6 +4517,24 @@ export interface IoTSiteWiseAssetModelPropertyDefinition {
   readonly type: IoTSiteWisePropertyType;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseAssetModelPropertyDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssetModelPropertyDefinition(obj: IoTSiteWiseAssetModelPropertyDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'dataType': obj.dataType,
+    'dataTypeSpec': obj.dataTypeSpec,
+    'unit': obj.unit,
+    'type': toJson_IoTSiteWisePropertyType(obj.type),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseAssetModelHierarchyDefinition
@@ -2366,6 +4553,64 @@ export interface IoTSiteWiseAssetModelHierarchyDefinition {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseAssetModelHierarchyDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssetModelHierarchyDefinition(obj: IoTSiteWiseAssetModelHierarchyDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'childAssetModelId': obj.childAssetModelId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseAssetModelCompositeModelDefinition
+ */
+export interface IoTSiteWiseAssetModelCompositeModelDefinition {
+  /**
+   * @schema IoTSiteWiseAssetModelCompositeModelDefinition#name
+   */
+  readonly name: string;
+
+  /**
+   * @schema IoTSiteWiseAssetModelCompositeModelDefinition#description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema IoTSiteWiseAssetModelCompositeModelDefinition#type
+   */
+  readonly type: string;
+
+  /**
+   * @schema IoTSiteWiseAssetModelCompositeModelDefinition#properties
+   */
+  readonly properties?: IoTSiteWiseAssetModelPropertyDefinition[];
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseAssetModelCompositeModelDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssetModelCompositeModelDefinition(obj: IoTSiteWiseAssetModelCompositeModelDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'description': obj.description,
+    'type': obj.type,
+    'properties': obj.properties?.map(y => toJson_IoTSiteWiseAssetModelPropertyDefinition(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseAssetModelStatus
  */
 export interface IoTSiteWiseAssetModelStatus {
@@ -2382,15 +4627,50 @@ export interface IoTSiteWiseAssetModelStatus {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseAssetModelStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssetModelStatus(obj: IoTSiteWiseAssetModelStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'state': obj.state,
+    'error': toJson_IoTSiteWiseErrorDetails(obj.error),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseGatewayPlatform
  */
 export interface IoTSiteWiseGatewayPlatform {
   /**
    * @schema IoTSiteWiseGatewayPlatform#greengrass
    */
-  readonly greengrass: IoTSiteWiseGreengrass;
+  readonly greengrass?: IoTSiteWiseGreengrass;
+
+  /**
+   * @schema IoTSiteWiseGatewayPlatform#greengrassV2
+   */
+  readonly greengrassV2?: IoTSiteWiseGreengrassV2;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseGatewayPlatform' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseGatewayPlatform(obj: IoTSiteWiseGatewayPlatform | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'greengrass': toJson_IoTSiteWiseGreengrass(obj.greengrass),
+    'greengrassV2': toJson_IoTSiteWiseGreengrassV2(obj.greengrassV2),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseImageFile
@@ -2409,6 +4689,52 @@ export interface IoTSiteWiseImageFile {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseImageFile' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseImageFile(obj: IoTSiteWiseImageFile | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'data': obj.data,
+    'type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseAlarms
+ */
+export interface IoTSiteWiseAlarms {
+  /**
+   * @schema IoTSiteWiseAlarms#alarmRoleArn
+   */
+  readonly alarmRoleArn: string;
+
+  /**
+   * @schema IoTSiteWiseAlarms#notificationLambdaArn
+   */
+  readonly notificationLambdaArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseAlarms' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAlarms(obj: IoTSiteWiseAlarms | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'alarmRoleArn': obj.alarmRoleArn,
+    'notificationLambdaArn': obj.notificationLambdaArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWisePortalStatus
  */
 export interface IoTSiteWisePortalStatus {
@@ -2423,6 +4749,21 @@ export interface IoTSiteWisePortalStatus {
   readonly error?: IoTSiteWiseMonitorErrorDetails;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWisePortalStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWisePortalStatus(obj: IoTSiteWisePortalStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'state': obj.state,
+    'error': toJson_IoTSiteWiseMonitorErrorDetails(obj.error),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseAssetProperty
@@ -2454,11 +4795,36 @@ export interface IoTSiteWiseAssetProperty {
   readonly dataType: string;
 
   /**
+   * @schema IoTSiteWiseAssetProperty#dataTypeSpec
+   */
+  readonly dataTypeSpec?: string;
+
+  /**
    * @schema IoTSiteWiseAssetProperty#unit
    */
   readonly unit?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseAssetProperty' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssetProperty(obj: IoTSiteWiseAssetProperty | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'name': obj.name,
+    'alias': obj.alias,
+    'notification': toJson_IoTSiteWisePropertyNotification(obj.notification),
+    'dataType': obj.dataType,
+    'dataTypeSpec': obj.dataTypeSpec,
+    'unit': obj.unit,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseAssetHierarchy
@@ -2475,6 +4841,64 @@ export interface IoTSiteWiseAssetHierarchy {
   readonly name: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseAssetHierarchy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssetHierarchy(obj: IoTSiteWiseAssetHierarchy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseAssetCompositeModel
+ */
+export interface IoTSiteWiseAssetCompositeModel {
+  /**
+   * @schema IoTSiteWiseAssetCompositeModel#name
+   */
+  readonly name: string;
+
+  /**
+   * @schema IoTSiteWiseAssetCompositeModel#description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema IoTSiteWiseAssetCompositeModel#type
+   */
+  readonly type: string;
+
+  /**
+   * @schema IoTSiteWiseAssetCompositeModel#properties
+   */
+  readonly properties: IoTSiteWiseAssetProperty[];
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseAssetCompositeModel' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssetCompositeModel(obj: IoTSiteWiseAssetCompositeModel | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'description': obj.description,
+    'type': obj.type,
+    'properties': obj.properties?.map(y => toJson_IoTSiteWiseAssetProperty(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseAssetModelProperty
@@ -2496,6 +4920,11 @@ export interface IoTSiteWiseAssetModelProperty {
   readonly dataType: string;
 
   /**
+   * @schema IoTSiteWiseAssetModelProperty#dataTypeSpec
+   */
+  readonly dataTypeSpec?: string;
+
+  /**
    * @schema IoTSiteWiseAssetModelProperty#unit
    */
   readonly unit?: string;
@@ -2506,6 +4935,25 @@ export interface IoTSiteWiseAssetModelProperty {
   readonly type: IoTSiteWisePropertyType;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseAssetModelProperty' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssetModelProperty(obj: IoTSiteWiseAssetModelProperty | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'name': obj.name,
+    'dataType': obj.dataType,
+    'dataTypeSpec': obj.dataTypeSpec,
+    'unit': obj.unit,
+    'type': toJson_IoTSiteWisePropertyType(obj.type),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseAssetModelHierarchy
@@ -2527,6 +4975,65 @@ export interface IoTSiteWiseAssetModelHierarchy {
   readonly childAssetModelId: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseAssetModelHierarchy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssetModelHierarchy(obj: IoTSiteWiseAssetModelHierarchy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'name': obj.name,
+    'childAssetModelId': obj.childAssetModelId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseAssetModelCompositeModel
+ */
+export interface IoTSiteWiseAssetModelCompositeModel {
+  /**
+   * @schema IoTSiteWiseAssetModelCompositeModel#name
+   */
+  readonly name: string;
+
+  /**
+   * @schema IoTSiteWiseAssetModelCompositeModel#description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema IoTSiteWiseAssetModelCompositeModel#type
+   */
+  readonly type: string;
+
+  /**
+   * @schema IoTSiteWiseAssetModelCompositeModel#properties
+   */
+  readonly properties?: IoTSiteWiseAssetModelProperty[];
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseAssetModelCompositeModel' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssetModelCompositeModel(obj: IoTSiteWiseAssetModelCompositeModel | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'description': obj.description,
+    'type': obj.type,
+    'properties': obj.properties?.map(y => toJson_IoTSiteWiseAssetModelProperty(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseProperty
@@ -2570,6 +5077,63 @@ export interface IoTSiteWiseProperty {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseProperty' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseProperty(obj: IoTSiteWiseProperty | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'name': obj.name,
+    'alias': obj.alias,
+    'notification': toJson_IoTSiteWisePropertyNotification(obj.notification),
+    'dataType': obj.dataType,
+    'unit': obj.unit,
+    'type': toJson_IoTSiteWisePropertyType(obj.type),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseCompositeModelProperty
+ */
+export interface IoTSiteWiseCompositeModelProperty {
+  /**
+   * @schema IoTSiteWiseCompositeModelProperty#name
+   */
+  readonly name: string;
+
+  /**
+   * @schema IoTSiteWiseCompositeModelProperty#type
+   */
+  readonly type: string;
+
+  /**
+   * @schema IoTSiteWiseCompositeModelProperty#assetProperty
+   */
+  readonly assetProperty: IoTSiteWiseProperty;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseCompositeModelProperty' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseCompositeModelProperty(obj: IoTSiteWiseCompositeModelProperty | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'type': obj.type,
+    'assetProperty': toJson_IoTSiteWiseProperty(obj.assetProperty),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseConfigurationStatus
  */
 export interface IoTSiteWiseConfigurationStatus {
@@ -2584,6 +5148,21 @@ export interface IoTSiteWiseConfigurationStatus {
   readonly error?: IoTSiteWiseConfigurationErrorDetails;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseConfigurationStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseConfigurationStatus(obj: IoTSiteWiseConfigurationStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'state': obj.state,
+    'error': toJson_IoTSiteWiseConfigurationErrorDetails(obj.error),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseGatewayCapabilitySummary
@@ -2602,6 +5181,21 @@ export interface IoTSiteWiseGatewayCapabilitySummary {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseGatewayCapabilitySummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseGatewayCapabilitySummary(obj: IoTSiteWiseGatewayCapabilitySummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'capabilityNamespace': obj.capabilityNamespace,
+    'capabilitySyncStatus': obj.capabilitySyncStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseLoggingOptions
  */
 export interface IoTSiteWiseLoggingOptions {
@@ -2611,6 +5205,20 @@ export interface IoTSiteWiseLoggingOptions {
   readonly level: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseLoggingOptions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseLoggingOptions(obj: IoTSiteWiseLoggingOptions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'level': obj.level,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseImageLocation
@@ -2627,6 +5235,46 @@ export interface IoTSiteWiseImageLocation {
   readonly url: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseImageLocation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseImageLocation(obj: IoTSiteWiseImageLocation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'url': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseMultiLayerStorage
+ */
+export interface IoTSiteWiseMultiLayerStorage {
+  /**
+   * @schema IoTSiteWiseMultiLayerStorage#customerManagedS3Storage
+   */
+  readonly customerManagedS3Storage: IoTSiteWiseCustomerManagedS3Storage;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseMultiLayerStorage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseMultiLayerStorage(obj: IoTSiteWiseMultiLayerStorage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'customerManagedS3Storage': toJson_IoTSiteWiseCustomerManagedS3Storage(obj.customerManagedS3Storage),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseAggregatedValue
@@ -2650,6 +5298,22 @@ export interface IoTSiteWiseAggregatedValue {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseAggregatedValue' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAggregatedValue(obj: IoTSiteWiseAggregatedValue | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'timestamp': obj.timestamp,
+    'quality': obj.quality,
+    'value': toJson_IoTSiteWiseAggregates(obj.value),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseAssetPropertyValue
  */
 export interface IoTSiteWiseAssetPropertyValue {
@@ -2669,6 +5333,53 @@ export interface IoTSiteWiseAssetPropertyValue {
   readonly quality?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseAssetPropertyValue' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssetPropertyValue(obj: IoTSiteWiseAssetPropertyValue | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'value': toJson_IoTSiteWiseVariant(obj.value),
+    'timestamp': toJson_IoTSiteWiseTimeInNanos(obj.timestamp),
+    'quality': obj.quality,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseInterpolatedAssetPropertyValue
+ */
+export interface IoTSiteWiseInterpolatedAssetPropertyValue {
+  /**
+   * @schema IoTSiteWiseInterpolatedAssetPropertyValue#timestamp
+   */
+  readonly timestamp: IoTSiteWiseTimeInNanos;
+
+  /**
+   * @schema IoTSiteWiseInterpolatedAssetPropertyValue#value
+   */
+  readonly value: IoTSiteWiseVariant;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseInterpolatedAssetPropertyValue' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseInterpolatedAssetPropertyValue(obj: IoTSiteWiseInterpolatedAssetPropertyValue | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'timestamp': toJson_IoTSiteWiseTimeInNanos(obj.timestamp),
+    'value': toJson_IoTSiteWiseVariant(obj.value),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseAccessPolicySummary
@@ -2705,6 +5416,25 @@ export interface IoTSiteWiseAccessPolicySummary {
   readonly lastUpdateDate?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseAccessPolicySummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAccessPolicySummary(obj: IoTSiteWiseAccessPolicySummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'identity': toJson_IoTSiteWiseIdentity(obj.identity),
+    'resource': toJson_IoTSiteWiseResource(obj.resource),
+    'permission': obj.permission,
+    'creationDate': obj.creationDate,
+    'lastUpdateDate': obj.lastUpdateDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseAssetModelSummary
@@ -2746,6 +5476,57 @@ export interface IoTSiteWiseAssetModelSummary {
   readonly status: IoTSiteWiseAssetModelStatus;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseAssetModelSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssetModelSummary(obj: IoTSiteWiseAssetModelSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'arn': obj.arn,
+    'name': obj.name,
+    'description': obj.description,
+    'creationDate': obj.creationDate,
+    'lastUpdateDate': obj.lastUpdateDate,
+    'status': toJson_IoTSiteWiseAssetModelStatus(obj.status),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseAssetRelationshipSummary
+ */
+export interface IoTSiteWiseAssetRelationshipSummary {
+  /**
+   * @schema IoTSiteWiseAssetRelationshipSummary#hierarchyInfo
+   */
+  readonly hierarchyInfo?: IoTSiteWiseAssetHierarchyInfo;
+
+  /**
+   * @schema IoTSiteWiseAssetRelationshipSummary#relationshipType
+   */
+  readonly relationshipType: string;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseAssetRelationshipSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssetRelationshipSummary(obj: IoTSiteWiseAssetRelationshipSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'hierarchyInfo': toJson_IoTSiteWiseAssetHierarchyInfo(obj.hierarchyInfo),
+    'relationshipType': obj.relationshipType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseAssetSummary
@@ -2794,6 +5575,27 @@ export interface IoTSiteWiseAssetSummary {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseAssetSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssetSummary(obj: IoTSiteWiseAssetSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'arn': obj.arn,
+    'name': obj.name,
+    'assetModelId': obj.assetModelId,
+    'creationDate': obj.creationDate,
+    'lastUpdateDate': obj.lastUpdateDate,
+    'status': toJson_IoTSiteWiseAssetStatus(obj.status),
+    'hierarchies': obj.hierarchies?.map(y => toJson_IoTSiteWiseAssetHierarchy(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseAssociatedAssetsSummary
  */
 export interface IoTSiteWiseAssociatedAssetsSummary {
@@ -2840,6 +5642,27 @@ export interface IoTSiteWiseAssociatedAssetsSummary {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseAssociatedAssetsSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssociatedAssetsSummary(obj: IoTSiteWiseAssociatedAssetsSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'arn': obj.arn,
+    'name': obj.name,
+    'assetModelId': obj.assetModelId,
+    'creationDate': obj.creationDate,
+    'lastUpdateDate': obj.lastUpdateDate,
+    'status': toJson_IoTSiteWiseAssetStatus(obj.status),
+    'hierarchies': obj.hierarchies?.map(y => toJson_IoTSiteWiseAssetHierarchy(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseDashboardSummary
  */
 export interface IoTSiteWiseDashboardSummary {
@@ -2871,6 +5694,24 @@ export interface IoTSiteWiseDashboardSummary {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseDashboardSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDashboardSummary(obj: IoTSiteWiseDashboardSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'name': obj.name,
+    'description': obj.description,
+    'creationDate': obj.creationDate,
+    'lastUpdateDate': obj.lastUpdateDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseGatewaySummary
  */
 export interface IoTSiteWiseGatewaySummary {
@@ -2883,6 +5724,11 @@ export interface IoTSiteWiseGatewaySummary {
    * @schema IoTSiteWiseGatewaySummary#gatewayName
    */
   readonly gatewayName: string;
+
+  /**
+   * @schema IoTSiteWiseGatewaySummary#gatewayPlatform
+   */
+  readonly gatewayPlatform?: IoTSiteWiseGatewayPlatform;
 
   /**
    * @schema IoTSiteWiseGatewaySummary#gatewayCapabilitySummaries
@@ -2900,6 +5746,25 @@ export interface IoTSiteWiseGatewaySummary {
   readonly lastUpdateDate: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseGatewaySummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseGatewaySummary(obj: IoTSiteWiseGatewaySummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewayId': obj.gatewayId,
+    'gatewayName': obj.gatewayName,
+    'gatewayPlatform': toJson_IoTSiteWiseGatewayPlatform(obj.gatewayPlatform),
+    'gatewayCapabilitySummaries': obj.gatewayCapabilitySummaries?.map(y => toJson_IoTSiteWiseGatewayCapabilitySummary(y)),
+    'creationDate': obj.creationDate,
+    'lastUpdateDate': obj.lastUpdateDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWisePortalSummary
@@ -2948,6 +5813,27 @@ export interface IoTSiteWisePortalSummary {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWisePortalSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWisePortalSummary(obj: IoTSiteWisePortalSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'name': obj.name,
+    'description': obj.description,
+    'startUrl': obj.startUrl,
+    'creationDate': obj.creationDate,
+    'lastUpdateDate': obj.lastUpdateDate,
+    'roleArn': obj.roleArn,
+    'status': toJson_IoTSiteWisePortalStatus(obj.status),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseProjectSummary
  */
 export interface IoTSiteWiseProjectSummary {
@@ -2979,6 +5865,24 @@ export interface IoTSiteWiseProjectSummary {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseProjectSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseProjectSummary(obj: IoTSiteWiseProjectSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'name': obj.name,
+    'description': obj.description,
+    'creationDate': obj.creationDate,
+    'lastUpdateDate': obj.lastUpdateDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseImage
  */
 export interface IoTSiteWiseImage {
@@ -2993,6 +5897,21 @@ export interface IoTSiteWiseImage {
   readonly file?: IoTSiteWiseImageFile;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseImage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseImage(obj: IoTSiteWiseImage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'file': toJson_IoTSiteWiseImageFile(obj.file),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseBatchPutAssetPropertyError
@@ -3016,6 +5935,22 @@ export interface IoTSiteWiseBatchPutAssetPropertyError {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseBatchPutAssetPropertyError' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseBatchPutAssetPropertyError(obj: IoTSiteWiseBatchPutAssetPropertyError | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'errorCode': obj.errorCode,
+    'errorMessage': obj.errorMessage,
+    'timestamps': obj.timestamps?.map(y => toJson_IoTSiteWiseTimeInNanos(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseUserIdentity
  */
 export interface IoTSiteWiseUserIdentity {
@@ -3025,6 +5960,20 @@ export interface IoTSiteWiseUserIdentity {
   readonly id: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseUserIdentity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseUserIdentity(obj: IoTSiteWiseUserIdentity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseGroupIdentity
@@ -3038,6 +5987,20 @@ export interface IoTSiteWiseGroupIdentity {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseGroupIdentity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseGroupIdentity(obj: IoTSiteWiseGroupIdentity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseIamUserIdentity
  */
 export interface IoTSiteWiseIamUserIdentity {
@@ -3047,6 +6010,45 @@ export interface IoTSiteWiseIamUserIdentity {
   readonly arn: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseIamUserIdentity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseIamUserIdentity(obj: IoTSiteWiseIamUserIdentity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseIamRoleIdentity
+ */
+export interface IoTSiteWiseIamRoleIdentity {
+  /**
+   * @schema IoTSiteWiseIamRoleIdentity#arn
+   */
+  readonly arn: string;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseIamRoleIdentity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseIamRoleIdentity(obj: IoTSiteWiseIamRoleIdentity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWisePortalResource
@@ -3060,6 +6062,20 @@ export interface IoTSiteWisePortalResource {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWisePortalResource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWisePortalResource(obj: IoTSiteWisePortalResource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseProjectResource
  */
 export interface IoTSiteWiseProjectResource {
@@ -3069,6 +6085,20 @@ export interface IoTSiteWiseProjectResource {
   readonly id: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseProjectResource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseProjectResource(obj: IoTSiteWiseProjectResource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseErrorDetails
@@ -3084,7 +6114,28 @@ export interface IoTSiteWiseErrorDetails {
    */
   readonly message: string;
 
+  /**
+   * @schema IoTSiteWiseErrorDetails#details
+   */
+  readonly details?: IoTSiteWiseDetailedError[];
+
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseErrorDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseErrorDetails(obj: IoTSiteWiseErrorDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'code': obj.code,
+    'message': obj.message,
+    'details': obj.details?.map(y => toJson_IoTSiteWiseDetailedError(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWisePropertyType
@@ -3113,6 +6164,23 @@ export interface IoTSiteWisePropertyType {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWisePropertyType' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWisePropertyType(obj: IoTSiteWisePropertyType | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'attribute': toJson_IoTSiteWiseAttribute(obj.attribute),
+    'measurement': toJson_IoTSiteWiseMeasurement(obj.measurement),
+    'transform': toJson_IoTSiteWiseTransform(obj.transform),
+    'metric': toJson_IoTSiteWiseMetric(obj.metric),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseGreengrass
  */
 export interface IoTSiteWiseGreengrass {
@@ -3122,6 +6190,45 @@ export interface IoTSiteWiseGreengrass {
   readonly groupArn: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseGreengrass' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseGreengrass(obj: IoTSiteWiseGreengrass | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'groupArn': obj.groupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseGreengrassV2
+ */
+export interface IoTSiteWiseGreengrassV2 {
+  /**
+   * @schema IoTSiteWiseGreengrassV2#coreDeviceThingName
+   */
+  readonly coreDeviceThingName: string;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseGreengrassV2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseGreengrassV2(obj: IoTSiteWiseGreengrassV2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'coreDeviceThingName': obj.coreDeviceThingName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseMonitorErrorDetails
@@ -3140,6 +6247,21 @@ export interface IoTSiteWiseMonitorErrorDetails {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseMonitorErrorDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseMonitorErrorDetails(obj: IoTSiteWiseMonitorErrorDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'code': obj.code,
+    'message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWisePropertyNotification
  */
 export interface IoTSiteWisePropertyNotification {
@@ -3156,6 +6278,21 @@ export interface IoTSiteWisePropertyNotification {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWisePropertyNotification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWisePropertyNotification(obj: IoTSiteWisePropertyNotification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'topic': obj.topic,
+    'state': obj.state,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseConfigurationErrorDetails
  */
 export interface IoTSiteWiseConfigurationErrorDetails {
@@ -3170,6 +6307,52 @@ export interface IoTSiteWiseConfigurationErrorDetails {
   readonly message: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseConfigurationErrorDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseConfigurationErrorDetails(obj: IoTSiteWiseConfigurationErrorDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'code': obj.code,
+    'message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseCustomerManagedS3Storage
+ */
+export interface IoTSiteWiseCustomerManagedS3Storage {
+  /**
+   * @schema IoTSiteWiseCustomerManagedS3Storage#s3ResourceArn
+   */
+  readonly s3ResourceArn: string;
+
+  /**
+   * @schema IoTSiteWiseCustomerManagedS3Storage#roleArn
+   */
+  readonly roleArn: string;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseCustomerManagedS3Storage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseCustomerManagedS3Storage(obj: IoTSiteWiseCustomerManagedS3Storage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    's3ResourceArn': obj.s3ResourceArn,
+    'roleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseAggregates
@@ -3208,6 +6391,25 @@ export interface IoTSiteWiseAggregates {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseAggregates' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAggregates(obj: IoTSiteWiseAggregates | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'average': obj.average,
+    'count': obj.count,
+    'maximum': obj.maximum,
+    'minimum': obj.minimum,
+    'sum': obj.sum,
+    'standardDeviation': obj.standardDeviation,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseVariant
  */
 export interface IoTSiteWiseVariant {
@@ -3234,6 +6436,23 @@ export interface IoTSiteWiseVariant {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseVariant' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseVariant(obj: IoTSiteWiseVariant | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'stringValue': obj.stringValue,
+    'integerValue': obj.integerValue,
+    'doubleValue': obj.doubleValue,
+    'booleanValue': obj.booleanValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseTimeInNanos
  */
 export interface IoTSiteWiseTimeInNanos {
@@ -3250,6 +6469,83 @@ export interface IoTSiteWiseTimeInNanos {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseTimeInNanos' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseTimeInNanos(obj: IoTSiteWiseTimeInNanos | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'timeInSeconds': obj.timeInSeconds,
+    'offsetInNanos': obj.offsetInNanos,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseAssetHierarchyInfo
+ */
+export interface IoTSiteWiseAssetHierarchyInfo {
+  /**
+   * @schema IoTSiteWiseAssetHierarchyInfo#parentAssetId
+   */
+  readonly parentAssetId?: string;
+
+  /**
+   * @schema IoTSiteWiseAssetHierarchyInfo#childAssetId
+   */
+  readonly childAssetId?: string;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseAssetHierarchyInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAssetHierarchyInfo(obj: IoTSiteWiseAssetHierarchyInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'parentAssetId': obj.parentAssetId,
+    'childAssetId': obj.childAssetId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseDetailedError
+ */
+export interface IoTSiteWiseDetailedError {
+  /**
+   * @schema IoTSiteWiseDetailedError#code
+   */
+  readonly code: string;
+
+  /**
+   * @schema IoTSiteWiseDetailedError#message
+   */
+  readonly message: string;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseDetailedError' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseDetailedError(obj: IoTSiteWiseDetailedError | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'code': obj.code,
+    'message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseAttribute
  */
 export interface IoTSiteWiseAttribute {
@@ -3261,10 +6557,43 @@ export interface IoTSiteWiseAttribute {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseAttribute' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseAttribute(obj: IoTSiteWiseAttribute | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'defaultValue': obj.defaultValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseMeasurement
  */
 export interface IoTSiteWiseMeasurement {
+  /**
+   * @schema IoTSiteWiseMeasurement#processingConfig
+   */
+  readonly processingConfig?: IoTSiteWiseMeasurementProcessingConfig;
+
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseMeasurement' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseMeasurement(obj: IoTSiteWiseMeasurement | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'processingConfig': toJson_IoTSiteWiseMeasurementProcessingConfig(obj.processingConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseTransform
@@ -3280,7 +6609,28 @@ export interface IoTSiteWiseTransform {
    */
   readonly variables: IoTSiteWiseExpressionVariable[];
 
+  /**
+   * @schema IoTSiteWiseTransform#processingConfig
+   */
+  readonly processingConfig?: IoTSiteWiseTransformProcessingConfig;
+
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseTransform' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseTransform(obj: IoTSiteWiseTransform | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'expression': obj.expression,
+    'variables': obj.variables?.map(y => toJson_IoTSiteWiseExpressionVariable(y)),
+    'processingConfig': toJson_IoTSiteWiseTransformProcessingConfig(obj.processingConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseMetric
@@ -3301,7 +6651,54 @@ export interface IoTSiteWiseMetric {
    */
   readonly window: IoTSiteWiseMetricWindow;
 
+  /**
+   * @schema IoTSiteWiseMetric#processingConfig
+   */
+  readonly processingConfig?: IoTSiteWiseMetricProcessingConfig;
+
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseMetric' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseMetric(obj: IoTSiteWiseMetric | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'expression': obj.expression,
+    'variables': obj.variables?.map(y => toJson_IoTSiteWiseExpressionVariable(y)),
+    'window': toJson_IoTSiteWiseMetricWindow(obj.window),
+    'processingConfig': toJson_IoTSiteWiseMetricProcessingConfig(obj.processingConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseMeasurementProcessingConfig
+ */
+export interface IoTSiteWiseMeasurementProcessingConfig {
+  /**
+   * @schema IoTSiteWiseMeasurementProcessingConfig#forwardingConfig
+   */
+  readonly forwardingConfig: IoTSiteWiseForwardingConfig;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseMeasurementProcessingConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseMeasurementProcessingConfig(obj: IoTSiteWiseMeasurementProcessingConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'forwardingConfig': toJson_IoTSiteWiseForwardingConfig(obj.forwardingConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseExpressionVariable
@@ -3320,6 +6717,52 @@ export interface IoTSiteWiseExpressionVariable {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseExpressionVariable' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseExpressionVariable(obj: IoTSiteWiseExpressionVariable | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'value': toJson_IoTSiteWiseVariableValue(obj.value),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseTransformProcessingConfig
+ */
+export interface IoTSiteWiseTransformProcessingConfig {
+  /**
+   * @schema IoTSiteWiseTransformProcessingConfig#computeLocation
+   */
+  readonly computeLocation: string;
+
+  /**
+   * @schema IoTSiteWiseTransformProcessingConfig#forwardingConfig
+   */
+  readonly forwardingConfig?: IoTSiteWiseForwardingConfig;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseTransformProcessingConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseTransformProcessingConfig(obj: IoTSiteWiseTransformProcessingConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'computeLocation': obj.computeLocation,
+    'forwardingConfig': toJson_IoTSiteWiseForwardingConfig(obj.forwardingConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseMetricWindow
  */
 export interface IoTSiteWiseMetricWindow {
@@ -3329,6 +6772,70 @@ export interface IoTSiteWiseMetricWindow {
   readonly tumbling?: IoTSiteWiseTumblingWindow;
 
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseMetricWindow' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseMetricWindow(obj: IoTSiteWiseMetricWindow | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tumbling': toJson_IoTSiteWiseTumblingWindow(obj.tumbling),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseMetricProcessingConfig
+ */
+export interface IoTSiteWiseMetricProcessingConfig {
+  /**
+   * @schema IoTSiteWiseMetricProcessingConfig#computeLocation
+   */
+  readonly computeLocation: string;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseMetricProcessingConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseMetricProcessingConfig(obj: IoTSiteWiseMetricProcessingConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'computeLocation': obj.computeLocation,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTSiteWiseForwardingConfig
+ */
+export interface IoTSiteWiseForwardingConfig {
+  /**
+   * @schema IoTSiteWiseForwardingConfig#state
+   */
+  readonly state: string;
+
+}
+
+/**
+ * Converts an object of type 'IoTSiteWiseForwardingConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseForwardingConfig(obj: IoTSiteWiseForwardingConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'state': obj.state,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSiteWiseVariableValue
@@ -3347,6 +6854,21 @@ export interface IoTSiteWiseVariableValue {
 }
 
 /**
+ * Converts an object of type 'IoTSiteWiseVariableValue' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseVariableValue(obj: IoTSiteWiseVariableValue | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'propertyId': obj.propertyId,
+    'hierarchyId': obj.hierarchyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSiteWiseTumblingWindow
  */
 export interface IoTSiteWiseTumblingWindow {
@@ -3355,4 +6877,24 @@ export interface IoTSiteWiseTumblingWindow {
    */
   readonly interval: string;
 
+  /**
+   * @schema IoTSiteWiseTumblingWindow#offset
+   */
+  readonly offset?: string;
+
 }
+
+/**
+ * Converts an object of type 'IoTSiteWiseTumblingWindow' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSiteWiseTumblingWindow(obj: IoTSiteWiseTumblingWindow | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'interval': obj.interval,
+    'offset': obj.offset,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

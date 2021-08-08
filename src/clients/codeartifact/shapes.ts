@@ -25,6 +25,23 @@ export interface CodeArtifactAssociateExternalConnectionRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactAssociateExternalConnectionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactAssociateExternalConnectionRequest(obj: CodeArtifactAssociateExternalConnectionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+    'externalConnection': obj.externalConnection,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactAssociateExternalConnectionResult
  */
 export interface CodeArtifactAssociateExternalConnectionResult {
@@ -34,6 +51,20 @@ export interface CodeArtifactAssociateExternalConnectionResult {
   readonly repository?: CodeArtifactRepositoryDescription;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactAssociateExternalConnectionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactAssociateExternalConnectionResult(obj: CodeArtifactAssociateExternalConnectionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repository': toJson_CodeArtifactRepositoryDescription(obj.repository),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactCopyPackageVersionsRequest
@@ -97,6 +128,30 @@ export interface CodeArtifactCopyPackageVersionsRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactCopyPackageVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactCopyPackageVersionsRequest(obj: CodeArtifactCopyPackageVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'sourceRepository': obj.sourceRepository,
+    'destinationRepository': obj.destinationRepository,
+    'format': obj.format,
+    'namespace': obj.namespace,
+    'package': obj.package,
+    'versions': obj.versions?.map(y => y),
+    'versionRevisions': ((obj.versionRevisions) === undefined) ? undefined : (Object.entries(obj.versionRevisions).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'allowOverwrite': obj.allowOverwrite,
+    'includeFromUpstream': obj.includeFromUpstream,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactCopyPackageVersionsResult
  */
 export interface CodeArtifactCopyPackageVersionsResult {
@@ -111,6 +166,21 @@ export interface CodeArtifactCopyPackageVersionsResult {
   readonly failedVersions?: { [key: string]: CodeArtifactPackageVersionError };
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactCopyPackageVersionsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactCopyPackageVersionsResult(obj: CodeArtifactCopyPackageVersionsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'successfulVersions': ((obj.successfulVersions) === undefined) ? undefined : (Object.entries(obj.successfulVersions).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_CodeArtifactSuccessfulPackageVersionInfo(i[1]) }), {})),
+    'failedVersions': ((obj.failedVersions) === undefined) ? undefined : (Object.entries(obj.failedVersions).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_CodeArtifactPackageVersionError(i[1]) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactCreateDomainRequest
@@ -134,6 +204,22 @@ export interface CodeArtifactCreateDomainRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactCreateDomainRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactCreateDomainRequest(obj: CodeArtifactCreateDomainRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'encryptionKey': obj.encryptionKey,
+    'tags': obj.tags?.map(y => toJson_CodeArtifactTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactCreateDomainResult
  */
 export interface CodeArtifactCreateDomainResult {
@@ -143,6 +229,20 @@ export interface CodeArtifactCreateDomainResult {
   readonly domain?: CodeArtifactDomainDescription;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactCreateDomainResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactCreateDomainResult(obj: CodeArtifactCreateDomainResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': toJson_CodeArtifactDomainDescription(obj.domain),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactCreateRepositoryRequest
@@ -181,6 +281,25 @@ export interface CodeArtifactCreateRepositoryRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactCreateRepositoryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactCreateRepositoryRequest(obj: CodeArtifactCreateRepositoryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+    'description': obj.description,
+    'upstreams': obj.upstreams?.map(y => toJson_CodeArtifactUpstreamRepository(y)),
+    'tags': obj.tags?.map(y => toJson_CodeArtifactTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactCreateRepositoryResult
  */
 export interface CodeArtifactCreateRepositoryResult {
@@ -190,6 +309,20 @@ export interface CodeArtifactCreateRepositoryResult {
   readonly repository?: CodeArtifactRepositoryDescription;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactCreateRepositoryResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactCreateRepositoryResult(obj: CodeArtifactCreateRepositoryResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repository': toJson_CodeArtifactRepositoryDescription(obj.repository),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactDeleteDomainRequest
@@ -208,6 +341,21 @@ export interface CodeArtifactDeleteDomainRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactDeleteDomainRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDeleteDomainRequest(obj: CodeArtifactDeleteDomainRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactDeleteDomainResult
  */
 export interface CodeArtifactDeleteDomainResult {
@@ -217,6 +365,20 @@ export interface CodeArtifactDeleteDomainResult {
   readonly domain?: CodeArtifactDomainDescription;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactDeleteDomainResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDeleteDomainResult(obj: CodeArtifactDeleteDomainResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': toJson_CodeArtifactDomainDescription(obj.domain),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactDeleteDomainPermissionsPolicyRequest
@@ -240,6 +402,22 @@ export interface CodeArtifactDeleteDomainPermissionsPolicyRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactDeleteDomainPermissionsPolicyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDeleteDomainPermissionsPolicyRequest(obj: CodeArtifactDeleteDomainPermissionsPolicyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'policyRevision': obj.policyRevision,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactDeleteDomainPermissionsPolicyResult
  */
 export interface CodeArtifactDeleteDomainPermissionsPolicyResult {
@@ -249,6 +427,20 @@ export interface CodeArtifactDeleteDomainPermissionsPolicyResult {
   readonly policy?: CodeArtifactResourcePolicy;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactDeleteDomainPermissionsPolicyResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDeleteDomainPermissionsPolicyResult(obj: CodeArtifactDeleteDomainPermissionsPolicyResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'policy': toJson_CodeArtifactResourcePolicy(obj.policy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactDeletePackageVersionsRequest
@@ -297,6 +489,27 @@ export interface CodeArtifactDeletePackageVersionsRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactDeletePackageVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDeletePackageVersionsRequest(obj: CodeArtifactDeletePackageVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+    'format': obj.format,
+    'namespace': obj.namespace,
+    'package': obj.package,
+    'versions': obj.versions?.map(y => y),
+    'expectedStatus': obj.expectedStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactDeletePackageVersionsResult
  */
 export interface CodeArtifactDeletePackageVersionsResult {
@@ -311,6 +524,21 @@ export interface CodeArtifactDeletePackageVersionsResult {
   readonly failedVersions?: { [key: string]: CodeArtifactPackageVersionError };
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactDeletePackageVersionsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDeletePackageVersionsResult(obj: CodeArtifactDeletePackageVersionsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'successfulVersions': ((obj.successfulVersions) === undefined) ? undefined : (Object.entries(obj.successfulVersions).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_CodeArtifactSuccessfulPackageVersionInfo(i[1]) }), {})),
+    'failedVersions': ((obj.failedVersions) === undefined) ? undefined : (Object.entries(obj.failedVersions).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_CodeArtifactPackageVersionError(i[1]) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactDeleteRepositoryRequest
@@ -334,6 +562,22 @@ export interface CodeArtifactDeleteRepositoryRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactDeleteRepositoryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDeleteRepositoryRequest(obj: CodeArtifactDeleteRepositoryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactDeleteRepositoryResult
  */
 export interface CodeArtifactDeleteRepositoryResult {
@@ -343,6 +587,20 @@ export interface CodeArtifactDeleteRepositoryResult {
   readonly repository?: CodeArtifactRepositoryDescription;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactDeleteRepositoryResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDeleteRepositoryResult(obj: CodeArtifactDeleteRepositoryResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repository': toJson_CodeArtifactRepositoryDescription(obj.repository),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactDeleteRepositoryPermissionsPolicyRequest
@@ -371,6 +629,23 @@ export interface CodeArtifactDeleteRepositoryPermissionsPolicyRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactDeleteRepositoryPermissionsPolicyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDeleteRepositoryPermissionsPolicyRequest(obj: CodeArtifactDeleteRepositoryPermissionsPolicyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+    'policyRevision': obj.policyRevision,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactDeleteRepositoryPermissionsPolicyResult
  */
 export interface CodeArtifactDeleteRepositoryPermissionsPolicyResult {
@@ -380,6 +655,20 @@ export interface CodeArtifactDeleteRepositoryPermissionsPolicyResult {
   readonly policy?: CodeArtifactResourcePolicy;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactDeleteRepositoryPermissionsPolicyResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDeleteRepositoryPermissionsPolicyResult(obj: CodeArtifactDeleteRepositoryPermissionsPolicyResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'policy': toJson_CodeArtifactResourcePolicy(obj.policy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactDescribeDomainRequest
@@ -398,6 +687,21 @@ export interface CodeArtifactDescribeDomainRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactDescribeDomainRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDescribeDomainRequest(obj: CodeArtifactDescribeDomainRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactDescribeDomainResult
  */
 export interface CodeArtifactDescribeDomainResult {
@@ -407,6 +711,20 @@ export interface CodeArtifactDescribeDomainResult {
   readonly domain?: CodeArtifactDomainDescription;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactDescribeDomainResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDescribeDomainResult(obj: CodeArtifactDescribeDomainResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': toJson_CodeArtifactDomainDescription(obj.domain),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactDescribePackageVersionRequest
@@ -450,6 +768,26 @@ export interface CodeArtifactDescribePackageVersionRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactDescribePackageVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDescribePackageVersionRequest(obj: CodeArtifactDescribePackageVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+    'format': obj.format,
+    'namespace': obj.namespace,
+    'package': obj.package,
+    'packageVersion': obj.packageVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactDescribePackageVersionResult
  */
 export interface CodeArtifactDescribePackageVersionResult {
@@ -459,6 +797,20 @@ export interface CodeArtifactDescribePackageVersionResult {
   readonly packageVersion: CodeArtifactPackageVersionDescription;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactDescribePackageVersionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDescribePackageVersionResult(obj: CodeArtifactDescribePackageVersionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'packageVersion': toJson_CodeArtifactPackageVersionDescription(obj.packageVersion),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactDescribeRepositoryRequest
@@ -482,6 +834,22 @@ export interface CodeArtifactDescribeRepositoryRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactDescribeRepositoryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDescribeRepositoryRequest(obj: CodeArtifactDescribeRepositoryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactDescribeRepositoryResult
  */
 export interface CodeArtifactDescribeRepositoryResult {
@@ -491,6 +859,20 @@ export interface CodeArtifactDescribeRepositoryResult {
   readonly repository?: CodeArtifactRepositoryDescription;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactDescribeRepositoryResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDescribeRepositoryResult(obj: CodeArtifactDescribeRepositoryResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repository': toJson_CodeArtifactRepositoryDescription(obj.repository),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactDisassociateExternalConnectionRequest
@@ -519,6 +901,23 @@ export interface CodeArtifactDisassociateExternalConnectionRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactDisassociateExternalConnectionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDisassociateExternalConnectionRequest(obj: CodeArtifactDisassociateExternalConnectionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+    'externalConnection': obj.externalConnection,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactDisassociateExternalConnectionResult
  */
 export interface CodeArtifactDisassociateExternalConnectionResult {
@@ -528,6 +927,20 @@ export interface CodeArtifactDisassociateExternalConnectionResult {
   readonly repository?: CodeArtifactRepositoryDescription;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactDisassociateExternalConnectionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDisassociateExternalConnectionResult(obj: CodeArtifactDisassociateExternalConnectionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repository': toJson_CodeArtifactRepositoryDescription(obj.repository),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactDisposePackageVersionsRequest
@@ -581,6 +994,28 @@ export interface CodeArtifactDisposePackageVersionsRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactDisposePackageVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDisposePackageVersionsRequest(obj: CodeArtifactDisposePackageVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+    'format': obj.format,
+    'namespace': obj.namespace,
+    'package': obj.package,
+    'versions': obj.versions?.map(y => y),
+    'versionRevisions': ((obj.versionRevisions) === undefined) ? undefined : (Object.entries(obj.versionRevisions).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'expectedStatus': obj.expectedStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactDisposePackageVersionsResult
  */
 export interface CodeArtifactDisposePackageVersionsResult {
@@ -595,6 +1030,21 @@ export interface CodeArtifactDisposePackageVersionsResult {
   readonly failedVersions?: { [key: string]: CodeArtifactPackageVersionError };
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactDisposePackageVersionsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDisposePackageVersionsResult(obj: CodeArtifactDisposePackageVersionsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'successfulVersions': ((obj.successfulVersions) === undefined) ? undefined : (Object.entries(obj.successfulVersions).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_CodeArtifactSuccessfulPackageVersionInfo(i[1]) }), {})),
+    'failedVersions': ((obj.failedVersions) === undefined) ? undefined : (Object.entries(obj.failedVersions).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_CodeArtifactPackageVersionError(i[1]) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactGetAuthorizationTokenRequest
@@ -618,6 +1068,22 @@ export interface CodeArtifactGetAuthorizationTokenRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactGetAuthorizationTokenRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactGetAuthorizationTokenRequest(obj: CodeArtifactGetAuthorizationTokenRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'durationSeconds': obj.durationSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactGetAuthorizationTokenResult
  */
 export interface CodeArtifactGetAuthorizationTokenResult {
@@ -632,6 +1098,21 @@ export interface CodeArtifactGetAuthorizationTokenResult {
   readonly expiration?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactGetAuthorizationTokenResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactGetAuthorizationTokenResult(obj: CodeArtifactGetAuthorizationTokenResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'authorizationToken': obj.authorizationToken,
+    'expiration': obj.expiration,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactGetDomainPermissionsPolicyRequest
@@ -650,6 +1131,21 @@ export interface CodeArtifactGetDomainPermissionsPolicyRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactGetDomainPermissionsPolicyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactGetDomainPermissionsPolicyRequest(obj: CodeArtifactGetDomainPermissionsPolicyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactGetDomainPermissionsPolicyResult
  */
 export interface CodeArtifactGetDomainPermissionsPolicyResult {
@@ -659,6 +1155,20 @@ export interface CodeArtifactGetDomainPermissionsPolicyResult {
   readonly policy?: CodeArtifactResourcePolicy;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactGetDomainPermissionsPolicyResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactGetDomainPermissionsPolicyResult(obj: CodeArtifactGetDomainPermissionsPolicyResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'policy': toJson_CodeArtifactResourcePolicy(obj.policy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactGetPackageVersionAssetRequest
@@ -712,6 +1222,28 @@ export interface CodeArtifactGetPackageVersionAssetRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactGetPackageVersionAssetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactGetPackageVersionAssetRequest(obj: CodeArtifactGetPackageVersionAssetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+    'format': obj.format,
+    'namespace': obj.namespace,
+    'package': obj.package,
+    'packageVersion': obj.packageVersion,
+    'asset': obj.asset,
+    'packageVersionRevision': obj.packageVersionRevision,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactGetPackageVersionAssetResult
  */
 export interface CodeArtifactGetPackageVersionAssetResult {
@@ -736,6 +1268,23 @@ export interface CodeArtifactGetPackageVersionAssetResult {
   readonly packageVersionRevision?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactGetPackageVersionAssetResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactGetPackageVersionAssetResult(obj: CodeArtifactGetPackageVersionAssetResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'asset': obj.asset,
+    'assetName': obj.assetName,
+    'packageVersion': obj.packageVersion,
+    'packageVersionRevision': obj.packageVersionRevision,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactGetPackageVersionReadmeRequest
@@ -779,6 +1328,26 @@ export interface CodeArtifactGetPackageVersionReadmeRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactGetPackageVersionReadmeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactGetPackageVersionReadmeRequest(obj: CodeArtifactGetPackageVersionReadmeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+    'format': obj.format,
+    'namespace': obj.namespace,
+    'package': obj.package,
+    'packageVersion': obj.packageVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactGetPackageVersionReadmeResult
  */
 export interface CodeArtifactGetPackageVersionReadmeResult {
@@ -815,6 +1384,25 @@ export interface CodeArtifactGetPackageVersionReadmeResult {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactGetPackageVersionReadmeResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactGetPackageVersionReadmeResult(obj: CodeArtifactGetPackageVersionReadmeResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'format': obj.format,
+    'namespace': obj.namespace,
+    'package': obj.package,
+    'version': obj.version,
+    'versionRevision': obj.versionRevision,
+    'readme': obj.readme,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactGetRepositoryEndpointRequest
  */
 export interface CodeArtifactGetRepositoryEndpointRequest {
@@ -841,6 +1429,23 @@ export interface CodeArtifactGetRepositoryEndpointRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactGetRepositoryEndpointRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactGetRepositoryEndpointRequest(obj: CodeArtifactGetRepositoryEndpointRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+    'format': obj.format,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactGetRepositoryEndpointResult
  */
 export interface CodeArtifactGetRepositoryEndpointResult {
@@ -850,6 +1455,20 @@ export interface CodeArtifactGetRepositoryEndpointResult {
   readonly repositoryEndpoint?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactGetRepositoryEndpointResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactGetRepositoryEndpointResult(obj: CodeArtifactGetRepositoryEndpointResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryEndpoint': obj.repositoryEndpoint,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactGetRepositoryPermissionsPolicyRequest
@@ -873,6 +1492,22 @@ export interface CodeArtifactGetRepositoryPermissionsPolicyRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactGetRepositoryPermissionsPolicyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactGetRepositoryPermissionsPolicyRequest(obj: CodeArtifactGetRepositoryPermissionsPolicyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactGetRepositoryPermissionsPolicyResult
  */
 export interface CodeArtifactGetRepositoryPermissionsPolicyResult {
@@ -882,6 +1517,20 @@ export interface CodeArtifactGetRepositoryPermissionsPolicyResult {
   readonly policy?: CodeArtifactResourcePolicy;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactGetRepositoryPermissionsPolicyResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactGetRepositoryPermissionsPolicyResult(obj: CodeArtifactGetRepositoryPermissionsPolicyResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'policy': toJson_CodeArtifactResourcePolicy(obj.policy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactListDomainsRequest
@@ -900,6 +1549,21 @@ export interface CodeArtifactListDomainsRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactListDomainsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactListDomainsRequest(obj: CodeArtifactListDomainsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactListDomainsResult
  */
 export interface CodeArtifactListDomainsResult {
@@ -914,6 +1578,21 @@ export interface CodeArtifactListDomainsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactListDomainsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactListDomainsResult(obj: CodeArtifactListDomainsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domains': obj.domains?.map(y => toJson_CodeArtifactDomainSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactListPackageVersionAssetsRequest
@@ -967,6 +1646,28 @@ export interface CodeArtifactListPackageVersionAssetsRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactListPackageVersionAssetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactListPackageVersionAssetsRequest(obj: CodeArtifactListPackageVersionAssetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+    'format': obj.format,
+    'namespace': obj.namespace,
+    'package': obj.package,
+    'packageVersion': obj.packageVersion,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactListPackageVersionAssetsResult
  */
 export interface CodeArtifactListPackageVersionAssetsResult {
@@ -1006,6 +1707,26 @@ export interface CodeArtifactListPackageVersionAssetsResult {
   readonly assets?: CodeArtifactAssetSummary[];
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactListPackageVersionAssetsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactListPackageVersionAssetsResult(obj: CodeArtifactListPackageVersionAssetsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'format': obj.format,
+    'namespace': obj.namespace,
+    'package': obj.package,
+    'version': obj.version,
+    'versionRevision': obj.versionRevision,
+    'nextToken': obj.nextToken,
+    'assets': obj.assets?.map(y => toJson_CodeArtifactAssetSummary(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactListPackageVersionDependenciesRequest
@@ -1054,6 +1775,27 @@ export interface CodeArtifactListPackageVersionDependenciesRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactListPackageVersionDependenciesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactListPackageVersionDependenciesRequest(obj: CodeArtifactListPackageVersionDependenciesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+    'format': obj.format,
+    'namespace': obj.namespace,
+    'package': obj.package,
+    'packageVersion': obj.packageVersion,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactListPackageVersionDependenciesResult
  */
 export interface CodeArtifactListPackageVersionDependenciesResult {
@@ -1093,6 +1835,26 @@ export interface CodeArtifactListPackageVersionDependenciesResult {
   readonly dependencies?: CodeArtifactPackageDependency[];
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactListPackageVersionDependenciesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactListPackageVersionDependenciesResult(obj: CodeArtifactListPackageVersionDependenciesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'format': obj.format,
+    'namespace': obj.namespace,
+    'package': obj.package,
+    'version': obj.version,
+    'versionRevision': obj.versionRevision,
+    'nextToken': obj.nextToken,
+    'dependencies': obj.dependencies?.map(y => toJson_CodeArtifactPackageDependency(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactListPackageVersionsRequest
@@ -1151,6 +1913,29 @@ export interface CodeArtifactListPackageVersionsRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactListPackageVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactListPackageVersionsRequest(obj: CodeArtifactListPackageVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+    'format': obj.format,
+    'namespace': obj.namespace,
+    'package': obj.package,
+    'status': obj.status,
+    'sortBy': obj.sortBy,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactListPackageVersionsResult
  */
 export interface CodeArtifactListPackageVersionsResult {
@@ -1185,6 +1970,25 @@ export interface CodeArtifactListPackageVersionsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactListPackageVersionsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactListPackageVersionsResult(obj: CodeArtifactListPackageVersionsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'defaultDisplayVersion': obj.defaultDisplayVersion,
+    'format': obj.format,
+    'namespace': obj.namespace,
+    'package': obj.package,
+    'versions': obj.versions?.map(y => toJson_CodeArtifactPackageVersionSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactListPackagesRequest
@@ -1233,6 +2037,27 @@ export interface CodeArtifactListPackagesRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactListPackagesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactListPackagesRequest(obj: CodeArtifactListPackagesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+    'format': obj.format,
+    'namespace': obj.namespace,
+    'packagePrefix': obj.packagePrefix,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactListPackagesResult
  */
 export interface CodeArtifactListPackagesResult {
@@ -1247,6 +2072,21 @@ export interface CodeArtifactListPackagesResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactListPackagesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactListPackagesResult(obj: CodeArtifactListPackagesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'packages': obj.packages?.map(y => toJson_CodeArtifactPackageSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactListRepositoriesRequest
@@ -1270,6 +2110,22 @@ export interface CodeArtifactListRepositoriesRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactListRepositoriesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactListRepositoriesRequest(obj: CodeArtifactListRepositoriesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryPrefix': obj.repositoryPrefix,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactListRepositoriesResult
  */
 export interface CodeArtifactListRepositoriesResult {
@@ -1284,6 +2140,21 @@ export interface CodeArtifactListRepositoriesResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactListRepositoriesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactListRepositoriesResult(obj: CodeArtifactListRepositoriesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositories': obj.repositories?.map(y => toJson_CodeArtifactRepositorySummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactListRepositoriesInDomainRequest
@@ -1322,6 +2193,25 @@ export interface CodeArtifactListRepositoriesInDomainRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactListRepositoriesInDomainRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactListRepositoriesInDomainRequest(obj: CodeArtifactListRepositoriesInDomainRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'administratorAccount': obj.administratorAccount,
+    'repositoryPrefix': obj.repositoryPrefix,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactListRepositoriesInDomainResult
  */
 export interface CodeArtifactListRepositoriesInDomainResult {
@@ -1338,6 +2228,21 @@ export interface CodeArtifactListRepositoriesInDomainResult {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactListRepositoriesInDomainResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactListRepositoriesInDomainResult(obj: CodeArtifactListRepositoriesInDomainResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositories': obj.repositories?.map(y => toJson_CodeArtifactRepositorySummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactListTagsForResourceRequest
  */
 export interface CodeArtifactListTagsForResourceRequest {
@@ -1349,6 +2254,20 @@ export interface CodeArtifactListTagsForResourceRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactListTagsForResourceRequest(obj: CodeArtifactListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactListTagsForResourceResult
  */
 export interface CodeArtifactListTagsForResourceResult {
@@ -1358,6 +2277,20 @@ export interface CodeArtifactListTagsForResourceResult {
   readonly tags?: CodeArtifactTag[];
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactListTagsForResourceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactListTagsForResourceResult(obj: CodeArtifactListTagsForResourceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': obj.tags?.map(y => toJson_CodeArtifactTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactPutDomainPermissionsPolicyRequest
@@ -1386,6 +2319,23 @@ export interface CodeArtifactPutDomainPermissionsPolicyRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactPutDomainPermissionsPolicyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactPutDomainPermissionsPolicyRequest(obj: CodeArtifactPutDomainPermissionsPolicyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'policyRevision': obj.policyRevision,
+    'policyDocument': obj.policyDocument,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactPutDomainPermissionsPolicyResult
  */
 export interface CodeArtifactPutDomainPermissionsPolicyResult {
@@ -1395,6 +2345,20 @@ export interface CodeArtifactPutDomainPermissionsPolicyResult {
   readonly policy?: CodeArtifactResourcePolicy;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactPutDomainPermissionsPolicyResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactPutDomainPermissionsPolicyResult(obj: CodeArtifactPutDomainPermissionsPolicyResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'policy': toJson_CodeArtifactResourcePolicy(obj.policy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactPutRepositoryPermissionsPolicyRequest
@@ -1428,6 +2392,24 @@ export interface CodeArtifactPutRepositoryPermissionsPolicyRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactPutRepositoryPermissionsPolicyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactPutRepositoryPermissionsPolicyRequest(obj: CodeArtifactPutRepositoryPermissionsPolicyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+    'policyRevision': obj.policyRevision,
+    'policyDocument': obj.policyDocument,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactPutRepositoryPermissionsPolicyResult
  */
 export interface CodeArtifactPutRepositoryPermissionsPolicyResult {
@@ -1437,6 +2419,20 @@ export interface CodeArtifactPutRepositoryPermissionsPolicyResult {
   readonly policy?: CodeArtifactResourcePolicy;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactPutRepositoryPermissionsPolicyResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactPutRepositoryPermissionsPolicyResult(obj: CodeArtifactPutRepositoryPermissionsPolicyResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'policy': toJson_CodeArtifactResourcePolicy(obj.policy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactTagResourceRequest
@@ -1455,10 +2451,38 @@ export interface CodeArtifactTagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactTagResourceRequest(obj: CodeArtifactTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': obj.tags?.map(y => toJson_CodeArtifactTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactTagResourceResult
  */
 export interface CodeArtifactTagResourceResult {
 }
+
+/**
+ * Converts an object of type 'CodeArtifactTagResourceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactTagResourceResult(obj: CodeArtifactTagResourceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactUntagResourceRequest
@@ -1477,10 +2501,38 @@ export interface CodeArtifactUntagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactUntagResourceRequest(obj: CodeArtifactUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactUntagResourceResult
  */
 export interface CodeArtifactUntagResourceResult {
 }
+
+/**
+ * Converts an object of type 'CodeArtifactUntagResourceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactUntagResourceResult(obj: CodeArtifactUntagResourceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactUpdatePackageVersionsStatusRequest
@@ -1539,6 +2591,29 @@ export interface CodeArtifactUpdatePackageVersionsStatusRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactUpdatePackageVersionsStatusRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactUpdatePackageVersionsStatusRequest(obj: CodeArtifactUpdatePackageVersionsStatusRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+    'format': obj.format,
+    'namespace': obj.namespace,
+    'package': obj.package,
+    'versions': obj.versions?.map(y => y),
+    'versionRevisions': ((obj.versionRevisions) === undefined) ? undefined : (Object.entries(obj.versionRevisions).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'expectedStatus': obj.expectedStatus,
+    'targetStatus': obj.targetStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactUpdatePackageVersionsStatusResult
  */
 export interface CodeArtifactUpdatePackageVersionsStatusResult {
@@ -1553,6 +2628,21 @@ export interface CodeArtifactUpdatePackageVersionsStatusResult {
   readonly failedVersions?: { [key: string]: CodeArtifactPackageVersionError };
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactUpdatePackageVersionsStatusResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactUpdatePackageVersionsStatusResult(obj: CodeArtifactUpdatePackageVersionsStatusResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'successfulVersions': ((obj.successfulVersions) === undefined) ? undefined : (Object.entries(obj.successfulVersions).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_CodeArtifactSuccessfulPackageVersionInfo(i[1]) }), {})),
+    'failedVersions': ((obj.failedVersions) === undefined) ? undefined : (Object.entries(obj.failedVersions).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_CodeArtifactPackageVersionError(i[1]) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactUpdateRepositoryRequest
@@ -1586,6 +2676,24 @@ export interface CodeArtifactUpdateRepositoryRequest {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactUpdateRepositoryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactUpdateRepositoryRequest(obj: CodeArtifactUpdateRepositoryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'domainOwner': obj.domainOwner,
+    'repository': obj.repository,
+    'description': obj.description,
+    'upstreams': obj.upstreams?.map(y => toJson_CodeArtifactUpstreamRepository(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactUpdateRepositoryResult
  */
 export interface CodeArtifactUpdateRepositoryResult {
@@ -1595,6 +2703,20 @@ export interface CodeArtifactUpdateRepositoryResult {
   readonly repository?: CodeArtifactRepositoryDescription;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactUpdateRepositoryResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactUpdateRepositoryResult(obj: CodeArtifactUpdateRepositoryResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repository': toJson_CodeArtifactRepositoryDescription(obj.repository),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactRepositoryDescription
@@ -1643,6 +2765,27 @@ export interface CodeArtifactRepositoryDescription {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactRepositoryDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactRepositoryDescription(obj: CodeArtifactRepositoryDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'administratorAccount': obj.administratorAccount,
+    'domainName': obj.domainName,
+    'domainOwner': obj.domainOwner,
+    'arn': obj.arn,
+    'description': obj.description,
+    'upstreams': obj.upstreams?.map(y => toJson_CodeArtifactUpstreamRepositoryInfo(y)),
+    'externalConnections': obj.externalConnections?.map(y => toJson_CodeArtifactRepositoryExternalConnectionInfo(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactSuccessfulPackageVersionInfo
  */
 export interface CodeArtifactSuccessfulPackageVersionInfo {
@@ -1657,6 +2800,21 @@ export interface CodeArtifactSuccessfulPackageVersionInfo {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactSuccessfulPackageVersionInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactSuccessfulPackageVersionInfo(obj: CodeArtifactSuccessfulPackageVersionInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'revision': obj.revision,
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactPackageVersionError
@@ -1675,6 +2833,21 @@ export interface CodeArtifactPackageVersionError {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactPackageVersionError' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactPackageVersionError(obj: CodeArtifactPackageVersionError | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'errorCode': obj.errorCode,
+    'errorMessage': obj.errorMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactTag
  */
 export interface CodeArtifactTag {
@@ -1689,6 +2862,21 @@ export interface CodeArtifactTag {
   readonly value: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactTag(obj: CodeArtifactTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactDomainDescription
@@ -1742,6 +2930,28 @@ export interface CodeArtifactDomainDescription {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactDomainDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDomainDescription(obj: CodeArtifactDomainDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'owner': obj.owner,
+    'arn': obj.arn,
+    'status': obj.status,
+    'createdTime': obj.createdTime,
+    'encryptionKey': obj.encryptionKey,
+    'repositoryCount': obj.repositoryCount,
+    'assetSizeBytes': obj.assetSizeBytes,
+    's3BucketArn': obj.s3BucketArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactUpstreamRepository
  */
 export interface CodeArtifactUpstreamRepository {
@@ -1751,6 +2961,20 @@ export interface CodeArtifactUpstreamRepository {
   readonly repositoryName: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactUpstreamRepository' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactUpstreamRepository(obj: CodeArtifactUpstreamRepository | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactResourcePolicy
@@ -1772,6 +2996,22 @@ export interface CodeArtifactResourcePolicy {
   readonly document?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactResourcePolicy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactResourcePolicy(obj: CodeArtifactResourcePolicy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'revision': obj.revision,
+    'document': obj.document,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactPackageVersionDescription
@@ -1840,6 +3080,31 @@ export interface CodeArtifactPackageVersionDescription {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactPackageVersionDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactPackageVersionDescription(obj: CodeArtifactPackageVersionDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'format': obj.format,
+    'namespace': obj.namespace,
+    'packageName': obj.packageName,
+    'displayName': obj.displayName,
+    'version': obj.version,
+    'summary': obj.summary,
+    'homePage': obj.homePage,
+    'sourceCodeRepository': obj.sourceCodeRepository,
+    'publishedTime': obj.publishedTime,
+    'licenses': obj.licenses?.map(y => toJson_CodeArtifactLicenseInfo(y)),
+    'revision': obj.revision,
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactDomainSummary
  */
 export interface CodeArtifactDomainSummary {
@@ -1876,6 +3141,25 @@ export interface CodeArtifactDomainSummary {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactDomainSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactDomainSummary(obj: CodeArtifactDomainSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'owner': obj.owner,
+    'arn': obj.arn,
+    'status': obj.status,
+    'createdTime': obj.createdTime,
+    'encryptionKey': obj.encryptionKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactAssetSummary
  */
 export interface CodeArtifactAssetSummary {
@@ -1895,6 +3179,22 @@ export interface CodeArtifactAssetSummary {
   readonly hashes?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactAssetSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactAssetSummary(obj: CodeArtifactAssetSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'size': obj.size,
+    'hashes': ((obj.hashes) === undefined) ? undefined : (Object.entries(obj.hashes).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactPackageDependency
@@ -1923,6 +3223,23 @@ export interface CodeArtifactPackageDependency {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactPackageDependency' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactPackageDependency(obj: CodeArtifactPackageDependency | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'namespace': obj.namespace,
+    'package': obj.package,
+    'dependencyType': obj.dependencyType,
+    'versionRequirement': obj.versionRequirement,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactPackageVersionSummary
  */
 export interface CodeArtifactPackageVersionSummary {
@@ -1944,6 +3261,22 @@ export interface CodeArtifactPackageVersionSummary {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactPackageVersionSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactPackageVersionSummary(obj: CodeArtifactPackageVersionSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'version': obj.version,
+    'revision': obj.revision,
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactPackageSummary
  */
 export interface CodeArtifactPackageSummary {
@@ -1963,6 +3296,22 @@ export interface CodeArtifactPackageSummary {
   readonly package?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactPackageSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactPackageSummary(obj: CodeArtifactPackageSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'format': obj.format,
+    'namespace': obj.namespace,
+    'package': obj.package,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactRepositorySummary
@@ -2001,6 +3350,25 @@ export interface CodeArtifactRepositorySummary {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactRepositorySummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactRepositorySummary(obj: CodeArtifactRepositorySummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'administratorAccount': obj.administratorAccount,
+    'domainName': obj.domainName,
+    'domainOwner': obj.domainOwner,
+    'arn': obj.arn,
+    'description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactUpstreamRepositoryInfo
  */
 export interface CodeArtifactUpstreamRepositoryInfo {
@@ -2010,6 +3378,20 @@ export interface CodeArtifactUpstreamRepositoryInfo {
   readonly repositoryName?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactUpstreamRepositoryInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactUpstreamRepositoryInfo(obj: CodeArtifactUpstreamRepositoryInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repositoryName': obj.repositoryName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeArtifactRepositoryExternalConnectionInfo
@@ -2033,6 +3415,22 @@ export interface CodeArtifactRepositoryExternalConnectionInfo {
 }
 
 /**
+ * Converts an object of type 'CodeArtifactRepositoryExternalConnectionInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactRepositoryExternalConnectionInfo(obj: CodeArtifactRepositoryExternalConnectionInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'externalConnectionName': obj.externalConnectionName,
+    'packageFormat': obj.packageFormat,
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeArtifactLicenseInfo
  */
 export interface CodeArtifactLicenseInfo {
@@ -2047,3 +3445,18 @@ export interface CodeArtifactLicenseInfo {
   readonly url?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeArtifactLicenseInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeArtifactLicenseInfo(obj: CodeArtifactLicenseInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'url': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

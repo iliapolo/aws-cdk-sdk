@@ -1281,6 +1281,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -1321,6 +1322,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -1361,6 +1363,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -1401,6 +1404,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -1441,6 +1445,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -1481,6 +1486,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -1521,6 +1527,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -1561,6 +1568,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -1601,6 +1609,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -1641,6 +1650,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -1681,6 +1691,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -1721,6 +1732,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -1761,6 +1773,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -1801,6 +1814,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -1841,6 +1855,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -1881,6 +1896,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -1921,6 +1937,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -1961,6 +1978,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2001,6 +2019,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2041,6 +2060,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2081,6 +2101,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2121,6 +2142,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2161,6 +2183,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2201,6 +2224,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2241,6 +2265,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2281,6 +2306,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2321,6 +2347,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2361,6 +2388,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2401,6 +2429,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2441,6 +2470,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2481,6 +2511,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2521,6 +2552,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2561,6 +2593,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2601,6 +2634,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2641,6 +2675,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2669,6 +2704,47 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
     return resource.getResponseField('DBCluster.ClusterCreateTime') as unknown as string;
   }
 
+  public get copyTagsToSnapshot(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.CreateDBCluster.DBCluster.CopyTagsToSnapshot'),
+        outputPath: 'DBCluster.CopyTagsToSnapshot',
+        parameters: {
+          AvailabilityZones: this.__input.availabilityZones,
+          BackupRetentionPeriod: this.__input.backupRetentionPeriod,
+          CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
+          DatabaseName: this.__input.databaseName,
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          DBSubnetGroupName: this.__input.dbSubnetGroupName,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          Port: this.__input.port,
+          MasterUsername: this.__input.masterUsername,
+          MasterUserPassword: this.__input.masterUserPassword,
+          OptionGroupName: this.__input.optionGroupName,
+          PreferredBackupWindow: this.__input.preferredBackupWindow,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          ReplicationSourceIdentifier: this.__input.replicationSourceIdentifier,
+          Tags: this.__input.tags,
+          StorageEncrypted: this.__input.storageEncrypted,
+          KmsKeyId: this.__input.kmsKeyId,
+          PreSignedUrl: this.__input.preSignedUrl,
+          EnableIAMDatabaseAuthentication: this.__input.enableIamDatabaseAuthentication,
+          EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDBCluster.DBCluster.CopyTagsToSnapshot', props);
+    return resource.getResponseField('DBCluster.CopyTagsToSnapshot') as unknown as boolean;
+  }
+
   public get enabledCloudwatchLogsExports(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -2681,6 +2757,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2721,6 +2798,7 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
           AvailabilityZones: this.__input.availabilityZones,
           BackupRetentionPeriod: this.__input.backupRetentionPeriod,
           CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
           DatabaseName: this.__input.databaseName,
           DBClusterIdentifier: this.__input.dbClusterIdentifier,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
@@ -2747,6 +2825,88 @@ export class NeptuneResponsesCreateDbClusterDbCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateDBCluster.DBCluster.DeletionProtection', props);
     return resource.getResponseField('DBCluster.DeletionProtection') as unknown as boolean;
+  }
+
+  public get crossAccountClone(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.CreateDBCluster.DBCluster.CrossAccountClone'),
+        outputPath: 'DBCluster.CrossAccountClone',
+        parameters: {
+          AvailabilityZones: this.__input.availabilityZones,
+          BackupRetentionPeriod: this.__input.backupRetentionPeriod,
+          CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
+          DatabaseName: this.__input.databaseName,
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          DBSubnetGroupName: this.__input.dbSubnetGroupName,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          Port: this.__input.port,
+          MasterUsername: this.__input.masterUsername,
+          MasterUserPassword: this.__input.masterUserPassword,
+          OptionGroupName: this.__input.optionGroupName,
+          PreferredBackupWindow: this.__input.preferredBackupWindow,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          ReplicationSourceIdentifier: this.__input.replicationSourceIdentifier,
+          Tags: this.__input.tags,
+          StorageEncrypted: this.__input.storageEncrypted,
+          KmsKeyId: this.__input.kmsKeyId,
+          PreSignedUrl: this.__input.preSignedUrl,
+          EnableIAMDatabaseAuthentication: this.__input.enableIamDatabaseAuthentication,
+          EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDBCluster.DBCluster.CrossAccountClone', props);
+    return resource.getResponseField('DBCluster.CrossAccountClone') as unknown as boolean;
+  }
+
+  public get automaticRestartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.CreateDBCluster.DBCluster.AutomaticRestartTime'),
+        outputPath: 'DBCluster.AutomaticRestartTime',
+        parameters: {
+          AvailabilityZones: this.__input.availabilityZones,
+          BackupRetentionPeriod: this.__input.backupRetentionPeriod,
+          CharacterSetName: this.__input.characterSetName,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
+          DatabaseName: this.__input.databaseName,
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          DBSubnetGroupName: this.__input.dbSubnetGroupName,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          Port: this.__input.port,
+          MasterUsername: this.__input.masterUsername,
+          MasterUserPassword: this.__input.masterUserPassword,
+          OptionGroupName: this.__input.optionGroupName,
+          PreferredBackupWindow: this.__input.preferredBackupWindow,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          ReplicationSourceIdentifier: this.__input.replicationSourceIdentifier,
+          Tags: this.__input.tags,
+          StorageEncrypted: this.__input.storageEncrypted,
+          KmsKeyId: this.__input.kmsKeyId,
+          PreSignedUrl: this.__input.preSignedUrl,
+          EnableIAMDatabaseAuthentication: this.__input.enableIamDatabaseAuthentication,
+          EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDBCluster.DBCluster.AutomaticRestartTime', props);
+    return resource.getResponseField('DBCluster.AutomaticRestartTime') as unknown as string;
   }
 
 }
@@ -9067,6 +9227,25 @@ export class NeptuneResponsesDeleteDbClusterDbCluster {
     return resource.getResponseField('DBCluster.ClusterCreateTime') as unknown as string;
   }
 
+  public get copyTagsToSnapshot(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.DeleteDBCluster.DBCluster.CopyTagsToSnapshot'),
+        outputPath: 'DBCluster.CopyTagsToSnapshot',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          SkipFinalSnapshot: this.__input.skipFinalSnapshot,
+          FinalDBSnapshotIdentifier: this.__input.finalDbSnapshotIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteDBCluster.DBCluster.CopyTagsToSnapshot', props);
+    return resource.getResponseField('DBCluster.CopyTagsToSnapshot') as unknown as boolean;
+  }
+
   public get enabledCloudwatchLogsExports(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -9103,6 +9282,44 @@ export class NeptuneResponsesDeleteDbClusterDbCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteDBCluster.DBCluster.DeletionProtection', props);
     return resource.getResponseField('DBCluster.DeletionProtection') as unknown as boolean;
+  }
+
+  public get crossAccountClone(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.DeleteDBCluster.DBCluster.CrossAccountClone'),
+        outputPath: 'DBCluster.CrossAccountClone',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          SkipFinalSnapshot: this.__input.skipFinalSnapshot,
+          FinalDBSnapshotIdentifier: this.__input.finalDbSnapshotIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteDBCluster.DBCluster.CrossAccountClone', props);
+    return resource.getResponseField('DBCluster.CrossAccountClone') as unknown as boolean;
+  }
+
+  public get automaticRestartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.DeleteDBCluster.DBCluster.AutomaticRestartTime'),
+        outputPath: 'DBCluster.AutomaticRestartTime',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          SkipFinalSnapshot: this.__input.skipFinalSnapshot,
+          FinalDBSnapshotIdentifier: this.__input.finalDbSnapshotIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteDBCluster.DBCluster.AutomaticRestartTime', props);
+    return resource.getResponseField('DBCluster.AutomaticRestartTime') as unknown as string;
   }
 
 }
@@ -12912,6 +13129,24 @@ export class NeptuneResponsesFailoverDbClusterDbCluster {
     return resource.getResponseField('DBCluster.ClusterCreateTime') as unknown as string;
   }
 
+  public get copyTagsToSnapshot(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'failoverDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.FailoverDBCluster.DBCluster.CopyTagsToSnapshot'),
+        outputPath: 'DBCluster.CopyTagsToSnapshot',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          TargetDBInstanceIdentifier: this.__input.targetDbInstanceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'FailoverDBCluster.DBCluster.CopyTagsToSnapshot', props);
+    return resource.getResponseField('DBCluster.CopyTagsToSnapshot') as unknown as boolean;
+  }
+
   public get enabledCloudwatchLogsExports(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -12946,6 +13181,42 @@ export class NeptuneResponsesFailoverDbClusterDbCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'FailoverDBCluster.DBCluster.DeletionProtection', props);
     return resource.getResponseField('DBCluster.DeletionProtection') as unknown as boolean;
+  }
+
+  public get crossAccountClone(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'failoverDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.FailoverDBCluster.DBCluster.CrossAccountClone'),
+        outputPath: 'DBCluster.CrossAccountClone',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          TargetDBInstanceIdentifier: this.__input.targetDbInstanceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'FailoverDBCluster.DBCluster.CrossAccountClone', props);
+    return resource.getResponseField('DBCluster.CrossAccountClone') as unknown as boolean;
+  }
+
+  public get automaticRestartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'failoverDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.FailoverDBCluster.DBCluster.AutomaticRestartTime'),
+        outputPath: 'DBCluster.AutomaticRestartTime',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          TargetDBInstanceIdentifier: this.__input.targetDbInstanceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'FailoverDBCluster.DBCluster.AutomaticRestartTime', props);
+    return resource.getResponseField('DBCluster.AutomaticRestartTime') as unknown as string;
   }
 
 }
@@ -13018,6 +13289,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13052,6 +13324,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13086,6 +13359,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13120,6 +13394,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13154,6 +13429,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13188,6 +13464,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13222,6 +13499,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13256,6 +13534,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13290,6 +13569,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13324,6 +13604,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13358,6 +13639,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13392,6 +13674,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13426,6 +13709,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13460,6 +13744,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13494,6 +13779,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13528,6 +13814,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13562,6 +13849,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13596,6 +13884,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13630,6 +13919,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13664,6 +13954,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13698,6 +13989,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13732,6 +14024,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13766,6 +14059,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13800,6 +14094,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13834,6 +14129,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13868,6 +14164,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13902,6 +14199,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13936,6 +14234,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -13970,6 +14269,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -14004,6 +14304,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -14038,6 +14339,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -14072,6 +14374,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -14106,6 +14409,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -14140,6 +14444,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -14174,11 +14479,47 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyDBCluster.DBCluster.ClusterCreateTime', props);
     return resource.getResponseField('DBCluster.ClusterCreateTime') as unknown as string;
+  }
+
+  public get copyTagsToSnapshot(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.ModifyDBCluster.DBCluster.CopyTagsToSnapshot'),
+        outputPath: 'DBCluster.CopyTagsToSnapshot',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          NewDBClusterIdentifier: this.__input.newDbClusterIdentifier,
+          ApplyImmediately: this.__input.applyImmediately,
+          BackupRetentionPeriod: this.__input.backupRetentionPeriod,
+          DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          Port: this.__input.port,
+          MasterUserPassword: this.__input.masterUserPassword,
+          OptionGroupName: this.__input.optionGroupName,
+          PreferredBackupWindow: this.__input.preferredBackupWindow,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          EnableIAMDatabaseAuthentication: this.__input.enableIamDatabaseAuthentication,
+          CloudwatchLogsExportConfiguration: {
+            EnableLogTypes: this.__input.cloudwatchLogsExportConfiguration?.enableLogTypes,
+            DisableLogTypes: this.__input.cloudwatchLogsExportConfiguration?.disableLogTypes,
+          },
+          EngineVersion: this.__input.engineVersion,
+          DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyDBCluster.DBCluster.CopyTagsToSnapshot', props);
+    return resource.getResponseField('DBCluster.CopyTagsToSnapshot') as unknown as boolean;
   }
 
   public get enabledCloudwatchLogsExports(): string[] {
@@ -14208,6 +14549,7 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -14242,11 +14584,82 @@ export class NeptuneResponsesModifyDbClusterDbCluster {
           },
           EngineVersion: this.__input.engineVersion,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyDBCluster.DBCluster.DeletionProtection', props);
     return resource.getResponseField('DBCluster.DeletionProtection') as unknown as boolean;
+  }
+
+  public get crossAccountClone(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.ModifyDBCluster.DBCluster.CrossAccountClone'),
+        outputPath: 'DBCluster.CrossAccountClone',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          NewDBClusterIdentifier: this.__input.newDbClusterIdentifier,
+          ApplyImmediately: this.__input.applyImmediately,
+          BackupRetentionPeriod: this.__input.backupRetentionPeriod,
+          DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          Port: this.__input.port,
+          MasterUserPassword: this.__input.masterUserPassword,
+          OptionGroupName: this.__input.optionGroupName,
+          PreferredBackupWindow: this.__input.preferredBackupWindow,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          EnableIAMDatabaseAuthentication: this.__input.enableIamDatabaseAuthentication,
+          CloudwatchLogsExportConfiguration: {
+            EnableLogTypes: this.__input.cloudwatchLogsExportConfiguration?.enableLogTypes,
+            DisableLogTypes: this.__input.cloudwatchLogsExportConfiguration?.disableLogTypes,
+          },
+          EngineVersion: this.__input.engineVersion,
+          DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyDBCluster.DBCluster.CrossAccountClone', props);
+    return resource.getResponseField('DBCluster.CrossAccountClone') as unknown as boolean;
+  }
+
+  public get automaticRestartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.ModifyDBCluster.DBCluster.AutomaticRestartTime'),
+        outputPath: 'DBCluster.AutomaticRestartTime',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          NewDBClusterIdentifier: this.__input.newDbClusterIdentifier,
+          ApplyImmediately: this.__input.applyImmediately,
+          BackupRetentionPeriod: this.__input.backupRetentionPeriod,
+          DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          Port: this.__input.port,
+          MasterUserPassword: this.__input.masterUserPassword,
+          OptionGroupName: this.__input.optionGroupName,
+          PreferredBackupWindow: this.__input.preferredBackupWindow,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          EnableIAMDatabaseAuthentication: this.__input.enableIamDatabaseAuthentication,
+          CloudwatchLogsExportConfiguration: {
+            EnableLogTypes: this.__input.cloudwatchLogsExportConfiguration?.enableLogTypes,
+            DisableLogTypes: this.__input.cloudwatchLogsExportConfiguration?.disableLogTypes,
+          },
+          EngineVersion: this.__input.engineVersion,
+          DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyDBCluster.DBCluster.AutomaticRestartTime', props);
+    return resource.getResponseField('DBCluster.AutomaticRestartTime') as unknown as string;
   }
 
 }
@@ -19743,6 +20156,23 @@ export class NeptuneResponsesPromoteReadReplicaDbClusterDbCluster {
     return resource.getResponseField('DBCluster.ClusterCreateTime') as unknown as string;
   }
 
+  public get copyTagsToSnapshot(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'promoteReadReplicaDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.PromoteReadReplicaDBCluster.DBCluster.CopyTagsToSnapshot'),
+        outputPath: 'DBCluster.CopyTagsToSnapshot',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PromoteReadReplicaDBCluster.DBCluster.CopyTagsToSnapshot', props);
+    return resource.getResponseField('DBCluster.CopyTagsToSnapshot') as unknown as boolean;
+  }
+
   public get enabledCloudwatchLogsExports(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -19775,6 +20205,40 @@ export class NeptuneResponsesPromoteReadReplicaDbClusterDbCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'PromoteReadReplicaDBCluster.DBCluster.DeletionProtection', props);
     return resource.getResponseField('DBCluster.DeletionProtection') as unknown as boolean;
+  }
+
+  public get crossAccountClone(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'promoteReadReplicaDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.PromoteReadReplicaDBCluster.DBCluster.CrossAccountClone'),
+        outputPath: 'DBCluster.CrossAccountClone',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PromoteReadReplicaDBCluster.DBCluster.CrossAccountClone', props);
+    return resource.getResponseField('DBCluster.CrossAccountClone') as unknown as boolean;
+  }
+
+  public get automaticRestartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'promoteReadReplicaDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.PromoteReadReplicaDBCluster.DBCluster.AutomaticRestartTime'),
+        outputPath: 'DBCluster.AutomaticRestartTime',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PromoteReadReplicaDBCluster.DBCluster.AutomaticRestartTime', props);
+    return resource.getResponseField('DBCluster.AutomaticRestartTime') as unknown as string;
   }
 
 }
@@ -21464,6 +21928,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -21496,6 +21961,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -21528,6 +21994,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -21560,6 +22027,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -21592,6 +22060,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -21624,6 +22093,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -21656,6 +22126,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -21688,6 +22159,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -21720,6 +22192,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -21752,6 +22225,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -21784,6 +22258,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -21816,6 +22291,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -21848,6 +22324,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -21880,6 +22357,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -21912,6 +22390,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -21944,6 +22423,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -21976,6 +22456,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22008,6 +22489,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22040,6 +22522,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22072,6 +22555,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22104,6 +22588,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22136,6 +22621,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22168,6 +22654,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22200,6 +22687,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22232,6 +22720,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22264,6 +22753,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22296,6 +22786,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22328,6 +22819,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22360,6 +22852,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22392,6 +22885,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22424,6 +22918,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22456,6 +22951,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22488,6 +22984,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22520,6 +23017,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22552,11 +23050,45 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RestoreDBClusterFromSnapshot.DBCluster.ClusterCreateTime', props);
     return resource.getResponseField('DBCluster.ClusterCreateTime') as unknown as string;
+  }
+
+  public get copyTagsToSnapshot(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreDbClusterFromSnapshot',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.RestoreDBClusterFromSnapshot.DBCluster.CopyTagsToSnapshot'),
+        outputPath: 'DBCluster.CopyTagsToSnapshot',
+        parameters: {
+          AvailabilityZones: this.__input.availabilityZones,
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          SnapshotIdentifier: this.__input.snapshotIdentifier,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          Port: this.__input.port,
+          DBSubnetGroupName: this.__input.dbSubnetGroupName,
+          DatabaseName: this.__input.databaseName,
+          OptionGroupName: this.__input.optionGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          EnableIAMDatabaseAuthentication: this.__input.enableIamDatabaseAuthentication,
+          EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
+          DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
+          DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreDBClusterFromSnapshot.DBCluster.CopyTagsToSnapshot', props);
+    return resource.getResponseField('DBCluster.CopyTagsToSnapshot') as unknown as boolean;
   }
 
   public get enabledCloudwatchLogsExports(): string[] {
@@ -22584,6 +23116,7 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
@@ -22616,11 +23149,78 @@ export class NeptuneResponsesRestoreDbClusterFromSnapshotDbCluster {
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
           DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RestoreDBClusterFromSnapshot.DBCluster.DeletionProtection', props);
     return resource.getResponseField('DBCluster.DeletionProtection') as unknown as boolean;
+  }
+
+  public get crossAccountClone(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreDbClusterFromSnapshot',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.RestoreDBClusterFromSnapshot.DBCluster.CrossAccountClone'),
+        outputPath: 'DBCluster.CrossAccountClone',
+        parameters: {
+          AvailabilityZones: this.__input.availabilityZones,
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          SnapshotIdentifier: this.__input.snapshotIdentifier,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          Port: this.__input.port,
+          DBSubnetGroupName: this.__input.dbSubnetGroupName,
+          DatabaseName: this.__input.databaseName,
+          OptionGroupName: this.__input.optionGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          EnableIAMDatabaseAuthentication: this.__input.enableIamDatabaseAuthentication,
+          EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
+          DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
+          DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreDBClusterFromSnapshot.DBCluster.CrossAccountClone', props);
+    return resource.getResponseField('DBCluster.CrossAccountClone') as unknown as boolean;
+  }
+
+  public get automaticRestartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreDbClusterFromSnapshot',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.RestoreDBClusterFromSnapshot.DBCluster.AutomaticRestartTime'),
+        outputPath: 'DBCluster.AutomaticRestartTime',
+        parameters: {
+          AvailabilityZones: this.__input.availabilityZones,
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          SnapshotIdentifier: this.__input.snapshotIdentifier,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          Port: this.__input.port,
+          DBSubnetGroupName: this.__input.dbSubnetGroupName,
+          DatabaseName: this.__input.databaseName,
+          OptionGroupName: this.__input.optionGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          EnableIAMDatabaseAuthentication: this.__input.enableIamDatabaseAuthentication,
+          EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
+          DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
+          DeletionProtection: this.__input.deletionProtection,
+          CopyTagsToSnapshot: this.__input.copyTagsToSnapshot,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreDBClusterFromSnapshot.DBCluster.AutomaticRestartTime', props);
+    return resource.getResponseField('DBCluster.AutomaticRestartTime') as unknown as string;
   }
 
 }
@@ -23726,6 +24326,37 @@ export class NeptuneResponsesRestoreDbClusterToPointInTimeDbCluster {
     return resource.getResponseField('DBCluster.ClusterCreateTime') as unknown as string;
   }
 
+  public get copyTagsToSnapshot(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreDbClusterToPointInTime',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.RestoreDBClusterToPointInTime.DBCluster.CopyTagsToSnapshot'),
+        outputPath: 'DBCluster.CopyTagsToSnapshot',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          RestoreType: this.__input.restoreType,
+          SourceDBClusterIdentifier: this.__input.sourceDbClusterIdentifier,
+          RestoreToTime: this.__input.restoreToTime,
+          UseLatestRestorableTime: this.__input.useLatestRestorableTime,
+          Port: this.__input.port,
+          DBSubnetGroupName: this.__input.dbSubnetGroupName,
+          OptionGroupName: this.__input.optionGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          EnableIAMDatabaseAuthentication: this.__input.enableIamDatabaseAuthentication,
+          EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
+          DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreDBClusterToPointInTime.DBCluster.CopyTagsToSnapshot', props);
+    return resource.getResponseField('DBCluster.CopyTagsToSnapshot') as unknown as boolean;
+  }
+
   public get enabledCloudwatchLogsExports(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -23786,6 +24417,68 @@ export class NeptuneResponsesRestoreDbClusterToPointInTimeDbCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RestoreDBClusterToPointInTime.DBCluster.DeletionProtection', props);
     return resource.getResponseField('DBCluster.DeletionProtection') as unknown as boolean;
+  }
+
+  public get crossAccountClone(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreDbClusterToPointInTime',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.RestoreDBClusterToPointInTime.DBCluster.CrossAccountClone'),
+        outputPath: 'DBCluster.CrossAccountClone',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          RestoreType: this.__input.restoreType,
+          SourceDBClusterIdentifier: this.__input.sourceDbClusterIdentifier,
+          RestoreToTime: this.__input.restoreToTime,
+          UseLatestRestorableTime: this.__input.useLatestRestorableTime,
+          Port: this.__input.port,
+          DBSubnetGroupName: this.__input.dbSubnetGroupName,
+          OptionGroupName: this.__input.optionGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          EnableIAMDatabaseAuthentication: this.__input.enableIamDatabaseAuthentication,
+          EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
+          DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreDBClusterToPointInTime.DBCluster.CrossAccountClone', props);
+    return resource.getResponseField('DBCluster.CrossAccountClone') as unknown as boolean;
+  }
+
+  public get automaticRestartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreDbClusterToPointInTime',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.RestoreDBClusterToPointInTime.DBCluster.AutomaticRestartTime'),
+        outputPath: 'DBCluster.AutomaticRestartTime',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          RestoreType: this.__input.restoreType,
+          SourceDBClusterIdentifier: this.__input.sourceDbClusterIdentifier,
+          RestoreToTime: this.__input.restoreToTime,
+          UseLatestRestorableTime: this.__input.useLatestRestorableTime,
+          Port: this.__input.port,
+          DBSubnetGroupName: this.__input.dbSubnetGroupName,
+          OptionGroupName: this.__input.optionGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          EnableIAMDatabaseAuthentication: this.__input.enableIamDatabaseAuthentication,
+          EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
+          DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreDBClusterToPointInTime.DBCluster.AutomaticRestartTime', props);
+    return resource.getResponseField('DBCluster.AutomaticRestartTime') as unknown as string;
   }
 
 }
@@ -24401,6 +25094,23 @@ export class NeptuneResponsesStartDbClusterDbCluster {
     return resource.getResponseField('DBCluster.ClusterCreateTime') as unknown as string;
   }
 
+  public get copyTagsToSnapshot(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.StartDBCluster.DBCluster.CopyTagsToSnapshot'),
+        outputPath: 'DBCluster.CopyTagsToSnapshot',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartDBCluster.DBCluster.CopyTagsToSnapshot', props);
+    return resource.getResponseField('DBCluster.CopyTagsToSnapshot') as unknown as boolean;
+  }
+
   public get enabledCloudwatchLogsExports(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -24433,6 +25143,40 @@ export class NeptuneResponsesStartDbClusterDbCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'StartDBCluster.DBCluster.DeletionProtection', props);
     return resource.getResponseField('DBCluster.DeletionProtection') as unknown as boolean;
+  }
+
+  public get crossAccountClone(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.StartDBCluster.DBCluster.CrossAccountClone'),
+        outputPath: 'DBCluster.CrossAccountClone',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartDBCluster.DBCluster.CrossAccountClone', props);
+    return resource.getResponseField('DBCluster.CrossAccountClone') as unknown as boolean;
+  }
+
+  public get automaticRestartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.StartDBCluster.DBCluster.AutomaticRestartTime'),
+        outputPath: 'DBCluster.AutomaticRestartTime',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartDBCluster.DBCluster.AutomaticRestartTime', props);
+    return resource.getResponseField('DBCluster.AutomaticRestartTime') as unknown as string;
   }
 
 }
@@ -25048,6 +25792,23 @@ export class NeptuneResponsesStopDbClusterDbCluster {
     return resource.getResponseField('DBCluster.ClusterCreateTime') as unknown as string;
   }
 
+  public get copyTagsToSnapshot(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.StopDBCluster.DBCluster.CopyTagsToSnapshot'),
+        outputPath: 'DBCluster.CopyTagsToSnapshot',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopDBCluster.DBCluster.CopyTagsToSnapshot', props);
+    return resource.getResponseField('DBCluster.CopyTagsToSnapshot') as unknown as boolean;
+  }
+
   public get enabledCloudwatchLogsExports(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -25080,6 +25841,40 @@ export class NeptuneResponsesStopDbClusterDbCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'StopDBCluster.DBCluster.DeletionProtection', props);
     return resource.getResponseField('DBCluster.DeletionProtection') as unknown as boolean;
+  }
+
+  public get crossAccountClone(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.StopDBCluster.DBCluster.CrossAccountClone'),
+        outputPath: 'DBCluster.CrossAccountClone',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopDBCluster.DBCluster.CrossAccountClone', props);
+    return resource.getResponseField('DBCluster.CrossAccountClone') as unknown as boolean;
+  }
+
+  public get automaticRestartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopDbCluster',
+        service: 'Neptune',
+        physicalResourceId: cr.PhysicalResourceId.of('Neptune.StopDBCluster.DBCluster.AutomaticRestartTime'),
+        outputPath: 'DBCluster.AutomaticRestartTime',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopDBCluster.DBCluster.AutomaticRestartTime', props);
+    return resource.getResponseField('DBCluster.AutomaticRestartTime') as unknown as string;
   }
 
 }

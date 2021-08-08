@@ -8,6 +8,10 @@ export class Route53Client extends cdk.Construct {
     super(scope, id);
   }
 
+  public activateKeySigningKey(input: shapes.Route53ActivateKeySigningKeyRequest): Route53ResponsesActivateKeySigningKey {
+    return new Route53ResponsesActivateKeySigningKey(this, this.__resources, input);
+  }
+
   public associateVpcWithHostedZone(input: shapes.Route53AssociateVpcWithHostedZoneRequest): Route53ResponsesAssociateVpcWithHostedZone {
     return new Route53ResponsesAssociateVpcWithHostedZone(this, this.__resources, input);
   }
@@ -42,6 +46,10 @@ export class Route53Client extends cdk.Construct {
     return new Route53ResponsesCreateHostedZone(this, this.__resources, input);
   }
 
+  public createKeySigningKey(input: shapes.Route53CreateKeySigningKeyRequest): Route53ResponsesCreateKeySigningKey {
+    return new Route53ResponsesCreateKeySigningKey(this, this.__resources, input);
+  }
+
   public createQueryLoggingConfig(input: shapes.Route53CreateQueryLoggingConfigRequest): Route53ResponsesCreateQueryLoggingConfig {
     return new Route53ResponsesCreateQueryLoggingConfig(this, this.__resources, input);
   }
@@ -66,6 +74,10 @@ export class Route53Client extends cdk.Construct {
     return new Route53ResponsesCreateVpcAssociationAuthorization(this, this.__resources, input);
   }
 
+  public deactivateKeySigningKey(input: shapes.Route53DeactivateKeySigningKeyRequest): Route53ResponsesDeactivateKeySigningKey {
+    return new Route53ResponsesDeactivateKeySigningKey(this, this.__resources, input);
+  }
+
   public deleteHealthCheck(input: shapes.Route53DeleteHealthCheckRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -83,6 +95,10 @@ export class Route53Client extends cdk.Construct {
 
   public deleteHostedZone(input: shapes.Route53DeleteHostedZoneRequest): Route53ResponsesDeleteHostedZone {
     return new Route53ResponsesDeleteHostedZone(this, this.__resources, input);
+  }
+
+  public deleteKeySigningKey(input: shapes.Route53DeleteKeySigningKeyRequest): Route53ResponsesDeleteKeySigningKey {
+    return new Route53ResponsesDeleteKeySigningKey(this, this.__resources, input);
   }
 
   public deleteQueryLoggingConfig(input: shapes.Route53DeleteQueryLoggingConfigRequest): void {
@@ -165,8 +181,16 @@ export class Route53Client extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeleteVPCAssociationAuthorization', props);
   }
 
+  public disableHostedZoneDnssec(input: shapes.Route53DisableHostedZoneDnssecRequest): Route53ResponsesDisableHostedZoneDnssec {
+    return new Route53ResponsesDisableHostedZoneDnssec(this, this.__resources, input);
+  }
+
   public disassociateVpcFromHostedZone(input: shapes.Route53DisassociateVpcFromHostedZoneRequest): Route53ResponsesDisassociateVpcFromHostedZone {
     return new Route53ResponsesDisassociateVpcFromHostedZone(this, this.__resources, input);
+  }
+
+  public enableHostedZoneDnssec(input: shapes.Route53EnableHostedZoneDnssecRequest): Route53ResponsesEnableHostedZoneDnssec {
+    return new Route53ResponsesEnableHostedZoneDnssec(this, this.__resources, input);
   }
 
   public fetchAccountLimit(input: shapes.Route53GetAccountLimitRequest): Route53ResponsesFetchAccountLimit {
@@ -179,6 +203,10 @@ export class Route53Client extends cdk.Construct {
 
   public fetchCheckerIpRanges(): Route53ResponsesFetchCheckerIpRanges {
     return new Route53ResponsesFetchCheckerIpRanges(this, this.__resources);
+  }
+
+  public fetchDnssec(input: shapes.Route53GetDnssecRequest): Route53ResponsesFetchDnssec {
+    return new Route53ResponsesFetchDnssec(this, this.__resources, input);
   }
 
   public fetchGeoLocation(input: shapes.Route53GetGeoLocationRequest): Route53ResponsesFetchGeoLocation {
@@ -319,6 +347,96 @@ export class Route53Client extends cdk.Construct {
 
   public updateTrafficPolicyInstance(input: shapes.Route53UpdateTrafficPolicyInstanceRequest): Route53ResponsesUpdateTrafficPolicyInstance {
     return new Route53ResponsesUpdateTrafficPolicyInstance(this, this.__resources, input);
+  }
+
+}
+
+export class Route53ResponsesActivateKeySigningKey {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ActivateKeySigningKeyRequest) {
+  }
+
+  public get changeInfo(): Route53ResponsesActivateKeySigningKeyChangeInfo {
+    return new Route53ResponsesActivateKeySigningKeyChangeInfo(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResponsesActivateKeySigningKeyChangeInfo {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ActivateKeySigningKeyRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'activateKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.ActivateKeySigningKey.ChangeInfo.Id'),
+        outputPath: 'ChangeInfo.Id',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ActivateKeySigningKey.ChangeInfo.Id', props);
+    return resource.getResponseField('ChangeInfo.Id') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'activateKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.ActivateKeySigningKey.ChangeInfo.Status'),
+        outputPath: 'ChangeInfo.Status',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ActivateKeySigningKey.ChangeInfo.Status', props);
+    return resource.getResponseField('ChangeInfo.Status') as unknown as string;
+  }
+
+  public get submittedAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'activateKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.ActivateKeySigningKey.ChangeInfo.SubmittedAt'),
+        outputPath: 'ChangeInfo.SubmittedAt',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ActivateKeySigningKey.ChangeInfo.SubmittedAt', props);
+    return resource.getResponseField('ChangeInfo.SubmittedAt') as unknown as string;
+  }
+
+  public get comment(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'activateKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.ActivateKeySigningKey.ChangeInfo.Comment'),
+        outputPath: 'ChangeInfo.Comment',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ActivateKeySigningKey.ChangeInfo.Comment', props);
+    return resource.getResponseField('ChangeInfo.Comment') as unknown as string;
   }
 
 }
@@ -571,6 +689,7 @@ export class Route53ResponsesCreateHealthCheck {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -617,6 +736,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheck {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -656,6 +776,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheck {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -703,6 +824,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheck {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -753,6 +875,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckLinkedService {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -792,6 +915,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckLinkedService {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -838,6 +962,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckHealthCheckConfig {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -877,6 +1002,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckHealthCheckConfig {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -916,6 +1042,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckHealthCheckConfig {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -955,6 +1082,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckHealthCheckConfig {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -994,6 +1122,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckHealthCheckConfig {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1033,6 +1162,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckHealthCheckConfig {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1072,6 +1202,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckHealthCheckConfig {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1111,6 +1242,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckHealthCheckConfig {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1150,6 +1282,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckHealthCheckConfig {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1189,6 +1322,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckHealthCheckConfig {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1228,6 +1362,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckHealthCheckConfig {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1267,6 +1402,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckHealthCheckConfig {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1306,6 +1442,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckHealthCheckConfig {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1345,6 +1482,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckHealthCheckConfig {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1384,6 +1522,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckHealthCheckConfig {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1427,12 +1566,53 @@ export class Route53ResponsesCreateHealthCheckHealthCheckHealthCheckConfig {
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateHealthCheck.HealthCheck.HealthCheckConfig.InsufficientDataHealthStatus', props);
     return resource.getResponseField('HealthCheck.HealthCheckConfig.InsufficientDataHealthStatus') as unknown as string;
+  }
+
+  public get routingControlArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createHealthCheck',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateHealthCheck.HealthCheck.HealthCheckConfig.RoutingControlArn'),
+        outputPath: 'HealthCheck.HealthCheckConfig.RoutingControlArn',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HealthCheckConfig: {
+            IPAddress: this.__input.healthCheckConfig.ipAddress,
+            Port: this.__input.healthCheckConfig.port,
+            Type: this.__input.healthCheckConfig.type,
+            ResourcePath: this.__input.healthCheckConfig.resourcePath,
+            FullyQualifiedDomainName: this.__input.healthCheckConfig.fullyQualifiedDomainName,
+            SearchString: this.__input.healthCheckConfig.searchString,
+            RequestInterval: this.__input.healthCheckConfig.requestInterval,
+            FailureThreshold: this.__input.healthCheckConfig.failureThreshold,
+            MeasureLatency: this.__input.healthCheckConfig.measureLatency,
+            Inverted: this.__input.healthCheckConfig.inverted,
+            Disabled: this.__input.healthCheckConfig.disabled,
+            HealthThreshold: this.__input.healthCheckConfig.healthThreshold,
+            ChildHealthChecks: this.__input.healthCheckConfig.childHealthChecks,
+            EnableSNI: this.__input.healthCheckConfig.enableSni,
+            Regions: this.__input.healthCheckConfig.regions,
+            AlarmIdentifier: {
+              Region: this.__input.healthCheckConfig.alarmIdentifier?.region,
+              Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
+            },
+            InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateHealthCheck.HealthCheck.HealthCheckConfig.RoutingControlArn', props);
+    return resource.getResponseField('HealthCheck.HealthCheckConfig.RoutingControlArn') as unknown as string;
   }
 
 }
@@ -1473,6 +1653,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckHealthCheckConfigAlarmI
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1512,6 +1693,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckHealthCheckConfigAlarmI
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1558,6 +1740,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckCloudWatchAlarmConfigur
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1597,6 +1780,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckCloudWatchAlarmConfigur
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1636,6 +1820,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckCloudWatchAlarmConfigur
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1675,6 +1860,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckCloudWatchAlarmConfigur
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1714,6 +1900,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckCloudWatchAlarmConfigur
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1753,6 +1940,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckCloudWatchAlarmConfigur
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1792,6 +1980,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckCloudWatchAlarmConfigur
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -1831,6 +2020,7 @@ export class Route53ResponsesCreateHealthCheckHealthCheckCloudWatchAlarmConfigur
               Name: this.__input.healthCheckConfig.alarmIdentifier?.name,
             },
             InsufficientDataHealthStatus: this.__input.healthCheckConfig.insufficientDataHealthStatus,
+            RoutingControlArn: this.__input.healthCheckConfig.routingControlArn,
           },
         },
       },
@@ -2396,6 +2586,476 @@ export class Route53ResponsesCreateHostedZoneVpc {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateHostedZone.VPC.VPCId', props);
     return resource.getResponseField('VPC.VPCId') as unknown as string;
+  }
+
+}
+
+export class Route53ResponsesCreateKeySigningKey {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53CreateKeySigningKeyRequest) {
+  }
+
+  public get changeInfo(): Route53ResponsesCreateKeySigningKeyChangeInfo {
+    return new Route53ResponsesCreateKeySigningKeyChangeInfo(this.__scope, this.__resources, this.__input);
+  }
+
+  public get keySigningKey(): Route53ResponsesCreateKeySigningKeyKeySigningKey {
+    return new Route53ResponsesCreateKeySigningKeyKeySigningKey(this.__scope, this.__resources, this.__input);
+  }
+
+  public get location(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.Location'),
+        outputPath: 'Location',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.Location', props);
+    return resource.getResponseField('Location') as unknown as string;
+  }
+
+}
+
+export class Route53ResponsesCreateKeySigningKeyChangeInfo {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53CreateKeySigningKeyRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.ChangeInfo.Id'),
+        outputPath: 'ChangeInfo.Id',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.ChangeInfo.Id', props);
+    return resource.getResponseField('ChangeInfo.Id') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.ChangeInfo.Status'),
+        outputPath: 'ChangeInfo.Status',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.ChangeInfo.Status', props);
+    return resource.getResponseField('ChangeInfo.Status') as unknown as string;
+  }
+
+  public get submittedAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.ChangeInfo.SubmittedAt'),
+        outputPath: 'ChangeInfo.SubmittedAt',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.ChangeInfo.SubmittedAt', props);
+    return resource.getResponseField('ChangeInfo.SubmittedAt') as unknown as string;
+  }
+
+  public get comment(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.ChangeInfo.Comment'),
+        outputPath: 'ChangeInfo.Comment',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.ChangeInfo.Comment', props);
+    return resource.getResponseField('ChangeInfo.Comment') as unknown as string;
+  }
+
+}
+
+export class Route53ResponsesCreateKeySigningKeyKeySigningKey {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53CreateKeySigningKeyRequest) {
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.KeySigningKey.Name'),
+        outputPath: 'KeySigningKey.Name',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.KeySigningKey.Name', props);
+    return resource.getResponseField('KeySigningKey.Name') as unknown as string;
+  }
+
+  public get kmsArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.KeySigningKey.KmsArn'),
+        outputPath: 'KeySigningKey.KmsArn',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.KeySigningKey.KmsArn', props);
+    return resource.getResponseField('KeySigningKey.KmsArn') as unknown as string;
+  }
+
+  public get flag(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.KeySigningKey.Flag'),
+        outputPath: 'KeySigningKey.Flag',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.KeySigningKey.Flag', props);
+    return resource.getResponseField('KeySigningKey.Flag') as unknown as number;
+  }
+
+  public get signingAlgorithmMnemonic(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.KeySigningKey.SigningAlgorithmMnemonic'),
+        outputPath: 'KeySigningKey.SigningAlgorithmMnemonic',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.KeySigningKey.SigningAlgorithmMnemonic', props);
+    return resource.getResponseField('KeySigningKey.SigningAlgorithmMnemonic') as unknown as string;
+  }
+
+  public get signingAlgorithmType(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.KeySigningKey.SigningAlgorithmType'),
+        outputPath: 'KeySigningKey.SigningAlgorithmType',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.KeySigningKey.SigningAlgorithmType', props);
+    return resource.getResponseField('KeySigningKey.SigningAlgorithmType') as unknown as number;
+  }
+
+  public get digestAlgorithmMnemonic(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.KeySigningKey.DigestAlgorithmMnemonic'),
+        outputPath: 'KeySigningKey.DigestAlgorithmMnemonic',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.KeySigningKey.DigestAlgorithmMnemonic', props);
+    return resource.getResponseField('KeySigningKey.DigestAlgorithmMnemonic') as unknown as string;
+  }
+
+  public get digestAlgorithmType(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.KeySigningKey.DigestAlgorithmType'),
+        outputPath: 'KeySigningKey.DigestAlgorithmType',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.KeySigningKey.DigestAlgorithmType', props);
+    return resource.getResponseField('KeySigningKey.DigestAlgorithmType') as unknown as number;
+  }
+
+  public get keyTag(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.KeySigningKey.KeyTag'),
+        outputPath: 'KeySigningKey.KeyTag',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.KeySigningKey.KeyTag', props);
+    return resource.getResponseField('KeySigningKey.KeyTag') as unknown as number;
+  }
+
+  public get digestValue(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.KeySigningKey.DigestValue'),
+        outputPath: 'KeySigningKey.DigestValue',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.KeySigningKey.DigestValue', props);
+    return resource.getResponseField('KeySigningKey.DigestValue') as unknown as string;
+  }
+
+  public get publicKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.KeySigningKey.PublicKey'),
+        outputPath: 'KeySigningKey.PublicKey',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.KeySigningKey.PublicKey', props);
+    return resource.getResponseField('KeySigningKey.PublicKey') as unknown as string;
+  }
+
+  public get dsRecord(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.KeySigningKey.DSRecord'),
+        outputPath: 'KeySigningKey.DSRecord',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.KeySigningKey.DSRecord', props);
+    return resource.getResponseField('KeySigningKey.DSRecord') as unknown as string;
+  }
+
+  public get dnskeyRecord(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.KeySigningKey.DNSKEYRecord'),
+        outputPath: 'KeySigningKey.DNSKEYRecord',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.KeySigningKey.DNSKEYRecord', props);
+    return resource.getResponseField('KeySigningKey.DNSKEYRecord') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.KeySigningKey.Status'),
+        outputPath: 'KeySigningKey.Status',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.KeySigningKey.Status', props);
+    return resource.getResponseField('KeySigningKey.Status') as unknown as string;
+  }
+
+  public get statusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.KeySigningKey.StatusMessage'),
+        outputPath: 'KeySigningKey.StatusMessage',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.KeySigningKey.StatusMessage', props);
+    return resource.getResponseField('KeySigningKey.StatusMessage') as unknown as string;
+  }
+
+  public get createdDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.KeySigningKey.CreatedDate'),
+        outputPath: 'KeySigningKey.CreatedDate',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.KeySigningKey.CreatedDate', props);
+    return resource.getResponseField('KeySigningKey.CreatedDate') as unknown as string;
+  }
+
+  public get lastModifiedDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.CreateKeySigningKey.KeySigningKey.LastModifiedDate'),
+        outputPath: 'KeySigningKey.LastModifiedDate',
+        parameters: {
+          CallerReference: this.__input.callerReference,
+          HostedZoneId: this.__input.hostedZoneId,
+          KeyManagementServiceArn: this.__input.keyManagementServiceArn,
+          Name: this.__input.name,
+          Status: this.__input.status,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKeySigningKey.KeySigningKey.LastModifiedDate', props);
+    return resource.getResponseField('KeySigningKey.LastModifiedDate') as unknown as string;
   }
 
 }
@@ -3191,6 +3851,96 @@ export class Route53ResponsesCreateVpcAssociationAuthorizationVpc {
 
 }
 
+export class Route53ResponsesDeactivateKeySigningKey {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53DeactivateKeySigningKeyRequest) {
+  }
+
+  public get changeInfo(): Route53ResponsesDeactivateKeySigningKeyChangeInfo {
+    return new Route53ResponsesDeactivateKeySigningKeyChangeInfo(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResponsesDeactivateKeySigningKeyChangeInfo {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53DeactivateKeySigningKeyRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deactivateKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.DeactivateKeySigningKey.ChangeInfo.Id'),
+        outputPath: 'ChangeInfo.Id',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeactivateKeySigningKey.ChangeInfo.Id', props);
+    return resource.getResponseField('ChangeInfo.Id') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deactivateKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.DeactivateKeySigningKey.ChangeInfo.Status'),
+        outputPath: 'ChangeInfo.Status',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeactivateKeySigningKey.ChangeInfo.Status', props);
+    return resource.getResponseField('ChangeInfo.Status') as unknown as string;
+  }
+
+  public get submittedAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deactivateKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.DeactivateKeySigningKey.ChangeInfo.SubmittedAt'),
+        outputPath: 'ChangeInfo.SubmittedAt',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeactivateKeySigningKey.ChangeInfo.SubmittedAt', props);
+    return resource.getResponseField('ChangeInfo.SubmittedAt') as unknown as string;
+  }
+
+  public get comment(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deactivateKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.DeactivateKeySigningKey.ChangeInfo.Comment'),
+        outputPath: 'ChangeInfo.Comment',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeactivateKeySigningKey.ChangeInfo.Comment', props);
+    return resource.getResponseField('ChangeInfo.Comment') as unknown as string;
+  }
+
+}
+
 export class Route53ResponsesDeleteHostedZone {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53DeleteHostedZoneRequest) {
@@ -3272,6 +4022,182 @@ export class Route53ResponsesDeleteHostedZoneChangeInfo {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteHostedZone.ChangeInfo.Comment', props);
+    return resource.getResponseField('ChangeInfo.Comment') as unknown as string;
+  }
+
+}
+
+export class Route53ResponsesDeleteKeySigningKey {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53DeleteKeySigningKeyRequest) {
+  }
+
+  public get changeInfo(): Route53ResponsesDeleteKeySigningKeyChangeInfo {
+    return new Route53ResponsesDeleteKeySigningKeyChangeInfo(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResponsesDeleteKeySigningKeyChangeInfo {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53DeleteKeySigningKeyRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.DeleteKeySigningKey.ChangeInfo.Id'),
+        outputPath: 'ChangeInfo.Id',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteKeySigningKey.ChangeInfo.Id', props);
+    return resource.getResponseField('ChangeInfo.Id') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.DeleteKeySigningKey.ChangeInfo.Status'),
+        outputPath: 'ChangeInfo.Status',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteKeySigningKey.ChangeInfo.Status', props);
+    return resource.getResponseField('ChangeInfo.Status') as unknown as string;
+  }
+
+  public get submittedAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.DeleteKeySigningKey.ChangeInfo.SubmittedAt'),
+        outputPath: 'ChangeInfo.SubmittedAt',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteKeySigningKey.ChangeInfo.SubmittedAt', props);
+    return resource.getResponseField('ChangeInfo.SubmittedAt') as unknown as string;
+  }
+
+  public get comment(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteKeySigningKey',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.DeleteKeySigningKey.ChangeInfo.Comment'),
+        outputPath: 'ChangeInfo.Comment',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteKeySigningKey.ChangeInfo.Comment', props);
+    return resource.getResponseField('ChangeInfo.Comment') as unknown as string;
+  }
+
+}
+
+export class Route53ResponsesDisableHostedZoneDnssec {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53DisableHostedZoneDnssecRequest) {
+  }
+
+  public get changeInfo(): Route53ResponsesDisableHostedZoneDnssecChangeInfo {
+    return new Route53ResponsesDisableHostedZoneDnssecChangeInfo(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResponsesDisableHostedZoneDnssecChangeInfo {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53DisableHostedZoneDnssecRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disableHostedZoneDnssec',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.DisableHostedZoneDNSSEC.ChangeInfo.Id'),
+        outputPath: 'ChangeInfo.Id',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisableHostedZoneDNSSEC.ChangeInfo.Id', props);
+    return resource.getResponseField('ChangeInfo.Id') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disableHostedZoneDnssec',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.DisableHostedZoneDNSSEC.ChangeInfo.Status'),
+        outputPath: 'ChangeInfo.Status',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisableHostedZoneDNSSEC.ChangeInfo.Status', props);
+    return resource.getResponseField('ChangeInfo.Status') as unknown as string;
+  }
+
+  public get submittedAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disableHostedZoneDnssec',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.DisableHostedZoneDNSSEC.ChangeInfo.SubmittedAt'),
+        outputPath: 'ChangeInfo.SubmittedAt',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisableHostedZoneDNSSEC.ChangeInfo.SubmittedAt', props);
+    return resource.getResponseField('ChangeInfo.SubmittedAt') as unknown as string;
+  }
+
+  public get comment(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disableHostedZoneDnssec',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.DisableHostedZoneDNSSEC.ChangeInfo.Comment'),
+        outputPath: 'ChangeInfo.Comment',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisableHostedZoneDNSSEC.ChangeInfo.Comment', props);
     return resource.getResponseField('ChangeInfo.Comment') as unknown as string;
   }
 
@@ -3378,6 +4304,92 @@ export class Route53ResponsesDisassociateVpcFromHostedZoneChangeInfo {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateVPCFromHostedZone.ChangeInfo.Comment', props);
+    return resource.getResponseField('ChangeInfo.Comment') as unknown as string;
+  }
+
+}
+
+export class Route53ResponsesEnableHostedZoneDnssec {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53EnableHostedZoneDnssecRequest) {
+  }
+
+  public get changeInfo(): Route53ResponsesEnableHostedZoneDnssecChangeInfo {
+    return new Route53ResponsesEnableHostedZoneDnssecChangeInfo(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResponsesEnableHostedZoneDnssecChangeInfo {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53EnableHostedZoneDnssecRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'enableHostedZoneDnssec',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.EnableHostedZoneDNSSEC.ChangeInfo.Id'),
+        outputPath: 'ChangeInfo.Id',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'EnableHostedZoneDNSSEC.ChangeInfo.Id', props);
+    return resource.getResponseField('ChangeInfo.Id') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'enableHostedZoneDnssec',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.EnableHostedZoneDNSSEC.ChangeInfo.Status'),
+        outputPath: 'ChangeInfo.Status',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'EnableHostedZoneDNSSEC.ChangeInfo.Status', props);
+    return resource.getResponseField('ChangeInfo.Status') as unknown as string;
+  }
+
+  public get submittedAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'enableHostedZoneDnssec',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.EnableHostedZoneDNSSEC.ChangeInfo.SubmittedAt'),
+        outputPath: 'ChangeInfo.SubmittedAt',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'EnableHostedZoneDNSSEC.ChangeInfo.SubmittedAt', props);
+    return resource.getResponseField('ChangeInfo.SubmittedAt') as unknown as string;
+  }
+
+  public get comment(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'enableHostedZoneDnssec',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.EnableHostedZoneDNSSEC.ChangeInfo.Comment'),
+        outputPath: 'ChangeInfo.Comment',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'EnableHostedZoneDNSSEC.ChangeInfo.Comment', props);
     return resource.getResponseField('ChangeInfo.Comment') as unknown as string;
   }
 
@@ -3557,6 +4569,75 @@ export class Route53ResponsesFetchCheckerIpRanges {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetCheckerIpRanges.CheckerIpRanges', props);
     return resource.getResponseField('CheckerIpRanges') as unknown as string[];
+  }
+
+}
+
+export class Route53ResponsesFetchDnssec {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53GetDnssecRequest) {
+  }
+
+  public get status(): Route53ResponsesFetchDnssecStatus {
+    return new Route53ResponsesFetchDnssecStatus(this.__scope, this.__resources, this.__input);
+  }
+
+  public get keySigningKeys(): shapes.Route53KeySigningKey[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDnssec',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.GetDNSSEC.KeySigningKeys'),
+        outputPath: 'KeySigningKeys',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDNSSEC.KeySigningKeys', props);
+    return resource.getResponseField('KeySigningKeys') as unknown as shapes.Route53KeySigningKey[];
+  }
+
+}
+
+export class Route53ResponsesFetchDnssecStatus {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53GetDnssecRequest) {
+  }
+
+  public get serveSignature(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDnssec',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.GetDNSSEC.Status.ServeSignature'),
+        outputPath: 'Status.ServeSignature',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDNSSEC.Status.ServeSignature', props);
+    return resource.getResponseField('Status.ServeSignature') as unknown as string;
+  }
+
+  public get statusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDnssec',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.GetDNSSEC.Status.StatusMessage'),
+        outputPath: 'Status.StatusMessage',
+        parameters: {
+          HostedZoneId: this.__input.hostedZoneId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDNSSEC.Status.StatusMessage', props);
+    return resource.getResponseField('Status.StatusMessage') as unknown as string;
   }
 
 }
@@ -4094,6 +5175,23 @@ export class Route53ResponsesFetchHealthCheckHealthCheckHealthCheckConfig {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetHealthCheck.HealthCheck.HealthCheckConfig.InsufficientDataHealthStatus', props);
     return resource.getResponseField('HealthCheck.HealthCheckConfig.InsufficientDataHealthStatus') as unknown as string;
+  }
+
+  public get routingControlArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getHealthCheck',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.GetHealthCheck.HealthCheck.HealthCheckConfig.RoutingControlArn'),
+        outputPath: 'HealthCheck.HealthCheckConfig.RoutingControlArn',
+        parameters: {
+          HealthCheckId: this.__input.healthCheckId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetHealthCheck.HealthCheck.HealthCheckConfig.RoutingControlArn', props);
+    return resource.getResponseField('HealthCheck.HealthCheckConfig.RoutingControlArn') as unknown as string;
   }
 
 }
@@ -7676,6 +8774,42 @@ export class Route53ResponsesUpdateHealthCheckHealthCheckHealthCheckConfig {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateHealthCheck.HealthCheck.HealthCheckConfig.InsufficientDataHealthStatus', props);
     return resource.getResponseField('HealthCheck.HealthCheckConfig.InsufficientDataHealthStatus') as unknown as string;
+  }
+
+  public get routingControlArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateHealthCheck',
+        service: 'Route53',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53.UpdateHealthCheck.HealthCheck.HealthCheckConfig.RoutingControlArn'),
+        outputPath: 'HealthCheck.HealthCheckConfig.RoutingControlArn',
+        parameters: {
+          HealthCheckId: this.__input.healthCheckId,
+          HealthCheckVersion: this.__input.healthCheckVersion,
+          IPAddress: this.__input.ipAddress,
+          Port: this.__input.port,
+          ResourcePath: this.__input.resourcePath,
+          FullyQualifiedDomainName: this.__input.fullyQualifiedDomainName,
+          SearchString: this.__input.searchString,
+          FailureThreshold: this.__input.failureThreshold,
+          Inverted: this.__input.inverted,
+          Disabled: this.__input.disabled,
+          HealthThreshold: this.__input.healthThreshold,
+          ChildHealthChecks: this.__input.childHealthChecks,
+          EnableSNI: this.__input.enableSni,
+          Regions: this.__input.regions,
+          AlarmIdentifier: {
+            Region: this.__input.alarmIdentifier?.region,
+            Name: this.__input.alarmIdentifier?.name,
+          },
+          InsufficientDataHealthStatus: this.__input.insufficientDataHealthStatus,
+          ResetElements: this.__input.resetElements,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateHealthCheck.HealthCheck.HealthCheckConfig.RoutingControlArn', props);
+    return resource.getResponseField('HealthCheck.HealthCheckConfig.RoutingControlArn') as unknown as string;
   }
 
 }

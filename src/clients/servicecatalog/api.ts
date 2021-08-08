@@ -288,6 +288,10 @@ export class ServiceCatalogClient extends cdk.Construct {
     return new ServiceCatalogResponsesDescribePortfolioShareStatus(this, this.__resources, input);
   }
 
+  public describePortfolioShares(input: shapes.ServiceCatalogDescribePortfolioSharesInput): ServiceCatalogResponsesDescribePortfolioShares {
+    return new ServiceCatalogResponsesDescribePortfolioShares(this, this.__resources, input);
+  }
+
   public describeProduct(input: shapes.ServiceCatalogDescribeProductInput): ServiceCatalogResponsesDescribeProduct {
     return new ServiceCatalogResponsesDescribeProduct(this, this.__resources, input);
   }
@@ -583,6 +587,10 @@ export class ServiceCatalogClient extends cdk.Construct {
 
   public updatePortfolio(input: shapes.ServiceCatalogUpdatePortfolioInput): ServiceCatalogResponsesUpdatePortfolio {
     return new ServiceCatalogResponsesUpdatePortfolio(this, this.__resources, input);
+  }
+
+  public updatePortfolioShare(input: shapes.ServiceCatalogUpdatePortfolioShareInput): ServiceCatalogResponsesUpdatePortfolioShare {
+    return new ServiceCatalogResponsesUpdatePortfolioShare(this, this.__resources, input);
   }
 
   public updateProduct(input: shapes.ServiceCatalogUpdateProductInput): ServiceCatalogResponsesUpdateProduct {
@@ -1086,6 +1094,7 @@ export class ServiceCatalogResponsesCreatePortfolioShare {
             Type: this.__input.organizationNode?.type,
             Value: this.__input.organizationNode?.value,
           },
+          ShareTagOptions: this.__input.shareTagOptions,
         },
       },
     };
@@ -2504,6 +2513,24 @@ export class ServiceCatalogResponsesCreateTagOptionTagOptionDetail {
     return resource.getResponseField('TagOptionDetail.Id') as unknown as string;
   }
 
+  public get owner(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTagOption',
+        service: 'ServiceCatalog',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceCatalog.CreateTagOption.TagOptionDetail.Owner'),
+        outputPath: 'TagOptionDetail.Owner',
+        parameters: {
+          Key: this.__input.key,
+          Value: this.__input.value,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTagOption.TagOptionDetail.Owner', props);
+    return resource.getResponseField('TagOptionDetail.Owner') as unknown as string;
+  }
+
 }
 
 export class ServiceCatalogResponsesDeletePortfolioShare {
@@ -3059,6 +3086,53 @@ export class ServiceCatalogResponsesDescribePortfolioShareStatusShareDetails {
 
 }
 
+export class ServiceCatalogResponsesDescribePortfolioShares {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ServiceCatalogDescribePortfolioSharesInput) {
+  }
+
+  public get nextPageToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePortfolioShares',
+        service: 'ServiceCatalog',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceCatalog.DescribePortfolioShares.NextPageToken'),
+        outputPath: 'NextPageToken',
+        parameters: {
+          PortfolioId: this.__input.portfolioId,
+          Type: this.__input.type,
+          PageToken: this.__input.pageToken,
+          PageSize: this.__input.pageSize,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePortfolioShares.NextPageToken', props);
+    return resource.getResponseField('NextPageToken') as unknown as string;
+  }
+
+  public get portfolioShareDetails(): shapes.ServiceCatalogPortfolioShareDetail[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePortfolioShares',
+        service: 'ServiceCatalog',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceCatalog.DescribePortfolioShares.PortfolioShareDetails'),
+        outputPath: 'PortfolioShareDetails',
+        parameters: {
+          PortfolioId: this.__input.portfolioId,
+          Type: this.__input.type,
+          PageToken: this.__input.pageToken,
+          PageSize: this.__input.pageSize,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePortfolioShares.PortfolioShareDetails', props);
+    return resource.getResponseField('PortfolioShareDetails') as unknown as shapes.ServiceCatalogPortfolioShareDetail[];
+  }
+
+}
+
 export class ServiceCatalogResponsesDescribeProduct {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ServiceCatalogDescribeProductInput) {
@@ -3364,6 +3438,7 @@ export class ServiceCatalogResponsesDescribeProductAsAdmin {
           AcceptLanguage: this.__input.acceptLanguage,
           Id: this.__input.id,
           Name: this.__input.name,
+          SourcePortfolioId: this.__input.sourcePortfolioId,
         },
       },
     };
@@ -3383,6 +3458,7 @@ export class ServiceCatalogResponsesDescribeProductAsAdmin {
           AcceptLanguage: this.__input.acceptLanguage,
           Id: this.__input.id,
           Name: this.__input.name,
+          SourcePortfolioId: this.__input.sourcePortfolioId,
         },
       },
     };
@@ -3402,6 +3478,7 @@ export class ServiceCatalogResponsesDescribeProductAsAdmin {
           AcceptLanguage: this.__input.acceptLanguage,
           Id: this.__input.id,
           Name: this.__input.name,
+          SourcePortfolioId: this.__input.sourcePortfolioId,
         },
       },
     };
@@ -3421,6 +3498,7 @@ export class ServiceCatalogResponsesDescribeProductAsAdmin {
           AcceptLanguage: this.__input.acceptLanguage,
           Id: this.__input.id,
           Name: this.__input.name,
+          SourcePortfolioId: this.__input.sourcePortfolioId,
         },
       },
     };
@@ -3451,6 +3529,7 @@ export class ServiceCatalogResponsesDescribeProductAsAdminProductViewDetail {
           AcceptLanguage: this.__input.acceptLanguage,
           Id: this.__input.id,
           Name: this.__input.name,
+          SourcePortfolioId: this.__input.sourcePortfolioId,
         },
       },
     };
@@ -3470,6 +3549,7 @@ export class ServiceCatalogResponsesDescribeProductAsAdminProductViewDetail {
           AcceptLanguage: this.__input.acceptLanguage,
           Id: this.__input.id,
           Name: this.__input.name,
+          SourcePortfolioId: this.__input.sourcePortfolioId,
         },
       },
     };
@@ -3489,6 +3569,7 @@ export class ServiceCatalogResponsesDescribeProductAsAdminProductViewDetail {
           AcceptLanguage: this.__input.acceptLanguage,
           Id: this.__input.id,
           Name: this.__input.name,
+          SourcePortfolioId: this.__input.sourcePortfolioId,
         },
       },
     };
@@ -3515,6 +3596,7 @@ export class ServiceCatalogResponsesDescribeProductAsAdminProductViewDetailProdu
           AcceptLanguage: this.__input.acceptLanguage,
           Id: this.__input.id,
           Name: this.__input.name,
+          SourcePortfolioId: this.__input.sourcePortfolioId,
         },
       },
     };
@@ -3534,6 +3616,7 @@ export class ServiceCatalogResponsesDescribeProductAsAdminProductViewDetailProdu
           AcceptLanguage: this.__input.acceptLanguage,
           Id: this.__input.id,
           Name: this.__input.name,
+          SourcePortfolioId: this.__input.sourcePortfolioId,
         },
       },
     };
@@ -3553,6 +3636,7 @@ export class ServiceCatalogResponsesDescribeProductAsAdminProductViewDetailProdu
           AcceptLanguage: this.__input.acceptLanguage,
           Id: this.__input.id,
           Name: this.__input.name,
+          SourcePortfolioId: this.__input.sourcePortfolioId,
         },
       },
     };
@@ -3572,6 +3656,7 @@ export class ServiceCatalogResponsesDescribeProductAsAdminProductViewDetailProdu
           AcceptLanguage: this.__input.acceptLanguage,
           Id: this.__input.id,
           Name: this.__input.name,
+          SourcePortfolioId: this.__input.sourcePortfolioId,
         },
       },
     };
@@ -3591,6 +3676,7 @@ export class ServiceCatalogResponsesDescribeProductAsAdminProductViewDetailProdu
           AcceptLanguage: this.__input.acceptLanguage,
           Id: this.__input.id,
           Name: this.__input.name,
+          SourcePortfolioId: this.__input.sourcePortfolioId,
         },
       },
     };
@@ -3610,6 +3696,7 @@ export class ServiceCatalogResponsesDescribeProductAsAdminProductViewDetailProdu
           AcceptLanguage: this.__input.acceptLanguage,
           Id: this.__input.id,
           Name: this.__input.name,
+          SourcePortfolioId: this.__input.sourcePortfolioId,
         },
       },
     };
@@ -3629,6 +3716,7 @@ export class ServiceCatalogResponsesDescribeProductAsAdminProductViewDetailProdu
           AcceptLanguage: this.__input.acceptLanguage,
           Id: this.__input.id,
           Name: this.__input.name,
+          SourcePortfolioId: this.__input.sourcePortfolioId,
         },
       },
     };
@@ -3648,6 +3736,7 @@ export class ServiceCatalogResponsesDescribeProductAsAdminProductViewDetailProdu
           AcceptLanguage: this.__input.acceptLanguage,
           Id: this.__input.id,
           Name: this.__input.name,
+          SourcePortfolioId: this.__input.sourcePortfolioId,
         },
       },
     };
@@ -3667,6 +3756,7 @@ export class ServiceCatalogResponsesDescribeProductAsAdminProductViewDetailProdu
           AcceptLanguage: this.__input.acceptLanguage,
           Id: this.__input.id,
           Name: this.__input.name,
+          SourcePortfolioId: this.__input.sourcePortfolioId,
         },
       },
     };
@@ -3686,6 +3776,7 @@ export class ServiceCatalogResponsesDescribeProductAsAdminProductViewDetailProdu
           AcceptLanguage: this.__input.acceptLanguage,
           Id: this.__input.id,
           Name: this.__input.name,
+          SourcePortfolioId: this.__input.sourcePortfolioId,
         },
       },
     };
@@ -3705,6 +3796,7 @@ export class ServiceCatalogResponsesDescribeProductAsAdminProductViewDetailProdu
           AcceptLanguage: this.__input.acceptLanguage,
           Id: this.__input.id,
           Name: this.__input.name,
+          SourcePortfolioId: this.__input.sourcePortfolioId,
         },
       },
     };
@@ -5569,6 +5661,23 @@ export class ServiceCatalogResponsesDescribeTagOptionTagOptionDetail {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTagOption.TagOptionDetail.Id', props);
     return resource.getResponseField('TagOptionDetail.Id') as unknown as string;
+  }
+
+  public get owner(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTagOption',
+        service: 'ServiceCatalog',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceCatalog.DescribeTagOption.TagOptionDetail.Owner'),
+        outputPath: 'TagOptionDetail.Owner',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTagOption.TagOptionDetail.Owner', props);
+    return resource.getResponseField('TagOptionDetail.Owner') as unknown as string;
   }
 
 }
@@ -8914,6 +9023,61 @@ export class ServiceCatalogResponsesUpdatePortfolioPortfolioDetail {
 
 }
 
+export class ServiceCatalogResponsesUpdatePortfolioShare {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ServiceCatalogUpdatePortfolioShareInput) {
+  }
+
+  public get portfolioShareToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updatePortfolioShare',
+        service: 'ServiceCatalog',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceCatalog.UpdatePortfolioShare.PortfolioShareToken'),
+        outputPath: 'PortfolioShareToken',
+        parameters: {
+          AcceptLanguage: this.__input.acceptLanguage,
+          PortfolioId: this.__input.portfolioId,
+          AccountId: this.__input.accountId,
+          OrganizationNode: {
+            Type: this.__input.organizationNode?.type,
+            Value: this.__input.organizationNode?.value,
+          },
+          ShareTagOptions: this.__input.shareTagOptions,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdatePortfolioShare.PortfolioShareToken', props);
+    return resource.getResponseField('PortfolioShareToken') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updatePortfolioShare',
+        service: 'ServiceCatalog',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceCatalog.UpdatePortfolioShare.Status'),
+        outputPath: 'Status',
+        parameters: {
+          AcceptLanguage: this.__input.acceptLanguage,
+          PortfolioId: this.__input.portfolioId,
+          AccountId: this.__input.accountId,
+          OrganizationNode: {
+            Type: this.__input.organizationNode?.type,
+            Value: this.__input.organizationNode?.value,
+          },
+          ShareTagOptions: this.__input.shareTagOptions,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdatePortfolioShare.Status', props);
+    return resource.getResponseField('Status') as unknown as string;
+  }
+
+}
+
 export class ServiceCatalogResponsesUpdateProduct {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ServiceCatalogUpdateProductInput) {
@@ -10420,6 +10584,25 @@ export class ServiceCatalogResponsesUpdateTagOptionTagOptionDetail {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateTagOption.TagOptionDetail.Id', props);
     return resource.getResponseField('TagOptionDetail.Id') as unknown as string;
+  }
+
+  public get owner(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateTagOption',
+        service: 'ServiceCatalog',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceCatalog.UpdateTagOption.TagOptionDetail.Owner'),
+        outputPath: 'TagOptionDetail.Owner',
+        parameters: {
+          Id: this.__input.id,
+          Value: this.__input.value,
+          Active: this.__input.active,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateTagOption.TagOptionDetail.Owner', props);
+    return resource.getResponseField('TagOptionDetail.Owner') as unknown as string;
   }
 
 }

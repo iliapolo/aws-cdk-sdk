@@ -25,6 +25,23 @@ export interface DirectConnectAcceptDirectConnectGatewayAssociationProposalReque
 }
 
 /**
+ * Converts an object of type 'DirectConnectAcceptDirectConnectGatewayAssociationProposalRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectAcceptDirectConnectGatewayAssociationProposalRequest(obj: DirectConnectAcceptDirectConnectGatewayAssociationProposalRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayId': obj.directConnectGatewayId,
+    'proposalId': obj.proposalId,
+    'associatedGatewayOwnerAccount': obj.associatedGatewayOwnerAccount,
+    'overrideAllowedPrefixesToDirectConnectGateway': obj.overrideAllowedPrefixesToDirectConnectGateway?.map(y => toJson_DirectConnectRouteFilterPrefix(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectAcceptDirectConnectGatewayAssociationProposalResult
  */
 export interface DirectConnectAcceptDirectConnectGatewayAssociationProposalResult {
@@ -34,6 +51,20 @@ export interface DirectConnectAcceptDirectConnectGatewayAssociationProposalResul
   readonly directConnectGatewayAssociation?: DirectConnectDirectConnectGatewayAssociation;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectAcceptDirectConnectGatewayAssociationProposalResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectAcceptDirectConnectGatewayAssociationProposalResult(obj: DirectConnectAcceptDirectConnectGatewayAssociationProposalResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayAssociation': toJson_DirectConnectDirectConnectGatewayAssociation(obj.directConnectGatewayAssociation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectAllocateConnectionOnInterconnectRequest
@@ -65,6 +96,24 @@ export interface DirectConnectAllocateConnectionOnInterconnectRequest {
   readonly vlan: number;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectAllocateConnectionOnInterconnectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectAllocateConnectionOnInterconnectRequest(obj: DirectConnectAllocateConnectionOnInterconnectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bandwidth': obj.bandwidth,
+    'connectionName': obj.connectionName,
+    'ownerAccount': obj.ownerAccount,
+    'interconnectId': obj.interconnectId,
+    'vlan': obj.vlan,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectConnection
@@ -141,6 +190,11 @@ export interface DirectConnectConnection {
   readonly awsDeviceV2?: string;
 
   /**
+   * @schema DirectConnectConnection#awsLogicalDeviceId
+   */
+  readonly awsLogicalDeviceId?: string;
+
+  /**
    * @schema DirectConnectConnection#hasLogicalRedundancy
    */
   readonly hasLogicalRedundancy?: string;
@@ -155,7 +209,62 @@ export interface DirectConnectConnection {
    */
   readonly providerName?: string;
 
+  /**
+   * @schema DirectConnectConnection#macSecCapable
+   */
+  readonly macSecCapable?: boolean;
+
+  /**
+   * @schema DirectConnectConnection#portEncryptionStatus
+   */
+  readonly portEncryptionStatus?: string;
+
+  /**
+   * @schema DirectConnectConnection#encryptionMode
+   */
+  readonly encryptionMode?: string;
+
+  /**
+   * @schema DirectConnectConnection#macSecKeys
+   */
+  readonly macSecKeys?: DirectConnectMacSecKey[];
+
 }
+
+/**
+ * Converts an object of type 'DirectConnectConnection' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectConnection(obj: DirectConnectConnection | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ownerAccount': obj.ownerAccount,
+    'connectionId': obj.connectionId,
+    'connectionName': obj.connectionName,
+    'connectionState': obj.connectionState,
+    'region': obj.region,
+    'location': obj.location,
+    'bandwidth': obj.bandwidth,
+    'vlan': obj.vlan,
+    'partnerName': obj.partnerName,
+    'loaIssueTime': obj.loaIssueTime,
+    'lagId': obj.lagId,
+    'awsDevice': obj.awsDevice,
+    'jumboFrameCapable': obj.jumboFrameCapable,
+    'awsDeviceV2': obj.awsDeviceV2,
+    'awsLogicalDeviceId': obj.awsLogicalDeviceId,
+    'hasLogicalRedundancy': obj.hasLogicalRedundancy,
+    'tags': obj.tags?.map(y => toJson_DirectConnectTag(y)),
+    'providerName': obj.providerName,
+    'macSecCapable': obj.macSecCapable,
+    'portEncryptionStatus': obj.portEncryptionStatus,
+    'encryptionMode': obj.encryptionMode,
+    'macSecKeys': obj.macSecKeys?.map(y => toJson_DirectConnectMacSecKey(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectAllocateHostedConnectionRequest
@@ -194,6 +303,25 @@ export interface DirectConnectAllocateHostedConnectionRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectAllocateHostedConnectionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectAllocateHostedConnectionRequest(obj: DirectConnectAllocateHostedConnectionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+    'ownerAccount': obj.ownerAccount,
+    'bandwidth': obj.bandwidth,
+    'connectionName': obj.connectionName,
+    'vlan': obj.vlan,
+    'tags': obj.tags?.map(y => toJson_DirectConnectTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectAllocatePrivateVirtualInterfaceRequest
  */
 export interface DirectConnectAllocatePrivateVirtualInterfaceRequest {
@@ -213,6 +341,22 @@ export interface DirectConnectAllocatePrivateVirtualInterfaceRequest {
   readonly newPrivateVirtualInterfaceAllocation: DirectConnectNewPrivateVirtualInterfaceAllocation;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectAllocatePrivateVirtualInterfaceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectAllocatePrivateVirtualInterfaceRequest(obj: DirectConnectAllocatePrivateVirtualInterfaceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+    'ownerAccount': obj.ownerAccount,
+    'newPrivateVirtualInterfaceAllocation': toJson_DirectConnectNewPrivateVirtualInterfaceAllocation(obj.newPrivateVirtualInterfaceAllocation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectVirtualInterface
@@ -334,11 +478,54 @@ export interface DirectConnectVirtualInterface {
   readonly awsDeviceV2?: string;
 
   /**
+   * @schema DirectConnectVirtualInterface#awsLogicalDeviceId
+   */
+  readonly awsLogicalDeviceId?: string;
+
+  /**
    * @schema DirectConnectVirtualInterface#tags
    */
   readonly tags?: DirectConnectTag[];
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectVirtualInterface' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectVirtualInterface(obj: DirectConnectVirtualInterface | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ownerAccount': obj.ownerAccount,
+    'virtualInterfaceId': obj.virtualInterfaceId,
+    'location': obj.location,
+    'connectionId': obj.connectionId,
+    'virtualInterfaceType': obj.virtualInterfaceType,
+    'virtualInterfaceName': obj.virtualInterfaceName,
+    'vlan': obj.vlan,
+    'asn': obj.asn,
+    'amazonSideAsn': obj.amazonSideAsn,
+    'authKey': obj.authKey,
+    'amazonAddress': obj.amazonAddress,
+    'customerAddress': obj.customerAddress,
+    'addressFamily': obj.addressFamily,
+    'virtualInterfaceState': obj.virtualInterfaceState,
+    'customerRouterConfig': obj.customerRouterConfig,
+    'mtu': obj.mtu,
+    'jumboFrameCapable': obj.jumboFrameCapable,
+    'virtualGatewayId': obj.virtualGatewayId,
+    'directConnectGatewayId': obj.directConnectGatewayId,
+    'routeFilterPrefixes': obj.routeFilterPrefixes?.map(y => toJson_DirectConnectRouteFilterPrefix(y)),
+    'bgpPeers': obj.bgpPeers?.map(y => toJson_DirectConnectBgpPeer(y)),
+    'region': obj.region,
+    'awsDeviceV2': obj.awsDeviceV2,
+    'awsLogicalDeviceId': obj.awsLogicalDeviceId,
+    'tags': obj.tags?.map(y => toJson_DirectConnectTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectAllocatePublicVirtualInterfaceRequest
@@ -362,6 +549,22 @@ export interface DirectConnectAllocatePublicVirtualInterfaceRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectAllocatePublicVirtualInterfaceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectAllocatePublicVirtualInterfaceRequest(obj: DirectConnectAllocatePublicVirtualInterfaceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+    'ownerAccount': obj.ownerAccount,
+    'newPublicVirtualInterfaceAllocation': toJson_DirectConnectNewPublicVirtualInterfaceAllocation(obj.newPublicVirtualInterfaceAllocation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectAllocateTransitVirtualInterfaceRequest
  */
 export interface DirectConnectAllocateTransitVirtualInterfaceRequest {
@@ -383,6 +586,22 @@ export interface DirectConnectAllocateTransitVirtualInterfaceRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectAllocateTransitVirtualInterfaceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectAllocateTransitVirtualInterfaceRequest(obj: DirectConnectAllocateTransitVirtualInterfaceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+    'ownerAccount': obj.ownerAccount,
+    'newTransitVirtualInterfaceAllocation': toJson_DirectConnectNewTransitVirtualInterfaceAllocation(obj.newTransitVirtualInterfaceAllocation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectAllocateTransitVirtualInterfaceResult
  */
 export interface DirectConnectAllocateTransitVirtualInterfaceResult {
@@ -392,6 +611,20 @@ export interface DirectConnectAllocateTransitVirtualInterfaceResult {
   readonly virtualInterface?: DirectConnectVirtualInterface;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectAllocateTransitVirtualInterfaceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectAllocateTransitVirtualInterfaceResult(obj: DirectConnectAllocateTransitVirtualInterfaceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterface': toJson_DirectConnectVirtualInterface(obj.virtualInterface),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectAssociateConnectionWithLagRequest
@@ -410,6 +643,21 @@ export interface DirectConnectAssociateConnectionWithLagRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectAssociateConnectionWithLagRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectAssociateConnectionWithLagRequest(obj: DirectConnectAssociateConnectionWithLagRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+    'lagId': obj.lagId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectAssociateHostedConnectionRequest
  */
 export interface DirectConnectAssociateHostedConnectionRequest {
@@ -424,6 +672,95 @@ export interface DirectConnectAssociateHostedConnectionRequest {
   readonly parentConnectionId: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectAssociateHostedConnectionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectAssociateHostedConnectionRequest(obj: DirectConnectAssociateHostedConnectionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+    'parentConnectionId': obj.parentConnectionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema DirectConnectAssociateMacSecKeyRequest
+ */
+export interface DirectConnectAssociateMacSecKeyRequest {
+  /**
+   * @schema DirectConnectAssociateMacSecKeyRequest#connectionId
+   */
+  readonly connectionId: string;
+
+  /**
+   * @schema DirectConnectAssociateMacSecKeyRequest#secretARN
+   */
+  readonly secretArn?: string;
+
+  /**
+   * @schema DirectConnectAssociateMacSecKeyRequest#ckn
+   */
+  readonly ckn?: string;
+
+  /**
+   * @schema DirectConnectAssociateMacSecKeyRequest#cak
+   */
+  readonly cak?: string;
+
+}
+
+/**
+ * Converts an object of type 'DirectConnectAssociateMacSecKeyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectAssociateMacSecKeyRequest(obj: DirectConnectAssociateMacSecKeyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+    'secretARN': obj.secretArn,
+    'ckn': obj.ckn,
+    'cak': obj.cak,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema DirectConnectAssociateMacSecKeyResponse
+ */
+export interface DirectConnectAssociateMacSecKeyResponse {
+  /**
+   * @schema DirectConnectAssociateMacSecKeyResponse#connectionId
+   */
+  readonly connectionId?: string;
+
+  /**
+   * @schema DirectConnectAssociateMacSecKeyResponse#macSecKeys
+   */
+  readonly macSecKeys?: DirectConnectMacSecKey[];
+
+}
+
+/**
+ * Converts an object of type 'DirectConnectAssociateMacSecKeyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectAssociateMacSecKeyResponse(obj: DirectConnectAssociateMacSecKeyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+    'macSecKeys': obj.macSecKeys?.map(y => toJson_DirectConnectMacSecKey(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectAssociateVirtualInterfaceRequest
@@ -442,6 +779,21 @@ export interface DirectConnectAssociateVirtualInterfaceRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectAssociateVirtualInterfaceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectAssociateVirtualInterfaceRequest(obj: DirectConnectAssociateVirtualInterfaceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceId': obj.virtualInterfaceId,
+    'connectionId': obj.connectionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectConfirmConnectionRequest
  */
 export interface DirectConnectConfirmConnectionRequest {
@@ -453,6 +805,20 @@ export interface DirectConnectConfirmConnectionRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectConfirmConnectionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectConfirmConnectionRequest(obj: DirectConnectConfirmConnectionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectConfirmConnectionResponse
  */
 export interface DirectConnectConfirmConnectionResponse {
@@ -462,6 +828,20 @@ export interface DirectConnectConfirmConnectionResponse {
   readonly connectionState?: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectConfirmConnectionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectConfirmConnectionResponse(obj: DirectConnectConfirmConnectionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionState': obj.connectionState,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectConfirmPrivateVirtualInterfaceRequest
@@ -485,6 +865,22 @@ export interface DirectConnectConfirmPrivateVirtualInterfaceRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectConfirmPrivateVirtualInterfaceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectConfirmPrivateVirtualInterfaceRequest(obj: DirectConnectConfirmPrivateVirtualInterfaceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceId': obj.virtualInterfaceId,
+    'virtualGatewayId': obj.virtualGatewayId,
+    'directConnectGatewayId': obj.directConnectGatewayId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectConfirmPrivateVirtualInterfaceResponse
  */
 export interface DirectConnectConfirmPrivateVirtualInterfaceResponse {
@@ -494,6 +890,20 @@ export interface DirectConnectConfirmPrivateVirtualInterfaceResponse {
   readonly virtualInterfaceState?: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectConfirmPrivateVirtualInterfaceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectConfirmPrivateVirtualInterfaceResponse(obj: DirectConnectConfirmPrivateVirtualInterfaceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceState': obj.virtualInterfaceState,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectConfirmPublicVirtualInterfaceRequest
@@ -507,6 +917,20 @@ export interface DirectConnectConfirmPublicVirtualInterfaceRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectConfirmPublicVirtualInterfaceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectConfirmPublicVirtualInterfaceRequest(obj: DirectConnectConfirmPublicVirtualInterfaceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceId': obj.virtualInterfaceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectConfirmPublicVirtualInterfaceResponse
  */
 export interface DirectConnectConfirmPublicVirtualInterfaceResponse {
@@ -516,6 +940,20 @@ export interface DirectConnectConfirmPublicVirtualInterfaceResponse {
   readonly virtualInterfaceState?: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectConfirmPublicVirtualInterfaceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectConfirmPublicVirtualInterfaceResponse(obj: DirectConnectConfirmPublicVirtualInterfaceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceState': obj.virtualInterfaceState,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectConfirmTransitVirtualInterfaceRequest
@@ -534,6 +972,21 @@ export interface DirectConnectConfirmTransitVirtualInterfaceRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectConfirmTransitVirtualInterfaceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectConfirmTransitVirtualInterfaceRequest(obj: DirectConnectConfirmTransitVirtualInterfaceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceId': obj.virtualInterfaceId,
+    'directConnectGatewayId': obj.directConnectGatewayId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectConfirmTransitVirtualInterfaceResponse
  */
 export interface DirectConnectConfirmTransitVirtualInterfaceResponse {
@@ -543,6 +996,20 @@ export interface DirectConnectConfirmTransitVirtualInterfaceResponse {
   readonly virtualInterfaceState?: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectConfirmTransitVirtualInterfaceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectConfirmTransitVirtualInterfaceResponse(obj: DirectConnectConfirmTransitVirtualInterfaceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceState': obj.virtualInterfaceState,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectCreateBgpPeerRequest
@@ -556,9 +1023,24 @@ export interface DirectConnectCreateBgpPeerRequest {
   /**
    * @schema DirectConnectCreateBgpPeerRequest#newBGPPeer
    */
-  readonly newBGPPeer?: DirectConnectNewBgpPeer;
+  readonly newBgpPeer?: DirectConnectNewBgpPeer;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectCreateBgpPeerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectCreateBgpPeerRequest(obj: DirectConnectCreateBgpPeerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceId': obj.virtualInterfaceId,
+    'newBGPPeer': toJson_DirectConnectNewBgpPeer(obj.newBgpPeer),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectCreateBgpPeerResponse
@@ -570,6 +1052,20 @@ export interface DirectConnectCreateBgpPeerResponse {
   readonly virtualInterface?: DirectConnectVirtualInterface;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectCreateBgpPeerResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectCreateBgpPeerResponse(obj: DirectConnectCreateBgpPeerResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterface': toJson_DirectConnectVirtualInterface(obj.virtualInterface),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectCreateConnectionRequest
@@ -605,7 +1101,32 @@ export interface DirectConnectCreateConnectionRequest {
    */
   readonly providerName?: string;
 
+  /**
+   * @schema DirectConnectCreateConnectionRequest#requestMACSec
+   */
+  readonly requestMacSec?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'DirectConnectCreateConnectionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectCreateConnectionRequest(obj: DirectConnectCreateConnectionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'location': obj.location,
+    'bandwidth': obj.bandwidth,
+    'connectionName': obj.connectionName,
+    'lagId': obj.lagId,
+    'tags': obj.tags?.map(y => toJson_DirectConnectTag(y)),
+    'providerName': obj.providerName,
+    'requestMACSec': obj.requestMacSec,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectCreateDirectConnectGatewayRequest
@@ -624,6 +1145,21 @@ export interface DirectConnectCreateDirectConnectGatewayRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectCreateDirectConnectGatewayRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectCreateDirectConnectGatewayRequest(obj: DirectConnectCreateDirectConnectGatewayRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayName': obj.directConnectGatewayName,
+    'amazonSideAsn': obj.amazonSideAsn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectCreateDirectConnectGatewayResult
  */
 export interface DirectConnectCreateDirectConnectGatewayResult {
@@ -633,6 +1169,20 @@ export interface DirectConnectCreateDirectConnectGatewayResult {
   readonly directConnectGateway?: DirectConnectDirectConnectGateway;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectCreateDirectConnectGatewayResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectCreateDirectConnectGatewayResult(obj: DirectConnectCreateDirectConnectGatewayResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGateway': toJson_DirectConnectDirectConnectGateway(obj.directConnectGateway),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectCreateDirectConnectGatewayAssociationRequest
@@ -661,6 +1211,23 @@ export interface DirectConnectCreateDirectConnectGatewayAssociationRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectCreateDirectConnectGatewayAssociationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectCreateDirectConnectGatewayAssociationRequest(obj: DirectConnectCreateDirectConnectGatewayAssociationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayId': obj.directConnectGatewayId,
+    'gatewayId': obj.gatewayId,
+    'addAllowedPrefixesToDirectConnectGateway': obj.addAllowedPrefixesToDirectConnectGateway?.map(y => toJson_DirectConnectRouteFilterPrefix(y)),
+    'virtualGatewayId': obj.virtualGatewayId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectCreateDirectConnectGatewayAssociationResult
  */
 export interface DirectConnectCreateDirectConnectGatewayAssociationResult {
@@ -670,6 +1237,20 @@ export interface DirectConnectCreateDirectConnectGatewayAssociationResult {
   readonly directConnectGatewayAssociation?: DirectConnectDirectConnectGatewayAssociation;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectCreateDirectConnectGatewayAssociationResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectCreateDirectConnectGatewayAssociationResult(obj: DirectConnectCreateDirectConnectGatewayAssociationResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayAssociation': toJson_DirectConnectDirectConnectGatewayAssociation(obj.directConnectGatewayAssociation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectCreateDirectConnectGatewayAssociationProposalRequest
@@ -703,6 +1284,24 @@ export interface DirectConnectCreateDirectConnectGatewayAssociationProposalReque
 }
 
 /**
+ * Converts an object of type 'DirectConnectCreateDirectConnectGatewayAssociationProposalRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectCreateDirectConnectGatewayAssociationProposalRequest(obj: DirectConnectCreateDirectConnectGatewayAssociationProposalRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayId': obj.directConnectGatewayId,
+    'directConnectGatewayOwnerAccount': obj.directConnectGatewayOwnerAccount,
+    'gatewayId': obj.gatewayId,
+    'addAllowedPrefixesToDirectConnectGateway': obj.addAllowedPrefixesToDirectConnectGateway?.map(y => toJson_DirectConnectRouteFilterPrefix(y)),
+    'removeAllowedPrefixesToDirectConnectGateway': obj.removeAllowedPrefixesToDirectConnectGateway?.map(y => toJson_DirectConnectRouteFilterPrefix(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectCreateDirectConnectGatewayAssociationProposalResult
  */
 export interface DirectConnectCreateDirectConnectGatewayAssociationProposalResult {
@@ -712,6 +1311,20 @@ export interface DirectConnectCreateDirectConnectGatewayAssociationProposalResul
   readonly directConnectGatewayAssociationProposal?: DirectConnectDirectConnectGatewayAssociationProposal;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectCreateDirectConnectGatewayAssociationProposalResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectCreateDirectConnectGatewayAssociationProposalResult(obj: DirectConnectCreateDirectConnectGatewayAssociationProposalResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayAssociationProposal': toJson_DirectConnectDirectConnectGatewayAssociationProposal(obj.directConnectGatewayAssociationProposal),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectCreateInterconnectRequest
@@ -748,6 +1361,25 @@ export interface DirectConnectCreateInterconnectRequest {
   readonly providerName?: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectCreateInterconnectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectCreateInterconnectRequest(obj: DirectConnectCreateInterconnectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'interconnectName': obj.interconnectName,
+    'bandwidth': obj.bandwidth,
+    'location': obj.location,
+    'lagId': obj.lagId,
+    'tags': obj.tags?.map(y => toJson_DirectConnectTag(y)),
+    'providerName': obj.providerName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectInterconnect
@@ -809,6 +1441,11 @@ export interface DirectConnectInterconnect {
   readonly awsDeviceV2?: string;
 
   /**
+   * @schema DirectConnectInterconnect#awsLogicalDeviceId
+   */
+  readonly awsLogicalDeviceId?: string;
+
+  /**
    * @schema DirectConnectInterconnect#hasLogicalRedundancy
    */
   readonly hasLogicalRedundancy?: string;
@@ -824,6 +1461,34 @@ export interface DirectConnectInterconnect {
   readonly providerName?: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectInterconnect' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectInterconnect(obj: DirectConnectInterconnect | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'interconnectId': obj.interconnectId,
+    'interconnectName': obj.interconnectName,
+    'interconnectState': obj.interconnectState,
+    'region': obj.region,
+    'location': obj.location,
+    'bandwidth': obj.bandwidth,
+    'loaIssueTime': obj.loaIssueTime,
+    'lagId': obj.lagId,
+    'awsDevice': obj.awsDevice,
+    'jumboFrameCapable': obj.jumboFrameCapable,
+    'awsDeviceV2': obj.awsDeviceV2,
+    'awsLogicalDeviceId': obj.awsLogicalDeviceId,
+    'hasLogicalRedundancy': obj.hasLogicalRedundancy,
+    'tags': obj.tags?.map(y => toJson_DirectConnectTag(y)),
+    'providerName': obj.providerName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectCreateLagRequest
@@ -869,7 +1534,34 @@ export interface DirectConnectCreateLagRequest {
    */
   readonly providerName?: string;
 
+  /**
+   * @schema DirectConnectCreateLagRequest#requestMACSec
+   */
+  readonly requestMacSec?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'DirectConnectCreateLagRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectCreateLagRequest(obj: DirectConnectCreateLagRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'numberOfConnections': obj.numberOfConnections,
+    'location': obj.location,
+    'connectionsBandwidth': obj.connectionsBandwidth,
+    'lagName': obj.lagName,
+    'connectionId': obj.connectionId,
+    'tags': obj.tags?.map(y => toJson_DirectConnectTag(y)),
+    'childConnectionTags': obj.childConnectionTags?.map(y => toJson_DirectConnectTag(y)),
+    'providerName': obj.providerName,
+    'requestMACSec': obj.requestMacSec,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectLag
@@ -931,6 +1623,11 @@ export interface DirectConnectLag {
   readonly awsDeviceV2?: string;
 
   /**
+   * @schema DirectConnectLag#awsLogicalDeviceId
+   */
+  readonly awsLogicalDeviceId?: string;
+
+  /**
    * @schema DirectConnectLag#connections
    */
   readonly connections?: DirectConnectConnection[];
@@ -960,7 +1657,56 @@ export interface DirectConnectLag {
    */
   readonly providerName?: string;
 
+  /**
+   * @schema DirectConnectLag#macSecCapable
+   */
+  readonly macSecCapable?: boolean;
+
+  /**
+   * @schema DirectConnectLag#encryptionMode
+   */
+  readonly encryptionMode?: string;
+
+  /**
+   * @schema DirectConnectLag#macSecKeys
+   */
+  readonly macSecKeys?: DirectConnectMacSecKey[];
+
 }
+
+/**
+ * Converts an object of type 'DirectConnectLag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectLag(obj: DirectConnectLag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionsBandwidth': obj.connectionsBandwidth,
+    'numberOfConnections': obj.numberOfConnections,
+    'lagId': obj.lagId,
+    'ownerAccount': obj.ownerAccount,
+    'lagName': obj.lagName,
+    'lagState': obj.lagState,
+    'location': obj.location,
+    'region': obj.region,
+    'minimumLinks': obj.minimumLinks,
+    'awsDevice': obj.awsDevice,
+    'awsDeviceV2': obj.awsDeviceV2,
+    'awsLogicalDeviceId': obj.awsLogicalDeviceId,
+    'connections': obj.connections?.map(y => toJson_DirectConnectConnection(y)),
+    'allowsHostedConnections': obj.allowsHostedConnections,
+    'jumboFrameCapable': obj.jumboFrameCapable,
+    'hasLogicalRedundancy': obj.hasLogicalRedundancy,
+    'tags': obj.tags?.map(y => toJson_DirectConnectTag(y)),
+    'providerName': obj.providerName,
+    'macSecCapable': obj.macSecCapable,
+    'encryptionMode': obj.encryptionMode,
+    'macSecKeys': obj.macSecKeys?.map(y => toJson_DirectConnectMacSecKey(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectCreatePrivateVirtualInterfaceRequest
@@ -979,6 +1725,21 @@ export interface DirectConnectCreatePrivateVirtualInterfaceRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectCreatePrivateVirtualInterfaceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectCreatePrivateVirtualInterfaceRequest(obj: DirectConnectCreatePrivateVirtualInterfaceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+    'newPrivateVirtualInterface': toJson_DirectConnectNewPrivateVirtualInterface(obj.newPrivateVirtualInterface),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectCreatePublicVirtualInterfaceRequest
  */
 export interface DirectConnectCreatePublicVirtualInterfaceRequest {
@@ -993,6 +1754,21 @@ export interface DirectConnectCreatePublicVirtualInterfaceRequest {
   readonly newPublicVirtualInterface: DirectConnectNewPublicVirtualInterface;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectCreatePublicVirtualInterfaceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectCreatePublicVirtualInterfaceRequest(obj: DirectConnectCreatePublicVirtualInterfaceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+    'newPublicVirtualInterface': toJson_DirectConnectNewPublicVirtualInterface(obj.newPublicVirtualInterface),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectCreateTransitVirtualInterfaceRequest
@@ -1011,6 +1787,21 @@ export interface DirectConnectCreateTransitVirtualInterfaceRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectCreateTransitVirtualInterfaceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectCreateTransitVirtualInterfaceRequest(obj: DirectConnectCreateTransitVirtualInterfaceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+    'newTransitVirtualInterface': toJson_DirectConnectNewTransitVirtualInterface(obj.newTransitVirtualInterface),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectCreateTransitVirtualInterfaceResult
  */
 export interface DirectConnectCreateTransitVirtualInterfaceResult {
@@ -1020,6 +1811,20 @@ export interface DirectConnectCreateTransitVirtualInterfaceResult {
   readonly virtualInterface?: DirectConnectVirtualInterface;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectCreateTransitVirtualInterfaceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectCreateTransitVirtualInterfaceResult(obj: DirectConnectCreateTransitVirtualInterfaceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterface': toJson_DirectConnectVirtualInterface(obj.virtualInterface),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDeleteBgpPeerRequest
@@ -1048,6 +1853,23 @@ export interface DirectConnectDeleteBgpPeerRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDeleteBgpPeerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDeleteBgpPeerRequest(obj: DirectConnectDeleteBgpPeerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceId': obj.virtualInterfaceId,
+    'asn': obj.asn,
+    'customerAddress': obj.customerAddress,
+    'bgpPeerId': obj.bgpPeerId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectDeleteBgpPeerResponse
  */
 export interface DirectConnectDeleteBgpPeerResponse {
@@ -1057,6 +1879,20 @@ export interface DirectConnectDeleteBgpPeerResponse {
   readonly virtualInterface?: DirectConnectVirtualInterface;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectDeleteBgpPeerResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDeleteBgpPeerResponse(obj: DirectConnectDeleteBgpPeerResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterface': toJson_DirectConnectVirtualInterface(obj.virtualInterface),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDeleteConnectionRequest
@@ -1070,6 +1906,20 @@ export interface DirectConnectDeleteConnectionRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDeleteConnectionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDeleteConnectionRequest(obj: DirectConnectDeleteConnectionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectDeleteDirectConnectGatewayRequest
  */
 export interface DirectConnectDeleteDirectConnectGatewayRequest {
@@ -1081,6 +1931,20 @@ export interface DirectConnectDeleteDirectConnectGatewayRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDeleteDirectConnectGatewayRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDeleteDirectConnectGatewayRequest(obj: DirectConnectDeleteDirectConnectGatewayRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayId': obj.directConnectGatewayId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectDeleteDirectConnectGatewayResult
  */
 export interface DirectConnectDeleteDirectConnectGatewayResult {
@@ -1090,6 +1954,20 @@ export interface DirectConnectDeleteDirectConnectGatewayResult {
   readonly directConnectGateway?: DirectConnectDirectConnectGateway;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectDeleteDirectConnectGatewayResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDeleteDirectConnectGatewayResult(obj: DirectConnectDeleteDirectConnectGatewayResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGateway': toJson_DirectConnectDirectConnectGateway(obj.directConnectGateway),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDeleteDirectConnectGatewayAssociationRequest
@@ -1113,6 +1991,22 @@ export interface DirectConnectDeleteDirectConnectGatewayAssociationRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDeleteDirectConnectGatewayAssociationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDeleteDirectConnectGatewayAssociationRequest(obj: DirectConnectDeleteDirectConnectGatewayAssociationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'associationId': obj.associationId,
+    'directConnectGatewayId': obj.directConnectGatewayId,
+    'virtualGatewayId': obj.virtualGatewayId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectDeleteDirectConnectGatewayAssociationResult
  */
 export interface DirectConnectDeleteDirectConnectGatewayAssociationResult {
@@ -1122,6 +2016,20 @@ export interface DirectConnectDeleteDirectConnectGatewayAssociationResult {
   readonly directConnectGatewayAssociation?: DirectConnectDirectConnectGatewayAssociation;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectDeleteDirectConnectGatewayAssociationResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDeleteDirectConnectGatewayAssociationResult(obj: DirectConnectDeleteDirectConnectGatewayAssociationResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayAssociation': toJson_DirectConnectDirectConnectGatewayAssociation(obj.directConnectGatewayAssociation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDeleteDirectConnectGatewayAssociationProposalRequest
@@ -1135,6 +2043,20 @@ export interface DirectConnectDeleteDirectConnectGatewayAssociationProposalReque
 }
 
 /**
+ * Converts an object of type 'DirectConnectDeleteDirectConnectGatewayAssociationProposalRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDeleteDirectConnectGatewayAssociationProposalRequest(obj: DirectConnectDeleteDirectConnectGatewayAssociationProposalRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'proposalId': obj.proposalId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectDeleteDirectConnectGatewayAssociationProposalResult
  */
 export interface DirectConnectDeleteDirectConnectGatewayAssociationProposalResult {
@@ -1144,6 +2066,20 @@ export interface DirectConnectDeleteDirectConnectGatewayAssociationProposalResul
   readonly directConnectGatewayAssociationProposal?: DirectConnectDirectConnectGatewayAssociationProposal;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectDeleteDirectConnectGatewayAssociationProposalResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDeleteDirectConnectGatewayAssociationProposalResult(obj: DirectConnectDeleteDirectConnectGatewayAssociationProposalResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayAssociationProposal': toJson_DirectConnectDirectConnectGatewayAssociationProposal(obj.directConnectGatewayAssociationProposal),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDeleteInterconnectRequest
@@ -1157,6 +2093,20 @@ export interface DirectConnectDeleteInterconnectRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDeleteInterconnectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDeleteInterconnectRequest(obj: DirectConnectDeleteInterconnectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'interconnectId': obj.interconnectId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectDeleteInterconnectResponse
  */
 export interface DirectConnectDeleteInterconnectResponse {
@@ -1166,6 +2116,20 @@ export interface DirectConnectDeleteInterconnectResponse {
   readonly interconnectState?: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectDeleteInterconnectResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDeleteInterconnectResponse(obj: DirectConnectDeleteInterconnectResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'interconnectState': obj.interconnectState,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDeleteLagRequest
@@ -1179,6 +2143,20 @@ export interface DirectConnectDeleteLagRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDeleteLagRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDeleteLagRequest(obj: DirectConnectDeleteLagRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'lagId': obj.lagId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectDeleteVirtualInterfaceRequest
  */
 export interface DirectConnectDeleteVirtualInterfaceRequest {
@@ -1190,6 +2168,20 @@ export interface DirectConnectDeleteVirtualInterfaceRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDeleteVirtualInterfaceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDeleteVirtualInterfaceRequest(obj: DirectConnectDeleteVirtualInterfaceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceId': obj.virtualInterfaceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectDeleteVirtualInterfaceResponse
  */
 export interface DirectConnectDeleteVirtualInterfaceResponse {
@@ -1199,6 +2191,20 @@ export interface DirectConnectDeleteVirtualInterfaceResponse {
   readonly virtualInterfaceState?: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectDeleteVirtualInterfaceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDeleteVirtualInterfaceResponse(obj: DirectConnectDeleteVirtualInterfaceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceState': obj.virtualInterfaceState,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDescribeConnectionLoaRequest
@@ -1222,6 +2228,22 @@ export interface DirectConnectDescribeConnectionLoaRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDescribeConnectionLoaRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeConnectionLoaRequest(obj: DirectConnectDescribeConnectionLoaRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+    'providerName': obj.providerName,
+    'loaContentType': obj.loaContentType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectDescribeConnectionLoaResponse
  */
 export interface DirectConnectDescribeConnectionLoaResponse {
@@ -1231,6 +2253,20 @@ export interface DirectConnectDescribeConnectionLoaResponse {
   readonly loa?: DirectConnectLoa;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectDescribeConnectionLoaResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeConnectionLoaResponse(obj: DirectConnectDescribeConnectionLoaResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loa': toJson_DirectConnectLoa(obj.loa),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDescribeConnectionsRequest
@@ -1244,6 +2280,20 @@ export interface DirectConnectDescribeConnectionsRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDescribeConnectionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeConnectionsRequest(obj: DirectConnectDescribeConnectionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectConnections
  */
 export interface DirectConnectConnections {
@@ -1255,6 +2305,20 @@ export interface DirectConnectConnections {
 }
 
 /**
+ * Converts an object of type 'DirectConnectConnections' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectConnections(obj: DirectConnectConnections | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connections': obj.connections?.map(y => toJson_DirectConnectConnection(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectDescribeConnectionsOnInterconnectRequest
  */
 export interface DirectConnectDescribeConnectionsOnInterconnectRequest {
@@ -1264,6 +2328,20 @@ export interface DirectConnectDescribeConnectionsOnInterconnectRequest {
   readonly interconnectId: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectDescribeConnectionsOnInterconnectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeConnectionsOnInterconnectRequest(obj: DirectConnectDescribeConnectionsOnInterconnectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'interconnectId': obj.interconnectId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDescribeDirectConnectGatewayAssociationProposalsRequest
@@ -1297,6 +2375,24 @@ export interface DirectConnectDescribeDirectConnectGatewayAssociationProposalsRe
 }
 
 /**
+ * Converts an object of type 'DirectConnectDescribeDirectConnectGatewayAssociationProposalsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeDirectConnectGatewayAssociationProposalsRequest(obj: DirectConnectDescribeDirectConnectGatewayAssociationProposalsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayId': obj.directConnectGatewayId,
+    'proposalId': obj.proposalId,
+    'associatedGatewayId': obj.associatedGatewayId,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectDescribeDirectConnectGatewayAssociationProposalsResult
  */
 export interface DirectConnectDescribeDirectConnectGatewayAssociationProposalsResult {
@@ -1311,6 +2407,21 @@ export interface DirectConnectDescribeDirectConnectGatewayAssociationProposalsRe
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectDescribeDirectConnectGatewayAssociationProposalsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeDirectConnectGatewayAssociationProposalsResult(obj: DirectConnectDescribeDirectConnectGatewayAssociationProposalsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayAssociationProposals': obj.directConnectGatewayAssociationProposals?.map(y => toJson_DirectConnectDirectConnectGatewayAssociationProposal(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDescribeDirectConnectGatewayAssociationsRequest
@@ -1349,6 +2460,25 @@ export interface DirectConnectDescribeDirectConnectGatewayAssociationsRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDescribeDirectConnectGatewayAssociationsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeDirectConnectGatewayAssociationsRequest(obj: DirectConnectDescribeDirectConnectGatewayAssociationsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'associationId': obj.associationId,
+    'associatedGatewayId': obj.associatedGatewayId,
+    'directConnectGatewayId': obj.directConnectGatewayId,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+    'virtualGatewayId': obj.virtualGatewayId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectDescribeDirectConnectGatewayAssociationsResult
  */
 export interface DirectConnectDescribeDirectConnectGatewayAssociationsResult {
@@ -1363,6 +2493,21 @@ export interface DirectConnectDescribeDirectConnectGatewayAssociationsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectDescribeDirectConnectGatewayAssociationsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeDirectConnectGatewayAssociationsResult(obj: DirectConnectDescribeDirectConnectGatewayAssociationsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayAssociations': obj.directConnectGatewayAssociations?.map(y => toJson_DirectConnectDirectConnectGatewayAssociation(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDescribeDirectConnectGatewayAttachmentsRequest
@@ -1391,6 +2536,23 @@ export interface DirectConnectDescribeDirectConnectGatewayAttachmentsRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDescribeDirectConnectGatewayAttachmentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeDirectConnectGatewayAttachmentsRequest(obj: DirectConnectDescribeDirectConnectGatewayAttachmentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayId': obj.directConnectGatewayId,
+    'virtualInterfaceId': obj.virtualInterfaceId,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectDescribeDirectConnectGatewayAttachmentsResult
  */
 export interface DirectConnectDescribeDirectConnectGatewayAttachmentsResult {
@@ -1405,6 +2567,21 @@ export interface DirectConnectDescribeDirectConnectGatewayAttachmentsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectDescribeDirectConnectGatewayAttachmentsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeDirectConnectGatewayAttachmentsResult(obj: DirectConnectDescribeDirectConnectGatewayAttachmentsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayAttachments': obj.directConnectGatewayAttachments?.map(y => toJson_DirectConnectDirectConnectGatewayAttachment(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDescribeDirectConnectGatewaysRequest
@@ -1428,6 +2605,22 @@ export interface DirectConnectDescribeDirectConnectGatewaysRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDescribeDirectConnectGatewaysRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeDirectConnectGatewaysRequest(obj: DirectConnectDescribeDirectConnectGatewaysRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayId': obj.directConnectGatewayId,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectDescribeDirectConnectGatewaysResult
  */
 export interface DirectConnectDescribeDirectConnectGatewaysResult {
@@ -1444,6 +2637,21 @@ export interface DirectConnectDescribeDirectConnectGatewaysResult {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDescribeDirectConnectGatewaysResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeDirectConnectGatewaysResult(obj: DirectConnectDescribeDirectConnectGatewaysResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGateways': obj.directConnectGateways?.map(y => toJson_DirectConnectDirectConnectGateway(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectDescribeHostedConnectionsRequest
  */
 export interface DirectConnectDescribeHostedConnectionsRequest {
@@ -1453,6 +2661,20 @@ export interface DirectConnectDescribeHostedConnectionsRequest {
   readonly connectionId: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectDescribeHostedConnectionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeHostedConnectionsRequest(obj: DirectConnectDescribeHostedConnectionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDescribeInterconnectLoaRequest
@@ -1476,6 +2698,22 @@ export interface DirectConnectDescribeInterconnectLoaRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDescribeInterconnectLoaRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeInterconnectLoaRequest(obj: DirectConnectDescribeInterconnectLoaRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'interconnectId': obj.interconnectId,
+    'providerName': obj.providerName,
+    'loaContentType': obj.loaContentType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectDescribeInterconnectLoaResponse
  */
 export interface DirectConnectDescribeInterconnectLoaResponse {
@@ -1485,6 +2723,20 @@ export interface DirectConnectDescribeInterconnectLoaResponse {
   readonly loa?: DirectConnectLoa;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectDescribeInterconnectLoaResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeInterconnectLoaResponse(obj: DirectConnectDescribeInterconnectLoaResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loa': toJson_DirectConnectLoa(obj.loa),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDescribeInterconnectsRequest
@@ -1498,6 +2750,20 @@ export interface DirectConnectDescribeInterconnectsRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDescribeInterconnectsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeInterconnectsRequest(obj: DirectConnectDescribeInterconnectsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'interconnectId': obj.interconnectId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectInterconnects
  */
 export interface DirectConnectInterconnects {
@@ -1507,6 +2773,20 @@ export interface DirectConnectInterconnects {
   readonly interconnects?: DirectConnectInterconnect[];
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectInterconnects' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectInterconnects(obj: DirectConnectInterconnects | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'interconnects': obj.interconnects?.map(y => toJson_DirectConnectInterconnect(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDescribeLagsRequest
@@ -1520,6 +2800,20 @@ export interface DirectConnectDescribeLagsRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDescribeLagsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeLagsRequest(obj: DirectConnectDescribeLagsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'lagId': obj.lagId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectLags
  */
 export interface DirectConnectLags {
@@ -1529,6 +2823,20 @@ export interface DirectConnectLags {
   readonly lags?: DirectConnectLag[];
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectLags' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectLags(obj: DirectConnectLags | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'lags': obj.lags?.map(y => toJson_DirectConnectLag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDescribeLoaRequest
@@ -1552,6 +2860,22 @@ export interface DirectConnectDescribeLoaRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDescribeLoaRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeLoaRequest(obj: DirectConnectDescribeLoaRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+    'providerName': obj.providerName,
+    'loaContentType': obj.loaContentType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectLoa
  */
 export interface DirectConnectLoa {
@@ -1568,6 +2892,21 @@ export interface DirectConnectLoa {
 }
 
 /**
+ * Converts an object of type 'DirectConnectLoa' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectLoa(obj: DirectConnectLoa | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loaContent': obj.loaContent,
+    'loaContentType': obj.loaContentType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectLocations
  */
 export interface DirectConnectLocations {
@@ -1577,6 +2916,20 @@ export interface DirectConnectLocations {
   readonly locations?: DirectConnectLocation[];
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectLocations' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectLocations(obj: DirectConnectLocations | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'locations': obj.locations?.map(y => toJson_DirectConnectLocation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDescribeTagsRequest
@@ -1590,6 +2943,20 @@ export interface DirectConnectDescribeTagsRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDescribeTagsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeTagsRequest(obj: DirectConnectDescribeTagsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArns': obj.resourceArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectDescribeTagsResponse
  */
 export interface DirectConnectDescribeTagsResponse {
@@ -1601,6 +2968,20 @@ export interface DirectConnectDescribeTagsResponse {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDescribeTagsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeTagsResponse(obj: DirectConnectDescribeTagsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceTags': obj.resourceTags?.map(y => toJson_DirectConnectResourceTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectVirtualGateways
  */
 export interface DirectConnectVirtualGateways {
@@ -1610,6 +2991,20 @@ export interface DirectConnectVirtualGateways {
   readonly virtualGateways?: DirectConnectVirtualGateway[];
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectVirtualGateways' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectVirtualGateways(obj: DirectConnectVirtualGateways | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualGateways': obj.virtualGateways?.map(y => toJson_DirectConnectVirtualGateway(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDescribeVirtualInterfacesRequest
@@ -1628,6 +3023,21 @@ export interface DirectConnectDescribeVirtualInterfacesRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDescribeVirtualInterfacesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDescribeVirtualInterfacesRequest(obj: DirectConnectDescribeVirtualInterfacesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+    'virtualInterfaceId': obj.virtualInterfaceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectVirtualInterfaces
  */
 export interface DirectConnectVirtualInterfaces {
@@ -1637,6 +3047,20 @@ export interface DirectConnectVirtualInterfaces {
   readonly virtualInterfaces?: DirectConnectVirtualInterface[];
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectVirtualInterfaces' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectVirtualInterfaces(obj: DirectConnectVirtualInterfaces | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaces': obj.virtualInterfaces?.map(y => toJson_DirectConnectVirtualInterface(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDisassociateConnectionFromLagRequest
@@ -1653,6 +3077,83 @@ export interface DirectConnectDisassociateConnectionFromLagRequest {
   readonly lagId: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectDisassociateConnectionFromLagRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDisassociateConnectionFromLagRequest(obj: DirectConnectDisassociateConnectionFromLagRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+    'lagId': obj.lagId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema DirectConnectDisassociateMacSecKeyRequest
+ */
+export interface DirectConnectDisassociateMacSecKeyRequest {
+  /**
+   * @schema DirectConnectDisassociateMacSecKeyRequest#connectionId
+   */
+  readonly connectionId: string;
+
+  /**
+   * @schema DirectConnectDisassociateMacSecKeyRequest#secretARN
+   */
+  readonly secretArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'DirectConnectDisassociateMacSecKeyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDisassociateMacSecKeyRequest(obj: DirectConnectDisassociateMacSecKeyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+    'secretARN': obj.secretArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema DirectConnectDisassociateMacSecKeyResponse
+ */
+export interface DirectConnectDisassociateMacSecKeyResponse {
+  /**
+   * @schema DirectConnectDisassociateMacSecKeyResponse#connectionId
+   */
+  readonly connectionId?: string;
+
+  /**
+   * @schema DirectConnectDisassociateMacSecKeyResponse#macSecKeys
+   */
+  readonly macSecKeys?: DirectConnectMacSecKey[];
+
+}
+
+/**
+ * Converts an object of type 'DirectConnectDisassociateMacSecKeyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDisassociateMacSecKeyResponse(obj: DirectConnectDisassociateMacSecKeyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+    'macSecKeys': obj.macSecKeys?.map(y => toJson_DirectConnectMacSecKey(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectListVirtualInterfaceTestHistoryRequest
@@ -1691,6 +3192,25 @@ export interface DirectConnectListVirtualInterfaceTestHistoryRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectListVirtualInterfaceTestHistoryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectListVirtualInterfaceTestHistoryRequest(obj: DirectConnectListVirtualInterfaceTestHistoryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'testId': obj.testId,
+    'virtualInterfaceId': obj.virtualInterfaceId,
+    'bgpPeers': obj.bgpPeers?.map(y => y),
+    'status': obj.status,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectListVirtualInterfaceTestHistoryResponse
  */
 export interface DirectConnectListVirtualInterfaceTestHistoryResponse {
@@ -1705,6 +3225,21 @@ export interface DirectConnectListVirtualInterfaceTestHistoryResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectListVirtualInterfaceTestHistoryResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectListVirtualInterfaceTestHistoryResponse(obj: DirectConnectListVirtualInterfaceTestHistoryResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceTestHistory': obj.virtualInterfaceTestHistory?.map(y => toJson_DirectConnectVirtualInterfaceTestHistory(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectStartBgpFailoverTestRequest
@@ -1728,6 +3263,22 @@ export interface DirectConnectStartBgpFailoverTestRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectStartBgpFailoverTestRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectStartBgpFailoverTestRequest(obj: DirectConnectStartBgpFailoverTestRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceId': obj.virtualInterfaceId,
+    'bgpPeers': obj.bgpPeers?.map(y => y),
+    'testDurationInMinutes': obj.testDurationInMinutes,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectStartBgpFailoverTestResponse
  */
 export interface DirectConnectStartBgpFailoverTestResponse {
@@ -1737,6 +3288,20 @@ export interface DirectConnectStartBgpFailoverTestResponse {
   readonly virtualInterfaceTest?: DirectConnectVirtualInterfaceTestHistory;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectStartBgpFailoverTestResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectStartBgpFailoverTestResponse(obj: DirectConnectStartBgpFailoverTestResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceTest': toJson_DirectConnectVirtualInterfaceTestHistory(obj.virtualInterfaceTest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectStopBgpFailoverTestRequest
@@ -1750,6 +3315,20 @@ export interface DirectConnectStopBgpFailoverTestRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectStopBgpFailoverTestRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectStopBgpFailoverTestRequest(obj: DirectConnectStopBgpFailoverTestRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceId': obj.virtualInterfaceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectStopBgpFailoverTestResponse
  */
 export interface DirectConnectStopBgpFailoverTestResponse {
@@ -1759,6 +3338,20 @@ export interface DirectConnectStopBgpFailoverTestResponse {
   readonly virtualInterfaceTest?: DirectConnectVirtualInterfaceTestHistory;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectStopBgpFailoverTestResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectStopBgpFailoverTestResponse(obj: DirectConnectStopBgpFailoverTestResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceTest': toJson_DirectConnectVirtualInterfaceTestHistory(obj.virtualInterfaceTest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectTagResourceRequest
@@ -1777,10 +3370,38 @@ export interface DirectConnectTagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectTagResourceRequest(obj: DirectConnectTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': obj.tags?.map(y => toJson_DirectConnectTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectTagResourceResponse
  */
 export interface DirectConnectTagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'DirectConnectTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectTagResourceResponse(obj: DirectConnectTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectUntagResourceRequest
@@ -1799,10 +3420,75 @@ export interface DirectConnectUntagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectUntagResourceRequest(obj: DirectConnectUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectUntagResourceResponse
  */
 export interface DirectConnectUntagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'DirectConnectUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectUntagResourceResponse(obj: DirectConnectUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema DirectConnectUpdateConnectionRequest
+ */
+export interface DirectConnectUpdateConnectionRequest {
+  /**
+   * @schema DirectConnectUpdateConnectionRequest#connectionId
+   */
+  readonly connectionId: string;
+
+  /**
+   * @schema DirectConnectUpdateConnectionRequest#connectionName
+   */
+  readonly connectionName?: string;
+
+  /**
+   * @schema DirectConnectUpdateConnectionRequest#encryptionMode
+   */
+  readonly encryptionMode?: string;
+
+}
+
+/**
+ * Converts an object of type 'DirectConnectUpdateConnectionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectUpdateConnectionRequest(obj: DirectConnectUpdateConnectionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionId': obj.connectionId,
+    'connectionName': obj.connectionName,
+    'encryptionMode': obj.encryptionMode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectUpdateDirectConnectGatewayAssociationRequest
@@ -1826,6 +3512,22 @@ export interface DirectConnectUpdateDirectConnectGatewayAssociationRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectUpdateDirectConnectGatewayAssociationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectUpdateDirectConnectGatewayAssociationRequest(obj: DirectConnectUpdateDirectConnectGatewayAssociationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'associationId': obj.associationId,
+    'addAllowedPrefixesToDirectConnectGateway': obj.addAllowedPrefixesToDirectConnectGateway?.map(y => toJson_DirectConnectRouteFilterPrefix(y)),
+    'removeAllowedPrefixesToDirectConnectGateway': obj.removeAllowedPrefixesToDirectConnectGateway?.map(y => toJson_DirectConnectRouteFilterPrefix(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectUpdateDirectConnectGatewayAssociationResult
  */
 export interface DirectConnectUpdateDirectConnectGatewayAssociationResult {
@@ -1835,6 +3537,20 @@ export interface DirectConnectUpdateDirectConnectGatewayAssociationResult {
   readonly directConnectGatewayAssociation?: DirectConnectDirectConnectGatewayAssociation;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectUpdateDirectConnectGatewayAssociationResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectUpdateDirectConnectGatewayAssociationResult(obj: DirectConnectUpdateDirectConnectGatewayAssociationResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayAssociation': toJson_DirectConnectDirectConnectGatewayAssociation(obj.directConnectGatewayAssociation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectUpdateLagRequest
@@ -1855,7 +3571,29 @@ export interface DirectConnectUpdateLagRequest {
    */
   readonly minimumLinks?: number;
 
+  /**
+   * @schema DirectConnectUpdateLagRequest#encryptionMode
+   */
+  readonly encryptionMode?: string;
+
 }
+
+/**
+ * Converts an object of type 'DirectConnectUpdateLagRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectUpdateLagRequest(obj: DirectConnectUpdateLagRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'lagId': obj.lagId,
+    'lagName': obj.lagName,
+    'minimumLinks': obj.minimumLinks,
+    'encryptionMode': obj.encryptionMode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectUpdateVirtualInterfaceAttributesRequest
@@ -1874,6 +3612,21 @@ export interface DirectConnectUpdateVirtualInterfaceAttributesRequest {
 }
 
 /**
+ * Converts an object of type 'DirectConnectUpdateVirtualInterfaceAttributesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectUpdateVirtualInterfaceAttributesRequest(obj: DirectConnectUpdateVirtualInterfaceAttributesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceId': obj.virtualInterfaceId,
+    'mtu': obj.mtu,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectRouteFilterPrefix
  */
 export interface DirectConnectRouteFilterPrefix {
@@ -1883,6 +3636,20 @@ export interface DirectConnectRouteFilterPrefix {
   readonly cidr?: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectRouteFilterPrefix' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectRouteFilterPrefix(obj: DirectConnectRouteFilterPrefix | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'cidr': obj.cidr,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDirectConnectGatewayAssociation
@@ -1941,6 +3708,29 @@ export interface DirectConnectDirectConnectGatewayAssociation {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDirectConnectGatewayAssociation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDirectConnectGatewayAssociation(obj: DirectConnectDirectConnectGatewayAssociation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayId': obj.directConnectGatewayId,
+    'directConnectGatewayOwnerAccount': obj.directConnectGatewayOwnerAccount,
+    'associationState': obj.associationState,
+    'stateChangeError': obj.stateChangeError,
+    'associatedGateway': toJson_DirectConnectAssociatedGateway(obj.associatedGateway),
+    'associationId': obj.associationId,
+    'allowedPrefixesToDirectConnectGateway': obj.allowedPrefixesToDirectConnectGateway?.map(y => toJson_DirectConnectRouteFilterPrefix(y)),
+    'virtualGatewayId': obj.virtualGatewayId,
+    'virtualGatewayRegion': obj.virtualGatewayRegion,
+    'virtualGatewayOwnerAccount': obj.virtualGatewayOwnerAccount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectTag
  */
 export interface DirectConnectTag {
@@ -1955,6 +3745,64 @@ export interface DirectConnectTag {
   readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectTag(obj: DirectConnectTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema DirectConnectMacSecKey
+ */
+export interface DirectConnectMacSecKey {
+  /**
+   * @schema DirectConnectMacSecKey#secretARN
+   */
+  readonly secretArn?: string;
+
+  /**
+   * @schema DirectConnectMacSecKey#ckn
+   */
+  readonly ckn?: string;
+
+  /**
+   * @schema DirectConnectMacSecKey#state
+   */
+  readonly state?: string;
+
+  /**
+   * @schema DirectConnectMacSecKey#startOn
+   */
+  readonly startOn?: string;
+
+}
+
+/**
+ * Converts an object of type 'DirectConnectMacSecKey' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectMacSecKey(obj: DirectConnectMacSecKey | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'secretARN': obj.secretArn,
+    'ckn': obj.ckn,
+    'state': obj.state,
+    'startOn': obj.startOn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectNewPrivateVirtualInterfaceAllocation
@@ -2008,6 +3856,28 @@ export interface DirectConnectNewPrivateVirtualInterfaceAllocation {
 }
 
 /**
+ * Converts an object of type 'DirectConnectNewPrivateVirtualInterfaceAllocation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectNewPrivateVirtualInterfaceAllocation(obj: DirectConnectNewPrivateVirtualInterfaceAllocation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceName': obj.virtualInterfaceName,
+    'vlan': obj.vlan,
+    'asn': obj.asn,
+    'mtu': obj.mtu,
+    'authKey': obj.authKey,
+    'amazonAddress': obj.amazonAddress,
+    'addressFamily': obj.addressFamily,
+    'customerAddress': obj.customerAddress,
+    'tags': obj.tags?.map(y => toJson_DirectConnectTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectBgpPeer
  */
 export interface DirectConnectBgpPeer {
@@ -2056,7 +3926,35 @@ export interface DirectConnectBgpPeer {
    */
   readonly awsDeviceV2?: string;
 
+  /**
+   * @schema DirectConnectBgpPeer#awsLogicalDeviceId
+   */
+  readonly awsLogicalDeviceId?: string;
+
 }
+
+/**
+ * Converts an object of type 'DirectConnectBgpPeer' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectBgpPeer(obj: DirectConnectBgpPeer | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bgpPeerId': obj.bgpPeerId,
+    'asn': obj.asn,
+    'authKey': obj.authKey,
+    'addressFamily': obj.addressFamily,
+    'amazonAddress': obj.amazonAddress,
+    'customerAddress': obj.customerAddress,
+    'bgpPeerState': obj.bgpPeerState,
+    'bgpStatus': obj.bgpStatus,
+    'awsDeviceV2': obj.awsDeviceV2,
+    'awsLogicalDeviceId': obj.awsLogicalDeviceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectNewPublicVirtualInterfaceAllocation
@@ -2110,6 +4008,28 @@ export interface DirectConnectNewPublicVirtualInterfaceAllocation {
 }
 
 /**
+ * Converts an object of type 'DirectConnectNewPublicVirtualInterfaceAllocation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectNewPublicVirtualInterfaceAllocation(obj: DirectConnectNewPublicVirtualInterfaceAllocation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceName': obj.virtualInterfaceName,
+    'vlan': obj.vlan,
+    'asn': obj.asn,
+    'authKey': obj.authKey,
+    'amazonAddress': obj.amazonAddress,
+    'customerAddress': obj.customerAddress,
+    'addressFamily': obj.addressFamily,
+    'routeFilterPrefixes': obj.routeFilterPrefixes?.map(y => toJson_DirectConnectRouteFilterPrefix(y)),
+    'tags': obj.tags?.map(y => toJson_DirectConnectTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectNewTransitVirtualInterfaceAllocation
  */
 export interface DirectConnectNewTransitVirtualInterfaceAllocation {
@@ -2161,6 +4081,28 @@ export interface DirectConnectNewTransitVirtualInterfaceAllocation {
 }
 
 /**
+ * Converts an object of type 'DirectConnectNewTransitVirtualInterfaceAllocation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectNewTransitVirtualInterfaceAllocation(obj: DirectConnectNewTransitVirtualInterfaceAllocation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceName': obj.virtualInterfaceName,
+    'vlan': obj.vlan,
+    'asn': obj.asn,
+    'mtu': obj.mtu,
+    'authKey': obj.authKey,
+    'amazonAddress': obj.amazonAddress,
+    'customerAddress': obj.customerAddress,
+    'addressFamily': obj.addressFamily,
+    'tags': obj.tags?.map(y => toJson_DirectConnectTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectNewBgpPeer
  */
 export interface DirectConnectNewBgpPeer {
@@ -2190,6 +4132,24 @@ export interface DirectConnectNewBgpPeer {
   readonly customerAddress?: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectNewBgpPeer' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectNewBgpPeer(obj: DirectConnectNewBgpPeer | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'asn': obj.asn,
+    'authKey': obj.authKey,
+    'addressFamily': obj.addressFamily,
+    'amazonAddress': obj.amazonAddress,
+    'customerAddress': obj.customerAddress,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDirectConnectGateway
@@ -2226,6 +4186,25 @@ export interface DirectConnectDirectConnectGateway {
   readonly stateChangeError?: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectDirectConnectGateway' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDirectConnectGateway(obj: DirectConnectDirectConnectGateway | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayId': obj.directConnectGatewayId,
+    'directConnectGatewayName': obj.directConnectGatewayName,
+    'amazonSideAsn': obj.amazonSideAsn,
+    'ownerAccount': obj.ownerAccount,
+    'directConnectGatewayState': obj.directConnectGatewayState,
+    'stateChangeError': obj.stateChangeError,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectDirectConnectGatewayAssociationProposal
@@ -2267,6 +4246,26 @@ export interface DirectConnectDirectConnectGatewayAssociationProposal {
   readonly requestedAllowedPrefixesToDirectConnectGateway?: DirectConnectRouteFilterPrefix[];
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectDirectConnectGatewayAssociationProposal' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDirectConnectGatewayAssociationProposal(obj: DirectConnectDirectConnectGatewayAssociationProposal | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'proposalId': obj.proposalId,
+    'directConnectGatewayId': obj.directConnectGatewayId,
+    'directConnectGatewayOwnerAccount': obj.directConnectGatewayOwnerAccount,
+    'proposalState': obj.proposalState,
+    'associatedGateway': toJson_DirectConnectAssociatedGateway(obj.associatedGateway),
+    'existingAllowedPrefixesToDirectConnectGateway': obj.existingAllowedPrefixesToDirectConnectGateway?.map(y => toJson_DirectConnectRouteFilterPrefix(y)),
+    'requestedAllowedPrefixesToDirectConnectGateway': obj.requestedAllowedPrefixesToDirectConnectGateway?.map(y => toJson_DirectConnectRouteFilterPrefix(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectNewPrivateVirtualInterface
@@ -2330,6 +4329,30 @@ export interface DirectConnectNewPrivateVirtualInterface {
 }
 
 /**
+ * Converts an object of type 'DirectConnectNewPrivateVirtualInterface' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectNewPrivateVirtualInterface(obj: DirectConnectNewPrivateVirtualInterface | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceName': obj.virtualInterfaceName,
+    'vlan': obj.vlan,
+    'asn': obj.asn,
+    'mtu': obj.mtu,
+    'authKey': obj.authKey,
+    'amazonAddress': obj.amazonAddress,
+    'customerAddress': obj.customerAddress,
+    'addressFamily': obj.addressFamily,
+    'virtualGatewayId': obj.virtualGatewayId,
+    'directConnectGatewayId': obj.directConnectGatewayId,
+    'tags': obj.tags?.map(y => toJson_DirectConnectTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectNewPublicVirtualInterface
  */
 export interface DirectConnectNewPublicVirtualInterface {
@@ -2379,6 +4402,28 @@ export interface DirectConnectNewPublicVirtualInterface {
   readonly tags?: DirectConnectTag[];
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectNewPublicVirtualInterface' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectNewPublicVirtualInterface(obj: DirectConnectNewPublicVirtualInterface | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceName': obj.virtualInterfaceName,
+    'vlan': obj.vlan,
+    'asn': obj.asn,
+    'authKey': obj.authKey,
+    'amazonAddress': obj.amazonAddress,
+    'customerAddress': obj.customerAddress,
+    'addressFamily': obj.addressFamily,
+    'routeFilterPrefixes': obj.routeFilterPrefixes?.map(y => toJson_DirectConnectRouteFilterPrefix(y)),
+    'tags': obj.tags?.map(y => toJson_DirectConnectTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectNewTransitVirtualInterface
@@ -2437,6 +4482,29 @@ export interface DirectConnectNewTransitVirtualInterface {
 }
 
 /**
+ * Converts an object of type 'DirectConnectNewTransitVirtualInterface' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectNewTransitVirtualInterface(obj: DirectConnectNewTransitVirtualInterface | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualInterfaceName': obj.virtualInterfaceName,
+    'vlan': obj.vlan,
+    'asn': obj.asn,
+    'mtu': obj.mtu,
+    'authKey': obj.authKey,
+    'amazonAddress': obj.amazonAddress,
+    'customerAddress': obj.customerAddress,
+    'addressFamily': obj.addressFamily,
+    'directConnectGatewayId': obj.directConnectGatewayId,
+    'tags': obj.tags?.map(y => toJson_DirectConnectTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectDirectConnectGatewayAttachment
  */
 export interface DirectConnectDirectConnectGatewayAttachment {
@@ -2478,6 +4546,26 @@ export interface DirectConnectDirectConnectGatewayAttachment {
 }
 
 /**
+ * Converts an object of type 'DirectConnectDirectConnectGatewayAttachment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectDirectConnectGatewayAttachment(obj: DirectConnectDirectConnectGatewayAttachment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'directConnectGatewayId': obj.directConnectGatewayId,
+    'virtualInterfaceId': obj.virtualInterfaceId,
+    'virtualInterfaceRegion': obj.virtualInterfaceRegion,
+    'virtualInterfaceOwnerAccount': obj.virtualInterfaceOwnerAccount,
+    'attachmentState': obj.attachmentState,
+    'attachmentType': obj.attachmentType,
+    'stateChangeError': obj.stateChangeError,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectLocation
  */
 export interface DirectConnectLocation {
@@ -2506,7 +4594,31 @@ export interface DirectConnectLocation {
    */
   readonly availableProviders?: string[];
 
+  /**
+   * @schema DirectConnectLocation#availableMacSecPortSpeeds
+   */
+  readonly availableMacSecPortSpeeds?: string[];
+
 }
+
+/**
+ * Converts an object of type 'DirectConnectLocation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectLocation(obj: DirectConnectLocation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'locationCode': obj.locationCode,
+    'locationName': obj.locationName,
+    'region': obj.region,
+    'availablePortSpeeds': obj.availablePortSpeeds?.map(y => y),
+    'availableProviders': obj.availableProviders?.map(y => y),
+    'availableMacSecPortSpeeds': obj.availableMacSecPortSpeeds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectResourceTag
@@ -2525,6 +4637,21 @@ export interface DirectConnectResourceTag {
 }
 
 /**
+ * Converts an object of type 'DirectConnectResourceTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectResourceTag(obj: DirectConnectResourceTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': obj.tags?.map(y => toJson_DirectConnectTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectVirtualGateway
  */
 export interface DirectConnectVirtualGateway {
@@ -2539,6 +4666,21 @@ export interface DirectConnectVirtualGateway {
   readonly virtualGatewayState?: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectVirtualGateway' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectVirtualGateway(obj: DirectConnectVirtualGateway | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualGatewayId': obj.virtualGatewayId,
+    'virtualGatewayState': obj.virtualGatewayState,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DirectConnectVirtualInterfaceTestHistory
@@ -2587,6 +4729,27 @@ export interface DirectConnectVirtualInterfaceTestHistory {
 }
 
 /**
+ * Converts an object of type 'DirectConnectVirtualInterfaceTestHistory' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectVirtualInterfaceTestHistory(obj: DirectConnectVirtualInterfaceTestHistory | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'testId': obj.testId,
+    'virtualInterfaceId': obj.virtualInterfaceId,
+    'bgpPeers': obj.bgpPeers?.map(y => y),
+    'status': obj.status,
+    'ownerAccount': obj.ownerAccount,
+    'testDurationInMinutes': obj.testDurationInMinutes,
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DirectConnectAssociatedGateway
  */
 export interface DirectConnectAssociatedGateway {
@@ -2611,3 +4774,20 @@ export interface DirectConnectAssociatedGateway {
   readonly region?: string;
 
 }
+
+/**
+ * Converts an object of type 'DirectConnectAssociatedGateway' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DirectConnectAssociatedGateway(obj: DirectConnectAssociatedGateway | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'type': obj.type,
+    'ownerAccount': obj.ownerAccount,
+    'region': obj.region,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

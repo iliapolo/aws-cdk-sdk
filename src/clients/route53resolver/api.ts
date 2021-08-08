@@ -8,6 +8,10 @@ export class Route53ResolverClient extends cdk.Construct {
     super(scope, id);
   }
 
+  public associateFirewallRuleGroup(input: shapes.Route53ResolverAssociateFirewallRuleGroupRequest): Route53ResolverResponsesAssociateFirewallRuleGroup {
+    return new Route53ResolverResponsesAssociateFirewallRuleGroup(this, this.__resources, input);
+  }
+
   public associateResolverEndpointIpAddress(input: shapes.Route53ResolverAssociateResolverEndpointIpAddressRequest): Route53ResolverResponsesAssociateResolverEndpointIpAddress {
     return new Route53ResolverResponsesAssociateResolverEndpointIpAddress(this, this.__resources, input);
   }
@@ -18,6 +22,18 @@ export class Route53ResolverClient extends cdk.Construct {
 
   public associateResolverRule(input: shapes.Route53ResolverAssociateResolverRuleRequest): Route53ResolverResponsesAssociateResolverRule {
     return new Route53ResolverResponsesAssociateResolverRule(this, this.__resources, input);
+  }
+
+  public createFirewallDomainList(input: shapes.Route53ResolverCreateFirewallDomainListRequest): Route53ResolverResponsesCreateFirewallDomainList {
+    return new Route53ResolverResponsesCreateFirewallDomainList(this, this.__resources, input);
+  }
+
+  public createFirewallRule(input: shapes.Route53ResolverCreateFirewallRuleRequest): Route53ResolverResponsesCreateFirewallRule {
+    return new Route53ResolverResponsesCreateFirewallRule(this, this.__resources, input);
+  }
+
+  public createFirewallRuleGroup(input: shapes.Route53ResolverCreateFirewallRuleGroupRequest): Route53ResolverResponsesCreateFirewallRuleGroup {
+    return new Route53ResolverResponsesCreateFirewallRuleGroup(this, this.__resources, input);
   }
 
   public createResolverEndpoint(input: shapes.Route53ResolverCreateResolverEndpointRequest): Route53ResolverResponsesCreateResolverEndpoint {
@@ -32,6 +48,18 @@ export class Route53ResolverClient extends cdk.Construct {
     return new Route53ResolverResponsesCreateResolverRule(this, this.__resources, input);
   }
 
+  public deleteFirewallDomainList(input: shapes.Route53ResolverDeleteFirewallDomainListRequest): Route53ResolverResponsesDeleteFirewallDomainList {
+    return new Route53ResolverResponsesDeleteFirewallDomainList(this, this.__resources, input);
+  }
+
+  public deleteFirewallRule(input: shapes.Route53ResolverDeleteFirewallRuleRequest): Route53ResolverResponsesDeleteFirewallRule {
+    return new Route53ResolverResponsesDeleteFirewallRule(this, this.__resources, input);
+  }
+
+  public deleteFirewallRuleGroup(input: shapes.Route53ResolverDeleteFirewallRuleGroupRequest): Route53ResolverResponsesDeleteFirewallRuleGroup {
+    return new Route53ResolverResponsesDeleteFirewallRuleGroup(this, this.__resources, input);
+  }
+
   public deleteResolverEndpoint(input: shapes.Route53ResolverDeleteResolverEndpointRequest): Route53ResolverResponsesDeleteResolverEndpoint {
     return new Route53ResolverResponsesDeleteResolverEndpoint(this, this.__resources, input);
   }
@@ -44,6 +72,10 @@ export class Route53ResolverClient extends cdk.Construct {
     return new Route53ResolverResponsesDeleteResolverRule(this, this.__resources, input);
   }
 
+  public disassociateFirewallRuleGroup(input: shapes.Route53ResolverDisassociateFirewallRuleGroupRequest): Route53ResolverResponsesDisassociateFirewallRuleGroup {
+    return new Route53ResolverResponsesDisassociateFirewallRuleGroup(this, this.__resources, input);
+  }
+
   public disassociateResolverEndpointIpAddress(input: shapes.Route53ResolverDisassociateResolverEndpointIpAddressRequest): Route53ResolverResponsesDisassociateResolverEndpointIpAddress {
     return new Route53ResolverResponsesDisassociateResolverEndpointIpAddress(this, this.__resources, input);
   }
@@ -54,6 +86,30 @@ export class Route53ResolverClient extends cdk.Construct {
 
   public disassociateResolverRule(input: shapes.Route53ResolverDisassociateResolverRuleRequest): Route53ResolverResponsesDisassociateResolverRule {
     return new Route53ResolverResponsesDisassociateResolverRule(this, this.__resources, input);
+  }
+
+  public fetchFirewallConfig(input: shapes.Route53ResolverGetFirewallConfigRequest): Route53ResolverResponsesFetchFirewallConfig {
+    return new Route53ResolverResponsesFetchFirewallConfig(this, this.__resources, input);
+  }
+
+  public fetchFirewallDomainList(input: shapes.Route53ResolverGetFirewallDomainListRequest): Route53ResolverResponsesFetchFirewallDomainList {
+    return new Route53ResolverResponsesFetchFirewallDomainList(this, this.__resources, input);
+  }
+
+  public fetchFirewallRuleGroup(input: shapes.Route53ResolverGetFirewallRuleGroupRequest): Route53ResolverResponsesFetchFirewallRuleGroup {
+    return new Route53ResolverResponsesFetchFirewallRuleGroup(this, this.__resources, input);
+  }
+
+  public fetchFirewallRuleGroupAssociation(input: shapes.Route53ResolverGetFirewallRuleGroupAssociationRequest): Route53ResolverResponsesFetchFirewallRuleGroupAssociation {
+    return new Route53ResolverResponsesFetchFirewallRuleGroupAssociation(this, this.__resources, input);
+  }
+
+  public fetchFirewallRuleGroupPolicy(input: shapes.Route53ResolverGetFirewallRuleGroupPolicyRequest): Route53ResolverResponsesFetchFirewallRuleGroupPolicy {
+    return new Route53ResolverResponsesFetchFirewallRuleGroupPolicy(this, this.__resources, input);
+  }
+
+  public fetchResolverDnssecConfig(input: shapes.Route53ResolverGetResolverDnssecConfigRequest): Route53ResolverResponsesFetchResolverDnssecConfig {
+    return new Route53ResolverResponsesFetchResolverDnssecConfig(this, this.__resources, input);
   }
 
   public fetchResolverEndpoint(input: shapes.Route53ResolverGetResolverEndpointRequest): Route53ResolverResponsesFetchResolverEndpoint {
@@ -84,6 +140,38 @@ export class Route53ResolverClient extends cdk.Construct {
     return new Route53ResolverResponsesFetchResolverRulePolicy(this, this.__resources, input);
   }
 
+  public importFirewallDomains(input: shapes.Route53ResolverImportFirewallDomainsRequest): Route53ResolverResponsesImportFirewallDomains {
+    return new Route53ResolverResponsesImportFirewallDomains(this, this.__resources, input);
+  }
+
+  public listFirewallConfigs(input: shapes.Route53ResolverListFirewallConfigsRequest): Route53ResolverResponsesListFirewallConfigs {
+    return new Route53ResolverResponsesListFirewallConfigs(this, this.__resources, input);
+  }
+
+  public listFirewallDomainLists(input: shapes.Route53ResolverListFirewallDomainListsRequest): Route53ResolverResponsesListFirewallDomainLists {
+    return new Route53ResolverResponsesListFirewallDomainLists(this, this.__resources, input);
+  }
+
+  public listFirewallDomains(input: shapes.Route53ResolverListFirewallDomainsRequest): Route53ResolverResponsesListFirewallDomains {
+    return new Route53ResolverResponsesListFirewallDomains(this, this.__resources, input);
+  }
+
+  public listFirewallRuleGroupAssociations(input: shapes.Route53ResolverListFirewallRuleGroupAssociationsRequest): Route53ResolverResponsesListFirewallRuleGroupAssociations {
+    return new Route53ResolverResponsesListFirewallRuleGroupAssociations(this, this.__resources, input);
+  }
+
+  public listFirewallRuleGroups(input: shapes.Route53ResolverListFirewallRuleGroupsRequest): Route53ResolverResponsesListFirewallRuleGroups {
+    return new Route53ResolverResponsesListFirewallRuleGroups(this, this.__resources, input);
+  }
+
+  public listFirewallRules(input: shapes.Route53ResolverListFirewallRulesRequest): Route53ResolverResponsesListFirewallRules {
+    return new Route53ResolverResponsesListFirewallRules(this, this.__resources, input);
+  }
+
+  public listResolverDnssecConfigs(input: shapes.Route53ResolverListResolverDnssecConfigsRequest): Route53ResolverResponsesListResolverDnssecConfigs {
+    return new Route53ResolverResponsesListResolverDnssecConfigs(this, this.__resources, input);
+  }
+
   public listResolverEndpointIpAddresses(input: shapes.Route53ResolverListResolverEndpointIpAddressesRequest): Route53ResolverResponsesListResolverEndpointIpAddresses {
     return new Route53ResolverResponsesListResolverEndpointIpAddresses(this, this.__resources, input);
   }
@@ -110,6 +198,10 @@ export class Route53ResolverClient extends cdk.Construct {
 
   public listTagsForResource(input: shapes.Route53ResolverListTagsForResourceRequest): Route53ResolverResponsesListTagsForResource {
     return new Route53ResolverResponsesListTagsForResource(this, this.__resources, input);
+  }
+
+  public putFirewallRuleGroupPolicy(input: shapes.Route53ResolverPutFirewallRuleGroupPolicyRequest): Route53ResolverResponsesPutFirewallRuleGroupPolicy {
+    return new Route53ResolverResponsesPutFirewallRuleGroupPolicy(this, this.__resources, input);
   }
 
   public putResolverQueryLogConfigPolicy(input: shapes.Route53ResolverPutResolverQueryLogConfigPolicyRequest): Route53ResolverResponsesPutResolverQueryLogConfigPolicy {
@@ -152,12 +244,349 @@ export class Route53ResolverClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'UntagResource', props);
   }
 
+  public updateFirewallConfig(input: shapes.Route53ResolverUpdateFirewallConfigRequest): Route53ResolverResponsesUpdateFirewallConfig {
+    return new Route53ResolverResponsesUpdateFirewallConfig(this, this.__resources, input);
+  }
+
+  public updateFirewallDomains(input: shapes.Route53ResolverUpdateFirewallDomainsRequest): Route53ResolverResponsesUpdateFirewallDomains {
+    return new Route53ResolverResponsesUpdateFirewallDomains(this, this.__resources, input);
+  }
+
+  public updateFirewallRule(input: shapes.Route53ResolverUpdateFirewallRuleRequest): Route53ResolverResponsesUpdateFirewallRule {
+    return new Route53ResolverResponsesUpdateFirewallRule(this, this.__resources, input);
+  }
+
+  public updateFirewallRuleGroupAssociation(input: shapes.Route53ResolverUpdateFirewallRuleGroupAssociationRequest): Route53ResolverResponsesUpdateFirewallRuleGroupAssociation {
+    return new Route53ResolverResponsesUpdateFirewallRuleGroupAssociation(this, this.__resources, input);
+  }
+
+  public updateResolverDnssecConfig(input: shapes.Route53ResolverUpdateResolverDnssecConfigRequest): Route53ResolverResponsesUpdateResolverDnssecConfig {
+    return new Route53ResolverResponsesUpdateResolverDnssecConfig(this, this.__resources, input);
+  }
+
   public updateResolverEndpoint(input: shapes.Route53ResolverUpdateResolverEndpointRequest): Route53ResolverResponsesUpdateResolverEndpoint {
     return new Route53ResolverResponsesUpdateResolverEndpoint(this, this.__resources, input);
   }
 
   public updateResolverRule(input: shapes.Route53ResolverUpdateResolverRuleRequest): Route53ResolverResponsesUpdateResolverRule {
     return new Route53ResolverResponsesUpdateResolverRule(this, this.__resources, input);
+  }
+
+}
+
+export class Route53ResolverResponsesAssociateFirewallRuleGroup {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverAssociateFirewallRuleGroupRequest) {
+  }
+
+  public get firewallRuleGroupAssociation(): Route53ResolverResponsesAssociateFirewallRuleGroupFirewallRuleGroupAssociation {
+    return new Route53ResolverResponsesAssociateFirewallRuleGroupFirewallRuleGroupAssociation(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResolverResponsesAssociateFirewallRuleGroupFirewallRuleGroupAssociation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverAssociateFirewallRuleGroupRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.Id'),
+        outputPath: 'FirewallRuleGroupAssociation.Id',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          VpcId: this.__input.vpcId,
+          Priority: this.__input.priority,
+          Name: this.__input.name,
+          MutationProtection: this.__input.mutationProtection,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.Id', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Id') as unknown as string;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.Arn'),
+        outputPath: 'FirewallRuleGroupAssociation.Arn',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          VpcId: this.__input.vpcId,
+          Priority: this.__input.priority,
+          Name: this.__input.name,
+          MutationProtection: this.__input.mutationProtection,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.Arn', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Arn') as unknown as string;
+  }
+
+  public get firewallRuleGroupId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.FirewallRuleGroupId'),
+        outputPath: 'FirewallRuleGroupAssociation.FirewallRuleGroupId',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          VpcId: this.__input.vpcId,
+          Priority: this.__input.priority,
+          Name: this.__input.name,
+          MutationProtection: this.__input.mutationProtection,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.FirewallRuleGroupId', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.FirewallRuleGroupId') as unknown as string;
+  }
+
+  public get vpcId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.VpcId'),
+        outputPath: 'FirewallRuleGroupAssociation.VpcId',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          VpcId: this.__input.vpcId,
+          Priority: this.__input.priority,
+          Name: this.__input.name,
+          MutationProtection: this.__input.mutationProtection,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.VpcId', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.VpcId') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.Name'),
+        outputPath: 'FirewallRuleGroupAssociation.Name',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          VpcId: this.__input.vpcId,
+          Priority: this.__input.priority,
+          Name: this.__input.name,
+          MutationProtection: this.__input.mutationProtection,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.Name', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Name') as unknown as string;
+  }
+
+  public get priority(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.Priority'),
+        outputPath: 'FirewallRuleGroupAssociation.Priority',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          VpcId: this.__input.vpcId,
+          Priority: this.__input.priority,
+          Name: this.__input.name,
+          MutationProtection: this.__input.mutationProtection,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.Priority', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Priority') as unknown as number;
+  }
+
+  public get mutationProtection(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.MutationProtection'),
+        outputPath: 'FirewallRuleGroupAssociation.MutationProtection',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          VpcId: this.__input.vpcId,
+          Priority: this.__input.priority,
+          Name: this.__input.name,
+          MutationProtection: this.__input.mutationProtection,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.MutationProtection', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.MutationProtection') as unknown as string;
+  }
+
+  public get managedOwnerName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.ManagedOwnerName'),
+        outputPath: 'FirewallRuleGroupAssociation.ManagedOwnerName',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          VpcId: this.__input.vpcId,
+          Priority: this.__input.priority,
+          Name: this.__input.name,
+          MutationProtection: this.__input.mutationProtection,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.ManagedOwnerName', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.ManagedOwnerName') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.Status'),
+        outputPath: 'FirewallRuleGroupAssociation.Status',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          VpcId: this.__input.vpcId,
+          Priority: this.__input.priority,
+          Name: this.__input.name,
+          MutationProtection: this.__input.mutationProtection,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.Status', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Status') as unknown as string;
+  }
+
+  public get statusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.StatusMessage'),
+        outputPath: 'FirewallRuleGroupAssociation.StatusMessage',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          VpcId: this.__input.vpcId,
+          Priority: this.__input.priority,
+          Name: this.__input.name,
+          MutationProtection: this.__input.mutationProtection,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.StatusMessage', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.StatusMessage') as unknown as string;
+  }
+
+  public get creatorRequestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.CreatorRequestId'),
+        outputPath: 'FirewallRuleGroupAssociation.CreatorRequestId',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          VpcId: this.__input.vpcId,
+          Priority: this.__input.priority,
+          Name: this.__input.name,
+          MutationProtection: this.__input.mutationProtection,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.CreatorRequestId', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.CreatorRequestId') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.CreationTime'),
+        outputPath: 'FirewallRuleGroupAssociation.CreationTime',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          VpcId: this.__input.vpcId,
+          Priority: this.__input.priority,
+          Name: this.__input.name,
+          MutationProtection: this.__input.mutationProtection,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.CreationTime', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.CreationTime') as unknown as string;
+  }
+
+  public get modificationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.ModificationTime'),
+        outputPath: 'FirewallRuleGroupAssociation.ModificationTime',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          VpcId: this.__input.vpcId,
+          Priority: this.__input.priority,
+          Name: this.__input.name,
+          MutationProtection: this.__input.mutationProtection,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateFirewallRuleGroup.FirewallRuleGroupAssociation.ModificationTime', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.ModificationTime') as unknown as string;
   }
 
 }
@@ -716,6 +1145,771 @@ export class Route53ResolverResponsesAssociateResolverRuleResolverRuleAssociatio
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AssociateResolverRule.ResolverRuleAssociation.StatusMessage', props);
     return resource.getResponseField('ResolverRuleAssociation.StatusMessage') as unknown as string;
+  }
+
+}
+
+export class Route53ResolverResponsesCreateFirewallDomainList {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverCreateFirewallDomainListRequest) {
+  }
+
+  public get firewallDomainList(): Route53ResolverResponsesCreateFirewallDomainListFirewallDomainList {
+    return new Route53ResolverResponsesCreateFirewallDomainListFirewallDomainList(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResolverResponsesCreateFirewallDomainListFirewallDomainList {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverCreateFirewallDomainListRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallDomainList.FirewallDomainList.Id'),
+        outputPath: 'FirewallDomainList.Id',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallDomainList.FirewallDomainList.Id', props);
+    return resource.getResponseField('FirewallDomainList.Id') as unknown as string;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallDomainList.FirewallDomainList.Arn'),
+        outputPath: 'FirewallDomainList.Arn',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallDomainList.FirewallDomainList.Arn', props);
+    return resource.getResponseField('FirewallDomainList.Arn') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallDomainList.FirewallDomainList.Name'),
+        outputPath: 'FirewallDomainList.Name',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallDomainList.FirewallDomainList.Name', props);
+    return resource.getResponseField('FirewallDomainList.Name') as unknown as string;
+  }
+
+  public get domainCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallDomainList.FirewallDomainList.DomainCount'),
+        outputPath: 'FirewallDomainList.DomainCount',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallDomainList.FirewallDomainList.DomainCount', props);
+    return resource.getResponseField('FirewallDomainList.DomainCount') as unknown as number;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallDomainList.FirewallDomainList.Status'),
+        outputPath: 'FirewallDomainList.Status',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallDomainList.FirewallDomainList.Status', props);
+    return resource.getResponseField('FirewallDomainList.Status') as unknown as string;
+  }
+
+  public get statusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallDomainList.FirewallDomainList.StatusMessage'),
+        outputPath: 'FirewallDomainList.StatusMessage',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallDomainList.FirewallDomainList.StatusMessage', props);
+    return resource.getResponseField('FirewallDomainList.StatusMessage') as unknown as string;
+  }
+
+  public get managedOwnerName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallDomainList.FirewallDomainList.ManagedOwnerName'),
+        outputPath: 'FirewallDomainList.ManagedOwnerName',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallDomainList.FirewallDomainList.ManagedOwnerName', props);
+    return resource.getResponseField('FirewallDomainList.ManagedOwnerName') as unknown as string;
+  }
+
+  public get creatorRequestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallDomainList.FirewallDomainList.CreatorRequestId'),
+        outputPath: 'FirewallDomainList.CreatorRequestId',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallDomainList.FirewallDomainList.CreatorRequestId', props);
+    return resource.getResponseField('FirewallDomainList.CreatorRequestId') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallDomainList.FirewallDomainList.CreationTime'),
+        outputPath: 'FirewallDomainList.CreationTime',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallDomainList.FirewallDomainList.CreationTime', props);
+    return resource.getResponseField('FirewallDomainList.CreationTime') as unknown as string;
+  }
+
+  public get modificationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallDomainList.FirewallDomainList.ModificationTime'),
+        outputPath: 'FirewallDomainList.ModificationTime',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallDomainList.FirewallDomainList.ModificationTime', props);
+    return resource.getResponseField('FirewallDomainList.ModificationTime') as unknown as string;
+  }
+
+}
+
+export class Route53ResolverResponsesCreateFirewallRule {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverCreateFirewallRuleRequest) {
+  }
+
+  public get firewallRule(): Route53ResolverResponsesCreateFirewallRuleFirewallRule {
+    return new Route53ResolverResponsesCreateFirewallRuleFirewallRule(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResolverResponsesCreateFirewallRuleFirewallRule {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverCreateFirewallRuleRequest) {
+  }
+
+  public get firewallRuleGroupId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRule.FirewallRule.FirewallRuleGroupId'),
+        outputPath: 'FirewallRule.FirewallRuleGroupId',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRule.FirewallRule.FirewallRuleGroupId', props);
+    return resource.getResponseField('FirewallRule.FirewallRuleGroupId') as unknown as string;
+  }
+
+  public get firewallDomainListId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRule.FirewallRule.FirewallDomainListId'),
+        outputPath: 'FirewallRule.FirewallDomainListId',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRule.FirewallRule.FirewallDomainListId', props);
+    return resource.getResponseField('FirewallRule.FirewallDomainListId') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRule.FirewallRule.Name'),
+        outputPath: 'FirewallRule.Name',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRule.FirewallRule.Name', props);
+    return resource.getResponseField('FirewallRule.Name') as unknown as string;
+  }
+
+  public get priority(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRule.FirewallRule.Priority'),
+        outputPath: 'FirewallRule.Priority',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRule.FirewallRule.Priority', props);
+    return resource.getResponseField('FirewallRule.Priority') as unknown as number;
+  }
+
+  public get action(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRule.FirewallRule.Action'),
+        outputPath: 'FirewallRule.Action',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRule.FirewallRule.Action', props);
+    return resource.getResponseField('FirewallRule.Action') as unknown as string;
+  }
+
+  public get blockResponse(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRule.FirewallRule.BlockResponse'),
+        outputPath: 'FirewallRule.BlockResponse',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRule.FirewallRule.BlockResponse', props);
+    return resource.getResponseField('FirewallRule.BlockResponse') as unknown as string;
+  }
+
+  public get blockOverrideDomain(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRule.FirewallRule.BlockOverrideDomain'),
+        outputPath: 'FirewallRule.BlockOverrideDomain',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRule.FirewallRule.BlockOverrideDomain', props);
+    return resource.getResponseField('FirewallRule.BlockOverrideDomain') as unknown as string;
+  }
+
+  public get blockOverrideDnsType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRule.FirewallRule.BlockOverrideDnsType'),
+        outputPath: 'FirewallRule.BlockOverrideDnsType',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRule.FirewallRule.BlockOverrideDnsType', props);
+    return resource.getResponseField('FirewallRule.BlockOverrideDnsType') as unknown as string;
+  }
+
+  public get blockOverrideTtl(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRule.FirewallRule.BlockOverrideTtl'),
+        outputPath: 'FirewallRule.BlockOverrideTtl',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRule.FirewallRule.BlockOverrideTtl', props);
+    return resource.getResponseField('FirewallRule.BlockOverrideTtl') as unknown as number;
+  }
+
+  public get creatorRequestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRule.FirewallRule.CreatorRequestId'),
+        outputPath: 'FirewallRule.CreatorRequestId',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRule.FirewallRule.CreatorRequestId', props);
+    return resource.getResponseField('FirewallRule.CreatorRequestId') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRule.FirewallRule.CreationTime'),
+        outputPath: 'FirewallRule.CreationTime',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRule.FirewallRule.CreationTime', props);
+    return resource.getResponseField('FirewallRule.CreationTime') as unknown as string;
+  }
+
+  public get modificationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRule.FirewallRule.ModificationTime'),
+        outputPath: 'FirewallRule.ModificationTime',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRule.FirewallRule.ModificationTime', props);
+    return resource.getResponseField('FirewallRule.ModificationTime') as unknown as string;
+  }
+
+}
+
+export class Route53ResolverResponsesCreateFirewallRuleGroup {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverCreateFirewallRuleGroupRequest) {
+  }
+
+  public get firewallRuleGroup(): Route53ResolverResponsesCreateFirewallRuleGroupFirewallRuleGroup {
+    return new Route53ResolverResponsesCreateFirewallRuleGroupFirewallRuleGroup(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResolverResponsesCreateFirewallRuleGroupFirewallRuleGroup {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverCreateFirewallRuleGroupRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRuleGroup.FirewallRuleGroup.Id'),
+        outputPath: 'FirewallRuleGroup.Id',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRuleGroup.FirewallRuleGroup.Id', props);
+    return resource.getResponseField('FirewallRuleGroup.Id') as unknown as string;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRuleGroup.FirewallRuleGroup.Arn'),
+        outputPath: 'FirewallRuleGroup.Arn',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRuleGroup.FirewallRuleGroup.Arn', props);
+    return resource.getResponseField('FirewallRuleGroup.Arn') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRuleGroup.FirewallRuleGroup.Name'),
+        outputPath: 'FirewallRuleGroup.Name',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRuleGroup.FirewallRuleGroup.Name', props);
+    return resource.getResponseField('FirewallRuleGroup.Name') as unknown as string;
+  }
+
+  public get ruleCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRuleGroup.FirewallRuleGroup.RuleCount'),
+        outputPath: 'FirewallRuleGroup.RuleCount',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRuleGroup.FirewallRuleGroup.RuleCount', props);
+    return resource.getResponseField('FirewallRuleGroup.RuleCount') as unknown as number;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRuleGroup.FirewallRuleGroup.Status'),
+        outputPath: 'FirewallRuleGroup.Status',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRuleGroup.FirewallRuleGroup.Status', props);
+    return resource.getResponseField('FirewallRuleGroup.Status') as unknown as string;
+  }
+
+  public get statusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRuleGroup.FirewallRuleGroup.StatusMessage'),
+        outputPath: 'FirewallRuleGroup.StatusMessage',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRuleGroup.FirewallRuleGroup.StatusMessage', props);
+    return resource.getResponseField('FirewallRuleGroup.StatusMessage') as unknown as string;
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRuleGroup.FirewallRuleGroup.OwnerId'),
+        outputPath: 'FirewallRuleGroup.OwnerId',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRuleGroup.FirewallRuleGroup.OwnerId', props);
+    return resource.getResponseField('FirewallRuleGroup.OwnerId') as unknown as string;
+  }
+
+  public get creatorRequestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRuleGroup.FirewallRuleGroup.CreatorRequestId'),
+        outputPath: 'FirewallRuleGroup.CreatorRequestId',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRuleGroup.FirewallRuleGroup.CreatorRequestId', props);
+    return resource.getResponseField('FirewallRuleGroup.CreatorRequestId') as unknown as string;
+  }
+
+  public get shareStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRuleGroup.FirewallRuleGroup.ShareStatus'),
+        outputPath: 'FirewallRuleGroup.ShareStatus',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRuleGroup.FirewallRuleGroup.ShareStatus', props);
+    return resource.getResponseField('FirewallRuleGroup.ShareStatus') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRuleGroup.FirewallRuleGroup.CreationTime'),
+        outputPath: 'FirewallRuleGroup.CreationTime',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRuleGroup.FirewallRuleGroup.CreationTime', props);
+    return resource.getResponseField('FirewallRuleGroup.CreationTime') as unknown as string;
+  }
+
+  public get modificationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.CreateFirewallRuleGroup.FirewallRuleGroup.ModificationTime'),
+        outputPath: 'FirewallRuleGroup.ModificationTime',
+        parameters: {
+          CreatorRequestId: this.__input.creatorRequestId,
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFirewallRuleGroup.FirewallRuleGroup.ModificationTime', props);
+    return resource.getResponseField('FirewallRuleGroup.ModificationTime') as unknown as string;
   }
 
 }
@@ -1560,6 +2754,633 @@ export class Route53ResolverResponsesCreateResolverRuleResolverRule {
 
 }
 
+export class Route53ResolverResponsesDeleteFirewallDomainList {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverDeleteFirewallDomainListRequest) {
+  }
+
+  public get firewallDomainList(): Route53ResolverResponsesDeleteFirewallDomainListFirewallDomainList {
+    return new Route53ResolverResponsesDeleteFirewallDomainListFirewallDomainList(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResolverResponsesDeleteFirewallDomainListFirewallDomainList {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverDeleteFirewallDomainListRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallDomainList.FirewallDomainList.Id'),
+        outputPath: 'FirewallDomainList.Id',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallDomainList.FirewallDomainList.Id', props);
+    return resource.getResponseField('FirewallDomainList.Id') as unknown as string;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallDomainList.FirewallDomainList.Arn'),
+        outputPath: 'FirewallDomainList.Arn',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallDomainList.FirewallDomainList.Arn', props);
+    return resource.getResponseField('FirewallDomainList.Arn') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallDomainList.FirewallDomainList.Name'),
+        outputPath: 'FirewallDomainList.Name',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallDomainList.FirewallDomainList.Name', props);
+    return resource.getResponseField('FirewallDomainList.Name') as unknown as string;
+  }
+
+  public get domainCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallDomainList.FirewallDomainList.DomainCount'),
+        outputPath: 'FirewallDomainList.DomainCount',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallDomainList.FirewallDomainList.DomainCount', props);
+    return resource.getResponseField('FirewallDomainList.DomainCount') as unknown as number;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallDomainList.FirewallDomainList.Status'),
+        outputPath: 'FirewallDomainList.Status',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallDomainList.FirewallDomainList.Status', props);
+    return resource.getResponseField('FirewallDomainList.Status') as unknown as string;
+  }
+
+  public get statusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallDomainList.FirewallDomainList.StatusMessage'),
+        outputPath: 'FirewallDomainList.StatusMessage',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallDomainList.FirewallDomainList.StatusMessage', props);
+    return resource.getResponseField('FirewallDomainList.StatusMessage') as unknown as string;
+  }
+
+  public get managedOwnerName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallDomainList.FirewallDomainList.ManagedOwnerName'),
+        outputPath: 'FirewallDomainList.ManagedOwnerName',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallDomainList.FirewallDomainList.ManagedOwnerName', props);
+    return resource.getResponseField('FirewallDomainList.ManagedOwnerName') as unknown as string;
+  }
+
+  public get creatorRequestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallDomainList.FirewallDomainList.CreatorRequestId'),
+        outputPath: 'FirewallDomainList.CreatorRequestId',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallDomainList.FirewallDomainList.CreatorRequestId', props);
+    return resource.getResponseField('FirewallDomainList.CreatorRequestId') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallDomainList.FirewallDomainList.CreationTime'),
+        outputPath: 'FirewallDomainList.CreationTime',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallDomainList.FirewallDomainList.CreationTime', props);
+    return resource.getResponseField('FirewallDomainList.CreationTime') as unknown as string;
+  }
+
+  public get modificationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallDomainList.FirewallDomainList.ModificationTime'),
+        outputPath: 'FirewallDomainList.ModificationTime',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallDomainList.FirewallDomainList.ModificationTime', props);
+    return resource.getResponseField('FirewallDomainList.ModificationTime') as unknown as string;
+  }
+
+}
+
+export class Route53ResolverResponsesDeleteFirewallRule {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverDeleteFirewallRuleRequest) {
+  }
+
+  public get firewallRule(): Route53ResolverResponsesDeleteFirewallRuleFirewallRule {
+    return new Route53ResolverResponsesDeleteFirewallRuleFirewallRule(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResolverResponsesDeleteFirewallRuleFirewallRule {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverDeleteFirewallRuleRequest) {
+  }
+
+  public get firewallRuleGroupId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRule.FirewallRule.FirewallRuleGroupId'),
+        outputPath: 'FirewallRule.FirewallRuleGroupId',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRule.FirewallRule.FirewallRuleGroupId', props);
+    return resource.getResponseField('FirewallRule.FirewallRuleGroupId') as unknown as string;
+  }
+
+  public get firewallDomainListId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRule.FirewallRule.FirewallDomainListId'),
+        outputPath: 'FirewallRule.FirewallDomainListId',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRule.FirewallRule.FirewallDomainListId', props);
+    return resource.getResponseField('FirewallRule.FirewallDomainListId') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRule.FirewallRule.Name'),
+        outputPath: 'FirewallRule.Name',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRule.FirewallRule.Name', props);
+    return resource.getResponseField('FirewallRule.Name') as unknown as string;
+  }
+
+  public get priority(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRule.FirewallRule.Priority'),
+        outputPath: 'FirewallRule.Priority',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRule.FirewallRule.Priority', props);
+    return resource.getResponseField('FirewallRule.Priority') as unknown as number;
+  }
+
+  public get action(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRule.FirewallRule.Action'),
+        outputPath: 'FirewallRule.Action',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRule.FirewallRule.Action', props);
+    return resource.getResponseField('FirewallRule.Action') as unknown as string;
+  }
+
+  public get blockResponse(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRule.FirewallRule.BlockResponse'),
+        outputPath: 'FirewallRule.BlockResponse',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRule.FirewallRule.BlockResponse', props);
+    return resource.getResponseField('FirewallRule.BlockResponse') as unknown as string;
+  }
+
+  public get blockOverrideDomain(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRule.FirewallRule.BlockOverrideDomain'),
+        outputPath: 'FirewallRule.BlockOverrideDomain',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRule.FirewallRule.BlockOverrideDomain', props);
+    return resource.getResponseField('FirewallRule.BlockOverrideDomain') as unknown as string;
+  }
+
+  public get blockOverrideDnsType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRule.FirewallRule.BlockOverrideDnsType'),
+        outputPath: 'FirewallRule.BlockOverrideDnsType',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRule.FirewallRule.BlockOverrideDnsType', props);
+    return resource.getResponseField('FirewallRule.BlockOverrideDnsType') as unknown as string;
+  }
+
+  public get blockOverrideTtl(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRule.FirewallRule.BlockOverrideTtl'),
+        outputPath: 'FirewallRule.BlockOverrideTtl',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRule.FirewallRule.BlockOverrideTtl', props);
+    return resource.getResponseField('FirewallRule.BlockOverrideTtl') as unknown as number;
+  }
+
+  public get creatorRequestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRule.FirewallRule.CreatorRequestId'),
+        outputPath: 'FirewallRule.CreatorRequestId',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRule.FirewallRule.CreatorRequestId', props);
+    return resource.getResponseField('FirewallRule.CreatorRequestId') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRule.FirewallRule.CreationTime'),
+        outputPath: 'FirewallRule.CreationTime',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRule.FirewallRule.CreationTime', props);
+    return resource.getResponseField('FirewallRule.CreationTime') as unknown as string;
+  }
+
+  public get modificationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRule.FirewallRule.ModificationTime'),
+        outputPath: 'FirewallRule.ModificationTime',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRule.FirewallRule.ModificationTime', props);
+    return resource.getResponseField('FirewallRule.ModificationTime') as unknown as string;
+  }
+
+}
+
+export class Route53ResolverResponsesDeleteFirewallRuleGroup {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverDeleteFirewallRuleGroupRequest) {
+  }
+
+  public get firewallRuleGroup(): Route53ResolverResponsesDeleteFirewallRuleGroupFirewallRuleGroup {
+    return new Route53ResolverResponsesDeleteFirewallRuleGroupFirewallRuleGroup(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResolverResponsesDeleteFirewallRuleGroupFirewallRuleGroup {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverDeleteFirewallRuleGroupRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRuleGroup.FirewallRuleGroup.Id'),
+        outputPath: 'FirewallRuleGroup.Id',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRuleGroup.FirewallRuleGroup.Id', props);
+    return resource.getResponseField('FirewallRuleGroup.Id') as unknown as string;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRuleGroup.FirewallRuleGroup.Arn'),
+        outputPath: 'FirewallRuleGroup.Arn',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRuleGroup.FirewallRuleGroup.Arn', props);
+    return resource.getResponseField('FirewallRuleGroup.Arn') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRuleGroup.FirewallRuleGroup.Name'),
+        outputPath: 'FirewallRuleGroup.Name',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRuleGroup.FirewallRuleGroup.Name', props);
+    return resource.getResponseField('FirewallRuleGroup.Name') as unknown as string;
+  }
+
+  public get ruleCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRuleGroup.FirewallRuleGroup.RuleCount'),
+        outputPath: 'FirewallRuleGroup.RuleCount',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRuleGroup.FirewallRuleGroup.RuleCount', props);
+    return resource.getResponseField('FirewallRuleGroup.RuleCount') as unknown as number;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRuleGroup.FirewallRuleGroup.Status'),
+        outputPath: 'FirewallRuleGroup.Status',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRuleGroup.FirewallRuleGroup.Status', props);
+    return resource.getResponseField('FirewallRuleGroup.Status') as unknown as string;
+  }
+
+  public get statusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRuleGroup.FirewallRuleGroup.StatusMessage'),
+        outputPath: 'FirewallRuleGroup.StatusMessage',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRuleGroup.FirewallRuleGroup.StatusMessage', props);
+    return resource.getResponseField('FirewallRuleGroup.StatusMessage') as unknown as string;
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRuleGroup.FirewallRuleGroup.OwnerId'),
+        outputPath: 'FirewallRuleGroup.OwnerId',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRuleGroup.FirewallRuleGroup.OwnerId', props);
+    return resource.getResponseField('FirewallRuleGroup.OwnerId') as unknown as string;
+  }
+
+  public get creatorRequestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRuleGroup.FirewallRuleGroup.CreatorRequestId'),
+        outputPath: 'FirewallRuleGroup.CreatorRequestId',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRuleGroup.FirewallRuleGroup.CreatorRequestId', props);
+    return resource.getResponseField('FirewallRuleGroup.CreatorRequestId') as unknown as string;
+  }
+
+  public get shareStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRuleGroup.FirewallRuleGroup.ShareStatus'),
+        outputPath: 'FirewallRuleGroup.ShareStatus',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRuleGroup.FirewallRuleGroup.ShareStatus', props);
+    return resource.getResponseField('FirewallRuleGroup.ShareStatus') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRuleGroup.FirewallRuleGroup.CreationTime'),
+        outputPath: 'FirewallRuleGroup.CreationTime',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRuleGroup.FirewallRuleGroup.CreationTime', props);
+    return resource.getResponseField('FirewallRuleGroup.CreationTime') as unknown as string;
+  }
+
+  public get modificationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DeleteFirewallRuleGroup.FirewallRuleGroup.ModificationTime'),
+        outputPath: 'FirewallRuleGroup.ModificationTime',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFirewallRuleGroup.FirewallRuleGroup.ModificationTime', props);
+    return resource.getResponseField('FirewallRuleGroup.ModificationTime') as unknown as string;
+  }
+
+}
+
 export class Route53ResolverResponsesDeleteResolverEndpoint {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverDeleteResolverEndpointRequest) {
@@ -2226,6 +4047,245 @@ export class Route53ResolverResponsesDeleteResolverRuleResolverRule {
 
 }
 
+export class Route53ResolverResponsesDisassociateFirewallRuleGroup {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverDisassociateFirewallRuleGroupRequest) {
+  }
+
+  public get firewallRuleGroupAssociation(): Route53ResolverResponsesDisassociateFirewallRuleGroupFirewallRuleGroupAssociation {
+    return new Route53ResolverResponsesDisassociateFirewallRuleGroupFirewallRuleGroupAssociation(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResolverResponsesDisassociateFirewallRuleGroupFirewallRuleGroupAssociation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverDisassociateFirewallRuleGroupRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.Id'),
+        outputPath: 'FirewallRuleGroupAssociation.Id',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.Id', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Id') as unknown as string;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.Arn'),
+        outputPath: 'FirewallRuleGroupAssociation.Arn',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.Arn', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Arn') as unknown as string;
+  }
+
+  public get firewallRuleGroupId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.FirewallRuleGroupId'),
+        outputPath: 'FirewallRuleGroupAssociation.FirewallRuleGroupId',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.FirewallRuleGroupId', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.FirewallRuleGroupId') as unknown as string;
+  }
+
+  public get vpcId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.VpcId'),
+        outputPath: 'FirewallRuleGroupAssociation.VpcId',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.VpcId', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.VpcId') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.Name'),
+        outputPath: 'FirewallRuleGroupAssociation.Name',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.Name', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Name') as unknown as string;
+  }
+
+  public get priority(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.Priority'),
+        outputPath: 'FirewallRuleGroupAssociation.Priority',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.Priority', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Priority') as unknown as number;
+  }
+
+  public get mutationProtection(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.MutationProtection'),
+        outputPath: 'FirewallRuleGroupAssociation.MutationProtection',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.MutationProtection', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.MutationProtection') as unknown as string;
+  }
+
+  public get managedOwnerName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.ManagedOwnerName'),
+        outputPath: 'FirewallRuleGroupAssociation.ManagedOwnerName',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.ManagedOwnerName', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.ManagedOwnerName') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.Status'),
+        outputPath: 'FirewallRuleGroupAssociation.Status',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.Status', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Status') as unknown as string;
+  }
+
+  public get statusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.StatusMessage'),
+        outputPath: 'FirewallRuleGroupAssociation.StatusMessage',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.StatusMessage', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.StatusMessage') as unknown as string;
+  }
+
+  public get creatorRequestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.CreatorRequestId'),
+        outputPath: 'FirewallRuleGroupAssociation.CreatorRequestId',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.CreatorRequestId', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.CreatorRequestId') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.CreationTime'),
+        outputPath: 'FirewallRuleGroupAssociation.CreationTime',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.CreationTime', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.CreationTime') as unknown as string;
+  }
+
+  public get modificationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.ModificationTime'),
+        outputPath: 'FirewallRuleGroupAssociation.ModificationTime',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateFirewallRuleGroup.FirewallRuleGroupAssociation.ModificationTime', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.ModificationTime') as unknown as string;
+  }
+
+}
+
 export class Route53ResolverResponsesDisassociateResolverEndpointIpAddress {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverDisassociateResolverEndpointIpAddressRequest) {
@@ -2774,6 +4834,834 @@ export class Route53ResolverResponsesDisassociateResolverRuleResolverRuleAssocia
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateResolverRule.ResolverRuleAssociation.StatusMessage', props);
     return resource.getResponseField('ResolverRuleAssociation.StatusMessage') as unknown as string;
+  }
+
+}
+
+export class Route53ResolverResponsesFetchFirewallConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverGetFirewallConfigRequest) {
+  }
+
+  public get firewallConfig(): Route53ResolverResponsesFetchFirewallConfigFirewallConfig {
+    return new Route53ResolverResponsesFetchFirewallConfigFirewallConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResolverResponsesFetchFirewallConfigFirewallConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverGetFirewallConfigRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallConfig',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallConfig.FirewallConfig.Id'),
+        outputPath: 'FirewallConfig.Id',
+        parameters: {
+          ResourceId: this.__input.resourceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallConfig.FirewallConfig.Id', props);
+    return resource.getResponseField('FirewallConfig.Id') as unknown as string;
+  }
+
+  public get resourceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallConfig',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallConfig.FirewallConfig.ResourceId'),
+        outputPath: 'FirewallConfig.ResourceId',
+        parameters: {
+          ResourceId: this.__input.resourceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallConfig.FirewallConfig.ResourceId', props);
+    return resource.getResponseField('FirewallConfig.ResourceId') as unknown as string;
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallConfig',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallConfig.FirewallConfig.OwnerId'),
+        outputPath: 'FirewallConfig.OwnerId',
+        parameters: {
+          ResourceId: this.__input.resourceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallConfig.FirewallConfig.OwnerId', props);
+    return resource.getResponseField('FirewallConfig.OwnerId') as unknown as string;
+  }
+
+  public get firewallFailOpen(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallConfig',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallConfig.FirewallConfig.FirewallFailOpen'),
+        outputPath: 'FirewallConfig.FirewallFailOpen',
+        parameters: {
+          ResourceId: this.__input.resourceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallConfig.FirewallConfig.FirewallFailOpen', props);
+    return resource.getResponseField('FirewallConfig.FirewallFailOpen') as unknown as string;
+  }
+
+}
+
+export class Route53ResolverResponsesFetchFirewallDomainList {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverGetFirewallDomainListRequest) {
+  }
+
+  public get firewallDomainList(): Route53ResolverResponsesFetchFirewallDomainListFirewallDomainList {
+    return new Route53ResolverResponsesFetchFirewallDomainListFirewallDomainList(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResolverResponsesFetchFirewallDomainListFirewallDomainList {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverGetFirewallDomainListRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallDomainList.FirewallDomainList.Id'),
+        outputPath: 'FirewallDomainList.Id',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallDomainList.FirewallDomainList.Id', props);
+    return resource.getResponseField('FirewallDomainList.Id') as unknown as string;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallDomainList.FirewallDomainList.Arn'),
+        outputPath: 'FirewallDomainList.Arn',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallDomainList.FirewallDomainList.Arn', props);
+    return resource.getResponseField('FirewallDomainList.Arn') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallDomainList.FirewallDomainList.Name'),
+        outputPath: 'FirewallDomainList.Name',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallDomainList.FirewallDomainList.Name', props);
+    return resource.getResponseField('FirewallDomainList.Name') as unknown as string;
+  }
+
+  public get domainCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallDomainList.FirewallDomainList.DomainCount'),
+        outputPath: 'FirewallDomainList.DomainCount',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallDomainList.FirewallDomainList.DomainCount', props);
+    return resource.getResponseField('FirewallDomainList.DomainCount') as unknown as number;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallDomainList.FirewallDomainList.Status'),
+        outputPath: 'FirewallDomainList.Status',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallDomainList.FirewallDomainList.Status', props);
+    return resource.getResponseField('FirewallDomainList.Status') as unknown as string;
+  }
+
+  public get statusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallDomainList.FirewallDomainList.StatusMessage'),
+        outputPath: 'FirewallDomainList.StatusMessage',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallDomainList.FirewallDomainList.StatusMessage', props);
+    return resource.getResponseField('FirewallDomainList.StatusMessage') as unknown as string;
+  }
+
+  public get managedOwnerName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallDomainList.FirewallDomainList.ManagedOwnerName'),
+        outputPath: 'FirewallDomainList.ManagedOwnerName',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallDomainList.FirewallDomainList.ManagedOwnerName', props);
+    return resource.getResponseField('FirewallDomainList.ManagedOwnerName') as unknown as string;
+  }
+
+  public get creatorRequestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallDomainList.FirewallDomainList.CreatorRequestId'),
+        outputPath: 'FirewallDomainList.CreatorRequestId',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallDomainList.FirewallDomainList.CreatorRequestId', props);
+    return resource.getResponseField('FirewallDomainList.CreatorRequestId') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallDomainList.FirewallDomainList.CreationTime'),
+        outputPath: 'FirewallDomainList.CreationTime',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallDomainList.FirewallDomainList.CreationTime', props);
+    return resource.getResponseField('FirewallDomainList.CreationTime') as unknown as string;
+  }
+
+  public get modificationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallDomainList',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallDomainList.FirewallDomainList.ModificationTime'),
+        outputPath: 'FirewallDomainList.ModificationTime',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallDomainList.FirewallDomainList.ModificationTime', props);
+    return resource.getResponseField('FirewallDomainList.ModificationTime') as unknown as string;
+  }
+
+}
+
+export class Route53ResolverResponsesFetchFirewallRuleGroup {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverGetFirewallRuleGroupRequest) {
+  }
+
+  public get firewallRuleGroup(): Route53ResolverResponsesFetchFirewallRuleGroupFirewallRuleGroup {
+    return new Route53ResolverResponsesFetchFirewallRuleGroupFirewallRuleGroup(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResolverResponsesFetchFirewallRuleGroupFirewallRuleGroup {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverGetFirewallRuleGroupRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroup.FirewallRuleGroup.Id'),
+        outputPath: 'FirewallRuleGroup.Id',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroup.FirewallRuleGroup.Id', props);
+    return resource.getResponseField('FirewallRuleGroup.Id') as unknown as string;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroup.FirewallRuleGroup.Arn'),
+        outputPath: 'FirewallRuleGroup.Arn',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroup.FirewallRuleGroup.Arn', props);
+    return resource.getResponseField('FirewallRuleGroup.Arn') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroup.FirewallRuleGroup.Name'),
+        outputPath: 'FirewallRuleGroup.Name',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroup.FirewallRuleGroup.Name', props);
+    return resource.getResponseField('FirewallRuleGroup.Name') as unknown as string;
+  }
+
+  public get ruleCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroup.FirewallRuleGroup.RuleCount'),
+        outputPath: 'FirewallRuleGroup.RuleCount',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroup.FirewallRuleGroup.RuleCount', props);
+    return resource.getResponseField('FirewallRuleGroup.RuleCount') as unknown as number;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroup.FirewallRuleGroup.Status'),
+        outputPath: 'FirewallRuleGroup.Status',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroup.FirewallRuleGroup.Status', props);
+    return resource.getResponseField('FirewallRuleGroup.Status') as unknown as string;
+  }
+
+  public get statusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroup.FirewallRuleGroup.StatusMessage'),
+        outputPath: 'FirewallRuleGroup.StatusMessage',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroup.FirewallRuleGroup.StatusMessage', props);
+    return resource.getResponseField('FirewallRuleGroup.StatusMessage') as unknown as string;
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroup.FirewallRuleGroup.OwnerId'),
+        outputPath: 'FirewallRuleGroup.OwnerId',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroup.FirewallRuleGroup.OwnerId', props);
+    return resource.getResponseField('FirewallRuleGroup.OwnerId') as unknown as string;
+  }
+
+  public get creatorRequestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroup.FirewallRuleGroup.CreatorRequestId'),
+        outputPath: 'FirewallRuleGroup.CreatorRequestId',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroup.FirewallRuleGroup.CreatorRequestId', props);
+    return resource.getResponseField('FirewallRuleGroup.CreatorRequestId') as unknown as string;
+  }
+
+  public get shareStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroup.FirewallRuleGroup.ShareStatus'),
+        outputPath: 'FirewallRuleGroup.ShareStatus',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroup.FirewallRuleGroup.ShareStatus', props);
+    return resource.getResponseField('FirewallRuleGroup.ShareStatus') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroup.FirewallRuleGroup.CreationTime'),
+        outputPath: 'FirewallRuleGroup.CreationTime',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroup.FirewallRuleGroup.CreationTime', props);
+    return resource.getResponseField('FirewallRuleGroup.CreationTime') as unknown as string;
+  }
+
+  public get modificationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroup',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroup.FirewallRuleGroup.ModificationTime'),
+        outputPath: 'FirewallRuleGroup.ModificationTime',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroup.FirewallRuleGroup.ModificationTime', props);
+    return resource.getResponseField('FirewallRuleGroup.ModificationTime') as unknown as string;
+  }
+
+}
+
+export class Route53ResolverResponsesFetchFirewallRuleGroupAssociation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverGetFirewallRuleGroupAssociationRequest) {
+  }
+
+  public get firewallRuleGroupAssociation(): Route53ResolverResponsesFetchFirewallRuleGroupAssociationFirewallRuleGroupAssociation {
+    return new Route53ResolverResponsesFetchFirewallRuleGroupAssociationFirewallRuleGroupAssociation(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResolverResponsesFetchFirewallRuleGroupAssociationFirewallRuleGroupAssociation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverGetFirewallRuleGroupAssociationRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Id'),
+        outputPath: 'FirewallRuleGroupAssociation.Id',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Id', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Id') as unknown as string;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Arn'),
+        outputPath: 'FirewallRuleGroupAssociation.Arn',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Arn', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Arn') as unknown as string;
+  }
+
+  public get firewallRuleGroupId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.FirewallRuleGroupId'),
+        outputPath: 'FirewallRuleGroupAssociation.FirewallRuleGroupId',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.FirewallRuleGroupId', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.FirewallRuleGroupId') as unknown as string;
+  }
+
+  public get vpcId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.VpcId'),
+        outputPath: 'FirewallRuleGroupAssociation.VpcId',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.VpcId', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.VpcId') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Name'),
+        outputPath: 'FirewallRuleGroupAssociation.Name',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Name', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Name') as unknown as string;
+  }
+
+  public get priority(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Priority'),
+        outputPath: 'FirewallRuleGroupAssociation.Priority',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Priority', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Priority') as unknown as number;
+  }
+
+  public get mutationProtection(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.MutationProtection'),
+        outputPath: 'FirewallRuleGroupAssociation.MutationProtection',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.MutationProtection', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.MutationProtection') as unknown as string;
+  }
+
+  public get managedOwnerName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.ManagedOwnerName'),
+        outputPath: 'FirewallRuleGroupAssociation.ManagedOwnerName',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.ManagedOwnerName', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.ManagedOwnerName') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Status'),
+        outputPath: 'FirewallRuleGroupAssociation.Status',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Status', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Status') as unknown as string;
+  }
+
+  public get statusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.StatusMessage'),
+        outputPath: 'FirewallRuleGroupAssociation.StatusMessage',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.StatusMessage', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.StatusMessage') as unknown as string;
+  }
+
+  public get creatorRequestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.CreatorRequestId'),
+        outputPath: 'FirewallRuleGroupAssociation.CreatorRequestId',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.CreatorRequestId', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.CreatorRequestId') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.CreationTime'),
+        outputPath: 'FirewallRuleGroupAssociation.CreationTime',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.CreationTime', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.CreationTime') as unknown as string;
+  }
+
+  public get modificationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.ModificationTime'),
+        outputPath: 'FirewallRuleGroupAssociation.ModificationTime',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.ModificationTime', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.ModificationTime') as unknown as string;
+  }
+
+}
+
+export class Route53ResolverResponsesFetchFirewallRuleGroupPolicy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverGetFirewallRuleGroupPolicyRequest) {
+  }
+
+  public get firewallRuleGroupPolicy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFirewallRuleGroupPolicy',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetFirewallRuleGroupPolicy.FirewallRuleGroupPolicy'),
+        outputPath: 'FirewallRuleGroupPolicy',
+        parameters: {
+          Arn: this.__input.arn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFirewallRuleGroupPolicy.FirewallRuleGroupPolicy', props);
+    return resource.getResponseField('FirewallRuleGroupPolicy') as unknown as string;
+  }
+
+}
+
+export class Route53ResolverResponsesFetchResolverDnssecConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverGetResolverDnssecConfigRequest) {
+  }
+
+  public get resolverDnssecConfig(): Route53ResolverResponsesFetchResolverDnssecConfigResolverDnssecConfig {
+    return new Route53ResolverResponsesFetchResolverDnssecConfigResolverDnssecConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResolverResponsesFetchResolverDnssecConfigResolverDnssecConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverGetResolverDnssecConfigRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getResolverDnssecConfig',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetResolverDnssecConfig.ResolverDNSSECConfig.Id'),
+        outputPath: 'ResolverDNSSECConfig.Id',
+        parameters: {
+          ResourceId: this.__input.resourceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetResolverDnssecConfig.ResolverDNSSECConfig.Id', props);
+    return resource.getResponseField('ResolverDNSSECConfig.Id') as unknown as string;
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getResolverDnssecConfig',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetResolverDnssecConfig.ResolverDNSSECConfig.OwnerId'),
+        outputPath: 'ResolverDNSSECConfig.OwnerId',
+        parameters: {
+          ResourceId: this.__input.resourceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetResolverDnssecConfig.ResolverDNSSECConfig.OwnerId', props);
+    return resource.getResponseField('ResolverDNSSECConfig.OwnerId') as unknown as string;
+  }
+
+  public get resourceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getResolverDnssecConfig',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetResolverDnssecConfig.ResolverDNSSECConfig.ResourceId'),
+        outputPath: 'ResolverDNSSECConfig.ResourceId',
+        parameters: {
+          ResourceId: this.__input.resourceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetResolverDnssecConfig.ResolverDNSSECConfig.ResourceId', props);
+    return resource.getResponseField('ResolverDNSSECConfig.ResourceId') as unknown as string;
+  }
+
+  public get validationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getResolverDnssecConfig',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.GetResolverDnssecConfig.ResolverDNSSECConfig.ValidationStatus'),
+        outputPath: 'ResolverDNSSECConfig.ValidationStatus',
+        parameters: {
+          ResourceId: this.__input.resourceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetResolverDnssecConfig.ResolverDNSSECConfig.ValidationStatus', props);
+    return resource.getResponseField('ResolverDNSSECConfig.ValidationStatus') as unknown as string;
   }
 
 }
@@ -3749,6 +6637,408 @@ export class Route53ResolverResponsesFetchResolverRulePolicy {
 
 }
 
+export class Route53ResolverResponsesImportFirewallDomains {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverImportFirewallDomainsRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'importFirewallDomains',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.ImportFirewallDomains.Id'),
+        outputPath: 'Id',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Operation: this.__input.operation,
+          DomainFileUrl: this.__input.domainFileUrl,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ImportFirewallDomains.Id', props);
+    return resource.getResponseField('Id') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'importFirewallDomains',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.ImportFirewallDomains.Name'),
+        outputPath: 'Name',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Operation: this.__input.operation,
+          DomainFileUrl: this.__input.domainFileUrl,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ImportFirewallDomains.Name', props);
+    return resource.getResponseField('Name') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'importFirewallDomains',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.ImportFirewallDomains.Status'),
+        outputPath: 'Status',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Operation: this.__input.operation,
+          DomainFileUrl: this.__input.domainFileUrl,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ImportFirewallDomains.Status', props);
+    return resource.getResponseField('Status') as unknown as string;
+  }
+
+  public get statusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'importFirewallDomains',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.ImportFirewallDomains.StatusMessage'),
+        outputPath: 'StatusMessage',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Operation: this.__input.operation,
+          DomainFileUrl: this.__input.domainFileUrl,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ImportFirewallDomains.StatusMessage', props);
+    return resource.getResponseField('StatusMessage') as unknown as string;
+  }
+
+}
+
+export class Route53ResolverResponsesListFirewallConfigs {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverListFirewallConfigsRequest) {
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFirewallConfigs',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.ListFirewallConfigs.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFirewallConfigs.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+  public get firewallConfigs(): shapes.Route53ResolverFirewallConfig[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFirewallConfigs',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.ListFirewallConfigs.FirewallConfigs'),
+        outputPath: 'FirewallConfigs',
+        parameters: {
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFirewallConfigs.FirewallConfigs', props);
+    return resource.getResponseField('FirewallConfigs') as unknown as shapes.Route53ResolverFirewallConfig[];
+  }
+
+}
+
+export class Route53ResolverResponsesListFirewallDomainLists {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverListFirewallDomainListsRequest) {
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFirewallDomainLists',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.ListFirewallDomainLists.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFirewallDomainLists.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+  public get firewallDomainLists(): shapes.Route53ResolverFirewallDomainListMetadata[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFirewallDomainLists',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.ListFirewallDomainLists.FirewallDomainLists'),
+        outputPath: 'FirewallDomainLists',
+        parameters: {
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFirewallDomainLists.FirewallDomainLists', props);
+    return resource.getResponseField('FirewallDomainLists') as unknown as shapes.Route53ResolverFirewallDomainListMetadata[];
+  }
+
+}
+
+export class Route53ResolverResponsesListFirewallDomains {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverListFirewallDomainsRequest) {
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFirewallDomains',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.ListFirewallDomains.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFirewallDomains.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+  public get domains(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFirewallDomains',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.ListFirewallDomains.Domains'),
+        outputPath: 'Domains',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFirewallDomains.Domains', props);
+    return resource.getResponseField('Domains') as unknown as string[];
+  }
+
+}
+
+export class Route53ResolverResponsesListFirewallRuleGroupAssociations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverListFirewallRuleGroupAssociationsRequest) {
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFirewallRuleGroupAssociations',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.ListFirewallRuleGroupAssociations.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          VpcId: this.__input.vpcId,
+          Priority: this.__input.priority,
+          Status: this.__input.status,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFirewallRuleGroupAssociations.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+  public get firewallRuleGroupAssociations(): shapes.Route53ResolverFirewallRuleGroupAssociation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFirewallRuleGroupAssociations',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.ListFirewallRuleGroupAssociations.FirewallRuleGroupAssociations'),
+        outputPath: 'FirewallRuleGroupAssociations',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          VpcId: this.__input.vpcId,
+          Priority: this.__input.priority,
+          Status: this.__input.status,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFirewallRuleGroupAssociations.FirewallRuleGroupAssociations', props);
+    return resource.getResponseField('FirewallRuleGroupAssociations') as unknown as shapes.Route53ResolverFirewallRuleGroupAssociation[];
+  }
+
+}
+
+export class Route53ResolverResponsesListFirewallRuleGroups {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverListFirewallRuleGroupsRequest) {
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFirewallRuleGroups',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.ListFirewallRuleGroups.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFirewallRuleGroups.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+  public get firewallRuleGroups(): shapes.Route53ResolverFirewallRuleGroupMetadata[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFirewallRuleGroups',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.ListFirewallRuleGroups.FirewallRuleGroups'),
+        outputPath: 'FirewallRuleGroups',
+        parameters: {
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFirewallRuleGroups.FirewallRuleGroups', props);
+    return resource.getResponseField('FirewallRuleGroups') as unknown as shapes.Route53ResolverFirewallRuleGroupMetadata[];
+  }
+
+}
+
+export class Route53ResolverResponsesListFirewallRules {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverListFirewallRulesRequest) {
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFirewallRules',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.ListFirewallRules.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFirewallRules.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+  public get firewallRules(): shapes.Route53ResolverFirewallRule[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFirewallRules',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.ListFirewallRules.FirewallRules'),
+        outputPath: 'FirewallRules',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFirewallRules.FirewallRules', props);
+    return resource.getResponseField('FirewallRules') as unknown as shapes.Route53ResolverFirewallRule[];
+  }
+
+}
+
+export class Route53ResolverResponsesListResolverDnssecConfigs {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverListResolverDnssecConfigsRequest) {
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listResolverDnssecConfigs',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.ListResolverDnssecConfigs.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+          Filters: this.__input.filters,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListResolverDnssecConfigs.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+  public get resolverDnssecConfigs(): shapes.Route53ResolverResolverDnssecConfig[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listResolverDnssecConfigs',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.ListResolverDnssecConfigs.ResolverDnssecConfigs'),
+        outputPath: 'ResolverDnssecConfigs',
+        parameters: {
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+          Filters: this.__input.filters,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListResolverDnssecConfigs.ResolverDnssecConfigs', props);
+    return resource.getResponseField('ResolverDnssecConfigs') as unknown as shapes.Route53ResolverResolverDnssecConfig[];
+  }
+
+}
+
 export class Route53ResolverResponsesListResolverEndpointIpAddresses {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverListResolverEndpointIpAddressesRequest) {
@@ -4232,6 +7522,31 @@ export class Route53ResolverResponsesListTagsForResource {
 
 }
 
+export class Route53ResolverResponsesPutFirewallRuleGroupPolicy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverPutFirewallRuleGroupPolicyRequest) {
+  }
+
+  public get returnValue(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putFirewallRuleGroupPolicy',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.PutFirewallRuleGroupPolicy.ReturnValue'),
+        outputPath: 'ReturnValue',
+        parameters: {
+          Arn: this.__input.arn,
+          FirewallRuleGroupPolicy: this.__input.firewallRuleGroupPolicy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutFirewallRuleGroupPolicy.ReturnValue', props);
+    return resource.getResponseField('ReturnValue') as unknown as boolean;
+  }
+
+}
+
 export class Route53ResolverResponsesPutResolverQueryLogConfigPolicy {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverPutResolverQueryLogConfigPolicyRequest) {
@@ -4278,6 +7593,865 @@ export class Route53ResolverResponsesPutResolverRulePolicy {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'PutResolverRulePolicy.ReturnValue', props);
     return resource.getResponseField('ReturnValue') as unknown as boolean;
+  }
+
+}
+
+export class Route53ResolverResponsesUpdateFirewallConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverUpdateFirewallConfigRequest) {
+  }
+
+  public get firewallConfig(): Route53ResolverResponsesUpdateFirewallConfigFirewallConfig {
+    return new Route53ResolverResponsesUpdateFirewallConfigFirewallConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResolverResponsesUpdateFirewallConfigFirewallConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverUpdateFirewallConfigRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallConfig',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallConfig.FirewallConfig.Id'),
+        outputPath: 'FirewallConfig.Id',
+        parameters: {
+          ResourceId: this.__input.resourceId,
+          FirewallFailOpen: this.__input.firewallFailOpen,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallConfig.FirewallConfig.Id', props);
+    return resource.getResponseField('FirewallConfig.Id') as unknown as string;
+  }
+
+  public get resourceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallConfig',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallConfig.FirewallConfig.ResourceId'),
+        outputPath: 'FirewallConfig.ResourceId',
+        parameters: {
+          ResourceId: this.__input.resourceId,
+          FirewallFailOpen: this.__input.firewallFailOpen,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallConfig.FirewallConfig.ResourceId', props);
+    return resource.getResponseField('FirewallConfig.ResourceId') as unknown as string;
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallConfig',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallConfig.FirewallConfig.OwnerId'),
+        outputPath: 'FirewallConfig.OwnerId',
+        parameters: {
+          ResourceId: this.__input.resourceId,
+          FirewallFailOpen: this.__input.firewallFailOpen,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallConfig.FirewallConfig.OwnerId', props);
+    return resource.getResponseField('FirewallConfig.OwnerId') as unknown as string;
+  }
+
+  public get firewallFailOpen(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallConfig',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallConfig.FirewallConfig.FirewallFailOpen'),
+        outputPath: 'FirewallConfig.FirewallFailOpen',
+        parameters: {
+          ResourceId: this.__input.resourceId,
+          FirewallFailOpen: this.__input.firewallFailOpen,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallConfig.FirewallConfig.FirewallFailOpen', props);
+    return resource.getResponseField('FirewallConfig.FirewallFailOpen') as unknown as string;
+  }
+
+}
+
+export class Route53ResolverResponsesUpdateFirewallDomains {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverUpdateFirewallDomainsRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallDomains',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallDomains.Id'),
+        outputPath: 'Id',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Operation: this.__input.operation,
+          Domains: this.__input.domains,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallDomains.Id', props);
+    return resource.getResponseField('Id') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallDomains',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallDomains.Name'),
+        outputPath: 'Name',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Operation: this.__input.operation,
+          Domains: this.__input.domains,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallDomains.Name', props);
+    return resource.getResponseField('Name') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallDomains',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallDomains.Status'),
+        outputPath: 'Status',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Operation: this.__input.operation,
+          Domains: this.__input.domains,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallDomains.Status', props);
+    return resource.getResponseField('Status') as unknown as string;
+  }
+
+  public get statusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallDomains',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallDomains.StatusMessage'),
+        outputPath: 'StatusMessage',
+        parameters: {
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Operation: this.__input.operation,
+          Domains: this.__input.domains,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallDomains.StatusMessage', props);
+    return resource.getResponseField('StatusMessage') as unknown as string;
+  }
+
+}
+
+export class Route53ResolverResponsesUpdateFirewallRule {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverUpdateFirewallRuleRequest) {
+  }
+
+  public get firewallRule(): Route53ResolverResponsesUpdateFirewallRuleFirewallRule {
+    return new Route53ResolverResponsesUpdateFirewallRuleFirewallRule(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResolverResponsesUpdateFirewallRuleFirewallRule {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverUpdateFirewallRuleRequest) {
+  }
+
+  public get firewallRuleGroupId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRule.FirewallRule.FirewallRuleGroupId'),
+        outputPath: 'FirewallRule.FirewallRuleGroupId',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRule.FirewallRule.FirewallRuleGroupId', props);
+    return resource.getResponseField('FirewallRule.FirewallRuleGroupId') as unknown as string;
+  }
+
+  public get firewallDomainListId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRule.FirewallRule.FirewallDomainListId'),
+        outputPath: 'FirewallRule.FirewallDomainListId',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRule.FirewallRule.FirewallDomainListId', props);
+    return resource.getResponseField('FirewallRule.FirewallDomainListId') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRule.FirewallRule.Name'),
+        outputPath: 'FirewallRule.Name',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRule.FirewallRule.Name', props);
+    return resource.getResponseField('FirewallRule.Name') as unknown as string;
+  }
+
+  public get priority(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRule.FirewallRule.Priority'),
+        outputPath: 'FirewallRule.Priority',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRule.FirewallRule.Priority', props);
+    return resource.getResponseField('FirewallRule.Priority') as unknown as number;
+  }
+
+  public get action(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRule.FirewallRule.Action'),
+        outputPath: 'FirewallRule.Action',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRule.FirewallRule.Action', props);
+    return resource.getResponseField('FirewallRule.Action') as unknown as string;
+  }
+
+  public get blockResponse(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRule.FirewallRule.BlockResponse'),
+        outputPath: 'FirewallRule.BlockResponse',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRule.FirewallRule.BlockResponse', props);
+    return resource.getResponseField('FirewallRule.BlockResponse') as unknown as string;
+  }
+
+  public get blockOverrideDomain(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRule.FirewallRule.BlockOverrideDomain'),
+        outputPath: 'FirewallRule.BlockOverrideDomain',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRule.FirewallRule.BlockOverrideDomain', props);
+    return resource.getResponseField('FirewallRule.BlockOverrideDomain') as unknown as string;
+  }
+
+  public get blockOverrideDnsType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRule.FirewallRule.BlockOverrideDnsType'),
+        outputPath: 'FirewallRule.BlockOverrideDnsType',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRule.FirewallRule.BlockOverrideDnsType', props);
+    return resource.getResponseField('FirewallRule.BlockOverrideDnsType') as unknown as string;
+  }
+
+  public get blockOverrideTtl(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRule.FirewallRule.BlockOverrideTtl'),
+        outputPath: 'FirewallRule.BlockOverrideTtl',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRule.FirewallRule.BlockOverrideTtl', props);
+    return resource.getResponseField('FirewallRule.BlockOverrideTtl') as unknown as number;
+  }
+
+  public get creatorRequestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRule.FirewallRule.CreatorRequestId'),
+        outputPath: 'FirewallRule.CreatorRequestId',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRule.FirewallRule.CreatorRequestId', props);
+    return resource.getResponseField('FirewallRule.CreatorRequestId') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRule.FirewallRule.CreationTime'),
+        outputPath: 'FirewallRule.CreationTime',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRule.FirewallRule.CreationTime', props);
+    return resource.getResponseField('FirewallRule.CreationTime') as unknown as string;
+  }
+
+  public get modificationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRule',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRule.FirewallRule.ModificationTime'),
+        outputPath: 'FirewallRule.ModificationTime',
+        parameters: {
+          FirewallRuleGroupId: this.__input.firewallRuleGroupId,
+          FirewallDomainListId: this.__input.firewallDomainListId,
+          Priority: this.__input.priority,
+          Action: this.__input.action,
+          BlockResponse: this.__input.blockResponse,
+          BlockOverrideDomain: this.__input.blockOverrideDomain,
+          BlockOverrideDnsType: this.__input.blockOverrideDnsType,
+          BlockOverrideTtl: this.__input.blockOverrideTtl,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRule.FirewallRule.ModificationTime', props);
+    return resource.getResponseField('FirewallRule.ModificationTime') as unknown as string;
+  }
+
+}
+
+export class Route53ResolverResponsesUpdateFirewallRuleGroupAssociation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverUpdateFirewallRuleGroupAssociationRequest) {
+  }
+
+  public get firewallRuleGroupAssociation(): Route53ResolverResponsesUpdateFirewallRuleGroupAssociationFirewallRuleGroupAssociation {
+    return new Route53ResolverResponsesUpdateFirewallRuleGroupAssociationFirewallRuleGroupAssociation(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResolverResponsesUpdateFirewallRuleGroupAssociationFirewallRuleGroupAssociation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverUpdateFirewallRuleGroupAssociationRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Id'),
+        outputPath: 'FirewallRuleGroupAssociation.Id',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+          Priority: this.__input.priority,
+          MutationProtection: this.__input.mutationProtection,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Id', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Id') as unknown as string;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Arn'),
+        outputPath: 'FirewallRuleGroupAssociation.Arn',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+          Priority: this.__input.priority,
+          MutationProtection: this.__input.mutationProtection,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Arn', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Arn') as unknown as string;
+  }
+
+  public get firewallRuleGroupId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.FirewallRuleGroupId'),
+        outputPath: 'FirewallRuleGroupAssociation.FirewallRuleGroupId',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+          Priority: this.__input.priority,
+          MutationProtection: this.__input.mutationProtection,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.FirewallRuleGroupId', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.FirewallRuleGroupId') as unknown as string;
+  }
+
+  public get vpcId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.VpcId'),
+        outputPath: 'FirewallRuleGroupAssociation.VpcId',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+          Priority: this.__input.priority,
+          MutationProtection: this.__input.mutationProtection,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.VpcId', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.VpcId') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Name'),
+        outputPath: 'FirewallRuleGroupAssociation.Name',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+          Priority: this.__input.priority,
+          MutationProtection: this.__input.mutationProtection,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Name', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Name') as unknown as string;
+  }
+
+  public get priority(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Priority'),
+        outputPath: 'FirewallRuleGroupAssociation.Priority',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+          Priority: this.__input.priority,
+          MutationProtection: this.__input.mutationProtection,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Priority', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Priority') as unknown as number;
+  }
+
+  public get mutationProtection(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.MutationProtection'),
+        outputPath: 'FirewallRuleGroupAssociation.MutationProtection',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+          Priority: this.__input.priority,
+          MutationProtection: this.__input.mutationProtection,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.MutationProtection', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.MutationProtection') as unknown as string;
+  }
+
+  public get managedOwnerName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.ManagedOwnerName'),
+        outputPath: 'FirewallRuleGroupAssociation.ManagedOwnerName',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+          Priority: this.__input.priority,
+          MutationProtection: this.__input.mutationProtection,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.ManagedOwnerName', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.ManagedOwnerName') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Status'),
+        outputPath: 'FirewallRuleGroupAssociation.Status',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+          Priority: this.__input.priority,
+          MutationProtection: this.__input.mutationProtection,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.Status', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.Status') as unknown as string;
+  }
+
+  public get statusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.StatusMessage'),
+        outputPath: 'FirewallRuleGroupAssociation.StatusMessage',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+          Priority: this.__input.priority,
+          MutationProtection: this.__input.mutationProtection,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.StatusMessage', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.StatusMessage') as unknown as string;
+  }
+
+  public get creatorRequestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.CreatorRequestId'),
+        outputPath: 'FirewallRuleGroupAssociation.CreatorRequestId',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+          Priority: this.__input.priority,
+          MutationProtection: this.__input.mutationProtection,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.CreatorRequestId', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.CreatorRequestId') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.CreationTime'),
+        outputPath: 'FirewallRuleGroupAssociation.CreationTime',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+          Priority: this.__input.priority,
+          MutationProtection: this.__input.mutationProtection,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.CreationTime', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.CreationTime') as unknown as string;
+  }
+
+  public get modificationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFirewallRuleGroupAssociation',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.ModificationTime'),
+        outputPath: 'FirewallRuleGroupAssociation.ModificationTime',
+        parameters: {
+          FirewallRuleGroupAssociationId: this.__input.firewallRuleGroupAssociationId,
+          Priority: this.__input.priority,
+          MutationProtection: this.__input.mutationProtection,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFirewallRuleGroupAssociation.FirewallRuleGroupAssociation.ModificationTime', props);
+    return resource.getResponseField('FirewallRuleGroupAssociation.ModificationTime') as unknown as string;
+  }
+
+}
+
+export class Route53ResolverResponsesUpdateResolverDnssecConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverUpdateResolverDnssecConfigRequest) {
+  }
+
+  public get resolverDnssecConfig(): Route53ResolverResponsesUpdateResolverDnssecConfigResolverDnssecConfig {
+    return new Route53ResolverResponsesUpdateResolverDnssecConfigResolverDnssecConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Route53ResolverResponsesUpdateResolverDnssecConfigResolverDnssecConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Route53ResolverUpdateResolverDnssecConfigRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateResolverDnssecConfig',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateResolverDnssecConfig.ResolverDNSSECConfig.Id'),
+        outputPath: 'ResolverDNSSECConfig.Id',
+        parameters: {
+          ResourceId: this.__input.resourceId,
+          Validation: this.__input.validation,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateResolverDnssecConfig.ResolverDNSSECConfig.Id', props);
+    return resource.getResponseField('ResolverDNSSECConfig.Id') as unknown as string;
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateResolverDnssecConfig',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateResolverDnssecConfig.ResolverDNSSECConfig.OwnerId'),
+        outputPath: 'ResolverDNSSECConfig.OwnerId',
+        parameters: {
+          ResourceId: this.__input.resourceId,
+          Validation: this.__input.validation,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateResolverDnssecConfig.ResolverDNSSECConfig.OwnerId', props);
+    return resource.getResponseField('ResolverDNSSECConfig.OwnerId') as unknown as string;
+  }
+
+  public get resourceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateResolverDnssecConfig',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateResolverDnssecConfig.ResolverDNSSECConfig.ResourceId'),
+        outputPath: 'ResolverDNSSECConfig.ResourceId',
+        parameters: {
+          ResourceId: this.__input.resourceId,
+          Validation: this.__input.validation,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateResolverDnssecConfig.ResolverDNSSECConfig.ResourceId', props);
+    return resource.getResponseField('ResolverDNSSECConfig.ResourceId') as unknown as string;
+  }
+
+  public get validationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateResolverDnssecConfig',
+        service: 'Route53Resolver',
+        physicalResourceId: cr.PhysicalResourceId.of('Route53Resolver.UpdateResolverDnssecConfig.ResolverDNSSECConfig.ValidationStatus'),
+        outputPath: 'ResolverDNSSECConfig.ValidationStatus',
+        parameters: {
+          ResourceId: this.__input.resourceId,
+          Validation: this.__input.validation,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateResolverDnssecConfig.ResolverDNSSECConfig.ValidationStatus', props);
+    return resource.getResponseField('ResolverDNSSECConfig.ValidationStatus') as unknown as string;
   }
 
 }

@@ -32,6 +32,10 @@ export class StorageGatewayClient extends cdk.Construct {
     return new StorageGatewayResponsesAssignTapePool(this, this.__resources, input);
   }
 
+  public associateFileSystem(input: shapes.StorageGatewayAssociateFileSystemInput): StorageGatewayResponsesAssociateFileSystem {
+    return new StorageGatewayResponsesAssociateFileSystem(this, this.__resources, input);
+  }
+
   public attachVolume(input: shapes.StorageGatewayAttachVolumeInput): StorageGatewayResponsesAttachVolume {
     return new StorageGatewayResponsesAttachVolume(this, this.__resources, input);
   }
@@ -144,6 +148,10 @@ export class StorageGatewayClient extends cdk.Construct {
     return new StorageGatewayResponsesDescribeChapCredentials(this, this.__resources, input);
   }
 
+  public describeFileSystemAssociations(input: shapes.StorageGatewayDescribeFileSystemAssociationsInput): StorageGatewayResponsesDescribeFileSystemAssociations {
+    return new StorageGatewayResponsesDescribeFileSystemAssociations(this, this.__resources, input);
+  }
+
   public describeGatewayInformation(input: shapes.StorageGatewayDescribeGatewayInformationInput): StorageGatewayResponsesDescribeGatewayInformation {
     return new StorageGatewayResponsesDescribeGatewayInformation(this, this.__resources, input);
   }
@@ -204,6 +212,10 @@ export class StorageGatewayClient extends cdk.Construct {
     return new StorageGatewayResponsesDisableGateway(this, this.__resources, input);
   }
 
+  public disassociateFileSystem(input: shapes.StorageGatewayDisassociateFileSystemInput): StorageGatewayResponsesDisassociateFileSystem {
+    return new StorageGatewayResponsesDisassociateFileSystem(this, this.__resources, input);
+  }
+
   public joinDomain(input: shapes.StorageGatewayJoinDomainInput): StorageGatewayResponsesJoinDomain {
     return new StorageGatewayResponsesJoinDomain(this, this.__resources, input);
   }
@@ -214,6 +226,10 @@ export class StorageGatewayClient extends cdk.Construct {
 
   public listFileShares(input: shapes.StorageGatewayListFileSharesInput): StorageGatewayResponsesListFileShares {
     return new StorageGatewayResponsesListFileShares(this, this.__resources, input);
+  }
+
+  public listFileSystemAssociations(input: shapes.StorageGatewayListFileSystemAssociationsInput): StorageGatewayResponsesListFileSystemAssociations {
+    return new StorageGatewayResponsesListFileSystemAssociations(this, this.__resources, input);
   }
 
   public listGateways(input: shapes.StorageGatewayListGatewaysInput): StorageGatewayResponsesListGateways {
@@ -306,6 +322,10 @@ export class StorageGatewayClient extends cdk.Construct {
 
   public updateChapCredentials(input: shapes.StorageGatewayUpdateChapCredentialsInput): StorageGatewayResponsesUpdateChapCredentials {
     return new StorageGatewayResponsesUpdateChapCredentials(this, this.__resources, input);
+  }
+
+  public updateFileSystemAssociation(input: shapes.StorageGatewayUpdateFileSystemAssociationInput): StorageGatewayResponsesUpdateFileSystemAssociation {
+    return new StorageGatewayResponsesUpdateFileSystemAssociation(this, this.__resources, input);
   }
 
   public updateGatewayInformation(input: shapes.StorageGatewayUpdateGatewayInformationInput): StorageGatewayResponsesUpdateGatewayInformation {
@@ -499,6 +519,42 @@ export class StorageGatewayResponsesAssignTapePool {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AssignTapePool.TapeARN', props);
     return resource.getResponseField('TapeARN') as unknown as string;
+  }
+
+}
+
+export class StorageGatewayResponsesAssociateFileSystem {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.StorageGatewayAssociateFileSystemInput) {
+  }
+
+  public get fileSystemAssociationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateFileSystem',
+        service: 'StorageGateway',
+        physicalResourceId: cr.PhysicalResourceId.of('StorageGateway.AssociateFileSystem.FileSystemAssociationARN'),
+        outputPath: 'FileSystemAssociationARN',
+        parameters: {
+          UserName: this.__input.userName,
+          Password: this.__input.password,
+          ClientToken: this.__input.clientToken,
+          GatewayARN: this.__input.gatewayArn,
+          LocationARN: this.__input.locationArn,
+          Tags: this.__input.tags,
+          AuditDestinationARN: this.__input.auditDestinationArn,
+          CacheAttributes: {
+            CacheStaleTimeoutInSeconds: this.__input.cacheAttributes?.cacheStaleTimeoutInSeconds,
+          },
+          EndpointNetworkConfiguration: {
+            IpAddresses: this.__input.endpointNetworkConfiguration?.ipAddresses,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateFileSystem.FileSystemAssociationARN', props);
+    return resource.getResponseField('FileSystemAssociationARN') as unknown as string;
   }
 
 }
@@ -700,6 +756,8 @@ export class StorageGatewayResponsesCreateNfsFileShare {
             CacheStaleTimeoutInSeconds: this.__input.cacheAttributes?.cacheStaleTimeoutInSeconds,
           },
           NotificationPolicy: this.__input.notificationPolicy,
+          VPCEndpointDNSName: this.__input.vpcEndpointDnsName,
+          BucketRegion: this.__input.bucketRegion,
         },
       },
     };
@@ -748,6 +806,9 @@ export class StorageGatewayResponsesCreateSmbFileShare {
             CacheStaleTimeoutInSeconds: this.__input.cacheAttributes?.cacheStaleTimeoutInSeconds,
           },
           NotificationPolicy: this.__input.notificationPolicy,
+          VPCEndpointDNSName: this.__input.vpcEndpointDnsName,
+          BucketRegion: this.__input.bucketRegion,
+          OplocksEnabled: this.__input.oplocksEnabled,
         },
       },
     };
@@ -1635,6 +1696,30 @@ export class StorageGatewayResponsesDescribeChapCredentials {
 
 }
 
+export class StorageGatewayResponsesDescribeFileSystemAssociations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.StorageGatewayDescribeFileSystemAssociationsInput) {
+  }
+
+  public get fileSystemAssociationInfoList(): shapes.StorageGatewayFileSystemAssociationInfo[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFileSystemAssociations',
+        service: 'StorageGateway',
+        physicalResourceId: cr.PhysicalResourceId.of('StorageGateway.DescribeFileSystemAssociations.FileSystemAssociationInfoList'),
+        outputPath: 'FileSystemAssociationInfoList',
+        parameters: {
+          FileSystemAssociationARNList: this.__input.fileSystemAssociationArnList,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFileSystemAssociations.FileSystemAssociationInfoList', props);
+    return resource.getResponseField('FileSystemAssociationInfoList') as unknown as shapes.StorageGatewayFileSystemAssociationInfo[];
+  }
+
+}
+
 export class StorageGatewayResponsesDescribeGatewayInformation {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.StorageGatewayDescribeGatewayInformationInput) {
@@ -1944,6 +2029,40 @@ export class StorageGatewayResponsesDescribeGatewayInformation {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeGatewayInformation.DeprecationDate', props);
     return resource.getResponseField('DeprecationDate') as unknown as string;
+  }
+
+  public get gatewayCapacity(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeGatewayInformation',
+        service: 'StorageGateway',
+        physicalResourceId: cr.PhysicalResourceId.of('StorageGateway.DescribeGatewayInformation.GatewayCapacity'),
+        outputPath: 'GatewayCapacity',
+        parameters: {
+          GatewayARN: this.__input.gatewayArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeGatewayInformation.GatewayCapacity', props);
+    return resource.getResponseField('GatewayCapacity') as unknown as string;
+  }
+
+  public get supportedGatewayCapacities(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeGatewayInformation',
+        service: 'StorageGateway',
+        physicalResourceId: cr.PhysicalResourceId.of('StorageGateway.DescribeGatewayInformation.SupportedGatewayCapacities'),
+        outputPath: 'SupportedGatewayCapacities',
+        parameters: {
+          GatewayARN: this.__input.gatewayArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeGatewayInformation.SupportedGatewayCapacities', props);
+    return resource.getResponseField('SupportedGatewayCapacities') as unknown as string[];
   }
 
 }
@@ -2769,6 +2888,31 @@ export class StorageGatewayResponsesDisableGateway {
 
 }
 
+export class StorageGatewayResponsesDisassociateFileSystem {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.StorageGatewayDisassociateFileSystemInput) {
+  }
+
+  public get fileSystemAssociationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateFileSystem',
+        service: 'StorageGateway',
+        physicalResourceId: cr.PhysicalResourceId.of('StorageGateway.DisassociateFileSystem.FileSystemAssociationARN'),
+        outputPath: 'FileSystemAssociationARN',
+        parameters: {
+          FileSystemAssociationARN: this.__input.fileSystemAssociationArn,
+          ForceDelete: this.__input.forceDelete,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateFileSystem.FileSystemAssociationARN', props);
+    return resource.getResponseField('FileSystemAssociationARN') as unknown as string;
+  }
+
+}
+
 export class StorageGatewayResponsesJoinDomain {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.StorageGatewayJoinDomainInput) {
@@ -2906,6 +3050,70 @@ export class StorageGatewayResponsesListFileShares {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListFileShares.FileShareInfoList', props);
     return resource.getResponseField('FileShareInfoList') as unknown as shapes.StorageGatewayFileShareInfo[];
+  }
+
+}
+
+export class StorageGatewayResponsesListFileSystemAssociations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.StorageGatewayListFileSystemAssociationsInput) {
+  }
+
+  public get marker(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFileSystemAssociations',
+        service: 'StorageGateway',
+        physicalResourceId: cr.PhysicalResourceId.of('StorageGateway.ListFileSystemAssociations.Marker'),
+        outputPath: 'Marker',
+        parameters: {
+          GatewayARN: this.__input.gatewayArn,
+          Limit: this.__input.limit,
+          Marker: this.__input.marker,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFileSystemAssociations.Marker', props);
+    return resource.getResponseField('Marker') as unknown as string;
+  }
+
+  public get nextMarker(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFileSystemAssociations',
+        service: 'StorageGateway',
+        physicalResourceId: cr.PhysicalResourceId.of('StorageGateway.ListFileSystemAssociations.NextMarker'),
+        outputPath: 'NextMarker',
+        parameters: {
+          GatewayARN: this.__input.gatewayArn,
+          Limit: this.__input.limit,
+          Marker: this.__input.marker,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFileSystemAssociations.NextMarker', props);
+    return resource.getResponseField('NextMarker') as unknown as string;
+  }
+
+  public get fileSystemAssociationSummaryList(): shapes.StorageGatewayFileSystemAssociationSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFileSystemAssociations',
+        service: 'StorageGateway',
+        physicalResourceId: cr.PhysicalResourceId.of('StorageGateway.ListFileSystemAssociations.FileSystemAssociationSummaryList'),
+        outputPath: 'FileSystemAssociationSummaryList',
+        parameters: {
+          GatewayARN: this.__input.gatewayArn,
+          Limit: this.__input.limit,
+          Marker: this.__input.marker,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFileSystemAssociations.FileSystemAssociationSummaryList', props);
+    return resource.getResponseField('FileSystemAssociationSummaryList') as unknown as shapes.StorageGatewayFileSystemAssociationSummary[];
   }
 
 }
@@ -3707,6 +3915,36 @@ export class StorageGatewayResponsesUpdateChapCredentials {
 
 }
 
+export class StorageGatewayResponsesUpdateFileSystemAssociation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.StorageGatewayUpdateFileSystemAssociationInput) {
+  }
+
+  public get fileSystemAssociationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFileSystemAssociation',
+        service: 'StorageGateway',
+        physicalResourceId: cr.PhysicalResourceId.of('StorageGateway.UpdateFileSystemAssociation.FileSystemAssociationARN'),
+        outputPath: 'FileSystemAssociationARN',
+        parameters: {
+          FileSystemAssociationARN: this.__input.fileSystemAssociationArn,
+          UserName: this.__input.userName,
+          Password: this.__input.password,
+          AuditDestinationARN: this.__input.auditDestinationArn,
+          CacheAttributes: {
+            CacheStaleTimeoutInSeconds: this.__input.cacheAttributes?.cacheStaleTimeoutInSeconds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFileSystemAssociation.FileSystemAssociationARN', props);
+    return resource.getResponseField('FileSystemAssociationARN') as unknown as string;
+  }
+
+}
+
 export class StorageGatewayResponsesUpdateGatewayInformation {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.StorageGatewayUpdateGatewayInformationInput) {
@@ -3725,6 +3963,7 @@ export class StorageGatewayResponsesUpdateGatewayInformation {
           GatewayName: this.__input.gatewayName,
           GatewayTimezone: this.__input.gatewayTimezone,
           CloudWatchLogGroupARN: this.__input.cloudWatchLogGroupArn,
+          GatewayCapacity: this.__input.gatewayCapacity,
         },
       },
     };
@@ -3745,6 +3984,7 @@ export class StorageGatewayResponsesUpdateGatewayInformation {
           GatewayName: this.__input.gatewayName,
           GatewayTimezone: this.__input.gatewayTimezone,
           CloudWatchLogGroupARN: this.__input.cloudWatchLogGroupArn,
+          GatewayCapacity: this.__input.gatewayCapacity,
         },
       },
     };
@@ -3884,6 +4124,7 @@ export class StorageGatewayResponsesUpdateSmbFileShare {
             CacheStaleTimeoutInSeconds: this.__input.cacheAttributes?.cacheStaleTimeoutInSeconds,
           },
           NotificationPolicy: this.__input.notificationPolicy,
+          OplocksEnabled: this.__input.oplocksEnabled,
         },
       },
     };

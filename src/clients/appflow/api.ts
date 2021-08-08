@@ -160,6 +160,8 @@ export class AppflowResponsesCreateConnectorProfile {
               },
               GoogleAnalytics: {
               },
+              Honeycode: {
+              },
               InforNexus: {
                 instanceUrl: this.__input.connectorProfileConfig.connectorProfileProperties.inforNexus?.instanceUrl,
               },
@@ -222,6 +224,14 @@ export class AppflowResponsesCreateConnectorProfile {
                 oAuthRequest: {
                   authCode: this.__input.connectorProfileConfig.connectorProfileCredentials.googleAnalytics?.oAuthRequest?.authCode,
                   redirectUri: this.__input.connectorProfileConfig.connectorProfileCredentials.googleAnalytics?.oAuthRequest?.redirectUri,
+                },
+              },
+              Honeycode: {
+                accessToken: this.__input.connectorProfileConfig.connectorProfileCredentials.honeycode?.accessToken,
+                refreshToken: this.__input.connectorProfileConfig.connectorProfileCredentials.honeycode?.refreshToken,
+                oAuthRequest: {
+                  authCode: this.__input.connectorProfileConfig.connectorProfileCredentials.honeycode?.oAuthRequest?.authCode,
+                  redirectUri: this.__input.connectorProfileConfig.connectorProfileCredentials.honeycode?.oAuthRequest?.redirectUri,
                 },
               },
               InforNexus: {
@@ -325,6 +335,8 @@ export class AppflowResponsesCreateFlow {
                 scheduleStartTime: this.__input.triggerConfig.triggerProperties?.scheduled?.scheduleStartTime,
                 scheduleEndTime: this.__input.triggerConfig.triggerProperties?.scheduled?.scheduleEndTime,
                 timezone: this.__input.triggerConfig.triggerProperties?.scheduled?.timezone,
+                scheduleOffset: this.__input.triggerConfig.triggerProperties?.scheduled?.scheduleOffset,
+                firstExecutionFrom: this.__input.triggerConfig.triggerProperties?.scheduled?.firstExecutionFrom,
               },
             },
           },
@@ -413,6 +425,8 @@ export class AppflowResponsesCreateFlow {
                 scheduleStartTime: this.__input.triggerConfig.triggerProperties?.scheduled?.scheduleStartTime,
                 scheduleEndTime: this.__input.triggerConfig.triggerProperties?.scheduled?.scheduleEndTime,
                 timezone: this.__input.triggerConfig.triggerProperties?.scheduled?.timezone,
+                scheduleOffset: this.__input.triggerConfig.triggerProperties?.scheduled?.scheduleOffset,
+                firstExecutionFrom: this.__input.triggerConfig.triggerProperties?.scheduled?.firstExecutionFrom,
               },
             },
           },
@@ -1548,6 +1562,40 @@ export class AppflowResponsesDescribeFlowTriggerConfigTriggerPropertiesScheduled
     return resource.getResponseField('triggerConfig.triggerProperties.Scheduled.timezone') as unknown as string;
   }
 
+  public get scheduleOffset(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFlow',
+        service: 'Appflow',
+        physicalResourceId: cr.PhysicalResourceId.of('Appflow.DescribeFlow.triggerConfig.triggerProperties.Scheduled.scheduleOffset'),
+        outputPath: 'triggerConfig.triggerProperties.Scheduled.scheduleOffset',
+        parameters: {
+          flowName: this.__input.flowName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFlow.triggerConfig.triggerProperties.Scheduled.scheduleOffset', props);
+    return resource.getResponseField('triggerConfig.triggerProperties.Scheduled.scheduleOffset') as unknown as number;
+  }
+
+  public get firstExecutionFrom(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFlow',
+        service: 'Appflow',
+        physicalResourceId: cr.PhysicalResourceId.of('Appflow.DescribeFlow.triggerConfig.triggerProperties.Scheduled.firstExecutionFrom'),
+        outputPath: 'triggerConfig.triggerProperties.Scheduled.firstExecutionFrom',
+        parameters: {
+          flowName: this.__input.flowName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFlow.triggerConfig.triggerProperties.Scheduled.firstExecutionFrom', props);
+    return resource.getResponseField('triggerConfig.triggerProperties.Scheduled.firstExecutionFrom') as unknown as string;
+  }
+
 }
 
 export class AppflowResponsesDescribeFlowExecutionRecords {
@@ -1815,6 +1863,8 @@ export class AppflowResponsesUpdateConnectorProfile {
               },
               GoogleAnalytics: {
               },
+              Honeycode: {
+              },
               InforNexus: {
                 instanceUrl: this.__input.connectorProfileConfig.connectorProfileProperties.inforNexus?.instanceUrl,
               },
@@ -1877,6 +1927,14 @@ export class AppflowResponsesUpdateConnectorProfile {
                 oAuthRequest: {
                   authCode: this.__input.connectorProfileConfig.connectorProfileCredentials.googleAnalytics?.oAuthRequest?.authCode,
                   redirectUri: this.__input.connectorProfileConfig.connectorProfileCredentials.googleAnalytics?.oAuthRequest?.redirectUri,
+                },
+              },
+              Honeycode: {
+                accessToken: this.__input.connectorProfileConfig.connectorProfileCredentials.honeycode?.accessToken,
+                refreshToken: this.__input.connectorProfileConfig.connectorProfileCredentials.honeycode?.refreshToken,
+                oAuthRequest: {
+                  authCode: this.__input.connectorProfileConfig.connectorProfileCredentials.honeycode?.oAuthRequest?.authCode,
+                  redirectUri: this.__input.connectorProfileConfig.connectorProfileCredentials.honeycode?.oAuthRequest?.redirectUri,
                 },
               },
               InforNexus: {
@@ -1979,6 +2037,8 @@ export class AppflowResponsesUpdateFlow {
                 scheduleStartTime: this.__input.triggerConfig.triggerProperties?.scheduled?.scheduleStartTime,
                 scheduleEndTime: this.__input.triggerConfig.triggerProperties?.scheduled?.scheduleEndTime,
                 timezone: this.__input.triggerConfig.triggerProperties?.scheduled?.timezone,
+                scheduleOffset: this.__input.triggerConfig.triggerProperties?.scheduled?.scheduleOffset,
+                firstExecutionFrom: this.__input.triggerConfig.triggerProperties?.scheduled?.firstExecutionFrom,
               },
             },
           },

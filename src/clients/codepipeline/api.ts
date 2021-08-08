@@ -121,6 +121,10 @@ export class CodePipelineClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'EnableStageTransition', props);
   }
 
+  public fetchActionType(input: shapes.CodePipelineGetActionTypeInput): CodePipelineResponsesFetchActionType {
+    return new CodePipelineResponsesFetchActionType(this, this.__resources, input);
+  }
+
   public fetchJobDetails(input: shapes.CodePipelineGetJobDetailsInput): CodePipelineResponsesFetchJobDetails {
     return new CodePipelineResponsesFetchJobDetails(this, this.__resources, input);
   }
@@ -339,6 +343,61 @@ export class CodePipelineClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'UntagResource', props);
+  }
+
+  public updateActionType(input: shapes.CodePipelineUpdateActionTypeInput): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.UpdateActionType'),
+        parameters: {
+          actionType: {
+            description: input.actionType.description,
+            executor: {
+              configuration: {
+                lambdaExecutorConfiguration: {
+                  lambdaFunctionArn: input.actionType.executor.configuration.lambdaExecutorConfiguration?.lambdaFunctionArn,
+                },
+                jobWorkerExecutorConfiguration: {
+                  pollingAccounts: input.actionType.executor.configuration.jobWorkerExecutorConfiguration?.pollingAccounts,
+                  pollingServicePrincipals: input.actionType.executor.configuration.jobWorkerExecutorConfiguration?.pollingServicePrincipals,
+                },
+              },
+              type: input.actionType.executor.type,
+              policyStatementsTemplate: input.actionType.executor.policyStatementsTemplate,
+              jobTimeout: input.actionType.executor.jobTimeout,
+            },
+            id: {
+              category: input.actionType.id.category,
+              owner: input.actionType.id.owner,
+              provider: input.actionType.id.provider,
+              version: input.actionType.id.version,
+            },
+            inputArtifactDetails: {
+              minimumCount: input.actionType.inputArtifactDetails.minimumCount,
+              maximumCount: input.actionType.inputArtifactDetails.maximumCount,
+            },
+            outputArtifactDetails: {
+              minimumCount: input.actionType.outputArtifactDetails.minimumCount,
+              maximumCount: input.actionType.outputArtifactDetails.maximumCount,
+            },
+            permissions: {
+              allowedAccounts: input.actionType.permissions?.allowedAccounts,
+            },
+            properties: input.actionType.properties,
+            urls: {
+              configurationUrl: input.actionType.urls?.configurationUrl,
+              entityUrlTemplate: input.actionType.urls?.entityUrlTemplate,
+              executionUrlTemplate: input.actionType.urls?.executionUrlTemplate,
+              revisionUrlTemplate: input.actionType.urls?.revisionUrlTemplate,
+            },
+          },
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateActionType', props);
   }
 
   public updatePipeline(input: shapes.CodePipelineUpdatePipelineInput): CodePipelineResponsesUpdatePipeline {
@@ -1310,6 +1369,543 @@ export class CodePipelineResponsesCreatePipelinePipelineArtifactStoreEncryptionK
 
 }
 
+export class CodePipelineResponsesFetchActionType {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodePipelineGetActionTypeInput) {
+  }
+
+  public get actionType(): CodePipelineResponsesFetchActionTypeActionType {
+    return new CodePipelineResponsesFetchActionTypeActionType(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CodePipelineResponsesFetchActionTypeActionType {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodePipelineGetActionTypeInput) {
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.description'),
+        outputPath: 'actionType.description',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.description', props);
+    return resource.getResponseField('actionType.description') as unknown as string;
+  }
+
+  public get executor(): CodePipelineResponsesFetchActionTypeActionTypeExecutor {
+    return new CodePipelineResponsesFetchActionTypeActionTypeExecutor(this.__scope, this.__resources, this.__input);
+  }
+
+  public get id(): CodePipelineResponsesFetchActionTypeActionTypeId {
+    return new CodePipelineResponsesFetchActionTypeActionTypeId(this.__scope, this.__resources, this.__input);
+  }
+
+  public get inputArtifactDetails(): CodePipelineResponsesFetchActionTypeActionTypeInputArtifactDetails {
+    return new CodePipelineResponsesFetchActionTypeActionTypeInputArtifactDetails(this.__scope, this.__resources, this.__input);
+  }
+
+  public get outputArtifactDetails(): CodePipelineResponsesFetchActionTypeActionTypeOutputArtifactDetails {
+    return new CodePipelineResponsesFetchActionTypeActionTypeOutputArtifactDetails(this.__scope, this.__resources, this.__input);
+  }
+
+  public get permissions(): CodePipelineResponsesFetchActionTypeActionTypePermissions {
+    return new CodePipelineResponsesFetchActionTypeActionTypePermissions(this.__scope, this.__resources, this.__input);
+  }
+
+  public get properties(): shapes.CodePipelineActionTypeProperty[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.properties'),
+        outputPath: 'actionType.properties',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.properties', props);
+    return resource.getResponseField('actionType.properties') as unknown as shapes.CodePipelineActionTypeProperty[];
+  }
+
+  public get urls(): CodePipelineResponsesFetchActionTypeActionTypeUrls {
+    return new CodePipelineResponsesFetchActionTypeActionTypeUrls(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CodePipelineResponsesFetchActionTypeActionTypeExecutor {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodePipelineGetActionTypeInput) {
+  }
+
+  public get configuration(): CodePipelineResponsesFetchActionTypeActionTypeExecutorConfiguration {
+    return new CodePipelineResponsesFetchActionTypeActionTypeExecutorConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.executor.type'),
+        outputPath: 'actionType.executor.type',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.executor.type', props);
+    return resource.getResponseField('actionType.executor.type') as unknown as string;
+  }
+
+  public get policyStatementsTemplate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.executor.policyStatementsTemplate'),
+        outputPath: 'actionType.executor.policyStatementsTemplate',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.executor.policyStatementsTemplate', props);
+    return resource.getResponseField('actionType.executor.policyStatementsTemplate') as unknown as string;
+  }
+
+  public get jobTimeout(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.executor.jobTimeout'),
+        outputPath: 'actionType.executor.jobTimeout',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.executor.jobTimeout', props);
+    return resource.getResponseField('actionType.executor.jobTimeout') as unknown as number;
+  }
+
+}
+
+export class CodePipelineResponsesFetchActionTypeActionTypeExecutorConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodePipelineGetActionTypeInput) {
+  }
+
+  public get lambdaExecutorConfiguration(): CodePipelineResponsesFetchActionTypeActionTypeExecutorConfigurationLambdaExecutorConfiguration {
+    return new CodePipelineResponsesFetchActionTypeActionTypeExecutorConfigurationLambdaExecutorConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get jobWorkerExecutorConfiguration(): CodePipelineResponsesFetchActionTypeActionTypeExecutorConfigurationJobWorkerExecutorConfiguration {
+    return new CodePipelineResponsesFetchActionTypeActionTypeExecutorConfigurationJobWorkerExecutorConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CodePipelineResponsesFetchActionTypeActionTypeExecutorConfigurationLambdaExecutorConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodePipelineGetActionTypeInput) {
+  }
+
+  public get lambdaFunctionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.executor.configuration.lambdaExecutorConfiguration.lambdaFunctionArn'),
+        outputPath: 'actionType.executor.configuration.lambdaExecutorConfiguration.lambdaFunctionArn',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.executor.configuration.lambdaExecutorConfiguration.lambdaFunctionArn', props);
+    return resource.getResponseField('actionType.executor.configuration.lambdaExecutorConfiguration.lambdaFunctionArn') as unknown as string;
+  }
+
+}
+
+export class CodePipelineResponsesFetchActionTypeActionTypeExecutorConfigurationJobWorkerExecutorConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodePipelineGetActionTypeInput) {
+  }
+
+  public get pollingAccounts(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.executor.configuration.jobWorkerExecutorConfiguration.pollingAccounts'),
+        outputPath: 'actionType.executor.configuration.jobWorkerExecutorConfiguration.pollingAccounts',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.executor.configuration.jobWorkerExecutorConfiguration.pollingAccounts', props);
+    return resource.getResponseField('actionType.executor.configuration.jobWorkerExecutorConfiguration.pollingAccounts') as unknown as string[];
+  }
+
+  public get pollingServicePrincipals(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.executor.configuration.jobWorkerExecutorConfiguration.pollingServicePrincipals'),
+        outputPath: 'actionType.executor.configuration.jobWorkerExecutorConfiguration.pollingServicePrincipals',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.executor.configuration.jobWorkerExecutorConfiguration.pollingServicePrincipals', props);
+    return resource.getResponseField('actionType.executor.configuration.jobWorkerExecutorConfiguration.pollingServicePrincipals') as unknown as string[];
+  }
+
+}
+
+export class CodePipelineResponsesFetchActionTypeActionTypeId {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodePipelineGetActionTypeInput) {
+  }
+
+  public get category(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.id.category'),
+        outputPath: 'actionType.id.category',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.id.category', props);
+    return resource.getResponseField('actionType.id.category') as unknown as string;
+  }
+
+  public get owner(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.id.owner'),
+        outputPath: 'actionType.id.owner',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.id.owner', props);
+    return resource.getResponseField('actionType.id.owner') as unknown as string;
+  }
+
+  public get provider(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.id.provider'),
+        outputPath: 'actionType.id.provider',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.id.provider', props);
+    return resource.getResponseField('actionType.id.provider') as unknown as string;
+  }
+
+  public get version(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.id.version'),
+        outputPath: 'actionType.id.version',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.id.version', props);
+    return resource.getResponseField('actionType.id.version') as unknown as string;
+  }
+
+}
+
+export class CodePipelineResponsesFetchActionTypeActionTypeInputArtifactDetails {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodePipelineGetActionTypeInput) {
+  }
+
+  public get minimumCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.inputArtifactDetails.minimumCount'),
+        outputPath: 'actionType.inputArtifactDetails.minimumCount',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.inputArtifactDetails.minimumCount', props);
+    return resource.getResponseField('actionType.inputArtifactDetails.minimumCount') as unknown as number;
+  }
+
+  public get maximumCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.inputArtifactDetails.maximumCount'),
+        outputPath: 'actionType.inputArtifactDetails.maximumCount',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.inputArtifactDetails.maximumCount', props);
+    return resource.getResponseField('actionType.inputArtifactDetails.maximumCount') as unknown as number;
+  }
+
+}
+
+export class CodePipelineResponsesFetchActionTypeActionTypeOutputArtifactDetails {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodePipelineGetActionTypeInput) {
+  }
+
+  public get minimumCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.outputArtifactDetails.minimumCount'),
+        outputPath: 'actionType.outputArtifactDetails.minimumCount',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.outputArtifactDetails.minimumCount', props);
+    return resource.getResponseField('actionType.outputArtifactDetails.minimumCount') as unknown as number;
+  }
+
+  public get maximumCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.outputArtifactDetails.maximumCount'),
+        outputPath: 'actionType.outputArtifactDetails.maximumCount',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.outputArtifactDetails.maximumCount', props);
+    return resource.getResponseField('actionType.outputArtifactDetails.maximumCount') as unknown as number;
+  }
+
+}
+
+export class CodePipelineResponsesFetchActionTypeActionTypePermissions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodePipelineGetActionTypeInput) {
+  }
+
+  public get allowedAccounts(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.permissions.allowedAccounts'),
+        outputPath: 'actionType.permissions.allowedAccounts',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.permissions.allowedAccounts', props);
+    return resource.getResponseField('actionType.permissions.allowedAccounts') as unknown as string[];
+  }
+
+}
+
+export class CodePipelineResponsesFetchActionTypeActionTypeUrls {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodePipelineGetActionTypeInput) {
+  }
+
+  public get configurationUrl(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.urls.configurationUrl'),
+        outputPath: 'actionType.urls.configurationUrl',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.urls.configurationUrl', props);
+    return resource.getResponseField('actionType.urls.configurationUrl') as unknown as string;
+  }
+
+  public get entityUrlTemplate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.urls.entityUrlTemplate'),
+        outputPath: 'actionType.urls.entityUrlTemplate',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.urls.entityUrlTemplate', props);
+    return resource.getResponseField('actionType.urls.entityUrlTemplate') as unknown as string;
+  }
+
+  public get executionUrlTemplate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.urls.executionUrlTemplate'),
+        outputPath: 'actionType.urls.executionUrlTemplate',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.urls.executionUrlTemplate', props);
+    return resource.getResponseField('actionType.urls.executionUrlTemplate') as unknown as string;
+  }
+
+  public get revisionUrlTemplate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getActionType',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetActionType.actionType.urls.revisionUrlTemplate'),
+        outputPath: 'actionType.urls.revisionUrlTemplate',
+        parameters: {
+          category: this.__input.category,
+          owner: this.__input.owner,
+          provider: this.__input.provider,
+          version: this.__input.version,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetActionType.actionType.urls.revisionUrlTemplate', props);
+    return resource.getResponseField('actionType.urls.revisionUrlTemplate') as unknown as string;
+  }
+
+}
+
 export class CodePipelineResponsesFetchJobDetails {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodePipelineGetJobDetailsInput) {
@@ -2128,6 +2724,24 @@ export class CodePipelineResponsesFetchPipelineExecutionPipelineExecution {
     return resource.getResponseField('pipelineExecution.status') as unknown as string;
   }
 
+  public get statusSummary(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getPipelineExecution',
+        service: 'CodePipeline',
+        physicalResourceId: cr.PhysicalResourceId.of('CodePipeline.GetPipelineExecution.pipelineExecution.statusSummary'),
+        outputPath: 'pipelineExecution.statusSummary',
+        parameters: {
+          pipelineName: this.__input.pipelineName,
+          pipelineExecutionId: this.__input.pipelineExecutionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetPipelineExecution.pipelineExecution.statusSummary', props);
+    return resource.getResponseField('pipelineExecution.statusSummary') as unknown as string;
+  }
+
   public get artifactRevisions(): shapes.CodePipelineArtifactRevision[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -2791,6 +3405,7 @@ export class CodePipelineResponsesListActionTypes {
         parameters: {
           actionOwnerFilter: this.__input.actionOwnerFilter,
           nextToken: this.__input.nextToken,
+          regionFilter: this.__input.regionFilter,
         },
       },
     };
@@ -2809,6 +3424,7 @@ export class CodePipelineResponsesListActionTypes {
         parameters: {
           actionOwnerFilter: this.__input.actionOwnerFilter,
           nextToken: this.__input.nextToken,
+          regionFilter: this.__input.regionFilter,
         },
       },
     };
@@ -2878,6 +3494,7 @@ export class CodePipelineResponsesListPipelines {
         outputPath: 'pipelines',
         parameters: {
           nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
         },
       },
     };
@@ -2895,6 +3512,7 @@ export class CodePipelineResponsesListPipelines {
         outputPath: 'nextToken',
         parameters: {
           nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
         },
       },
     };

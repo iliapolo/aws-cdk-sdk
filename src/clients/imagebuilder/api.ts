@@ -16,6 +16,10 @@ export class ImagebuilderClient extends cdk.Construct {
     return new ImagebuilderResponsesCreateComponent(this, this.__resources, input);
   }
 
+  public createContainerRecipe(input: shapes.ImagebuilderCreateContainerRecipeRequest): ImagebuilderResponsesCreateContainerRecipe {
+    return new ImagebuilderResponsesCreateContainerRecipe(this, this.__resources, input);
+  }
+
   public createDistributionConfiguration(input: shapes.ImagebuilderCreateDistributionConfigurationRequest): ImagebuilderResponsesCreateDistributionConfiguration {
     return new ImagebuilderResponsesCreateDistributionConfiguration(this, this.__resources, input);
   }
@@ -38,6 +42,10 @@ export class ImagebuilderClient extends cdk.Construct {
 
   public deleteComponent(input: shapes.ImagebuilderDeleteComponentRequest): ImagebuilderResponsesDeleteComponent {
     return new ImagebuilderResponsesDeleteComponent(this, this.__resources, input);
+  }
+
+  public deleteContainerRecipe(input: shapes.ImagebuilderDeleteContainerRecipeRequest): ImagebuilderResponsesDeleteContainerRecipe {
+    return new ImagebuilderResponsesDeleteContainerRecipe(this, this.__resources, input);
   }
 
   public deleteDistributionConfiguration(input: shapes.ImagebuilderDeleteDistributionConfigurationRequest): ImagebuilderResponsesDeleteDistributionConfiguration {
@@ -66,6 +74,14 @@ export class ImagebuilderClient extends cdk.Construct {
 
   public fetchComponentPolicy(input: shapes.ImagebuilderGetComponentPolicyRequest): ImagebuilderResponsesFetchComponentPolicy {
     return new ImagebuilderResponsesFetchComponentPolicy(this, this.__resources, input);
+  }
+
+  public fetchContainerRecipe(input: shapes.ImagebuilderGetContainerRecipeRequest): ImagebuilderResponsesFetchContainerRecipe {
+    return new ImagebuilderResponsesFetchContainerRecipe(this, this.__resources, input);
+  }
+
+  public fetchContainerRecipePolicy(input: shapes.ImagebuilderGetContainerRecipePolicyRequest): ImagebuilderResponsesFetchContainerRecipePolicy {
+    return new ImagebuilderResponsesFetchContainerRecipePolicy(this, this.__resources, input);
   }
 
   public fetchDistributionConfiguration(input: shapes.ImagebuilderGetDistributionConfigurationRequest): ImagebuilderResponsesFetchDistributionConfiguration {
@@ -108,12 +124,20 @@ export class ImagebuilderClient extends cdk.Construct {
     return new ImagebuilderResponsesListComponents(this, this.__resources, input);
   }
 
+  public listContainerRecipes(input: shapes.ImagebuilderListContainerRecipesRequest): ImagebuilderResponsesListContainerRecipes {
+    return new ImagebuilderResponsesListContainerRecipes(this, this.__resources, input);
+  }
+
   public listDistributionConfigurations(input: shapes.ImagebuilderListDistributionConfigurationsRequest): ImagebuilderResponsesListDistributionConfigurations {
     return new ImagebuilderResponsesListDistributionConfigurations(this, this.__resources, input);
   }
 
   public listImageBuildVersions(input: shapes.ImagebuilderListImageBuildVersionsRequest): ImagebuilderResponsesListImageBuildVersions {
     return new ImagebuilderResponsesListImageBuildVersions(this, this.__resources, input);
+  }
+
+  public listImagePackages(input: shapes.ImagebuilderListImagePackagesRequest): ImagebuilderResponsesListImagePackages {
+    return new ImagebuilderResponsesListImagePackages(this, this.__resources, input);
   }
 
   public listImagePipelineImages(input: shapes.ImagebuilderListImagePipelineImagesRequest): ImagebuilderResponsesListImagePipelineImages {
@@ -142,6 +166,10 @@ export class ImagebuilderClient extends cdk.Construct {
 
   public putComponentPolicy(input: shapes.ImagebuilderPutComponentPolicyRequest): ImagebuilderResponsesPutComponentPolicy {
     return new ImagebuilderResponsesPutComponentPolicy(this, this.__resources, input);
+  }
+
+  public putContainerRecipePolicy(input: shapes.ImagebuilderPutContainerRecipePolicyRequest): ImagebuilderResponsesPutContainerRecipePolicy {
+    return new ImagebuilderResponsesPutContainerRecipePolicy(this, this.__resources, input);
   }
 
   public putImagePolicy(input: shapes.ImagebuilderPutImagePolicyRequest): ImagebuilderResponsesPutImagePolicy {
@@ -351,6 +379,127 @@ export class ImagebuilderResponsesCreateComponent {
 
 }
 
+export class ImagebuilderResponsesCreateContainerRecipe {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ImagebuilderCreateContainerRecipeRequest) {
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.CreateContainerRecipe.requestId'),
+        outputPath: 'requestId',
+        parameters: {
+          containerType: this.__input.containerType,
+          name: this.__input.name,
+          description: this.__input.description,
+          semanticVersion: this.__input.semanticVersion,
+          components: this.__input.components,
+          instanceConfiguration: {
+            image: this.__input.instanceConfiguration?.image,
+            blockDeviceMappings: this.__input.instanceConfiguration?.blockDeviceMappings,
+          },
+          dockerfileTemplateData: this.__input.dockerfileTemplateData,
+          dockerfileTemplateUri: this.__input.dockerfileTemplateUri,
+          platformOverride: this.__input.platformOverride,
+          imageOsVersionOverride: this.__input.imageOsVersionOverride,
+          parentImage: this.__input.parentImage,
+          tags: this.__input.tags,
+          workingDirectory: this.__input.workingDirectory,
+          targetRepository: {
+            service: this.__input.targetRepository.service,
+            repositoryName: this.__input.targetRepository.repositoryName,
+          },
+          kmsKeyId: this.__input.kmsKeyId,
+          clientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateContainerRecipe.requestId', props);
+    return resource.getResponseField('requestId') as unknown as string;
+  }
+
+  public get clientToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.CreateContainerRecipe.clientToken'),
+        outputPath: 'clientToken',
+        parameters: {
+          containerType: this.__input.containerType,
+          name: this.__input.name,
+          description: this.__input.description,
+          semanticVersion: this.__input.semanticVersion,
+          components: this.__input.components,
+          instanceConfiguration: {
+            image: this.__input.instanceConfiguration?.image,
+            blockDeviceMappings: this.__input.instanceConfiguration?.blockDeviceMappings,
+          },
+          dockerfileTemplateData: this.__input.dockerfileTemplateData,
+          dockerfileTemplateUri: this.__input.dockerfileTemplateUri,
+          platformOverride: this.__input.platformOverride,
+          imageOsVersionOverride: this.__input.imageOsVersionOverride,
+          parentImage: this.__input.parentImage,
+          tags: this.__input.tags,
+          workingDirectory: this.__input.workingDirectory,
+          targetRepository: {
+            service: this.__input.targetRepository.service,
+            repositoryName: this.__input.targetRepository.repositoryName,
+          },
+          kmsKeyId: this.__input.kmsKeyId,
+          clientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateContainerRecipe.clientToken', props);
+    return resource.getResponseField('clientToken') as unknown as string;
+  }
+
+  public get containerRecipeArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.CreateContainerRecipe.containerRecipeArn'),
+        outputPath: 'containerRecipeArn',
+        parameters: {
+          containerType: this.__input.containerType,
+          name: this.__input.name,
+          description: this.__input.description,
+          semanticVersion: this.__input.semanticVersion,
+          components: this.__input.components,
+          instanceConfiguration: {
+            image: this.__input.instanceConfiguration?.image,
+            blockDeviceMappings: this.__input.instanceConfiguration?.blockDeviceMappings,
+          },
+          dockerfileTemplateData: this.__input.dockerfileTemplateData,
+          dockerfileTemplateUri: this.__input.dockerfileTemplateUri,
+          platformOverride: this.__input.platformOverride,
+          imageOsVersionOverride: this.__input.imageOsVersionOverride,
+          parentImage: this.__input.parentImage,
+          tags: this.__input.tags,
+          workingDirectory: this.__input.workingDirectory,
+          targetRepository: {
+            service: this.__input.targetRepository.service,
+            repositoryName: this.__input.targetRepository.repositoryName,
+          },
+          kmsKeyId: this.__input.kmsKeyId,
+          clientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateContainerRecipe.containerRecipeArn', props);
+    return resource.getResponseField('containerRecipeArn') as unknown as string;
+  }
+
+}
+
 export class ImagebuilderResponsesCreateDistributionConfiguration {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ImagebuilderCreateDistributionConfigurationRequest) {
@@ -436,6 +585,7 @@ export class ImagebuilderResponsesCreateImage {
         outputPath: 'requestId',
         parameters: {
           imageRecipeArn: this.__input.imageRecipeArn,
+          containerRecipeArn: this.__input.containerRecipeArn,
           distributionConfigurationArn: this.__input.distributionConfigurationArn,
           infrastructureConfigurationArn: this.__input.infrastructureConfigurationArn,
           imageTestsConfiguration: {
@@ -462,6 +612,7 @@ export class ImagebuilderResponsesCreateImage {
         outputPath: 'clientToken',
         parameters: {
           imageRecipeArn: this.__input.imageRecipeArn,
+          containerRecipeArn: this.__input.containerRecipeArn,
           distributionConfigurationArn: this.__input.distributionConfigurationArn,
           infrastructureConfigurationArn: this.__input.infrastructureConfigurationArn,
           imageTestsConfiguration: {
@@ -488,6 +639,7 @@ export class ImagebuilderResponsesCreateImage {
         outputPath: 'imageBuildVersionArn',
         parameters: {
           imageRecipeArn: this.__input.imageRecipeArn,
+          containerRecipeArn: this.__input.containerRecipeArn,
           distributionConfigurationArn: this.__input.distributionConfigurationArn,
           infrastructureConfigurationArn: this.__input.infrastructureConfigurationArn,
           imageTestsConfiguration: {
@@ -523,6 +675,7 @@ export class ImagebuilderResponsesCreateImagePipeline {
           name: this.__input.name,
           description: this.__input.description,
           imageRecipeArn: this.__input.imageRecipeArn,
+          containerRecipeArn: this.__input.containerRecipeArn,
           infrastructureConfigurationArn: this.__input.infrastructureConfigurationArn,
           distributionConfigurationArn: this.__input.distributionConfigurationArn,
           imageTestsConfiguration: {
@@ -532,6 +685,7 @@ export class ImagebuilderResponsesCreateImagePipeline {
           enhancedImageMetadataEnabled: this.__input.enhancedImageMetadataEnabled,
           schedule: {
             scheduleExpression: this.__input.schedule?.scheduleExpression,
+            timezone: this.__input.schedule?.timezone,
             pipelineExecutionStartCondition: this.__input.schedule?.pipelineExecutionStartCondition,
           },
           status: this.__input.status,
@@ -556,6 +710,7 @@ export class ImagebuilderResponsesCreateImagePipeline {
           name: this.__input.name,
           description: this.__input.description,
           imageRecipeArn: this.__input.imageRecipeArn,
+          containerRecipeArn: this.__input.containerRecipeArn,
           infrastructureConfigurationArn: this.__input.infrastructureConfigurationArn,
           distributionConfigurationArn: this.__input.distributionConfigurationArn,
           imageTestsConfiguration: {
@@ -565,6 +720,7 @@ export class ImagebuilderResponsesCreateImagePipeline {
           enhancedImageMetadataEnabled: this.__input.enhancedImageMetadataEnabled,
           schedule: {
             scheduleExpression: this.__input.schedule?.scheduleExpression,
+            timezone: this.__input.schedule?.timezone,
             pipelineExecutionStartCondition: this.__input.schedule?.pipelineExecutionStartCondition,
           },
           status: this.__input.status,
@@ -589,6 +745,7 @@ export class ImagebuilderResponsesCreateImagePipeline {
           name: this.__input.name,
           description: this.__input.description,
           imageRecipeArn: this.__input.imageRecipeArn,
+          containerRecipeArn: this.__input.containerRecipeArn,
           infrastructureConfigurationArn: this.__input.infrastructureConfigurationArn,
           distributionConfigurationArn: this.__input.distributionConfigurationArn,
           imageTestsConfiguration: {
@@ -598,6 +755,7 @@ export class ImagebuilderResponsesCreateImagePipeline {
           enhancedImageMetadataEnabled: this.__input.enhancedImageMetadataEnabled,
           schedule: {
             scheduleExpression: this.__input.schedule?.scheduleExpression,
+            timezone: this.__input.schedule?.timezone,
             pipelineExecutionStartCondition: this.__input.schedule?.pipelineExecutionStartCondition,
           },
           status: this.__input.status,
@@ -634,6 +792,12 @@ export class ImagebuilderResponsesCreateImageRecipe {
           blockDeviceMappings: this.__input.blockDeviceMappings,
           tags: this.__input.tags,
           workingDirectory: this.__input.workingDirectory,
+          additionalInstanceConfiguration: {
+            systemsManagerAgent: {
+              uninstallAfterBuild: this.__input.additionalInstanceConfiguration?.systemsManagerAgent?.uninstallAfterBuild,
+            },
+            userDataOverride: this.__input.additionalInstanceConfiguration?.userDataOverride,
+          },
           clientToken: this.__input.clientToken,
         },
       },
@@ -659,6 +823,12 @@ export class ImagebuilderResponsesCreateImageRecipe {
           blockDeviceMappings: this.__input.blockDeviceMappings,
           tags: this.__input.tags,
           workingDirectory: this.__input.workingDirectory,
+          additionalInstanceConfiguration: {
+            systemsManagerAgent: {
+              uninstallAfterBuild: this.__input.additionalInstanceConfiguration?.systemsManagerAgent?.uninstallAfterBuild,
+            },
+            userDataOverride: this.__input.additionalInstanceConfiguration?.userDataOverride,
+          },
           clientToken: this.__input.clientToken,
         },
       },
@@ -684,6 +854,12 @@ export class ImagebuilderResponsesCreateImageRecipe {
           blockDeviceMappings: this.__input.blockDeviceMappings,
           tags: this.__input.tags,
           workingDirectory: this.__input.workingDirectory,
+          additionalInstanceConfiguration: {
+            systemsManagerAgent: {
+              uninstallAfterBuild: this.__input.additionalInstanceConfiguration?.systemsManagerAgent?.uninstallAfterBuild,
+            },
+            userDataOverride: this.__input.additionalInstanceConfiguration?.userDataOverride,
+          },
           clientToken: this.__input.clientToken,
         },
       },
@@ -840,6 +1016,47 @@ export class ImagebuilderResponsesDeleteComponent {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteComponent.componentBuildVersionArn', props);
     return resource.getResponseField('componentBuildVersionArn') as unknown as string;
+  }
+
+}
+
+export class ImagebuilderResponsesDeleteContainerRecipe {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ImagebuilderDeleteContainerRecipeRequest) {
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.DeleteContainerRecipe.requestId'),
+        outputPath: 'requestId',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteContainerRecipe.requestId', props);
+    return resource.getResponseField('requestId') as unknown as string;
+  }
+
+  public get containerRecipeArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.DeleteContainerRecipe.containerRecipeArn'),
+        outputPath: 'containerRecipeArn',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteContainerRecipe.containerRecipeArn', props);
+    return resource.getResponseField('containerRecipeArn') as unknown as string;
   }
 
 }
@@ -1218,6 +1435,23 @@ export class ImagebuilderResponsesFetchComponentComponent {
     return resource.getResponseField('component.supportedOsVersions') as unknown as string[];
   }
 
+  public get parameters(): shapes.ImagebuilderComponentParameterDetail[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getComponent',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetComponent.component.parameters'),
+        outputPath: 'component.parameters',
+        parameters: {
+          componentBuildVersionArn: this.__input.componentBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetComponent.component.parameters', props);
+    return resource.getResponseField('component.parameters') as unknown as shapes.ImagebuilderComponentParameterDetail[];
+  }
+
   public get owner(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -1358,6 +1592,427 @@ export class ImagebuilderResponsesFetchComponentPolicy {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetComponentPolicy.policy', props);
+    return resource.getResponseField('policy') as unknown as string;
+  }
+
+}
+
+export class ImagebuilderResponsesFetchContainerRecipe {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ImagebuilderGetContainerRecipeRequest) {
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.requestId'),
+        outputPath: 'requestId',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.requestId', props);
+    return resource.getResponseField('requestId') as unknown as string;
+  }
+
+  public get containerRecipe(): ImagebuilderResponsesFetchContainerRecipeContainerRecipe {
+    return new ImagebuilderResponsesFetchContainerRecipeContainerRecipe(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ImagebuilderResponsesFetchContainerRecipeContainerRecipe {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ImagebuilderGetContainerRecipeRequest) {
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.arn'),
+        outputPath: 'containerRecipe.arn',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.arn', props);
+    return resource.getResponseField('containerRecipe.arn') as unknown as string;
+  }
+
+  public get containerType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.containerType'),
+        outputPath: 'containerRecipe.containerType',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.containerType', props);
+    return resource.getResponseField('containerRecipe.containerType') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.name'),
+        outputPath: 'containerRecipe.name',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.name', props);
+    return resource.getResponseField('containerRecipe.name') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.description'),
+        outputPath: 'containerRecipe.description',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.description', props);
+    return resource.getResponseField('containerRecipe.description') as unknown as string;
+  }
+
+  public get platform(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.platform'),
+        outputPath: 'containerRecipe.platform',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.platform', props);
+    return resource.getResponseField('containerRecipe.platform') as unknown as string;
+  }
+
+  public get owner(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.owner'),
+        outputPath: 'containerRecipe.owner',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.owner', props);
+    return resource.getResponseField('containerRecipe.owner') as unknown as string;
+  }
+
+  public get version(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.version'),
+        outputPath: 'containerRecipe.version',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.version', props);
+    return resource.getResponseField('containerRecipe.version') as unknown as string;
+  }
+
+  public get components(): shapes.ImagebuilderComponentConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.components'),
+        outputPath: 'containerRecipe.components',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.components', props);
+    return resource.getResponseField('containerRecipe.components') as unknown as shapes.ImagebuilderComponentConfiguration[];
+  }
+
+  public get instanceConfiguration(): ImagebuilderResponsesFetchContainerRecipeContainerRecipeInstanceConfiguration {
+    return new ImagebuilderResponsesFetchContainerRecipeContainerRecipeInstanceConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get dockerfileTemplateData(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.dockerfileTemplateData'),
+        outputPath: 'containerRecipe.dockerfileTemplateData',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.dockerfileTemplateData', props);
+    return resource.getResponseField('containerRecipe.dockerfileTemplateData') as unknown as string;
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.kmsKeyId'),
+        outputPath: 'containerRecipe.kmsKeyId',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.kmsKeyId', props);
+    return resource.getResponseField('containerRecipe.kmsKeyId') as unknown as string;
+  }
+
+  public get encrypted(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.encrypted'),
+        outputPath: 'containerRecipe.encrypted',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.encrypted', props);
+    return resource.getResponseField('containerRecipe.encrypted') as unknown as boolean;
+  }
+
+  public get parentImage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.parentImage'),
+        outputPath: 'containerRecipe.parentImage',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.parentImage', props);
+    return resource.getResponseField('containerRecipe.parentImage') as unknown as string;
+  }
+
+  public get dateCreated(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.dateCreated'),
+        outputPath: 'containerRecipe.dateCreated',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.dateCreated', props);
+    return resource.getResponseField('containerRecipe.dateCreated') as unknown as string;
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.tags'),
+        outputPath: 'containerRecipe.tags',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.tags', props);
+    return resource.getResponseField('containerRecipe.tags') as unknown as Record<string, string>;
+  }
+
+  public get workingDirectory(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.workingDirectory'),
+        outputPath: 'containerRecipe.workingDirectory',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.workingDirectory', props);
+    return resource.getResponseField('containerRecipe.workingDirectory') as unknown as string;
+  }
+
+  public get targetRepository(): ImagebuilderResponsesFetchContainerRecipeContainerRecipeTargetRepository {
+    return new ImagebuilderResponsesFetchContainerRecipeContainerRecipeTargetRepository(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ImagebuilderResponsesFetchContainerRecipeContainerRecipeInstanceConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ImagebuilderGetContainerRecipeRequest) {
+  }
+
+  public get image(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.instanceConfiguration.image'),
+        outputPath: 'containerRecipe.instanceConfiguration.image',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.instanceConfiguration.image', props);
+    return resource.getResponseField('containerRecipe.instanceConfiguration.image') as unknown as string;
+  }
+
+  public get blockDeviceMappings(): shapes.ImagebuilderInstanceBlockDeviceMapping[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.instanceConfiguration.blockDeviceMappings'),
+        outputPath: 'containerRecipe.instanceConfiguration.blockDeviceMappings',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.instanceConfiguration.blockDeviceMappings', props);
+    return resource.getResponseField('containerRecipe.instanceConfiguration.blockDeviceMappings') as unknown as shapes.ImagebuilderInstanceBlockDeviceMapping[];
+  }
+
+}
+
+export class ImagebuilderResponsesFetchContainerRecipeContainerRecipeTargetRepository {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ImagebuilderGetContainerRecipeRequest) {
+  }
+
+  public get service(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.targetRepository.service'),
+        outputPath: 'containerRecipe.targetRepository.service',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.targetRepository.service', props);
+    return resource.getResponseField('containerRecipe.targetRepository.service') as unknown as string;
+  }
+
+  public get repositoryName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipe.containerRecipe.targetRepository.repositoryName'),
+        outputPath: 'containerRecipe.targetRepository.repositoryName',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipe.containerRecipe.targetRepository.repositoryName', props);
+    return resource.getResponseField('containerRecipe.targetRepository.repositoryName') as unknown as string;
+  }
+
+}
+
+export class ImagebuilderResponsesFetchContainerRecipePolicy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ImagebuilderGetContainerRecipePolicyRequest) {
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipePolicy',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipePolicy.requestId'),
+        outputPath: 'requestId',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipePolicy.requestId', props);
+    return resource.getResponseField('requestId') as unknown as string;
+  }
+
+  public get policy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getContainerRecipePolicy',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetContainerRecipePolicy.policy'),
+        outputPath: 'policy',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetContainerRecipePolicy.policy', props);
     return resource.getResponseField('policy') as unknown as string;
   }
 
@@ -1584,6 +2239,23 @@ export class ImagebuilderResponsesFetchImageImage {
     return resource.getResponseField('image.arn') as unknown as string;
   }
 
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.type'),
+        outputPath: 'image.type',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.type', props);
+    return resource.getResponseField('image.type') as unknown as string;
+  }
+
   public get name(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -1675,6 +2347,10 @@ export class ImagebuilderResponsesFetchImageImage {
 
   public get imageRecipe(): ImagebuilderResponsesFetchImageImageImageRecipe {
     return new ImagebuilderResponsesFetchImageImageImageRecipe(this.__scope, this.__resources, this.__input);
+  }
+
+  public get containerRecipe(): ImagebuilderResponsesFetchImageImageContainerRecipe {
+    return new ImagebuilderResponsesFetchImageImageContainerRecipe(this.__scope, this.__resources, this.__input);
   }
 
   public get sourcePipelineName(): string {
@@ -1824,6 +2500,23 @@ export class ImagebuilderResponsesFetchImageImageImageRecipe {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.imageRecipe.arn', props);
     return resource.getResponseField('image.imageRecipe.arn') as unknown as string;
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.imageRecipe.type'),
+        outputPath: 'image.imageRecipe.type',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.imageRecipe.type', props);
+    return resource.getResponseField('image.imageRecipe.type') as unknown as string;
   }
 
   public get name(): string {
@@ -2011,6 +2704,414 @@ export class ImagebuilderResponsesFetchImageImageImageRecipe {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.imageRecipe.workingDirectory', props);
     return resource.getResponseField('image.imageRecipe.workingDirectory') as unknown as string;
+  }
+
+  public get additionalInstanceConfiguration(): ImagebuilderResponsesFetchImageImageImageRecipeAdditionalInstanceConfiguration {
+    return new ImagebuilderResponsesFetchImageImageImageRecipeAdditionalInstanceConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ImagebuilderResponsesFetchImageImageImageRecipeAdditionalInstanceConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ImagebuilderGetImageRequest) {
+  }
+
+  public get systemsManagerAgent(): ImagebuilderResponsesFetchImageImageImageRecipeAdditionalInstanceConfigurationSystemsManagerAgent {
+    return new ImagebuilderResponsesFetchImageImageImageRecipeAdditionalInstanceConfigurationSystemsManagerAgent(this.__scope, this.__resources, this.__input);
+  }
+
+  public get userDataOverride(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.imageRecipe.additionalInstanceConfiguration.userDataOverride'),
+        outputPath: 'image.imageRecipe.additionalInstanceConfiguration.userDataOverride',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.imageRecipe.additionalInstanceConfiguration.userDataOverride', props);
+    return resource.getResponseField('image.imageRecipe.additionalInstanceConfiguration.userDataOverride') as unknown as string;
+  }
+
+}
+
+export class ImagebuilderResponsesFetchImageImageImageRecipeAdditionalInstanceConfigurationSystemsManagerAgent {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ImagebuilderGetImageRequest) {
+  }
+
+  public get uninstallAfterBuild(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.imageRecipe.additionalInstanceConfiguration.systemsManagerAgent.uninstallAfterBuild'),
+        outputPath: 'image.imageRecipe.additionalInstanceConfiguration.systemsManagerAgent.uninstallAfterBuild',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.imageRecipe.additionalInstanceConfiguration.systemsManagerAgent.uninstallAfterBuild', props);
+    return resource.getResponseField('image.imageRecipe.additionalInstanceConfiguration.systemsManagerAgent.uninstallAfterBuild') as unknown as boolean;
+  }
+
+}
+
+export class ImagebuilderResponsesFetchImageImageContainerRecipe {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ImagebuilderGetImageRequest) {
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.arn'),
+        outputPath: 'image.containerRecipe.arn',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.arn', props);
+    return resource.getResponseField('image.containerRecipe.arn') as unknown as string;
+  }
+
+  public get containerType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.containerType'),
+        outputPath: 'image.containerRecipe.containerType',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.containerType', props);
+    return resource.getResponseField('image.containerRecipe.containerType') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.name'),
+        outputPath: 'image.containerRecipe.name',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.name', props);
+    return resource.getResponseField('image.containerRecipe.name') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.description'),
+        outputPath: 'image.containerRecipe.description',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.description', props);
+    return resource.getResponseField('image.containerRecipe.description') as unknown as string;
+  }
+
+  public get platform(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.platform'),
+        outputPath: 'image.containerRecipe.platform',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.platform', props);
+    return resource.getResponseField('image.containerRecipe.platform') as unknown as string;
+  }
+
+  public get owner(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.owner'),
+        outputPath: 'image.containerRecipe.owner',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.owner', props);
+    return resource.getResponseField('image.containerRecipe.owner') as unknown as string;
+  }
+
+  public get version(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.version'),
+        outputPath: 'image.containerRecipe.version',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.version', props);
+    return resource.getResponseField('image.containerRecipe.version') as unknown as string;
+  }
+
+  public get components(): shapes.ImagebuilderComponentConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.components'),
+        outputPath: 'image.containerRecipe.components',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.components', props);
+    return resource.getResponseField('image.containerRecipe.components') as unknown as shapes.ImagebuilderComponentConfiguration[];
+  }
+
+  public get instanceConfiguration(): ImagebuilderResponsesFetchImageImageContainerRecipeInstanceConfiguration {
+    return new ImagebuilderResponsesFetchImageImageContainerRecipeInstanceConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get dockerfileTemplateData(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.dockerfileTemplateData'),
+        outputPath: 'image.containerRecipe.dockerfileTemplateData',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.dockerfileTemplateData', props);
+    return resource.getResponseField('image.containerRecipe.dockerfileTemplateData') as unknown as string;
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.kmsKeyId'),
+        outputPath: 'image.containerRecipe.kmsKeyId',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.kmsKeyId', props);
+    return resource.getResponseField('image.containerRecipe.kmsKeyId') as unknown as string;
+  }
+
+  public get encrypted(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.encrypted'),
+        outputPath: 'image.containerRecipe.encrypted',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.encrypted', props);
+    return resource.getResponseField('image.containerRecipe.encrypted') as unknown as boolean;
+  }
+
+  public get parentImage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.parentImage'),
+        outputPath: 'image.containerRecipe.parentImage',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.parentImage', props);
+    return resource.getResponseField('image.containerRecipe.parentImage') as unknown as string;
+  }
+
+  public get dateCreated(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.dateCreated'),
+        outputPath: 'image.containerRecipe.dateCreated',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.dateCreated', props);
+    return resource.getResponseField('image.containerRecipe.dateCreated') as unknown as string;
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.tags'),
+        outputPath: 'image.containerRecipe.tags',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.tags', props);
+    return resource.getResponseField('image.containerRecipe.tags') as unknown as Record<string, string>;
+  }
+
+  public get workingDirectory(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.workingDirectory'),
+        outputPath: 'image.containerRecipe.workingDirectory',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.workingDirectory', props);
+    return resource.getResponseField('image.containerRecipe.workingDirectory') as unknown as string;
+  }
+
+  public get targetRepository(): ImagebuilderResponsesFetchImageImageContainerRecipeTargetRepository {
+    return new ImagebuilderResponsesFetchImageImageContainerRecipeTargetRepository(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ImagebuilderResponsesFetchImageImageContainerRecipeInstanceConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ImagebuilderGetImageRequest) {
+  }
+
+  public get image(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.instanceConfiguration.image'),
+        outputPath: 'image.containerRecipe.instanceConfiguration.image',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.instanceConfiguration.image', props);
+    return resource.getResponseField('image.containerRecipe.instanceConfiguration.image') as unknown as string;
+  }
+
+  public get blockDeviceMappings(): shapes.ImagebuilderInstanceBlockDeviceMapping[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.instanceConfiguration.blockDeviceMappings'),
+        outputPath: 'image.containerRecipe.instanceConfiguration.blockDeviceMappings',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.instanceConfiguration.blockDeviceMappings', props);
+    return resource.getResponseField('image.containerRecipe.instanceConfiguration.blockDeviceMappings') as unknown as shapes.ImagebuilderInstanceBlockDeviceMapping[];
+  }
+
+}
+
+export class ImagebuilderResponsesFetchImageImageContainerRecipeTargetRepository {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ImagebuilderGetImageRequest) {
+  }
+
+  public get service(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.targetRepository.service'),
+        outputPath: 'image.containerRecipe.targetRepository.service',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.targetRepository.service', props);
+    return resource.getResponseField('image.containerRecipe.targetRepository.service') as unknown as string;
+  }
+
+  public get repositoryName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.containerRecipe.targetRepository.repositoryName'),
+        outputPath: 'image.containerRecipe.targetRepository.repositoryName',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.containerRecipe.targetRepository.repositoryName', props);
+    return resource.getResponseField('image.containerRecipe.targetRepository.repositoryName') as unknown as string;
   }
 
 }
@@ -2522,6 +3623,23 @@ export class ImagebuilderResponsesFetchImageImageOutputResources {
     return resource.getResponseField('image.outputResources.amis') as unknown as shapes.ImagebuilderAmi[];
   }
 
+  public get containers(): shapes.ImagebuilderContainer[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImage',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImage.image.outputResources.containers'),
+        outputPath: 'image.outputResources.containers',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImage.image.outputResources.containers', props);
+    return resource.getResponseField('image.outputResources.containers') as unknown as shapes.ImagebuilderContainer[];
+  }
+
 }
 
 export class ImagebuilderResponsesFetchImagePipeline {
@@ -2657,6 +3775,23 @@ export class ImagebuilderResponsesFetchImagePipelineImagePipeline {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetImagePipeline.imagePipeline.imageRecipeArn', props);
     return resource.getResponseField('imagePipeline.imageRecipeArn') as unknown as string;
+  }
+
+  public get containerRecipeArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImagePipeline',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImagePipeline.imagePipeline.containerRecipeArn'),
+        outputPath: 'imagePipeline.containerRecipeArn',
+        parameters: {
+          imagePipelineArn: this.__input.imagePipelineArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImagePipeline.imagePipeline.containerRecipeArn', props);
+    return resource.getResponseField('imagePipeline.containerRecipeArn') as unknown as string;
   }
 
   public get infrastructureConfigurationArn(): string {
@@ -2868,6 +4003,23 @@ export class ImagebuilderResponsesFetchImagePipelineImagePipelineSchedule {
     return resource.getResponseField('imagePipeline.schedule.scheduleExpression') as unknown as string;
   }
 
+  public get timezone(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImagePipeline',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImagePipeline.imagePipeline.schedule.timezone'),
+        outputPath: 'imagePipeline.schedule.timezone',
+        parameters: {
+          imagePipelineArn: this.__input.imagePipelineArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImagePipeline.imagePipeline.schedule.timezone', props);
+    return resource.getResponseField('imagePipeline.schedule.timezone') as unknown as string;
+  }
+
   public get pipelineExecutionStartCondition(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -2976,6 +4128,23 @@ export class ImagebuilderResponsesFetchImageRecipeImageRecipe {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetImageRecipe.imageRecipe.arn', props);
     return resource.getResponseField('imageRecipe.arn') as unknown as string;
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImageRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImageRecipe.imageRecipe.type'),
+        outputPath: 'imageRecipe.type',
+        parameters: {
+          imageRecipeArn: this.__input.imageRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImageRecipe.imageRecipe.type', props);
+    return resource.getResponseField('imageRecipe.type') as unknown as string;
   }
 
   public get name(): string {
@@ -3163,6 +4332,62 @@ export class ImagebuilderResponsesFetchImageRecipeImageRecipe {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetImageRecipe.imageRecipe.workingDirectory', props);
     return resource.getResponseField('imageRecipe.workingDirectory') as unknown as string;
+  }
+
+  public get additionalInstanceConfiguration(): ImagebuilderResponsesFetchImageRecipeImageRecipeAdditionalInstanceConfiguration {
+    return new ImagebuilderResponsesFetchImageRecipeImageRecipeAdditionalInstanceConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ImagebuilderResponsesFetchImageRecipeImageRecipeAdditionalInstanceConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ImagebuilderGetImageRecipeRequest) {
+  }
+
+  public get systemsManagerAgent(): ImagebuilderResponsesFetchImageRecipeImageRecipeAdditionalInstanceConfigurationSystemsManagerAgent {
+    return new ImagebuilderResponsesFetchImageRecipeImageRecipeAdditionalInstanceConfigurationSystemsManagerAgent(this.__scope, this.__resources, this.__input);
+  }
+
+  public get userDataOverride(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImageRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImageRecipe.imageRecipe.additionalInstanceConfiguration.userDataOverride'),
+        outputPath: 'imageRecipe.additionalInstanceConfiguration.userDataOverride',
+        parameters: {
+          imageRecipeArn: this.__input.imageRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImageRecipe.imageRecipe.additionalInstanceConfiguration.userDataOverride', props);
+    return resource.getResponseField('imageRecipe.additionalInstanceConfiguration.userDataOverride') as unknown as string;
+  }
+
+}
+
+export class ImagebuilderResponsesFetchImageRecipeImageRecipeAdditionalInstanceConfigurationSystemsManagerAgent {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ImagebuilderGetImageRecipeRequest) {
+  }
+
+  public get uninstallAfterBuild(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getImageRecipe',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.GetImageRecipe.imageRecipe.additionalInstanceConfiguration.systemsManagerAgent.uninstallAfterBuild'),
+        outputPath: 'imageRecipe.additionalInstanceConfiguration.systemsManagerAgent.uninstallAfterBuild',
+        parameters: {
+          imageRecipeArn: this.__input.imageRecipeArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetImageRecipe.imageRecipe.additionalInstanceConfiguration.systemsManagerAgent.uninstallAfterBuild', props);
+    return resource.getResponseField('imageRecipe.additionalInstanceConfiguration.systemsManagerAgent.uninstallAfterBuild') as unknown as boolean;
   }
 
 }
@@ -3708,6 +4933,7 @@ export class ImagebuilderResponsesListComponents {
         parameters: {
           owner: this.__input.owner,
           filters: this.__input.filters,
+          byName: this.__input.byName,
           maxResults: this.__input.maxResults,
           nextToken: this.__input.nextToken,
         },
@@ -3728,6 +4954,7 @@ export class ImagebuilderResponsesListComponents {
         parameters: {
           owner: this.__input.owner,
           filters: this.__input.filters,
+          byName: this.__input.byName,
           maxResults: this.__input.maxResults,
           nextToken: this.__input.nextToken,
         },
@@ -3748,12 +4975,80 @@ export class ImagebuilderResponsesListComponents {
         parameters: {
           owner: this.__input.owner,
           filters: this.__input.filters,
+          byName: this.__input.byName,
           maxResults: this.__input.maxResults,
           nextToken: this.__input.nextToken,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListComponents.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
+export class ImagebuilderResponsesListContainerRecipes {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ImagebuilderListContainerRecipesRequest) {
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listContainerRecipes',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.ListContainerRecipes.requestId'),
+        outputPath: 'requestId',
+        parameters: {
+          owner: this.__input.owner,
+          filters: this.__input.filters,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListContainerRecipes.requestId', props);
+    return resource.getResponseField('requestId') as unknown as string;
+  }
+
+  public get containerRecipeSummaryList(): shapes.ImagebuilderContainerRecipeSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listContainerRecipes',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.ListContainerRecipes.containerRecipeSummaryList'),
+        outputPath: 'containerRecipeSummaryList',
+        parameters: {
+          owner: this.__input.owner,
+          filters: this.__input.filters,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListContainerRecipes.containerRecipeSummaryList', props);
+    return resource.getResponseField('containerRecipeSummaryList') as unknown as shapes.ImagebuilderContainerRecipeSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listContainerRecipes',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.ListContainerRecipes.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          owner: this.__input.owner,
+          filters: this.__input.filters,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListContainerRecipes.nextToken', props);
     return resource.getResponseField('nextToken') as unknown as string;
   }
 
@@ -3885,6 +5180,70 @@ export class ImagebuilderResponsesListImageBuildVersions {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListImageBuildVersions.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
+export class ImagebuilderResponsesListImagePackages {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ImagebuilderListImagePackagesRequest) {
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listImagePackages',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.ListImagePackages.requestId'),
+        outputPath: 'requestId',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListImagePackages.requestId', props);
+    return resource.getResponseField('requestId') as unknown as string;
+  }
+
+  public get imagePackageList(): shapes.ImagebuilderImagePackage[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listImagePackages',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.ListImagePackages.imagePackageList'),
+        outputPath: 'imagePackageList',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListImagePackages.imagePackageList', props);
+    return resource.getResponseField('imagePackageList') as unknown as shapes.ImagebuilderImagePackage[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listImagePackages',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.ListImagePackages.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          imageBuildVersionArn: this.__input.imageBuildVersionArn,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListImagePackages.nextToken', props);
     return resource.getResponseField('nextToken') as unknown as string;
   }
 
@@ -4104,8 +5463,10 @@ export class ImagebuilderResponsesListImages {
         parameters: {
           owner: this.__input.owner,
           filters: this.__input.filters,
+          byName: this.__input.byName,
           maxResults: this.__input.maxResults,
           nextToken: this.__input.nextToken,
+          includeDeprecated: this.__input.includeDeprecated,
         },
       },
     };
@@ -4124,8 +5485,10 @@ export class ImagebuilderResponsesListImages {
         parameters: {
           owner: this.__input.owner,
           filters: this.__input.filters,
+          byName: this.__input.byName,
           maxResults: this.__input.maxResults,
           nextToken: this.__input.nextToken,
+          includeDeprecated: this.__input.includeDeprecated,
         },
       },
     };
@@ -4144,8 +5507,10 @@ export class ImagebuilderResponsesListImages {
         parameters: {
           owner: this.__input.owner,
           filters: this.__input.filters,
+          byName: this.__input.byName,
           maxResults: this.__input.maxResults,
           nextToken: this.__input.nextToken,
+          includeDeprecated: this.__input.includeDeprecated,
         },
       },
     };
@@ -4282,6 +5647,49 @@ export class ImagebuilderResponsesPutComponentPolicy {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'PutComponentPolicy.componentArn', props);
     return resource.getResponseField('componentArn') as unknown as string;
+  }
+
+}
+
+export class ImagebuilderResponsesPutContainerRecipePolicy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ImagebuilderPutContainerRecipePolicyRequest) {
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putContainerRecipePolicy',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.PutContainerRecipePolicy.requestId'),
+        outputPath: 'requestId',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+          policy: this.__input.policy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutContainerRecipePolicy.requestId', props);
+    return resource.getResponseField('requestId') as unknown as string;
+  }
+
+  public get containerRecipeArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putContainerRecipePolicy',
+        service: 'Imagebuilder',
+        physicalResourceId: cr.PhysicalResourceId.of('Imagebuilder.PutContainerRecipePolicy.containerRecipeArn'),
+        outputPath: 'containerRecipeArn',
+        parameters: {
+          containerRecipeArn: this.__input.containerRecipeArn,
+          policy: this.__input.policy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutContainerRecipePolicy.containerRecipeArn', props);
+    return resource.getResponseField('containerRecipeArn') as unknown as string;
   }
 
 }
@@ -4517,6 +5925,7 @@ export class ImagebuilderResponsesUpdateImagePipeline {
           imagePipelineArn: this.__input.imagePipelineArn,
           description: this.__input.description,
           imageRecipeArn: this.__input.imageRecipeArn,
+          containerRecipeArn: this.__input.containerRecipeArn,
           infrastructureConfigurationArn: this.__input.infrastructureConfigurationArn,
           distributionConfigurationArn: this.__input.distributionConfigurationArn,
           imageTestsConfiguration: {
@@ -4526,6 +5935,7 @@ export class ImagebuilderResponsesUpdateImagePipeline {
           enhancedImageMetadataEnabled: this.__input.enhancedImageMetadataEnabled,
           schedule: {
             scheduleExpression: this.__input.schedule?.scheduleExpression,
+            timezone: this.__input.schedule?.timezone,
             pipelineExecutionStartCondition: this.__input.schedule?.pipelineExecutionStartCondition,
           },
           status: this.__input.status,
@@ -4549,6 +5959,7 @@ export class ImagebuilderResponsesUpdateImagePipeline {
           imagePipelineArn: this.__input.imagePipelineArn,
           description: this.__input.description,
           imageRecipeArn: this.__input.imageRecipeArn,
+          containerRecipeArn: this.__input.containerRecipeArn,
           infrastructureConfigurationArn: this.__input.infrastructureConfigurationArn,
           distributionConfigurationArn: this.__input.distributionConfigurationArn,
           imageTestsConfiguration: {
@@ -4558,6 +5969,7 @@ export class ImagebuilderResponsesUpdateImagePipeline {
           enhancedImageMetadataEnabled: this.__input.enhancedImageMetadataEnabled,
           schedule: {
             scheduleExpression: this.__input.schedule?.scheduleExpression,
+            timezone: this.__input.schedule?.timezone,
             pipelineExecutionStartCondition: this.__input.schedule?.pipelineExecutionStartCondition,
           },
           status: this.__input.status,
@@ -4581,6 +5993,7 @@ export class ImagebuilderResponsesUpdateImagePipeline {
           imagePipelineArn: this.__input.imagePipelineArn,
           description: this.__input.description,
           imageRecipeArn: this.__input.imageRecipeArn,
+          containerRecipeArn: this.__input.containerRecipeArn,
           infrastructureConfigurationArn: this.__input.infrastructureConfigurationArn,
           distributionConfigurationArn: this.__input.distributionConfigurationArn,
           imageTestsConfiguration: {
@@ -4590,6 +6003,7 @@ export class ImagebuilderResponsesUpdateImagePipeline {
           enhancedImageMetadataEnabled: this.__input.enhancedImageMetadataEnabled,
           schedule: {
             scheduleExpression: this.__input.schedule?.scheduleExpression,
+            timezone: this.__input.schedule?.timezone,
             pipelineExecutionStartCondition: this.__input.schedule?.pipelineExecutionStartCondition,
           },
           status: this.__input.status,

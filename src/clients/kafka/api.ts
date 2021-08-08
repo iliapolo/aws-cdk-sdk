@@ -128,6 +128,10 @@ export class KafkaClient extends cdk.Construct {
     return new KafkaResponsesUpdateBrokerCount(this, this.__resources, input);
   }
 
+  public updateBrokerType(input: shapes.KafkaUpdateBrokerTypeRequest): KafkaResponsesUpdateBrokerType {
+    return new KafkaResponsesUpdateBrokerType(this, this.__resources, input);
+  }
+
   public updateBrokerStorage(input: shapes.KafkaUpdateBrokerStorageRequest): KafkaResponsesUpdateBrokerStorage {
     return new KafkaResponsesUpdateBrokerStorage(this, this.__resources, input);
   }
@@ -223,6 +227,9 @@ export class KafkaResponsesCreateCluster {
               Scram: {
                 Enabled: this.__input.clientAuthentication?.sasl?.scram?.enabled,
               },
+              Iam: {
+                Enabled: this.__input.clientAuthentication?.sasl?.iam?.enabled,
+              },
             },
             Tls: {
               CertificateAuthorityArnList: this.__input.clientAuthentication?.tls?.certificateAuthorityArnList,
@@ -305,6 +312,9 @@ export class KafkaResponsesCreateCluster {
               Scram: {
                 Enabled: this.__input.clientAuthentication?.sasl?.scram?.enabled,
               },
+              Iam: {
+                Enabled: this.__input.clientAuthentication?.sasl?.iam?.enabled,
+              },
             },
             Tls: {
               CertificateAuthorityArnList: this.__input.clientAuthentication?.tls?.certificateAuthorityArnList,
@@ -386,6 +396,9 @@ export class KafkaResponsesCreateCluster {
             Sasl: {
               Scram: {
                 Enabled: this.__input.clientAuthentication?.sasl?.scram?.enabled,
+              },
+              Iam: {
+                Enabled: this.__input.clientAuthentication?.sasl?.iam?.enabled,
               },
             },
             Tls: {
@@ -1066,6 +1079,10 @@ export class KafkaResponsesDescribeClusterClusterInfoClientAuthenticationSasl {
     return new KafkaResponsesDescribeClusterClusterInfoClientAuthenticationSaslScram(this.__scope, this.__resources, this.__input);
   }
 
+  public get iam(): KafkaResponsesDescribeClusterClusterInfoClientAuthenticationSaslIam {
+    return new KafkaResponsesDescribeClusterClusterInfoClientAuthenticationSaslIam(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class KafkaResponsesDescribeClusterClusterInfoClientAuthenticationSaslScram {
@@ -1088,6 +1105,30 @@ export class KafkaResponsesDescribeClusterClusterInfoClientAuthenticationSaslScr
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCluster.ClusterInfo.ClientAuthentication.Sasl.Scram.Enabled', props);
     return resource.getResponseField('ClusterInfo.ClientAuthentication.Sasl.Scram.Enabled') as unknown as boolean;
+  }
+
+}
+
+export class KafkaResponsesDescribeClusterClusterInfoClientAuthenticationSaslIam {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KafkaDescribeClusterRequest) {
+  }
+
+  public get enabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCluster',
+        service: 'Kafka',
+        physicalResourceId: cr.PhysicalResourceId.of('Kafka.DescribeCluster.ClusterInfo.ClientAuthentication.Sasl.Iam.Enabled'),
+        outputPath: 'ClusterInfo.ClientAuthentication.Sasl.Iam.Enabled',
+        parameters: {
+          ClusterArn: this.__input.clusterArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCluster.ClusterInfo.ClientAuthentication.Sasl.Iam.Enabled', props);
+    return resource.getResponseField('ClusterInfo.ClientAuthentication.Sasl.Iam.Enabled') as unknown as boolean;
   }
 
 }
@@ -1831,6 +1872,23 @@ export class KafkaResponsesDescribeClusterOperationClusterOperationInfoSourceClu
     return new KafkaResponsesDescribeClusterOperationClusterOperationInfoSourceClusterInfoLoggingInfo(this.__scope, this.__resources, this.__input);
   }
 
+  public get instanceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeClusterOperation',
+        service: 'Kafka',
+        physicalResourceId: cr.PhysicalResourceId.of('Kafka.DescribeClusterOperation.ClusterOperationInfo.SourceClusterInfo.InstanceType'),
+        outputPath: 'ClusterOperationInfo.SourceClusterInfo.InstanceType',
+        parameters: {
+          ClusterOperationArn: this.__input.clusterOperationArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeClusterOperation.ClusterOperationInfo.SourceClusterInfo.InstanceType', props);
+    return resource.getResponseField('ClusterOperationInfo.SourceClusterInfo.InstanceType') as unknown as string;
+  }
+
 }
 
 export class KafkaResponsesDescribeClusterOperationClusterOperationInfoSourceClusterInfoConfigurationInfo {
@@ -2201,6 +2259,23 @@ export class KafkaResponsesDescribeClusterOperationClusterOperationInfoTargetClu
 
   public get loggingInfo(): KafkaResponsesDescribeClusterOperationClusterOperationInfoTargetClusterInfoLoggingInfo {
     return new KafkaResponsesDescribeClusterOperationClusterOperationInfoTargetClusterInfoLoggingInfo(this.__scope, this.__resources, this.__input);
+  }
+
+  public get instanceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeClusterOperation',
+        service: 'Kafka',
+        physicalResourceId: cr.PhysicalResourceId.of('Kafka.DescribeClusterOperation.ClusterOperationInfo.TargetClusterInfo.InstanceType'),
+        outputPath: 'ClusterOperationInfo.TargetClusterInfo.InstanceType',
+        parameters: {
+          ClusterOperationArn: this.__input.clusterOperationArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeClusterOperation.ClusterOperationInfo.TargetClusterInfo.InstanceType', props);
+    return resource.getResponseField('ClusterOperationInfo.TargetClusterInfo.InstanceType') as unknown as string;
   }
 
 }
@@ -2857,6 +2932,23 @@ export class KafkaResponsesFetchBootstrapBrokers {
     return resource.getResponseField('BootstrapBrokerStringSaslScram') as unknown as string;
   }
 
+  public get bootstrapBrokerStringSaslIam(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getBootstrapBrokers',
+        service: 'Kafka',
+        physicalResourceId: cr.PhysicalResourceId.of('Kafka.GetBootstrapBrokers.BootstrapBrokerStringSaslIam'),
+        outputPath: 'BootstrapBrokerStringSaslIam',
+        parameters: {
+          ClusterArn: this.__input.clusterArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetBootstrapBrokers.BootstrapBrokerStringSaslIam', props);
+    return resource.getResponseField('BootstrapBrokerStringSaslIam') as unknown as string;
+  }
+
 }
 
 export class KafkaResponsesFetchCompatibleKafkaVersions {
@@ -3301,6 +3393,51 @@ export class KafkaResponsesUpdateBrokerCount {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBrokerCount.ClusterOperationArn', props);
+    return resource.getResponseField('ClusterOperationArn') as unknown as string;
+  }
+
+}
+
+export class KafkaResponsesUpdateBrokerType {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KafkaUpdateBrokerTypeRequest) {
+  }
+
+  public get clusterArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBrokerType',
+        service: 'Kafka',
+        physicalResourceId: cr.PhysicalResourceId.of('Kafka.UpdateBrokerType.ClusterArn'),
+        outputPath: 'ClusterArn',
+        parameters: {
+          ClusterArn: this.__input.clusterArn,
+          CurrentVersion: this.__input.currentVersion,
+          TargetInstanceType: this.__input.targetInstanceType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBrokerType.ClusterArn', props);
+    return resource.getResponseField('ClusterArn') as unknown as string;
+  }
+
+  public get clusterOperationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBrokerType',
+        service: 'Kafka',
+        physicalResourceId: cr.PhysicalResourceId.of('Kafka.UpdateBrokerType.ClusterOperationArn'),
+        outputPath: 'ClusterOperationArn',
+        parameters: {
+          ClusterArn: this.__input.clusterArn,
+          CurrentVersion: this.__input.currentVersion,
+          TargetInstanceType: this.__input.targetInstanceType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBrokerType.ClusterOperationArn', props);
     return resource.getResponseField('ClusterOperationArn') as unknown as string;
   }
 

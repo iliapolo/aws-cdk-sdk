@@ -663,6 +663,22 @@ export class Sesv2Client extends cdk.Construct {
     new cr.AwsCustomResource(this, 'PutDeliverabilityDashboardOption', props);
   }
 
+  public putEmailIdentityConfigurationSetAttributes(input: shapes.Sesv2PutEmailIdentityConfigurationSetAttributesRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putEmailIdentityConfigurationSetAttributes',
+        service: 'SESV2',
+        physicalResourceId: cr.PhysicalResourceId.of('SESV2.PutEmailIdentityConfigurationSetAttributes'),
+        parameters: {
+          EmailIdentity: input.emailIdentity,
+          ConfigurationSetName: input.configurationSetName,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'PutEmailIdentityConfigurationSetAttributes', props);
+  }
+
   public putEmailIdentityDkimAttributes(input: shapes.Sesv2PutEmailIdentityDkimAttributesRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -1027,6 +1043,7 @@ export class SESV2ResponsesCreateEmailIdentity {
             DomainSigningSelector: this.__input.dkimSigningAttributes?.domainSigningSelector,
             DomainSigningPrivateKey: this.__input.dkimSigningAttributes?.domainSigningPrivateKey,
           },
+          ConfigurationSetName: this.__input.configurationSetName,
         },
       },
     };
@@ -1049,6 +1066,7 @@ export class SESV2ResponsesCreateEmailIdentity {
             DomainSigningSelector: this.__input.dkimSigningAttributes?.domainSigningSelector,
             DomainSigningPrivateKey: this.__input.dkimSigningAttributes?.domainSigningPrivateKey,
           },
+          ConfigurationSetName: this.__input.configurationSetName,
         },
       },
     };
@@ -1082,6 +1100,7 @@ export class SESV2ResponsesCreateEmailIdentityDkimAttributes {
             DomainSigningSelector: this.__input.dkimSigningAttributes?.domainSigningSelector,
             DomainSigningPrivateKey: this.__input.dkimSigningAttributes?.domainSigningPrivateKey,
           },
+          ConfigurationSetName: this.__input.configurationSetName,
         },
       },
     };
@@ -1104,6 +1123,7 @@ export class SESV2ResponsesCreateEmailIdentityDkimAttributes {
             DomainSigningSelector: this.__input.dkimSigningAttributes?.domainSigningSelector,
             DomainSigningPrivateKey: this.__input.dkimSigningAttributes?.domainSigningPrivateKey,
           },
+          ConfigurationSetName: this.__input.configurationSetName,
         },
       },
     };
@@ -1126,6 +1146,7 @@ export class SESV2ResponsesCreateEmailIdentityDkimAttributes {
             DomainSigningSelector: this.__input.dkimSigningAttributes?.domainSigningSelector,
             DomainSigningPrivateKey: this.__input.dkimSigningAttributes?.domainSigningPrivateKey,
           },
+          ConfigurationSetName: this.__input.configurationSetName,
         },
       },
     };
@@ -1148,6 +1169,7 @@ export class SESV2ResponsesCreateEmailIdentityDkimAttributes {
             DomainSigningSelector: this.__input.dkimSigningAttributes?.domainSigningSelector,
             DomainSigningPrivateKey: this.__input.dkimSigningAttributes?.domainSigningPrivateKey,
           },
+          ConfigurationSetName: this.__input.configurationSetName,
         },
       },
     };
@@ -3115,6 +3137,23 @@ export class SESV2ResponsesFetchEmailIdentity {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetEmailIdentity.Tags', props);
     return resource.getResponseField('Tags') as unknown as shapes.Sesv2Tag[];
+  }
+
+  public get configurationSetName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getEmailIdentity',
+        service: 'SESV2',
+        physicalResourceId: cr.PhysicalResourceId.of('SESV2.GetEmailIdentity.ConfigurationSetName'),
+        outputPath: 'ConfigurationSetName',
+        parameters: {
+          EmailIdentity: this.__input.emailIdentity,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetEmailIdentity.ConfigurationSetName', props);
+    return resource.getResponseField('ConfigurationSetName') as unknown as string;
   }
 
 }

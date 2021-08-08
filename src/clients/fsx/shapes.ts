@@ -10,14 +10,30 @@ export interface FSxAssociateFileSystemAliasesRequest {
   /**
    * @schema FSxAssociateFileSystemAliasesRequest#FileSystemId
    */
-  readonly fileSystemId: string;
+  readonly fileSystemId?: string;
 
   /**
    * @schema FSxAssociateFileSystemAliasesRequest#Aliases
    */
-  readonly aliases: string[];
+  readonly aliases?: string[];
 
 }
+
+/**
+ * Converts an object of type 'FSxAssociateFileSystemAliasesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxAssociateFileSystemAliasesRequest(obj: FSxAssociateFileSystemAliasesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ClientRequestToken': obj.clientRequestToken,
+    'FileSystemId': obj.fileSystemId,
+    'Aliases': obj.aliases?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxAssociateFileSystemAliasesResponse
@@ -31,15 +47,43 @@ export interface FSxAssociateFileSystemAliasesResponse {
 }
 
 /**
+ * Converts an object of type 'FSxAssociateFileSystemAliasesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxAssociateFileSystemAliasesResponse(obj: FSxAssociateFileSystemAliasesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Aliases': obj.aliases?.map(y => toJson_FSxAlias(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxCancelDataRepositoryTaskRequest
  */
 export interface FSxCancelDataRepositoryTaskRequest {
   /**
    * @schema FSxCancelDataRepositoryTaskRequest#TaskId
    */
-  readonly taskId: string;
+  readonly taskId?: string;
 
 }
+
+/**
+ * Converts an object of type 'FSxCancelDataRepositoryTaskRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxCancelDataRepositoryTaskRequest(obj: FSxCancelDataRepositoryTaskRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TaskId': obj.taskId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxCancelDataRepositoryTaskResponse
@@ -58,13 +102,108 @@ export interface FSxCancelDataRepositoryTaskResponse {
 }
 
 /**
+ * Converts an object of type 'FSxCancelDataRepositoryTaskResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxCancelDataRepositoryTaskResponse(obj: FSxCancelDataRepositoryTaskResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Lifecycle': obj.lifecycle,
+    'TaskId': obj.taskId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema FSxCopyBackupRequest
+ */
+export interface FSxCopyBackupRequest {
+  /**
+   * @schema FSxCopyBackupRequest#ClientRequestToken
+   */
+  readonly clientRequestToken?: string;
+
+  /**
+   * @schema FSxCopyBackupRequest#SourceBackupId
+   */
+  readonly sourceBackupId?: string;
+
+  /**
+   * @schema FSxCopyBackupRequest#SourceRegion
+   */
+  readonly sourceRegion?: string;
+
+  /**
+   * @schema FSxCopyBackupRequest#KmsKeyId
+   */
+  readonly kmsKeyId?: string;
+
+  /**
+   * @schema FSxCopyBackupRequest#CopyTags
+   */
+  readonly copyTags?: boolean;
+
+  /**
+   * @schema FSxCopyBackupRequest#Tags
+   */
+  readonly tags?: FSxTag[];
+
+}
+
+/**
+ * Converts an object of type 'FSxCopyBackupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxCopyBackupRequest(obj: FSxCopyBackupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ClientRequestToken': obj.clientRequestToken,
+    'SourceBackupId': obj.sourceBackupId,
+    'SourceRegion': obj.sourceRegion,
+    'KmsKeyId': obj.kmsKeyId,
+    'CopyTags': obj.copyTags,
+    'Tags': obj.tags?.map(y => toJson_FSxTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema FSxCopyBackupResponse
+ */
+export interface FSxCopyBackupResponse {
+  /**
+   * @schema FSxCopyBackupResponse#Backup
+   */
+  readonly backup?: FSxBackup;
+
+}
+
+/**
+ * Converts an object of type 'FSxCopyBackupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxCopyBackupResponse(obj: FSxCopyBackupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Backup': toJson_FSxBackup(obj.backup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxCreateBackupRequest
  */
 export interface FSxCreateBackupRequest {
   /**
    * @schema FSxCreateBackupRequest#FileSystemId
    */
-  readonly fileSystemId: string;
+  readonly fileSystemId?: string;
 
   /**
    * @schema FSxCreateBackupRequest#ClientRequestToken
@@ -79,6 +218,22 @@ export interface FSxCreateBackupRequest {
 }
 
 /**
+ * Converts an object of type 'FSxCreateBackupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxCreateBackupRequest(obj: FSxCreateBackupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FileSystemId': obj.fileSystemId,
+    'ClientRequestToken': obj.clientRequestToken,
+    'Tags': obj.tags?.map(y => toJson_FSxTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxCreateBackupResponse
  */
 export interface FSxCreateBackupResponse {
@@ -90,13 +245,27 @@ export interface FSxCreateBackupResponse {
 }
 
 /**
+ * Converts an object of type 'FSxCreateBackupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxCreateBackupResponse(obj: FSxCreateBackupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Backup': toJson_FSxBackup(obj.backup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxCreateDataRepositoryTaskRequest
  */
 export interface FSxCreateDataRepositoryTaskRequest {
   /**
    * @schema FSxCreateDataRepositoryTaskRequest#Type
    */
-  readonly type: string;
+  readonly type?: string;
 
   /**
    * @schema FSxCreateDataRepositoryTaskRequest#Paths
@@ -106,12 +275,12 @@ export interface FSxCreateDataRepositoryTaskRequest {
   /**
    * @schema FSxCreateDataRepositoryTaskRequest#FileSystemId
    */
-  readonly fileSystemId: string;
+  readonly fileSystemId?: string;
 
   /**
    * @schema FSxCreateDataRepositoryTaskRequest#Report
    */
-  readonly report: FSxCompletionReport;
+  readonly report?: FSxCompletionReport;
 
   /**
    * @schema FSxCreateDataRepositoryTaskRequest#ClientRequestToken
@@ -126,6 +295,25 @@ export interface FSxCreateDataRepositoryTaskRequest {
 }
 
 /**
+ * Converts an object of type 'FSxCreateDataRepositoryTaskRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxCreateDataRepositoryTaskRequest(obj: FSxCreateDataRepositoryTaskRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'Paths': obj.paths?.map(y => y),
+    'FileSystemId': obj.fileSystemId,
+    'Report': toJson_FSxCompletionReport(obj.report),
+    'ClientRequestToken': obj.clientRequestToken,
+    'Tags': obj.tags?.map(y => toJson_FSxTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxCreateDataRepositoryTaskResponse
  */
 export interface FSxCreateDataRepositoryTaskResponse {
@@ -135,6 +323,20 @@ export interface FSxCreateDataRepositoryTaskResponse {
   readonly dataRepositoryTask?: FSxDataRepositoryTask;
 
 }
+
+/**
+ * Converts an object of type 'FSxCreateDataRepositoryTaskResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxCreateDataRepositoryTaskResponse(obj: FSxCreateDataRepositoryTaskResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataRepositoryTask': toJson_FSxDataRepositoryTask(obj.dataRepositoryTask),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxCreateFileSystemRequest
@@ -148,12 +350,12 @@ export interface FSxCreateFileSystemRequest {
   /**
    * @schema FSxCreateFileSystemRequest#FileSystemType
    */
-  readonly fileSystemType: string;
+  readonly fileSystemType?: string;
 
   /**
    * @schema FSxCreateFileSystemRequest#StorageCapacity
    */
-  readonly storageCapacity: number;
+  readonly storageCapacity?: number;
 
   /**
    * @schema FSxCreateFileSystemRequest#StorageType
@@ -163,7 +365,7 @@ export interface FSxCreateFileSystemRequest {
   /**
    * @schema FSxCreateFileSystemRequest#SubnetIds
    */
-  readonly subnetIds: string[];
+  readonly subnetIds?: string[];
 
   /**
    * @schema FSxCreateFileSystemRequest#SecurityGroupIds
@@ -193,6 +395,29 @@ export interface FSxCreateFileSystemRequest {
 }
 
 /**
+ * Converts an object of type 'FSxCreateFileSystemRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxCreateFileSystemRequest(obj: FSxCreateFileSystemRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ClientRequestToken': obj.clientRequestToken,
+    'FileSystemType': obj.fileSystemType,
+    'StorageCapacity': obj.storageCapacity,
+    'StorageType': obj.storageType,
+    'SubnetIds': obj.subnetIds?.map(y => y),
+    'SecurityGroupIds': obj.securityGroupIds?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_FSxTag(y)),
+    'KmsKeyId': obj.kmsKeyId,
+    'WindowsConfiguration': toJson_FSxCreateFileSystemWindowsConfiguration(obj.windowsConfiguration),
+    'LustreConfiguration': toJson_FSxCreateFileSystemLustreConfiguration(obj.lustreConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxCreateFileSystemResponse
  */
 export interface FSxCreateFileSystemResponse {
@@ -204,13 +429,27 @@ export interface FSxCreateFileSystemResponse {
 }
 
 /**
+ * Converts an object of type 'FSxCreateFileSystemResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxCreateFileSystemResponse(obj: FSxCreateFileSystemResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FileSystem': toJson_FSxFileSystem(obj.fileSystem),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxCreateFileSystemFromBackupRequest
  */
 export interface FSxCreateFileSystemFromBackupRequest {
   /**
    * @schema FSxCreateFileSystemFromBackupRequest#BackupId
    */
-  readonly backupId: string;
+  readonly backupId?: string;
 
   /**
    * @schema FSxCreateFileSystemFromBackupRequest#ClientRequestToken
@@ -220,7 +459,7 @@ export interface FSxCreateFileSystemFromBackupRequest {
   /**
    * @schema FSxCreateFileSystemFromBackupRequest#SubnetIds
    */
-  readonly subnetIds: string[];
+  readonly subnetIds?: string[];
 
   /**
    * @schema FSxCreateFileSystemFromBackupRequest#SecurityGroupIds
@@ -247,7 +486,34 @@ export interface FSxCreateFileSystemFromBackupRequest {
    */
   readonly storageType?: string;
 
+  /**
+   * @schema FSxCreateFileSystemFromBackupRequest#KmsKeyId
+   */
+  readonly kmsKeyId?: string;
+
 }
+
+/**
+ * Converts an object of type 'FSxCreateFileSystemFromBackupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxCreateFileSystemFromBackupRequest(obj: FSxCreateFileSystemFromBackupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BackupId': obj.backupId,
+    'ClientRequestToken': obj.clientRequestToken,
+    'SubnetIds': obj.subnetIds?.map(y => y),
+    'SecurityGroupIds': obj.securityGroupIds?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_FSxTag(y)),
+    'WindowsConfiguration': toJson_FSxCreateFileSystemWindowsConfiguration(obj.windowsConfiguration),
+    'LustreConfiguration': toJson_FSxCreateFileSystemLustreConfiguration(obj.lustreConfiguration),
+    'StorageType': obj.storageType,
+    'KmsKeyId': obj.kmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxCreateFileSystemFromBackupResponse
@@ -261,13 +527,27 @@ export interface FSxCreateFileSystemFromBackupResponse {
 }
 
 /**
+ * Converts an object of type 'FSxCreateFileSystemFromBackupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxCreateFileSystemFromBackupResponse(obj: FSxCreateFileSystemFromBackupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FileSystem': toJson_FSxFileSystem(obj.fileSystem),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxDeleteBackupRequest
  */
 export interface FSxDeleteBackupRequest {
   /**
    * @schema FSxDeleteBackupRequest#BackupId
    */
-  readonly backupId: string;
+  readonly backupId?: string;
 
   /**
    * @schema FSxDeleteBackupRequest#ClientRequestToken
@@ -275,6 +555,21 @@ export interface FSxDeleteBackupRequest {
   readonly clientRequestToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'FSxDeleteBackupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDeleteBackupRequest(obj: FSxDeleteBackupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BackupId': obj.backupId,
+    'ClientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxDeleteBackupResponse
@@ -293,13 +588,28 @@ export interface FSxDeleteBackupResponse {
 }
 
 /**
+ * Converts an object of type 'FSxDeleteBackupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDeleteBackupResponse(obj: FSxDeleteBackupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BackupId': obj.backupId,
+    'Lifecycle': obj.lifecycle,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxDeleteFileSystemRequest
  */
 export interface FSxDeleteFileSystemRequest {
   /**
    * @schema FSxDeleteFileSystemRequest#FileSystemId
    */
-  readonly fileSystemId: string;
+  readonly fileSystemId?: string;
 
   /**
    * @schema FSxDeleteFileSystemRequest#ClientRequestToken
@@ -317,6 +627,23 @@ export interface FSxDeleteFileSystemRequest {
   readonly lustreConfiguration?: FSxDeleteFileSystemLustreConfiguration;
 
 }
+
+/**
+ * Converts an object of type 'FSxDeleteFileSystemRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDeleteFileSystemRequest(obj: FSxDeleteFileSystemRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FileSystemId': obj.fileSystemId,
+    'ClientRequestToken': obj.clientRequestToken,
+    'WindowsConfiguration': toJson_FSxDeleteFileSystemWindowsConfiguration(obj.windowsConfiguration),
+    'LustreConfiguration': toJson_FSxDeleteFileSystemLustreConfiguration(obj.lustreConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxDeleteFileSystemResponse
@@ -345,6 +672,23 @@ export interface FSxDeleteFileSystemResponse {
 }
 
 /**
+ * Converts an object of type 'FSxDeleteFileSystemResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDeleteFileSystemResponse(obj: FSxDeleteFileSystemResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FileSystemId': obj.fileSystemId,
+    'Lifecycle': obj.lifecycle,
+    'WindowsResponse': toJson_FSxDeleteFileSystemWindowsResponse(obj.windowsResponse),
+    'LustreResponse': toJson_FSxDeleteFileSystemLustreResponse(obj.lustreResponse),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxDescribeBackupsRequest
  */
 export interface FSxDescribeBackupsRequest {
@@ -371,6 +715,23 @@ export interface FSxDescribeBackupsRequest {
 }
 
 /**
+ * Converts an object of type 'FSxDescribeBackupsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDescribeBackupsRequest(obj: FSxDescribeBackupsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BackupIds': obj.backupIds?.map(y => y),
+    'Filters': obj.filters?.map(y => toJson_FSxFilter(y)),
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxDescribeBackupsResponse
  */
 export interface FSxDescribeBackupsResponse {
@@ -385,6 +746,21 @@ export interface FSxDescribeBackupsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'FSxDescribeBackupsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDescribeBackupsResponse(obj: FSxDescribeBackupsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Backups': obj.backups?.map(y => toJson_FSxBackup(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxDescribeDataRepositoryTasksRequest
@@ -413,6 +789,23 @@ export interface FSxDescribeDataRepositoryTasksRequest {
 }
 
 /**
+ * Converts an object of type 'FSxDescribeDataRepositoryTasksRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDescribeDataRepositoryTasksRequest(obj: FSxDescribeDataRepositoryTasksRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TaskIds': obj.taskIds?.map(y => y),
+    'Filters': obj.filters?.map(y => toJson_FSxDataRepositoryTaskFilter(y)),
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxDescribeDataRepositoryTasksResponse
  */
 export interface FSxDescribeDataRepositoryTasksResponse {
@@ -429,6 +822,21 @@ export interface FSxDescribeDataRepositoryTasksResponse {
 }
 
 /**
+ * Converts an object of type 'FSxDescribeDataRepositoryTasksResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDescribeDataRepositoryTasksResponse(obj: FSxDescribeDataRepositoryTasksResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataRepositoryTasks': obj.dataRepositoryTasks?.map(y => toJson_FSxDataRepositoryTask(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxDescribeFileSystemAliasesRequest
  */
 export interface FSxDescribeFileSystemAliasesRequest {
@@ -440,7 +848,7 @@ export interface FSxDescribeFileSystemAliasesRequest {
   /**
    * @schema FSxDescribeFileSystemAliasesRequest#FileSystemId
    */
-  readonly fileSystemId: string;
+  readonly fileSystemId?: string;
 
   /**
    * @schema FSxDescribeFileSystemAliasesRequest#MaxResults
@@ -453,6 +861,23 @@ export interface FSxDescribeFileSystemAliasesRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'FSxDescribeFileSystemAliasesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDescribeFileSystemAliasesRequest(obj: FSxDescribeFileSystemAliasesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ClientRequestToken': obj.clientRequestToken,
+    'FileSystemId': obj.fileSystemId,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxDescribeFileSystemAliasesResponse
@@ -469,6 +894,21 @@ export interface FSxDescribeFileSystemAliasesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'FSxDescribeFileSystemAliasesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDescribeFileSystemAliasesResponse(obj: FSxDescribeFileSystemAliasesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Aliases': obj.aliases?.map(y => toJson_FSxAlias(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxDescribeFileSystemsRequest
@@ -492,6 +932,22 @@ export interface FSxDescribeFileSystemsRequest {
 }
 
 /**
+ * Converts an object of type 'FSxDescribeFileSystemsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDescribeFileSystemsRequest(obj: FSxDescribeFileSystemsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FileSystemIds': obj.fileSystemIds?.map(y => y),
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxDescribeFileSystemsResponse
  */
 export interface FSxDescribeFileSystemsResponse {
@@ -508,6 +964,21 @@ export interface FSxDescribeFileSystemsResponse {
 }
 
 /**
+ * Converts an object of type 'FSxDescribeFileSystemsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDescribeFileSystemsResponse(obj: FSxDescribeFileSystemsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FileSystems': obj.fileSystems?.map(y => toJson_FSxFileSystem(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxDisassociateFileSystemAliasesRequest
  */
 export interface FSxDisassociateFileSystemAliasesRequest {
@@ -519,14 +990,30 @@ export interface FSxDisassociateFileSystemAliasesRequest {
   /**
    * @schema FSxDisassociateFileSystemAliasesRequest#FileSystemId
    */
-  readonly fileSystemId: string;
+  readonly fileSystemId?: string;
 
   /**
    * @schema FSxDisassociateFileSystemAliasesRequest#Aliases
    */
-  readonly aliases: string[];
+  readonly aliases?: string[];
 
 }
+
+/**
+ * Converts an object of type 'FSxDisassociateFileSystemAliasesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDisassociateFileSystemAliasesRequest(obj: FSxDisassociateFileSystemAliasesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ClientRequestToken': obj.clientRequestToken,
+    'FileSystemId': obj.fileSystemId,
+    'Aliases': obj.aliases?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxDisassociateFileSystemAliasesResponse
@@ -540,13 +1027,27 @@ export interface FSxDisassociateFileSystemAliasesResponse {
 }
 
 /**
+ * Converts an object of type 'FSxDisassociateFileSystemAliasesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDisassociateFileSystemAliasesResponse(obj: FSxDisassociateFileSystemAliasesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Aliases': obj.aliases?.map(y => toJson_FSxAlias(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxListTagsForResourceRequest
  */
 export interface FSxListTagsForResourceRequest {
   /**
    * @schema FSxListTagsForResourceRequest#ResourceARN
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema FSxListTagsForResourceRequest#MaxResults
@@ -559,6 +1060,22 @@ export interface FSxListTagsForResourceRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'FSxListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxListTagsForResourceRequest(obj: FSxListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceARN': obj.resourceArn,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxListTagsForResourceResponse
@@ -577,20 +1094,50 @@ export interface FSxListTagsForResourceResponse {
 }
 
 /**
+ * Converts an object of type 'FSxListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxListTagsForResourceResponse(obj: FSxListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Tags': obj.tags?.map(y => toJson_FSxTag(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxTagResourceRequest
  */
 export interface FSxTagResourceRequest {
   /**
    * @schema FSxTagResourceRequest#ResourceARN
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema FSxTagResourceRequest#Tags
    */
-  readonly tags: FSxTag[];
+  readonly tags?: FSxTag[];
 
 }
+
+/**
+ * Converts an object of type 'FSxTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxTagResourceRequest(obj: FSxTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceARN': obj.resourceArn,
+    'Tags': obj.tags?.map(y => toJson_FSxTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxTagResourceResponse
@@ -599,20 +1146,48 @@ export interface FSxTagResourceResponse {
 }
 
 /**
+ * Converts an object of type 'FSxTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxTagResourceResponse(obj: FSxTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxUntagResourceRequest
  */
 export interface FSxUntagResourceRequest {
   /**
    * @schema FSxUntagResourceRequest#ResourceARN
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema FSxUntagResourceRequest#TagKeys
    */
-  readonly tagKeys: string[];
+  readonly tagKeys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'FSxUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxUntagResourceRequest(obj: FSxUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceARN': obj.resourceArn,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxUntagResourceResponse
@@ -621,13 +1196,26 @@ export interface FSxUntagResourceResponse {
 }
 
 /**
+ * Converts an object of type 'FSxUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxUntagResourceResponse(obj: FSxUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxUpdateFileSystemRequest
  */
 export interface FSxUpdateFileSystemRequest {
   /**
    * @schema FSxUpdateFileSystemRequest#FileSystemId
    */
-  readonly fileSystemId: string;
+  readonly fileSystemId?: string;
 
   /**
    * @schema FSxUpdateFileSystemRequest#ClientRequestToken
@@ -652,6 +1240,24 @@ export interface FSxUpdateFileSystemRequest {
 }
 
 /**
+ * Converts an object of type 'FSxUpdateFileSystemRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxUpdateFileSystemRequest(obj: FSxUpdateFileSystemRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FileSystemId': obj.fileSystemId,
+    'ClientRequestToken': obj.clientRequestToken,
+    'StorageCapacity': obj.storageCapacity,
+    'WindowsConfiguration': toJson_FSxUpdateFileSystemWindowsConfiguration(obj.windowsConfiguration),
+    'LustreConfiguration': toJson_FSxUpdateFileSystemLustreConfiguration(obj.lustreConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxUpdateFileSystemResponse
  */
 export interface FSxUpdateFileSystemResponse {
@@ -661,6 +1267,20 @@ export interface FSxUpdateFileSystemResponse {
   readonly fileSystem?: FSxFileSystem;
 
 }
+
+/**
+ * Converts an object of type 'FSxUpdateFileSystemResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxUpdateFileSystemResponse(obj: FSxUpdateFileSystemResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FileSystem': toJson_FSxFileSystem(obj.fileSystem),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxAlias
@@ -679,20 +1299,50 @@ export interface FSxAlias {
 }
 
 /**
+ * Converts an object of type 'FSxAlias' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxAlias(obj: FSxAlias | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Lifecycle': obj.lifecycle,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxTag
  */
 export interface FSxTag {
   /**
    * @schema FSxTag#Key
    */
-  readonly key: string;
+  readonly key?: string;
 
   /**
    * @schema FSxTag#Value
    */
-  readonly value: string;
+  readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'FSxTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxTag(obj: FSxTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxBackup
@@ -701,12 +1351,12 @@ export interface FSxBackup {
   /**
    * @schema FSxBackup#BackupId
    */
-  readonly backupId: string;
+  readonly backupId?: string;
 
   /**
    * @schema FSxBackup#Lifecycle
    */
-  readonly lifecycle: string;
+  readonly lifecycle?: string;
 
   /**
    * @schema FSxBackup#FailureDetails
@@ -716,7 +1366,7 @@ export interface FSxBackup {
   /**
    * @schema FSxBackup#Type
    */
-  readonly type: string;
+  readonly type?: string;
 
   /**
    * @schema FSxBackup#ProgressPercent
@@ -726,7 +1376,7 @@ export interface FSxBackup {
   /**
    * @schema FSxBackup#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema FSxBackup#KmsKeyId
@@ -746,14 +1396,56 @@ export interface FSxBackup {
   /**
    * @schema FSxBackup#FileSystem
    */
-  readonly fileSystem: FSxFileSystem;
+  readonly fileSystem?: FSxFileSystem;
 
   /**
    * @schema FSxBackup#DirectoryInformation
    */
   readonly directoryInformation?: FSxActiveDirectoryBackupAttributes;
 
+  /**
+   * @schema FSxBackup#OwnerId
+   */
+  readonly ownerId?: string;
+
+  /**
+   * @schema FSxBackup#SourceBackupId
+   */
+  readonly sourceBackupId?: string;
+
+  /**
+   * @schema FSxBackup#SourceBackupRegion
+   */
+  readonly sourceBackupRegion?: string;
+
 }
+
+/**
+ * Converts an object of type 'FSxBackup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxBackup(obj: FSxBackup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BackupId': obj.backupId,
+    'Lifecycle': obj.lifecycle,
+    'FailureDetails': toJson_FSxBackupFailureDetails(obj.failureDetails),
+    'Type': obj.type,
+    'ProgressPercent': obj.progressPercent,
+    'CreationTime': obj.creationTime,
+    'KmsKeyId': obj.kmsKeyId,
+    'ResourceARN': obj.resourceArn,
+    'Tags': obj.tags?.map(y => toJson_FSxTag(y)),
+    'FileSystem': toJson_FSxFileSystem(obj.fileSystem),
+    'DirectoryInformation': toJson_FSxActiveDirectoryBackupAttributes(obj.directoryInformation),
+    'OwnerId': obj.ownerId,
+    'SourceBackupId': obj.sourceBackupId,
+    'SourceBackupRegion': obj.sourceBackupRegion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxCompletionReport
@@ -762,7 +1454,7 @@ export interface FSxCompletionReport {
   /**
    * @schema FSxCompletionReport#Enabled
    */
-  readonly enabled: boolean;
+  readonly enabled?: boolean;
 
   /**
    * @schema FSxCompletionReport#Path
@@ -782,28 +1474,45 @@ export interface FSxCompletionReport {
 }
 
 /**
+ * Converts an object of type 'FSxCompletionReport' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxCompletionReport(obj: FSxCompletionReport | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Enabled': obj.enabled,
+    'Path': obj.path,
+    'Format': obj.format,
+    'Scope': obj.scope,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxDataRepositoryTask
  */
 export interface FSxDataRepositoryTask {
   /**
    * @schema FSxDataRepositoryTask#TaskId
    */
-  readonly taskId: string;
+  readonly taskId?: string;
 
   /**
    * @schema FSxDataRepositoryTask#Lifecycle
    */
-  readonly lifecycle: string;
+  readonly lifecycle?: string;
 
   /**
    * @schema FSxDataRepositoryTask#Type
    */
-  readonly type: string;
+  readonly type?: string;
 
   /**
    * @schema FSxDataRepositoryTask#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema FSxDataRepositoryTask#StartTime
@@ -828,7 +1537,7 @@ export interface FSxDataRepositoryTask {
   /**
    * @schema FSxDataRepositoryTask#FileSystemId
    */
-  readonly fileSystemId: string;
+  readonly fileSystemId?: string;
 
   /**
    * @schema FSxDataRepositoryTask#Paths
@@ -851,6 +1560,32 @@ export interface FSxDataRepositoryTask {
   readonly report?: FSxCompletionReport;
 
 }
+
+/**
+ * Converts an object of type 'FSxDataRepositoryTask' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDataRepositoryTask(obj: FSxDataRepositoryTask | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TaskId': obj.taskId,
+    'Lifecycle': obj.lifecycle,
+    'Type': obj.type,
+    'CreationTime': obj.creationTime,
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'ResourceARN': obj.resourceArn,
+    'Tags': obj.tags?.map(y => toJson_FSxTag(y)),
+    'FileSystemId': obj.fileSystemId,
+    'Paths': obj.paths?.map(y => y),
+    'FailureDetails': toJson_FSxDataRepositoryTaskFailureDetails(obj.failureDetails),
+    'Status': toJson_FSxDataRepositoryTaskStatus(obj.status),
+    'Report': toJson_FSxCompletionReport(obj.report),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxCreateFileSystemWindowsConfiguration
@@ -879,7 +1614,7 @@ export interface FSxCreateFileSystemWindowsConfiguration {
   /**
    * @schema FSxCreateFileSystemWindowsConfiguration#ThroughputCapacity
    */
-  readonly throughputCapacity: number;
+  readonly throughputCapacity?: number;
 
   /**
    * @schema FSxCreateFileSystemWindowsConfiguration#WeeklyMaintenanceStartTime
@@ -906,7 +1641,36 @@ export interface FSxCreateFileSystemWindowsConfiguration {
    */
   readonly aliases?: string[];
 
+  /**
+   * @schema FSxCreateFileSystemWindowsConfiguration#AuditLogConfiguration
+   */
+  readonly auditLogConfiguration?: FSxWindowsAuditLogCreateConfiguration;
+
 }
+
+/**
+ * Converts an object of type 'FSxCreateFileSystemWindowsConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxCreateFileSystemWindowsConfiguration(obj: FSxCreateFileSystemWindowsConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ActiveDirectoryId': obj.activeDirectoryId,
+    'SelfManagedActiveDirectoryConfiguration': toJson_FSxSelfManagedActiveDirectoryConfiguration(obj.selfManagedActiveDirectoryConfiguration),
+    'DeploymentType': obj.deploymentType,
+    'PreferredSubnetId': obj.preferredSubnetId,
+    'ThroughputCapacity': obj.throughputCapacity,
+    'WeeklyMaintenanceStartTime': obj.weeklyMaintenanceStartTime,
+    'DailyAutomaticBackupStartTime': obj.dailyAutomaticBackupStartTime,
+    'AutomaticBackupRetentionDays': obj.automaticBackupRetentionDays,
+    'CopyTagsToBackups': obj.copyTagsToBackups,
+    'Aliases': obj.aliases?.map(y => y),
+    'AuditLogConfiguration': toJson_FSxWindowsAuditLogCreateConfiguration(obj.auditLogConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxCreateFileSystemLustreConfiguration
@@ -967,7 +1731,37 @@ export interface FSxCreateFileSystemLustreConfiguration {
    */
   readonly driveCacheType?: string;
 
+  /**
+   * @schema FSxCreateFileSystemLustreConfiguration#DataCompressionType
+   */
+  readonly dataCompressionType?: string;
+
 }
+
+/**
+ * Converts an object of type 'FSxCreateFileSystemLustreConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxCreateFileSystemLustreConfiguration(obj: FSxCreateFileSystemLustreConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WeeklyMaintenanceStartTime': obj.weeklyMaintenanceStartTime,
+    'ImportPath': obj.importPath,
+    'ExportPath': obj.exportPath,
+    'ImportedFileChunkSize': obj.importedFileChunkSize,
+    'DeploymentType': obj.deploymentType,
+    'AutoImportPolicy': obj.autoImportPolicy,
+    'PerUnitStorageThroughput': obj.perUnitStorageThroughput,
+    'DailyAutomaticBackupStartTime': obj.dailyAutomaticBackupStartTime,
+    'AutomaticBackupRetentionDays': obj.automaticBackupRetentionDays,
+    'CopyTagsToBackups': obj.copyTagsToBackups,
+    'DriveCacheType': obj.driveCacheType,
+    'DataCompressionType': obj.dataCompressionType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxFileSystem
@@ -1066,6 +1860,37 @@ export interface FSxFileSystem {
 }
 
 /**
+ * Converts an object of type 'FSxFileSystem' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxFileSystem(obj: FSxFileSystem | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OwnerId': obj.ownerId,
+    'CreationTime': obj.creationTime,
+    'FileSystemId': obj.fileSystemId,
+    'FileSystemType': obj.fileSystemType,
+    'Lifecycle': obj.lifecycle,
+    'FailureDetails': toJson_FSxFileSystemFailureDetails(obj.failureDetails),
+    'StorageCapacity': obj.storageCapacity,
+    'StorageType': obj.storageType,
+    'VpcId': obj.vpcId,
+    'SubnetIds': obj.subnetIds?.map(y => y),
+    'NetworkInterfaceIds': obj.networkInterfaceIds?.map(y => y),
+    'DNSName': obj.dnsName,
+    'KmsKeyId': obj.kmsKeyId,
+    'ResourceARN': obj.resourceArn,
+    'Tags': obj.tags?.map(y => toJson_FSxTag(y)),
+    'WindowsConfiguration': toJson_FSxWindowsFileSystemConfiguration(obj.windowsConfiguration),
+    'LustreConfiguration': toJson_FSxLustreFileSystemConfiguration(obj.lustreConfiguration),
+    'AdministrativeActions': obj.administrativeActions?.map(y => toJson_FSxAdministrativeAction(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxDeleteFileSystemWindowsConfiguration
  */
 export interface FSxDeleteFileSystemWindowsConfiguration {
@@ -1080,6 +1905,21 @@ export interface FSxDeleteFileSystemWindowsConfiguration {
   readonly finalBackupTags?: FSxTag[];
 
 }
+
+/**
+ * Converts an object of type 'FSxDeleteFileSystemWindowsConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDeleteFileSystemWindowsConfiguration(obj: FSxDeleteFileSystemWindowsConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkipFinalBackup': obj.skipFinalBackup,
+    'FinalBackupTags': obj.finalBackupTags?.map(y => toJson_FSxTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxDeleteFileSystemLustreConfiguration
@@ -1098,6 +1938,21 @@ export interface FSxDeleteFileSystemLustreConfiguration {
 }
 
 /**
+ * Converts an object of type 'FSxDeleteFileSystemLustreConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDeleteFileSystemLustreConfiguration(obj: FSxDeleteFileSystemLustreConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SkipFinalBackup': obj.skipFinalBackup,
+    'FinalBackupTags': obj.finalBackupTags?.map(y => toJson_FSxTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxDeleteFileSystemWindowsResponse
  */
 export interface FSxDeleteFileSystemWindowsResponse {
@@ -1112,6 +1967,21 @@ export interface FSxDeleteFileSystemWindowsResponse {
   readonly finalBackupTags?: FSxTag[];
 
 }
+
+/**
+ * Converts an object of type 'FSxDeleteFileSystemWindowsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDeleteFileSystemWindowsResponse(obj: FSxDeleteFileSystemWindowsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FinalBackupId': obj.finalBackupId,
+    'FinalBackupTags': obj.finalBackupTags?.map(y => toJson_FSxTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxDeleteFileSystemLustreResponse
@@ -1130,6 +2000,21 @@ export interface FSxDeleteFileSystemLustreResponse {
 }
 
 /**
+ * Converts an object of type 'FSxDeleteFileSystemLustreResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDeleteFileSystemLustreResponse(obj: FSxDeleteFileSystemLustreResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FinalBackupId': obj.finalBackupId,
+    'FinalBackupTags': obj.finalBackupTags?.map(y => toJson_FSxTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxFilter
  */
 export interface FSxFilter {
@@ -1146,6 +2031,21 @@ export interface FSxFilter {
 }
 
 /**
+ * Converts an object of type 'FSxFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxFilter(obj: FSxFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxDataRepositoryTaskFilter
  */
 export interface FSxDataRepositoryTaskFilter {
@@ -1160,6 +2060,21 @@ export interface FSxDataRepositoryTaskFilter {
   readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'FSxDataRepositoryTaskFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDataRepositoryTaskFilter(obj: FSxDataRepositoryTaskFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxUpdateFileSystemWindowsConfiguration
@@ -1190,7 +2105,31 @@ export interface FSxUpdateFileSystemWindowsConfiguration {
    */
   readonly selfManagedActiveDirectoryConfiguration?: FSxSelfManagedActiveDirectoryConfigurationUpdates;
 
+  /**
+   * @schema FSxUpdateFileSystemWindowsConfiguration#AuditLogConfiguration
+   */
+  readonly auditLogConfiguration?: FSxWindowsAuditLogCreateConfiguration;
+
 }
+
+/**
+ * Converts an object of type 'FSxUpdateFileSystemWindowsConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxUpdateFileSystemWindowsConfiguration(obj: FSxUpdateFileSystemWindowsConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WeeklyMaintenanceStartTime': obj.weeklyMaintenanceStartTime,
+    'DailyAutomaticBackupStartTime': obj.dailyAutomaticBackupStartTime,
+    'AutomaticBackupRetentionDays': obj.automaticBackupRetentionDays,
+    'ThroughputCapacity': obj.throughputCapacity,
+    'SelfManagedActiveDirectoryConfiguration': toJson_FSxSelfManagedActiveDirectoryConfigurationUpdates(obj.selfManagedActiveDirectoryConfiguration),
+    'AuditLogConfiguration': toJson_FSxWindowsAuditLogCreateConfiguration(obj.auditLogConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxUpdateFileSystemLustreConfiguration
@@ -1216,7 +2155,30 @@ export interface FSxUpdateFileSystemLustreConfiguration {
    */
   readonly autoImportPolicy?: string;
 
+  /**
+   * @schema FSxUpdateFileSystemLustreConfiguration#DataCompressionType
+   */
+  readonly dataCompressionType?: string;
+
 }
+
+/**
+ * Converts an object of type 'FSxUpdateFileSystemLustreConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxUpdateFileSystemLustreConfiguration(obj: FSxUpdateFileSystemLustreConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WeeklyMaintenanceStartTime': obj.weeklyMaintenanceStartTime,
+    'DailyAutomaticBackupStartTime': obj.dailyAutomaticBackupStartTime,
+    'AutomaticBackupRetentionDays': obj.automaticBackupRetentionDays,
+    'AutoImportPolicy': obj.autoImportPolicy,
+    'DataCompressionType': obj.dataCompressionType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxBackupFailureDetails
@@ -1228,6 +2190,20 @@ export interface FSxBackupFailureDetails {
   readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'FSxBackupFailureDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxBackupFailureDetails(obj: FSxBackupFailureDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxActiveDirectoryBackupAttributes
@@ -1243,7 +2219,28 @@ export interface FSxActiveDirectoryBackupAttributes {
    */
   readonly activeDirectoryId?: string;
 
+  /**
+   * @schema FSxActiveDirectoryBackupAttributes#ResourceARN
+   */
+  readonly resourceArn?: string;
+
 }
+
+/**
+ * Converts an object of type 'FSxActiveDirectoryBackupAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxActiveDirectoryBackupAttributes(obj: FSxActiveDirectoryBackupAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainName': obj.domainName,
+    'ActiveDirectoryId': obj.activeDirectoryId,
+    'ResourceARN': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxDataRepositoryTaskFailureDetails
@@ -1255,6 +2252,20 @@ export interface FSxDataRepositoryTaskFailureDetails {
   readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'FSxDataRepositoryTaskFailureDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDataRepositoryTaskFailureDetails(obj: FSxDataRepositoryTaskFailureDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxDataRepositoryTaskStatus
@@ -1283,13 +2294,30 @@ export interface FSxDataRepositoryTaskStatus {
 }
 
 /**
+ * Converts an object of type 'FSxDataRepositoryTaskStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDataRepositoryTaskStatus(obj: FSxDataRepositoryTaskStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TotalCount': obj.totalCount,
+    'SucceededCount': obj.succeededCount,
+    'FailedCount': obj.failedCount,
+    'LastUpdatedTime': obj.lastUpdatedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxSelfManagedActiveDirectoryConfiguration
  */
 export interface FSxSelfManagedActiveDirectoryConfiguration {
   /**
    * @schema FSxSelfManagedActiveDirectoryConfiguration#DomainName
    */
-  readonly domainName: string;
+  readonly domainName?: string;
 
   /**
    * @schema FSxSelfManagedActiveDirectoryConfiguration#OrganizationalUnitDistinguishedName
@@ -1304,19 +2332,75 @@ export interface FSxSelfManagedActiveDirectoryConfiguration {
   /**
    * @schema FSxSelfManagedActiveDirectoryConfiguration#UserName
    */
-  readonly userName: string;
+  readonly userName?: string;
 
   /**
    * @schema FSxSelfManagedActiveDirectoryConfiguration#Password
    */
-  readonly password: string;
+  readonly password?: string;
 
   /**
    * @schema FSxSelfManagedActiveDirectoryConfiguration#DnsIps
    */
-  readonly dnsIps: string[];
+  readonly dnsIps?: string[];
 
 }
+
+/**
+ * Converts an object of type 'FSxSelfManagedActiveDirectoryConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxSelfManagedActiveDirectoryConfiguration(obj: FSxSelfManagedActiveDirectoryConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainName': obj.domainName,
+    'OrganizationalUnitDistinguishedName': obj.organizationalUnitDistinguishedName,
+    'FileSystemAdministratorsGroup': obj.fileSystemAdministratorsGroup,
+    'UserName': obj.userName,
+    'Password': obj.password,
+    'DnsIps': obj.dnsIps?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema FSxWindowsAuditLogCreateConfiguration
+ */
+export interface FSxWindowsAuditLogCreateConfiguration {
+  /**
+   * @schema FSxWindowsAuditLogCreateConfiguration#FileAccessAuditLogLevel
+   */
+  readonly fileAccessAuditLogLevel?: string;
+
+  /**
+   * @schema FSxWindowsAuditLogCreateConfiguration#FileShareAccessAuditLogLevel
+   */
+  readonly fileShareAccessAuditLogLevel?: string;
+
+  /**
+   * @schema FSxWindowsAuditLogCreateConfiguration#AuditLogDestination
+   */
+  readonly auditLogDestination?: string;
+
+}
+
+/**
+ * Converts an object of type 'FSxWindowsAuditLogCreateConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxWindowsAuditLogCreateConfiguration(obj: FSxWindowsAuditLogCreateConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FileAccessAuditLogLevel': obj.fileAccessAuditLogLevel,
+    'FileShareAccessAuditLogLevel': obj.fileShareAccessAuditLogLevel,
+    'AuditLogDestination': obj.auditLogDestination,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxFileSystemFailureDetails
@@ -1328,6 +2412,20 @@ export interface FSxFileSystemFailureDetails {
   readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'FSxFileSystemFailureDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxFileSystemFailureDetails(obj: FSxFileSystemFailureDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxWindowsFileSystemConfiguration
@@ -1398,7 +2496,39 @@ export interface FSxWindowsFileSystemConfiguration {
    */
   readonly aliases?: FSxAlias[];
 
+  /**
+   * @schema FSxWindowsFileSystemConfiguration#AuditLogConfiguration
+   */
+  readonly auditLogConfiguration?: FSxWindowsAuditLogConfiguration;
+
 }
+
+/**
+ * Converts an object of type 'FSxWindowsFileSystemConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxWindowsFileSystemConfiguration(obj: FSxWindowsFileSystemConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ActiveDirectoryId': obj.activeDirectoryId,
+    'SelfManagedActiveDirectoryConfiguration': toJson_FSxSelfManagedActiveDirectoryAttributes(obj.selfManagedActiveDirectoryConfiguration),
+    'DeploymentType': obj.deploymentType,
+    'RemoteAdministrationEndpoint': obj.remoteAdministrationEndpoint,
+    'PreferredSubnetId': obj.preferredSubnetId,
+    'PreferredFileServerIp': obj.preferredFileServerIp,
+    'ThroughputCapacity': obj.throughputCapacity,
+    'MaintenanceOperationsInProgress': obj.maintenanceOperationsInProgress?.map(y => y),
+    'WeeklyMaintenanceStartTime': obj.weeklyMaintenanceStartTime,
+    'DailyAutomaticBackupStartTime': obj.dailyAutomaticBackupStartTime,
+    'AutomaticBackupRetentionDays': obj.automaticBackupRetentionDays,
+    'CopyTagsToBackups': obj.copyTagsToBackups,
+    'Aliases': obj.aliases?.map(y => toJson_FSxAlias(y)),
+    'AuditLogConfiguration': toJson_FSxWindowsAuditLogConfiguration(obj.auditLogConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxLustreFileSystemConfiguration
@@ -1449,7 +2579,35 @@ export interface FSxLustreFileSystemConfiguration {
    */
   readonly driveCacheType?: string;
 
+  /**
+   * @schema FSxLustreFileSystemConfiguration#DataCompressionType
+   */
+  readonly dataCompressionType?: string;
+
 }
+
+/**
+ * Converts an object of type 'FSxLustreFileSystemConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxLustreFileSystemConfiguration(obj: FSxLustreFileSystemConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WeeklyMaintenanceStartTime': obj.weeklyMaintenanceStartTime,
+    'DataRepositoryConfiguration': toJson_FSxDataRepositoryConfiguration(obj.dataRepositoryConfiguration),
+    'DeploymentType': obj.deploymentType,
+    'PerUnitStorageThroughput': obj.perUnitStorageThroughput,
+    'MountName': obj.mountName,
+    'DailyAutomaticBackupStartTime': obj.dailyAutomaticBackupStartTime,
+    'AutomaticBackupRetentionDays': obj.automaticBackupRetentionDays,
+    'CopyTagsToBackups': obj.copyTagsToBackups,
+    'DriveCacheType': obj.driveCacheType,
+    'DataCompressionType': obj.dataCompressionType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxAdministrativeAction
@@ -1488,6 +2646,25 @@ export interface FSxAdministrativeAction {
 }
 
 /**
+ * Converts an object of type 'FSxAdministrativeAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxAdministrativeAction(obj: FSxAdministrativeAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AdministrativeActionType': obj.administrativeActionType,
+    'ProgressPercent': obj.progressPercent,
+    'RequestTime': obj.requestTime,
+    'Status': obj.status,
+    'TargetFileSystemValues': toJson_FSxFileSystem(obj.targetFileSystemValues),
+    'FailureDetails': toJson_FSxAdministrativeActionFailureDetails(obj.failureDetails),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxSelfManagedActiveDirectoryConfigurationUpdates
  */
 export interface FSxSelfManagedActiveDirectoryConfigurationUpdates {
@@ -1507,6 +2684,22 @@ export interface FSxSelfManagedActiveDirectoryConfigurationUpdates {
   readonly dnsIps?: string[];
 
 }
+
+/**
+ * Converts an object of type 'FSxSelfManagedActiveDirectoryConfigurationUpdates' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxSelfManagedActiveDirectoryConfigurationUpdates(obj: FSxSelfManagedActiveDirectoryConfigurationUpdates | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserName': obj.userName,
+    'Password': obj.password,
+    'DnsIps': obj.dnsIps?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxSelfManagedActiveDirectoryAttributes
@@ -1538,6 +2731,61 @@ export interface FSxSelfManagedActiveDirectoryAttributes {
   readonly dnsIps?: string[];
 
 }
+
+/**
+ * Converts an object of type 'FSxSelfManagedActiveDirectoryAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxSelfManagedActiveDirectoryAttributes(obj: FSxSelfManagedActiveDirectoryAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainName': obj.domainName,
+    'OrganizationalUnitDistinguishedName': obj.organizationalUnitDistinguishedName,
+    'FileSystemAdministratorsGroup': obj.fileSystemAdministratorsGroup,
+    'UserName': obj.userName,
+    'DnsIps': obj.dnsIps?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema FSxWindowsAuditLogConfiguration
+ */
+export interface FSxWindowsAuditLogConfiguration {
+  /**
+   * @schema FSxWindowsAuditLogConfiguration#FileAccessAuditLogLevel
+   */
+  readonly fileAccessAuditLogLevel?: string;
+
+  /**
+   * @schema FSxWindowsAuditLogConfiguration#FileShareAccessAuditLogLevel
+   */
+  readonly fileShareAccessAuditLogLevel?: string;
+
+  /**
+   * @schema FSxWindowsAuditLogConfiguration#AuditLogDestination
+   */
+  readonly auditLogDestination?: string;
+
+}
+
+/**
+ * Converts an object of type 'FSxWindowsAuditLogConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxWindowsAuditLogConfiguration(obj: FSxWindowsAuditLogConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FileAccessAuditLogLevel': obj.fileAccessAuditLogLevel,
+    'FileShareAccessAuditLogLevel': obj.fileShareAccessAuditLogLevel,
+    'AuditLogDestination': obj.auditLogDestination,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema FSxDataRepositoryConfiguration
@@ -1576,6 +2824,25 @@ export interface FSxDataRepositoryConfiguration {
 }
 
 /**
+ * Converts an object of type 'FSxDataRepositoryConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDataRepositoryConfiguration(obj: FSxDataRepositoryConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Lifecycle': obj.lifecycle,
+    'ImportPath': obj.importPath,
+    'ExportPath': obj.exportPath,
+    'ImportedFileChunkSize': obj.importedFileChunkSize,
+    'AutoImportPolicy': obj.autoImportPolicy,
+    'FailureDetails': toJson_FSxDataRepositoryFailureDetails(obj.failureDetails),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxAdministrativeActionFailureDetails
  */
 export interface FSxAdministrativeActionFailureDetails {
@@ -1587,6 +2854,20 @@ export interface FSxAdministrativeActionFailureDetails {
 }
 
 /**
+ * Converts an object of type 'FSxAdministrativeActionFailureDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxAdministrativeActionFailureDetails(obj: FSxAdministrativeActionFailureDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema FSxDataRepositoryFailureDetails
  */
 export interface FSxDataRepositoryFailureDetails {
@@ -1596,3 +2877,17 @@ export interface FSxDataRepositoryFailureDetails {
   readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'FSxDataRepositoryFailureDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_FSxDataRepositoryFailureDetails(obj: FSxDataRepositoryFailureDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

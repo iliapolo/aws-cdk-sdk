@@ -8,6 +8,22 @@ export class CloudFrontClient extends cdk.Construct {
     super(scope, id);
   }
 
+  public associateAlias(input: shapes.CloudFrontAssociateAliasRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateAlias',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.AssociateAlias'),
+        parameters: {
+          TargetDistributionId: input.targetDistributionId,
+          Alias: input.alias,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'AssociateAlias', props);
+  }
+
   public createCachePolicy(input: shapes.CloudFrontCreateCachePolicyRequest): CloudFrontResponsesCreateCachePolicy {
     return new CloudFrontResponsesCreateCachePolicy(this, this.__resources, input);
   }
@@ -30,6 +46,10 @@ export class CloudFrontClient extends cdk.Construct {
 
   public createFieldLevelEncryptionProfile(input: shapes.CloudFrontCreateFieldLevelEncryptionProfileRequest): CloudFrontResponsesCreateFieldLevelEncryptionProfile {
     return new CloudFrontResponsesCreateFieldLevelEncryptionProfile(this, this.__resources, input);
+  }
+
+  public createFunction(input: shapes.CloudFrontCreateFunctionRequest): CloudFrontResponsesCreateFunction {
+    return new CloudFrontResponsesCreateFunction(this, this.__resources, input);
   }
 
   public createInvalidation(input: shapes.CloudFrontCreateInvalidationRequest): CloudFrontResponsesCreateInvalidation {
@@ -144,6 +164,22 @@ export class CloudFrontClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeleteFieldLevelEncryptionProfile', props);
   }
 
+  public deleteFunction(input: shapes.CloudFrontDeleteFunctionRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.DeleteFunction'),
+        parameters: {
+          Name: input.name,
+          IfMatch: input.ifMatch,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteFunction', props);
+  }
+
   public deleteKeyGroup(input: shapes.CloudFrontDeleteKeyGroupRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -239,6 +275,10 @@ export class CloudFrontClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeleteStreamingDistribution', props);
   }
 
+  public describeFunction(input: shapes.CloudFrontDescribeFunctionRequest): CloudFrontResponsesDescribeFunction {
+    return new CloudFrontResponsesDescribeFunction(this, this.__resources, input);
+  }
+
   public fetchCachePolicy(input: shapes.CloudFrontGetCachePolicyRequest): CloudFrontResponsesFetchCachePolicy {
     return new CloudFrontResponsesFetchCachePolicy(this, this.__resources, input);
   }
@@ -277,6 +317,10 @@ export class CloudFrontClient extends cdk.Construct {
 
   public fetchFieldLevelEncryptionProfileConfig(input: shapes.CloudFrontGetFieldLevelEncryptionProfileConfigRequest): CloudFrontResponsesFetchFieldLevelEncryptionProfileConfig {
     return new CloudFrontResponsesFetchFieldLevelEncryptionProfileConfig(this, this.__resources, input);
+  }
+
+  public fetchFunction(input: shapes.CloudFrontGetFunctionRequest): CloudFrontResponsesFetchFunction {
+    return new CloudFrontResponsesFetchFunction(this, this.__resources, input);
   }
 
   public fetchInvalidation(input: shapes.CloudFrontGetInvalidationRequest): CloudFrontResponsesFetchInvalidation {
@@ -331,6 +375,10 @@ export class CloudFrontClient extends cdk.Construct {
     return new CloudFrontResponsesListCloudFrontOriginAccessIdentities(this, this.__resources, input);
   }
 
+  public listConflictingAliases(input: shapes.CloudFrontListConflictingAliasesRequest): CloudFrontResponsesListConflictingAliases {
+    return new CloudFrontResponsesListConflictingAliases(this, this.__resources, input);
+  }
+
   public listDistributions(input: shapes.CloudFrontListDistributionsRequest): CloudFrontResponsesListDistributions {
     return new CloudFrontResponsesListDistributions(this, this.__resources, input);
   }
@@ -363,6 +411,10 @@ export class CloudFrontClient extends cdk.Construct {
     return new CloudFrontResponsesListFieldLevelEncryptionProfiles(this, this.__resources, input);
   }
 
+  public listFunctions(input: shapes.CloudFrontListFunctionsRequest): CloudFrontResponsesListFunctions {
+    return new CloudFrontResponsesListFunctions(this, this.__resources, input);
+  }
+
   public listInvalidations(input: shapes.CloudFrontListInvalidationsRequest): CloudFrontResponsesListInvalidations {
     return new CloudFrontResponsesListInvalidations(this, this.__resources, input);
   }
@@ -391,6 +443,10 @@ export class CloudFrontClient extends cdk.Construct {
     return new CloudFrontResponsesListTagsForResource(this, this.__resources, input);
   }
 
+  public publishFunction(input: shapes.CloudFrontPublishFunctionRequest): CloudFrontResponsesPublishFunction {
+    return new CloudFrontResponsesPublishFunction(this, this.__resources, input);
+  }
+
   public tagResource(input: shapes.CloudFrontTagResourceRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -407,6 +463,10 @@ export class CloudFrontClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'TagResource', props);
+  }
+
+  public testFunction(input: shapes.CloudFrontTestFunctionRequest): CloudFrontResponsesTestFunction {
+    return new CloudFrontResponsesTestFunction(this, this.__resources, input);
   }
 
   public untagResource(input: shapes.CloudFrontUntagResourceRequest): void {
@@ -445,6 +505,10 @@ export class CloudFrontClient extends cdk.Construct {
 
   public updateFieldLevelEncryptionProfile(input: shapes.CloudFrontUpdateFieldLevelEncryptionProfileRequest): CloudFrontResponsesUpdateFieldLevelEncryptionProfile {
     return new CloudFrontResponsesUpdateFieldLevelEncryptionProfile(this, this.__resources, input);
+  }
+
+  public updateFunction(input: shapes.CloudFrontUpdateFunctionRequest): CloudFrontResponsesUpdateFunction {
+    return new CloudFrontResponsesUpdateFunction(this, this.__resources, input);
   }
 
   public updateKeyGroup(input: shapes.CloudFrontUpdateKeyGroupRequest): CloudFrontResponsesUpdateKeyGroup {
@@ -1744,6 +1808,10 @@ export class CloudFrontResponsesCreateDistribution {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -1864,6 +1932,10 @@ export class CloudFrontResponsesCreateDistribution {
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -1993,6 +2065,10 @@ export class CloudFrontResponsesCreateDistributionDistribution {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -2113,6 +2189,10 @@ export class CloudFrontResponsesCreateDistributionDistribution {
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -2235,6 +2315,10 @@ export class CloudFrontResponsesCreateDistributionDistribution {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -2355,6 +2439,10 @@ export class CloudFrontResponsesCreateDistributionDistribution {
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -2477,6 +2565,10 @@ export class CloudFrontResponsesCreateDistributionDistribution {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -2597,6 +2689,10 @@ export class CloudFrontResponsesCreateDistributionDistribution {
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -2731,6 +2827,10 @@ export class CloudFrontResponsesCreateDistributionDistribution {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -2859,6 +2959,10 @@ export class CloudFrontResponsesCreateDistributionDistributionActiveTrustedSigne
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -2980,6 +3084,10 @@ export class CloudFrontResponsesCreateDistributionDistributionActiveTrustedSigne
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -3100,6 +3208,10 @@ export class CloudFrontResponsesCreateDistributionDistributionActiveTrustedSigne
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -3229,6 +3341,10 @@ export class CloudFrontResponsesCreateDistributionDistributionActiveTrustedKeyGr
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -3350,6 +3466,10 @@ export class CloudFrontResponsesCreateDistributionDistributionActiveTrustedKeyGr
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -3470,6 +3590,10 @@ export class CloudFrontResponsesCreateDistributionDistributionActiveTrustedKeyGr
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -3599,6 +3723,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -3723,6 +3851,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -3865,6 +3997,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -3990,6 +4126,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -4110,6 +4250,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -4240,6 +4384,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -4361,6 +4509,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -4481,6 +4633,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -4610,6 +4766,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -4730,6 +4890,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -4859,6 +5023,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -4979,6 +5147,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -5108,6 +5280,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -5228,6 +5404,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -5356,6 +5536,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -5486,6 +5670,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -5611,6 +5799,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -5732,6 +5924,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -5806,6 +6002,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
     return new CloudFrontResponsesCreateDistributionDistributionDistributionConfigDefaultCacheBehaviorLambdaFunctionAssociations(this.__scope, this.__resources, this.__input);
   }
 
+  public get functionAssociations(): CloudFrontResponsesCreateDistributionDistributionDistributionConfigDefaultCacheBehaviorFunctionAssociations {
+    return new CloudFrontResponsesCreateDistributionDistributionDistributionConfigDefaultCacheBehaviorFunctionAssociations(this.__scope, this.__resources, this.__input);
+  }
+
   public get fieldLevelEncryptionId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -5856,6 +6056,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -5978,6 +6182,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -6099,6 +6307,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -6219,6 +6431,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -6345,6 +6561,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -6466,6 +6686,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -6586,6 +6810,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -6715,6 +6943,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -6836,6 +7068,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -6956,6 +7192,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -7085,6 +7325,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -7206,6 +7450,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -7326,6 +7574,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -7455,6 +7707,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -7575,6 +7831,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -7708,6 +7968,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -7828,6 +8092,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -7957,6 +8225,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -8078,6 +8350,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -8150,6 +8426,263 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
 
 }
 
+export class CloudFrontResponsesCreateDistributionDistributionDistributionConfigDefaultCacheBehaviorFunctionAssociations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontCreateDistributionRequest) {
+  }
+
+  public get quantity(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDistribution',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.CreateDistribution.Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity'),
+        outputPath: 'Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity',
+        parameters: {
+          DistributionConfig: {
+            CallerReference: this.__input.distributionConfig.callerReference,
+            Aliases: {
+              Quantity: this.__input.distributionConfig.aliases?.quantity,
+              Items: this.__input.distributionConfig.aliases?.items,
+            },
+            DefaultRootObject: this.__input.distributionConfig.defaultRootObject,
+            Origins: {
+              Quantity: this.__input.distributionConfig.origins.quantity,
+              Items: this.__input.distributionConfig.origins.items,
+            },
+            OriginGroups: {
+              Quantity: this.__input.distributionConfig.originGroups?.quantity,
+              Items: this.__input.distributionConfig.originGroups?.items,
+            },
+            DefaultCacheBehavior: {
+              TargetOriginId: this.__input.distributionConfig.defaultCacheBehavior.targetOriginId,
+              TrustedSigners: {
+                Enabled: this.__input.distributionConfig.defaultCacheBehavior.trustedSigners?.enabled,
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.trustedSigners?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.trustedSigners?.items,
+              },
+              TrustedKeyGroups: {
+                Enabled: this.__input.distributionConfig.defaultCacheBehavior.trustedKeyGroups?.enabled,
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.trustedKeyGroups?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.trustedKeyGroups?.items,
+              },
+              ViewerProtocolPolicy: this.__input.distributionConfig.defaultCacheBehavior.viewerProtocolPolicy,
+              AllowedMethods: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.allowedMethods?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.allowedMethods?.items,
+                CachedMethods: {
+                  Quantity: this.__input.distributionConfig.defaultCacheBehavior.allowedMethods?.cachedMethods?.quantity,
+                  Items: this.__input.distributionConfig.defaultCacheBehavior.allowedMethods?.cachedMethods?.items,
+                },
+              },
+              SmoothStreaming: this.__input.distributionConfig.defaultCacheBehavior.smoothStreaming,
+              Compress: this.__input.distributionConfig.defaultCacheBehavior.compress,
+              LambdaFunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
+              FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
+              RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
+              CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
+              OriginRequestPolicyId: this.__input.distributionConfig.defaultCacheBehavior.originRequestPolicyId,
+              ForwardedValues: {
+                QueryString: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.queryString,
+                Cookies: {
+                  Forward: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.cookies.forward,
+                  WhitelistedNames: {
+                    Quantity: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.cookies.whitelistedNames?.quantity,
+                    Items: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.cookies.whitelistedNames?.items,
+                  },
+                },
+                Headers: {
+                  Quantity: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.headers?.quantity,
+                  Items: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.headers?.items,
+                },
+                QueryStringCacheKeys: {
+                  Quantity: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.queryStringCacheKeys?.quantity,
+                  Items: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.queryStringCacheKeys?.items,
+                },
+              },
+              MinTTL: this.__input.distributionConfig.defaultCacheBehavior.minTtl,
+              DefaultTTL: this.__input.distributionConfig.defaultCacheBehavior.defaultTtl,
+              MaxTTL: this.__input.distributionConfig.defaultCacheBehavior.maxTtl,
+            },
+            CacheBehaviors: {
+              Quantity: this.__input.distributionConfig.cacheBehaviors?.quantity,
+              Items: this.__input.distributionConfig.cacheBehaviors?.items,
+            },
+            CustomErrorResponses: {
+              Quantity: this.__input.distributionConfig.customErrorResponses?.quantity,
+              Items: this.__input.distributionConfig.customErrorResponses?.items,
+            },
+            Comment: this.__input.distributionConfig.comment,
+            Logging: {
+              Enabled: this.__input.distributionConfig.logging?.enabled,
+              IncludeCookies: this.__input.distributionConfig.logging?.includeCookies,
+              Bucket: this.__input.distributionConfig.logging?.bucket,
+              Prefix: this.__input.distributionConfig.logging?.prefix,
+            },
+            PriceClass: this.__input.distributionConfig.priceClass,
+            Enabled: this.__input.distributionConfig.enabled,
+            ViewerCertificate: {
+              CloudFrontDefaultCertificate: this.__input.distributionConfig.viewerCertificate?.cloudFrontDefaultCertificate,
+              IAMCertificateId: this.__input.distributionConfig.viewerCertificate?.iamCertificateId,
+              ACMCertificateArn: this.__input.distributionConfig.viewerCertificate?.acmCertificateArn,
+              SSLSupportMethod: this.__input.distributionConfig.viewerCertificate?.sslSupportMethod,
+              MinimumProtocolVersion: this.__input.distributionConfig.viewerCertificate?.minimumProtocolVersion,
+              Certificate: this.__input.distributionConfig.viewerCertificate?.certificate,
+              CertificateSource: this.__input.distributionConfig.viewerCertificate?.certificateSource,
+            },
+            Restrictions: {
+              GeoRestriction: {
+                RestrictionType: this.__input.distributionConfig.restrictions?.geoRestriction.restrictionType,
+                Quantity: this.__input.distributionConfig.restrictions?.geoRestriction.quantity,
+                Items: this.__input.distributionConfig.restrictions?.geoRestriction.items,
+              },
+            },
+            WebACLId: this.__input.distributionConfig.webAclId,
+            HttpVersion: this.__input.distributionConfig.httpVersion,
+            IsIPV6Enabled: this.__input.distributionConfig.isIpv6Enabled,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDistribution.Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity', props);
+    return resource.getResponseField('Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity') as unknown as number;
+  }
+
+  public get items(): shapes.CloudFrontFunctionAssociation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDistribution',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.CreateDistribution.Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items'),
+        outputPath: 'Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items',
+        parameters: {
+          DistributionConfig: {
+            CallerReference: this.__input.distributionConfig.callerReference,
+            Aliases: {
+              Quantity: this.__input.distributionConfig.aliases?.quantity,
+              Items: this.__input.distributionConfig.aliases?.items,
+            },
+            DefaultRootObject: this.__input.distributionConfig.defaultRootObject,
+            Origins: {
+              Quantity: this.__input.distributionConfig.origins.quantity,
+              Items: this.__input.distributionConfig.origins.items,
+            },
+            OriginGroups: {
+              Quantity: this.__input.distributionConfig.originGroups?.quantity,
+              Items: this.__input.distributionConfig.originGroups?.items,
+            },
+            DefaultCacheBehavior: {
+              TargetOriginId: this.__input.distributionConfig.defaultCacheBehavior.targetOriginId,
+              TrustedSigners: {
+                Enabled: this.__input.distributionConfig.defaultCacheBehavior.trustedSigners?.enabled,
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.trustedSigners?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.trustedSigners?.items,
+              },
+              TrustedKeyGroups: {
+                Enabled: this.__input.distributionConfig.defaultCacheBehavior.trustedKeyGroups?.enabled,
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.trustedKeyGroups?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.trustedKeyGroups?.items,
+              },
+              ViewerProtocolPolicy: this.__input.distributionConfig.defaultCacheBehavior.viewerProtocolPolicy,
+              AllowedMethods: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.allowedMethods?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.allowedMethods?.items,
+                CachedMethods: {
+                  Quantity: this.__input.distributionConfig.defaultCacheBehavior.allowedMethods?.cachedMethods?.quantity,
+                  Items: this.__input.distributionConfig.defaultCacheBehavior.allowedMethods?.cachedMethods?.items,
+                },
+              },
+              SmoothStreaming: this.__input.distributionConfig.defaultCacheBehavior.smoothStreaming,
+              Compress: this.__input.distributionConfig.defaultCacheBehavior.compress,
+              LambdaFunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
+              FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
+              RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
+              CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
+              OriginRequestPolicyId: this.__input.distributionConfig.defaultCacheBehavior.originRequestPolicyId,
+              ForwardedValues: {
+                QueryString: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.queryString,
+                Cookies: {
+                  Forward: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.cookies.forward,
+                  WhitelistedNames: {
+                    Quantity: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.cookies.whitelistedNames?.quantity,
+                    Items: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.cookies.whitelistedNames?.items,
+                  },
+                },
+                Headers: {
+                  Quantity: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.headers?.quantity,
+                  Items: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.headers?.items,
+                },
+                QueryStringCacheKeys: {
+                  Quantity: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.queryStringCacheKeys?.quantity,
+                  Items: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.queryStringCacheKeys?.items,
+                },
+              },
+              MinTTL: this.__input.distributionConfig.defaultCacheBehavior.minTtl,
+              DefaultTTL: this.__input.distributionConfig.defaultCacheBehavior.defaultTtl,
+              MaxTTL: this.__input.distributionConfig.defaultCacheBehavior.maxTtl,
+            },
+            CacheBehaviors: {
+              Quantity: this.__input.distributionConfig.cacheBehaviors?.quantity,
+              Items: this.__input.distributionConfig.cacheBehaviors?.items,
+            },
+            CustomErrorResponses: {
+              Quantity: this.__input.distributionConfig.customErrorResponses?.quantity,
+              Items: this.__input.distributionConfig.customErrorResponses?.items,
+            },
+            Comment: this.__input.distributionConfig.comment,
+            Logging: {
+              Enabled: this.__input.distributionConfig.logging?.enabled,
+              IncludeCookies: this.__input.distributionConfig.logging?.includeCookies,
+              Bucket: this.__input.distributionConfig.logging?.bucket,
+              Prefix: this.__input.distributionConfig.logging?.prefix,
+            },
+            PriceClass: this.__input.distributionConfig.priceClass,
+            Enabled: this.__input.distributionConfig.enabled,
+            ViewerCertificate: {
+              CloudFrontDefaultCertificate: this.__input.distributionConfig.viewerCertificate?.cloudFrontDefaultCertificate,
+              IAMCertificateId: this.__input.distributionConfig.viewerCertificate?.iamCertificateId,
+              ACMCertificateArn: this.__input.distributionConfig.viewerCertificate?.acmCertificateArn,
+              SSLSupportMethod: this.__input.distributionConfig.viewerCertificate?.sslSupportMethod,
+              MinimumProtocolVersion: this.__input.distributionConfig.viewerCertificate?.minimumProtocolVersion,
+              Certificate: this.__input.distributionConfig.viewerCertificate?.certificate,
+              CertificateSource: this.__input.distributionConfig.viewerCertificate?.certificateSource,
+            },
+            Restrictions: {
+              GeoRestriction: {
+                RestrictionType: this.__input.distributionConfig.restrictions?.geoRestriction.restrictionType,
+                Quantity: this.__input.distributionConfig.restrictions?.geoRestriction.quantity,
+                Items: this.__input.distributionConfig.restrictions?.geoRestriction.items,
+              },
+            },
+            WebACLId: this.__input.distributionConfig.webAclId,
+            HttpVersion: this.__input.distributionConfig.httpVersion,
+            IsIPV6Enabled: this.__input.distributionConfig.isIpv6Enabled,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDistribution.Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items', props);
+    return resource.getResponseField('Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items') as unknown as shapes.CloudFrontFunctionAssociation[];
+  }
+
+}
+
 export class CloudFrontResponsesCreateDistributionDistributionDistributionConfigDefaultCacheBehaviorForwardedValues {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontCreateDistributionRequest) {
@@ -8205,6 +8738,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -8346,6 +8883,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -8478,6 +9019,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -8598,6 +9143,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -8727,6 +9276,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -8847,6 +9400,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -8976,6 +9533,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -9096,6 +9657,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -9225,6 +9790,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -9345,6 +9914,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -9474,6 +10047,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -9594,6 +10171,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -9723,6 +10304,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -9843,6 +10428,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -9965,6 +10554,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -10085,6 +10678,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -10214,6 +10811,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -10334,6 +10935,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -10456,6 +11061,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -10576,6 +11185,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -10698,6 +11311,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -10819,6 +11436,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -10939,6 +11560,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -11079,6 +11704,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -11200,6 +11829,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -11320,6 +11953,10 @@ export class CloudFrontResponsesCreateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -11454,6 +12091,10 @@ export class CloudFrontResponsesCreateDistributionWithTags {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -11579,6 +12220,10 @@ export class CloudFrontResponsesCreateDistributionWithTags {
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -11713,6 +12358,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistribution {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -11838,6 +12487,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistribution {
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -11965,6 +12618,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistribution {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -12090,6 +12747,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistribution {
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -12217,6 +12878,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistribution {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -12342,6 +13007,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistribution {
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -12481,6 +13150,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistribution {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -12614,6 +13287,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionActiveTrus
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -12740,6 +13417,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionActiveTrus
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -12865,6 +13546,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionActiveTrus
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -12999,6 +13684,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionActiveTrus
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -13125,6 +13814,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionActiveTrus
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -13250,6 +13943,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionActiveTrus
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -13384,6 +14081,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -13513,6 +14214,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -13660,6 +14365,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -13790,6 +14499,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -13915,6 +14628,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -14050,6 +14767,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -14176,6 +14897,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -14301,6 +15026,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -14435,6 +15164,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -14560,6 +15293,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -14694,6 +15431,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -14819,6 +15560,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -14953,6 +15698,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -15078,6 +15827,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -15211,6 +15964,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -15346,6 +16103,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -15476,6 +16237,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -15602,6 +16367,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -15680,6 +16449,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
     return new CloudFrontResponsesCreateDistributionWithTagsDistributionDistributionConfigDefaultCacheBehaviorLambdaFunctionAssociations(this.__scope, this.__resources, this.__input);
   }
 
+  public get functionAssociations(): CloudFrontResponsesCreateDistributionWithTagsDistributionDistributionConfigDefaultCacheBehaviorFunctionAssociations {
+    return new CloudFrontResponsesCreateDistributionWithTagsDistributionDistributionConfigDefaultCacheBehaviorFunctionAssociations(this.__scope, this.__resources, this.__input);
+  }
+
   public get fieldLevelEncryptionId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -15731,6 +16504,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -15858,6 +16635,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -15984,6 +16765,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -16109,6 +16894,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -16240,6 +17029,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -16366,6 +17159,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -16491,6 +17288,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -16625,6 +17426,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -16751,6 +17556,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -16876,6 +17685,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -17010,6 +17823,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -17136,6 +17953,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -17261,6 +18082,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -17395,6 +18220,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -17520,6 +18349,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -17658,6 +18491,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -17783,6 +18620,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -17917,6 +18758,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -18043,6 +18888,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -18119,6 +18968,273 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
 
 }
 
+export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributionConfigDefaultCacheBehaviorFunctionAssociations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontCreateDistributionWithTagsRequest) {
+  }
+
+  public get quantity(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDistributionWithTags',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.CreateDistributionWithTags.Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity'),
+        outputPath: 'Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity',
+        parameters: {
+          DistributionConfigWithTags: {
+            DistributionConfig: {
+              CallerReference: this.__input.distributionConfigWithTags.distributionConfig.callerReference,
+              Aliases: {
+                Quantity: this.__input.distributionConfigWithTags.distributionConfig.aliases?.quantity,
+                Items: this.__input.distributionConfigWithTags.distributionConfig.aliases?.items,
+              },
+              DefaultRootObject: this.__input.distributionConfigWithTags.distributionConfig.defaultRootObject,
+              Origins: {
+                Quantity: this.__input.distributionConfigWithTags.distributionConfig.origins.quantity,
+                Items: this.__input.distributionConfigWithTags.distributionConfig.origins.items,
+              },
+              OriginGroups: {
+                Quantity: this.__input.distributionConfigWithTags.distributionConfig.originGroups?.quantity,
+                Items: this.__input.distributionConfigWithTags.distributionConfig.originGroups?.items,
+              },
+              DefaultCacheBehavior: {
+                TargetOriginId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.targetOriginId,
+                TrustedSigners: {
+                  Enabled: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.trustedSigners?.enabled,
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.trustedSigners?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.trustedSigners?.items,
+                },
+                TrustedKeyGroups: {
+                  Enabled: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.trustedKeyGroups?.enabled,
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.trustedKeyGroups?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.trustedKeyGroups?.items,
+                },
+                ViewerProtocolPolicy: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.viewerProtocolPolicy,
+                AllowedMethods: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.allowedMethods?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.allowedMethods?.items,
+                  CachedMethods: {
+                    Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.allowedMethods?.cachedMethods?.quantity,
+                    Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.allowedMethods?.cachedMethods?.items,
+                  },
+                },
+                SmoothStreaming: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.smoothStreaming,
+                Compress: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.compress,
+                LambdaFunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
+                FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
+                RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
+                CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
+                OriginRequestPolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.originRequestPolicyId,
+                ForwardedValues: {
+                  QueryString: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.forwardedValues?.queryString,
+                  Cookies: {
+                    Forward: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.forwardedValues?.cookies.forward,
+                    WhitelistedNames: {
+                      Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.forwardedValues?.cookies.whitelistedNames?.quantity,
+                      Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.forwardedValues?.cookies.whitelistedNames?.items,
+                    },
+                  },
+                  Headers: {
+                    Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.forwardedValues?.headers?.quantity,
+                    Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.forwardedValues?.headers?.items,
+                  },
+                  QueryStringCacheKeys: {
+                    Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.forwardedValues?.queryStringCacheKeys?.quantity,
+                    Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.forwardedValues?.queryStringCacheKeys?.items,
+                  },
+                },
+                MinTTL: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.minTtl,
+                DefaultTTL: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.defaultTtl,
+                MaxTTL: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.maxTtl,
+              },
+              CacheBehaviors: {
+                Quantity: this.__input.distributionConfigWithTags.distributionConfig.cacheBehaviors?.quantity,
+                Items: this.__input.distributionConfigWithTags.distributionConfig.cacheBehaviors?.items,
+              },
+              CustomErrorResponses: {
+                Quantity: this.__input.distributionConfigWithTags.distributionConfig.customErrorResponses?.quantity,
+                Items: this.__input.distributionConfigWithTags.distributionConfig.customErrorResponses?.items,
+              },
+              Comment: this.__input.distributionConfigWithTags.distributionConfig.comment,
+              Logging: {
+                Enabled: this.__input.distributionConfigWithTags.distributionConfig.logging?.enabled,
+                IncludeCookies: this.__input.distributionConfigWithTags.distributionConfig.logging?.includeCookies,
+                Bucket: this.__input.distributionConfigWithTags.distributionConfig.logging?.bucket,
+                Prefix: this.__input.distributionConfigWithTags.distributionConfig.logging?.prefix,
+              },
+              PriceClass: this.__input.distributionConfigWithTags.distributionConfig.priceClass,
+              Enabled: this.__input.distributionConfigWithTags.distributionConfig.enabled,
+              ViewerCertificate: {
+                CloudFrontDefaultCertificate: this.__input.distributionConfigWithTags.distributionConfig.viewerCertificate?.cloudFrontDefaultCertificate,
+                IAMCertificateId: this.__input.distributionConfigWithTags.distributionConfig.viewerCertificate?.iamCertificateId,
+                ACMCertificateArn: this.__input.distributionConfigWithTags.distributionConfig.viewerCertificate?.acmCertificateArn,
+                SSLSupportMethod: this.__input.distributionConfigWithTags.distributionConfig.viewerCertificate?.sslSupportMethod,
+                MinimumProtocolVersion: this.__input.distributionConfigWithTags.distributionConfig.viewerCertificate?.minimumProtocolVersion,
+                Certificate: this.__input.distributionConfigWithTags.distributionConfig.viewerCertificate?.certificate,
+                CertificateSource: this.__input.distributionConfigWithTags.distributionConfig.viewerCertificate?.certificateSource,
+              },
+              Restrictions: {
+                GeoRestriction: {
+                  RestrictionType: this.__input.distributionConfigWithTags.distributionConfig.restrictions?.geoRestriction.restrictionType,
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.restrictions?.geoRestriction.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.restrictions?.geoRestriction.items,
+                },
+              },
+              WebACLId: this.__input.distributionConfigWithTags.distributionConfig.webAclId,
+              HttpVersion: this.__input.distributionConfigWithTags.distributionConfig.httpVersion,
+              IsIPV6Enabled: this.__input.distributionConfigWithTags.distributionConfig.isIpv6Enabled,
+            },
+            Tags: {
+              Items: this.__input.distributionConfigWithTags.tags.items,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDistributionWithTags.Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity', props);
+    return resource.getResponseField('Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity') as unknown as number;
+  }
+
+  public get items(): shapes.CloudFrontFunctionAssociation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDistributionWithTags',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.CreateDistributionWithTags.Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items'),
+        outputPath: 'Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items',
+        parameters: {
+          DistributionConfigWithTags: {
+            DistributionConfig: {
+              CallerReference: this.__input.distributionConfigWithTags.distributionConfig.callerReference,
+              Aliases: {
+                Quantity: this.__input.distributionConfigWithTags.distributionConfig.aliases?.quantity,
+                Items: this.__input.distributionConfigWithTags.distributionConfig.aliases?.items,
+              },
+              DefaultRootObject: this.__input.distributionConfigWithTags.distributionConfig.defaultRootObject,
+              Origins: {
+                Quantity: this.__input.distributionConfigWithTags.distributionConfig.origins.quantity,
+                Items: this.__input.distributionConfigWithTags.distributionConfig.origins.items,
+              },
+              OriginGroups: {
+                Quantity: this.__input.distributionConfigWithTags.distributionConfig.originGroups?.quantity,
+                Items: this.__input.distributionConfigWithTags.distributionConfig.originGroups?.items,
+              },
+              DefaultCacheBehavior: {
+                TargetOriginId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.targetOriginId,
+                TrustedSigners: {
+                  Enabled: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.trustedSigners?.enabled,
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.trustedSigners?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.trustedSigners?.items,
+                },
+                TrustedKeyGroups: {
+                  Enabled: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.trustedKeyGroups?.enabled,
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.trustedKeyGroups?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.trustedKeyGroups?.items,
+                },
+                ViewerProtocolPolicy: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.viewerProtocolPolicy,
+                AllowedMethods: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.allowedMethods?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.allowedMethods?.items,
+                  CachedMethods: {
+                    Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.allowedMethods?.cachedMethods?.quantity,
+                    Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.allowedMethods?.cachedMethods?.items,
+                  },
+                },
+                SmoothStreaming: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.smoothStreaming,
+                Compress: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.compress,
+                LambdaFunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
+                FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
+                RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
+                CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
+                OriginRequestPolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.originRequestPolicyId,
+                ForwardedValues: {
+                  QueryString: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.forwardedValues?.queryString,
+                  Cookies: {
+                    Forward: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.forwardedValues?.cookies.forward,
+                    WhitelistedNames: {
+                      Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.forwardedValues?.cookies.whitelistedNames?.quantity,
+                      Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.forwardedValues?.cookies.whitelistedNames?.items,
+                    },
+                  },
+                  Headers: {
+                    Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.forwardedValues?.headers?.quantity,
+                    Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.forwardedValues?.headers?.items,
+                  },
+                  QueryStringCacheKeys: {
+                    Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.forwardedValues?.queryStringCacheKeys?.quantity,
+                    Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.forwardedValues?.queryStringCacheKeys?.items,
+                  },
+                },
+                MinTTL: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.minTtl,
+                DefaultTTL: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.defaultTtl,
+                MaxTTL: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.maxTtl,
+              },
+              CacheBehaviors: {
+                Quantity: this.__input.distributionConfigWithTags.distributionConfig.cacheBehaviors?.quantity,
+                Items: this.__input.distributionConfigWithTags.distributionConfig.cacheBehaviors?.items,
+              },
+              CustomErrorResponses: {
+                Quantity: this.__input.distributionConfigWithTags.distributionConfig.customErrorResponses?.quantity,
+                Items: this.__input.distributionConfigWithTags.distributionConfig.customErrorResponses?.items,
+              },
+              Comment: this.__input.distributionConfigWithTags.distributionConfig.comment,
+              Logging: {
+                Enabled: this.__input.distributionConfigWithTags.distributionConfig.logging?.enabled,
+                IncludeCookies: this.__input.distributionConfigWithTags.distributionConfig.logging?.includeCookies,
+                Bucket: this.__input.distributionConfigWithTags.distributionConfig.logging?.bucket,
+                Prefix: this.__input.distributionConfigWithTags.distributionConfig.logging?.prefix,
+              },
+              PriceClass: this.__input.distributionConfigWithTags.distributionConfig.priceClass,
+              Enabled: this.__input.distributionConfigWithTags.distributionConfig.enabled,
+              ViewerCertificate: {
+                CloudFrontDefaultCertificate: this.__input.distributionConfigWithTags.distributionConfig.viewerCertificate?.cloudFrontDefaultCertificate,
+                IAMCertificateId: this.__input.distributionConfigWithTags.distributionConfig.viewerCertificate?.iamCertificateId,
+                ACMCertificateArn: this.__input.distributionConfigWithTags.distributionConfig.viewerCertificate?.acmCertificateArn,
+                SSLSupportMethod: this.__input.distributionConfigWithTags.distributionConfig.viewerCertificate?.sslSupportMethod,
+                MinimumProtocolVersion: this.__input.distributionConfigWithTags.distributionConfig.viewerCertificate?.minimumProtocolVersion,
+                Certificate: this.__input.distributionConfigWithTags.distributionConfig.viewerCertificate?.certificate,
+                CertificateSource: this.__input.distributionConfigWithTags.distributionConfig.viewerCertificate?.certificateSource,
+              },
+              Restrictions: {
+                GeoRestriction: {
+                  RestrictionType: this.__input.distributionConfigWithTags.distributionConfig.restrictions?.geoRestriction.restrictionType,
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.restrictions?.geoRestriction.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.restrictions?.geoRestriction.items,
+                },
+              },
+              WebACLId: this.__input.distributionConfigWithTags.distributionConfig.webAclId,
+              HttpVersion: this.__input.distributionConfigWithTags.distributionConfig.httpVersion,
+              IsIPV6Enabled: this.__input.distributionConfigWithTags.distributionConfig.isIpv6Enabled,
+            },
+            Tags: {
+              Items: this.__input.distributionConfigWithTags.tags.items,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDistributionWithTags.Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items', props);
+    return resource.getResponseField('Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items') as unknown as shapes.CloudFrontFunctionAssociation[];
+  }
+
+}
+
 export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributionConfigDefaultCacheBehaviorForwardedValues {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontCreateDistributionWithTagsRequest) {
@@ -18175,6 +19291,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -18321,6 +19441,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -18458,6 +19582,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -18583,6 +19711,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -18717,6 +19849,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -18842,6 +19978,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -18976,6 +20116,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -19101,6 +20245,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -19235,6 +20383,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -19360,6 +20512,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -19494,6 +20650,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -19619,6 +20779,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -19753,6 +20917,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -19878,6 +21046,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -20005,6 +21177,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -20130,6 +21306,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -20264,6 +21444,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -20389,6 +21573,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -20516,6 +21704,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -20641,6 +21833,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -20768,6 +21964,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -20894,6 +22094,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -21019,6 +22223,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -21164,6 +22372,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -21290,6 +22502,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
                 },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+                },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
                 CachePolicyId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -21415,6 +22631,10 @@ export class CloudFrontResponsesCreateDistributionWithTagsDistributionDistributi
                 LambdaFunctionAssociations: {
                   Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                   Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+                },
+                FunctionAssociations: {
+                  Quantity: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                  Items: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
                 },
                 FieldLevelEncryptionId: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
                 RealtimeLogConfigArn: this.__input.distributionConfigWithTags.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -22234,6 +23454,276 @@ export class CloudFrontResponsesCreateFieldLevelEncryptionProfileFieldLevelEncry
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateFieldLevelEncryptionProfile.FieldLevelEncryptionProfile.FieldLevelEncryptionProfileConfig.EncryptionEntities.Items', props);
     return resource.getResponseField('FieldLevelEncryptionProfile.FieldLevelEncryptionProfileConfig.EncryptionEntities.Items') as unknown as shapes.CloudFrontEncryptionEntity[];
+  }
+
+}
+
+export class CloudFrontResponsesCreateFunction {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontCreateFunctionRequest) {
+  }
+
+  public get functionSummary(): CloudFrontResponsesCreateFunctionFunctionSummary {
+    return new CloudFrontResponsesCreateFunctionFunctionSummary(this.__scope, this.__resources, this.__input);
+  }
+
+  public get location(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.CreateFunction.Location'),
+        outputPath: 'Location',
+        parameters: {
+          Name: this.__input.name,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.Location', props);
+    return resource.getResponseField('Location') as unknown as string;
+  }
+
+  public get eTag(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.CreateFunction.ETag'),
+        outputPath: 'ETag',
+        parameters: {
+          Name: this.__input.name,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.ETag', props);
+    return resource.getResponseField('ETag') as unknown as string;
+  }
+
+}
+
+export class CloudFrontResponsesCreateFunctionFunctionSummary {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontCreateFunctionRequest) {
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.CreateFunction.FunctionSummary.Name'),
+        outputPath: 'FunctionSummary.Name',
+        parameters: {
+          Name: this.__input.name,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.FunctionSummary.Name', props);
+    return resource.getResponseField('FunctionSummary.Name') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.CreateFunction.FunctionSummary.Status'),
+        outputPath: 'FunctionSummary.Status',
+        parameters: {
+          Name: this.__input.name,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.FunctionSummary.Status', props);
+    return resource.getResponseField('FunctionSummary.Status') as unknown as string;
+  }
+
+  public get functionConfig(): CloudFrontResponsesCreateFunctionFunctionSummaryFunctionConfig {
+    return new CloudFrontResponsesCreateFunctionFunctionSummaryFunctionConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get functionMetadata(): CloudFrontResponsesCreateFunctionFunctionSummaryFunctionMetadata {
+    return new CloudFrontResponsesCreateFunctionFunctionSummaryFunctionMetadata(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CloudFrontResponsesCreateFunctionFunctionSummaryFunctionConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontCreateFunctionRequest) {
+  }
+
+  public get comment(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.CreateFunction.FunctionSummary.FunctionConfig.Comment'),
+        outputPath: 'FunctionSummary.FunctionConfig.Comment',
+        parameters: {
+          Name: this.__input.name,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.FunctionSummary.FunctionConfig.Comment', props);
+    return resource.getResponseField('FunctionSummary.FunctionConfig.Comment') as unknown as string;
+  }
+
+  public get runtime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.CreateFunction.FunctionSummary.FunctionConfig.Runtime'),
+        outputPath: 'FunctionSummary.FunctionConfig.Runtime',
+        parameters: {
+          Name: this.__input.name,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.FunctionSummary.FunctionConfig.Runtime', props);
+    return resource.getResponseField('FunctionSummary.FunctionConfig.Runtime') as unknown as string;
+  }
+
+}
+
+export class CloudFrontResponsesCreateFunctionFunctionSummaryFunctionMetadata {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontCreateFunctionRequest) {
+  }
+
+  public get functionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.CreateFunction.FunctionSummary.FunctionMetadata.FunctionARN'),
+        outputPath: 'FunctionSummary.FunctionMetadata.FunctionARN',
+        parameters: {
+          Name: this.__input.name,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.FunctionSummary.FunctionMetadata.FunctionARN', props);
+    return resource.getResponseField('FunctionSummary.FunctionMetadata.FunctionARN') as unknown as string;
+  }
+
+  public get stage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.CreateFunction.FunctionSummary.FunctionMetadata.Stage'),
+        outputPath: 'FunctionSummary.FunctionMetadata.Stage',
+        parameters: {
+          Name: this.__input.name,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.FunctionSummary.FunctionMetadata.Stage', props);
+    return resource.getResponseField('FunctionSummary.FunctionMetadata.Stage') as unknown as string;
+  }
+
+  public get createdTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.CreateFunction.FunctionSummary.FunctionMetadata.CreatedTime'),
+        outputPath: 'FunctionSummary.FunctionMetadata.CreatedTime',
+        parameters: {
+          Name: this.__input.name,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.FunctionSummary.FunctionMetadata.CreatedTime', props);
+    return resource.getResponseField('FunctionSummary.FunctionMetadata.CreatedTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.CreateFunction.FunctionSummary.FunctionMetadata.LastModifiedTime'),
+        outputPath: 'FunctionSummary.FunctionMetadata.LastModifiedTime',
+        parameters: {
+          Name: this.__input.name,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.FunctionSummary.FunctionMetadata.LastModifiedTime', props);
+    return resource.getResponseField('FunctionSummary.FunctionMetadata.LastModifiedTime') as unknown as string;
   }
 
 }
@@ -25914,6 +27404,208 @@ export class CloudFrontResponsesCreateStreamingDistributionWithTagsStreamingDist
 
 }
 
+export class CloudFrontResponsesDescribeFunction {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontDescribeFunctionRequest) {
+  }
+
+  public get functionSummary(): CloudFrontResponsesDescribeFunctionFunctionSummary {
+    return new CloudFrontResponsesDescribeFunctionFunctionSummary(this.__scope, this.__resources, this.__input);
+  }
+
+  public get eTag(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.DescribeFunction.ETag'),
+        outputPath: 'ETag',
+        parameters: {
+          Name: this.__input.name,
+          Stage: this.__input.stage,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFunction.ETag', props);
+    return resource.getResponseField('ETag') as unknown as string;
+  }
+
+}
+
+export class CloudFrontResponsesDescribeFunctionFunctionSummary {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontDescribeFunctionRequest) {
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.DescribeFunction.FunctionSummary.Name'),
+        outputPath: 'FunctionSummary.Name',
+        parameters: {
+          Name: this.__input.name,
+          Stage: this.__input.stage,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFunction.FunctionSummary.Name', props);
+    return resource.getResponseField('FunctionSummary.Name') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.DescribeFunction.FunctionSummary.Status'),
+        outputPath: 'FunctionSummary.Status',
+        parameters: {
+          Name: this.__input.name,
+          Stage: this.__input.stage,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFunction.FunctionSummary.Status', props);
+    return resource.getResponseField('FunctionSummary.Status') as unknown as string;
+  }
+
+  public get functionConfig(): CloudFrontResponsesDescribeFunctionFunctionSummaryFunctionConfig {
+    return new CloudFrontResponsesDescribeFunctionFunctionSummaryFunctionConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get functionMetadata(): CloudFrontResponsesDescribeFunctionFunctionSummaryFunctionMetadata {
+    return new CloudFrontResponsesDescribeFunctionFunctionSummaryFunctionMetadata(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CloudFrontResponsesDescribeFunctionFunctionSummaryFunctionConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontDescribeFunctionRequest) {
+  }
+
+  public get comment(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.DescribeFunction.FunctionSummary.FunctionConfig.Comment'),
+        outputPath: 'FunctionSummary.FunctionConfig.Comment',
+        parameters: {
+          Name: this.__input.name,
+          Stage: this.__input.stage,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFunction.FunctionSummary.FunctionConfig.Comment', props);
+    return resource.getResponseField('FunctionSummary.FunctionConfig.Comment') as unknown as string;
+  }
+
+  public get runtime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.DescribeFunction.FunctionSummary.FunctionConfig.Runtime'),
+        outputPath: 'FunctionSummary.FunctionConfig.Runtime',
+        parameters: {
+          Name: this.__input.name,
+          Stage: this.__input.stage,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFunction.FunctionSummary.FunctionConfig.Runtime', props);
+    return resource.getResponseField('FunctionSummary.FunctionConfig.Runtime') as unknown as string;
+  }
+
+}
+
+export class CloudFrontResponsesDescribeFunctionFunctionSummaryFunctionMetadata {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontDescribeFunctionRequest) {
+  }
+
+  public get functionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.DescribeFunction.FunctionSummary.FunctionMetadata.FunctionARN'),
+        outputPath: 'FunctionSummary.FunctionMetadata.FunctionARN',
+        parameters: {
+          Name: this.__input.name,
+          Stage: this.__input.stage,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFunction.FunctionSummary.FunctionMetadata.FunctionARN', props);
+    return resource.getResponseField('FunctionSummary.FunctionMetadata.FunctionARN') as unknown as string;
+  }
+
+  public get stage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.DescribeFunction.FunctionSummary.FunctionMetadata.Stage'),
+        outputPath: 'FunctionSummary.FunctionMetadata.Stage',
+        parameters: {
+          Name: this.__input.name,
+          Stage: this.__input.stage,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFunction.FunctionSummary.FunctionMetadata.Stage', props);
+    return resource.getResponseField('FunctionSummary.FunctionMetadata.Stage') as unknown as string;
+  }
+
+  public get createdTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.DescribeFunction.FunctionSummary.FunctionMetadata.CreatedTime'),
+        outputPath: 'FunctionSummary.FunctionMetadata.CreatedTime',
+        parameters: {
+          Name: this.__input.name,
+          Stage: this.__input.stage,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFunction.FunctionSummary.FunctionMetadata.CreatedTime', props);
+    return resource.getResponseField('FunctionSummary.FunctionMetadata.CreatedTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.DescribeFunction.FunctionSummary.FunctionMetadata.LastModifiedTime'),
+        outputPath: 'FunctionSummary.FunctionMetadata.LastModifiedTime',
+        parameters: {
+          Name: this.__input.name,
+          Stage: this.__input.stage,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFunction.FunctionSummary.FunctionMetadata.LastModifiedTime', props);
+    return resource.getResponseField('FunctionSummary.FunctionMetadata.LastModifiedTime') as unknown as string;
+  }
+
+}
+
 export class CloudFrontResponsesFetchCachePolicy {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontGetCachePolicyRequest) {
@@ -27583,6 +29275,10 @@ export class CloudFrontResponsesFetchDistributionDistributionDistributionConfigD
     return new CloudFrontResponsesFetchDistributionDistributionDistributionConfigDefaultCacheBehaviorLambdaFunctionAssociations(this.__scope, this.__resources, this.__input);
   }
 
+  public get functionAssociations(): CloudFrontResponsesFetchDistributionDistributionDistributionConfigDefaultCacheBehaviorFunctionAssociations {
+    return new CloudFrontResponsesFetchDistributionDistributionDistributionConfigDefaultCacheBehaviorFunctionAssociations(this.__scope, this.__resources, this.__input);
+  }
+
   public get fieldLevelEncryptionId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -27947,6 +29643,47 @@ export class CloudFrontResponsesFetchDistributionDistributionDistributionConfigD
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetDistribution.Distribution.DistributionConfig.DefaultCacheBehavior.LambdaFunctionAssociations.Items', props);
     return resource.getResponseField('Distribution.DistributionConfig.DefaultCacheBehavior.LambdaFunctionAssociations.Items') as unknown as shapes.CloudFrontLambdaFunctionAssociation[];
+  }
+
+}
+
+export class CloudFrontResponsesFetchDistributionDistributionDistributionConfigDefaultCacheBehaviorFunctionAssociations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontGetDistributionRequest) {
+  }
+
+  public get quantity(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDistribution',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.GetDistribution.Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity'),
+        outputPath: 'Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDistribution.Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity', props);
+    return resource.getResponseField('Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity') as unknown as number;
+  }
+
+  public get items(): shapes.CloudFrontFunctionAssociation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDistribution',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.GetDistribution.Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items'),
+        outputPath: 'Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDistribution.Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items', props);
+    return resource.getResponseField('Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items') as unknown as shapes.CloudFrontFunctionAssociation[];
   }
 
 }
@@ -28909,6 +30646,10 @@ export class CloudFrontResponsesFetchDistributionConfigDistributionConfigDefault
     return new CloudFrontResponsesFetchDistributionConfigDistributionConfigDefaultCacheBehaviorLambdaFunctionAssociations(this.__scope, this.__resources, this.__input);
   }
 
+  public get functionAssociations(): CloudFrontResponsesFetchDistributionConfigDistributionConfigDefaultCacheBehaviorFunctionAssociations {
+    return new CloudFrontResponsesFetchDistributionConfigDistributionConfigDefaultCacheBehaviorFunctionAssociations(this.__scope, this.__resources, this.__input);
+  }
+
   public get fieldLevelEncryptionId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -29273,6 +31014,47 @@ export class CloudFrontResponsesFetchDistributionConfigDistributionConfigDefault
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetDistributionConfig.DistributionConfig.DefaultCacheBehavior.LambdaFunctionAssociations.Items', props);
     return resource.getResponseField('DistributionConfig.DefaultCacheBehavior.LambdaFunctionAssociations.Items') as unknown as shapes.CloudFrontLambdaFunctionAssociation[];
+  }
+
+}
+
+export class CloudFrontResponsesFetchDistributionConfigDistributionConfigDefaultCacheBehaviorFunctionAssociations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontGetDistributionConfigRequest) {
+  }
+
+  public get quantity(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDistributionConfig',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.GetDistributionConfig.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity'),
+        outputPath: 'DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDistributionConfig.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity', props);
+    return resource.getResponseField('DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity') as unknown as number;
+  }
+
+  public get items(): shapes.CloudFrontFunctionAssociation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDistributionConfig',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.GetDistributionConfig.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items'),
+        outputPath: 'DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDistributionConfig.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items', props);
+    return resource.getResponseField('DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items') as unknown as shapes.CloudFrontFunctionAssociation[];
   }
 
 }
@@ -30594,6 +32376,67 @@ export class CloudFrontResponsesFetchFieldLevelEncryptionProfileConfigFieldLevel
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetFieldLevelEncryptionProfileConfig.FieldLevelEncryptionProfileConfig.EncryptionEntities.Items', props);
     return resource.getResponseField('FieldLevelEncryptionProfileConfig.EncryptionEntities.Items') as unknown as shapes.CloudFrontEncryptionEntity[];
+  }
+
+}
+
+export class CloudFrontResponsesFetchFunction {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontGetFunctionRequest) {
+  }
+
+  public get functionCode(): any {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.GetFunction.FunctionCode'),
+        outputPath: 'FunctionCode',
+        parameters: {
+          Name: this.__input.name,
+          Stage: this.__input.stage,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFunction.FunctionCode', props);
+    return resource.getResponseField('FunctionCode') as unknown as any;
+  }
+
+  public get eTag(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.GetFunction.ETag'),
+        outputPath: 'ETag',
+        parameters: {
+          Name: this.__input.name,
+          Stage: this.__input.stage,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFunction.ETag', props);
+    return resource.getResponseField('ETag') as unknown as string;
+  }
+
+  public get contentType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.GetFunction.ContentType'),
+        outputPath: 'ContentType',
+        parameters: {
+          Name: this.__input.name,
+          Stage: this.__input.stage,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFunction.ContentType', props);
+    return resource.getResponseField('ContentType') as unknown as string;
   }
 
 }
@@ -33001,6 +34844,104 @@ export class CloudFrontResponsesListCloudFrontOriginAccessIdentitiesCloudFrontOr
 
 }
 
+export class CloudFrontResponsesListConflictingAliases {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontListConflictingAliasesRequest) {
+  }
+
+  public get conflictingAliasesList(): CloudFrontResponsesListConflictingAliasesConflictingAliasesList {
+    return new CloudFrontResponsesListConflictingAliasesConflictingAliasesList(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CloudFrontResponsesListConflictingAliasesConflictingAliasesList {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontListConflictingAliasesRequest) {
+  }
+
+  public get nextMarker(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listConflictingAliases',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.ListConflictingAliases.ConflictingAliasesList.NextMarker'),
+        outputPath: 'ConflictingAliasesList.NextMarker',
+        parameters: {
+          DistributionId: this.__input.distributionId,
+          Alias: this.__input.alias,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListConflictingAliases.ConflictingAliasesList.NextMarker', props);
+    return resource.getResponseField('ConflictingAliasesList.NextMarker') as unknown as string;
+  }
+
+  public get maxItems(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listConflictingAliases',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.ListConflictingAliases.ConflictingAliasesList.MaxItems'),
+        outputPath: 'ConflictingAliasesList.MaxItems',
+        parameters: {
+          DistributionId: this.__input.distributionId,
+          Alias: this.__input.alias,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListConflictingAliases.ConflictingAliasesList.MaxItems', props);
+    return resource.getResponseField('ConflictingAliasesList.MaxItems') as unknown as number;
+  }
+
+  public get quantity(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listConflictingAliases',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.ListConflictingAliases.ConflictingAliasesList.Quantity'),
+        outputPath: 'ConflictingAliasesList.Quantity',
+        parameters: {
+          DistributionId: this.__input.distributionId,
+          Alias: this.__input.alias,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListConflictingAliases.ConflictingAliasesList.Quantity', props);
+    return resource.getResponseField('ConflictingAliasesList.Quantity') as unknown as number;
+  }
+
+  public get items(): shapes.CloudFrontConflictingAlias[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listConflictingAliases',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.ListConflictingAliases.ConflictingAliasesList.Items'),
+        outputPath: 'ConflictingAliasesList.Items',
+        parameters: {
+          DistributionId: this.__input.distributionId,
+          Alias: this.__input.alias,
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListConflictingAliases.ConflictingAliasesList.Items', props);
+    return resource.getResponseField('ConflictingAliasesList.Items') as unknown as shapes.CloudFrontConflictingAlias[];
+  }
+
+}
+
 export class CloudFrontResponsesListDistributions {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontListDistributionsRequest) {
@@ -33973,6 +35914,100 @@ export class CloudFrontResponsesListFieldLevelEncryptionProfilesFieldLevelEncryp
 
 }
 
+export class CloudFrontResponsesListFunctions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontListFunctionsRequest) {
+  }
+
+  public get functionList(): CloudFrontResponsesListFunctionsFunctionList {
+    return new CloudFrontResponsesListFunctionsFunctionList(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CloudFrontResponsesListFunctionsFunctionList {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontListFunctionsRequest) {
+  }
+
+  public get nextMarker(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFunctions',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.ListFunctions.FunctionList.NextMarker'),
+        outputPath: 'FunctionList.NextMarker',
+        parameters: {
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+          Stage: this.__input.stage,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFunctions.FunctionList.NextMarker', props);
+    return resource.getResponseField('FunctionList.NextMarker') as unknown as string;
+  }
+
+  public get maxItems(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFunctions',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.ListFunctions.FunctionList.MaxItems'),
+        outputPath: 'FunctionList.MaxItems',
+        parameters: {
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+          Stage: this.__input.stage,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFunctions.FunctionList.MaxItems', props);
+    return resource.getResponseField('FunctionList.MaxItems') as unknown as number;
+  }
+
+  public get quantity(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFunctions',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.ListFunctions.FunctionList.Quantity'),
+        outputPath: 'FunctionList.Quantity',
+        parameters: {
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+          Stage: this.__input.stage,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFunctions.FunctionList.Quantity', props);
+    return resource.getResponseField('FunctionList.Quantity') as unknown as number;
+  }
+
+  public get items(): shapes.CloudFrontFunctionSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFunctions',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.ListFunctions.FunctionList.Items'),
+        outputPath: 'FunctionList.Items',
+        parameters: {
+          Marker: this.__input.marker,
+          MaxItems: this.__input.maxItems,
+          Stage: this.__input.stage,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFunctions.FunctionList.Items', props);
+    return resource.getResponseField('FunctionList.Items') as unknown as shapes.CloudFrontFunctionSummary[];
+  }
+
+}
+
 export class CloudFrontResponsesListInvalidations {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontListInvalidationsRequest) {
@@ -34644,6 +36679,493 @@ export class CloudFrontResponsesListTagsForResourceTags {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListTagsForResource.Tags.Items', props);
     return resource.getResponseField('Tags.Items') as unknown as shapes.CloudFrontTag[];
+  }
+
+}
+
+export class CloudFrontResponsesPublishFunction {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontPublishFunctionRequest) {
+  }
+
+  public get functionSummary(): CloudFrontResponsesPublishFunctionFunctionSummary {
+    return new CloudFrontResponsesPublishFunctionFunctionSummary(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CloudFrontResponsesPublishFunctionFunctionSummary {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontPublishFunctionRequest) {
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'publishFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.PublishFunction.FunctionSummary.Name'),
+        outputPath: 'FunctionSummary.Name',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PublishFunction.FunctionSummary.Name', props);
+    return resource.getResponseField('FunctionSummary.Name') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'publishFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.PublishFunction.FunctionSummary.Status'),
+        outputPath: 'FunctionSummary.Status',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PublishFunction.FunctionSummary.Status', props);
+    return resource.getResponseField('FunctionSummary.Status') as unknown as string;
+  }
+
+  public get functionConfig(): CloudFrontResponsesPublishFunctionFunctionSummaryFunctionConfig {
+    return new CloudFrontResponsesPublishFunctionFunctionSummaryFunctionConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get functionMetadata(): CloudFrontResponsesPublishFunctionFunctionSummaryFunctionMetadata {
+    return new CloudFrontResponsesPublishFunctionFunctionSummaryFunctionMetadata(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CloudFrontResponsesPublishFunctionFunctionSummaryFunctionConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontPublishFunctionRequest) {
+  }
+
+  public get comment(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'publishFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.PublishFunction.FunctionSummary.FunctionConfig.Comment'),
+        outputPath: 'FunctionSummary.FunctionConfig.Comment',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PublishFunction.FunctionSummary.FunctionConfig.Comment', props);
+    return resource.getResponseField('FunctionSummary.FunctionConfig.Comment') as unknown as string;
+  }
+
+  public get runtime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'publishFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.PublishFunction.FunctionSummary.FunctionConfig.Runtime'),
+        outputPath: 'FunctionSummary.FunctionConfig.Runtime',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PublishFunction.FunctionSummary.FunctionConfig.Runtime', props);
+    return resource.getResponseField('FunctionSummary.FunctionConfig.Runtime') as unknown as string;
+  }
+
+}
+
+export class CloudFrontResponsesPublishFunctionFunctionSummaryFunctionMetadata {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontPublishFunctionRequest) {
+  }
+
+  public get functionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'publishFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.PublishFunction.FunctionSummary.FunctionMetadata.FunctionARN'),
+        outputPath: 'FunctionSummary.FunctionMetadata.FunctionARN',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PublishFunction.FunctionSummary.FunctionMetadata.FunctionARN', props);
+    return resource.getResponseField('FunctionSummary.FunctionMetadata.FunctionARN') as unknown as string;
+  }
+
+  public get stage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'publishFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.PublishFunction.FunctionSummary.FunctionMetadata.Stage'),
+        outputPath: 'FunctionSummary.FunctionMetadata.Stage',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PublishFunction.FunctionSummary.FunctionMetadata.Stage', props);
+    return resource.getResponseField('FunctionSummary.FunctionMetadata.Stage') as unknown as string;
+  }
+
+  public get createdTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'publishFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.PublishFunction.FunctionSummary.FunctionMetadata.CreatedTime'),
+        outputPath: 'FunctionSummary.FunctionMetadata.CreatedTime',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PublishFunction.FunctionSummary.FunctionMetadata.CreatedTime', props);
+    return resource.getResponseField('FunctionSummary.FunctionMetadata.CreatedTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'publishFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.PublishFunction.FunctionSummary.FunctionMetadata.LastModifiedTime'),
+        outputPath: 'FunctionSummary.FunctionMetadata.LastModifiedTime',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PublishFunction.FunctionSummary.FunctionMetadata.LastModifiedTime', props);
+    return resource.getResponseField('FunctionSummary.FunctionMetadata.LastModifiedTime') as unknown as string;
+  }
+
+}
+
+export class CloudFrontResponsesTestFunction {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontTestFunctionRequest) {
+  }
+
+  public get testResult(): CloudFrontResponsesTestFunctionTestResult {
+    return new CloudFrontResponsesTestFunctionTestResult(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CloudFrontResponsesTestFunctionTestResult {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontTestFunctionRequest) {
+  }
+
+  public get functionSummary(): CloudFrontResponsesTestFunctionTestResultFunctionSummary {
+    return new CloudFrontResponsesTestFunctionTestResultFunctionSummary(this.__scope, this.__resources, this.__input);
+  }
+
+  public get computeUtilization(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'testFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.TestFunction.TestResult.ComputeUtilization'),
+        outputPath: 'TestResult.ComputeUtilization',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          Stage: this.__input.stage,
+          EventObject: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'TestFunction.TestResult.ComputeUtilization', props);
+    return resource.getResponseField('TestResult.ComputeUtilization') as unknown as string;
+  }
+
+  public get functionExecutionLogs(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'testFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.TestFunction.TestResult.FunctionExecutionLogs'),
+        outputPath: 'TestResult.FunctionExecutionLogs',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          Stage: this.__input.stage,
+          EventObject: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'TestFunction.TestResult.FunctionExecutionLogs', props);
+    return resource.getResponseField('TestResult.FunctionExecutionLogs') as unknown as string[];
+  }
+
+  public get functionErrorMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'testFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.TestFunction.TestResult.FunctionErrorMessage'),
+        outputPath: 'TestResult.FunctionErrorMessage',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          Stage: this.__input.stage,
+          EventObject: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'TestFunction.TestResult.FunctionErrorMessage', props);
+    return resource.getResponseField('TestResult.FunctionErrorMessage') as unknown as string;
+  }
+
+  public get functionOutput(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'testFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.TestFunction.TestResult.FunctionOutput'),
+        outputPath: 'TestResult.FunctionOutput',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          Stage: this.__input.stage,
+          EventObject: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'TestFunction.TestResult.FunctionOutput', props);
+    return resource.getResponseField('TestResult.FunctionOutput') as unknown as string;
+  }
+
+}
+
+export class CloudFrontResponsesTestFunctionTestResultFunctionSummary {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontTestFunctionRequest) {
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'testFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.TestFunction.TestResult.FunctionSummary.Name'),
+        outputPath: 'TestResult.FunctionSummary.Name',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          Stage: this.__input.stage,
+          EventObject: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'TestFunction.TestResult.FunctionSummary.Name', props);
+    return resource.getResponseField('TestResult.FunctionSummary.Name') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'testFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.TestFunction.TestResult.FunctionSummary.Status'),
+        outputPath: 'TestResult.FunctionSummary.Status',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          Stage: this.__input.stage,
+          EventObject: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'TestFunction.TestResult.FunctionSummary.Status', props);
+    return resource.getResponseField('TestResult.FunctionSummary.Status') as unknown as string;
+  }
+
+  public get functionConfig(): CloudFrontResponsesTestFunctionTestResultFunctionSummaryFunctionConfig {
+    return new CloudFrontResponsesTestFunctionTestResultFunctionSummaryFunctionConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get functionMetadata(): CloudFrontResponsesTestFunctionTestResultFunctionSummaryFunctionMetadata {
+    return new CloudFrontResponsesTestFunctionTestResultFunctionSummaryFunctionMetadata(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CloudFrontResponsesTestFunctionTestResultFunctionSummaryFunctionConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontTestFunctionRequest) {
+  }
+
+  public get comment(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'testFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.TestFunction.TestResult.FunctionSummary.FunctionConfig.Comment'),
+        outputPath: 'TestResult.FunctionSummary.FunctionConfig.Comment',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          Stage: this.__input.stage,
+          EventObject: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'TestFunction.TestResult.FunctionSummary.FunctionConfig.Comment', props);
+    return resource.getResponseField('TestResult.FunctionSummary.FunctionConfig.Comment') as unknown as string;
+  }
+
+  public get runtime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'testFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.TestFunction.TestResult.FunctionSummary.FunctionConfig.Runtime'),
+        outputPath: 'TestResult.FunctionSummary.FunctionConfig.Runtime',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          Stage: this.__input.stage,
+          EventObject: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'TestFunction.TestResult.FunctionSummary.FunctionConfig.Runtime', props);
+    return resource.getResponseField('TestResult.FunctionSummary.FunctionConfig.Runtime') as unknown as string;
+  }
+
+}
+
+export class CloudFrontResponsesTestFunctionTestResultFunctionSummaryFunctionMetadata {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontTestFunctionRequest) {
+  }
+
+  public get functionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'testFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.TestFunction.TestResult.FunctionSummary.FunctionMetadata.FunctionARN'),
+        outputPath: 'TestResult.FunctionSummary.FunctionMetadata.FunctionARN',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          Stage: this.__input.stage,
+          EventObject: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'TestFunction.TestResult.FunctionSummary.FunctionMetadata.FunctionARN', props);
+    return resource.getResponseField('TestResult.FunctionSummary.FunctionMetadata.FunctionARN') as unknown as string;
+  }
+
+  public get stage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'testFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.TestFunction.TestResult.FunctionSummary.FunctionMetadata.Stage'),
+        outputPath: 'TestResult.FunctionSummary.FunctionMetadata.Stage',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          Stage: this.__input.stage,
+          EventObject: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'TestFunction.TestResult.FunctionSummary.FunctionMetadata.Stage', props);
+    return resource.getResponseField('TestResult.FunctionSummary.FunctionMetadata.Stage') as unknown as string;
+  }
+
+  public get createdTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'testFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.TestFunction.TestResult.FunctionSummary.FunctionMetadata.CreatedTime'),
+        outputPath: 'TestResult.FunctionSummary.FunctionMetadata.CreatedTime',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          Stage: this.__input.stage,
+          EventObject: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'TestFunction.TestResult.FunctionSummary.FunctionMetadata.CreatedTime', props);
+    return resource.getResponseField('TestResult.FunctionSummary.FunctionMetadata.CreatedTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'testFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.TestFunction.TestResult.FunctionSummary.FunctionMetadata.LastModifiedTime'),
+        outputPath: 'TestResult.FunctionSummary.FunctionMetadata.LastModifiedTime',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          Stage: this.__input.stage,
+          EventObject: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'TestFunction.TestResult.FunctionSummary.FunctionMetadata.LastModifiedTime', props);
+    return resource.getResponseField('TestResult.FunctionSummary.FunctionMetadata.LastModifiedTime') as unknown as string;
   }
 
 }
@@ -35903,6 +38425,10 @@ export class CloudFrontResponsesUpdateDistribution {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -36033,6 +38559,10 @@ export class CloudFrontResponsesUpdateDistributionDistribution {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -36155,6 +38685,10 @@ export class CloudFrontResponsesUpdateDistributionDistribution {
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -36279,6 +38813,10 @@ export class CloudFrontResponsesUpdateDistributionDistribution {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -36401,6 +38939,10 @@ export class CloudFrontResponsesUpdateDistributionDistribution {
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -36525,6 +39067,10 @@ export class CloudFrontResponsesUpdateDistributionDistribution {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -36647,6 +39193,10 @@ export class CloudFrontResponsesUpdateDistributionDistribution {
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -36783,6 +39333,10 @@ export class CloudFrontResponsesUpdateDistributionDistribution {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -36913,6 +39467,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionActiveTrustedSigne
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -37036,6 +39594,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionActiveTrustedSigne
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -37158,6 +39720,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionActiveTrustedSigne
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -37289,6 +39855,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionActiveTrustedKeyGr
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -37412,6 +39982,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionActiveTrustedKeyGr
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -37534,6 +40108,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionActiveTrustedKeyGr
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -37665,6 +40243,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -37791,6 +40373,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -37935,6 +40521,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -38062,6 +40652,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -38184,6 +40778,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -38316,6 +40914,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -38439,6 +41041,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -38561,6 +41167,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -38692,6 +41302,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -38814,6 +41428,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -38945,6 +41563,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -39067,6 +41689,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -39198,6 +41824,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -39320,6 +41950,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -39450,6 +42084,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -39582,6 +42220,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -39709,6 +42351,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -39832,6 +42478,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -39908,6 +42558,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
     return new CloudFrontResponsesUpdateDistributionDistributionDistributionConfigDefaultCacheBehaviorLambdaFunctionAssociations(this.__scope, this.__resources, this.__input);
   }
 
+  public get functionAssociations(): CloudFrontResponsesUpdateDistributionDistributionDistributionConfigDefaultCacheBehaviorFunctionAssociations {
+    return new CloudFrontResponsesUpdateDistributionDistributionDistributionConfigDefaultCacheBehaviorFunctionAssociations(this.__scope, this.__resources, this.__input);
+  }
+
   public get fieldLevelEncryptionId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -39958,6 +42612,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -40082,6 +42740,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -40205,6 +42867,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -40327,6 +42993,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -40455,6 +43125,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -40578,6 +43252,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -40700,6 +43378,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -40831,6 +43513,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -40954,6 +43640,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -41076,6 +43766,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -41207,6 +43901,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -41330,6 +44028,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -41452,6 +44154,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -41583,6 +44289,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -41705,6 +44415,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -41840,6 +44554,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -41962,6 +44680,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -42093,6 +44815,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -42216,6 +44942,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -42290,6 +45020,267 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
 
 }
 
+export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfigDefaultCacheBehaviorFunctionAssociations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontUpdateDistributionRequest) {
+  }
+
+  public get quantity(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateDistribution',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.UpdateDistribution.Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity'),
+        outputPath: 'Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity',
+        parameters: {
+          DistributionConfig: {
+            CallerReference: this.__input.distributionConfig.callerReference,
+            Aliases: {
+              Quantity: this.__input.distributionConfig.aliases?.quantity,
+              Items: this.__input.distributionConfig.aliases?.items,
+            },
+            DefaultRootObject: this.__input.distributionConfig.defaultRootObject,
+            Origins: {
+              Quantity: this.__input.distributionConfig.origins.quantity,
+              Items: this.__input.distributionConfig.origins.items,
+            },
+            OriginGroups: {
+              Quantity: this.__input.distributionConfig.originGroups?.quantity,
+              Items: this.__input.distributionConfig.originGroups?.items,
+            },
+            DefaultCacheBehavior: {
+              TargetOriginId: this.__input.distributionConfig.defaultCacheBehavior.targetOriginId,
+              TrustedSigners: {
+                Enabled: this.__input.distributionConfig.defaultCacheBehavior.trustedSigners?.enabled,
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.trustedSigners?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.trustedSigners?.items,
+              },
+              TrustedKeyGroups: {
+                Enabled: this.__input.distributionConfig.defaultCacheBehavior.trustedKeyGroups?.enabled,
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.trustedKeyGroups?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.trustedKeyGroups?.items,
+              },
+              ViewerProtocolPolicy: this.__input.distributionConfig.defaultCacheBehavior.viewerProtocolPolicy,
+              AllowedMethods: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.allowedMethods?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.allowedMethods?.items,
+                CachedMethods: {
+                  Quantity: this.__input.distributionConfig.defaultCacheBehavior.allowedMethods?.cachedMethods?.quantity,
+                  Items: this.__input.distributionConfig.defaultCacheBehavior.allowedMethods?.cachedMethods?.items,
+                },
+              },
+              SmoothStreaming: this.__input.distributionConfig.defaultCacheBehavior.smoothStreaming,
+              Compress: this.__input.distributionConfig.defaultCacheBehavior.compress,
+              LambdaFunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
+              FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
+              RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
+              CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
+              OriginRequestPolicyId: this.__input.distributionConfig.defaultCacheBehavior.originRequestPolicyId,
+              ForwardedValues: {
+                QueryString: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.queryString,
+                Cookies: {
+                  Forward: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.cookies.forward,
+                  WhitelistedNames: {
+                    Quantity: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.cookies.whitelistedNames?.quantity,
+                    Items: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.cookies.whitelistedNames?.items,
+                  },
+                },
+                Headers: {
+                  Quantity: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.headers?.quantity,
+                  Items: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.headers?.items,
+                },
+                QueryStringCacheKeys: {
+                  Quantity: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.queryStringCacheKeys?.quantity,
+                  Items: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.queryStringCacheKeys?.items,
+                },
+              },
+              MinTTL: this.__input.distributionConfig.defaultCacheBehavior.minTtl,
+              DefaultTTL: this.__input.distributionConfig.defaultCacheBehavior.defaultTtl,
+              MaxTTL: this.__input.distributionConfig.defaultCacheBehavior.maxTtl,
+            },
+            CacheBehaviors: {
+              Quantity: this.__input.distributionConfig.cacheBehaviors?.quantity,
+              Items: this.__input.distributionConfig.cacheBehaviors?.items,
+            },
+            CustomErrorResponses: {
+              Quantity: this.__input.distributionConfig.customErrorResponses?.quantity,
+              Items: this.__input.distributionConfig.customErrorResponses?.items,
+            },
+            Comment: this.__input.distributionConfig.comment,
+            Logging: {
+              Enabled: this.__input.distributionConfig.logging?.enabled,
+              IncludeCookies: this.__input.distributionConfig.logging?.includeCookies,
+              Bucket: this.__input.distributionConfig.logging?.bucket,
+              Prefix: this.__input.distributionConfig.logging?.prefix,
+            },
+            PriceClass: this.__input.distributionConfig.priceClass,
+            Enabled: this.__input.distributionConfig.enabled,
+            ViewerCertificate: {
+              CloudFrontDefaultCertificate: this.__input.distributionConfig.viewerCertificate?.cloudFrontDefaultCertificate,
+              IAMCertificateId: this.__input.distributionConfig.viewerCertificate?.iamCertificateId,
+              ACMCertificateArn: this.__input.distributionConfig.viewerCertificate?.acmCertificateArn,
+              SSLSupportMethod: this.__input.distributionConfig.viewerCertificate?.sslSupportMethod,
+              MinimumProtocolVersion: this.__input.distributionConfig.viewerCertificate?.minimumProtocolVersion,
+              Certificate: this.__input.distributionConfig.viewerCertificate?.certificate,
+              CertificateSource: this.__input.distributionConfig.viewerCertificate?.certificateSource,
+            },
+            Restrictions: {
+              GeoRestriction: {
+                RestrictionType: this.__input.distributionConfig.restrictions?.geoRestriction.restrictionType,
+                Quantity: this.__input.distributionConfig.restrictions?.geoRestriction.quantity,
+                Items: this.__input.distributionConfig.restrictions?.geoRestriction.items,
+              },
+            },
+            WebACLId: this.__input.distributionConfig.webAclId,
+            HttpVersion: this.__input.distributionConfig.httpVersion,
+            IsIPV6Enabled: this.__input.distributionConfig.isIpv6Enabled,
+          },
+          Id: this.__input.id,
+          IfMatch: this.__input.ifMatch,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateDistribution.Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity', props);
+    return resource.getResponseField('Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Quantity') as unknown as number;
+  }
+
+  public get items(): shapes.CloudFrontFunctionAssociation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateDistribution',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.UpdateDistribution.Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items'),
+        outputPath: 'Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items',
+        parameters: {
+          DistributionConfig: {
+            CallerReference: this.__input.distributionConfig.callerReference,
+            Aliases: {
+              Quantity: this.__input.distributionConfig.aliases?.quantity,
+              Items: this.__input.distributionConfig.aliases?.items,
+            },
+            DefaultRootObject: this.__input.distributionConfig.defaultRootObject,
+            Origins: {
+              Quantity: this.__input.distributionConfig.origins.quantity,
+              Items: this.__input.distributionConfig.origins.items,
+            },
+            OriginGroups: {
+              Quantity: this.__input.distributionConfig.originGroups?.quantity,
+              Items: this.__input.distributionConfig.originGroups?.items,
+            },
+            DefaultCacheBehavior: {
+              TargetOriginId: this.__input.distributionConfig.defaultCacheBehavior.targetOriginId,
+              TrustedSigners: {
+                Enabled: this.__input.distributionConfig.defaultCacheBehavior.trustedSigners?.enabled,
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.trustedSigners?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.trustedSigners?.items,
+              },
+              TrustedKeyGroups: {
+                Enabled: this.__input.distributionConfig.defaultCacheBehavior.trustedKeyGroups?.enabled,
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.trustedKeyGroups?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.trustedKeyGroups?.items,
+              },
+              ViewerProtocolPolicy: this.__input.distributionConfig.defaultCacheBehavior.viewerProtocolPolicy,
+              AllowedMethods: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.allowedMethods?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.allowedMethods?.items,
+                CachedMethods: {
+                  Quantity: this.__input.distributionConfig.defaultCacheBehavior.allowedMethods?.cachedMethods?.quantity,
+                  Items: this.__input.distributionConfig.defaultCacheBehavior.allowedMethods?.cachedMethods?.items,
+                },
+              },
+              SmoothStreaming: this.__input.distributionConfig.defaultCacheBehavior.smoothStreaming,
+              Compress: this.__input.distributionConfig.defaultCacheBehavior.compress,
+              LambdaFunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
+              FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
+              RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
+              CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
+              OriginRequestPolicyId: this.__input.distributionConfig.defaultCacheBehavior.originRequestPolicyId,
+              ForwardedValues: {
+                QueryString: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.queryString,
+                Cookies: {
+                  Forward: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.cookies.forward,
+                  WhitelistedNames: {
+                    Quantity: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.cookies.whitelistedNames?.quantity,
+                    Items: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.cookies.whitelistedNames?.items,
+                  },
+                },
+                Headers: {
+                  Quantity: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.headers?.quantity,
+                  Items: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.headers?.items,
+                },
+                QueryStringCacheKeys: {
+                  Quantity: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.queryStringCacheKeys?.quantity,
+                  Items: this.__input.distributionConfig.defaultCacheBehavior.forwardedValues?.queryStringCacheKeys?.items,
+                },
+              },
+              MinTTL: this.__input.distributionConfig.defaultCacheBehavior.minTtl,
+              DefaultTTL: this.__input.distributionConfig.defaultCacheBehavior.defaultTtl,
+              MaxTTL: this.__input.distributionConfig.defaultCacheBehavior.maxTtl,
+            },
+            CacheBehaviors: {
+              Quantity: this.__input.distributionConfig.cacheBehaviors?.quantity,
+              Items: this.__input.distributionConfig.cacheBehaviors?.items,
+            },
+            CustomErrorResponses: {
+              Quantity: this.__input.distributionConfig.customErrorResponses?.quantity,
+              Items: this.__input.distributionConfig.customErrorResponses?.items,
+            },
+            Comment: this.__input.distributionConfig.comment,
+            Logging: {
+              Enabled: this.__input.distributionConfig.logging?.enabled,
+              IncludeCookies: this.__input.distributionConfig.logging?.includeCookies,
+              Bucket: this.__input.distributionConfig.logging?.bucket,
+              Prefix: this.__input.distributionConfig.logging?.prefix,
+            },
+            PriceClass: this.__input.distributionConfig.priceClass,
+            Enabled: this.__input.distributionConfig.enabled,
+            ViewerCertificate: {
+              CloudFrontDefaultCertificate: this.__input.distributionConfig.viewerCertificate?.cloudFrontDefaultCertificate,
+              IAMCertificateId: this.__input.distributionConfig.viewerCertificate?.iamCertificateId,
+              ACMCertificateArn: this.__input.distributionConfig.viewerCertificate?.acmCertificateArn,
+              SSLSupportMethod: this.__input.distributionConfig.viewerCertificate?.sslSupportMethod,
+              MinimumProtocolVersion: this.__input.distributionConfig.viewerCertificate?.minimumProtocolVersion,
+              Certificate: this.__input.distributionConfig.viewerCertificate?.certificate,
+              CertificateSource: this.__input.distributionConfig.viewerCertificate?.certificateSource,
+            },
+            Restrictions: {
+              GeoRestriction: {
+                RestrictionType: this.__input.distributionConfig.restrictions?.geoRestriction.restrictionType,
+                Quantity: this.__input.distributionConfig.restrictions?.geoRestriction.quantity,
+                Items: this.__input.distributionConfig.restrictions?.geoRestriction.items,
+              },
+            },
+            WebACLId: this.__input.distributionConfig.webAclId,
+            HttpVersion: this.__input.distributionConfig.httpVersion,
+            IsIPV6Enabled: this.__input.distributionConfig.isIpv6Enabled,
+          },
+          Id: this.__input.id,
+          IfMatch: this.__input.ifMatch,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateDistribution.Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items', props);
+    return resource.getResponseField('Distribution.DistributionConfig.DefaultCacheBehavior.FunctionAssociations.Items') as unknown as shapes.CloudFrontFunctionAssociation[];
+  }
+
+}
+
 export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfigDefaultCacheBehaviorForwardedValues {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontUpdateDistributionRequest) {
@@ -42345,6 +45336,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -42488,6 +45483,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -42622,6 +45621,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -42744,6 +45747,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -42875,6 +45882,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -42997,6 +46008,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -43128,6 +46143,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -43250,6 +46269,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -43381,6 +46404,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -43503,6 +46530,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -43634,6 +46665,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -43756,6 +46791,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -43887,6 +46926,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -44009,6 +47052,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -44133,6 +47180,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -44255,6 +47306,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -44386,6 +47441,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -44508,6 +47567,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -44632,6 +47695,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -44754,6 +47821,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -44878,6 +47949,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -45001,6 +48076,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -45123,6 +48202,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -45265,6 +48348,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -45388,6 +48475,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
               },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
+              },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
               CachePolicyId: this.__input.distributionConfig.defaultCacheBehavior.cachePolicyId,
@@ -45510,6 +48601,10 @@ export class CloudFrontResponsesUpdateDistributionDistributionDistributionConfig
               LambdaFunctionAssociations: {
                 Quantity: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.quantity,
                 Items: this.__input.distributionConfig.defaultCacheBehavior.lambdaFunctionAssociations?.items,
+              },
+              FunctionAssociations: {
+                Quantity: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.quantity,
+                Items: this.__input.distributionConfig.defaultCacheBehavior.functionAssociations?.items,
               },
               FieldLevelEncryptionId: this.__input.distributionConfig.defaultCacheBehavior.fieldLevelEncryptionId,
               RealtimeLogConfigArn: this.__input.distributionConfig.defaultCacheBehavior.realtimeLogConfigArn,
@@ -46306,6 +49401,262 @@ export class CloudFrontResponsesUpdateFieldLevelEncryptionProfileFieldLevelEncry
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFieldLevelEncryptionProfile.FieldLevelEncryptionProfile.FieldLevelEncryptionProfileConfig.EncryptionEntities.Items', props);
     return resource.getResponseField('FieldLevelEncryptionProfile.FieldLevelEncryptionProfileConfig.EncryptionEntities.Items') as unknown as shapes.CloudFrontEncryptionEntity[];
+  }
+
+}
+
+export class CloudFrontResponsesUpdateFunction {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontUpdateFunctionRequest) {
+  }
+
+  public get functionSummary(): CloudFrontResponsesUpdateFunctionFunctionSummary {
+    return new CloudFrontResponsesUpdateFunctionFunctionSummary(this.__scope, this.__resources, this.__input);
+  }
+
+  public get eTag(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.UpdateFunction.ETag'),
+        outputPath: 'ETag',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunction.ETag', props);
+    return resource.getResponseField('ETag') as unknown as string;
+  }
+
+}
+
+export class CloudFrontResponsesUpdateFunctionFunctionSummary {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontUpdateFunctionRequest) {
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.UpdateFunction.FunctionSummary.Name'),
+        outputPath: 'FunctionSummary.Name',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunction.FunctionSummary.Name', props);
+    return resource.getResponseField('FunctionSummary.Name') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.UpdateFunction.FunctionSummary.Status'),
+        outputPath: 'FunctionSummary.Status',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunction.FunctionSummary.Status', props);
+    return resource.getResponseField('FunctionSummary.Status') as unknown as string;
+  }
+
+  public get functionConfig(): CloudFrontResponsesUpdateFunctionFunctionSummaryFunctionConfig {
+    return new CloudFrontResponsesUpdateFunctionFunctionSummaryFunctionConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get functionMetadata(): CloudFrontResponsesUpdateFunctionFunctionSummaryFunctionMetadata {
+    return new CloudFrontResponsesUpdateFunctionFunctionSummaryFunctionMetadata(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CloudFrontResponsesUpdateFunctionFunctionSummaryFunctionConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontUpdateFunctionRequest) {
+  }
+
+  public get comment(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.UpdateFunction.FunctionSummary.FunctionConfig.Comment'),
+        outputPath: 'FunctionSummary.FunctionConfig.Comment',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunction.FunctionSummary.FunctionConfig.Comment', props);
+    return resource.getResponseField('FunctionSummary.FunctionConfig.Comment') as unknown as string;
+  }
+
+  public get runtime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.UpdateFunction.FunctionSummary.FunctionConfig.Runtime'),
+        outputPath: 'FunctionSummary.FunctionConfig.Runtime',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunction.FunctionSummary.FunctionConfig.Runtime', props);
+    return resource.getResponseField('FunctionSummary.FunctionConfig.Runtime') as unknown as string;
+  }
+
+}
+
+export class CloudFrontResponsesUpdateFunctionFunctionSummaryFunctionMetadata {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFrontUpdateFunctionRequest) {
+  }
+
+  public get functionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.UpdateFunction.FunctionSummary.FunctionMetadata.FunctionARN'),
+        outputPath: 'FunctionSummary.FunctionMetadata.FunctionARN',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunction.FunctionSummary.FunctionMetadata.FunctionARN', props);
+    return resource.getResponseField('FunctionSummary.FunctionMetadata.FunctionARN') as unknown as string;
+  }
+
+  public get stage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.UpdateFunction.FunctionSummary.FunctionMetadata.Stage'),
+        outputPath: 'FunctionSummary.FunctionMetadata.Stage',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunction.FunctionSummary.FunctionMetadata.Stage', props);
+    return resource.getResponseField('FunctionSummary.FunctionMetadata.Stage') as unknown as string;
+  }
+
+  public get createdTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.UpdateFunction.FunctionSummary.FunctionMetadata.CreatedTime'),
+        outputPath: 'FunctionSummary.FunctionMetadata.CreatedTime',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunction.FunctionSummary.FunctionMetadata.CreatedTime', props);
+    return resource.getResponseField('FunctionSummary.FunctionMetadata.CreatedTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunction',
+        service: 'CloudFront',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFront.UpdateFunction.FunctionSummary.FunctionMetadata.LastModifiedTime'),
+        outputPath: 'FunctionSummary.FunctionMetadata.LastModifiedTime',
+        parameters: {
+          Name: this.__input.name,
+          IfMatch: this.__input.ifMatch,
+          FunctionConfig: {
+            Comment: this.__input.functionConfig.comment,
+            Runtime: this.__input.functionConfig.runtime,
+          },
+          FunctionCode: {
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunction.FunctionSummary.FunctionMetadata.LastModifiedTime', props);
+    return resource.getResponseField('FunctionSummary.FunctionMetadata.LastModifiedTime') as unknown as string;
   }
 
 }

@@ -80,6 +80,10 @@ export class WorkMailClient extends cdk.Construct {
     return new WorkMailResponsesCreateGroup(this, this.__resources, input);
   }
 
+  public createMobileDeviceAccessRule(input: shapes.WorkMailCreateMobileDeviceAccessRuleRequest): WorkMailResponsesCreateMobileDeviceAccessRule {
+    return new WorkMailResponsesCreateMobileDeviceAccessRule(this, this.__resources, input);
+  }
+
   public createOrganization(input: shapes.WorkMailCreateOrganizationRequest): WorkMailResponsesCreateOrganization {
     return new WorkMailResponsesCreateOrganization(this, this.__resources, input);
   }
@@ -156,6 +160,22 @@ export class WorkMailClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'DeleteMailboxPermissions', props);
+  }
+
+  public deleteMobileDeviceAccessRule(input: shapes.WorkMailDeleteMobileDeviceAccessRuleRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteMobileDeviceAccessRule',
+        service: 'WorkMail',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkMail.DeleteMobileDeviceAccessRule'),
+        parameters: {
+          OrganizationId: input.organizationId,
+          MobileDeviceAccessRuleId: input.mobileDeviceAccessRuleId,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteMobileDeviceAccessRule', props);
   }
 
   public deleteOrganization(input: shapes.WorkMailDeleteOrganizationRequest): WorkMailResponsesDeleteOrganization {
@@ -292,6 +312,10 @@ export class WorkMailClient extends cdk.Construct {
     return new WorkMailResponsesFetchMailboxDetails(this, this.__resources, input);
   }
 
+  public fetchMobileDeviceAccessEffect(input: shapes.WorkMailGetMobileDeviceAccessEffectRequest): WorkMailResponsesFetchMobileDeviceAccessEffect {
+    return new WorkMailResponsesFetchMobileDeviceAccessEffect(this, this.__resources, input);
+  }
+
   public listAccessControlRules(input: shapes.WorkMailListAccessControlRulesRequest): WorkMailResponsesListAccessControlRules {
     return new WorkMailResponsesListAccessControlRules(this, this.__resources, input);
   }
@@ -314,6 +338,10 @@ export class WorkMailClient extends cdk.Construct {
 
   public listMailboxPermissions(input: shapes.WorkMailListMailboxPermissionsRequest): WorkMailResponsesListMailboxPermissions {
     return new WorkMailResponsesListMailboxPermissions(this, this.__resources, input);
+  }
+
+  public listMobileDeviceAccessRules(input: shapes.WorkMailListMobileDeviceAccessRulesRequest): WorkMailResponsesListMobileDeviceAccessRules {
+    return new WorkMailResponsesListMobileDeviceAccessRules(this, this.__resources, input);
   }
 
   public listOrganizations(input: shapes.WorkMailListOrganizationsRequest): WorkMailResponsesListOrganizations {
@@ -484,6 +512,33 @@ export class WorkMailClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'UpdateMailboxQuota', props);
   }
 
+  public updateMobileDeviceAccessRule(input: shapes.WorkMailUpdateMobileDeviceAccessRuleRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateMobileDeviceAccessRule',
+        service: 'WorkMail',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkMail.UpdateMobileDeviceAccessRule'),
+        parameters: {
+          OrganizationId: input.organizationId,
+          MobileDeviceAccessRuleId: input.mobileDeviceAccessRuleId,
+          Name: input.name,
+          Description: input.description,
+          Effect: input.effect,
+          DeviceTypes: input.deviceTypes,
+          NotDeviceTypes: input.notDeviceTypes,
+          DeviceModels: input.deviceModels,
+          NotDeviceModels: input.notDeviceModels,
+          DeviceOperatingSystems: input.deviceOperatingSystems,
+          NotDeviceOperatingSystems: input.notDeviceOperatingSystems,
+          DeviceUserAgents: input.deviceUserAgents,
+          NotDeviceUserAgents: input.notDeviceUserAgents,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateMobileDeviceAccessRule', props);
+  }
+
   public updatePrimaryEmailAddress(input: shapes.WorkMailUpdatePrimaryEmailAddressRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -546,6 +601,42 @@ export class WorkMailResponsesCreateGroup {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateGroup.GroupId', props);
     return resource.getResponseField('GroupId') as unknown as string;
+  }
+
+}
+
+export class WorkMailResponsesCreateMobileDeviceAccessRule {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.WorkMailCreateMobileDeviceAccessRuleRequest) {
+  }
+
+  public get mobileDeviceAccessRuleId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createMobileDeviceAccessRule',
+        service: 'WorkMail',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkMail.CreateMobileDeviceAccessRule.MobileDeviceAccessRuleId'),
+        outputPath: 'MobileDeviceAccessRuleId',
+        parameters: {
+          OrganizationId: this.__input.organizationId,
+          ClientToken: this.__input.clientToken,
+          Name: this.__input.name,
+          Description: this.__input.description,
+          Effect: this.__input.effect,
+          DeviceTypes: this.__input.deviceTypes,
+          NotDeviceTypes: this.__input.notDeviceTypes,
+          DeviceModels: this.__input.deviceModels,
+          NotDeviceModels: this.__input.notDeviceModels,
+          DeviceOperatingSystems: this.__input.deviceOperatingSystems,
+          NotDeviceOperatingSystems: this.__input.notDeviceOperatingSystems,
+          DeviceUserAgents: this.__input.deviceUserAgents,
+          NotDeviceUserAgents: this.__input.notDeviceUserAgents,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateMobileDeviceAccessRule.MobileDeviceAccessRuleId', props);
+    return resource.getResponseField('MobileDeviceAccessRuleId') as unknown as string;
   }
 
 }
@@ -1689,6 +1780,55 @@ export class WorkMailResponsesFetchMailboxDetails {
 
 }
 
+export class WorkMailResponsesFetchMobileDeviceAccessEffect {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.WorkMailGetMobileDeviceAccessEffectRequest) {
+  }
+
+  public get effect(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getMobileDeviceAccessEffect',
+        service: 'WorkMail',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkMail.GetMobileDeviceAccessEffect.Effect'),
+        outputPath: 'Effect',
+        parameters: {
+          OrganizationId: this.__input.organizationId,
+          DeviceType: this.__input.deviceType,
+          DeviceModel: this.__input.deviceModel,
+          DeviceOperatingSystem: this.__input.deviceOperatingSystem,
+          DeviceUserAgent: this.__input.deviceUserAgent,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetMobileDeviceAccessEffect.Effect', props);
+    return resource.getResponseField('Effect') as unknown as string;
+  }
+
+  public get matchedRules(): shapes.WorkMailMobileDeviceAccessMatchedRule[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getMobileDeviceAccessEffect',
+        service: 'WorkMail',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkMail.GetMobileDeviceAccessEffect.MatchedRules'),
+        outputPath: 'MatchedRules',
+        parameters: {
+          OrganizationId: this.__input.organizationId,
+          DeviceType: this.__input.deviceType,
+          DeviceModel: this.__input.deviceModel,
+          DeviceOperatingSystem: this.__input.deviceOperatingSystem,
+          DeviceUserAgent: this.__input.deviceUserAgent,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetMobileDeviceAccessEffect.MatchedRules', props);
+    return resource.getResponseField('MatchedRules') as unknown as shapes.WorkMailMobileDeviceAccessMatchedRule[];
+  }
+
+}
+
 export class WorkMailResponsesListAccessControlRules {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.WorkMailListAccessControlRulesRequest) {
@@ -1940,6 +2080,30 @@ export class WorkMailResponsesListMailboxPermissions {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListMailboxPermissions.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class WorkMailResponsesListMobileDeviceAccessRules {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.WorkMailListMobileDeviceAccessRulesRequest) {
+  }
+
+  public get rules(): shapes.WorkMailMobileDeviceAccessRule[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listMobileDeviceAccessRules',
+        service: 'WorkMail',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkMail.ListMobileDeviceAccessRules.Rules'),
+        outputPath: 'Rules',
+        parameters: {
+          OrganizationId: this.__input.organizationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListMobileDeviceAccessRules.Rules', props);
+    return resource.getResponseField('Rules') as unknown as shapes.WorkMailMobileDeviceAccessRule[];
   }
 
 }

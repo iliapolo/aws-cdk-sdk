@@ -964,6 +964,7 @@ export class AlexaForBusinessClient extends cdk.Construct {
           SetupModeDisabled: input.setupModeDisabled,
           MaxVolumeLimit: input.maxVolumeLimit,
           PSTNEnabled: input.pstnEnabled,
+          DataRetentionOptIn: input.dataRetentionOptIn,
           MeetingRoomConfiguration: {
             RoomUtilizationMetricsEnabled: input.meetingRoomConfiguration?.roomUtilizationMetricsEnabled,
             EndOfMeetingReminder: {
@@ -1041,6 +1042,7 @@ export class AlexaForBusinessResponsesCreateAddressBook {
           Name: this.__input.name,
           Description: this.__input.description,
           ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1115,6 +1117,7 @@ export class AlexaForBusinessResponsesCreateConferenceProvider {
             RequirePin: this.__input.meetingSetting.requirePin,
           },
           ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1145,6 +1148,7 @@ export class AlexaForBusinessResponsesCreateContact {
           PhoneNumbers: this.__input.phoneNumbers,
           SipAddresses: this.__input.sipAddresses,
           ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1171,6 +1175,7 @@ export class AlexaForBusinessResponsesCreateGatewayGroup {
           Name: this.__input.name,
           Description: this.__input.description,
           ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1204,6 +1209,7 @@ export class AlexaForBusinessResponsesCreateNetworkProfile {
           CertificateAuthorityArn: this.__input.certificateAuthorityArn,
           TrustAnchors: this.__input.trustAnchors,
           ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1238,6 +1244,7 @@ export class AlexaForBusinessResponsesCreateProfile {
           SetupModeDisabled: this.__input.setupModeDisabled,
           MaxVolumeLimit: this.__input.maxVolumeLimit,
           PSTNEnabled: this.__input.pstnEnabled,
+          DataRetentionOptIn: this.__input.dataRetentionOptIn,
           MeetingRoomConfiguration: {
             RoomUtilizationMetricsEnabled: this.__input.meetingRoomConfiguration?.roomUtilizationMetricsEnabled,
             EndOfMeetingReminder: {
@@ -2723,6 +2730,23 @@ export class AlexaForBusinessResponsesFetchProfileProfile {
     return resource.getResponseField('Profile.PSTNEnabled') as unknown as boolean;
   }
 
+  public get dataRetentionOptIn(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getProfile',
+        service: 'AlexaForBusiness',
+        physicalResourceId: cr.PhysicalResourceId.of('AlexaForBusiness.GetProfile.Profile.DataRetentionOptIn'),
+        outputPath: 'Profile.DataRetentionOptIn',
+        parameters: {
+          ProfileArn: this.__input.profileArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetProfile.Profile.DataRetentionOptIn', props);
+    return resource.getResponseField('Profile.DataRetentionOptIn') as unknown as boolean;
+  }
+
   public get addressBookArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -3618,6 +3642,7 @@ export class AlexaForBusinessResponsesRegisterAvsDevice {
           DeviceSerialNumber: this.__input.deviceSerialNumber,
           AmazonId: this.__input.amazonId,
           RoomArn: this.__input.roomArn,
+          Tags: this.__input.tags,
         },
       },
     };

@@ -15,6 +15,21 @@ export interface CodePipelineAcknowledgeJobInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineAcknowledgeJobInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineAcknowledgeJobInput(obj: CodePipelineAcknowledgeJobInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobId': obj.jobId,
+    'nonce': obj.nonce,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineAcknowledgeJobOutput
  */
 export interface CodePipelineAcknowledgeJobOutput {
@@ -24,6 +39,20 @@ export interface CodePipelineAcknowledgeJobOutput {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineAcknowledgeJobOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineAcknowledgeJobOutput(obj: CodePipelineAcknowledgeJobOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineAcknowledgeThirdPartyJobInput
@@ -47,6 +76,22 @@ export interface CodePipelineAcknowledgeThirdPartyJobInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineAcknowledgeThirdPartyJobInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineAcknowledgeThirdPartyJobInput(obj: CodePipelineAcknowledgeThirdPartyJobInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobId': obj.jobId,
+    'nonce': obj.nonce,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineAcknowledgeThirdPartyJobOutput
  */
 export interface CodePipelineAcknowledgeThirdPartyJobOutput {
@@ -56,6 +101,20 @@ export interface CodePipelineAcknowledgeThirdPartyJobOutput {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineAcknowledgeThirdPartyJobOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineAcknowledgeThirdPartyJobOutput(obj: CodePipelineAcknowledgeThirdPartyJobOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineCreateCustomActionTypeInput
@@ -104,6 +163,27 @@ export interface CodePipelineCreateCustomActionTypeInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineCreateCustomActionTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineCreateCustomActionTypeInput(obj: CodePipelineCreateCustomActionTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'category': obj.category,
+    'provider': obj.provider,
+    'version': obj.version,
+    'settings': toJson_CodePipelineActionTypeSettings(obj.settings),
+    'configurationProperties': obj.configurationProperties?.map(y => toJson_CodePipelineActionConfigurationProperty(y)),
+    'inputArtifactDetails': toJson_CodePipelineArtifactDetails(obj.inputArtifactDetails),
+    'outputArtifactDetails': toJson_CodePipelineArtifactDetails(obj.outputArtifactDetails),
+    'tags': obj.tags?.map(y => toJson_CodePipelineTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineCreateCustomActionTypeOutput
  */
 export interface CodePipelineCreateCustomActionTypeOutput {
@@ -118,6 +198,21 @@ export interface CodePipelineCreateCustomActionTypeOutput {
   readonly tags?: CodePipelineTag[];
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineCreateCustomActionTypeOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineCreateCustomActionTypeOutput(obj: CodePipelineCreateCustomActionTypeOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'actionType': toJson_CodePipelineActionType(obj.actionType),
+    'tags': obj.tags?.map(y => toJson_CodePipelineTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineCreatePipelineInput
@@ -136,6 +231,21 @@ export interface CodePipelineCreatePipelineInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineCreatePipelineInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineCreatePipelineInput(obj: CodePipelineCreatePipelineInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipeline': toJson_CodePipelinePipelineDeclaration(obj.pipeline),
+    'tags': obj.tags?.map(y => toJson_CodePipelineTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineCreatePipelineOutput
  */
 export interface CodePipelineCreatePipelineOutput {
@@ -150,6 +260,21 @@ export interface CodePipelineCreatePipelineOutput {
   readonly tags?: CodePipelineTag[];
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineCreatePipelineOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineCreatePipelineOutput(obj: CodePipelineCreatePipelineOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipeline': toJson_CodePipelinePipelineDeclaration(obj.pipeline),
+    'tags': obj.tags?.map(y => toJson_CodePipelineTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineDeleteCustomActionTypeInput
@@ -173,6 +298,22 @@ export interface CodePipelineDeleteCustomActionTypeInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineDeleteCustomActionTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineDeleteCustomActionTypeInput(obj: CodePipelineDeleteCustomActionTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'category': obj.category,
+    'provider': obj.provider,
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineDeletePipelineInput
  */
 export interface CodePipelineDeletePipelineInput {
@@ -182,6 +323,20 @@ export interface CodePipelineDeletePipelineInput {
   readonly name: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineDeletePipelineInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineDeletePipelineInput(obj: CodePipelineDeletePipelineInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineDeleteWebhookInput
@@ -195,10 +350,37 @@ export interface CodePipelineDeleteWebhookInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineDeleteWebhookInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineDeleteWebhookInput(obj: CodePipelineDeleteWebhookInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineDeleteWebhookOutput
  */
 export interface CodePipelineDeleteWebhookOutput {
 }
+
+/**
+ * Converts an object of type 'CodePipelineDeleteWebhookOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineDeleteWebhookOutput(obj: CodePipelineDeleteWebhookOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineDeregisterWebhookWithThirdPartyInput
@@ -212,10 +394,37 @@ export interface CodePipelineDeregisterWebhookWithThirdPartyInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineDeregisterWebhookWithThirdPartyInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineDeregisterWebhookWithThirdPartyInput(obj: CodePipelineDeregisterWebhookWithThirdPartyInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'webhookName': obj.webhookName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineDeregisterWebhookWithThirdPartyOutput
  */
 export interface CodePipelineDeregisterWebhookWithThirdPartyOutput {
 }
+
+/**
+ * Converts an object of type 'CodePipelineDeregisterWebhookWithThirdPartyOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineDeregisterWebhookWithThirdPartyOutput(obj: CodePipelineDeregisterWebhookWithThirdPartyOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineDisableStageTransitionInput
@@ -244,6 +453,23 @@ export interface CodePipelineDisableStageTransitionInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineDisableStageTransitionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineDisableStageTransitionInput(obj: CodePipelineDisableStageTransitionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+    'stageName': obj.stageName,
+    'transitionType': obj.transitionType,
+    'reason': obj.reason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineEnableStageTransitionInput
  */
 export interface CodePipelineEnableStageTransitionInput {
@@ -265,6 +491,90 @@ export interface CodePipelineEnableStageTransitionInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineEnableStageTransitionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineEnableStageTransitionInput(obj: CodePipelineEnableStageTransitionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+    'stageName': obj.stageName,
+    'transitionType': obj.transitionType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CodePipelineGetActionTypeInput
+ */
+export interface CodePipelineGetActionTypeInput {
+  /**
+   * @schema CodePipelineGetActionTypeInput#category
+   */
+  readonly category: string;
+
+  /**
+   * @schema CodePipelineGetActionTypeInput#owner
+   */
+  readonly owner: string;
+
+  /**
+   * @schema CodePipelineGetActionTypeInput#provider
+   */
+  readonly provider: string;
+
+  /**
+   * @schema CodePipelineGetActionTypeInput#version
+   */
+  readonly version: string;
+
+}
+
+/**
+ * Converts an object of type 'CodePipelineGetActionTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineGetActionTypeInput(obj: CodePipelineGetActionTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'category': obj.category,
+    'owner': obj.owner,
+    'provider': obj.provider,
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CodePipelineGetActionTypeOutput
+ */
+export interface CodePipelineGetActionTypeOutput {
+  /**
+   * @schema CodePipelineGetActionTypeOutput#actionType
+   */
+  readonly actionType?: CodePipelineActionTypeDeclaration;
+
+}
+
+/**
+ * Converts an object of type 'CodePipelineGetActionTypeOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineGetActionTypeOutput(obj: CodePipelineGetActionTypeOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'actionType': toJson_CodePipelineActionTypeDeclaration(obj.actionType),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineGetJobDetailsInput
  */
 export interface CodePipelineGetJobDetailsInput {
@@ -276,6 +586,20 @@ export interface CodePipelineGetJobDetailsInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineGetJobDetailsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineGetJobDetailsInput(obj: CodePipelineGetJobDetailsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobId': obj.jobId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineGetJobDetailsOutput
  */
 export interface CodePipelineGetJobDetailsOutput {
@@ -285,6 +609,20 @@ export interface CodePipelineGetJobDetailsOutput {
   readonly jobDetails?: CodePipelineJobDetails;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineGetJobDetailsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineGetJobDetailsOutput(obj: CodePipelineGetJobDetailsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobDetails': toJson_CodePipelineJobDetails(obj.jobDetails),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineGetPipelineInput
@@ -303,6 +641,21 @@ export interface CodePipelineGetPipelineInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineGetPipelineInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineGetPipelineInput(obj: CodePipelineGetPipelineInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineGetPipelineOutput
  */
 export interface CodePipelineGetPipelineOutput {
@@ -317,6 +670,21 @@ export interface CodePipelineGetPipelineOutput {
   readonly metadata?: CodePipelinePipelineMetadata;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineGetPipelineOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineGetPipelineOutput(obj: CodePipelineGetPipelineOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipeline': toJson_CodePipelinePipelineDeclaration(obj.pipeline),
+    'metadata': toJson_CodePipelinePipelineMetadata(obj.metadata),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineGetPipelineExecutionInput
@@ -335,6 +703,21 @@ export interface CodePipelineGetPipelineExecutionInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineGetPipelineExecutionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineGetPipelineExecutionInput(obj: CodePipelineGetPipelineExecutionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+    'pipelineExecutionId': obj.pipelineExecutionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineGetPipelineExecutionOutput
  */
 export interface CodePipelineGetPipelineExecutionOutput {
@@ -346,6 +729,20 @@ export interface CodePipelineGetPipelineExecutionOutput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineGetPipelineExecutionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineGetPipelineExecutionOutput(obj: CodePipelineGetPipelineExecutionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineExecution': toJson_CodePipelinePipelineExecution(obj.pipelineExecution),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineGetPipelineStateInput
  */
 export interface CodePipelineGetPipelineStateInput {
@@ -355,6 +752,20 @@ export interface CodePipelineGetPipelineStateInput {
   readonly name: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineGetPipelineStateInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineGetPipelineStateInput(obj: CodePipelineGetPipelineStateInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineGetPipelineStateOutput
@@ -388,6 +799,24 @@ export interface CodePipelineGetPipelineStateOutput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineGetPipelineStateOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineGetPipelineStateOutput(obj: CodePipelineGetPipelineStateOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+    'pipelineVersion': obj.pipelineVersion,
+    'stageStates': obj.stageStates?.map(y => toJson_CodePipelineStageState(y)),
+    'created': obj.created,
+    'updated': obj.updated,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineGetThirdPartyJobDetailsInput
  */
 export interface CodePipelineGetThirdPartyJobDetailsInput {
@@ -404,6 +833,21 @@ export interface CodePipelineGetThirdPartyJobDetailsInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineGetThirdPartyJobDetailsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineGetThirdPartyJobDetailsInput(obj: CodePipelineGetThirdPartyJobDetailsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobId': obj.jobId,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineGetThirdPartyJobDetailsOutput
  */
 export interface CodePipelineGetThirdPartyJobDetailsOutput {
@@ -413,6 +857,20 @@ export interface CodePipelineGetThirdPartyJobDetailsOutput {
   readonly jobDetails?: CodePipelineThirdPartyJobDetails;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineGetThirdPartyJobDetailsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineGetThirdPartyJobDetailsOutput(obj: CodePipelineGetThirdPartyJobDetailsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobDetails': toJson_CodePipelineThirdPartyJobDetails(obj.jobDetails),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineListActionExecutionsInput
@@ -441,6 +899,23 @@ export interface CodePipelineListActionExecutionsInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineListActionExecutionsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineListActionExecutionsInput(obj: CodePipelineListActionExecutionsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+    'filter': toJson_CodePipelineActionExecutionFilter(obj.filter),
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineListActionExecutionsOutput
  */
 export interface CodePipelineListActionExecutionsOutput {
@@ -457,6 +932,21 @@ export interface CodePipelineListActionExecutionsOutput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineListActionExecutionsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineListActionExecutionsOutput(obj: CodePipelineListActionExecutionsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'actionExecutionDetails': obj.actionExecutionDetails?.map(y => toJson_CodePipelineActionExecutionDetail(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineListActionTypesInput
  */
 export interface CodePipelineListActionTypesInput {
@@ -470,7 +960,28 @@ export interface CodePipelineListActionTypesInput {
    */
   readonly nextToken?: string;
 
+  /**
+   * @schema CodePipelineListActionTypesInput#regionFilter
+   */
+  readonly regionFilter?: string;
+
 }
+
+/**
+ * Converts an object of type 'CodePipelineListActionTypesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineListActionTypesInput(obj: CodePipelineListActionTypesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'actionOwnerFilter': obj.actionOwnerFilter,
+    'nextToken': obj.nextToken,
+    'regionFilter': obj.regionFilter,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineListActionTypesOutput
@@ -487,6 +998,21 @@ export interface CodePipelineListActionTypesOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineListActionTypesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineListActionTypesOutput(obj: CodePipelineListActionTypesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'actionTypes': obj.actionTypes?.map(y => toJson_CodePipelineActionType(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineListPipelineExecutionsInput
@@ -510,6 +1036,22 @@ export interface CodePipelineListPipelineExecutionsInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineListPipelineExecutionsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineListPipelineExecutionsInput(obj: CodePipelineListPipelineExecutionsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineListPipelineExecutionsOutput
  */
 export interface CodePipelineListPipelineExecutionsOutput {
@@ -526,6 +1068,21 @@ export interface CodePipelineListPipelineExecutionsOutput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineListPipelineExecutionsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineListPipelineExecutionsOutput(obj: CodePipelineListPipelineExecutionsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineExecutionSummaries': obj.pipelineExecutionSummaries?.map(y => toJson_CodePipelinePipelineExecutionSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineListPipelinesInput
  */
 export interface CodePipelineListPipelinesInput {
@@ -534,7 +1091,27 @@ export interface CodePipelineListPipelinesInput {
    */
   readonly nextToken?: string;
 
+  /**
+   * @schema CodePipelineListPipelinesInput#maxResults
+   */
+  readonly maxResults?: number;
+
 }
+
+/**
+ * Converts an object of type 'CodePipelineListPipelinesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineListPipelinesInput(obj: CodePipelineListPipelinesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineListPipelinesOutput
@@ -551,6 +1128,21 @@ export interface CodePipelineListPipelinesOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineListPipelinesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineListPipelinesOutput(obj: CodePipelineListPipelinesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelines': obj.pipelines?.map(y => toJson_CodePipelinePipelineSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineListTagsForResourceInput
@@ -574,6 +1166,22 @@ export interface CodePipelineListTagsForResourceInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineListTagsForResourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineListTagsForResourceInput(obj: CodePipelineListTagsForResourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineListTagsForResourceOutput
  */
 export interface CodePipelineListTagsForResourceOutput {
@@ -588,6 +1196,21 @@ export interface CodePipelineListTagsForResourceOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineListTagsForResourceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineListTagsForResourceOutput(obj: CodePipelineListTagsForResourceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': obj.tags?.map(y => toJson_CodePipelineTag(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineListWebhooksInput
@@ -606,6 +1229,21 @@ export interface CodePipelineListWebhooksInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineListWebhooksInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineListWebhooksInput(obj: CodePipelineListWebhooksInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineListWebhooksOutput
  */
 export interface CodePipelineListWebhooksOutput {
@@ -620,6 +1258,21 @@ export interface CodePipelineListWebhooksOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineListWebhooksOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineListWebhooksOutput(obj: CodePipelineListWebhooksOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'webhooks': obj.webhooks?.map(y => toJson_CodePipelineListWebhookItem(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelinePollForJobsInput
@@ -643,6 +1296,22 @@ export interface CodePipelinePollForJobsInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelinePollForJobsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePollForJobsInput(obj: CodePipelinePollForJobsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'actionTypeId': toJson_CodePipelineActionTypeId(obj.actionTypeId),
+    'maxBatchSize': obj.maxBatchSize,
+    'queryParam': ((obj.queryParam) === undefined) ? undefined : (Object.entries(obj.queryParam).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelinePollForJobsOutput
  */
 export interface CodePipelinePollForJobsOutput {
@@ -652,6 +1321,20 @@ export interface CodePipelinePollForJobsOutput {
   readonly jobs?: CodePipelineJob[];
 
 }
+
+/**
+ * Converts an object of type 'CodePipelinePollForJobsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePollForJobsOutput(obj: CodePipelinePollForJobsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobs': obj.jobs?.map(y => toJson_CodePipelineJob(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelinePollForThirdPartyJobsInput
@@ -670,6 +1353,21 @@ export interface CodePipelinePollForThirdPartyJobsInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelinePollForThirdPartyJobsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePollForThirdPartyJobsInput(obj: CodePipelinePollForThirdPartyJobsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'actionTypeId': toJson_CodePipelineActionTypeId(obj.actionTypeId),
+    'maxBatchSize': obj.maxBatchSize,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelinePollForThirdPartyJobsOutput
  */
 export interface CodePipelinePollForThirdPartyJobsOutput {
@@ -679,6 +1377,20 @@ export interface CodePipelinePollForThirdPartyJobsOutput {
   readonly jobs?: CodePipelineThirdPartyJob[];
 
 }
+
+/**
+ * Converts an object of type 'CodePipelinePollForThirdPartyJobsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePollForThirdPartyJobsOutput(obj: CodePipelinePollForThirdPartyJobsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobs': obj.jobs?.map(y => toJson_CodePipelineThirdPartyJob(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelinePutActionRevisionInput
@@ -707,6 +1419,23 @@ export interface CodePipelinePutActionRevisionInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelinePutActionRevisionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePutActionRevisionInput(obj: CodePipelinePutActionRevisionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+    'stageName': obj.stageName,
+    'actionName': obj.actionName,
+    'actionRevision': toJson_CodePipelineActionRevision(obj.actionRevision),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelinePutActionRevisionOutput
  */
 export interface CodePipelinePutActionRevisionOutput {
@@ -721,6 +1450,21 @@ export interface CodePipelinePutActionRevisionOutput {
   readonly pipelineExecutionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelinePutActionRevisionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePutActionRevisionOutput(obj: CodePipelinePutActionRevisionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'newRevision': obj.newRevision,
+    'pipelineExecutionId': obj.pipelineExecutionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelinePutApprovalResultInput
@@ -754,6 +1498,24 @@ export interface CodePipelinePutApprovalResultInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelinePutApprovalResultInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePutApprovalResultInput(obj: CodePipelinePutApprovalResultInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+    'stageName': obj.stageName,
+    'actionName': obj.actionName,
+    'result': toJson_CodePipelineApprovalResult(obj.result),
+    'token': obj.token,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelinePutApprovalResultOutput
  */
 export interface CodePipelinePutApprovalResultOutput {
@@ -763,6 +1525,20 @@ export interface CodePipelinePutApprovalResultOutput {
   readonly approvedAt?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelinePutApprovalResultOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePutApprovalResultOutput(obj: CodePipelinePutApprovalResultOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'approvedAt': obj.approvedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelinePutJobFailureResultInput
@@ -779,6 +1555,21 @@ export interface CodePipelinePutJobFailureResultInput {
   readonly failureDetails: CodePipelineFailureDetails;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelinePutJobFailureResultInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePutJobFailureResultInput(obj: CodePipelinePutJobFailureResultInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobId': obj.jobId,
+    'failureDetails': toJson_CodePipelineFailureDetails(obj.failureDetails),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelinePutJobSuccessResultInput
@@ -812,6 +1603,24 @@ export interface CodePipelinePutJobSuccessResultInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelinePutJobSuccessResultInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePutJobSuccessResultInput(obj: CodePipelinePutJobSuccessResultInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobId': obj.jobId,
+    'currentRevision': toJson_CodePipelineCurrentRevision(obj.currentRevision),
+    'continuationToken': obj.continuationToken,
+    'executionDetails': toJson_CodePipelineExecutionDetails(obj.executionDetails),
+    'outputVariables': ((obj.outputVariables) === undefined) ? undefined : (Object.entries(obj.outputVariables).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelinePutThirdPartyJobFailureResultInput
  */
 export interface CodePipelinePutThirdPartyJobFailureResultInput {
@@ -831,6 +1640,22 @@ export interface CodePipelinePutThirdPartyJobFailureResultInput {
   readonly failureDetails: CodePipelineFailureDetails;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelinePutThirdPartyJobFailureResultInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePutThirdPartyJobFailureResultInput(obj: CodePipelinePutThirdPartyJobFailureResultInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobId': obj.jobId,
+    'clientToken': obj.clientToken,
+    'failureDetails': toJson_CodePipelineFailureDetails(obj.failureDetails),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelinePutThirdPartyJobSuccessResultInput
@@ -864,6 +1689,24 @@ export interface CodePipelinePutThirdPartyJobSuccessResultInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelinePutThirdPartyJobSuccessResultInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePutThirdPartyJobSuccessResultInput(obj: CodePipelinePutThirdPartyJobSuccessResultInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobId': obj.jobId,
+    'clientToken': obj.clientToken,
+    'currentRevision': toJson_CodePipelineCurrentRevision(obj.currentRevision),
+    'continuationToken': obj.continuationToken,
+    'executionDetails': toJson_CodePipelineExecutionDetails(obj.executionDetails),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelinePutWebhookInput
  */
 export interface CodePipelinePutWebhookInput {
@@ -880,6 +1723,21 @@ export interface CodePipelinePutWebhookInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelinePutWebhookInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePutWebhookInput(obj: CodePipelinePutWebhookInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'webhook': toJson_CodePipelineWebhookDefinition(obj.webhook),
+    'tags': obj.tags?.map(y => toJson_CodePipelineTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelinePutWebhookOutput
  */
 export interface CodePipelinePutWebhookOutput {
@@ -889,6 +1747,20 @@ export interface CodePipelinePutWebhookOutput {
   readonly webhook?: CodePipelineListWebhookItem;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelinePutWebhookOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePutWebhookOutput(obj: CodePipelinePutWebhookOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'webhook': toJson_CodePipelineListWebhookItem(obj.webhook),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineRegisterWebhookWithThirdPartyInput
@@ -902,10 +1774,37 @@ export interface CodePipelineRegisterWebhookWithThirdPartyInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineRegisterWebhookWithThirdPartyInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineRegisterWebhookWithThirdPartyInput(obj: CodePipelineRegisterWebhookWithThirdPartyInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'webhookName': obj.webhookName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineRegisterWebhookWithThirdPartyOutput
  */
 export interface CodePipelineRegisterWebhookWithThirdPartyOutput {
 }
+
+/**
+ * Converts an object of type 'CodePipelineRegisterWebhookWithThirdPartyOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineRegisterWebhookWithThirdPartyOutput(obj: CodePipelineRegisterWebhookWithThirdPartyOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineRetryStageExecutionInput
@@ -934,6 +1833,23 @@ export interface CodePipelineRetryStageExecutionInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineRetryStageExecutionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineRetryStageExecutionInput(obj: CodePipelineRetryStageExecutionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+    'stageName': obj.stageName,
+    'pipelineExecutionId': obj.pipelineExecutionId,
+    'retryMode': obj.retryMode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineRetryStageExecutionOutput
  */
 export interface CodePipelineRetryStageExecutionOutput {
@@ -943,6 +1859,20 @@ export interface CodePipelineRetryStageExecutionOutput {
   readonly pipelineExecutionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineRetryStageExecutionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineRetryStageExecutionOutput(obj: CodePipelineRetryStageExecutionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineExecutionId': obj.pipelineExecutionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineStartPipelineExecutionInput
@@ -961,6 +1891,21 @@ export interface CodePipelineStartPipelineExecutionInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineStartPipelineExecutionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineStartPipelineExecutionInput(obj: CodePipelineStartPipelineExecutionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'clientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineStartPipelineExecutionOutput
  */
 export interface CodePipelineStartPipelineExecutionOutput {
@@ -970,6 +1915,20 @@ export interface CodePipelineStartPipelineExecutionOutput {
   readonly pipelineExecutionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineStartPipelineExecutionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineStartPipelineExecutionOutput(obj: CodePipelineStartPipelineExecutionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineExecutionId': obj.pipelineExecutionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineStopPipelineExecutionInput
@@ -998,6 +1957,23 @@ export interface CodePipelineStopPipelineExecutionInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineStopPipelineExecutionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineStopPipelineExecutionInput(obj: CodePipelineStopPipelineExecutionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+    'pipelineExecutionId': obj.pipelineExecutionId,
+    'abandon': obj.abandon,
+    'reason': obj.reason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineStopPipelineExecutionOutput
  */
 export interface CodePipelineStopPipelineExecutionOutput {
@@ -1007,6 +1983,20 @@ export interface CodePipelineStopPipelineExecutionOutput {
   readonly pipelineExecutionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineStopPipelineExecutionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineStopPipelineExecutionOutput(obj: CodePipelineStopPipelineExecutionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineExecutionId': obj.pipelineExecutionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineTagResourceInput
@@ -1025,10 +2015,38 @@ export interface CodePipelineTagResourceInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineTagResourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineTagResourceInput(obj: CodePipelineTagResourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': obj.tags?.map(y => toJson_CodePipelineTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineTagResourceOutput
  */
 export interface CodePipelineTagResourceOutput {
 }
+
+/**
+ * Converts an object of type 'CodePipelineTagResourceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineTagResourceOutput(obj: CodePipelineTagResourceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineUntagResourceInput
@@ -1047,10 +2065,63 @@ export interface CodePipelineUntagResourceInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineUntagResourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineUntagResourceInput(obj: CodePipelineUntagResourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineUntagResourceOutput
  */
 export interface CodePipelineUntagResourceOutput {
 }
+
+/**
+ * Converts an object of type 'CodePipelineUntagResourceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineUntagResourceOutput(obj: CodePipelineUntagResourceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CodePipelineUpdateActionTypeInput
+ */
+export interface CodePipelineUpdateActionTypeInput {
+  /**
+   * @schema CodePipelineUpdateActionTypeInput#actionType
+   */
+  readonly actionType: CodePipelineActionTypeDeclaration;
+
+}
+
+/**
+ * Converts an object of type 'CodePipelineUpdateActionTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineUpdateActionTypeInput(obj: CodePipelineUpdateActionTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'actionType': toJson_CodePipelineActionTypeDeclaration(obj.actionType),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineUpdatePipelineInput
@@ -1064,6 +2135,20 @@ export interface CodePipelineUpdatePipelineInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineUpdatePipelineInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineUpdatePipelineInput(obj: CodePipelineUpdatePipelineInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipeline': toJson_CodePipelinePipelineDeclaration(obj.pipeline),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineUpdatePipelineOutput
  */
 export interface CodePipelineUpdatePipelineOutput {
@@ -1073,6 +2158,20 @@ export interface CodePipelineUpdatePipelineOutput {
   readonly pipeline?: CodePipelinePipelineDeclaration;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineUpdatePipelineOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineUpdatePipelineOutput(obj: CodePipelineUpdatePipelineOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipeline': toJson_CodePipelinePipelineDeclaration(obj.pipeline),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineActionTypeSettings
@@ -1099,6 +2198,23 @@ export interface CodePipelineActionTypeSettings {
   readonly revisionUrlTemplate?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineActionTypeSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionTypeSettings(obj: CodePipelineActionTypeSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'thirdPartyConfigurationUrl': obj.thirdPartyConfigurationUrl,
+    'entityUrlTemplate': obj.entityUrlTemplate,
+    'executionUrlTemplate': obj.executionUrlTemplate,
+    'revisionUrlTemplate': obj.revisionUrlTemplate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineActionConfigurationProperty
@@ -1142,6 +2258,26 @@ export interface CodePipelineActionConfigurationProperty {
 }
 
 /**
+ * Converts an object of type 'CodePipelineActionConfigurationProperty' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionConfigurationProperty(obj: CodePipelineActionConfigurationProperty | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'required': obj.required,
+    'key': obj.key,
+    'secret': obj.secret,
+    'queryable': obj.queryable,
+    'description': obj.description,
+    'type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineArtifactDetails
  */
 export interface CodePipelineArtifactDetails {
@@ -1158,6 +2294,21 @@ export interface CodePipelineArtifactDetails {
 }
 
 /**
+ * Converts an object of type 'CodePipelineArtifactDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineArtifactDetails(obj: CodePipelineArtifactDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'minimumCount': obj.minimumCount,
+    'maximumCount': obj.maximumCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineTag
  */
 export interface CodePipelineTag {
@@ -1172,6 +2323,21 @@ export interface CodePipelineTag {
   readonly value: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineTag(obj: CodePipelineTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineActionType
@@ -1203,6 +2369,24 @@ export interface CodePipelineActionType {
   readonly outputArtifactDetails: CodePipelineArtifactDetails;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineActionType' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionType(obj: CodePipelineActionType | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': toJson_CodePipelineActionTypeId(obj.id),
+    'settings': toJson_CodePipelineActionTypeSettings(obj.settings),
+    'actionConfigurationProperties': obj.actionConfigurationProperties?.map(y => toJson_CodePipelineActionConfigurationProperty(y)),
+    'inputArtifactDetails': toJson_CodePipelineArtifactDetails(obj.inputArtifactDetails),
+    'outputArtifactDetails': toJson_CodePipelineArtifactDetails(obj.outputArtifactDetails),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelinePipelineDeclaration
@@ -1241,6 +2425,92 @@ export interface CodePipelinePipelineDeclaration {
 }
 
 /**
+ * Converts an object of type 'CodePipelinePipelineDeclaration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePipelineDeclaration(obj: CodePipelinePipelineDeclaration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'roleArn': obj.roleArn,
+    'artifactStore': toJson_CodePipelineArtifactStore(obj.artifactStore),
+    'artifactStores': ((obj.artifactStores) === undefined) ? undefined : (Object.entries(obj.artifactStores).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_CodePipelineArtifactStore(i[1]) }), {})),
+    'stages': obj.stages?.map(y => toJson_CodePipelineStageDeclaration(y)),
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CodePipelineActionTypeDeclaration
+ */
+export interface CodePipelineActionTypeDeclaration {
+  /**
+   * @schema CodePipelineActionTypeDeclaration#description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema CodePipelineActionTypeDeclaration#executor
+   */
+  readonly executor: CodePipelineActionTypeExecutor;
+
+  /**
+   * @schema CodePipelineActionTypeDeclaration#id
+   */
+  readonly id: CodePipelineActionTypeIdentifier;
+
+  /**
+   * @schema CodePipelineActionTypeDeclaration#inputArtifactDetails
+   */
+  readonly inputArtifactDetails: CodePipelineActionTypeArtifactDetails;
+
+  /**
+   * @schema CodePipelineActionTypeDeclaration#outputArtifactDetails
+   */
+  readonly outputArtifactDetails: CodePipelineActionTypeArtifactDetails;
+
+  /**
+   * @schema CodePipelineActionTypeDeclaration#permissions
+   */
+  readonly permissions?: CodePipelineActionTypePermissions;
+
+  /**
+   * @schema CodePipelineActionTypeDeclaration#properties
+   */
+  readonly properties?: CodePipelineActionTypeProperty[];
+
+  /**
+   * @schema CodePipelineActionTypeDeclaration#urls
+   */
+  readonly urls?: CodePipelineActionTypeUrls;
+
+}
+
+/**
+ * Converts an object of type 'CodePipelineActionTypeDeclaration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionTypeDeclaration(obj: CodePipelineActionTypeDeclaration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'description': obj.description,
+    'executor': toJson_CodePipelineActionTypeExecutor(obj.executor),
+    'id': toJson_CodePipelineActionTypeIdentifier(obj.id),
+    'inputArtifactDetails': toJson_CodePipelineActionTypeArtifactDetails(obj.inputArtifactDetails),
+    'outputArtifactDetails': toJson_CodePipelineActionTypeArtifactDetails(obj.outputArtifactDetails),
+    'permissions': toJson_CodePipelineActionTypePermissions(obj.permissions),
+    'properties': obj.properties?.map(y => toJson_CodePipelineActionTypeProperty(y)),
+    'urls': toJson_CodePipelineActionTypeUrls(obj.urls),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineJobDetails
  */
 export interface CodePipelineJobDetails {
@@ -1262,6 +2532,22 @@ export interface CodePipelineJobDetails {
 }
 
 /**
+ * Converts an object of type 'CodePipelineJobDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineJobDetails(obj: CodePipelineJobDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'data': toJson_CodePipelineJobData(obj.data),
+    'accountId': obj.accountId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelinePipelineMetadata
  */
 export interface CodePipelinePipelineMetadata {
@@ -1281,6 +2567,22 @@ export interface CodePipelinePipelineMetadata {
   readonly updated?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelinePipelineMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePipelineMetadata(obj: CodePipelinePipelineMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineArn': obj.pipelineArn,
+    'created': obj.created,
+    'updated': obj.updated,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelinePipelineExecution
@@ -1307,11 +2609,35 @@ export interface CodePipelinePipelineExecution {
   readonly status?: string;
 
   /**
+   * @schema CodePipelinePipelineExecution#statusSummary
+   */
+  readonly statusSummary?: string;
+
+  /**
    * @schema CodePipelinePipelineExecution#artifactRevisions
    */
   readonly artifactRevisions?: CodePipelineArtifactRevision[];
 
 }
+
+/**
+ * Converts an object of type 'CodePipelinePipelineExecution' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePipelineExecution(obj: CodePipelinePipelineExecution | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+    'pipelineVersion': obj.pipelineVersion,
+    'pipelineExecutionId': obj.pipelineExecutionId,
+    'status': obj.status,
+    'statusSummary': obj.statusSummary,
+    'artifactRevisions': obj.artifactRevisions?.map(y => toJson_CodePipelineArtifactRevision(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineStageState
@@ -1345,6 +2671,24 @@ export interface CodePipelineStageState {
 }
 
 /**
+ * Converts an object of type 'CodePipelineStageState' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineStageState(obj: CodePipelineStageState | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'stageName': obj.stageName,
+    'inboundExecution': toJson_CodePipelineStageExecution(obj.inboundExecution),
+    'inboundTransitionState': toJson_CodePipelineTransitionState(obj.inboundTransitionState),
+    'actionStates': obj.actionStates?.map(y => toJson_CodePipelineActionState(y)),
+    'latestExecution': toJson_CodePipelineStageExecution(obj.latestExecution),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineThirdPartyJobDetails
  */
 export interface CodePipelineThirdPartyJobDetails {
@@ -1366,6 +2710,22 @@ export interface CodePipelineThirdPartyJobDetails {
 }
 
 /**
+ * Converts an object of type 'CodePipelineThirdPartyJobDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineThirdPartyJobDetails(obj: CodePipelineThirdPartyJobDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'data': toJson_CodePipelineThirdPartyJobData(obj.data),
+    'nonce': obj.nonce,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineActionExecutionFilter
  */
 export interface CodePipelineActionExecutionFilter {
@@ -1375,6 +2735,20 @@ export interface CodePipelineActionExecutionFilter {
   readonly pipelineExecutionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineActionExecutionFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionExecutionFilter(obj: CodePipelineActionExecutionFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineExecutionId': obj.pipelineExecutionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineActionExecutionDetail
@@ -1433,6 +2807,29 @@ export interface CodePipelineActionExecutionDetail {
 }
 
 /**
+ * Converts an object of type 'CodePipelineActionExecutionDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionExecutionDetail(obj: CodePipelineActionExecutionDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineExecutionId': obj.pipelineExecutionId,
+    'actionExecutionId': obj.actionExecutionId,
+    'pipelineVersion': obj.pipelineVersion,
+    'stageName': obj.stageName,
+    'actionName': obj.actionName,
+    'startTime': obj.startTime,
+    'lastUpdateTime': obj.lastUpdateTime,
+    'status': obj.status,
+    'input': toJson_CodePipelineActionExecutionInput(obj.input),
+    'output': toJson_CodePipelineActionExecutionOutput(obj.output),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelinePipelineExecutionSummary
  */
 export interface CodePipelinePipelineExecutionSummary {
@@ -1474,6 +2871,26 @@ export interface CodePipelinePipelineExecutionSummary {
 }
 
 /**
+ * Converts an object of type 'CodePipelinePipelineExecutionSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePipelineExecutionSummary(obj: CodePipelinePipelineExecutionSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineExecutionId': obj.pipelineExecutionId,
+    'status': obj.status,
+    'startTime': obj.startTime,
+    'lastUpdateTime': obj.lastUpdateTime,
+    'sourceRevisions': obj.sourceRevisions?.map(y => toJson_CodePipelineSourceRevision(y)),
+    'trigger': toJson_CodePipelineExecutionTrigger(obj.trigger),
+    'stopTrigger': toJson_CodePipelineStopExecutionTrigger(obj.stopTrigger),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelinePipelineSummary
  */
 export interface CodePipelinePipelineSummary {
@@ -1498,6 +2915,23 @@ export interface CodePipelinePipelineSummary {
   readonly updated?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelinePipelineSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePipelineSummary(obj: CodePipelinePipelineSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'version': obj.version,
+    'created': obj.created,
+    'updated': obj.updated,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineListWebhookItem
@@ -1541,6 +2975,26 @@ export interface CodePipelineListWebhookItem {
 }
 
 /**
+ * Converts an object of type 'CodePipelineListWebhookItem' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineListWebhookItem(obj: CodePipelineListWebhookItem | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'definition': toJson_CodePipelineWebhookDefinition(obj.definition),
+    'url': obj.url,
+    'errorMessage': obj.errorMessage,
+    'errorCode': obj.errorCode,
+    'lastTriggered': obj.lastTriggered,
+    'arn': obj.arn,
+    'tags': obj.tags?.map(y => toJson_CodePipelineTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineActionTypeId
  */
 export interface CodePipelineActionTypeId {
@@ -1565,6 +3019,23 @@ export interface CodePipelineActionTypeId {
   readonly version: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineActionTypeId' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionTypeId(obj: CodePipelineActionTypeId | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'category': obj.category,
+    'owner': obj.owner,
+    'provider': obj.provider,
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineJob
@@ -1593,6 +3064,23 @@ export interface CodePipelineJob {
 }
 
 /**
+ * Converts an object of type 'CodePipelineJob' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineJob(obj: CodePipelineJob | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'data': toJson_CodePipelineJobData(obj.data),
+    'nonce': obj.nonce,
+    'accountId': obj.accountId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineThirdPartyJob
  */
 export interface CodePipelineThirdPartyJob {
@@ -1607,6 +3095,21 @@ export interface CodePipelineThirdPartyJob {
   readonly jobId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineThirdPartyJob' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineThirdPartyJob(obj: CodePipelineThirdPartyJob | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientId': obj.clientId,
+    'jobId': obj.jobId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineActionRevision
@@ -1630,6 +3133,22 @@ export interface CodePipelineActionRevision {
 }
 
 /**
+ * Converts an object of type 'CodePipelineActionRevision' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionRevision(obj: CodePipelineActionRevision | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'revisionId': obj.revisionId,
+    'revisionChangeId': obj.revisionChangeId,
+    'created': obj.created,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineApprovalResult
  */
 export interface CodePipelineApprovalResult {
@@ -1644,6 +3163,21 @@ export interface CodePipelineApprovalResult {
   readonly status: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineApprovalResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineApprovalResult(obj: CodePipelineApprovalResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'summary': obj.summary,
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineFailureDetails
@@ -1665,6 +3199,22 @@ export interface CodePipelineFailureDetails {
   readonly externalExecutionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineFailureDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineFailureDetails(obj: CodePipelineFailureDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+    'message': obj.message,
+    'externalExecutionId': obj.externalExecutionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineCurrentRevision
@@ -1693,6 +3243,23 @@ export interface CodePipelineCurrentRevision {
 }
 
 /**
+ * Converts an object of type 'CodePipelineCurrentRevision' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineCurrentRevision(obj: CodePipelineCurrentRevision | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'revision': obj.revision,
+    'changeIdentifier': obj.changeIdentifier,
+    'created': obj.created,
+    'revisionSummary': obj.revisionSummary,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineExecutionDetails
  */
 export interface CodePipelineExecutionDetails {
@@ -1712,6 +3279,22 @@ export interface CodePipelineExecutionDetails {
   readonly percentComplete?: number;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineExecutionDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineExecutionDetails(obj: CodePipelineExecutionDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'summary': obj.summary,
+    'externalExecutionId': obj.externalExecutionId,
+    'percentComplete': obj.percentComplete,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineWebhookDefinition
@@ -1750,6 +3333,25 @@ export interface CodePipelineWebhookDefinition {
 }
 
 /**
+ * Converts an object of type 'CodePipelineWebhookDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineWebhookDefinition(obj: CodePipelineWebhookDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'targetPipeline': obj.targetPipeline,
+    'targetAction': obj.targetAction,
+    'filters': obj.filters?.map(y => toJson_CodePipelineWebhookFilterRule(y)),
+    'authentication': obj.authentication,
+    'authenticationConfiguration': toJson_CodePipelineWebhookAuthConfiguration(obj.authenticationConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineArtifactStore
  */
 export interface CodePipelineArtifactStore {
@@ -1771,6 +3373,22 @@ export interface CodePipelineArtifactStore {
 }
 
 /**
+ * Converts an object of type 'CodePipelineArtifactStore' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineArtifactStore(obj: CodePipelineArtifactStore | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+    'location': obj.location,
+    'encryptionKey': toJson_CodePipelineEncryptionKey(obj.encryptionKey),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineStageDeclaration
  */
 export interface CodePipelineStageDeclaration {
@@ -1790,6 +3408,262 @@ export interface CodePipelineStageDeclaration {
   readonly actions: CodePipelineActionDeclaration[];
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineStageDeclaration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineStageDeclaration(obj: CodePipelineStageDeclaration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'blockers': obj.blockers?.map(y => toJson_CodePipelineBlockerDeclaration(y)),
+    'actions': obj.actions?.map(y => toJson_CodePipelineActionDeclaration(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CodePipelineActionTypeExecutor
+ */
+export interface CodePipelineActionTypeExecutor {
+  /**
+   * @schema CodePipelineActionTypeExecutor#configuration
+   */
+  readonly configuration: CodePipelineExecutorConfiguration;
+
+  /**
+   * @schema CodePipelineActionTypeExecutor#type
+   */
+  readonly type: string;
+
+  /**
+   * @schema CodePipelineActionTypeExecutor#policyStatementsTemplate
+   */
+  readonly policyStatementsTemplate?: string;
+
+  /**
+   * @schema CodePipelineActionTypeExecutor#jobTimeout
+   */
+  readonly jobTimeout?: number;
+
+}
+
+/**
+ * Converts an object of type 'CodePipelineActionTypeExecutor' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionTypeExecutor(obj: CodePipelineActionTypeExecutor | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configuration': toJson_CodePipelineExecutorConfiguration(obj.configuration),
+    'type': obj.type,
+    'policyStatementsTemplate': obj.policyStatementsTemplate,
+    'jobTimeout': obj.jobTimeout,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CodePipelineActionTypeIdentifier
+ */
+export interface CodePipelineActionTypeIdentifier {
+  /**
+   * @schema CodePipelineActionTypeIdentifier#category
+   */
+  readonly category: string;
+
+  /**
+   * @schema CodePipelineActionTypeIdentifier#owner
+   */
+  readonly owner: string;
+
+  /**
+   * @schema CodePipelineActionTypeIdentifier#provider
+   */
+  readonly provider: string;
+
+  /**
+   * @schema CodePipelineActionTypeIdentifier#version
+   */
+  readonly version: string;
+
+}
+
+/**
+ * Converts an object of type 'CodePipelineActionTypeIdentifier' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionTypeIdentifier(obj: CodePipelineActionTypeIdentifier | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'category': obj.category,
+    'owner': obj.owner,
+    'provider': obj.provider,
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CodePipelineActionTypeArtifactDetails
+ */
+export interface CodePipelineActionTypeArtifactDetails {
+  /**
+   * @schema CodePipelineActionTypeArtifactDetails#minimumCount
+   */
+  readonly minimumCount: number;
+
+  /**
+   * @schema CodePipelineActionTypeArtifactDetails#maximumCount
+   */
+  readonly maximumCount: number;
+
+}
+
+/**
+ * Converts an object of type 'CodePipelineActionTypeArtifactDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionTypeArtifactDetails(obj: CodePipelineActionTypeArtifactDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'minimumCount': obj.minimumCount,
+    'maximumCount': obj.maximumCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CodePipelineActionTypePermissions
+ */
+export interface CodePipelineActionTypePermissions {
+  /**
+   * @schema CodePipelineActionTypePermissions#allowedAccounts
+   */
+  readonly allowedAccounts: string[];
+
+}
+
+/**
+ * Converts an object of type 'CodePipelineActionTypePermissions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionTypePermissions(obj: CodePipelineActionTypePermissions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'allowedAccounts': obj.allowedAccounts?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CodePipelineActionTypeProperty
+ */
+export interface CodePipelineActionTypeProperty {
+  /**
+   * @schema CodePipelineActionTypeProperty#name
+   */
+  readonly name: string;
+
+  /**
+   * @schema CodePipelineActionTypeProperty#optional
+   */
+  readonly optional: boolean;
+
+  /**
+   * @schema CodePipelineActionTypeProperty#key
+   */
+  readonly key: boolean;
+
+  /**
+   * @schema CodePipelineActionTypeProperty#noEcho
+   */
+  readonly noEcho: boolean;
+
+  /**
+   * @schema CodePipelineActionTypeProperty#queryable
+   */
+  readonly queryable?: boolean;
+
+  /**
+   * @schema CodePipelineActionTypeProperty#description
+   */
+  readonly description?: string;
+
+}
+
+/**
+ * Converts an object of type 'CodePipelineActionTypeProperty' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionTypeProperty(obj: CodePipelineActionTypeProperty | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'optional': obj.optional,
+    'key': obj.key,
+    'noEcho': obj.noEcho,
+    'queryable': obj.queryable,
+    'description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CodePipelineActionTypeUrls
+ */
+export interface CodePipelineActionTypeUrls {
+  /**
+   * @schema CodePipelineActionTypeUrls#configurationUrl
+   */
+  readonly configurationUrl?: string;
+
+  /**
+   * @schema CodePipelineActionTypeUrls#entityUrlTemplate
+   */
+  readonly entityUrlTemplate?: string;
+
+  /**
+   * @schema CodePipelineActionTypeUrls#executionUrlTemplate
+   */
+  readonly executionUrlTemplate?: string;
+
+  /**
+   * @schema CodePipelineActionTypeUrls#revisionUrlTemplate
+   */
+  readonly revisionUrlTemplate?: string;
+
+}
+
+/**
+ * Converts an object of type 'CodePipelineActionTypeUrls' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionTypeUrls(obj: CodePipelineActionTypeUrls | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configurationUrl': obj.configurationUrl,
+    'entityUrlTemplate': obj.entityUrlTemplate,
+    'executionUrlTemplate': obj.executionUrlTemplate,
+    'revisionUrlTemplate': obj.revisionUrlTemplate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineJobData
@@ -1838,6 +3712,27 @@ export interface CodePipelineJobData {
 }
 
 /**
+ * Converts an object of type 'CodePipelineJobData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineJobData(obj: CodePipelineJobData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'actionTypeId': toJson_CodePipelineActionTypeId(obj.actionTypeId),
+    'actionConfiguration': toJson_CodePipelineActionConfiguration(obj.actionConfiguration),
+    'pipelineContext': toJson_CodePipelinePipelineContext(obj.pipelineContext),
+    'inputArtifacts': obj.inputArtifacts?.map(y => toJson_CodePipelineArtifact(y)),
+    'outputArtifacts': obj.outputArtifacts?.map(y => toJson_CodePipelineArtifact(y)),
+    'artifactCredentials': toJson_CodePipelineAwsSessionCredentials(obj.artifactCredentials),
+    'continuationToken': obj.continuationToken,
+    'encryptionKey': toJson_CodePipelineEncryptionKey(obj.encryptionKey),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineArtifactRevision
  */
 export interface CodePipelineArtifactRevision {
@@ -1874,6 +3769,25 @@ export interface CodePipelineArtifactRevision {
 }
 
 /**
+ * Converts an object of type 'CodePipelineArtifactRevision' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineArtifactRevision(obj: CodePipelineArtifactRevision | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'revisionId': obj.revisionId,
+    'revisionChangeIdentifier': obj.revisionChangeIdentifier,
+    'revisionSummary': obj.revisionSummary,
+    'created': obj.created,
+    'revisionUrl': obj.revisionUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineStageExecution
  */
 export interface CodePipelineStageExecution {
@@ -1888,6 +3802,21 @@ export interface CodePipelineStageExecution {
   readonly status: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineStageExecution' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineStageExecution(obj: CodePipelineStageExecution | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineExecutionId': obj.pipelineExecutionId,
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineTransitionState
@@ -1914,6 +3843,23 @@ export interface CodePipelineTransitionState {
   readonly disabledReason?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineTransitionState' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineTransitionState(obj: CodePipelineTransitionState | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'enabled': obj.enabled,
+    'lastChangedBy': obj.lastChangedBy,
+    'lastChangedAt': obj.lastChangedAt,
+    'disabledReason': obj.disabledReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineActionState
@@ -1945,6 +3891,24 @@ export interface CodePipelineActionState {
   readonly revisionUrl?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineActionState' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionState(obj: CodePipelineActionState | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'actionName': obj.actionName,
+    'currentRevision': toJson_CodePipelineActionRevision(obj.currentRevision),
+    'latestExecution': toJson_CodePipelineActionExecution(obj.latestExecution),
+    'entityUrl': obj.entityUrl,
+    'revisionUrl': obj.revisionUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineThirdPartyJobData
@@ -1993,6 +3957,27 @@ export interface CodePipelineThirdPartyJobData {
 }
 
 /**
+ * Converts an object of type 'CodePipelineThirdPartyJobData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineThirdPartyJobData(obj: CodePipelineThirdPartyJobData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'actionTypeId': toJson_CodePipelineActionTypeId(obj.actionTypeId),
+    'actionConfiguration': toJson_CodePipelineActionConfiguration(obj.actionConfiguration),
+    'pipelineContext': toJson_CodePipelinePipelineContext(obj.pipelineContext),
+    'inputArtifacts': obj.inputArtifacts?.map(y => toJson_CodePipelineArtifact(y)),
+    'outputArtifacts': obj.outputArtifacts?.map(y => toJson_CodePipelineArtifact(y)),
+    'artifactCredentials': toJson_CodePipelineAwsSessionCredentials(obj.artifactCredentials),
+    'continuationToken': obj.continuationToken,
+    'encryptionKey': toJson_CodePipelineEncryptionKey(obj.encryptionKey),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineActionExecutionInput
  */
 export interface CodePipelineActionExecutionInput {
@@ -2034,6 +4019,26 @@ export interface CodePipelineActionExecutionInput {
 }
 
 /**
+ * Converts an object of type 'CodePipelineActionExecutionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionExecutionInput(obj: CodePipelineActionExecutionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'actionTypeId': toJson_CodePipelineActionTypeId(obj.actionTypeId),
+    'configuration': ((obj.configuration) === undefined) ? undefined : (Object.entries(obj.configuration).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'resolvedConfiguration': ((obj.resolvedConfiguration) === undefined) ? undefined : (Object.entries(obj.resolvedConfiguration).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'roleArn': obj.roleArn,
+    'region': obj.region,
+    'inputArtifacts': obj.inputArtifacts?.map(y => toJson_CodePipelineArtifactDetail(y)),
+    'namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineActionExecutionOutput
  */
 export interface CodePipelineActionExecutionOutput {
@@ -2053,6 +4058,22 @@ export interface CodePipelineActionExecutionOutput {
   readonly outputVariables?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineActionExecutionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionExecutionOutput(obj: CodePipelineActionExecutionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'outputArtifacts': obj.outputArtifacts?.map(y => toJson_CodePipelineArtifactDetail(y)),
+    'executionResult': toJson_CodePipelineActionExecutionResult(obj.executionResult),
+    'outputVariables': ((obj.outputVariables) === undefined) ? undefined : (Object.entries(obj.outputVariables).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineSourceRevision
@@ -2081,6 +4102,23 @@ export interface CodePipelineSourceRevision {
 }
 
 /**
+ * Converts an object of type 'CodePipelineSourceRevision' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineSourceRevision(obj: CodePipelineSourceRevision | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'actionName': obj.actionName,
+    'revisionId': obj.revisionId,
+    'revisionSummary': obj.revisionSummary,
+    'revisionUrl': obj.revisionUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineExecutionTrigger
  */
 export interface CodePipelineExecutionTrigger {
@@ -2097,6 +4135,21 @@ export interface CodePipelineExecutionTrigger {
 }
 
 /**
+ * Converts an object of type 'CodePipelineExecutionTrigger' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineExecutionTrigger(obj: CodePipelineExecutionTrigger | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'triggerType': obj.triggerType,
+    'triggerDetail': obj.triggerDetail,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineStopExecutionTrigger
  */
 export interface CodePipelineStopExecutionTrigger {
@@ -2106,6 +4159,20 @@ export interface CodePipelineStopExecutionTrigger {
   readonly reason?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineStopExecutionTrigger' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineStopExecutionTrigger(obj: CodePipelineStopExecutionTrigger | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reason': obj.reason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineWebhookFilterRule
@@ -2124,6 +4191,21 @@ export interface CodePipelineWebhookFilterRule {
 }
 
 /**
+ * Converts an object of type 'CodePipelineWebhookFilterRule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineWebhookFilterRule(obj: CodePipelineWebhookFilterRule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jsonPath': obj.jsonPath,
+    'matchEquals': obj.matchEquals,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineWebhookAuthConfiguration
  */
 export interface CodePipelineWebhookAuthConfiguration {
@@ -2138,6 +4220,21 @@ export interface CodePipelineWebhookAuthConfiguration {
   readonly secretToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineWebhookAuthConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineWebhookAuthConfiguration(obj: CodePipelineWebhookAuthConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AllowedIPRange': obj.allowedIpRange,
+    'SecretToken': obj.secretToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineEncryptionKey
@@ -2156,6 +4253,21 @@ export interface CodePipelineEncryptionKey {
 }
 
 /**
+ * Converts an object of type 'CodePipelineEncryptionKey' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineEncryptionKey(obj: CodePipelineEncryptionKey | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineBlockerDeclaration
  */
 export interface CodePipelineBlockerDeclaration {
@@ -2170,6 +4282,21 @@ export interface CodePipelineBlockerDeclaration {
   readonly type: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineBlockerDeclaration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineBlockerDeclaration(obj: CodePipelineBlockerDeclaration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineActionDeclaration
@@ -2223,6 +4350,59 @@ export interface CodePipelineActionDeclaration {
 }
 
 /**
+ * Converts an object of type 'CodePipelineActionDeclaration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionDeclaration(obj: CodePipelineActionDeclaration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'actionTypeId': toJson_CodePipelineActionTypeId(obj.actionTypeId),
+    'runOrder': obj.runOrder,
+    'configuration': ((obj.configuration) === undefined) ? undefined : (Object.entries(obj.configuration).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'outputArtifacts': obj.outputArtifacts?.map(y => toJson_CodePipelineOutputArtifact(y)),
+    'inputArtifacts': obj.inputArtifacts?.map(y => toJson_CodePipelineInputArtifact(y)),
+    'roleArn': obj.roleArn,
+    'region': obj.region,
+    'namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CodePipelineExecutorConfiguration
+ */
+export interface CodePipelineExecutorConfiguration {
+  /**
+   * @schema CodePipelineExecutorConfiguration#lambdaExecutorConfiguration
+   */
+  readonly lambdaExecutorConfiguration?: CodePipelineLambdaExecutorConfiguration;
+
+  /**
+   * @schema CodePipelineExecutorConfiguration#jobWorkerExecutorConfiguration
+   */
+  readonly jobWorkerExecutorConfiguration?: CodePipelineJobWorkerExecutorConfiguration;
+
+}
+
+/**
+ * Converts an object of type 'CodePipelineExecutorConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineExecutorConfiguration(obj: CodePipelineExecutorConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'lambdaExecutorConfiguration': toJson_CodePipelineLambdaExecutorConfiguration(obj.lambdaExecutorConfiguration),
+    'jobWorkerExecutorConfiguration': toJson_CodePipelineJobWorkerExecutorConfiguration(obj.jobWorkerExecutorConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineActionConfiguration
  */
 export interface CodePipelineActionConfiguration {
@@ -2232,6 +4412,20 @@ export interface CodePipelineActionConfiguration {
   readonly configuration?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineActionConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionConfiguration(obj: CodePipelineActionConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configuration': ((obj.configuration) === undefined) ? undefined : (Object.entries(obj.configuration).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelinePipelineContext
@@ -2265,6 +4459,24 @@ export interface CodePipelinePipelineContext {
 }
 
 /**
+ * Converts an object of type 'CodePipelinePipelineContext' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelinePipelineContext(obj: CodePipelinePipelineContext | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+    'stage': toJson_CodePipelineStageContext(obj.stage),
+    'action': toJson_CodePipelineActionContext(obj.action),
+    'pipelineArn': obj.pipelineArn,
+    'pipelineExecutionId': obj.pipelineExecutionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineArtifact
  */
 export interface CodePipelineArtifact {
@@ -2286,6 +4498,22 @@ export interface CodePipelineArtifact {
 }
 
 /**
+ * Converts an object of type 'CodePipelineArtifact' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineArtifact(obj: CodePipelineArtifact | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'revision': obj.revision,
+    'location': toJson_CodePipelineArtifactLocation(obj.location),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineAwsSessionCredentials
  */
 export interface CodePipelineAwsSessionCredentials {
@@ -2305,6 +4533,22 @@ export interface CodePipelineAwsSessionCredentials {
   readonly sessionToken: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineAwsSessionCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineAwsSessionCredentials(obj: CodePipelineAwsSessionCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessKeyId': obj.accessKeyId,
+    'secretAccessKey': obj.secretAccessKey,
+    'sessionToken': obj.sessionToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineActionExecution
@@ -2363,6 +4607,29 @@ export interface CodePipelineActionExecution {
 }
 
 /**
+ * Converts an object of type 'CodePipelineActionExecution' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionExecution(obj: CodePipelineActionExecution | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'actionExecutionId': obj.actionExecutionId,
+    'status': obj.status,
+    'summary': obj.summary,
+    'lastStatusChange': obj.lastStatusChange,
+    'token': obj.token,
+    'lastUpdatedBy': obj.lastUpdatedBy,
+    'externalExecutionId': obj.externalExecutionId,
+    'externalExecutionUrl': obj.externalExecutionUrl,
+    'percentComplete': obj.percentComplete,
+    'errorDetails': toJson_CodePipelineErrorDetails(obj.errorDetails),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineArtifactDetail
  */
 export interface CodePipelineArtifactDetail {
@@ -2374,9 +4641,24 @@ export interface CodePipelineArtifactDetail {
   /**
    * @schema CodePipelineArtifactDetail#s3location
    */
-  readonly s3location?: CodePipelineS3Location;
+  readonly s3Location?: CodePipelineS3Location;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineArtifactDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineArtifactDetail(obj: CodePipelineArtifactDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    's3location': toJson_CodePipelineS3Location(obj.s3Location),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineActionExecutionResult
@@ -2400,6 +4682,22 @@ export interface CodePipelineActionExecutionResult {
 }
 
 /**
+ * Converts an object of type 'CodePipelineActionExecutionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionExecutionResult(obj: CodePipelineActionExecutionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'externalExecutionId': obj.externalExecutionId,
+    'externalExecutionSummary': obj.externalExecutionSummary,
+    'externalExecutionUrl': obj.externalExecutionUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineOutputArtifact
  */
 export interface CodePipelineOutputArtifact {
@@ -2409,6 +4707,20 @@ export interface CodePipelineOutputArtifact {
   readonly name: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineOutputArtifact' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineOutputArtifact(obj: CodePipelineOutputArtifact | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineInputArtifact
@@ -2422,6 +4734,76 @@ export interface CodePipelineInputArtifact {
 }
 
 /**
+ * Converts an object of type 'CodePipelineInputArtifact' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineInputArtifact(obj: CodePipelineInputArtifact | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CodePipelineLambdaExecutorConfiguration
+ */
+export interface CodePipelineLambdaExecutorConfiguration {
+  /**
+   * @schema CodePipelineLambdaExecutorConfiguration#lambdaFunctionArn
+   */
+  readonly lambdaFunctionArn: string;
+
+}
+
+/**
+ * Converts an object of type 'CodePipelineLambdaExecutorConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineLambdaExecutorConfiguration(obj: CodePipelineLambdaExecutorConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'lambdaFunctionArn': obj.lambdaFunctionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CodePipelineJobWorkerExecutorConfiguration
+ */
+export interface CodePipelineJobWorkerExecutorConfiguration {
+  /**
+   * @schema CodePipelineJobWorkerExecutorConfiguration#pollingAccounts
+   */
+  readonly pollingAccounts?: string[];
+
+  /**
+   * @schema CodePipelineJobWorkerExecutorConfiguration#pollingServicePrincipals
+   */
+  readonly pollingServicePrincipals?: string[];
+
+}
+
+/**
+ * Converts an object of type 'CodePipelineJobWorkerExecutorConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineJobWorkerExecutorConfiguration(obj: CodePipelineJobWorkerExecutorConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pollingAccounts': obj.pollingAccounts?.map(y => y),
+    'pollingServicePrincipals': obj.pollingServicePrincipals?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineStageContext
  */
 export interface CodePipelineStageContext {
@@ -2431,6 +4813,20 @@ export interface CodePipelineStageContext {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineStageContext' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineStageContext(obj: CodePipelineStageContext | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineActionContext
@@ -2449,6 +4845,21 @@ export interface CodePipelineActionContext {
 }
 
 /**
+ * Converts an object of type 'CodePipelineActionContext' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineActionContext(obj: CodePipelineActionContext | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'actionExecutionId': obj.actionExecutionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineArtifactLocation
  */
 export interface CodePipelineArtifactLocation {
@@ -2463,6 +4874,21 @@ export interface CodePipelineArtifactLocation {
   readonly s3Location?: CodePipelineS3ArtifactLocation;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineArtifactLocation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineArtifactLocation(obj: CodePipelineArtifactLocation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+    's3Location': toJson_CodePipelineS3ArtifactLocation(obj.s3Location),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodePipelineErrorDetails
@@ -2481,6 +4907,21 @@ export interface CodePipelineErrorDetails {
 }
 
 /**
+ * Converts an object of type 'CodePipelineErrorDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineErrorDetails(obj: CodePipelineErrorDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'code': obj.code,
+    'message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineS3Location
  */
 export interface CodePipelineS3Location {
@@ -2497,6 +4938,21 @@ export interface CodePipelineS3Location {
 }
 
 /**
+ * Converts an object of type 'CodePipelineS3Location' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineS3Location(obj: CodePipelineS3Location | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucket': obj.bucket,
+    'key': obj.key,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodePipelineS3ArtifactLocation
  */
 export interface CodePipelineS3ArtifactLocation {
@@ -2511,3 +4967,18 @@ export interface CodePipelineS3ArtifactLocation {
   readonly objectKey: string;
 
 }
+
+/**
+ * Converts an object of type 'CodePipelineS3ArtifactLocation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodePipelineS3ArtifactLocation(obj: CodePipelineS3ArtifactLocation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketName': obj.bucketName,
+    'objectKey': obj.objectKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

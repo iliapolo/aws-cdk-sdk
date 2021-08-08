@@ -15,10 +15,38 @@ export interface IoTSecureTunnelingCloseTunnelRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSecureTunnelingCloseTunnelRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingCloseTunnelRequest(obj: IoTSecureTunnelingCloseTunnelRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tunnelId': obj.tunnelId,
+    'delete': obj.delete,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSecureTunnelingCloseTunnelResponse
  */
 export interface IoTSecureTunnelingCloseTunnelResponse {
 }
+
+/**
+ * Converts an object of type 'IoTSecureTunnelingCloseTunnelResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingCloseTunnelResponse(obj: IoTSecureTunnelingCloseTunnelResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSecureTunnelingDescribeTunnelRequest
@@ -32,6 +60,20 @@ export interface IoTSecureTunnelingDescribeTunnelRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSecureTunnelingDescribeTunnelRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingDescribeTunnelRequest(obj: IoTSecureTunnelingDescribeTunnelRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tunnelId': obj.tunnelId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSecureTunnelingDescribeTunnelResponse
  */
 export interface IoTSecureTunnelingDescribeTunnelResponse {
@@ -41,6 +83,20 @@ export interface IoTSecureTunnelingDescribeTunnelResponse {
   readonly tunnel?: IoTSecureTunnelingTunnel;
 
 }
+
+/**
+ * Converts an object of type 'IoTSecureTunnelingDescribeTunnelResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingDescribeTunnelResponse(obj: IoTSecureTunnelingDescribeTunnelResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tunnel': toJson_IoTSecureTunnelingTunnel(obj.tunnel),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSecureTunnelingListTagsForResourceRequest
@@ -54,6 +110,20 @@ export interface IoTSecureTunnelingListTagsForResourceRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSecureTunnelingListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingListTagsForResourceRequest(obj: IoTSecureTunnelingListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSecureTunnelingListTagsForResourceResponse
  */
 export interface IoTSecureTunnelingListTagsForResourceResponse {
@@ -63,6 +133,20 @@ export interface IoTSecureTunnelingListTagsForResourceResponse {
   readonly tags?: IoTSecureTunnelingTag[];
 
 }
+
+/**
+ * Converts an object of type 'IoTSecureTunnelingListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingListTagsForResourceResponse(obj: IoTSecureTunnelingListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': obj.tags?.map(y => toJson_IoTSecureTunnelingTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSecureTunnelingListTunnelsRequest
@@ -86,6 +170,22 @@ export interface IoTSecureTunnelingListTunnelsRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSecureTunnelingListTunnelsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingListTunnelsRequest(obj: IoTSecureTunnelingListTunnelsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'thingName': obj.thingName,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSecureTunnelingListTunnelsResponse
  */
 export interface IoTSecureTunnelingListTunnelsResponse {
@@ -100,6 +200,21 @@ export interface IoTSecureTunnelingListTunnelsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSecureTunnelingListTunnelsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingListTunnelsResponse(obj: IoTSecureTunnelingListTunnelsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tunnelSummaries': obj.tunnelSummaries?.map(y => toJson_IoTSecureTunnelingTunnelSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSecureTunnelingOpenTunnelRequest
@@ -128,6 +243,23 @@ export interface IoTSecureTunnelingOpenTunnelRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSecureTunnelingOpenTunnelRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingOpenTunnelRequest(obj: IoTSecureTunnelingOpenTunnelRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'description': obj.description,
+    'tags': obj.tags?.map(y => toJson_IoTSecureTunnelingTag(y)),
+    'destinationConfig': toJson_IoTSecureTunnelingDestinationConfig(obj.destinationConfig),
+    'timeoutConfig': toJson_IoTSecureTunnelingTimeoutConfig(obj.timeoutConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSecureTunnelingOpenTunnelResponse
  */
 export interface IoTSecureTunnelingOpenTunnelResponse {
@@ -154,6 +286,23 @@ export interface IoTSecureTunnelingOpenTunnelResponse {
 }
 
 /**
+ * Converts an object of type 'IoTSecureTunnelingOpenTunnelResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingOpenTunnelResponse(obj: IoTSecureTunnelingOpenTunnelResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tunnelId': obj.tunnelId,
+    'tunnelArn': obj.tunnelArn,
+    'sourceAccessToken': obj.sourceAccessToken,
+    'destinationAccessToken': obj.destinationAccessToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSecureTunnelingTagResourceRequest
  */
 export interface IoTSecureTunnelingTagResourceRequest {
@@ -170,10 +319,38 @@ export interface IoTSecureTunnelingTagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSecureTunnelingTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingTagResourceRequest(obj: IoTSecureTunnelingTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': obj.tags?.map(y => toJson_IoTSecureTunnelingTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSecureTunnelingTagResourceResponse
  */
 export interface IoTSecureTunnelingTagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'IoTSecureTunnelingTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingTagResourceResponse(obj: IoTSecureTunnelingTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSecureTunnelingUntagResourceRequest
@@ -192,10 +369,38 @@ export interface IoTSecureTunnelingUntagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'IoTSecureTunnelingUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingUntagResourceRequest(obj: IoTSecureTunnelingUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSecureTunnelingUntagResourceResponse
  */
 export interface IoTSecureTunnelingUntagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'IoTSecureTunnelingUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingUntagResourceResponse(obj: IoTSecureTunnelingUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSecureTunnelingTunnel
@@ -259,6 +464,30 @@ export interface IoTSecureTunnelingTunnel {
 }
 
 /**
+ * Converts an object of type 'IoTSecureTunnelingTunnel' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingTunnel(obj: IoTSecureTunnelingTunnel | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tunnelId': obj.tunnelId,
+    'tunnelArn': obj.tunnelArn,
+    'status': obj.status,
+    'sourceConnectionState': toJson_IoTSecureTunnelingConnectionState(obj.sourceConnectionState),
+    'destinationConnectionState': toJson_IoTSecureTunnelingConnectionState(obj.destinationConnectionState),
+    'description': obj.description,
+    'destinationConfig': toJson_IoTSecureTunnelingDestinationConfig(obj.destinationConfig),
+    'timeoutConfig': toJson_IoTSecureTunnelingTimeoutConfig(obj.timeoutConfig),
+    'tags': obj.tags?.map(y => toJson_IoTSecureTunnelingTag(y)),
+    'createdAt': obj.createdAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSecureTunnelingTag
  */
 export interface IoTSecureTunnelingTag {
@@ -273,6 +502,21 @@ export interface IoTSecureTunnelingTag {
   readonly value: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSecureTunnelingTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingTag(obj: IoTSecureTunnelingTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSecureTunnelingTunnelSummary
@@ -311,6 +555,25 @@ export interface IoTSecureTunnelingTunnelSummary {
 }
 
 /**
+ * Converts an object of type 'IoTSecureTunnelingTunnelSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingTunnelSummary(obj: IoTSecureTunnelingTunnelSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tunnelId': obj.tunnelId,
+    'tunnelArn': obj.tunnelArn,
+    'status': obj.status,
+    'description': obj.description,
+    'createdAt': obj.createdAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSecureTunnelingDestinationConfig
  */
 export interface IoTSecureTunnelingDestinationConfig {
@@ -327,6 +590,21 @@ export interface IoTSecureTunnelingDestinationConfig {
 }
 
 /**
+ * Converts an object of type 'IoTSecureTunnelingDestinationConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingDestinationConfig(obj: IoTSecureTunnelingDestinationConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'thingName': obj.thingName,
+    'services': obj.services?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTSecureTunnelingTimeoutConfig
  */
 export interface IoTSecureTunnelingTimeoutConfig {
@@ -336,6 +614,20 @@ export interface IoTSecureTunnelingTimeoutConfig {
   readonly maxLifetimeTimeoutMinutes?: number;
 
 }
+
+/**
+ * Converts an object of type 'IoTSecureTunnelingTimeoutConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingTimeoutConfig(obj: IoTSecureTunnelingTimeoutConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxLifetimeTimeoutMinutes': obj.maxLifetimeTimeoutMinutes,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTSecureTunnelingConnectionState
@@ -352,3 +644,18 @@ export interface IoTSecureTunnelingConnectionState {
   readonly lastUpdatedAt?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTSecureTunnelingConnectionState' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTSecureTunnelingConnectionState(obj: IoTSecureTunnelingConnectionState | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

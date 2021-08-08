@@ -10,6 +10,20 @@ export interface LightsailAllocateStaticIpRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailAllocateStaticIpRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAllocateStaticIpRequest(obj: LightsailAllocateStaticIpRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'staticIpName': obj.staticIpName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailAllocateStaticIpResult
  */
 export interface LightsailAllocateStaticIpResult {
@@ -19,6 +33,20 @@ export interface LightsailAllocateStaticIpResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailAllocateStaticIpResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAllocateStaticIpResult(obj: LightsailAllocateStaticIpResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailAttachCertificateToDistributionRequest
@@ -37,6 +65,21 @@ export interface LightsailAttachCertificateToDistributionRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailAttachCertificateToDistributionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAttachCertificateToDistributionRequest(obj: LightsailAttachCertificateToDistributionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'distributionName': obj.distributionName,
+    'certificateName': obj.certificateName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailAttachCertificateToDistributionResult
  */
 export interface LightsailAttachCertificateToDistributionResult {
@@ -46,6 +89,20 @@ export interface LightsailAttachCertificateToDistributionResult {
   readonly operation?: LightsailOperation;
 
 }
+
+/**
+ * Converts an object of type 'LightsailAttachCertificateToDistributionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAttachCertificateToDistributionResult(obj: LightsailAttachCertificateToDistributionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailAttachDiskRequest
@@ -69,6 +126,22 @@ export interface LightsailAttachDiskRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailAttachDiskRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAttachDiskRequest(obj: LightsailAttachDiskRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'diskName': obj.diskName,
+    'instanceName': obj.instanceName,
+    'diskPath': obj.diskPath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailAttachDiskResult
  */
 export interface LightsailAttachDiskResult {
@@ -78,6 +151,20 @@ export interface LightsailAttachDiskResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailAttachDiskResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAttachDiskResult(obj: LightsailAttachDiskResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailAttachInstancesToLoadBalancerRequest
@@ -96,6 +183,21 @@ export interface LightsailAttachInstancesToLoadBalancerRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailAttachInstancesToLoadBalancerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAttachInstancesToLoadBalancerRequest(obj: LightsailAttachInstancesToLoadBalancerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loadBalancerName': obj.loadBalancerName,
+    'instanceNames': obj.instanceNames?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailAttachInstancesToLoadBalancerResult
  */
 export interface LightsailAttachInstancesToLoadBalancerResult {
@@ -105,6 +207,20 @@ export interface LightsailAttachInstancesToLoadBalancerResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailAttachInstancesToLoadBalancerResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAttachInstancesToLoadBalancerResult(obj: LightsailAttachInstancesToLoadBalancerResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailAttachLoadBalancerTlsCertificateRequest
@@ -123,6 +239,21 @@ export interface LightsailAttachLoadBalancerTlsCertificateRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailAttachLoadBalancerTlsCertificateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAttachLoadBalancerTlsCertificateRequest(obj: LightsailAttachLoadBalancerTlsCertificateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loadBalancerName': obj.loadBalancerName,
+    'certificateName': obj.certificateName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailAttachLoadBalancerTlsCertificateResult
  */
 export interface LightsailAttachLoadBalancerTlsCertificateResult {
@@ -132,6 +263,20 @@ export interface LightsailAttachLoadBalancerTlsCertificateResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailAttachLoadBalancerTlsCertificateResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAttachLoadBalancerTlsCertificateResult(obj: LightsailAttachLoadBalancerTlsCertificateResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailAttachStaticIpRequest
@@ -150,6 +295,21 @@ export interface LightsailAttachStaticIpRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailAttachStaticIpRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAttachStaticIpRequest(obj: LightsailAttachStaticIpRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'staticIpName': obj.staticIpName,
+    'instanceName': obj.instanceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailAttachStaticIpResult
  */
 export interface LightsailAttachStaticIpResult {
@@ -159,6 +319,20 @@ export interface LightsailAttachStaticIpResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailAttachStaticIpResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAttachStaticIpResult(obj: LightsailAttachStaticIpResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCloseInstancePublicPortsRequest
@@ -177,6 +351,21 @@ export interface LightsailCloseInstancePublicPortsRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailCloseInstancePublicPortsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCloseInstancePublicPortsRequest(obj: LightsailCloseInstancePublicPortsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'portInfo': toJson_LightsailPortInfo(obj.portInfo),
+    'instanceName': obj.instanceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCloseInstancePublicPortsResult
  */
 export interface LightsailCloseInstancePublicPortsResult {
@@ -186,6 +375,20 @@ export interface LightsailCloseInstancePublicPortsResult {
   readonly operation?: LightsailOperation;
 
 }
+
+/**
+ * Converts an object of type 'LightsailCloseInstancePublicPortsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCloseInstancePublicPortsResult(obj: LightsailCloseInstancePublicPortsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCopySnapshotRequest
@@ -224,6 +427,25 @@ export interface LightsailCopySnapshotRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailCopySnapshotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCopySnapshotRequest(obj: LightsailCopySnapshotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sourceSnapshotName': obj.sourceSnapshotName,
+    'sourceResourceName': obj.sourceResourceName,
+    'restoreDate': obj.restoreDate,
+    'useLatestRestorableAutoSnapshot': obj.useLatestRestorableAutoSnapshot,
+    'targetSnapshotName': obj.targetSnapshotName,
+    'sourceRegion': obj.sourceRegion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCopySnapshotResult
  */
 export interface LightsailCopySnapshotResult {
@@ -233,6 +455,150 @@ export interface LightsailCopySnapshotResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailCopySnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCopySnapshotResult(obj: LightsailCopySnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailCreateBucketRequest
+ */
+export interface LightsailCreateBucketRequest {
+  /**
+   * @schema LightsailCreateBucketRequest#bucketName
+   */
+  readonly bucketName: string;
+
+  /**
+   * @schema LightsailCreateBucketRequest#bundleId
+   */
+  readonly bundleId: string;
+
+  /**
+   * @schema LightsailCreateBucketRequest#tags
+   */
+  readonly tags?: LightsailTag[];
+
+  /**
+   * @schema LightsailCreateBucketRequest#enableObjectVersioning
+   */
+  readonly enableObjectVersioning?: boolean;
+
+}
+
+/**
+ * Converts an object of type 'LightsailCreateBucketRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateBucketRequest(obj: LightsailCreateBucketRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketName': obj.bucketName,
+    'bundleId': obj.bundleId,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'enableObjectVersioning': obj.enableObjectVersioning,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailCreateBucketResult
+ */
+export interface LightsailCreateBucketResult {
+  /**
+   * @schema LightsailCreateBucketResult#bucket
+   */
+  readonly bucket?: LightsailBucket;
+
+  /**
+   * @schema LightsailCreateBucketResult#operations
+   */
+  readonly operations?: LightsailOperation[];
+
+}
+
+/**
+ * Converts an object of type 'LightsailCreateBucketResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateBucketResult(obj: LightsailCreateBucketResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucket': toJson_LightsailBucket(obj.bucket),
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailCreateBucketAccessKeyRequest
+ */
+export interface LightsailCreateBucketAccessKeyRequest {
+  /**
+   * @schema LightsailCreateBucketAccessKeyRequest#bucketName
+   */
+  readonly bucketName: string;
+
+}
+
+/**
+ * Converts an object of type 'LightsailCreateBucketAccessKeyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateBucketAccessKeyRequest(obj: LightsailCreateBucketAccessKeyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketName': obj.bucketName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailCreateBucketAccessKeyResult
+ */
+export interface LightsailCreateBucketAccessKeyResult {
+  /**
+   * @schema LightsailCreateBucketAccessKeyResult#accessKey
+   */
+  readonly accessKey?: LightsailAccessKey;
+
+  /**
+   * @schema LightsailCreateBucketAccessKeyResult#operations
+   */
+  readonly operations?: LightsailOperation[];
+
+}
+
+/**
+ * Converts an object of type 'LightsailCreateBucketAccessKeyResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateBucketAccessKeyResult(obj: LightsailCreateBucketAccessKeyResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessKey': toJson_LightsailAccessKey(obj.accessKey),
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateCertificateRequest
@@ -261,6 +627,23 @@ export interface LightsailCreateCertificateRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateCertificateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateCertificateRequest(obj: LightsailCreateCertificateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificateName': obj.certificateName,
+    'domainName': obj.domainName,
+    'subjectAlternativeNames': obj.subjectAlternativeNames?.map(y => y),
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateCertificateResult
  */
 export interface LightsailCreateCertificateResult {
@@ -277,6 +660,21 @@ export interface LightsailCreateCertificateResult {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateCertificateResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateCertificateResult(obj: LightsailCreateCertificateResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificate': toJson_LightsailCertificateSummary(obj.certificate),
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateCloudFormationStackRequest
  */
 export interface LightsailCreateCloudFormationStackRequest {
@@ -288,6 +686,20 @@ export interface LightsailCreateCloudFormationStackRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateCloudFormationStackRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateCloudFormationStackRequest(obj: LightsailCreateCloudFormationStackRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instances': obj.instances?.map(y => toJson_LightsailInstanceEntry(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateCloudFormationStackResult
  */
 export interface LightsailCreateCloudFormationStackResult {
@@ -297,6 +709,20 @@ export interface LightsailCreateCloudFormationStackResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateCloudFormationStackResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateCloudFormationStackResult(obj: LightsailCreateCloudFormationStackResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateContactMethodRequest
@@ -315,6 +741,21 @@ export interface LightsailCreateContactMethodRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateContactMethodRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateContactMethodRequest(obj: LightsailCreateContactMethodRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'protocol': obj.protocol,
+    'contactEndpoint': obj.contactEndpoint,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateContactMethodResult
  */
 export interface LightsailCreateContactMethodResult {
@@ -324,6 +765,20 @@ export interface LightsailCreateContactMethodResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateContactMethodResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateContactMethodResult(obj: LightsailCreateContactMethodResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateContainerServiceRequest
@@ -362,6 +817,25 @@ export interface LightsailCreateContainerServiceRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateContainerServiceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateContainerServiceRequest(obj: LightsailCreateContainerServiceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'serviceName': obj.serviceName,
+    'power': obj.power,
+    'scale': obj.scale,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'publicDomainNames': ((obj.publicDomainNames) === undefined) ? undefined : (Object.entries(obj.publicDomainNames).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.map(y => y) }), {})),
+    'deployment': toJson_LightsailContainerServiceDeploymentRequest(obj.deployment),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateContainerServiceResult
  */
 export interface LightsailCreateContainerServiceResult {
@@ -371,6 +845,20 @@ export interface LightsailCreateContainerServiceResult {
   readonly containerService?: LightsailContainerService;
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateContainerServiceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateContainerServiceResult(obj: LightsailCreateContainerServiceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'containerService': toJson_LightsailContainerService(obj.containerService),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateContainerServiceDeploymentRequest
@@ -394,6 +882,22 @@ export interface LightsailCreateContainerServiceDeploymentRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateContainerServiceDeploymentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateContainerServiceDeploymentRequest(obj: LightsailCreateContainerServiceDeploymentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'serviceName': obj.serviceName,
+    'containers': ((obj.containers) === undefined) ? undefined : (Object.entries(obj.containers).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_LightsailContainer(i[1]) }), {})),
+    'publicEndpoint': toJson_LightsailEndpointRequest(obj.publicEndpoint),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateContainerServiceDeploymentResult
  */
 export interface LightsailCreateContainerServiceDeploymentResult {
@@ -405,10 +909,37 @@ export interface LightsailCreateContainerServiceDeploymentResult {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateContainerServiceDeploymentResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateContainerServiceDeploymentResult(obj: LightsailCreateContainerServiceDeploymentResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'containerService': toJson_LightsailContainerService(obj.containerService),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateContainerServiceRegistryLoginRequest
  */
 export interface LightsailCreateContainerServiceRegistryLoginRequest {
 }
+
+/**
+ * Converts an object of type 'LightsailCreateContainerServiceRegistryLoginRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateContainerServiceRegistryLoginRequest(obj: LightsailCreateContainerServiceRegistryLoginRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateContainerServiceRegistryLoginResult
@@ -420,6 +951,20 @@ export interface LightsailCreateContainerServiceRegistryLoginResult {
   readonly registryLogin?: LightsailContainerServiceRegistryLogin;
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateContainerServiceRegistryLoginResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateContainerServiceRegistryLoginResult(obj: LightsailCreateContainerServiceRegistryLoginResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'registryLogin': toJson_LightsailContainerServiceRegistryLogin(obj.registryLogin),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateDiskRequest
@@ -453,6 +998,24 @@ export interface LightsailCreateDiskRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateDiskRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateDiskRequest(obj: LightsailCreateDiskRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'diskName': obj.diskName,
+    'availabilityZone': obj.availabilityZone,
+    'sizeInGb': obj.sizeInGb,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'addOns': obj.addOns?.map(y => toJson_LightsailAddOnRequest(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateDiskResult
  */
 export interface LightsailCreateDiskResult {
@@ -462,6 +1025,20 @@ export interface LightsailCreateDiskResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateDiskResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateDiskResult(obj: LightsailCreateDiskResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateDiskFromSnapshotRequest
@@ -515,6 +1092,28 @@ export interface LightsailCreateDiskFromSnapshotRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateDiskFromSnapshotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateDiskFromSnapshotRequest(obj: LightsailCreateDiskFromSnapshotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'diskName': obj.diskName,
+    'diskSnapshotName': obj.diskSnapshotName,
+    'availabilityZone': obj.availabilityZone,
+    'sizeInGb': obj.sizeInGb,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'addOns': obj.addOns?.map(y => toJson_LightsailAddOnRequest(y)),
+    'sourceDiskName': obj.sourceDiskName,
+    'restoreDate': obj.restoreDate,
+    'useLatestRestorableAutoSnapshot': obj.useLatestRestorableAutoSnapshot,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateDiskFromSnapshotResult
  */
 export interface LightsailCreateDiskFromSnapshotResult {
@@ -524,6 +1123,20 @@ export interface LightsailCreateDiskFromSnapshotResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateDiskFromSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateDiskFromSnapshotResult(obj: LightsailCreateDiskFromSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateDiskSnapshotRequest
@@ -552,6 +1165,23 @@ export interface LightsailCreateDiskSnapshotRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateDiskSnapshotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateDiskSnapshotRequest(obj: LightsailCreateDiskSnapshotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'diskName': obj.diskName,
+    'diskSnapshotName': obj.diskSnapshotName,
+    'instanceName': obj.instanceName,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateDiskSnapshotResult
  */
 export interface LightsailCreateDiskSnapshotResult {
@@ -561,6 +1191,20 @@ export interface LightsailCreateDiskSnapshotResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateDiskSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateDiskSnapshotResult(obj: LightsailCreateDiskSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateDistributionRequest
@@ -597,11 +1241,37 @@ export interface LightsailCreateDistributionRequest {
   readonly bundleId: string;
 
   /**
+   * @schema LightsailCreateDistributionRequest#ipAddressType
+   */
+  readonly ipAddressType?: string;
+
+  /**
    * @schema LightsailCreateDistributionRequest#tags
    */
   readonly tags?: LightsailTag[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateDistributionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateDistributionRequest(obj: LightsailCreateDistributionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'distributionName': obj.distributionName,
+    'origin': toJson_LightsailInputOrigin(obj.origin),
+    'defaultCacheBehavior': toJson_LightsailCacheBehavior(obj.defaultCacheBehavior),
+    'cacheBehaviorSettings': toJson_LightsailCacheSettings(obj.cacheBehaviorSettings),
+    'cacheBehaviors': obj.cacheBehaviors?.map(y => toJson_LightsailCacheBehaviorPerPath(y)),
+    'bundleId': obj.bundleId,
+    'ipAddressType': obj.ipAddressType,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateDistributionResult
@@ -620,6 +1290,21 @@ export interface LightsailCreateDistributionResult {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateDistributionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateDistributionResult(obj: LightsailCreateDistributionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'distribution': toJson_LightsailLightsailDistribution(obj.distribution),
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateDomainRequest
  */
 export interface LightsailCreateDomainRequest {
@@ -636,6 +1321,21 @@ export interface LightsailCreateDomainRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateDomainRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateDomainRequest(obj: LightsailCreateDomainRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domainName': obj.domainName,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateDomainResult
  */
 export interface LightsailCreateDomainResult {
@@ -645,6 +1345,20 @@ export interface LightsailCreateDomainResult {
   readonly operation?: LightsailOperation;
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateDomainResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateDomainResult(obj: LightsailCreateDomainResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateDomainEntryRequest
@@ -663,6 +1377,21 @@ export interface LightsailCreateDomainEntryRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateDomainEntryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateDomainEntryRequest(obj: LightsailCreateDomainEntryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domainName': obj.domainName,
+    'domainEntry': toJson_LightsailDomainEntry(obj.domainEntry),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateDomainEntryResult
  */
 export interface LightsailCreateDomainEntryResult {
@@ -672,6 +1401,20 @@ export interface LightsailCreateDomainEntryResult {
   readonly operation?: LightsailOperation;
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateDomainEntryResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateDomainEntryResult(obj: LightsailCreateDomainEntryResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateInstanceSnapshotRequest
@@ -695,6 +1438,22 @@ export interface LightsailCreateInstanceSnapshotRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateInstanceSnapshotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateInstanceSnapshotRequest(obj: LightsailCreateInstanceSnapshotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceSnapshotName': obj.instanceSnapshotName,
+    'instanceName': obj.instanceName,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateInstanceSnapshotResult
  */
 export interface LightsailCreateInstanceSnapshotResult {
@@ -704,6 +1463,20 @@ export interface LightsailCreateInstanceSnapshotResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateInstanceSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateInstanceSnapshotResult(obj: LightsailCreateInstanceSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateInstancesRequest
@@ -754,7 +1527,35 @@ export interface LightsailCreateInstancesRequest {
    */
   readonly addOns?: LightsailAddOnRequest[];
 
+  /**
+   * @schema LightsailCreateInstancesRequest#ipAddressType
+   */
+  readonly ipAddressType?: string;
+
 }
+
+/**
+ * Converts an object of type 'LightsailCreateInstancesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateInstancesRequest(obj: LightsailCreateInstancesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceNames': obj.instanceNames?.map(y => y),
+    'availabilityZone': obj.availabilityZone,
+    'customImageName': obj.customImageName,
+    'blueprintId': obj.blueprintId,
+    'bundleId': obj.bundleId,
+    'userData': obj.userData,
+    'keyPairName': obj.keyPairName,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'addOns': obj.addOns?.map(y => toJson_LightsailAddOnRequest(y)),
+    'ipAddressType': obj.ipAddressType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateInstancesResult
@@ -766,6 +1567,20 @@ export interface LightsailCreateInstancesResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateInstancesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateInstancesResult(obj: LightsailCreateInstancesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateInstancesFromSnapshotRequest
@@ -817,6 +1632,11 @@ export interface LightsailCreateInstancesFromSnapshotRequest {
   readonly addOns?: LightsailAddOnRequest[];
 
   /**
+   * @schema LightsailCreateInstancesFromSnapshotRequest#ipAddressType
+   */
+  readonly ipAddressType?: string;
+
+  /**
    * @schema LightsailCreateInstancesFromSnapshotRequest#sourceInstanceName
    */
   readonly sourceInstanceName?: string;
@@ -834,6 +1654,32 @@ export interface LightsailCreateInstancesFromSnapshotRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateInstancesFromSnapshotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateInstancesFromSnapshotRequest(obj: LightsailCreateInstancesFromSnapshotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceNames': obj.instanceNames?.map(y => y),
+    'attachedDiskMapping': ((obj.attachedDiskMapping) === undefined) ? undefined : (Object.entries(obj.attachedDiskMapping).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.map(y => toJson_LightsailDiskMap(y)) }), {})),
+    'availabilityZone': obj.availabilityZone,
+    'instanceSnapshotName': obj.instanceSnapshotName,
+    'bundleId': obj.bundleId,
+    'userData': obj.userData,
+    'keyPairName': obj.keyPairName,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'addOns': obj.addOns?.map(y => toJson_LightsailAddOnRequest(y)),
+    'ipAddressType': obj.ipAddressType,
+    'sourceInstanceName': obj.sourceInstanceName,
+    'restoreDate': obj.restoreDate,
+    'useLatestRestorableAutoSnapshot': obj.useLatestRestorableAutoSnapshot,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateInstancesFromSnapshotResult
  */
 export interface LightsailCreateInstancesFromSnapshotResult {
@@ -843,6 +1689,20 @@ export interface LightsailCreateInstancesFromSnapshotResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateInstancesFromSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateInstancesFromSnapshotResult(obj: LightsailCreateInstancesFromSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateKeyPairRequest
@@ -859,6 +1719,21 @@ export interface LightsailCreateKeyPairRequest {
   readonly tags?: LightsailTag[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateKeyPairRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateKeyPairRequest(obj: LightsailCreateKeyPairRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'keyPairName': obj.keyPairName,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateKeyPairResult
@@ -885,6 +1760,23 @@ export interface LightsailCreateKeyPairResult {
   readonly operation?: LightsailOperation;
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateKeyPairResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateKeyPairResult(obj: LightsailCreateKeyPairResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'keyPair': toJson_LightsailKeyPair(obj.keyPair),
+    'publicKeyBase64': obj.publicKeyBase64,
+    'privateKeyBase64': obj.privateKeyBase64,
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateLoadBalancerRequest
@@ -925,7 +1817,33 @@ export interface LightsailCreateLoadBalancerRequest {
    */
   readonly tags?: LightsailTag[];
 
+  /**
+   * @schema LightsailCreateLoadBalancerRequest#ipAddressType
+   */
+  readonly ipAddressType?: string;
+
 }
+
+/**
+ * Converts an object of type 'LightsailCreateLoadBalancerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateLoadBalancerRequest(obj: LightsailCreateLoadBalancerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loadBalancerName': obj.loadBalancerName,
+    'instancePort': obj.instancePort,
+    'healthCheckPath': obj.healthCheckPath,
+    'certificateName': obj.certificateName,
+    'certificateDomainName': obj.certificateDomainName,
+    'certificateAlternativeNames': obj.certificateAlternativeNames?.map(y => y),
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'ipAddressType': obj.ipAddressType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateLoadBalancerResult
@@ -937,6 +1855,20 @@ export interface LightsailCreateLoadBalancerResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateLoadBalancerResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateLoadBalancerResult(obj: LightsailCreateLoadBalancerResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateLoadBalancerTlsCertificateRequest
@@ -970,6 +1902,24 @@ export interface LightsailCreateLoadBalancerTlsCertificateRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateLoadBalancerTlsCertificateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateLoadBalancerTlsCertificateRequest(obj: LightsailCreateLoadBalancerTlsCertificateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loadBalancerName': obj.loadBalancerName,
+    'certificateName': obj.certificateName,
+    'certificateDomainName': obj.certificateDomainName,
+    'certificateAlternativeNames': obj.certificateAlternativeNames?.map(y => y),
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateLoadBalancerTlsCertificateResult
  */
 export interface LightsailCreateLoadBalancerTlsCertificateResult {
@@ -979,6 +1929,20 @@ export interface LightsailCreateLoadBalancerTlsCertificateResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateLoadBalancerTlsCertificateResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateLoadBalancerTlsCertificateResult(obj: LightsailCreateLoadBalancerTlsCertificateResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateRelationalDatabaseRequest
@@ -1042,6 +2006,30 @@ export interface LightsailCreateRelationalDatabaseRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateRelationalDatabaseRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateRelationalDatabaseRequest(obj: LightsailCreateRelationalDatabaseRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseName': obj.relationalDatabaseName,
+    'availabilityZone': obj.availabilityZone,
+    'relationalDatabaseBlueprintId': obj.relationalDatabaseBlueprintId,
+    'relationalDatabaseBundleId': obj.relationalDatabaseBundleId,
+    'masterDatabaseName': obj.masterDatabaseName,
+    'masterUsername': obj.masterUsername,
+    'masterUserPassword': obj.masterUserPassword,
+    'preferredBackupWindow': obj.preferredBackupWindow,
+    'preferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'publiclyAccessible': obj.publiclyAccessible,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateRelationalDatabaseResult
  */
 export interface LightsailCreateRelationalDatabaseResult {
@@ -1051,6 +2039,20 @@ export interface LightsailCreateRelationalDatabaseResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateRelationalDatabaseResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateRelationalDatabaseResult(obj: LightsailCreateRelationalDatabaseResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateRelationalDatabaseFromSnapshotRequest
@@ -1104,6 +2106,28 @@ export interface LightsailCreateRelationalDatabaseFromSnapshotRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateRelationalDatabaseFromSnapshotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateRelationalDatabaseFromSnapshotRequest(obj: LightsailCreateRelationalDatabaseFromSnapshotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseName': obj.relationalDatabaseName,
+    'availabilityZone': obj.availabilityZone,
+    'publiclyAccessible': obj.publiclyAccessible,
+    'relationalDatabaseSnapshotName': obj.relationalDatabaseSnapshotName,
+    'relationalDatabaseBundleId': obj.relationalDatabaseBundleId,
+    'sourceRelationalDatabaseName': obj.sourceRelationalDatabaseName,
+    'restoreTime': obj.restoreTime,
+    'useLatestRestorableTime': obj.useLatestRestorableTime,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateRelationalDatabaseFromSnapshotResult
  */
 export interface LightsailCreateRelationalDatabaseFromSnapshotResult {
@@ -1113,6 +2137,20 @@ export interface LightsailCreateRelationalDatabaseFromSnapshotResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateRelationalDatabaseFromSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateRelationalDatabaseFromSnapshotResult(obj: LightsailCreateRelationalDatabaseFromSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCreateRelationalDatabaseSnapshotRequest
@@ -1136,6 +2174,22 @@ export interface LightsailCreateRelationalDatabaseSnapshotRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailCreateRelationalDatabaseSnapshotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateRelationalDatabaseSnapshotRequest(obj: LightsailCreateRelationalDatabaseSnapshotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseName': obj.relationalDatabaseName,
+    'relationalDatabaseSnapshotName': obj.relationalDatabaseSnapshotName,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCreateRelationalDatabaseSnapshotResult
  */
 export interface LightsailCreateRelationalDatabaseSnapshotResult {
@@ -1145,6 +2199,20 @@ export interface LightsailCreateRelationalDatabaseSnapshotResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailCreateRelationalDatabaseSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCreateRelationalDatabaseSnapshotResult(obj: LightsailCreateRelationalDatabaseSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteAlarmRequest
@@ -1158,6 +2226,20 @@ export interface LightsailDeleteAlarmRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteAlarmRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteAlarmRequest(obj: LightsailDeleteAlarmRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'alarmName': obj.alarmName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteAlarmResult
  */
 export interface LightsailDeleteAlarmResult {
@@ -1167,6 +2249,20 @@ export interface LightsailDeleteAlarmResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteAlarmResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteAlarmResult(obj: LightsailDeleteAlarmResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteAutoSnapshotRequest
@@ -1185,6 +2281,21 @@ export interface LightsailDeleteAutoSnapshotRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteAutoSnapshotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteAutoSnapshotRequest(obj: LightsailDeleteAutoSnapshotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceName': obj.resourceName,
+    'date': obj.date,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteAutoSnapshotResult
  */
 export interface LightsailDeleteAutoSnapshotResult {
@@ -1194,6 +2305,132 @@ export interface LightsailDeleteAutoSnapshotResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteAutoSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteAutoSnapshotResult(obj: LightsailDeleteAutoSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailDeleteBucketRequest
+ */
+export interface LightsailDeleteBucketRequest {
+  /**
+   * @schema LightsailDeleteBucketRequest#bucketName
+   */
+  readonly bucketName: string;
+
+  /**
+   * @schema LightsailDeleteBucketRequest#forceDelete
+   */
+  readonly forceDelete?: boolean;
+
+}
+
+/**
+ * Converts an object of type 'LightsailDeleteBucketRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteBucketRequest(obj: LightsailDeleteBucketRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketName': obj.bucketName,
+    'forceDelete': obj.forceDelete,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailDeleteBucketResult
+ */
+export interface LightsailDeleteBucketResult {
+  /**
+   * @schema LightsailDeleteBucketResult#operations
+   */
+  readonly operations?: LightsailOperation[];
+
+}
+
+/**
+ * Converts an object of type 'LightsailDeleteBucketResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteBucketResult(obj: LightsailDeleteBucketResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailDeleteBucketAccessKeyRequest
+ */
+export interface LightsailDeleteBucketAccessKeyRequest {
+  /**
+   * @schema LightsailDeleteBucketAccessKeyRequest#bucketName
+   */
+  readonly bucketName: string;
+
+  /**
+   * @schema LightsailDeleteBucketAccessKeyRequest#accessKeyId
+   */
+  readonly accessKeyId: string;
+
+}
+
+/**
+ * Converts an object of type 'LightsailDeleteBucketAccessKeyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteBucketAccessKeyRequest(obj: LightsailDeleteBucketAccessKeyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketName': obj.bucketName,
+    'accessKeyId': obj.accessKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailDeleteBucketAccessKeyResult
+ */
+export interface LightsailDeleteBucketAccessKeyResult {
+  /**
+   * @schema LightsailDeleteBucketAccessKeyResult#operations
+   */
+  readonly operations?: LightsailOperation[];
+
+}
+
+/**
+ * Converts an object of type 'LightsailDeleteBucketAccessKeyResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteBucketAccessKeyResult(obj: LightsailDeleteBucketAccessKeyResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteCertificateRequest
@@ -1207,6 +2444,20 @@ export interface LightsailDeleteCertificateRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteCertificateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteCertificateRequest(obj: LightsailDeleteCertificateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificateName': obj.certificateName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteCertificateResult
  */
 export interface LightsailDeleteCertificateResult {
@@ -1216,6 +2467,20 @@ export interface LightsailDeleteCertificateResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteCertificateResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteCertificateResult(obj: LightsailDeleteCertificateResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteContactMethodRequest
@@ -1229,6 +2494,20 @@ export interface LightsailDeleteContactMethodRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteContactMethodRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteContactMethodRequest(obj: LightsailDeleteContactMethodRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'protocol': obj.protocol,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteContactMethodResult
  */
 export interface LightsailDeleteContactMethodResult {
@@ -1238,6 +2517,20 @@ export interface LightsailDeleteContactMethodResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteContactMethodResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteContactMethodResult(obj: LightsailDeleteContactMethodResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteContainerImageRequest
@@ -1256,10 +2549,38 @@ export interface LightsailDeleteContainerImageRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteContainerImageRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteContainerImageRequest(obj: LightsailDeleteContainerImageRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'serviceName': obj.serviceName,
+    'image': obj.image,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteContainerImageResult
  */
 export interface LightsailDeleteContainerImageResult {
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteContainerImageResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteContainerImageResult(obj: LightsailDeleteContainerImageResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteContainerServiceRequest
@@ -1273,10 +2594,37 @@ export interface LightsailDeleteContainerServiceRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteContainerServiceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteContainerServiceRequest(obj: LightsailDeleteContainerServiceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'serviceName': obj.serviceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteContainerServiceResult
  */
 export interface LightsailDeleteContainerServiceResult {
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteContainerServiceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteContainerServiceResult(obj: LightsailDeleteContainerServiceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteDiskRequest
@@ -1295,6 +2643,21 @@ export interface LightsailDeleteDiskRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteDiskRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteDiskRequest(obj: LightsailDeleteDiskRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'diskName': obj.diskName,
+    'forceDeleteAddOns': obj.forceDeleteAddOns,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteDiskResult
  */
 export interface LightsailDeleteDiskResult {
@@ -1304,6 +2667,20 @@ export interface LightsailDeleteDiskResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteDiskResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteDiskResult(obj: LightsailDeleteDiskResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteDiskSnapshotRequest
@@ -1317,6 +2694,20 @@ export interface LightsailDeleteDiskSnapshotRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteDiskSnapshotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteDiskSnapshotRequest(obj: LightsailDeleteDiskSnapshotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'diskSnapshotName': obj.diskSnapshotName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteDiskSnapshotResult
  */
 export interface LightsailDeleteDiskSnapshotResult {
@@ -1326,6 +2717,20 @@ export interface LightsailDeleteDiskSnapshotResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteDiskSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteDiskSnapshotResult(obj: LightsailDeleteDiskSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteDistributionRequest
@@ -1339,6 +2744,20 @@ export interface LightsailDeleteDistributionRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteDistributionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteDistributionRequest(obj: LightsailDeleteDistributionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'distributionName': obj.distributionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteDistributionResult
  */
 export interface LightsailDeleteDistributionResult {
@@ -1348,6 +2767,20 @@ export interface LightsailDeleteDistributionResult {
   readonly operation?: LightsailOperation;
 
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteDistributionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteDistributionResult(obj: LightsailDeleteDistributionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteDomainRequest
@@ -1361,6 +2794,20 @@ export interface LightsailDeleteDomainRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteDomainRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteDomainRequest(obj: LightsailDeleteDomainRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domainName': obj.domainName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteDomainResult
  */
 export interface LightsailDeleteDomainResult {
@@ -1370,6 +2817,20 @@ export interface LightsailDeleteDomainResult {
   readonly operation?: LightsailOperation;
 
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteDomainResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteDomainResult(obj: LightsailDeleteDomainResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteDomainEntryRequest
@@ -1388,6 +2849,21 @@ export interface LightsailDeleteDomainEntryRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteDomainEntryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteDomainEntryRequest(obj: LightsailDeleteDomainEntryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domainName': obj.domainName,
+    'domainEntry': toJson_LightsailDomainEntry(obj.domainEntry),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteDomainEntryResult
  */
 export interface LightsailDeleteDomainEntryResult {
@@ -1397,6 +2873,20 @@ export interface LightsailDeleteDomainEntryResult {
   readonly operation?: LightsailOperation;
 
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteDomainEntryResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteDomainEntryResult(obj: LightsailDeleteDomainEntryResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteInstanceRequest
@@ -1415,6 +2905,21 @@ export interface LightsailDeleteInstanceRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteInstanceRequest(obj: LightsailDeleteInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceName': obj.instanceName,
+    'forceDeleteAddOns': obj.forceDeleteAddOns,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteInstanceResult
  */
 export interface LightsailDeleteInstanceResult {
@@ -1424,6 +2929,20 @@ export interface LightsailDeleteInstanceResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteInstanceResult(obj: LightsailDeleteInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteInstanceSnapshotRequest
@@ -1437,6 +2956,20 @@ export interface LightsailDeleteInstanceSnapshotRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteInstanceSnapshotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteInstanceSnapshotRequest(obj: LightsailDeleteInstanceSnapshotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceSnapshotName': obj.instanceSnapshotName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteInstanceSnapshotResult
  */
 export interface LightsailDeleteInstanceSnapshotResult {
@@ -1446,6 +2979,20 @@ export interface LightsailDeleteInstanceSnapshotResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteInstanceSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteInstanceSnapshotResult(obj: LightsailDeleteInstanceSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteKeyPairRequest
@@ -1459,6 +3006,20 @@ export interface LightsailDeleteKeyPairRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteKeyPairRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteKeyPairRequest(obj: LightsailDeleteKeyPairRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'keyPairName': obj.keyPairName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteKeyPairResult
  */
 export interface LightsailDeleteKeyPairResult {
@@ -1468,6 +3029,20 @@ export interface LightsailDeleteKeyPairResult {
   readonly operation?: LightsailOperation;
 
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteKeyPairResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteKeyPairResult(obj: LightsailDeleteKeyPairResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteKnownHostKeysRequest
@@ -1481,6 +3056,20 @@ export interface LightsailDeleteKnownHostKeysRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteKnownHostKeysRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteKnownHostKeysRequest(obj: LightsailDeleteKnownHostKeysRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceName': obj.instanceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteKnownHostKeysResult
  */
 export interface LightsailDeleteKnownHostKeysResult {
@@ -1490,6 +3079,20 @@ export interface LightsailDeleteKnownHostKeysResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteKnownHostKeysResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteKnownHostKeysResult(obj: LightsailDeleteKnownHostKeysResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteLoadBalancerRequest
@@ -1503,6 +3106,20 @@ export interface LightsailDeleteLoadBalancerRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteLoadBalancerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteLoadBalancerRequest(obj: LightsailDeleteLoadBalancerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loadBalancerName': obj.loadBalancerName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteLoadBalancerResult
  */
 export interface LightsailDeleteLoadBalancerResult {
@@ -1512,6 +3129,20 @@ export interface LightsailDeleteLoadBalancerResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteLoadBalancerResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteLoadBalancerResult(obj: LightsailDeleteLoadBalancerResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteLoadBalancerTlsCertificateRequest
@@ -1535,6 +3166,22 @@ export interface LightsailDeleteLoadBalancerTlsCertificateRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteLoadBalancerTlsCertificateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteLoadBalancerTlsCertificateRequest(obj: LightsailDeleteLoadBalancerTlsCertificateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loadBalancerName': obj.loadBalancerName,
+    'certificateName': obj.certificateName,
+    'force': obj.force,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteLoadBalancerTlsCertificateResult
  */
 export interface LightsailDeleteLoadBalancerTlsCertificateResult {
@@ -1544,6 +3191,20 @@ export interface LightsailDeleteLoadBalancerTlsCertificateResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteLoadBalancerTlsCertificateResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteLoadBalancerTlsCertificateResult(obj: LightsailDeleteLoadBalancerTlsCertificateResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteRelationalDatabaseRequest
@@ -1567,6 +3228,22 @@ export interface LightsailDeleteRelationalDatabaseRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteRelationalDatabaseRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteRelationalDatabaseRequest(obj: LightsailDeleteRelationalDatabaseRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseName': obj.relationalDatabaseName,
+    'skipFinalSnapshot': obj.skipFinalSnapshot,
+    'finalRelationalDatabaseSnapshotName': obj.finalRelationalDatabaseSnapshotName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteRelationalDatabaseResult
  */
 export interface LightsailDeleteRelationalDatabaseResult {
@@ -1576,6 +3253,20 @@ export interface LightsailDeleteRelationalDatabaseResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteRelationalDatabaseResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteRelationalDatabaseResult(obj: LightsailDeleteRelationalDatabaseResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDeleteRelationalDatabaseSnapshotRequest
@@ -1589,6 +3280,20 @@ export interface LightsailDeleteRelationalDatabaseSnapshotRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDeleteRelationalDatabaseSnapshotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteRelationalDatabaseSnapshotRequest(obj: LightsailDeleteRelationalDatabaseSnapshotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseSnapshotName': obj.relationalDatabaseSnapshotName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDeleteRelationalDatabaseSnapshotResult
  */
 export interface LightsailDeleteRelationalDatabaseSnapshotResult {
@@ -1598,6 +3303,20 @@ export interface LightsailDeleteRelationalDatabaseSnapshotResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailDeleteRelationalDatabaseSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDeleteRelationalDatabaseSnapshotResult(obj: LightsailDeleteRelationalDatabaseSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDetachCertificateFromDistributionRequest
@@ -1611,6 +3330,20 @@ export interface LightsailDetachCertificateFromDistributionRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDetachCertificateFromDistributionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDetachCertificateFromDistributionRequest(obj: LightsailDetachCertificateFromDistributionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'distributionName': obj.distributionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDetachCertificateFromDistributionResult
  */
 export interface LightsailDetachCertificateFromDistributionResult {
@@ -1620,6 +3353,20 @@ export interface LightsailDetachCertificateFromDistributionResult {
   readonly operation?: LightsailOperation;
 
 }
+
+/**
+ * Converts an object of type 'LightsailDetachCertificateFromDistributionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDetachCertificateFromDistributionResult(obj: LightsailDetachCertificateFromDistributionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDetachDiskRequest
@@ -1633,6 +3380,20 @@ export interface LightsailDetachDiskRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDetachDiskRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDetachDiskRequest(obj: LightsailDetachDiskRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'diskName': obj.diskName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDetachDiskResult
  */
 export interface LightsailDetachDiskResult {
@@ -1642,6 +3403,20 @@ export interface LightsailDetachDiskResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailDetachDiskResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDetachDiskResult(obj: LightsailDetachDiskResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDetachInstancesFromLoadBalancerRequest
@@ -1660,6 +3435,21 @@ export interface LightsailDetachInstancesFromLoadBalancerRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDetachInstancesFromLoadBalancerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDetachInstancesFromLoadBalancerRequest(obj: LightsailDetachInstancesFromLoadBalancerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loadBalancerName': obj.loadBalancerName,
+    'instanceNames': obj.instanceNames?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDetachInstancesFromLoadBalancerResult
  */
 export interface LightsailDetachInstancesFromLoadBalancerResult {
@@ -1669,6 +3459,20 @@ export interface LightsailDetachInstancesFromLoadBalancerResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailDetachInstancesFromLoadBalancerResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDetachInstancesFromLoadBalancerResult(obj: LightsailDetachInstancesFromLoadBalancerResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDetachStaticIpRequest
@@ -1682,6 +3486,20 @@ export interface LightsailDetachStaticIpRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDetachStaticIpRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDetachStaticIpRequest(obj: LightsailDetachStaticIpRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'staticIpName': obj.staticIpName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDetachStaticIpResult
  */
 export interface LightsailDetachStaticIpResult {
@@ -1691,6 +3509,20 @@ export interface LightsailDetachStaticIpResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailDetachStaticIpResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDetachStaticIpResult(obj: LightsailDetachStaticIpResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDisableAddOnRequest
@@ -1709,6 +3541,21 @@ export interface LightsailDisableAddOnRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailDisableAddOnRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDisableAddOnRequest(obj: LightsailDisableAddOnRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'addOnType': obj.addOnType,
+    'resourceName': obj.resourceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDisableAddOnResult
  */
 export interface LightsailDisableAddOnResult {
@@ -1720,10 +3567,37 @@ export interface LightsailDisableAddOnResult {
 }
 
 /**
+ * Converts an object of type 'LightsailDisableAddOnResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDisableAddOnResult(obj: LightsailDisableAddOnResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDownloadDefaultKeyPairRequest
  */
 export interface LightsailDownloadDefaultKeyPairRequest {
 }
+
+/**
+ * Converts an object of type 'LightsailDownloadDefaultKeyPairRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDownloadDefaultKeyPairRequest(obj: LightsailDownloadDefaultKeyPairRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDownloadDefaultKeyPairResult
@@ -1742,6 +3616,21 @@ export interface LightsailDownloadDefaultKeyPairResult {
 }
 
 /**
+ * Converts an object of type 'LightsailDownloadDefaultKeyPairResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDownloadDefaultKeyPairResult(obj: LightsailDownloadDefaultKeyPairResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'publicKeyBase64': obj.publicKeyBase64,
+    'privateKeyBase64': obj.privateKeyBase64,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailEnableAddOnRequest
  */
 export interface LightsailEnableAddOnRequest {
@@ -1758,6 +3647,21 @@ export interface LightsailEnableAddOnRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailEnableAddOnRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailEnableAddOnRequest(obj: LightsailEnableAddOnRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceName': obj.resourceName,
+    'addOnRequest': toJson_LightsailAddOnRequest(obj.addOnRequest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailEnableAddOnResult
  */
 export interface LightsailEnableAddOnResult {
@@ -1767,6 +3671,20 @@ export interface LightsailEnableAddOnResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailEnableAddOnResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailEnableAddOnResult(obj: LightsailEnableAddOnResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailExportSnapshotRequest
@@ -1780,6 +3698,20 @@ export interface LightsailExportSnapshotRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailExportSnapshotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailExportSnapshotRequest(obj: LightsailExportSnapshotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sourceSnapshotName': obj.sourceSnapshotName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailExportSnapshotResult
  */
 export interface LightsailExportSnapshotResult {
@@ -1791,6 +3723,20 @@ export interface LightsailExportSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'LightsailExportSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailExportSnapshotResult(obj: LightsailExportSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetActiveNamesRequest
  */
 export interface LightsailGetActiveNamesRequest {
@@ -1800,6 +3746,20 @@ export interface LightsailGetActiveNamesRequest {
   readonly pageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetActiveNamesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetActiveNamesRequest(obj: LightsailGetActiveNamesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetActiveNamesResult
@@ -1816,6 +3776,21 @@ export interface LightsailGetActiveNamesResult {
   readonly nextPageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetActiveNamesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetActiveNamesResult(obj: LightsailGetActiveNamesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'activeNames': obj.activeNames?.map(y => y),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetAlarmsRequest
@@ -1839,6 +3814,22 @@ export interface LightsailGetAlarmsRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetAlarmsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetAlarmsRequest(obj: LightsailGetAlarmsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'alarmName': obj.alarmName,
+    'pageToken': obj.pageToken,
+    'monitoredResourceName': obj.monitoredResourceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetAlarmsResult
  */
 export interface LightsailGetAlarmsResult {
@@ -1855,6 +3846,21 @@ export interface LightsailGetAlarmsResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetAlarmsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetAlarmsResult(obj: LightsailGetAlarmsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'alarms': obj.alarms?.map(y => toJson_LightsailAlarm(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetAutoSnapshotsRequest
  */
 export interface LightsailGetAutoSnapshotsRequest {
@@ -1864,6 +3870,20 @@ export interface LightsailGetAutoSnapshotsRequest {
   readonly resourceName: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetAutoSnapshotsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetAutoSnapshotsRequest(obj: LightsailGetAutoSnapshotsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceName': obj.resourceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetAutoSnapshotsResult
@@ -1887,6 +3907,22 @@ export interface LightsailGetAutoSnapshotsResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetAutoSnapshotsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetAutoSnapshotsResult(obj: LightsailGetAutoSnapshotsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceName': obj.resourceName,
+    'resourceType': obj.resourceType,
+    'autoSnapshots': obj.autoSnapshots?.map(y => toJson_LightsailAutoSnapshotDetails(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetBlueprintsRequest
  */
 export interface LightsailGetBlueprintsRequest {
@@ -1901,6 +3937,21 @@ export interface LightsailGetBlueprintsRequest {
   readonly pageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetBlueprintsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetBlueprintsRequest(obj: LightsailGetBlueprintsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'includeInactive': obj.includeInactive,
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetBlueprintsResult
@@ -1919,6 +3970,281 @@ export interface LightsailGetBlueprintsResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetBlueprintsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetBlueprintsResult(obj: LightsailGetBlueprintsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'blueprints': obj.blueprints?.map(y => toJson_LightsailBlueprint(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailGetBucketAccessKeysRequest
+ */
+export interface LightsailGetBucketAccessKeysRequest {
+  /**
+   * @schema LightsailGetBucketAccessKeysRequest#bucketName
+   */
+  readonly bucketName: string;
+
+}
+
+/**
+ * Converts an object of type 'LightsailGetBucketAccessKeysRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetBucketAccessKeysRequest(obj: LightsailGetBucketAccessKeysRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketName': obj.bucketName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailGetBucketAccessKeysResult
+ */
+export interface LightsailGetBucketAccessKeysResult {
+  /**
+   * @schema LightsailGetBucketAccessKeysResult#accessKeys
+   */
+  readonly accessKeys?: LightsailAccessKey[];
+
+}
+
+/**
+ * Converts an object of type 'LightsailGetBucketAccessKeysResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetBucketAccessKeysResult(obj: LightsailGetBucketAccessKeysResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessKeys': obj.accessKeys?.map(y => toJson_LightsailAccessKey(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailGetBucketBundlesRequest
+ */
+export interface LightsailGetBucketBundlesRequest {
+  /**
+   * @schema LightsailGetBucketBundlesRequest#includeInactive
+   */
+  readonly includeInactive?: boolean;
+
+}
+
+/**
+ * Converts an object of type 'LightsailGetBucketBundlesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetBucketBundlesRequest(obj: LightsailGetBucketBundlesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'includeInactive': obj.includeInactive,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailGetBucketBundlesResult
+ */
+export interface LightsailGetBucketBundlesResult {
+  /**
+   * @schema LightsailGetBucketBundlesResult#bundles
+   */
+  readonly bundles?: LightsailBucketBundle[];
+
+}
+
+/**
+ * Converts an object of type 'LightsailGetBucketBundlesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetBucketBundlesResult(obj: LightsailGetBucketBundlesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bundles': obj.bundles?.map(y => toJson_LightsailBucketBundle(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailGetBucketMetricDataRequest
+ */
+export interface LightsailGetBucketMetricDataRequest {
+  /**
+   * @schema LightsailGetBucketMetricDataRequest#bucketName
+   */
+  readonly bucketName: string;
+
+  /**
+   * @schema LightsailGetBucketMetricDataRequest#metricName
+   */
+  readonly metricName: string;
+
+  /**
+   * @schema LightsailGetBucketMetricDataRequest#startTime
+   */
+  readonly startTime: string;
+
+  /**
+   * @schema LightsailGetBucketMetricDataRequest#endTime
+   */
+  readonly endTime: string;
+
+  /**
+   * @schema LightsailGetBucketMetricDataRequest#period
+   */
+  readonly period: number;
+
+  /**
+   * @schema LightsailGetBucketMetricDataRequest#statistics
+   */
+  readonly statistics: string[];
+
+  /**
+   * @schema LightsailGetBucketMetricDataRequest#unit
+   */
+  readonly unit: string;
+
+}
+
+/**
+ * Converts an object of type 'LightsailGetBucketMetricDataRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetBucketMetricDataRequest(obj: LightsailGetBucketMetricDataRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketName': obj.bucketName,
+    'metricName': obj.metricName,
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+    'period': obj.period,
+    'statistics': obj.statistics?.map(y => y),
+    'unit': obj.unit,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailGetBucketMetricDataResult
+ */
+export interface LightsailGetBucketMetricDataResult {
+  /**
+   * @schema LightsailGetBucketMetricDataResult#metricName
+   */
+  readonly metricName?: string;
+
+  /**
+   * @schema LightsailGetBucketMetricDataResult#metricData
+   */
+  readonly metricData?: LightsailMetricDatapoint[];
+
+}
+
+/**
+ * Converts an object of type 'LightsailGetBucketMetricDataResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetBucketMetricDataResult(obj: LightsailGetBucketMetricDataResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'metricName': obj.metricName,
+    'metricData': obj.metricData?.map(y => toJson_LightsailMetricDatapoint(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailGetBucketsRequest
+ */
+export interface LightsailGetBucketsRequest {
+  /**
+   * @schema LightsailGetBucketsRequest#bucketName
+   */
+  readonly bucketName?: string;
+
+  /**
+   * @schema LightsailGetBucketsRequest#pageToken
+   */
+  readonly pageToken?: string;
+
+  /**
+   * @schema LightsailGetBucketsRequest#includeConnectedResources
+   */
+  readonly includeConnectedResources?: boolean;
+
+}
+
+/**
+ * Converts an object of type 'LightsailGetBucketsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetBucketsRequest(obj: LightsailGetBucketsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketName': obj.bucketName,
+    'pageToken': obj.pageToken,
+    'includeConnectedResources': obj.includeConnectedResources,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailGetBucketsResult
+ */
+export interface LightsailGetBucketsResult {
+  /**
+   * @schema LightsailGetBucketsResult#buckets
+   */
+  readonly buckets?: LightsailBucket[];
+
+  /**
+   * @schema LightsailGetBucketsResult#nextPageToken
+   */
+  readonly nextPageToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'LightsailGetBucketsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetBucketsResult(obj: LightsailGetBucketsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'buckets': obj.buckets?.map(y => toJson_LightsailBucket(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetBundlesRequest
  */
 export interface LightsailGetBundlesRequest {
@@ -1935,6 +4261,21 @@ export interface LightsailGetBundlesRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetBundlesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetBundlesRequest(obj: LightsailGetBundlesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'includeInactive': obj.includeInactive,
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetBundlesResult
  */
 export interface LightsailGetBundlesResult {
@@ -1949,6 +4290,21 @@ export interface LightsailGetBundlesResult {
   readonly nextPageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetBundlesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetBundlesResult(obj: LightsailGetBundlesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bundles': obj.bundles?.map(y => toJson_LightsailBundle(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetCertificatesRequest
@@ -1972,6 +4328,22 @@ export interface LightsailGetCertificatesRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetCertificatesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetCertificatesRequest(obj: LightsailGetCertificatesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificateStatuses': obj.certificateStatuses?.map(y => y),
+    'includeCertificateDetails': obj.includeCertificateDetails,
+    'certificateName': obj.certificateName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetCertificatesResult
  */
 export interface LightsailGetCertificatesResult {
@@ -1983,6 +4355,20 @@ export interface LightsailGetCertificatesResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetCertificatesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetCertificatesResult(obj: LightsailGetCertificatesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificates': obj.certificates?.map(y => toJson_LightsailCertificateSummary(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetCloudFormationStackRecordsRequest
  */
 export interface LightsailGetCloudFormationStackRecordsRequest {
@@ -1992,6 +4378,20 @@ export interface LightsailGetCloudFormationStackRecordsRequest {
   readonly pageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetCloudFormationStackRecordsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetCloudFormationStackRecordsRequest(obj: LightsailGetCloudFormationStackRecordsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetCloudFormationStackRecordsResult
@@ -2010,6 +4410,21 @@ export interface LightsailGetCloudFormationStackRecordsResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetCloudFormationStackRecordsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetCloudFormationStackRecordsResult(obj: LightsailGetCloudFormationStackRecordsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'cloudFormationStackRecords': obj.cloudFormationStackRecords?.map(y => toJson_LightsailCloudFormationStackRecord(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetContactMethodsRequest
  */
 export interface LightsailGetContactMethodsRequest {
@@ -2019,6 +4434,20 @@ export interface LightsailGetContactMethodsRequest {
   readonly protocols?: string[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetContactMethodsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetContactMethodsRequest(obj: LightsailGetContactMethodsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'protocols': obj.protocols?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetContactMethodsResult
@@ -2032,10 +4461,37 @@ export interface LightsailGetContactMethodsResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetContactMethodsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetContactMethodsResult(obj: LightsailGetContactMethodsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'contactMethods': obj.contactMethods?.map(y => toJson_LightsailContactMethod(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetContainerApiMetadataRequest
  */
 export interface LightsailGetContainerApiMetadataRequest {
 }
+
+/**
+ * Converts an object of type 'LightsailGetContainerApiMetadataRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetContainerApiMetadataRequest(obj: LightsailGetContainerApiMetadataRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetContainerApiMetadataResult
@@ -2049,6 +4505,20 @@ export interface LightsailGetContainerApiMetadataResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetContainerApiMetadataResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetContainerApiMetadataResult(obj: LightsailGetContainerApiMetadataResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'metadata': obj.metadata?.map(y => ((y) === undefined) ? undefined : (Object.entries(y).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {}))),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetContainerImagesRequest
  */
 export interface LightsailGetContainerImagesRequest {
@@ -2060,6 +4530,20 @@ export interface LightsailGetContainerImagesRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetContainerImagesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetContainerImagesRequest(obj: LightsailGetContainerImagesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'serviceName': obj.serviceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetContainerImagesResult
  */
 export interface LightsailGetContainerImagesResult {
@@ -2069,6 +4553,20 @@ export interface LightsailGetContainerImagesResult {
   readonly containerImages?: LightsailContainerImage[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetContainerImagesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetContainerImagesResult(obj: LightsailGetContainerImagesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'containerImages': obj.containerImages?.map(y => toJson_LightsailContainerImage(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetContainerLogRequest
@@ -2107,6 +4605,25 @@ export interface LightsailGetContainerLogRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetContainerLogRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetContainerLogRequest(obj: LightsailGetContainerLogRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'serviceName': obj.serviceName,
+    'containerName': obj.containerName,
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+    'filterPattern': obj.filterPattern,
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetContainerLogResult
  */
 export interface LightsailGetContainerLogResult {
@@ -2123,6 +4640,21 @@ export interface LightsailGetContainerLogResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetContainerLogResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetContainerLogResult(obj: LightsailGetContainerLogResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'logEvents': obj.logEvents?.map(y => toJson_LightsailContainerServiceLogEvent(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetContainerServiceDeploymentsRequest
  */
 export interface LightsailGetContainerServiceDeploymentsRequest {
@@ -2134,6 +4666,20 @@ export interface LightsailGetContainerServiceDeploymentsRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetContainerServiceDeploymentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetContainerServiceDeploymentsRequest(obj: LightsailGetContainerServiceDeploymentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'serviceName': obj.serviceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetContainerServiceDeploymentsResult
  */
 export interface LightsailGetContainerServiceDeploymentsResult {
@@ -2143,6 +4689,20 @@ export interface LightsailGetContainerServiceDeploymentsResult {
   readonly deployments?: LightsailContainerServiceDeployment[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetContainerServiceDeploymentsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetContainerServiceDeploymentsResult(obj: LightsailGetContainerServiceDeploymentsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deployments': obj.deployments?.map(y => toJson_LightsailContainerServiceDeployment(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetContainerServiceMetricDataRequest
@@ -2181,6 +4741,25 @@ export interface LightsailGetContainerServiceMetricDataRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetContainerServiceMetricDataRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetContainerServiceMetricDataRequest(obj: LightsailGetContainerServiceMetricDataRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'serviceName': obj.serviceName,
+    'metricName': obj.metricName,
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+    'period': obj.period,
+    'statistics': obj.statistics?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetContainerServiceMetricDataResult
  */
 export interface LightsailGetContainerServiceMetricDataResult {
@@ -2197,10 +4776,38 @@ export interface LightsailGetContainerServiceMetricDataResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetContainerServiceMetricDataResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetContainerServiceMetricDataResult(obj: LightsailGetContainerServiceMetricDataResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'metricName': obj.metricName,
+    'metricData': obj.metricData?.map(y => toJson_LightsailMetricDatapoint(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetContainerServicePowersRequest
  */
 export interface LightsailGetContainerServicePowersRequest {
 }
+
+/**
+ * Converts an object of type 'LightsailGetContainerServicePowersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetContainerServicePowersRequest(obj: LightsailGetContainerServicePowersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetContainerServicePowersResult
@@ -2214,6 +4821,20 @@ export interface LightsailGetContainerServicePowersResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetContainerServicePowersResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetContainerServicePowersResult(obj: LightsailGetContainerServicePowersResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'powers': obj.powers?.map(y => toJson_LightsailContainerServicePower(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetContainerServicesRequest
  */
 export interface LightsailGetContainerServicesRequest {
@@ -2223,6 +4844,20 @@ export interface LightsailGetContainerServicesRequest {
   readonly serviceName?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetContainerServicesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetContainerServicesRequest(obj: LightsailGetContainerServicesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'serviceName': obj.serviceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailContainerServicesListResult
@@ -2236,6 +4871,20 @@ export interface LightsailContainerServicesListResult {
 }
 
 /**
+ * Converts an object of type 'LightsailContainerServicesListResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailContainerServicesListResult(obj: LightsailContainerServicesListResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'containerServices': obj.containerServices?.map(y => toJson_LightsailContainerService(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetDiskRequest
  */
 export interface LightsailGetDiskRequest {
@@ -2245,6 +4894,20 @@ export interface LightsailGetDiskRequest {
   readonly diskName: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetDiskRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDiskRequest(obj: LightsailGetDiskRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'diskName': obj.diskName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetDiskResult
@@ -2258,6 +4921,20 @@ export interface LightsailGetDiskResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetDiskResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDiskResult(obj: LightsailGetDiskResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'disk': toJson_LightsailDisk(obj.disk),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetDiskSnapshotRequest
  */
 export interface LightsailGetDiskSnapshotRequest {
@@ -2267,6 +4944,20 @@ export interface LightsailGetDiskSnapshotRequest {
   readonly diskSnapshotName: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetDiskSnapshotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDiskSnapshotRequest(obj: LightsailGetDiskSnapshotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'diskSnapshotName': obj.diskSnapshotName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetDiskSnapshotResult
@@ -2280,6 +4971,20 @@ export interface LightsailGetDiskSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetDiskSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDiskSnapshotResult(obj: LightsailGetDiskSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'diskSnapshot': toJson_LightsailDiskSnapshot(obj.diskSnapshot),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetDiskSnapshotsRequest
  */
 export interface LightsailGetDiskSnapshotsRequest {
@@ -2289,6 +4994,20 @@ export interface LightsailGetDiskSnapshotsRequest {
   readonly pageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetDiskSnapshotsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDiskSnapshotsRequest(obj: LightsailGetDiskSnapshotsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetDiskSnapshotsResult
@@ -2307,6 +5026,21 @@ export interface LightsailGetDiskSnapshotsResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetDiskSnapshotsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDiskSnapshotsResult(obj: LightsailGetDiskSnapshotsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'diskSnapshots': obj.diskSnapshots?.map(y => toJson_LightsailDiskSnapshot(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetDisksRequest
  */
 export interface LightsailGetDisksRequest {
@@ -2316,6 +5050,20 @@ export interface LightsailGetDisksRequest {
   readonly pageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetDisksRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDisksRequest(obj: LightsailGetDisksRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetDisksResult
@@ -2334,10 +5082,38 @@ export interface LightsailGetDisksResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetDisksResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDisksResult(obj: LightsailGetDisksResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'disks': obj.disks?.map(y => toJson_LightsailDisk(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetDistributionBundlesRequest
  */
 export interface LightsailGetDistributionBundlesRequest {
 }
+
+/**
+ * Converts an object of type 'LightsailGetDistributionBundlesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDistributionBundlesRequest(obj: LightsailGetDistributionBundlesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetDistributionBundlesResult
@@ -2351,6 +5127,20 @@ export interface LightsailGetDistributionBundlesResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetDistributionBundlesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDistributionBundlesResult(obj: LightsailGetDistributionBundlesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bundles': obj.bundles?.map(y => toJson_LightsailDistributionBundle(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetDistributionLatestCacheResetRequest
  */
 export interface LightsailGetDistributionLatestCacheResetRequest {
@@ -2360,6 +5150,20 @@ export interface LightsailGetDistributionLatestCacheResetRequest {
   readonly distributionName?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetDistributionLatestCacheResetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDistributionLatestCacheResetRequest(obj: LightsailGetDistributionLatestCacheResetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'distributionName': obj.distributionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetDistributionLatestCacheResetResult
@@ -2376,6 +5180,21 @@ export interface LightsailGetDistributionLatestCacheResetResult {
   readonly createTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetDistributionLatestCacheResetResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDistributionLatestCacheResetResult(obj: LightsailGetDistributionLatestCacheResetResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+    'createTime': obj.createTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetDistributionMetricDataRequest
@@ -2419,6 +5238,26 @@ export interface LightsailGetDistributionMetricDataRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetDistributionMetricDataRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDistributionMetricDataRequest(obj: LightsailGetDistributionMetricDataRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'distributionName': obj.distributionName,
+    'metricName': obj.metricName,
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+    'period': obj.period,
+    'unit': obj.unit,
+    'statistics': obj.statistics?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetDistributionMetricDataResult
  */
 export interface LightsailGetDistributionMetricDataResult {
@@ -2433,6 +5272,21 @@ export interface LightsailGetDistributionMetricDataResult {
   readonly metricData?: LightsailMetricDatapoint[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetDistributionMetricDataResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDistributionMetricDataResult(obj: LightsailGetDistributionMetricDataResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'metricName': obj.metricName,
+    'metricData': obj.metricData?.map(y => toJson_LightsailMetricDatapoint(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetDistributionsRequest
@@ -2451,6 +5305,21 @@ export interface LightsailGetDistributionsRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetDistributionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDistributionsRequest(obj: LightsailGetDistributionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'distributionName': obj.distributionName,
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetDistributionsResult
  */
 export interface LightsailGetDistributionsResult {
@@ -2467,6 +5336,21 @@ export interface LightsailGetDistributionsResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetDistributionsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDistributionsResult(obj: LightsailGetDistributionsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'distributions': obj.distributions?.map(y => toJson_LightsailLightsailDistribution(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetDomainRequest
  */
 export interface LightsailGetDomainRequest {
@@ -2476,6 +5360,20 @@ export interface LightsailGetDomainRequest {
   readonly domainName: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetDomainRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDomainRequest(obj: LightsailGetDomainRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domainName': obj.domainName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetDomainResult
@@ -2489,6 +5387,20 @@ export interface LightsailGetDomainResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetDomainResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDomainResult(obj: LightsailGetDomainResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': toJson_LightsailDomain(obj.domain),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetDomainsRequest
  */
 export interface LightsailGetDomainsRequest {
@@ -2498,6 +5410,20 @@ export interface LightsailGetDomainsRequest {
   readonly pageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetDomainsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDomainsRequest(obj: LightsailGetDomainsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetDomainsResult
@@ -2516,6 +5442,21 @@ export interface LightsailGetDomainsResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetDomainsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetDomainsResult(obj: LightsailGetDomainsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domains': obj.domains?.map(y => toJson_LightsailDomain(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetExportSnapshotRecordsRequest
  */
 export interface LightsailGetExportSnapshotRecordsRequest {
@@ -2525,6 +5466,20 @@ export interface LightsailGetExportSnapshotRecordsRequest {
   readonly pageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetExportSnapshotRecordsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetExportSnapshotRecordsRequest(obj: LightsailGetExportSnapshotRecordsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetExportSnapshotRecordsResult
@@ -2543,6 +5498,21 @@ export interface LightsailGetExportSnapshotRecordsResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetExportSnapshotRecordsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetExportSnapshotRecordsResult(obj: LightsailGetExportSnapshotRecordsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exportSnapshotRecords': obj.exportSnapshotRecords?.map(y => toJson_LightsailExportSnapshotRecord(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetInstanceRequest
  */
 export interface LightsailGetInstanceRequest {
@@ -2554,6 +5524,20 @@ export interface LightsailGetInstanceRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetInstanceRequest(obj: LightsailGetInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceName': obj.instanceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetInstanceResult
  */
 export interface LightsailGetInstanceResult {
@@ -2563,6 +5547,20 @@ export interface LightsailGetInstanceResult {
   readonly instance?: LightsailInstance;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetInstanceResult(obj: LightsailGetInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instance': toJson_LightsailInstance(obj.instance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetInstanceAccessDetailsRequest
@@ -2581,6 +5579,21 @@ export interface LightsailGetInstanceAccessDetailsRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetInstanceAccessDetailsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetInstanceAccessDetailsRequest(obj: LightsailGetInstanceAccessDetailsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceName': obj.instanceName,
+    'protocol': obj.protocol,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetInstanceAccessDetailsResult
  */
 export interface LightsailGetInstanceAccessDetailsResult {
@@ -2590,6 +5603,20 @@ export interface LightsailGetInstanceAccessDetailsResult {
   readonly accessDetails?: LightsailInstanceAccessDetails;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetInstanceAccessDetailsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetInstanceAccessDetailsResult(obj: LightsailGetInstanceAccessDetailsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessDetails': toJson_LightsailInstanceAccessDetails(obj.accessDetails),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetInstanceMetricDataRequest
@@ -2633,6 +5660,26 @@ export interface LightsailGetInstanceMetricDataRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetInstanceMetricDataRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetInstanceMetricDataRequest(obj: LightsailGetInstanceMetricDataRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceName': obj.instanceName,
+    'metricName': obj.metricName,
+    'period': obj.period,
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+    'unit': obj.unit,
+    'statistics': obj.statistics?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetInstanceMetricDataResult
  */
 export interface LightsailGetInstanceMetricDataResult {
@@ -2649,6 +5696,21 @@ export interface LightsailGetInstanceMetricDataResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetInstanceMetricDataResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetInstanceMetricDataResult(obj: LightsailGetInstanceMetricDataResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'metricName': obj.metricName,
+    'metricData': obj.metricData?.map(y => toJson_LightsailMetricDatapoint(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetInstancePortStatesRequest
  */
 export interface LightsailGetInstancePortStatesRequest {
@@ -2658,6 +5720,20 @@ export interface LightsailGetInstancePortStatesRequest {
   readonly instanceName: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetInstancePortStatesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetInstancePortStatesRequest(obj: LightsailGetInstancePortStatesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceName': obj.instanceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetInstancePortStatesResult
@@ -2671,6 +5747,20 @@ export interface LightsailGetInstancePortStatesResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetInstancePortStatesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetInstancePortStatesResult(obj: LightsailGetInstancePortStatesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'portStates': obj.portStates?.map(y => toJson_LightsailInstancePortState(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetInstanceSnapshotRequest
  */
 export interface LightsailGetInstanceSnapshotRequest {
@@ -2680,6 +5770,20 @@ export interface LightsailGetInstanceSnapshotRequest {
   readonly instanceSnapshotName: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetInstanceSnapshotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetInstanceSnapshotRequest(obj: LightsailGetInstanceSnapshotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceSnapshotName': obj.instanceSnapshotName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetInstanceSnapshotResult
@@ -2693,6 +5797,20 @@ export interface LightsailGetInstanceSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetInstanceSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetInstanceSnapshotResult(obj: LightsailGetInstanceSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceSnapshot': toJson_LightsailInstanceSnapshot(obj.instanceSnapshot),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetInstanceSnapshotsRequest
  */
 export interface LightsailGetInstanceSnapshotsRequest {
@@ -2702,6 +5820,20 @@ export interface LightsailGetInstanceSnapshotsRequest {
   readonly pageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetInstanceSnapshotsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetInstanceSnapshotsRequest(obj: LightsailGetInstanceSnapshotsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetInstanceSnapshotsResult
@@ -2720,6 +5852,21 @@ export interface LightsailGetInstanceSnapshotsResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetInstanceSnapshotsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetInstanceSnapshotsResult(obj: LightsailGetInstanceSnapshotsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceSnapshots': obj.instanceSnapshots?.map(y => toJson_LightsailInstanceSnapshot(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetInstanceStateRequest
  */
 export interface LightsailGetInstanceStateRequest {
@@ -2729,6 +5876,20 @@ export interface LightsailGetInstanceStateRequest {
   readonly instanceName: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetInstanceStateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetInstanceStateRequest(obj: LightsailGetInstanceStateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceName': obj.instanceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetInstanceStateResult
@@ -2742,6 +5903,20 @@ export interface LightsailGetInstanceStateResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetInstanceStateResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetInstanceStateResult(obj: LightsailGetInstanceStateResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'state': toJson_LightsailInstanceState(obj.state),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetInstancesRequest
  */
 export interface LightsailGetInstancesRequest {
@@ -2751,6 +5926,20 @@ export interface LightsailGetInstancesRequest {
   readonly pageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetInstancesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetInstancesRequest(obj: LightsailGetInstancesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetInstancesResult
@@ -2769,6 +5958,21 @@ export interface LightsailGetInstancesResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetInstancesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetInstancesResult(obj: LightsailGetInstancesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instances': obj.instances?.map(y => toJson_LightsailInstance(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetKeyPairRequest
  */
 export interface LightsailGetKeyPairRequest {
@@ -2778,6 +5982,20 @@ export interface LightsailGetKeyPairRequest {
   readonly keyPairName: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetKeyPairRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetKeyPairRequest(obj: LightsailGetKeyPairRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'keyPairName': obj.keyPairName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetKeyPairResult
@@ -2791,6 +6009,20 @@ export interface LightsailGetKeyPairResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetKeyPairResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetKeyPairResult(obj: LightsailGetKeyPairResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'keyPair': toJson_LightsailKeyPair(obj.keyPair),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetKeyPairsRequest
  */
 export interface LightsailGetKeyPairsRequest {
@@ -2800,6 +6032,20 @@ export interface LightsailGetKeyPairsRequest {
   readonly pageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetKeyPairsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetKeyPairsRequest(obj: LightsailGetKeyPairsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetKeyPairsResult
@@ -2818,6 +6064,21 @@ export interface LightsailGetKeyPairsResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetKeyPairsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetKeyPairsResult(obj: LightsailGetKeyPairsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'keyPairs': obj.keyPairs?.map(y => toJson_LightsailKeyPair(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetLoadBalancerRequest
  */
 export interface LightsailGetLoadBalancerRequest {
@@ -2829,6 +6090,20 @@ export interface LightsailGetLoadBalancerRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetLoadBalancerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetLoadBalancerRequest(obj: LightsailGetLoadBalancerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loadBalancerName': obj.loadBalancerName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetLoadBalancerResult
  */
 export interface LightsailGetLoadBalancerResult {
@@ -2838,6 +6113,20 @@ export interface LightsailGetLoadBalancerResult {
   readonly loadBalancer?: LightsailLoadBalancer;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetLoadBalancerResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetLoadBalancerResult(obj: LightsailGetLoadBalancerResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loadBalancer': toJson_LightsailLoadBalancer(obj.loadBalancer),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetLoadBalancerMetricDataRequest
@@ -2881,6 +6170,26 @@ export interface LightsailGetLoadBalancerMetricDataRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetLoadBalancerMetricDataRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetLoadBalancerMetricDataRequest(obj: LightsailGetLoadBalancerMetricDataRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loadBalancerName': obj.loadBalancerName,
+    'metricName': obj.metricName,
+    'period': obj.period,
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+    'unit': obj.unit,
+    'statistics': obj.statistics?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetLoadBalancerMetricDataResult
  */
 export interface LightsailGetLoadBalancerMetricDataResult {
@@ -2897,6 +6206,21 @@ export interface LightsailGetLoadBalancerMetricDataResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetLoadBalancerMetricDataResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetLoadBalancerMetricDataResult(obj: LightsailGetLoadBalancerMetricDataResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'metricName': obj.metricName,
+    'metricData': obj.metricData?.map(y => toJson_LightsailMetricDatapoint(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetLoadBalancerTlsCertificatesRequest
  */
 export interface LightsailGetLoadBalancerTlsCertificatesRequest {
@@ -2906,6 +6230,20 @@ export interface LightsailGetLoadBalancerTlsCertificatesRequest {
   readonly loadBalancerName: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetLoadBalancerTlsCertificatesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetLoadBalancerTlsCertificatesRequest(obj: LightsailGetLoadBalancerTlsCertificatesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loadBalancerName': obj.loadBalancerName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetLoadBalancerTlsCertificatesResult
@@ -2919,6 +6257,20 @@ export interface LightsailGetLoadBalancerTlsCertificatesResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetLoadBalancerTlsCertificatesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetLoadBalancerTlsCertificatesResult(obj: LightsailGetLoadBalancerTlsCertificatesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tlsCertificates': obj.tlsCertificates?.map(y => toJson_LightsailLoadBalancerTlsCertificate(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetLoadBalancersRequest
  */
 export interface LightsailGetLoadBalancersRequest {
@@ -2928,6 +6280,20 @@ export interface LightsailGetLoadBalancersRequest {
   readonly pageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetLoadBalancersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetLoadBalancersRequest(obj: LightsailGetLoadBalancersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetLoadBalancersResult
@@ -2946,6 +6312,21 @@ export interface LightsailGetLoadBalancersResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetLoadBalancersResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetLoadBalancersResult(obj: LightsailGetLoadBalancersResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loadBalancers': obj.loadBalancers?.map(y => toJson_LightsailLoadBalancer(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetOperationRequest
  */
 export interface LightsailGetOperationRequest {
@@ -2955,6 +6336,20 @@ export interface LightsailGetOperationRequest {
   readonly operationId: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetOperationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetOperationRequest(obj: LightsailGetOperationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operationId': obj.operationId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetOperationResult
@@ -2968,6 +6363,20 @@ export interface LightsailGetOperationResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetOperationResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetOperationResult(obj: LightsailGetOperationResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetOperationsRequest
  */
 export interface LightsailGetOperationsRequest {
@@ -2977,6 +6386,20 @@ export interface LightsailGetOperationsRequest {
   readonly pageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetOperationsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetOperationsRequest(obj: LightsailGetOperationsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetOperationsResult
@@ -2995,6 +6418,21 @@ export interface LightsailGetOperationsResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetOperationsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetOperationsResult(obj: LightsailGetOperationsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetOperationsForResourceRequest
  */
 export interface LightsailGetOperationsForResourceRequest {
@@ -3009,6 +6447,21 @@ export interface LightsailGetOperationsForResourceRequest {
   readonly pageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetOperationsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetOperationsForResourceRequest(obj: LightsailGetOperationsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceName': obj.resourceName,
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetOperationsForResourceResult
@@ -3032,6 +6485,22 @@ export interface LightsailGetOperationsForResourceResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetOperationsForResourceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetOperationsForResourceResult(obj: LightsailGetOperationsForResourceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+    'nextPageCount': obj.nextPageCount,
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetRegionsRequest
  */
 export interface LightsailGetRegionsRequest {
@@ -3048,6 +6517,21 @@ export interface LightsailGetRegionsRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetRegionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRegionsRequest(obj: LightsailGetRegionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'includeAvailabilityZones': obj.includeAvailabilityZones,
+    'includeRelationalDatabaseAvailabilityZones': obj.includeRelationalDatabaseAvailabilityZones,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetRegionsResult
  */
 export interface LightsailGetRegionsResult {
@@ -3057,6 +6541,20 @@ export interface LightsailGetRegionsResult {
   readonly regions?: LightsailRegion[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetRegionsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRegionsResult(obj: LightsailGetRegionsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'regions': obj.regions?.map(y => toJson_LightsailRegion(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetRelationalDatabaseRequest
@@ -3070,6 +6568,20 @@ export interface LightsailGetRelationalDatabaseRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetRelationalDatabaseRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseRequest(obj: LightsailGetRelationalDatabaseRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseName': obj.relationalDatabaseName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetRelationalDatabaseResult
  */
 export interface LightsailGetRelationalDatabaseResult {
@@ -3081,6 +6593,20 @@ export interface LightsailGetRelationalDatabaseResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetRelationalDatabaseResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseResult(obj: LightsailGetRelationalDatabaseResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabase': toJson_LightsailRelationalDatabase(obj.relationalDatabase),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetRelationalDatabaseBlueprintsRequest
  */
 export interface LightsailGetRelationalDatabaseBlueprintsRequest {
@@ -3090,6 +6616,20 @@ export interface LightsailGetRelationalDatabaseBlueprintsRequest {
   readonly pageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetRelationalDatabaseBlueprintsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseBlueprintsRequest(obj: LightsailGetRelationalDatabaseBlueprintsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetRelationalDatabaseBlueprintsResult
@@ -3108,6 +6648,21 @@ export interface LightsailGetRelationalDatabaseBlueprintsResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetRelationalDatabaseBlueprintsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseBlueprintsResult(obj: LightsailGetRelationalDatabaseBlueprintsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'blueprints': obj.blueprints?.map(y => toJson_LightsailRelationalDatabaseBlueprint(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetRelationalDatabaseBundlesRequest
  */
 export interface LightsailGetRelationalDatabaseBundlesRequest {
@@ -3117,6 +6672,20 @@ export interface LightsailGetRelationalDatabaseBundlesRequest {
   readonly pageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetRelationalDatabaseBundlesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseBundlesRequest(obj: LightsailGetRelationalDatabaseBundlesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetRelationalDatabaseBundlesResult
@@ -3133,6 +6702,21 @@ export interface LightsailGetRelationalDatabaseBundlesResult {
   readonly nextPageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetRelationalDatabaseBundlesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseBundlesResult(obj: LightsailGetRelationalDatabaseBundlesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bundles': obj.bundles?.map(y => toJson_LightsailRelationalDatabaseBundle(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetRelationalDatabaseEventsRequest
@@ -3156,6 +6740,22 @@ export interface LightsailGetRelationalDatabaseEventsRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetRelationalDatabaseEventsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseEventsRequest(obj: LightsailGetRelationalDatabaseEventsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseName': obj.relationalDatabaseName,
+    'durationInMinutes': obj.durationInMinutes,
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetRelationalDatabaseEventsResult
  */
 export interface LightsailGetRelationalDatabaseEventsResult {
@@ -3170,6 +6770,21 @@ export interface LightsailGetRelationalDatabaseEventsResult {
   readonly nextPageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetRelationalDatabaseEventsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseEventsResult(obj: LightsailGetRelationalDatabaseEventsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseEvents': obj.relationalDatabaseEvents?.map(y => toJson_LightsailRelationalDatabaseEvent(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetRelationalDatabaseLogEventsRequest
@@ -3208,6 +6823,25 @@ export interface LightsailGetRelationalDatabaseLogEventsRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetRelationalDatabaseLogEventsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseLogEventsRequest(obj: LightsailGetRelationalDatabaseLogEventsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseName': obj.relationalDatabaseName,
+    'logStreamName': obj.logStreamName,
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+    'startFromHead': obj.startFromHead,
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetRelationalDatabaseLogEventsResult
  */
 export interface LightsailGetRelationalDatabaseLogEventsResult {
@@ -3229,6 +6863,22 @@ export interface LightsailGetRelationalDatabaseLogEventsResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetRelationalDatabaseLogEventsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseLogEventsResult(obj: LightsailGetRelationalDatabaseLogEventsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceLogEvents': obj.resourceLogEvents?.map(y => toJson_LightsailLogEvent(y)),
+    'nextBackwardToken': obj.nextBackwardToken,
+    'nextForwardToken': obj.nextForwardToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetRelationalDatabaseLogStreamsRequest
  */
 export interface LightsailGetRelationalDatabaseLogStreamsRequest {
@@ -3240,6 +6890,20 @@ export interface LightsailGetRelationalDatabaseLogStreamsRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetRelationalDatabaseLogStreamsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseLogStreamsRequest(obj: LightsailGetRelationalDatabaseLogStreamsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseName': obj.relationalDatabaseName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetRelationalDatabaseLogStreamsResult
  */
 export interface LightsailGetRelationalDatabaseLogStreamsResult {
@@ -3249,6 +6913,20 @@ export interface LightsailGetRelationalDatabaseLogStreamsResult {
   readonly logStreams?: string[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetRelationalDatabaseLogStreamsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseLogStreamsResult(obj: LightsailGetRelationalDatabaseLogStreamsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'logStreams': obj.logStreams?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetRelationalDatabaseMasterUserPasswordRequest
@@ -3267,6 +6945,21 @@ export interface LightsailGetRelationalDatabaseMasterUserPasswordRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetRelationalDatabaseMasterUserPasswordRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseMasterUserPasswordRequest(obj: LightsailGetRelationalDatabaseMasterUserPasswordRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseName': obj.relationalDatabaseName,
+    'passwordVersion': obj.passwordVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetRelationalDatabaseMasterUserPasswordResult
  */
 export interface LightsailGetRelationalDatabaseMasterUserPasswordResult {
@@ -3281,6 +6974,21 @@ export interface LightsailGetRelationalDatabaseMasterUserPasswordResult {
   readonly createdAt?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetRelationalDatabaseMasterUserPasswordResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseMasterUserPasswordResult(obj: LightsailGetRelationalDatabaseMasterUserPasswordResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'masterUserPassword': obj.masterUserPassword,
+    'createdAt': obj.createdAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetRelationalDatabaseMetricDataRequest
@@ -3324,6 +7032,26 @@ export interface LightsailGetRelationalDatabaseMetricDataRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetRelationalDatabaseMetricDataRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseMetricDataRequest(obj: LightsailGetRelationalDatabaseMetricDataRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseName': obj.relationalDatabaseName,
+    'metricName': obj.metricName,
+    'period': obj.period,
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+    'unit': obj.unit,
+    'statistics': obj.statistics?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetRelationalDatabaseMetricDataResult
  */
 export interface LightsailGetRelationalDatabaseMetricDataResult {
@@ -3338,6 +7066,21 @@ export interface LightsailGetRelationalDatabaseMetricDataResult {
   readonly metricData?: LightsailMetricDatapoint[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetRelationalDatabaseMetricDataResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseMetricDataResult(obj: LightsailGetRelationalDatabaseMetricDataResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'metricName': obj.metricName,
+    'metricData': obj.metricData?.map(y => toJson_LightsailMetricDatapoint(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetRelationalDatabaseParametersRequest
@@ -3356,6 +7099,21 @@ export interface LightsailGetRelationalDatabaseParametersRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailGetRelationalDatabaseParametersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseParametersRequest(obj: LightsailGetRelationalDatabaseParametersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseName': obj.relationalDatabaseName,
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetRelationalDatabaseParametersResult
  */
 export interface LightsailGetRelationalDatabaseParametersResult {
@@ -3372,6 +7130,21 @@ export interface LightsailGetRelationalDatabaseParametersResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetRelationalDatabaseParametersResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseParametersResult(obj: LightsailGetRelationalDatabaseParametersResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'parameters': obj.parameters?.map(y => toJson_LightsailRelationalDatabaseParameter(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetRelationalDatabaseSnapshotRequest
  */
 export interface LightsailGetRelationalDatabaseSnapshotRequest {
@@ -3381,6 +7154,20 @@ export interface LightsailGetRelationalDatabaseSnapshotRequest {
   readonly relationalDatabaseSnapshotName: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetRelationalDatabaseSnapshotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseSnapshotRequest(obj: LightsailGetRelationalDatabaseSnapshotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseSnapshotName': obj.relationalDatabaseSnapshotName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetRelationalDatabaseSnapshotResult
@@ -3394,6 +7181,20 @@ export interface LightsailGetRelationalDatabaseSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetRelationalDatabaseSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseSnapshotResult(obj: LightsailGetRelationalDatabaseSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseSnapshot': toJson_LightsailRelationalDatabaseSnapshot(obj.relationalDatabaseSnapshot),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetRelationalDatabaseSnapshotsRequest
  */
 export interface LightsailGetRelationalDatabaseSnapshotsRequest {
@@ -3403,6 +7204,20 @@ export interface LightsailGetRelationalDatabaseSnapshotsRequest {
   readonly pageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetRelationalDatabaseSnapshotsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseSnapshotsRequest(obj: LightsailGetRelationalDatabaseSnapshotsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetRelationalDatabaseSnapshotsResult
@@ -3421,6 +7236,21 @@ export interface LightsailGetRelationalDatabaseSnapshotsResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetRelationalDatabaseSnapshotsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabaseSnapshotsResult(obj: LightsailGetRelationalDatabaseSnapshotsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseSnapshots': obj.relationalDatabaseSnapshots?.map(y => toJson_LightsailRelationalDatabaseSnapshot(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetRelationalDatabasesRequest
  */
 export interface LightsailGetRelationalDatabasesRequest {
@@ -3430,6 +7260,20 @@ export interface LightsailGetRelationalDatabasesRequest {
   readonly pageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetRelationalDatabasesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabasesRequest(obj: LightsailGetRelationalDatabasesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetRelationalDatabasesResult
@@ -3448,6 +7292,21 @@ export interface LightsailGetRelationalDatabasesResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetRelationalDatabasesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetRelationalDatabasesResult(obj: LightsailGetRelationalDatabasesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabases': obj.relationalDatabases?.map(y => toJson_LightsailRelationalDatabase(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetStaticIpRequest
  */
 export interface LightsailGetStaticIpRequest {
@@ -3457,6 +7316,20 @@ export interface LightsailGetStaticIpRequest {
   readonly staticIpName: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetStaticIpRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetStaticIpRequest(obj: LightsailGetStaticIpRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'staticIpName': obj.staticIpName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetStaticIpResult
@@ -3470,6 +7343,20 @@ export interface LightsailGetStaticIpResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetStaticIpResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetStaticIpResult(obj: LightsailGetStaticIpResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'staticIp': toJson_LightsailStaticIp(obj.staticIp),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailGetStaticIpsRequest
  */
 export interface LightsailGetStaticIpsRequest {
@@ -3479,6 +7366,20 @@ export interface LightsailGetStaticIpsRequest {
   readonly pageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailGetStaticIpsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetStaticIpsRequest(obj: LightsailGetStaticIpsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pageToken': obj.pageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailGetStaticIpsResult
@@ -3497,6 +7398,21 @@ export interface LightsailGetStaticIpsResult {
 }
 
 /**
+ * Converts an object of type 'LightsailGetStaticIpsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailGetStaticIpsResult(obj: LightsailGetStaticIpsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'staticIps': obj.staticIps?.map(y => toJson_LightsailStaticIp(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailImportKeyPairRequest
  */
 export interface LightsailImportKeyPairRequest {
@@ -3513,6 +7429,21 @@ export interface LightsailImportKeyPairRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailImportKeyPairRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailImportKeyPairRequest(obj: LightsailImportKeyPairRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'keyPairName': obj.keyPairName,
+    'publicKeyBase64': obj.publicKeyBase64,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailImportKeyPairResult
  */
 export interface LightsailImportKeyPairResult {
@@ -3524,10 +7455,37 @@ export interface LightsailImportKeyPairResult {
 }
 
 /**
+ * Converts an object of type 'LightsailImportKeyPairResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailImportKeyPairResult(obj: LightsailImportKeyPairResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailIsVpcPeeredRequest
  */
 export interface LightsailIsVpcPeeredRequest {
 }
+
+/**
+ * Converts an object of type 'LightsailIsVpcPeeredRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailIsVpcPeeredRequest(obj: LightsailIsVpcPeeredRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailIsVpcPeeredResult
@@ -3539,6 +7497,20 @@ export interface LightsailIsVpcPeeredResult {
   readonly isPeered?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'LightsailIsVpcPeeredResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailIsVpcPeeredResult(obj: LightsailIsVpcPeeredResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'isPeered': obj.isPeered,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailOpenInstancePublicPortsRequest
@@ -3557,6 +7529,21 @@ export interface LightsailOpenInstancePublicPortsRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailOpenInstancePublicPortsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailOpenInstancePublicPortsRequest(obj: LightsailOpenInstancePublicPortsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'portInfo': toJson_LightsailPortInfo(obj.portInfo),
+    'instanceName': obj.instanceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailOpenInstancePublicPortsResult
  */
 export interface LightsailOpenInstancePublicPortsResult {
@@ -3568,10 +7555,37 @@ export interface LightsailOpenInstancePublicPortsResult {
 }
 
 /**
+ * Converts an object of type 'LightsailOpenInstancePublicPortsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailOpenInstancePublicPortsResult(obj: LightsailOpenInstancePublicPortsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailPeerVpcRequest
  */
 export interface LightsailPeerVpcRequest {
 }
+
+/**
+ * Converts an object of type 'LightsailPeerVpcRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailPeerVpcRequest(obj: LightsailPeerVpcRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailPeerVpcResult
@@ -3583,6 +7597,20 @@ export interface LightsailPeerVpcResult {
   readonly operation?: LightsailOperation;
 
 }
+
+/**
+ * Converts an object of type 'LightsailPeerVpcResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailPeerVpcResult(obj: LightsailPeerVpcResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailPutAlarmRequest
@@ -3646,6 +7674,30 @@ export interface LightsailPutAlarmRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailPutAlarmRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailPutAlarmRequest(obj: LightsailPutAlarmRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'alarmName': obj.alarmName,
+    'metricName': obj.metricName,
+    'monitoredResourceName': obj.monitoredResourceName,
+    'comparisonOperator': obj.comparisonOperator,
+    'threshold': obj.threshold,
+    'evaluationPeriods': obj.evaluationPeriods,
+    'datapointsToAlarm': obj.datapointsToAlarm,
+    'treatMissingData': obj.treatMissingData,
+    'contactProtocols': obj.contactProtocols?.map(y => y),
+    'notificationTriggers': obj.notificationTriggers?.map(y => y),
+    'notificationEnabled': obj.notificationEnabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailPutAlarmResult
  */
 export interface LightsailPutAlarmResult {
@@ -3655,6 +7707,20 @@ export interface LightsailPutAlarmResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailPutAlarmResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailPutAlarmResult(obj: LightsailPutAlarmResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailPutInstancePublicPortsRequest
@@ -3673,6 +7739,21 @@ export interface LightsailPutInstancePublicPortsRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailPutInstancePublicPortsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailPutInstancePublicPortsRequest(obj: LightsailPutInstancePublicPortsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'portInfos': obj.portInfos?.map(y => toJson_LightsailPortInfo(y)),
+    'instanceName': obj.instanceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailPutInstancePublicPortsResult
  */
 export interface LightsailPutInstancePublicPortsResult {
@@ -3682,6 +7763,20 @@ export interface LightsailPutInstancePublicPortsResult {
   readonly operation?: LightsailOperation;
 
 }
+
+/**
+ * Converts an object of type 'LightsailPutInstancePublicPortsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailPutInstancePublicPortsResult(obj: LightsailPutInstancePublicPortsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailRebootInstanceRequest
@@ -3695,6 +7790,20 @@ export interface LightsailRebootInstanceRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailRebootInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailRebootInstanceRequest(obj: LightsailRebootInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceName': obj.instanceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailRebootInstanceResult
  */
 export interface LightsailRebootInstanceResult {
@@ -3704,6 +7813,20 @@ export interface LightsailRebootInstanceResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailRebootInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailRebootInstanceResult(obj: LightsailRebootInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailRebootRelationalDatabaseRequest
@@ -3717,6 +7840,20 @@ export interface LightsailRebootRelationalDatabaseRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailRebootRelationalDatabaseRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailRebootRelationalDatabaseRequest(obj: LightsailRebootRelationalDatabaseRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseName': obj.relationalDatabaseName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailRebootRelationalDatabaseResult
  */
 export interface LightsailRebootRelationalDatabaseResult {
@@ -3726,6 +7863,20 @@ export interface LightsailRebootRelationalDatabaseResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailRebootRelationalDatabaseResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailRebootRelationalDatabaseResult(obj: LightsailRebootRelationalDatabaseResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailRegisterContainerImageRequest
@@ -3749,6 +7900,22 @@ export interface LightsailRegisterContainerImageRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailRegisterContainerImageRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailRegisterContainerImageRequest(obj: LightsailRegisterContainerImageRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'serviceName': obj.serviceName,
+    'label': obj.label,
+    'digest': obj.digest,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailRegisterContainerImageResult
  */
 export interface LightsailRegisterContainerImageResult {
@@ -3758,6 +7925,20 @@ export interface LightsailRegisterContainerImageResult {
   readonly containerImage?: LightsailContainerImage;
 
 }
+
+/**
+ * Converts an object of type 'LightsailRegisterContainerImageResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailRegisterContainerImageResult(obj: LightsailRegisterContainerImageResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'containerImage': toJson_LightsailContainerImage(obj.containerImage),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailReleaseStaticIpRequest
@@ -3771,6 +7952,20 @@ export interface LightsailReleaseStaticIpRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailReleaseStaticIpRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailReleaseStaticIpRequest(obj: LightsailReleaseStaticIpRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'staticIpName': obj.staticIpName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailReleaseStaticIpResult
  */
 export interface LightsailReleaseStaticIpResult {
@@ -3782,6 +7977,20 @@ export interface LightsailReleaseStaticIpResult {
 }
 
 /**
+ * Converts an object of type 'LightsailReleaseStaticIpResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailReleaseStaticIpResult(obj: LightsailReleaseStaticIpResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailResetDistributionCacheRequest
  */
 export interface LightsailResetDistributionCacheRequest {
@@ -3791,6 +8000,20 @@ export interface LightsailResetDistributionCacheRequest {
   readonly distributionName?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailResetDistributionCacheRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailResetDistributionCacheRequest(obj: LightsailResetDistributionCacheRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'distributionName': obj.distributionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailResetDistributionCacheResult
@@ -3814,6 +8037,22 @@ export interface LightsailResetDistributionCacheResult {
 }
 
 /**
+ * Converts an object of type 'LightsailResetDistributionCacheResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailResetDistributionCacheResult(obj: LightsailResetDistributionCacheResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+    'createTime': obj.createTime,
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailSendContactMethodVerificationRequest
  */
 export interface LightsailSendContactMethodVerificationRequest {
@@ -3823,6 +8062,20 @@ export interface LightsailSendContactMethodVerificationRequest {
   readonly protocol: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailSendContactMethodVerificationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailSendContactMethodVerificationRequest(obj: LightsailSendContactMethodVerificationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'protocol': obj.protocol,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailSendContactMethodVerificationResult
@@ -3836,6 +8089,144 @@ export interface LightsailSendContactMethodVerificationResult {
 }
 
 /**
+ * Converts an object of type 'LightsailSendContactMethodVerificationResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailSendContactMethodVerificationResult(obj: LightsailSendContactMethodVerificationResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailSetIpAddressTypeRequest
+ */
+export interface LightsailSetIpAddressTypeRequest {
+  /**
+   * @schema LightsailSetIpAddressTypeRequest#resourceType
+   */
+  readonly resourceType: string;
+
+  /**
+   * @schema LightsailSetIpAddressTypeRequest#resourceName
+   */
+  readonly resourceName: string;
+
+  /**
+   * @schema LightsailSetIpAddressTypeRequest#ipAddressType
+   */
+  readonly ipAddressType: string;
+
+}
+
+/**
+ * Converts an object of type 'LightsailSetIpAddressTypeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailSetIpAddressTypeRequest(obj: LightsailSetIpAddressTypeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceType': obj.resourceType,
+    'resourceName': obj.resourceName,
+    'ipAddressType': obj.ipAddressType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailSetIpAddressTypeResult
+ */
+export interface LightsailSetIpAddressTypeResult {
+  /**
+   * @schema LightsailSetIpAddressTypeResult#operations
+   */
+  readonly operations?: LightsailOperation[];
+
+}
+
+/**
+ * Converts an object of type 'LightsailSetIpAddressTypeResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailSetIpAddressTypeResult(obj: LightsailSetIpAddressTypeResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailSetResourceAccessForBucketRequest
+ */
+export interface LightsailSetResourceAccessForBucketRequest {
+  /**
+   * @schema LightsailSetResourceAccessForBucketRequest#resourceName
+   */
+  readonly resourceName: string;
+
+  /**
+   * @schema LightsailSetResourceAccessForBucketRequest#bucketName
+   */
+  readonly bucketName: string;
+
+  /**
+   * @schema LightsailSetResourceAccessForBucketRequest#access
+   */
+  readonly access: string;
+
+}
+
+/**
+ * Converts an object of type 'LightsailSetResourceAccessForBucketRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailSetResourceAccessForBucketRequest(obj: LightsailSetResourceAccessForBucketRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceName': obj.resourceName,
+    'bucketName': obj.bucketName,
+    'access': obj.access,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailSetResourceAccessForBucketResult
+ */
+export interface LightsailSetResourceAccessForBucketResult {
+  /**
+   * @schema LightsailSetResourceAccessForBucketResult#operations
+   */
+  readonly operations?: LightsailOperation[];
+
+}
+
+/**
+ * Converts an object of type 'LightsailSetResourceAccessForBucketResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailSetResourceAccessForBucketResult(obj: LightsailSetResourceAccessForBucketResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailStartInstanceRequest
  */
 export interface LightsailStartInstanceRequest {
@@ -3845,6 +8236,20 @@ export interface LightsailStartInstanceRequest {
   readonly instanceName: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailStartInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailStartInstanceRequest(obj: LightsailStartInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceName': obj.instanceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailStartInstanceResult
@@ -3858,6 +8263,20 @@ export interface LightsailStartInstanceResult {
 }
 
 /**
+ * Converts an object of type 'LightsailStartInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailStartInstanceResult(obj: LightsailStartInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailStartRelationalDatabaseRequest
  */
 export interface LightsailStartRelationalDatabaseRequest {
@@ -3869,6 +8288,20 @@ export interface LightsailStartRelationalDatabaseRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailStartRelationalDatabaseRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailStartRelationalDatabaseRequest(obj: LightsailStartRelationalDatabaseRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseName': obj.relationalDatabaseName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailStartRelationalDatabaseResult
  */
 export interface LightsailStartRelationalDatabaseResult {
@@ -3878,6 +8311,20 @@ export interface LightsailStartRelationalDatabaseResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailStartRelationalDatabaseResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailStartRelationalDatabaseResult(obj: LightsailStartRelationalDatabaseResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailStopInstanceRequest
@@ -3896,6 +8343,21 @@ export interface LightsailStopInstanceRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailStopInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailStopInstanceRequest(obj: LightsailStopInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceName': obj.instanceName,
+    'force': obj.force,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailStopInstanceResult
  */
 export interface LightsailStopInstanceResult {
@@ -3905,6 +8367,20 @@ export interface LightsailStopInstanceResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailStopInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailStopInstanceResult(obj: LightsailStopInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailStopRelationalDatabaseRequest
@@ -3923,6 +8399,21 @@ export interface LightsailStopRelationalDatabaseRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailStopRelationalDatabaseRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailStopRelationalDatabaseRequest(obj: LightsailStopRelationalDatabaseRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseName': obj.relationalDatabaseName,
+    'relationalDatabaseSnapshotName': obj.relationalDatabaseSnapshotName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailStopRelationalDatabaseResult
  */
 export interface LightsailStopRelationalDatabaseResult {
@@ -3932,6 +8423,20 @@ export interface LightsailStopRelationalDatabaseResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailStopRelationalDatabaseResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailStopRelationalDatabaseResult(obj: LightsailStopRelationalDatabaseResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailTagResourceRequest
@@ -3955,6 +8460,22 @@ export interface LightsailTagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailTagResourceRequest(obj: LightsailTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceName': obj.resourceName,
+    'resourceArn': obj.resourceArn,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailTagResourceResult
  */
 export interface LightsailTagResourceResult {
@@ -3964,6 +8485,20 @@ export interface LightsailTagResourceResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailTagResourceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailTagResourceResult(obj: LightsailTagResourceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailTestAlarmRequest
@@ -3982,6 +8517,21 @@ export interface LightsailTestAlarmRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailTestAlarmRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailTestAlarmRequest(obj: LightsailTestAlarmRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'alarmName': obj.alarmName,
+    'state': obj.state,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailTestAlarmResult
  */
 export interface LightsailTestAlarmResult {
@@ -3993,10 +8543,37 @@ export interface LightsailTestAlarmResult {
 }
 
 /**
+ * Converts an object of type 'LightsailTestAlarmResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailTestAlarmResult(obj: LightsailTestAlarmResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailUnpeerVpcRequest
  */
 export interface LightsailUnpeerVpcRequest {
 }
+
+/**
+ * Converts an object of type 'LightsailUnpeerVpcRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUnpeerVpcRequest(obj: LightsailUnpeerVpcRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailUnpeerVpcResult
@@ -4008,6 +8585,20 @@ export interface LightsailUnpeerVpcResult {
   readonly operation?: LightsailOperation;
 
 }
+
+/**
+ * Converts an object of type 'LightsailUnpeerVpcResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUnpeerVpcResult(obj: LightsailUnpeerVpcResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailUntagResourceRequest
@@ -4031,6 +8622,22 @@ export interface LightsailUntagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUntagResourceRequest(obj: LightsailUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceName': obj.resourceName,
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailUntagResourceResult
  */
 export interface LightsailUntagResourceResult {
@@ -4040,6 +8647,150 @@ export interface LightsailUntagResourceResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailUntagResourceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUntagResourceResult(obj: LightsailUntagResourceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailUpdateBucketRequest
+ */
+export interface LightsailUpdateBucketRequest {
+  /**
+   * @schema LightsailUpdateBucketRequest#bucketName
+   */
+  readonly bucketName: string;
+
+  /**
+   * @schema LightsailUpdateBucketRequest#accessRules
+   */
+  readonly accessRules?: LightsailAccessRules;
+
+  /**
+   * @schema LightsailUpdateBucketRequest#versioning
+   */
+  readonly versioning?: string;
+
+  /**
+   * @schema LightsailUpdateBucketRequest#readonlyAccessAccounts
+   */
+  readonly readonlyAccessAccounts?: string[];
+
+}
+
+/**
+ * Converts an object of type 'LightsailUpdateBucketRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUpdateBucketRequest(obj: LightsailUpdateBucketRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketName': obj.bucketName,
+    'accessRules': toJson_LightsailAccessRules(obj.accessRules),
+    'versioning': obj.versioning,
+    'readonlyAccessAccounts': obj.readonlyAccessAccounts?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailUpdateBucketResult
+ */
+export interface LightsailUpdateBucketResult {
+  /**
+   * @schema LightsailUpdateBucketResult#bucket
+   */
+  readonly bucket?: LightsailBucket;
+
+  /**
+   * @schema LightsailUpdateBucketResult#operations
+   */
+  readonly operations?: LightsailOperation[];
+
+}
+
+/**
+ * Converts an object of type 'LightsailUpdateBucketResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUpdateBucketResult(obj: LightsailUpdateBucketResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucket': toJson_LightsailBucket(obj.bucket),
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailUpdateBucketBundleRequest
+ */
+export interface LightsailUpdateBucketBundleRequest {
+  /**
+   * @schema LightsailUpdateBucketBundleRequest#bucketName
+   */
+  readonly bucketName: string;
+
+  /**
+   * @schema LightsailUpdateBucketBundleRequest#bundleId
+   */
+  readonly bundleId: string;
+
+}
+
+/**
+ * Converts an object of type 'LightsailUpdateBucketBundleRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUpdateBucketBundleRequest(obj: LightsailUpdateBucketBundleRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketName': obj.bucketName,
+    'bundleId': obj.bundleId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailUpdateBucketBundleResult
+ */
+export interface LightsailUpdateBucketBundleResult {
+  /**
+   * @schema LightsailUpdateBucketBundleResult#operations
+   */
+  readonly operations?: LightsailOperation[];
+
+}
+
+/**
+ * Converts an object of type 'LightsailUpdateBucketBundleResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUpdateBucketBundleResult(obj: LightsailUpdateBucketBundleResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailUpdateContainerServiceRequest
@@ -4073,6 +8824,24 @@ export interface LightsailUpdateContainerServiceRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailUpdateContainerServiceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUpdateContainerServiceRequest(obj: LightsailUpdateContainerServiceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'serviceName': obj.serviceName,
+    'power': obj.power,
+    'scale': obj.scale,
+    'isDisabled': obj.isDisabled,
+    'publicDomainNames': ((obj.publicDomainNames) === undefined) ? undefined : (Object.entries(obj.publicDomainNames).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.map(y => y) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailUpdateContainerServiceResult
  */
 export interface LightsailUpdateContainerServiceResult {
@@ -4082,6 +8851,20 @@ export interface LightsailUpdateContainerServiceResult {
   readonly containerService?: LightsailContainerService;
 
 }
+
+/**
+ * Converts an object of type 'LightsailUpdateContainerServiceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUpdateContainerServiceResult(obj: LightsailUpdateContainerServiceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'containerService': toJson_LightsailContainerService(obj.containerService),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailUpdateDistributionRequest
@@ -4120,6 +8903,25 @@ export interface LightsailUpdateDistributionRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailUpdateDistributionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUpdateDistributionRequest(obj: LightsailUpdateDistributionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'distributionName': obj.distributionName,
+    'origin': toJson_LightsailInputOrigin(obj.origin),
+    'defaultCacheBehavior': toJson_LightsailCacheBehavior(obj.defaultCacheBehavior),
+    'cacheBehaviorSettings': toJson_LightsailCacheSettings(obj.cacheBehaviorSettings),
+    'cacheBehaviors': obj.cacheBehaviors?.map(y => toJson_LightsailCacheBehaviorPerPath(y)),
+    'isEnabled': obj.isEnabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailUpdateDistributionResult
  */
 export interface LightsailUpdateDistributionResult {
@@ -4129,6 +8931,20 @@ export interface LightsailUpdateDistributionResult {
   readonly operation?: LightsailOperation;
 
 }
+
+/**
+ * Converts an object of type 'LightsailUpdateDistributionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUpdateDistributionResult(obj: LightsailUpdateDistributionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailUpdateDistributionBundleRequest
@@ -4147,6 +8963,21 @@ export interface LightsailUpdateDistributionBundleRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailUpdateDistributionBundleRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUpdateDistributionBundleRequest(obj: LightsailUpdateDistributionBundleRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'distributionName': obj.distributionName,
+    'bundleId': obj.bundleId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailUpdateDistributionBundleResult
  */
 export interface LightsailUpdateDistributionBundleResult {
@@ -4156,6 +8987,20 @@ export interface LightsailUpdateDistributionBundleResult {
   readonly operation?: LightsailOperation;
 
 }
+
+/**
+ * Converts an object of type 'LightsailUpdateDistributionBundleResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUpdateDistributionBundleResult(obj: LightsailUpdateDistributionBundleResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operation': toJson_LightsailOperation(obj.operation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailUpdateDomainEntryRequest
@@ -4174,6 +9019,21 @@ export interface LightsailUpdateDomainEntryRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailUpdateDomainEntryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUpdateDomainEntryRequest(obj: LightsailUpdateDomainEntryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domainName': obj.domainName,
+    'domainEntry': toJson_LightsailDomainEntry(obj.domainEntry),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailUpdateDomainEntryResult
  */
 export interface LightsailUpdateDomainEntryResult {
@@ -4183,6 +9043,20 @@ export interface LightsailUpdateDomainEntryResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailUpdateDomainEntryResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUpdateDomainEntryResult(obj: LightsailUpdateDomainEntryResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailUpdateLoadBalancerAttributeRequest
@@ -4206,6 +9080,22 @@ export interface LightsailUpdateLoadBalancerAttributeRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailUpdateLoadBalancerAttributeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUpdateLoadBalancerAttributeRequest(obj: LightsailUpdateLoadBalancerAttributeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loadBalancerName': obj.loadBalancerName,
+    'attributeName': obj.attributeName,
+    'attributeValue': obj.attributeValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailUpdateLoadBalancerAttributeResult
  */
 export interface LightsailUpdateLoadBalancerAttributeResult {
@@ -4215,6 +9105,20 @@ export interface LightsailUpdateLoadBalancerAttributeResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailUpdateLoadBalancerAttributeResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUpdateLoadBalancerAttributeResult(obj: LightsailUpdateLoadBalancerAttributeResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailUpdateRelationalDatabaseRequest
@@ -4273,6 +9177,29 @@ export interface LightsailUpdateRelationalDatabaseRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailUpdateRelationalDatabaseRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUpdateRelationalDatabaseRequest(obj: LightsailUpdateRelationalDatabaseRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseName': obj.relationalDatabaseName,
+    'masterUserPassword': obj.masterUserPassword,
+    'rotateMasterUserPassword': obj.rotateMasterUserPassword,
+    'preferredBackupWindow': obj.preferredBackupWindow,
+    'preferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'enableBackupRetention': obj.enableBackupRetention,
+    'disableBackupRetention': obj.disableBackupRetention,
+    'publiclyAccessible': obj.publiclyAccessible,
+    'applyImmediately': obj.applyImmediately,
+    'caCertificateIdentifier': obj.caCertificateIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailUpdateRelationalDatabaseResult
  */
 export interface LightsailUpdateRelationalDatabaseResult {
@@ -4282,6 +9209,20 @@ export interface LightsailUpdateRelationalDatabaseResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailUpdateRelationalDatabaseResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUpdateRelationalDatabaseResult(obj: LightsailUpdateRelationalDatabaseResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailUpdateRelationalDatabaseParametersRequest
@@ -4300,6 +9241,21 @@ export interface LightsailUpdateRelationalDatabaseParametersRequest {
 }
 
 /**
+ * Converts an object of type 'LightsailUpdateRelationalDatabaseParametersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUpdateRelationalDatabaseParametersRequest(obj: LightsailUpdateRelationalDatabaseParametersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseName': obj.relationalDatabaseName,
+    'parameters': obj.parameters?.map(y => toJson_LightsailRelationalDatabaseParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailUpdateRelationalDatabaseParametersResult
  */
 export interface LightsailUpdateRelationalDatabaseParametersResult {
@@ -4309,6 +9265,20 @@ export interface LightsailUpdateRelationalDatabaseParametersResult {
   readonly operations?: LightsailOperation[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailUpdateRelationalDatabaseParametersResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailUpdateRelationalDatabaseParametersResult(obj: LightsailUpdateRelationalDatabaseParametersResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'operations': obj.operations?.map(y => toJson_LightsailOperation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailOperation
@@ -4377,6 +9347,31 @@ export interface LightsailOperation {
 }
 
 /**
+ * Converts an object of type 'LightsailOperation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailOperation(obj: LightsailOperation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'resourceName': obj.resourceName,
+    'resourceType': obj.resourceType,
+    'createdAt': obj.createdAt,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'isTerminal': obj.isTerminal,
+    'operationDetails': obj.operationDetails,
+    'operationType': obj.operationType,
+    'status': obj.status,
+    'statusChangedAt': obj.statusChangedAt,
+    'errorCode': obj.errorCode,
+    'errorDetails': obj.errorDetails,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailPortInfo
  */
 export interface LightsailPortInfo {
@@ -4401,11 +9396,35 @@ export interface LightsailPortInfo {
   readonly cidrs?: string[];
 
   /**
+   * @schema LightsailPortInfo#ipv6Cidrs
+   */
+  readonly ipv6Cidrs?: string[];
+
+  /**
    * @schema LightsailPortInfo#cidrListAliases
    */
   readonly cidrListAliases?: string[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailPortInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailPortInfo(obj: LightsailPortInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fromPort': obj.fromPort,
+    'toPort': obj.toPort,
+    'protocol': obj.protocol,
+    'cidrs': obj.cidrs?.map(y => y),
+    'ipv6Cidrs': obj.ipv6Cidrs?.map(y => y),
+    'cidrListAliases': obj.cidrListAliases?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailTag
@@ -4422,6 +9441,179 @@ export interface LightsailTag {
   readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailTag(obj: LightsailTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailBucket
+ */
+export interface LightsailBucket {
+  /**
+   * @schema LightsailBucket#resourceType
+   */
+  readonly resourceType?: string;
+
+  /**
+   * @schema LightsailBucket#accessRules
+   */
+  readonly accessRules?: LightsailAccessRules;
+
+  /**
+   * @schema LightsailBucket#arn
+   */
+  readonly arn?: string;
+
+  /**
+   * @schema LightsailBucket#bundleId
+   */
+  readonly bundleId?: string;
+
+  /**
+   * @schema LightsailBucket#createdAt
+   */
+  readonly createdAt?: string;
+
+  /**
+   * @schema LightsailBucket#url
+   */
+  readonly url?: string;
+
+  /**
+   * @schema LightsailBucket#location
+   */
+  readonly location?: LightsailResourceLocation;
+
+  /**
+   * @schema LightsailBucket#name
+   */
+  readonly name?: string;
+
+  /**
+   * @schema LightsailBucket#supportCode
+   */
+  readonly supportCode?: string;
+
+  /**
+   * @schema LightsailBucket#tags
+   */
+  readonly tags?: LightsailTag[];
+
+  /**
+   * @schema LightsailBucket#objectVersioning
+   */
+  readonly objectVersioning?: string;
+
+  /**
+   * @schema LightsailBucket#ableToUpdateBundle
+   */
+  readonly ableToUpdateBundle?: boolean;
+
+  /**
+   * @schema LightsailBucket#readonlyAccessAccounts
+   */
+  readonly readonlyAccessAccounts?: string[];
+
+  /**
+   * @schema LightsailBucket#resourcesReceivingAccess
+   */
+  readonly resourcesReceivingAccess?: LightsailResourceReceivingAccess[];
+
+  /**
+   * @schema LightsailBucket#state
+   */
+  readonly state?: LightsailBucketState;
+
+}
+
+/**
+ * Converts an object of type 'LightsailBucket' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailBucket(obj: LightsailBucket | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceType': obj.resourceType,
+    'accessRules': toJson_LightsailAccessRules(obj.accessRules),
+    'arn': obj.arn,
+    'bundleId': obj.bundleId,
+    'createdAt': obj.createdAt,
+    'url': obj.url,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'name': obj.name,
+    'supportCode': obj.supportCode,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'objectVersioning': obj.objectVersioning,
+    'ableToUpdateBundle': obj.ableToUpdateBundle,
+    'readonlyAccessAccounts': obj.readonlyAccessAccounts?.map(y => y),
+    'resourcesReceivingAccess': obj.resourcesReceivingAccess?.map(y => toJson_LightsailResourceReceivingAccess(y)),
+    'state': toJson_LightsailBucketState(obj.state),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailAccessKey
+ */
+export interface LightsailAccessKey {
+  /**
+   * @schema LightsailAccessKey#accessKeyId
+   */
+  readonly accessKeyId?: string;
+
+  /**
+   * @schema LightsailAccessKey#secretAccessKey
+   */
+  readonly secretAccessKey?: string;
+
+  /**
+   * @schema LightsailAccessKey#status
+   */
+  readonly status?: string;
+
+  /**
+   * @schema LightsailAccessKey#createdAt
+   */
+  readonly createdAt?: string;
+
+  /**
+   * @schema LightsailAccessKey#lastUsed
+   */
+  readonly lastUsed?: LightsailAccessKeyLastUsed;
+
+}
+
+/**
+ * Converts an object of type 'LightsailAccessKey' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAccessKey(obj: LightsailAccessKey | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessKeyId': obj.accessKeyId,
+    'secretAccessKey': obj.secretAccessKey,
+    'status': obj.status,
+    'createdAt': obj.createdAt,
+    'lastUsed': toJson_LightsailAccessKeyLastUsed(obj.lastUsed),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCertificateSummary
@@ -4455,6 +9647,24 @@ export interface LightsailCertificateSummary {
 }
 
 /**
+ * Converts an object of type 'LightsailCertificateSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCertificateSummary(obj: LightsailCertificateSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificateArn': obj.certificateArn,
+    'certificateName': obj.certificateName,
+    'domainName': obj.domainName,
+    'certificateDetail': toJson_LightsailCertificate(obj.certificateDetail),
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailInstanceEntry
  */
 export interface LightsailInstanceEntry {
@@ -4486,6 +9696,24 @@ export interface LightsailInstanceEntry {
 }
 
 /**
+ * Converts an object of type 'LightsailInstanceEntry' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailInstanceEntry(obj: LightsailInstanceEntry | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sourceName': obj.sourceName,
+    'instanceType': obj.instanceType,
+    'portInfoSource': obj.portInfoSource,
+    'userData': obj.userData,
+    'availabilityZone': obj.availabilityZone,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailContainerServiceDeploymentRequest
  */
 export interface LightsailContainerServiceDeploymentRequest {
@@ -4500,6 +9728,21 @@ export interface LightsailContainerServiceDeploymentRequest {
   readonly publicEndpoint?: LightsailEndpointRequest;
 
 }
+
+/**
+ * Converts an object of type 'LightsailContainerServiceDeploymentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailContainerServiceDeploymentRequest(obj: LightsailContainerServiceDeploymentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'containers': ((obj.containers) === undefined) ? undefined : (Object.entries(obj.containers).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_LightsailContainer(i[1]) }), {})),
+    'publicEndpoint': toJson_LightsailEndpointRequest(obj.publicEndpoint),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailContainerService
@@ -4551,6 +9794,11 @@ export interface LightsailContainerService {
   readonly state?: string;
 
   /**
+   * @schema LightsailContainerService#stateDetail
+   */
+  readonly stateDetail?: LightsailContainerServiceStateDetail;
+
+  /**
    * @schema LightsailContainerService#scale
    */
   readonly scale?: number;
@@ -4593,6 +9841,37 @@ export interface LightsailContainerService {
 }
 
 /**
+ * Converts an object of type 'LightsailContainerService' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailContainerService(obj: LightsailContainerService | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'containerServiceName': obj.containerServiceName,
+    'arn': obj.arn,
+    'createdAt': obj.createdAt,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'resourceType': obj.resourceType,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'power': obj.power,
+    'powerId': obj.powerId,
+    'state': obj.state,
+    'stateDetail': toJson_LightsailContainerServiceStateDetail(obj.stateDetail),
+    'scale': obj.scale,
+    'currentDeployment': toJson_LightsailContainerServiceDeployment(obj.currentDeployment),
+    'nextDeployment': toJson_LightsailContainerServiceDeployment(obj.nextDeployment),
+    'isDisabled': obj.isDisabled,
+    'principalArn': obj.principalArn,
+    'privateDomainName': obj.privateDomainName,
+    'publicDomainNames': ((obj.publicDomainNames) === undefined) ? undefined : (Object.entries(obj.publicDomainNames).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.map(y => y) }), {})),
+    'url': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailContainer
  */
 export interface LightsailContainer {
@@ -4619,6 +9898,23 @@ export interface LightsailContainer {
 }
 
 /**
+ * Converts an object of type 'LightsailContainer' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailContainer(obj: LightsailContainer | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'image': obj.image,
+    'command': obj.command?.map(y => y),
+    'environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'ports': ((obj.ports) === undefined) ? undefined : (Object.entries(obj.ports).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailEndpointRequest
  */
 export interface LightsailEndpointRequest {
@@ -4638,6 +9934,22 @@ export interface LightsailEndpointRequest {
   readonly healthCheck?: LightsailContainerServiceHealthCheckConfig;
 
 }
+
+/**
+ * Converts an object of type 'LightsailEndpointRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailEndpointRequest(obj: LightsailEndpointRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'containerName': obj.containerName,
+    'containerPort': obj.containerPort,
+    'healthCheck': toJson_LightsailContainerServiceHealthCheckConfig(obj.healthCheck),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailContainerServiceRegistryLogin
@@ -4666,6 +9978,23 @@ export interface LightsailContainerServiceRegistryLogin {
 }
 
 /**
+ * Converts an object of type 'LightsailContainerServiceRegistryLogin' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailContainerServiceRegistryLogin(obj: LightsailContainerServiceRegistryLogin | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'username': obj.username,
+    'password': obj.password,
+    'expiresAt': obj.expiresAt,
+    'registry': obj.registry,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailAddOnRequest
  */
 export interface LightsailAddOnRequest {
@@ -4680,6 +10009,21 @@ export interface LightsailAddOnRequest {
   readonly autoSnapshotAddOnRequest?: LightsailAutoSnapshotAddOnRequest;
 
 }
+
+/**
+ * Converts an object of type 'LightsailAddOnRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAddOnRequest(obj: LightsailAddOnRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'addOnType': obj.addOnType,
+    'autoSnapshotAddOnRequest': toJson_LightsailAutoSnapshotAddOnRequest(obj.autoSnapshotAddOnRequest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailInputOrigin
@@ -4703,6 +10047,22 @@ export interface LightsailInputOrigin {
 }
 
 /**
+ * Converts an object of type 'LightsailInputOrigin' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailInputOrigin(obj: LightsailInputOrigin | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'regionName': obj.regionName,
+    'protocolPolicy': obj.protocolPolicy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCacheBehavior
  */
 export interface LightsailCacheBehavior {
@@ -4714,33 +10074,47 @@ export interface LightsailCacheBehavior {
 }
 
 /**
+ * Converts an object of type 'LightsailCacheBehavior' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCacheBehavior(obj: LightsailCacheBehavior | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'behavior': obj.behavior,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCacheSettings
  */
 export interface LightsailCacheSettings {
   /**
    * @schema LightsailCacheSettings#defaultTTL
    */
-  readonly defaultTTL?: number;
+  readonly defaultTtl?: number;
 
   /**
    * @schema LightsailCacheSettings#minimumTTL
    */
-  readonly minimumTTL?: number;
+  readonly minimumTtl?: number;
 
   /**
    * @schema LightsailCacheSettings#maximumTTL
    */
-  readonly maximumTTL?: number;
+  readonly maximumTtl?: number;
 
   /**
    * @schema LightsailCacheSettings#allowedHTTPMethods
    */
-  readonly allowedHTTPMethods?: string;
+  readonly allowedHttpMethods?: string;
 
   /**
    * @schema LightsailCacheSettings#cachedHTTPMethods
    */
-  readonly cachedHTTPMethods?: string;
+  readonly cachedHttpMethods?: string;
 
   /**
    * @schema LightsailCacheSettings#forwardedCookies
@@ -4760,6 +10134,27 @@ export interface LightsailCacheSettings {
 }
 
 /**
+ * Converts an object of type 'LightsailCacheSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCacheSettings(obj: LightsailCacheSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'defaultTTL': obj.defaultTtl,
+    'minimumTTL': obj.minimumTtl,
+    'maximumTTL': obj.maximumTtl,
+    'allowedHTTPMethods': obj.allowedHttpMethods,
+    'cachedHTTPMethods': obj.cachedHttpMethods,
+    'forwardedCookies': toJson_LightsailCookieObject(obj.forwardedCookies),
+    'forwardedHeaders': toJson_LightsailHeaderObject(obj.forwardedHeaders),
+    'forwardedQueryStrings': toJson_LightsailQueryStringObject(obj.forwardedQueryStrings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCacheBehaviorPerPath
  */
 export interface LightsailCacheBehaviorPerPath {
@@ -4774,6 +10169,21 @@ export interface LightsailCacheBehaviorPerPath {
   readonly behavior?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailCacheBehaviorPerPath' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCacheBehaviorPerPath(obj: LightsailCacheBehaviorPerPath | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'path': obj.path,
+    'behavior': obj.behavior,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailLightsailDistribution
@@ -4847,7 +10257,7 @@ export interface LightsailLightsailDistribution {
   /**
    * @schema LightsailLightsailDistribution#originPublicDNS
    */
-  readonly originPublicDNS?: string;
+  readonly originPublicDns?: string;
 
   /**
    * @schema LightsailLightsailDistribution#defaultCacheBehavior
@@ -4870,11 +10280,49 @@ export interface LightsailLightsailDistribution {
   readonly ableToUpdateBundle?: boolean;
 
   /**
+   * @schema LightsailLightsailDistribution#ipAddressType
+   */
+  readonly ipAddressType?: string;
+
+  /**
    * @schema LightsailLightsailDistribution#tags
    */
   readonly tags?: LightsailTag[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailLightsailDistribution' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailLightsailDistribution(obj: LightsailLightsailDistribution | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'supportCode': obj.supportCode,
+    'createdAt': obj.createdAt,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'resourceType': obj.resourceType,
+    'alternativeDomainNames': obj.alternativeDomainNames?.map(y => y),
+    'status': obj.status,
+    'isEnabled': obj.isEnabled,
+    'domainName': obj.domainName,
+    'bundleId': obj.bundleId,
+    'certificateName': obj.certificateName,
+    'origin': toJson_LightsailOrigin(obj.origin),
+    'originPublicDNS': obj.originPublicDns,
+    'defaultCacheBehavior': toJson_LightsailCacheBehavior(obj.defaultCacheBehavior),
+    'cacheBehaviorSettings': toJson_LightsailCacheSettings(obj.cacheBehaviorSettings),
+    'cacheBehaviors': obj.cacheBehaviors?.map(y => toJson_LightsailCacheBehaviorPerPath(y)),
+    'ableToUpdateBundle': obj.ableToUpdateBundle,
+    'ipAddressType': obj.ipAddressType,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDomainEntry
@@ -4913,6 +10361,25 @@ export interface LightsailDomainEntry {
 }
 
 /**
+ * Converts an object of type 'LightsailDomainEntry' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDomainEntry(obj: LightsailDomainEntry | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'name': obj.name,
+    'target': obj.target,
+    'isAlias': obj.isAlias,
+    'type': obj.type,
+    'options': ((obj.options) === undefined) ? undefined : (Object.entries(obj.options).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDiskMap
  */
 export interface LightsailDiskMap {
@@ -4927,6 +10394,21 @@ export interface LightsailDiskMap {
   readonly newDiskName?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailDiskMap' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDiskMap(obj: LightsailDiskMap | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'originalDiskPath': obj.originalDiskPath,
+    'newDiskName': obj.newDiskName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailKeyPair
@@ -4973,6 +10455,27 @@ export interface LightsailKeyPair {
   readonly fingerprint?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailKeyPair' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailKeyPair(obj: LightsailKeyPair | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'supportCode': obj.supportCode,
+    'createdAt': obj.createdAt,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'resourceType': obj.resourceType,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'fingerprint': obj.fingerprint,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailAlarm
@@ -5081,6 +10584,39 @@ export interface LightsailAlarm {
 }
 
 /**
+ * Converts an object of type 'LightsailAlarm' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAlarm(obj: LightsailAlarm | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'createdAt': obj.createdAt,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'resourceType': obj.resourceType,
+    'supportCode': obj.supportCode,
+    'monitoredResourceInfo': toJson_LightsailMonitoredResourceInfo(obj.monitoredResourceInfo),
+    'comparisonOperator': obj.comparisonOperator,
+    'evaluationPeriods': obj.evaluationPeriods,
+    'period': obj.period,
+    'threshold': obj.threshold,
+    'datapointsToAlarm': obj.datapointsToAlarm,
+    'treatMissingData': obj.treatMissingData,
+    'statistic': obj.statistic,
+    'metricName': obj.metricName,
+    'state': obj.state,
+    'unit': obj.unit,
+    'contactProtocols': obj.contactProtocols?.map(y => y),
+    'notificationTriggers': obj.notificationTriggers?.map(y => y),
+    'notificationEnabled': obj.notificationEnabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailAutoSnapshotDetails
  */
 export interface LightsailAutoSnapshotDetails {
@@ -5105,6 +10641,23 @@ export interface LightsailAutoSnapshotDetails {
   readonly fromAttachedDisks?: LightsailAttachedDisk[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailAutoSnapshotDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAutoSnapshotDetails(obj: LightsailAutoSnapshotDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'date': obj.date,
+    'createdAt': obj.createdAt,
+    'status': obj.status,
+    'fromAttachedDisks': obj.fromAttachedDisks?.map(y => toJson_LightsailAttachedDisk(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailBlueprint
@@ -5173,6 +10726,147 @@ export interface LightsailBlueprint {
 }
 
 /**
+ * Converts an object of type 'LightsailBlueprint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailBlueprint(obj: LightsailBlueprint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'blueprintId': obj.blueprintId,
+    'name': obj.name,
+    'group': obj.group,
+    'type': obj.type,
+    'description': obj.description,
+    'isActive': obj.isActive,
+    'minPower': obj.minPower,
+    'version': obj.version,
+    'versionCode': obj.versionCode,
+    'productUrl': obj.productUrl,
+    'licenseUrl': obj.licenseUrl,
+    'platform': obj.platform,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailBucketBundle
+ */
+export interface LightsailBucketBundle {
+  /**
+   * @schema LightsailBucketBundle#bundleId
+   */
+  readonly bundleId?: string;
+
+  /**
+   * @schema LightsailBucketBundle#name
+   */
+  readonly name?: string;
+
+  /**
+   * @schema LightsailBucketBundle#price
+   */
+  readonly price?: number;
+
+  /**
+   * @schema LightsailBucketBundle#storagePerMonthInGb
+   */
+  readonly storagePerMonthInGb?: number;
+
+  /**
+   * @schema LightsailBucketBundle#transferPerMonthInGb
+   */
+  readonly transferPerMonthInGb?: number;
+
+  /**
+   * @schema LightsailBucketBundle#isActive
+   */
+  readonly isActive?: boolean;
+
+}
+
+/**
+ * Converts an object of type 'LightsailBucketBundle' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailBucketBundle(obj: LightsailBucketBundle | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bundleId': obj.bundleId,
+    'name': obj.name,
+    'price': obj.price,
+    'storagePerMonthInGb': obj.storagePerMonthInGb,
+    'transferPerMonthInGb': obj.transferPerMonthInGb,
+    'isActive': obj.isActive,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailMetricDatapoint
+ */
+export interface LightsailMetricDatapoint {
+  /**
+   * @schema LightsailMetricDatapoint#average
+   */
+  readonly average?: number;
+
+  /**
+   * @schema LightsailMetricDatapoint#maximum
+   */
+  readonly maximum?: number;
+
+  /**
+   * @schema LightsailMetricDatapoint#minimum
+   */
+  readonly minimum?: number;
+
+  /**
+   * @schema LightsailMetricDatapoint#sampleCount
+   */
+  readonly sampleCount?: number;
+
+  /**
+   * @schema LightsailMetricDatapoint#sum
+   */
+  readonly sum?: number;
+
+  /**
+   * @schema LightsailMetricDatapoint#timestamp
+   */
+  readonly timestamp?: string;
+
+  /**
+   * @schema LightsailMetricDatapoint#unit
+   */
+  readonly unit?: string;
+
+}
+
+/**
+ * Converts an object of type 'LightsailMetricDatapoint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailMetricDatapoint(obj: LightsailMetricDatapoint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'average': obj.average,
+    'maximum': obj.maximum,
+    'minimum': obj.minimum,
+    'sampleCount': obj.sampleCount,
+    'sum': obj.sum,
+    'timestamp': obj.timestamp,
+    'unit': obj.unit,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailBundle
  */
 export interface LightsailBundle {
@@ -5234,6 +10928,30 @@ export interface LightsailBundle {
 }
 
 /**
+ * Converts an object of type 'LightsailBundle' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailBundle(obj: LightsailBundle | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'price': obj.price,
+    'cpuCount': obj.cpuCount,
+    'diskSizeInGb': obj.diskSizeInGb,
+    'bundleId': obj.bundleId,
+    'instanceType': obj.instanceType,
+    'isActive': obj.isActive,
+    'name': obj.name,
+    'power': obj.power,
+    'ramSizeInGb': obj.ramSizeInGb,
+    'transferPerMonthInGb': obj.transferPerMonthInGb,
+    'supportedPlatforms': obj.supportedPlatforms?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailCloudFormationStackRecord
  */
 export interface LightsailCloudFormationStackRecord {
@@ -5278,6 +10996,27 @@ export interface LightsailCloudFormationStackRecord {
   readonly destinationInfo?: LightsailDestinationInfo;
 
 }
+
+/**
+ * Converts an object of type 'LightsailCloudFormationStackRecord' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCloudFormationStackRecord(obj: LightsailCloudFormationStackRecord | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'createdAt': obj.createdAt,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'resourceType': obj.resourceType,
+    'state': obj.state,
+    'sourceInfo': obj.sourceInfo?.map(y => toJson_LightsailCloudFormationStackRecordSourceInfo(y)),
+    'destinationInfo': toJson_LightsailDestinationInfo(obj.destinationInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailContactMethod
@@ -5331,6 +11070,28 @@ export interface LightsailContactMethod {
 }
 
 /**
+ * Converts an object of type 'LightsailContactMethod' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailContactMethod(obj: LightsailContactMethod | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'contactEndpoint': obj.contactEndpoint,
+    'status': obj.status,
+    'protocol': obj.protocol,
+    'name': obj.name,
+    'arn': obj.arn,
+    'createdAt': obj.createdAt,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'resourceType': obj.resourceType,
+    'supportCode': obj.supportCode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailContainerImage
  */
 export interface LightsailContainerImage {
@@ -5352,6 +11113,22 @@ export interface LightsailContainerImage {
 }
 
 /**
+ * Converts an object of type 'LightsailContainerImage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailContainerImage(obj: LightsailContainerImage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'image': obj.image,
+    'digest': obj.digest,
+    'createdAt': obj.createdAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailContainerServiceLogEvent
  */
 export interface LightsailContainerServiceLogEvent {
@@ -5366,6 +11143,21 @@ export interface LightsailContainerServiceLogEvent {
   readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailContainerServiceLogEvent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailContainerServiceLogEvent(obj: LightsailContainerServiceLogEvent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'createdAt': obj.createdAt,
+    'message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailContainerServiceDeployment
@@ -5399,45 +11191,22 @@ export interface LightsailContainerServiceDeployment {
 }
 
 /**
- * @schema LightsailMetricDatapoint
+ * Converts an object of type 'LightsailContainerServiceDeployment' to JSON representation.
  */
-export interface LightsailMetricDatapoint {
-  /**
-   * @schema LightsailMetricDatapoint#average
-   */
-  readonly average?: number;
-
-  /**
-   * @schema LightsailMetricDatapoint#maximum
-   */
-  readonly maximum?: number;
-
-  /**
-   * @schema LightsailMetricDatapoint#minimum
-   */
-  readonly minimum?: number;
-
-  /**
-   * @schema LightsailMetricDatapoint#sampleCount
-   */
-  readonly sampleCount?: number;
-
-  /**
-   * @schema LightsailMetricDatapoint#sum
-   */
-  readonly sum?: number;
-
-  /**
-   * @schema LightsailMetricDatapoint#timestamp
-   */
-  readonly timestamp?: string;
-
-  /**
-   * @schema LightsailMetricDatapoint#unit
-   */
-  readonly unit?: string;
-
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailContainerServiceDeployment(obj: LightsailContainerServiceDeployment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'version': obj.version,
+    'state': obj.state,
+    'containers': ((obj.containers) === undefined) ? undefined : (Object.entries(obj.containers).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_LightsailContainer(i[1]) }), {})),
+    'publicEndpoint': toJson_LightsailContainerServiceEndpoint(obj.publicEndpoint),
+    'createdAt': obj.createdAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
 }
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailContainerServicePower
@@ -5474,6 +11243,25 @@ export interface LightsailContainerServicePower {
   readonly isActive?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'LightsailContainerServicePower' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailContainerServicePower(obj: LightsailContainerServicePower | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'powerId': obj.powerId,
+    'price': obj.price,
+    'cpuCount': obj.cpuCount,
+    'ramSizeInGb': obj.ramSizeInGb,
+    'name': obj.name,
+    'isActive': obj.isActive,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDisk
@@ -5567,6 +11355,36 @@ export interface LightsailDisk {
 }
 
 /**
+ * Converts an object of type 'LightsailDisk' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDisk(obj: LightsailDisk | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'supportCode': obj.supportCode,
+    'createdAt': obj.createdAt,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'resourceType': obj.resourceType,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'addOns': obj.addOns?.map(y => toJson_LightsailAddOn(y)),
+    'sizeInGb': obj.sizeInGb,
+    'isSystemDisk': obj.isSystemDisk,
+    'iops': obj.iops,
+    'path': obj.path,
+    'state': obj.state,
+    'attachedTo': obj.attachedTo,
+    'isAttached': obj.isAttached,
+    'attachmentState': obj.attachmentState,
+    'gbInUse': obj.gbInUse,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDiskSnapshot
  */
 export interface LightsailDiskSnapshot {
@@ -5648,6 +11466,34 @@ export interface LightsailDiskSnapshot {
 }
 
 /**
+ * Converts an object of type 'LightsailDiskSnapshot' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDiskSnapshot(obj: LightsailDiskSnapshot | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'supportCode': obj.supportCode,
+    'createdAt': obj.createdAt,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'resourceType': obj.resourceType,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'sizeInGb': obj.sizeInGb,
+    'state': obj.state,
+    'progress': obj.progress,
+    'fromDiskName': obj.fromDiskName,
+    'fromDiskArn': obj.fromDiskArn,
+    'fromInstanceName': obj.fromInstanceName,
+    'fromInstanceArn': obj.fromInstanceArn,
+    'isFromAutoSnapshot': obj.isFromAutoSnapshot,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDistributionBundle
  */
 export interface LightsailDistributionBundle {
@@ -5677,6 +11523,24 @@ export interface LightsailDistributionBundle {
   readonly isActive?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'LightsailDistributionBundle' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDistributionBundle(obj: LightsailDistributionBundle | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bundleId': obj.bundleId,
+    'name': obj.name,
+    'price': obj.price,
+    'transferPerMonthInGb': obj.transferPerMonthInGb,
+    'isActive': obj.isActive,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDomain
@@ -5725,6 +11589,27 @@ export interface LightsailDomain {
 }
 
 /**
+ * Converts an object of type 'LightsailDomain' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDomain(obj: LightsailDomain | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'supportCode': obj.supportCode,
+    'createdAt': obj.createdAt,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'resourceType': obj.resourceType,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'domainEntries': obj.domainEntries?.map(y => toJson_LightsailDomainEntry(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailExportSnapshotRecord
  */
 export interface LightsailExportSnapshotRecord {
@@ -5769,6 +11654,27 @@ export interface LightsailExportSnapshotRecord {
   readonly destinationInfo?: LightsailDestinationInfo;
 
 }
+
+/**
+ * Converts an object of type 'LightsailExportSnapshotRecord' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailExportSnapshotRecord(obj: LightsailExportSnapshotRecord | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'createdAt': obj.createdAt,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'resourceType': obj.resourceType,
+    'state': obj.state,
+    'sourceInfo': toJson_LightsailExportSnapshotRecordSourceInfo(obj.sourceInfo),
+    'destinationInfo': toJson_LightsailDestinationInfo(obj.destinationInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailInstance
@@ -5845,9 +11751,14 @@ export interface LightsailInstance {
   readonly publicIpAddress?: string;
 
   /**
-   * @schema LightsailInstance#ipv6Address
+   * @schema LightsailInstance#ipv6Addresses
    */
-  readonly ipv6Address?: string;
+  readonly ipv6Addresses?: string[];
+
+  /**
+   * @schema LightsailInstance#ipAddressType
+   */
+  readonly ipAddressType?: string;
 
   /**
    * @schema LightsailInstance#hardware
@@ -5875,6 +11786,40 @@ export interface LightsailInstance {
   readonly sshKeyName?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailInstance' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailInstance(obj: LightsailInstance | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'supportCode': obj.supportCode,
+    'createdAt': obj.createdAt,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'resourceType': obj.resourceType,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'blueprintId': obj.blueprintId,
+    'blueprintName': obj.blueprintName,
+    'bundleId': obj.bundleId,
+    'addOns': obj.addOns?.map(y => toJson_LightsailAddOn(y)),
+    'isStaticIp': obj.isStaticIp,
+    'privateIpAddress': obj.privateIpAddress,
+    'publicIpAddress': obj.publicIpAddress,
+    'ipv6Addresses': obj.ipv6Addresses?.map(y => y),
+    'ipAddressType': obj.ipAddressType,
+    'hardware': toJson_LightsailInstanceHardware(obj.hardware),
+    'networking': toJson_LightsailInstanceNetworking(obj.networking),
+    'state': toJson_LightsailInstanceState(obj.state),
+    'username': obj.username,
+    'sshKeyName': obj.sshKeyName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailInstanceAccessDetails
@@ -5933,6 +11878,29 @@ export interface LightsailInstanceAccessDetails {
 }
 
 /**
+ * Converts an object of type 'LightsailInstanceAccessDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailInstanceAccessDetails(obj: LightsailInstanceAccessDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certKey': obj.certKey,
+    'expiresAt': obj.expiresAt,
+    'ipAddress': obj.ipAddress,
+    'password': obj.password,
+    'passwordData': toJson_LightsailPasswordData(obj.passwordData),
+    'privateKey': obj.privateKey,
+    'protocol': obj.protocol,
+    'instanceName': obj.instanceName,
+    'username': obj.username,
+    'hostKeys': obj.hostKeys?.map(y => toJson_LightsailHostKeyAttributes(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailInstancePortState
  */
 export interface LightsailInstancePortState {
@@ -5962,11 +11930,36 @@ export interface LightsailInstancePortState {
   readonly cidrs?: string[];
 
   /**
+   * @schema LightsailInstancePortState#ipv6Cidrs
+   */
+  readonly ipv6Cidrs?: string[];
+
+  /**
    * @schema LightsailInstancePortState#cidrListAliases
    */
   readonly cidrListAliases?: string[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailInstancePortState' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailInstancePortState(obj: LightsailInstancePortState | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fromPort': obj.fromPort,
+    'toPort': obj.toPort,
+    'protocol': obj.protocol,
+    'state': obj.state,
+    'cidrs': obj.cidrs?.map(y => y),
+    'ipv6Cidrs': obj.ipv6Cidrs?.map(y => y),
+    'cidrListAliases': obj.cidrListAliases?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailInstanceSnapshot
@@ -6055,6 +12048,35 @@ export interface LightsailInstanceSnapshot {
 }
 
 /**
+ * Converts an object of type 'LightsailInstanceSnapshot' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailInstanceSnapshot(obj: LightsailInstanceSnapshot | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'supportCode': obj.supportCode,
+    'createdAt': obj.createdAt,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'resourceType': obj.resourceType,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'state': obj.state,
+    'progress': obj.progress,
+    'fromAttachedDisks': obj.fromAttachedDisks?.map(y => toJson_LightsailDisk(y)),
+    'fromInstanceName': obj.fromInstanceName,
+    'fromInstanceArn': obj.fromInstanceArn,
+    'fromBlueprintId': obj.fromBlueprintId,
+    'fromBundleId': obj.fromBundleId,
+    'isFromAutoSnapshot': obj.isFromAutoSnapshot,
+    'sizeInGb': obj.sizeInGb,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailInstanceState
  */
 export interface LightsailInstanceState {
@@ -6069,6 +12091,21 @@ export interface LightsailInstanceState {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailInstanceState' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailInstanceState(obj: LightsailInstanceState | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'code': obj.code,
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailLoadBalancer
@@ -6154,7 +12191,42 @@ export interface LightsailLoadBalancer {
    */
   readonly configurationOptions?: { [key: string]: string };
 
+  /**
+   * @schema LightsailLoadBalancer#ipAddressType
+   */
+  readonly ipAddressType?: string;
+
 }
+
+/**
+ * Converts an object of type 'LightsailLoadBalancer' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailLoadBalancer(obj: LightsailLoadBalancer | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'supportCode': obj.supportCode,
+    'createdAt': obj.createdAt,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'resourceType': obj.resourceType,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'dnsName': obj.dnsName,
+    'state': obj.state,
+    'protocol': obj.protocol,
+    'publicPorts': obj.publicPorts?.map(y => y),
+    'healthCheckPath': obj.healthCheckPath,
+    'instancePort': obj.instancePort,
+    'instanceHealthSummary': obj.instanceHealthSummary?.map(y => toJson_LightsailInstanceHealthSummary(y)),
+    'tlsCertificateSummaries': obj.tlsCertificateSummaries?.map(y => toJson_LightsailLoadBalancerTlsCertificateSummary(y)),
+    'configurationOptions': ((obj.configurationOptions) === undefined) ? undefined : (Object.entries(obj.configurationOptions).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'ipAddressType': obj.ipAddressType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailLoadBalancerTlsCertificate
@@ -6288,6 +12360,44 @@ export interface LightsailLoadBalancerTlsCertificate {
 }
 
 /**
+ * Converts an object of type 'LightsailLoadBalancerTlsCertificate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailLoadBalancerTlsCertificate(obj: LightsailLoadBalancerTlsCertificate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'supportCode': obj.supportCode,
+    'createdAt': obj.createdAt,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'resourceType': obj.resourceType,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'loadBalancerName': obj.loadBalancerName,
+    'isAttached': obj.isAttached,
+    'status': obj.status,
+    'domainName': obj.domainName,
+    'domainValidationRecords': obj.domainValidationRecords?.map(y => toJson_LightsailLoadBalancerTlsCertificateDomainValidationRecord(y)),
+    'failureReason': obj.failureReason,
+    'issuedAt': obj.issuedAt,
+    'issuer': obj.issuer,
+    'keyAlgorithm': obj.keyAlgorithm,
+    'notAfter': obj.notAfter,
+    'notBefore': obj.notBefore,
+    'renewalSummary': toJson_LightsailLoadBalancerTlsCertificateRenewalSummary(obj.renewalSummary),
+    'revocationReason': obj.revocationReason,
+    'revokedAt': obj.revokedAt,
+    'serial': obj.serial,
+    'signatureAlgorithm': obj.signatureAlgorithm,
+    'subject': obj.subject,
+    'subjectAlternativeNames': obj.subjectAlternativeNames?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailRegion
  */
 export interface LightsailRegion {
@@ -6322,6 +12432,25 @@ export interface LightsailRegion {
   readonly relationalDatabaseAvailabilityZones?: LightsailAvailabilityZone[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailRegion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailRegion(obj: LightsailRegion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'continentCode': obj.continentCode,
+    'description': obj.description,
+    'displayName': obj.displayName,
+    'name': obj.name,
+    'availabilityZones': obj.availabilityZones?.map(y => toJson_LightsailAvailabilityZone(y)),
+    'relationalDatabaseAvailabilityZones': obj.relationalDatabaseAvailabilityZones?.map(y => toJson_LightsailAvailabilityZone(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailRelationalDatabase
@@ -6460,6 +12589,45 @@ export interface LightsailRelationalDatabase {
 }
 
 /**
+ * Converts an object of type 'LightsailRelationalDatabase' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailRelationalDatabase(obj: LightsailRelationalDatabase | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'supportCode': obj.supportCode,
+    'createdAt': obj.createdAt,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'resourceType': obj.resourceType,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'relationalDatabaseBlueprintId': obj.relationalDatabaseBlueprintId,
+    'relationalDatabaseBundleId': obj.relationalDatabaseBundleId,
+    'masterDatabaseName': obj.masterDatabaseName,
+    'hardware': toJson_LightsailRelationalDatabaseHardware(obj.hardware),
+    'state': obj.state,
+    'secondaryAvailabilityZone': obj.secondaryAvailabilityZone,
+    'backupRetentionEnabled': obj.backupRetentionEnabled,
+    'pendingModifiedValues': toJson_LightsailPendingModifiedRelationalDatabaseValues(obj.pendingModifiedValues),
+    'engine': obj.engine,
+    'engineVersion': obj.engineVersion,
+    'latestRestorableTime': obj.latestRestorableTime,
+    'masterUsername': obj.masterUsername,
+    'parameterApplyStatus': obj.parameterApplyStatus,
+    'preferredBackupWindow': obj.preferredBackupWindow,
+    'preferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'publiclyAccessible': obj.publiclyAccessible,
+    'masterEndpoint': toJson_LightsailRelationalDatabaseEndpoint(obj.masterEndpoint),
+    'pendingMaintenanceActions': obj.pendingMaintenanceActions?.map(y => toJson_LightsailPendingMaintenanceAction(y)),
+    'caCertificateIdentifier': obj.caCertificateIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailRelationalDatabaseBlueprint
  */
 export interface LightsailRelationalDatabaseBlueprint {
@@ -6494,6 +12662,25 @@ export interface LightsailRelationalDatabaseBlueprint {
   readonly isEngineDefault?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'LightsailRelationalDatabaseBlueprint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailRelationalDatabaseBlueprint(obj: LightsailRelationalDatabaseBlueprint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'blueprintId': obj.blueprintId,
+    'engine': obj.engine,
+    'engineVersion': obj.engineVersion,
+    'engineDescription': obj.engineDescription,
+    'engineVersionDescription': obj.engineVersionDescription,
+    'isEngineDefault': obj.isEngineDefault,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailRelationalDatabaseBundle
@@ -6547,6 +12734,28 @@ export interface LightsailRelationalDatabaseBundle {
 }
 
 /**
+ * Converts an object of type 'LightsailRelationalDatabaseBundle' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailRelationalDatabaseBundle(obj: LightsailRelationalDatabaseBundle | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bundleId': obj.bundleId,
+    'name': obj.name,
+    'price': obj.price,
+    'ramSizeInGb': obj.ramSizeInGb,
+    'diskSizeInGb': obj.diskSizeInGb,
+    'transferPerMonthInGb': obj.transferPerMonthInGb,
+    'cpuCount': obj.cpuCount,
+    'isEncrypted': obj.isEncrypted,
+    'isActive': obj.isActive,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailRelationalDatabaseEvent
  */
 export interface LightsailRelationalDatabaseEvent {
@@ -6573,6 +12782,23 @@ export interface LightsailRelationalDatabaseEvent {
 }
 
 /**
+ * Converts an object of type 'LightsailRelationalDatabaseEvent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailRelationalDatabaseEvent(obj: LightsailRelationalDatabaseEvent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resource': obj.resource,
+    'createdAt': obj.createdAt,
+    'message': obj.message,
+    'eventCategories': obj.eventCategories?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailLogEvent
  */
 export interface LightsailLogEvent {
@@ -6587,6 +12813,21 @@ export interface LightsailLogEvent {
   readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailLogEvent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailLogEvent(obj: LightsailLogEvent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'createdAt': obj.createdAt,
+    'message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailRelationalDatabaseParameter
@@ -6633,6 +12874,27 @@ export interface LightsailRelationalDatabaseParameter {
   readonly parameterValue?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailRelationalDatabaseParameter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailRelationalDatabaseParameter(obj: LightsailRelationalDatabaseParameter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'allowedValues': obj.allowedValues,
+    'applyMethod': obj.applyMethod,
+    'applyType': obj.applyType,
+    'dataType': obj.dataType,
+    'description': obj.description,
+    'isModifiable': obj.isModifiable,
+    'parameterName': obj.parameterName,
+    'parameterValue': obj.parameterValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailRelationalDatabaseSnapshot
@@ -6716,6 +12978,34 @@ export interface LightsailRelationalDatabaseSnapshot {
 }
 
 /**
+ * Converts an object of type 'LightsailRelationalDatabaseSnapshot' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailRelationalDatabaseSnapshot(obj: LightsailRelationalDatabaseSnapshot | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'supportCode': obj.supportCode,
+    'createdAt': obj.createdAt,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'resourceType': obj.resourceType,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'engine': obj.engine,
+    'engineVersion': obj.engineVersion,
+    'sizeInGb': obj.sizeInGb,
+    'state': obj.state,
+    'fromRelationalDatabaseName': obj.fromRelationalDatabaseName,
+    'fromRelationalDatabaseArn': obj.fromRelationalDatabaseArn,
+    'fromRelationalDatabaseBundleId': obj.fromRelationalDatabaseBundleId,
+    'fromRelationalDatabaseBlueprintId': obj.fromRelationalDatabaseBlueprintId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailStaticIp
  */
 export interface LightsailStaticIp {
@@ -6767,6 +13057,59 @@ export interface LightsailStaticIp {
 }
 
 /**
+ * Converts an object of type 'LightsailStaticIp' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailStaticIp(obj: LightsailStaticIp | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'supportCode': obj.supportCode,
+    'createdAt': obj.createdAt,
+    'location': toJson_LightsailResourceLocation(obj.location),
+    'resourceType': obj.resourceType,
+    'ipAddress': obj.ipAddress,
+    'attachedTo': obj.attachedTo,
+    'isAttached': obj.isAttached,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailAccessRules
+ */
+export interface LightsailAccessRules {
+  /**
+   * @schema LightsailAccessRules#getObject
+   */
+  readonly getObject?: string;
+
+  /**
+   * @schema LightsailAccessRules#allowPublicOverrides
+   */
+  readonly allowPublicOverrides?: boolean;
+
+}
+
+/**
+ * Converts an object of type 'LightsailAccessRules' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAccessRules(obj: LightsailAccessRules | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'getObject': obj.getObject,
+    'allowPublicOverrides': obj.allowPublicOverrides,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailResourceLocation
  */
 export interface LightsailResourceLocation {
@@ -6781,6 +13124,120 @@ export interface LightsailResourceLocation {
   readonly regionName?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailResourceLocation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailResourceLocation(obj: LightsailResourceLocation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'availabilityZone': obj.availabilityZone,
+    'regionName': obj.regionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailResourceReceivingAccess
+ */
+export interface LightsailResourceReceivingAccess {
+  /**
+   * @schema LightsailResourceReceivingAccess#name
+   */
+  readonly name?: string;
+
+  /**
+   * @schema LightsailResourceReceivingAccess#resourceType
+   */
+  readonly resourceType?: string;
+
+}
+
+/**
+ * Converts an object of type 'LightsailResourceReceivingAccess' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailResourceReceivingAccess(obj: LightsailResourceReceivingAccess | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'resourceType': obj.resourceType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailBucketState
+ */
+export interface LightsailBucketState {
+  /**
+   * @schema LightsailBucketState#code
+   */
+  readonly code?: string;
+
+  /**
+   * @schema LightsailBucketState#message
+   */
+  readonly message?: string;
+
+}
+
+/**
+ * Converts an object of type 'LightsailBucketState' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailBucketState(obj: LightsailBucketState | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'code': obj.code,
+    'message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailAccessKeyLastUsed
+ */
+export interface LightsailAccessKeyLastUsed {
+  /**
+   * @schema LightsailAccessKeyLastUsed#lastUsedDate
+   */
+  readonly lastUsedDate?: string;
+
+  /**
+   * @schema LightsailAccessKeyLastUsed#region
+   */
+  readonly region?: string;
+
+  /**
+   * @schema LightsailAccessKeyLastUsed#serviceName
+   */
+  readonly serviceName?: string;
+
+}
+
+/**
+ * Converts an object of type 'LightsailAccessKeyLastUsed' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAccessKeyLastUsed(obj: LightsailAccessKeyLastUsed | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'lastUsedDate': obj.lastUsedDate,
+    'region': obj.region,
+    'serviceName': obj.serviceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCertificate
@@ -6849,7 +13306,7 @@ export interface LightsailCertificate {
   /**
    * @schema LightsailCertificate#issuerCA
    */
-  readonly issuerCA?: string;
+  readonly issuerCa?: string;
 
   /**
    * @schema LightsailCertificate#notBefore
@@ -6894,6 +13351,71 @@ export interface LightsailCertificate {
 }
 
 /**
+ * Converts an object of type 'LightsailCertificate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCertificate(obj: LightsailCertificate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'domainName': obj.domainName,
+    'status': obj.status,
+    'serialNumber': obj.serialNumber,
+    'subjectAlternativeNames': obj.subjectAlternativeNames?.map(y => y),
+    'domainValidationRecords': obj.domainValidationRecords?.map(y => toJson_LightsailDomainValidationRecord(y)),
+    'requestFailureReason': obj.requestFailureReason,
+    'inUseResourceCount': obj.inUseResourceCount,
+    'keyAlgorithm': obj.keyAlgorithm,
+    'createdAt': obj.createdAt,
+    'issuedAt': obj.issuedAt,
+    'issuerCA': obj.issuerCa,
+    'notBefore': obj.notBefore,
+    'notAfter': obj.notAfter,
+    'eligibleToRenew': obj.eligibleToRenew,
+    'renewalSummary': toJson_LightsailRenewalSummary(obj.renewalSummary),
+    'revokedAt': obj.revokedAt,
+    'revocationReason': obj.revocationReason,
+    'tags': obj.tags?.map(y => toJson_LightsailTag(y)),
+    'supportCode': obj.supportCode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema LightsailContainerServiceStateDetail
+ */
+export interface LightsailContainerServiceStateDetail {
+  /**
+   * @schema LightsailContainerServiceStateDetail#code
+   */
+  readonly code?: string;
+
+  /**
+   * @schema LightsailContainerServiceStateDetail#message
+   */
+  readonly message?: string;
+
+}
+
+/**
+ * Converts an object of type 'LightsailContainerServiceStateDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailContainerServiceStateDetail(obj: LightsailContainerServiceStateDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'code': obj.code,
+    'message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailContainerServiceHealthCheckConfig
  */
 export interface LightsailContainerServiceHealthCheckConfig {
@@ -6930,6 +13452,25 @@ export interface LightsailContainerServiceHealthCheckConfig {
 }
 
 /**
+ * Converts an object of type 'LightsailContainerServiceHealthCheckConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailContainerServiceHealthCheckConfig(obj: LightsailContainerServiceHealthCheckConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'healthyThreshold': obj.healthyThreshold,
+    'unhealthyThreshold': obj.unhealthyThreshold,
+    'timeoutSeconds': obj.timeoutSeconds,
+    'intervalSeconds': obj.intervalSeconds,
+    'path': obj.path,
+    'successCodes': obj.successCodes,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailAutoSnapshotAddOnRequest
  */
 export interface LightsailAutoSnapshotAddOnRequest {
@@ -6939,6 +13480,20 @@ export interface LightsailAutoSnapshotAddOnRequest {
   readonly snapshotTimeOfDay?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailAutoSnapshotAddOnRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAutoSnapshotAddOnRequest(obj: LightsailAutoSnapshotAddOnRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'snapshotTimeOfDay': obj.snapshotTimeOfDay,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCookieObject
@@ -6957,6 +13512,21 @@ export interface LightsailCookieObject {
 }
 
 /**
+ * Converts an object of type 'LightsailCookieObject' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCookieObject(obj: LightsailCookieObject | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'option': obj.option,
+    'cookiesAllowList': obj.cookiesAllowList?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailHeaderObject
  */
 export interface LightsailHeaderObject {
@@ -6973,6 +13543,21 @@ export interface LightsailHeaderObject {
 }
 
 /**
+ * Converts an object of type 'LightsailHeaderObject' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailHeaderObject(obj: LightsailHeaderObject | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'option': obj.option,
+    'headersAllowList': obj.headersAllowList?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailQueryStringObject
  */
 export interface LightsailQueryStringObject {
@@ -6987,6 +13572,21 @@ export interface LightsailQueryStringObject {
   readonly queryStringsAllowList?: string[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailQueryStringObject' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailQueryStringObject(obj: LightsailQueryStringObject | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'option': obj.option,
+    'queryStringsAllowList': obj.queryStringsAllowList?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailOrigin
@@ -7015,6 +13615,23 @@ export interface LightsailOrigin {
 }
 
 /**
+ * Converts an object of type 'LightsailOrigin' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailOrigin(obj: LightsailOrigin | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'resourceType': obj.resourceType,
+    'regionName': obj.regionName,
+    'protocolPolicy': obj.protocolPolicy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailMonitoredResourceInfo
  */
 export interface LightsailMonitoredResourceInfo {
@@ -7036,6 +13653,22 @@ export interface LightsailMonitoredResourceInfo {
 }
 
 /**
+ * Converts an object of type 'LightsailMonitoredResourceInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailMonitoredResourceInfo(obj: LightsailMonitoredResourceInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'resourceType': obj.resourceType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailAttachedDisk
  */
 export interface LightsailAttachedDisk {
@@ -7050,6 +13683,21 @@ export interface LightsailAttachedDisk {
   readonly sizeInGb?: number;
 
 }
+
+/**
+ * Converts an object of type 'LightsailAttachedDisk' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAttachedDisk(obj: LightsailAttachedDisk | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'path': obj.path,
+    'sizeInGb': obj.sizeInGb,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailCloudFormationStackRecordSourceInfo
@@ -7073,6 +13721,22 @@ export interface LightsailCloudFormationStackRecordSourceInfo {
 }
 
 /**
+ * Converts an object of type 'LightsailCloudFormationStackRecordSourceInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailCloudFormationStackRecordSourceInfo(obj: LightsailCloudFormationStackRecordSourceInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceType': obj.resourceType,
+    'name': obj.name,
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDestinationInfo
  */
 export interface LightsailDestinationInfo {
@@ -7087,6 +13751,21 @@ export interface LightsailDestinationInfo {
   readonly service?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailDestinationInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDestinationInfo(obj: LightsailDestinationInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'service': obj.service,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailContainerServiceEndpoint
@@ -7108,6 +13787,22 @@ export interface LightsailContainerServiceEndpoint {
   readonly healthCheck?: LightsailContainerServiceHealthCheckConfig;
 
 }
+
+/**
+ * Converts an object of type 'LightsailContainerServiceEndpoint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailContainerServiceEndpoint(obj: LightsailContainerServiceEndpoint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'containerName': obj.containerName,
+    'containerPort': obj.containerPort,
+    'healthCheck': toJson_LightsailContainerServiceHealthCheckConfig(obj.healthCheck),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailAddOn
@@ -7134,6 +13829,23 @@ export interface LightsailAddOn {
   readonly nextSnapshotTimeOfDay?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailAddOn' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAddOn(obj: LightsailAddOn | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'status': obj.status,
+    'snapshotTimeOfDay': obj.snapshotTimeOfDay,
+    'nextSnapshotTimeOfDay': obj.nextSnapshotTimeOfDay,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailExportSnapshotRecordSourceInfo
@@ -7182,6 +13894,27 @@ export interface LightsailExportSnapshotRecordSourceInfo {
 }
 
 /**
+ * Converts an object of type 'LightsailExportSnapshotRecordSourceInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailExportSnapshotRecordSourceInfo(obj: LightsailExportSnapshotRecordSourceInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceType': obj.resourceType,
+    'createdAt': obj.createdAt,
+    'name': obj.name,
+    'arn': obj.arn,
+    'fromResourceName': obj.fromResourceName,
+    'fromResourceArn': obj.fromResourceArn,
+    'instanceSnapshotInfo': toJson_LightsailInstanceSnapshotInfo(obj.instanceSnapshotInfo),
+    'diskSnapshotInfo': toJson_LightsailDiskSnapshotInfo(obj.diskSnapshotInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailInstanceHardware
  */
 export interface LightsailInstanceHardware {
@@ -7203,6 +13936,22 @@ export interface LightsailInstanceHardware {
 }
 
 /**
+ * Converts an object of type 'LightsailInstanceHardware' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailInstanceHardware(obj: LightsailInstanceHardware | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'cpuCount': obj.cpuCount,
+    'disks': obj.disks?.map(y => toJson_LightsailDisk(y)),
+    'ramSizeInGb': obj.ramSizeInGb,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailInstanceNetworking
  */
 export interface LightsailInstanceNetworking {
@@ -7219,6 +13968,21 @@ export interface LightsailInstanceNetworking {
 }
 
 /**
+ * Converts an object of type 'LightsailInstanceNetworking' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailInstanceNetworking(obj: LightsailInstanceNetworking | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'monthlyTransfer': toJson_LightsailMonthlyTransfer(obj.monthlyTransfer),
+    'ports': obj.ports?.map(y => toJson_LightsailInstancePortInfo(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailPasswordData
  */
 export interface LightsailPasswordData {
@@ -7233,6 +13997,21 @@ export interface LightsailPasswordData {
   readonly keyPairName?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailPasswordData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailPasswordData(obj: LightsailPasswordData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ciphertext': obj.ciphertext,
+    'keyPairName': obj.keyPairName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailHostKeyAttributes
@@ -7256,12 +14035,12 @@ export interface LightsailHostKeyAttributes {
   /**
    * @schema LightsailHostKeyAttributes#fingerprintSHA1
    */
-  readonly fingerprintSHA1?: string;
+  readonly fingerprintSha1?: string;
 
   /**
    * @schema LightsailHostKeyAttributes#fingerprintSHA256
    */
-  readonly fingerprintSHA256?: string;
+  readonly fingerprintSha256?: string;
 
   /**
    * @schema LightsailHostKeyAttributes#notValidBefore
@@ -7274,6 +14053,26 @@ export interface LightsailHostKeyAttributes {
   readonly notValidAfter?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailHostKeyAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailHostKeyAttributes(obj: LightsailHostKeyAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'algorithm': obj.algorithm,
+    'publicKey': obj.publicKey,
+    'witnessedAt': obj.witnessedAt,
+    'fingerprintSHA1': obj.fingerprintSha1,
+    'fingerprintSHA256': obj.fingerprintSha256,
+    'notValidBefore': obj.notValidBefore,
+    'notValidAfter': obj.notValidAfter,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailInstanceHealthSummary
@@ -7297,6 +14096,22 @@ export interface LightsailInstanceHealthSummary {
 }
 
 /**
+ * Converts an object of type 'LightsailInstanceHealthSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailInstanceHealthSummary(obj: LightsailInstanceHealthSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceName': obj.instanceName,
+    'instanceHealth': obj.instanceHealth,
+    'instanceHealthReason': obj.instanceHealthReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailLoadBalancerTlsCertificateSummary
  */
 export interface LightsailLoadBalancerTlsCertificateSummary {
@@ -7311,6 +14126,21 @@ export interface LightsailLoadBalancerTlsCertificateSummary {
   readonly isAttached?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'LightsailLoadBalancerTlsCertificateSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailLoadBalancerTlsCertificateSummary(obj: LightsailLoadBalancerTlsCertificateSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'isAttached': obj.isAttached,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailLoadBalancerTlsCertificateDomainValidationRecord
@@ -7344,6 +14174,24 @@ export interface LightsailLoadBalancerTlsCertificateDomainValidationRecord {
 }
 
 /**
+ * Converts an object of type 'LightsailLoadBalancerTlsCertificateDomainValidationRecord' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailLoadBalancerTlsCertificateDomainValidationRecord(obj: LightsailLoadBalancerTlsCertificateDomainValidationRecord | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'type': obj.type,
+    'value': obj.value,
+    'validationStatus': obj.validationStatus,
+    'domainName': obj.domainName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailLoadBalancerTlsCertificateRenewalSummary
  */
 export interface LightsailLoadBalancerTlsCertificateRenewalSummary {
@@ -7360,6 +14208,21 @@ export interface LightsailLoadBalancerTlsCertificateRenewalSummary {
 }
 
 /**
+ * Converts an object of type 'LightsailLoadBalancerTlsCertificateRenewalSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailLoadBalancerTlsCertificateRenewalSummary(obj: LightsailLoadBalancerTlsCertificateRenewalSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'renewalStatus': obj.renewalStatus,
+    'domainValidationOptions': obj.domainValidationOptions?.map(y => toJson_LightsailLoadBalancerTlsCertificateDomainValidationOption(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailAvailabilityZone
  */
 export interface LightsailAvailabilityZone {
@@ -7374,6 +14237,21 @@ export interface LightsailAvailabilityZone {
   readonly state?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailAvailabilityZone' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailAvailabilityZone(obj: LightsailAvailabilityZone | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'zoneName': obj.zoneName,
+    'state': obj.state,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailRelationalDatabaseHardware
@@ -7397,6 +14275,22 @@ export interface LightsailRelationalDatabaseHardware {
 }
 
 /**
+ * Converts an object of type 'LightsailRelationalDatabaseHardware' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailRelationalDatabaseHardware(obj: LightsailRelationalDatabaseHardware | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'cpuCount': obj.cpuCount,
+    'diskSizeInGb': obj.diskSizeInGb,
+    'ramSizeInGb': obj.ramSizeInGb,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailPendingModifiedRelationalDatabaseValues
  */
 export interface LightsailPendingModifiedRelationalDatabaseValues {
@@ -7418,6 +14312,22 @@ export interface LightsailPendingModifiedRelationalDatabaseValues {
 }
 
 /**
+ * Converts an object of type 'LightsailPendingModifiedRelationalDatabaseValues' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailPendingModifiedRelationalDatabaseValues(obj: LightsailPendingModifiedRelationalDatabaseValues | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'masterUserPassword': obj.masterUserPassword,
+    'engineVersion': obj.engineVersion,
+    'backupRetentionEnabled': obj.backupRetentionEnabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailRelationalDatabaseEndpoint
  */
 export interface LightsailRelationalDatabaseEndpoint {
@@ -7432,6 +14342,21 @@ export interface LightsailRelationalDatabaseEndpoint {
   readonly address?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailRelationalDatabaseEndpoint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailRelationalDatabaseEndpoint(obj: LightsailRelationalDatabaseEndpoint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'port': obj.port,
+    'address': obj.address,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailPendingMaintenanceAction
@@ -7455,6 +14380,22 @@ export interface LightsailPendingMaintenanceAction {
 }
 
 /**
+ * Converts an object of type 'LightsailPendingMaintenanceAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailPendingMaintenanceAction(obj: LightsailPendingMaintenanceAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'action': obj.action,
+    'description': obj.description,
+    'currentApplyDate': obj.currentApplyDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDomainValidationRecord
  */
 export interface LightsailDomainValidationRecord {
@@ -7469,6 +14410,21 @@ export interface LightsailDomainValidationRecord {
   readonly resourceRecord?: LightsailResourceRecord;
 
 }
+
+/**
+ * Converts an object of type 'LightsailDomainValidationRecord' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDomainValidationRecord(obj: LightsailDomainValidationRecord | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domainName': obj.domainName,
+    'resourceRecord': toJson_LightsailResourceRecord(obj.resourceRecord),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailRenewalSummary
@@ -7497,6 +14453,23 @@ export interface LightsailRenewalSummary {
 }
 
 /**
+ * Converts an object of type 'LightsailRenewalSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailRenewalSummary(obj: LightsailRenewalSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domainValidationRecords': obj.domainValidationRecords?.map(y => toJson_LightsailDomainValidationRecord(y)),
+    'renewalStatus': obj.renewalStatus,
+    'renewalStatusReason': obj.renewalStatusReason,
+    'updatedAt': obj.updatedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailInstanceSnapshotInfo
  */
 export interface LightsailInstanceSnapshotInfo {
@@ -7518,6 +14491,22 @@ export interface LightsailInstanceSnapshotInfo {
 }
 
 /**
+ * Converts an object of type 'LightsailInstanceSnapshotInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailInstanceSnapshotInfo(obj: LightsailInstanceSnapshotInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fromBundleId': obj.fromBundleId,
+    'fromBlueprintId': obj.fromBlueprintId,
+    'fromDiskInfo': obj.fromDiskInfo?.map(y => toJson_LightsailDiskInfo(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailDiskSnapshotInfo
  */
 export interface LightsailDiskSnapshotInfo {
@@ -7529,6 +14518,20 @@ export interface LightsailDiskSnapshotInfo {
 }
 
 /**
+ * Converts an object of type 'LightsailDiskSnapshotInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDiskSnapshotInfo(obj: LightsailDiskSnapshotInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sizeInGb': obj.sizeInGb,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema LightsailMonthlyTransfer
  */
 export interface LightsailMonthlyTransfer {
@@ -7538,6 +14541,20 @@ export interface LightsailMonthlyTransfer {
   readonly gbPerMonthAllocated?: number;
 
 }
+
+/**
+ * Converts an object of type 'LightsailMonthlyTransfer' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailMonthlyTransfer(obj: LightsailMonthlyTransfer | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gbPerMonthAllocated': obj.gbPerMonthAllocated,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailInstancePortInfo
@@ -7584,11 +14601,39 @@ export interface LightsailInstancePortInfo {
   readonly cidrs?: string[];
 
   /**
+   * @schema LightsailInstancePortInfo#ipv6Cidrs
+   */
+  readonly ipv6Cidrs?: string[];
+
+  /**
    * @schema LightsailInstancePortInfo#cidrListAliases
    */
   readonly cidrListAliases?: string[];
 
 }
+
+/**
+ * Converts an object of type 'LightsailInstancePortInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailInstancePortInfo(obj: LightsailInstancePortInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fromPort': obj.fromPort,
+    'toPort': obj.toPort,
+    'protocol': obj.protocol,
+    'accessFrom': obj.accessFrom,
+    'accessType': obj.accessType,
+    'commonName': obj.commonName,
+    'accessDirection': obj.accessDirection,
+    'cidrs': obj.cidrs?.map(y => y),
+    'ipv6Cidrs': obj.ipv6Cidrs?.map(y => y),
+    'cidrListAliases': obj.cidrListAliases?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailLoadBalancerTlsCertificateDomainValidationOption
@@ -7605,6 +14650,21 @@ export interface LightsailLoadBalancerTlsCertificateDomainValidationOption {
   readonly validationStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailLoadBalancerTlsCertificateDomainValidationOption' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailLoadBalancerTlsCertificateDomainValidationOption(obj: LightsailLoadBalancerTlsCertificateDomainValidationOption | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domainName': obj.domainName,
+    'validationStatus': obj.validationStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailResourceRecord
@@ -7626,6 +14686,22 @@ export interface LightsailResourceRecord {
   readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'LightsailResourceRecord' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailResourceRecord(obj: LightsailResourceRecord | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'type': obj.type,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema LightsailDiskInfo
@@ -7652,3 +14728,20 @@ export interface LightsailDiskInfo {
   readonly isSystemDisk?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'LightsailDiskInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_LightsailDiskInfo(obj: LightsailDiskInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'path': obj.path,
+    'sizeInGb': obj.sizeInGb,
+    'isSystemDisk': obj.isSystemDisk,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

@@ -8,6 +8,23 @@ export class ConnectParticipantClient extends cdk.Construct {
     super(scope, id);
   }
 
+  public completeAttachmentUpload(input: shapes.ConnectParticipantCompleteAttachmentUploadRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'completeAttachmentUpload',
+        service: 'ConnectParticipant',
+        physicalResourceId: cr.PhysicalResourceId.of('ConnectParticipant.CompleteAttachmentUpload'),
+        parameters: {
+          AttachmentIds: input.attachmentIds,
+          ClientToken: input.clientToken,
+          ConnectionToken: input.connectionToken,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'CompleteAttachmentUpload', props);
+  }
+
   public createParticipantConnection(input: shapes.ConnectParticipantCreateParticipantConnectionRequest): ConnectParticipantResponsesCreateParticipantConnection {
     return new ConnectParticipantResponsesCreateParticipantConnection(this, this.__resources, input);
   }
@@ -28,6 +45,10 @@ export class ConnectParticipantClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DisconnectParticipant', props);
   }
 
+  public fetchAttachment(input: shapes.ConnectParticipantGetAttachmentRequest): ConnectParticipantResponsesFetchAttachment {
+    return new ConnectParticipantResponsesFetchAttachment(this, this.__resources, input);
+  }
+
   public fetchTranscript(input: shapes.ConnectParticipantGetTranscriptRequest): ConnectParticipantResponsesFetchTranscript {
     return new ConnectParticipantResponsesFetchTranscript(this, this.__resources, input);
   }
@@ -38,6 +59,10 @@ export class ConnectParticipantClient extends cdk.Construct {
 
   public sendMessage(input: shapes.ConnectParticipantSendMessageRequest): ConnectParticipantResponsesSendMessage {
     return new ConnectParticipantResponsesSendMessage(this, this.__resources, input);
+  }
+
+  public startAttachmentUpload(input: shapes.ConnectParticipantStartAttachmentUploadRequest): ConnectParticipantResponsesStartAttachmentUpload {
+    return new ConnectParticipantResponsesStartAttachmentUpload(this, this.__resources, input);
   }
 
 }
@@ -139,6 +164,49 @@ export class ConnectParticipantResponsesCreateParticipantConnectionConnectionCre
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateParticipantConnection.ConnectionCredentials.Expiry', props);
     return resource.getResponseField('ConnectionCredentials.Expiry') as unknown as string;
+  }
+
+}
+
+export class ConnectParticipantResponsesFetchAttachment {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectParticipantGetAttachmentRequest) {
+  }
+
+  public get url(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAttachment',
+        service: 'ConnectParticipant',
+        physicalResourceId: cr.PhysicalResourceId.of('ConnectParticipant.GetAttachment.Url'),
+        outputPath: 'Url',
+        parameters: {
+          AttachmentId: this.__input.attachmentId,
+          ConnectionToken: this.__input.connectionToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAttachment.Url', props);
+    return resource.getResponseField('Url') as unknown as string;
+  }
+
+  public get urlExpiry(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAttachment',
+        service: 'ConnectParticipant',
+        physicalResourceId: cr.PhysicalResourceId.of('ConnectParticipant.GetAttachment.UrlExpiry'),
+        outputPath: 'UrlExpiry',
+        parameters: {
+          AttachmentId: this.__input.attachmentId,
+          ConnectionToken: this.__input.connectionToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAttachment.UrlExpiry', props);
+    return resource.getResponseField('UrlExpiry') as unknown as string;
   }
 
 }
@@ -321,6 +389,108 @@ export class ConnectParticipantResponsesSendMessage {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'SendMessage.AbsoluteTime', props);
     return resource.getResponseField('AbsoluteTime') as unknown as string;
+  }
+
+}
+
+export class ConnectParticipantResponsesStartAttachmentUpload {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectParticipantStartAttachmentUploadRequest) {
+  }
+
+  public get attachmentId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startAttachmentUpload',
+        service: 'ConnectParticipant',
+        physicalResourceId: cr.PhysicalResourceId.of('ConnectParticipant.StartAttachmentUpload.AttachmentId'),
+        outputPath: 'AttachmentId',
+        parameters: {
+          ContentType: this.__input.contentType,
+          AttachmentSizeInBytes: this.__input.attachmentSizeInBytes,
+          AttachmentName: this.__input.attachmentName,
+          ClientToken: this.__input.clientToken,
+          ConnectionToken: this.__input.connectionToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartAttachmentUpload.AttachmentId', props);
+    return resource.getResponseField('AttachmentId') as unknown as string;
+  }
+
+  public get uploadMetadata(): ConnectParticipantResponsesStartAttachmentUploadUploadMetadata {
+    return new ConnectParticipantResponsesStartAttachmentUploadUploadMetadata(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ConnectParticipantResponsesStartAttachmentUploadUploadMetadata {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ConnectParticipantStartAttachmentUploadRequest) {
+  }
+
+  public get url(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startAttachmentUpload',
+        service: 'ConnectParticipant',
+        physicalResourceId: cr.PhysicalResourceId.of('ConnectParticipant.StartAttachmentUpload.UploadMetadata.Url'),
+        outputPath: 'UploadMetadata.Url',
+        parameters: {
+          ContentType: this.__input.contentType,
+          AttachmentSizeInBytes: this.__input.attachmentSizeInBytes,
+          AttachmentName: this.__input.attachmentName,
+          ClientToken: this.__input.clientToken,
+          ConnectionToken: this.__input.connectionToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartAttachmentUpload.UploadMetadata.Url', props);
+    return resource.getResponseField('UploadMetadata.Url') as unknown as string;
+  }
+
+  public get urlExpiry(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startAttachmentUpload',
+        service: 'ConnectParticipant',
+        physicalResourceId: cr.PhysicalResourceId.of('ConnectParticipant.StartAttachmentUpload.UploadMetadata.UrlExpiry'),
+        outputPath: 'UploadMetadata.UrlExpiry',
+        parameters: {
+          ContentType: this.__input.contentType,
+          AttachmentSizeInBytes: this.__input.attachmentSizeInBytes,
+          AttachmentName: this.__input.attachmentName,
+          ClientToken: this.__input.clientToken,
+          ConnectionToken: this.__input.connectionToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartAttachmentUpload.UploadMetadata.UrlExpiry', props);
+    return resource.getResponseField('UploadMetadata.UrlExpiry') as unknown as string;
+  }
+
+  public get headersToInclude(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startAttachmentUpload',
+        service: 'ConnectParticipant',
+        physicalResourceId: cr.PhysicalResourceId.of('ConnectParticipant.StartAttachmentUpload.UploadMetadata.HeadersToInclude'),
+        outputPath: 'UploadMetadata.HeadersToInclude',
+        parameters: {
+          ContentType: this.__input.contentType,
+          AttachmentSizeInBytes: this.__input.attachmentSizeInBytes,
+          AttachmentName: this.__input.attachmentName,
+          ClientToken: this.__input.clientToken,
+          ConnectionToken: this.__input.connectionToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartAttachmentUpload.UploadMetadata.HeadersToInclude', props);
+    return resource.getResponseField('UploadMetadata.HeadersToInclude') as unknown as Record<string, string>;
   }
 
 }

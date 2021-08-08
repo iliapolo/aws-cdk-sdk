@@ -308,6 +308,24 @@ export class RAMResponsesAcceptResourceShareInvitationResourceShareInvitation {
     return resource.getResponseField('resourceShareInvitation.resourceShareAssociations') as unknown as shapes.RamResourceShareAssociation[];
   }
 
+  public get receiverArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'acceptResourceShareInvitation',
+        service: 'RAM',
+        physicalResourceId: cr.PhysicalResourceId.of('RAM.AcceptResourceShareInvitation.resourceShareInvitation.receiverArn'),
+        outputPath: 'resourceShareInvitation.receiverArn',
+        parameters: {
+          resourceShareInvitationArn: this.__input.resourceShareInvitationArn,
+          clientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AcceptResourceShareInvitation.resourceShareInvitation.receiverArn', props);
+    return resource.getResponseField('resourceShareInvitation.receiverArn') as unknown as string;
+  }
+
 }
 
 export class RAMResponsesAssociateResourceShare {
@@ -375,6 +393,7 @@ export class RAMResponsesAssociateResourceSharePermission {
           permissionArn: this.__input.permissionArn,
           replace: this.__input.replace,
           clientToken: this.__input.clientToken,
+          permissionVersion: this.__input.permissionVersion,
         },
       },
     };
@@ -395,6 +414,7 @@ export class RAMResponsesAssociateResourceSharePermission {
           permissionArn: this.__input.permissionArn,
           replace: this.__input.replace,
           clientToken: this.__input.clientToken,
+          permissionVersion: this.__input.permissionVersion,
         },
       },
     };
@@ -993,6 +1013,24 @@ export class RAMResponsesFetchPermissionPermission {
     return resource.getResponseField('permission.lastUpdatedTime') as unknown as string;
   }
 
+  public get isResourceTypeDefault(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getPermission',
+        service: 'RAM',
+        physicalResourceId: cr.PhysicalResourceId.of('RAM.GetPermission.permission.isResourceTypeDefault'),
+        outputPath: 'permission.isResourceTypeDefault',
+        parameters: {
+          permissionArn: this.__input.permissionArn,
+          permissionVersion: this.__input.permissionVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetPermission.permission.isResourceTypeDefault', props);
+    return resource.getResponseField('permission.isResourceTypeDefault') as unknown as boolean;
+  }
+
 }
 
 export class RAMResponsesFetchResourcePolicies {
@@ -1163,6 +1201,7 @@ export class RAMResponsesFetchResourceShares {
           tagFilters: this.__input.tagFilters,
           nextToken: this.__input.nextToken,
           maxResults: this.__input.maxResults,
+          permissionArn: this.__input.permissionArn,
         },
       },
     };
@@ -1186,6 +1225,7 @@ export class RAMResponsesFetchResourceShares {
           tagFilters: this.__input.tagFilters,
           nextToken: this.__input.nextToken,
           maxResults: this.__input.maxResults,
+          permissionArn: this.__input.permissionArn,
         },
       },
     };
@@ -1679,6 +1719,24 @@ export class RAMResponsesRejectResourceShareInvitationResourceShareInvitation {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RejectResourceShareInvitation.resourceShareInvitation.resourceShareAssociations', props);
     return resource.getResponseField('resourceShareInvitation.resourceShareAssociations') as unknown as shapes.RamResourceShareAssociation[];
+  }
+
+  public get receiverArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rejectResourceShareInvitation',
+        service: 'RAM',
+        physicalResourceId: cr.PhysicalResourceId.of('RAM.RejectResourceShareInvitation.resourceShareInvitation.receiverArn'),
+        outputPath: 'resourceShareInvitation.receiverArn',
+        parameters: {
+          resourceShareInvitationArn: this.__input.resourceShareInvitationArn,
+          clientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RejectResourceShareInvitation.resourceShareInvitation.receiverArn', props);
+    return resource.getResponseField('resourceShareInvitation.receiverArn') as unknown as string;
   }
 
 }

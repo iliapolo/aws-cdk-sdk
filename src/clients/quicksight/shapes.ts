@@ -5,19 +5,35 @@ export interface QuickSightCancelIngestionRequest {
   /**
    * @schema QuickSightCancelIngestionRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightCancelIngestionRequest#DataSetId
    */
-  readonly dataSetId: string;
+  readonly dataSetId?: string;
 
   /**
    * @schema QuickSightCancelIngestionRequest#IngestionId
    */
-  readonly ingestionId: string;
+  readonly ingestionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightCancelIngestionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCancelIngestionRequest(obj: QuickSightCancelIngestionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DataSetId': obj.dataSetId,
+    'IngestionId': obj.ingestionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightCancelIngestionResponse
@@ -46,13 +62,30 @@ export interface QuickSightCancelIngestionResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightCancelIngestionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCancelIngestionResponse(obj: QuickSightCancelIngestionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'IngestionId': obj.ingestionId,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightCreateAccountCustomizationRequest
  */
 export interface QuickSightCreateAccountCustomizationRequest {
   /**
    * @schema QuickSightCreateAccountCustomizationRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightCreateAccountCustomizationRequest#Namespace
@@ -62,7 +95,7 @@ export interface QuickSightCreateAccountCustomizationRequest {
   /**
    * @schema QuickSightCreateAccountCustomizationRequest#AccountCustomization
    */
-  readonly accountCustomization: QuickSightAccountCustomization;
+  readonly accountCustomization?: QuickSightAccountCustomization;
 
   /**
    * @schema QuickSightCreateAccountCustomizationRequest#Tags
@@ -70,6 +103,23 @@ export interface QuickSightCreateAccountCustomizationRequest {
   readonly tags?: QuickSightTag[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightCreateAccountCustomizationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateAccountCustomizationRequest(obj: QuickSightCreateAccountCustomizationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+    'AccountCustomization': toJson_QuickSightAccountCustomization(obj.accountCustomization),
+    'Tags': obj.tags?.map(y => toJson_QuickSightTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightCreateAccountCustomizationResponse
@@ -108,23 +158,42 @@ export interface QuickSightCreateAccountCustomizationResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightCreateAccountCustomizationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateAccountCustomizationResponse(obj: QuickSightCreateAccountCustomizationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+    'AccountCustomization': toJson_QuickSightAccountCustomization(obj.accountCustomization),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightCreateAnalysisRequest
  */
 export interface QuickSightCreateAnalysisRequest {
   /**
    * @schema QuickSightCreateAnalysisRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightCreateAnalysisRequest#AnalysisId
    */
-  readonly analysisId: string;
+  readonly analysisId?: string;
 
   /**
    * @schema QuickSightCreateAnalysisRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema QuickSightCreateAnalysisRequest#Parameters
@@ -139,7 +208,7 @@ export interface QuickSightCreateAnalysisRequest {
   /**
    * @schema QuickSightCreateAnalysisRequest#SourceEntity
    */
-  readonly sourceEntity: QuickSightAnalysisSourceEntity;
+  readonly sourceEntity?: QuickSightAnalysisSourceEntity;
 
   /**
    * @schema QuickSightCreateAnalysisRequest#ThemeArn
@@ -152,6 +221,27 @@ export interface QuickSightCreateAnalysisRequest {
   readonly tags?: QuickSightTag[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightCreateAnalysisRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateAnalysisRequest(obj: QuickSightCreateAnalysisRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'AnalysisId': obj.analysisId,
+    'Name': obj.name,
+    'Parameters': toJson_QuickSightParameters(obj.parameters),
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'SourceEntity': toJson_QuickSightAnalysisSourceEntity(obj.sourceEntity),
+    'ThemeArn': obj.themeArn,
+    'Tags': obj.tags?.map(y => toJson_QuickSightTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightCreateAnalysisResponse
@@ -185,23 +275,41 @@ export interface QuickSightCreateAnalysisResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightCreateAnalysisResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateAnalysisResponse(obj: QuickSightCreateAnalysisResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'AnalysisId': obj.analysisId,
+    'CreationStatus': obj.creationStatus,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightCreateDashboardRequest
  */
 export interface QuickSightCreateDashboardRequest {
   /**
    * @schema QuickSightCreateDashboardRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightCreateDashboardRequest#DashboardId
    */
-  readonly dashboardId: string;
+  readonly dashboardId?: string;
 
   /**
    * @schema QuickSightCreateDashboardRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema QuickSightCreateDashboardRequest#Parameters
@@ -216,7 +324,7 @@ export interface QuickSightCreateDashboardRequest {
   /**
    * @schema QuickSightCreateDashboardRequest#SourceEntity
    */
-  readonly sourceEntity: QuickSightDashboardSourceEntity;
+  readonly sourceEntity?: QuickSightDashboardSourceEntity;
 
   /**
    * @schema QuickSightCreateDashboardRequest#Tags
@@ -239,6 +347,29 @@ export interface QuickSightCreateDashboardRequest {
   readonly themeArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightCreateDashboardRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateDashboardRequest(obj: QuickSightCreateDashboardRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DashboardId': obj.dashboardId,
+    'Name': obj.name,
+    'Parameters': toJson_QuickSightParameters(obj.parameters),
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'SourceEntity': toJson_QuickSightDashboardSourceEntity(obj.sourceEntity),
+    'Tags': obj.tags?.map(y => toJson_QuickSightTag(y)),
+    'VersionDescription': obj.versionDescription,
+    'DashboardPublishOptions': toJson_QuickSightDashboardPublishOptions(obj.dashboardPublishOptions),
+    'ThemeArn': obj.themeArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightCreateDashboardResponse
@@ -277,28 +408,47 @@ export interface QuickSightCreateDashboardResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightCreateDashboardResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateDashboardResponse(obj: QuickSightCreateDashboardResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'VersionArn': obj.versionArn,
+    'DashboardId': obj.dashboardId,
+    'CreationStatus': obj.creationStatus,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightCreateDataSetRequest
  */
 export interface QuickSightCreateDataSetRequest {
   /**
    * @schema QuickSightCreateDataSetRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightCreateDataSetRequest#DataSetId
    */
-  readonly dataSetId: string;
+  readonly dataSetId?: string;
 
   /**
    * @schema QuickSightCreateDataSetRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema QuickSightCreateDataSetRequest#PhysicalTableMap
    */
-  readonly physicalTableMap: { [key: string]: QuickSightPhysicalTable };
+  readonly physicalTableMap?: { [key: string]: QuickSightPhysicalTable };
 
   /**
    * @schema QuickSightCreateDataSetRequest#LogicalTableMap
@@ -308,12 +458,17 @@ export interface QuickSightCreateDataSetRequest {
   /**
    * @schema QuickSightCreateDataSetRequest#ImportMode
    */
-  readonly importMode: string;
+  readonly importMode?: string;
 
   /**
    * @schema QuickSightCreateDataSetRequest#ColumnGroups
    */
   readonly columnGroups?: QuickSightColumnGroup[];
+
+  /**
+   * @schema QuickSightCreateDataSetRequest#FieldFolders
+   */
+  readonly fieldFolders?: { [key: string]: QuickSightFieldFolder };
 
   /**
    * @schema QuickSightCreateDataSetRequest#Permissions
@@ -326,6 +481,11 @@ export interface QuickSightCreateDataSetRequest {
   readonly rowLevelPermissionDataSet?: QuickSightRowLevelPermissionDataSet;
 
   /**
+   * @schema QuickSightCreateDataSetRequest#RowLevelPermissionTagConfiguration
+   */
+  readonly rowLevelPermissionTagConfiguration?: QuickSightRowLevelPermissionTagConfiguration;
+
+  /**
    * @schema QuickSightCreateDataSetRequest#ColumnLevelPermissionRules
    */
   readonly columnLevelPermissionRules?: QuickSightColumnLevelPermissionRule[];
@@ -336,6 +496,32 @@ export interface QuickSightCreateDataSetRequest {
   readonly tags?: QuickSightTag[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightCreateDataSetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateDataSetRequest(obj: QuickSightCreateDataSetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DataSetId': obj.dataSetId,
+    'Name': obj.name,
+    'PhysicalTableMap': ((obj.physicalTableMap) === undefined) ? undefined : (Object.entries(obj.physicalTableMap).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_QuickSightPhysicalTable(i[1]) }), {})),
+    'LogicalTableMap': ((obj.logicalTableMap) === undefined) ? undefined : (Object.entries(obj.logicalTableMap).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_QuickSightLogicalTable(i[1]) }), {})),
+    'ImportMode': obj.importMode,
+    'ColumnGroups': obj.columnGroups?.map(y => toJson_QuickSightColumnGroup(y)),
+    'FieldFolders': ((obj.fieldFolders) === undefined) ? undefined : (Object.entries(obj.fieldFolders).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_QuickSightFieldFolder(i[1]) }), {})),
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RowLevelPermissionDataSet': toJson_QuickSightRowLevelPermissionDataSet(obj.rowLevelPermissionDataSet),
+    'RowLevelPermissionTagConfiguration': toJson_QuickSightRowLevelPermissionTagConfiguration(obj.rowLevelPermissionTagConfiguration),
+    'ColumnLevelPermissionRules': obj.columnLevelPermissionRules?.map(y => toJson_QuickSightColumnLevelPermissionRule(y)),
+    'Tags': obj.tags?.map(y => toJson_QuickSightTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightCreateDataSetResponse
@@ -374,28 +560,47 @@ export interface QuickSightCreateDataSetResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightCreateDataSetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateDataSetResponse(obj: QuickSightCreateDataSetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'DataSetId': obj.dataSetId,
+    'IngestionArn': obj.ingestionArn,
+    'IngestionId': obj.ingestionId,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightCreateDataSourceRequest
  */
 export interface QuickSightCreateDataSourceRequest {
   /**
    * @schema QuickSightCreateDataSourceRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightCreateDataSourceRequest#DataSourceId
    */
-  readonly dataSourceId: string;
+  readonly dataSourceId?: string;
 
   /**
    * @schema QuickSightCreateDataSourceRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema QuickSightCreateDataSourceRequest#Type
    */
-  readonly type: string;
+  readonly type?: string;
 
   /**
    * @schema QuickSightCreateDataSourceRequest#DataSourceParameters
@@ -430,6 +635,29 @@ export interface QuickSightCreateDataSourceRequest {
 }
 
 /**
+ * Converts an object of type 'QuickSightCreateDataSourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateDataSourceRequest(obj: QuickSightCreateDataSourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DataSourceId': obj.dataSourceId,
+    'Name': obj.name,
+    'Type': obj.type,
+    'DataSourceParameters': toJson_QuickSightDataSourceParameters(obj.dataSourceParameters),
+    'Credentials': toJson_QuickSightDataSourceCredentials(obj.credentials),
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'VpcConnectionProperties': toJson_QuickSightVpcConnectionProperties(obj.vpcConnectionProperties),
+    'SslProperties': toJson_QuickSightSslProperties(obj.sslProperties),
+    'Tags': obj.tags?.map(y => toJson_QuickSightTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightCreateDataSourceResponse
  */
 export interface QuickSightCreateDataSourceResponse {
@@ -461,13 +689,215 @@ export interface QuickSightCreateDataSourceResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightCreateDataSourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateDataSourceResponse(obj: QuickSightCreateDataSourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'DataSourceId': obj.dataSourceId,
+    'CreationStatus': obj.creationStatus,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightCreateFolderRequest
+ */
+export interface QuickSightCreateFolderRequest {
+  /**
+   * @schema QuickSightCreateFolderRequest#AwsAccountId
+   */
+  readonly awsAccountId?: string;
+
+  /**
+   * @schema QuickSightCreateFolderRequest#FolderId
+   */
+  readonly folderId?: string;
+
+  /**
+   * @schema QuickSightCreateFolderRequest#Name
+   */
+  readonly name?: string;
+
+  /**
+   * @schema QuickSightCreateFolderRequest#FolderType
+   */
+  readonly folderType?: string;
+
+  /**
+   * @schema QuickSightCreateFolderRequest#ParentFolderArn
+   */
+  readonly parentFolderArn?: string;
+
+  /**
+   * @schema QuickSightCreateFolderRequest#Permissions
+   */
+  readonly permissions?: QuickSightResourcePermission[];
+
+  /**
+   * @schema QuickSightCreateFolderRequest#Tags
+   */
+  readonly tags?: QuickSightTag[];
+
+}
+
+/**
+ * Converts an object of type 'QuickSightCreateFolderRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateFolderRequest(obj: QuickSightCreateFolderRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'FolderId': obj.folderId,
+    'Name': obj.name,
+    'FolderType': obj.folderType,
+    'ParentFolderArn': obj.parentFolderArn,
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'Tags': obj.tags?.map(y => toJson_QuickSightTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightCreateFolderResponse
+ */
+export interface QuickSightCreateFolderResponse {
+  /**
+   * @schema QuickSightCreateFolderResponse#Status
+   */
+  readonly status?: number;
+
+  /**
+   * @schema QuickSightCreateFolderResponse#Arn
+   */
+  readonly arn?: string;
+
+  /**
+   * @schema QuickSightCreateFolderResponse#FolderId
+   */
+  readonly folderId?: string;
+
+  /**
+   * @schema QuickSightCreateFolderResponse#RequestId
+   */
+  readonly requestId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightCreateFolderResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateFolderResponse(obj: QuickSightCreateFolderResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'Arn': obj.arn,
+    'FolderId': obj.folderId,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightCreateFolderMembershipRequest
+ */
+export interface QuickSightCreateFolderMembershipRequest {
+  /**
+   * @schema QuickSightCreateFolderMembershipRequest#AwsAccountId
+   */
+  readonly awsAccountId?: string;
+
+  /**
+   * @schema QuickSightCreateFolderMembershipRequest#FolderId
+   */
+  readonly folderId?: string;
+
+  /**
+   * @schema QuickSightCreateFolderMembershipRequest#MemberId
+   */
+  readonly memberId?: string;
+
+  /**
+   * @schema QuickSightCreateFolderMembershipRequest#MemberType
+   */
+  readonly memberType?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightCreateFolderMembershipRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateFolderMembershipRequest(obj: QuickSightCreateFolderMembershipRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'FolderId': obj.folderId,
+    'MemberId': obj.memberId,
+    'MemberType': obj.memberType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightCreateFolderMembershipResponse
+ */
+export interface QuickSightCreateFolderMembershipResponse {
+  /**
+   * @schema QuickSightCreateFolderMembershipResponse#Status
+   */
+  readonly status?: number;
+
+  /**
+   * @schema QuickSightCreateFolderMembershipResponse#FolderMember
+   */
+  readonly folderMember?: QuickSightFolderMember;
+
+  /**
+   * @schema QuickSightCreateFolderMembershipResponse#RequestId
+   */
+  readonly requestId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightCreateFolderMembershipResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateFolderMembershipResponse(obj: QuickSightCreateFolderMembershipResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'FolderMember': toJson_QuickSightFolderMember(obj.folderMember),
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightCreateGroupRequest
  */
 export interface QuickSightCreateGroupRequest {
   /**
    * @schema QuickSightCreateGroupRequest#GroupName
    */
-  readonly groupName: string;
+  readonly groupName?: string;
 
   /**
    * @schema QuickSightCreateGroupRequest#Description
@@ -477,14 +907,31 @@ export interface QuickSightCreateGroupRequest {
   /**
    * @schema QuickSightCreateGroupRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightCreateGroupRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightCreateGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateGroupRequest(obj: QuickSightCreateGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupName': obj.groupName,
+    'Description': obj.description,
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightCreateGroupResponse
@@ -508,30 +955,63 @@ export interface QuickSightCreateGroupResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightCreateGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateGroupResponse(obj: QuickSightCreateGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Group': toJson_QuickSightGroup(obj.group),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightCreateGroupMembershipRequest
  */
 export interface QuickSightCreateGroupMembershipRequest {
   /**
    * @schema QuickSightCreateGroupMembershipRequest#MemberName
    */
-  readonly memberName: string;
+  readonly memberName?: string;
 
   /**
    * @schema QuickSightCreateGroupMembershipRequest#GroupName
    */
-  readonly groupName: string;
+  readonly groupName?: string;
 
   /**
    * @schema QuickSightCreateGroupMembershipRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightCreateGroupMembershipRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightCreateGroupMembershipRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateGroupMembershipRequest(obj: QuickSightCreateGroupMembershipRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MemberName': obj.memberName,
+    'GroupName': obj.groupName,
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightCreateGroupMembershipResponse
@@ -555,23 +1035,39 @@ export interface QuickSightCreateGroupMembershipResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightCreateGroupMembershipResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateGroupMembershipResponse(obj: QuickSightCreateGroupMembershipResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupMember': toJson_QuickSightGroupMember(obj.groupMember),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightCreateIamPolicyAssignmentRequest
  */
 export interface QuickSightCreateIamPolicyAssignmentRequest {
   /**
    * @schema QuickSightCreateIamPolicyAssignmentRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightCreateIamPolicyAssignmentRequest#AssignmentName
    */
-  readonly assignmentName: string;
+  readonly assignmentName?: string;
 
   /**
    * @schema QuickSightCreateIamPolicyAssignmentRequest#AssignmentStatus
    */
-  readonly assignmentStatus: string;
+  readonly assignmentStatus?: string;
 
   /**
    * @schema QuickSightCreateIamPolicyAssignmentRequest#PolicyArn
@@ -586,9 +1082,28 @@ export interface QuickSightCreateIamPolicyAssignmentRequest {
   /**
    * @schema QuickSightCreateIamPolicyAssignmentRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightCreateIamPolicyAssignmentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateIamPolicyAssignmentRequest(obj: QuickSightCreateIamPolicyAssignmentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'AssignmentName': obj.assignmentName,
+    'AssignmentStatus': obj.assignmentStatus,
+    'PolicyArn': obj.policyArn,
+    'Identities': ((obj.identities) === undefined) ? undefined : (Object.entries(obj.identities).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.map(y => y) }), {})),
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightCreateIamPolicyAssignmentResponse
@@ -632,25 +1147,61 @@ export interface QuickSightCreateIamPolicyAssignmentResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightCreateIamPolicyAssignmentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateIamPolicyAssignmentResponse(obj: QuickSightCreateIamPolicyAssignmentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AssignmentName': obj.assignmentName,
+    'AssignmentId': obj.assignmentId,
+    'AssignmentStatus': obj.assignmentStatus,
+    'PolicyArn': obj.policyArn,
+    'Identities': ((obj.identities) === undefined) ? undefined : (Object.entries(obj.identities).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.map(y => y) }), {})),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightCreateIngestionRequest
  */
 export interface QuickSightCreateIngestionRequest {
   /**
    * @schema QuickSightCreateIngestionRequest#DataSetId
    */
-  readonly dataSetId: string;
+  readonly dataSetId?: string;
 
   /**
    * @schema QuickSightCreateIngestionRequest#IngestionId
    */
-  readonly ingestionId: string;
+  readonly ingestionId?: string;
 
   /**
    * @schema QuickSightCreateIngestionRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightCreateIngestionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateIngestionRequest(obj: QuickSightCreateIngestionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSetId': obj.dataSetId,
+    'IngestionId': obj.ingestionId,
+    'AwsAccountId': obj.awsAccountId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightCreateIngestionResponse
@@ -684,23 +1235,41 @@ export interface QuickSightCreateIngestionResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightCreateIngestionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateIngestionResponse(obj: QuickSightCreateIngestionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'IngestionId': obj.ingestionId,
+    'IngestionStatus': obj.ingestionStatus,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightCreateNamespaceRequest
  */
 export interface QuickSightCreateNamespaceRequest {
   /**
    * @schema QuickSightCreateNamespaceRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightCreateNamespaceRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
   /**
    * @schema QuickSightCreateNamespaceRequest#IdentityStore
    */
-  readonly identityStore: string;
+  readonly identityStore?: string;
 
   /**
    * @schema QuickSightCreateNamespaceRequest#Tags
@@ -708,6 +1277,23 @@ export interface QuickSightCreateNamespaceRequest {
   readonly tags?: QuickSightTag[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightCreateNamespaceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateNamespaceRequest(obj: QuickSightCreateNamespaceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+    'IdentityStore': obj.identityStore,
+    'Tags': obj.tags?.map(y => toJson_QuickSightTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightCreateNamespaceResponse
@@ -751,18 +1337,38 @@ export interface QuickSightCreateNamespaceResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightCreateNamespaceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateNamespaceResponse(obj: QuickSightCreateNamespaceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Name': obj.name,
+    'CapacityRegion': obj.capacityRegion,
+    'CreationStatus': obj.creationStatus,
+    'IdentityStore': obj.identityStore,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightCreateTemplateRequest
  */
 export interface QuickSightCreateTemplateRequest {
   /**
    * @schema QuickSightCreateTemplateRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightCreateTemplateRequest#TemplateId
    */
-  readonly templateId: string;
+  readonly templateId?: string;
 
   /**
    * @schema QuickSightCreateTemplateRequest#Name
@@ -777,7 +1383,7 @@ export interface QuickSightCreateTemplateRequest {
   /**
    * @schema QuickSightCreateTemplateRequest#SourceEntity
    */
-  readonly sourceEntity: QuickSightTemplateSourceEntity;
+  readonly sourceEntity?: QuickSightTemplateSourceEntity;
 
   /**
    * @schema QuickSightCreateTemplateRequest#Tags
@@ -790,6 +1396,26 @@ export interface QuickSightCreateTemplateRequest {
   readonly versionDescription?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightCreateTemplateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateTemplateRequest(obj: QuickSightCreateTemplateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'TemplateId': obj.templateId,
+    'Name': obj.name,
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'SourceEntity': toJson_QuickSightTemplateSourceEntity(obj.sourceEntity),
+    'Tags': obj.tags?.map(y => toJson_QuickSightTag(y)),
+    'VersionDescription': obj.versionDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightCreateTemplateResponse
@@ -828,30 +1454,66 @@ export interface QuickSightCreateTemplateResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightCreateTemplateResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateTemplateResponse(obj: QuickSightCreateTemplateResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'VersionArn': obj.versionArn,
+    'TemplateId': obj.templateId,
+    'CreationStatus': obj.creationStatus,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightCreateTemplateAliasRequest
  */
 export interface QuickSightCreateTemplateAliasRequest {
   /**
    * @schema QuickSightCreateTemplateAliasRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightCreateTemplateAliasRequest#TemplateId
    */
-  readonly templateId: string;
+  readonly templateId?: string;
 
   /**
    * @schema QuickSightCreateTemplateAliasRequest#AliasName
    */
-  readonly aliasName: string;
+  readonly aliasName?: string;
 
   /**
    * @schema QuickSightCreateTemplateAliasRequest#TemplateVersionNumber
    */
-  readonly templateVersionNumber: number;
+  readonly templateVersionNumber?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightCreateTemplateAliasRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateTemplateAliasRequest(obj: QuickSightCreateTemplateAliasRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'TemplateId': obj.templateId,
+    'AliasName': obj.aliasName,
+    'TemplateVersionNumber': obj.templateVersionNumber,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightCreateTemplateAliasResponse
@@ -875,28 +1537,44 @@ export interface QuickSightCreateTemplateAliasResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightCreateTemplateAliasResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateTemplateAliasResponse(obj: QuickSightCreateTemplateAliasResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TemplateAlias': toJson_QuickSightTemplateAlias(obj.templateAlias),
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightCreateThemeRequest
  */
 export interface QuickSightCreateThemeRequest {
   /**
    * @schema QuickSightCreateThemeRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightCreateThemeRequest#ThemeId
    */
-  readonly themeId: string;
+  readonly themeId?: string;
 
   /**
    * @schema QuickSightCreateThemeRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema QuickSightCreateThemeRequest#BaseThemeId
    */
-  readonly baseThemeId: string;
+  readonly baseThemeId?: string;
 
   /**
    * @schema QuickSightCreateThemeRequest#VersionDescription
@@ -906,7 +1584,7 @@ export interface QuickSightCreateThemeRequest {
   /**
    * @schema QuickSightCreateThemeRequest#Configuration
    */
-  readonly configuration: QuickSightThemeConfiguration;
+  readonly configuration?: QuickSightThemeConfiguration;
 
   /**
    * @schema QuickSightCreateThemeRequest#Permissions
@@ -919,6 +1597,27 @@ export interface QuickSightCreateThemeRequest {
   readonly tags?: QuickSightTag[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightCreateThemeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateThemeRequest(obj: QuickSightCreateThemeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'ThemeId': obj.themeId,
+    'Name': obj.name,
+    'BaseThemeId': obj.baseThemeId,
+    'VersionDescription': obj.versionDescription,
+    'Configuration': toJson_QuickSightThemeConfiguration(obj.configuration),
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'Tags': obj.tags?.map(y => toJson_QuickSightTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightCreateThemeResponse
@@ -957,30 +1656,66 @@ export interface QuickSightCreateThemeResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightCreateThemeResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateThemeResponse(obj: QuickSightCreateThemeResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'VersionArn': obj.versionArn,
+    'ThemeId': obj.themeId,
+    'CreationStatus': obj.creationStatus,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightCreateThemeAliasRequest
  */
 export interface QuickSightCreateThemeAliasRequest {
   /**
    * @schema QuickSightCreateThemeAliasRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightCreateThemeAliasRequest#ThemeId
    */
-  readonly themeId: string;
+  readonly themeId?: string;
 
   /**
    * @schema QuickSightCreateThemeAliasRequest#AliasName
    */
-  readonly aliasName: string;
+  readonly aliasName?: string;
 
   /**
    * @schema QuickSightCreateThemeAliasRequest#ThemeVersionNumber
    */
-  readonly themeVersionNumber: number;
+  readonly themeVersionNumber?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightCreateThemeAliasRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateThemeAliasRequest(obj: QuickSightCreateThemeAliasRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'ThemeId': obj.themeId,
+    'AliasName': obj.aliasName,
+    'ThemeVersionNumber': obj.themeVersionNumber,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightCreateThemeAliasResponse
@@ -1004,13 +1739,29 @@ export interface QuickSightCreateThemeAliasResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightCreateThemeAliasResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateThemeAliasResponse(obj: QuickSightCreateThemeAliasResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ThemeAlias': toJson_QuickSightThemeAlias(obj.themeAlias),
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDeleteAccountCustomizationRequest
  */
 export interface QuickSightDeleteAccountCustomizationRequest {
   /**
    * @schema QuickSightDeleteAccountCustomizationRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDeleteAccountCustomizationRequest#Namespace
@@ -1018,6 +1769,21 @@ export interface QuickSightDeleteAccountCustomizationRequest {
   readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDeleteAccountCustomizationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteAccountCustomizationRequest(obj: QuickSightDeleteAccountCustomizationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDeleteAccountCustomizationResponse
@@ -1036,18 +1802,33 @@ export interface QuickSightDeleteAccountCustomizationResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDeleteAccountCustomizationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteAccountCustomizationResponse(obj: QuickSightDeleteAccountCustomizationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDeleteAnalysisRequest
  */
 export interface QuickSightDeleteAnalysisRequest {
   /**
    * @schema QuickSightDeleteAnalysisRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDeleteAnalysisRequest#AnalysisId
    */
-  readonly analysisId: string;
+  readonly analysisId?: string;
 
   /**
    * @schema QuickSightDeleteAnalysisRequest#RecoveryWindowInDays
@@ -1060,6 +1841,23 @@ export interface QuickSightDeleteAnalysisRequest {
   readonly forceDeleteWithoutRecovery?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDeleteAnalysisRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteAnalysisRequest(obj: QuickSightDeleteAnalysisRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'AnalysisId': obj.analysisId,
+    'RecoveryWindowInDays': obj.recoveryWindowInDays,
+    'ForceDeleteWithoutRecovery': obj.forceDeleteWithoutRecovery,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDeleteAnalysisResponse
@@ -1093,18 +1891,36 @@ export interface QuickSightDeleteAnalysisResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDeleteAnalysisResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteAnalysisResponse(obj: QuickSightDeleteAnalysisResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'Arn': obj.arn,
+    'AnalysisId': obj.analysisId,
+    'DeletionTime': obj.deletionTime,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDeleteDashboardRequest
  */
 export interface QuickSightDeleteDashboardRequest {
   /**
    * @schema QuickSightDeleteDashboardRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDeleteDashboardRequest#DashboardId
    */
-  readonly dashboardId: string;
+  readonly dashboardId?: string;
 
   /**
    * @schema QuickSightDeleteDashboardRequest#VersionNumber
@@ -1112,6 +1928,22 @@ export interface QuickSightDeleteDashboardRequest {
   readonly versionNumber?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDeleteDashboardRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteDashboardRequest(obj: QuickSightDeleteDashboardRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DashboardId': obj.dashboardId,
+    'VersionNumber': obj.versionNumber,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDeleteDashboardResponse
@@ -1140,20 +1972,52 @@ export interface QuickSightDeleteDashboardResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDeleteDashboardResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteDashboardResponse(obj: QuickSightDeleteDashboardResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'Arn': obj.arn,
+    'DashboardId': obj.dashboardId,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDeleteDataSetRequest
  */
 export interface QuickSightDeleteDataSetRequest {
   /**
    * @schema QuickSightDeleteDataSetRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDeleteDataSetRequest#DataSetId
    */
-  readonly dataSetId: string;
+  readonly dataSetId?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDeleteDataSetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteDataSetRequest(obj: QuickSightDeleteDataSetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DataSetId': obj.dataSetId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDeleteDataSetResponse
@@ -1182,20 +2046,52 @@ export interface QuickSightDeleteDataSetResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDeleteDataSetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteDataSetResponse(obj: QuickSightDeleteDataSetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'DataSetId': obj.dataSetId,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDeleteDataSourceRequest
  */
 export interface QuickSightDeleteDataSourceRequest {
   /**
    * @schema QuickSightDeleteDataSourceRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDeleteDataSourceRequest#DataSourceId
    */
-  readonly dataSourceId: string;
+  readonly dataSourceId?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDeleteDataSourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteDataSourceRequest(obj: QuickSightDeleteDataSourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DataSourceId': obj.dataSourceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDeleteDataSourceResponse
@@ -1224,25 +2120,206 @@ export interface QuickSightDeleteDataSourceResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDeleteDataSourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteDataSourceResponse(obj: QuickSightDeleteDataSourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'DataSourceId': obj.dataSourceId,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightDeleteFolderRequest
+ */
+export interface QuickSightDeleteFolderRequest {
+  /**
+   * @schema QuickSightDeleteFolderRequest#AwsAccountId
+   */
+  readonly awsAccountId?: string;
+
+  /**
+   * @schema QuickSightDeleteFolderRequest#FolderId
+   */
+  readonly folderId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightDeleteFolderRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteFolderRequest(obj: QuickSightDeleteFolderRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'FolderId': obj.folderId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightDeleteFolderResponse
+ */
+export interface QuickSightDeleteFolderResponse {
+  /**
+   * @schema QuickSightDeleteFolderResponse#Status
+   */
+  readonly status?: number;
+
+  /**
+   * @schema QuickSightDeleteFolderResponse#Arn
+   */
+  readonly arn?: string;
+
+  /**
+   * @schema QuickSightDeleteFolderResponse#FolderId
+   */
+  readonly folderId?: string;
+
+  /**
+   * @schema QuickSightDeleteFolderResponse#RequestId
+   */
+  readonly requestId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightDeleteFolderResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteFolderResponse(obj: QuickSightDeleteFolderResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'Arn': obj.arn,
+    'FolderId': obj.folderId,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightDeleteFolderMembershipRequest
+ */
+export interface QuickSightDeleteFolderMembershipRequest {
+  /**
+   * @schema QuickSightDeleteFolderMembershipRequest#AwsAccountId
+   */
+  readonly awsAccountId?: string;
+
+  /**
+   * @schema QuickSightDeleteFolderMembershipRequest#FolderId
+   */
+  readonly folderId?: string;
+
+  /**
+   * @schema QuickSightDeleteFolderMembershipRequest#MemberId
+   */
+  readonly memberId?: string;
+
+  /**
+   * @schema QuickSightDeleteFolderMembershipRequest#MemberType
+   */
+  readonly memberType?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightDeleteFolderMembershipRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteFolderMembershipRequest(obj: QuickSightDeleteFolderMembershipRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'FolderId': obj.folderId,
+    'MemberId': obj.memberId,
+    'MemberType': obj.memberType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightDeleteFolderMembershipResponse
+ */
+export interface QuickSightDeleteFolderMembershipResponse {
+  /**
+   * @schema QuickSightDeleteFolderMembershipResponse#Status
+   */
+  readonly status?: number;
+
+  /**
+   * @schema QuickSightDeleteFolderMembershipResponse#RequestId
+   */
+  readonly requestId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightDeleteFolderMembershipResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteFolderMembershipResponse(obj: QuickSightDeleteFolderMembershipResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDeleteGroupRequest
  */
 export interface QuickSightDeleteGroupRequest {
   /**
    * @schema QuickSightDeleteGroupRequest#GroupName
    */
-  readonly groupName: string;
+  readonly groupName?: string;
 
   /**
    * @schema QuickSightDeleteGroupRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDeleteGroupRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDeleteGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteGroupRequest(obj: QuickSightDeleteGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupName': obj.groupName,
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDeleteGroupResponse
@@ -1261,30 +2338,62 @@ export interface QuickSightDeleteGroupResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDeleteGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteGroupResponse(obj: QuickSightDeleteGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDeleteGroupMembershipRequest
  */
 export interface QuickSightDeleteGroupMembershipRequest {
   /**
    * @schema QuickSightDeleteGroupMembershipRequest#MemberName
    */
-  readonly memberName: string;
+  readonly memberName?: string;
 
   /**
    * @schema QuickSightDeleteGroupMembershipRequest#GroupName
    */
-  readonly groupName: string;
+  readonly groupName?: string;
 
   /**
    * @schema QuickSightDeleteGroupMembershipRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDeleteGroupMembershipRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDeleteGroupMembershipRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteGroupMembershipRequest(obj: QuickSightDeleteGroupMembershipRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MemberName': obj.memberName,
+    'GroupName': obj.groupName,
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDeleteGroupMembershipResponse
@@ -1303,25 +2412,56 @@ export interface QuickSightDeleteGroupMembershipResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDeleteGroupMembershipResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteGroupMembershipResponse(obj: QuickSightDeleteGroupMembershipResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDeleteIamPolicyAssignmentRequest
  */
 export interface QuickSightDeleteIamPolicyAssignmentRequest {
   /**
    * @schema QuickSightDeleteIamPolicyAssignmentRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDeleteIamPolicyAssignmentRequest#AssignmentName
    */
-  readonly assignmentName: string;
+  readonly assignmentName?: string;
 
   /**
    * @schema QuickSightDeleteIamPolicyAssignmentRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDeleteIamPolicyAssignmentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteIamPolicyAssignmentRequest(obj: QuickSightDeleteIamPolicyAssignmentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'AssignmentName': obj.assignmentName,
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDeleteIamPolicyAssignmentResponse
@@ -1345,20 +2485,51 @@ export interface QuickSightDeleteIamPolicyAssignmentResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDeleteIamPolicyAssignmentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteIamPolicyAssignmentResponse(obj: QuickSightDeleteIamPolicyAssignmentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AssignmentName': obj.assignmentName,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDeleteNamespaceRequest
  */
 export interface QuickSightDeleteNamespaceRequest {
   /**
    * @schema QuickSightDeleteNamespaceRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDeleteNamespaceRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDeleteNamespaceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteNamespaceRequest(obj: QuickSightDeleteNamespaceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDeleteNamespaceResponse
@@ -1377,18 +2548,33 @@ export interface QuickSightDeleteNamespaceResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDeleteNamespaceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteNamespaceResponse(obj: QuickSightDeleteNamespaceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDeleteTemplateRequest
  */
 export interface QuickSightDeleteTemplateRequest {
   /**
    * @schema QuickSightDeleteTemplateRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDeleteTemplateRequest#TemplateId
    */
-  readonly templateId: string;
+  readonly templateId?: string;
 
   /**
    * @schema QuickSightDeleteTemplateRequest#VersionNumber
@@ -1396,6 +2582,22 @@ export interface QuickSightDeleteTemplateRequest {
   readonly versionNumber?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDeleteTemplateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteTemplateRequest(obj: QuickSightDeleteTemplateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'TemplateId': obj.templateId,
+    'VersionNumber': obj.versionNumber,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDeleteTemplateResponse
@@ -1424,25 +2626,58 @@ export interface QuickSightDeleteTemplateResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDeleteTemplateResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteTemplateResponse(obj: QuickSightDeleteTemplateResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RequestId': obj.requestId,
+    'Arn': obj.arn,
+    'TemplateId': obj.templateId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDeleteTemplateAliasRequest
  */
 export interface QuickSightDeleteTemplateAliasRequest {
   /**
    * @schema QuickSightDeleteTemplateAliasRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDeleteTemplateAliasRequest#TemplateId
    */
-  readonly templateId: string;
+  readonly templateId?: string;
 
   /**
    * @schema QuickSightDeleteTemplateAliasRequest#AliasName
    */
-  readonly aliasName: string;
+  readonly aliasName?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDeleteTemplateAliasRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteTemplateAliasRequest(obj: QuickSightDeleteTemplateAliasRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'TemplateId': obj.templateId,
+    'AliasName': obj.aliasName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDeleteTemplateAliasResponse
@@ -1476,18 +2711,36 @@ export interface QuickSightDeleteTemplateAliasResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDeleteTemplateAliasResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteTemplateAliasResponse(obj: QuickSightDeleteTemplateAliasResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'TemplateId': obj.templateId,
+    'AliasName': obj.aliasName,
+    'Arn': obj.arn,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDeleteThemeRequest
  */
 export interface QuickSightDeleteThemeRequest {
   /**
    * @schema QuickSightDeleteThemeRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDeleteThemeRequest#ThemeId
    */
-  readonly themeId: string;
+  readonly themeId?: string;
 
   /**
    * @schema QuickSightDeleteThemeRequest#VersionNumber
@@ -1495,6 +2748,22 @@ export interface QuickSightDeleteThemeRequest {
   readonly versionNumber?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDeleteThemeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteThemeRequest(obj: QuickSightDeleteThemeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'ThemeId': obj.themeId,
+    'VersionNumber': obj.versionNumber,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDeleteThemeResponse
@@ -1523,25 +2792,58 @@ export interface QuickSightDeleteThemeResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDeleteThemeResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteThemeResponse(obj: QuickSightDeleteThemeResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+    'ThemeId': obj.themeId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDeleteThemeAliasRequest
  */
 export interface QuickSightDeleteThemeAliasRequest {
   /**
    * @schema QuickSightDeleteThemeAliasRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDeleteThemeAliasRequest#ThemeId
    */
-  readonly themeId: string;
+  readonly themeId?: string;
 
   /**
    * @schema QuickSightDeleteThemeAliasRequest#AliasName
    */
-  readonly aliasName: string;
+  readonly aliasName?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDeleteThemeAliasRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteThemeAliasRequest(obj: QuickSightDeleteThemeAliasRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'ThemeId': obj.themeId,
+    'AliasName': obj.aliasName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDeleteThemeAliasResponse
@@ -1575,25 +2877,59 @@ export interface QuickSightDeleteThemeAliasResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDeleteThemeAliasResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteThemeAliasResponse(obj: QuickSightDeleteThemeAliasResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AliasName': obj.aliasName,
+    'Arn': obj.arn,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+    'ThemeId': obj.themeId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDeleteUserRequest
  */
 export interface QuickSightDeleteUserRequest {
   /**
    * @schema QuickSightDeleteUserRequest#UserName
    */
-  readonly userName: string;
+  readonly userName?: string;
 
   /**
    * @schema QuickSightDeleteUserRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDeleteUserRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDeleteUserRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteUserRequest(obj: QuickSightDeleteUserRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserName': obj.userName,
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDeleteUserResponse
@@ -1612,25 +2948,56 @@ export interface QuickSightDeleteUserResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDeleteUserResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteUserResponse(obj: QuickSightDeleteUserResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDeleteUserByPrincipalIdRequest
  */
 export interface QuickSightDeleteUserByPrincipalIdRequest {
   /**
    * @schema QuickSightDeleteUserByPrincipalIdRequest#PrincipalId
    */
-  readonly principalId: string;
+  readonly principalId?: string;
 
   /**
    * @schema QuickSightDeleteUserByPrincipalIdRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDeleteUserByPrincipalIdRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDeleteUserByPrincipalIdRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteUserByPrincipalIdRequest(obj: QuickSightDeleteUserByPrincipalIdRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PrincipalId': obj.principalId,
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDeleteUserByPrincipalIdResponse
@@ -1649,13 +3016,28 @@ export interface QuickSightDeleteUserByPrincipalIdResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDeleteUserByPrincipalIdResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDeleteUserByPrincipalIdResponse(obj: QuickSightDeleteUserByPrincipalIdResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeAccountCustomizationRequest
  */
 export interface QuickSightDescribeAccountCustomizationRequest {
   /**
    * @schema QuickSightDescribeAccountCustomizationRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeAccountCustomizationRequest#Namespace
@@ -1668,6 +3050,22 @@ export interface QuickSightDescribeAccountCustomizationRequest {
   readonly resolved?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeAccountCustomizationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeAccountCustomizationRequest(obj: QuickSightDescribeAccountCustomizationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+    'Resolved': obj.resolved,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeAccountCustomizationResponse
@@ -1706,15 +3104,48 @@ export interface QuickSightDescribeAccountCustomizationResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeAccountCustomizationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeAccountCustomizationResponse(obj: QuickSightDescribeAccountCustomizationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+    'AccountCustomization': toJson_QuickSightAccountCustomization(obj.accountCustomization),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeAccountSettingsRequest
  */
 export interface QuickSightDescribeAccountSettingsRequest {
   /**
    * @schema QuickSightDescribeAccountSettingsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeAccountSettingsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeAccountSettingsRequest(obj: QuickSightDescribeAccountSettingsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeAccountSettingsResponse
@@ -1738,20 +3169,51 @@ export interface QuickSightDescribeAccountSettingsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeAccountSettingsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeAccountSettingsResponse(obj: QuickSightDescribeAccountSettingsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AccountSettings': toJson_QuickSightAccountSettings(obj.accountSettings),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeAnalysisRequest
  */
 export interface QuickSightDescribeAnalysisRequest {
   /**
    * @schema QuickSightDescribeAnalysisRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeAnalysisRequest#AnalysisId
    */
-  readonly analysisId: string;
+  readonly analysisId?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeAnalysisRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeAnalysisRequest(obj: QuickSightDescribeAnalysisRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'AnalysisId': obj.analysisId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeAnalysisResponse
@@ -1775,20 +3237,51 @@ export interface QuickSightDescribeAnalysisResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeAnalysisResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeAnalysisResponse(obj: QuickSightDescribeAnalysisResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Analysis': toJson_QuickSightAnalysis(obj.analysis),
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeAnalysisPermissionsRequest
  */
 export interface QuickSightDescribeAnalysisPermissionsRequest {
   /**
    * @schema QuickSightDescribeAnalysisPermissionsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeAnalysisPermissionsRequest#AnalysisId
    */
-  readonly analysisId: string;
+  readonly analysisId?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeAnalysisPermissionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeAnalysisPermissionsRequest(obj: QuickSightDescribeAnalysisPermissionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'AnalysisId': obj.analysisId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeAnalysisPermissionsResponse
@@ -1822,18 +3315,36 @@ export interface QuickSightDescribeAnalysisPermissionsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeAnalysisPermissionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeAnalysisPermissionsResponse(obj: QuickSightDescribeAnalysisPermissionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AnalysisId': obj.analysisId,
+    'AnalysisArn': obj.analysisArn,
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeDashboardRequest
  */
 export interface QuickSightDescribeDashboardRequest {
   /**
    * @schema QuickSightDescribeDashboardRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeDashboardRequest#DashboardId
    */
-  readonly dashboardId: string;
+  readonly dashboardId?: string;
 
   /**
    * @schema QuickSightDescribeDashboardRequest#VersionNumber
@@ -1846,6 +3357,23 @@ export interface QuickSightDescribeDashboardRequest {
   readonly aliasName?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeDashboardRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeDashboardRequest(obj: QuickSightDescribeDashboardRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DashboardId': obj.dashboardId,
+    'VersionNumber': obj.versionNumber,
+    'AliasName': obj.aliasName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeDashboardResponse
@@ -1869,20 +3397,51 @@ export interface QuickSightDescribeDashboardResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeDashboardResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeDashboardResponse(obj: QuickSightDescribeDashboardResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Dashboard': toJson_QuickSightDashboard(obj.dashboard),
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeDashboardPermissionsRequest
  */
 export interface QuickSightDescribeDashboardPermissionsRequest {
   /**
    * @schema QuickSightDescribeDashboardPermissionsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeDashboardPermissionsRequest#DashboardId
    */
-  readonly dashboardId: string;
+  readonly dashboardId?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeDashboardPermissionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeDashboardPermissionsRequest(obj: QuickSightDescribeDashboardPermissionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DashboardId': obj.dashboardId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeDashboardPermissionsResponse
@@ -1916,20 +3475,53 @@ export interface QuickSightDescribeDashboardPermissionsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeDashboardPermissionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeDashboardPermissionsResponse(obj: QuickSightDescribeDashboardPermissionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DashboardId': obj.dashboardId,
+    'DashboardArn': obj.dashboardArn,
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeDataSetRequest
  */
 export interface QuickSightDescribeDataSetRequest {
   /**
    * @schema QuickSightDescribeDataSetRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeDataSetRequest#DataSetId
    */
-  readonly dataSetId: string;
+  readonly dataSetId?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeDataSetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeDataSetRequest(obj: QuickSightDescribeDataSetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DataSetId': obj.dataSetId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeDataSetResponse
@@ -1953,20 +3545,51 @@ export interface QuickSightDescribeDataSetResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeDataSetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeDataSetResponse(obj: QuickSightDescribeDataSetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSet': toJson_QuickSightDataSet(obj.dataSet),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeDataSetPermissionsRequest
  */
 export interface QuickSightDescribeDataSetPermissionsRequest {
   /**
    * @schema QuickSightDescribeDataSetPermissionsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeDataSetPermissionsRequest#DataSetId
    */
-  readonly dataSetId: string;
+  readonly dataSetId?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeDataSetPermissionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeDataSetPermissionsRequest(obj: QuickSightDescribeDataSetPermissionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DataSetId': obj.dataSetId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeDataSetPermissionsResponse
@@ -2000,20 +3623,53 @@ export interface QuickSightDescribeDataSetPermissionsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeDataSetPermissionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeDataSetPermissionsResponse(obj: QuickSightDescribeDataSetPermissionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSetArn': obj.dataSetArn,
+    'DataSetId': obj.dataSetId,
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeDataSourceRequest
  */
 export interface QuickSightDescribeDataSourceRequest {
   /**
    * @schema QuickSightDescribeDataSourceRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeDataSourceRequest#DataSourceId
    */
-  readonly dataSourceId: string;
+  readonly dataSourceId?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeDataSourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeDataSourceRequest(obj: QuickSightDescribeDataSourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DataSourceId': obj.dataSourceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeDataSourceResponse
@@ -2037,20 +3693,51 @@ export interface QuickSightDescribeDataSourceResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeDataSourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeDataSourceResponse(obj: QuickSightDescribeDataSourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSource': toJson_QuickSightDataSource(obj.dataSource),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeDataSourcePermissionsRequest
  */
 export interface QuickSightDescribeDataSourcePermissionsRequest {
   /**
    * @schema QuickSightDescribeDataSourcePermissionsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeDataSourcePermissionsRequest#DataSourceId
    */
-  readonly dataSourceId: string;
+  readonly dataSourceId?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeDataSourcePermissionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeDataSourcePermissionsRequest(obj: QuickSightDescribeDataSourcePermissionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DataSourceId': obj.dataSourceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeDataSourcePermissionsResponse
@@ -2084,25 +3771,287 @@ export interface QuickSightDescribeDataSourcePermissionsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeDataSourcePermissionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeDataSourcePermissionsResponse(obj: QuickSightDescribeDataSourcePermissionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSourceArn': obj.dataSourceArn,
+    'DataSourceId': obj.dataSourceId,
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightDescribeFolderRequest
+ */
+export interface QuickSightDescribeFolderRequest {
+  /**
+   * @schema QuickSightDescribeFolderRequest#AwsAccountId
+   */
+  readonly awsAccountId?: string;
+
+  /**
+   * @schema QuickSightDescribeFolderRequest#FolderId
+   */
+  readonly folderId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightDescribeFolderRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeFolderRequest(obj: QuickSightDescribeFolderRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'FolderId': obj.folderId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightDescribeFolderResponse
+ */
+export interface QuickSightDescribeFolderResponse {
+  /**
+   * @schema QuickSightDescribeFolderResponse#Status
+   */
+  readonly status?: number;
+
+  /**
+   * @schema QuickSightDescribeFolderResponse#Folder
+   */
+  readonly folder?: QuickSightFolder;
+
+  /**
+   * @schema QuickSightDescribeFolderResponse#RequestId
+   */
+  readonly requestId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightDescribeFolderResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeFolderResponse(obj: QuickSightDescribeFolderResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'Folder': toJson_QuickSightFolder(obj.folder),
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightDescribeFolderPermissionsRequest
+ */
+export interface QuickSightDescribeFolderPermissionsRequest {
+  /**
+   * @schema QuickSightDescribeFolderPermissionsRequest#AwsAccountId
+   */
+  readonly awsAccountId?: string;
+
+  /**
+   * @schema QuickSightDescribeFolderPermissionsRequest#FolderId
+   */
+  readonly folderId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightDescribeFolderPermissionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeFolderPermissionsRequest(obj: QuickSightDescribeFolderPermissionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'FolderId': obj.folderId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightDescribeFolderPermissionsResponse
+ */
+export interface QuickSightDescribeFolderPermissionsResponse {
+  /**
+   * @schema QuickSightDescribeFolderPermissionsResponse#Status
+   */
+  readonly status?: number;
+
+  /**
+   * @schema QuickSightDescribeFolderPermissionsResponse#FolderId
+   */
+  readonly folderId?: string;
+
+  /**
+   * @schema QuickSightDescribeFolderPermissionsResponse#Arn
+   */
+  readonly arn?: string;
+
+  /**
+   * @schema QuickSightDescribeFolderPermissionsResponse#Permissions
+   */
+  readonly permissions?: QuickSightResourcePermission[];
+
+  /**
+   * @schema QuickSightDescribeFolderPermissionsResponse#RequestId
+   */
+  readonly requestId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightDescribeFolderPermissionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeFolderPermissionsResponse(obj: QuickSightDescribeFolderPermissionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'FolderId': obj.folderId,
+    'Arn': obj.arn,
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightDescribeFolderResolvedPermissionsRequest
+ */
+export interface QuickSightDescribeFolderResolvedPermissionsRequest {
+  /**
+   * @schema QuickSightDescribeFolderResolvedPermissionsRequest#AwsAccountId
+   */
+  readonly awsAccountId?: string;
+
+  /**
+   * @schema QuickSightDescribeFolderResolvedPermissionsRequest#FolderId
+   */
+  readonly folderId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightDescribeFolderResolvedPermissionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeFolderResolvedPermissionsRequest(obj: QuickSightDescribeFolderResolvedPermissionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'FolderId': obj.folderId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightDescribeFolderResolvedPermissionsResponse
+ */
+export interface QuickSightDescribeFolderResolvedPermissionsResponse {
+  /**
+   * @schema QuickSightDescribeFolderResolvedPermissionsResponse#Status
+   */
+  readonly status?: number;
+
+  /**
+   * @schema QuickSightDescribeFolderResolvedPermissionsResponse#FolderId
+   */
+  readonly folderId?: string;
+
+  /**
+   * @schema QuickSightDescribeFolderResolvedPermissionsResponse#Arn
+   */
+  readonly arn?: string;
+
+  /**
+   * @schema QuickSightDescribeFolderResolvedPermissionsResponse#Permissions
+   */
+  readonly permissions?: QuickSightResourcePermission[];
+
+  /**
+   * @schema QuickSightDescribeFolderResolvedPermissionsResponse#RequestId
+   */
+  readonly requestId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightDescribeFolderResolvedPermissionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeFolderResolvedPermissionsResponse(obj: QuickSightDescribeFolderResolvedPermissionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'FolderId': obj.folderId,
+    'Arn': obj.arn,
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeGroupRequest
  */
 export interface QuickSightDescribeGroupRequest {
   /**
    * @schema QuickSightDescribeGroupRequest#GroupName
    */
-  readonly groupName: string;
+  readonly groupName?: string;
 
   /**
    * @schema QuickSightDescribeGroupRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeGroupRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeGroupRequest(obj: QuickSightDescribeGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupName': obj.groupName,
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeGroupResponse
@@ -2126,25 +4075,57 @@ export interface QuickSightDescribeGroupResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeGroupResponse(obj: QuickSightDescribeGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Group': toJson_QuickSightGroup(obj.group),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeIamPolicyAssignmentRequest
  */
 export interface QuickSightDescribeIamPolicyAssignmentRequest {
   /**
    * @schema QuickSightDescribeIamPolicyAssignmentRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeIamPolicyAssignmentRequest#AssignmentName
    */
-  readonly assignmentName: string;
+  readonly assignmentName?: string;
 
   /**
    * @schema QuickSightDescribeIamPolicyAssignmentRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeIamPolicyAssignmentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeIamPolicyAssignmentRequest(obj: QuickSightDescribeIamPolicyAssignmentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'AssignmentName': obj.assignmentName,
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeIamPolicyAssignmentResponse
@@ -2168,25 +4149,57 @@ export interface QuickSightDescribeIamPolicyAssignmentResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeIamPolicyAssignmentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeIamPolicyAssignmentResponse(obj: QuickSightDescribeIamPolicyAssignmentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IAMPolicyAssignment': toJson_QuickSightIamPolicyAssignment(obj.iamPolicyAssignment),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeIngestionRequest
  */
 export interface QuickSightDescribeIngestionRequest {
   /**
    * @schema QuickSightDescribeIngestionRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeIngestionRequest#DataSetId
    */
-  readonly dataSetId: string;
+  readonly dataSetId?: string;
 
   /**
    * @schema QuickSightDescribeIngestionRequest#IngestionId
    */
-  readonly ingestionId: string;
+  readonly ingestionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeIngestionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeIngestionRequest(obj: QuickSightDescribeIngestionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DataSetId': obj.dataSetId,
+    'IngestionId': obj.ingestionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeIngestionResponse
@@ -2210,20 +4223,51 @@ export interface QuickSightDescribeIngestionResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeIngestionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeIngestionResponse(obj: QuickSightDescribeIngestionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Ingestion': toJson_QuickSightIngestion(obj.ingestion),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeNamespaceRequest
  */
 export interface QuickSightDescribeNamespaceRequest {
   /**
    * @schema QuickSightDescribeNamespaceRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeNamespaceRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeNamespaceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeNamespaceRequest(obj: QuickSightDescribeNamespaceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeNamespaceResponse
@@ -2247,18 +4291,34 @@ export interface QuickSightDescribeNamespaceResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeNamespaceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeNamespaceResponse(obj: QuickSightDescribeNamespaceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Namespace': toJson_QuickSightNamespaceInfoV2(obj.namespace),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeTemplateRequest
  */
 export interface QuickSightDescribeTemplateRequest {
   /**
    * @schema QuickSightDescribeTemplateRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeTemplateRequest#TemplateId
    */
-  readonly templateId: string;
+  readonly templateId?: string;
 
   /**
    * @schema QuickSightDescribeTemplateRequest#VersionNumber
@@ -2271,6 +4331,23 @@ export interface QuickSightDescribeTemplateRequest {
   readonly aliasName?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeTemplateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeTemplateRequest(obj: QuickSightDescribeTemplateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'TemplateId': obj.templateId,
+    'VersionNumber': obj.versionNumber,
+    'AliasName': obj.aliasName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeTemplateResponse
@@ -2294,25 +4371,57 @@ export interface QuickSightDescribeTemplateResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeTemplateResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeTemplateResponse(obj: QuickSightDescribeTemplateResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Template': toJson_QuickSightTemplate(obj.template),
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeTemplateAliasRequest
  */
 export interface QuickSightDescribeTemplateAliasRequest {
   /**
    * @schema QuickSightDescribeTemplateAliasRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeTemplateAliasRequest#TemplateId
    */
-  readonly templateId: string;
+  readonly templateId?: string;
 
   /**
    * @schema QuickSightDescribeTemplateAliasRequest#AliasName
    */
-  readonly aliasName: string;
+  readonly aliasName?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeTemplateAliasRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeTemplateAliasRequest(obj: QuickSightDescribeTemplateAliasRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'TemplateId': obj.templateId,
+    'AliasName': obj.aliasName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeTemplateAliasResponse
@@ -2336,20 +4445,51 @@ export interface QuickSightDescribeTemplateAliasResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeTemplateAliasResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeTemplateAliasResponse(obj: QuickSightDescribeTemplateAliasResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TemplateAlias': toJson_QuickSightTemplateAlias(obj.templateAlias),
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeTemplatePermissionsRequest
  */
 export interface QuickSightDescribeTemplatePermissionsRequest {
   /**
    * @schema QuickSightDescribeTemplatePermissionsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeTemplatePermissionsRequest#TemplateId
    */
-  readonly templateId: string;
+  readonly templateId?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeTemplatePermissionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeTemplatePermissionsRequest(obj: QuickSightDescribeTemplatePermissionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'TemplateId': obj.templateId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeTemplatePermissionsResponse
@@ -2383,18 +4523,36 @@ export interface QuickSightDescribeTemplatePermissionsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeTemplatePermissionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeTemplatePermissionsResponse(obj: QuickSightDescribeTemplatePermissionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TemplateId': obj.templateId,
+    'TemplateArn': obj.templateArn,
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeThemeRequest
  */
 export interface QuickSightDescribeThemeRequest {
   /**
    * @schema QuickSightDescribeThemeRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeThemeRequest#ThemeId
    */
-  readonly themeId: string;
+  readonly themeId?: string;
 
   /**
    * @schema QuickSightDescribeThemeRequest#VersionNumber
@@ -2407,6 +4565,23 @@ export interface QuickSightDescribeThemeRequest {
   readonly aliasName?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeThemeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeThemeRequest(obj: QuickSightDescribeThemeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'ThemeId': obj.themeId,
+    'VersionNumber': obj.versionNumber,
+    'AliasName': obj.aliasName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeThemeResponse
@@ -2430,25 +4605,57 @@ export interface QuickSightDescribeThemeResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeThemeResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeThemeResponse(obj: QuickSightDescribeThemeResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Theme': toJson_QuickSightTheme(obj.theme),
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeThemeAliasRequest
  */
 export interface QuickSightDescribeThemeAliasRequest {
   /**
    * @schema QuickSightDescribeThemeAliasRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeThemeAliasRequest#ThemeId
    */
-  readonly themeId: string;
+  readonly themeId?: string;
 
   /**
    * @schema QuickSightDescribeThemeAliasRequest#AliasName
    */
-  readonly aliasName: string;
+  readonly aliasName?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeThemeAliasRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeThemeAliasRequest(obj: QuickSightDescribeThemeAliasRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'ThemeId': obj.themeId,
+    'AliasName': obj.aliasName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeThemeAliasResponse
@@ -2472,20 +4679,51 @@ export interface QuickSightDescribeThemeAliasResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeThemeAliasResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeThemeAliasResponse(obj: QuickSightDescribeThemeAliasResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ThemeAlias': toJson_QuickSightThemeAlias(obj.themeAlias),
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeThemePermissionsRequest
  */
 export interface QuickSightDescribeThemePermissionsRequest {
   /**
    * @schema QuickSightDescribeThemePermissionsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeThemePermissionsRequest#ThemeId
    */
-  readonly themeId: string;
+  readonly themeId?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeThemePermissionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeThemePermissionsRequest(obj: QuickSightDescribeThemePermissionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'ThemeId': obj.themeId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeThemePermissionsResponse
@@ -2519,25 +4757,59 @@ export interface QuickSightDescribeThemePermissionsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeThemePermissionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeThemePermissionsResponse(obj: QuickSightDescribeThemePermissionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ThemeId': obj.themeId,
+    'ThemeArn': obj.themeArn,
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDescribeUserRequest
  */
 export interface QuickSightDescribeUserRequest {
   /**
    * @schema QuickSightDescribeUserRequest#UserName
    */
-  readonly userName: string;
+  readonly userName?: string;
 
   /**
    * @schema QuickSightDescribeUserRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightDescribeUserRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDescribeUserRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeUserRequest(obj: QuickSightDescribeUserRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserName': obj.userName,
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDescribeUserResponse
@@ -2561,23 +4833,211 @@ export interface QuickSightDescribeUserResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightDescribeUserResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDescribeUserResponse(obj: QuickSightDescribeUserResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'User': toJson_QuickSightUser(obj.user),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightGenerateEmbedUrlForAnonymousUserRequest
+ */
+export interface QuickSightGenerateEmbedUrlForAnonymousUserRequest {
+  /**
+   * @schema QuickSightGenerateEmbedUrlForAnonymousUserRequest#AwsAccountId
+   */
+  readonly awsAccountId?: string;
+
+  /**
+   * @schema QuickSightGenerateEmbedUrlForAnonymousUserRequest#SessionLifetimeInMinutes
+   */
+  readonly sessionLifetimeInMinutes?: number;
+
+  /**
+   * @schema QuickSightGenerateEmbedUrlForAnonymousUserRequest#Namespace
+   */
+  readonly namespace?: string;
+
+  /**
+   * @schema QuickSightGenerateEmbedUrlForAnonymousUserRequest#SessionTags
+   */
+  readonly sessionTags?: QuickSightSessionTag[];
+
+  /**
+   * @schema QuickSightGenerateEmbedUrlForAnonymousUserRequest#AuthorizedResourceArns
+   */
+  readonly authorizedResourceArns?: string[];
+
+  /**
+   * @schema QuickSightGenerateEmbedUrlForAnonymousUserRequest#ExperienceConfiguration
+   */
+  readonly experienceConfiguration?: QuickSightAnonymousUserEmbeddingExperienceConfiguration;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightGenerateEmbedUrlForAnonymousUserRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightGenerateEmbedUrlForAnonymousUserRequest(obj: QuickSightGenerateEmbedUrlForAnonymousUserRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'SessionLifetimeInMinutes': obj.sessionLifetimeInMinutes,
+    'Namespace': obj.namespace,
+    'SessionTags': obj.sessionTags?.map(y => toJson_QuickSightSessionTag(y)),
+    'AuthorizedResourceArns': obj.authorizedResourceArns?.map(y => y),
+    'ExperienceConfiguration': toJson_QuickSightAnonymousUserEmbeddingExperienceConfiguration(obj.experienceConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightGenerateEmbedUrlForAnonymousUserResponse
+ */
+export interface QuickSightGenerateEmbedUrlForAnonymousUserResponse {
+  /**
+   * @schema QuickSightGenerateEmbedUrlForAnonymousUserResponse#EmbedUrl
+   */
+  readonly embedUrl?: string;
+
+  /**
+   * @schema QuickSightGenerateEmbedUrlForAnonymousUserResponse#Status
+   */
+  readonly status?: number;
+
+  /**
+   * @schema QuickSightGenerateEmbedUrlForAnonymousUserResponse#RequestId
+   */
+  readonly requestId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightGenerateEmbedUrlForAnonymousUserResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightGenerateEmbedUrlForAnonymousUserResponse(obj: QuickSightGenerateEmbedUrlForAnonymousUserResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EmbedUrl': obj.embedUrl,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightGenerateEmbedUrlForRegisteredUserRequest
+ */
+export interface QuickSightGenerateEmbedUrlForRegisteredUserRequest {
+  /**
+   * @schema QuickSightGenerateEmbedUrlForRegisteredUserRequest#AwsAccountId
+   */
+  readonly awsAccountId?: string;
+
+  /**
+   * @schema QuickSightGenerateEmbedUrlForRegisteredUserRequest#SessionLifetimeInMinutes
+   */
+  readonly sessionLifetimeInMinutes?: number;
+
+  /**
+   * @schema QuickSightGenerateEmbedUrlForRegisteredUserRequest#UserArn
+   */
+  readonly userArn?: string;
+
+  /**
+   * @schema QuickSightGenerateEmbedUrlForRegisteredUserRequest#ExperienceConfiguration
+   */
+  readonly experienceConfiguration?: QuickSightRegisteredUserEmbeddingExperienceConfiguration;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightGenerateEmbedUrlForRegisteredUserRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightGenerateEmbedUrlForRegisteredUserRequest(obj: QuickSightGenerateEmbedUrlForRegisteredUserRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'SessionLifetimeInMinutes': obj.sessionLifetimeInMinutes,
+    'UserArn': obj.userArn,
+    'ExperienceConfiguration': toJson_QuickSightRegisteredUserEmbeddingExperienceConfiguration(obj.experienceConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightGenerateEmbedUrlForRegisteredUserResponse
+ */
+export interface QuickSightGenerateEmbedUrlForRegisteredUserResponse {
+  /**
+   * @schema QuickSightGenerateEmbedUrlForRegisteredUserResponse#EmbedUrl
+   */
+  readonly embedUrl?: string;
+
+  /**
+   * @schema QuickSightGenerateEmbedUrlForRegisteredUserResponse#Status
+   */
+  readonly status?: number;
+
+  /**
+   * @schema QuickSightGenerateEmbedUrlForRegisteredUserResponse#RequestId
+   */
+  readonly requestId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightGenerateEmbedUrlForRegisteredUserResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightGenerateEmbedUrlForRegisteredUserResponse(obj: QuickSightGenerateEmbedUrlForRegisteredUserResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EmbedUrl': obj.embedUrl,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightGetDashboardEmbedUrlRequest
  */
 export interface QuickSightGetDashboardEmbedUrlRequest {
   /**
    * @schema QuickSightGetDashboardEmbedUrlRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightGetDashboardEmbedUrlRequest#DashboardId
    */
-  readonly dashboardId: string;
+  readonly dashboardId?: string;
 
   /**
    * @schema QuickSightGetDashboardEmbedUrlRequest#IdentityType
    */
-  readonly identityType: string;
+  readonly identityType?: string;
 
   /**
    * @schema QuickSightGetDashboardEmbedUrlRequest#SessionLifetimeInMinutes
@@ -2617,6 +5077,29 @@ export interface QuickSightGetDashboardEmbedUrlRequest {
 }
 
 /**
+ * Converts an object of type 'QuickSightGetDashboardEmbedUrlRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightGetDashboardEmbedUrlRequest(obj: QuickSightGetDashboardEmbedUrlRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DashboardId': obj.dashboardId,
+    'IdentityType': obj.identityType,
+    'SessionLifetimeInMinutes': obj.sessionLifetimeInMinutes,
+    'UndoRedoDisabled': obj.undoRedoDisabled,
+    'ResetDisabled': obj.resetDisabled,
+    'StatePersistenceEnabled': obj.statePersistenceEnabled,
+    'UserArn': obj.userArn,
+    'Namespace': obj.namespace,
+    'AdditionalDashboardIds': obj.additionalDashboardIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightGetDashboardEmbedUrlResponse
  */
 export interface QuickSightGetDashboardEmbedUrlResponse {
@@ -2638,13 +5121,29 @@ export interface QuickSightGetDashboardEmbedUrlResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightGetDashboardEmbedUrlResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightGetDashboardEmbedUrlResponse(obj: QuickSightGetDashboardEmbedUrlResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EmbedUrl': obj.embedUrl,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightGetSessionEmbedUrlRequest
  */
 export interface QuickSightGetSessionEmbedUrlRequest {
   /**
    * @schema QuickSightGetSessionEmbedUrlRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightGetSessionEmbedUrlRequest#EntryPoint
@@ -2662,6 +5161,23 @@ export interface QuickSightGetSessionEmbedUrlRequest {
   readonly userArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightGetSessionEmbedUrlRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightGetSessionEmbedUrlRequest(obj: QuickSightGetSessionEmbedUrlRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'EntryPoint': obj.entryPoint,
+    'SessionLifetimeInMinutes': obj.sessionLifetimeInMinutes,
+    'UserArn': obj.userArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightGetSessionEmbedUrlResponse
@@ -2685,13 +5201,29 @@ export interface QuickSightGetSessionEmbedUrlResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightGetSessionEmbedUrlResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightGetSessionEmbedUrlResponse(obj: QuickSightGetSessionEmbedUrlResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EmbedUrl': obj.embedUrl,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListAnalysesRequest
  */
 export interface QuickSightListAnalysesRequest {
   /**
    * @schema QuickSightListAnalysesRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListAnalysesRequest#NextToken
@@ -2704,6 +5236,22 @@ export interface QuickSightListAnalysesRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListAnalysesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListAnalysesRequest(obj: QuickSightListAnalysesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListAnalysesResponse
@@ -2732,18 +5280,35 @@ export interface QuickSightListAnalysesResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListAnalysesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListAnalysesResponse(obj: QuickSightListAnalysesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AnalysisSummaryList': obj.analysisSummaryList?.map(y => toJson_QuickSightAnalysisSummary(y)),
+    'NextToken': obj.nextToken,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListDashboardVersionsRequest
  */
 export interface QuickSightListDashboardVersionsRequest {
   /**
    * @schema QuickSightListDashboardVersionsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListDashboardVersionsRequest#DashboardId
    */
-  readonly dashboardId: string;
+  readonly dashboardId?: string;
 
   /**
    * @schema QuickSightListDashboardVersionsRequest#NextToken
@@ -2756,6 +5321,23 @@ export interface QuickSightListDashboardVersionsRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListDashboardVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListDashboardVersionsRequest(obj: QuickSightListDashboardVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DashboardId': obj.dashboardId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListDashboardVersionsResponse
@@ -2784,13 +5366,30 @@ export interface QuickSightListDashboardVersionsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListDashboardVersionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListDashboardVersionsResponse(obj: QuickSightListDashboardVersionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DashboardVersionSummaryList': obj.dashboardVersionSummaryList?.map(y => toJson_QuickSightDashboardVersionSummary(y)),
+    'NextToken': obj.nextToken,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListDashboardsRequest
  */
 export interface QuickSightListDashboardsRequest {
   /**
    * @schema QuickSightListDashboardsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListDashboardsRequest#NextToken
@@ -2803,6 +5402,22 @@ export interface QuickSightListDashboardsRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListDashboardsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListDashboardsRequest(obj: QuickSightListDashboardsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListDashboardsResponse
@@ -2831,13 +5446,30 @@ export interface QuickSightListDashboardsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListDashboardsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListDashboardsResponse(obj: QuickSightListDashboardsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DashboardSummaryList': obj.dashboardSummaryList?.map(y => toJson_QuickSightDashboardSummary(y)),
+    'NextToken': obj.nextToken,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListDataSetsRequest
  */
 export interface QuickSightListDataSetsRequest {
   /**
    * @schema QuickSightListDataSetsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListDataSetsRequest#NextToken
@@ -2850,6 +5482,22 @@ export interface QuickSightListDataSetsRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListDataSetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListDataSetsRequest(obj: QuickSightListDataSetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListDataSetsResponse
@@ -2878,13 +5526,30 @@ export interface QuickSightListDataSetsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListDataSetsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListDataSetsResponse(obj: QuickSightListDataSetsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSetSummaries': obj.dataSetSummaries?.map(y => toJson_QuickSightDataSetSummary(y)),
+    'NextToken': obj.nextToken,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListDataSourcesRequest
  */
 export interface QuickSightListDataSourcesRequest {
   /**
    * @schema QuickSightListDataSourcesRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListDataSourcesRequest#NextToken
@@ -2897,6 +5562,22 @@ export interface QuickSightListDataSourcesRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListDataSourcesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListDataSourcesRequest(obj: QuickSightListDataSourcesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListDataSourcesResponse
@@ -2925,13 +5606,196 @@ export interface QuickSightListDataSourcesResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListDataSourcesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListDataSourcesResponse(obj: QuickSightListDataSourcesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSources': obj.dataSources?.map(y => toJson_QuickSightDataSource(y)),
+    'NextToken': obj.nextToken,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightListFolderMembersRequest
+ */
+export interface QuickSightListFolderMembersRequest {
+  /**
+   * @schema QuickSightListFolderMembersRequest#AwsAccountId
+   */
+  readonly awsAccountId?: string;
+
+  /**
+   * @schema QuickSightListFolderMembersRequest#FolderId
+   */
+  readonly folderId?: string;
+
+  /**
+   * @schema QuickSightListFolderMembersRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema QuickSightListFolderMembersRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightListFolderMembersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListFolderMembersRequest(obj: QuickSightListFolderMembersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'FolderId': obj.folderId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightListFolderMembersResponse
+ */
+export interface QuickSightListFolderMembersResponse {
+  /**
+   * @schema QuickSightListFolderMembersResponse#Status
+   */
+  readonly status?: number;
+
+  /**
+   * @schema QuickSightListFolderMembersResponse#FolderMemberList
+   */
+  readonly folderMemberList?: QuickSightMemberIdArnPair[];
+
+  /**
+   * @schema QuickSightListFolderMembersResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema QuickSightListFolderMembersResponse#RequestId
+   */
+  readonly requestId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightListFolderMembersResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListFolderMembersResponse(obj: QuickSightListFolderMembersResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'FolderMemberList': obj.folderMemberList?.map(y => toJson_QuickSightMemberIdArnPair(y)),
+    'NextToken': obj.nextToken,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightListFoldersRequest
+ */
+export interface QuickSightListFoldersRequest {
+  /**
+   * @schema QuickSightListFoldersRequest#AwsAccountId
+   */
+  readonly awsAccountId?: string;
+
+  /**
+   * @schema QuickSightListFoldersRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema QuickSightListFoldersRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightListFoldersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListFoldersRequest(obj: QuickSightListFoldersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightListFoldersResponse
+ */
+export interface QuickSightListFoldersResponse {
+  /**
+   * @schema QuickSightListFoldersResponse#Status
+   */
+  readonly status?: number;
+
+  /**
+   * @schema QuickSightListFoldersResponse#FolderSummaryList
+   */
+  readonly folderSummaryList?: QuickSightFolderSummary[];
+
+  /**
+   * @schema QuickSightListFoldersResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema QuickSightListFoldersResponse#RequestId
+   */
+  readonly requestId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightListFoldersResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListFoldersResponse(obj: QuickSightListFoldersResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'FolderSummaryList': obj.folderSummaryList?.map(y => toJson_QuickSightFolderSummary(y)),
+    'NextToken': obj.nextToken,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListGroupMembershipsRequest
  */
 export interface QuickSightListGroupMembershipsRequest {
   /**
    * @schema QuickSightListGroupMembershipsRequest#GroupName
    */
-  readonly groupName: string;
+  readonly groupName?: string;
 
   /**
    * @schema QuickSightListGroupMembershipsRequest#NextToken
@@ -2946,14 +5810,32 @@ export interface QuickSightListGroupMembershipsRequest {
   /**
    * @schema QuickSightListGroupMembershipsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListGroupMembershipsRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListGroupMembershipsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListGroupMembershipsRequest(obj: QuickSightListGroupMembershipsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupName': obj.groupName,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListGroupMembershipsResponse
@@ -2982,13 +5864,30 @@ export interface QuickSightListGroupMembershipsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListGroupMembershipsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListGroupMembershipsResponse(obj: QuickSightListGroupMembershipsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupMemberList': obj.groupMemberList?.map(y => toJson_QuickSightGroupMember(y)),
+    'NextToken': obj.nextToken,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListGroupsRequest
  */
 export interface QuickSightListGroupsRequest {
   /**
    * @schema QuickSightListGroupsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListGroupsRequest#NextToken
@@ -3003,9 +5902,26 @@ export interface QuickSightListGroupsRequest {
   /**
    * @schema QuickSightListGroupsRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListGroupsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListGroupsRequest(obj: QuickSightListGroupsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListGroupsResponse
@@ -3034,13 +5950,30 @@ export interface QuickSightListGroupsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListGroupsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListGroupsResponse(obj: QuickSightListGroupsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupList': obj.groupList?.map(y => toJson_QuickSightGroup(y)),
+    'NextToken': obj.nextToken,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListIamPolicyAssignmentsRequest
  */
 export interface QuickSightListIamPolicyAssignmentsRequest {
   /**
    * @schema QuickSightListIamPolicyAssignmentsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListIamPolicyAssignmentsRequest#AssignmentStatus
@@ -3050,7 +5983,7 @@ export interface QuickSightListIamPolicyAssignmentsRequest {
   /**
    * @schema QuickSightListIamPolicyAssignmentsRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
   /**
    * @schema QuickSightListIamPolicyAssignmentsRequest#NextToken
@@ -3063,6 +5996,24 @@ export interface QuickSightListIamPolicyAssignmentsRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListIamPolicyAssignmentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListIamPolicyAssignmentsRequest(obj: QuickSightListIamPolicyAssignmentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'AssignmentStatus': obj.assignmentStatus,
+    'Namespace': obj.namespace,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListIamPolicyAssignmentsResponse
@@ -3091,18 +6042,35 @@ export interface QuickSightListIamPolicyAssignmentsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListIamPolicyAssignmentsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListIamPolicyAssignmentsResponse(obj: QuickSightListIamPolicyAssignmentsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IAMPolicyAssignments': obj.iamPolicyAssignments?.map(y => toJson_QuickSightIamPolicyAssignmentSummary(y)),
+    'NextToken': obj.nextToken,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListIamPolicyAssignmentsForUserRequest
  */
 export interface QuickSightListIamPolicyAssignmentsForUserRequest {
   /**
    * @schema QuickSightListIamPolicyAssignmentsForUserRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListIamPolicyAssignmentsForUserRequest#UserName
    */
-  readonly userName: string;
+  readonly userName?: string;
 
   /**
    * @schema QuickSightListIamPolicyAssignmentsForUserRequest#NextToken
@@ -3117,9 +6085,27 @@ export interface QuickSightListIamPolicyAssignmentsForUserRequest {
   /**
    * @schema QuickSightListIamPolicyAssignmentsForUserRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListIamPolicyAssignmentsForUserRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListIamPolicyAssignmentsForUserRequest(obj: QuickSightListIamPolicyAssignmentsForUserRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'UserName': obj.userName,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListIamPolicyAssignmentsForUserResponse
@@ -3148,13 +6134,30 @@ export interface QuickSightListIamPolicyAssignmentsForUserResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListIamPolicyAssignmentsForUserResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListIamPolicyAssignmentsForUserResponse(obj: QuickSightListIamPolicyAssignmentsForUserResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ActiveAssignments': obj.activeAssignments?.map(y => toJson_QuickSightActiveIamPolicyAssignment(y)),
+    'RequestId': obj.requestId,
+    'NextToken': obj.nextToken,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListIngestionsRequest
  */
 export interface QuickSightListIngestionsRequest {
   /**
    * @schema QuickSightListIngestionsRequest#DataSetId
    */
-  readonly dataSetId: string;
+  readonly dataSetId?: string;
 
   /**
    * @schema QuickSightListIngestionsRequest#NextToken
@@ -3164,7 +6167,7 @@ export interface QuickSightListIngestionsRequest {
   /**
    * @schema QuickSightListIngestionsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListIngestionsRequest#MaxResults
@@ -3172,6 +6175,23 @@ export interface QuickSightListIngestionsRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListIngestionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListIngestionsRequest(obj: QuickSightListIngestionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSetId': obj.dataSetId,
+    'NextToken': obj.nextToken,
+    'AwsAccountId': obj.awsAccountId,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListIngestionsResponse
@@ -3200,13 +6220,30 @@ export interface QuickSightListIngestionsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListIngestionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListIngestionsResponse(obj: QuickSightListIngestionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Ingestions': obj.ingestions?.map(y => toJson_QuickSightIngestion(y)),
+    'NextToken': obj.nextToken,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListNamespacesRequest
  */
 export interface QuickSightListNamespacesRequest {
   /**
    * @schema QuickSightListNamespacesRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListNamespacesRequest#NextToken
@@ -3219,6 +6256,22 @@ export interface QuickSightListNamespacesRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListNamespacesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListNamespacesRequest(obj: QuickSightListNamespacesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListNamespacesResponse
@@ -3247,15 +6300,46 @@ export interface QuickSightListNamespacesResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListNamespacesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListNamespacesResponse(obj: QuickSightListNamespacesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Namespaces': obj.namespaces?.map(y => toJson_QuickSightNamespaceInfoV2(y)),
+    'NextToken': obj.nextToken,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListTagsForResourceRequest
  */
 export interface QuickSightListTagsForResourceRequest {
   /**
    * @schema QuickSightListTagsForResourceRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListTagsForResourceRequest(obj: QuickSightListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListTagsForResourceResponse
@@ -3279,18 +6363,34 @@ export interface QuickSightListTagsForResourceResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListTagsForResourceResponse(obj: QuickSightListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Tags': obj.tags?.map(y => toJson_QuickSightTag(y)),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListTemplateAliasesRequest
  */
 export interface QuickSightListTemplateAliasesRequest {
   /**
    * @schema QuickSightListTemplateAliasesRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListTemplateAliasesRequest#TemplateId
    */
-  readonly templateId: string;
+  readonly templateId?: string;
 
   /**
    * @schema QuickSightListTemplateAliasesRequest#NextToken
@@ -3303,6 +6403,23 @@ export interface QuickSightListTemplateAliasesRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListTemplateAliasesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListTemplateAliasesRequest(obj: QuickSightListTemplateAliasesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'TemplateId': obj.templateId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListTemplateAliasesResponse
@@ -3331,18 +6448,35 @@ export interface QuickSightListTemplateAliasesResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListTemplateAliasesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListTemplateAliasesResponse(obj: QuickSightListTemplateAliasesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TemplateAliasList': obj.templateAliasList?.map(y => toJson_QuickSightTemplateAlias(y)),
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListTemplateVersionsRequest
  */
 export interface QuickSightListTemplateVersionsRequest {
   /**
    * @schema QuickSightListTemplateVersionsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListTemplateVersionsRequest#TemplateId
    */
-  readonly templateId: string;
+  readonly templateId?: string;
 
   /**
    * @schema QuickSightListTemplateVersionsRequest#NextToken
@@ -3355,6 +6489,23 @@ export interface QuickSightListTemplateVersionsRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListTemplateVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListTemplateVersionsRequest(obj: QuickSightListTemplateVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'TemplateId': obj.templateId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListTemplateVersionsResponse
@@ -3383,13 +6534,30 @@ export interface QuickSightListTemplateVersionsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListTemplateVersionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListTemplateVersionsResponse(obj: QuickSightListTemplateVersionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TemplateVersionSummaryList': obj.templateVersionSummaryList?.map(y => toJson_QuickSightTemplateVersionSummary(y)),
+    'NextToken': obj.nextToken,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListTemplatesRequest
  */
 export interface QuickSightListTemplatesRequest {
   /**
    * @schema QuickSightListTemplatesRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListTemplatesRequest#NextToken
@@ -3402,6 +6570,22 @@ export interface QuickSightListTemplatesRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListTemplatesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListTemplatesRequest(obj: QuickSightListTemplatesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListTemplatesResponse
@@ -3430,18 +6614,35 @@ export interface QuickSightListTemplatesResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListTemplatesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListTemplatesResponse(obj: QuickSightListTemplatesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TemplateSummaryList': obj.templateSummaryList?.map(y => toJson_QuickSightTemplateSummary(y)),
+    'NextToken': obj.nextToken,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListThemeAliasesRequest
  */
 export interface QuickSightListThemeAliasesRequest {
   /**
    * @schema QuickSightListThemeAliasesRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListThemeAliasesRequest#ThemeId
    */
-  readonly themeId: string;
+  readonly themeId?: string;
 
   /**
    * @schema QuickSightListThemeAliasesRequest#NextToken
@@ -3454,6 +6655,23 @@ export interface QuickSightListThemeAliasesRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListThemeAliasesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListThemeAliasesRequest(obj: QuickSightListThemeAliasesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'ThemeId': obj.themeId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListThemeAliasesResponse
@@ -3482,18 +6700,35 @@ export interface QuickSightListThemeAliasesResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListThemeAliasesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListThemeAliasesResponse(obj: QuickSightListThemeAliasesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ThemeAliasList': obj.themeAliasList?.map(y => toJson_QuickSightThemeAlias(y)),
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListThemeVersionsRequest
  */
 export interface QuickSightListThemeVersionsRequest {
   /**
    * @schema QuickSightListThemeVersionsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListThemeVersionsRequest#ThemeId
    */
-  readonly themeId: string;
+  readonly themeId?: string;
 
   /**
    * @schema QuickSightListThemeVersionsRequest#NextToken
@@ -3506,6 +6741,23 @@ export interface QuickSightListThemeVersionsRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListThemeVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListThemeVersionsRequest(obj: QuickSightListThemeVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'ThemeId': obj.themeId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListThemeVersionsResponse
@@ -3534,13 +6786,30 @@ export interface QuickSightListThemeVersionsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListThemeVersionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListThemeVersionsResponse(obj: QuickSightListThemeVersionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ThemeVersionSummaryList': obj.themeVersionSummaryList?.map(y => toJson_QuickSightThemeVersionSummary(y)),
+    'NextToken': obj.nextToken,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListThemesRequest
  */
 export interface QuickSightListThemesRequest {
   /**
    * @schema QuickSightListThemesRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListThemesRequest#NextToken
@@ -3558,6 +6827,23 @@ export interface QuickSightListThemesRequest {
   readonly type?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListThemesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListThemesRequest(obj: QuickSightListThemesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListThemesResponse
@@ -3586,23 +6872,40 @@ export interface QuickSightListThemesResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListThemesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListThemesResponse(obj: QuickSightListThemesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ThemeSummaryList': obj.themeSummaryList?.map(y => toJson_QuickSightThemeSummary(y)),
+    'NextToken': obj.nextToken,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListUserGroupsRequest
  */
 export interface QuickSightListUserGroupsRequest {
   /**
    * @schema QuickSightListUserGroupsRequest#UserName
    */
-  readonly userName: string;
+  readonly userName?: string;
 
   /**
    * @schema QuickSightListUserGroupsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListUserGroupsRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
   /**
    * @schema QuickSightListUserGroupsRequest#NextToken
@@ -3615,6 +6918,24 @@ export interface QuickSightListUserGroupsRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListUserGroupsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListUserGroupsRequest(obj: QuickSightListUserGroupsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserName': obj.userName,
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListUserGroupsResponse
@@ -3643,13 +6964,30 @@ export interface QuickSightListUserGroupsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListUserGroupsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListUserGroupsResponse(obj: QuickSightListUserGroupsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupList': obj.groupList?.map(y => toJson_QuickSightGroup(y)),
+    'NextToken': obj.nextToken,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightListUsersRequest
  */
 export interface QuickSightListUsersRequest {
   /**
    * @schema QuickSightListUsersRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightListUsersRequest#NextToken
@@ -3664,9 +7002,26 @@ export interface QuickSightListUsersRequest {
   /**
    * @schema QuickSightListUsersRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightListUsersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListUsersRequest(obj: QuickSightListUsersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightListUsersResponse
@@ -3695,23 +7050,40 @@ export interface QuickSightListUsersResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightListUsersResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightListUsersResponse(obj: QuickSightListUsersResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserList': obj.userList?.map(y => toJson_QuickSightUser(y)),
+    'NextToken': obj.nextToken,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightRegisterUserRequest
  */
 export interface QuickSightRegisterUserRequest {
   /**
    * @schema QuickSightRegisterUserRequest#IdentityType
    */
-  readonly identityType: string;
+  readonly identityType?: string;
 
   /**
    * @schema QuickSightRegisterUserRequest#Email
    */
-  readonly email: string;
+  readonly email?: string;
 
   /**
    * @schema QuickSightRegisterUserRequest#UserRole
    */
-  readonly userRole: string;
+  readonly userRole?: string;
 
   /**
    * @schema QuickSightRegisterUserRequest#IamArn
@@ -3726,12 +7098,12 @@ export interface QuickSightRegisterUserRequest {
   /**
    * @schema QuickSightRegisterUserRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightRegisterUserRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
   /**
    * @schema QuickSightRegisterUserRequest#UserName
@@ -3743,7 +7115,47 @@ export interface QuickSightRegisterUserRequest {
    */
   readonly customPermissionsName?: string;
 
+  /**
+   * @schema QuickSightRegisterUserRequest#ExternalLoginFederationProviderType
+   */
+  readonly externalLoginFederationProviderType?: string;
+
+  /**
+   * @schema QuickSightRegisterUserRequest#CustomFederationProviderUrl
+   */
+  readonly customFederationProviderUrl?: string;
+
+  /**
+   * @schema QuickSightRegisterUserRequest#ExternalLoginId
+   */
+  readonly externalLoginId?: string;
+
 }
+
+/**
+ * Converts an object of type 'QuickSightRegisterUserRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightRegisterUserRequest(obj: QuickSightRegisterUserRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IdentityType': obj.identityType,
+    'Email': obj.email,
+    'UserRole': obj.userRole,
+    'IamArn': obj.iamArn,
+    'SessionName': obj.sessionName,
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+    'UserName': obj.userName,
+    'CustomPermissionsName': obj.customPermissionsName,
+    'ExternalLoginFederationProviderType': obj.externalLoginFederationProviderType,
+    'CustomFederationProviderUrl': obj.customFederationProviderUrl,
+    'ExternalLoginId': obj.externalLoginId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightRegisterUserResponse
@@ -3772,20 +7184,52 @@ export interface QuickSightRegisterUserResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightRegisterUserResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightRegisterUserResponse(obj: QuickSightRegisterUserResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'User': toJson_QuickSightUser(obj.user),
+    'UserInvitationUrl': obj.userInvitationUrl,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightRestoreAnalysisRequest
  */
 export interface QuickSightRestoreAnalysisRequest {
   /**
    * @schema QuickSightRestoreAnalysisRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightRestoreAnalysisRequest#AnalysisId
    */
-  readonly analysisId: string;
+  readonly analysisId?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightRestoreAnalysisRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightRestoreAnalysisRequest(obj: QuickSightRestoreAnalysisRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'AnalysisId': obj.analysisId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightRestoreAnalysisResponse
@@ -3814,18 +7258,35 @@ export interface QuickSightRestoreAnalysisResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightRestoreAnalysisResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightRestoreAnalysisResponse(obj: QuickSightRestoreAnalysisResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'Arn': obj.arn,
+    'AnalysisId': obj.analysisId,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightSearchAnalysesRequest
  */
 export interface QuickSightSearchAnalysesRequest {
   /**
    * @schema QuickSightSearchAnalysesRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightSearchAnalysesRequest#Filters
    */
-  readonly filters: QuickSightAnalysisSearchFilter[];
+  readonly filters?: QuickSightAnalysisSearchFilter[];
 
   /**
    * @schema QuickSightSearchAnalysesRequest#NextToken
@@ -3838,6 +7299,23 @@ export interface QuickSightSearchAnalysesRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightSearchAnalysesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightSearchAnalysesRequest(obj: QuickSightSearchAnalysesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'Filters': obj.filters?.map(y => toJson_QuickSightAnalysisSearchFilter(y)),
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightSearchAnalysesResponse
@@ -3866,18 +7344,35 @@ export interface QuickSightSearchAnalysesResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightSearchAnalysesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightSearchAnalysesResponse(obj: QuickSightSearchAnalysesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AnalysisSummaryList': obj.analysisSummaryList?.map(y => toJson_QuickSightAnalysisSummary(y)),
+    'NextToken': obj.nextToken,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightSearchDashboardsRequest
  */
 export interface QuickSightSearchDashboardsRequest {
   /**
    * @schema QuickSightSearchDashboardsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightSearchDashboardsRequest#Filters
    */
-  readonly filters: QuickSightDashboardSearchFilter[];
+  readonly filters?: QuickSightDashboardSearchFilter[];
 
   /**
    * @schema QuickSightSearchDashboardsRequest#NextToken
@@ -3890,6 +7385,23 @@ export interface QuickSightSearchDashboardsRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightSearchDashboardsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightSearchDashboardsRequest(obj: QuickSightSearchDashboardsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'Filters': obj.filters?.map(y => toJson_QuickSightDashboardSearchFilter(y)),
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightSearchDashboardsResponse
@@ -3918,20 +7430,138 @@ export interface QuickSightSearchDashboardsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightSearchDashboardsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightSearchDashboardsResponse(obj: QuickSightSearchDashboardsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DashboardSummaryList': obj.dashboardSummaryList?.map(y => toJson_QuickSightDashboardSummary(y)),
+    'NextToken': obj.nextToken,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightSearchFoldersRequest
+ */
+export interface QuickSightSearchFoldersRequest {
+  /**
+   * @schema QuickSightSearchFoldersRequest#AwsAccountId
+   */
+  readonly awsAccountId?: string;
+
+  /**
+   * @schema QuickSightSearchFoldersRequest#Filters
+   */
+  readonly filters?: QuickSightFolderSearchFilter[];
+
+  /**
+   * @schema QuickSightSearchFoldersRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema QuickSightSearchFoldersRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightSearchFoldersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightSearchFoldersRequest(obj: QuickSightSearchFoldersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'Filters': obj.filters?.map(y => toJson_QuickSightFolderSearchFilter(y)),
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightSearchFoldersResponse
+ */
+export interface QuickSightSearchFoldersResponse {
+  /**
+   * @schema QuickSightSearchFoldersResponse#Status
+   */
+  readonly status?: number;
+
+  /**
+   * @schema QuickSightSearchFoldersResponse#FolderSummaryList
+   */
+  readonly folderSummaryList?: QuickSightFolderSummary[];
+
+  /**
+   * @schema QuickSightSearchFoldersResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema QuickSightSearchFoldersResponse#RequestId
+   */
+  readonly requestId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightSearchFoldersResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightSearchFoldersResponse(obj: QuickSightSearchFoldersResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'FolderSummaryList': obj.folderSummaryList?.map(y => toJson_QuickSightFolderSummary(y)),
+    'NextToken': obj.nextToken,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightTagResourceRequest
  */
 export interface QuickSightTagResourceRequest {
   /**
    * @schema QuickSightTagResourceRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema QuickSightTagResourceRequest#Tags
    */
-  readonly tags: QuickSightTag[];
+  readonly tags?: QuickSightTag[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTagResourceRequest(obj: QuickSightTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'Tags': obj.tags?.map(y => toJson_QuickSightTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightTagResourceResponse
@@ -3950,20 +7580,50 @@ export interface QuickSightTagResourceResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTagResourceResponse(obj: QuickSightTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUntagResourceRequest
  */
 export interface QuickSightUntagResourceRequest {
   /**
    * @schema QuickSightUntagResourceRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema QuickSightUntagResourceRequest#TagKeys
    */
-  readonly tagKeys: string[];
+  readonly tagKeys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUntagResourceRequest(obj: QuickSightUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUntagResourceResponse
@@ -3982,13 +7642,28 @@ export interface QuickSightUntagResourceResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUntagResourceResponse(obj: QuickSightUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateAccountCustomizationRequest
  */
 export interface QuickSightUpdateAccountCustomizationRequest {
   /**
    * @schema QuickSightUpdateAccountCustomizationRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateAccountCustomizationRequest#Namespace
@@ -3998,9 +7673,25 @@ export interface QuickSightUpdateAccountCustomizationRequest {
   /**
    * @schema QuickSightUpdateAccountCustomizationRequest#AccountCustomization
    */
-  readonly accountCustomization: QuickSightAccountCustomization;
+  readonly accountCustomization?: QuickSightAccountCustomization;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateAccountCustomizationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateAccountCustomizationRequest(obj: QuickSightUpdateAccountCustomizationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+    'AccountCustomization': toJson_QuickSightAccountCustomization(obj.accountCustomization),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateAccountCustomizationResponse
@@ -4039,18 +7730,37 @@ export interface QuickSightUpdateAccountCustomizationResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateAccountCustomizationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateAccountCustomizationResponse(obj: QuickSightUpdateAccountCustomizationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+    'AccountCustomization': toJson_QuickSightAccountCustomization(obj.accountCustomization),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateAccountSettingsRequest
  */
 export interface QuickSightUpdateAccountSettingsRequest {
   /**
    * @schema QuickSightUpdateAccountSettingsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateAccountSettingsRequest#DefaultNamespace
    */
-  readonly defaultNamespace: string;
+  readonly defaultNamespace?: string;
 
   /**
    * @schema QuickSightUpdateAccountSettingsRequest#NotificationEmail
@@ -4058,6 +7768,22 @@ export interface QuickSightUpdateAccountSettingsRequest {
   readonly notificationEmail?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateAccountSettingsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateAccountSettingsRequest(obj: QuickSightUpdateAccountSettingsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DefaultNamespace': obj.defaultNamespace,
+    'NotificationEmail': obj.notificationEmail,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateAccountSettingsResponse
@@ -4076,23 +7802,38 @@ export interface QuickSightUpdateAccountSettingsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateAccountSettingsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateAccountSettingsResponse(obj: QuickSightUpdateAccountSettingsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateAnalysisRequest
  */
 export interface QuickSightUpdateAnalysisRequest {
   /**
    * @schema QuickSightUpdateAnalysisRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateAnalysisRequest#AnalysisId
    */
-  readonly analysisId: string;
+  readonly analysisId?: string;
 
   /**
    * @schema QuickSightUpdateAnalysisRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema QuickSightUpdateAnalysisRequest#Parameters
@@ -4102,7 +7843,7 @@ export interface QuickSightUpdateAnalysisRequest {
   /**
    * @schema QuickSightUpdateAnalysisRequest#SourceEntity
    */
-  readonly sourceEntity: QuickSightAnalysisSourceEntity;
+  readonly sourceEntity?: QuickSightAnalysisSourceEntity;
 
   /**
    * @schema QuickSightUpdateAnalysisRequest#ThemeArn
@@ -4110,6 +7851,25 @@ export interface QuickSightUpdateAnalysisRequest {
   readonly themeArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateAnalysisRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateAnalysisRequest(obj: QuickSightUpdateAnalysisRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'AnalysisId': obj.analysisId,
+    'Name': obj.name,
+    'Parameters': toJson_QuickSightParameters(obj.parameters),
+    'SourceEntity': toJson_QuickSightAnalysisSourceEntity(obj.sourceEntity),
+    'ThemeArn': obj.themeArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateAnalysisResponse
@@ -4143,18 +7903,36 @@ export interface QuickSightUpdateAnalysisResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateAnalysisResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateAnalysisResponse(obj: QuickSightUpdateAnalysisResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'AnalysisId': obj.analysisId,
+    'UpdateStatus': obj.updateStatus,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateAnalysisPermissionsRequest
  */
 export interface QuickSightUpdateAnalysisPermissionsRequest {
   /**
    * @schema QuickSightUpdateAnalysisPermissionsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateAnalysisPermissionsRequest#AnalysisId
    */
-  readonly analysisId: string;
+  readonly analysisId?: string;
 
   /**
    * @schema QuickSightUpdateAnalysisPermissionsRequest#GrantPermissions
@@ -4167,6 +7945,23 @@ export interface QuickSightUpdateAnalysisPermissionsRequest {
   readonly revokePermissions?: QuickSightResourcePermission[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateAnalysisPermissionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateAnalysisPermissionsRequest(obj: QuickSightUpdateAnalysisPermissionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'AnalysisId': obj.analysisId,
+    'GrantPermissions': obj.grantPermissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RevokePermissions': obj.revokePermissions?.map(y => toJson_QuickSightResourcePermission(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateAnalysisPermissionsResponse
@@ -4200,28 +7995,46 @@ export interface QuickSightUpdateAnalysisPermissionsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateAnalysisPermissionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateAnalysisPermissionsResponse(obj: QuickSightUpdateAnalysisPermissionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AnalysisArn': obj.analysisArn,
+    'AnalysisId': obj.analysisId,
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateDashboardRequest
  */
 export interface QuickSightUpdateDashboardRequest {
   /**
    * @schema QuickSightUpdateDashboardRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateDashboardRequest#DashboardId
    */
-  readonly dashboardId: string;
+  readonly dashboardId?: string;
 
   /**
    * @schema QuickSightUpdateDashboardRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema QuickSightUpdateDashboardRequest#SourceEntity
    */
-  readonly sourceEntity: QuickSightDashboardSourceEntity;
+  readonly sourceEntity?: QuickSightDashboardSourceEntity;
 
   /**
    * @schema QuickSightUpdateDashboardRequest#Parameters
@@ -4244,6 +8057,27 @@ export interface QuickSightUpdateDashboardRequest {
   readonly themeArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateDashboardRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateDashboardRequest(obj: QuickSightUpdateDashboardRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DashboardId': obj.dashboardId,
+    'Name': obj.name,
+    'SourceEntity': toJson_QuickSightDashboardSourceEntity(obj.sourceEntity),
+    'Parameters': toJson_QuickSightParameters(obj.parameters),
+    'VersionDescription': obj.versionDescription,
+    'DashboardPublishOptions': toJson_QuickSightDashboardPublishOptions(obj.dashboardPublishOptions),
+    'ThemeArn': obj.themeArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateDashboardResponse
@@ -4282,18 +8116,37 @@ export interface QuickSightUpdateDashboardResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateDashboardResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateDashboardResponse(obj: QuickSightUpdateDashboardResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'VersionArn': obj.versionArn,
+    'DashboardId': obj.dashboardId,
+    'CreationStatus': obj.creationStatus,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateDashboardPermissionsRequest
  */
 export interface QuickSightUpdateDashboardPermissionsRequest {
   /**
    * @schema QuickSightUpdateDashboardPermissionsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateDashboardPermissionsRequest#DashboardId
    */
-  readonly dashboardId: string;
+  readonly dashboardId?: string;
 
   /**
    * @schema QuickSightUpdateDashboardPermissionsRequest#GrantPermissions
@@ -4306,6 +8159,23 @@ export interface QuickSightUpdateDashboardPermissionsRequest {
   readonly revokePermissions?: QuickSightResourcePermission[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateDashboardPermissionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateDashboardPermissionsRequest(obj: QuickSightUpdateDashboardPermissionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DashboardId': obj.dashboardId,
+    'GrantPermissions': obj.grantPermissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RevokePermissions': obj.revokePermissions?.map(y => toJson_QuickSightResourcePermission(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateDashboardPermissionsResponse
@@ -4339,25 +8209,59 @@ export interface QuickSightUpdateDashboardPermissionsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateDashboardPermissionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateDashboardPermissionsResponse(obj: QuickSightUpdateDashboardPermissionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DashboardArn': obj.dashboardArn,
+    'DashboardId': obj.dashboardId,
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateDashboardPublishedVersionRequest
  */
 export interface QuickSightUpdateDashboardPublishedVersionRequest {
   /**
    * @schema QuickSightUpdateDashboardPublishedVersionRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateDashboardPublishedVersionRequest#DashboardId
    */
-  readonly dashboardId: string;
+  readonly dashboardId?: string;
 
   /**
    * @schema QuickSightUpdateDashboardPublishedVersionRequest#VersionNumber
    */
-  readonly versionNumber: number;
+  readonly versionNumber?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateDashboardPublishedVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateDashboardPublishedVersionRequest(obj: QuickSightUpdateDashboardPublishedVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DashboardId': obj.dashboardId,
+    'VersionNumber': obj.versionNumber,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateDashboardPublishedVersionResponse
@@ -4386,28 +8290,45 @@ export interface QuickSightUpdateDashboardPublishedVersionResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateDashboardPublishedVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateDashboardPublishedVersionResponse(obj: QuickSightUpdateDashboardPublishedVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DashboardId': obj.dashboardId,
+    'DashboardArn': obj.dashboardArn,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateDataSetRequest
  */
 export interface QuickSightUpdateDataSetRequest {
   /**
    * @schema QuickSightUpdateDataSetRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateDataSetRequest#DataSetId
    */
-  readonly dataSetId: string;
+  readonly dataSetId?: string;
 
   /**
    * @schema QuickSightUpdateDataSetRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema QuickSightUpdateDataSetRequest#PhysicalTableMap
    */
-  readonly physicalTableMap: { [key: string]: QuickSightPhysicalTable };
+  readonly physicalTableMap?: { [key: string]: QuickSightPhysicalTable };
 
   /**
    * @schema QuickSightUpdateDataSetRequest#LogicalTableMap
@@ -4417,7 +8338,7 @@ export interface QuickSightUpdateDataSetRequest {
   /**
    * @schema QuickSightUpdateDataSetRequest#ImportMode
    */
-  readonly importMode: string;
+  readonly importMode?: string;
 
   /**
    * @schema QuickSightUpdateDataSetRequest#ColumnGroups
@@ -4425,9 +8346,19 @@ export interface QuickSightUpdateDataSetRequest {
   readonly columnGroups?: QuickSightColumnGroup[];
 
   /**
+   * @schema QuickSightUpdateDataSetRequest#FieldFolders
+   */
+  readonly fieldFolders?: { [key: string]: QuickSightFieldFolder };
+
+  /**
    * @schema QuickSightUpdateDataSetRequest#RowLevelPermissionDataSet
    */
   readonly rowLevelPermissionDataSet?: QuickSightRowLevelPermissionDataSet;
+
+  /**
+   * @schema QuickSightUpdateDataSetRequest#RowLevelPermissionTagConfiguration
+   */
+  readonly rowLevelPermissionTagConfiguration?: QuickSightRowLevelPermissionTagConfiguration;
 
   /**
    * @schema QuickSightUpdateDataSetRequest#ColumnLevelPermissionRules
@@ -4435,6 +8366,30 @@ export interface QuickSightUpdateDataSetRequest {
   readonly columnLevelPermissionRules?: QuickSightColumnLevelPermissionRule[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateDataSetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateDataSetRequest(obj: QuickSightUpdateDataSetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DataSetId': obj.dataSetId,
+    'Name': obj.name,
+    'PhysicalTableMap': ((obj.physicalTableMap) === undefined) ? undefined : (Object.entries(obj.physicalTableMap).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_QuickSightPhysicalTable(i[1]) }), {})),
+    'LogicalTableMap': ((obj.logicalTableMap) === undefined) ? undefined : (Object.entries(obj.logicalTableMap).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_QuickSightLogicalTable(i[1]) }), {})),
+    'ImportMode': obj.importMode,
+    'ColumnGroups': obj.columnGroups?.map(y => toJson_QuickSightColumnGroup(y)),
+    'FieldFolders': ((obj.fieldFolders) === undefined) ? undefined : (Object.entries(obj.fieldFolders).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_QuickSightFieldFolder(i[1]) }), {})),
+    'RowLevelPermissionDataSet': toJson_QuickSightRowLevelPermissionDataSet(obj.rowLevelPermissionDataSet),
+    'RowLevelPermissionTagConfiguration': toJson_QuickSightRowLevelPermissionTagConfiguration(obj.rowLevelPermissionTagConfiguration),
+    'ColumnLevelPermissionRules': obj.columnLevelPermissionRules?.map(y => toJson_QuickSightColumnLevelPermissionRule(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateDataSetResponse
@@ -4473,18 +8428,37 @@ export interface QuickSightUpdateDataSetResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateDataSetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateDataSetResponse(obj: QuickSightUpdateDataSetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'DataSetId': obj.dataSetId,
+    'IngestionArn': obj.ingestionArn,
+    'IngestionId': obj.ingestionId,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateDataSetPermissionsRequest
  */
 export interface QuickSightUpdateDataSetPermissionsRequest {
   /**
    * @schema QuickSightUpdateDataSetPermissionsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateDataSetPermissionsRequest#DataSetId
    */
-  readonly dataSetId: string;
+  readonly dataSetId?: string;
 
   /**
    * @schema QuickSightUpdateDataSetPermissionsRequest#GrantPermissions
@@ -4497,6 +8471,23 @@ export interface QuickSightUpdateDataSetPermissionsRequest {
   readonly revokePermissions?: QuickSightResourcePermission[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateDataSetPermissionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateDataSetPermissionsRequest(obj: QuickSightUpdateDataSetPermissionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DataSetId': obj.dataSetId,
+    'GrantPermissions': obj.grantPermissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RevokePermissions': obj.revokePermissions?.map(y => toJson_QuickSightResourcePermission(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateDataSetPermissionsResponse
@@ -4525,23 +8516,40 @@ export interface QuickSightUpdateDataSetPermissionsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateDataSetPermissionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateDataSetPermissionsResponse(obj: QuickSightUpdateDataSetPermissionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSetArn': obj.dataSetArn,
+    'DataSetId': obj.dataSetId,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateDataSourceRequest
  */
 export interface QuickSightUpdateDataSourceRequest {
   /**
    * @schema QuickSightUpdateDataSourceRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateDataSourceRequest#DataSourceId
    */
-  readonly dataSourceId: string;
+  readonly dataSourceId?: string;
 
   /**
    * @schema QuickSightUpdateDataSourceRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema QuickSightUpdateDataSourceRequest#DataSourceParameters
@@ -4564,6 +8572,26 @@ export interface QuickSightUpdateDataSourceRequest {
   readonly sslProperties?: QuickSightSslProperties;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateDataSourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateDataSourceRequest(obj: QuickSightUpdateDataSourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DataSourceId': obj.dataSourceId,
+    'Name': obj.name,
+    'DataSourceParameters': toJson_QuickSightDataSourceParameters(obj.dataSourceParameters),
+    'Credentials': toJson_QuickSightDataSourceCredentials(obj.credentials),
+    'VpcConnectionProperties': toJson_QuickSightVpcConnectionProperties(obj.vpcConnectionProperties),
+    'SslProperties': toJson_QuickSightSslProperties(obj.sslProperties),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateDataSourceResponse
@@ -4597,18 +8625,36 @@ export interface QuickSightUpdateDataSourceResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateDataSourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateDataSourceResponse(obj: QuickSightUpdateDataSourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'DataSourceId': obj.dataSourceId,
+    'UpdateStatus': obj.updateStatus,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateDataSourcePermissionsRequest
  */
 export interface QuickSightUpdateDataSourcePermissionsRequest {
   /**
    * @schema QuickSightUpdateDataSourcePermissionsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateDataSourcePermissionsRequest#DataSourceId
    */
-  readonly dataSourceId: string;
+  readonly dataSourceId?: string;
 
   /**
    * @schema QuickSightUpdateDataSourcePermissionsRequest#GrantPermissions
@@ -4621,6 +8667,23 @@ export interface QuickSightUpdateDataSourcePermissionsRequest {
   readonly revokePermissions?: QuickSightResourcePermission[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateDataSourcePermissionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateDataSourcePermissionsRequest(obj: QuickSightUpdateDataSourcePermissionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'DataSourceId': obj.dataSourceId,
+    'GrantPermissions': obj.grantPermissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RevokePermissions': obj.revokePermissions?.map(y => toJson_QuickSightResourcePermission(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateDataSourcePermissionsResponse
@@ -4649,13 +8712,202 @@ export interface QuickSightUpdateDataSourcePermissionsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateDataSourcePermissionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateDataSourcePermissionsResponse(obj: QuickSightUpdateDataSourcePermissionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSourceArn': obj.dataSourceArn,
+    'DataSourceId': obj.dataSourceId,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightUpdateFolderRequest
+ */
+export interface QuickSightUpdateFolderRequest {
+  /**
+   * @schema QuickSightUpdateFolderRequest#AwsAccountId
+   */
+  readonly awsAccountId?: string;
+
+  /**
+   * @schema QuickSightUpdateFolderRequest#FolderId
+   */
+  readonly folderId?: string;
+
+  /**
+   * @schema QuickSightUpdateFolderRequest#Name
+   */
+  readonly name?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightUpdateFolderRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateFolderRequest(obj: QuickSightUpdateFolderRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'FolderId': obj.folderId,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightUpdateFolderResponse
+ */
+export interface QuickSightUpdateFolderResponse {
+  /**
+   * @schema QuickSightUpdateFolderResponse#Status
+   */
+  readonly status?: number;
+
+  /**
+   * @schema QuickSightUpdateFolderResponse#Arn
+   */
+  readonly arn?: string;
+
+  /**
+   * @schema QuickSightUpdateFolderResponse#FolderId
+   */
+  readonly folderId?: string;
+
+  /**
+   * @schema QuickSightUpdateFolderResponse#RequestId
+   */
+  readonly requestId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightUpdateFolderResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateFolderResponse(obj: QuickSightUpdateFolderResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'Arn': obj.arn,
+    'FolderId': obj.folderId,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightUpdateFolderPermissionsRequest
+ */
+export interface QuickSightUpdateFolderPermissionsRequest {
+  /**
+   * @schema QuickSightUpdateFolderPermissionsRequest#AwsAccountId
+   */
+  readonly awsAccountId?: string;
+
+  /**
+   * @schema QuickSightUpdateFolderPermissionsRequest#FolderId
+   */
+  readonly folderId?: string;
+
+  /**
+   * @schema QuickSightUpdateFolderPermissionsRequest#GrantPermissions
+   */
+  readonly grantPermissions?: QuickSightResourcePermission[];
+
+  /**
+   * @schema QuickSightUpdateFolderPermissionsRequest#RevokePermissions
+   */
+  readonly revokePermissions?: QuickSightResourcePermission[];
+
+}
+
+/**
+ * Converts an object of type 'QuickSightUpdateFolderPermissionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateFolderPermissionsRequest(obj: QuickSightUpdateFolderPermissionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'FolderId': obj.folderId,
+    'GrantPermissions': obj.grantPermissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RevokePermissions': obj.revokePermissions?.map(y => toJson_QuickSightResourcePermission(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightUpdateFolderPermissionsResponse
+ */
+export interface QuickSightUpdateFolderPermissionsResponse {
+  /**
+   * @schema QuickSightUpdateFolderPermissionsResponse#Status
+   */
+  readonly status?: number;
+
+  /**
+   * @schema QuickSightUpdateFolderPermissionsResponse#Arn
+   */
+  readonly arn?: string;
+
+  /**
+   * @schema QuickSightUpdateFolderPermissionsResponse#FolderId
+   */
+  readonly folderId?: string;
+
+  /**
+   * @schema QuickSightUpdateFolderPermissionsResponse#Permissions
+   */
+  readonly permissions?: QuickSightResourcePermission[];
+
+  /**
+   * @schema QuickSightUpdateFolderPermissionsResponse#RequestId
+   */
+  readonly requestId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightUpdateFolderPermissionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateFolderPermissionsResponse(obj: QuickSightUpdateFolderPermissionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'Arn': obj.arn,
+    'FolderId': obj.folderId,
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateGroupRequest
  */
 export interface QuickSightUpdateGroupRequest {
   /**
    * @schema QuickSightUpdateGroupRequest#GroupName
    */
-  readonly groupName: string;
+  readonly groupName?: string;
 
   /**
    * @schema QuickSightUpdateGroupRequest#Description
@@ -4665,14 +8917,31 @@ export interface QuickSightUpdateGroupRequest {
   /**
    * @schema QuickSightUpdateGroupRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateGroupRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateGroupRequest(obj: QuickSightUpdateGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupName': obj.groupName,
+    'Description': obj.description,
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateGroupResponse
@@ -4696,23 +8965,39 @@ export interface QuickSightUpdateGroupResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateGroupResponse(obj: QuickSightUpdateGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Group': toJson_QuickSightGroup(obj.group),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateIamPolicyAssignmentRequest
  */
 export interface QuickSightUpdateIamPolicyAssignmentRequest {
   /**
    * @schema QuickSightUpdateIamPolicyAssignmentRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateIamPolicyAssignmentRequest#AssignmentName
    */
-  readonly assignmentName: string;
+  readonly assignmentName?: string;
 
   /**
    * @schema QuickSightUpdateIamPolicyAssignmentRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
   /**
    * @schema QuickSightUpdateIamPolicyAssignmentRequest#AssignmentStatus
@@ -4730,6 +9015,25 @@ export interface QuickSightUpdateIamPolicyAssignmentRequest {
   readonly identities?: { [key: string]: string[] };
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateIamPolicyAssignmentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateIamPolicyAssignmentRequest(obj: QuickSightUpdateIamPolicyAssignmentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'AssignmentName': obj.assignmentName,
+    'Namespace': obj.namespace,
+    'AssignmentStatus': obj.assignmentStatus,
+    'PolicyArn': obj.policyArn,
+    'Identities': ((obj.identities) === undefined) ? undefined : (Object.entries(obj.identities).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.map(y => y) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateIamPolicyAssignmentResponse
@@ -4773,23 +9077,43 @@ export interface QuickSightUpdateIamPolicyAssignmentResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateIamPolicyAssignmentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateIamPolicyAssignmentResponse(obj: QuickSightUpdateIamPolicyAssignmentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AssignmentName': obj.assignmentName,
+    'AssignmentId': obj.assignmentId,
+    'PolicyArn': obj.policyArn,
+    'Identities': ((obj.identities) === undefined) ? undefined : (Object.entries(obj.identities).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.map(y => y) }), {})),
+    'AssignmentStatus': obj.assignmentStatus,
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateTemplateRequest
  */
 export interface QuickSightUpdateTemplateRequest {
   /**
    * @schema QuickSightUpdateTemplateRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateTemplateRequest#TemplateId
    */
-  readonly templateId: string;
+  readonly templateId?: string;
 
   /**
    * @schema QuickSightUpdateTemplateRequest#SourceEntity
    */
-  readonly sourceEntity: QuickSightTemplateSourceEntity;
+  readonly sourceEntity?: QuickSightTemplateSourceEntity;
 
   /**
    * @schema QuickSightUpdateTemplateRequest#VersionDescription
@@ -4802,6 +9126,24 @@ export interface QuickSightUpdateTemplateRequest {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateTemplateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateTemplateRequest(obj: QuickSightUpdateTemplateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'TemplateId': obj.templateId,
+    'SourceEntity': toJson_QuickSightTemplateSourceEntity(obj.sourceEntity),
+    'VersionDescription': obj.versionDescription,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateTemplateResponse
@@ -4840,30 +9182,66 @@ export interface QuickSightUpdateTemplateResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateTemplateResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateTemplateResponse(obj: QuickSightUpdateTemplateResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TemplateId': obj.templateId,
+    'Arn': obj.arn,
+    'VersionArn': obj.versionArn,
+    'CreationStatus': obj.creationStatus,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateTemplateAliasRequest
  */
 export interface QuickSightUpdateTemplateAliasRequest {
   /**
    * @schema QuickSightUpdateTemplateAliasRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateTemplateAliasRequest#TemplateId
    */
-  readonly templateId: string;
+  readonly templateId?: string;
 
   /**
    * @schema QuickSightUpdateTemplateAliasRequest#AliasName
    */
-  readonly aliasName: string;
+  readonly aliasName?: string;
 
   /**
    * @schema QuickSightUpdateTemplateAliasRequest#TemplateVersionNumber
    */
-  readonly templateVersionNumber: number;
+  readonly templateVersionNumber?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateTemplateAliasRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateTemplateAliasRequest(obj: QuickSightUpdateTemplateAliasRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'TemplateId': obj.templateId,
+    'AliasName': obj.aliasName,
+    'TemplateVersionNumber': obj.templateVersionNumber,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateTemplateAliasResponse
@@ -4887,18 +9265,34 @@ export interface QuickSightUpdateTemplateAliasResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateTemplateAliasResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateTemplateAliasResponse(obj: QuickSightUpdateTemplateAliasResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TemplateAlias': toJson_QuickSightTemplateAlias(obj.templateAlias),
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateTemplatePermissionsRequest
  */
 export interface QuickSightUpdateTemplatePermissionsRequest {
   /**
    * @schema QuickSightUpdateTemplatePermissionsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateTemplatePermissionsRequest#TemplateId
    */
-  readonly templateId: string;
+  readonly templateId?: string;
 
   /**
    * @schema QuickSightUpdateTemplatePermissionsRequest#GrantPermissions
@@ -4911,6 +9305,23 @@ export interface QuickSightUpdateTemplatePermissionsRequest {
   readonly revokePermissions?: QuickSightResourcePermission[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateTemplatePermissionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateTemplatePermissionsRequest(obj: QuickSightUpdateTemplatePermissionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'TemplateId': obj.templateId,
+    'GrantPermissions': obj.grantPermissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RevokePermissions': obj.revokePermissions?.map(y => toJson_QuickSightResourcePermission(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateTemplatePermissionsResponse
@@ -4944,18 +9355,36 @@ export interface QuickSightUpdateTemplatePermissionsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateTemplatePermissionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateTemplatePermissionsResponse(obj: QuickSightUpdateTemplatePermissionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TemplateId': obj.templateId,
+    'TemplateArn': obj.templateArn,
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateThemeRequest
  */
 export interface QuickSightUpdateThemeRequest {
   /**
    * @schema QuickSightUpdateThemeRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateThemeRequest#ThemeId
    */
-  readonly themeId: string;
+  readonly themeId?: string;
 
   /**
    * @schema QuickSightUpdateThemeRequest#Name
@@ -4965,7 +9394,7 @@ export interface QuickSightUpdateThemeRequest {
   /**
    * @schema QuickSightUpdateThemeRequest#BaseThemeId
    */
-  readonly baseThemeId: string;
+  readonly baseThemeId?: string;
 
   /**
    * @schema QuickSightUpdateThemeRequest#VersionDescription
@@ -4978,6 +9407,25 @@ export interface QuickSightUpdateThemeRequest {
   readonly configuration?: QuickSightThemeConfiguration;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateThemeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateThemeRequest(obj: QuickSightUpdateThemeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'ThemeId': obj.themeId,
+    'Name': obj.name,
+    'BaseThemeId': obj.baseThemeId,
+    'VersionDescription': obj.versionDescription,
+    'Configuration': toJson_QuickSightThemeConfiguration(obj.configuration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateThemeResponse
@@ -5016,30 +9464,66 @@ export interface QuickSightUpdateThemeResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateThemeResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateThemeResponse(obj: QuickSightUpdateThemeResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ThemeId': obj.themeId,
+    'Arn': obj.arn,
+    'VersionArn': obj.versionArn,
+    'CreationStatus': obj.creationStatus,
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateThemeAliasRequest
  */
 export interface QuickSightUpdateThemeAliasRequest {
   /**
    * @schema QuickSightUpdateThemeAliasRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateThemeAliasRequest#ThemeId
    */
-  readonly themeId: string;
+  readonly themeId?: string;
 
   /**
    * @schema QuickSightUpdateThemeAliasRequest#AliasName
    */
-  readonly aliasName: string;
+  readonly aliasName?: string;
 
   /**
    * @schema QuickSightUpdateThemeAliasRequest#ThemeVersionNumber
    */
-  readonly themeVersionNumber: number;
+  readonly themeVersionNumber?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateThemeAliasRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateThemeAliasRequest(obj: QuickSightUpdateThemeAliasRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'ThemeId': obj.themeId,
+    'AliasName': obj.aliasName,
+    'ThemeVersionNumber': obj.themeVersionNumber,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateThemeAliasResponse
@@ -5063,18 +9547,34 @@ export interface QuickSightUpdateThemeAliasResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateThemeAliasResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateThemeAliasResponse(obj: QuickSightUpdateThemeAliasResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ThemeAlias': toJson_QuickSightThemeAlias(obj.themeAlias),
+    'Status': obj.status,
+    'RequestId': obj.requestId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateThemePermissionsRequest
  */
 export interface QuickSightUpdateThemePermissionsRequest {
   /**
    * @schema QuickSightUpdateThemePermissionsRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateThemePermissionsRequest#ThemeId
    */
-  readonly themeId: string;
+  readonly themeId?: string;
 
   /**
    * @schema QuickSightUpdateThemePermissionsRequest#GrantPermissions
@@ -5087,6 +9587,23 @@ export interface QuickSightUpdateThemePermissionsRequest {
   readonly revokePermissions?: QuickSightResourcePermission[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateThemePermissionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateThemePermissionsRequest(obj: QuickSightUpdateThemePermissionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'ThemeId': obj.themeId,
+    'GrantPermissions': obj.grantPermissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RevokePermissions': obj.revokePermissions?.map(y => toJson_QuickSightResourcePermission(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateThemePermissionsResponse
@@ -5120,33 +9637,51 @@ export interface QuickSightUpdateThemePermissionsResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateThemePermissionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateThemePermissionsResponse(obj: QuickSightUpdateThemePermissionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ThemeId': obj.themeId,
+    'ThemeArn': obj.themeArn,
+    'Permissions': obj.permissions?.map(y => toJson_QuickSightResourcePermission(y)),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightUpdateUserRequest
  */
 export interface QuickSightUpdateUserRequest {
   /**
    * @schema QuickSightUpdateUserRequest#UserName
    */
-  readonly userName: string;
+  readonly userName?: string;
 
   /**
    * @schema QuickSightUpdateUserRequest#AwsAccountId
    */
-  readonly awsAccountId: string;
+  readonly awsAccountId?: string;
 
   /**
    * @schema QuickSightUpdateUserRequest#Namespace
    */
-  readonly namespace: string;
+  readonly namespace?: string;
 
   /**
    * @schema QuickSightUpdateUserRequest#Email
    */
-  readonly email: string;
+  readonly email?: string;
 
   /**
    * @schema QuickSightUpdateUserRequest#Role
    */
-  readonly role: string;
+  readonly role?: string;
 
   /**
    * @schema QuickSightUpdateUserRequest#CustomPermissionsName
@@ -5158,7 +9693,45 @@ export interface QuickSightUpdateUserRequest {
    */
   readonly unapplyCustomPermissions?: boolean;
 
+  /**
+   * @schema QuickSightUpdateUserRequest#ExternalLoginFederationProviderType
+   */
+  readonly externalLoginFederationProviderType?: string;
+
+  /**
+   * @schema QuickSightUpdateUserRequest#CustomFederationProviderUrl
+   */
+  readonly customFederationProviderUrl?: string;
+
+  /**
+   * @schema QuickSightUpdateUserRequest#ExternalLoginId
+   */
+  readonly externalLoginId?: string;
+
 }
+
+/**
+ * Converts an object of type 'QuickSightUpdateUserRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateUserRequest(obj: QuickSightUpdateUserRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserName': obj.userName,
+    'AwsAccountId': obj.awsAccountId,
+    'Namespace': obj.namespace,
+    'Email': obj.email,
+    'Role': obj.role,
+    'CustomPermissionsName': obj.customPermissionsName,
+    'UnapplyCustomPermissions': obj.unapplyCustomPermissions,
+    'ExternalLoginFederationProviderType': obj.externalLoginFederationProviderType,
+    'CustomFederationProviderUrl': obj.customFederationProviderUrl,
+    'ExternalLoginId': obj.externalLoginId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUpdateUserResponse
@@ -5182,6 +9755,22 @@ export interface QuickSightUpdateUserResponse {
 }
 
 /**
+ * Converts an object of type 'QuickSightUpdateUserResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUpdateUserResponse(obj: QuickSightUpdateUserResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'User': toJson_QuickSightUser(obj.user),
+    'RequestId': obj.requestId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightAccountCustomization
  */
 export interface QuickSightAccountCustomization {
@@ -5193,20 +9782,49 @@ export interface QuickSightAccountCustomization {
 }
 
 /**
+ * Converts an object of type 'QuickSightAccountCustomization' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightAccountCustomization(obj: QuickSightAccountCustomization | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DefaultTheme': obj.defaultTheme,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightTag
  */
 export interface QuickSightTag {
   /**
    * @schema QuickSightTag#Key
    */
-  readonly key: string;
+  readonly key?: string;
 
   /**
    * @schema QuickSightTag#Value
    */
-  readonly value: string;
+  readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTag(obj: QuickSightTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightParameters
@@ -5235,20 +9853,52 @@ export interface QuickSightParameters {
 }
 
 /**
+ * Converts an object of type 'QuickSightParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightParameters(obj: QuickSightParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StringParameters': obj.stringParameters?.map(y => toJson_QuickSightStringParameter(y)),
+    'IntegerParameters': obj.integerParameters?.map(y => toJson_QuickSightIntegerParameter(y)),
+    'DecimalParameters': obj.decimalParameters?.map(y => toJson_QuickSightDecimalParameter(y)),
+    'DateTimeParameters': obj.dateTimeParameters?.map(y => toJson_QuickSightDateTimeParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightResourcePermission
  */
 export interface QuickSightResourcePermission {
   /**
    * @schema QuickSightResourcePermission#Principal
    */
-  readonly principal: string;
+  readonly principal?: string;
 
   /**
    * @schema QuickSightResourcePermission#Actions
    */
-  readonly actions: string[];
+  readonly actions?: string[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightResourcePermission' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightResourcePermission(obj: QuickSightResourcePermission | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Principal': obj.principal,
+    'Actions': obj.actions?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightAnalysisSourceEntity
@@ -5262,6 +9912,20 @@ export interface QuickSightAnalysisSourceEntity {
 }
 
 /**
+ * Converts an object of type 'QuickSightAnalysisSourceEntity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightAnalysisSourceEntity(obj: QuickSightAnalysisSourceEntity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceTemplate': toJson_QuickSightAnalysisSourceTemplate(obj.sourceTemplate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDashboardSourceEntity
  */
 export interface QuickSightDashboardSourceEntity {
@@ -5271,6 +9935,20 @@ export interface QuickSightDashboardSourceEntity {
   readonly sourceTemplate?: QuickSightDashboardSourceTemplate;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDashboardSourceEntity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDashboardSourceEntity(obj: QuickSightDashboardSourceEntity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceTemplate': toJson_QuickSightDashboardSourceTemplate(obj.sourceTemplate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDashboardPublishOptions
@@ -5294,6 +9972,22 @@ export interface QuickSightDashboardPublishOptions {
 }
 
 /**
+ * Converts an object of type 'QuickSightDashboardPublishOptions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDashboardPublishOptions(obj: QuickSightDashboardPublishOptions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AdHocFilteringOption': toJson_QuickSightAdHocFilteringOption(obj.adHocFilteringOption),
+    'ExportToCSVOption': toJson_QuickSightExportToCsvOption(obj.exportToCsvOption),
+    'SheetControlsOption': toJson_QuickSightSheetControlsOption(obj.sheetControlsOption),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightPhysicalTable
  */
 export interface QuickSightPhysicalTable {
@@ -5315,13 +10009,29 @@ export interface QuickSightPhysicalTable {
 }
 
 /**
+ * Converts an object of type 'QuickSightPhysicalTable' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightPhysicalTable(obj: QuickSightPhysicalTable | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RelationalTable': toJson_QuickSightRelationalTable(obj.relationalTable),
+    'CustomSql': toJson_QuickSightCustomSql(obj.customSql),
+    'S3Source': toJson_QuickSightS3Source(obj.s3Source),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightLogicalTable
  */
 export interface QuickSightLogicalTable {
   /**
    * @schema QuickSightLogicalTable#Alias
    */
-  readonly alias: string;
+  readonly alias?: string;
 
   /**
    * @schema QuickSightLogicalTable#DataTransforms
@@ -5331,9 +10041,25 @@ export interface QuickSightLogicalTable {
   /**
    * @schema QuickSightLogicalTable#Source
    */
-  readonly source: QuickSightLogicalTableSource;
+  readonly source?: QuickSightLogicalTableSource;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightLogicalTable' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightLogicalTable(obj: QuickSightLogicalTable | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Alias': obj.alias,
+    'DataTransforms': obj.dataTransforms?.map(y => toJson_QuickSightTransformOperation(y)),
+    'Source': toJson_QuickSightLogicalTableSource(obj.source),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightColumnGroup
@@ -5347,6 +10073,51 @@ export interface QuickSightColumnGroup {
 }
 
 /**
+ * Converts an object of type 'QuickSightColumnGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightColumnGroup(obj: QuickSightColumnGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GeoSpatialColumnGroup': toJson_QuickSightGeoSpatialColumnGroup(obj.geoSpatialColumnGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightFieldFolder
+ */
+export interface QuickSightFieldFolder {
+  /**
+   * @schema QuickSightFieldFolder#description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema QuickSightFieldFolder#columns
+   */
+  readonly columns?: string[];
+
+}
+
+/**
+ * Converts an object of type 'QuickSightFieldFolder' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightFieldFolder(obj: QuickSightFieldFolder | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'description': obj.description,
+    'columns': obj.columns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightRowLevelPermissionDataSet
  */
 export interface QuickSightRowLevelPermissionDataSet {
@@ -5358,14 +10129,73 @@ export interface QuickSightRowLevelPermissionDataSet {
   /**
    * @schema QuickSightRowLevelPermissionDataSet#Arn
    */
-  readonly arn: string;
+  readonly arn?: string;
 
   /**
    * @schema QuickSightRowLevelPermissionDataSet#PermissionPolicy
    */
-  readonly permissionPolicy: string;
+  readonly permissionPolicy?: string;
+
+  /**
+   * @schema QuickSightRowLevelPermissionDataSet#FormatVersion
+   */
+  readonly formatVersion?: string;
+
+  /**
+   * @schema QuickSightRowLevelPermissionDataSet#Status
+   */
+  readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightRowLevelPermissionDataSet' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightRowLevelPermissionDataSet(obj: QuickSightRowLevelPermissionDataSet | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Namespace': obj.namespace,
+    'Arn': obj.arn,
+    'PermissionPolicy': obj.permissionPolicy,
+    'FormatVersion': obj.formatVersion,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightRowLevelPermissionTagConfiguration
+ */
+export interface QuickSightRowLevelPermissionTagConfiguration {
+  /**
+   * @schema QuickSightRowLevelPermissionTagConfiguration#Status
+   */
+  readonly status?: string;
+
+  /**
+   * @schema QuickSightRowLevelPermissionTagConfiguration#TagRules
+   */
+  readonly tagRules?: QuickSightRowLevelPermissionTagRule[];
+
+}
+
+/**
+ * Converts an object of type 'QuickSightRowLevelPermissionTagConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightRowLevelPermissionTagConfiguration(obj: QuickSightRowLevelPermissionTagConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'TagRules': obj.tagRules?.map(y => toJson_QuickSightRowLevelPermissionTagRule(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightColumnLevelPermissionRule
@@ -5382,6 +10212,21 @@ export interface QuickSightColumnLevelPermissionRule {
   readonly columnNames?: string[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightColumnLevelPermissionRule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightColumnLevelPermissionRule(obj: QuickSightColumnLevelPermissionRule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Principals': obj.principals?.map(y => y),
+    'ColumnNames': obj.columnNames?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDataSourceParameters
@@ -5490,6 +10335,39 @@ export interface QuickSightDataSourceParameters {
 }
 
 /**
+ * Converts an object of type 'QuickSightDataSourceParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDataSourceParameters(obj: QuickSightDataSourceParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmazonElasticsearchParameters': toJson_QuickSightAmazonElasticsearchParameters(obj.amazonElasticsearchParameters),
+    'AthenaParameters': toJson_QuickSightAthenaParameters(obj.athenaParameters),
+    'AuroraParameters': toJson_QuickSightAuroraParameters(obj.auroraParameters),
+    'AuroraPostgreSqlParameters': toJson_QuickSightAuroraPostgreSqlParameters(obj.auroraPostgreSqlParameters),
+    'AwsIotAnalyticsParameters': toJson_QuickSightAwsIotAnalyticsParameters(obj.awsIotAnalyticsParameters),
+    'JiraParameters': toJson_QuickSightJiraParameters(obj.jiraParameters),
+    'MariaDbParameters': toJson_QuickSightMariaDbParameters(obj.mariaDbParameters),
+    'MySqlParameters': toJson_QuickSightMySqlParameters(obj.mySqlParameters),
+    'OracleParameters': toJson_QuickSightOracleParameters(obj.oracleParameters),
+    'PostgreSqlParameters': toJson_QuickSightPostgreSqlParameters(obj.postgreSqlParameters),
+    'PrestoParameters': toJson_QuickSightPrestoParameters(obj.prestoParameters),
+    'RdsParameters': toJson_QuickSightRdsParameters(obj.rdsParameters),
+    'RedshiftParameters': toJson_QuickSightRedshiftParameters(obj.redshiftParameters),
+    'S3Parameters': toJson_QuickSightS3Parameters(obj.s3Parameters),
+    'ServiceNowParameters': toJson_QuickSightServiceNowParameters(obj.serviceNowParameters),
+    'SnowflakeParameters': toJson_QuickSightSnowflakeParameters(obj.snowflakeParameters),
+    'SparkParameters': toJson_QuickSightSparkParameters(obj.sparkParameters),
+    'SqlServerParameters': toJson_QuickSightSqlServerParameters(obj.sqlServerParameters),
+    'TeradataParameters': toJson_QuickSightTeradataParameters(obj.teradataParameters),
+    'TwitterParameters': toJson_QuickSightTwitterParameters(obj.twitterParameters),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDataSourceCredentials
  */
 export interface QuickSightDataSourceCredentials {
@@ -5506,15 +10384,44 @@ export interface QuickSightDataSourceCredentials {
 }
 
 /**
+ * Converts an object of type 'QuickSightDataSourceCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDataSourceCredentials(obj: QuickSightDataSourceCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CredentialPair': toJson_QuickSightCredentialPair(obj.credentialPair),
+    'CopySourceArn': obj.copySourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightVpcConnectionProperties
  */
 export interface QuickSightVpcConnectionProperties {
   /**
    * @schema QuickSightVpcConnectionProperties#VpcConnectionArn
    */
-  readonly vpcConnectionArn: string;
+  readonly vpcConnectionArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightVpcConnectionProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightVpcConnectionProperties(obj: QuickSightVpcConnectionProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VpcConnectionArn': obj.vpcConnectionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightSslProperties
@@ -5526,6 +10433,51 @@ export interface QuickSightSslProperties {
   readonly disableSsl?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightSslProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightSslProperties(obj: QuickSightSslProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DisableSsl': obj.disableSsl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightFolderMember
+ */
+export interface QuickSightFolderMember {
+  /**
+   * @schema QuickSightFolderMember#MemberId
+   */
+  readonly memberId?: string;
+
+  /**
+   * @schema QuickSightFolderMember#MemberType
+   */
+  readonly memberType?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightFolderMember' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightFolderMember(obj: QuickSightFolderMember | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MemberId': obj.memberId,
+    'MemberType': obj.memberType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightGroup
@@ -5554,6 +10506,23 @@ export interface QuickSightGroup {
 }
 
 /**
+ * Converts an object of type 'QuickSightGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightGroup(obj: QuickSightGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'GroupName': obj.groupName,
+    'Description': obj.description,
+    'PrincipalId': obj.principalId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightGroupMember
  */
 export interface QuickSightGroupMember {
@@ -5570,6 +10539,21 @@ export interface QuickSightGroupMember {
 }
 
 /**
+ * Converts an object of type 'QuickSightGroupMember' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightGroupMember(obj: QuickSightGroupMember | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'MemberName': obj.memberName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightTemplateSourceEntity
  */
 export interface QuickSightTemplateSourceEntity {
@@ -5584,6 +10568,21 @@ export interface QuickSightTemplateSourceEntity {
   readonly sourceTemplate?: QuickSightTemplateSourceTemplate;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightTemplateSourceEntity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTemplateSourceEntity(obj: QuickSightTemplateSourceEntity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceAnalysis': toJson_QuickSightTemplateSourceAnalysis(obj.sourceAnalysis),
+    'SourceTemplate': toJson_QuickSightTemplateSourceTemplate(obj.sourceTemplate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightTemplateAlias
@@ -5607,6 +10606,22 @@ export interface QuickSightTemplateAlias {
 }
 
 /**
+ * Converts an object of type 'QuickSightTemplateAlias' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTemplateAlias(obj: QuickSightTemplateAlias | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AliasName': obj.aliasName,
+    'Arn': obj.arn,
+    'TemplateVersionNumber': obj.templateVersionNumber,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightThemeConfiguration
  */
 export interface QuickSightThemeConfiguration {
@@ -5628,6 +10643,22 @@ export interface QuickSightThemeConfiguration {
 }
 
 /**
+ * Converts an object of type 'QuickSightThemeConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightThemeConfiguration(obj: QuickSightThemeConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataColorPalette': toJson_QuickSightDataColorPalette(obj.dataColorPalette),
+    'UIColorPalette': toJson_QuickSightUiColorPalette(obj.uiColorPalette),
+    'Sheet': toJson_QuickSightSheetStyle(obj.sheet),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightThemeAlias
  */
 export interface QuickSightThemeAlias {
@@ -5647,6 +10678,22 @@ export interface QuickSightThemeAlias {
   readonly themeVersionNumber?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightThemeAlias' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightThemeAlias(obj: QuickSightThemeAlias | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'AliasName': obj.aliasName,
+    'ThemeVersionNumber': obj.themeVersionNumber,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightAccountSettings
@@ -5673,6 +10720,23 @@ export interface QuickSightAccountSettings {
   readonly notificationEmail?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightAccountSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightAccountSettings(obj: QuickSightAccountSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AccountName': obj.accountName,
+    'Edition': obj.edition,
+    'DefaultNamespace': obj.defaultNamespace,
+    'NotificationEmail': obj.notificationEmail,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightAnalysis
@@ -5731,6 +10795,29 @@ export interface QuickSightAnalysis {
 }
 
 /**
+ * Converts an object of type 'QuickSightAnalysis' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightAnalysis(obj: QuickSightAnalysis | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AnalysisId': obj.analysisId,
+    'Arn': obj.arn,
+    'Name': obj.name,
+    'Status': obj.status,
+    'Errors': obj.errors?.map(y => toJson_QuickSightAnalysisError(y)),
+    'DataSetArns': obj.dataSetArns?.map(y => y),
+    'ThemeArn': obj.themeArn,
+    'CreatedTime': obj.createdTime,
+    'LastUpdatedTime': obj.lastUpdatedTime,
+    'Sheets': obj.sheets?.map(y => toJson_QuickSightSheet(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDashboard
  */
 export interface QuickSightDashboard {
@@ -5770,6 +10857,26 @@ export interface QuickSightDashboard {
   readonly lastUpdatedTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDashboard' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDashboard(obj: QuickSightDashboard | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DashboardId': obj.dashboardId,
+    'Arn': obj.arn,
+    'Name': obj.name,
+    'Version': toJson_QuickSightDashboardVersion(obj.version),
+    'CreatedTime': obj.createdTime,
+    'LastPublishedTime': obj.lastPublishedTime,
+    'LastUpdatedTime': obj.lastUpdatedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDataSet
@@ -5831,9 +10938,19 @@ export interface QuickSightDataSet {
   readonly columnGroups?: QuickSightColumnGroup[];
 
   /**
+   * @schema QuickSightDataSet#FieldFolders
+   */
+  readonly fieldFolders?: { [key: string]: QuickSightFieldFolder };
+
+  /**
    * @schema QuickSightDataSet#RowLevelPermissionDataSet
    */
   readonly rowLevelPermissionDataSet?: QuickSightRowLevelPermissionDataSet;
+
+  /**
+   * @schema QuickSightDataSet#RowLevelPermissionTagConfiguration
+   */
+  readonly rowLevelPermissionTagConfiguration?: QuickSightRowLevelPermissionTagConfiguration;
 
   /**
    * @schema QuickSightDataSet#ColumnLevelPermissionRules
@@ -5841,6 +10958,34 @@ export interface QuickSightDataSet {
   readonly columnLevelPermissionRules?: QuickSightColumnLevelPermissionRule[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDataSet' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDataSet(obj: QuickSightDataSet | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'DataSetId': obj.dataSetId,
+    'Name': obj.name,
+    'CreatedTime': obj.createdTime,
+    'LastUpdatedTime': obj.lastUpdatedTime,
+    'PhysicalTableMap': ((obj.physicalTableMap) === undefined) ? undefined : (Object.entries(obj.physicalTableMap).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_QuickSightPhysicalTable(i[1]) }), {})),
+    'LogicalTableMap': ((obj.logicalTableMap) === undefined) ? undefined : (Object.entries(obj.logicalTableMap).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_QuickSightLogicalTable(i[1]) }), {})),
+    'OutputColumns': obj.outputColumns?.map(y => toJson_QuickSightOutputColumn(y)),
+    'ImportMode': obj.importMode,
+    'ConsumedSpiceCapacityInBytes': obj.consumedSpiceCapacityInBytes,
+    'ColumnGroups': obj.columnGroups?.map(y => toJson_QuickSightColumnGroup(y)),
+    'FieldFolders': ((obj.fieldFolders) === undefined) ? undefined : (Object.entries(obj.fieldFolders).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_QuickSightFieldFolder(i[1]) }), {})),
+    'RowLevelPermissionDataSet': toJson_QuickSightRowLevelPermissionDataSet(obj.rowLevelPermissionDataSet),
+    'RowLevelPermissionTagConfiguration': toJson_QuickSightRowLevelPermissionTagConfiguration(obj.rowLevelPermissionTagConfiguration),
+    'ColumnLevelPermissionRules': obj.columnLevelPermissionRules?.map(y => toJson_QuickSightColumnLevelPermissionRule(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDataSource
@@ -5909,6 +11054,92 @@ export interface QuickSightDataSource {
 }
 
 /**
+ * Converts an object of type 'QuickSightDataSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDataSource(obj: QuickSightDataSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'DataSourceId': obj.dataSourceId,
+    'Name': obj.name,
+    'Type': obj.type,
+    'Status': obj.status,
+    'CreatedTime': obj.createdTime,
+    'LastUpdatedTime': obj.lastUpdatedTime,
+    'DataSourceParameters': toJson_QuickSightDataSourceParameters(obj.dataSourceParameters),
+    'AlternateDataSourceParameters': obj.alternateDataSourceParameters?.map(y => toJson_QuickSightDataSourceParameters(y)),
+    'VpcConnectionProperties': toJson_QuickSightVpcConnectionProperties(obj.vpcConnectionProperties),
+    'SslProperties': toJson_QuickSightSslProperties(obj.sslProperties),
+    'ErrorInfo': toJson_QuickSightDataSourceErrorInfo(obj.errorInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightFolder
+ */
+export interface QuickSightFolder {
+  /**
+   * @schema QuickSightFolder#FolderId
+   */
+  readonly folderId?: string;
+
+  /**
+   * @schema QuickSightFolder#Arn
+   */
+  readonly arn?: string;
+
+  /**
+   * @schema QuickSightFolder#Name
+   */
+  readonly name?: string;
+
+  /**
+   * @schema QuickSightFolder#FolderType
+   */
+  readonly folderType?: string;
+
+  /**
+   * @schema QuickSightFolder#FolderPath
+   */
+  readonly folderPath?: string[];
+
+  /**
+   * @schema QuickSightFolder#CreatedTime
+   */
+  readonly createdTime?: string;
+
+  /**
+   * @schema QuickSightFolder#LastUpdatedTime
+   */
+  readonly lastUpdatedTime?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightFolder' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightFolder(obj: QuickSightFolder | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FolderId': obj.folderId,
+    'Arn': obj.arn,
+    'Name': obj.name,
+    'FolderType': obj.folderType,
+    'FolderPath': obj.folderPath?.map(y => y),
+    'CreatedTime': obj.createdTime,
+    'LastUpdatedTime': obj.lastUpdatedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightIamPolicyAssignment
  */
 export interface QuickSightIamPolicyAssignment {
@@ -5945,13 +11176,32 @@ export interface QuickSightIamPolicyAssignment {
 }
 
 /**
+ * Converts an object of type 'QuickSightIamPolicyAssignment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightIamPolicyAssignment(obj: QuickSightIamPolicyAssignment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsAccountId': obj.awsAccountId,
+    'AssignmentId': obj.assignmentId,
+    'AssignmentName': obj.assignmentName,
+    'PolicyArn': obj.policyArn,
+    'Identities': ((obj.identities) === undefined) ? undefined : (Object.entries(obj.identities).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.map(y => y) }), {})),
+    'AssignmentStatus': obj.assignmentStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightIngestion
  */
 export interface QuickSightIngestion {
   /**
    * @schema QuickSightIngestion#Arn
    */
-  readonly arn: string;
+  readonly arn?: string;
 
   /**
    * @schema QuickSightIngestion#IngestionId
@@ -5961,7 +11211,7 @@ export interface QuickSightIngestion {
   /**
    * @schema QuickSightIngestion#IngestionStatus
    */
-  readonly ingestionStatus: string;
+  readonly ingestionStatus?: string;
 
   /**
    * @schema QuickSightIngestion#ErrorInfo
@@ -5981,7 +11231,7 @@ export interface QuickSightIngestion {
   /**
    * @schema QuickSightIngestion#CreatedTime
    */
-  readonly createdTime: string;
+  readonly createdTime?: string;
 
   /**
    * @schema QuickSightIngestion#IngestionTimeInSeconds
@@ -6004,6 +11254,30 @@ export interface QuickSightIngestion {
   readonly requestType?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightIngestion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightIngestion(obj: QuickSightIngestion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'IngestionId': obj.ingestionId,
+    'IngestionStatus': obj.ingestionStatus,
+    'ErrorInfo': toJson_QuickSightErrorInfo(obj.errorInfo),
+    'RowInfo': toJson_QuickSightRowInfo(obj.rowInfo),
+    'QueueInfo': toJson_QuickSightQueueInfo(obj.queueInfo),
+    'CreatedTime': obj.createdTime,
+    'IngestionTimeInSeconds': obj.ingestionTimeInSeconds,
+    'IngestionSizeInBytes': obj.ingestionSizeInBytes,
+    'RequestSource': obj.requestSource,
+    'RequestType': obj.requestType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightNamespaceInfoV2
@@ -6042,6 +11316,25 @@ export interface QuickSightNamespaceInfoV2 {
 }
 
 /**
+ * Converts an object of type 'QuickSightNamespaceInfoV2' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightNamespaceInfoV2(obj: QuickSightNamespaceInfoV2 | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Arn': obj.arn,
+    'CapacityRegion': obj.capacityRegion,
+    'CreationStatus': obj.creationStatus,
+    'IdentityStore': obj.identityStore,
+    'NamespaceError': toJson_QuickSightNamespaceError(obj.namespaceError),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightTemplate
  */
 export interface QuickSightTemplate {
@@ -6076,6 +11369,25 @@ export interface QuickSightTemplate {
   readonly createdTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightTemplate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTemplate(obj: QuickSightTemplate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Name': obj.name,
+    'Version': toJson_QuickSightTemplateVersion(obj.version),
+    'TemplateId': obj.templateId,
+    'LastUpdatedTime': obj.lastUpdatedTime,
+    'CreatedTime': obj.createdTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightTheme
@@ -6117,6 +11429,26 @@ export interface QuickSightTheme {
   readonly type?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightTheme' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTheme(obj: QuickSightTheme | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Name': obj.name,
+    'ThemeId': obj.themeId,
+    'Version': toJson_QuickSightThemeVersion(obj.version),
+    'CreatedTime': obj.createdTime,
+    'LastUpdatedTime': obj.lastUpdatedTime,
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUser
@@ -6162,7 +11494,133 @@ export interface QuickSightUser {
    */
   readonly customPermissionsName?: string;
 
+  /**
+   * @schema QuickSightUser#ExternalLoginFederationProviderType
+   */
+  readonly externalLoginFederationProviderType?: string;
+
+  /**
+   * @schema QuickSightUser#ExternalLoginFederationProviderUrl
+   */
+  readonly externalLoginFederationProviderUrl?: string;
+
+  /**
+   * @schema QuickSightUser#ExternalLoginId
+   */
+  readonly externalLoginId?: string;
+
 }
+
+/**
+ * Converts an object of type 'QuickSightUser' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUser(obj: QuickSightUser | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'UserName': obj.userName,
+    'Email': obj.email,
+    'Role': obj.role,
+    'IdentityType': obj.identityType,
+    'Active': obj.active,
+    'PrincipalId': obj.principalId,
+    'CustomPermissionsName': obj.customPermissionsName,
+    'ExternalLoginFederationProviderType': obj.externalLoginFederationProviderType,
+    'ExternalLoginFederationProviderUrl': obj.externalLoginFederationProviderUrl,
+    'ExternalLoginId': obj.externalLoginId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightSessionTag
+ */
+export interface QuickSightSessionTag {
+  /**
+   * @schema QuickSightSessionTag#Key
+   */
+  readonly key?: string;
+
+  /**
+   * @schema QuickSightSessionTag#Value
+   */
+  readonly value?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightSessionTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightSessionTag(obj: QuickSightSessionTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightAnonymousUserEmbeddingExperienceConfiguration
+ */
+export interface QuickSightAnonymousUserEmbeddingExperienceConfiguration {
+  /**
+   * @schema QuickSightAnonymousUserEmbeddingExperienceConfiguration#Dashboard
+   */
+  readonly dashboard?: QuickSightAnonymousUserDashboardEmbeddingConfiguration;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightAnonymousUserEmbeddingExperienceConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightAnonymousUserEmbeddingExperienceConfiguration(obj: QuickSightAnonymousUserEmbeddingExperienceConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Dashboard': toJson_QuickSightAnonymousUserDashboardEmbeddingConfiguration(obj.dashboard),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightRegisteredUserEmbeddingExperienceConfiguration
+ */
+export interface QuickSightRegisteredUserEmbeddingExperienceConfiguration {
+  /**
+   * @schema QuickSightRegisteredUserEmbeddingExperienceConfiguration#Dashboard
+   */
+  readonly dashboard?: QuickSightRegisteredUserDashboardEmbeddingConfiguration;
+
+  /**
+   * @schema QuickSightRegisteredUserEmbeddingExperienceConfiguration#QuickSightConsole
+   */
+  readonly quickSightConsole?: QuickSightRegisteredUserQuickSightConsoleEmbeddingConfiguration;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightRegisteredUserEmbeddingExperienceConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightRegisteredUserEmbeddingExperienceConfiguration(obj: QuickSightRegisteredUserEmbeddingExperienceConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Dashboard': toJson_QuickSightRegisteredUserDashboardEmbeddingConfiguration(obj.dashboard),
+    'QuickSightConsole': toJson_QuickSightRegisteredUserQuickSightConsoleEmbeddingConfiguration(obj.quickSightConsole),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightAnalysisSummary
@@ -6201,6 +11659,25 @@ export interface QuickSightAnalysisSummary {
 }
 
 /**
+ * Converts an object of type 'QuickSightAnalysisSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightAnalysisSummary(obj: QuickSightAnalysisSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'AnalysisId': obj.analysisId,
+    'Name': obj.name,
+    'Status': obj.status,
+    'CreatedTime': obj.createdTime,
+    'LastUpdatedTime': obj.lastUpdatedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDashboardVersionSummary
  */
 export interface QuickSightDashboardVersionSummary {
@@ -6235,6 +11712,25 @@ export interface QuickSightDashboardVersionSummary {
   readonly description?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDashboardVersionSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDashboardVersionSummary(obj: QuickSightDashboardVersionSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreatedTime': obj.createdTime,
+    'VersionNumber': obj.versionNumber,
+    'Status': obj.status,
+    'SourceEntityArn': obj.sourceEntityArn,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDashboardSummary
@@ -6278,6 +11774,26 @@ export interface QuickSightDashboardSummary {
 }
 
 /**
+ * Converts an object of type 'QuickSightDashboardSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDashboardSummary(obj: QuickSightDashboardSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'DashboardId': obj.dashboardId,
+    'Name': obj.name,
+    'CreatedTime': obj.createdTime,
+    'LastUpdatedTime': obj.lastUpdatedTime,
+    'PublishedVersionNumber': obj.publishedVersionNumber,
+    'LastPublishedTime': obj.lastPublishedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDataSetSummary
  */
 export interface QuickSightDataSetSummary {
@@ -6317,11 +11833,124 @@ export interface QuickSightDataSetSummary {
   readonly rowLevelPermissionDataSet?: QuickSightRowLevelPermissionDataSet;
 
   /**
+   * @schema QuickSightDataSetSummary#RowLevelPermissionTagConfigurationApplied
+   */
+  readonly rowLevelPermissionTagConfigurationApplied?: boolean;
+
+  /**
    * @schema QuickSightDataSetSummary#ColumnLevelPermissionRulesApplied
    */
   readonly columnLevelPermissionRulesApplied?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDataSetSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDataSetSummary(obj: QuickSightDataSetSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'DataSetId': obj.dataSetId,
+    'Name': obj.name,
+    'CreatedTime': obj.createdTime,
+    'LastUpdatedTime': obj.lastUpdatedTime,
+    'ImportMode': obj.importMode,
+    'RowLevelPermissionDataSet': toJson_QuickSightRowLevelPermissionDataSet(obj.rowLevelPermissionDataSet),
+    'RowLevelPermissionTagConfigurationApplied': obj.rowLevelPermissionTagConfigurationApplied,
+    'ColumnLevelPermissionRulesApplied': obj.columnLevelPermissionRulesApplied,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightMemberIdArnPair
+ */
+export interface QuickSightMemberIdArnPair {
+  /**
+   * @schema QuickSightMemberIdArnPair#MemberId
+   */
+  readonly memberId?: string;
+
+  /**
+   * @schema QuickSightMemberIdArnPair#MemberArn
+   */
+  readonly memberArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightMemberIdArnPair' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightMemberIdArnPair(obj: QuickSightMemberIdArnPair | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MemberId': obj.memberId,
+    'MemberArn': obj.memberArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightFolderSummary
+ */
+export interface QuickSightFolderSummary {
+  /**
+   * @schema QuickSightFolderSummary#Arn
+   */
+  readonly arn?: string;
+
+  /**
+   * @schema QuickSightFolderSummary#FolderId
+   */
+  readonly folderId?: string;
+
+  /**
+   * @schema QuickSightFolderSummary#Name
+   */
+  readonly name?: string;
+
+  /**
+   * @schema QuickSightFolderSummary#FolderType
+   */
+  readonly folderType?: string;
+
+  /**
+   * @schema QuickSightFolderSummary#CreatedTime
+   */
+  readonly createdTime?: string;
+
+  /**
+   * @schema QuickSightFolderSummary#LastUpdatedTime
+   */
+  readonly lastUpdatedTime?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightFolderSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightFolderSummary(obj: QuickSightFolderSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'FolderId': obj.folderId,
+    'Name': obj.name,
+    'FolderType': obj.folderType,
+    'CreatedTime': obj.createdTime,
+    'LastUpdatedTime': obj.lastUpdatedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightIamPolicyAssignmentSummary
@@ -6340,6 +11969,21 @@ export interface QuickSightIamPolicyAssignmentSummary {
 }
 
 /**
+ * Converts an object of type 'QuickSightIamPolicyAssignmentSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightIamPolicyAssignmentSummary(obj: QuickSightIamPolicyAssignmentSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AssignmentName': obj.assignmentName,
+    'AssignmentStatus': obj.assignmentStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightActiveIamPolicyAssignment
  */
 export interface QuickSightActiveIamPolicyAssignment {
@@ -6354,6 +11998,21 @@ export interface QuickSightActiveIamPolicyAssignment {
   readonly policyArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightActiveIamPolicyAssignment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightActiveIamPolicyAssignment(obj: QuickSightActiveIamPolicyAssignment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AssignmentName': obj.assignmentName,
+    'PolicyArn': obj.policyArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightTemplateVersionSummary
@@ -6385,6 +12044,24 @@ export interface QuickSightTemplateVersionSummary {
   readonly description?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightTemplateVersionSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTemplateVersionSummary(obj: QuickSightTemplateVersionSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'VersionNumber': obj.versionNumber,
+    'CreatedTime': obj.createdTime,
+    'Status': obj.status,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightTemplateSummary
@@ -6423,6 +12100,25 @@ export interface QuickSightTemplateSummary {
 }
 
 /**
+ * Converts an object of type 'QuickSightTemplateSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTemplateSummary(obj: QuickSightTemplateSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'TemplateId': obj.templateId,
+    'Name': obj.name,
+    'LatestVersionNumber': obj.latestVersionNumber,
+    'CreatedTime': obj.createdTime,
+    'LastUpdatedTime': obj.lastUpdatedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightThemeVersionSummary
  */
 export interface QuickSightThemeVersionSummary {
@@ -6452,6 +12148,24 @@ export interface QuickSightThemeVersionSummary {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightThemeVersionSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightThemeVersionSummary(obj: QuickSightThemeVersionSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VersionNumber': obj.versionNumber,
+    'Arn': obj.arn,
+    'Description': obj.description,
+    'CreatedTime': obj.createdTime,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightThemeSummary
@@ -6490,6 +12204,25 @@ export interface QuickSightThemeSummary {
 }
 
 /**
+ * Converts an object of type 'QuickSightThemeSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightThemeSummary(obj: QuickSightThemeSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Name': obj.name,
+    'ThemeId': obj.themeId,
+    'LatestVersionNumber': obj.latestVersionNumber,
+    'CreatedTime': obj.createdTime,
+    'LastUpdatedTime': obj.lastUpdatedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightAnalysisSearchFilter
  */
 export interface QuickSightAnalysisSearchFilter {
@@ -6511,13 +12244,29 @@ export interface QuickSightAnalysisSearchFilter {
 }
 
 /**
+ * Converts an object of type 'QuickSightAnalysisSearchFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightAnalysisSearchFilter(obj: QuickSightAnalysisSearchFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Operator': obj.operator,
+    'Name': obj.name,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDashboardSearchFilter
  */
 export interface QuickSightDashboardSearchFilter {
   /**
    * @schema QuickSightDashboardSearchFilter#Operator
    */
-  readonly operator: string;
+  readonly operator?: string;
 
   /**
    * @schema QuickSightDashboardSearchFilter#Name
@@ -6532,20 +12281,88 @@ export interface QuickSightDashboardSearchFilter {
 }
 
 /**
+ * Converts an object of type 'QuickSightDashboardSearchFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDashboardSearchFilter(obj: QuickSightDashboardSearchFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Operator': obj.operator,
+    'Name': obj.name,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightFolderSearchFilter
+ */
+export interface QuickSightFolderSearchFilter {
+  /**
+   * @schema QuickSightFolderSearchFilter#Operator
+   */
+  readonly operator?: string;
+
+  /**
+   * @schema QuickSightFolderSearchFilter#Name
+   */
+  readonly name?: string;
+
+  /**
+   * @schema QuickSightFolderSearchFilter#Value
+   */
+  readonly value?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightFolderSearchFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightFolderSearchFilter(obj: QuickSightFolderSearchFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Operator': obj.operator,
+    'Name': obj.name,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightStringParameter
  */
 export interface QuickSightStringParameter {
   /**
    * @schema QuickSightStringParameter#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema QuickSightStringParameter#Values
    */
-  readonly values: string[];
+  readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightStringParameter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightStringParameter(obj: QuickSightStringParameter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightIntegerParameter
@@ -6554,14 +12371,29 @@ export interface QuickSightIntegerParameter {
   /**
    * @schema QuickSightIntegerParameter#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema QuickSightIntegerParameter#Values
    */
-  readonly values: number[];
+  readonly values?: number[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightIntegerParameter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightIntegerParameter(obj: QuickSightIntegerParameter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDecimalParameter
@@ -6570,14 +12402,29 @@ export interface QuickSightDecimalParameter {
   /**
    * @schema QuickSightDecimalParameter#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema QuickSightDecimalParameter#Values
    */
-  readonly values: number[];
+  readonly values?: number[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDecimalParameter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDecimalParameter(obj: QuickSightDecimalParameter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDateTimeParameter
@@ -6586,14 +12433,29 @@ export interface QuickSightDateTimeParameter {
   /**
    * @schema QuickSightDateTimeParameter#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema QuickSightDateTimeParameter#Values
    */
-  readonly values: string[];
+  readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDateTimeParameter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDateTimeParameter(obj: QuickSightDateTimeParameter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightAnalysisSourceTemplate
@@ -6602,14 +12464,29 @@ export interface QuickSightAnalysisSourceTemplate {
   /**
    * @schema QuickSightAnalysisSourceTemplate#DataSetReferences
    */
-  readonly dataSetReferences: QuickSightDataSetReference[];
+  readonly dataSetReferences?: QuickSightDataSetReference[];
 
   /**
    * @schema QuickSightAnalysisSourceTemplate#Arn
    */
-  readonly arn: string;
+  readonly arn?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightAnalysisSourceTemplate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightAnalysisSourceTemplate(obj: QuickSightAnalysisSourceTemplate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSetReferences': obj.dataSetReferences?.map(y => toJson_QuickSightDataSetReference(y)),
+    'Arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDashboardSourceTemplate
@@ -6618,14 +12495,29 @@ export interface QuickSightDashboardSourceTemplate {
   /**
    * @schema QuickSightDashboardSourceTemplate#DataSetReferences
    */
-  readonly dataSetReferences: QuickSightDataSetReference[];
+  readonly dataSetReferences?: QuickSightDataSetReference[];
 
   /**
    * @schema QuickSightDashboardSourceTemplate#Arn
    */
-  readonly arn: string;
+  readonly arn?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDashboardSourceTemplate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDashboardSourceTemplate(obj: QuickSightDashboardSourceTemplate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSetReferences': obj.dataSetReferences?.map(y => toJson_QuickSightDataSetReference(y)),
+    'Arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightAdHocFilteringOption
@@ -6639,6 +12531,20 @@ export interface QuickSightAdHocFilteringOption {
 }
 
 /**
+ * Converts an object of type 'QuickSightAdHocFilteringOption' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightAdHocFilteringOption(obj: QuickSightAdHocFilteringOption | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AvailabilityStatus': obj.availabilityStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightExportToCsvOption
  */
 export interface QuickSightExportToCsvOption {
@@ -6648,6 +12554,20 @@ export interface QuickSightExportToCsvOption {
   readonly availabilityStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightExportToCsvOption' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightExportToCsvOption(obj: QuickSightExportToCsvOption | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AvailabilityStatus': obj.availabilityStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightSheetControlsOption
@@ -6661,13 +12581,32 @@ export interface QuickSightSheetControlsOption {
 }
 
 /**
+ * Converts an object of type 'QuickSightSheetControlsOption' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightSheetControlsOption(obj: QuickSightSheetControlsOption | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VisibilityState': obj.visibilityState,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightRelationalTable
  */
 export interface QuickSightRelationalTable {
   /**
    * @schema QuickSightRelationalTable#DataSourceArn
    */
-  readonly dataSourceArn: string;
+  readonly dataSourceArn?: string;
+
+  /**
+   * @schema QuickSightRelationalTable#Catalog
+   */
+  readonly catalog?: string;
 
   /**
    * @schema QuickSightRelationalTable#Schema
@@ -6677,14 +12616,32 @@ export interface QuickSightRelationalTable {
   /**
    * @schema QuickSightRelationalTable#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema QuickSightRelationalTable#InputColumns
    */
-  readonly inputColumns: QuickSightInputColumn[];
+  readonly inputColumns?: QuickSightInputColumn[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightRelationalTable' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightRelationalTable(obj: QuickSightRelationalTable | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSourceArn': obj.dataSourceArn,
+    'Catalog': obj.catalog,
+    'Schema': obj.schema,
+    'Name': obj.name,
+    'InputColumns': obj.inputColumns?.map(y => toJson_QuickSightInputColumn(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightCustomSql
@@ -6693,17 +12650,17 @@ export interface QuickSightCustomSql {
   /**
    * @schema QuickSightCustomSql#DataSourceArn
    */
-  readonly dataSourceArn: string;
+  readonly dataSourceArn?: string;
 
   /**
    * @schema QuickSightCustomSql#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema QuickSightCustomSql#SqlQuery
    */
-  readonly sqlQuery: string;
+  readonly sqlQuery?: string;
 
   /**
    * @schema QuickSightCustomSql#Columns
@@ -6713,13 +12670,30 @@ export interface QuickSightCustomSql {
 }
 
 /**
+ * Converts an object of type 'QuickSightCustomSql' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCustomSql(obj: QuickSightCustomSql | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSourceArn': obj.dataSourceArn,
+    'Name': obj.name,
+    'SqlQuery': obj.sqlQuery,
+    'Columns': obj.columns?.map(y => toJson_QuickSightInputColumn(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightS3Source
  */
 export interface QuickSightS3Source {
   /**
    * @schema QuickSightS3Source#DataSourceArn
    */
-  readonly dataSourceArn: string;
+  readonly dataSourceArn?: string;
 
   /**
    * @schema QuickSightS3Source#UploadSettings
@@ -6729,9 +12703,25 @@ export interface QuickSightS3Source {
   /**
    * @schema QuickSightS3Source#InputColumns
    */
-  readonly inputColumns: QuickSightInputColumn[];
+  readonly inputColumns?: QuickSightInputColumn[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightS3Source' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightS3Source(obj: QuickSightS3Source | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSourceArn': obj.dataSourceArn,
+    'UploadSettings': toJson_QuickSightUploadSettings(obj.uploadSettings),
+    'InputColumns': obj.inputColumns?.map(y => toJson_QuickSightInputColumn(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightTransformOperation
@@ -6770,6 +12760,25 @@ export interface QuickSightTransformOperation {
 }
 
 /**
+ * Converts an object of type 'QuickSightTransformOperation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTransformOperation(obj: QuickSightTransformOperation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProjectOperation': toJson_QuickSightProjectOperation(obj.projectOperation),
+    'FilterOperation': toJson_QuickSightFilterOperation(obj.filterOperation),
+    'CreateColumnsOperation': toJson_QuickSightCreateColumnsOperation(obj.createColumnsOperation),
+    'RenameColumnOperation': toJson_QuickSightRenameColumnOperation(obj.renameColumnOperation),
+    'CastColumnTypeOperation': toJson_QuickSightCastColumnTypeOperation(obj.castColumnTypeOperation),
+    'TagColumnOperation': toJson_QuickSightTagColumnOperation(obj.tagColumnOperation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightLogicalTableSource
  */
 export interface QuickSightLogicalTableSource {
@@ -6786,25 +12795,99 @@ export interface QuickSightLogicalTableSource {
 }
 
 /**
+ * Converts an object of type 'QuickSightLogicalTableSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightLogicalTableSource(obj: QuickSightLogicalTableSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JoinInstruction': toJson_QuickSightJoinInstruction(obj.joinInstruction),
+    'PhysicalTableId': obj.physicalTableId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightGeoSpatialColumnGroup
  */
 export interface QuickSightGeoSpatialColumnGroup {
   /**
    * @schema QuickSightGeoSpatialColumnGroup#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema QuickSightGeoSpatialColumnGroup#CountryCode
    */
-  readonly countryCode: string;
+  readonly countryCode?: string;
 
   /**
    * @schema QuickSightGeoSpatialColumnGroup#Columns
    */
-  readonly columns: string[];
+  readonly columns?: string[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightGeoSpatialColumnGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightGeoSpatialColumnGroup(obj: QuickSightGeoSpatialColumnGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'CountryCode': obj.countryCode,
+    'Columns': obj.columns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightRowLevelPermissionTagRule
+ */
+export interface QuickSightRowLevelPermissionTagRule {
+  /**
+   * @schema QuickSightRowLevelPermissionTagRule#TagKey
+   */
+  readonly tagKey?: string;
+
+  /**
+   * @schema QuickSightRowLevelPermissionTagRule#ColumnName
+   */
+  readonly columnName?: string;
+
+  /**
+   * @schema QuickSightRowLevelPermissionTagRule#TagMultiValueDelimiter
+   */
+  readonly tagMultiValueDelimiter?: string;
+
+  /**
+   * @schema QuickSightRowLevelPermissionTagRule#MatchAllValue
+   */
+  readonly matchAllValue?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightRowLevelPermissionTagRule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightRowLevelPermissionTagRule(obj: QuickSightRowLevelPermissionTagRule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TagKey': obj.tagKey,
+    'ColumnName': obj.columnName,
+    'TagMultiValueDelimiter': obj.tagMultiValueDelimiter,
+    'MatchAllValue': obj.matchAllValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightAmazonElasticsearchParameters
@@ -6813,9 +12896,23 @@ export interface QuickSightAmazonElasticsearchParameters {
   /**
    * @schema QuickSightAmazonElasticsearchParameters#Domain
    */
-  readonly domain: string;
+  readonly domain?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightAmazonElasticsearchParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightAmazonElasticsearchParameters(obj: QuickSightAmazonElasticsearchParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Domain': obj.domain,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightAthenaParameters
@@ -6829,25 +12926,55 @@ export interface QuickSightAthenaParameters {
 }
 
 /**
+ * Converts an object of type 'QuickSightAthenaParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightAthenaParameters(obj: QuickSightAthenaParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WorkGroup': obj.workGroup,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightAuroraParameters
  */
 export interface QuickSightAuroraParameters {
   /**
    * @schema QuickSightAuroraParameters#Host
    */
-  readonly host: string;
+  readonly host?: string;
 
   /**
    * @schema QuickSightAuroraParameters#Port
    */
-  readonly port: number;
+  readonly port?: number;
 
   /**
    * @schema QuickSightAuroraParameters#Database
    */
-  readonly database: string;
+  readonly database?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightAuroraParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightAuroraParameters(obj: QuickSightAuroraParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Host': obj.host,
+    'Port': obj.port,
+    'Database': obj.database,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightAuroraPostgreSqlParameters
@@ -6856,19 +12983,35 @@ export interface QuickSightAuroraPostgreSqlParameters {
   /**
    * @schema QuickSightAuroraPostgreSqlParameters#Host
    */
-  readonly host: string;
+  readonly host?: string;
 
   /**
    * @schema QuickSightAuroraPostgreSqlParameters#Port
    */
-  readonly port: number;
+  readonly port?: number;
 
   /**
    * @schema QuickSightAuroraPostgreSqlParameters#Database
    */
-  readonly database: string;
+  readonly database?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightAuroraPostgreSqlParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightAuroraPostgreSqlParameters(obj: QuickSightAuroraPostgreSqlParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Host': obj.host,
+    'Port': obj.port,
+    'Database': obj.database,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightAwsIotAnalyticsParameters
@@ -6877,9 +13020,23 @@ export interface QuickSightAwsIotAnalyticsParameters {
   /**
    * @schema QuickSightAwsIotAnalyticsParameters#DataSetName
    */
-  readonly dataSetName: string;
+  readonly dataSetName?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightAwsIotAnalyticsParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightAwsIotAnalyticsParameters(obj: QuickSightAwsIotAnalyticsParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSetName': obj.dataSetName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightJiraParameters
@@ -6888,9 +13045,23 @@ export interface QuickSightJiraParameters {
   /**
    * @schema QuickSightJiraParameters#SiteBaseUrl
    */
-  readonly siteBaseUrl: string;
+  readonly siteBaseUrl?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightJiraParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightJiraParameters(obj: QuickSightJiraParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SiteBaseUrl': obj.siteBaseUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightMariaDbParameters
@@ -6899,19 +13070,35 @@ export interface QuickSightMariaDbParameters {
   /**
    * @schema QuickSightMariaDbParameters#Host
    */
-  readonly host: string;
+  readonly host?: string;
 
   /**
    * @schema QuickSightMariaDbParameters#Port
    */
-  readonly port: number;
+  readonly port?: number;
 
   /**
    * @schema QuickSightMariaDbParameters#Database
    */
-  readonly database: string;
+  readonly database?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightMariaDbParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightMariaDbParameters(obj: QuickSightMariaDbParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Host': obj.host,
+    'Port': obj.port,
+    'Database': obj.database,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightMySqlParameters
@@ -6920,19 +13107,35 @@ export interface QuickSightMySqlParameters {
   /**
    * @schema QuickSightMySqlParameters#Host
    */
-  readonly host: string;
+  readonly host?: string;
 
   /**
    * @schema QuickSightMySqlParameters#Port
    */
-  readonly port: number;
+  readonly port?: number;
 
   /**
    * @schema QuickSightMySqlParameters#Database
    */
-  readonly database: string;
+  readonly database?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightMySqlParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightMySqlParameters(obj: QuickSightMySqlParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Host': obj.host,
+    'Port': obj.port,
+    'Database': obj.database,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightOracleParameters
@@ -6941,19 +13144,35 @@ export interface QuickSightOracleParameters {
   /**
    * @schema QuickSightOracleParameters#Host
    */
-  readonly host: string;
+  readonly host?: string;
 
   /**
    * @schema QuickSightOracleParameters#Port
    */
-  readonly port: number;
+  readonly port?: number;
 
   /**
    * @schema QuickSightOracleParameters#Database
    */
-  readonly database: string;
+  readonly database?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightOracleParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightOracleParameters(obj: QuickSightOracleParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Host': obj.host,
+    'Port': obj.port,
+    'Database': obj.database,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightPostgreSqlParameters
@@ -6962,19 +13181,35 @@ export interface QuickSightPostgreSqlParameters {
   /**
    * @schema QuickSightPostgreSqlParameters#Host
    */
-  readonly host: string;
+  readonly host?: string;
 
   /**
    * @schema QuickSightPostgreSqlParameters#Port
    */
-  readonly port: number;
+  readonly port?: number;
 
   /**
    * @schema QuickSightPostgreSqlParameters#Database
    */
-  readonly database: string;
+  readonly database?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightPostgreSqlParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightPostgreSqlParameters(obj: QuickSightPostgreSqlParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Host': obj.host,
+    'Port': obj.port,
+    'Database': obj.database,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightPrestoParameters
@@ -6983,19 +13218,35 @@ export interface QuickSightPrestoParameters {
   /**
    * @schema QuickSightPrestoParameters#Host
    */
-  readonly host: string;
+  readonly host?: string;
 
   /**
    * @schema QuickSightPrestoParameters#Port
    */
-  readonly port: number;
+  readonly port?: number;
 
   /**
    * @schema QuickSightPrestoParameters#Catalog
    */
-  readonly catalog: string;
+  readonly catalog?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightPrestoParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightPrestoParameters(obj: QuickSightPrestoParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Host': obj.host,
+    'Port': obj.port,
+    'Catalog': obj.catalog,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightRdsParameters
@@ -7004,14 +13255,29 @@ export interface QuickSightRdsParameters {
   /**
    * @schema QuickSightRdsParameters#InstanceId
    */
-  readonly instanceId: string;
+  readonly instanceId?: string;
 
   /**
    * @schema QuickSightRdsParameters#Database
    */
-  readonly database: string;
+  readonly database?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightRdsParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightRdsParameters(obj: QuickSightRdsParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceId': obj.instanceId,
+    'Database': obj.database,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightRedshiftParameters
@@ -7030,7 +13296,7 @@ export interface QuickSightRedshiftParameters {
   /**
    * @schema QuickSightRedshiftParameters#Database
    */
-  readonly database: string;
+  readonly database?: string;
 
   /**
    * @schema QuickSightRedshiftParameters#ClusterId
@@ -7040,15 +13306,46 @@ export interface QuickSightRedshiftParameters {
 }
 
 /**
+ * Converts an object of type 'QuickSightRedshiftParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightRedshiftParameters(obj: QuickSightRedshiftParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Host': obj.host,
+    'Port': obj.port,
+    'Database': obj.database,
+    'ClusterId': obj.clusterId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightS3Parameters
  */
 export interface QuickSightS3Parameters {
   /**
    * @schema QuickSightS3Parameters#ManifestFileLocation
    */
-  readonly manifestFileLocation: QuickSightManifestFileLocation;
+  readonly manifestFileLocation?: QuickSightManifestFileLocation;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightS3Parameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightS3Parameters(obj: QuickSightS3Parameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ManifestFileLocation': toJson_QuickSightManifestFileLocation(obj.manifestFileLocation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightServiceNowParameters
@@ -7057,9 +13354,23 @@ export interface QuickSightServiceNowParameters {
   /**
    * @schema QuickSightServiceNowParameters#SiteBaseUrl
    */
-  readonly siteBaseUrl: string;
+  readonly siteBaseUrl?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightServiceNowParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightServiceNowParameters(obj: QuickSightServiceNowParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SiteBaseUrl': obj.siteBaseUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightSnowflakeParameters
@@ -7068,19 +13379,35 @@ export interface QuickSightSnowflakeParameters {
   /**
    * @schema QuickSightSnowflakeParameters#Host
    */
-  readonly host: string;
+  readonly host?: string;
 
   /**
    * @schema QuickSightSnowflakeParameters#Database
    */
-  readonly database: string;
+  readonly database?: string;
 
   /**
    * @schema QuickSightSnowflakeParameters#Warehouse
    */
-  readonly warehouse: string;
+  readonly warehouse?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightSnowflakeParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightSnowflakeParameters(obj: QuickSightSnowflakeParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Host': obj.host,
+    'Database': obj.database,
+    'Warehouse': obj.warehouse,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightSparkParameters
@@ -7089,14 +13416,29 @@ export interface QuickSightSparkParameters {
   /**
    * @schema QuickSightSparkParameters#Host
    */
-  readonly host: string;
+  readonly host?: string;
 
   /**
    * @schema QuickSightSparkParameters#Port
    */
-  readonly port: number;
+  readonly port?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightSparkParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightSparkParameters(obj: QuickSightSparkParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Host': obj.host,
+    'Port': obj.port,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightSqlServerParameters
@@ -7105,19 +13447,35 @@ export interface QuickSightSqlServerParameters {
   /**
    * @schema QuickSightSqlServerParameters#Host
    */
-  readonly host: string;
+  readonly host?: string;
 
   /**
    * @schema QuickSightSqlServerParameters#Port
    */
-  readonly port: number;
+  readonly port?: number;
 
   /**
    * @schema QuickSightSqlServerParameters#Database
    */
-  readonly database: string;
+  readonly database?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightSqlServerParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightSqlServerParameters(obj: QuickSightSqlServerParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Host': obj.host,
+    'Port': obj.port,
+    'Database': obj.database,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightTeradataParameters
@@ -7126,19 +13484,35 @@ export interface QuickSightTeradataParameters {
   /**
    * @schema QuickSightTeradataParameters#Host
    */
-  readonly host: string;
+  readonly host?: string;
 
   /**
    * @schema QuickSightTeradataParameters#Port
    */
-  readonly port: number;
+  readonly port?: number;
 
   /**
    * @schema QuickSightTeradataParameters#Database
    */
-  readonly database: string;
+  readonly database?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightTeradataParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTeradataParameters(obj: QuickSightTeradataParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Host': obj.host,
+    'Port': obj.port,
+    'Database': obj.database,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightTwitterParameters
@@ -7147,14 +13521,29 @@ export interface QuickSightTwitterParameters {
   /**
    * @schema QuickSightTwitterParameters#Query
    */
-  readonly query: string;
+  readonly query?: string;
 
   /**
    * @schema QuickSightTwitterParameters#MaxRows
    */
-  readonly maxRows: number;
+  readonly maxRows?: number;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightTwitterParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTwitterParameters(obj: QuickSightTwitterParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Query': obj.query,
+    'MaxRows': obj.maxRows,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightCredentialPair
@@ -7163,12 +13552,12 @@ export interface QuickSightCredentialPair {
   /**
    * @schema QuickSightCredentialPair#Username
    */
-  readonly username: string;
+  readonly username?: string;
 
   /**
    * @schema QuickSightCredentialPair#Password
    */
-  readonly password: string;
+  readonly password?: string;
 
   /**
    * @schema QuickSightCredentialPair#AlternateDataSourceParameters
@@ -7178,20 +13567,51 @@ export interface QuickSightCredentialPair {
 }
 
 /**
+ * Converts an object of type 'QuickSightCredentialPair' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCredentialPair(obj: QuickSightCredentialPair | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Username': obj.username,
+    'Password': obj.password,
+    'AlternateDataSourceParameters': obj.alternateDataSourceParameters?.map(y => toJson_QuickSightDataSourceParameters(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightTemplateSourceAnalysis
  */
 export interface QuickSightTemplateSourceAnalysis {
   /**
    * @schema QuickSightTemplateSourceAnalysis#Arn
    */
-  readonly arn: string;
+  readonly arn?: string;
 
   /**
    * @schema QuickSightTemplateSourceAnalysis#DataSetReferences
    */
-  readonly dataSetReferences: QuickSightDataSetReference[];
+  readonly dataSetReferences?: QuickSightDataSetReference[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightTemplateSourceAnalysis' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTemplateSourceAnalysis(obj: QuickSightTemplateSourceAnalysis | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'DataSetReferences': obj.dataSetReferences?.map(y => toJson_QuickSightDataSetReference(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightTemplateSourceTemplate
@@ -7200,9 +13620,23 @@ export interface QuickSightTemplateSourceTemplate {
   /**
    * @schema QuickSightTemplateSourceTemplate#Arn
    */
-  readonly arn: string;
+  readonly arn?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightTemplateSourceTemplate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTemplateSourceTemplate(obj: QuickSightTemplateSourceTemplate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDataColorPalette
@@ -7224,6 +13658,22 @@ export interface QuickSightDataColorPalette {
   readonly emptyFillColor?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDataColorPalette' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDataColorPalette(obj: QuickSightDataColorPalette | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Colors': obj.colors?.map(y => y),
+    'MinMaxGradient': obj.minMaxGradient?.map(y => y),
+    'EmptyFillColor': obj.emptyFillColor,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUiColorPalette
@@ -7312,6 +13762,35 @@ export interface QuickSightUiColorPalette {
 }
 
 /**
+ * Converts an object of type 'QuickSightUiColorPalette' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUiColorPalette(obj: QuickSightUiColorPalette | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PrimaryForeground': obj.primaryForeground,
+    'PrimaryBackground': obj.primaryBackground,
+    'SecondaryForeground': obj.secondaryForeground,
+    'SecondaryBackground': obj.secondaryBackground,
+    'Accent': obj.accent,
+    'AccentForeground': obj.accentForeground,
+    'Danger': obj.danger,
+    'DangerForeground': obj.dangerForeground,
+    'Warning': obj.warning,
+    'WarningForeground': obj.warningForeground,
+    'Success': obj.success,
+    'SuccessForeground': obj.successForeground,
+    'Dimension': obj.dimension,
+    'DimensionForeground': obj.dimensionForeground,
+    'Measure': obj.measure,
+    'MeasureForeground': obj.measureForeground,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightSheetStyle
  */
 export interface QuickSightSheetStyle {
@@ -7326,6 +13805,21 @@ export interface QuickSightSheetStyle {
   readonly tileLayout?: QuickSightTileLayoutStyle;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightSheetStyle' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightSheetStyle(obj: QuickSightSheetStyle | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Tile': toJson_QuickSightTileStyle(obj.tile),
+    'TileLayout': toJson_QuickSightTileLayoutStyle(obj.tileLayout),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightAnalysisError
@@ -7344,6 +13838,21 @@ export interface QuickSightAnalysisError {
 }
 
 /**
+ * Converts an object of type 'QuickSightAnalysisError' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightAnalysisError(obj: QuickSightAnalysisError | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightSheet
  */
 export interface QuickSightSheet {
@@ -7358,6 +13867,21 @@ export interface QuickSightSheet {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightSheet' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightSheet(obj: QuickSightSheet | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SheetId': obj.sheetId,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDashboardVersion
@@ -7416,6 +13940,29 @@ export interface QuickSightDashboardVersion {
 }
 
 /**
+ * Converts an object of type 'QuickSightDashboardVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDashboardVersion(obj: QuickSightDashboardVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreatedTime': obj.createdTime,
+    'Errors': obj.errors?.map(y => toJson_QuickSightDashboardError(y)),
+    'VersionNumber': obj.versionNumber,
+    'Status': obj.status,
+    'Arn': obj.arn,
+    'SourceEntityArn': obj.sourceEntityArn,
+    'DataSetArns': obj.dataSetArns?.map(y => y),
+    'Description': obj.description,
+    'ThemeArn': obj.themeArn,
+    'Sheets': obj.sheets?.map(y => toJson_QuickSightSheet(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightOutputColumn
  */
 export interface QuickSightOutputColumn {
@@ -7437,6 +13984,22 @@ export interface QuickSightOutputColumn {
 }
 
 /**
+ * Converts an object of type 'QuickSightOutputColumn' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightOutputColumn(obj: QuickSightOutputColumn | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Description': obj.description,
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDataSourceErrorInfo
  */
 export interface QuickSightDataSourceErrorInfo {
@@ -7451,6 +14014,21 @@ export interface QuickSightDataSourceErrorInfo {
   readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDataSourceErrorInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDataSourceErrorInfo(obj: QuickSightDataSourceErrorInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightErrorInfo
@@ -7469,6 +14047,21 @@ export interface QuickSightErrorInfo {
 }
 
 /**
+ * Converts an object of type 'QuickSightErrorInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightErrorInfo(obj: QuickSightErrorInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightRowInfo
  */
 export interface QuickSightRowInfo {
@@ -7485,20 +14078,50 @@ export interface QuickSightRowInfo {
 }
 
 /**
+ * Converts an object of type 'QuickSightRowInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightRowInfo(obj: QuickSightRowInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RowsIngested': obj.rowsIngested,
+    'RowsDropped': obj.rowsDropped,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightQueueInfo
  */
 export interface QuickSightQueueInfo {
   /**
    * @schema QuickSightQueueInfo#WaitingOnIngestion
    */
-  readonly waitingOnIngestion: string;
+  readonly waitingOnIngestion?: string;
 
   /**
    * @schema QuickSightQueueInfo#QueuedIngestion
    */
-  readonly queuedIngestion: string;
+  readonly queuedIngestion?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightQueueInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightQueueInfo(obj: QuickSightQueueInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WaitingOnIngestion': obj.waitingOnIngestion,
+    'QueuedIngestion': obj.queuedIngestion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightNamespaceError
@@ -7515,6 +14138,21 @@ export interface QuickSightNamespaceError {
   readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightNamespaceError' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightNamespaceError(obj: QuickSightNamespaceError | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightTemplateVersion
@@ -7568,6 +14206,28 @@ export interface QuickSightTemplateVersion {
 }
 
 /**
+ * Converts an object of type 'QuickSightTemplateVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTemplateVersion(obj: QuickSightTemplateVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreatedTime': obj.createdTime,
+    'Errors': obj.errors?.map(y => toJson_QuickSightTemplateError(y)),
+    'VersionNumber': obj.versionNumber,
+    'Status': obj.status,
+    'DataSetConfigurations': obj.dataSetConfigurations?.map(y => toJson_QuickSightDataSetConfiguration(y)),
+    'Description': obj.description,
+    'SourceEntityArn': obj.sourceEntityArn,
+    'ThemeArn': obj.themeArn,
+    'Sheets': obj.sheets?.map(y => toJson_QuickSightSheet(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightThemeVersion
  */
 export interface QuickSightThemeVersion {
@@ -7614,20 +14274,131 @@ export interface QuickSightThemeVersion {
 }
 
 /**
+ * Converts an object of type 'QuickSightThemeVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightThemeVersion(obj: QuickSightThemeVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VersionNumber': obj.versionNumber,
+    'Arn': obj.arn,
+    'Description': obj.description,
+    'BaseThemeId': obj.baseThemeId,
+    'CreatedTime': obj.createdTime,
+    'Configuration': toJson_QuickSightThemeConfiguration(obj.configuration),
+    'Errors': obj.errors?.map(y => toJson_QuickSightThemeError(y)),
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightAnonymousUserDashboardEmbeddingConfiguration
+ */
+export interface QuickSightAnonymousUserDashboardEmbeddingConfiguration {
+  /**
+   * @schema QuickSightAnonymousUserDashboardEmbeddingConfiguration#InitialDashboardId
+   */
+  readonly initialDashboardId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightAnonymousUserDashboardEmbeddingConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightAnonymousUserDashboardEmbeddingConfiguration(obj: QuickSightAnonymousUserDashboardEmbeddingConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InitialDashboardId': obj.initialDashboardId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightRegisteredUserDashboardEmbeddingConfiguration
+ */
+export interface QuickSightRegisteredUserDashboardEmbeddingConfiguration {
+  /**
+   * @schema QuickSightRegisteredUserDashboardEmbeddingConfiguration#InitialDashboardId
+   */
+  readonly initialDashboardId?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightRegisteredUserDashboardEmbeddingConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightRegisteredUserDashboardEmbeddingConfiguration(obj: QuickSightRegisteredUserDashboardEmbeddingConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InitialDashboardId': obj.initialDashboardId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightRegisteredUserQuickSightConsoleEmbeddingConfiguration
+ */
+export interface QuickSightRegisteredUserQuickSightConsoleEmbeddingConfiguration {
+  /**
+   * @schema QuickSightRegisteredUserQuickSightConsoleEmbeddingConfiguration#InitialPath
+   */
+  readonly initialPath?: string;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightRegisteredUserQuickSightConsoleEmbeddingConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightRegisteredUserQuickSightConsoleEmbeddingConfiguration(obj: QuickSightRegisteredUserQuickSightConsoleEmbeddingConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InitialPath': obj.initialPath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDataSetReference
  */
 export interface QuickSightDataSetReference {
   /**
    * @schema QuickSightDataSetReference#DataSetPlaceholder
    */
-  readonly dataSetPlaceholder: string;
+  readonly dataSetPlaceholder?: string;
 
   /**
    * @schema QuickSightDataSetReference#DataSetArn
    */
-  readonly dataSetArn: string;
+  readonly dataSetArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDataSetReference' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDataSetReference(obj: QuickSightDataSetReference | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSetPlaceholder': obj.dataSetPlaceholder,
+    'DataSetArn': obj.dataSetArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightInputColumn
@@ -7636,14 +14407,29 @@ export interface QuickSightInputColumn {
   /**
    * @schema QuickSightInputColumn#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema QuickSightInputColumn#Type
    */
-  readonly type: string;
+  readonly type?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightInputColumn' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightInputColumn(obj: QuickSightInputColumn | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightUploadSettings
@@ -7677,15 +14463,47 @@ export interface QuickSightUploadSettings {
 }
 
 /**
+ * Converts an object of type 'QuickSightUploadSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightUploadSettings(obj: QuickSightUploadSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Format': obj.format,
+    'StartFromRow': obj.startFromRow,
+    'ContainsHeader': obj.containsHeader,
+    'TextQualifier': obj.textQualifier,
+    'Delimiter': obj.delimiter,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightProjectOperation
  */
 export interface QuickSightProjectOperation {
   /**
    * @schema QuickSightProjectOperation#ProjectedColumns
    */
-  readonly projectedColumns: string[];
+  readonly projectedColumns?: string[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightProjectOperation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightProjectOperation(obj: QuickSightProjectOperation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProjectedColumns': obj.projectedColumns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightFilterOperation
@@ -7694,9 +14512,23 @@ export interface QuickSightFilterOperation {
   /**
    * @schema QuickSightFilterOperation#ConditionExpression
    */
-  readonly conditionExpression: string;
+  readonly conditionExpression?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightFilterOperation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightFilterOperation(obj: QuickSightFilterOperation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConditionExpression': obj.conditionExpression,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightCreateColumnsOperation
@@ -7705,9 +14537,23 @@ export interface QuickSightCreateColumnsOperation {
   /**
    * @schema QuickSightCreateColumnsOperation#Columns
    */
-  readonly columns: QuickSightCalculatedColumn[];
+  readonly columns?: QuickSightCalculatedColumn[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightCreateColumnsOperation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCreateColumnsOperation(obj: QuickSightCreateColumnsOperation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Columns': obj.columns?.map(y => toJson_QuickSightCalculatedColumn(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightRenameColumnOperation
@@ -7716,14 +14562,29 @@ export interface QuickSightRenameColumnOperation {
   /**
    * @schema QuickSightRenameColumnOperation#ColumnName
    */
-  readonly columnName: string;
+  readonly columnName?: string;
 
   /**
    * @schema QuickSightRenameColumnOperation#NewColumnName
    */
-  readonly newColumnName: string;
+  readonly newColumnName?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightRenameColumnOperation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightRenameColumnOperation(obj: QuickSightRenameColumnOperation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ColumnName': obj.columnName,
+    'NewColumnName': obj.newColumnName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightCastColumnTypeOperation
@@ -7732,12 +14593,12 @@ export interface QuickSightCastColumnTypeOperation {
   /**
    * @schema QuickSightCastColumnTypeOperation#ColumnName
    */
-  readonly columnName: string;
+  readonly columnName?: string;
 
   /**
    * @schema QuickSightCastColumnTypeOperation#NewColumnType
    */
-  readonly newColumnType: string;
+  readonly newColumnType?: string;
 
   /**
    * @schema QuickSightCastColumnTypeOperation#Format
@@ -7747,20 +14608,51 @@ export interface QuickSightCastColumnTypeOperation {
 }
 
 /**
+ * Converts an object of type 'QuickSightCastColumnTypeOperation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCastColumnTypeOperation(obj: QuickSightCastColumnTypeOperation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ColumnName': obj.columnName,
+    'NewColumnType': obj.newColumnType,
+    'Format': obj.format,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightTagColumnOperation
  */
 export interface QuickSightTagColumnOperation {
   /**
    * @schema QuickSightTagColumnOperation#ColumnName
    */
-  readonly columnName: string;
+  readonly columnName?: string;
 
   /**
    * @schema QuickSightTagColumnOperation#Tags
    */
-  readonly tags: QuickSightColumnTag[];
+  readonly tags?: QuickSightColumnTag[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightTagColumnOperation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTagColumnOperation(obj: QuickSightTagColumnOperation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ColumnName': obj.columnName,
+    'Tags': obj.tags?.map(y => toJson_QuickSightColumnTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightJoinInstruction
@@ -7769,24 +14661,53 @@ export interface QuickSightJoinInstruction {
   /**
    * @schema QuickSightJoinInstruction#LeftOperand
    */
-  readonly leftOperand: string;
+  readonly leftOperand?: string;
 
   /**
    * @schema QuickSightJoinInstruction#RightOperand
    */
-  readonly rightOperand: string;
+  readonly rightOperand?: string;
+
+  /**
+   * @schema QuickSightJoinInstruction#LeftJoinKeyProperties
+   */
+  readonly leftJoinKeyProperties?: QuickSightJoinKeyProperties;
+
+  /**
+   * @schema QuickSightJoinInstruction#RightJoinKeyProperties
+   */
+  readonly rightJoinKeyProperties?: QuickSightJoinKeyProperties;
 
   /**
    * @schema QuickSightJoinInstruction#Type
    */
-  readonly type: string;
+  readonly type?: string;
 
   /**
    * @schema QuickSightJoinInstruction#OnClause
    */
-  readonly onClause: string;
+  readonly onClause?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightJoinInstruction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightJoinInstruction(obj: QuickSightJoinInstruction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LeftOperand': obj.leftOperand,
+    'RightOperand': obj.rightOperand,
+    'LeftJoinKeyProperties': toJson_QuickSightJoinKeyProperties(obj.leftJoinKeyProperties),
+    'RightJoinKeyProperties': toJson_QuickSightJoinKeyProperties(obj.rightJoinKeyProperties),
+    'Type': obj.type,
+    'OnClause': obj.onClause,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightManifestFileLocation
@@ -7795,14 +14716,29 @@ export interface QuickSightManifestFileLocation {
   /**
    * @schema QuickSightManifestFileLocation#Bucket
    */
-  readonly bucket: string;
+  readonly bucket?: string;
 
   /**
    * @schema QuickSightManifestFileLocation#Key
    */
-  readonly key: string;
+  readonly key?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightManifestFileLocation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightManifestFileLocation(obj: QuickSightManifestFileLocation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Bucket': obj.bucket,
+    'Key': obj.key,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightTileStyle
@@ -7814,6 +14750,20 @@ export interface QuickSightTileStyle {
   readonly border?: QuickSightBorderStyle;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightTileStyle' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTileStyle(obj: QuickSightTileStyle | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Border': toJson_QuickSightBorderStyle(obj.border),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightTileLayoutStyle
@@ -7832,6 +14782,21 @@ export interface QuickSightTileLayoutStyle {
 }
 
 /**
+ * Converts an object of type 'QuickSightTileLayoutStyle' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTileLayoutStyle(obj: QuickSightTileLayoutStyle | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Gutter': toJson_QuickSightGutterStyle(obj.gutter),
+    'Margin': toJson_QuickSightMarginStyle(obj.margin),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDashboardError
  */
 export interface QuickSightDashboardError {
@@ -7848,6 +14813,21 @@ export interface QuickSightDashboardError {
 }
 
 /**
+ * Converts an object of type 'QuickSightDashboardError' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDashboardError(obj: QuickSightDashboardError | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightTemplateError
  */
 export interface QuickSightTemplateError {
@@ -7862,6 +14842,21 @@ export interface QuickSightTemplateError {
   readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightTemplateError' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightTemplateError(obj: QuickSightTemplateError | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightDataSetConfiguration
@@ -7885,6 +14880,22 @@ export interface QuickSightDataSetConfiguration {
 }
 
 /**
+ * Converts an object of type 'QuickSightDataSetConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDataSetConfiguration(obj: QuickSightDataSetConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Placeholder': obj.placeholder,
+    'DataSetSchema': toJson_QuickSightDataSetSchema(obj.dataSetSchema),
+    'ColumnGroupSchemaList': obj.columnGroupSchemaList?.map(y => toJson_QuickSightColumnGroupSchema(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightThemeError
  */
 export interface QuickSightThemeError {
@@ -7901,25 +14912,56 @@ export interface QuickSightThemeError {
 }
 
 /**
+ * Converts an object of type 'QuickSightThemeError' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightThemeError(obj: QuickSightThemeError | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightCalculatedColumn
  */
 export interface QuickSightCalculatedColumn {
   /**
    * @schema QuickSightCalculatedColumn#ColumnName
    */
-  readonly columnName: string;
+  readonly columnName?: string;
 
   /**
    * @schema QuickSightCalculatedColumn#ColumnId
    */
-  readonly columnId: string;
+  readonly columnId?: string;
 
   /**
    * @schema QuickSightCalculatedColumn#Expression
    */
-  readonly expression: string;
+  readonly expression?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightCalculatedColumn' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightCalculatedColumn(obj: QuickSightCalculatedColumn | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ColumnName': obj.columnName,
+    'ColumnId': obj.columnId,
+    'Expression': obj.expression,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightColumnTag
@@ -7938,6 +14980,46 @@ export interface QuickSightColumnTag {
 }
 
 /**
+ * Converts an object of type 'QuickSightColumnTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightColumnTag(obj: QuickSightColumnTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ColumnGeographicRole': obj.columnGeographicRole,
+    'ColumnDescription': toJson_QuickSightColumnDescription(obj.columnDescription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema QuickSightJoinKeyProperties
+ */
+export interface QuickSightJoinKeyProperties {
+  /**
+   * @schema QuickSightJoinKeyProperties#UniqueKey
+   */
+  readonly uniqueKey?: boolean;
+
+}
+
+/**
+ * Converts an object of type 'QuickSightJoinKeyProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightJoinKeyProperties(obj: QuickSightJoinKeyProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UniqueKey': obj.uniqueKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightBorderStyle
  */
 export interface QuickSightBorderStyle {
@@ -7947,6 +15029,20 @@ export interface QuickSightBorderStyle {
   readonly show?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightBorderStyle' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightBorderStyle(obj: QuickSightBorderStyle | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Show': obj.show,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightGutterStyle
@@ -7960,6 +15056,20 @@ export interface QuickSightGutterStyle {
 }
 
 /**
+ * Converts an object of type 'QuickSightGutterStyle' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightGutterStyle(obj: QuickSightGutterStyle | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Show': obj.show,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightMarginStyle
  */
 export interface QuickSightMarginStyle {
@@ -7971,6 +15081,20 @@ export interface QuickSightMarginStyle {
 }
 
 /**
+ * Converts an object of type 'QuickSightMarginStyle' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightMarginStyle(obj: QuickSightMarginStyle | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Show': obj.show,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightDataSetSchema
  */
 export interface QuickSightDataSetSchema {
@@ -7980,6 +15104,20 @@ export interface QuickSightDataSetSchema {
   readonly columnSchemaList?: QuickSightColumnSchema[];
 
 }
+
+/**
+ * Converts an object of type 'QuickSightDataSetSchema' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightDataSetSchema(obj: QuickSightDataSetSchema | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ColumnSchemaList': obj.columnSchemaList?.map(y => toJson_QuickSightColumnSchema(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightColumnGroupSchema
@@ -7998,6 +15136,21 @@ export interface QuickSightColumnGroupSchema {
 }
 
 /**
+ * Converts an object of type 'QuickSightColumnGroupSchema' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightColumnGroupSchema(obj: QuickSightColumnGroupSchema | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'ColumnGroupColumnSchemaList': obj.columnGroupColumnSchemaList?.map(y => toJson_QuickSightColumnGroupColumnSchema(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightColumnDescription
  */
 export interface QuickSightColumnDescription {
@@ -8007,6 +15160,20 @@ export interface QuickSightColumnDescription {
   readonly text?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightColumnDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightColumnDescription(obj: QuickSightColumnDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Text': obj.text,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema QuickSightColumnSchema
@@ -8030,6 +15197,22 @@ export interface QuickSightColumnSchema {
 }
 
 /**
+ * Converts an object of type 'QuickSightColumnSchema' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightColumnSchema(obj: QuickSightColumnSchema | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'DataType': obj.dataType,
+    'GeographicRole': obj.geographicRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema QuickSightColumnGroupColumnSchema
  */
 export interface QuickSightColumnGroupColumnSchema {
@@ -8039,3 +15222,17 @@ export interface QuickSightColumnGroupColumnSchema {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'QuickSightColumnGroupColumnSchema' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_QuickSightColumnGroupColumnSchema(obj: QuickSightColumnGroupColumnSchema | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

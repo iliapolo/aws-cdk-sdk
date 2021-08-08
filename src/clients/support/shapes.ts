@@ -15,6 +15,21 @@ export interface SupportAddAttachmentsToSetRequest {
 }
 
 /**
+ * Converts an object of type 'SupportAddAttachmentsToSetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportAddAttachmentsToSetRequest(obj: SupportAddAttachmentsToSetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'attachmentSetId': obj.attachmentSetId,
+    'attachments': obj.attachments?.map(y => toJson_SupportAttachment(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportAddAttachmentsToSetResponse
  */
 export interface SupportAddAttachmentsToSetResponse {
@@ -29,6 +44,21 @@ export interface SupportAddAttachmentsToSetResponse {
   readonly expiryTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'SupportAddAttachmentsToSetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportAddAttachmentsToSetResponse(obj: SupportAddAttachmentsToSetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'attachmentSetId': obj.attachmentSetId,
+    'expiryTime': obj.expiryTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportAddCommunicationToCaseRequest
@@ -57,6 +87,23 @@ export interface SupportAddCommunicationToCaseRequest {
 }
 
 /**
+ * Converts an object of type 'SupportAddCommunicationToCaseRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportAddCommunicationToCaseRequest(obj: SupportAddCommunicationToCaseRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'caseId': obj.caseId,
+    'communicationBody': obj.communicationBody,
+    'ccEmailAddresses': obj.ccEmailAddresses?.map(y => y),
+    'attachmentSetId': obj.attachmentSetId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportAddCommunicationToCaseResponse
  */
 export interface SupportAddCommunicationToCaseResponse {
@@ -66,6 +113,20 @@ export interface SupportAddCommunicationToCaseResponse {
   readonly result?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'SupportAddCommunicationToCaseResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportAddCommunicationToCaseResponse(obj: SupportAddCommunicationToCaseResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'result': obj.result,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportCreateCaseRequest
@@ -119,6 +180,28 @@ export interface SupportCreateCaseRequest {
 }
 
 /**
+ * Converts an object of type 'SupportCreateCaseRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportCreateCaseRequest(obj: SupportCreateCaseRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'subject': obj.subject,
+    'serviceCode': obj.serviceCode,
+    'severityCode': obj.severityCode,
+    'categoryCode': obj.categoryCode,
+    'communicationBody': obj.communicationBody,
+    'ccEmailAddresses': obj.ccEmailAddresses?.map(y => y),
+    'language': obj.language,
+    'issueType': obj.issueType,
+    'attachmentSetId': obj.attachmentSetId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportCreateCaseResponse
  */
 export interface SupportCreateCaseResponse {
@@ -128,6 +211,20 @@ export interface SupportCreateCaseResponse {
   readonly caseId?: string;
 
 }
+
+/**
+ * Converts an object of type 'SupportCreateCaseResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportCreateCaseResponse(obj: SupportCreateCaseResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'caseId': obj.caseId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportDescribeAttachmentRequest
@@ -141,6 +238,20 @@ export interface SupportDescribeAttachmentRequest {
 }
 
 /**
+ * Converts an object of type 'SupportDescribeAttachmentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportDescribeAttachmentRequest(obj: SupportDescribeAttachmentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'attachmentId': obj.attachmentId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportDescribeAttachmentResponse
  */
 export interface SupportDescribeAttachmentResponse {
@@ -150,6 +261,20 @@ export interface SupportDescribeAttachmentResponse {
   readonly attachment?: SupportAttachment;
 
 }
+
+/**
+ * Converts an object of type 'SupportDescribeAttachmentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportDescribeAttachmentResponse(obj: SupportDescribeAttachmentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'attachment': toJson_SupportAttachment(obj.attachment),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportDescribeCasesRequest
@@ -203,6 +328,28 @@ export interface SupportDescribeCasesRequest {
 }
 
 /**
+ * Converts an object of type 'SupportDescribeCasesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportDescribeCasesRequest(obj: SupportDescribeCasesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'caseIdList': obj.caseIdList?.map(y => y),
+    'displayId': obj.displayId,
+    'afterTime': obj.afterTime,
+    'beforeTime': obj.beforeTime,
+    'includeResolvedCases': obj.includeResolvedCases,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'language': obj.language,
+    'includeCommunications': obj.includeCommunications,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportDescribeCasesResponse
  */
 export interface SupportDescribeCasesResponse {
@@ -217,6 +364,21 @@ export interface SupportDescribeCasesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SupportDescribeCasesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportDescribeCasesResponse(obj: SupportDescribeCasesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'cases': obj.cases?.map(y => toJson_SupportCaseDetails(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportDescribeCommunicationsRequest
@@ -250,6 +412,24 @@ export interface SupportDescribeCommunicationsRequest {
 }
 
 /**
+ * Converts an object of type 'SupportDescribeCommunicationsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportDescribeCommunicationsRequest(obj: SupportDescribeCommunicationsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'caseId': obj.caseId,
+    'beforeTime': obj.beforeTime,
+    'afterTime': obj.afterTime,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportDescribeCommunicationsResponse
  */
 export interface SupportDescribeCommunicationsResponse {
@@ -264,6 +444,21 @@ export interface SupportDescribeCommunicationsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SupportDescribeCommunicationsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportDescribeCommunicationsResponse(obj: SupportDescribeCommunicationsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'communications': obj.communications?.map(y => toJson_SupportCommunication(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportDescribeServicesRequest
@@ -282,6 +477,21 @@ export interface SupportDescribeServicesRequest {
 }
 
 /**
+ * Converts an object of type 'SupportDescribeServicesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportDescribeServicesRequest(obj: SupportDescribeServicesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'serviceCodeList': obj.serviceCodeList?.map(y => y),
+    'language': obj.language,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportDescribeServicesResponse
  */
 export interface SupportDescribeServicesResponse {
@@ -291,6 +501,20 @@ export interface SupportDescribeServicesResponse {
   readonly services?: SupportService[];
 
 }
+
+/**
+ * Converts an object of type 'SupportDescribeServicesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportDescribeServicesResponse(obj: SupportDescribeServicesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'services': obj.services?.map(y => toJson_SupportService(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportDescribeSeverityLevelsRequest
@@ -304,6 +528,20 @@ export interface SupportDescribeSeverityLevelsRequest {
 }
 
 /**
+ * Converts an object of type 'SupportDescribeSeverityLevelsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportDescribeSeverityLevelsRequest(obj: SupportDescribeSeverityLevelsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'language': obj.language,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportDescribeSeverityLevelsResponse
  */
 export interface SupportDescribeSeverityLevelsResponse {
@@ -313,6 +551,20 @@ export interface SupportDescribeSeverityLevelsResponse {
   readonly severityLevels?: SupportSeverityLevel[];
 
 }
+
+/**
+ * Converts an object of type 'SupportDescribeSeverityLevelsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportDescribeSeverityLevelsResponse(obj: SupportDescribeSeverityLevelsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'severityLevels': obj.severityLevels?.map(y => toJson_SupportSeverityLevel(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportDescribeTrustedAdvisorCheckRefreshStatusesRequest
@@ -326,6 +578,20 @@ export interface SupportDescribeTrustedAdvisorCheckRefreshStatusesRequest {
 }
 
 /**
+ * Converts an object of type 'SupportDescribeTrustedAdvisorCheckRefreshStatusesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportDescribeTrustedAdvisorCheckRefreshStatusesRequest(obj: SupportDescribeTrustedAdvisorCheckRefreshStatusesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'checkIds': obj.checkIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportDescribeTrustedAdvisorCheckRefreshStatusesResponse
  */
 export interface SupportDescribeTrustedAdvisorCheckRefreshStatusesResponse {
@@ -335,6 +601,20 @@ export interface SupportDescribeTrustedAdvisorCheckRefreshStatusesResponse {
   readonly statuses: SupportTrustedAdvisorCheckRefreshStatus[];
 
 }
+
+/**
+ * Converts an object of type 'SupportDescribeTrustedAdvisorCheckRefreshStatusesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportDescribeTrustedAdvisorCheckRefreshStatusesResponse(obj: SupportDescribeTrustedAdvisorCheckRefreshStatusesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'statuses': obj.statuses?.map(y => toJson_SupportTrustedAdvisorCheckRefreshStatus(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportDescribeTrustedAdvisorCheckResultRequest
@@ -353,6 +633,21 @@ export interface SupportDescribeTrustedAdvisorCheckResultRequest {
 }
 
 /**
+ * Converts an object of type 'SupportDescribeTrustedAdvisorCheckResultRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportDescribeTrustedAdvisorCheckResultRequest(obj: SupportDescribeTrustedAdvisorCheckResultRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'checkId': obj.checkId,
+    'language': obj.language,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportDescribeTrustedAdvisorCheckResultResponse
  */
 export interface SupportDescribeTrustedAdvisorCheckResultResponse {
@@ -362,6 +657,20 @@ export interface SupportDescribeTrustedAdvisorCheckResultResponse {
   readonly result?: SupportTrustedAdvisorCheckResult;
 
 }
+
+/**
+ * Converts an object of type 'SupportDescribeTrustedAdvisorCheckResultResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportDescribeTrustedAdvisorCheckResultResponse(obj: SupportDescribeTrustedAdvisorCheckResultResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'result': toJson_SupportTrustedAdvisorCheckResult(obj.result),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportDescribeTrustedAdvisorCheckSummariesRequest
@@ -375,6 +684,20 @@ export interface SupportDescribeTrustedAdvisorCheckSummariesRequest {
 }
 
 /**
+ * Converts an object of type 'SupportDescribeTrustedAdvisorCheckSummariesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportDescribeTrustedAdvisorCheckSummariesRequest(obj: SupportDescribeTrustedAdvisorCheckSummariesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'checkIds': obj.checkIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportDescribeTrustedAdvisorCheckSummariesResponse
  */
 export interface SupportDescribeTrustedAdvisorCheckSummariesResponse {
@@ -384,6 +707,20 @@ export interface SupportDescribeTrustedAdvisorCheckSummariesResponse {
   readonly summaries: SupportTrustedAdvisorCheckSummary[];
 
 }
+
+/**
+ * Converts an object of type 'SupportDescribeTrustedAdvisorCheckSummariesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportDescribeTrustedAdvisorCheckSummariesResponse(obj: SupportDescribeTrustedAdvisorCheckSummariesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'summaries': obj.summaries?.map(y => toJson_SupportTrustedAdvisorCheckSummary(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportDescribeTrustedAdvisorChecksRequest
@@ -397,6 +734,20 @@ export interface SupportDescribeTrustedAdvisorChecksRequest {
 }
 
 /**
+ * Converts an object of type 'SupportDescribeTrustedAdvisorChecksRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportDescribeTrustedAdvisorChecksRequest(obj: SupportDescribeTrustedAdvisorChecksRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'language': obj.language,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportDescribeTrustedAdvisorChecksResponse
  */
 export interface SupportDescribeTrustedAdvisorChecksResponse {
@@ -406,6 +757,20 @@ export interface SupportDescribeTrustedAdvisorChecksResponse {
   readonly checks: SupportTrustedAdvisorCheckDescription[];
 
 }
+
+/**
+ * Converts an object of type 'SupportDescribeTrustedAdvisorChecksResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportDescribeTrustedAdvisorChecksResponse(obj: SupportDescribeTrustedAdvisorChecksResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'checks': obj.checks?.map(y => toJson_SupportTrustedAdvisorCheckDescription(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportRefreshTrustedAdvisorCheckRequest
@@ -419,6 +784,20 @@ export interface SupportRefreshTrustedAdvisorCheckRequest {
 }
 
 /**
+ * Converts an object of type 'SupportRefreshTrustedAdvisorCheckRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportRefreshTrustedAdvisorCheckRequest(obj: SupportRefreshTrustedAdvisorCheckRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'checkId': obj.checkId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportRefreshTrustedAdvisorCheckResponse
  */
 export interface SupportRefreshTrustedAdvisorCheckResponse {
@@ -430,6 +809,20 @@ export interface SupportRefreshTrustedAdvisorCheckResponse {
 }
 
 /**
+ * Converts an object of type 'SupportRefreshTrustedAdvisorCheckResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportRefreshTrustedAdvisorCheckResponse(obj: SupportRefreshTrustedAdvisorCheckResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': toJson_SupportTrustedAdvisorCheckRefreshStatus(obj.status),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportResolveCaseRequest
  */
 export interface SupportResolveCaseRequest {
@@ -439,6 +832,20 @@ export interface SupportResolveCaseRequest {
   readonly caseId?: string;
 
 }
+
+/**
+ * Converts an object of type 'SupportResolveCaseRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportResolveCaseRequest(obj: SupportResolveCaseRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'caseId': obj.caseId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportResolveCaseResponse
@@ -457,6 +864,21 @@ export interface SupportResolveCaseResponse {
 }
 
 /**
+ * Converts an object of type 'SupportResolveCaseResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportResolveCaseResponse(obj: SupportResolveCaseResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'initialCaseStatus': obj.initialCaseStatus,
+    'finalCaseStatus': obj.finalCaseStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportAttachment
  */
 export interface SupportAttachment {
@@ -471,6 +893,21 @@ export interface SupportAttachment {
   readonly data?: any;
 
 }
+
+/**
+ * Converts an object of type 'SupportAttachment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportAttachment(obj: SupportAttachment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fileName': obj.fileName,
+    'data': obj.data,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportCaseDetails
@@ -539,6 +976,31 @@ export interface SupportCaseDetails {
 }
 
 /**
+ * Converts an object of type 'SupportCaseDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportCaseDetails(obj: SupportCaseDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'caseId': obj.caseId,
+    'displayId': obj.displayId,
+    'subject': obj.subject,
+    'status': obj.status,
+    'serviceCode': obj.serviceCode,
+    'categoryCode': obj.categoryCode,
+    'severityCode': obj.severityCode,
+    'submittedBy': obj.submittedBy,
+    'timeCreated': obj.timeCreated,
+    'recentCommunications': toJson_SupportRecentCaseCommunications(obj.recentCommunications),
+    'ccEmailAddresses': obj.ccEmailAddresses?.map(y => y),
+    'language': obj.language,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportCommunication
  */
 export interface SupportCommunication {
@@ -570,6 +1032,24 @@ export interface SupportCommunication {
 }
 
 /**
+ * Converts an object of type 'SupportCommunication' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportCommunication(obj: SupportCommunication | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'caseId': obj.caseId,
+    'body': obj.body,
+    'submittedBy': obj.submittedBy,
+    'timeCreated': obj.timeCreated,
+    'attachmentSet': obj.attachmentSet?.map(y => toJson_SupportAttachmentDetails(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportService
  */
 export interface SupportService {
@@ -591,6 +1071,22 @@ export interface SupportService {
 }
 
 /**
+ * Converts an object of type 'SupportService' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportService(obj: SupportService | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'code': obj.code,
+    'name': obj.name,
+    'categories': obj.categories?.map(y => toJson_SupportCategory(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportSeverityLevel
  */
 export interface SupportSeverityLevel {
@@ -605,6 +1101,21 @@ export interface SupportSeverityLevel {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'SupportSeverityLevel' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportSeverityLevel(obj: SupportSeverityLevel | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'code': obj.code,
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportTrustedAdvisorCheckRefreshStatus
@@ -626,6 +1137,22 @@ export interface SupportTrustedAdvisorCheckRefreshStatus {
   readonly millisUntilNextRefreshable: number;
 
 }
+
+/**
+ * Converts an object of type 'SupportTrustedAdvisorCheckRefreshStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportTrustedAdvisorCheckRefreshStatus(obj: SupportTrustedAdvisorCheckRefreshStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'checkId': obj.checkId,
+    'status': obj.status,
+    'millisUntilNextRefreshable': obj.millisUntilNextRefreshable,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportTrustedAdvisorCheckResult
@@ -664,6 +1191,25 @@ export interface SupportTrustedAdvisorCheckResult {
 }
 
 /**
+ * Converts an object of type 'SupportTrustedAdvisorCheckResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportTrustedAdvisorCheckResult(obj: SupportTrustedAdvisorCheckResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'checkId': obj.checkId,
+    'timestamp': obj.timestamp,
+    'status': obj.status,
+    'resourcesSummary': toJson_SupportTrustedAdvisorResourcesSummary(obj.resourcesSummary),
+    'categorySpecificSummary': toJson_SupportTrustedAdvisorCategorySpecificSummary(obj.categorySpecificSummary),
+    'flaggedResources': obj.flaggedResources?.map(y => toJson_SupportTrustedAdvisorResourceDetail(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportTrustedAdvisorCheckSummary
  */
 export interface SupportTrustedAdvisorCheckSummary {
@@ -700,6 +1246,25 @@ export interface SupportTrustedAdvisorCheckSummary {
 }
 
 /**
+ * Converts an object of type 'SupportTrustedAdvisorCheckSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportTrustedAdvisorCheckSummary(obj: SupportTrustedAdvisorCheckSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'checkId': obj.checkId,
+    'timestamp': obj.timestamp,
+    'status': obj.status,
+    'hasFlaggedResources': obj.hasFlaggedResources,
+    'resourcesSummary': toJson_SupportTrustedAdvisorResourcesSummary(obj.resourcesSummary),
+    'categorySpecificSummary': toJson_SupportTrustedAdvisorCategorySpecificSummary(obj.categorySpecificSummary),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportTrustedAdvisorCheckDescription
  */
 export interface SupportTrustedAdvisorCheckDescription {
@@ -731,6 +1296,24 @@ export interface SupportTrustedAdvisorCheckDescription {
 }
 
 /**
+ * Converts an object of type 'SupportTrustedAdvisorCheckDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportTrustedAdvisorCheckDescription(obj: SupportTrustedAdvisorCheckDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'name': obj.name,
+    'description': obj.description,
+    'category': obj.category,
+    'metadata': obj.metadata?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportRecentCaseCommunications
  */
 export interface SupportRecentCaseCommunications {
@@ -745,6 +1328,21 @@ export interface SupportRecentCaseCommunications {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SupportRecentCaseCommunications' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportRecentCaseCommunications(obj: SupportRecentCaseCommunications | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'communications': obj.communications?.map(y => toJson_SupportCommunication(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportAttachmentDetails
@@ -763,6 +1361,21 @@ export interface SupportAttachmentDetails {
 }
 
 /**
+ * Converts an object of type 'SupportAttachmentDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportAttachmentDetails(obj: SupportAttachmentDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'attachmentId': obj.attachmentId,
+    'fileName': obj.fileName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportCategory
  */
 export interface SupportCategory {
@@ -777,6 +1390,21 @@ export interface SupportCategory {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'SupportCategory' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportCategory(obj: SupportCategory | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'code': obj.code,
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportTrustedAdvisorResourcesSummary
@@ -805,6 +1433,23 @@ export interface SupportTrustedAdvisorResourcesSummary {
 }
 
 /**
+ * Converts an object of type 'SupportTrustedAdvisorResourcesSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportTrustedAdvisorResourcesSummary(obj: SupportTrustedAdvisorResourcesSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourcesProcessed': obj.resourcesProcessed,
+    'resourcesFlagged': obj.resourcesFlagged,
+    'resourcesIgnored': obj.resourcesIgnored,
+    'resourcesSuppressed': obj.resourcesSuppressed,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportTrustedAdvisorCategorySpecificSummary
  */
 export interface SupportTrustedAdvisorCategorySpecificSummary {
@@ -814,6 +1459,20 @@ export interface SupportTrustedAdvisorCategorySpecificSummary {
   readonly costOptimizing?: SupportTrustedAdvisorCostOptimizingSummary;
 
 }
+
+/**
+ * Converts an object of type 'SupportTrustedAdvisorCategorySpecificSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportTrustedAdvisorCategorySpecificSummary(obj: SupportTrustedAdvisorCategorySpecificSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'costOptimizing': toJson_SupportTrustedAdvisorCostOptimizingSummary(obj.costOptimizing),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SupportTrustedAdvisorResourceDetail
@@ -847,6 +1506,24 @@ export interface SupportTrustedAdvisorResourceDetail {
 }
 
 /**
+ * Converts an object of type 'SupportTrustedAdvisorResourceDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportTrustedAdvisorResourceDetail(obj: SupportTrustedAdvisorResourceDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+    'region': obj.region,
+    'resourceId': obj.resourceId,
+    'isSuppressed': obj.isSuppressed,
+    'metadata': obj.metadata?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SupportTrustedAdvisorCostOptimizingSummary
  */
 export interface SupportTrustedAdvisorCostOptimizingSummary {
@@ -861,3 +1538,18 @@ export interface SupportTrustedAdvisorCostOptimizingSummary {
   readonly estimatedPercentMonthlySavings: number;
 
 }
+
+/**
+ * Converts an object of type 'SupportTrustedAdvisorCostOptimizingSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SupportTrustedAdvisorCostOptimizingSummary(obj: SupportTrustedAdvisorCostOptimizingSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'estimatedMonthlySavings': obj.estimatedMonthlySavings,
+    'estimatedPercentMonthlySavings': obj.estimatedPercentMonthlySavings,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

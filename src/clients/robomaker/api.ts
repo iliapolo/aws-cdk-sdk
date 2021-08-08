@@ -5670,6 +5670,23 @@ export class RoboMakerResponsesDescribeWorld {
     return resource.getResponseField('tags') as unknown as Record<string, string>;
   }
 
+  public get worldDescriptionBody(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeWorld',
+        service: 'RoboMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('RoboMaker.DescribeWorld.worldDescriptionBody'),
+        outputPath: 'worldDescriptionBody',
+        parameters: {
+          world: this.__input.world,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeWorld.worldDescriptionBody', props);
+    return resource.getResponseField('worldDescriptionBody') as unknown as string;
+  }
+
 }
 
 export class RoboMakerResponsesDescribeWorldExportJob {
@@ -6277,6 +6294,23 @@ export class RoboMakerResponsesDescribeWorldTemplate {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeWorldTemplate.tags', props);
     return resource.getResponseField('tags') as unknown as Record<string, string>;
+  }
+
+  public get version(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeWorldTemplate',
+        service: 'RoboMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('RoboMaker.DescribeWorldTemplate.version'),
+        outputPath: 'version',
+        parameters: {
+          template: this.__input.template,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeWorldTemplate.version', props);
+    return resource.getResponseField('version') as unknown as string;
   }
 
 }

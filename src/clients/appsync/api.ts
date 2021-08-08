@@ -2160,6 +2160,13 @@ export class AppSyncResponsesCreateFunctionFunctionConfiguration {
           requestMappingTemplate: this.__input.requestMappingTemplate,
           responseMappingTemplate: this.__input.responseMappingTemplate,
           functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
         },
       },
     };
@@ -2183,6 +2190,13 @@ export class AppSyncResponsesCreateFunctionFunctionConfiguration {
           requestMappingTemplate: this.__input.requestMappingTemplate,
           responseMappingTemplate: this.__input.responseMappingTemplate,
           functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
         },
       },
     };
@@ -2206,6 +2220,13 @@ export class AppSyncResponsesCreateFunctionFunctionConfiguration {
           requestMappingTemplate: this.__input.requestMappingTemplate,
           responseMappingTemplate: this.__input.responseMappingTemplate,
           functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
         },
       },
     };
@@ -2229,6 +2250,13 @@ export class AppSyncResponsesCreateFunctionFunctionConfiguration {
           requestMappingTemplate: this.__input.requestMappingTemplate,
           responseMappingTemplate: this.__input.responseMappingTemplate,
           functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
         },
       },
     };
@@ -2252,6 +2280,13 @@ export class AppSyncResponsesCreateFunctionFunctionConfiguration {
           requestMappingTemplate: this.__input.requestMappingTemplate,
           responseMappingTemplate: this.__input.responseMappingTemplate,
           functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
         },
       },
     };
@@ -2275,6 +2310,13 @@ export class AppSyncResponsesCreateFunctionFunctionConfiguration {
           requestMappingTemplate: this.__input.requestMappingTemplate,
           responseMappingTemplate: this.__input.responseMappingTemplate,
           functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
         },
       },
     };
@@ -2298,6 +2340,13 @@ export class AppSyncResponsesCreateFunctionFunctionConfiguration {
           requestMappingTemplate: this.__input.requestMappingTemplate,
           responseMappingTemplate: this.__input.responseMappingTemplate,
           functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
         },
       },
     };
@@ -2321,11 +2370,130 @@ export class AppSyncResponsesCreateFunctionFunctionConfiguration {
           requestMappingTemplate: this.__input.requestMappingTemplate,
           responseMappingTemplate: this.__input.responseMappingTemplate,
           functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.functionConfiguration.functionVersion', props);
     return resource.getResponseField('functionConfiguration.functionVersion') as unknown as string;
+  }
+
+  public get syncConfig(): AppSyncResponsesCreateFunctionFunctionConfigurationSyncConfig {
+    return new AppSyncResponsesCreateFunctionFunctionConfigurationSyncConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class AppSyncResponsesCreateFunctionFunctionConfigurationSyncConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AppSyncCreateFunctionRequest) {
+  }
+
+  public get conflictHandler(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'AppSync',
+        physicalResourceId: cr.PhysicalResourceId.of('AppSync.CreateFunction.functionConfiguration.syncConfig.conflictHandler'),
+        outputPath: 'functionConfiguration.syncConfig.conflictHandler',
+        parameters: {
+          apiId: this.__input.apiId,
+          name: this.__input.name,
+          description: this.__input.description,
+          dataSourceName: this.__input.dataSourceName,
+          requestMappingTemplate: this.__input.requestMappingTemplate,
+          responseMappingTemplate: this.__input.responseMappingTemplate,
+          functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.functionConfiguration.syncConfig.conflictHandler', props);
+    return resource.getResponseField('functionConfiguration.syncConfig.conflictHandler') as unknown as string;
+  }
+
+  public get conflictDetection(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'AppSync',
+        physicalResourceId: cr.PhysicalResourceId.of('AppSync.CreateFunction.functionConfiguration.syncConfig.conflictDetection'),
+        outputPath: 'functionConfiguration.syncConfig.conflictDetection',
+        parameters: {
+          apiId: this.__input.apiId,
+          name: this.__input.name,
+          description: this.__input.description,
+          dataSourceName: this.__input.dataSourceName,
+          requestMappingTemplate: this.__input.requestMappingTemplate,
+          responseMappingTemplate: this.__input.responseMappingTemplate,
+          functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.functionConfiguration.syncConfig.conflictDetection', props);
+    return resource.getResponseField('functionConfiguration.syncConfig.conflictDetection') as unknown as string;
+  }
+
+  public get lambdaConflictHandlerConfig(): AppSyncResponsesCreateFunctionFunctionConfigurationSyncConfigLambdaConflictHandlerConfig {
+    return new AppSyncResponsesCreateFunctionFunctionConfigurationSyncConfigLambdaConflictHandlerConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class AppSyncResponsesCreateFunctionFunctionConfigurationSyncConfigLambdaConflictHandlerConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AppSyncCreateFunctionRequest) {
+  }
+
+  public get lambdaConflictHandlerArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFunction',
+        service: 'AppSync',
+        physicalResourceId: cr.PhysicalResourceId.of('AppSync.CreateFunction.functionConfiguration.syncConfig.lambdaConflictHandlerConfig.lambdaConflictHandlerArn'),
+        outputPath: 'functionConfiguration.syncConfig.lambdaConflictHandlerConfig.lambdaConflictHandlerArn',
+        parameters: {
+          apiId: this.__input.apiId,
+          name: this.__input.name,
+          description: this.__input.description,
+          dataSourceName: this.__input.dataSourceName,
+          requestMappingTemplate: this.__input.requestMappingTemplate,
+          responseMappingTemplate: this.__input.responseMappingTemplate,
+          functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFunction.functionConfiguration.syncConfig.lambdaConflictHandlerConfig.lambdaConflictHandlerArn', props);
+    return resource.getResponseField('functionConfiguration.syncConfig.lambdaConflictHandlerConfig.lambdaConflictHandlerArn') as unknown as string;
   }
 
 }
@@ -2377,6 +2545,11 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApi {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -2415,6 +2588,11 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApi {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -2453,6 +2631,11 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApi {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -2503,6 +2686,11 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApi {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -2541,6 +2729,11 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApi {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -2579,6 +2772,11 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApi {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -2617,6 +2815,11 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApi {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -2655,6 +2858,11 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApi {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -2693,11 +2901,20 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApi {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateGraphqlApi.graphqlApi.wafWebAclArn', props);
     return resource.getResponseField('graphqlApi.wafWebAclArn') as unknown as string;
+  }
+
+  public get lambdaAuthorizerConfig(): AppSyncResponsesCreateGraphqlApiGraphqlApiLambdaAuthorizerConfig {
+    return new AppSyncResponsesCreateGraphqlApiGraphqlApiLambdaAuthorizerConfig(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -2738,6 +2955,11 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApiLogConfig {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -2776,6 +2998,11 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApiLogConfig {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -2814,6 +3041,11 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApiLogConfig {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -2859,6 +3091,11 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApiUserPoolConfig {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -2897,6 +3134,11 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApiUserPoolConfig {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -2935,6 +3177,11 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApiUserPoolConfig {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -2973,6 +3220,11 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApiUserPoolConfig {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -3018,6 +3270,11 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApiOpenIdConnectConfig {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -3056,6 +3313,11 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApiOpenIdConnectConfig {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -3094,6 +3356,11 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApiOpenIdConnectConfig {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -3132,11 +3399,152 @@ export class AppSyncResponsesCreateGraphqlApiGraphqlApiOpenIdConnectConfig {
           tags: this.__input.tags,
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateGraphqlApi.graphqlApi.openIDConnectConfig.authTTL', props);
     return resource.getResponseField('graphqlApi.openIDConnectConfig.authTTL') as unknown as number;
+  }
+
+}
+
+export class AppSyncResponsesCreateGraphqlApiGraphqlApiLambdaAuthorizerConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AppSyncCreateGraphqlApiRequest) {
+  }
+
+  public get authorizerResultTtlInSeconds(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGraphqlApi',
+        service: 'AppSync',
+        physicalResourceId: cr.PhysicalResourceId.of('AppSync.CreateGraphqlApi.graphqlApi.lambdaAuthorizerConfig.authorizerResultTtlInSeconds'),
+        outputPath: 'graphqlApi.lambdaAuthorizerConfig.authorizerResultTtlInSeconds',
+        parameters: {
+          name: this.__input.name,
+          logConfig: {
+            fieldLogLevel: this.__input.logConfig?.fieldLogLevel,
+            cloudWatchLogsRoleArn: this.__input.logConfig?.cloudWatchLogsRoleArn,
+            excludeVerboseContent: this.__input.logConfig?.excludeVerboseContent,
+          },
+          authenticationType: this.__input.authenticationType,
+          userPoolConfig: {
+            userPoolId: this.__input.userPoolConfig?.userPoolId,
+            awsRegion: this.__input.userPoolConfig?.awsRegion,
+            defaultAction: this.__input.userPoolConfig?.defaultAction,
+            appIdClientRegex: this.__input.userPoolConfig?.appIdClientRegex,
+          },
+          openIDConnectConfig: {
+            issuer: this.__input.openIDConnectConfig?.issuer,
+            clientId: this.__input.openIDConnectConfig?.clientId,
+            iatTTL: this.__input.openIDConnectConfig?.iatTTL,
+            authTTL: this.__input.openIDConnectConfig?.authTTL,
+          },
+          tags: this.__input.tags,
+          additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
+          xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGraphqlApi.graphqlApi.lambdaAuthorizerConfig.authorizerResultTtlInSeconds', props);
+    return resource.getResponseField('graphqlApi.lambdaAuthorizerConfig.authorizerResultTtlInSeconds') as unknown as number;
+  }
+
+  public get authorizerUri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGraphqlApi',
+        service: 'AppSync',
+        physicalResourceId: cr.PhysicalResourceId.of('AppSync.CreateGraphqlApi.graphqlApi.lambdaAuthorizerConfig.authorizerUri'),
+        outputPath: 'graphqlApi.lambdaAuthorizerConfig.authorizerUri',
+        parameters: {
+          name: this.__input.name,
+          logConfig: {
+            fieldLogLevel: this.__input.logConfig?.fieldLogLevel,
+            cloudWatchLogsRoleArn: this.__input.logConfig?.cloudWatchLogsRoleArn,
+            excludeVerboseContent: this.__input.logConfig?.excludeVerboseContent,
+          },
+          authenticationType: this.__input.authenticationType,
+          userPoolConfig: {
+            userPoolId: this.__input.userPoolConfig?.userPoolId,
+            awsRegion: this.__input.userPoolConfig?.awsRegion,
+            defaultAction: this.__input.userPoolConfig?.defaultAction,
+            appIdClientRegex: this.__input.userPoolConfig?.appIdClientRegex,
+          },
+          openIDConnectConfig: {
+            issuer: this.__input.openIDConnectConfig?.issuer,
+            clientId: this.__input.openIDConnectConfig?.clientId,
+            iatTTL: this.__input.openIDConnectConfig?.iatTTL,
+            authTTL: this.__input.openIDConnectConfig?.authTTL,
+          },
+          tags: this.__input.tags,
+          additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
+          xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGraphqlApi.graphqlApi.lambdaAuthorizerConfig.authorizerUri', props);
+    return resource.getResponseField('graphqlApi.lambdaAuthorizerConfig.authorizerUri') as unknown as string;
+  }
+
+  public get identityValidationExpression(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGraphqlApi',
+        service: 'AppSync',
+        physicalResourceId: cr.PhysicalResourceId.of('AppSync.CreateGraphqlApi.graphqlApi.lambdaAuthorizerConfig.identityValidationExpression'),
+        outputPath: 'graphqlApi.lambdaAuthorizerConfig.identityValidationExpression',
+        parameters: {
+          name: this.__input.name,
+          logConfig: {
+            fieldLogLevel: this.__input.logConfig?.fieldLogLevel,
+            cloudWatchLogsRoleArn: this.__input.logConfig?.cloudWatchLogsRoleArn,
+            excludeVerboseContent: this.__input.logConfig?.excludeVerboseContent,
+          },
+          authenticationType: this.__input.authenticationType,
+          userPoolConfig: {
+            userPoolId: this.__input.userPoolConfig?.userPoolId,
+            awsRegion: this.__input.userPoolConfig?.awsRegion,
+            defaultAction: this.__input.userPoolConfig?.defaultAction,
+            appIdClientRegex: this.__input.userPoolConfig?.appIdClientRegex,
+          },
+          openIDConnectConfig: {
+            issuer: this.__input.openIDConnectConfig?.issuer,
+            clientId: this.__input.openIDConnectConfig?.clientId,
+            iatTTL: this.__input.openIDConnectConfig?.iatTTL,
+            authTTL: this.__input.openIDConnectConfig?.authTTL,
+          },
+          tags: this.__input.tags,
+          additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
+          xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGraphqlApi.graphqlApi.lambdaAuthorizerConfig.identityValidationExpression', props);
+    return resource.getResponseField('graphqlApi.lambdaAuthorizerConfig.identityValidationExpression') as unknown as string;
   }
 
 }
@@ -4644,6 +5052,82 @@ export class AppSyncResponsesFetchFunctionFunctionConfiguration {
     return resource.getResponseField('functionConfiguration.functionVersion') as unknown as string;
   }
 
+  public get syncConfig(): AppSyncResponsesFetchFunctionFunctionConfigurationSyncConfig {
+    return new AppSyncResponsesFetchFunctionFunctionConfigurationSyncConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class AppSyncResponsesFetchFunctionFunctionConfigurationSyncConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AppSyncGetFunctionRequest) {
+  }
+
+  public get conflictHandler(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFunction',
+        service: 'AppSync',
+        physicalResourceId: cr.PhysicalResourceId.of('AppSync.GetFunction.functionConfiguration.syncConfig.conflictHandler'),
+        outputPath: 'functionConfiguration.syncConfig.conflictHandler',
+        parameters: {
+          apiId: this.__input.apiId,
+          functionId: this.__input.functionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFunction.functionConfiguration.syncConfig.conflictHandler', props);
+    return resource.getResponseField('functionConfiguration.syncConfig.conflictHandler') as unknown as string;
+  }
+
+  public get conflictDetection(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFunction',
+        service: 'AppSync',
+        physicalResourceId: cr.PhysicalResourceId.of('AppSync.GetFunction.functionConfiguration.syncConfig.conflictDetection'),
+        outputPath: 'functionConfiguration.syncConfig.conflictDetection',
+        parameters: {
+          apiId: this.__input.apiId,
+          functionId: this.__input.functionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFunction.functionConfiguration.syncConfig.conflictDetection', props);
+    return resource.getResponseField('functionConfiguration.syncConfig.conflictDetection') as unknown as string;
+  }
+
+  public get lambdaConflictHandlerConfig(): AppSyncResponsesFetchFunctionFunctionConfigurationSyncConfigLambdaConflictHandlerConfig {
+    return new AppSyncResponsesFetchFunctionFunctionConfigurationSyncConfigLambdaConflictHandlerConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class AppSyncResponsesFetchFunctionFunctionConfigurationSyncConfigLambdaConflictHandlerConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AppSyncGetFunctionRequest) {
+  }
+
+  public get lambdaConflictHandlerArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFunction',
+        service: 'AppSync',
+        physicalResourceId: cr.PhysicalResourceId.of('AppSync.GetFunction.functionConfiguration.syncConfig.lambdaConflictHandlerConfig.lambdaConflictHandlerArn'),
+        outputPath: 'functionConfiguration.syncConfig.lambdaConflictHandlerConfig.lambdaConflictHandlerArn',
+        parameters: {
+          apiId: this.__input.apiId,
+          functionId: this.__input.functionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFunction.functionConfiguration.syncConfig.lambdaConflictHandlerConfig.lambdaConflictHandlerArn', props);
+    return resource.getResponseField('functionConfiguration.syncConfig.lambdaConflictHandlerConfig.lambdaConflictHandlerArn') as unknown as string;
+  }
+
 }
 
 export class AppSyncResponsesFetchGraphqlApi {
@@ -4825,6 +5309,10 @@ export class AppSyncResponsesFetchGraphqlApiGraphqlApi {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetGraphqlApi.graphqlApi.wafWebAclArn', props);
     return resource.getResponseField('graphqlApi.wafWebAclArn') as unknown as string;
+  }
+
+  public get lambdaAuthorizerConfig(): AppSyncResponsesFetchGraphqlApiGraphqlApiLambdaAuthorizerConfig {
+    return new AppSyncResponsesFetchGraphqlApiGraphqlApiLambdaAuthorizerConfig(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -5033,6 +5521,64 @@ export class AppSyncResponsesFetchGraphqlApiGraphqlApiOpenIdConnectConfig {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetGraphqlApi.graphqlApi.openIDConnectConfig.authTTL', props);
     return resource.getResponseField('graphqlApi.openIDConnectConfig.authTTL') as unknown as number;
+  }
+
+}
+
+export class AppSyncResponsesFetchGraphqlApiGraphqlApiLambdaAuthorizerConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AppSyncGetGraphqlApiRequest) {
+  }
+
+  public get authorizerResultTtlInSeconds(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getGraphqlApi',
+        service: 'AppSync',
+        physicalResourceId: cr.PhysicalResourceId.of('AppSync.GetGraphqlApi.graphqlApi.lambdaAuthorizerConfig.authorizerResultTtlInSeconds'),
+        outputPath: 'graphqlApi.lambdaAuthorizerConfig.authorizerResultTtlInSeconds',
+        parameters: {
+          apiId: this.__input.apiId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetGraphqlApi.graphqlApi.lambdaAuthorizerConfig.authorizerResultTtlInSeconds', props);
+    return resource.getResponseField('graphqlApi.lambdaAuthorizerConfig.authorizerResultTtlInSeconds') as unknown as number;
+  }
+
+  public get authorizerUri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getGraphqlApi',
+        service: 'AppSync',
+        physicalResourceId: cr.PhysicalResourceId.of('AppSync.GetGraphqlApi.graphqlApi.lambdaAuthorizerConfig.authorizerUri'),
+        outputPath: 'graphqlApi.lambdaAuthorizerConfig.authorizerUri',
+        parameters: {
+          apiId: this.__input.apiId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetGraphqlApi.graphqlApi.lambdaAuthorizerConfig.authorizerUri', props);
+    return resource.getResponseField('graphqlApi.lambdaAuthorizerConfig.authorizerUri') as unknown as string;
+  }
+
+  public get identityValidationExpression(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getGraphqlApi',
+        service: 'AppSync',
+        physicalResourceId: cr.PhysicalResourceId.of('AppSync.GetGraphqlApi.graphqlApi.lambdaAuthorizerConfig.identityValidationExpression'),
+        outputPath: 'graphqlApi.lambdaAuthorizerConfig.identityValidationExpression',
+        parameters: {
+          apiId: this.__input.apiId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetGraphqlApi.graphqlApi.lambdaAuthorizerConfig.identityValidationExpression', props);
+    return resource.getResponseField('graphqlApi.lambdaAuthorizerConfig.identityValidationExpression') as unknown as string;
   }
 
 }
@@ -7756,6 +8302,13 @@ export class AppSyncResponsesUpdateFunctionFunctionConfiguration {
           requestMappingTemplate: this.__input.requestMappingTemplate,
           responseMappingTemplate: this.__input.responseMappingTemplate,
           functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
         },
       },
     };
@@ -7780,6 +8333,13 @@ export class AppSyncResponsesUpdateFunctionFunctionConfiguration {
           requestMappingTemplate: this.__input.requestMappingTemplate,
           responseMappingTemplate: this.__input.responseMappingTemplate,
           functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
         },
       },
     };
@@ -7804,6 +8364,13 @@ export class AppSyncResponsesUpdateFunctionFunctionConfiguration {
           requestMappingTemplate: this.__input.requestMappingTemplate,
           responseMappingTemplate: this.__input.responseMappingTemplate,
           functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
         },
       },
     };
@@ -7828,6 +8395,13 @@ export class AppSyncResponsesUpdateFunctionFunctionConfiguration {
           requestMappingTemplate: this.__input.requestMappingTemplate,
           responseMappingTemplate: this.__input.responseMappingTemplate,
           functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
         },
       },
     };
@@ -7852,6 +8426,13 @@ export class AppSyncResponsesUpdateFunctionFunctionConfiguration {
           requestMappingTemplate: this.__input.requestMappingTemplate,
           responseMappingTemplate: this.__input.responseMappingTemplate,
           functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
         },
       },
     };
@@ -7876,6 +8457,13 @@ export class AppSyncResponsesUpdateFunctionFunctionConfiguration {
           requestMappingTemplate: this.__input.requestMappingTemplate,
           responseMappingTemplate: this.__input.responseMappingTemplate,
           functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
         },
       },
     };
@@ -7900,6 +8488,13 @@ export class AppSyncResponsesUpdateFunctionFunctionConfiguration {
           requestMappingTemplate: this.__input.requestMappingTemplate,
           responseMappingTemplate: this.__input.responseMappingTemplate,
           functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
         },
       },
     };
@@ -7924,11 +8519,133 @@ export class AppSyncResponsesUpdateFunctionFunctionConfiguration {
           requestMappingTemplate: this.__input.requestMappingTemplate,
           responseMappingTemplate: this.__input.responseMappingTemplate,
           functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunction.functionConfiguration.functionVersion', props);
     return resource.getResponseField('functionConfiguration.functionVersion') as unknown as string;
+  }
+
+  public get syncConfig(): AppSyncResponsesUpdateFunctionFunctionConfigurationSyncConfig {
+    return new AppSyncResponsesUpdateFunctionFunctionConfigurationSyncConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class AppSyncResponsesUpdateFunctionFunctionConfigurationSyncConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AppSyncUpdateFunctionRequest) {
+  }
+
+  public get conflictHandler(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunction',
+        service: 'AppSync',
+        physicalResourceId: cr.PhysicalResourceId.of('AppSync.UpdateFunction.functionConfiguration.syncConfig.conflictHandler'),
+        outputPath: 'functionConfiguration.syncConfig.conflictHandler',
+        parameters: {
+          apiId: this.__input.apiId,
+          name: this.__input.name,
+          description: this.__input.description,
+          functionId: this.__input.functionId,
+          dataSourceName: this.__input.dataSourceName,
+          requestMappingTemplate: this.__input.requestMappingTemplate,
+          responseMappingTemplate: this.__input.responseMappingTemplate,
+          functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunction.functionConfiguration.syncConfig.conflictHandler', props);
+    return resource.getResponseField('functionConfiguration.syncConfig.conflictHandler') as unknown as string;
+  }
+
+  public get conflictDetection(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunction',
+        service: 'AppSync',
+        physicalResourceId: cr.PhysicalResourceId.of('AppSync.UpdateFunction.functionConfiguration.syncConfig.conflictDetection'),
+        outputPath: 'functionConfiguration.syncConfig.conflictDetection',
+        parameters: {
+          apiId: this.__input.apiId,
+          name: this.__input.name,
+          description: this.__input.description,
+          functionId: this.__input.functionId,
+          dataSourceName: this.__input.dataSourceName,
+          requestMappingTemplate: this.__input.requestMappingTemplate,
+          responseMappingTemplate: this.__input.responseMappingTemplate,
+          functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunction.functionConfiguration.syncConfig.conflictDetection', props);
+    return resource.getResponseField('functionConfiguration.syncConfig.conflictDetection') as unknown as string;
+  }
+
+  public get lambdaConflictHandlerConfig(): AppSyncResponsesUpdateFunctionFunctionConfigurationSyncConfigLambdaConflictHandlerConfig {
+    return new AppSyncResponsesUpdateFunctionFunctionConfigurationSyncConfigLambdaConflictHandlerConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class AppSyncResponsesUpdateFunctionFunctionConfigurationSyncConfigLambdaConflictHandlerConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AppSyncUpdateFunctionRequest) {
+  }
+
+  public get lambdaConflictHandlerArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFunction',
+        service: 'AppSync',
+        physicalResourceId: cr.PhysicalResourceId.of('AppSync.UpdateFunction.functionConfiguration.syncConfig.lambdaConflictHandlerConfig.lambdaConflictHandlerArn'),
+        outputPath: 'functionConfiguration.syncConfig.lambdaConflictHandlerConfig.lambdaConflictHandlerArn',
+        parameters: {
+          apiId: this.__input.apiId,
+          name: this.__input.name,
+          description: this.__input.description,
+          functionId: this.__input.functionId,
+          dataSourceName: this.__input.dataSourceName,
+          requestMappingTemplate: this.__input.requestMappingTemplate,
+          responseMappingTemplate: this.__input.responseMappingTemplate,
+          functionVersion: this.__input.functionVersion,
+          syncConfig: {
+            conflictHandler: this.__input.syncConfig?.conflictHandler,
+            conflictDetection: this.__input.syncConfig?.conflictDetection,
+            lambdaConflictHandlerConfig: {
+              lambdaConflictHandlerArn: this.__input.syncConfig?.lambdaConflictHandlerConfig?.lambdaConflictHandlerArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFunction.functionConfiguration.syncConfig.lambdaConflictHandlerConfig.lambdaConflictHandlerArn', props);
+    return resource.getResponseField('functionConfiguration.syncConfig.lambdaConflictHandlerConfig.lambdaConflictHandlerArn') as unknown as string;
   }
 
 }
@@ -7980,6 +8697,11 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApi {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -8018,6 +8740,11 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApi {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -8056,6 +8783,11 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApi {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -8106,6 +8838,11 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApi {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -8144,6 +8881,11 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApi {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -8182,6 +8924,11 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApi {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -8220,6 +8967,11 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApi {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -8258,6 +9010,11 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApi {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -8296,11 +9053,20 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApi {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateGraphqlApi.graphqlApi.wafWebAclArn', props);
     return resource.getResponseField('graphqlApi.wafWebAclArn') as unknown as string;
+  }
+
+  public get lambdaAuthorizerConfig(): AppSyncResponsesUpdateGraphqlApiGraphqlApiLambdaAuthorizerConfig {
+    return new AppSyncResponsesUpdateGraphqlApiGraphqlApiLambdaAuthorizerConfig(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -8341,6 +9107,11 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApiLogConfig {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -8379,6 +9150,11 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApiLogConfig {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -8417,6 +9193,11 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApiLogConfig {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -8462,6 +9243,11 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApiUserPoolConfig {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -8500,6 +9286,11 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApiUserPoolConfig {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -8538,6 +9329,11 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApiUserPoolConfig {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -8576,6 +9372,11 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApiUserPoolConfig {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -8621,6 +9422,11 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApiOpenIdConnectConfig {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -8659,6 +9465,11 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApiOpenIdConnectConfig {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -8697,6 +9508,11 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApiOpenIdConnectConfig {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
@@ -8735,11 +9551,152 @@ export class AppSyncResponsesUpdateGraphqlApiGraphqlApiOpenIdConnectConfig {
           },
           additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
           xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateGraphqlApi.graphqlApi.openIDConnectConfig.authTTL', props);
     return resource.getResponseField('graphqlApi.openIDConnectConfig.authTTL') as unknown as number;
+  }
+
+}
+
+export class AppSyncResponsesUpdateGraphqlApiGraphqlApiLambdaAuthorizerConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AppSyncUpdateGraphqlApiRequest) {
+  }
+
+  public get authorizerResultTtlInSeconds(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateGraphqlApi',
+        service: 'AppSync',
+        physicalResourceId: cr.PhysicalResourceId.of('AppSync.UpdateGraphqlApi.graphqlApi.lambdaAuthorizerConfig.authorizerResultTtlInSeconds'),
+        outputPath: 'graphqlApi.lambdaAuthorizerConfig.authorizerResultTtlInSeconds',
+        parameters: {
+          apiId: this.__input.apiId,
+          name: this.__input.name,
+          logConfig: {
+            fieldLogLevel: this.__input.logConfig?.fieldLogLevel,
+            cloudWatchLogsRoleArn: this.__input.logConfig?.cloudWatchLogsRoleArn,
+            excludeVerboseContent: this.__input.logConfig?.excludeVerboseContent,
+          },
+          authenticationType: this.__input.authenticationType,
+          userPoolConfig: {
+            userPoolId: this.__input.userPoolConfig?.userPoolId,
+            awsRegion: this.__input.userPoolConfig?.awsRegion,
+            defaultAction: this.__input.userPoolConfig?.defaultAction,
+            appIdClientRegex: this.__input.userPoolConfig?.appIdClientRegex,
+          },
+          openIDConnectConfig: {
+            issuer: this.__input.openIDConnectConfig?.issuer,
+            clientId: this.__input.openIDConnectConfig?.clientId,
+            iatTTL: this.__input.openIDConnectConfig?.iatTTL,
+            authTTL: this.__input.openIDConnectConfig?.authTTL,
+          },
+          additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
+          xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateGraphqlApi.graphqlApi.lambdaAuthorizerConfig.authorizerResultTtlInSeconds', props);
+    return resource.getResponseField('graphqlApi.lambdaAuthorizerConfig.authorizerResultTtlInSeconds') as unknown as number;
+  }
+
+  public get authorizerUri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateGraphqlApi',
+        service: 'AppSync',
+        physicalResourceId: cr.PhysicalResourceId.of('AppSync.UpdateGraphqlApi.graphqlApi.lambdaAuthorizerConfig.authorizerUri'),
+        outputPath: 'graphqlApi.lambdaAuthorizerConfig.authorizerUri',
+        parameters: {
+          apiId: this.__input.apiId,
+          name: this.__input.name,
+          logConfig: {
+            fieldLogLevel: this.__input.logConfig?.fieldLogLevel,
+            cloudWatchLogsRoleArn: this.__input.logConfig?.cloudWatchLogsRoleArn,
+            excludeVerboseContent: this.__input.logConfig?.excludeVerboseContent,
+          },
+          authenticationType: this.__input.authenticationType,
+          userPoolConfig: {
+            userPoolId: this.__input.userPoolConfig?.userPoolId,
+            awsRegion: this.__input.userPoolConfig?.awsRegion,
+            defaultAction: this.__input.userPoolConfig?.defaultAction,
+            appIdClientRegex: this.__input.userPoolConfig?.appIdClientRegex,
+          },
+          openIDConnectConfig: {
+            issuer: this.__input.openIDConnectConfig?.issuer,
+            clientId: this.__input.openIDConnectConfig?.clientId,
+            iatTTL: this.__input.openIDConnectConfig?.iatTTL,
+            authTTL: this.__input.openIDConnectConfig?.authTTL,
+          },
+          additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
+          xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateGraphqlApi.graphqlApi.lambdaAuthorizerConfig.authorizerUri', props);
+    return resource.getResponseField('graphqlApi.lambdaAuthorizerConfig.authorizerUri') as unknown as string;
+  }
+
+  public get identityValidationExpression(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateGraphqlApi',
+        service: 'AppSync',
+        physicalResourceId: cr.PhysicalResourceId.of('AppSync.UpdateGraphqlApi.graphqlApi.lambdaAuthorizerConfig.identityValidationExpression'),
+        outputPath: 'graphqlApi.lambdaAuthorizerConfig.identityValidationExpression',
+        parameters: {
+          apiId: this.__input.apiId,
+          name: this.__input.name,
+          logConfig: {
+            fieldLogLevel: this.__input.logConfig?.fieldLogLevel,
+            cloudWatchLogsRoleArn: this.__input.logConfig?.cloudWatchLogsRoleArn,
+            excludeVerboseContent: this.__input.logConfig?.excludeVerboseContent,
+          },
+          authenticationType: this.__input.authenticationType,
+          userPoolConfig: {
+            userPoolId: this.__input.userPoolConfig?.userPoolId,
+            awsRegion: this.__input.userPoolConfig?.awsRegion,
+            defaultAction: this.__input.userPoolConfig?.defaultAction,
+            appIdClientRegex: this.__input.userPoolConfig?.appIdClientRegex,
+          },
+          openIDConnectConfig: {
+            issuer: this.__input.openIDConnectConfig?.issuer,
+            clientId: this.__input.openIDConnectConfig?.clientId,
+            iatTTL: this.__input.openIDConnectConfig?.iatTTL,
+            authTTL: this.__input.openIDConnectConfig?.authTTL,
+          },
+          additionalAuthenticationProviders: this.__input.additionalAuthenticationProviders,
+          xrayEnabled: this.__input.xrayEnabled,
+          lambdaAuthorizerConfig: {
+            authorizerResultTtlInSeconds: this.__input.lambdaAuthorizerConfig?.authorizerResultTtlInSeconds,
+            authorizerUri: this.__input.lambdaAuthorizerConfig?.authorizerUri,
+            identityValidationExpression: this.__input.lambdaAuthorizerConfig?.identityValidationExpression,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateGraphqlApi.graphqlApi.lambdaAuthorizerConfig.identityValidationExpression', props);
+    return resource.getResponseField('graphqlApi.lambdaAuthorizerConfig.identityValidationExpression') as unknown as string;
   }
 
 }

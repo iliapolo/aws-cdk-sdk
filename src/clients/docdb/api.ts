@@ -8,6 +8,10 @@ export class DocDbClient extends cdk.Construct {
     super(scope, id);
   }
 
+  public addSourceIdentifierToSubscription(input: shapes.DocDbAddSourceIdentifierToSubscriptionMessage): DocDBResponsesAddSourceIdentifierToSubscription {
+    return new DocDBResponsesAddSourceIdentifierToSubscription(this, this.__resources, input);
+  }
+
   public addTagsToResource(input: shapes.DocDbAddTagsToResourceMessage): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -56,6 +60,14 @@ export class DocDbClient extends cdk.Construct {
     return new DocDBResponsesCreateDbSubnetGroup(this, this.__resources, input);
   }
 
+  public createEventSubscription(input: shapes.DocDbCreateEventSubscriptionMessage): DocDBResponsesCreateEventSubscription {
+    return new DocDBResponsesCreateEventSubscription(this, this.__resources, input);
+  }
+
+  public createGlobalCluster(input: shapes.DocDbCreateGlobalClusterMessage): DocDBResponsesCreateGlobalCluster {
+    return new DocDBResponsesCreateGlobalCluster(this, this.__resources, input);
+  }
+
   public deleteDbCluster(input: shapes.DocDbDeleteDbClusterMessage): DocDBResponsesDeleteDbCluster {
     return new DocDBResponsesDeleteDbCluster(this, this.__resources, input);
   }
@@ -96,6 +108,14 @@ export class DocDbClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'DeleteDBSubnetGroup', props);
+  }
+
+  public deleteEventSubscription(input: shapes.DocDbDeleteEventSubscriptionMessage): DocDBResponsesDeleteEventSubscription {
+    return new DocDBResponsesDeleteEventSubscription(this, this.__resources, input);
+  }
+
+  public deleteGlobalCluster(input: shapes.DocDbDeleteGlobalClusterMessage): DocDBResponsesDeleteGlobalCluster {
+    return new DocDBResponsesDeleteGlobalCluster(this, this.__resources, input);
   }
 
   public describeCertificates(input: shapes.DocDbDescribeCertificatesMessage): DocDBResponsesDescribeCertificates {
@@ -142,8 +162,16 @@ export class DocDbClient extends cdk.Construct {
     return new DocDBResponsesDescribeEventCategories(this, this.__resources, input);
   }
 
+  public describeEventSubscriptions(input: shapes.DocDbDescribeEventSubscriptionsMessage): DocDBResponsesDescribeEventSubscriptions {
+    return new DocDBResponsesDescribeEventSubscriptions(this, this.__resources, input);
+  }
+
   public describeEvents(input: shapes.DocDbDescribeEventsMessage): DocDBResponsesDescribeEvents {
     return new DocDBResponsesDescribeEvents(this, this.__resources, input);
+  }
+
+  public describeGlobalClusters(input: shapes.DocDbDescribeGlobalClustersMessage): DocDBResponsesDescribeGlobalClusters {
+    return new DocDBResponsesDescribeGlobalClusters(this, this.__resources, input);
   }
 
   public describeOrderableDbInstanceOptions(input: shapes.DocDbDescribeOrderableDbInstanceOptionsMessage): DocDBResponsesDescribeOrderableDbInstanceOptions {
@@ -182,8 +210,24 @@ export class DocDbClient extends cdk.Construct {
     return new DocDBResponsesModifyDbSubnetGroup(this, this.__resources, input);
   }
 
+  public modifyEventSubscription(input: shapes.DocDbModifyEventSubscriptionMessage): DocDBResponsesModifyEventSubscription {
+    return new DocDBResponsesModifyEventSubscription(this, this.__resources, input);
+  }
+
+  public modifyGlobalCluster(input: shapes.DocDbModifyGlobalClusterMessage): DocDBResponsesModifyGlobalCluster {
+    return new DocDBResponsesModifyGlobalCluster(this, this.__resources, input);
+  }
+
   public rebootDbInstance(input: shapes.DocDbRebootDbInstanceMessage): DocDBResponsesRebootDbInstance {
     return new DocDBResponsesRebootDbInstance(this, this.__resources, input);
+  }
+
+  public removeFromGlobalCluster(input: shapes.DocDbRemoveFromGlobalClusterMessage): DocDBResponsesRemoveFromGlobalCluster {
+    return new DocDBResponsesRemoveFromGlobalCluster(this, this.__resources, input);
+  }
+
+  public removeSourceIdentifierFromSubscription(input: shapes.DocDbRemoveSourceIdentifierFromSubscriptionMessage): DocDBResponsesRemoveSourceIdentifierFromSubscription {
+    return new DocDBResponsesRemoveSourceIdentifierFromSubscription(this, this.__resources, input);
   }
 
   public removeTagsFromResource(input: shapes.DocDbRemoveTagsFromResourceMessage): void {
@@ -220,6 +264,204 @@ export class DocDbClient extends cdk.Construct {
 
   public stopDbCluster(input: shapes.DocDbStopDbClusterMessage): DocDBResponsesStopDbCluster {
     return new DocDBResponsesStopDbCluster(this, this.__resources, input);
+  }
+
+}
+
+export class DocDBResponsesAddSourceIdentifierToSubscription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbAddSourceIdentifierToSubscriptionMessage) {
+  }
+
+  public get eventSubscription(): DocDBResponsesAddSourceIdentifierToSubscriptionEventSubscription {
+    return new DocDBResponsesAddSourceIdentifierToSubscriptionEventSubscription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class DocDBResponsesAddSourceIdentifierToSubscriptionEventSubscription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbAddSourceIdentifierToSubscriptionMessage) {
+  }
+
+  public get customerAwsId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addSourceIdentifierToSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.AddSourceIdentifierToSubscription.EventSubscription.CustomerAwsId'),
+        outputPath: 'EventSubscription.CustomerAwsId',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddSourceIdentifierToSubscription.EventSubscription.CustomerAwsId', props);
+    return resource.getResponseField('EventSubscription.CustomerAwsId') as unknown as string;
+  }
+
+  public get custSubscriptionId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addSourceIdentifierToSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.AddSourceIdentifierToSubscription.EventSubscription.CustSubscriptionId'),
+        outputPath: 'EventSubscription.CustSubscriptionId',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddSourceIdentifierToSubscription.EventSubscription.CustSubscriptionId', props);
+    return resource.getResponseField('EventSubscription.CustSubscriptionId') as unknown as string;
+  }
+
+  public get snsTopicArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addSourceIdentifierToSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.AddSourceIdentifierToSubscription.EventSubscription.SnsTopicArn'),
+        outputPath: 'EventSubscription.SnsTopicArn',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddSourceIdentifierToSubscription.EventSubscription.SnsTopicArn', props);
+    return resource.getResponseField('EventSubscription.SnsTopicArn') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addSourceIdentifierToSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.AddSourceIdentifierToSubscription.EventSubscription.Status'),
+        outputPath: 'EventSubscription.Status',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddSourceIdentifierToSubscription.EventSubscription.Status', props);
+    return resource.getResponseField('EventSubscription.Status') as unknown as string;
+  }
+
+  public get subscriptionCreationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addSourceIdentifierToSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.AddSourceIdentifierToSubscription.EventSubscription.SubscriptionCreationTime'),
+        outputPath: 'EventSubscription.SubscriptionCreationTime',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddSourceIdentifierToSubscription.EventSubscription.SubscriptionCreationTime', props);
+    return resource.getResponseField('EventSubscription.SubscriptionCreationTime') as unknown as string;
+  }
+
+  public get sourceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addSourceIdentifierToSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.AddSourceIdentifierToSubscription.EventSubscription.SourceType'),
+        outputPath: 'EventSubscription.SourceType',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddSourceIdentifierToSubscription.EventSubscription.SourceType', props);
+    return resource.getResponseField('EventSubscription.SourceType') as unknown as string;
+  }
+
+  public get sourceIdsList(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addSourceIdentifierToSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.AddSourceIdentifierToSubscription.EventSubscription.SourceIdsList'),
+        outputPath: 'EventSubscription.SourceIdsList',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddSourceIdentifierToSubscription.EventSubscription.SourceIdsList', props);
+    return resource.getResponseField('EventSubscription.SourceIdsList') as unknown as string[];
+  }
+
+  public get eventCategoriesList(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addSourceIdentifierToSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.AddSourceIdentifierToSubscription.EventSubscription.EventCategoriesList'),
+        outputPath: 'EventSubscription.EventCategoriesList',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddSourceIdentifierToSubscription.EventSubscription.EventCategoriesList', props);
+    return resource.getResponseField('EventSubscription.EventCategoriesList') as unknown as string[];
+  }
+
+  public get enabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addSourceIdentifierToSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.AddSourceIdentifierToSubscription.EventSubscription.Enabled'),
+        outputPath: 'EventSubscription.Enabled',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddSourceIdentifierToSubscription.EventSubscription.Enabled', props);
+    return resource.getResponseField('EventSubscription.Enabled') as unknown as boolean;
+  }
+
+  public get eventSubscriptionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addSourceIdentifierToSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.AddSourceIdentifierToSubscription.EventSubscription.EventSubscriptionArn'),
+        outputPath: 'EventSubscription.EventSubscriptionArn',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddSourceIdentifierToSubscription.EventSubscription.EventSubscriptionArn', props);
+    return resource.getResponseField('EventSubscription.EventSubscriptionArn') as unknown as string;
   }
 
 }
@@ -814,6 +1056,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -849,6 +1092,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -884,6 +1128,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -919,6 +1164,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -954,6 +1200,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -989,6 +1236,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1024,6 +1272,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1059,6 +1308,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1094,6 +1344,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1129,6 +1380,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1164,6 +1416,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1199,6 +1452,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1234,6 +1488,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1269,6 +1524,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1304,6 +1560,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1339,6 +1596,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1374,6 +1632,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1409,11 +1668,84 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateDBCluster.DBCluster.PreferredMaintenanceWindow', props);
     return resource.getResponseField('DBCluster.PreferredMaintenanceWindow') as unknown as string;
+  }
+
+  public get replicationSourceIdentifier(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDbCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateDBCluster.DBCluster.ReplicationSourceIdentifier'),
+        outputPath: 'DBCluster.ReplicationSourceIdentifier',
+        parameters: {
+          AvailabilityZones: this.__input.availabilityZones,
+          BackupRetentionPeriod: this.__input.backupRetentionPeriod,
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          DBSubnetGroupName: this.__input.dbSubnetGroupName,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          Port: this.__input.port,
+          MasterUsername: this.__input.masterUsername,
+          MasterUserPassword: this.__input.masterUserPassword,
+          PreferredBackupWindow: this.__input.preferredBackupWindow,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          Tags: this.__input.tags,
+          StorageEncrypted: this.__input.storageEncrypted,
+          KmsKeyId: this.__input.kmsKeyId,
+          PreSignedUrl: this.__input.preSignedUrl,
+          EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
+          DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDBCluster.DBCluster.ReplicationSourceIdentifier', props);
+    return resource.getResponseField('DBCluster.ReplicationSourceIdentifier') as unknown as string;
+  }
+
+  public get readReplicaIdentifiers(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDbCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateDBCluster.DBCluster.ReadReplicaIdentifiers'),
+        outputPath: 'DBCluster.ReadReplicaIdentifiers',
+        parameters: {
+          AvailabilityZones: this.__input.availabilityZones,
+          BackupRetentionPeriod: this.__input.backupRetentionPeriod,
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          DBSubnetGroupName: this.__input.dbSubnetGroupName,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          Port: this.__input.port,
+          MasterUsername: this.__input.masterUsername,
+          MasterUserPassword: this.__input.masterUserPassword,
+          PreferredBackupWindow: this.__input.preferredBackupWindow,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          Tags: this.__input.tags,
+          StorageEncrypted: this.__input.storageEncrypted,
+          KmsKeyId: this.__input.kmsKeyId,
+          PreSignedUrl: this.__input.preSignedUrl,
+          EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
+          DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDBCluster.DBCluster.ReadReplicaIdentifiers', props);
+    return resource.getResponseField('DBCluster.ReadReplicaIdentifiers') as unknown as string[];
   }
 
   public get dbClusterMembers(): shapes.DocDbdbClusterMember[] {
@@ -1444,6 +1776,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1479,6 +1812,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1514,6 +1848,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1549,6 +1884,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1584,6 +1920,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1619,6 +1956,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1654,6 +1992,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1689,6 +2028,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1724,6 +2064,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1759,6 +2100,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -1794,6 +2136,7 @@ export class DocDBResponsesCreateDbClusterDbCluster {
           PreSignedUrl: this.__input.preSignedUrl,
           EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
           DeletionProtection: this.__input.deletionProtection,
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
         },
       },
     };
@@ -3617,6 +3960,502 @@ export class DocDBResponsesCreateDbSubnetGroupDbSubnetGroup {
 
 }
 
+export class DocDBResponsesCreateEventSubscription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbCreateEventSubscriptionMessage) {
+  }
+
+  public get eventSubscription(): DocDBResponsesCreateEventSubscriptionEventSubscription {
+    return new DocDBResponsesCreateEventSubscriptionEventSubscription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class DocDBResponsesCreateEventSubscriptionEventSubscription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbCreateEventSubscriptionMessage) {
+  }
+
+  public get customerAwsId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateEventSubscription.EventSubscription.CustomerAwsId'),
+        outputPath: 'EventSubscription.CustomerAwsId',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          SourceIds: this.__input.sourceIds,
+          Enabled: this.__input.enabled,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEventSubscription.EventSubscription.CustomerAwsId', props);
+    return resource.getResponseField('EventSubscription.CustomerAwsId') as unknown as string;
+  }
+
+  public get custSubscriptionId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateEventSubscription.EventSubscription.CustSubscriptionId'),
+        outputPath: 'EventSubscription.CustSubscriptionId',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          SourceIds: this.__input.sourceIds,
+          Enabled: this.__input.enabled,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEventSubscription.EventSubscription.CustSubscriptionId', props);
+    return resource.getResponseField('EventSubscription.CustSubscriptionId') as unknown as string;
+  }
+
+  public get snsTopicArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateEventSubscription.EventSubscription.SnsTopicArn'),
+        outputPath: 'EventSubscription.SnsTopicArn',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          SourceIds: this.__input.sourceIds,
+          Enabled: this.__input.enabled,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEventSubscription.EventSubscription.SnsTopicArn', props);
+    return resource.getResponseField('EventSubscription.SnsTopicArn') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateEventSubscription.EventSubscription.Status'),
+        outputPath: 'EventSubscription.Status',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          SourceIds: this.__input.sourceIds,
+          Enabled: this.__input.enabled,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEventSubscription.EventSubscription.Status', props);
+    return resource.getResponseField('EventSubscription.Status') as unknown as string;
+  }
+
+  public get subscriptionCreationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateEventSubscription.EventSubscription.SubscriptionCreationTime'),
+        outputPath: 'EventSubscription.SubscriptionCreationTime',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          SourceIds: this.__input.sourceIds,
+          Enabled: this.__input.enabled,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEventSubscription.EventSubscription.SubscriptionCreationTime', props);
+    return resource.getResponseField('EventSubscription.SubscriptionCreationTime') as unknown as string;
+  }
+
+  public get sourceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateEventSubscription.EventSubscription.SourceType'),
+        outputPath: 'EventSubscription.SourceType',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          SourceIds: this.__input.sourceIds,
+          Enabled: this.__input.enabled,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEventSubscription.EventSubscription.SourceType', props);
+    return resource.getResponseField('EventSubscription.SourceType') as unknown as string;
+  }
+
+  public get sourceIdsList(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateEventSubscription.EventSubscription.SourceIdsList'),
+        outputPath: 'EventSubscription.SourceIdsList',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          SourceIds: this.__input.sourceIds,
+          Enabled: this.__input.enabled,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEventSubscription.EventSubscription.SourceIdsList', props);
+    return resource.getResponseField('EventSubscription.SourceIdsList') as unknown as string[];
+  }
+
+  public get eventCategoriesList(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateEventSubscription.EventSubscription.EventCategoriesList'),
+        outputPath: 'EventSubscription.EventCategoriesList',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          SourceIds: this.__input.sourceIds,
+          Enabled: this.__input.enabled,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEventSubscription.EventSubscription.EventCategoriesList', props);
+    return resource.getResponseField('EventSubscription.EventCategoriesList') as unknown as string[];
+  }
+
+  public get enabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateEventSubscription.EventSubscription.Enabled'),
+        outputPath: 'EventSubscription.Enabled',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          SourceIds: this.__input.sourceIds,
+          Enabled: this.__input.enabled,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEventSubscription.EventSubscription.Enabled', props);
+    return resource.getResponseField('EventSubscription.Enabled') as unknown as boolean;
+  }
+
+  public get eventSubscriptionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateEventSubscription.EventSubscription.EventSubscriptionArn'),
+        outputPath: 'EventSubscription.EventSubscriptionArn',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          SourceIds: this.__input.sourceIds,
+          Enabled: this.__input.enabled,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEventSubscription.EventSubscription.EventSubscriptionArn', props);
+    return resource.getResponseField('EventSubscription.EventSubscriptionArn') as unknown as string;
+  }
+
+}
+
+export class DocDBResponsesCreateGlobalCluster {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbCreateGlobalClusterMessage) {
+  }
+
+  public get globalCluster(): DocDBResponsesCreateGlobalClusterGlobalCluster {
+    return new DocDBResponsesCreateGlobalClusterGlobalCluster(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class DocDBResponsesCreateGlobalClusterGlobalCluster {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbCreateGlobalClusterMessage) {
+  }
+
+  public get globalClusterIdentifier(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateGlobalCluster.GlobalCluster.GlobalClusterIdentifier'),
+        outputPath: 'GlobalCluster.GlobalClusterIdentifier',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          SourceDBClusterIdentifier: this.__input.sourceDbClusterIdentifier,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          DeletionProtection: this.__input.deletionProtection,
+          DatabaseName: this.__input.databaseName,
+          StorageEncrypted: this.__input.storageEncrypted,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGlobalCluster.GlobalCluster.GlobalClusterIdentifier', props);
+    return resource.getResponseField('GlobalCluster.GlobalClusterIdentifier') as unknown as string;
+  }
+
+  public get globalClusterResourceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateGlobalCluster.GlobalCluster.GlobalClusterResourceId'),
+        outputPath: 'GlobalCluster.GlobalClusterResourceId',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          SourceDBClusterIdentifier: this.__input.sourceDbClusterIdentifier,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          DeletionProtection: this.__input.deletionProtection,
+          DatabaseName: this.__input.databaseName,
+          StorageEncrypted: this.__input.storageEncrypted,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGlobalCluster.GlobalCluster.GlobalClusterResourceId', props);
+    return resource.getResponseField('GlobalCluster.GlobalClusterResourceId') as unknown as string;
+  }
+
+  public get globalClusterArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateGlobalCluster.GlobalCluster.GlobalClusterArn'),
+        outputPath: 'GlobalCluster.GlobalClusterArn',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          SourceDBClusterIdentifier: this.__input.sourceDbClusterIdentifier,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          DeletionProtection: this.__input.deletionProtection,
+          DatabaseName: this.__input.databaseName,
+          StorageEncrypted: this.__input.storageEncrypted,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGlobalCluster.GlobalCluster.GlobalClusterArn', props);
+    return resource.getResponseField('GlobalCluster.GlobalClusterArn') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateGlobalCluster.GlobalCluster.Status'),
+        outputPath: 'GlobalCluster.Status',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          SourceDBClusterIdentifier: this.__input.sourceDbClusterIdentifier,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          DeletionProtection: this.__input.deletionProtection,
+          DatabaseName: this.__input.databaseName,
+          StorageEncrypted: this.__input.storageEncrypted,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGlobalCluster.GlobalCluster.Status', props);
+    return resource.getResponseField('GlobalCluster.Status') as unknown as string;
+  }
+
+  public get engine(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateGlobalCluster.GlobalCluster.Engine'),
+        outputPath: 'GlobalCluster.Engine',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          SourceDBClusterIdentifier: this.__input.sourceDbClusterIdentifier,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          DeletionProtection: this.__input.deletionProtection,
+          DatabaseName: this.__input.databaseName,
+          StorageEncrypted: this.__input.storageEncrypted,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGlobalCluster.GlobalCluster.Engine', props);
+    return resource.getResponseField('GlobalCluster.Engine') as unknown as string;
+  }
+
+  public get engineVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateGlobalCluster.GlobalCluster.EngineVersion'),
+        outputPath: 'GlobalCluster.EngineVersion',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          SourceDBClusterIdentifier: this.__input.sourceDbClusterIdentifier,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          DeletionProtection: this.__input.deletionProtection,
+          DatabaseName: this.__input.databaseName,
+          StorageEncrypted: this.__input.storageEncrypted,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGlobalCluster.GlobalCluster.EngineVersion', props);
+    return resource.getResponseField('GlobalCluster.EngineVersion') as unknown as string;
+  }
+
+  public get databaseName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateGlobalCluster.GlobalCluster.DatabaseName'),
+        outputPath: 'GlobalCluster.DatabaseName',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          SourceDBClusterIdentifier: this.__input.sourceDbClusterIdentifier,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          DeletionProtection: this.__input.deletionProtection,
+          DatabaseName: this.__input.databaseName,
+          StorageEncrypted: this.__input.storageEncrypted,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGlobalCluster.GlobalCluster.DatabaseName', props);
+    return resource.getResponseField('GlobalCluster.DatabaseName') as unknown as string;
+  }
+
+  public get storageEncrypted(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateGlobalCluster.GlobalCluster.StorageEncrypted'),
+        outputPath: 'GlobalCluster.StorageEncrypted',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          SourceDBClusterIdentifier: this.__input.sourceDbClusterIdentifier,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          DeletionProtection: this.__input.deletionProtection,
+          DatabaseName: this.__input.databaseName,
+          StorageEncrypted: this.__input.storageEncrypted,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGlobalCluster.GlobalCluster.StorageEncrypted', props);
+    return resource.getResponseField('GlobalCluster.StorageEncrypted') as unknown as boolean;
+  }
+
+  public get deletionProtection(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateGlobalCluster.GlobalCluster.DeletionProtection'),
+        outputPath: 'GlobalCluster.DeletionProtection',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          SourceDBClusterIdentifier: this.__input.sourceDbClusterIdentifier,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          DeletionProtection: this.__input.deletionProtection,
+          DatabaseName: this.__input.databaseName,
+          StorageEncrypted: this.__input.storageEncrypted,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGlobalCluster.GlobalCluster.DeletionProtection', props);
+    return resource.getResponseField('GlobalCluster.DeletionProtection') as unknown as boolean;
+  }
+
+  public get globalClusterMembers(): shapes.DocDbGlobalClusterMember[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.CreateGlobalCluster.GlobalCluster.GlobalClusterMembers'),
+        outputPath: 'GlobalCluster.GlobalClusterMembers',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          SourceDBClusterIdentifier: this.__input.sourceDbClusterIdentifier,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          DeletionProtection: this.__input.deletionProtection,
+          DatabaseName: this.__input.databaseName,
+          StorageEncrypted: this.__input.storageEncrypted,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGlobalCluster.GlobalCluster.GlobalClusterMembers', props);
+    return resource.getResponseField('GlobalCluster.GlobalClusterMembers') as unknown as shapes.DocDbGlobalClusterMember[];
+  }
+
+}
+
 export class DocDBResponsesDeleteDbCluster {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbDeleteDbClusterMessage) {
@@ -3973,6 +4812,44 @@ export class DocDBResponsesDeleteDbClusterDbCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteDBCluster.DBCluster.PreferredMaintenanceWindow', props);
     return resource.getResponseField('DBCluster.PreferredMaintenanceWindow') as unknown as string;
+  }
+
+  public get replicationSourceIdentifier(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteDbCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteDBCluster.DBCluster.ReplicationSourceIdentifier'),
+        outputPath: 'DBCluster.ReplicationSourceIdentifier',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          SkipFinalSnapshot: this.__input.skipFinalSnapshot,
+          FinalDBSnapshotIdentifier: this.__input.finalDbSnapshotIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteDBCluster.DBCluster.ReplicationSourceIdentifier', props);
+    return resource.getResponseField('DBCluster.ReplicationSourceIdentifier') as unknown as string;
+  }
+
+  public get readReplicaIdentifiers(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteDbCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteDBCluster.DBCluster.ReadReplicaIdentifiers'),
+        outputPath: 'DBCluster.ReadReplicaIdentifiers',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          SkipFinalSnapshot: this.__input.skipFinalSnapshot,
+          FinalDBSnapshotIdentifier: this.__input.finalDbSnapshotIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteDBCluster.DBCluster.ReadReplicaIdentifiers', props);
+    return resource.getResponseField('DBCluster.ReadReplicaIdentifiers') as unknown as string[];
   }
 
   public get dbClusterMembers(): shapes.DocDbdbClusterMember[] {
@@ -5354,6 +6231,382 @@ export class DocDBResponsesDeleteDbInstanceDbInstancePendingModifiedValuesPendin
 
 }
 
+export class DocDBResponsesDeleteEventSubscription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbDeleteEventSubscriptionMessage) {
+  }
+
+  public get eventSubscription(): DocDBResponsesDeleteEventSubscriptionEventSubscription {
+    return new DocDBResponsesDeleteEventSubscriptionEventSubscription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class DocDBResponsesDeleteEventSubscriptionEventSubscription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbDeleteEventSubscriptionMessage) {
+  }
+
+  public get customerAwsId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteEventSubscription.EventSubscription.CustomerAwsId'),
+        outputPath: 'EventSubscription.CustomerAwsId',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEventSubscription.EventSubscription.CustomerAwsId', props);
+    return resource.getResponseField('EventSubscription.CustomerAwsId') as unknown as string;
+  }
+
+  public get custSubscriptionId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteEventSubscription.EventSubscription.CustSubscriptionId'),
+        outputPath: 'EventSubscription.CustSubscriptionId',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEventSubscription.EventSubscription.CustSubscriptionId', props);
+    return resource.getResponseField('EventSubscription.CustSubscriptionId') as unknown as string;
+  }
+
+  public get snsTopicArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteEventSubscription.EventSubscription.SnsTopicArn'),
+        outputPath: 'EventSubscription.SnsTopicArn',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEventSubscription.EventSubscription.SnsTopicArn', props);
+    return resource.getResponseField('EventSubscription.SnsTopicArn') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteEventSubscription.EventSubscription.Status'),
+        outputPath: 'EventSubscription.Status',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEventSubscription.EventSubscription.Status', props);
+    return resource.getResponseField('EventSubscription.Status') as unknown as string;
+  }
+
+  public get subscriptionCreationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteEventSubscription.EventSubscription.SubscriptionCreationTime'),
+        outputPath: 'EventSubscription.SubscriptionCreationTime',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEventSubscription.EventSubscription.SubscriptionCreationTime', props);
+    return resource.getResponseField('EventSubscription.SubscriptionCreationTime') as unknown as string;
+  }
+
+  public get sourceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteEventSubscription.EventSubscription.SourceType'),
+        outputPath: 'EventSubscription.SourceType',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEventSubscription.EventSubscription.SourceType', props);
+    return resource.getResponseField('EventSubscription.SourceType') as unknown as string;
+  }
+
+  public get sourceIdsList(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteEventSubscription.EventSubscription.SourceIdsList'),
+        outputPath: 'EventSubscription.SourceIdsList',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEventSubscription.EventSubscription.SourceIdsList', props);
+    return resource.getResponseField('EventSubscription.SourceIdsList') as unknown as string[];
+  }
+
+  public get eventCategoriesList(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteEventSubscription.EventSubscription.EventCategoriesList'),
+        outputPath: 'EventSubscription.EventCategoriesList',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEventSubscription.EventSubscription.EventCategoriesList', props);
+    return resource.getResponseField('EventSubscription.EventCategoriesList') as unknown as string[];
+  }
+
+  public get enabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteEventSubscription.EventSubscription.Enabled'),
+        outputPath: 'EventSubscription.Enabled',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEventSubscription.EventSubscription.Enabled', props);
+    return resource.getResponseField('EventSubscription.Enabled') as unknown as boolean;
+  }
+
+  public get eventSubscriptionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteEventSubscription.EventSubscription.EventSubscriptionArn'),
+        outputPath: 'EventSubscription.EventSubscriptionArn',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEventSubscription.EventSubscription.EventSubscriptionArn', props);
+    return resource.getResponseField('EventSubscription.EventSubscriptionArn') as unknown as string;
+  }
+
+}
+
+export class DocDBResponsesDeleteGlobalCluster {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbDeleteGlobalClusterMessage) {
+  }
+
+  public get globalCluster(): DocDBResponsesDeleteGlobalClusterGlobalCluster {
+    return new DocDBResponsesDeleteGlobalClusterGlobalCluster(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class DocDBResponsesDeleteGlobalClusterGlobalCluster {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbDeleteGlobalClusterMessage) {
+  }
+
+  public get globalClusterIdentifier(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteGlobalCluster.GlobalCluster.GlobalClusterIdentifier'),
+        outputPath: 'GlobalCluster.GlobalClusterIdentifier',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteGlobalCluster.GlobalCluster.GlobalClusterIdentifier', props);
+    return resource.getResponseField('GlobalCluster.GlobalClusterIdentifier') as unknown as string;
+  }
+
+  public get globalClusterResourceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteGlobalCluster.GlobalCluster.GlobalClusterResourceId'),
+        outputPath: 'GlobalCluster.GlobalClusterResourceId',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteGlobalCluster.GlobalCluster.GlobalClusterResourceId', props);
+    return resource.getResponseField('GlobalCluster.GlobalClusterResourceId') as unknown as string;
+  }
+
+  public get globalClusterArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteGlobalCluster.GlobalCluster.GlobalClusterArn'),
+        outputPath: 'GlobalCluster.GlobalClusterArn',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteGlobalCluster.GlobalCluster.GlobalClusterArn', props);
+    return resource.getResponseField('GlobalCluster.GlobalClusterArn') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteGlobalCluster.GlobalCluster.Status'),
+        outputPath: 'GlobalCluster.Status',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteGlobalCluster.GlobalCluster.Status', props);
+    return resource.getResponseField('GlobalCluster.Status') as unknown as string;
+  }
+
+  public get engine(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteGlobalCluster.GlobalCluster.Engine'),
+        outputPath: 'GlobalCluster.Engine',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteGlobalCluster.GlobalCluster.Engine', props);
+    return resource.getResponseField('GlobalCluster.Engine') as unknown as string;
+  }
+
+  public get engineVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteGlobalCluster.GlobalCluster.EngineVersion'),
+        outputPath: 'GlobalCluster.EngineVersion',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteGlobalCluster.GlobalCluster.EngineVersion', props);
+    return resource.getResponseField('GlobalCluster.EngineVersion') as unknown as string;
+  }
+
+  public get databaseName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteGlobalCluster.GlobalCluster.DatabaseName'),
+        outputPath: 'GlobalCluster.DatabaseName',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteGlobalCluster.GlobalCluster.DatabaseName', props);
+    return resource.getResponseField('GlobalCluster.DatabaseName') as unknown as string;
+  }
+
+  public get storageEncrypted(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteGlobalCluster.GlobalCluster.StorageEncrypted'),
+        outputPath: 'GlobalCluster.StorageEncrypted',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteGlobalCluster.GlobalCluster.StorageEncrypted', props);
+    return resource.getResponseField('GlobalCluster.StorageEncrypted') as unknown as boolean;
+  }
+
+  public get deletionProtection(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteGlobalCluster.GlobalCluster.DeletionProtection'),
+        outputPath: 'GlobalCluster.DeletionProtection',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteGlobalCluster.GlobalCluster.DeletionProtection', props);
+    return resource.getResponseField('GlobalCluster.DeletionProtection') as unknown as boolean;
+  }
+
+  public get globalClusterMembers(): shapes.DocDbGlobalClusterMember[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DeleteGlobalCluster.GlobalCluster.GlobalClusterMembers'),
+        outputPath: 'GlobalCluster.GlobalClusterMembers',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteGlobalCluster.GlobalCluster.GlobalClusterMembers', props);
+    return resource.getResponseField('GlobalCluster.GlobalClusterMembers') as unknown as shapes.DocDbGlobalClusterMember[];
+  }
+
+}
+
 export class DocDBResponsesDescribeCertificates {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbDescribeCertificatesMessage) {
@@ -5905,6 +7158,53 @@ export class DocDBResponsesDescribeEventCategories {
 
 }
 
+export class DocDBResponsesDescribeEventSubscriptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbDescribeEventSubscriptionsMessage) {
+  }
+
+  public get marker(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEventSubscriptions',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DescribeEventSubscriptions.Marker'),
+        outputPath: 'Marker',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          Filters: this.__input.filters,
+          MaxRecords: this.__input.maxRecords,
+          Marker: this.__input.marker,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEventSubscriptions.Marker', props);
+    return resource.getResponseField('Marker') as unknown as string;
+  }
+
+  public get eventSubscriptionsList(): shapes.DocDbEventSubscription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEventSubscriptions',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DescribeEventSubscriptions.EventSubscriptionsList'),
+        outputPath: 'EventSubscriptionsList',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          Filters: this.__input.filters,
+          MaxRecords: this.__input.maxRecords,
+          Marker: this.__input.marker,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEventSubscriptions.EventSubscriptionsList', props);
+    return resource.getResponseField('EventSubscriptionsList') as unknown as shapes.DocDbEventSubscription[];
+  }
+
+}
+
 export class DocDBResponsesDescribeEvents {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbDescribeEventsMessage) {
@@ -5958,6 +7258,53 @@ export class DocDBResponsesDescribeEvents {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEvents.Events', props);
     return resource.getResponseField('Events') as unknown as shapes.DocDbEvent[];
+  }
+
+}
+
+export class DocDBResponsesDescribeGlobalClusters {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbDescribeGlobalClustersMessage) {
+  }
+
+  public get marker(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeGlobalClusters',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DescribeGlobalClusters.Marker'),
+        outputPath: 'Marker',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          Filters: this.__input.filters,
+          MaxRecords: this.__input.maxRecords,
+          Marker: this.__input.marker,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeGlobalClusters.Marker', props);
+    return resource.getResponseField('Marker') as unknown as string;
+  }
+
+  public get globalClusters(): shapes.DocDbGlobalCluster[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeGlobalClusters',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.DescribeGlobalClusters.GlobalClusters'),
+        outputPath: 'GlobalClusters',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          Filters: this.__input.filters,
+          MaxRecords: this.__input.maxRecords,
+          Marker: this.__input.marker,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeGlobalClusters.GlobalClusters', props);
+    return resource.getResponseField('GlobalClusters') as unknown as shapes.DocDbGlobalCluster[];
   }
 
 }
@@ -6402,6 +7749,42 @@ export class DocDBResponsesFailoverDbClusterDbCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'FailoverDBCluster.DBCluster.PreferredMaintenanceWindow', props);
     return resource.getResponseField('DBCluster.PreferredMaintenanceWindow') as unknown as string;
+  }
+
+  public get replicationSourceIdentifier(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'failoverDbCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.FailoverDBCluster.DBCluster.ReplicationSourceIdentifier'),
+        outputPath: 'DBCluster.ReplicationSourceIdentifier',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          TargetDBInstanceIdentifier: this.__input.targetDbInstanceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'FailoverDBCluster.DBCluster.ReplicationSourceIdentifier', props);
+    return resource.getResponseField('DBCluster.ReplicationSourceIdentifier') as unknown as string;
+  }
+
+  public get readReplicaIdentifiers(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'failoverDbCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.FailoverDBCluster.DBCluster.ReadReplicaIdentifiers'),
+        outputPath: 'DBCluster.ReadReplicaIdentifiers',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          TargetDBInstanceIdentifier: this.__input.targetDbInstanceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'FailoverDBCluster.DBCluster.ReadReplicaIdentifiers', props);
+    return resource.getResponseField('DBCluster.ReadReplicaIdentifiers') as unknown as string[];
   }
 
   public get dbClusterMembers(): shapes.DocDbdbClusterMember[] {
@@ -7219,6 +8602,70 @@ export class DocDBResponsesModifyDbClusterDbCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyDBCluster.DBCluster.PreferredMaintenanceWindow', props);
     return resource.getResponseField('DBCluster.PreferredMaintenanceWindow') as unknown as string;
+  }
+
+  public get replicationSourceIdentifier(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyDbCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyDBCluster.DBCluster.ReplicationSourceIdentifier'),
+        outputPath: 'DBCluster.ReplicationSourceIdentifier',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          NewDBClusterIdentifier: this.__input.newDbClusterIdentifier,
+          ApplyImmediately: this.__input.applyImmediately,
+          BackupRetentionPeriod: this.__input.backupRetentionPeriod,
+          DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          Port: this.__input.port,
+          MasterUserPassword: this.__input.masterUserPassword,
+          PreferredBackupWindow: this.__input.preferredBackupWindow,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          CloudwatchLogsExportConfiguration: {
+            EnableLogTypes: this.__input.cloudwatchLogsExportConfiguration?.enableLogTypes,
+            DisableLogTypes: this.__input.cloudwatchLogsExportConfiguration?.disableLogTypes,
+          },
+          EngineVersion: this.__input.engineVersion,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyDBCluster.DBCluster.ReplicationSourceIdentifier', props);
+    return resource.getResponseField('DBCluster.ReplicationSourceIdentifier') as unknown as string;
+  }
+
+  public get readReplicaIdentifiers(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyDbCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyDBCluster.DBCluster.ReadReplicaIdentifiers'),
+        outputPath: 'DBCluster.ReadReplicaIdentifiers',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          NewDBClusterIdentifier: this.__input.newDbClusterIdentifier,
+          ApplyImmediately: this.__input.applyImmediately,
+          BackupRetentionPeriod: this.__input.backupRetentionPeriod,
+          DBClusterParameterGroupName: this.__input.dbClusterParameterGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          Port: this.__input.port,
+          MasterUserPassword: this.__input.masterUserPassword,
+          PreferredBackupWindow: this.__input.preferredBackupWindow,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          CloudwatchLogsExportConfiguration: {
+            EnableLogTypes: this.__input.cloudwatchLogsExportConfiguration?.enableLogTypes,
+            DisableLogTypes: this.__input.cloudwatchLogsExportConfiguration?.disableLogTypes,
+          },
+          EngineVersion: this.__input.engineVersion,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyDBCluster.DBCluster.ReadReplicaIdentifiers', props);
+    return resource.getResponseField('DBCluster.ReadReplicaIdentifiers') as unknown as string[];
   }
 
   public get dbClusterMembers(): shapes.DocDbdbClusterMember[] {
@@ -8980,6 +10427,442 @@ export class DocDBResponsesModifyDbSubnetGroupDbSubnetGroup {
 
 }
 
+export class DocDBResponsesModifyEventSubscription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbModifyEventSubscriptionMessage) {
+  }
+
+  public get eventSubscription(): DocDBResponsesModifyEventSubscriptionEventSubscription {
+    return new DocDBResponsesModifyEventSubscriptionEventSubscription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class DocDBResponsesModifyEventSubscriptionEventSubscription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbModifyEventSubscriptionMessage) {
+  }
+
+  public get customerAwsId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyEventSubscription.EventSubscription.CustomerAwsId'),
+        outputPath: 'EventSubscription.CustomerAwsId',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEventSubscription.EventSubscription.CustomerAwsId', props);
+    return resource.getResponseField('EventSubscription.CustomerAwsId') as unknown as string;
+  }
+
+  public get custSubscriptionId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyEventSubscription.EventSubscription.CustSubscriptionId'),
+        outputPath: 'EventSubscription.CustSubscriptionId',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEventSubscription.EventSubscription.CustSubscriptionId', props);
+    return resource.getResponseField('EventSubscription.CustSubscriptionId') as unknown as string;
+  }
+
+  public get snsTopicArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyEventSubscription.EventSubscription.SnsTopicArn'),
+        outputPath: 'EventSubscription.SnsTopicArn',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEventSubscription.EventSubscription.SnsTopicArn', props);
+    return resource.getResponseField('EventSubscription.SnsTopicArn') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyEventSubscription.EventSubscription.Status'),
+        outputPath: 'EventSubscription.Status',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEventSubscription.EventSubscription.Status', props);
+    return resource.getResponseField('EventSubscription.Status') as unknown as string;
+  }
+
+  public get subscriptionCreationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyEventSubscription.EventSubscription.SubscriptionCreationTime'),
+        outputPath: 'EventSubscription.SubscriptionCreationTime',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEventSubscription.EventSubscription.SubscriptionCreationTime', props);
+    return resource.getResponseField('EventSubscription.SubscriptionCreationTime') as unknown as string;
+  }
+
+  public get sourceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyEventSubscription.EventSubscription.SourceType'),
+        outputPath: 'EventSubscription.SourceType',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEventSubscription.EventSubscription.SourceType', props);
+    return resource.getResponseField('EventSubscription.SourceType') as unknown as string;
+  }
+
+  public get sourceIdsList(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyEventSubscription.EventSubscription.SourceIdsList'),
+        outputPath: 'EventSubscription.SourceIdsList',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEventSubscription.EventSubscription.SourceIdsList', props);
+    return resource.getResponseField('EventSubscription.SourceIdsList') as unknown as string[];
+  }
+
+  public get eventCategoriesList(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyEventSubscription.EventSubscription.EventCategoriesList'),
+        outputPath: 'EventSubscription.EventCategoriesList',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEventSubscription.EventSubscription.EventCategoriesList', props);
+    return resource.getResponseField('EventSubscription.EventCategoriesList') as unknown as string[];
+  }
+
+  public get enabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyEventSubscription.EventSubscription.Enabled'),
+        outputPath: 'EventSubscription.Enabled',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEventSubscription.EventSubscription.Enabled', props);
+    return resource.getResponseField('EventSubscription.Enabled') as unknown as boolean;
+  }
+
+  public get eventSubscriptionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEventSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyEventSubscription.EventSubscription.EventSubscriptionArn'),
+        outputPath: 'EventSubscription.EventSubscriptionArn',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SnsTopicArn: this.__input.snsTopicArn,
+          SourceType: this.__input.sourceType,
+          EventCategories: this.__input.eventCategories,
+          Enabled: this.__input.enabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEventSubscription.EventSubscription.EventSubscriptionArn', props);
+    return resource.getResponseField('EventSubscription.EventSubscriptionArn') as unknown as string;
+  }
+
+}
+
+export class DocDBResponsesModifyGlobalCluster {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbModifyGlobalClusterMessage) {
+  }
+
+  public get globalCluster(): DocDBResponsesModifyGlobalClusterGlobalCluster {
+    return new DocDBResponsesModifyGlobalClusterGlobalCluster(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class DocDBResponsesModifyGlobalClusterGlobalCluster {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbModifyGlobalClusterMessage) {
+  }
+
+  public get globalClusterIdentifier(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyGlobalCluster.GlobalCluster.GlobalClusterIdentifier'),
+        outputPath: 'GlobalCluster.GlobalClusterIdentifier',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          NewGlobalClusterIdentifier: this.__input.newGlobalClusterIdentifier,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyGlobalCluster.GlobalCluster.GlobalClusterIdentifier', props);
+    return resource.getResponseField('GlobalCluster.GlobalClusterIdentifier') as unknown as string;
+  }
+
+  public get globalClusterResourceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyGlobalCluster.GlobalCluster.GlobalClusterResourceId'),
+        outputPath: 'GlobalCluster.GlobalClusterResourceId',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          NewGlobalClusterIdentifier: this.__input.newGlobalClusterIdentifier,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyGlobalCluster.GlobalCluster.GlobalClusterResourceId', props);
+    return resource.getResponseField('GlobalCluster.GlobalClusterResourceId') as unknown as string;
+  }
+
+  public get globalClusterArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyGlobalCluster.GlobalCluster.GlobalClusterArn'),
+        outputPath: 'GlobalCluster.GlobalClusterArn',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          NewGlobalClusterIdentifier: this.__input.newGlobalClusterIdentifier,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyGlobalCluster.GlobalCluster.GlobalClusterArn', props);
+    return resource.getResponseField('GlobalCluster.GlobalClusterArn') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyGlobalCluster.GlobalCluster.Status'),
+        outputPath: 'GlobalCluster.Status',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          NewGlobalClusterIdentifier: this.__input.newGlobalClusterIdentifier,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyGlobalCluster.GlobalCluster.Status', props);
+    return resource.getResponseField('GlobalCluster.Status') as unknown as string;
+  }
+
+  public get engine(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyGlobalCluster.GlobalCluster.Engine'),
+        outputPath: 'GlobalCluster.Engine',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          NewGlobalClusterIdentifier: this.__input.newGlobalClusterIdentifier,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyGlobalCluster.GlobalCluster.Engine', props);
+    return resource.getResponseField('GlobalCluster.Engine') as unknown as string;
+  }
+
+  public get engineVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyGlobalCluster.GlobalCluster.EngineVersion'),
+        outputPath: 'GlobalCluster.EngineVersion',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          NewGlobalClusterIdentifier: this.__input.newGlobalClusterIdentifier,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyGlobalCluster.GlobalCluster.EngineVersion', props);
+    return resource.getResponseField('GlobalCluster.EngineVersion') as unknown as string;
+  }
+
+  public get databaseName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyGlobalCluster.GlobalCluster.DatabaseName'),
+        outputPath: 'GlobalCluster.DatabaseName',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          NewGlobalClusterIdentifier: this.__input.newGlobalClusterIdentifier,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyGlobalCluster.GlobalCluster.DatabaseName', props);
+    return resource.getResponseField('GlobalCluster.DatabaseName') as unknown as string;
+  }
+
+  public get storageEncrypted(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyGlobalCluster.GlobalCluster.StorageEncrypted'),
+        outputPath: 'GlobalCluster.StorageEncrypted',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          NewGlobalClusterIdentifier: this.__input.newGlobalClusterIdentifier,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyGlobalCluster.GlobalCluster.StorageEncrypted', props);
+    return resource.getResponseField('GlobalCluster.StorageEncrypted') as unknown as boolean;
+  }
+
+  public get deletionProtection(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyGlobalCluster.GlobalCluster.DeletionProtection'),
+        outputPath: 'GlobalCluster.DeletionProtection',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          NewGlobalClusterIdentifier: this.__input.newGlobalClusterIdentifier,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyGlobalCluster.GlobalCluster.DeletionProtection', props);
+    return resource.getResponseField('GlobalCluster.DeletionProtection') as unknown as boolean;
+  }
+
+  public get globalClusterMembers(): shapes.DocDbGlobalClusterMember[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.ModifyGlobalCluster.GlobalCluster.GlobalClusterMembers'),
+        outputPath: 'GlobalCluster.GlobalClusterMembers',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          NewGlobalClusterIdentifier: this.__input.newGlobalClusterIdentifier,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyGlobalCluster.GlobalCluster.GlobalClusterMembers', props);
+    return resource.getResponseField('GlobalCluster.GlobalClusterMembers') as unknown as shapes.DocDbGlobalClusterMember[];
+  }
+
+}
+
 export class DocDBResponsesRebootDbInstance {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbRebootDbInstanceMessage) {
@@ -9888,6 +11771,402 @@ export class DocDBResponsesRebootDbInstanceDbInstancePendingModifiedValuesPendin
 
 }
 
+export class DocDBResponsesRemoveFromGlobalCluster {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbRemoveFromGlobalClusterMessage) {
+  }
+
+  public get globalCluster(): DocDBResponsesRemoveFromGlobalClusterGlobalCluster {
+    return new DocDBResponsesRemoveFromGlobalClusterGlobalCluster(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class DocDBResponsesRemoveFromGlobalClusterGlobalCluster {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbRemoveFromGlobalClusterMessage) {
+  }
+
+  public get globalClusterIdentifier(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeFromGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveFromGlobalCluster.GlobalCluster.GlobalClusterIdentifier'),
+        outputPath: 'GlobalCluster.GlobalClusterIdentifier',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          DbClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveFromGlobalCluster.GlobalCluster.GlobalClusterIdentifier', props);
+    return resource.getResponseField('GlobalCluster.GlobalClusterIdentifier') as unknown as string;
+  }
+
+  public get globalClusterResourceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeFromGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveFromGlobalCluster.GlobalCluster.GlobalClusterResourceId'),
+        outputPath: 'GlobalCluster.GlobalClusterResourceId',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          DbClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveFromGlobalCluster.GlobalCluster.GlobalClusterResourceId', props);
+    return resource.getResponseField('GlobalCluster.GlobalClusterResourceId') as unknown as string;
+  }
+
+  public get globalClusterArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeFromGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveFromGlobalCluster.GlobalCluster.GlobalClusterArn'),
+        outputPath: 'GlobalCluster.GlobalClusterArn',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          DbClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveFromGlobalCluster.GlobalCluster.GlobalClusterArn', props);
+    return resource.getResponseField('GlobalCluster.GlobalClusterArn') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeFromGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveFromGlobalCluster.GlobalCluster.Status'),
+        outputPath: 'GlobalCluster.Status',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          DbClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveFromGlobalCluster.GlobalCluster.Status', props);
+    return resource.getResponseField('GlobalCluster.Status') as unknown as string;
+  }
+
+  public get engine(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeFromGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveFromGlobalCluster.GlobalCluster.Engine'),
+        outputPath: 'GlobalCluster.Engine',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          DbClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveFromGlobalCluster.GlobalCluster.Engine', props);
+    return resource.getResponseField('GlobalCluster.Engine') as unknown as string;
+  }
+
+  public get engineVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeFromGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveFromGlobalCluster.GlobalCluster.EngineVersion'),
+        outputPath: 'GlobalCluster.EngineVersion',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          DbClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveFromGlobalCluster.GlobalCluster.EngineVersion', props);
+    return resource.getResponseField('GlobalCluster.EngineVersion') as unknown as string;
+  }
+
+  public get databaseName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeFromGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveFromGlobalCluster.GlobalCluster.DatabaseName'),
+        outputPath: 'GlobalCluster.DatabaseName',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          DbClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveFromGlobalCluster.GlobalCluster.DatabaseName', props);
+    return resource.getResponseField('GlobalCluster.DatabaseName') as unknown as string;
+  }
+
+  public get storageEncrypted(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeFromGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveFromGlobalCluster.GlobalCluster.StorageEncrypted'),
+        outputPath: 'GlobalCluster.StorageEncrypted',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          DbClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveFromGlobalCluster.GlobalCluster.StorageEncrypted', props);
+    return resource.getResponseField('GlobalCluster.StorageEncrypted') as unknown as boolean;
+  }
+
+  public get deletionProtection(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeFromGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveFromGlobalCluster.GlobalCluster.DeletionProtection'),
+        outputPath: 'GlobalCluster.DeletionProtection',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          DbClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveFromGlobalCluster.GlobalCluster.DeletionProtection', props);
+    return resource.getResponseField('GlobalCluster.DeletionProtection') as unknown as boolean;
+  }
+
+  public get globalClusterMembers(): shapes.DocDbGlobalClusterMember[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeFromGlobalCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveFromGlobalCluster.GlobalCluster.GlobalClusterMembers'),
+        outputPath: 'GlobalCluster.GlobalClusterMembers',
+        parameters: {
+          GlobalClusterIdentifier: this.__input.globalClusterIdentifier,
+          DbClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveFromGlobalCluster.GlobalCluster.GlobalClusterMembers', props);
+    return resource.getResponseField('GlobalCluster.GlobalClusterMembers') as unknown as shapes.DocDbGlobalClusterMember[];
+  }
+
+}
+
+export class DocDBResponsesRemoveSourceIdentifierFromSubscription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbRemoveSourceIdentifierFromSubscriptionMessage) {
+  }
+
+  public get eventSubscription(): DocDBResponsesRemoveSourceIdentifierFromSubscriptionEventSubscription {
+    return new DocDBResponsesRemoveSourceIdentifierFromSubscriptionEventSubscription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class DocDBResponsesRemoveSourceIdentifierFromSubscriptionEventSubscription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbRemoveSourceIdentifierFromSubscriptionMessage) {
+  }
+
+  public get customerAwsId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeSourceIdentifierFromSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveSourceIdentifierFromSubscription.EventSubscription.CustomerAwsId'),
+        outputPath: 'EventSubscription.CustomerAwsId',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveSourceIdentifierFromSubscription.EventSubscription.CustomerAwsId', props);
+    return resource.getResponseField('EventSubscription.CustomerAwsId') as unknown as string;
+  }
+
+  public get custSubscriptionId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeSourceIdentifierFromSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveSourceIdentifierFromSubscription.EventSubscription.CustSubscriptionId'),
+        outputPath: 'EventSubscription.CustSubscriptionId',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveSourceIdentifierFromSubscription.EventSubscription.CustSubscriptionId', props);
+    return resource.getResponseField('EventSubscription.CustSubscriptionId') as unknown as string;
+  }
+
+  public get snsTopicArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeSourceIdentifierFromSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveSourceIdentifierFromSubscription.EventSubscription.SnsTopicArn'),
+        outputPath: 'EventSubscription.SnsTopicArn',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveSourceIdentifierFromSubscription.EventSubscription.SnsTopicArn', props);
+    return resource.getResponseField('EventSubscription.SnsTopicArn') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeSourceIdentifierFromSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveSourceIdentifierFromSubscription.EventSubscription.Status'),
+        outputPath: 'EventSubscription.Status',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveSourceIdentifierFromSubscription.EventSubscription.Status', props);
+    return resource.getResponseField('EventSubscription.Status') as unknown as string;
+  }
+
+  public get subscriptionCreationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeSourceIdentifierFromSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveSourceIdentifierFromSubscription.EventSubscription.SubscriptionCreationTime'),
+        outputPath: 'EventSubscription.SubscriptionCreationTime',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveSourceIdentifierFromSubscription.EventSubscription.SubscriptionCreationTime', props);
+    return resource.getResponseField('EventSubscription.SubscriptionCreationTime') as unknown as string;
+  }
+
+  public get sourceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeSourceIdentifierFromSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveSourceIdentifierFromSubscription.EventSubscription.SourceType'),
+        outputPath: 'EventSubscription.SourceType',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveSourceIdentifierFromSubscription.EventSubscription.SourceType', props);
+    return resource.getResponseField('EventSubscription.SourceType') as unknown as string;
+  }
+
+  public get sourceIdsList(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeSourceIdentifierFromSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveSourceIdentifierFromSubscription.EventSubscription.SourceIdsList'),
+        outputPath: 'EventSubscription.SourceIdsList',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveSourceIdentifierFromSubscription.EventSubscription.SourceIdsList', props);
+    return resource.getResponseField('EventSubscription.SourceIdsList') as unknown as string[];
+  }
+
+  public get eventCategoriesList(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeSourceIdentifierFromSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveSourceIdentifierFromSubscription.EventSubscription.EventCategoriesList'),
+        outputPath: 'EventSubscription.EventCategoriesList',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveSourceIdentifierFromSubscription.EventSubscription.EventCategoriesList', props);
+    return resource.getResponseField('EventSubscription.EventCategoriesList') as unknown as string[];
+  }
+
+  public get enabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeSourceIdentifierFromSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveSourceIdentifierFromSubscription.EventSubscription.Enabled'),
+        outputPath: 'EventSubscription.Enabled',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveSourceIdentifierFromSubscription.EventSubscription.Enabled', props);
+    return resource.getResponseField('EventSubscription.Enabled') as unknown as boolean;
+  }
+
+  public get eventSubscriptionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeSourceIdentifierFromSubscription',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RemoveSourceIdentifierFromSubscription.EventSubscription.EventSubscriptionArn'),
+        outputPath: 'EventSubscription.EventSubscriptionArn',
+        parameters: {
+          SubscriptionName: this.__input.subscriptionName,
+          SourceIdentifier: this.__input.sourceIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveSourceIdentifierFromSubscription.EventSubscription.EventSubscriptionArn', props);
+    return resource.getResponseField('EventSubscription.EventSubscriptionArn') as unknown as string;
+  }
+
+}
+
 export class DocDBResponsesResetDbClusterParameterGroup {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DocDbResetDbClusterParameterGroupMessage) {
@@ -10432,6 +12711,62 @@ export class DocDBResponsesRestoreDbClusterFromSnapshotDbCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RestoreDBClusterFromSnapshot.DBCluster.PreferredMaintenanceWindow', props);
     return resource.getResponseField('DBCluster.PreferredMaintenanceWindow') as unknown as string;
+  }
+
+  public get replicationSourceIdentifier(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreDbClusterFromSnapshot',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RestoreDBClusterFromSnapshot.DBCluster.ReplicationSourceIdentifier'),
+        outputPath: 'DBCluster.ReplicationSourceIdentifier',
+        parameters: {
+          AvailabilityZones: this.__input.availabilityZones,
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          SnapshotIdentifier: this.__input.snapshotIdentifier,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          Port: this.__input.port,
+          DBSubnetGroupName: this.__input.dbSubnetGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreDBClusterFromSnapshot.DBCluster.ReplicationSourceIdentifier', props);
+    return resource.getResponseField('DBCluster.ReplicationSourceIdentifier') as unknown as string;
+  }
+
+  public get readReplicaIdentifiers(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreDbClusterFromSnapshot',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RestoreDBClusterFromSnapshot.DBCluster.ReadReplicaIdentifiers'),
+        outputPath: 'DBCluster.ReadReplicaIdentifiers',
+        parameters: {
+          AvailabilityZones: this.__input.availabilityZones,
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          SnapshotIdentifier: this.__input.snapshotIdentifier,
+          Engine: this.__input.engine,
+          EngineVersion: this.__input.engineVersion,
+          Port: this.__input.port,
+          DBSubnetGroupName: this.__input.dbSubnetGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreDBClusterFromSnapshot.DBCluster.ReadReplicaIdentifiers', props);
+    return resource.getResponseField('DBCluster.ReadReplicaIdentifiers') as unknown as string[];
   }
 
   public get dbClusterMembers(): shapes.DocDbdbClusterMember[] {
@@ -11246,6 +13581,60 @@ export class DocDBResponsesRestoreDbClusterToPointInTimeDbCluster {
     return resource.getResponseField('DBCluster.PreferredMaintenanceWindow') as unknown as string;
   }
 
+  public get replicationSourceIdentifier(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreDbClusterToPointInTime',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RestoreDBClusterToPointInTime.DBCluster.ReplicationSourceIdentifier'),
+        outputPath: 'DBCluster.ReplicationSourceIdentifier',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          SourceDBClusterIdentifier: this.__input.sourceDbClusterIdentifier,
+          RestoreToTime: this.__input.restoreToTime,
+          UseLatestRestorableTime: this.__input.useLatestRestorableTime,
+          Port: this.__input.port,
+          DBSubnetGroupName: this.__input.dbSubnetGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreDBClusterToPointInTime.DBCluster.ReplicationSourceIdentifier', props);
+    return resource.getResponseField('DBCluster.ReplicationSourceIdentifier') as unknown as string;
+  }
+
+  public get readReplicaIdentifiers(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreDbClusterToPointInTime',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.RestoreDBClusterToPointInTime.DBCluster.ReadReplicaIdentifiers'),
+        outputPath: 'DBCluster.ReadReplicaIdentifiers',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+          SourceDBClusterIdentifier: this.__input.sourceDbClusterIdentifier,
+          RestoreToTime: this.__input.restoreToTime,
+          UseLatestRestorableTime: this.__input.useLatestRestorableTime,
+          Port: this.__input.port,
+          DBSubnetGroupName: this.__input.dbSubnetGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          EnableCloudwatchLogsExports: this.__input.enableCloudwatchLogsExports,
+          DeletionProtection: this.__input.deletionProtection,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreDBClusterToPointInTime.DBCluster.ReadReplicaIdentifiers', props);
+    return resource.getResponseField('DBCluster.ReadReplicaIdentifiers') as unknown as string[];
+  }
+
   public get dbClusterMembers(): shapes.DocDbdbClusterMember[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -11867,6 +14256,40 @@ export class DocDBResponsesStartDbClusterDbCluster {
     return resource.getResponseField('DBCluster.PreferredMaintenanceWindow') as unknown as string;
   }
 
+  public get replicationSourceIdentifier(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startDbCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.StartDBCluster.DBCluster.ReplicationSourceIdentifier'),
+        outputPath: 'DBCluster.ReplicationSourceIdentifier',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartDBCluster.DBCluster.ReplicationSourceIdentifier', props);
+    return resource.getResponseField('DBCluster.ReplicationSourceIdentifier') as unknown as string;
+  }
+
+  public get readReplicaIdentifiers(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startDbCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.StartDBCluster.DBCluster.ReadReplicaIdentifiers'),
+        outputPath: 'DBCluster.ReadReplicaIdentifiers',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartDBCluster.DBCluster.ReadReplicaIdentifiers', props);
+    return resource.getResponseField('DBCluster.ReadReplicaIdentifiers') as unknown as string[];
+  }
+
   public get dbClusterMembers(): shapes.DocDbdbClusterMember[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -12376,6 +14799,40 @@ export class DocDBResponsesStopDbClusterDbCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'StopDBCluster.DBCluster.PreferredMaintenanceWindow', props);
     return resource.getResponseField('DBCluster.PreferredMaintenanceWindow') as unknown as string;
+  }
+
+  public get replicationSourceIdentifier(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopDbCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.StopDBCluster.DBCluster.ReplicationSourceIdentifier'),
+        outputPath: 'DBCluster.ReplicationSourceIdentifier',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopDBCluster.DBCluster.ReplicationSourceIdentifier', props);
+    return resource.getResponseField('DBCluster.ReplicationSourceIdentifier') as unknown as string;
+  }
+
+  public get readReplicaIdentifiers(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopDbCluster',
+        service: 'DocDB',
+        physicalResourceId: cr.PhysicalResourceId.of('DocDB.StopDBCluster.DBCluster.ReadReplicaIdentifiers'),
+        outputPath: 'DBCluster.ReadReplicaIdentifiers',
+        parameters: {
+          DBClusterIdentifier: this.__input.dbClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopDBCluster.DBCluster.ReadReplicaIdentifiers', props);
+    return resource.getResponseField('DBCluster.ReadReplicaIdentifiers') as unknown as string[];
   }
 
   public get dbClusterMembers(): shapes.DocDbdbClusterMember[] {

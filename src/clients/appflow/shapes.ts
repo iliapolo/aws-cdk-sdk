@@ -30,6 +30,24 @@ export interface AppflowCreateConnectorProfileRequest {
 }
 
 /**
+ * Converts an object of type 'AppflowCreateConnectorProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowCreateConnectorProfileRequest(obj: AppflowCreateConnectorProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectorProfileName': obj.connectorProfileName,
+    'kmsArn': obj.kmsArn,
+    'connectorType': obj.connectorType,
+    'connectionMode': obj.connectionMode,
+    'connectorProfileConfig': toJson_AppflowConnectorProfileConfig(obj.connectorProfileConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowCreateConnectorProfileResponse
  */
 export interface AppflowCreateConnectorProfileResponse {
@@ -39,6 +57,20 @@ export interface AppflowCreateConnectorProfileResponse {
   readonly connectorProfileArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowCreateConnectorProfileResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowCreateConnectorProfileResponse(obj: AppflowCreateConnectorProfileResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectorProfileArn': obj.connectorProfileArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowCreateFlowRequest
@@ -87,6 +119,27 @@ export interface AppflowCreateFlowRequest {
 }
 
 /**
+ * Converts an object of type 'AppflowCreateFlowRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowCreateFlowRequest(obj: AppflowCreateFlowRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'flowName': obj.flowName,
+    'description': obj.description,
+    'kmsArn': obj.kmsArn,
+    'triggerConfig': toJson_AppflowTriggerConfig(obj.triggerConfig),
+    'sourceFlowConfig': toJson_AppflowSourceFlowConfig(obj.sourceFlowConfig),
+    'destinationFlowConfigList': obj.destinationFlowConfigList?.map(y => toJson_AppflowDestinationFlowConfig(y)),
+    'tasks': obj.tasks?.map(y => toJson_AppflowTask(y)),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowCreateFlowResponse
  */
 export interface AppflowCreateFlowResponse {
@@ -101,6 +154,21 @@ export interface AppflowCreateFlowResponse {
   readonly flowStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowCreateFlowResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowCreateFlowResponse(obj: AppflowCreateFlowResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'flowArn': obj.flowArn,
+    'flowStatus': obj.flowStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowDeleteConnectorProfileRequest
@@ -119,10 +187,38 @@ export interface AppflowDeleteConnectorProfileRequest {
 }
 
 /**
+ * Converts an object of type 'AppflowDeleteConnectorProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDeleteConnectorProfileRequest(obj: AppflowDeleteConnectorProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectorProfileName': obj.connectorProfileName,
+    'forceDelete': obj.forceDelete,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowDeleteConnectorProfileResponse
  */
 export interface AppflowDeleteConnectorProfileResponse {
 }
+
+/**
+ * Converts an object of type 'AppflowDeleteConnectorProfileResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDeleteConnectorProfileResponse(obj: AppflowDeleteConnectorProfileResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowDeleteFlowRequest
@@ -141,10 +237,38 @@ export interface AppflowDeleteFlowRequest {
 }
 
 /**
+ * Converts an object of type 'AppflowDeleteFlowRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDeleteFlowRequest(obj: AppflowDeleteFlowRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'flowName': obj.flowName,
+    'forceDelete': obj.forceDelete,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowDeleteFlowResponse
  */
 export interface AppflowDeleteFlowResponse {
 }
+
+/**
+ * Converts an object of type 'AppflowDeleteFlowResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDeleteFlowResponse(obj: AppflowDeleteFlowResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowDescribeConnectorEntityRequest
@@ -168,6 +292,22 @@ export interface AppflowDescribeConnectorEntityRequest {
 }
 
 /**
+ * Converts an object of type 'AppflowDescribeConnectorEntityRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDescribeConnectorEntityRequest(obj: AppflowDescribeConnectorEntityRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectorEntityName': obj.connectorEntityName,
+    'connectorType': obj.connectorType,
+    'connectorProfileName': obj.connectorProfileName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowDescribeConnectorEntityResponse
  */
 export interface AppflowDescribeConnectorEntityResponse {
@@ -177,6 +317,20 @@ export interface AppflowDescribeConnectorEntityResponse {
   readonly connectorEntityFields: AppflowConnectorEntityField[];
 
 }
+
+/**
+ * Converts an object of type 'AppflowDescribeConnectorEntityResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDescribeConnectorEntityResponse(obj: AppflowDescribeConnectorEntityResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectorEntityFields': obj.connectorEntityFields?.map(y => toJson_AppflowConnectorEntityField(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowDescribeConnectorProfilesRequest
@@ -205,6 +359,23 @@ export interface AppflowDescribeConnectorProfilesRequest {
 }
 
 /**
+ * Converts an object of type 'AppflowDescribeConnectorProfilesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDescribeConnectorProfilesRequest(obj: AppflowDescribeConnectorProfilesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectorProfileNames': obj.connectorProfileNames?.map(y => y),
+    'connectorType': obj.connectorType,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowDescribeConnectorProfilesResponse
  */
 export interface AppflowDescribeConnectorProfilesResponse {
@@ -219,6 +390,21 @@ export interface AppflowDescribeConnectorProfilesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowDescribeConnectorProfilesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDescribeConnectorProfilesResponse(obj: AppflowDescribeConnectorProfilesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectorProfileDetails': obj.connectorProfileDetails?.map(y => toJson_AppflowConnectorProfile(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowDescribeConnectorsRequest
@@ -237,6 +423,21 @@ export interface AppflowDescribeConnectorsRequest {
 }
 
 /**
+ * Converts an object of type 'AppflowDescribeConnectorsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDescribeConnectorsRequest(obj: AppflowDescribeConnectorsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectorTypes': obj.connectorTypes?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowDescribeConnectorsResponse
  */
 export interface AppflowDescribeConnectorsResponse {
@@ -253,6 +454,21 @@ export interface AppflowDescribeConnectorsResponse {
 }
 
 /**
+ * Converts an object of type 'AppflowDescribeConnectorsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDescribeConnectorsResponse(obj: AppflowDescribeConnectorsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectorConfigurations': ((obj.connectorConfigurations) === undefined) ? undefined : (Object.entries(obj.connectorConfigurations).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_AppflowConnectorConfiguration(i[1]) }), {})),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowDescribeFlowRequest
  */
 export interface AppflowDescribeFlowRequest {
@@ -262,6 +478,20 @@ export interface AppflowDescribeFlowRequest {
   readonly flowName: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowDescribeFlowRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDescribeFlowRequest(obj: AppflowDescribeFlowRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'flowName': obj.flowName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowDescribeFlowResponse
@@ -350,6 +580,35 @@ export interface AppflowDescribeFlowResponse {
 }
 
 /**
+ * Converts an object of type 'AppflowDescribeFlowResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDescribeFlowResponse(obj: AppflowDescribeFlowResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'flowArn': obj.flowArn,
+    'description': obj.description,
+    'flowName': obj.flowName,
+    'kmsArn': obj.kmsArn,
+    'flowStatus': obj.flowStatus,
+    'flowStatusMessage': obj.flowStatusMessage,
+    'sourceFlowConfig': toJson_AppflowSourceFlowConfig(obj.sourceFlowConfig),
+    'destinationFlowConfigList': obj.destinationFlowConfigList?.map(y => toJson_AppflowDestinationFlowConfig(y)),
+    'lastRunExecutionDetails': toJson_AppflowExecutionDetails(obj.lastRunExecutionDetails),
+    'triggerConfig': toJson_AppflowTriggerConfig(obj.triggerConfig),
+    'tasks': obj.tasks?.map(y => toJson_AppflowTask(y)),
+    'createdAt': obj.createdAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'createdBy': obj.createdBy,
+    'lastUpdatedBy': obj.lastUpdatedBy,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowDescribeFlowExecutionRecordsRequest
  */
 export interface AppflowDescribeFlowExecutionRecordsRequest {
@@ -371,6 +630,22 @@ export interface AppflowDescribeFlowExecutionRecordsRequest {
 }
 
 /**
+ * Converts an object of type 'AppflowDescribeFlowExecutionRecordsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDescribeFlowExecutionRecordsRequest(obj: AppflowDescribeFlowExecutionRecordsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'flowName': obj.flowName,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowDescribeFlowExecutionRecordsResponse
  */
 export interface AppflowDescribeFlowExecutionRecordsResponse {
@@ -385,6 +660,21 @@ export interface AppflowDescribeFlowExecutionRecordsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowDescribeFlowExecutionRecordsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDescribeFlowExecutionRecordsResponse(obj: AppflowDescribeFlowExecutionRecordsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'flowExecutions': obj.flowExecutions?.map(y => toJson_AppflowExecutionRecord(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowListConnectorEntitiesRequest
@@ -408,6 +698,22 @@ export interface AppflowListConnectorEntitiesRequest {
 }
 
 /**
+ * Converts an object of type 'AppflowListConnectorEntitiesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowListConnectorEntitiesRequest(obj: AppflowListConnectorEntitiesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectorProfileName': obj.connectorProfileName,
+    'connectorType': obj.connectorType,
+    'entitiesPath': obj.entitiesPath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowListConnectorEntitiesResponse
  */
 export interface AppflowListConnectorEntitiesResponse {
@@ -417,6 +723,20 @@ export interface AppflowListConnectorEntitiesResponse {
   readonly connectorEntityMap: { [key: string]: AppflowConnectorEntity[] };
 
 }
+
+/**
+ * Converts an object of type 'AppflowListConnectorEntitiesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowListConnectorEntitiesResponse(obj: AppflowListConnectorEntitiesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectorEntityMap': ((obj.connectorEntityMap) === undefined) ? undefined : (Object.entries(obj.connectorEntityMap).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.map(y => toJson_AppflowConnectorEntity(y)) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowListFlowsRequest
@@ -435,6 +755,21 @@ export interface AppflowListFlowsRequest {
 }
 
 /**
+ * Converts an object of type 'AppflowListFlowsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowListFlowsRequest(obj: AppflowListFlowsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowListFlowsResponse
  */
 export interface AppflowListFlowsResponse {
@@ -451,6 +786,21 @@ export interface AppflowListFlowsResponse {
 }
 
 /**
+ * Converts an object of type 'AppflowListFlowsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowListFlowsResponse(obj: AppflowListFlowsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'flows': obj.flows?.map(y => toJson_AppflowFlowDefinition(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowListTagsForResourceRequest
  */
 export interface AppflowListTagsForResourceRequest {
@@ -460,6 +810,20 @@ export interface AppflowListTagsForResourceRequest {
   readonly resourceArn: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowListTagsForResourceRequest(obj: AppflowListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowListTagsForResourceResponse
@@ -473,6 +837,20 @@ export interface AppflowListTagsForResourceResponse {
 }
 
 /**
+ * Converts an object of type 'AppflowListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowListTagsForResourceResponse(obj: AppflowListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowStartFlowRequest
  */
 export interface AppflowStartFlowRequest {
@@ -482,6 +860,20 @@ export interface AppflowStartFlowRequest {
   readonly flowName: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowStartFlowRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowStartFlowRequest(obj: AppflowStartFlowRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'flowName': obj.flowName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowStartFlowResponse
@@ -505,6 +897,22 @@ export interface AppflowStartFlowResponse {
 }
 
 /**
+ * Converts an object of type 'AppflowStartFlowResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowStartFlowResponse(obj: AppflowStartFlowResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'flowArn': obj.flowArn,
+    'flowStatus': obj.flowStatus,
+    'executionId': obj.executionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowStopFlowRequest
  */
 export interface AppflowStopFlowRequest {
@@ -514,6 +922,20 @@ export interface AppflowStopFlowRequest {
   readonly flowName: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowStopFlowRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowStopFlowRequest(obj: AppflowStopFlowRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'flowName': obj.flowName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowStopFlowResponse
@@ -532,6 +954,21 @@ export interface AppflowStopFlowResponse {
 }
 
 /**
+ * Converts an object of type 'AppflowStopFlowResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowStopFlowResponse(obj: AppflowStopFlowResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'flowArn': obj.flowArn,
+    'flowStatus': obj.flowStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowTagResourceRequest
  */
 export interface AppflowTagResourceRequest {
@@ -548,10 +985,38 @@ export interface AppflowTagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'AppflowTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowTagResourceRequest(obj: AppflowTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowTagResourceResponse
  */
 export interface AppflowTagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'AppflowTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowTagResourceResponse(obj: AppflowTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowUntagResourceRequest
@@ -570,10 +1035,38 @@ export interface AppflowUntagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'AppflowUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowUntagResourceRequest(obj: AppflowUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowUntagResourceResponse
  */
 export interface AppflowUntagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'AppflowUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowUntagResourceResponse(obj: AppflowUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowUpdateConnectorProfileRequest
@@ -597,6 +1090,22 @@ export interface AppflowUpdateConnectorProfileRequest {
 }
 
 /**
+ * Converts an object of type 'AppflowUpdateConnectorProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowUpdateConnectorProfileRequest(obj: AppflowUpdateConnectorProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectorProfileName': obj.connectorProfileName,
+    'connectionMode': obj.connectionMode,
+    'connectorProfileConfig': toJson_AppflowConnectorProfileConfig(obj.connectorProfileConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowUpdateConnectorProfileResponse
  */
 export interface AppflowUpdateConnectorProfileResponse {
@@ -606,6 +1115,20 @@ export interface AppflowUpdateConnectorProfileResponse {
   readonly connectorProfileArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowUpdateConnectorProfileResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowUpdateConnectorProfileResponse(obj: AppflowUpdateConnectorProfileResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectorProfileArn': obj.connectorProfileArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowUpdateFlowRequest
@@ -644,6 +1167,25 @@ export interface AppflowUpdateFlowRequest {
 }
 
 /**
+ * Converts an object of type 'AppflowUpdateFlowRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowUpdateFlowRequest(obj: AppflowUpdateFlowRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'flowName': obj.flowName,
+    'description': obj.description,
+    'triggerConfig': toJson_AppflowTriggerConfig(obj.triggerConfig),
+    'sourceFlowConfig': toJson_AppflowSourceFlowConfig(obj.sourceFlowConfig),
+    'destinationFlowConfigList': obj.destinationFlowConfigList?.map(y => toJson_AppflowDestinationFlowConfig(y)),
+    'tasks': obj.tasks?.map(y => toJson_AppflowTask(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowUpdateFlowResponse
  */
 export interface AppflowUpdateFlowResponse {
@@ -653,6 +1195,20 @@ export interface AppflowUpdateFlowResponse {
   readonly flowStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowUpdateFlowResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowUpdateFlowResponse(obj: AppflowUpdateFlowResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'flowStatus': obj.flowStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowConnectorProfileConfig
@@ -671,6 +1227,21 @@ export interface AppflowConnectorProfileConfig {
 }
 
 /**
+ * Converts an object of type 'AppflowConnectorProfileConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowConnectorProfileConfig(obj: AppflowConnectorProfileConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectorProfileProperties': toJson_AppflowConnectorProfileProperties(obj.connectorProfileProperties),
+    'connectorProfileCredentials': toJson_AppflowConnectorProfileCredentials(obj.connectorProfileCredentials),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowTriggerConfig
  */
 export interface AppflowTriggerConfig {
@@ -685,6 +1256,21 @@ export interface AppflowTriggerConfig {
   readonly triggerProperties?: AppflowTriggerProperties;
 
 }
+
+/**
+ * Converts an object of type 'AppflowTriggerConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowTriggerConfig(obj: AppflowTriggerConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'triggerType': obj.triggerType,
+    'triggerProperties': toJson_AppflowTriggerProperties(obj.triggerProperties),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowSourceFlowConfig
@@ -713,6 +1299,23 @@ export interface AppflowSourceFlowConfig {
 }
 
 /**
+ * Converts an object of type 'AppflowSourceFlowConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSourceFlowConfig(obj: AppflowSourceFlowConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectorType': obj.connectorType,
+    'connectorProfileName': obj.connectorProfileName,
+    'sourceConnectorProperties': toJson_AppflowSourceConnectorProperties(obj.sourceConnectorProperties),
+    'incrementalPullConfig': toJson_AppflowIncrementalPullConfig(obj.incrementalPullConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowDestinationFlowConfig
  */
 export interface AppflowDestinationFlowConfig {
@@ -732,6 +1335,22 @@ export interface AppflowDestinationFlowConfig {
   readonly destinationConnectorProperties: AppflowDestinationConnectorProperties;
 
 }
+
+/**
+ * Converts an object of type 'AppflowDestinationFlowConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDestinationFlowConfig(obj: AppflowDestinationFlowConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectorType': obj.connectorType,
+    'connectorProfileName': obj.connectorProfileName,
+    'destinationConnectorProperties': toJson_AppflowDestinationConnectorProperties(obj.destinationConnectorProperties),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowTask
@@ -763,6 +1382,24 @@ export interface AppflowTask {
   readonly taskProperties?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'AppflowTask' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowTask(obj: AppflowTask | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sourceFields': obj.sourceFields?.map(y => y),
+    'connectorOperator': toJson_AppflowConnectorOperator(obj.connectorOperator),
+    'destinationField': obj.destinationField,
+    'taskType': obj.taskType,
+    'taskProperties': ((obj.taskProperties) === undefined) ? undefined : (Object.entries(obj.taskProperties).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowConnectorEntityField
@@ -799,6 +1436,25 @@ export interface AppflowConnectorEntityField {
   readonly destinationProperties?: AppflowDestinationFieldProperties;
 
 }
+
+/**
+ * Converts an object of type 'AppflowConnectorEntityField' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowConnectorEntityField(obj: AppflowConnectorEntityField | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'identifier': obj.identifier,
+    'label': obj.label,
+    'supportedFieldTypeDetails': toJson_AppflowSupportedFieldTypeDetails(obj.supportedFieldTypeDetails),
+    'description': obj.description,
+    'sourceProperties': toJson_AppflowSourceFieldProperties(obj.sourceProperties),
+    'destinationProperties': toJson_AppflowDestinationFieldProperties(obj.destinationProperties),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowConnectorProfile
@@ -847,6 +1503,27 @@ export interface AppflowConnectorProfile {
 }
 
 /**
+ * Converts an object of type 'AppflowConnectorProfile' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowConnectorProfile(obj: AppflowConnectorProfile | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectorProfileArn': obj.connectorProfileArn,
+    'connectorProfileName': obj.connectorProfileName,
+    'connectorType': obj.connectorType,
+    'connectionMode': obj.connectionMode,
+    'credentialsArn': obj.credentialsArn,
+    'connectorProfileProperties': toJson_AppflowConnectorProfileProperties(obj.connectorProfileProperties),
+    'createdAt': obj.createdAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowConnectorConfiguration
  */
 export interface AppflowConnectorConfiguration {
@@ -893,6 +1570,27 @@ export interface AppflowConnectorConfiguration {
 }
 
 /**
+ * Converts an object of type 'AppflowConnectorConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowConnectorConfiguration(obj: AppflowConnectorConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'canUseAsSource': obj.canUseAsSource,
+    'canUseAsDestination': obj.canUseAsDestination,
+    'supportedDestinationConnectors': obj.supportedDestinationConnectors?.map(y => y),
+    'supportedSchedulingFrequencies': obj.supportedSchedulingFrequencies?.map(y => y),
+    'isPrivateLinkEnabled': obj.isPrivateLinkEnabled,
+    'isPrivateLinkEndpointUrlRequired': obj.isPrivateLinkEndpointUrlRequired,
+    'supportedTriggerTypes': obj.supportedTriggerTypes?.map(y => y),
+    'connectorMetadata': toJson_AppflowConnectorMetadata(obj.connectorMetadata),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowExecutionDetails
  */
 export interface AppflowExecutionDetails {
@@ -912,6 +1610,22 @@ export interface AppflowExecutionDetails {
   readonly mostRecentExecutionStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowExecutionDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowExecutionDetails(obj: AppflowExecutionDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'mostRecentExecutionMessage': obj.mostRecentExecutionMessage,
+    'mostRecentExecutionTime': obj.mostRecentExecutionTime,
+    'mostRecentExecutionStatus': obj.mostRecentExecutionStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowExecutionRecord
@@ -942,7 +1656,37 @@ export interface AppflowExecutionRecord {
    */
   readonly lastUpdatedAt?: string;
 
+  /**
+   * @schema AppflowExecutionRecord#dataPullStartTime
+   */
+  readonly dataPullStartTime?: string;
+
+  /**
+   * @schema AppflowExecutionRecord#dataPullEndTime
+   */
+  readonly dataPullEndTime?: string;
+
 }
+
+/**
+ * Converts an object of type 'AppflowExecutionRecord' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowExecutionRecord(obj: AppflowExecutionRecord | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'executionId': obj.executionId,
+    'executionStatus': obj.executionStatus,
+    'executionResult': toJson_AppflowExecutionResult(obj.executionResult),
+    'startedAt': obj.startedAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'dataPullStartTime': obj.dataPullStartTime,
+    'dataPullEndTime': obj.dataPullEndTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowConnectorEntity
@@ -964,6 +1708,22 @@ export interface AppflowConnectorEntity {
   readonly hasNestedEntities?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'AppflowConnectorEntity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowConnectorEntity(obj: AppflowConnectorEntity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'label': obj.label,
+    'hasNestedEntities': obj.hasNestedEntities,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowFlowDefinition
@@ -1037,6 +1797,32 @@ export interface AppflowFlowDefinition {
 }
 
 /**
+ * Converts an object of type 'AppflowFlowDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowFlowDefinition(obj: AppflowFlowDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'flowArn': obj.flowArn,
+    'description': obj.description,
+    'flowName': obj.flowName,
+    'flowStatus': obj.flowStatus,
+    'sourceConnectorType': obj.sourceConnectorType,
+    'destinationConnectorType': obj.destinationConnectorType,
+    'triggerType': obj.triggerType,
+    'createdAt': obj.createdAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'createdBy': obj.createdBy,
+    'lastUpdatedBy': obj.lastUpdatedBy,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'lastRunExecutionDetails': toJson_AppflowExecutionDetails(obj.lastRunExecutionDetails),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowConnectorProfileProperties
  */
 export interface AppflowConnectorProfileProperties {
@@ -1059,6 +1845,11 @@ export interface AppflowConnectorProfileProperties {
    * @schema AppflowConnectorProfileProperties#GoogleAnalytics
    */
   readonly googleAnalytics?: AppflowGoogleAnalyticsConnectorProfileProperties;
+
+  /**
+   * @schema AppflowConnectorProfileProperties#Honeycode
+   */
+  readonly honeycode?: AppflowHoneycodeConnectorProfileProperties;
 
   /**
    * @schema AppflowConnectorProfileProperties#InforNexus
@@ -1118,6 +1909,35 @@ export interface AppflowConnectorProfileProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowConnectorProfileProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowConnectorProfileProperties(obj: AppflowConnectorProfileProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Amplitude': toJson_AppflowAmplitudeConnectorProfileProperties(obj.amplitude),
+    'Datadog': toJson_AppflowDatadogConnectorProfileProperties(obj.datadog),
+    'Dynatrace': toJson_AppflowDynatraceConnectorProfileProperties(obj.dynatrace),
+    'GoogleAnalytics': toJson_AppflowGoogleAnalyticsConnectorProfileProperties(obj.googleAnalytics),
+    'Honeycode': toJson_AppflowHoneycodeConnectorProfileProperties(obj.honeycode),
+    'InforNexus': toJson_AppflowInforNexusConnectorProfileProperties(obj.inforNexus),
+    'Marketo': toJson_AppflowMarketoConnectorProfileProperties(obj.marketo),
+    'Redshift': toJson_AppflowRedshiftConnectorProfileProperties(obj.redshift),
+    'Salesforce': toJson_AppflowSalesforceConnectorProfileProperties(obj.salesforce),
+    'ServiceNow': toJson_AppflowServiceNowConnectorProfileProperties(obj.serviceNow),
+    'Singular': toJson_AppflowSingularConnectorProfileProperties(obj.singular),
+    'Slack': toJson_AppflowSlackConnectorProfileProperties(obj.slack),
+    'Snowflake': toJson_AppflowSnowflakeConnectorProfileProperties(obj.snowflake),
+    'Trendmicro': toJson_AppflowTrendmicroConnectorProfileProperties(obj.trendmicro),
+    'Veeva': toJson_AppflowVeevaConnectorProfileProperties(obj.veeva),
+    'Zendesk': toJson_AppflowZendeskConnectorProfileProperties(obj.zendesk),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowConnectorProfileCredentials
  */
 export interface AppflowConnectorProfileCredentials {
@@ -1140,6 +1960,11 @@ export interface AppflowConnectorProfileCredentials {
    * @schema AppflowConnectorProfileCredentials#GoogleAnalytics
    */
   readonly googleAnalytics?: AppflowGoogleAnalyticsConnectorProfileCredentials;
+
+  /**
+   * @schema AppflowConnectorProfileCredentials#Honeycode
+   */
+  readonly honeycode?: AppflowHoneycodeConnectorProfileCredentials;
 
   /**
    * @schema AppflowConnectorProfileCredentials#InforNexus
@@ -1199,6 +2024,35 @@ export interface AppflowConnectorProfileCredentials {
 }
 
 /**
+ * Converts an object of type 'AppflowConnectorProfileCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowConnectorProfileCredentials(obj: AppflowConnectorProfileCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Amplitude': toJson_AppflowAmplitudeConnectorProfileCredentials(obj.amplitude),
+    'Datadog': toJson_AppflowDatadogConnectorProfileCredentials(obj.datadog),
+    'Dynatrace': toJson_AppflowDynatraceConnectorProfileCredentials(obj.dynatrace),
+    'GoogleAnalytics': toJson_AppflowGoogleAnalyticsConnectorProfileCredentials(obj.googleAnalytics),
+    'Honeycode': toJson_AppflowHoneycodeConnectorProfileCredentials(obj.honeycode),
+    'InforNexus': toJson_AppflowInforNexusConnectorProfileCredentials(obj.inforNexus),
+    'Marketo': toJson_AppflowMarketoConnectorProfileCredentials(obj.marketo),
+    'Redshift': toJson_AppflowRedshiftConnectorProfileCredentials(obj.redshift),
+    'Salesforce': toJson_AppflowSalesforceConnectorProfileCredentials(obj.salesforce),
+    'ServiceNow': toJson_AppflowServiceNowConnectorProfileCredentials(obj.serviceNow),
+    'Singular': toJson_AppflowSingularConnectorProfileCredentials(obj.singular),
+    'Slack': toJson_AppflowSlackConnectorProfileCredentials(obj.slack),
+    'Snowflake': toJson_AppflowSnowflakeConnectorProfileCredentials(obj.snowflake),
+    'Trendmicro': toJson_AppflowTrendmicroConnectorProfileCredentials(obj.trendmicro),
+    'Veeva': toJson_AppflowVeevaConnectorProfileCredentials(obj.veeva),
+    'Zendesk': toJson_AppflowZendeskConnectorProfileCredentials(obj.zendesk),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowTriggerProperties
  */
 export interface AppflowTriggerProperties {
@@ -1208,6 +2062,20 @@ export interface AppflowTriggerProperties {
   readonly scheduled?: AppflowScheduledTriggerProperties;
 
 }
+
+/**
+ * Converts an object of type 'AppflowTriggerProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowTriggerProperties(obj: AppflowTriggerProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Scheduled': toJson_AppflowScheduledTriggerProperties(obj.scheduled),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowSourceConnectorProperties
@@ -1286,6 +2154,33 @@ export interface AppflowSourceConnectorProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowSourceConnectorProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSourceConnectorProperties(obj: AppflowSourceConnectorProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Amplitude': toJson_AppflowAmplitudeSourceProperties(obj.amplitude),
+    'Datadog': toJson_AppflowDatadogSourceProperties(obj.datadog),
+    'Dynatrace': toJson_AppflowDynatraceSourceProperties(obj.dynatrace),
+    'GoogleAnalytics': toJson_AppflowGoogleAnalyticsSourceProperties(obj.googleAnalytics),
+    'InforNexus': toJson_AppflowInforNexusSourceProperties(obj.inforNexus),
+    'Marketo': toJson_AppflowMarketoSourceProperties(obj.marketo),
+    'S3': toJson_AppflowS3SourceProperties(obj.s3),
+    'Salesforce': toJson_AppflowSalesforceSourceProperties(obj.salesforce),
+    'ServiceNow': toJson_AppflowServiceNowSourceProperties(obj.serviceNow),
+    'Singular': toJson_AppflowSingularSourceProperties(obj.singular),
+    'Slack': toJson_AppflowSlackSourceProperties(obj.slack),
+    'Trendmicro': toJson_AppflowTrendmicroSourceProperties(obj.trendmicro),
+    'Veeva': toJson_AppflowVeevaSourceProperties(obj.veeva),
+    'Zendesk': toJson_AppflowZendeskSourceProperties(obj.zendesk),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowIncrementalPullConfig
  */
 export interface AppflowIncrementalPullConfig {
@@ -1295,6 +2190,20 @@ export interface AppflowIncrementalPullConfig {
   readonly datetimeTypeFieldName?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowIncrementalPullConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowIncrementalPullConfig(obj: AppflowIncrementalPullConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datetimeTypeFieldName': obj.datetimeTypeFieldName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowDestinationConnectorProperties
@@ -1326,11 +2235,54 @@ export interface AppflowDestinationConnectorProperties {
   readonly eventBridge?: AppflowEventBridgeDestinationProperties;
 
   /**
+   * @schema AppflowDestinationConnectorProperties#LookoutMetrics
+   */
+  readonly lookoutMetrics?: AppflowLookoutMetricsDestinationProperties;
+
+  /**
    * @schema AppflowDestinationConnectorProperties#Upsolver
    */
   readonly upsolver?: AppflowUpsolverDestinationProperties;
 
+  /**
+   * @schema AppflowDestinationConnectorProperties#Honeycode
+   */
+  readonly honeycode?: AppflowHoneycodeDestinationProperties;
+
+  /**
+   * @schema AppflowDestinationConnectorProperties#CustomerProfiles
+   */
+  readonly customerProfiles?: AppflowCustomerProfilesDestinationProperties;
+
+  /**
+   * @schema AppflowDestinationConnectorProperties#Zendesk
+   */
+  readonly zendesk?: AppflowZendeskDestinationProperties;
+
 }
+
+/**
+ * Converts an object of type 'AppflowDestinationConnectorProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDestinationConnectorProperties(obj: AppflowDestinationConnectorProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Redshift': toJson_AppflowRedshiftDestinationProperties(obj.redshift),
+    'S3': toJson_AppflowS3DestinationProperties(obj.s3),
+    'Salesforce': toJson_AppflowSalesforceDestinationProperties(obj.salesforce),
+    'Snowflake': toJson_AppflowSnowflakeDestinationProperties(obj.snowflake),
+    'EventBridge': toJson_AppflowEventBridgeDestinationProperties(obj.eventBridge),
+    'LookoutMetrics': toJson_AppflowLookoutMetricsDestinationProperties(obj.lookoutMetrics),
+    'Upsolver': toJson_AppflowUpsolverDestinationProperties(obj.upsolver),
+    'Honeycode': toJson_AppflowHoneycodeDestinationProperties(obj.honeycode),
+    'CustomerProfiles': toJson_AppflowCustomerProfilesDestinationProperties(obj.customerProfiles),
+    'Zendesk': toJson_AppflowZendeskDestinationProperties(obj.zendesk),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowConnectorOperator
@@ -1409,6 +2361,33 @@ export interface AppflowConnectorOperator {
 }
 
 /**
+ * Converts an object of type 'AppflowConnectorOperator' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowConnectorOperator(obj: AppflowConnectorOperator | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Amplitude': obj.amplitude,
+    'Datadog': obj.datadog,
+    'Dynatrace': obj.dynatrace,
+    'GoogleAnalytics': obj.googleAnalytics,
+    'InforNexus': obj.inforNexus,
+    'Marketo': obj.marketo,
+    'S3': obj.s3,
+    'Salesforce': obj.salesforce,
+    'ServiceNow': obj.serviceNow,
+    'Singular': obj.singular,
+    'Slack': obj.slack,
+    'Trendmicro': obj.trendmicro,
+    'Veeva': obj.veeva,
+    'Zendesk': obj.zendesk,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowSupportedFieldTypeDetails
  */
 export interface AppflowSupportedFieldTypeDetails {
@@ -1418,6 +2397,20 @@ export interface AppflowSupportedFieldTypeDetails {
   readonly v1: AppflowFieldTypeDetails;
 
 }
+
+/**
+ * Converts an object of type 'AppflowSupportedFieldTypeDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSupportedFieldTypeDetails(obj: AppflowSupportedFieldTypeDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'v1': toJson_AppflowFieldTypeDetails(obj.v1),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowSourceFieldProperties
@@ -1434,6 +2427,21 @@ export interface AppflowSourceFieldProperties {
   readonly isQueryable?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'AppflowSourceFieldProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSourceFieldProperties(obj: AppflowSourceFieldProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'isRetrievable': obj.isRetrievable,
+    'isQueryable': obj.isQueryable,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowDestinationFieldProperties
@@ -1465,6 +2473,24 @@ export interface AppflowDestinationFieldProperties {
   readonly supportedWriteOperations?: string[];
 
 }
+
+/**
+ * Converts an object of type 'AppflowDestinationFieldProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDestinationFieldProperties(obj: AppflowDestinationFieldProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'isCreatable': obj.isCreatable,
+    'isNullable': obj.isNullable,
+    'isUpsertable': obj.isUpsertable,
+    'isUpdatable': obj.isUpdatable,
+    'supportedWriteOperations': obj.supportedWriteOperations?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowConnectorMetadata
@@ -1560,7 +2586,50 @@ export interface AppflowConnectorMetadata {
    */
   readonly upsolver?: AppflowUpsolverMetadata;
 
+  /**
+   * @schema AppflowConnectorMetadata#CustomerProfiles
+   */
+  readonly customerProfiles?: AppflowCustomerProfilesMetadata;
+
+  /**
+   * @schema AppflowConnectorMetadata#Honeycode
+   */
+  readonly honeycode?: AppflowHoneycodeMetadata;
+
 }
+
+/**
+ * Converts an object of type 'AppflowConnectorMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowConnectorMetadata(obj: AppflowConnectorMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Amplitude': toJson_AppflowAmplitudeMetadata(obj.amplitude),
+    'Datadog': toJson_AppflowDatadogMetadata(obj.datadog),
+    'Dynatrace': toJson_AppflowDynatraceMetadata(obj.dynatrace),
+    'GoogleAnalytics': toJson_AppflowGoogleAnalyticsMetadata(obj.googleAnalytics),
+    'InforNexus': toJson_AppflowInforNexusMetadata(obj.inforNexus),
+    'Marketo': toJson_AppflowMarketoMetadata(obj.marketo),
+    'Redshift': toJson_AppflowRedshiftMetadata(obj.redshift),
+    'S3': toJson_AppflowS3Metadata(obj.s3),
+    'Salesforce': toJson_AppflowSalesforceMetadata(obj.salesforce),
+    'ServiceNow': toJson_AppflowServiceNowMetadata(obj.serviceNow),
+    'Singular': toJson_AppflowSingularMetadata(obj.singular),
+    'Slack': toJson_AppflowSlackMetadata(obj.slack),
+    'Snowflake': toJson_AppflowSnowflakeMetadata(obj.snowflake),
+    'Trendmicro': toJson_AppflowTrendmicroMetadata(obj.trendmicro),
+    'Veeva': toJson_AppflowVeevaMetadata(obj.veeva),
+    'Zendesk': toJson_AppflowZendeskMetadata(obj.zendesk),
+    'EventBridge': toJson_AppflowEventBridgeMetadata(obj.eventBridge),
+    'Upsolver': toJson_AppflowUpsolverMetadata(obj.upsolver),
+    'CustomerProfiles': toJson_AppflowCustomerProfilesMetadata(obj.customerProfiles),
+    'Honeycode': toJson_AppflowHoneycodeMetadata(obj.honeycode),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowExecutionResult
@@ -1589,10 +2658,40 @@ export interface AppflowExecutionResult {
 }
 
 /**
+ * Converts an object of type 'AppflowExecutionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowExecutionResult(obj: AppflowExecutionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'errorInfo': toJson_AppflowErrorInfo(obj.errorInfo),
+    'bytesProcessed': obj.bytesProcessed,
+    'bytesWritten': obj.bytesWritten,
+    'recordsProcessed': obj.recordsProcessed,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowAmplitudeConnectorProfileProperties
  */
 export interface AppflowAmplitudeConnectorProfileProperties {
 }
+
+/**
+ * Converts an object of type 'AppflowAmplitudeConnectorProfileProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowAmplitudeConnectorProfileProperties(obj: AppflowAmplitudeConnectorProfileProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowDatadogConnectorProfileProperties
@@ -1606,6 +2705,20 @@ export interface AppflowDatadogConnectorProfileProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowDatadogConnectorProfileProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDatadogConnectorProfileProperties(obj: AppflowDatadogConnectorProfileProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceUrl': obj.instanceUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowDynatraceConnectorProfileProperties
  */
 export interface AppflowDynatraceConnectorProfileProperties {
@@ -1617,10 +2730,56 @@ export interface AppflowDynatraceConnectorProfileProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowDynatraceConnectorProfileProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDynatraceConnectorProfileProperties(obj: AppflowDynatraceConnectorProfileProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceUrl': obj.instanceUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowGoogleAnalyticsConnectorProfileProperties
  */
 export interface AppflowGoogleAnalyticsConnectorProfileProperties {
 }
+
+/**
+ * Converts an object of type 'AppflowGoogleAnalyticsConnectorProfileProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowGoogleAnalyticsConnectorProfileProperties(obj: AppflowGoogleAnalyticsConnectorProfileProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppflowHoneycodeConnectorProfileProperties
+ */
+export interface AppflowHoneycodeConnectorProfileProperties {
+}
+
+/**
+ * Converts an object of type 'AppflowHoneycodeConnectorProfileProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowHoneycodeConnectorProfileProperties(obj: AppflowHoneycodeConnectorProfileProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowInforNexusConnectorProfileProperties
@@ -1634,6 +2793,20 @@ export interface AppflowInforNexusConnectorProfileProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowInforNexusConnectorProfileProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowInforNexusConnectorProfileProperties(obj: AppflowInforNexusConnectorProfileProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceUrl': obj.instanceUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowMarketoConnectorProfileProperties
  */
 export interface AppflowMarketoConnectorProfileProperties {
@@ -1643,6 +2816,20 @@ export interface AppflowMarketoConnectorProfileProperties {
   readonly instanceUrl: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowMarketoConnectorProfileProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowMarketoConnectorProfileProperties(obj: AppflowMarketoConnectorProfileProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceUrl': obj.instanceUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowRedshiftConnectorProfileProperties
@@ -1671,6 +2858,23 @@ export interface AppflowRedshiftConnectorProfileProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowRedshiftConnectorProfileProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowRedshiftConnectorProfileProperties(obj: AppflowRedshiftConnectorProfileProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'databaseUrl': obj.databaseUrl,
+    'bucketName': obj.bucketName,
+    'bucketPrefix': obj.bucketPrefix,
+    'roleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowSalesforceConnectorProfileProperties
  */
 export interface AppflowSalesforceConnectorProfileProperties {
@@ -1687,6 +2891,21 @@ export interface AppflowSalesforceConnectorProfileProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowSalesforceConnectorProfileProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSalesforceConnectorProfileProperties(obj: AppflowSalesforceConnectorProfileProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceUrl': obj.instanceUrl,
+    'isSandboxEnvironment': obj.isSandboxEnvironment,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowServiceNowConnectorProfileProperties
  */
 export interface AppflowServiceNowConnectorProfileProperties {
@@ -1698,10 +2917,37 @@ export interface AppflowServiceNowConnectorProfileProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowServiceNowConnectorProfileProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowServiceNowConnectorProfileProperties(obj: AppflowServiceNowConnectorProfileProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceUrl': obj.instanceUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowSingularConnectorProfileProperties
  */
 export interface AppflowSingularConnectorProfileProperties {
 }
+
+/**
+ * Converts an object of type 'AppflowSingularConnectorProfileProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSingularConnectorProfileProperties(obj: AppflowSingularConnectorProfileProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowSlackConnectorProfileProperties
@@ -1713,6 +2959,20 @@ export interface AppflowSlackConnectorProfileProperties {
   readonly instanceUrl: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowSlackConnectorProfileProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSlackConnectorProfileProperties(obj: AppflowSlackConnectorProfileProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceUrl': obj.instanceUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowSnowflakeConnectorProfileProperties
@@ -1756,10 +3016,43 @@ export interface AppflowSnowflakeConnectorProfileProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowSnowflakeConnectorProfileProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSnowflakeConnectorProfileProperties(obj: AppflowSnowflakeConnectorProfileProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'warehouse': obj.warehouse,
+    'stage': obj.stage,
+    'bucketName': obj.bucketName,
+    'bucketPrefix': obj.bucketPrefix,
+    'privateLinkServiceName': obj.privateLinkServiceName,
+    'accountName': obj.accountName,
+    'region': obj.region,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowTrendmicroConnectorProfileProperties
  */
 export interface AppflowTrendmicroConnectorProfileProperties {
 }
+
+/**
+ * Converts an object of type 'AppflowTrendmicroConnectorProfileProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowTrendmicroConnectorProfileProperties(obj: AppflowTrendmicroConnectorProfileProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowVeevaConnectorProfileProperties
@@ -1773,6 +3066,20 @@ export interface AppflowVeevaConnectorProfileProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowVeevaConnectorProfileProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowVeevaConnectorProfileProperties(obj: AppflowVeevaConnectorProfileProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceUrl': obj.instanceUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowZendeskConnectorProfileProperties
  */
 export interface AppflowZendeskConnectorProfileProperties {
@@ -1782,6 +3089,20 @@ export interface AppflowZendeskConnectorProfileProperties {
   readonly instanceUrl: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowZendeskConnectorProfileProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowZendeskConnectorProfileProperties(obj: AppflowZendeskConnectorProfileProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceUrl': obj.instanceUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowAmplitudeConnectorProfileCredentials
@@ -1800,6 +3121,21 @@ export interface AppflowAmplitudeConnectorProfileCredentials {
 }
 
 /**
+ * Converts an object of type 'AppflowAmplitudeConnectorProfileCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowAmplitudeConnectorProfileCredentials(obj: AppflowAmplitudeConnectorProfileCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiKey': obj.apiKey,
+    'secretKey': obj.secretKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowDatadogConnectorProfileCredentials
  */
 export interface AppflowDatadogConnectorProfileCredentials {
@@ -1816,6 +3152,21 @@ export interface AppflowDatadogConnectorProfileCredentials {
 }
 
 /**
+ * Converts an object of type 'AppflowDatadogConnectorProfileCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDatadogConnectorProfileCredentials(obj: AppflowDatadogConnectorProfileCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiKey': obj.apiKey,
+    'applicationKey': obj.applicationKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowDynatraceConnectorProfileCredentials
  */
 export interface AppflowDynatraceConnectorProfileCredentials {
@@ -1825,6 +3176,20 @@ export interface AppflowDynatraceConnectorProfileCredentials {
   readonly apiToken: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowDynatraceConnectorProfileCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDynatraceConnectorProfileCredentials(obj: AppflowDynatraceConnectorProfileCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiToken': obj.apiToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowGoogleAnalyticsConnectorProfileCredentials
@@ -1858,6 +3223,61 @@ export interface AppflowGoogleAnalyticsConnectorProfileCredentials {
 }
 
 /**
+ * Converts an object of type 'AppflowGoogleAnalyticsConnectorProfileCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowGoogleAnalyticsConnectorProfileCredentials(obj: AppflowGoogleAnalyticsConnectorProfileCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientId': obj.clientId,
+    'clientSecret': obj.clientSecret,
+    'accessToken': obj.accessToken,
+    'refreshToken': obj.refreshToken,
+    'oAuthRequest': toJson_AppflowConnectorOAuthRequest(obj.oAuthRequest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppflowHoneycodeConnectorProfileCredentials
+ */
+export interface AppflowHoneycodeConnectorProfileCredentials {
+  /**
+   * @schema AppflowHoneycodeConnectorProfileCredentials#accessToken
+   */
+  readonly accessToken?: string;
+
+  /**
+   * @schema AppflowHoneycodeConnectorProfileCredentials#refreshToken
+   */
+  readonly refreshToken?: string;
+
+  /**
+   * @schema AppflowHoneycodeConnectorProfileCredentials#oAuthRequest
+   */
+  readonly oAuthRequest?: AppflowConnectorOAuthRequest;
+
+}
+
+/**
+ * Converts an object of type 'AppflowHoneycodeConnectorProfileCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowHoneycodeConnectorProfileCredentials(obj: AppflowHoneycodeConnectorProfileCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessToken': obj.accessToken,
+    'refreshToken': obj.refreshToken,
+    'oAuthRequest': toJson_AppflowConnectorOAuthRequest(obj.oAuthRequest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowInforNexusConnectorProfileCredentials
  */
 export interface AppflowInforNexusConnectorProfileCredentials {
@@ -1882,6 +3302,23 @@ export interface AppflowInforNexusConnectorProfileCredentials {
   readonly datakey: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowInforNexusConnectorProfileCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowInforNexusConnectorProfileCredentials(obj: AppflowInforNexusConnectorProfileCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessKeyId': obj.accessKeyId,
+    'userId': obj.userId,
+    'secretAccessKey': obj.secretAccessKey,
+    'datakey': obj.datakey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowMarketoConnectorProfileCredentials
@@ -1910,6 +3347,23 @@ export interface AppflowMarketoConnectorProfileCredentials {
 }
 
 /**
+ * Converts an object of type 'AppflowMarketoConnectorProfileCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowMarketoConnectorProfileCredentials(obj: AppflowMarketoConnectorProfileCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientId': obj.clientId,
+    'clientSecret': obj.clientSecret,
+    'accessToken': obj.accessToken,
+    'oAuthRequest': toJson_AppflowConnectorOAuthRequest(obj.oAuthRequest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowRedshiftConnectorProfileCredentials
  */
 export interface AppflowRedshiftConnectorProfileCredentials {
@@ -1924,6 +3378,21 @@ export interface AppflowRedshiftConnectorProfileCredentials {
   readonly password: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowRedshiftConnectorProfileCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowRedshiftConnectorProfileCredentials(obj: AppflowRedshiftConnectorProfileCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'username': obj.username,
+    'password': obj.password,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowSalesforceConnectorProfileCredentials
@@ -1952,6 +3421,23 @@ export interface AppflowSalesforceConnectorProfileCredentials {
 }
 
 /**
+ * Converts an object of type 'AppflowSalesforceConnectorProfileCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSalesforceConnectorProfileCredentials(obj: AppflowSalesforceConnectorProfileCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessToken': obj.accessToken,
+    'refreshToken': obj.refreshToken,
+    'oAuthRequest': toJson_AppflowConnectorOAuthRequest(obj.oAuthRequest),
+    'clientCredentialsArn': obj.clientCredentialsArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowServiceNowConnectorProfileCredentials
  */
 export interface AppflowServiceNowConnectorProfileCredentials {
@@ -1968,6 +3454,21 @@ export interface AppflowServiceNowConnectorProfileCredentials {
 }
 
 /**
+ * Converts an object of type 'AppflowServiceNowConnectorProfileCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowServiceNowConnectorProfileCredentials(obj: AppflowServiceNowConnectorProfileCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'username': obj.username,
+    'password': obj.password,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowSingularConnectorProfileCredentials
  */
 export interface AppflowSingularConnectorProfileCredentials {
@@ -1977,6 +3478,20 @@ export interface AppflowSingularConnectorProfileCredentials {
   readonly apiKey: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowSingularConnectorProfileCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSingularConnectorProfileCredentials(obj: AppflowSingularConnectorProfileCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiKey': obj.apiKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowSlackConnectorProfileCredentials
@@ -2005,6 +3520,23 @@ export interface AppflowSlackConnectorProfileCredentials {
 }
 
 /**
+ * Converts an object of type 'AppflowSlackConnectorProfileCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSlackConnectorProfileCredentials(obj: AppflowSlackConnectorProfileCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientId': obj.clientId,
+    'clientSecret': obj.clientSecret,
+    'accessToken': obj.accessToken,
+    'oAuthRequest': toJson_AppflowConnectorOAuthRequest(obj.oAuthRequest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowSnowflakeConnectorProfileCredentials
  */
 export interface AppflowSnowflakeConnectorProfileCredentials {
@@ -2021,6 +3553,21 @@ export interface AppflowSnowflakeConnectorProfileCredentials {
 }
 
 /**
+ * Converts an object of type 'AppflowSnowflakeConnectorProfileCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSnowflakeConnectorProfileCredentials(obj: AppflowSnowflakeConnectorProfileCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'username': obj.username,
+    'password': obj.password,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowTrendmicroConnectorProfileCredentials
  */
 export interface AppflowTrendmicroConnectorProfileCredentials {
@@ -2030,6 +3577,20 @@ export interface AppflowTrendmicroConnectorProfileCredentials {
   readonly apiSecretKey: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowTrendmicroConnectorProfileCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowTrendmicroConnectorProfileCredentials(obj: AppflowTrendmicroConnectorProfileCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiSecretKey': obj.apiSecretKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowVeevaConnectorProfileCredentials
@@ -2046,6 +3607,21 @@ export interface AppflowVeevaConnectorProfileCredentials {
   readonly password: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowVeevaConnectorProfileCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowVeevaConnectorProfileCredentials(obj: AppflowVeevaConnectorProfileCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'username': obj.username,
+    'password': obj.password,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowZendeskConnectorProfileCredentials
@@ -2072,6 +3648,23 @@ export interface AppflowZendeskConnectorProfileCredentials {
   readonly oAuthRequest?: AppflowConnectorOAuthRequest;
 
 }
+
+/**
+ * Converts an object of type 'AppflowZendeskConnectorProfileCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowZendeskConnectorProfileCredentials(obj: AppflowZendeskConnectorProfileCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientId': obj.clientId,
+    'clientSecret': obj.clientSecret,
+    'accessToken': obj.accessToken,
+    'oAuthRequest': toJson_AppflowConnectorOAuthRequest(obj.oAuthRequest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowScheduledTriggerProperties
@@ -2102,7 +3695,37 @@ export interface AppflowScheduledTriggerProperties {
    */
   readonly timezone?: string;
 
+  /**
+   * @schema AppflowScheduledTriggerProperties#scheduleOffset
+   */
+  readonly scheduleOffset?: number;
+
+  /**
+   * @schema AppflowScheduledTriggerProperties#firstExecutionFrom
+   */
+  readonly firstExecutionFrom?: string;
+
 }
+
+/**
+ * Converts an object of type 'AppflowScheduledTriggerProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowScheduledTriggerProperties(obj: AppflowScheduledTriggerProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'scheduleExpression': obj.scheduleExpression,
+    'dataPullMode': obj.dataPullMode,
+    'scheduleStartTime': obj.scheduleStartTime,
+    'scheduleEndTime': obj.scheduleEndTime,
+    'timezone': obj.timezone,
+    'scheduleOffset': obj.scheduleOffset,
+    'firstExecutionFrom': obj.firstExecutionFrom,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowAmplitudeSourceProperties
@@ -2116,6 +3739,20 @@ export interface AppflowAmplitudeSourceProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowAmplitudeSourceProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowAmplitudeSourceProperties(obj: AppflowAmplitudeSourceProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowDatadogSourceProperties
  */
 export interface AppflowDatadogSourceProperties {
@@ -2125,6 +3762,20 @@ export interface AppflowDatadogSourceProperties {
   readonly object: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowDatadogSourceProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDatadogSourceProperties(obj: AppflowDatadogSourceProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowDynatraceSourceProperties
@@ -2138,6 +3789,20 @@ export interface AppflowDynatraceSourceProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowDynatraceSourceProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDynatraceSourceProperties(obj: AppflowDynatraceSourceProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowGoogleAnalyticsSourceProperties
  */
 export interface AppflowGoogleAnalyticsSourceProperties {
@@ -2147,6 +3812,20 @@ export interface AppflowGoogleAnalyticsSourceProperties {
   readonly object: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowGoogleAnalyticsSourceProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowGoogleAnalyticsSourceProperties(obj: AppflowGoogleAnalyticsSourceProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowInforNexusSourceProperties
@@ -2160,6 +3839,20 @@ export interface AppflowInforNexusSourceProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowInforNexusSourceProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowInforNexusSourceProperties(obj: AppflowInforNexusSourceProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowMarketoSourceProperties
  */
 export interface AppflowMarketoSourceProperties {
@@ -2169,6 +3862,20 @@ export interface AppflowMarketoSourceProperties {
   readonly object: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowMarketoSourceProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowMarketoSourceProperties(obj: AppflowMarketoSourceProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowS3SourceProperties
@@ -2185,6 +3892,21 @@ export interface AppflowS3SourceProperties {
   readonly bucketPrefix?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowS3SourceProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowS3SourceProperties(obj: AppflowS3SourceProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketName': obj.bucketName,
+    'bucketPrefix': obj.bucketPrefix,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowSalesforceSourceProperties
@@ -2208,6 +3930,22 @@ export interface AppflowSalesforceSourceProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowSalesforceSourceProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSalesforceSourceProperties(obj: AppflowSalesforceSourceProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+    'enableDynamicFieldUpdate': obj.enableDynamicFieldUpdate,
+    'includeDeletedRecords': obj.includeDeletedRecords,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowServiceNowSourceProperties
  */
 export interface AppflowServiceNowSourceProperties {
@@ -2217,6 +3955,20 @@ export interface AppflowServiceNowSourceProperties {
   readonly object: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowServiceNowSourceProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowServiceNowSourceProperties(obj: AppflowServiceNowSourceProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowSingularSourceProperties
@@ -2230,6 +3982,20 @@ export interface AppflowSingularSourceProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowSingularSourceProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSingularSourceProperties(obj: AppflowSingularSourceProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowSlackSourceProperties
  */
 export interface AppflowSlackSourceProperties {
@@ -2239,6 +4005,20 @@ export interface AppflowSlackSourceProperties {
   readonly object: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowSlackSourceProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSlackSourceProperties(obj: AppflowSlackSourceProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowTrendmicroSourceProperties
@@ -2252,6 +4032,20 @@ export interface AppflowTrendmicroSourceProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowTrendmicroSourceProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowTrendmicroSourceProperties(obj: AppflowTrendmicroSourceProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowVeevaSourceProperties
  */
 export interface AppflowVeevaSourceProperties {
@@ -2263,6 +4057,20 @@ export interface AppflowVeevaSourceProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowVeevaSourceProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowVeevaSourceProperties(obj: AppflowVeevaSourceProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowZendeskSourceProperties
  */
 export interface AppflowZendeskSourceProperties {
@@ -2272,6 +4080,20 @@ export interface AppflowZendeskSourceProperties {
   readonly object: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowZendeskSourceProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowZendeskSourceProperties(obj: AppflowZendeskSourceProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowRedshiftDestinationProperties
@@ -2300,6 +4122,23 @@ export interface AppflowRedshiftDestinationProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowRedshiftDestinationProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowRedshiftDestinationProperties(obj: AppflowRedshiftDestinationProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+    'intermediateBucketName': obj.intermediateBucketName,
+    'bucketPrefix': obj.bucketPrefix,
+    'errorHandlingConfig': toJson_AppflowErrorHandlingConfig(obj.errorHandlingConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowS3DestinationProperties
  */
 export interface AppflowS3DestinationProperties {
@@ -2319,6 +4158,22 @@ export interface AppflowS3DestinationProperties {
   readonly s3OutputFormatConfig?: AppflowS3OutputFormatConfig;
 
 }
+
+/**
+ * Converts an object of type 'AppflowS3DestinationProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowS3DestinationProperties(obj: AppflowS3DestinationProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketName': obj.bucketName,
+    'bucketPrefix': obj.bucketPrefix,
+    's3OutputFormatConfig': toJson_AppflowS3OutputFormatConfig(obj.s3OutputFormatConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowSalesforceDestinationProperties
@@ -2347,6 +4202,23 @@ export interface AppflowSalesforceDestinationProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowSalesforceDestinationProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSalesforceDestinationProperties(obj: AppflowSalesforceDestinationProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+    'idFieldNames': obj.idFieldNames?.map(y => y),
+    'errorHandlingConfig': toJson_AppflowErrorHandlingConfig(obj.errorHandlingConfig),
+    'writeOperationType': obj.writeOperationType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowSnowflakeDestinationProperties
  */
 export interface AppflowSnowflakeDestinationProperties {
@@ -2373,6 +4245,23 @@ export interface AppflowSnowflakeDestinationProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowSnowflakeDestinationProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSnowflakeDestinationProperties(obj: AppflowSnowflakeDestinationProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+    'intermediateBucketName': obj.intermediateBucketName,
+    'bucketPrefix': obj.bucketPrefix,
+    'errorHandlingConfig': toJson_AppflowErrorHandlingConfig(obj.errorHandlingConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowEventBridgeDestinationProperties
  */
 export interface AppflowEventBridgeDestinationProperties {
@@ -2387,6 +4276,40 @@ export interface AppflowEventBridgeDestinationProperties {
   readonly errorHandlingConfig?: AppflowErrorHandlingConfig;
 
 }
+
+/**
+ * Converts an object of type 'AppflowEventBridgeDestinationProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowEventBridgeDestinationProperties(obj: AppflowEventBridgeDestinationProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+    'errorHandlingConfig': toJson_AppflowErrorHandlingConfig(obj.errorHandlingConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppflowLookoutMetricsDestinationProperties
+ */
+export interface AppflowLookoutMetricsDestinationProperties {
+}
+
+/**
+ * Converts an object of type 'AppflowLookoutMetricsDestinationProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowLookoutMetricsDestinationProperties(obj: AppflowLookoutMetricsDestinationProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowUpsolverDestinationProperties
@@ -2410,6 +4333,127 @@ export interface AppflowUpsolverDestinationProperties {
 }
 
 /**
+ * Converts an object of type 'AppflowUpsolverDestinationProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowUpsolverDestinationProperties(obj: AppflowUpsolverDestinationProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketName': obj.bucketName,
+    'bucketPrefix': obj.bucketPrefix,
+    's3OutputFormatConfig': toJson_AppflowUpsolverS3OutputFormatConfig(obj.s3OutputFormatConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppflowHoneycodeDestinationProperties
+ */
+export interface AppflowHoneycodeDestinationProperties {
+  /**
+   * @schema AppflowHoneycodeDestinationProperties#object
+   */
+  readonly object: string;
+
+  /**
+   * @schema AppflowHoneycodeDestinationProperties#errorHandlingConfig
+   */
+  readonly errorHandlingConfig?: AppflowErrorHandlingConfig;
+
+}
+
+/**
+ * Converts an object of type 'AppflowHoneycodeDestinationProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowHoneycodeDestinationProperties(obj: AppflowHoneycodeDestinationProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+    'errorHandlingConfig': toJson_AppflowErrorHandlingConfig(obj.errorHandlingConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppflowCustomerProfilesDestinationProperties
+ */
+export interface AppflowCustomerProfilesDestinationProperties {
+  /**
+   * @schema AppflowCustomerProfilesDestinationProperties#domainName
+   */
+  readonly domainName: string;
+
+  /**
+   * @schema AppflowCustomerProfilesDestinationProperties#objectTypeName
+   */
+  readonly objectTypeName?: string;
+
+}
+
+/**
+ * Converts an object of type 'AppflowCustomerProfilesDestinationProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowCustomerProfilesDestinationProperties(obj: AppflowCustomerProfilesDestinationProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domainName': obj.domainName,
+    'objectTypeName': obj.objectTypeName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppflowZendeskDestinationProperties
+ */
+export interface AppflowZendeskDestinationProperties {
+  /**
+   * @schema AppflowZendeskDestinationProperties#object
+   */
+  readonly object: string;
+
+  /**
+   * @schema AppflowZendeskDestinationProperties#idFieldNames
+   */
+  readonly idFieldNames?: string[];
+
+  /**
+   * @schema AppflowZendeskDestinationProperties#errorHandlingConfig
+   */
+  readonly errorHandlingConfig?: AppflowErrorHandlingConfig;
+
+  /**
+   * @schema AppflowZendeskDestinationProperties#writeOperationType
+   */
+  readonly writeOperationType?: string;
+
+}
+
+/**
+ * Converts an object of type 'AppflowZendeskDestinationProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowZendeskDestinationProperties(obj: AppflowZendeskDestinationProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'object': obj.object,
+    'idFieldNames': obj.idFieldNames?.map(y => y),
+    'errorHandlingConfig': toJson_AppflowErrorHandlingConfig(obj.errorHandlingConfig),
+    'writeOperationType': obj.writeOperationType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowFieldTypeDetails
  */
 export interface AppflowFieldTypeDetails {
@@ -2431,10 +4475,39 @@ export interface AppflowFieldTypeDetails {
 }
 
 /**
+ * Converts an object of type 'AppflowFieldTypeDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowFieldTypeDetails(obj: AppflowFieldTypeDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fieldType': obj.fieldType,
+    'filterOperators': obj.filterOperators?.map(y => y),
+    'supportedValues': obj.supportedValues?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowAmplitudeMetadata
  */
 export interface AppflowAmplitudeMetadata {
 }
+
+/**
+ * Converts an object of type 'AppflowAmplitudeMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowAmplitudeMetadata(obj: AppflowAmplitudeMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowDatadogMetadata
@@ -2443,10 +4516,36 @@ export interface AppflowDatadogMetadata {
 }
 
 /**
+ * Converts an object of type 'AppflowDatadogMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDatadogMetadata(obj: AppflowDatadogMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowDynatraceMetadata
  */
 export interface AppflowDynatraceMetadata {
 }
+
+/**
+ * Converts an object of type 'AppflowDynatraceMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowDynatraceMetadata(obj: AppflowDynatraceMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowGoogleAnalyticsMetadata
@@ -2460,10 +4559,37 @@ export interface AppflowGoogleAnalyticsMetadata {
 }
 
 /**
+ * Converts an object of type 'AppflowGoogleAnalyticsMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowGoogleAnalyticsMetadata(obj: AppflowGoogleAnalyticsMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'oAuthScopes': obj.oAuthScopes?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowInforNexusMetadata
  */
 export interface AppflowInforNexusMetadata {
 }
+
+/**
+ * Converts an object of type 'AppflowInforNexusMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowInforNexusMetadata(obj: AppflowInforNexusMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowMarketoMetadata
@@ -2472,16 +4598,55 @@ export interface AppflowMarketoMetadata {
 }
 
 /**
+ * Converts an object of type 'AppflowMarketoMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowMarketoMetadata(obj: AppflowMarketoMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowRedshiftMetadata
  */
 export interface AppflowRedshiftMetadata {
 }
 
 /**
+ * Converts an object of type 'AppflowRedshiftMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowRedshiftMetadata(obj: AppflowRedshiftMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowS3Metadata
  */
 export interface AppflowS3Metadata {
 }
+
+/**
+ * Converts an object of type 'AppflowS3Metadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowS3Metadata(obj: AppflowS3Metadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowSalesforceMetadata
@@ -2495,16 +4660,56 @@ export interface AppflowSalesforceMetadata {
 }
 
 /**
+ * Converts an object of type 'AppflowSalesforceMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSalesforceMetadata(obj: AppflowSalesforceMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'oAuthScopes': obj.oAuthScopes?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowServiceNowMetadata
  */
 export interface AppflowServiceNowMetadata {
 }
 
 /**
+ * Converts an object of type 'AppflowServiceNowMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowServiceNowMetadata(obj: AppflowServiceNowMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowSingularMetadata
  */
 export interface AppflowSingularMetadata {
 }
+
+/**
+ * Converts an object of type 'AppflowSingularMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSingularMetadata(obj: AppflowSingularMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowSlackMetadata
@@ -2518,6 +4723,20 @@ export interface AppflowSlackMetadata {
 }
 
 /**
+ * Converts an object of type 'AppflowSlackMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSlackMetadata(obj: AppflowSlackMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'oAuthScopes': obj.oAuthScopes?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowSnowflakeMetadata
  */
 export interface AppflowSnowflakeMetadata {
@@ -2529,16 +4748,56 @@ export interface AppflowSnowflakeMetadata {
 }
 
 /**
+ * Converts an object of type 'AppflowSnowflakeMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowSnowflakeMetadata(obj: AppflowSnowflakeMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'supportedRegions': obj.supportedRegions?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowTrendmicroMetadata
  */
 export interface AppflowTrendmicroMetadata {
 }
 
 /**
+ * Converts an object of type 'AppflowTrendmicroMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowTrendmicroMetadata(obj: AppflowTrendmicroMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowVeevaMetadata
  */
 export interface AppflowVeevaMetadata {
 }
+
+/**
+ * Converts an object of type 'AppflowVeevaMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowVeevaMetadata(obj: AppflowVeevaMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowZendeskMetadata
@@ -2552,16 +4811,100 @@ export interface AppflowZendeskMetadata {
 }
 
 /**
+ * Converts an object of type 'AppflowZendeskMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowZendeskMetadata(obj: AppflowZendeskMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'oAuthScopes': obj.oAuthScopes?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowEventBridgeMetadata
  */
 export interface AppflowEventBridgeMetadata {
 }
 
 /**
+ * Converts an object of type 'AppflowEventBridgeMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowEventBridgeMetadata(obj: AppflowEventBridgeMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowUpsolverMetadata
  */
 export interface AppflowUpsolverMetadata {
 }
+
+/**
+ * Converts an object of type 'AppflowUpsolverMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowUpsolverMetadata(obj: AppflowUpsolverMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppflowCustomerProfilesMetadata
+ */
+export interface AppflowCustomerProfilesMetadata {
+}
+
+/**
+ * Converts an object of type 'AppflowCustomerProfilesMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowCustomerProfilesMetadata(obj: AppflowCustomerProfilesMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppflowHoneycodeMetadata
+ */
+export interface AppflowHoneycodeMetadata {
+  /**
+   * @schema AppflowHoneycodeMetadata#oAuthScopes
+   */
+  readonly oAuthScopes?: string[];
+
+}
+
+/**
+ * Converts an object of type 'AppflowHoneycodeMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowHoneycodeMetadata(obj: AppflowHoneycodeMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'oAuthScopes': obj.oAuthScopes?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowErrorInfo
@@ -2580,6 +4923,21 @@ export interface AppflowErrorInfo {
 }
 
 /**
+ * Converts an object of type 'AppflowErrorInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowErrorInfo(obj: AppflowErrorInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'putFailuresCount': obj.putFailuresCount,
+    'executionMessage': obj.executionMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowConnectorOAuthRequest
  */
 export interface AppflowConnectorOAuthRequest {
@@ -2594,6 +4952,21 @@ export interface AppflowConnectorOAuthRequest {
   readonly redirectUri?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowConnectorOAuthRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowConnectorOAuthRequest(obj: AppflowConnectorOAuthRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'authCode': obj.authCode,
+    'redirectUri': obj.redirectUri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowErrorHandlingConfig
@@ -2617,6 +4990,22 @@ export interface AppflowErrorHandlingConfig {
 }
 
 /**
+ * Converts an object of type 'AppflowErrorHandlingConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowErrorHandlingConfig(obj: AppflowErrorHandlingConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'failOnFirstDestinationError': obj.failOnFirstDestinationError,
+    'bucketPrefix': obj.bucketPrefix,
+    'bucketName': obj.bucketName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowS3OutputFormatConfig
  */
 export interface AppflowS3OutputFormatConfig {
@@ -2636,6 +5025,22 @@ export interface AppflowS3OutputFormatConfig {
   readonly aggregationConfig?: AppflowAggregationConfig;
 
 }
+
+/**
+ * Converts an object of type 'AppflowS3OutputFormatConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowS3OutputFormatConfig(obj: AppflowS3OutputFormatConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fileType': obj.fileType,
+    'prefixConfig': toJson_AppflowPrefixConfig(obj.prefixConfig),
+    'aggregationConfig': toJson_AppflowAggregationConfig(obj.aggregationConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppflowUpsolverS3OutputFormatConfig
@@ -2659,6 +5064,22 @@ export interface AppflowUpsolverS3OutputFormatConfig {
 }
 
 /**
+ * Converts an object of type 'AppflowUpsolverS3OutputFormatConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowUpsolverS3OutputFormatConfig(obj: AppflowUpsolverS3OutputFormatConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fileType': obj.fileType,
+    'prefixConfig': toJson_AppflowPrefixConfig(obj.prefixConfig),
+    'aggregationConfig': toJson_AppflowAggregationConfig(obj.aggregationConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowPrefixConfig
  */
 export interface AppflowPrefixConfig {
@@ -2675,6 +5096,21 @@ export interface AppflowPrefixConfig {
 }
 
 /**
+ * Converts an object of type 'AppflowPrefixConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowPrefixConfig(obj: AppflowPrefixConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'prefixType': obj.prefixType,
+    'prefixFormat': obj.prefixFormat,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppflowAggregationConfig
  */
 export interface AppflowAggregationConfig {
@@ -2684,3 +5120,17 @@ export interface AppflowAggregationConfig {
   readonly aggregationType?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppflowAggregationConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppflowAggregationConfig(obj: AppflowAggregationConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'aggregationType': obj.aggregationType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

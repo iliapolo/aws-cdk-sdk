@@ -15,6 +15,21 @@ export interface CodeDeployAddTagsToOnPremisesInstancesInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployAddTagsToOnPremisesInstancesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployAddTagsToOnPremisesInstancesInput(obj: CodeDeployAddTagsToOnPremisesInstancesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': obj.tags?.map(y => toJson_CodeDeployTag(y)),
+    'instanceNames': obj.instanceNames?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployBatchGetApplicationRevisionsInput
  */
 export interface CodeDeployBatchGetApplicationRevisionsInput {
@@ -29,6 +44,21 @@ export interface CodeDeployBatchGetApplicationRevisionsInput {
   readonly revisions: CodeDeployRevisionLocation[];
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployBatchGetApplicationRevisionsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployBatchGetApplicationRevisionsInput(obj: CodeDeployBatchGetApplicationRevisionsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'revisions': obj.revisions?.map(y => toJson_CodeDeployRevisionLocation(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployBatchGetApplicationRevisionsOutput
@@ -52,6 +82,22 @@ export interface CodeDeployBatchGetApplicationRevisionsOutput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployBatchGetApplicationRevisionsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployBatchGetApplicationRevisionsOutput(obj: CodeDeployBatchGetApplicationRevisionsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'errorMessage': obj.errorMessage,
+    'revisions': obj.revisions?.map(y => toJson_CodeDeployRevisionInfo(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployBatchGetApplicationsInput
  */
 export interface CodeDeployBatchGetApplicationsInput {
@@ -63,6 +109,20 @@ export interface CodeDeployBatchGetApplicationsInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployBatchGetApplicationsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployBatchGetApplicationsInput(obj: CodeDeployBatchGetApplicationsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationNames': obj.applicationNames?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployBatchGetApplicationsOutput
  */
 export interface CodeDeployBatchGetApplicationsOutput {
@@ -72,6 +132,20 @@ export interface CodeDeployBatchGetApplicationsOutput {
   readonly applicationsInfo?: CodeDeployApplicationInfo[];
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployBatchGetApplicationsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployBatchGetApplicationsOutput(obj: CodeDeployBatchGetApplicationsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationsInfo': obj.applicationsInfo?.map(y => toJson_CodeDeployApplicationInfo(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployBatchGetDeploymentGroupsInput
@@ -90,6 +164,21 @@ export interface CodeDeployBatchGetDeploymentGroupsInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployBatchGetDeploymentGroupsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployBatchGetDeploymentGroupsInput(obj: CodeDeployBatchGetDeploymentGroupsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'deploymentGroupNames': obj.deploymentGroupNames?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployBatchGetDeploymentGroupsOutput
  */
 export interface CodeDeployBatchGetDeploymentGroupsOutput {
@@ -104,6 +193,21 @@ export interface CodeDeployBatchGetDeploymentGroupsOutput {
   readonly errorMessage?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployBatchGetDeploymentGroupsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployBatchGetDeploymentGroupsOutput(obj: CodeDeployBatchGetDeploymentGroupsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentGroupsInfo': obj.deploymentGroupsInfo?.map(y => toJson_CodeDeployDeploymentGroupInfo(y)),
+    'errorMessage': obj.errorMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployBatchGetDeploymentInstancesInput
@@ -122,6 +226,21 @@ export interface CodeDeployBatchGetDeploymentInstancesInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployBatchGetDeploymentInstancesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployBatchGetDeploymentInstancesInput(obj: CodeDeployBatchGetDeploymentInstancesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentId': obj.deploymentId,
+    'instanceIds': obj.instanceIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployBatchGetDeploymentInstancesOutput
  */
 export interface CodeDeployBatchGetDeploymentInstancesOutput {
@@ -136,6 +255,21 @@ export interface CodeDeployBatchGetDeploymentInstancesOutput {
   readonly errorMessage?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployBatchGetDeploymentInstancesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployBatchGetDeploymentInstancesOutput(obj: CodeDeployBatchGetDeploymentInstancesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instancesSummary': obj.instancesSummary?.map(y => toJson_CodeDeployInstanceSummary(y)),
+    'errorMessage': obj.errorMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployBatchGetDeploymentTargetsInput
@@ -154,6 +288,21 @@ export interface CodeDeployBatchGetDeploymentTargetsInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployBatchGetDeploymentTargetsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployBatchGetDeploymentTargetsInput(obj: CodeDeployBatchGetDeploymentTargetsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentId': obj.deploymentId,
+    'targetIds': obj.targetIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployBatchGetDeploymentTargetsOutput
  */
 export interface CodeDeployBatchGetDeploymentTargetsOutput {
@@ -163,6 +312,20 @@ export interface CodeDeployBatchGetDeploymentTargetsOutput {
   readonly deploymentTargets?: CodeDeployDeploymentTarget[];
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployBatchGetDeploymentTargetsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployBatchGetDeploymentTargetsOutput(obj: CodeDeployBatchGetDeploymentTargetsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentTargets': obj.deploymentTargets?.map(y => toJson_CodeDeployDeploymentTarget(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployBatchGetDeploymentsInput
@@ -176,6 +339,20 @@ export interface CodeDeployBatchGetDeploymentsInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployBatchGetDeploymentsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployBatchGetDeploymentsInput(obj: CodeDeployBatchGetDeploymentsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentIds': obj.deploymentIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployBatchGetDeploymentsOutput
  */
 export interface CodeDeployBatchGetDeploymentsOutput {
@@ -185,6 +362,20 @@ export interface CodeDeployBatchGetDeploymentsOutput {
   readonly deploymentsInfo?: CodeDeployDeploymentInfo[];
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployBatchGetDeploymentsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployBatchGetDeploymentsOutput(obj: CodeDeployBatchGetDeploymentsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentsInfo': obj.deploymentsInfo?.map(y => toJson_CodeDeployDeploymentInfo(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployBatchGetOnPremisesInstancesInput
@@ -198,6 +389,20 @@ export interface CodeDeployBatchGetOnPremisesInstancesInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployBatchGetOnPremisesInstancesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployBatchGetOnPremisesInstancesInput(obj: CodeDeployBatchGetOnPremisesInstancesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceNames': obj.instanceNames?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployBatchGetOnPremisesInstancesOutput
  */
 export interface CodeDeployBatchGetOnPremisesInstancesOutput {
@@ -207,6 +412,20 @@ export interface CodeDeployBatchGetOnPremisesInstancesOutput {
   readonly instanceInfos?: CodeDeployInstanceInfo[];
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployBatchGetOnPremisesInstancesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployBatchGetOnPremisesInstancesOutput(obj: CodeDeployBatchGetOnPremisesInstancesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceInfos': obj.instanceInfos?.map(y => toJson_CodeDeployInstanceInfo(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployContinueDeploymentInput
@@ -223,6 +442,21 @@ export interface CodeDeployContinueDeploymentInput {
   readonly deploymentWaitType?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployContinueDeploymentInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployContinueDeploymentInput(obj: CodeDeployContinueDeploymentInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentId': obj.deploymentId,
+    'deploymentWaitType': obj.deploymentWaitType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployCreateApplicationInput
@@ -246,6 +480,22 @@ export interface CodeDeployCreateApplicationInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployCreateApplicationInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployCreateApplicationInput(obj: CodeDeployCreateApplicationInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'computePlatform': obj.computePlatform,
+    'tags': obj.tags?.map(y => toJson_CodeDeployTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployCreateApplicationOutput
  */
 export interface CodeDeployCreateApplicationOutput {
@@ -255,6 +505,20 @@ export interface CodeDeployCreateApplicationOutput {
   readonly applicationId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployCreateApplicationOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployCreateApplicationOutput(obj: CodeDeployCreateApplicationOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationId': obj.applicationId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployCreateDeploymentInput
@@ -313,6 +577,29 @@ export interface CodeDeployCreateDeploymentInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployCreateDeploymentInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployCreateDeploymentInput(obj: CodeDeployCreateDeploymentInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'deploymentGroupName': obj.deploymentGroupName,
+    'revision': toJson_CodeDeployRevisionLocation(obj.revision),
+    'deploymentConfigName': obj.deploymentConfigName,
+    'description': obj.description,
+    'ignoreApplicationStopFailures': obj.ignoreApplicationStopFailures,
+    'targetInstances': toJson_CodeDeployTargetInstances(obj.targetInstances),
+    'autoRollbackConfiguration': toJson_CodeDeployAutoRollbackConfiguration(obj.autoRollbackConfiguration),
+    'updateOutdatedInstancesOnly': obj.updateOutdatedInstancesOnly,
+    'fileExistsBehavior': obj.fileExistsBehavior,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployCreateDeploymentOutput
  */
 export interface CodeDeployCreateDeploymentOutput {
@@ -322,6 +609,20 @@ export interface CodeDeployCreateDeploymentOutput {
   readonly deploymentId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployCreateDeploymentOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployCreateDeploymentOutput(obj: CodeDeployCreateDeploymentOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentId': obj.deploymentId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployCreateDeploymentConfigInput
@@ -350,6 +651,23 @@ export interface CodeDeployCreateDeploymentConfigInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployCreateDeploymentConfigInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployCreateDeploymentConfigInput(obj: CodeDeployCreateDeploymentConfigInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentConfigName': obj.deploymentConfigName,
+    'minimumHealthyHosts': toJson_CodeDeployMinimumHealthyHosts(obj.minimumHealthyHosts),
+    'trafficRoutingConfig': toJson_CodeDeployTrafficRoutingConfig(obj.trafficRoutingConfig),
+    'computePlatform': obj.computePlatform,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployCreateDeploymentConfigOutput
  */
 export interface CodeDeployCreateDeploymentConfigOutput {
@@ -359,6 +677,20 @@ export interface CodeDeployCreateDeploymentConfigOutput {
   readonly deploymentConfigId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployCreateDeploymentConfigOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployCreateDeploymentConfigOutput(obj: CodeDeployCreateDeploymentConfigOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentConfigId': obj.deploymentConfigId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployCreateDeploymentGroupInput
@@ -415,6 +747,11 @@ export interface CodeDeployCreateDeploymentGroupInput {
   readonly autoRollbackConfiguration?: CodeDeployAutoRollbackConfiguration;
 
   /**
+   * @schema CodeDeployCreateDeploymentGroupInput#outdatedInstancesStrategy
+   */
+  readonly outdatedInstancesStrategy?: string;
+
+  /**
    * @schema CodeDeployCreateDeploymentGroupInput#deploymentStyle
    */
   readonly deploymentStyle?: CodeDeployDeploymentStyle;
@@ -452,6 +789,37 @@ export interface CodeDeployCreateDeploymentGroupInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployCreateDeploymentGroupInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployCreateDeploymentGroupInput(obj: CodeDeployCreateDeploymentGroupInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'deploymentGroupName': obj.deploymentGroupName,
+    'deploymentConfigName': obj.deploymentConfigName,
+    'ec2TagFilters': obj.ec2TagFilters?.map(y => toJson_CodeDeployEc2TagFilter(y)),
+    'onPremisesInstanceTagFilters': obj.onPremisesInstanceTagFilters?.map(y => toJson_CodeDeployTagFilter(y)),
+    'autoScalingGroups': obj.autoScalingGroups?.map(y => y),
+    'serviceRoleArn': obj.serviceRoleArn,
+    'triggerConfigurations': obj.triggerConfigurations?.map(y => toJson_CodeDeployTriggerConfig(y)),
+    'alarmConfiguration': toJson_CodeDeployAlarmConfiguration(obj.alarmConfiguration),
+    'autoRollbackConfiguration': toJson_CodeDeployAutoRollbackConfiguration(obj.autoRollbackConfiguration),
+    'outdatedInstancesStrategy': obj.outdatedInstancesStrategy,
+    'deploymentStyle': toJson_CodeDeployDeploymentStyle(obj.deploymentStyle),
+    'blueGreenDeploymentConfiguration': toJson_CodeDeployBlueGreenDeploymentConfiguration(obj.blueGreenDeploymentConfiguration),
+    'loadBalancerInfo': toJson_CodeDeployLoadBalancerInfo(obj.loadBalancerInfo),
+    'ec2TagSet': toJson_CodeDeployEc2TagSet(obj.ec2TagSet),
+    'ecsServices': obj.ecsServices?.map(y => toJson_CodeDeployEcsService(y)),
+    'onPremisesTagSet': toJson_CodeDeployOnPremisesTagSet(obj.onPremisesTagSet),
+    'tags': obj.tags?.map(y => toJson_CodeDeployTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployCreateDeploymentGroupOutput
  */
 export interface CodeDeployCreateDeploymentGroupOutput {
@@ -461,6 +829,20 @@ export interface CodeDeployCreateDeploymentGroupOutput {
   readonly deploymentGroupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployCreateDeploymentGroupOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployCreateDeploymentGroupOutput(obj: CodeDeployCreateDeploymentGroupOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentGroupId': obj.deploymentGroupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployDeleteApplicationInput
@@ -474,6 +856,20 @@ export interface CodeDeployDeleteApplicationInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployDeleteApplicationInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployDeleteApplicationInput(obj: CodeDeployDeleteApplicationInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployDeleteDeploymentConfigInput
  */
 export interface CodeDeployDeleteDeploymentConfigInput {
@@ -483,6 +879,20 @@ export interface CodeDeployDeleteDeploymentConfigInput {
   readonly deploymentConfigName: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployDeleteDeploymentConfigInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployDeleteDeploymentConfigInput(obj: CodeDeployDeleteDeploymentConfigInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentConfigName': obj.deploymentConfigName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployDeleteDeploymentGroupInput
@@ -501,6 +911,21 @@ export interface CodeDeployDeleteDeploymentGroupInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployDeleteDeploymentGroupInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployDeleteDeploymentGroupInput(obj: CodeDeployDeleteDeploymentGroupInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'deploymentGroupName': obj.deploymentGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployDeleteDeploymentGroupOutput
  */
 export interface CodeDeployDeleteDeploymentGroupOutput {
@@ -510,6 +935,20 @@ export interface CodeDeployDeleteDeploymentGroupOutput {
   readonly hooksNotCleanedUp?: CodeDeployAutoScalingGroup[];
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployDeleteDeploymentGroupOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployDeleteDeploymentGroupOutput(obj: CodeDeployDeleteDeploymentGroupOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'hooksNotCleanedUp': obj.hooksNotCleanedUp?.map(y => toJson_CodeDeployAutoScalingGroup(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployDeleteGitHubAccountTokenInput
@@ -523,6 +962,20 @@ export interface CodeDeployDeleteGitHubAccountTokenInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployDeleteGitHubAccountTokenInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployDeleteGitHubAccountTokenInput(obj: CodeDeployDeleteGitHubAccountTokenInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tokenName': obj.tokenName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployDeleteGitHubAccountTokenOutput
  */
 export interface CodeDeployDeleteGitHubAccountTokenOutput {
@@ -532,6 +985,20 @@ export interface CodeDeployDeleteGitHubAccountTokenOutput {
   readonly tokenName?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployDeleteGitHubAccountTokenOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployDeleteGitHubAccountTokenOutput(obj: CodeDeployDeleteGitHubAccountTokenOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tokenName': obj.tokenName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployDeleteResourcesByExternalIdInput
@@ -545,10 +1012,37 @@ export interface CodeDeployDeleteResourcesByExternalIdInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployDeleteResourcesByExternalIdInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployDeleteResourcesByExternalIdInput(obj: CodeDeployDeleteResourcesByExternalIdInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'externalId': obj.externalId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployDeleteResourcesByExternalIdOutput
  */
 export interface CodeDeployDeleteResourcesByExternalIdOutput {
 }
+
+/**
+ * Converts an object of type 'CodeDeployDeleteResourcesByExternalIdOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployDeleteResourcesByExternalIdOutput(obj: CodeDeployDeleteResourcesByExternalIdOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployDeregisterOnPremisesInstanceInput
@@ -562,6 +1056,20 @@ export interface CodeDeployDeregisterOnPremisesInstanceInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployDeregisterOnPremisesInstanceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployDeregisterOnPremisesInstanceInput(obj: CodeDeployDeregisterOnPremisesInstanceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceName': obj.instanceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployGetApplicationInput
  */
 export interface CodeDeployGetApplicationInput {
@@ -573,6 +1081,20 @@ export interface CodeDeployGetApplicationInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployGetApplicationInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGetApplicationInput(obj: CodeDeployGetApplicationInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployGetApplicationOutput
  */
 export interface CodeDeployGetApplicationOutput {
@@ -582,6 +1104,20 @@ export interface CodeDeployGetApplicationOutput {
   readonly application?: CodeDeployApplicationInfo;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployGetApplicationOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGetApplicationOutput(obj: CodeDeployGetApplicationOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'application': toJson_CodeDeployApplicationInfo(obj.application),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployGetApplicationRevisionInput
@@ -598,6 +1134,21 @@ export interface CodeDeployGetApplicationRevisionInput {
   readonly revision: CodeDeployRevisionLocation;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployGetApplicationRevisionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGetApplicationRevisionInput(obj: CodeDeployGetApplicationRevisionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'revision': toJson_CodeDeployRevisionLocation(obj.revision),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployGetApplicationRevisionOutput
@@ -621,6 +1172,22 @@ export interface CodeDeployGetApplicationRevisionOutput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployGetApplicationRevisionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGetApplicationRevisionOutput(obj: CodeDeployGetApplicationRevisionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'revision': toJson_CodeDeployRevisionLocation(obj.revision),
+    'revisionInfo': toJson_CodeDeployGenericRevisionInfo(obj.revisionInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployGetDeploymentInput
  */
 export interface CodeDeployGetDeploymentInput {
@@ -630,6 +1197,20 @@ export interface CodeDeployGetDeploymentInput {
   readonly deploymentId: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployGetDeploymentInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGetDeploymentInput(obj: CodeDeployGetDeploymentInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentId': obj.deploymentId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployGetDeploymentOutput
@@ -643,6 +1224,20 @@ export interface CodeDeployGetDeploymentOutput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployGetDeploymentOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGetDeploymentOutput(obj: CodeDeployGetDeploymentOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentInfo': toJson_CodeDeployDeploymentInfo(obj.deploymentInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployGetDeploymentConfigInput
  */
 export interface CodeDeployGetDeploymentConfigInput {
@@ -654,6 +1249,20 @@ export interface CodeDeployGetDeploymentConfigInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployGetDeploymentConfigInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGetDeploymentConfigInput(obj: CodeDeployGetDeploymentConfigInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentConfigName': obj.deploymentConfigName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployGetDeploymentConfigOutput
  */
 export interface CodeDeployGetDeploymentConfigOutput {
@@ -663,6 +1272,20 @@ export interface CodeDeployGetDeploymentConfigOutput {
   readonly deploymentConfigInfo?: CodeDeployDeploymentConfigInfo;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployGetDeploymentConfigOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGetDeploymentConfigOutput(obj: CodeDeployGetDeploymentConfigOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentConfigInfo': toJson_CodeDeployDeploymentConfigInfo(obj.deploymentConfigInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployGetDeploymentGroupInput
@@ -681,6 +1304,21 @@ export interface CodeDeployGetDeploymentGroupInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployGetDeploymentGroupInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGetDeploymentGroupInput(obj: CodeDeployGetDeploymentGroupInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'deploymentGroupName': obj.deploymentGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployGetDeploymentGroupOutput
  */
 export interface CodeDeployGetDeploymentGroupOutput {
@@ -690,6 +1328,20 @@ export interface CodeDeployGetDeploymentGroupOutput {
   readonly deploymentGroupInfo?: CodeDeployDeploymentGroupInfo;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployGetDeploymentGroupOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGetDeploymentGroupOutput(obj: CodeDeployGetDeploymentGroupOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentGroupInfo': toJson_CodeDeployDeploymentGroupInfo(obj.deploymentGroupInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployGetDeploymentInstanceInput
@@ -708,6 +1360,21 @@ export interface CodeDeployGetDeploymentInstanceInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployGetDeploymentInstanceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGetDeploymentInstanceInput(obj: CodeDeployGetDeploymentInstanceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentId': obj.deploymentId,
+    'instanceId': obj.instanceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployGetDeploymentInstanceOutput
  */
 export interface CodeDeployGetDeploymentInstanceOutput {
@@ -717,6 +1384,20 @@ export interface CodeDeployGetDeploymentInstanceOutput {
   readonly instanceSummary?: CodeDeployInstanceSummary;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployGetDeploymentInstanceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGetDeploymentInstanceOutput(obj: CodeDeployGetDeploymentInstanceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceSummary': toJson_CodeDeployInstanceSummary(obj.instanceSummary),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployGetDeploymentTargetInput
@@ -735,6 +1416,21 @@ export interface CodeDeployGetDeploymentTargetInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployGetDeploymentTargetInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGetDeploymentTargetInput(obj: CodeDeployGetDeploymentTargetInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentId': obj.deploymentId,
+    'targetId': obj.targetId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployGetDeploymentTargetOutput
  */
 export interface CodeDeployGetDeploymentTargetOutput {
@@ -744,6 +1440,20 @@ export interface CodeDeployGetDeploymentTargetOutput {
   readonly deploymentTarget?: CodeDeployDeploymentTarget;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployGetDeploymentTargetOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGetDeploymentTargetOutput(obj: CodeDeployGetDeploymentTargetOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentTarget': toJson_CodeDeployDeploymentTarget(obj.deploymentTarget),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployGetOnPremisesInstanceInput
@@ -757,6 +1467,20 @@ export interface CodeDeployGetOnPremisesInstanceInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployGetOnPremisesInstanceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGetOnPremisesInstanceInput(obj: CodeDeployGetOnPremisesInstanceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceName': obj.instanceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployGetOnPremisesInstanceOutput
  */
 export interface CodeDeployGetOnPremisesInstanceOutput {
@@ -766,6 +1490,20 @@ export interface CodeDeployGetOnPremisesInstanceOutput {
   readonly instanceInfo?: CodeDeployInstanceInfo;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployGetOnPremisesInstanceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGetOnPremisesInstanceOutput(obj: CodeDeployGetOnPremisesInstanceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceInfo': toJson_CodeDeployInstanceInfo(obj.instanceInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployListApplicationRevisionsInput
@@ -809,6 +1547,26 @@ export interface CodeDeployListApplicationRevisionsInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployListApplicationRevisionsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListApplicationRevisionsInput(obj: CodeDeployListApplicationRevisionsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'sortBy': obj.sortBy,
+    'sortOrder': obj.sortOrder,
+    's3Bucket': obj.s3Bucket,
+    's3KeyPrefix': obj.s3KeyPrefix,
+    'deployed': obj.deployed,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployListApplicationRevisionsOutput
  */
 export interface CodeDeployListApplicationRevisionsOutput {
@@ -825,6 +1583,21 @@ export interface CodeDeployListApplicationRevisionsOutput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployListApplicationRevisionsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListApplicationRevisionsOutput(obj: CodeDeployListApplicationRevisionsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'revisions': obj.revisions?.map(y => toJson_CodeDeployRevisionLocation(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployListApplicationsInput
  */
 export interface CodeDeployListApplicationsInput {
@@ -834,6 +1607,20 @@ export interface CodeDeployListApplicationsInput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployListApplicationsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListApplicationsInput(obj: CodeDeployListApplicationsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployListApplicationsOutput
@@ -852,6 +1639,21 @@ export interface CodeDeployListApplicationsOutput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployListApplicationsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListApplicationsOutput(obj: CodeDeployListApplicationsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applications': obj.applications?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployListDeploymentConfigsInput
  */
 export interface CodeDeployListDeploymentConfigsInput {
@@ -861,6 +1663,20 @@ export interface CodeDeployListDeploymentConfigsInput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployListDeploymentConfigsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListDeploymentConfigsInput(obj: CodeDeployListDeploymentConfigsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployListDeploymentConfigsOutput
@@ -879,6 +1695,21 @@ export interface CodeDeployListDeploymentConfigsOutput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployListDeploymentConfigsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListDeploymentConfigsOutput(obj: CodeDeployListDeploymentConfigsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentConfigsList': obj.deploymentConfigsList?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployListDeploymentGroupsInput
  */
 export interface CodeDeployListDeploymentGroupsInput {
@@ -893,6 +1724,21 @@ export interface CodeDeployListDeploymentGroupsInput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployListDeploymentGroupsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListDeploymentGroupsInput(obj: CodeDeployListDeploymentGroupsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployListDeploymentGroupsOutput
@@ -914,6 +1760,22 @@ export interface CodeDeployListDeploymentGroupsOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployListDeploymentGroupsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListDeploymentGroupsOutput(obj: CodeDeployListDeploymentGroupsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'deploymentGroups': obj.deploymentGroups?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployListDeploymentInstancesInput
@@ -942,6 +1804,23 @@ export interface CodeDeployListDeploymentInstancesInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployListDeploymentInstancesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListDeploymentInstancesInput(obj: CodeDeployListDeploymentInstancesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentId': obj.deploymentId,
+    'nextToken': obj.nextToken,
+    'instanceStatusFilter': obj.instanceStatusFilter?.map(y => y),
+    'instanceTypeFilter': obj.instanceTypeFilter?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployListDeploymentInstancesOutput
  */
 export interface CodeDeployListDeploymentInstancesOutput {
@@ -956,6 +1835,21 @@ export interface CodeDeployListDeploymentInstancesOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployListDeploymentInstancesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListDeploymentInstancesOutput(obj: CodeDeployListDeploymentInstancesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instancesList': obj.instancesList?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployListDeploymentTargetsInput
@@ -979,6 +1873,22 @@ export interface CodeDeployListDeploymentTargetsInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployListDeploymentTargetsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListDeploymentTargetsInput(obj: CodeDeployListDeploymentTargetsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentId': obj.deploymentId,
+    'nextToken': obj.nextToken,
+    'targetFilters': ((obj.targetFilters) === undefined) ? undefined : (Object.entries(obj.targetFilters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.map(y => y) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployListDeploymentTargetsOutput
  */
 export interface CodeDeployListDeploymentTargetsOutput {
@@ -993,6 +1903,21 @@ export interface CodeDeployListDeploymentTargetsOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployListDeploymentTargetsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListDeploymentTargetsOutput(obj: CodeDeployListDeploymentTargetsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'targetIds': obj.targetIds?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployListDeploymentsInput
@@ -1031,6 +1956,25 @@ export interface CodeDeployListDeploymentsInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployListDeploymentsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListDeploymentsInput(obj: CodeDeployListDeploymentsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'deploymentGroupName': obj.deploymentGroupName,
+    'externalId': obj.externalId,
+    'includeOnlyStatuses': obj.includeOnlyStatuses?.map(y => y),
+    'createTimeRange': toJson_CodeDeployTimeRange(obj.createTimeRange),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployListDeploymentsOutput
  */
 export interface CodeDeployListDeploymentsOutput {
@@ -1047,6 +1991,21 @@ export interface CodeDeployListDeploymentsOutput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployListDeploymentsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListDeploymentsOutput(obj: CodeDeployListDeploymentsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deployments': obj.deployments?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployListGitHubAccountTokenNamesInput
  */
 export interface CodeDeployListGitHubAccountTokenNamesInput {
@@ -1056,6 +2015,20 @@ export interface CodeDeployListGitHubAccountTokenNamesInput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployListGitHubAccountTokenNamesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListGitHubAccountTokenNamesInput(obj: CodeDeployListGitHubAccountTokenNamesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployListGitHubAccountTokenNamesOutput
@@ -1072,6 +2045,21 @@ export interface CodeDeployListGitHubAccountTokenNamesOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployListGitHubAccountTokenNamesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListGitHubAccountTokenNamesOutput(obj: CodeDeployListGitHubAccountTokenNamesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tokenNameList': obj.tokenNameList?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployListOnPremisesInstancesInput
@@ -1095,6 +2083,22 @@ export interface CodeDeployListOnPremisesInstancesInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployListOnPremisesInstancesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListOnPremisesInstancesInput(obj: CodeDeployListOnPremisesInstancesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'registrationStatus': obj.registrationStatus,
+    'tagFilters': obj.tagFilters?.map(y => toJson_CodeDeployTagFilter(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployListOnPremisesInstancesOutput
  */
 export interface CodeDeployListOnPremisesInstancesOutput {
@@ -1111,13 +2115,28 @@ export interface CodeDeployListOnPremisesInstancesOutput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployListOnPremisesInstancesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListOnPremisesInstancesOutput(obj: CodeDeployListOnPremisesInstancesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceNames': obj.instanceNames?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployListTagsForResourceInput
  */
 export interface CodeDeployListTagsForResourceInput {
   /**
    * @schema CodeDeployListTagsForResourceInput#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema CodeDeployListTagsForResourceInput#NextToken
@@ -1125,6 +2144,21 @@ export interface CodeDeployListTagsForResourceInput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployListTagsForResourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListTagsForResourceInput(obj: CodeDeployListTagsForResourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployListTagsForResourceOutput
@@ -1141,6 +2175,21 @@ export interface CodeDeployListTagsForResourceOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployListTagsForResourceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployListTagsForResourceOutput(obj: CodeDeployListTagsForResourceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Tags': obj.tags?.map(y => toJson_CodeDeployTag(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployPutLifecycleEventHookExecutionStatusInput
@@ -1164,6 +2213,22 @@ export interface CodeDeployPutLifecycleEventHookExecutionStatusInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployPutLifecycleEventHookExecutionStatusInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployPutLifecycleEventHookExecutionStatusInput(obj: CodeDeployPutLifecycleEventHookExecutionStatusInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentId': obj.deploymentId,
+    'lifecycleEventHookExecutionId': obj.lifecycleEventHookExecutionId,
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployPutLifecycleEventHookExecutionStatusOutput
  */
 export interface CodeDeployPutLifecycleEventHookExecutionStatusOutput {
@@ -1173,6 +2238,20 @@ export interface CodeDeployPutLifecycleEventHookExecutionStatusOutput {
   readonly lifecycleEventHookExecutionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployPutLifecycleEventHookExecutionStatusOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployPutLifecycleEventHookExecutionStatusOutput(obj: CodeDeployPutLifecycleEventHookExecutionStatusOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'lifecycleEventHookExecutionId': obj.lifecycleEventHookExecutionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployRegisterApplicationRevisionInput
@@ -1196,6 +2275,22 @@ export interface CodeDeployRegisterApplicationRevisionInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployRegisterApplicationRevisionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployRegisterApplicationRevisionInput(obj: CodeDeployRegisterApplicationRevisionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'description': obj.description,
+    'revision': toJson_CodeDeployRevisionLocation(obj.revision),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployRegisterOnPremisesInstanceInput
  */
 export interface CodeDeployRegisterOnPremisesInstanceInput {
@@ -1217,6 +2312,22 @@ export interface CodeDeployRegisterOnPremisesInstanceInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployRegisterOnPremisesInstanceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployRegisterOnPremisesInstanceInput(obj: CodeDeployRegisterOnPremisesInstanceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceName': obj.instanceName,
+    'iamSessionArn': obj.iamSessionArn,
+    'iamUserArn': obj.iamUserArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployRemoveTagsFromOnPremisesInstancesInput
  */
 export interface CodeDeployRemoveTagsFromOnPremisesInstancesInput {
@@ -1233,6 +2344,21 @@ export interface CodeDeployRemoveTagsFromOnPremisesInstancesInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployRemoveTagsFromOnPremisesInstancesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployRemoveTagsFromOnPremisesInstancesInput(obj: CodeDeployRemoveTagsFromOnPremisesInstancesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': obj.tags?.map(y => toJson_CodeDeployTag(y)),
+    'instanceNames': obj.instanceNames?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeploySkipWaitTimeForInstanceTerminationInput
  */
 export interface CodeDeploySkipWaitTimeForInstanceTerminationInput {
@@ -1242,6 +2368,20 @@ export interface CodeDeploySkipWaitTimeForInstanceTerminationInput {
   readonly deploymentId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeploySkipWaitTimeForInstanceTerminationInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeploySkipWaitTimeForInstanceTerminationInput(obj: CodeDeploySkipWaitTimeForInstanceTerminationInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentId': obj.deploymentId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployStopDeploymentInput
@@ -1260,6 +2400,21 @@ export interface CodeDeployStopDeploymentInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployStopDeploymentInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployStopDeploymentInput(obj: CodeDeployStopDeploymentInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentId': obj.deploymentId,
+    'autoRollbackEnabled': obj.autoRollbackEnabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployStopDeploymentOutput
  */
 export interface CodeDeployStopDeploymentOutput {
@@ -1276,20 +2431,50 @@ export interface CodeDeployStopDeploymentOutput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployStopDeploymentOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployStopDeploymentOutput(obj: CodeDeployStopDeploymentOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+    'statusMessage': obj.statusMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployTagResourceInput
  */
 export interface CodeDeployTagResourceInput {
   /**
    * @schema CodeDeployTagResourceInput#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema CodeDeployTagResourceInput#Tags
    */
-  readonly tags: CodeDeployTag[];
+  readonly tags?: CodeDeployTag[];
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployTagResourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployTagResourceInput(obj: CodeDeployTagResourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'Tags': obj.tags?.map(y => toJson_CodeDeployTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployTagResourceOutput
@@ -1298,26 +2483,67 @@ export interface CodeDeployTagResourceOutput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployTagResourceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployTagResourceOutput(obj: CodeDeployTagResourceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployUntagResourceInput
  */
 export interface CodeDeployUntagResourceInput {
   /**
    * @schema CodeDeployUntagResourceInput#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema CodeDeployUntagResourceInput#TagKeys
    */
-  readonly tagKeys: string[];
+  readonly tagKeys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployUntagResourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployUntagResourceInput(obj: CodeDeployUntagResourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployUntagResourceOutput
  */
 export interface CodeDeployUntagResourceOutput {
 }
+
+/**
+ * Converts an object of type 'CodeDeployUntagResourceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployUntagResourceOutput(obj: CodeDeployUntagResourceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployUpdateApplicationInput
@@ -1334,6 +2560,21 @@ export interface CodeDeployUpdateApplicationInput {
   readonly newApplicationName?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployUpdateApplicationInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployUpdateApplicationInput(obj: CodeDeployUpdateApplicationInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'newApplicationName': obj.newApplicationName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployUpdateDeploymentGroupInput
@@ -1395,6 +2636,11 @@ export interface CodeDeployUpdateDeploymentGroupInput {
   readonly autoRollbackConfiguration?: CodeDeployAutoRollbackConfiguration;
 
   /**
+   * @schema CodeDeployUpdateDeploymentGroupInput#outdatedInstancesStrategy
+   */
+  readonly outdatedInstancesStrategy?: string;
+
+  /**
    * @schema CodeDeployUpdateDeploymentGroupInput#deploymentStyle
    */
   readonly deploymentStyle?: CodeDeployDeploymentStyle;
@@ -1427,6 +2673,37 @@ export interface CodeDeployUpdateDeploymentGroupInput {
 }
 
 /**
+ * Converts an object of type 'CodeDeployUpdateDeploymentGroupInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployUpdateDeploymentGroupInput(obj: CodeDeployUpdateDeploymentGroupInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'currentDeploymentGroupName': obj.currentDeploymentGroupName,
+    'newDeploymentGroupName': obj.newDeploymentGroupName,
+    'deploymentConfigName': obj.deploymentConfigName,
+    'ec2TagFilters': obj.ec2TagFilters?.map(y => toJson_CodeDeployEc2TagFilter(y)),
+    'onPremisesInstanceTagFilters': obj.onPremisesInstanceTagFilters?.map(y => toJson_CodeDeployTagFilter(y)),
+    'autoScalingGroups': obj.autoScalingGroups?.map(y => y),
+    'serviceRoleArn': obj.serviceRoleArn,
+    'triggerConfigurations': obj.triggerConfigurations?.map(y => toJson_CodeDeployTriggerConfig(y)),
+    'alarmConfiguration': toJson_CodeDeployAlarmConfiguration(obj.alarmConfiguration),
+    'autoRollbackConfiguration': toJson_CodeDeployAutoRollbackConfiguration(obj.autoRollbackConfiguration),
+    'outdatedInstancesStrategy': obj.outdatedInstancesStrategy,
+    'deploymentStyle': toJson_CodeDeployDeploymentStyle(obj.deploymentStyle),
+    'blueGreenDeploymentConfiguration': toJson_CodeDeployBlueGreenDeploymentConfiguration(obj.blueGreenDeploymentConfiguration),
+    'loadBalancerInfo': toJson_CodeDeployLoadBalancerInfo(obj.loadBalancerInfo),
+    'ec2TagSet': toJson_CodeDeployEc2TagSet(obj.ec2TagSet),
+    'ecsServices': obj.ecsServices?.map(y => toJson_CodeDeployEcsService(y)),
+    'onPremisesTagSet': toJson_CodeDeployOnPremisesTagSet(obj.onPremisesTagSet),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployUpdateDeploymentGroupOutput
  */
 export interface CodeDeployUpdateDeploymentGroupOutput {
@@ -1436,6 +2713,20 @@ export interface CodeDeployUpdateDeploymentGroupOutput {
   readonly hooksNotCleanedUp?: CodeDeployAutoScalingGroup[];
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployUpdateDeploymentGroupOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployUpdateDeploymentGroupOutput(obj: CodeDeployUpdateDeploymentGroupOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'hooksNotCleanedUp': obj.hooksNotCleanedUp?.map(y => toJson_CodeDeployAutoScalingGroup(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployTag
@@ -1452,6 +2743,21 @@ export interface CodeDeployTag {
   readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployTag(obj: CodeDeployTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployRevisionLocation
@@ -1485,6 +2791,24 @@ export interface CodeDeployRevisionLocation {
 }
 
 /**
+ * Converts an object of type 'CodeDeployRevisionLocation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployRevisionLocation(obj: CodeDeployRevisionLocation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'revisionType': obj.revisionType,
+    's3Location': toJson_CodeDeployS3Location(obj.s3Location),
+    'gitHubLocation': toJson_CodeDeployGitHubLocation(obj.gitHubLocation),
+    'string': toJson_CodeDeployRawString(obj.string),
+    'appSpecContent': toJson_CodeDeployAppSpecContent(obj.appSpecContent),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployRevisionInfo
  */
 export interface CodeDeployRevisionInfo {
@@ -1499,6 +2823,21 @@ export interface CodeDeployRevisionInfo {
   readonly genericRevisionInfo?: CodeDeployGenericRevisionInfo;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployRevisionInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployRevisionInfo(obj: CodeDeployRevisionInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'revisionLocation': toJson_CodeDeployRevisionLocation(obj.revisionLocation),
+    'genericRevisionInfo': toJson_CodeDeployGenericRevisionInfo(obj.genericRevisionInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployApplicationInfo
@@ -1535,6 +2874,25 @@ export interface CodeDeployApplicationInfo {
   readonly computePlatform?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployApplicationInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployApplicationInfo(obj: CodeDeployApplicationInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationId': obj.applicationId,
+    'applicationName': obj.applicationName,
+    'createTime': obj.createTime,
+    'linkedToGitHub': obj.linkedToGitHub,
+    'gitHubAccountName': obj.gitHubAccountName,
+    'computePlatform': obj.computePlatform,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployDeploymentGroupInfo
@@ -1606,6 +2964,11 @@ export interface CodeDeployDeploymentGroupInfo {
   readonly deploymentStyle?: CodeDeployDeploymentStyle;
 
   /**
+   * @schema CodeDeployDeploymentGroupInfo#outdatedInstancesStrategy
+   */
+  readonly outdatedInstancesStrategy?: string;
+
+  /**
    * @schema CodeDeployDeploymentGroupInfo#blueGreenDeploymentConfiguration
    */
   readonly blueGreenDeploymentConfiguration?: CodeDeployBlueGreenDeploymentConfiguration;
@@ -1648,6 +3011,41 @@ export interface CodeDeployDeploymentGroupInfo {
 }
 
 /**
+ * Converts an object of type 'CodeDeployDeploymentGroupInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployDeploymentGroupInfo(obj: CodeDeployDeploymentGroupInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'deploymentGroupId': obj.deploymentGroupId,
+    'deploymentGroupName': obj.deploymentGroupName,
+    'deploymentConfigName': obj.deploymentConfigName,
+    'ec2TagFilters': obj.ec2TagFilters?.map(y => toJson_CodeDeployEc2TagFilter(y)),
+    'onPremisesInstanceTagFilters': obj.onPremisesInstanceTagFilters?.map(y => toJson_CodeDeployTagFilter(y)),
+    'autoScalingGroups': obj.autoScalingGroups?.map(y => toJson_CodeDeployAutoScalingGroup(y)),
+    'serviceRoleArn': obj.serviceRoleArn,
+    'targetRevision': toJson_CodeDeployRevisionLocation(obj.targetRevision),
+    'triggerConfigurations': obj.triggerConfigurations?.map(y => toJson_CodeDeployTriggerConfig(y)),
+    'alarmConfiguration': toJson_CodeDeployAlarmConfiguration(obj.alarmConfiguration),
+    'autoRollbackConfiguration': toJson_CodeDeployAutoRollbackConfiguration(obj.autoRollbackConfiguration),
+    'deploymentStyle': toJson_CodeDeployDeploymentStyle(obj.deploymentStyle),
+    'outdatedInstancesStrategy': obj.outdatedInstancesStrategy,
+    'blueGreenDeploymentConfiguration': toJson_CodeDeployBlueGreenDeploymentConfiguration(obj.blueGreenDeploymentConfiguration),
+    'loadBalancerInfo': toJson_CodeDeployLoadBalancerInfo(obj.loadBalancerInfo),
+    'lastSuccessfulDeployment': toJson_CodeDeployLastDeploymentInfo(obj.lastSuccessfulDeployment),
+    'lastAttemptedDeployment': toJson_CodeDeployLastDeploymentInfo(obj.lastAttemptedDeployment),
+    'ec2TagSet': toJson_CodeDeployEc2TagSet(obj.ec2TagSet),
+    'onPremisesTagSet': toJson_CodeDeployOnPremisesTagSet(obj.onPremisesTagSet),
+    'computePlatform': obj.computePlatform,
+    'ecsServices': obj.ecsServices?.map(y => toJson_CodeDeployEcsService(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployInstanceSummary
  */
 export interface CodeDeployInstanceSummary {
@@ -1684,6 +3082,25 @@ export interface CodeDeployInstanceSummary {
 }
 
 /**
+ * Converts an object of type 'CodeDeployInstanceSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployInstanceSummary(obj: CodeDeployInstanceSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentId': obj.deploymentId,
+    'instanceId': obj.instanceId,
+    'status': obj.status,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'lifecycleEvents': obj.lifecycleEvents?.map(y => toJson_CodeDeployLifecycleEvent(y)),
+    'instanceType': obj.instanceType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployDeploymentTarget
  */
 export interface CodeDeployDeploymentTarget {
@@ -1713,6 +3130,24 @@ export interface CodeDeployDeploymentTarget {
   readonly cloudFormationTarget?: CodeDeployCloudFormationTarget;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployDeploymentTarget' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployDeploymentTarget(obj: CodeDeployDeploymentTarget | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentTargetType': obj.deploymentTargetType,
+    'instanceTarget': toJson_CodeDeployInstanceTarget(obj.instanceTarget),
+    'lambdaTarget': toJson_CodeDeployLambdaTarget(obj.lambdaTarget),
+    'ecsTarget': toJson_CodeDeployEcsTarget(obj.ecsTarget),
+    'cloudFormationTarget': toJson_CodeDeployCloudFormationTarget(obj.cloudFormationTarget),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployDeploymentInfo
@@ -1858,7 +3293,54 @@ export interface CodeDeployDeploymentInfo {
    */
   readonly externalId?: string;
 
+  /**
+   * @schema CodeDeployDeploymentInfo#relatedDeployments
+   */
+  readonly relatedDeployments?: CodeDeployRelatedDeployments;
+
 }
+
+/**
+ * Converts an object of type 'CodeDeployDeploymentInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployDeploymentInfo(obj: CodeDeployDeploymentInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationName': obj.applicationName,
+    'deploymentGroupName': obj.deploymentGroupName,
+    'deploymentConfigName': obj.deploymentConfigName,
+    'deploymentId': obj.deploymentId,
+    'previousRevision': toJson_CodeDeployRevisionLocation(obj.previousRevision),
+    'revision': toJson_CodeDeployRevisionLocation(obj.revision),
+    'status': obj.status,
+    'errorInformation': toJson_CodeDeployErrorInformation(obj.errorInformation),
+    'createTime': obj.createTime,
+    'startTime': obj.startTime,
+    'completeTime': obj.completeTime,
+    'deploymentOverview': toJson_CodeDeployDeploymentOverview(obj.deploymentOverview),
+    'description': obj.description,
+    'creator': obj.creator,
+    'ignoreApplicationStopFailures': obj.ignoreApplicationStopFailures,
+    'autoRollbackConfiguration': toJson_CodeDeployAutoRollbackConfiguration(obj.autoRollbackConfiguration),
+    'updateOutdatedInstancesOnly': obj.updateOutdatedInstancesOnly,
+    'rollbackInfo': toJson_CodeDeployRollbackInfo(obj.rollbackInfo),
+    'deploymentStyle': toJson_CodeDeployDeploymentStyle(obj.deploymentStyle),
+    'targetInstances': toJson_CodeDeployTargetInstances(obj.targetInstances),
+    'instanceTerminationWaitTimeStarted': obj.instanceTerminationWaitTimeStarted,
+    'blueGreenDeploymentConfiguration': toJson_CodeDeployBlueGreenDeploymentConfiguration(obj.blueGreenDeploymentConfiguration),
+    'loadBalancerInfo': toJson_CodeDeployLoadBalancerInfo(obj.loadBalancerInfo),
+    'additionalDeploymentStatusInfo': obj.additionalDeploymentStatusInfo,
+    'fileExistsBehavior': obj.fileExistsBehavior,
+    'deploymentStatusMessages': obj.deploymentStatusMessages?.map(y => y),
+    'computePlatform': obj.computePlatform,
+    'externalId': obj.externalId,
+    'relatedDeployments': toJson_CodeDeployRelatedDeployments(obj.relatedDeployments),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployInstanceInfo
@@ -1902,6 +3384,26 @@ export interface CodeDeployInstanceInfo {
 }
 
 /**
+ * Converts an object of type 'CodeDeployInstanceInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployInstanceInfo(obj: CodeDeployInstanceInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceName': obj.instanceName,
+    'iamSessionArn': obj.iamSessionArn,
+    'iamUserArn': obj.iamUserArn,
+    'instanceArn': obj.instanceArn,
+    'registerTime': obj.registerTime,
+    'deregisterTime': obj.deregisterTime,
+    'tags': obj.tags?.map(y => toJson_CodeDeployTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployTargetInstances
  */
 export interface CodeDeployTargetInstances {
@@ -1923,6 +3425,22 @@ export interface CodeDeployTargetInstances {
 }
 
 /**
+ * Converts an object of type 'CodeDeployTargetInstances' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployTargetInstances(obj: CodeDeployTargetInstances | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tagFilters': obj.tagFilters?.map(y => toJson_CodeDeployEc2TagFilter(y)),
+    'autoScalingGroups': obj.autoScalingGroups?.map(y => y),
+    'ec2TagSet': toJson_CodeDeployEc2TagSet(obj.ec2TagSet),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployAutoRollbackConfiguration
  */
 export interface CodeDeployAutoRollbackConfiguration {
@@ -1939,20 +3457,50 @@ export interface CodeDeployAutoRollbackConfiguration {
 }
 
 /**
+ * Converts an object of type 'CodeDeployAutoRollbackConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployAutoRollbackConfiguration(obj: CodeDeployAutoRollbackConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'enabled': obj.enabled,
+    'events': obj.events?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployMinimumHealthyHosts
  */
 export interface CodeDeployMinimumHealthyHosts {
-  /**
-   * @schema CodeDeployMinimumHealthyHosts#value
-   */
-  readonly value?: number;
-
   /**
    * @schema CodeDeployMinimumHealthyHosts#type
    */
   readonly type?: string;
 
+  /**
+   * @schema CodeDeployMinimumHealthyHosts#value
+   */
+  readonly value?: number;
+
 }
+
+/**
+ * Converts an object of type 'CodeDeployMinimumHealthyHosts' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployMinimumHealthyHosts(obj: CodeDeployMinimumHealthyHosts | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployTrafficRoutingConfig
@@ -1976,6 +3524,22 @@ export interface CodeDeployTrafficRoutingConfig {
 }
 
 /**
+ * Converts an object of type 'CodeDeployTrafficRoutingConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployTrafficRoutingConfig(obj: CodeDeployTrafficRoutingConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+    'timeBasedCanary': toJson_CodeDeployTimeBasedCanary(obj.timeBasedCanary),
+    'timeBasedLinear': toJson_CodeDeployTimeBasedLinear(obj.timeBasedLinear),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployEc2TagFilter
  */
 export interface CodeDeployEc2TagFilter {
@@ -1995,6 +3559,22 @@ export interface CodeDeployEc2TagFilter {
   readonly type?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployEc2TagFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployEc2TagFilter(obj: CodeDeployEc2TagFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployTagFilter
@@ -2018,6 +3598,22 @@ export interface CodeDeployTagFilter {
 }
 
 /**
+ * Converts an object of type 'CodeDeployTagFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployTagFilter(obj: CodeDeployTagFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployTriggerConfig
  */
 export interface CodeDeployTriggerConfig {
@@ -2037,6 +3633,22 @@ export interface CodeDeployTriggerConfig {
   readonly triggerEvents?: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployTriggerConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployTriggerConfig(obj: CodeDeployTriggerConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'triggerName': obj.triggerName,
+    'triggerTargetArn': obj.triggerTargetArn,
+    'triggerEvents': obj.triggerEvents?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployAlarmConfiguration
@@ -2060,6 +3672,22 @@ export interface CodeDeployAlarmConfiguration {
 }
 
 /**
+ * Converts an object of type 'CodeDeployAlarmConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployAlarmConfiguration(obj: CodeDeployAlarmConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'enabled': obj.enabled,
+    'ignorePollAlarmFailure': obj.ignorePollAlarmFailure,
+    'alarms': obj.alarms?.map(y => toJson_CodeDeployAlarm(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployDeploymentStyle
  */
 export interface CodeDeployDeploymentStyle {
@@ -2074,6 +3702,21 @@ export interface CodeDeployDeploymentStyle {
   readonly deploymentOption?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployDeploymentStyle' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployDeploymentStyle(obj: CodeDeployDeploymentStyle | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentType': obj.deploymentType,
+    'deploymentOption': obj.deploymentOption,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployBlueGreenDeploymentConfiguration
@@ -2097,6 +3740,22 @@ export interface CodeDeployBlueGreenDeploymentConfiguration {
 }
 
 /**
+ * Converts an object of type 'CodeDeployBlueGreenDeploymentConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployBlueGreenDeploymentConfiguration(obj: CodeDeployBlueGreenDeploymentConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'terminateBlueInstancesOnDeploymentSuccess': toJson_CodeDeployBlueInstanceTerminationOption(obj.terminateBlueInstancesOnDeploymentSuccess),
+    'deploymentReadyOption': toJson_CodeDeployDeploymentReadyOption(obj.deploymentReadyOption),
+    'greenFleetProvisioningOption': toJson_CodeDeployGreenFleetProvisioningOption(obj.greenFleetProvisioningOption),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployLoadBalancerInfo
  */
 export interface CodeDeployLoadBalancerInfo {
@@ -2118,6 +3777,22 @@ export interface CodeDeployLoadBalancerInfo {
 }
 
 /**
+ * Converts an object of type 'CodeDeployLoadBalancerInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployLoadBalancerInfo(obj: CodeDeployLoadBalancerInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'elbInfoList': obj.elbInfoList?.map(y => toJson_CodeDeployElbInfo(y)),
+    'targetGroupInfoList': obj.targetGroupInfoList?.map(y => toJson_CodeDeployTargetGroupInfo(y)),
+    'targetGroupPairInfoList': obj.targetGroupPairInfoList?.map(y => toJson_CodeDeployTargetGroupPairInfo(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployEc2TagSet
  */
 export interface CodeDeployEc2TagSet {
@@ -2127,6 +3802,20 @@ export interface CodeDeployEc2TagSet {
   readonly ec2TagSetList?: CodeDeployEc2TagFilter[][];
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployEc2TagSet' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployEc2TagSet(obj: CodeDeployEc2TagSet | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ec2TagSetList': obj.ec2TagSetList?.map(y => y?.map(y => toJson_CodeDeployEc2TagFilter(y))),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployEcsService
@@ -2145,6 +3834,21 @@ export interface CodeDeployEcsService {
 }
 
 /**
+ * Converts an object of type 'CodeDeployEcsService' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployEcsService(obj: CodeDeployEcsService | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'serviceName': obj.serviceName,
+    'clusterName': obj.clusterName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployOnPremisesTagSet
  */
 export interface CodeDeployOnPremisesTagSet {
@@ -2154,6 +3858,20 @@ export interface CodeDeployOnPremisesTagSet {
   readonly onPremisesTagSetList?: CodeDeployTagFilter[][];
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployOnPremisesTagSet' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployOnPremisesTagSet(obj: CodeDeployOnPremisesTagSet | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'onPremisesTagSetList': obj.onPremisesTagSetList?.map(y => y?.map(y => toJson_CodeDeployTagFilter(y))),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployAutoScalingGroup
@@ -2170,6 +3888,21 @@ export interface CodeDeployAutoScalingGroup {
   readonly hook?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployAutoScalingGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployAutoScalingGroup(obj: CodeDeployAutoScalingGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'hook': obj.hook,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployGenericRevisionInfo
@@ -2201,6 +3934,24 @@ export interface CodeDeployGenericRevisionInfo {
   readonly registerTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployGenericRevisionInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGenericRevisionInfo(obj: CodeDeployGenericRevisionInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'description': obj.description,
+    'deploymentGroups': obj.deploymentGroups?.map(y => y),
+    'firstUsedTime': obj.firstUsedTime,
+    'lastUsedTime': obj.lastUsedTime,
+    'registerTime': obj.registerTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployDeploymentConfigInfo
@@ -2239,6 +3990,25 @@ export interface CodeDeployDeploymentConfigInfo {
 }
 
 /**
+ * Converts an object of type 'CodeDeployDeploymentConfigInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployDeploymentConfigInfo(obj: CodeDeployDeploymentConfigInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentConfigId': obj.deploymentConfigId,
+    'deploymentConfigName': obj.deploymentConfigName,
+    'minimumHealthyHosts': toJson_CodeDeployMinimumHealthyHosts(obj.minimumHealthyHosts),
+    'createTime': obj.createTime,
+    'computePlatform': obj.computePlatform,
+    'trafficRoutingConfig': toJson_CodeDeployTrafficRoutingConfig(obj.trafficRoutingConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployTimeRange
  */
 export interface CodeDeployTimeRange {
@@ -2253,6 +4023,21 @@ export interface CodeDeployTimeRange {
   readonly end?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployTimeRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployTimeRange(obj: CodeDeployTimeRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'start': obj.start,
+    'end': obj.end,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployS3Location
@@ -2286,6 +4071,24 @@ export interface CodeDeployS3Location {
 }
 
 /**
+ * Converts an object of type 'CodeDeployS3Location' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployS3Location(obj: CodeDeployS3Location | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucket': obj.bucket,
+    'key': obj.key,
+    'bundleType': obj.bundleType,
+    'version': obj.version,
+    'eTag': obj.eTag,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployGitHubLocation
  */
 export interface CodeDeployGitHubLocation {
@@ -2300,6 +4103,21 @@ export interface CodeDeployGitHubLocation {
   readonly commitId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployGitHubLocation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGitHubLocation(obj: CodeDeployGitHubLocation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'repository': obj.repository,
+    'commitId': obj.commitId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployRawString
@@ -2318,6 +4136,21 @@ export interface CodeDeployRawString {
 }
 
 /**
+ * Converts an object of type 'CodeDeployRawString' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployRawString(obj: CodeDeployRawString | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'content': obj.content,
+    'sha256': obj.sha256,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployAppSpecContent
  */
 export interface CodeDeployAppSpecContent {
@@ -2332,6 +4165,21 @@ export interface CodeDeployAppSpecContent {
   readonly sha256?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployAppSpecContent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployAppSpecContent(obj: CodeDeployAppSpecContent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'content': obj.content,
+    'sha256': obj.sha256,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployLastDeploymentInfo
@@ -2358,6 +4206,23 @@ export interface CodeDeployLastDeploymentInfo {
   readonly createTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployLastDeploymentInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployLastDeploymentInfo(obj: CodeDeployLastDeploymentInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentId': obj.deploymentId,
+    'status': obj.status,
+    'endTime': obj.endTime,
+    'createTime': obj.createTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployLifecycleEvent
@@ -2389,6 +4254,24 @@ export interface CodeDeployLifecycleEvent {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployLifecycleEvent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployLifecycleEvent(obj: CodeDeployLifecycleEvent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'lifecycleEventName': obj.lifecycleEventName,
+    'diagnostics': toJson_CodeDeployDiagnostics(obj.diagnostics),
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployInstanceTarget
@@ -2432,6 +4315,26 @@ export interface CodeDeployInstanceTarget {
 }
 
 /**
+ * Converts an object of type 'CodeDeployInstanceTarget' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployInstanceTarget(obj: CodeDeployInstanceTarget | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentId': obj.deploymentId,
+    'targetId': obj.targetId,
+    'targetArn': obj.targetArn,
+    'status': obj.status,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'lifecycleEvents': obj.lifecycleEvents?.map(y => toJson_CodeDeployLifecycleEvent(y)),
+    'instanceLabel': obj.instanceLabel,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployLambdaTarget
  */
 export interface CodeDeployLambdaTarget {
@@ -2471,6 +4374,26 @@ export interface CodeDeployLambdaTarget {
   readonly lambdaFunctionInfo?: CodeDeployLambdaFunctionInfo;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployLambdaTarget' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployLambdaTarget(obj: CodeDeployLambdaTarget | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentId': obj.deploymentId,
+    'targetId': obj.targetId,
+    'targetArn': obj.targetArn,
+    'status': obj.status,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'lifecycleEvents': obj.lifecycleEvents?.map(y => toJson_CodeDeployLifecycleEvent(y)),
+    'lambdaFunctionInfo': toJson_CodeDeployLambdaFunctionInfo(obj.lambdaFunctionInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployEcsTarget
@@ -2514,6 +4437,26 @@ export interface CodeDeployEcsTarget {
 }
 
 /**
+ * Converts an object of type 'CodeDeployEcsTarget' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployEcsTarget(obj: CodeDeployEcsTarget | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentId': obj.deploymentId,
+    'targetId': obj.targetId,
+    'targetArn': obj.targetArn,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'lifecycleEvents': obj.lifecycleEvents?.map(y => toJson_CodeDeployLifecycleEvent(y)),
+    'status': obj.status,
+    'taskSetsInfo': obj.taskSetsInfo?.map(y => toJson_CodeDeployEcsTaskSet(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployCloudFormationTarget
  */
 export interface CodeDeployCloudFormationTarget {
@@ -2555,6 +4498,26 @@ export interface CodeDeployCloudFormationTarget {
 }
 
 /**
+ * Converts an object of type 'CodeDeployCloudFormationTarget' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployCloudFormationTarget(obj: CodeDeployCloudFormationTarget | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentId': obj.deploymentId,
+    'targetId': obj.targetId,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'lifecycleEvents': obj.lifecycleEvents?.map(y => toJson_CodeDeployLifecycleEvent(y)),
+    'status': obj.status,
+    'resourceType': obj.resourceType,
+    'targetVersionWeight': obj.targetVersionWeight,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployErrorInformation
  */
 export interface CodeDeployErrorInformation {
@@ -2569,6 +4532,21 @@ export interface CodeDeployErrorInformation {
   readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployErrorInformation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployErrorInformation(obj: CodeDeployErrorInformation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'code': obj.code,
+    'message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployDeploymentOverview
@@ -2607,6 +4585,25 @@ export interface CodeDeployDeploymentOverview {
 }
 
 /**
+ * Converts an object of type 'CodeDeployDeploymentOverview' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployDeploymentOverview(obj: CodeDeployDeploymentOverview | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Pending': obj.pending,
+    'InProgress': obj.inProgress,
+    'Succeeded': obj.succeeded,
+    'Failed': obj.failed,
+    'Skipped': obj.skipped,
+    'Ready': obj.ready,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployRollbackInfo
  */
 export interface CodeDeployRollbackInfo {
@@ -2628,6 +4625,53 @@ export interface CodeDeployRollbackInfo {
 }
 
 /**
+ * Converts an object of type 'CodeDeployRollbackInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployRollbackInfo(obj: CodeDeployRollbackInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'rollbackDeploymentId': obj.rollbackDeploymentId,
+    'rollbackTriggeringDeploymentId': obj.rollbackTriggeringDeploymentId,
+    'rollbackMessage': obj.rollbackMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CodeDeployRelatedDeployments
+ */
+export interface CodeDeployRelatedDeployments {
+  /**
+   * @schema CodeDeployRelatedDeployments#autoUpdateOutdatedInstancesRootDeploymentId
+   */
+  readonly autoUpdateOutdatedInstancesRootDeploymentId?: string;
+
+  /**
+   * @schema CodeDeployRelatedDeployments#autoUpdateOutdatedInstancesDeploymentIds
+   */
+  readonly autoUpdateOutdatedInstancesDeploymentIds?: string[];
+
+}
+
+/**
+ * Converts an object of type 'CodeDeployRelatedDeployments' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployRelatedDeployments(obj: CodeDeployRelatedDeployments | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'autoUpdateOutdatedInstancesRootDeploymentId': obj.autoUpdateOutdatedInstancesRootDeploymentId,
+    'autoUpdateOutdatedInstancesDeploymentIds': obj.autoUpdateOutdatedInstancesDeploymentIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployTimeBasedCanary
  */
 export interface CodeDeployTimeBasedCanary {
@@ -2642,6 +4686,21 @@ export interface CodeDeployTimeBasedCanary {
   readonly canaryInterval?: number;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployTimeBasedCanary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployTimeBasedCanary(obj: CodeDeployTimeBasedCanary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'canaryPercentage': obj.canaryPercentage,
+    'canaryInterval': obj.canaryInterval,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployTimeBasedLinear
@@ -2660,6 +4719,21 @@ export interface CodeDeployTimeBasedLinear {
 }
 
 /**
+ * Converts an object of type 'CodeDeployTimeBasedLinear' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployTimeBasedLinear(obj: CodeDeployTimeBasedLinear | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'linearPercentage': obj.linearPercentage,
+    'linearInterval': obj.linearInterval,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployAlarm
  */
 export interface CodeDeployAlarm {
@@ -2669,6 +4743,20 @@ export interface CodeDeployAlarm {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployAlarm' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployAlarm(obj: CodeDeployAlarm | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployBlueInstanceTerminationOption
@@ -2687,6 +4775,21 @@ export interface CodeDeployBlueInstanceTerminationOption {
 }
 
 /**
+ * Converts an object of type 'CodeDeployBlueInstanceTerminationOption' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployBlueInstanceTerminationOption(obj: CodeDeployBlueInstanceTerminationOption | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'action': obj.action,
+    'terminationWaitTimeInMinutes': obj.terminationWaitTimeInMinutes,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployDeploymentReadyOption
  */
 export interface CodeDeployDeploymentReadyOption {
@@ -2703,6 +4806,21 @@ export interface CodeDeployDeploymentReadyOption {
 }
 
 /**
+ * Converts an object of type 'CodeDeployDeploymentReadyOption' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployDeploymentReadyOption(obj: CodeDeployDeploymentReadyOption | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'actionOnTimeout': obj.actionOnTimeout,
+    'waitTimeInMinutes': obj.waitTimeInMinutes,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployGreenFleetProvisioningOption
  */
 export interface CodeDeployGreenFleetProvisioningOption {
@@ -2712,6 +4830,20 @@ export interface CodeDeployGreenFleetProvisioningOption {
   readonly action?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployGreenFleetProvisioningOption' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployGreenFleetProvisioningOption(obj: CodeDeployGreenFleetProvisioningOption | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'action': obj.action,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployElbInfo
@@ -2725,6 +4857,20 @@ export interface CodeDeployElbInfo {
 }
 
 /**
+ * Converts an object of type 'CodeDeployElbInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployElbInfo(obj: CodeDeployElbInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployTargetGroupInfo
  */
 export interface CodeDeployTargetGroupInfo {
@@ -2734,6 +4880,20 @@ export interface CodeDeployTargetGroupInfo {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployTargetGroupInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployTargetGroupInfo(obj: CodeDeployTargetGroupInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployTargetGroupPairInfo
@@ -2755,6 +4915,22 @@ export interface CodeDeployTargetGroupPairInfo {
   readonly testTrafficRoute?: CodeDeployTrafficRoute;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployTargetGroupPairInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployTargetGroupPairInfo(obj: CodeDeployTargetGroupPairInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'targetGroups': obj.targetGroups?.map(y => toJson_CodeDeployTargetGroupInfo(y)),
+    'prodTrafficRoute': toJson_CodeDeployTrafficRoute(obj.prodTrafficRoute),
+    'testTrafficRoute': toJson_CodeDeployTrafficRoute(obj.testTrafficRoute),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployDiagnostics
@@ -2781,6 +4957,23 @@ export interface CodeDeployDiagnostics {
   readonly logTail?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployDiagnostics' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployDiagnostics(obj: CodeDeployDiagnostics | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'errorCode': obj.errorCode,
+    'scriptName': obj.scriptName,
+    'message': obj.message,
+    'logTail': obj.logTail,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployLambdaFunctionInfo
@@ -2812,6 +5005,24 @@ export interface CodeDeployLambdaFunctionInfo {
   readonly targetVersionWeight?: number;
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployLambdaFunctionInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployLambdaFunctionInfo(obj: CodeDeployLambdaFunctionInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'functionName': obj.functionName,
+    'functionAlias': obj.functionAlias,
+    'currentVersion': obj.currentVersion,
+    'targetVersion': obj.targetVersion,
+    'targetVersionWeight': obj.targetVersionWeight,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeDeployEcsTaskSet
@@ -2860,6 +5071,27 @@ export interface CodeDeployEcsTaskSet {
 }
 
 /**
+ * Converts an object of type 'CodeDeployEcsTaskSet' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployEcsTaskSet(obj: CodeDeployEcsTaskSet | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'identifer': obj.identifer,
+    'desiredCount': obj.desiredCount,
+    'pendingCount': obj.pendingCount,
+    'runningCount': obj.runningCount,
+    'status': obj.status,
+    'trafficWeight': obj.trafficWeight,
+    'targetGroup': toJson_CodeDeployTargetGroupInfo(obj.targetGroup),
+    'taskSetLabel': obj.taskSetLabel,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeDeployTrafficRoute
  */
 export interface CodeDeployTrafficRoute {
@@ -2869,3 +5101,17 @@ export interface CodeDeployTrafficRoute {
   readonly listenerArns?: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeDeployTrafficRoute' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeDeployTrafficRoute(obj: CodeDeployTrafficRoute | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'listenerArns': obj.listenerArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

@@ -20,6 +20,10 @@ export class PersonalizeClient extends cdk.Construct {
     return new PersonalizeResponsesCreateDataset(this, this.__resources, input);
   }
 
+  public createDatasetExportJob(input: shapes.PersonalizeCreateDatasetExportJobRequest): PersonalizeResponsesCreateDatasetExportJob {
+    return new PersonalizeResponsesCreateDatasetExportJob(this, this.__resources, input);
+  }
+
   public createDatasetGroup(input: shapes.PersonalizeCreateDatasetGroupRequest): PersonalizeResponsesCreateDatasetGroup {
     return new PersonalizeResponsesCreateDatasetGroup(this, this.__resources, input);
   }
@@ -169,6 +173,10 @@ export class PersonalizeClient extends cdk.Construct {
     return new PersonalizeResponsesDescribeDataset(this, this.__resources, input);
   }
 
+  public describeDatasetExportJob(input: shapes.PersonalizeDescribeDatasetExportJobRequest): PersonalizeResponsesDescribeDatasetExportJob {
+    return new PersonalizeResponsesDescribeDatasetExportJob(this, this.__resources, input);
+  }
+
   public describeDatasetGroup(input: shapes.PersonalizeDescribeDatasetGroupRequest): PersonalizeResponsesDescribeDatasetGroup {
     return new PersonalizeResponsesDescribeDatasetGroup(this, this.__resources, input);
   }
@@ -217,6 +225,10 @@ export class PersonalizeClient extends cdk.Construct {
     return new PersonalizeResponsesListCampaigns(this, this.__resources, input);
   }
 
+  public listDatasetExportJobs(input: shapes.PersonalizeListDatasetExportJobsRequest): PersonalizeResponsesListDatasetExportJobs {
+    return new PersonalizeResponsesListDatasetExportJobs(this, this.__resources, input);
+  }
+
   public listDatasetGroups(input: shapes.PersonalizeListDatasetGroupsRequest): PersonalizeResponsesListDatasetGroups {
     return new PersonalizeResponsesListDatasetGroups(this, this.__resources, input);
   }
@@ -251,6 +263,21 @@ export class PersonalizeClient extends cdk.Construct {
 
   public listSolutions(input: shapes.PersonalizeListSolutionsRequest): PersonalizeResponsesListSolutions {
     return new PersonalizeResponsesListSolutions(this, this.__resources, input);
+  }
+
+  public stopSolutionVersionCreation(input: shapes.PersonalizeStopSolutionVersionCreationRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopSolutionVersionCreation',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.StopSolutionVersionCreation'),
+        parameters: {
+          solutionVersionArn: input.solutionVersionArn,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'StopSolutionVersionCreation', props);
   }
 
   public updateCampaign(input: shapes.PersonalizeUpdateCampaignRequest): PersonalizeResponsesUpdateCampaign {
@@ -354,6 +381,39 @@ export class PersonalizeResponsesCreateDataset {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateDataset.datasetArn', props);
     return resource.getResponseField('datasetArn') as unknown as string;
+  }
+
+}
+
+export class PersonalizeResponsesCreateDatasetExportJob {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.PersonalizeCreateDatasetExportJobRequest) {
+  }
+
+  public get datasetExportJobArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDatasetExportJob',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.CreateDatasetExportJob.datasetExportJobArn'),
+        outputPath: 'datasetExportJobArn',
+        parameters: {
+          jobName: this.__input.jobName,
+          datasetArn: this.__input.datasetArn,
+          ingestionMode: this.__input.ingestionMode,
+          roleArn: this.__input.roleArn,
+          jobOutput: {
+            s3DataDestination: {
+              path: this.__input.jobOutput.s3DataDestination.path,
+              kmsKeyArn: this.__input.jobOutput.s3DataDestination.kmsKeyArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDatasetExportJob.datasetExportJobArn', props);
+    return resource.getResponseField('datasetExportJobArn') as unknown as string;
   }
 
 }
@@ -550,6 +610,10 @@ export class PersonalizeResponsesCreateSolution {
             autoMLConfig: {
               metricName: this.__input.solutionConfig?.autoMLConfig?.metricName,
               recipeList: this.__input.solutionConfig?.autoMLConfig?.recipeList,
+            },
+            optimizationObjective: {
+              itemAttribute: this.__input.solutionConfig?.optimizationObjective?.itemAttribute,
+              objectiveSensitivity: this.__input.solutionConfig?.optimizationObjective?.objectiveSensitivity,
             },
           },
         },
@@ -1648,6 +1712,233 @@ export class PersonalizeResponsesDescribeDatasetDataset {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataset.dataset.lastUpdatedDateTime', props);
     return resource.getResponseField('dataset.lastUpdatedDateTime') as unknown as string;
+  }
+
+}
+
+export class PersonalizeResponsesDescribeDatasetExportJob {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.PersonalizeDescribeDatasetExportJobRequest) {
+  }
+
+  public get datasetExportJob(): PersonalizeResponsesDescribeDatasetExportJobDatasetExportJob {
+    return new PersonalizeResponsesDescribeDatasetExportJobDatasetExportJob(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class PersonalizeResponsesDescribeDatasetExportJobDatasetExportJob {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.PersonalizeDescribeDatasetExportJobRequest) {
+  }
+
+  public get jobName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDatasetExportJob',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.DescribeDatasetExportJob.datasetExportJob.jobName'),
+        outputPath: 'datasetExportJob.jobName',
+        parameters: {
+          datasetExportJobArn: this.__input.datasetExportJobArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDatasetExportJob.datasetExportJob.jobName', props);
+    return resource.getResponseField('datasetExportJob.jobName') as unknown as string;
+  }
+
+  public get datasetExportJobArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDatasetExportJob',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.DescribeDatasetExportJob.datasetExportJob.datasetExportJobArn'),
+        outputPath: 'datasetExportJob.datasetExportJobArn',
+        parameters: {
+          datasetExportJobArn: this.__input.datasetExportJobArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDatasetExportJob.datasetExportJob.datasetExportJobArn', props);
+    return resource.getResponseField('datasetExportJob.datasetExportJobArn') as unknown as string;
+  }
+
+  public get datasetArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDatasetExportJob',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.DescribeDatasetExportJob.datasetExportJob.datasetArn'),
+        outputPath: 'datasetExportJob.datasetArn',
+        parameters: {
+          datasetExportJobArn: this.__input.datasetExportJobArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDatasetExportJob.datasetExportJob.datasetArn', props);
+    return resource.getResponseField('datasetExportJob.datasetArn') as unknown as string;
+  }
+
+  public get ingestionMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDatasetExportJob',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.DescribeDatasetExportJob.datasetExportJob.ingestionMode'),
+        outputPath: 'datasetExportJob.ingestionMode',
+        parameters: {
+          datasetExportJobArn: this.__input.datasetExportJobArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDatasetExportJob.datasetExportJob.ingestionMode', props);
+    return resource.getResponseField('datasetExportJob.ingestionMode') as unknown as string;
+  }
+
+  public get roleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDatasetExportJob',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.DescribeDatasetExportJob.datasetExportJob.roleArn'),
+        outputPath: 'datasetExportJob.roleArn',
+        parameters: {
+          datasetExportJobArn: this.__input.datasetExportJobArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDatasetExportJob.datasetExportJob.roleArn', props);
+    return resource.getResponseField('datasetExportJob.roleArn') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDatasetExportJob',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.DescribeDatasetExportJob.datasetExportJob.status'),
+        outputPath: 'datasetExportJob.status',
+        parameters: {
+          datasetExportJobArn: this.__input.datasetExportJobArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDatasetExportJob.datasetExportJob.status', props);
+    return resource.getResponseField('datasetExportJob.status') as unknown as string;
+  }
+
+  public get jobOutput(): PersonalizeResponsesDescribeDatasetExportJobDatasetExportJobJobOutput {
+    return new PersonalizeResponsesDescribeDatasetExportJobDatasetExportJobJobOutput(this.__scope, this.__resources, this.__input);
+  }
+
+  public get creationDateTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDatasetExportJob',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.DescribeDatasetExportJob.datasetExportJob.creationDateTime'),
+        outputPath: 'datasetExportJob.creationDateTime',
+        parameters: {
+          datasetExportJobArn: this.__input.datasetExportJobArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDatasetExportJob.datasetExportJob.creationDateTime', props);
+    return resource.getResponseField('datasetExportJob.creationDateTime') as unknown as string;
+  }
+
+  public get lastUpdatedDateTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDatasetExportJob',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.DescribeDatasetExportJob.datasetExportJob.lastUpdatedDateTime'),
+        outputPath: 'datasetExportJob.lastUpdatedDateTime',
+        parameters: {
+          datasetExportJobArn: this.__input.datasetExportJobArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDatasetExportJob.datasetExportJob.lastUpdatedDateTime', props);
+    return resource.getResponseField('datasetExportJob.lastUpdatedDateTime') as unknown as string;
+  }
+
+  public get failureReason(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDatasetExportJob',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.DescribeDatasetExportJob.datasetExportJob.failureReason'),
+        outputPath: 'datasetExportJob.failureReason',
+        parameters: {
+          datasetExportJobArn: this.__input.datasetExportJobArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDatasetExportJob.datasetExportJob.failureReason', props);
+    return resource.getResponseField('datasetExportJob.failureReason') as unknown as string;
+  }
+
+}
+
+export class PersonalizeResponsesDescribeDatasetExportJobDatasetExportJobJobOutput {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.PersonalizeDescribeDatasetExportJobRequest) {
+  }
+
+  public get s3DataDestination(): PersonalizeResponsesDescribeDatasetExportJobDatasetExportJobJobOutputS3DataDestination {
+    return new PersonalizeResponsesDescribeDatasetExportJobDatasetExportJobJobOutputS3DataDestination(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class PersonalizeResponsesDescribeDatasetExportJobDatasetExportJobJobOutputS3DataDestination {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.PersonalizeDescribeDatasetExportJobRequest) {
+  }
+
+  public get path(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDatasetExportJob',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.DescribeDatasetExportJob.datasetExportJob.jobOutput.s3DataDestination.path'),
+        outputPath: 'datasetExportJob.jobOutput.s3DataDestination.path',
+        parameters: {
+          datasetExportJobArn: this.__input.datasetExportJobArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDatasetExportJob.datasetExportJob.jobOutput.s3DataDestination.path', props);
+    return resource.getResponseField('datasetExportJob.jobOutput.s3DataDestination.path') as unknown as string;
+  }
+
+  public get kmsKeyArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDatasetExportJob',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.DescribeDatasetExportJob.datasetExportJob.jobOutput.s3DataDestination.kmsKeyArn'),
+        outputPath: 'datasetExportJob.jobOutput.s3DataDestination.kmsKeyArn',
+        parameters: {
+          datasetExportJobArn: this.__input.datasetExportJobArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDatasetExportJob.datasetExportJob.jobOutput.s3DataDestination.kmsKeyArn', props);
+    return resource.getResponseField('datasetExportJob.jobOutput.s3DataDestination.kmsKeyArn') as unknown as string;
   }
 
 }
@@ -2954,6 +3245,10 @@ export class PersonalizeResponsesDescribeSolutionSolutionSolutionConfig {
     return new PersonalizeResponsesDescribeSolutionSolutionSolutionConfigAutoMlConfig(this.__scope, this.__resources, this.__input);
   }
 
+  public get optimizationObjective(): PersonalizeResponsesDescribeSolutionSolutionSolutionConfigOptimizationObjective {
+    return new PersonalizeResponsesDescribeSolutionSolutionSolutionConfigOptimizationObjective(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class PersonalizeResponsesDescribeSolutionSolutionSolutionConfigHpoConfig {
@@ -3169,6 +3464,47 @@ export class PersonalizeResponsesDescribeSolutionSolutionSolutionConfigAutoMlCon
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeSolution.solution.solutionConfig.autoMLConfig.recipeList', props);
     return resource.getResponseField('solution.solutionConfig.autoMLConfig.recipeList') as unknown as string[];
+  }
+
+}
+
+export class PersonalizeResponsesDescribeSolutionSolutionSolutionConfigOptimizationObjective {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.PersonalizeDescribeSolutionRequest) {
+  }
+
+  public get itemAttribute(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeSolution',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.DescribeSolution.solution.solutionConfig.optimizationObjective.itemAttribute'),
+        outputPath: 'solution.solutionConfig.optimizationObjective.itemAttribute',
+        parameters: {
+          solutionArn: this.__input.solutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeSolution.solution.solutionConfig.optimizationObjective.itemAttribute', props);
+    return resource.getResponseField('solution.solutionConfig.optimizationObjective.itemAttribute') as unknown as string;
+  }
+
+  public get objectiveSensitivity(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeSolution',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.DescribeSolution.solution.solutionConfig.optimizationObjective.objectiveSensitivity'),
+        outputPath: 'solution.solutionConfig.optimizationObjective.objectiveSensitivity',
+        parameters: {
+          solutionArn: this.__input.solutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeSolution.solution.solutionConfig.optimizationObjective.objectiveSensitivity', props);
+    return resource.getResponseField('solution.solutionConfig.optimizationObjective.objectiveSensitivity') as unknown as string;
   }
 
 }
@@ -3600,6 +3936,10 @@ export class PersonalizeResponsesDescribeSolutionVersionSolutionVersionSolutionC
     return new PersonalizeResponsesDescribeSolutionVersionSolutionVersionSolutionConfigAutoMlConfig(this.__scope, this.__resources, this.__input);
   }
 
+  public get optimizationObjective(): PersonalizeResponsesDescribeSolutionVersionSolutionVersionSolutionConfigOptimizationObjective {
+    return new PersonalizeResponsesDescribeSolutionVersionSolutionVersionSolutionConfigOptimizationObjective(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class PersonalizeResponsesDescribeSolutionVersionSolutionVersionSolutionConfigHpoConfig {
@@ -3819,6 +4159,47 @@ export class PersonalizeResponsesDescribeSolutionVersionSolutionVersionSolutionC
 
 }
 
+export class PersonalizeResponsesDescribeSolutionVersionSolutionVersionSolutionConfigOptimizationObjective {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.PersonalizeDescribeSolutionVersionRequest) {
+  }
+
+  public get itemAttribute(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeSolutionVersion',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.DescribeSolutionVersion.solutionVersion.solutionConfig.optimizationObjective.itemAttribute'),
+        outputPath: 'solutionVersion.solutionConfig.optimizationObjective.itemAttribute',
+        parameters: {
+          solutionVersionArn: this.__input.solutionVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeSolutionVersion.solutionVersion.solutionConfig.optimizationObjective.itemAttribute', props);
+    return resource.getResponseField('solutionVersion.solutionConfig.optimizationObjective.itemAttribute') as unknown as string;
+  }
+
+  public get objectiveSensitivity(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeSolutionVersion',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.DescribeSolutionVersion.solutionVersion.solutionConfig.optimizationObjective.objectiveSensitivity'),
+        outputPath: 'solutionVersion.solutionConfig.optimizationObjective.objectiveSensitivity',
+        parameters: {
+          solutionVersionArn: this.__input.solutionVersionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeSolutionVersion.solutionVersion.solutionConfig.optimizationObjective.objectiveSensitivity', props);
+    return resource.getResponseField('solutionVersion.solutionConfig.optimizationObjective.objectiveSensitivity') as unknown as string;
+  }
+
+}
+
 export class PersonalizeResponsesDescribeSolutionVersionSolutionVersionTunedHpoParams {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.PersonalizeDescribeSolutionVersionRequest) {
@@ -3969,6 +4350,51 @@ export class PersonalizeResponsesListCampaigns {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListCampaigns.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
+export class PersonalizeResponsesListDatasetExportJobs {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.PersonalizeListDatasetExportJobsRequest) {
+  }
+
+  public get datasetExportJobs(): shapes.PersonalizeDatasetExportJobSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listDatasetExportJobs',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.ListDatasetExportJobs.datasetExportJobs'),
+        outputPath: 'datasetExportJobs',
+        parameters: {
+          datasetArn: this.__input.datasetArn,
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListDatasetExportJobs.datasetExportJobs', props);
+    return resource.getResponseField('datasetExportJobs') as unknown as shapes.PersonalizeDatasetExportJobSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listDatasetExportJobs',
+        service: 'Personalize',
+        physicalResourceId: cr.PhysicalResourceId.of('Personalize.ListDatasetExportJobs.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          datasetArn: this.__input.datasetArn,
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListDatasetExportJobs.nextToken', props);
     return resource.getResponseField('nextToken') as unknown as string;
   }
 

@@ -182,6 +182,7 @@ export class ResourceGroupsTaggingAPIResponsesFetchResources {
           ResourceTypeFilters: this.__input.resourceTypeFilters,
           IncludeComplianceDetails: this.__input.includeComplianceDetails,
           ExcludeCompliantResources: this.__input.excludeCompliantResources,
+          ResourceARNList: this.__input.resourceArnList,
         },
       },
     };
@@ -205,6 +206,7 @@ export class ResourceGroupsTaggingAPIResponsesFetchResources {
           ResourceTypeFilters: this.__input.resourceTypeFilters,
           IncludeComplianceDetails: this.__input.includeComplianceDetails,
           ExcludeCompliantResources: this.__input.excludeCompliantResources,
+          ResourceARNList: this.__input.resourceArnList,
         },
       },
     };

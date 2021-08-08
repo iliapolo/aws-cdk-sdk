@@ -41,6 +41,10 @@ export class GameLiftClient extends cdk.Construct {
     return new GameLiftResponsesCreateFleet(this, this.__resources, input);
   }
 
+  public createFleetLocations(input: shapes.GameLiftCreateFleetLocationsInput): GameLiftResponsesCreateFleetLocations {
+    return new GameLiftResponsesCreateFleetLocations(this, this.__resources, input);
+  }
+
   public createGameServerGroup(input: shapes.GameLiftCreateGameServerGroupInput): GameLiftResponsesCreateGameServerGroup {
     return new GameLiftResponsesCreateGameServerGroup(this, this.__resources, input);
   }
@@ -137,6 +141,10 @@ export class GameLiftClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'DeleteFleet', props);
+  }
+
+  public deleteFleetLocations(input: shapes.GameLiftDeleteFleetLocationsInput): GameLiftResponsesDeleteFleetLocations {
+    return new GameLiftResponsesDeleteFleetLocations(this, this.__resources, input);
   }
 
   public deleteGameServerGroup(input: shapes.GameLiftDeleteGameServerGroupInput): GameLiftResponsesDeleteGameServerGroup {
@@ -291,6 +299,18 @@ export class GameLiftClient extends cdk.Construct {
     return new GameLiftResponsesDescribeFleetEvents(this, this.__resources, input);
   }
 
+  public describeFleetLocationAttributes(input: shapes.GameLiftDescribeFleetLocationAttributesInput): GameLiftResponsesDescribeFleetLocationAttributes {
+    return new GameLiftResponsesDescribeFleetLocationAttributes(this, this.__resources, input);
+  }
+
+  public describeFleetLocationCapacity(input: shapes.GameLiftDescribeFleetLocationCapacityInput): GameLiftResponsesDescribeFleetLocationCapacity {
+    return new GameLiftResponsesDescribeFleetLocationCapacity(this, this.__resources, input);
+  }
+
+  public describeFleetLocationUtilization(input: shapes.GameLiftDescribeFleetLocationUtilizationInput): GameLiftResponsesDescribeFleetLocationUtilization {
+    return new GameLiftResponsesDescribeFleetLocationUtilization(this, this.__resources, input);
+  }
+
   public describeFleetPortSettings(input: shapes.GameLiftDescribeFleetPortSettingsInput): GameLiftResponsesDescribeFleetPortSettings {
     return new GameLiftResponsesDescribeFleetPortSettings(this, this.__resources, input);
   }
@@ -427,20 +447,8 @@ export class GameLiftClient extends cdk.Construct {
     return new GameLiftResponsesSearchGameSessions(this, this.__resources, input);
   }
 
-  public startFleetActions(input: shapes.GameLiftStartFleetActionsInput): void {
-    const props: cr.AwsCustomResourceProps = {
-      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
-      onUpdate: {
-        action: 'startFleetActions',
-        service: 'GameLift',
-        physicalResourceId: cr.PhysicalResourceId.of('GameLift.StartFleetActions'),
-        parameters: {
-          FleetId: input.fleetId,
-          Actions: input.actions,
-        },
-      },
-    };
-    new cr.AwsCustomResource(this, 'StartFleetActions', props);
+  public startFleetActions(input: shapes.GameLiftStartFleetActionsInput): GameLiftResponsesStartFleetActions {
+    return new GameLiftResponsesStartFleetActions(this, this.__resources, input);
   }
 
   public startGameSessionPlacement(input: shapes.GameLiftStartGameSessionPlacementInput): GameLiftResponsesStartGameSessionPlacement {
@@ -455,20 +463,8 @@ export class GameLiftClient extends cdk.Construct {
     return new GameLiftResponsesStartMatchmaking(this, this.__resources, input);
   }
 
-  public stopFleetActions(input: shapes.GameLiftStopFleetActionsInput): void {
-    const props: cr.AwsCustomResourceProps = {
-      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
-      onUpdate: {
-        action: 'stopFleetActions',
-        service: 'GameLift',
-        physicalResourceId: cr.PhysicalResourceId.of('GameLift.StopFleetActions'),
-        parameters: {
-          FleetId: input.fleetId,
-          Actions: input.actions,
-        },
-      },
-    };
-    new cr.AwsCustomResource(this, 'StopFleetActions', props);
+  public stopFleetActions(input: shapes.GameLiftStopFleetActionsInput): GameLiftResponsesStopFleetActions {
+    return new GameLiftResponsesStopFleetActions(this, this.__resources, input);
   }
 
   public stopGameSessionPlacement(input: shapes.GameLiftStopGameSessionPlacementInput): GameLiftResponsesStopGameSessionPlacement {
@@ -1491,6 +1487,51 @@ export class GameLiftResponsesCreateFleet {
     return new GameLiftResponsesCreateFleetFleetAttributes(this.__scope, this.__resources, this.__input);
   }
 
+  public get locationStates(): shapes.GameLiftLocationState[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFleet',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.CreateFleet.LocationStates'),
+        outputPath: 'LocationStates',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          BuildId: this.__input.buildId,
+          ScriptId: this.__input.scriptId,
+          ServerLaunchPath: this.__input.serverLaunchPath,
+          ServerLaunchParameters: this.__input.serverLaunchParameters,
+          LogPaths: this.__input.logPaths,
+          EC2InstanceType: this.__input.ec2InstanceType,
+          EC2InboundPermissions: this.__input.ec2InboundPermissions,
+          NewGameSessionProtectionPolicy: this.__input.newGameSessionProtectionPolicy,
+          RuntimeConfiguration: {
+            ServerProcesses: this.__input.runtimeConfiguration?.serverProcesses,
+            MaxConcurrentGameSessionActivations: this.__input.runtimeConfiguration?.maxConcurrentGameSessionActivations,
+            GameSessionActivationTimeoutSeconds: this.__input.runtimeConfiguration?.gameSessionActivationTimeoutSeconds,
+          },
+          ResourceCreationLimitPolicy: {
+            NewGameSessionsPerCreator: this.__input.resourceCreationLimitPolicy?.newGameSessionsPerCreator,
+            PolicyPeriodInMinutes: this.__input.resourceCreationLimitPolicy?.policyPeriodInMinutes,
+          },
+          MetricGroups: this.__input.metricGroups,
+          PeerVpcAwsAccountId: this.__input.peerVpcAwsAccountId,
+          PeerVpcId: this.__input.peerVpcId,
+          FleetType: this.__input.fleetType,
+          InstanceRoleArn: this.__input.instanceRoleArn,
+          CertificateConfiguration: {
+            CertificateType: this.__input.certificateConfiguration?.certificateType,
+          },
+          Locations: this.__input.locations,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFleet.LocationStates', props);
+    return resource.getResponseField('LocationStates') as unknown as shapes.GameLiftLocationState[];
+  }
+
 }
 
 export class GameLiftResponsesCreateFleetFleetAttributes {
@@ -1534,6 +1575,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -1578,6 +1620,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -1622,6 +1665,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -1666,6 +1710,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -1710,6 +1755,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -1754,6 +1800,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -1798,6 +1845,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -1842,6 +1890,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -1886,6 +1935,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -1930,6 +1980,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -1974,6 +2025,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -2018,6 +2070,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -2062,6 +2115,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -2106,6 +2160,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -2150,6 +2205,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -2194,6 +2250,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -2238,6 +2295,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -2282,6 +2340,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -2330,6 +2389,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -2374,6 +2434,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -2418,6 +2479,7 @@ export class GameLiftResponsesCreateFleetFleetAttributes {
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -2473,6 +2535,7 @@ export class GameLiftResponsesCreateFleetFleetAttributesResourceCreationLimitPol
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -2517,6 +2580,7 @@ export class GameLiftResponsesCreateFleetFleetAttributesResourceCreationLimitPol
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
@@ -2568,12 +2632,74 @@ export class GameLiftResponsesCreateFleetFleetAttributesCertificateConfiguration
           CertificateConfiguration: {
             CertificateType: this.__input.certificateConfiguration?.certificateType,
           },
+          Locations: this.__input.locations,
           Tags: this.__input.tags,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateFleet.FleetAttributes.CertificateConfiguration.CertificateType', props);
     return resource.getResponseField('FleetAttributes.CertificateConfiguration.CertificateType') as unknown as string;
+  }
+
+}
+
+export class GameLiftResponsesCreateFleetLocations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftCreateFleetLocationsInput) {
+  }
+
+  public get fleetId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFleetLocations',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.CreateFleetLocations.FleetId'),
+        outputPath: 'FleetId',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Locations: this.__input.locations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFleetLocations.FleetId', props);
+    return resource.getResponseField('FleetId') as unknown as string;
+  }
+
+  public get fleetArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFleetLocations',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.CreateFleetLocations.FleetArn'),
+        outputPath: 'FleetArn',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Locations: this.__input.locations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFleetLocations.FleetArn', props);
+    return resource.getResponseField('FleetArn') as unknown as string;
+  }
+
+  public get locationStates(): shapes.GameLiftLocationState[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFleetLocations',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.CreateFleetLocations.LocationStates'),
+        outputPath: 'LocationStates',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Locations: this.__input.locations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFleetLocations.LocationStates', props);
+    return resource.getResponseField('LocationStates') as unknown as shapes.GameLiftLocationState[];
   }
 
 }
@@ -3062,6 +3188,7 @@ export class GameLiftResponsesCreateGameSessionGameSession {
           GameSessionId: this.__input.gameSessionId,
           IdempotencyToken: this.__input.idempotencyToken,
           GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
         },
       },
     };
@@ -3087,6 +3214,7 @@ export class GameLiftResponsesCreateGameSessionGameSession {
           GameSessionId: this.__input.gameSessionId,
           IdempotencyToken: this.__input.idempotencyToken,
           GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
         },
       },
     };
@@ -3112,6 +3240,7 @@ export class GameLiftResponsesCreateGameSessionGameSession {
           GameSessionId: this.__input.gameSessionId,
           IdempotencyToken: this.__input.idempotencyToken,
           GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
         },
       },
     };
@@ -3137,6 +3266,7 @@ export class GameLiftResponsesCreateGameSessionGameSession {
           GameSessionId: this.__input.gameSessionId,
           IdempotencyToken: this.__input.idempotencyToken,
           GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
         },
       },
     };
@@ -3162,6 +3292,7 @@ export class GameLiftResponsesCreateGameSessionGameSession {
           GameSessionId: this.__input.gameSessionId,
           IdempotencyToken: this.__input.idempotencyToken,
           GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
         },
       },
     };
@@ -3187,6 +3318,7 @@ export class GameLiftResponsesCreateGameSessionGameSession {
           GameSessionId: this.__input.gameSessionId,
           IdempotencyToken: this.__input.idempotencyToken,
           GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
         },
       },
     };
@@ -3212,6 +3344,7 @@ export class GameLiftResponsesCreateGameSessionGameSession {
           GameSessionId: this.__input.gameSessionId,
           IdempotencyToken: this.__input.idempotencyToken,
           GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
         },
       },
     };
@@ -3237,6 +3370,7 @@ export class GameLiftResponsesCreateGameSessionGameSession {
           GameSessionId: this.__input.gameSessionId,
           IdempotencyToken: this.__input.idempotencyToken,
           GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
         },
       },
     };
@@ -3262,6 +3396,7 @@ export class GameLiftResponsesCreateGameSessionGameSession {
           GameSessionId: this.__input.gameSessionId,
           IdempotencyToken: this.__input.idempotencyToken,
           GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
         },
       },
     };
@@ -3287,6 +3422,7 @@ export class GameLiftResponsesCreateGameSessionGameSession {
           GameSessionId: this.__input.gameSessionId,
           IdempotencyToken: this.__input.idempotencyToken,
           GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
         },
       },
     };
@@ -3312,6 +3448,7 @@ export class GameLiftResponsesCreateGameSessionGameSession {
           GameSessionId: this.__input.gameSessionId,
           IdempotencyToken: this.__input.idempotencyToken,
           GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
         },
       },
     };
@@ -3337,6 +3474,7 @@ export class GameLiftResponsesCreateGameSessionGameSession {
           GameSessionId: this.__input.gameSessionId,
           IdempotencyToken: this.__input.idempotencyToken,
           GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
         },
       },
     };
@@ -3362,6 +3500,7 @@ export class GameLiftResponsesCreateGameSessionGameSession {
           GameSessionId: this.__input.gameSessionId,
           IdempotencyToken: this.__input.idempotencyToken,
           GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
         },
       },
     };
@@ -3387,6 +3526,7 @@ export class GameLiftResponsesCreateGameSessionGameSession {
           GameSessionId: this.__input.gameSessionId,
           IdempotencyToken: this.__input.idempotencyToken,
           GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
         },
       },
     };
@@ -3412,6 +3552,7 @@ export class GameLiftResponsesCreateGameSessionGameSession {
           GameSessionId: this.__input.gameSessionId,
           IdempotencyToken: this.__input.idempotencyToken,
           GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
         },
       },
     };
@@ -3437,6 +3578,7 @@ export class GameLiftResponsesCreateGameSessionGameSession {
           GameSessionId: this.__input.gameSessionId,
           IdempotencyToken: this.__input.idempotencyToken,
           GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
         },
       },
     };
@@ -3462,6 +3604,7 @@ export class GameLiftResponsesCreateGameSessionGameSession {
           GameSessionId: this.__input.gameSessionId,
           IdempotencyToken: this.__input.idempotencyToken,
           GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
         },
       },
     };
@@ -3487,11 +3630,38 @@ export class GameLiftResponsesCreateGameSessionGameSession {
           GameSessionId: this.__input.gameSessionId,
           IdempotencyToken: this.__input.idempotencyToken,
           GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateGameSession.GameSession.MatchmakerData', props);
     return resource.getResponseField('GameSession.MatchmakerData') as unknown as string;
+  }
+
+  public get location(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGameSession',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.CreateGameSession.GameSession.Location'),
+        outputPath: 'GameSession.Location',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          AliasId: this.__input.aliasId,
+          MaximumPlayerSessionCount: this.__input.maximumPlayerSessionCount,
+          Name: this.__input.name,
+          GameProperties: this.__input.gameProperties,
+          CreatorId: this.__input.creatorId,
+          GameSessionId: this.__input.gameSessionId,
+          IdempotencyToken: this.__input.idempotencyToken,
+          GameSessionData: this.__input.gameSessionData,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGameSession.GameSession.Location', props);
+    return resource.getResponseField('GameSession.Location') as unknown as string;
   }
 
 }
@@ -3525,6 +3695,15 @@ export class GameLiftResponsesCreateGameSessionQueueGameSessionQueue {
           TimeoutInSeconds: this.__input.timeoutInSeconds,
           PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
           Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
           Tags: this.__input.tags,
         },
       },
@@ -3546,6 +3725,15 @@ export class GameLiftResponsesCreateGameSessionQueueGameSessionQueue {
           TimeoutInSeconds: this.__input.timeoutInSeconds,
           PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
           Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
           Tags: this.__input.tags,
         },
       },
@@ -3567,6 +3755,15 @@ export class GameLiftResponsesCreateGameSessionQueueGameSessionQueue {
           TimeoutInSeconds: this.__input.timeoutInSeconds,
           PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
           Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
           Tags: this.__input.tags,
         },
       },
@@ -3588,6 +3785,15 @@ export class GameLiftResponsesCreateGameSessionQueueGameSessionQueue {
           TimeoutInSeconds: this.__input.timeoutInSeconds,
           PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
           Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
           Tags: this.__input.tags,
         },
       },
@@ -3609,12 +3815,193 @@ export class GameLiftResponsesCreateGameSessionQueueGameSessionQueue {
           TimeoutInSeconds: this.__input.timeoutInSeconds,
           PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
           Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
           Tags: this.__input.tags,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateGameSessionQueue.GameSessionQueue.Destinations', props);
     return resource.getResponseField('GameSessionQueue.Destinations') as unknown as shapes.GameLiftGameSessionQueueDestination[];
+  }
+
+  public get filterConfiguration(): GameLiftResponsesCreateGameSessionQueueGameSessionQueueFilterConfiguration {
+    return new GameLiftResponsesCreateGameSessionQueueGameSessionQueueFilterConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get priorityConfiguration(): GameLiftResponsesCreateGameSessionQueueGameSessionQueuePriorityConfiguration {
+    return new GameLiftResponsesCreateGameSessionQueueGameSessionQueuePriorityConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get customEventData(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGameSessionQueue',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.CreateGameSessionQueue.GameSessionQueue.CustomEventData'),
+        outputPath: 'GameSessionQueue.CustomEventData',
+        parameters: {
+          Name: this.__input.name,
+          TimeoutInSeconds: this.__input.timeoutInSeconds,
+          PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
+          Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGameSessionQueue.GameSessionQueue.CustomEventData', props);
+    return resource.getResponseField('GameSessionQueue.CustomEventData') as unknown as string;
+  }
+
+  public get notificationTarget(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGameSessionQueue',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.CreateGameSessionQueue.GameSessionQueue.NotificationTarget'),
+        outputPath: 'GameSessionQueue.NotificationTarget',
+        parameters: {
+          Name: this.__input.name,
+          TimeoutInSeconds: this.__input.timeoutInSeconds,
+          PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
+          Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGameSessionQueue.GameSessionQueue.NotificationTarget', props);
+    return resource.getResponseField('GameSessionQueue.NotificationTarget') as unknown as string;
+  }
+
+}
+
+export class GameLiftResponsesCreateGameSessionQueueGameSessionQueueFilterConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftCreateGameSessionQueueInput) {
+  }
+
+  public get allowedLocations(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGameSessionQueue',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.CreateGameSessionQueue.GameSessionQueue.FilterConfiguration.AllowedLocations'),
+        outputPath: 'GameSessionQueue.FilterConfiguration.AllowedLocations',
+        parameters: {
+          Name: this.__input.name,
+          TimeoutInSeconds: this.__input.timeoutInSeconds,
+          PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
+          Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGameSessionQueue.GameSessionQueue.FilterConfiguration.AllowedLocations', props);
+    return resource.getResponseField('GameSessionQueue.FilterConfiguration.AllowedLocations') as unknown as string[];
+  }
+
+}
+
+export class GameLiftResponsesCreateGameSessionQueueGameSessionQueuePriorityConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftCreateGameSessionQueueInput) {
+  }
+
+  public get priorityOrder(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGameSessionQueue',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.CreateGameSessionQueue.GameSessionQueue.PriorityConfiguration.PriorityOrder'),
+        outputPath: 'GameSessionQueue.PriorityConfiguration.PriorityOrder',
+        parameters: {
+          Name: this.__input.name,
+          TimeoutInSeconds: this.__input.timeoutInSeconds,
+          PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
+          Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGameSessionQueue.GameSessionQueue.PriorityConfiguration.PriorityOrder', props);
+    return resource.getResponseField('GameSessionQueue.PriorityConfiguration.PriorityOrder') as unknown as string[];
+  }
+
+  public get locationOrder(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createGameSessionQueue',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.CreateGameSessionQueue.GameSessionQueue.PriorityConfiguration.LocationOrder'),
+        outputPath: 'GameSessionQueue.PriorityConfiguration.LocationOrder',
+        parameters: {
+          Name: this.__input.name,
+          TimeoutInSeconds: this.__input.timeoutInSeconds,
+          PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
+          Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateGameSessionQueue.GameSessionQueue.PriorityConfiguration.LocationOrder', props);
+    return resource.getResponseField('GameSessionQueue.PriorityConfiguration.LocationOrder') as unknown as string[];
   }
 
 }
@@ -4937,6 +5324,67 @@ export class GameLiftResponsesCreateVpcPeeringAuthorizationVpcPeeringAuthorizati
 
 }
 
+export class GameLiftResponsesDeleteFleetLocations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftDeleteFleetLocationsInput) {
+  }
+
+  public get fleetId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFleetLocations',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DeleteFleetLocations.FleetId'),
+        outputPath: 'FleetId',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Locations: this.__input.locations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFleetLocations.FleetId', props);
+    return resource.getResponseField('FleetId') as unknown as string;
+  }
+
+  public get fleetArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFleetLocations',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DeleteFleetLocations.FleetArn'),
+        outputPath: 'FleetArn',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Locations: this.__input.locations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFleetLocations.FleetArn', props);
+    return resource.getResponseField('FleetArn') as unknown as string;
+  }
+
+  public get locationStates(): shapes.GameLiftLocationState[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFleetLocations',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DeleteFleetLocations.LocationStates'),
+        outputPath: 'LocationStates',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Locations: this.__input.locations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFleetLocations.LocationStates', props);
+    return resource.getResponseField('LocationStates') as unknown as shapes.GameLiftLocationState[];
+  }
+
+}
+
 export class GameLiftResponsesDeleteGameServerGroup {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftDeleteGameServerGroupInput) {
@@ -5522,6 +5970,7 @@ export class GameLiftResponsesDescribeEc2InstanceLimits {
         outputPath: 'EC2InstanceLimits',
         parameters: {
           EC2InstanceType: this.__input.ec2InstanceType,
+          Location: this.__input.location,
         },
       },
     };
@@ -5670,9 +6119,503 @@ export class GameLiftResponsesDescribeFleetEvents {
 
 }
 
+export class GameLiftResponsesDescribeFleetLocationAttributes {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftDescribeFleetLocationAttributesInput) {
+  }
+
+  public get fleetId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationAttributes',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationAttributes.FleetId'),
+        outputPath: 'FleetId',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Locations: this.__input.locations,
+          Limit: this.__input.limit,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationAttributes.FleetId', props);
+    return resource.getResponseField('FleetId') as unknown as string;
+  }
+
+  public get fleetArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationAttributes',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationAttributes.FleetArn'),
+        outputPath: 'FleetArn',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Locations: this.__input.locations,
+          Limit: this.__input.limit,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationAttributes.FleetArn', props);
+    return resource.getResponseField('FleetArn') as unknown as string;
+  }
+
+  public get locationAttributes(): shapes.GameLiftLocationAttributes[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationAttributes',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationAttributes.LocationAttributes'),
+        outputPath: 'LocationAttributes',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Locations: this.__input.locations,
+          Limit: this.__input.limit,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationAttributes.LocationAttributes', props);
+    return resource.getResponseField('LocationAttributes') as unknown as shapes.GameLiftLocationAttributes[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationAttributes',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationAttributes.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Locations: this.__input.locations,
+          Limit: this.__input.limit,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationAttributes.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class GameLiftResponsesDescribeFleetLocationCapacity {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftDescribeFleetLocationCapacityInput) {
+  }
+
+  public get fleetCapacity(): GameLiftResponsesDescribeFleetLocationCapacityFleetCapacity {
+    return new GameLiftResponsesDescribeFleetLocationCapacityFleetCapacity(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class GameLiftResponsesDescribeFleetLocationCapacityFleetCapacity {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftDescribeFleetLocationCapacityInput) {
+  }
+
+  public get fleetId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationCapacity',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationCapacity.FleetCapacity.FleetId'),
+        outputPath: 'FleetCapacity.FleetId',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationCapacity.FleetCapacity.FleetId', props);
+    return resource.getResponseField('FleetCapacity.FleetId') as unknown as string;
+  }
+
+  public get fleetArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationCapacity',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationCapacity.FleetCapacity.FleetArn'),
+        outputPath: 'FleetCapacity.FleetArn',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationCapacity.FleetCapacity.FleetArn', props);
+    return resource.getResponseField('FleetCapacity.FleetArn') as unknown as string;
+  }
+
+  public get instanceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationCapacity',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationCapacity.FleetCapacity.InstanceType'),
+        outputPath: 'FleetCapacity.InstanceType',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationCapacity.FleetCapacity.InstanceType', props);
+    return resource.getResponseField('FleetCapacity.InstanceType') as unknown as string;
+  }
+
+  public get instanceCounts(): GameLiftResponsesDescribeFleetLocationCapacityFleetCapacityInstanceCounts {
+    return new GameLiftResponsesDescribeFleetLocationCapacityFleetCapacityInstanceCounts(this.__scope, this.__resources, this.__input);
+  }
+
+  public get location(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationCapacity',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationCapacity.FleetCapacity.Location'),
+        outputPath: 'FleetCapacity.Location',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationCapacity.FleetCapacity.Location', props);
+    return resource.getResponseField('FleetCapacity.Location') as unknown as string;
+  }
+
+}
+
+export class GameLiftResponsesDescribeFleetLocationCapacityFleetCapacityInstanceCounts {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftDescribeFleetLocationCapacityInput) {
+  }
+
+  public get desired(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationCapacity',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationCapacity.FleetCapacity.InstanceCounts.DESIRED'),
+        outputPath: 'FleetCapacity.InstanceCounts.DESIRED',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationCapacity.FleetCapacity.InstanceCounts.DESIRED', props);
+    return resource.getResponseField('FleetCapacity.InstanceCounts.DESIRED') as unknown as number;
+  }
+
+  public get minimum(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationCapacity',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationCapacity.FleetCapacity.InstanceCounts.MINIMUM'),
+        outputPath: 'FleetCapacity.InstanceCounts.MINIMUM',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationCapacity.FleetCapacity.InstanceCounts.MINIMUM', props);
+    return resource.getResponseField('FleetCapacity.InstanceCounts.MINIMUM') as unknown as number;
+  }
+
+  public get maximum(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationCapacity',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationCapacity.FleetCapacity.InstanceCounts.MAXIMUM'),
+        outputPath: 'FleetCapacity.InstanceCounts.MAXIMUM',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationCapacity.FleetCapacity.InstanceCounts.MAXIMUM', props);
+    return resource.getResponseField('FleetCapacity.InstanceCounts.MAXIMUM') as unknown as number;
+  }
+
+  public get pending(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationCapacity',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationCapacity.FleetCapacity.InstanceCounts.PENDING'),
+        outputPath: 'FleetCapacity.InstanceCounts.PENDING',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationCapacity.FleetCapacity.InstanceCounts.PENDING', props);
+    return resource.getResponseField('FleetCapacity.InstanceCounts.PENDING') as unknown as number;
+  }
+
+  public get active(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationCapacity',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationCapacity.FleetCapacity.InstanceCounts.ACTIVE'),
+        outputPath: 'FleetCapacity.InstanceCounts.ACTIVE',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationCapacity.FleetCapacity.InstanceCounts.ACTIVE', props);
+    return resource.getResponseField('FleetCapacity.InstanceCounts.ACTIVE') as unknown as number;
+  }
+
+  public get idle(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationCapacity',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationCapacity.FleetCapacity.InstanceCounts.IDLE'),
+        outputPath: 'FleetCapacity.InstanceCounts.IDLE',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationCapacity.FleetCapacity.InstanceCounts.IDLE', props);
+    return resource.getResponseField('FleetCapacity.InstanceCounts.IDLE') as unknown as number;
+  }
+
+  public get terminating(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationCapacity',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationCapacity.FleetCapacity.InstanceCounts.TERMINATING'),
+        outputPath: 'FleetCapacity.InstanceCounts.TERMINATING',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationCapacity.FleetCapacity.InstanceCounts.TERMINATING', props);
+    return resource.getResponseField('FleetCapacity.InstanceCounts.TERMINATING') as unknown as number;
+  }
+
+}
+
+export class GameLiftResponsesDescribeFleetLocationUtilization {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftDescribeFleetLocationUtilizationInput) {
+  }
+
+  public get fleetUtilization(): GameLiftResponsesDescribeFleetLocationUtilizationFleetUtilization {
+    return new GameLiftResponsesDescribeFleetLocationUtilizationFleetUtilization(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class GameLiftResponsesDescribeFleetLocationUtilizationFleetUtilization {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftDescribeFleetLocationUtilizationInput) {
+  }
+
+  public get fleetId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationUtilization',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationUtilization.FleetUtilization.FleetId'),
+        outputPath: 'FleetUtilization.FleetId',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationUtilization.FleetUtilization.FleetId', props);
+    return resource.getResponseField('FleetUtilization.FleetId') as unknown as string;
+  }
+
+  public get fleetArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationUtilization',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationUtilization.FleetUtilization.FleetArn'),
+        outputPath: 'FleetUtilization.FleetArn',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationUtilization.FleetUtilization.FleetArn', props);
+    return resource.getResponseField('FleetUtilization.FleetArn') as unknown as string;
+  }
+
+  public get activeServerProcessCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationUtilization',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationUtilization.FleetUtilization.ActiveServerProcessCount'),
+        outputPath: 'FleetUtilization.ActiveServerProcessCount',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationUtilization.FleetUtilization.ActiveServerProcessCount', props);
+    return resource.getResponseField('FleetUtilization.ActiveServerProcessCount') as unknown as number;
+  }
+
+  public get activeGameSessionCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationUtilization',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationUtilization.FleetUtilization.ActiveGameSessionCount'),
+        outputPath: 'FleetUtilization.ActiveGameSessionCount',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationUtilization.FleetUtilization.ActiveGameSessionCount', props);
+    return resource.getResponseField('FleetUtilization.ActiveGameSessionCount') as unknown as number;
+  }
+
+  public get currentPlayerSessionCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationUtilization',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationUtilization.FleetUtilization.CurrentPlayerSessionCount'),
+        outputPath: 'FleetUtilization.CurrentPlayerSessionCount',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationUtilization.FleetUtilization.CurrentPlayerSessionCount', props);
+    return resource.getResponseField('FleetUtilization.CurrentPlayerSessionCount') as unknown as number;
+  }
+
+  public get maximumPlayerSessionCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationUtilization',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationUtilization.FleetUtilization.MaximumPlayerSessionCount'),
+        outputPath: 'FleetUtilization.MaximumPlayerSessionCount',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationUtilization.FleetUtilization.MaximumPlayerSessionCount', props);
+    return resource.getResponseField('FleetUtilization.MaximumPlayerSessionCount') as unknown as number;
+  }
+
+  public get location(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetLocationUtilization',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetLocationUtilization.FleetUtilization.Location'),
+        outputPath: 'FleetUtilization.Location',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetLocationUtilization.FleetUtilization.Location', props);
+    return resource.getResponseField('FleetUtilization.Location') as unknown as string;
+  }
+
+}
+
 export class GameLiftResponsesDescribeFleetPortSettings {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftDescribeFleetPortSettingsInput) {
+  }
+
+  public get fleetId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetPortSettings',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetPortSettings.FleetId'),
+        outputPath: 'FleetId',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetPortSettings.FleetId', props);
+    return resource.getResponseField('FleetId') as unknown as string;
+  }
+
+  public get fleetArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetPortSettings',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetPortSettings.FleetArn'),
+        outputPath: 'FleetArn',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetPortSettings.FleetArn', props);
+    return resource.getResponseField('FleetArn') as unknown as string;
   }
 
   public get inboundPermissions(): shapes.GameLiftIpPermission[] {
@@ -5685,11 +6628,48 @@ export class GameLiftResponsesDescribeFleetPortSettings {
         outputPath: 'InboundPermissions',
         parameters: {
           FleetId: this.__input.fleetId,
+          Location: this.__input.location,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetPortSettings.InboundPermissions', props);
     return resource.getResponseField('InboundPermissions') as unknown as shapes.GameLiftIpPermission[];
+  }
+
+  public get updateStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetPortSettings',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetPortSettings.UpdateStatus'),
+        outputPath: 'UpdateStatus',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetPortSettings.UpdateStatus', props);
+    return resource.getResponseField('UpdateStatus') as unknown as string;
+  }
+
+  public get location(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFleetPortSettings',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.DescribeFleetPortSettings.Location'),
+        outputPath: 'Location',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFleetPortSettings.Location', props);
+    return resource.getResponseField('Location') as unknown as string;
   }
 
 }
@@ -6241,6 +7221,7 @@ export class GameLiftResponsesDescribeGameSessionDetails {
           FleetId: this.__input.fleetId,
           GameSessionId: this.__input.gameSessionId,
           AliasId: this.__input.aliasId,
+          Location: this.__input.location,
           StatusFilter: this.__input.statusFilter,
           Limit: this.__input.limit,
           NextToken: this.__input.nextToken,
@@ -6263,6 +7244,7 @@ export class GameLiftResponsesDescribeGameSessionDetails {
           FleetId: this.__input.fleetId,
           GameSessionId: this.__input.gameSessionId,
           AliasId: this.__input.aliasId,
+          Location: this.__input.location,
           StatusFilter: this.__input.statusFilter,
           Limit: this.__input.limit,
           NextToken: this.__input.nextToken,
@@ -6661,6 +7643,7 @@ export class GameLiftResponsesDescribeGameSessions {
           FleetId: this.__input.fleetId,
           GameSessionId: this.__input.gameSessionId,
           AliasId: this.__input.aliasId,
+          Location: this.__input.location,
           StatusFilter: this.__input.statusFilter,
           Limit: this.__input.limit,
           NextToken: this.__input.nextToken,
@@ -6683,6 +7666,7 @@ export class GameLiftResponsesDescribeGameSessions {
           FleetId: this.__input.fleetId,
           GameSessionId: this.__input.gameSessionId,
           AliasId: this.__input.aliasId,
+          Location: this.__input.location,
           StatusFilter: this.__input.statusFilter,
           Limit: this.__input.limit,
           NextToken: this.__input.nextToken,
@@ -6713,6 +7697,7 @@ export class GameLiftResponsesDescribeInstances {
           InstanceId: this.__input.instanceId,
           Limit: this.__input.limit,
           NextToken: this.__input.nextToken,
+          Location: this.__input.location,
         },
       },
     };
@@ -6733,6 +7718,7 @@ export class GameLiftResponsesDescribeInstances {
           InstanceId: this.__input.instanceId,
           Limit: this.__input.limit,
           NextToken: this.__input.nextToken,
+          Location: this.__input.location,
         },
       },
     };
@@ -6996,6 +7982,7 @@ export class GameLiftResponsesDescribeScalingPolicies {
           StatusFilter: this.__input.statusFilter,
           Limit: this.__input.limit,
           NextToken: this.__input.nextToken,
+          Location: this.__input.location,
         },
       },
     };
@@ -7016,6 +8003,7 @@ export class GameLiftResponsesDescribeScalingPolicies {
           StatusFilter: this.__input.statusFilter,
           Limit: this.__input.limit,
           NextToken: this.__input.nextToken,
+          Location: this.__input.location,
         },
       },
     };
@@ -8451,6 +9439,7 @@ export class GameLiftResponsesSearchGameSessions {
         parameters: {
           FleetId: this.__input.fleetId,
           AliasId: this.__input.aliasId,
+          Location: this.__input.location,
           FilterExpression: this.__input.filterExpression,
           SortExpression: this.__input.sortExpression,
           Limit: this.__input.limit,
@@ -8473,6 +9462,7 @@ export class GameLiftResponsesSearchGameSessions {
         parameters: {
           FleetId: this.__input.fleetId,
           AliasId: this.__input.aliasId,
+          Location: this.__input.location,
           FilterExpression: this.__input.filterExpression,
           SortExpression: this.__input.sortExpression,
           Limit: this.__input.limit,
@@ -8482,6 +9472,51 @@ export class GameLiftResponsesSearchGameSessions {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'SearchGameSessions.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class GameLiftResponsesStartFleetActions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftStartFleetActionsInput) {
+  }
+
+  public get fleetId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startFleetActions',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.StartFleetActions.FleetId'),
+        outputPath: 'FleetId',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Actions: this.__input.actions,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartFleetActions.FleetId', props);
+    return resource.getResponseField('FleetId') as unknown as string;
+  }
+
+  public get fleetArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startFleetActions',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.StartFleetActions.FleetArn'),
+        outputPath: 'FleetArn',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Actions: this.__input.actions,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartFleetActions.FleetArn', props);
+    return resource.getResponseField('FleetArn') as unknown as string;
   }
 
 }
@@ -9579,6 +10614,51 @@ export class GameLiftResponsesStartMatchmakingMatchmakingTicketGameSessionConnec
 
 }
 
+export class GameLiftResponsesStopFleetActions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftStopFleetActionsInput) {
+  }
+
+  public get fleetId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopFleetActions',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.StopFleetActions.FleetId'),
+        outputPath: 'FleetId',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Actions: this.__input.actions,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopFleetActions.FleetId', props);
+    return resource.getResponseField('FleetId') as unknown as string;
+  }
+
+  public get fleetArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopFleetActions',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.StopFleetActions.FleetArn'),
+        outputPath: 'FleetArn',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          Actions: this.__input.actions,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopFleetActions.FleetArn', props);
+    return resource.getResponseField('FleetArn') as unknown as string;
+  }
+
+}
+
 export class GameLiftResponsesStopGameSessionPlacement {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftStopGameSessionPlacementInput) {
@@ -10602,11 +11682,54 @@ export class GameLiftResponsesUpdateFleetCapacity {
           DesiredInstances: this.__input.desiredInstances,
           MinSize: this.__input.minSize,
           MaxSize: this.__input.maxSize,
+          Location: this.__input.location,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFleetCapacity.FleetId', props);
     return resource.getResponseField('FleetId') as unknown as string;
+  }
+
+  public get fleetArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFleetCapacity',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.UpdateFleetCapacity.FleetArn'),
+        outputPath: 'FleetArn',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          DesiredInstances: this.__input.desiredInstances,
+          MinSize: this.__input.minSize,
+          MaxSize: this.__input.maxSize,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFleetCapacity.FleetArn', props);
+    return resource.getResponseField('FleetArn') as unknown as string;
+  }
+
+  public get location(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFleetCapacity',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.UpdateFleetCapacity.Location'),
+        outputPath: 'Location',
+        parameters: {
+          FleetId: this.__input.fleetId,
+          DesiredInstances: this.__input.desiredInstances,
+          MinSize: this.__input.minSize,
+          MaxSize: this.__input.maxSize,
+          Location: this.__input.location,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFleetCapacity.Location', props);
+    return resource.getResponseField('Location') as unknown as string;
   }
 
 }
@@ -11550,6 +12673,27 @@ export class GameLiftResponsesUpdateGameSessionGameSession {
     return resource.getResponseField('GameSession.MatchmakerData') as unknown as string;
   }
 
+  public get location(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateGameSession',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.UpdateGameSession.GameSession.Location'),
+        outputPath: 'GameSession.Location',
+        parameters: {
+          GameSessionId: this.__input.gameSessionId,
+          MaximumPlayerSessionCount: this.__input.maximumPlayerSessionCount,
+          Name: this.__input.name,
+          PlayerSessionCreationPolicy: this.__input.playerSessionCreationPolicy,
+          ProtectionPolicy: this.__input.protectionPolicy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateGameSession.GameSession.Location', props);
+    return resource.getResponseField('GameSession.Location') as unknown as string;
+  }
+
 }
 
 export class GameLiftResponsesUpdateGameSessionQueue {
@@ -11581,6 +12725,15 @@ export class GameLiftResponsesUpdateGameSessionQueueGameSessionQueue {
           TimeoutInSeconds: this.__input.timeoutInSeconds,
           PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
           Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
         },
       },
     };
@@ -11601,6 +12754,15 @@ export class GameLiftResponsesUpdateGameSessionQueueGameSessionQueue {
           TimeoutInSeconds: this.__input.timeoutInSeconds,
           PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
           Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
         },
       },
     };
@@ -11621,6 +12783,15 @@ export class GameLiftResponsesUpdateGameSessionQueueGameSessionQueue {
           TimeoutInSeconds: this.__input.timeoutInSeconds,
           PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
           Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
         },
       },
     };
@@ -11641,6 +12812,15 @@ export class GameLiftResponsesUpdateGameSessionQueueGameSessionQueue {
           TimeoutInSeconds: this.__input.timeoutInSeconds,
           PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
           Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
         },
       },
     };
@@ -11661,11 +12841,187 @@ export class GameLiftResponsesUpdateGameSessionQueueGameSessionQueue {
           TimeoutInSeconds: this.__input.timeoutInSeconds,
           PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
           Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateGameSessionQueue.GameSessionQueue.Destinations', props);
     return resource.getResponseField('GameSessionQueue.Destinations') as unknown as shapes.GameLiftGameSessionQueueDestination[];
+  }
+
+  public get filterConfiguration(): GameLiftResponsesUpdateGameSessionQueueGameSessionQueueFilterConfiguration {
+    return new GameLiftResponsesUpdateGameSessionQueueGameSessionQueueFilterConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get priorityConfiguration(): GameLiftResponsesUpdateGameSessionQueueGameSessionQueuePriorityConfiguration {
+    return new GameLiftResponsesUpdateGameSessionQueueGameSessionQueuePriorityConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get customEventData(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateGameSessionQueue',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.UpdateGameSessionQueue.GameSessionQueue.CustomEventData'),
+        outputPath: 'GameSessionQueue.CustomEventData',
+        parameters: {
+          Name: this.__input.name,
+          TimeoutInSeconds: this.__input.timeoutInSeconds,
+          PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
+          Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateGameSessionQueue.GameSessionQueue.CustomEventData', props);
+    return resource.getResponseField('GameSessionQueue.CustomEventData') as unknown as string;
+  }
+
+  public get notificationTarget(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateGameSessionQueue',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.UpdateGameSessionQueue.GameSessionQueue.NotificationTarget'),
+        outputPath: 'GameSessionQueue.NotificationTarget',
+        parameters: {
+          Name: this.__input.name,
+          TimeoutInSeconds: this.__input.timeoutInSeconds,
+          PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
+          Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateGameSessionQueue.GameSessionQueue.NotificationTarget', props);
+    return resource.getResponseField('GameSessionQueue.NotificationTarget') as unknown as string;
+  }
+
+}
+
+export class GameLiftResponsesUpdateGameSessionQueueGameSessionQueueFilterConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftUpdateGameSessionQueueInput) {
+  }
+
+  public get allowedLocations(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateGameSessionQueue',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.UpdateGameSessionQueue.GameSessionQueue.FilterConfiguration.AllowedLocations'),
+        outputPath: 'GameSessionQueue.FilterConfiguration.AllowedLocations',
+        parameters: {
+          Name: this.__input.name,
+          TimeoutInSeconds: this.__input.timeoutInSeconds,
+          PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
+          Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateGameSessionQueue.GameSessionQueue.FilterConfiguration.AllowedLocations', props);
+    return resource.getResponseField('GameSessionQueue.FilterConfiguration.AllowedLocations') as unknown as string[];
+  }
+
+}
+
+export class GameLiftResponsesUpdateGameSessionQueueGameSessionQueuePriorityConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftUpdateGameSessionQueueInput) {
+  }
+
+  public get priorityOrder(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateGameSessionQueue',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.UpdateGameSessionQueue.GameSessionQueue.PriorityConfiguration.PriorityOrder'),
+        outputPath: 'GameSessionQueue.PriorityConfiguration.PriorityOrder',
+        parameters: {
+          Name: this.__input.name,
+          TimeoutInSeconds: this.__input.timeoutInSeconds,
+          PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
+          Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateGameSessionQueue.GameSessionQueue.PriorityConfiguration.PriorityOrder', props);
+    return resource.getResponseField('GameSessionQueue.PriorityConfiguration.PriorityOrder') as unknown as string[];
+  }
+
+  public get locationOrder(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateGameSessionQueue',
+        service: 'GameLift',
+        physicalResourceId: cr.PhysicalResourceId.of('GameLift.UpdateGameSessionQueue.GameSessionQueue.PriorityConfiguration.LocationOrder'),
+        outputPath: 'GameSessionQueue.PriorityConfiguration.LocationOrder',
+        parameters: {
+          Name: this.__input.name,
+          TimeoutInSeconds: this.__input.timeoutInSeconds,
+          PlayerLatencyPolicies: this.__input.playerLatencyPolicies,
+          Destinations: this.__input.destinations,
+          FilterConfiguration: {
+            AllowedLocations: this.__input.filterConfiguration?.allowedLocations,
+          },
+          PriorityConfiguration: {
+            PriorityOrder: this.__input.priorityConfiguration?.priorityOrder,
+            LocationOrder: this.__input.priorityConfiguration?.locationOrder,
+          },
+          CustomEventData: this.__input.customEventData,
+          NotificationTarget: this.__input.notificationTarget,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateGameSessionQueue.GameSessionQueue.PriorityConfiguration.LocationOrder', props);
+    return resource.getResponseField('GameSessionQueue.PriorityConfiguration.LocationOrder') as unknown as string[];
   }
 
 }

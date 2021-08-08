@@ -134,6 +134,7 @@ export class DAXResponsesCreateClusterCluster {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -165,6 +166,7 @@ export class DAXResponsesCreateClusterCluster {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -196,6 +198,7 @@ export class DAXResponsesCreateClusterCluster {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -227,6 +230,7 @@ export class DAXResponsesCreateClusterCluster {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -258,6 +262,7 @@ export class DAXResponsesCreateClusterCluster {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -289,6 +294,7 @@ export class DAXResponsesCreateClusterCluster {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -320,6 +326,7 @@ export class DAXResponsesCreateClusterCluster {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -355,6 +362,7 @@ export class DAXResponsesCreateClusterCluster {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -386,6 +394,7 @@ export class DAXResponsesCreateClusterCluster {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -417,6 +426,7 @@ export class DAXResponsesCreateClusterCluster {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -452,6 +462,7 @@ export class DAXResponsesCreateClusterCluster {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -483,6 +494,7 @@ export class DAXResponsesCreateClusterCluster {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -514,6 +526,7 @@ export class DAXResponsesCreateClusterCluster {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -527,6 +540,38 @@ export class DAXResponsesCreateClusterCluster {
 
   public get sseDescription(): DAXResponsesCreateClusterClusterSseDescription {
     return new DAXResponsesCreateClusterClusterSseDescription(this.__scope, this.__resources, this.__input);
+  }
+
+  public get clusterEndpointEncryptionType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCluster',
+        service: 'DAX',
+        physicalResourceId: cr.PhysicalResourceId.of('DAX.CreateCluster.Cluster.ClusterEndpointEncryptionType'),
+        outputPath: 'Cluster.ClusterEndpointEncryptionType',
+        parameters: {
+          ClusterName: this.__input.clusterName,
+          NodeType: this.__input.nodeType,
+          Description: this.__input.description,
+          ReplicationFactor: this.__input.replicationFactor,
+          AvailabilityZones: this.__input.availabilityZones,
+          SubnetGroupName: this.__input.subnetGroupName,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          NotificationTopicArn: this.__input.notificationTopicArn,
+          IamRoleArn: this.__input.iamRoleArn,
+          ParameterGroupName: this.__input.parameterGroupName,
+          Tags: this.__input.tags,
+          SSESpecification: {
+            Enabled: this.__input.sseSpecification?.enabled,
+          },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.Cluster.ClusterEndpointEncryptionType', props);
+    return resource.getResponseField('Cluster.ClusterEndpointEncryptionType') as unknown as string;
   }
 
 }
@@ -560,6 +605,7 @@ export class DAXResponsesCreateClusterClusterClusterDiscoveryEndpoint {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -591,11 +637,44 @@ export class DAXResponsesCreateClusterClusterClusterDiscoveryEndpoint {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.Cluster.ClusterDiscoveryEndpoint.Port', props);
     return resource.getResponseField('Cluster.ClusterDiscoveryEndpoint.Port') as unknown as number;
+  }
+
+  public get url(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCluster',
+        service: 'DAX',
+        physicalResourceId: cr.PhysicalResourceId.of('DAX.CreateCluster.Cluster.ClusterDiscoveryEndpoint.URL'),
+        outputPath: 'Cluster.ClusterDiscoveryEndpoint.URL',
+        parameters: {
+          ClusterName: this.__input.clusterName,
+          NodeType: this.__input.nodeType,
+          Description: this.__input.description,
+          ReplicationFactor: this.__input.replicationFactor,
+          AvailabilityZones: this.__input.availabilityZones,
+          SubnetGroupName: this.__input.subnetGroupName,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          NotificationTopicArn: this.__input.notificationTopicArn,
+          IamRoleArn: this.__input.iamRoleArn,
+          ParameterGroupName: this.__input.parameterGroupName,
+          Tags: this.__input.tags,
+          SSESpecification: {
+            Enabled: this.__input.sseSpecification?.enabled,
+          },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.Cluster.ClusterDiscoveryEndpoint.URL', props);
+    return resource.getResponseField('Cluster.ClusterDiscoveryEndpoint.URL') as unknown as string;
   }
 
 }
@@ -629,6 +708,7 @@ export class DAXResponsesCreateClusterClusterNotificationConfiguration {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -660,6 +740,7 @@ export class DAXResponsesCreateClusterClusterNotificationConfiguration {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -698,6 +779,7 @@ export class DAXResponsesCreateClusterClusterParameterGroup {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -729,6 +811,7 @@ export class DAXResponsesCreateClusterClusterParameterGroup {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -760,6 +843,7 @@ export class DAXResponsesCreateClusterClusterParameterGroup {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -798,6 +882,7 @@ export class DAXResponsesCreateClusterClusterSseDescription {
           SSESpecification: {
             Enabled: this.__input.sseSpecification?.enabled,
           },
+          ClusterEndpointEncryptionType: this.__input.clusterEndpointEncryptionType,
         },
       },
     };
@@ -1247,6 +1332,26 @@ export class DAXResponsesDecreaseReplicationFactorCluster {
     return new DAXResponsesDecreaseReplicationFactorClusterSseDescription(this.__scope, this.__resources, this.__input);
   }
 
+  public get clusterEndpointEncryptionType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'decreaseReplicationFactor',
+        service: 'DAX',
+        physicalResourceId: cr.PhysicalResourceId.of('DAX.DecreaseReplicationFactor.Cluster.ClusterEndpointEncryptionType'),
+        outputPath: 'Cluster.ClusterEndpointEncryptionType',
+        parameters: {
+          ClusterName: this.__input.clusterName,
+          NewReplicationFactor: this.__input.newReplicationFactor,
+          AvailabilityZones: this.__input.availabilityZones,
+          NodeIdsToRemove: this.__input.nodeIdsToRemove,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DecreaseReplicationFactor.Cluster.ClusterEndpointEncryptionType', props);
+    return resource.getResponseField('Cluster.ClusterEndpointEncryptionType') as unknown as string;
+  }
+
 }
 
 export class DAXResponsesDecreaseReplicationFactorClusterClusterDiscoveryEndpoint {
@@ -1292,6 +1397,26 @@ export class DAXResponsesDecreaseReplicationFactorClusterClusterDiscoveryEndpoin
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DecreaseReplicationFactor.Cluster.ClusterDiscoveryEndpoint.Port', props);
     return resource.getResponseField('Cluster.ClusterDiscoveryEndpoint.Port') as unknown as number;
+  }
+
+  public get url(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'decreaseReplicationFactor',
+        service: 'DAX',
+        physicalResourceId: cr.PhysicalResourceId.of('DAX.DecreaseReplicationFactor.Cluster.ClusterDiscoveryEndpoint.URL'),
+        outputPath: 'Cluster.ClusterDiscoveryEndpoint.URL',
+        parameters: {
+          ClusterName: this.__input.clusterName,
+          NewReplicationFactor: this.__input.newReplicationFactor,
+          AvailabilityZones: this.__input.availabilityZones,
+          NodeIdsToRemove: this.__input.nodeIdsToRemove,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DecreaseReplicationFactor.Cluster.ClusterDiscoveryEndpoint.URL', props);
+    return resource.getResponseField('Cluster.ClusterDiscoveryEndpoint.URL') as unknown as string;
   }
 
 }
@@ -1690,6 +1815,23 @@ export class DAXResponsesDeleteClusterCluster {
     return new DAXResponsesDeleteClusterClusterSseDescription(this.__scope, this.__resources, this.__input);
   }
 
+  public get clusterEndpointEncryptionType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCluster',
+        service: 'DAX',
+        physicalResourceId: cr.PhysicalResourceId.of('DAX.DeleteCluster.Cluster.ClusterEndpointEncryptionType'),
+        outputPath: 'Cluster.ClusterEndpointEncryptionType',
+        parameters: {
+          ClusterName: this.__input.clusterName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCluster.Cluster.ClusterEndpointEncryptionType', props);
+    return resource.getResponseField('Cluster.ClusterEndpointEncryptionType') as unknown as string;
+  }
+
 }
 
 export class DAXResponsesDeleteClusterClusterClusterDiscoveryEndpoint {
@@ -1729,6 +1871,23 @@ export class DAXResponsesDeleteClusterClusterClusterDiscoveryEndpoint {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCluster.Cluster.ClusterDiscoveryEndpoint.Port', props);
     return resource.getResponseField('Cluster.ClusterDiscoveryEndpoint.Port') as unknown as number;
+  }
+
+  public get url(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCluster',
+        service: 'DAX',
+        physicalResourceId: cr.PhysicalResourceId.of('DAX.DeleteCluster.Cluster.ClusterDiscoveryEndpoint.URL'),
+        outputPath: 'Cluster.ClusterDiscoveryEndpoint.URL',
+        parameters: {
+          ClusterName: this.__input.clusterName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCluster.Cluster.ClusterDiscoveryEndpoint.URL', props);
+    return resource.getResponseField('Cluster.ClusterDiscoveryEndpoint.URL') as unknown as string;
   }
 
 }
@@ -2461,6 +2620,25 @@ export class DAXResponsesIncreaseReplicationFactorCluster {
     return new DAXResponsesIncreaseReplicationFactorClusterSseDescription(this.__scope, this.__resources, this.__input);
   }
 
+  public get clusterEndpointEncryptionType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'increaseReplicationFactor',
+        service: 'DAX',
+        physicalResourceId: cr.PhysicalResourceId.of('DAX.IncreaseReplicationFactor.Cluster.ClusterEndpointEncryptionType'),
+        outputPath: 'Cluster.ClusterEndpointEncryptionType',
+        parameters: {
+          ClusterName: this.__input.clusterName,
+          NewReplicationFactor: this.__input.newReplicationFactor,
+          AvailabilityZones: this.__input.availabilityZones,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'IncreaseReplicationFactor.Cluster.ClusterEndpointEncryptionType', props);
+    return resource.getResponseField('Cluster.ClusterEndpointEncryptionType') as unknown as string;
+  }
+
 }
 
 export class DAXResponsesIncreaseReplicationFactorClusterClusterDiscoveryEndpoint {
@@ -2504,6 +2682,25 @@ export class DAXResponsesIncreaseReplicationFactorClusterClusterDiscoveryEndpoin
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'IncreaseReplicationFactor.Cluster.ClusterDiscoveryEndpoint.Port', props);
     return resource.getResponseField('Cluster.ClusterDiscoveryEndpoint.Port') as unknown as number;
+  }
+
+  public get url(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'increaseReplicationFactor',
+        service: 'DAX',
+        physicalResourceId: cr.PhysicalResourceId.of('DAX.IncreaseReplicationFactor.Cluster.ClusterDiscoveryEndpoint.URL'),
+        outputPath: 'Cluster.ClusterDiscoveryEndpoint.URL',
+        parameters: {
+          ClusterName: this.__input.clusterName,
+          NewReplicationFactor: this.__input.newReplicationFactor,
+          AvailabilityZones: this.__input.availabilityZones,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'IncreaseReplicationFactor.Cluster.ClusterDiscoveryEndpoint.URL', props);
+    return resource.getResponseField('Cluster.ClusterDiscoveryEndpoint.URL') as unknown as string;
   }
 
 }
@@ -2952,6 +3149,24 @@ export class DAXResponsesRebootNodeCluster {
     return new DAXResponsesRebootNodeClusterSseDescription(this.__scope, this.__resources, this.__input);
   }
 
+  public get clusterEndpointEncryptionType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rebootNode',
+        service: 'DAX',
+        physicalResourceId: cr.PhysicalResourceId.of('DAX.RebootNode.Cluster.ClusterEndpointEncryptionType'),
+        outputPath: 'Cluster.ClusterEndpointEncryptionType',
+        parameters: {
+          ClusterName: this.__input.clusterName,
+          NodeId: this.__input.nodeId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RebootNode.Cluster.ClusterEndpointEncryptionType', props);
+    return resource.getResponseField('Cluster.ClusterEndpointEncryptionType') as unknown as string;
+  }
+
 }
 
 export class DAXResponsesRebootNodeClusterClusterDiscoveryEndpoint {
@@ -2993,6 +3208,24 @@ export class DAXResponsesRebootNodeClusterClusterDiscoveryEndpoint {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RebootNode.Cluster.ClusterDiscoveryEndpoint.Port', props);
     return resource.getResponseField('Cluster.ClusterDiscoveryEndpoint.Port') as unknown as number;
+  }
+
+  public get url(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rebootNode',
+        service: 'DAX',
+        physicalResourceId: cr.PhysicalResourceId.of('DAX.RebootNode.Cluster.ClusterDiscoveryEndpoint.URL'),
+        outputPath: 'Cluster.ClusterDiscoveryEndpoint.URL',
+        parameters: {
+          ClusterName: this.__input.clusterName,
+          NodeId: this.__input.nodeId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RebootNode.Cluster.ClusterDiscoveryEndpoint.URL', props);
+    return resource.getResponseField('Cluster.ClusterDiscoveryEndpoint.URL') as unknown as string;
   }
 
 }
@@ -3507,6 +3740,29 @@ export class DAXResponsesUpdateClusterCluster {
     return new DAXResponsesUpdateClusterClusterSseDescription(this.__scope, this.__resources, this.__input);
   }
 
+  public get clusterEndpointEncryptionType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'DAX',
+        physicalResourceId: cr.PhysicalResourceId.of('DAX.UpdateCluster.Cluster.ClusterEndpointEncryptionType'),
+        outputPath: 'Cluster.ClusterEndpointEncryptionType',
+        parameters: {
+          ClusterName: this.__input.clusterName,
+          Description: this.__input.description,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          NotificationTopicArn: this.__input.notificationTopicArn,
+          NotificationTopicStatus: this.__input.notificationTopicStatus,
+          ParameterGroupName: this.__input.parameterGroupName,
+          SecurityGroupIds: this.__input.securityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.Cluster.ClusterEndpointEncryptionType', props);
+    return resource.getResponseField('Cluster.ClusterEndpointEncryptionType') as unknown as string;
+  }
+
 }
 
 export class DAXResponsesUpdateClusterClusterClusterDiscoveryEndpoint {
@@ -3558,6 +3814,29 @@ export class DAXResponsesUpdateClusterClusterClusterDiscoveryEndpoint {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.Cluster.ClusterDiscoveryEndpoint.Port', props);
     return resource.getResponseField('Cluster.ClusterDiscoveryEndpoint.Port') as unknown as number;
+  }
+
+  public get url(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'DAX',
+        physicalResourceId: cr.PhysicalResourceId.of('DAX.UpdateCluster.Cluster.ClusterDiscoveryEndpoint.URL'),
+        outputPath: 'Cluster.ClusterDiscoveryEndpoint.URL',
+        parameters: {
+          ClusterName: this.__input.clusterName,
+          Description: this.__input.description,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          NotificationTopicArn: this.__input.notificationTopicArn,
+          NotificationTopicStatus: this.__input.notificationTopicStatus,
+          ParameterGroupName: this.__input.parameterGroupName,
+          SecurityGroupIds: this.__input.securityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.Cluster.ClusterDiscoveryEndpoint.URL', props);
+    return resource.getResponseField('Cluster.ClusterDiscoveryEndpoint.URL') as unknown as string;
   }
 
 }

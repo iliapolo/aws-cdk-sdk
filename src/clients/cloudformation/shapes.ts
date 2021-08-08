@@ -1,11 +1,177 @@
 /**
+ * @schema CloudFormationActivateTypeInput
+ */
+export interface CloudFormationActivateTypeInput {
+  /**
+   * @schema CloudFormationActivateTypeInput#Type
+   */
+  readonly type?: string;
+
+  /**
+   * @schema CloudFormationActivateTypeInput#PublicTypeArn
+   */
+  readonly publicTypeArn?: string;
+
+  /**
+   * @schema CloudFormationActivateTypeInput#PublisherId
+   */
+  readonly publisherId?: string;
+
+  /**
+   * @schema CloudFormationActivateTypeInput#TypeName
+   */
+  readonly typeName?: string;
+
+  /**
+   * @schema CloudFormationActivateTypeInput#TypeNameAlias
+   */
+  readonly typeNameAlias?: string;
+
+  /**
+   * @schema CloudFormationActivateTypeInput#AutoUpdate
+   */
+  readonly autoUpdate?: boolean;
+
+  /**
+   * @schema CloudFormationActivateTypeInput#LoggingConfig
+   */
+  readonly loggingConfig?: CloudFormationLoggingConfig;
+
+  /**
+   * @schema CloudFormationActivateTypeInput#ExecutionRoleArn
+   */
+  readonly executionRoleArn?: string;
+
+  /**
+   * @schema CloudFormationActivateTypeInput#VersionBump
+   */
+  readonly versionBump?: string;
+
+  /**
+   * @schema CloudFormationActivateTypeInput#MajorVersion
+   */
+  readonly majorVersion?: number;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationActivateTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationActivateTypeInput(obj: CloudFormationActivateTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'PublicTypeArn': obj.publicTypeArn,
+    'PublisherId': obj.publisherId,
+    'TypeName': obj.typeName,
+    'TypeNameAlias': obj.typeNameAlias,
+    'AutoUpdate': obj.autoUpdate,
+    'LoggingConfig': toJson_CloudFormationLoggingConfig(obj.loggingConfig),
+    'ExecutionRoleArn': obj.executionRoleArn,
+    'VersionBump': obj.versionBump,
+    'MajorVersion': obj.majorVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationActivateTypeOutput
+ */
+export interface CloudFormationActivateTypeOutput {
+  /**
+   * @schema CloudFormationActivateTypeOutput#Arn
+   */
+  readonly arn?: string;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationActivateTypeOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationActivateTypeOutput(obj: CloudFormationActivateTypeOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationBatchDescribeTypeConfigurationsInput
+ */
+export interface CloudFormationBatchDescribeTypeConfigurationsInput {
+  /**
+   * @schema CloudFormationBatchDescribeTypeConfigurationsInput#TypeConfigurationIdentifiers
+   */
+  readonly typeConfigurationIdentifiers?: CloudFormationTypeConfigurationIdentifier[];
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationBatchDescribeTypeConfigurationsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationBatchDescribeTypeConfigurationsInput(obj: CloudFormationBatchDescribeTypeConfigurationsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TypeConfigurationIdentifiers': obj.typeConfigurationIdentifiers?.map(y => toJson_CloudFormationTypeConfigurationIdentifier(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationBatchDescribeTypeConfigurationsOutput
+ */
+export interface CloudFormationBatchDescribeTypeConfigurationsOutput {
+  /**
+   * @schema CloudFormationBatchDescribeTypeConfigurationsOutput#Errors
+   */
+  readonly errors?: CloudFormationBatchDescribeTypeConfigurationsError[];
+
+  /**
+   * @schema CloudFormationBatchDescribeTypeConfigurationsOutput#UnprocessedTypeConfigurations
+   */
+  readonly unprocessedTypeConfigurations?: CloudFormationTypeConfigurationIdentifier[];
+
+  /**
+   * @schema CloudFormationBatchDescribeTypeConfigurationsOutput#TypeConfigurations
+   */
+  readonly typeConfigurations?: CloudFormationTypeConfigurationDetails[];
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationBatchDescribeTypeConfigurationsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationBatchDescribeTypeConfigurationsOutput(obj: CloudFormationBatchDescribeTypeConfigurationsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Errors': obj.errors?.map(y => toJson_CloudFormationBatchDescribeTypeConfigurationsError(y)),
+    'UnprocessedTypeConfigurations': obj.unprocessedTypeConfigurations?.map(y => toJson_CloudFormationTypeConfigurationIdentifier(y)),
+    'TypeConfigurations': obj.typeConfigurations?.map(y => toJson_CloudFormationTypeConfigurationDetails(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationCancelUpdateStackInput
  */
 export interface CloudFormationCancelUpdateStackInput {
   /**
    * @schema CloudFormationCancelUpdateStackInput#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
   /**
    * @schema CloudFormationCancelUpdateStackInput#ClientRequestToken
@@ -15,13 +181,28 @@ export interface CloudFormationCancelUpdateStackInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationCancelUpdateStackInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationCancelUpdateStackInput(obj: CloudFormationCancelUpdateStackInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'ClientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationContinueUpdateRollbackInput
  */
 export interface CloudFormationContinueUpdateRollbackInput {
   /**
    * @schema CloudFormationContinueUpdateRollbackInput#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
   /**
    * @schema CloudFormationContinueUpdateRollbackInput#RoleARN
@@ -41,10 +222,40 @@ export interface CloudFormationContinueUpdateRollbackInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationContinueUpdateRollbackInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationContinueUpdateRollbackInput(obj: CloudFormationContinueUpdateRollbackInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'RoleARN': obj.roleArn,
+    'ResourcesToSkip': obj.resourcesToSkip?.map(y => y),
+    'ClientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationContinueUpdateRollbackOutput
  */
 export interface CloudFormationContinueUpdateRollbackOutput {
 }
+
+/**
+ * Converts an object of type 'CloudFormationContinueUpdateRollbackOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationContinueUpdateRollbackOutput(obj: CloudFormationContinueUpdateRollbackOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationCreateChangeSetInput
@@ -53,7 +264,7 @@ export interface CloudFormationCreateChangeSetInput {
   /**
    * @schema CloudFormationCreateChangeSetInput#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
   /**
    * @schema CloudFormationCreateChangeSetInput#TemplateBody
@@ -108,7 +319,7 @@ export interface CloudFormationCreateChangeSetInput {
   /**
    * @schema CloudFormationCreateChangeSetInput#ChangeSetName
    */
-  readonly changeSetName: string;
+  readonly changeSetName?: string;
 
   /**
    * @schema CloudFormationCreateChangeSetInput#ClientToken
@@ -138,6 +349,36 @@ export interface CloudFormationCreateChangeSetInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationCreateChangeSetInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationCreateChangeSetInput(obj: CloudFormationCreateChangeSetInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'TemplateBody': obj.templateBody,
+    'TemplateURL': obj.templateUrl,
+    'UsePreviousTemplate': obj.usePreviousTemplate,
+    'Parameters': obj.parameters?.map(y => toJson_CloudFormationParameter(y)),
+    'Capabilities': obj.capabilities?.map(y => y),
+    'ResourceTypes': obj.resourceTypes?.map(y => y),
+    'RoleARN': obj.roleArn,
+    'RollbackConfiguration': toJson_CloudFormationRollbackConfiguration(obj.rollbackConfiguration),
+    'NotificationARNs': obj.notificationArNs?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_CloudFormationTag(y)),
+    'ChangeSetName': obj.changeSetName,
+    'ClientToken': obj.clientToken,
+    'Description': obj.description,
+    'ChangeSetType': obj.changeSetType,
+    'ResourcesToImport': obj.resourcesToImport?.map(y => toJson_CloudFormationResourceToImport(y)),
+    'IncludeNestedStacks': obj.includeNestedStacks,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationCreateChangeSetOutput
  */
 export interface CloudFormationCreateChangeSetOutput {
@@ -154,13 +395,28 @@ export interface CloudFormationCreateChangeSetOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationCreateChangeSetOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationCreateChangeSetOutput(obj: CloudFormationCreateChangeSetOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+    'StackId': obj.stackId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationCreateStackInput
  */
 export interface CloudFormationCreateStackInput {
   /**
    * @schema CloudFormationCreateStackInput#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
   /**
    * @schema CloudFormationCreateStackInput#TemplateBody
@@ -245,6 +501,36 @@ export interface CloudFormationCreateStackInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationCreateStackInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationCreateStackInput(obj: CloudFormationCreateStackInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'TemplateBody': obj.templateBody,
+    'TemplateURL': obj.templateUrl,
+    'Parameters': obj.parameters?.map(y => toJson_CloudFormationParameter(y)),
+    'DisableRollback': obj.disableRollback,
+    'RollbackConfiguration': toJson_CloudFormationRollbackConfiguration(obj.rollbackConfiguration),
+    'TimeoutInMinutes': obj.timeoutInMinutes,
+    'NotificationARNs': obj.notificationArNs?.map(y => y),
+    'Capabilities': obj.capabilities?.map(y => y),
+    'ResourceTypes': obj.resourceTypes?.map(y => y),
+    'RoleARN': obj.roleArn,
+    'OnFailure': obj.onFailure,
+    'StackPolicyBody': obj.stackPolicyBody,
+    'StackPolicyURL': obj.stackPolicyUrl,
+    'Tags': obj.tags?.map(y => toJson_CloudFormationTag(y)),
+    'ClientRequestToken': obj.clientRequestToken,
+    'EnableTerminationProtection': obj.enableTerminationProtection,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationCreateStackOutput
  */
 export interface CloudFormationCreateStackOutput {
@@ -256,13 +542,27 @@ export interface CloudFormationCreateStackOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationCreateStackOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationCreateStackOutput(obj: CloudFormationCreateStackOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationCreateStackInstancesInput
  */
 export interface CloudFormationCreateStackInstancesInput {
   /**
    * @schema CloudFormationCreateStackInstancesInput#StackSetName
    */
-  readonly stackSetName: string;
+  readonly stackSetName?: string;
 
   /**
    * @schema CloudFormationCreateStackInstancesInput#Accounts
@@ -277,7 +577,7 @@ export interface CloudFormationCreateStackInstancesInput {
   /**
    * @schema CloudFormationCreateStackInstancesInput#Regions
    */
-  readonly regions: string[];
+  readonly regions?: string[];
 
   /**
    * @schema CloudFormationCreateStackInstancesInput#ParameterOverrides
@@ -294,7 +594,33 @@ export interface CloudFormationCreateStackInstancesInput {
    */
   readonly operationId?: string;
 
+  /**
+   * @schema CloudFormationCreateStackInstancesInput#CallAs
+   */
+  readonly callAs?: string;
+
 }
+
+/**
+ * Converts an object of type 'CloudFormationCreateStackInstancesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationCreateStackInstancesInput(obj: CloudFormationCreateStackInstancesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetName': obj.stackSetName,
+    'Accounts': obj.accounts?.map(y => y),
+    'DeploymentTargets': toJson_CloudFormationDeploymentTargets(obj.deploymentTargets),
+    'Regions': obj.regions?.map(y => y),
+    'ParameterOverrides': obj.parameterOverrides?.map(y => toJson_CloudFormationParameter(y)),
+    'OperationPreferences': toJson_CloudFormationStackSetOperationPreferences(obj.operationPreferences),
+    'OperationId': obj.operationId,
+    'CallAs': obj.callAs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationCreateStackInstancesOutput
@@ -308,13 +634,27 @@ export interface CloudFormationCreateStackInstancesOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationCreateStackInstancesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationCreateStackInstancesOutput(obj: CloudFormationCreateStackInstancesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OperationId': obj.operationId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationCreateStackSetInput
  */
 export interface CloudFormationCreateStackSetInput {
   /**
    * @schema CloudFormationCreateStackSetInput#StackSetName
    */
-  readonly stackSetName: string;
+  readonly stackSetName?: string;
 
   /**
    * @schema CloudFormationCreateStackSetInput#Description
@@ -330,6 +670,11 @@ export interface CloudFormationCreateStackSetInput {
    * @schema CloudFormationCreateStackSetInput#TemplateURL
    */
   readonly templateUrl?: string;
+
+  /**
+   * @schema CloudFormationCreateStackSetInput#StackId
+   */
+  readonly stackId?: string;
 
   /**
    * @schema CloudFormationCreateStackSetInput#Parameters
@@ -367,11 +712,43 @@ export interface CloudFormationCreateStackSetInput {
   readonly autoDeployment?: CloudFormationAutoDeployment;
 
   /**
+   * @schema CloudFormationCreateStackSetInput#CallAs
+   */
+  readonly callAs?: string;
+
+  /**
    * @schema CloudFormationCreateStackSetInput#ClientRequestToken
    */
   readonly clientRequestToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationCreateStackSetInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationCreateStackSetInput(obj: CloudFormationCreateStackSetInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetName': obj.stackSetName,
+    'Description': obj.description,
+    'TemplateBody': obj.templateBody,
+    'TemplateURL': obj.templateUrl,
+    'StackId': obj.stackId,
+    'Parameters': obj.parameters?.map(y => toJson_CloudFormationParameter(y)),
+    'Capabilities': obj.capabilities?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_CloudFormationTag(y)),
+    'AdministrationRoleARN': obj.administrationRoleArn,
+    'ExecutionRoleName': obj.executionRoleName,
+    'PermissionModel': obj.permissionModel,
+    'AutoDeployment': toJson_CloudFormationAutoDeployment(obj.autoDeployment),
+    'CallAs': obj.callAs,
+    'ClientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationCreateStackSetOutput
@@ -385,13 +762,83 @@ export interface CloudFormationCreateStackSetOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationCreateStackSetOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationCreateStackSetOutput(obj: CloudFormationCreateStackSetOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetId': obj.stackSetId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationDeactivateTypeInput
+ */
+export interface CloudFormationDeactivateTypeInput {
+  /**
+   * @schema CloudFormationDeactivateTypeInput#TypeName
+   */
+  readonly typeName?: string;
+
+  /**
+   * @schema CloudFormationDeactivateTypeInput#Type
+   */
+  readonly type?: string;
+
+  /**
+   * @schema CloudFormationDeactivateTypeInput#Arn
+   */
+  readonly arn?: string;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationDeactivateTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDeactivateTypeInput(obj: CloudFormationDeactivateTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TypeName': obj.typeName,
+    'Type': obj.type,
+    'Arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationDeactivateTypeOutput
+ */
+export interface CloudFormationDeactivateTypeOutput {
+}
+
+/**
+ * Converts an object of type 'CloudFormationDeactivateTypeOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDeactivateTypeOutput(obj: CloudFormationDeactivateTypeOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationDeleteChangeSetInput
  */
 export interface CloudFormationDeleteChangeSetInput {
   /**
    * @schema CloudFormationDeleteChangeSetInput#ChangeSetName
    */
-  readonly changeSetName: string;
+  readonly changeSetName?: string;
 
   /**
    * @schema CloudFormationDeleteChangeSetInput#StackName
@@ -401,10 +848,38 @@ export interface CloudFormationDeleteChangeSetInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationDeleteChangeSetInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDeleteChangeSetInput(obj: CloudFormationDeleteChangeSetInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ChangeSetName': obj.changeSetName,
+    'StackName': obj.stackName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationDeleteChangeSetOutput
  */
 export interface CloudFormationDeleteChangeSetOutput {
 }
+
+/**
+ * Converts an object of type 'CloudFormationDeleteChangeSetOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDeleteChangeSetOutput(obj: CloudFormationDeleteChangeSetOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDeleteStackInput
@@ -413,7 +888,7 @@ export interface CloudFormationDeleteStackInput {
   /**
    * @schema CloudFormationDeleteStackInput#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
   /**
    * @schema CloudFormationDeleteStackInput#RetainResources
@@ -433,13 +908,30 @@ export interface CloudFormationDeleteStackInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationDeleteStackInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDeleteStackInput(obj: CloudFormationDeleteStackInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'RetainResources': obj.retainResources?.map(y => y),
+    'RoleARN': obj.roleArn,
+    'ClientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationDeleteStackInstancesInput
  */
 export interface CloudFormationDeleteStackInstancesInput {
   /**
    * @schema CloudFormationDeleteStackInstancesInput#StackSetName
    */
-  readonly stackSetName: string;
+  readonly stackSetName?: string;
 
   /**
    * @schema CloudFormationDeleteStackInstancesInput#Accounts
@@ -454,7 +946,7 @@ export interface CloudFormationDeleteStackInstancesInput {
   /**
    * @schema CloudFormationDeleteStackInstancesInput#Regions
    */
-  readonly regions: string[];
+  readonly regions?: string[];
 
   /**
    * @schema CloudFormationDeleteStackInstancesInput#OperationPreferences
@@ -464,14 +956,40 @@ export interface CloudFormationDeleteStackInstancesInput {
   /**
    * @schema CloudFormationDeleteStackInstancesInput#RetainStacks
    */
-  readonly retainStacks: boolean;
+  readonly retainStacks?: boolean;
 
   /**
    * @schema CloudFormationDeleteStackInstancesInput#OperationId
    */
   readonly operationId?: string;
 
+  /**
+   * @schema CloudFormationDeleteStackInstancesInput#CallAs
+   */
+  readonly callAs?: string;
+
 }
+
+/**
+ * Converts an object of type 'CloudFormationDeleteStackInstancesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDeleteStackInstancesInput(obj: CloudFormationDeleteStackInstancesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetName': obj.stackSetName,
+    'Accounts': obj.accounts?.map(y => y),
+    'DeploymentTargets': toJson_CloudFormationDeploymentTargets(obj.deploymentTargets),
+    'Regions': obj.regions?.map(y => y),
+    'OperationPreferences': toJson_CloudFormationStackSetOperationPreferences(obj.operationPreferences),
+    'RetainStacks': obj.retainStacks,
+    'OperationId': obj.operationId,
+    'CallAs': obj.callAs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDeleteStackInstancesOutput
@@ -485,21 +1003,68 @@ export interface CloudFormationDeleteStackInstancesOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationDeleteStackInstancesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDeleteStackInstancesOutput(obj: CloudFormationDeleteStackInstancesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OperationId': obj.operationId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationDeleteStackSetInput
  */
 export interface CloudFormationDeleteStackSetInput {
   /**
    * @schema CloudFormationDeleteStackSetInput#StackSetName
    */
-  readonly stackSetName: string;
+  readonly stackSetName?: string;
+
+  /**
+   * @schema CloudFormationDeleteStackSetInput#CallAs
+   */
+  readonly callAs?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationDeleteStackSetInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDeleteStackSetInput(obj: CloudFormationDeleteStackSetInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetName': obj.stackSetName,
+    'CallAs': obj.callAs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDeleteStackSetOutput
  */
 export interface CloudFormationDeleteStackSetOutput {
 }
+
+/**
+ * Converts an object of type 'CloudFormationDeleteStackSetOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDeleteStackSetOutput(obj: CloudFormationDeleteStackSetOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDeregisterTypeInput
@@ -528,10 +1093,40 @@ export interface CloudFormationDeregisterTypeInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationDeregisterTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDeregisterTypeInput(obj: CloudFormationDeregisterTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Type': obj.type,
+    'TypeName': obj.typeName,
+    'VersionId': obj.versionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationDeregisterTypeOutput
  */
 export interface CloudFormationDeregisterTypeOutput {
 }
+
+/**
+ * Converts an object of type 'CloudFormationDeregisterTypeOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDeregisterTypeOutput(obj: CloudFormationDeregisterTypeOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDescribeAccountLimitsInput
@@ -543,6 +1138,20 @@ export interface CloudFormationDescribeAccountLimitsInput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationDescribeAccountLimitsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeAccountLimitsInput(obj: CloudFormationDescribeAccountLimitsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDescribeAccountLimitsOutput
@@ -561,13 +1170,28 @@ export interface CloudFormationDescribeAccountLimitsOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationDescribeAccountLimitsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeAccountLimitsOutput(obj: CloudFormationDescribeAccountLimitsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AccountLimits': obj.accountLimits?.map(y => toJson_CloudFormationAccountLimit(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationDescribeChangeSetInput
  */
 export interface CloudFormationDescribeChangeSetInput {
   /**
    * @schema CloudFormationDescribeChangeSetInput#ChangeSetName
    */
-  readonly changeSetName: string;
+  readonly changeSetName?: string;
 
   /**
    * @schema CloudFormationDescribeChangeSetInput#StackName
@@ -580,6 +1204,22 @@ export interface CloudFormationDescribeChangeSetInput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationDescribeChangeSetInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeChangeSetInput(obj: CloudFormationDescribeChangeSetInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ChangeSetName': obj.changeSetName,
+    'StackName': obj.stackName,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDescribeChangeSetOutput
@@ -683,15 +1323,129 @@ export interface CloudFormationDescribeChangeSetOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationDescribeChangeSetOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeChangeSetOutput(obj: CloudFormationDescribeChangeSetOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ChangeSetName': obj.changeSetName,
+    'ChangeSetId': obj.changeSetId,
+    'StackId': obj.stackId,
+    'StackName': obj.stackName,
+    'Description': obj.description,
+    'Parameters': obj.parameters?.map(y => toJson_CloudFormationParameter(y)),
+    'CreationTime': obj.creationTime,
+    'ExecutionStatus': obj.executionStatus,
+    'Status': obj.status,
+    'StatusReason': obj.statusReason,
+    'NotificationARNs': obj.notificationArNs?.map(y => y),
+    'RollbackConfiguration': toJson_CloudFormationRollbackConfiguration(obj.rollbackConfiguration),
+    'Capabilities': obj.capabilities?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_CloudFormationTag(y)),
+    'Changes': obj.changes?.map(y => toJson_CloudFormationChange(y)),
+    'NextToken': obj.nextToken,
+    'IncludeNestedStacks': obj.includeNestedStacks,
+    'ParentChangeSetId': obj.parentChangeSetId,
+    'RootChangeSetId': obj.rootChangeSetId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationDescribePublisherInput
+ */
+export interface CloudFormationDescribePublisherInput {
+  /**
+   * @schema CloudFormationDescribePublisherInput#PublisherId
+   */
+  readonly publisherId?: string;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationDescribePublisherInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribePublisherInput(obj: CloudFormationDescribePublisherInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PublisherId': obj.publisherId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationDescribePublisherOutput
+ */
+export interface CloudFormationDescribePublisherOutput {
+  /**
+   * @schema CloudFormationDescribePublisherOutput#PublisherId
+   */
+  readonly publisherId?: string;
+
+  /**
+   * @schema CloudFormationDescribePublisherOutput#PublisherStatus
+   */
+  readonly publisherStatus?: string;
+
+  /**
+   * @schema CloudFormationDescribePublisherOutput#IdentityProvider
+   */
+  readonly identityProvider?: string;
+
+  /**
+   * @schema CloudFormationDescribePublisherOutput#PublisherProfile
+   */
+  readonly publisherProfile?: string;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationDescribePublisherOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribePublisherOutput(obj: CloudFormationDescribePublisherOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PublisherId': obj.publisherId,
+    'PublisherStatus': obj.publisherStatus,
+    'IdentityProvider': obj.identityProvider,
+    'PublisherProfile': obj.publisherProfile,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationDescribeStackDriftDetectionStatusInput
  */
 export interface CloudFormationDescribeStackDriftDetectionStatusInput {
   /**
    * @schema CloudFormationDescribeStackDriftDetectionStatusInput#StackDriftDetectionId
    */
-  readonly stackDriftDetectionId: string;
+  readonly stackDriftDetectionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationDescribeStackDriftDetectionStatusInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeStackDriftDetectionStatusInput(obj: CloudFormationDescribeStackDriftDetectionStatusInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackDriftDetectionId': obj.stackDriftDetectionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDescribeStackDriftDetectionStatusOutput
@@ -700,12 +1454,12 @@ export interface CloudFormationDescribeStackDriftDetectionStatusOutput {
   /**
    * @schema CloudFormationDescribeStackDriftDetectionStatusOutput#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
   /**
    * @schema CloudFormationDescribeStackDriftDetectionStatusOutput#StackDriftDetectionId
    */
-  readonly stackDriftDetectionId: string;
+  readonly stackDriftDetectionId?: string;
 
   /**
    * @schema CloudFormationDescribeStackDriftDetectionStatusOutput#StackDriftStatus
@@ -715,7 +1469,7 @@ export interface CloudFormationDescribeStackDriftDetectionStatusOutput {
   /**
    * @schema CloudFormationDescribeStackDriftDetectionStatusOutput#DetectionStatus
    */
-  readonly detectionStatus: string;
+  readonly detectionStatus?: string;
 
   /**
    * @schema CloudFormationDescribeStackDriftDetectionStatusOutput#DetectionStatusReason
@@ -730,9 +1484,29 @@ export interface CloudFormationDescribeStackDriftDetectionStatusOutput {
   /**
    * @schema CloudFormationDescribeStackDriftDetectionStatusOutput#Timestamp
    */
-  readonly timestamp: string;
+  readonly timestamp?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationDescribeStackDriftDetectionStatusOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeStackDriftDetectionStatusOutput(obj: CloudFormationDescribeStackDriftDetectionStatusOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'StackDriftDetectionId': obj.stackDriftDetectionId,
+    'StackDriftStatus': obj.stackDriftStatus,
+    'DetectionStatus': obj.detectionStatus,
+    'DetectionStatusReason': obj.detectionStatusReason,
+    'DriftedStackResourceCount': obj.driftedStackResourceCount,
+    'Timestamp': obj.timestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDescribeStackEventsInput
@@ -751,6 +1525,21 @@ export interface CloudFormationDescribeStackEventsInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationDescribeStackEventsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeStackEventsInput(obj: CloudFormationDescribeStackEventsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationDescribeStackEventsOutput
  */
 export interface CloudFormationDescribeStackEventsOutput {
@@ -767,25 +1556,62 @@ export interface CloudFormationDescribeStackEventsOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationDescribeStackEventsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeStackEventsOutput(obj: CloudFormationDescribeStackEventsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackEvents': obj.stackEvents?.map(y => toJson_CloudFormationStackEvent(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationDescribeStackInstanceInput
  */
 export interface CloudFormationDescribeStackInstanceInput {
   /**
    * @schema CloudFormationDescribeStackInstanceInput#StackSetName
    */
-  readonly stackSetName: string;
+  readonly stackSetName?: string;
 
   /**
    * @schema CloudFormationDescribeStackInstanceInput#StackInstanceAccount
    */
-  readonly stackInstanceAccount: string;
+  readonly stackInstanceAccount?: string;
 
   /**
    * @schema CloudFormationDescribeStackInstanceInput#StackInstanceRegion
    */
-  readonly stackInstanceRegion: string;
+  readonly stackInstanceRegion?: string;
+
+  /**
+   * @schema CloudFormationDescribeStackInstanceInput#CallAs
+   */
+  readonly callAs?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationDescribeStackInstanceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeStackInstanceInput(obj: CloudFormationDescribeStackInstanceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetName': obj.stackSetName,
+    'StackInstanceAccount': obj.stackInstanceAccount,
+    'StackInstanceRegion': obj.stackInstanceRegion,
+    'CallAs': obj.callAs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDescribeStackInstanceOutput
@@ -799,20 +1625,49 @@ export interface CloudFormationDescribeStackInstanceOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationDescribeStackInstanceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeStackInstanceOutput(obj: CloudFormationDescribeStackInstanceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackInstance': toJson_CloudFormationStackInstance(obj.stackInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationDescribeStackResourceInput
  */
 export interface CloudFormationDescribeStackResourceInput {
   /**
    * @schema CloudFormationDescribeStackResourceInput#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
   /**
    * @schema CloudFormationDescribeStackResourceInput#LogicalResourceId
    */
-  readonly logicalResourceId: string;
+  readonly logicalResourceId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationDescribeStackResourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeStackResourceInput(obj: CloudFormationDescribeStackResourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'LogicalResourceId': obj.logicalResourceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDescribeStackResourceOutput
@@ -826,13 +1681,27 @@ export interface CloudFormationDescribeStackResourceOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationDescribeStackResourceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeStackResourceOutput(obj: CloudFormationDescribeStackResourceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackResourceDetail': toJson_CloudFormationStackResourceDetail(obj.stackResourceDetail),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationDescribeStackResourceDriftsInput
  */
 export interface CloudFormationDescribeStackResourceDriftsInput {
   /**
    * @schema CloudFormationDescribeStackResourceDriftsInput#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
   /**
    * @schema CloudFormationDescribeStackResourceDriftsInput#StackResourceDriftStatusFilters
@@ -852,13 +1721,30 @@ export interface CloudFormationDescribeStackResourceDriftsInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationDescribeStackResourceDriftsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeStackResourceDriftsInput(obj: CloudFormationDescribeStackResourceDriftsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'StackResourceDriftStatusFilters': obj.stackResourceDriftStatusFilters?.map(y => y),
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationDescribeStackResourceDriftsOutput
  */
 export interface CloudFormationDescribeStackResourceDriftsOutput {
   /**
    * @schema CloudFormationDescribeStackResourceDriftsOutput#StackResourceDrifts
    */
-  readonly stackResourceDrifts: CloudFormationStackResourceDrift[];
+  readonly stackResourceDrifts?: CloudFormationStackResourceDrift[];
 
   /**
    * @schema CloudFormationDescribeStackResourceDriftsOutput#NextToken
@@ -866,6 +1752,21 @@ export interface CloudFormationDescribeStackResourceDriftsOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationDescribeStackResourceDriftsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeStackResourceDriftsOutput(obj: CloudFormationDescribeStackResourceDriftsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackResourceDrifts': obj.stackResourceDrifts?.map(y => toJson_CloudFormationStackResourceDrift(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDescribeStackResourcesInput
@@ -889,6 +1790,22 @@ export interface CloudFormationDescribeStackResourcesInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationDescribeStackResourcesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeStackResourcesInput(obj: CloudFormationDescribeStackResourcesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'LogicalResourceId': obj.logicalResourceId,
+    'PhysicalResourceId': obj.physicalResourceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationDescribeStackResourcesOutput
  */
 export interface CloudFormationDescribeStackResourcesOutput {
@@ -900,15 +1817,49 @@ export interface CloudFormationDescribeStackResourcesOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationDescribeStackResourcesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeStackResourcesOutput(obj: CloudFormationDescribeStackResourcesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackResources': obj.stackResources?.map(y => toJson_CloudFormationStackResource(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationDescribeStackSetInput
  */
 export interface CloudFormationDescribeStackSetInput {
   /**
    * @schema CloudFormationDescribeStackSetInput#StackSetName
    */
-  readonly stackSetName: string;
+  readonly stackSetName?: string;
+
+  /**
+   * @schema CloudFormationDescribeStackSetInput#CallAs
+   */
+  readonly callAs?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationDescribeStackSetInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeStackSetInput(obj: CloudFormationDescribeStackSetInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetName': obj.stackSetName,
+    'CallAs': obj.callAs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDescribeStackSetOutput
@@ -922,20 +1873,55 @@ export interface CloudFormationDescribeStackSetOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationDescribeStackSetOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeStackSetOutput(obj: CloudFormationDescribeStackSetOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSet': toJson_CloudFormationStackSet(obj.stackSet),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationDescribeStackSetOperationInput
  */
 export interface CloudFormationDescribeStackSetOperationInput {
   /**
    * @schema CloudFormationDescribeStackSetOperationInput#StackSetName
    */
-  readonly stackSetName: string;
+  readonly stackSetName?: string;
 
   /**
    * @schema CloudFormationDescribeStackSetOperationInput#OperationId
    */
-  readonly operationId: string;
+  readonly operationId?: string;
+
+  /**
+   * @schema CloudFormationDescribeStackSetOperationInput#CallAs
+   */
+  readonly callAs?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationDescribeStackSetOperationInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeStackSetOperationInput(obj: CloudFormationDescribeStackSetOperationInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetName': obj.stackSetName,
+    'OperationId': obj.operationId,
+    'CallAs': obj.callAs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDescribeStackSetOperationOutput
@@ -947,6 +1933,20 @@ export interface CloudFormationDescribeStackSetOperationOutput {
   readonly stackSetOperation?: CloudFormationStackSetOperation;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationDescribeStackSetOperationOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeStackSetOperationOutput(obj: CloudFormationDescribeStackSetOperationOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetOperation': toJson_CloudFormationStackSetOperation(obj.stackSetOperation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDescribeStacksInput
@@ -965,6 +1965,21 @@ export interface CloudFormationDescribeStacksInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationDescribeStacksInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeStacksInput(obj: CloudFormationDescribeStacksInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationDescribeStacksOutput
  */
 export interface CloudFormationDescribeStacksOutput {
@@ -979,6 +1994,21 @@ export interface CloudFormationDescribeStacksOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationDescribeStacksOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeStacksOutput(obj: CloudFormationDescribeStacksOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Stacks': obj.stacks?.map(y => toJson_CloudFormationStack(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDescribeTypeInput
@@ -1004,7 +2034,36 @@ export interface CloudFormationDescribeTypeInput {
    */
   readonly versionId?: string;
 
+  /**
+   * @schema CloudFormationDescribeTypeInput#PublisherId
+   */
+  readonly publisherId?: string;
+
+  /**
+   * @schema CloudFormationDescribeTypeInput#PublicVersionNumber
+   */
+  readonly publicVersionNumber?: string;
+
 }
+
+/**
+ * Converts an object of type 'CloudFormationDescribeTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeTypeInput(obj: CloudFormationDescribeTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'TypeName': obj.typeName,
+    'Arn': obj.arn,
+    'VersionId': obj.versionId,
+    'PublisherId': obj.publisherId,
+    'PublicVersionNumber': obj.publicVersionNumber,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDescribeTypeOutput
@@ -1036,6 +2095,16 @@ export interface CloudFormationDescribeTypeOutput {
   readonly isDefaultVersion?: boolean;
 
   /**
+   * @schema CloudFormationDescribeTypeOutput#TypeTestsStatus
+   */
+  readonly typeTestsStatus?: string;
+
+  /**
+   * @schema CloudFormationDescribeTypeOutput#TypeTestsStatusDescription
+   */
+  readonly typeTestsStatusDescription?: string;
+
+  /**
    * @schema CloudFormationDescribeTypeOutput#Description
    */
   readonly description?: string;
@@ -1059,6 +2128,11 @@ export interface CloudFormationDescribeTypeOutput {
    * @schema CloudFormationDescribeTypeOutput#LoggingConfig
    */
   readonly loggingConfig?: CloudFormationLoggingConfig;
+
+  /**
+   * @schema CloudFormationDescribeTypeOutput#RequiredActivatedTypes
+   */
+  readonly requiredActivatedTypes?: CloudFormationRequiredActivatedType[];
 
   /**
    * @schema CloudFormationDescribeTypeOutput#ExecutionRoleArn
@@ -1090,7 +2164,87 @@ export interface CloudFormationDescribeTypeOutput {
    */
   readonly timeCreated?: string;
 
+  /**
+   * @schema CloudFormationDescribeTypeOutput#ConfigurationSchema
+   */
+  readonly configurationSchema?: string;
+
+  /**
+   * @schema CloudFormationDescribeTypeOutput#PublisherId
+   */
+  readonly publisherId?: string;
+
+  /**
+   * @schema CloudFormationDescribeTypeOutput#OriginalTypeName
+   */
+  readonly originalTypeName?: string;
+
+  /**
+   * @schema CloudFormationDescribeTypeOutput#OriginalTypeArn
+   */
+  readonly originalTypeArn?: string;
+
+  /**
+   * @schema CloudFormationDescribeTypeOutput#PublicVersionNumber
+   */
+  readonly publicVersionNumber?: string;
+
+  /**
+   * @schema CloudFormationDescribeTypeOutput#LatestPublicVersion
+   */
+  readonly latestPublicVersion?: string;
+
+  /**
+   * @schema CloudFormationDescribeTypeOutput#IsActivated
+   */
+  readonly isActivated?: boolean;
+
+  /**
+   * @schema CloudFormationDescribeTypeOutput#AutoUpdate
+   */
+  readonly autoUpdate?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'CloudFormationDescribeTypeOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeTypeOutput(obj: CloudFormationDescribeTypeOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Type': obj.type,
+    'TypeName': obj.typeName,
+    'DefaultVersionId': obj.defaultVersionId,
+    'IsDefaultVersion': obj.isDefaultVersion,
+    'TypeTestsStatus': obj.typeTestsStatus,
+    'TypeTestsStatusDescription': obj.typeTestsStatusDescription,
+    'Description': obj.description,
+    'Schema': obj.schema,
+    'ProvisioningType': obj.provisioningType,
+    'DeprecatedStatus': obj.deprecatedStatus,
+    'LoggingConfig': toJson_CloudFormationLoggingConfig(obj.loggingConfig),
+    'RequiredActivatedTypes': obj.requiredActivatedTypes?.map(y => toJson_CloudFormationRequiredActivatedType(y)),
+    'ExecutionRoleArn': obj.executionRoleArn,
+    'Visibility': obj.visibility,
+    'SourceUrl': obj.sourceUrl,
+    'DocumentationUrl': obj.documentationUrl,
+    'LastUpdated': obj.lastUpdated,
+    'TimeCreated': obj.timeCreated,
+    'ConfigurationSchema': obj.configurationSchema,
+    'PublisherId': obj.publisherId,
+    'OriginalTypeName': obj.originalTypeName,
+    'OriginalTypeArn': obj.originalTypeArn,
+    'PublicVersionNumber': obj.publicVersionNumber,
+    'LatestPublicVersion': obj.latestPublicVersion,
+    'IsActivated': obj.isActivated,
+    'AutoUpdate': obj.autoUpdate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDescribeTypeRegistrationInput
@@ -1099,9 +2253,23 @@ export interface CloudFormationDescribeTypeRegistrationInput {
   /**
    * @schema CloudFormationDescribeTypeRegistrationInput#RegistrationToken
    */
-  readonly registrationToken: string;
+  readonly registrationToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationDescribeTypeRegistrationInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeTypeRegistrationInput(obj: CloudFormationDescribeTypeRegistrationInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RegistrationToken': obj.registrationToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDescribeTypeRegistrationOutput
@@ -1130,13 +2298,30 @@ export interface CloudFormationDescribeTypeRegistrationOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationDescribeTypeRegistrationOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDescribeTypeRegistrationOutput(obj: CloudFormationDescribeTypeRegistrationOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProgressStatus': obj.progressStatus,
+    'Description': obj.description,
+    'TypeArn': obj.typeArn,
+    'TypeVersionArn': obj.typeVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationDetectStackDriftInput
  */
 export interface CloudFormationDetectStackDriftInput {
   /**
    * @schema CloudFormationDetectStackDriftInput#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
   /**
    * @schema CloudFormationDetectStackDriftInput#LogicalResourceIds
@@ -1146,15 +2331,44 @@ export interface CloudFormationDetectStackDriftInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationDetectStackDriftInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDetectStackDriftInput(obj: CloudFormationDetectStackDriftInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'LogicalResourceIds': obj.logicalResourceIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationDetectStackDriftOutput
  */
 export interface CloudFormationDetectStackDriftOutput {
   /**
    * @schema CloudFormationDetectStackDriftOutput#StackDriftDetectionId
    */
-  readonly stackDriftDetectionId: string;
+  readonly stackDriftDetectionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationDetectStackDriftOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDetectStackDriftOutput(obj: CloudFormationDetectStackDriftOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackDriftDetectionId': obj.stackDriftDetectionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDetectStackResourceDriftInput
@@ -1163,14 +2377,29 @@ export interface CloudFormationDetectStackResourceDriftInput {
   /**
    * @schema CloudFormationDetectStackResourceDriftInput#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
   /**
    * @schema CloudFormationDetectStackResourceDriftInput#LogicalResourceId
    */
-  readonly logicalResourceId: string;
+  readonly logicalResourceId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationDetectStackResourceDriftInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDetectStackResourceDriftInput(obj: CloudFormationDetectStackResourceDriftInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'LogicalResourceId': obj.logicalResourceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDetectStackResourceDriftOutput
@@ -1179,9 +2408,23 @@ export interface CloudFormationDetectStackResourceDriftOutput {
   /**
    * @schema CloudFormationDetectStackResourceDriftOutput#StackResourceDrift
    */
-  readonly stackResourceDrift: CloudFormationStackResourceDrift;
+  readonly stackResourceDrift?: CloudFormationStackResourceDrift;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationDetectStackResourceDriftOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDetectStackResourceDriftOutput(obj: CloudFormationDetectStackResourceDriftOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackResourceDrift': toJson_CloudFormationStackResourceDrift(obj.stackResourceDrift),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDetectStackSetDriftInput
@@ -1190,7 +2433,7 @@ export interface CloudFormationDetectStackSetDriftInput {
   /**
    * @schema CloudFormationDetectStackSetDriftInput#StackSetName
    */
-  readonly stackSetName: string;
+  readonly stackSetName?: string;
 
   /**
    * @schema CloudFormationDetectStackSetDriftInput#OperationPreferences
@@ -1202,7 +2445,29 @@ export interface CloudFormationDetectStackSetDriftInput {
    */
   readonly operationId?: string;
 
+  /**
+   * @schema CloudFormationDetectStackSetDriftInput#CallAs
+   */
+  readonly callAs?: string;
+
 }
+
+/**
+ * Converts an object of type 'CloudFormationDetectStackSetDriftInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDetectStackSetDriftInput(obj: CloudFormationDetectStackSetDriftInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetName': obj.stackSetName,
+    'OperationPreferences': toJson_CloudFormationStackSetOperationPreferences(obj.operationPreferences),
+    'OperationId': obj.operationId,
+    'CallAs': obj.callAs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDetectStackSetDriftOutput
@@ -1214,6 +2479,20 @@ export interface CloudFormationDetectStackSetDriftOutput {
   readonly operationId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationDetectStackSetDriftOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDetectStackSetDriftOutput(obj: CloudFormationDetectStackSetDriftOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OperationId': obj.operationId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationEstimateTemplateCostInput
@@ -1237,6 +2516,22 @@ export interface CloudFormationEstimateTemplateCostInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationEstimateTemplateCostInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationEstimateTemplateCostInput(obj: CloudFormationEstimateTemplateCostInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TemplateBody': obj.templateBody,
+    'TemplateURL': obj.templateUrl,
+    'Parameters': obj.parameters?.map(y => toJson_CloudFormationParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationEstimateTemplateCostOutput
  */
 export interface CloudFormationEstimateTemplateCostOutput {
@@ -1248,13 +2543,27 @@ export interface CloudFormationEstimateTemplateCostOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationEstimateTemplateCostOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationEstimateTemplateCostOutput(obj: CloudFormationEstimateTemplateCostOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Url': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationExecuteChangeSetInput
  */
 export interface CloudFormationExecuteChangeSetInput {
   /**
    * @schema CloudFormationExecuteChangeSetInput#ChangeSetName
    */
-  readonly changeSetName: string;
+  readonly changeSetName?: string;
 
   /**
    * @schema CloudFormationExecuteChangeSetInput#StackName
@@ -1269,10 +2578,39 @@ export interface CloudFormationExecuteChangeSetInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationExecuteChangeSetInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationExecuteChangeSetInput(obj: CloudFormationExecuteChangeSetInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ChangeSetName': obj.changeSetName,
+    'StackName': obj.stackName,
+    'ClientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationExecuteChangeSetOutput
  */
 export interface CloudFormationExecuteChangeSetOutput {
 }
+
+/**
+ * Converts an object of type 'CloudFormationExecuteChangeSetOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationExecuteChangeSetOutput(obj: CloudFormationExecuteChangeSetOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationGetStackPolicyInput
@@ -1281,9 +2619,23 @@ export interface CloudFormationGetStackPolicyInput {
   /**
    * @schema CloudFormationGetStackPolicyInput#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationGetStackPolicyInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationGetStackPolicyInput(obj: CloudFormationGetStackPolicyInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationGetStackPolicyOutput
@@ -1295,6 +2647,20 @@ export interface CloudFormationGetStackPolicyOutput {
   readonly stackPolicyBody?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationGetStackPolicyOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationGetStackPolicyOutput(obj: CloudFormationGetStackPolicyOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackPolicyBody': obj.stackPolicyBody,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationGetTemplateInput
@@ -1318,6 +2684,22 @@ export interface CloudFormationGetTemplateInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationGetTemplateInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationGetTemplateInput(obj: CloudFormationGetTemplateInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'ChangeSetName': obj.changeSetName,
+    'TemplateStage': obj.templateStage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationGetTemplateOutput
  */
 export interface CloudFormationGetTemplateOutput {
@@ -1332,6 +2714,21 @@ export interface CloudFormationGetTemplateOutput {
   readonly stagesAvailable?: string[];
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationGetTemplateOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationGetTemplateOutput(obj: CloudFormationGetTemplateOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TemplateBody': obj.templateBody,
+    'StagesAvailable': obj.stagesAvailable?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationGetTemplateSummaryInput
@@ -1357,7 +2754,30 @@ export interface CloudFormationGetTemplateSummaryInput {
    */
   readonly stackSetName?: string;
 
+  /**
+   * @schema CloudFormationGetTemplateSummaryInput#CallAs
+   */
+  readonly callAs?: string;
+
 }
+
+/**
+ * Converts an object of type 'CloudFormationGetTemplateSummaryInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationGetTemplateSummaryInput(obj: CloudFormationGetTemplateSummaryInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TemplateBody': obj.templateBody,
+    'TemplateURL': obj.templateUrl,
+    'StackName': obj.stackName,
+    'StackSetName': obj.stackSetName,
+    'CallAs': obj.callAs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationGetTemplateSummaryOutput
@@ -1411,13 +2831,109 @@ export interface CloudFormationGetTemplateSummaryOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationGetTemplateSummaryOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationGetTemplateSummaryOutput(obj: CloudFormationGetTemplateSummaryOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Parameters': obj.parameters?.map(y => toJson_CloudFormationParameterDeclaration(y)),
+    'Description': obj.description,
+    'Capabilities': obj.capabilities?.map(y => y),
+    'CapabilitiesReason': obj.capabilitiesReason,
+    'ResourceTypes': obj.resourceTypes?.map(y => y),
+    'Version': obj.version,
+    'Metadata': obj.metadata,
+    'DeclaredTransforms': obj.declaredTransforms?.map(y => y),
+    'ResourceIdentifierSummaries': obj.resourceIdentifierSummaries?.map(y => toJson_CloudFormationResourceIdentifierSummary(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationImportStacksToStackSetInput
+ */
+export interface CloudFormationImportStacksToStackSetInput {
+  /**
+   * @schema CloudFormationImportStacksToStackSetInput#StackSetName
+   */
+  readonly stackSetName?: string;
+
+  /**
+   * @schema CloudFormationImportStacksToStackSetInput#StackIds
+   */
+  readonly stackIds?: string[];
+
+  /**
+   * @schema CloudFormationImportStacksToStackSetInput#OperationPreferences
+   */
+  readonly operationPreferences?: CloudFormationStackSetOperationPreferences;
+
+  /**
+   * @schema CloudFormationImportStacksToStackSetInput#OperationId
+   */
+  readonly operationId?: string;
+
+  /**
+   * @schema CloudFormationImportStacksToStackSetInput#CallAs
+   */
+  readonly callAs?: string;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationImportStacksToStackSetInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationImportStacksToStackSetInput(obj: CloudFormationImportStacksToStackSetInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetName': obj.stackSetName,
+    'StackIds': obj.stackIds?.map(y => y),
+    'OperationPreferences': toJson_CloudFormationStackSetOperationPreferences(obj.operationPreferences),
+    'OperationId': obj.operationId,
+    'CallAs': obj.callAs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationImportStacksToStackSetOutput
+ */
+export interface CloudFormationImportStacksToStackSetOutput {
+  /**
+   * @schema CloudFormationImportStacksToStackSetOutput#OperationId
+   */
+  readonly operationId?: string;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationImportStacksToStackSetOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationImportStacksToStackSetOutput(obj: CloudFormationImportStacksToStackSetOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OperationId': obj.operationId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationListChangeSetsInput
  */
 export interface CloudFormationListChangeSetsInput {
   /**
    * @schema CloudFormationListChangeSetsInput#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
   /**
    * @schema CloudFormationListChangeSetsInput#NextToken
@@ -1425,6 +2941,21 @@ export interface CloudFormationListChangeSetsInput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationListChangeSetsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListChangeSetsInput(obj: CloudFormationListChangeSetsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationListChangeSetsOutput
@@ -1443,6 +2974,21 @@ export interface CloudFormationListChangeSetsOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationListChangeSetsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListChangeSetsOutput(obj: CloudFormationListChangeSetsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Summaries': obj.summaries?.map(y => toJson_CloudFormationChangeSetSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationListExportsInput
  */
 export interface CloudFormationListExportsInput {
@@ -1452,6 +2998,20 @@ export interface CloudFormationListExportsInput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationListExportsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListExportsInput(obj: CloudFormationListExportsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationListExportsOutput
@@ -1470,13 +3030,28 @@ export interface CloudFormationListExportsOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationListExportsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListExportsOutput(obj: CloudFormationListExportsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Exports': obj.exports?.map(y => toJson_CloudFormationExport(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationListImportsInput
  */
 export interface CloudFormationListImportsInput {
   /**
    * @schema CloudFormationListImportsInput#ExportName
    */
-  readonly exportName: string;
+  readonly exportName?: string;
 
   /**
    * @schema CloudFormationListImportsInput#NextToken
@@ -1484,6 +3059,21 @@ export interface CloudFormationListImportsInput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationListImportsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListImportsInput(obj: CloudFormationListImportsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExportName': obj.exportName,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationListImportsOutput
@@ -1502,13 +3092,28 @@ export interface CloudFormationListImportsOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationListImportsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListImportsOutput(obj: CloudFormationListImportsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Imports': obj.imports?.map(y => y),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationListStackInstancesInput
  */
 export interface CloudFormationListStackInstancesInput {
   /**
    * @schema CloudFormationListStackInstancesInput#StackSetName
    */
-  readonly stackSetName: string;
+  readonly stackSetName?: string;
 
   /**
    * @schema CloudFormationListStackInstancesInput#NextToken
@@ -1535,7 +3140,32 @@ export interface CloudFormationListStackInstancesInput {
    */
   readonly stackInstanceRegion?: string;
 
+  /**
+   * @schema CloudFormationListStackInstancesInput#CallAs
+   */
+  readonly callAs?: string;
+
 }
+
+/**
+ * Converts an object of type 'CloudFormationListStackInstancesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListStackInstancesInput(obj: CloudFormationListStackInstancesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetName': obj.stackSetName,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'Filters': obj.filters?.map(y => toJson_CloudFormationStackInstanceFilter(y)),
+    'StackInstanceAccount': obj.stackInstanceAccount,
+    'StackInstanceRegion': obj.stackInstanceRegion,
+    'CallAs': obj.callAs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationListStackInstancesOutput
@@ -1554,13 +3184,28 @@ export interface CloudFormationListStackInstancesOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationListStackInstancesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListStackInstancesOutput(obj: CloudFormationListStackInstancesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Summaries': obj.summaries?.map(y => toJson_CloudFormationStackInstanceSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationListStackResourcesInput
  */
 export interface CloudFormationListStackResourcesInput {
   /**
    * @schema CloudFormationListStackResourcesInput#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
   /**
    * @schema CloudFormationListStackResourcesInput#NextToken
@@ -1568,6 +3213,21 @@ export interface CloudFormationListStackResourcesInput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationListStackResourcesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListStackResourcesInput(obj: CloudFormationListStackResourcesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationListStackResourcesOutput
@@ -1586,18 +3246,33 @@ export interface CloudFormationListStackResourcesOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationListStackResourcesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListStackResourcesOutput(obj: CloudFormationListStackResourcesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackResourceSummaries': obj.stackResourceSummaries?.map(y => toJson_CloudFormationStackResourceSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationListStackSetOperationResultsInput
  */
 export interface CloudFormationListStackSetOperationResultsInput {
   /**
    * @schema CloudFormationListStackSetOperationResultsInput#StackSetName
    */
-  readonly stackSetName: string;
+  readonly stackSetName?: string;
 
   /**
    * @schema CloudFormationListStackSetOperationResultsInput#OperationId
    */
-  readonly operationId: string;
+  readonly operationId?: string;
 
   /**
    * @schema CloudFormationListStackSetOperationResultsInput#NextToken
@@ -1609,7 +3284,30 @@ export interface CloudFormationListStackSetOperationResultsInput {
    */
   readonly maxResults?: number;
 
+  /**
+   * @schema CloudFormationListStackSetOperationResultsInput#CallAs
+   */
+  readonly callAs?: string;
+
 }
+
+/**
+ * Converts an object of type 'CloudFormationListStackSetOperationResultsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListStackSetOperationResultsInput(obj: CloudFormationListStackSetOperationResultsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetName': obj.stackSetName,
+    'OperationId': obj.operationId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'CallAs': obj.callAs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationListStackSetOperationResultsOutput
@@ -1628,13 +3326,28 @@ export interface CloudFormationListStackSetOperationResultsOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationListStackSetOperationResultsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListStackSetOperationResultsOutput(obj: CloudFormationListStackSetOperationResultsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Summaries': obj.summaries?.map(y => toJson_CloudFormationStackSetOperationResultSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationListStackSetOperationsInput
  */
 export interface CloudFormationListStackSetOperationsInput {
   /**
    * @schema CloudFormationListStackSetOperationsInput#StackSetName
    */
-  readonly stackSetName: string;
+  readonly stackSetName?: string;
 
   /**
    * @schema CloudFormationListStackSetOperationsInput#NextToken
@@ -1646,7 +3359,29 @@ export interface CloudFormationListStackSetOperationsInput {
    */
   readonly maxResults?: number;
 
+  /**
+   * @schema CloudFormationListStackSetOperationsInput#CallAs
+   */
+  readonly callAs?: string;
+
 }
+
+/**
+ * Converts an object of type 'CloudFormationListStackSetOperationsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListStackSetOperationsInput(obj: CloudFormationListStackSetOperationsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetName': obj.stackSetName,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'CallAs': obj.callAs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationListStackSetOperationsOutput
@@ -1663,6 +3398,21 @@ export interface CloudFormationListStackSetOperationsOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationListStackSetOperationsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListStackSetOperationsOutput(obj: CloudFormationListStackSetOperationsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Summaries': obj.summaries?.map(y => toJson_CloudFormationStackSetOperationSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationListStackSetsInput
@@ -1683,7 +3433,29 @@ export interface CloudFormationListStackSetsInput {
    */
   readonly status?: string;
 
+  /**
+   * @schema CloudFormationListStackSetsInput#CallAs
+   */
+  readonly callAs?: string;
+
 }
+
+/**
+ * Converts an object of type 'CloudFormationListStackSetsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListStackSetsInput(obj: CloudFormationListStackSetsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'Status': obj.status,
+    'CallAs': obj.callAs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationListStackSetsOutput
@@ -1702,6 +3474,21 @@ export interface CloudFormationListStackSetsOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationListStackSetsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListStackSetsOutput(obj: CloudFormationListStackSetsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Summaries': obj.summaries?.map(y => toJson_CloudFormationStackSetSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationListStacksInput
  */
 export interface CloudFormationListStacksInput {
@@ -1718,6 +3505,21 @@ export interface CloudFormationListStacksInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationListStacksInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListStacksInput(obj: CloudFormationListStacksInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'StackStatusFilter': obj.stackStatusFilter?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationListStacksOutput
  */
 export interface CloudFormationListStacksOutput {
@@ -1732,6 +3534,21 @@ export interface CloudFormationListStacksOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationListStacksOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListStacksOutput(obj: CloudFormationListStacksOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSummaries': obj.stackSummaries?.map(y => toJson_CloudFormationStackSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationListTypeRegistrationsInput
@@ -1770,6 +3587,25 @@ export interface CloudFormationListTypeRegistrationsInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationListTypeRegistrationsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListTypeRegistrationsInput(obj: CloudFormationListTypeRegistrationsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'TypeName': obj.typeName,
+    'TypeArn': obj.typeArn,
+    'RegistrationStatusFilter': obj.registrationStatusFilter,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationListTypeRegistrationsOutput
  */
 export interface CloudFormationListTypeRegistrationsOutput {
@@ -1784,6 +3620,21 @@ export interface CloudFormationListTypeRegistrationsOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationListTypeRegistrationsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListTypeRegistrationsOutput(obj: CloudFormationListTypeRegistrationsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RegistrationTokenList': obj.registrationTokenList?.map(y => y),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationListTypeVersionsInput
@@ -1819,7 +3670,32 @@ export interface CloudFormationListTypeVersionsInput {
    */
   readonly deprecatedStatus?: string;
 
+  /**
+   * @schema CloudFormationListTypeVersionsInput#PublisherId
+   */
+  readonly publisherId?: string;
+
 }
+
+/**
+ * Converts an object of type 'CloudFormationListTypeVersionsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListTypeVersionsInput(obj: CloudFormationListTypeVersionsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'TypeName': obj.typeName,
+    'Arn': obj.arn,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+    'DeprecatedStatus': obj.deprecatedStatus,
+    'PublisherId': obj.publisherId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationListTypeVersionsOutput
@@ -1836,6 +3712,21 @@ export interface CloudFormationListTypeVersionsOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationListTypeVersionsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListTypeVersionsOutput(obj: CloudFormationListTypeVersionsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TypeVersionSummaries': obj.typeVersionSummaries?.map(y => toJson_CloudFormationTypeVersionSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationListTypesInput
@@ -1862,6 +3753,11 @@ export interface CloudFormationListTypesInput {
   readonly type?: string;
 
   /**
+   * @schema CloudFormationListTypesInput#Filters
+   */
+  readonly filters?: CloudFormationTypeFilters;
+
+  /**
    * @schema CloudFormationListTypesInput#MaxResults
    */
   readonly maxResults?: number;
@@ -1872,6 +3768,26 @@ export interface CloudFormationListTypesInput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationListTypesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListTypesInput(obj: CloudFormationListTypesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Visibility': obj.visibility,
+    'ProvisioningType': obj.provisioningType,
+    'DeprecatedStatus': obj.deprecatedStatus,
+    'Type': obj.type,
+    'Filters': toJson_CloudFormationTypeFilters(obj.filters),
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationListTypesOutput
@@ -1890,18 +3806,101 @@ export interface CloudFormationListTypesOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationListTypesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationListTypesOutput(obj: CloudFormationListTypesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TypeSummaries': obj.typeSummaries?.map(y => toJson_CloudFormationTypeSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationPublishTypeInput
+ */
+export interface CloudFormationPublishTypeInput {
+  /**
+   * @schema CloudFormationPublishTypeInput#Type
+   */
+  readonly type?: string;
+
+  /**
+   * @schema CloudFormationPublishTypeInput#Arn
+   */
+  readonly arn?: string;
+
+  /**
+   * @schema CloudFormationPublishTypeInput#TypeName
+   */
+  readonly typeName?: string;
+
+  /**
+   * @schema CloudFormationPublishTypeInput#PublicVersionNumber
+   */
+  readonly publicVersionNumber?: string;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationPublishTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationPublishTypeInput(obj: CloudFormationPublishTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'Arn': obj.arn,
+    'TypeName': obj.typeName,
+    'PublicVersionNumber': obj.publicVersionNumber,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationPublishTypeOutput
+ */
+export interface CloudFormationPublishTypeOutput {
+  /**
+   * @schema CloudFormationPublishTypeOutput#PublicTypeArn
+   */
+  readonly publicTypeArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationPublishTypeOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationPublishTypeOutput(obj: CloudFormationPublishTypeOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PublicTypeArn': obj.publicTypeArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationRecordHandlerProgressInput
  */
 export interface CloudFormationRecordHandlerProgressInput {
   /**
    * @schema CloudFormationRecordHandlerProgressInput#BearerToken
    */
-  readonly bearerToken: string;
+  readonly bearerToken?: string;
 
   /**
    * @schema CloudFormationRecordHandlerProgressInput#OperationStatus
    */
-  readonly operationStatus: string;
+  readonly operationStatus?: string;
 
   /**
    * @schema CloudFormationRecordHandlerProgressInput#CurrentOperationStatus
@@ -1931,10 +3930,99 @@ export interface CloudFormationRecordHandlerProgressInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationRecordHandlerProgressInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationRecordHandlerProgressInput(obj: CloudFormationRecordHandlerProgressInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BearerToken': obj.bearerToken,
+    'OperationStatus': obj.operationStatus,
+    'CurrentOperationStatus': obj.currentOperationStatus,
+    'StatusMessage': obj.statusMessage,
+    'ErrorCode': obj.errorCode,
+    'ResourceModel': obj.resourceModel,
+    'ClientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationRecordHandlerProgressOutput
  */
 export interface CloudFormationRecordHandlerProgressOutput {
 }
+
+/**
+ * Converts an object of type 'CloudFormationRecordHandlerProgressOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationRecordHandlerProgressOutput(obj: CloudFormationRecordHandlerProgressOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationRegisterPublisherInput
+ */
+export interface CloudFormationRegisterPublisherInput {
+  /**
+   * @schema CloudFormationRegisterPublisherInput#AcceptTermsAndConditions
+   */
+  readonly acceptTermsAndConditions?: boolean;
+
+  /**
+   * @schema CloudFormationRegisterPublisherInput#ConnectionArn
+   */
+  readonly connectionArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationRegisterPublisherInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationRegisterPublisherInput(obj: CloudFormationRegisterPublisherInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AcceptTermsAndConditions': obj.acceptTermsAndConditions,
+    'ConnectionArn': obj.connectionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationRegisterPublisherOutput
+ */
+export interface CloudFormationRegisterPublisherOutput {
+  /**
+   * @schema CloudFormationRegisterPublisherOutput#PublisherId
+   */
+  readonly publisherId?: string;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationRegisterPublisherOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationRegisterPublisherOutput(obj: CloudFormationRegisterPublisherOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PublisherId': obj.publisherId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationRegisterTypeInput
@@ -1948,12 +4036,12 @@ export interface CloudFormationRegisterTypeInput {
   /**
    * @schema CloudFormationRegisterTypeInput#TypeName
    */
-  readonly typeName: string;
+  readonly typeName?: string;
 
   /**
    * @schema CloudFormationRegisterTypeInput#SchemaHandlerPackage
    */
-  readonly schemaHandlerPackage: string;
+  readonly schemaHandlerPackage?: string;
 
   /**
    * @schema CloudFormationRegisterTypeInput#LoggingConfig
@@ -1973,6 +4061,25 @@ export interface CloudFormationRegisterTypeInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationRegisterTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationRegisterTypeInput(obj: CloudFormationRegisterTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'TypeName': obj.typeName,
+    'SchemaHandlerPackage': obj.schemaHandlerPackage,
+    'LoggingConfig': toJson_CloudFormationLoggingConfig(obj.loggingConfig),
+    'ExecutionRoleArn': obj.executionRoleArn,
+    'ClientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationRegisterTypeOutput
  */
 export interface CloudFormationRegisterTypeOutput {
@@ -1984,13 +4091,27 @@ export interface CloudFormationRegisterTypeOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationRegisterTypeOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationRegisterTypeOutput(obj: CloudFormationRegisterTypeOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RegistrationToken': obj.registrationToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationSetStackPolicyInput
  */
 export interface CloudFormationSetStackPolicyInput {
   /**
    * @schema CloudFormationSetStackPolicyInput#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
   /**
    * @schema CloudFormationSetStackPolicyInput#StackPolicyBody
@@ -2003,6 +4124,96 @@ export interface CloudFormationSetStackPolicyInput {
   readonly stackPolicyUrl?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationSetStackPolicyInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationSetStackPolicyInput(obj: CloudFormationSetStackPolicyInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'StackPolicyBody': obj.stackPolicyBody,
+    'StackPolicyURL': obj.stackPolicyUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationSetTypeConfigurationInput
+ */
+export interface CloudFormationSetTypeConfigurationInput {
+  /**
+   * @schema CloudFormationSetTypeConfigurationInput#TypeArn
+   */
+  readonly typeArn?: string;
+
+  /**
+   * @schema CloudFormationSetTypeConfigurationInput#Configuration
+   */
+  readonly configuration?: string;
+
+  /**
+   * @schema CloudFormationSetTypeConfigurationInput#ConfigurationAlias
+   */
+  readonly configurationAlias?: string;
+
+  /**
+   * @schema CloudFormationSetTypeConfigurationInput#TypeName
+   */
+  readonly typeName?: string;
+
+  /**
+   * @schema CloudFormationSetTypeConfigurationInput#Type
+   */
+  readonly type?: string;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationSetTypeConfigurationInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationSetTypeConfigurationInput(obj: CloudFormationSetTypeConfigurationInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TypeArn': obj.typeArn,
+    'Configuration': obj.configuration,
+    'ConfigurationAlias': obj.configurationAlias,
+    'TypeName': obj.typeName,
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationSetTypeConfigurationOutput
+ */
+export interface CloudFormationSetTypeConfigurationOutput {
+  /**
+   * @schema CloudFormationSetTypeConfigurationOutput#ConfigurationArn
+   */
+  readonly configurationArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationSetTypeConfigurationOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationSetTypeConfigurationOutput(obj: CloudFormationSetTypeConfigurationOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConfigurationArn': obj.configurationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationSetTypeDefaultVersionInput
@@ -2031,10 +4242,40 @@ export interface CloudFormationSetTypeDefaultVersionInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationSetTypeDefaultVersionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationSetTypeDefaultVersionInput(obj: CloudFormationSetTypeDefaultVersionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Type': obj.type,
+    'TypeName': obj.typeName,
+    'VersionId': obj.versionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationSetTypeDefaultVersionOutput
  */
 export interface CloudFormationSetTypeDefaultVersionOutput {
 }
+
+/**
+ * Converts an object of type 'CloudFormationSetTypeDefaultVersionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationSetTypeDefaultVersionOutput(obj: CloudFormationSetTypeDefaultVersionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationSignalResourceInput
@@ -2043,24 +4284,41 @@ export interface CloudFormationSignalResourceInput {
   /**
    * @schema CloudFormationSignalResourceInput#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
   /**
    * @schema CloudFormationSignalResourceInput#LogicalResourceId
    */
-  readonly logicalResourceId: string;
+  readonly logicalResourceId?: string;
 
   /**
    * @schema CloudFormationSignalResourceInput#UniqueId
    */
-  readonly uniqueId: string;
+  readonly uniqueId?: string;
 
   /**
    * @schema CloudFormationSignalResourceInput#Status
    */
-  readonly status: string;
+  readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationSignalResourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationSignalResourceInput(obj: CloudFormationSignalResourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'LogicalResourceId': obj.logicalResourceId,
+    'UniqueId': obj.uniqueId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationStopStackSetOperationInput
@@ -2069,14 +4327,35 @@ export interface CloudFormationStopStackSetOperationInput {
   /**
    * @schema CloudFormationStopStackSetOperationInput#StackSetName
    */
-  readonly stackSetName: string;
+  readonly stackSetName?: string;
 
   /**
    * @schema CloudFormationStopStackSetOperationInput#OperationId
    */
-  readonly operationId: string;
+  readonly operationId?: string;
+
+  /**
+   * @schema CloudFormationStopStackSetOperationInput#CallAs
+   */
+  readonly callAs?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationStopStackSetOperationInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStopStackSetOperationInput(obj: CloudFormationStopStackSetOperationInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetName': obj.stackSetName,
+    'OperationId': obj.operationId,
+    'CallAs': obj.callAs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationStopStackSetOperationOutput
@@ -2085,13 +4364,100 @@ export interface CloudFormationStopStackSetOperationOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationStopStackSetOperationOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStopStackSetOperationOutput(obj: CloudFormationStopStackSetOperationOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationTestTypeInput
+ */
+export interface CloudFormationTestTypeInput {
+  /**
+   * @schema CloudFormationTestTypeInput#Arn
+   */
+  readonly arn?: string;
+
+  /**
+   * @schema CloudFormationTestTypeInput#Type
+   */
+  readonly type?: string;
+
+  /**
+   * @schema CloudFormationTestTypeInput#TypeName
+   */
+  readonly typeName?: string;
+
+  /**
+   * @schema CloudFormationTestTypeInput#VersionId
+   */
+  readonly versionId?: string;
+
+  /**
+   * @schema CloudFormationTestTypeInput#LogDeliveryBucket
+   */
+  readonly logDeliveryBucket?: string;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationTestTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationTestTypeInput(obj: CloudFormationTestTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Type': obj.type,
+    'TypeName': obj.typeName,
+    'VersionId': obj.versionId,
+    'LogDeliveryBucket': obj.logDeliveryBucket,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationTestTypeOutput
+ */
+export interface CloudFormationTestTypeOutput {
+  /**
+   * @schema CloudFormationTestTypeOutput#TypeVersionArn
+   */
+  readonly typeVersionArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationTestTypeOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationTestTypeOutput(obj: CloudFormationTestTypeOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TypeVersionArn': obj.typeVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationUpdateStackInput
  */
 export interface CloudFormationUpdateStackInput {
   /**
    * @schema CloudFormationUpdateStackInput#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
   /**
    * @schema CloudFormationUpdateStackInput#TemplateBody
@@ -2171,6 +4537,35 @@ export interface CloudFormationUpdateStackInput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationUpdateStackInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationUpdateStackInput(obj: CloudFormationUpdateStackInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'TemplateBody': obj.templateBody,
+    'TemplateURL': obj.templateUrl,
+    'UsePreviousTemplate': obj.usePreviousTemplate,
+    'StackPolicyDuringUpdateBody': obj.stackPolicyDuringUpdateBody,
+    'StackPolicyDuringUpdateURL': obj.stackPolicyDuringUpdateUrl,
+    'Parameters': obj.parameters?.map(y => toJson_CloudFormationParameter(y)),
+    'Capabilities': obj.capabilities?.map(y => y),
+    'ResourceTypes': obj.resourceTypes?.map(y => y),
+    'RoleARN': obj.roleArn,
+    'RollbackConfiguration': toJson_CloudFormationRollbackConfiguration(obj.rollbackConfiguration),
+    'StackPolicyBody': obj.stackPolicyBody,
+    'StackPolicyURL': obj.stackPolicyUrl,
+    'NotificationARNs': obj.notificationArNs?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_CloudFormationTag(y)),
+    'ClientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationUpdateStackOutput
  */
 export interface CloudFormationUpdateStackOutput {
@@ -2182,13 +4577,27 @@ export interface CloudFormationUpdateStackOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationUpdateStackOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationUpdateStackOutput(obj: CloudFormationUpdateStackOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationUpdateStackInstancesInput
  */
 export interface CloudFormationUpdateStackInstancesInput {
   /**
    * @schema CloudFormationUpdateStackInstancesInput#StackSetName
    */
-  readonly stackSetName: string;
+  readonly stackSetName?: string;
 
   /**
    * @schema CloudFormationUpdateStackInstancesInput#Accounts
@@ -2203,7 +4612,7 @@ export interface CloudFormationUpdateStackInstancesInput {
   /**
    * @schema CloudFormationUpdateStackInstancesInput#Regions
    */
-  readonly regions: string[];
+  readonly regions?: string[];
 
   /**
    * @schema CloudFormationUpdateStackInstancesInput#ParameterOverrides
@@ -2220,7 +4629,33 @@ export interface CloudFormationUpdateStackInstancesInput {
    */
   readonly operationId?: string;
 
+  /**
+   * @schema CloudFormationUpdateStackInstancesInput#CallAs
+   */
+  readonly callAs?: string;
+
 }
+
+/**
+ * Converts an object of type 'CloudFormationUpdateStackInstancesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationUpdateStackInstancesInput(obj: CloudFormationUpdateStackInstancesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetName': obj.stackSetName,
+    'Accounts': obj.accounts?.map(y => y),
+    'DeploymentTargets': toJson_CloudFormationDeploymentTargets(obj.deploymentTargets),
+    'Regions': obj.regions?.map(y => y),
+    'ParameterOverrides': obj.parameterOverrides?.map(y => toJson_CloudFormationParameter(y)),
+    'OperationPreferences': toJson_CloudFormationStackSetOperationPreferences(obj.operationPreferences),
+    'OperationId': obj.operationId,
+    'CallAs': obj.callAs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationUpdateStackInstancesOutput
@@ -2234,13 +4669,27 @@ export interface CloudFormationUpdateStackInstancesOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationUpdateStackInstancesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationUpdateStackInstancesOutput(obj: CloudFormationUpdateStackInstancesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OperationId': obj.operationId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationUpdateStackSetInput
  */
 export interface CloudFormationUpdateStackSetInput {
   /**
    * @schema CloudFormationUpdateStackSetInput#StackSetName
    */
-  readonly stackSetName: string;
+  readonly stackSetName?: string;
 
   /**
    * @schema CloudFormationUpdateStackSetInput#Description
@@ -2322,7 +4771,43 @@ export interface CloudFormationUpdateStackSetInput {
    */
   readonly regions?: string[];
 
+  /**
+   * @schema CloudFormationUpdateStackSetInput#CallAs
+   */
+  readonly callAs?: string;
+
 }
+
+/**
+ * Converts an object of type 'CloudFormationUpdateStackSetInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationUpdateStackSetInput(obj: CloudFormationUpdateStackSetInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetName': obj.stackSetName,
+    'Description': obj.description,
+    'TemplateBody': obj.templateBody,
+    'TemplateURL': obj.templateUrl,
+    'UsePreviousTemplate': obj.usePreviousTemplate,
+    'Parameters': obj.parameters?.map(y => toJson_CloudFormationParameter(y)),
+    'Capabilities': obj.capabilities?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_CloudFormationTag(y)),
+    'OperationPreferences': toJson_CloudFormationStackSetOperationPreferences(obj.operationPreferences),
+    'AdministrationRoleARN': obj.administrationRoleArn,
+    'ExecutionRoleName': obj.executionRoleName,
+    'DeploymentTargets': toJson_CloudFormationDeploymentTargets(obj.deploymentTargets),
+    'PermissionModel': obj.permissionModel,
+    'AutoDeployment': toJson_CloudFormationAutoDeployment(obj.autoDeployment),
+    'OperationId': obj.operationId,
+    'Accounts': obj.accounts?.map(y => y),
+    'Regions': obj.regions?.map(y => y),
+    'CallAs': obj.callAs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationUpdateStackSetOutput
@@ -2336,20 +4821,49 @@ export interface CloudFormationUpdateStackSetOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationUpdateStackSetOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationUpdateStackSetOutput(obj: CloudFormationUpdateStackSetOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OperationId': obj.operationId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationUpdateTerminationProtectionInput
  */
 export interface CloudFormationUpdateTerminationProtectionInput {
   /**
    * @schema CloudFormationUpdateTerminationProtectionInput#EnableTerminationProtection
    */
-  readonly enableTerminationProtection: boolean;
+  readonly enableTerminationProtection?: boolean;
 
   /**
    * @schema CloudFormationUpdateTerminationProtectionInput#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationUpdateTerminationProtectionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationUpdateTerminationProtectionInput(obj: CloudFormationUpdateTerminationProtectionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnableTerminationProtection': obj.enableTerminationProtection,
+    'StackName': obj.stackName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationUpdateTerminationProtectionOutput
@@ -2361,6 +4875,20 @@ export interface CloudFormationUpdateTerminationProtectionOutput {
   readonly stackId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationUpdateTerminationProtectionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationUpdateTerminationProtectionOutput(obj: CloudFormationUpdateTerminationProtectionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationValidateTemplateInput
@@ -2377,6 +4905,21 @@ export interface CloudFormationValidateTemplateInput {
   readonly templateUrl?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationValidateTemplateInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationValidateTemplateInput(obj: CloudFormationValidateTemplateInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TemplateBody': obj.templateBody,
+    'TemplateURL': obj.templateUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationValidateTemplateOutput
@@ -2410,6 +4953,202 @@ export interface CloudFormationValidateTemplateOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationValidateTemplateOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationValidateTemplateOutput(obj: CloudFormationValidateTemplateOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Parameters': obj.parameters?.map(y => toJson_CloudFormationTemplateParameter(y)),
+    'Description': obj.description,
+    'Capabilities': obj.capabilities?.map(y => y),
+    'CapabilitiesReason': obj.capabilitiesReason,
+    'DeclaredTransforms': obj.declaredTransforms?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationLoggingConfig
+ */
+export interface CloudFormationLoggingConfig {
+  /**
+   * @schema CloudFormationLoggingConfig#LogRoleArn
+   */
+  readonly logRoleArn?: string;
+
+  /**
+   * @schema CloudFormationLoggingConfig#LogGroupName
+   */
+  readonly logGroupName?: string;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationLoggingConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationLoggingConfig(obj: CloudFormationLoggingConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LogRoleArn': obj.logRoleArn,
+    'LogGroupName': obj.logGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationTypeConfigurationIdentifier
+ */
+export interface CloudFormationTypeConfigurationIdentifier {
+  /**
+   * @schema CloudFormationTypeConfigurationIdentifier#TypeArn
+   */
+  readonly typeArn?: string;
+
+  /**
+   * @schema CloudFormationTypeConfigurationIdentifier#TypeConfigurationAlias
+   */
+  readonly typeConfigurationAlias?: string;
+
+  /**
+   * @schema CloudFormationTypeConfigurationIdentifier#TypeConfigurationArn
+   */
+  readonly typeConfigurationArn?: string;
+
+  /**
+   * @schema CloudFormationTypeConfigurationIdentifier#Type
+   */
+  readonly type?: string;
+
+  /**
+   * @schema CloudFormationTypeConfigurationIdentifier#TypeName
+   */
+  readonly typeName?: string;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationTypeConfigurationIdentifier' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationTypeConfigurationIdentifier(obj: CloudFormationTypeConfigurationIdentifier | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TypeArn': obj.typeArn,
+    'TypeConfigurationAlias': obj.typeConfigurationAlias,
+    'TypeConfigurationArn': obj.typeConfigurationArn,
+    'Type': obj.type,
+    'TypeName': obj.typeName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationBatchDescribeTypeConfigurationsError
+ */
+export interface CloudFormationBatchDescribeTypeConfigurationsError {
+  /**
+   * @schema CloudFormationBatchDescribeTypeConfigurationsError#ErrorCode
+   */
+  readonly errorCode?: string;
+
+  /**
+   * @schema CloudFormationBatchDescribeTypeConfigurationsError#ErrorMessage
+   */
+  readonly errorMessage?: string;
+
+  /**
+   * @schema CloudFormationBatchDescribeTypeConfigurationsError#TypeConfigurationIdentifier
+   */
+  readonly typeConfigurationIdentifier?: CloudFormationTypeConfigurationIdentifier;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationBatchDescribeTypeConfigurationsError' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationBatchDescribeTypeConfigurationsError(obj: CloudFormationBatchDescribeTypeConfigurationsError | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ErrorCode': obj.errorCode,
+    'ErrorMessage': obj.errorMessage,
+    'TypeConfigurationIdentifier': toJson_CloudFormationTypeConfigurationIdentifier(obj.typeConfigurationIdentifier),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationTypeConfigurationDetails
+ */
+export interface CloudFormationTypeConfigurationDetails {
+  /**
+   * @schema CloudFormationTypeConfigurationDetails#Arn
+   */
+  readonly arn?: string;
+
+  /**
+   * @schema CloudFormationTypeConfigurationDetails#Alias
+   */
+  readonly alias?: string;
+
+  /**
+   * @schema CloudFormationTypeConfigurationDetails#Configuration
+   */
+  readonly configuration?: string;
+
+  /**
+   * @schema CloudFormationTypeConfigurationDetails#LastUpdated
+   */
+  readonly lastUpdated?: string;
+
+  /**
+   * @schema CloudFormationTypeConfigurationDetails#TypeArn
+   */
+  readonly typeArn?: string;
+
+  /**
+   * @schema CloudFormationTypeConfigurationDetails#TypeName
+   */
+  readonly typeName?: string;
+
+  /**
+   * @schema CloudFormationTypeConfigurationDetails#IsDefaultConfiguration
+   */
+  readonly isDefaultConfiguration?: boolean;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationTypeConfigurationDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationTypeConfigurationDetails(obj: CloudFormationTypeConfigurationDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Alias': obj.alias,
+    'Configuration': obj.configuration,
+    'LastUpdated': obj.lastUpdated,
+    'TypeArn': obj.typeArn,
+    'TypeName': obj.typeName,
+    'IsDefaultConfiguration': obj.isDefaultConfiguration,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationParameter
  */
 export interface CloudFormationParameter {
@@ -2436,6 +5175,23 @@ export interface CloudFormationParameter {
 }
 
 /**
+ * Converts an object of type 'CloudFormationParameter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationParameter(obj: CloudFormationParameter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ParameterKey': obj.parameterKey,
+    'ParameterValue': obj.parameterValue,
+    'UsePreviousValue': obj.usePreviousValue,
+    'ResolvedValue': obj.resolvedValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationRollbackConfiguration
  */
 export interface CloudFormationRollbackConfiguration {
@@ -2452,20 +5208,50 @@ export interface CloudFormationRollbackConfiguration {
 }
 
 /**
+ * Converts an object of type 'CloudFormationRollbackConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationRollbackConfiguration(obj: CloudFormationRollbackConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RollbackTriggers': obj.rollbackTriggers?.map(y => toJson_CloudFormationRollbackTrigger(y)),
+    'MonitoringTimeInMinutes': obj.monitoringTimeInMinutes,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationTag
  */
 export interface CloudFormationTag {
   /**
    * @schema CloudFormationTag#Key
    */
-  readonly key: string;
+  readonly key?: string;
 
   /**
    * @schema CloudFormationTag#Value
    */
-  readonly value: string;
+  readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationTag(obj: CloudFormationTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationResourceToImport
@@ -2474,19 +5260,35 @@ export interface CloudFormationResourceToImport {
   /**
    * @schema CloudFormationResourceToImport#ResourceType
    */
-  readonly resourceType: string;
+  readonly resourceType?: string;
 
   /**
    * @schema CloudFormationResourceToImport#LogicalResourceId
    */
-  readonly logicalResourceId: string;
+  readonly logicalResourceId?: string;
 
   /**
    * @schema CloudFormationResourceToImport#ResourceIdentifier
    */
-  readonly resourceIdentifier: { [key: string]: string };
+  readonly resourceIdentifier?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationResourceToImport' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationResourceToImport(obj: CloudFormationResourceToImport | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceType': obj.resourceType,
+    'LogicalResourceId': obj.logicalResourceId,
+    'ResourceIdentifier': ((obj.resourceIdentifier) === undefined) ? undefined : (Object.entries(obj.resourceIdentifier).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationDeploymentTargets
@@ -2498,6 +5300,11 @@ export interface CloudFormationDeploymentTargets {
   readonly accounts?: string[];
 
   /**
+   * @schema CloudFormationDeploymentTargets#AccountsUrl
+   */
+  readonly accountsUrl?: string;
+
+  /**
    * @schema CloudFormationDeploymentTargets#OrganizationalUnitIds
    */
   readonly organizationalUnitIds?: string[];
@@ -2505,9 +5312,30 @@ export interface CloudFormationDeploymentTargets {
 }
 
 /**
+ * Converts an object of type 'CloudFormationDeploymentTargets' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationDeploymentTargets(obj: CloudFormationDeploymentTargets | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Accounts': obj.accounts?.map(y => y),
+    'AccountsUrl': obj.accountsUrl,
+    'OrganizationalUnitIds': obj.organizationalUnitIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationStackSetOperationPreferences
  */
 export interface CloudFormationStackSetOperationPreferences {
+  /**
+   * @schema CloudFormationStackSetOperationPreferences#RegionConcurrencyType
+   */
+  readonly regionConcurrencyType?: string;
+
   /**
    * @schema CloudFormationStackSetOperationPreferences#RegionOrder
    */
@@ -2536,6 +5364,25 @@ export interface CloudFormationStackSetOperationPreferences {
 }
 
 /**
+ * Converts an object of type 'CloudFormationStackSetOperationPreferences' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackSetOperationPreferences(obj: CloudFormationStackSetOperationPreferences | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RegionConcurrencyType': obj.regionConcurrencyType,
+    'RegionOrder': obj.regionOrder?.map(y => y),
+    'FailureToleranceCount': obj.failureToleranceCount,
+    'FailureTolerancePercentage': obj.failureTolerancePercentage,
+    'MaxConcurrentCount': obj.maxConcurrentCount,
+    'MaxConcurrentPercentage': obj.maxConcurrentPercentage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationAutoDeployment
  */
 export interface CloudFormationAutoDeployment {
@@ -2550,6 +5397,21 @@ export interface CloudFormationAutoDeployment {
   readonly retainStacksOnAccountRemoval?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationAutoDeployment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationAutoDeployment(obj: CloudFormationAutoDeployment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Enabled': obj.enabled,
+    'RetainStacksOnAccountRemoval': obj.retainStacksOnAccountRemoval,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationAccountLimit
@@ -2568,6 +5430,21 @@ export interface CloudFormationAccountLimit {
 }
 
 /**
+ * Converts an object of type 'CloudFormationAccountLimit' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationAccountLimit(obj: CloudFormationAccountLimit | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationChange
  */
 export interface CloudFormationChange {
@@ -2584,23 +5461,38 @@ export interface CloudFormationChange {
 }
 
 /**
+ * Converts an object of type 'CloudFormationChange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationChange(obj: CloudFormationChange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'ResourceChange': toJson_CloudFormationResourceChange(obj.resourceChange),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationStackEvent
  */
 export interface CloudFormationStackEvent {
   /**
    * @schema CloudFormationStackEvent#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
   /**
    * @schema CloudFormationStackEvent#EventId
    */
-  readonly eventId: string;
+  readonly eventId?: string;
 
   /**
    * @schema CloudFormationStackEvent#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
   /**
    * @schema CloudFormationStackEvent#LogicalResourceId
@@ -2620,7 +5512,7 @@ export interface CloudFormationStackEvent {
   /**
    * @schema CloudFormationStackEvent#Timestamp
    */
-  readonly timestamp: string;
+  readonly timestamp?: string;
 
   /**
    * @schema CloudFormationStackEvent#ResourceStatus
@@ -2643,6 +5535,30 @@ export interface CloudFormationStackEvent {
   readonly clientRequestToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationStackEvent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackEvent(obj: CloudFormationStackEvent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'EventId': obj.eventId,
+    'StackName': obj.stackName,
+    'LogicalResourceId': obj.logicalResourceId,
+    'PhysicalResourceId': obj.physicalResourceId,
+    'ResourceType': obj.resourceType,
+    'Timestamp': obj.timestamp,
+    'ResourceStatus': obj.resourceStatus,
+    'ResourceStatusReason': obj.resourceStatusReason,
+    'ResourceProperties': obj.resourceProperties,
+    'ClientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationStackInstance
@@ -2706,6 +5622,30 @@ export interface CloudFormationStackInstance {
 }
 
 /**
+ * Converts an object of type 'CloudFormationStackInstance' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackInstance(obj: CloudFormationStackInstance | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetId': obj.stackSetId,
+    'Region': obj.region,
+    'Account': obj.account,
+    'StackId': obj.stackId,
+    'ParameterOverrides': obj.parameterOverrides?.map(y => toJson_CloudFormationParameter(y)),
+    'Status': obj.status,
+    'StackInstanceStatus': toJson_CloudFormationStackInstanceComprehensiveStatus(obj.stackInstanceStatus),
+    'StatusReason': obj.statusReason,
+    'OrganizationalUnitId': obj.organizationalUnitId,
+    'DriftStatus': obj.driftStatus,
+    'LastDriftCheckTimestamp': obj.lastDriftCheckTimestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationStackResourceDetail
  */
 export interface CloudFormationStackResourceDetail {
@@ -2722,7 +5662,7 @@ export interface CloudFormationStackResourceDetail {
   /**
    * @schema CloudFormationStackResourceDetail#LogicalResourceId
    */
-  readonly logicalResourceId: string;
+  readonly logicalResourceId?: string;
 
   /**
    * @schema CloudFormationStackResourceDetail#PhysicalResourceId
@@ -2732,17 +5672,17 @@ export interface CloudFormationStackResourceDetail {
   /**
    * @schema CloudFormationStackResourceDetail#ResourceType
    */
-  readonly resourceType: string;
+  readonly resourceType?: string;
 
   /**
    * @schema CloudFormationStackResourceDetail#LastUpdatedTimestamp
    */
-  readonly lastUpdatedTimestamp: string;
+  readonly lastUpdatedTimestamp?: string;
 
   /**
    * @schema CloudFormationStackResourceDetail#ResourceStatus
    */
-  readonly resourceStatus: string;
+  readonly resourceStatus?: string;
 
   /**
    * @schema CloudFormationStackResourceDetail#ResourceStatusReason
@@ -2772,18 +5712,43 @@ export interface CloudFormationStackResourceDetail {
 }
 
 /**
+ * Converts an object of type 'CloudFormationStackResourceDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackResourceDetail(obj: CloudFormationStackResourceDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'StackId': obj.stackId,
+    'LogicalResourceId': obj.logicalResourceId,
+    'PhysicalResourceId': obj.physicalResourceId,
+    'ResourceType': obj.resourceType,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'ResourceStatus': obj.resourceStatus,
+    'ResourceStatusReason': obj.resourceStatusReason,
+    'Description': obj.description,
+    'Metadata': obj.metadata,
+    'DriftInformation': toJson_CloudFormationStackResourceDriftInformation(obj.driftInformation),
+    'ModuleInfo': toJson_CloudFormationModuleInfo(obj.moduleInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationStackResourceDrift
  */
 export interface CloudFormationStackResourceDrift {
   /**
    * @schema CloudFormationStackResourceDrift#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
   /**
    * @schema CloudFormationStackResourceDrift#LogicalResourceId
    */
-  readonly logicalResourceId: string;
+  readonly logicalResourceId?: string;
 
   /**
    * @schema CloudFormationStackResourceDrift#PhysicalResourceId
@@ -2798,7 +5763,7 @@ export interface CloudFormationStackResourceDrift {
   /**
    * @schema CloudFormationStackResourceDrift#ResourceType
    */
-  readonly resourceType: string;
+  readonly resourceType?: string;
 
   /**
    * @schema CloudFormationStackResourceDrift#ExpectedProperties
@@ -2818,12 +5783,12 @@ export interface CloudFormationStackResourceDrift {
   /**
    * @schema CloudFormationStackResourceDrift#StackResourceDriftStatus
    */
-  readonly stackResourceDriftStatus: string;
+  readonly stackResourceDriftStatus?: string;
 
   /**
    * @schema CloudFormationStackResourceDrift#Timestamp
    */
-  readonly timestamp: string;
+  readonly timestamp?: string;
 
   /**
    * @schema CloudFormationStackResourceDrift#ModuleInfo
@@ -2831,6 +5796,30 @@ export interface CloudFormationStackResourceDrift {
   readonly moduleInfo?: CloudFormationModuleInfo;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationStackResourceDrift' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackResourceDrift(obj: CloudFormationStackResourceDrift | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'LogicalResourceId': obj.logicalResourceId,
+    'PhysicalResourceId': obj.physicalResourceId,
+    'PhysicalResourceIdContext': obj.physicalResourceIdContext?.map(y => toJson_CloudFormationPhysicalResourceIdContextKeyValuePair(y)),
+    'ResourceType': obj.resourceType,
+    'ExpectedProperties': obj.expectedProperties,
+    'ActualProperties': obj.actualProperties,
+    'PropertyDifferences': obj.propertyDifferences?.map(y => toJson_CloudFormationPropertyDifference(y)),
+    'StackResourceDriftStatus': obj.stackResourceDriftStatus,
+    'Timestamp': obj.timestamp,
+    'ModuleInfo': toJson_CloudFormationModuleInfo(obj.moduleInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationStackResource
@@ -2849,7 +5838,7 @@ export interface CloudFormationStackResource {
   /**
    * @schema CloudFormationStackResource#LogicalResourceId
    */
-  readonly logicalResourceId: string;
+  readonly logicalResourceId?: string;
 
   /**
    * @schema CloudFormationStackResource#PhysicalResourceId
@@ -2859,17 +5848,17 @@ export interface CloudFormationStackResource {
   /**
    * @schema CloudFormationStackResource#ResourceType
    */
-  readonly resourceType: string;
+  readonly resourceType?: string;
 
   /**
    * @schema CloudFormationStackResource#Timestamp
    */
-  readonly timestamp: string;
+  readonly timestamp?: string;
 
   /**
    * @schema CloudFormationStackResource#ResourceStatus
    */
-  readonly resourceStatus: string;
+  readonly resourceStatus?: string;
 
   /**
    * @schema CloudFormationStackResource#ResourceStatusReason
@@ -2892,6 +5881,30 @@ export interface CloudFormationStackResource {
   readonly moduleInfo?: CloudFormationModuleInfo;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationStackResource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackResource(obj: CloudFormationStackResource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackName': obj.stackName,
+    'StackId': obj.stackId,
+    'LogicalResourceId': obj.logicalResourceId,
+    'PhysicalResourceId': obj.physicalResourceId,
+    'ResourceType': obj.resourceType,
+    'Timestamp': obj.timestamp,
+    'ResourceStatus': obj.resourceStatus,
+    'ResourceStatusReason': obj.resourceStatusReason,
+    'Description': obj.description,
+    'DriftInformation': toJson_CloudFormationStackResourceDriftInformation(obj.driftInformation),
+    'ModuleInfo': toJson_CloudFormationModuleInfo(obj.moduleInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationStackSet
@@ -2975,6 +5988,34 @@ export interface CloudFormationStackSet {
 }
 
 /**
+ * Converts an object of type 'CloudFormationStackSet' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackSet(obj: CloudFormationStackSet | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetName': obj.stackSetName,
+    'StackSetId': obj.stackSetId,
+    'Description': obj.description,
+    'Status': obj.status,
+    'TemplateBody': obj.templateBody,
+    'Parameters': obj.parameters?.map(y => toJson_CloudFormationParameter(y)),
+    'Capabilities': obj.capabilities?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_CloudFormationTag(y)),
+    'StackSetARN': obj.stackSetArn,
+    'AdministrationRoleARN': obj.administrationRoleArn,
+    'ExecutionRoleName': obj.executionRoleName,
+    'StackSetDriftDetectionDetails': toJson_CloudFormationStackSetDriftDetectionDetails(obj.stackSetDriftDetectionDetails),
+    'AutoDeployment': toJson_CloudFormationAutoDeployment(obj.autoDeployment),
+    'PermissionModel': obj.permissionModel,
+    'OrganizationalUnitIds': obj.organizationalUnitIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationStackSetOperation
  */
 export interface CloudFormationStackSetOperation {
@@ -3041,6 +6082,31 @@ export interface CloudFormationStackSetOperation {
 }
 
 /**
+ * Converts an object of type 'CloudFormationStackSetOperation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackSetOperation(obj: CloudFormationStackSetOperation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OperationId': obj.operationId,
+    'StackSetId': obj.stackSetId,
+    'Action': obj.action,
+    'Status': obj.status,
+    'OperationPreferences': toJson_CloudFormationStackSetOperationPreferences(obj.operationPreferences),
+    'RetainStacks': obj.retainStacks,
+    'AdministrationRoleARN': obj.administrationRoleArn,
+    'ExecutionRoleName': obj.executionRoleName,
+    'CreationTimestamp': obj.creationTimestamp,
+    'EndTimestamp': obj.endTimestamp,
+    'DeploymentTargets': toJson_CloudFormationDeploymentTargets(obj.deploymentTargets),
+    'StackSetDriftDetectionDetails': toJson_CloudFormationStackSetDriftDetectionDetails(obj.stackSetDriftDetectionDetails),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationStack
  */
 export interface CloudFormationStack {
@@ -3052,7 +6118,7 @@ export interface CloudFormationStack {
   /**
    * @schema CloudFormationStack#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
   /**
    * @schema CloudFormationStack#ChangeSetId
@@ -3072,7 +6138,7 @@ export interface CloudFormationStack {
   /**
    * @schema CloudFormationStack#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema CloudFormationStack#DeletionTime
@@ -3092,7 +6158,7 @@ export interface CloudFormationStack {
   /**
    * @schema CloudFormationStack#StackStatus
    */
-  readonly stackStatus: string;
+  readonly stackStatus?: string;
 
   /**
    * @schema CloudFormationStack#StackStatusReason
@@ -3157,20 +6223,82 @@ export interface CloudFormationStack {
 }
 
 /**
- * @schema CloudFormationLoggingConfig
+ * Converts an object of type 'CloudFormationStack' to JSON representation.
  */
-export interface CloudFormationLoggingConfig {
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStack(obj: CloudFormationStack | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'StackName': obj.stackName,
+    'ChangeSetId': obj.changeSetId,
+    'Description': obj.description,
+    'Parameters': obj.parameters?.map(y => toJson_CloudFormationParameter(y)),
+    'CreationTime': obj.creationTime,
+    'DeletionTime': obj.deletionTime,
+    'LastUpdatedTime': obj.lastUpdatedTime,
+    'RollbackConfiguration': toJson_CloudFormationRollbackConfiguration(obj.rollbackConfiguration),
+    'StackStatus': obj.stackStatus,
+    'StackStatusReason': obj.stackStatusReason,
+    'DisableRollback': obj.disableRollback,
+    'NotificationARNs': obj.notificationArNs?.map(y => y),
+    'TimeoutInMinutes': obj.timeoutInMinutes,
+    'Capabilities': obj.capabilities?.map(y => y),
+    'Outputs': obj.outputs?.map(y => toJson_CloudFormationOutput(y)),
+    'RoleARN': obj.roleArn,
+    'Tags': obj.tags?.map(y => toJson_CloudFormationTag(y)),
+    'EnableTerminationProtection': obj.enableTerminationProtection,
+    'ParentId': obj.parentId,
+    'RootId': obj.rootId,
+    'DriftInformation': toJson_CloudFormationStackDriftInformation(obj.driftInformation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationRequiredActivatedType
+ */
+export interface CloudFormationRequiredActivatedType {
   /**
-   * @schema CloudFormationLoggingConfig#LogRoleArn
+   * @schema CloudFormationRequiredActivatedType#TypeNameAlias
    */
-  readonly logRoleArn: string;
+  readonly typeNameAlias?: string;
 
   /**
-   * @schema CloudFormationLoggingConfig#LogGroupName
+   * @schema CloudFormationRequiredActivatedType#OriginalTypeName
    */
-  readonly logGroupName: string;
+  readonly originalTypeName?: string;
+
+  /**
+   * @schema CloudFormationRequiredActivatedType#PublisherId
+   */
+  readonly publisherId?: string;
+
+  /**
+   * @schema CloudFormationRequiredActivatedType#SupportedMajorVersions
+   */
+  readonly supportedMajorVersions?: number[];
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationRequiredActivatedType' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationRequiredActivatedType(obj: CloudFormationRequiredActivatedType | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TypeNameAlias': obj.typeNameAlias,
+    'OriginalTypeName': obj.originalTypeName,
+    'PublisherId': obj.publisherId,
+    'SupportedMajorVersions': obj.supportedMajorVersions?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationParameterDeclaration
@@ -3209,6 +6337,25 @@ export interface CloudFormationParameterDeclaration {
 }
 
 /**
+ * Converts an object of type 'CloudFormationParameterDeclaration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationParameterDeclaration(obj: CloudFormationParameterDeclaration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ParameterKey': obj.parameterKey,
+    'DefaultValue': obj.defaultValue,
+    'ParameterType': obj.parameterType,
+    'NoEcho': obj.noEcho,
+    'Description': obj.description,
+    'ParameterConstraints': toJson_CloudFormationParameterConstraints(obj.parameterConstraints),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationResourceIdentifierSummary
  */
 export interface CloudFormationResourceIdentifierSummary {
@@ -3228,6 +6375,22 @@ export interface CloudFormationResourceIdentifierSummary {
   readonly resourceIdentifiers?: string[];
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationResourceIdentifierSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationResourceIdentifierSummary(obj: CloudFormationResourceIdentifierSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceType': obj.resourceType,
+    'LogicalResourceIds': obj.logicalResourceIds?.map(y => y),
+    'ResourceIdentifiers': obj.resourceIdentifiers?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationChangeSetSummary
@@ -3296,6 +6459,31 @@ export interface CloudFormationChangeSetSummary {
 }
 
 /**
+ * Converts an object of type 'CloudFormationChangeSetSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationChangeSetSummary(obj: CloudFormationChangeSetSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'StackName': obj.stackName,
+    'ChangeSetId': obj.changeSetId,
+    'ChangeSetName': obj.changeSetName,
+    'ExecutionStatus': obj.executionStatus,
+    'Status': obj.status,
+    'StatusReason': obj.statusReason,
+    'CreationTime': obj.creationTime,
+    'Description': obj.description,
+    'IncludeNestedStacks': obj.includeNestedStacks,
+    'ParentChangeSetId': obj.parentChangeSetId,
+    'RootChangeSetId': obj.rootChangeSetId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationExport
  */
 export interface CloudFormationExport {
@@ -3317,6 +6505,22 @@ export interface CloudFormationExport {
 }
 
 /**
+ * Converts an object of type 'CloudFormationExport' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationExport(obj: CloudFormationExport | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExportingStackId': obj.exportingStackId,
+    'Name': obj.name,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationStackInstanceFilter
  */
 export interface CloudFormationStackInstanceFilter {
@@ -3331,6 +6535,21 @@ export interface CloudFormationStackInstanceFilter {
   readonly values?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationStackInstanceFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackInstanceFilter(obj: CloudFormationStackInstanceFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Values': obj.values,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationStackInstanceSummary
@@ -3389,13 +6608,36 @@ export interface CloudFormationStackInstanceSummary {
 }
 
 /**
+ * Converts an object of type 'CloudFormationStackInstanceSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackInstanceSummary(obj: CloudFormationStackInstanceSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetId': obj.stackSetId,
+    'Region': obj.region,
+    'Account': obj.account,
+    'StackId': obj.stackId,
+    'Status': obj.status,
+    'StatusReason': obj.statusReason,
+    'StackInstanceStatus': toJson_CloudFormationStackInstanceComprehensiveStatus(obj.stackInstanceStatus),
+    'OrganizationalUnitId': obj.organizationalUnitId,
+    'DriftStatus': obj.driftStatus,
+    'LastDriftCheckTimestamp': obj.lastDriftCheckTimestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationStackResourceSummary
  */
 export interface CloudFormationStackResourceSummary {
   /**
    * @schema CloudFormationStackResourceSummary#LogicalResourceId
    */
-  readonly logicalResourceId: string;
+  readonly logicalResourceId?: string;
 
   /**
    * @schema CloudFormationStackResourceSummary#PhysicalResourceId
@@ -3405,17 +6647,17 @@ export interface CloudFormationStackResourceSummary {
   /**
    * @schema CloudFormationStackResourceSummary#ResourceType
    */
-  readonly resourceType: string;
+  readonly resourceType?: string;
 
   /**
    * @schema CloudFormationStackResourceSummary#LastUpdatedTimestamp
    */
-  readonly lastUpdatedTimestamp: string;
+  readonly lastUpdatedTimestamp?: string;
 
   /**
    * @schema CloudFormationStackResourceSummary#ResourceStatus
    */
-  readonly resourceStatus: string;
+  readonly resourceStatus?: string;
 
   /**
    * @schema CloudFormationStackResourceSummary#ResourceStatusReason
@@ -3433,6 +6675,27 @@ export interface CloudFormationStackResourceSummary {
   readonly moduleInfo?: CloudFormationModuleInfo;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationStackResourceSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackResourceSummary(obj: CloudFormationStackResourceSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LogicalResourceId': obj.logicalResourceId,
+    'PhysicalResourceId': obj.physicalResourceId,
+    'ResourceType': obj.resourceType,
+    'LastUpdatedTimestamp': obj.lastUpdatedTimestamp,
+    'ResourceStatus': obj.resourceStatus,
+    'ResourceStatusReason': obj.resourceStatusReason,
+    'DriftInformation': toJson_CloudFormationStackResourceDriftInformationSummary(obj.driftInformation),
+    'ModuleInfo': toJson_CloudFormationModuleInfo(obj.moduleInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationStackSetOperationResultSummary
@@ -3471,6 +6734,25 @@ export interface CloudFormationStackSetOperationResultSummary {
 }
 
 /**
+ * Converts an object of type 'CloudFormationStackSetOperationResultSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackSetOperationResultSummary(obj: CloudFormationStackSetOperationResultSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Account': obj.account,
+    'Region': obj.region,
+    'Status': obj.status,
+    'StatusReason': obj.statusReason,
+    'AccountGateResult': toJson_CloudFormationAccountGateResult(obj.accountGateResult),
+    'OrganizationalUnitId': obj.organizationalUnitId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationStackSetOperationSummary
  */
 export interface CloudFormationStackSetOperationSummary {
@@ -3500,6 +6782,24 @@ export interface CloudFormationStackSetOperationSummary {
   readonly endTimestamp?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationStackSetOperationSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackSetOperationSummary(obj: CloudFormationStackSetOperationSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OperationId': obj.operationId,
+    'Action': obj.action,
+    'Status': obj.status,
+    'CreationTimestamp': obj.creationTimestamp,
+    'EndTimestamp': obj.endTimestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationStackSetSummary
@@ -3548,6 +6848,27 @@ export interface CloudFormationStackSetSummary {
 }
 
 /**
+ * Converts an object of type 'CloudFormationStackSetSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackSetSummary(obj: CloudFormationStackSetSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSetName': obj.stackSetName,
+    'StackSetId': obj.stackSetId,
+    'Description': obj.description,
+    'Status': obj.status,
+    'AutoDeployment': toJson_CloudFormationAutoDeployment(obj.autoDeployment),
+    'PermissionModel': obj.permissionModel,
+    'DriftStatus': obj.driftStatus,
+    'LastDriftCheckTimestamp': obj.lastDriftCheckTimestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationStackSummary
  */
 export interface CloudFormationStackSummary {
@@ -3559,7 +6880,7 @@ export interface CloudFormationStackSummary {
   /**
    * @schema CloudFormationStackSummary#StackName
    */
-  readonly stackName: string;
+  readonly stackName?: string;
 
   /**
    * @schema CloudFormationStackSummary#TemplateDescription
@@ -3569,7 +6890,7 @@ export interface CloudFormationStackSummary {
   /**
    * @schema CloudFormationStackSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema CloudFormationStackSummary#LastUpdatedTime
@@ -3584,7 +6905,7 @@ export interface CloudFormationStackSummary {
   /**
    * @schema CloudFormationStackSummary#StackStatus
    */
-  readonly stackStatus: string;
+  readonly stackStatus?: string;
 
   /**
    * @schema CloudFormationStackSummary#StackStatusReason
@@ -3607,6 +6928,30 @@ export interface CloudFormationStackSummary {
   readonly driftInformation?: CloudFormationStackDriftInformationSummary;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationStackSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackSummary(obj: CloudFormationStackSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'StackName': obj.stackName,
+    'TemplateDescription': obj.templateDescription,
+    'CreationTime': obj.creationTime,
+    'LastUpdatedTime': obj.lastUpdatedTime,
+    'DeletionTime': obj.deletionTime,
+    'StackStatus': obj.stackStatus,
+    'StackStatusReason': obj.stackStatusReason,
+    'ParentId': obj.parentId,
+    'RootId': obj.rootId,
+    'DriftInformation': toJson_CloudFormationStackDriftInformationSummary(obj.driftInformation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationTypeVersionSummary
@@ -3647,7 +6992,70 @@ export interface CloudFormationTypeVersionSummary {
    */
   readonly description?: string;
 
+  /**
+   * @schema CloudFormationTypeVersionSummary#PublicVersionNumber
+   */
+  readonly publicVersionNumber?: string;
+
 }
+
+/**
+ * Converts an object of type 'CloudFormationTypeVersionSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationTypeVersionSummary(obj: CloudFormationTypeVersionSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'TypeName': obj.typeName,
+    'VersionId': obj.versionId,
+    'IsDefaultVersion': obj.isDefaultVersion,
+    'Arn': obj.arn,
+    'TimeCreated': obj.timeCreated,
+    'Description': obj.description,
+    'PublicVersionNumber': obj.publicVersionNumber,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CloudFormationTypeFilters
+ */
+export interface CloudFormationTypeFilters {
+  /**
+   * @schema CloudFormationTypeFilters#Category
+   */
+  readonly category?: string;
+
+  /**
+   * @schema CloudFormationTypeFilters#PublisherId
+   */
+  readonly publisherId?: string;
+
+  /**
+   * @schema CloudFormationTypeFilters#TypeNamePrefix
+   */
+  readonly typeNamePrefix?: string;
+
+}
+
+/**
+ * Converts an object of type 'CloudFormationTypeFilters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationTypeFilters(obj: CloudFormationTypeFilters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Category': obj.category,
+    'PublisherId': obj.publisherId,
+    'TypeNamePrefix': obj.typeNamePrefix,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationTypeSummary
@@ -3683,7 +7091,68 @@ export interface CloudFormationTypeSummary {
    */
   readonly description?: string;
 
+  /**
+   * @schema CloudFormationTypeSummary#PublisherId
+   */
+  readonly publisherId?: string;
+
+  /**
+   * @schema CloudFormationTypeSummary#OriginalTypeName
+   */
+  readonly originalTypeName?: string;
+
+  /**
+   * @schema CloudFormationTypeSummary#PublicVersionNumber
+   */
+  readonly publicVersionNumber?: string;
+
+  /**
+   * @schema CloudFormationTypeSummary#LatestPublicVersion
+   */
+  readonly latestPublicVersion?: string;
+
+  /**
+   * @schema CloudFormationTypeSummary#PublisherIdentity
+   */
+  readonly publisherIdentity?: string;
+
+  /**
+   * @schema CloudFormationTypeSummary#PublisherName
+   */
+  readonly publisherName?: string;
+
+  /**
+   * @schema CloudFormationTypeSummary#IsActivated
+   */
+  readonly isActivated?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'CloudFormationTypeSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationTypeSummary(obj: CloudFormationTypeSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'TypeName': obj.typeName,
+    'DefaultVersionId': obj.defaultVersionId,
+    'TypeArn': obj.typeArn,
+    'LastUpdated': obj.lastUpdated,
+    'Description': obj.description,
+    'PublisherId': obj.publisherId,
+    'OriginalTypeName': obj.originalTypeName,
+    'PublicVersionNumber': obj.publicVersionNumber,
+    'LatestPublicVersion': obj.latestPublicVersion,
+    'PublisherIdentity': obj.publisherIdentity,
+    'PublisherName': obj.publisherName,
+    'IsActivated': obj.isActivated,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationTemplateParameter
@@ -3712,20 +7181,52 @@ export interface CloudFormationTemplateParameter {
 }
 
 /**
+ * Converts an object of type 'CloudFormationTemplateParameter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationTemplateParameter(obj: CloudFormationTemplateParameter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ParameterKey': obj.parameterKey,
+    'DefaultValue': obj.defaultValue,
+    'NoEcho': obj.noEcho,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationRollbackTrigger
  */
 export interface CloudFormationRollbackTrigger {
   /**
    * @schema CloudFormationRollbackTrigger#Arn
    */
-  readonly arn: string;
+  readonly arn?: string;
 
   /**
    * @schema CloudFormationRollbackTrigger#Type
    */
-  readonly type: string;
+  readonly type?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationRollbackTrigger' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationRollbackTrigger(obj: CloudFormationRollbackTrigger | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationResourceChange
@@ -3779,6 +7280,28 @@ export interface CloudFormationResourceChange {
 }
 
 /**
+ * Converts an object of type 'CloudFormationResourceChange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationResourceChange(obj: CloudFormationResourceChange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Action': obj.action,
+    'LogicalResourceId': obj.logicalResourceId,
+    'PhysicalResourceId': obj.physicalResourceId,
+    'ResourceType': obj.resourceType,
+    'Replacement': obj.replacement,
+    'Scope': obj.scope?.map(y => y),
+    'Details': obj.details?.map(y => toJson_CloudFormationResourceChangeDetail(y)),
+    'ChangeSetId': obj.changeSetId,
+    'ModuleInfo': toJson_CloudFormationModuleInfo(obj.moduleInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationStackInstanceComprehensiveStatus
  */
 export interface CloudFormationStackInstanceComprehensiveStatus {
@@ -3790,13 +7313,27 @@ export interface CloudFormationStackInstanceComprehensiveStatus {
 }
 
 /**
+ * Converts an object of type 'CloudFormationStackInstanceComprehensiveStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackInstanceComprehensiveStatus(obj: CloudFormationStackInstanceComprehensiveStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DetailedStatus': obj.detailedStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationStackResourceDriftInformation
  */
 export interface CloudFormationStackResourceDriftInformation {
   /**
    * @schema CloudFormationStackResourceDriftInformation#StackResourceDriftStatus
    */
-  readonly stackResourceDriftStatus: string;
+  readonly stackResourceDriftStatus?: string;
 
   /**
    * @schema CloudFormationStackResourceDriftInformation#LastCheckTimestamp
@@ -3804,6 +7341,21 @@ export interface CloudFormationStackResourceDriftInformation {
   readonly lastCheckTimestamp?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationStackResourceDriftInformation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackResourceDriftInformation(obj: CloudFormationStackResourceDriftInformation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackResourceDriftStatus': obj.stackResourceDriftStatus,
+    'LastCheckTimestamp': obj.lastCheckTimestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationModuleInfo
@@ -3822,20 +7374,50 @@ export interface CloudFormationModuleInfo {
 }
 
 /**
+ * Converts an object of type 'CloudFormationModuleInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationModuleInfo(obj: CloudFormationModuleInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TypeHierarchy': obj.typeHierarchy,
+    'LogicalIdHierarchy': obj.logicalIdHierarchy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationPhysicalResourceIdContextKeyValuePair
  */
 export interface CloudFormationPhysicalResourceIdContextKeyValuePair {
   /**
    * @schema CloudFormationPhysicalResourceIdContextKeyValuePair#Key
    */
-  readonly key: string;
+  readonly key?: string;
 
   /**
    * @schema CloudFormationPhysicalResourceIdContextKeyValuePair#Value
    */
-  readonly value: string;
+  readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationPhysicalResourceIdContextKeyValuePair' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationPhysicalResourceIdContextKeyValuePair(obj: CloudFormationPhysicalResourceIdContextKeyValuePair | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationPropertyDifference
@@ -3844,24 +7426,41 @@ export interface CloudFormationPropertyDifference {
   /**
    * @schema CloudFormationPropertyDifference#PropertyPath
    */
-  readonly propertyPath: string;
+  readonly propertyPath?: string;
 
   /**
    * @schema CloudFormationPropertyDifference#ExpectedValue
    */
-  readonly expectedValue: string;
+  readonly expectedValue?: string;
 
   /**
    * @schema CloudFormationPropertyDifference#ActualValue
    */
-  readonly actualValue: string;
+  readonly actualValue?: string;
 
   /**
    * @schema CloudFormationPropertyDifference#DifferenceType
    */
-  readonly differenceType: string;
+  readonly differenceType?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationPropertyDifference' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationPropertyDifference(obj: CloudFormationPropertyDifference | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PropertyPath': obj.propertyPath,
+    'ExpectedValue': obj.expectedValue,
+    'ActualValue': obj.actualValue,
+    'DifferenceType': obj.differenceType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationStackSetDriftDetectionDetails
@@ -3910,6 +7509,27 @@ export interface CloudFormationStackSetDriftDetectionDetails {
 }
 
 /**
+ * Converts an object of type 'CloudFormationStackSetDriftDetectionDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackSetDriftDetectionDetails(obj: CloudFormationStackSetDriftDetectionDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DriftStatus': obj.driftStatus,
+    'DriftDetectionStatus': obj.driftDetectionStatus,
+    'LastDriftCheckTimestamp': obj.lastDriftCheckTimestamp,
+    'TotalStackInstancesCount': obj.totalStackInstancesCount,
+    'DriftedStackInstancesCount': obj.driftedStackInstancesCount,
+    'InSyncStackInstancesCount': obj.inSyncStackInstancesCount,
+    'InProgressStackInstancesCount': obj.inProgressStackInstancesCount,
+    'FailedStackInstancesCount': obj.failedStackInstancesCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationOutput
  */
 export interface CloudFormationOutput {
@@ -3936,13 +7556,30 @@ export interface CloudFormationOutput {
 }
 
 /**
+ * Converts an object of type 'CloudFormationOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationOutput(obj: CloudFormationOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OutputKey': obj.outputKey,
+    'OutputValue': obj.outputValue,
+    'Description': obj.description,
+    'ExportName': obj.exportName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationStackDriftInformation
  */
 export interface CloudFormationStackDriftInformation {
   /**
    * @schema CloudFormationStackDriftInformation#StackDriftStatus
    */
-  readonly stackDriftStatus: string;
+  readonly stackDriftStatus?: string;
 
   /**
    * @schema CloudFormationStackDriftInformation#LastCheckTimestamp
@@ -3950,6 +7587,21 @@ export interface CloudFormationStackDriftInformation {
   readonly lastCheckTimestamp?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationStackDriftInformation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackDriftInformation(obj: CloudFormationStackDriftInformation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackDriftStatus': obj.stackDriftStatus,
+    'LastCheckTimestamp': obj.lastCheckTimestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationParameterConstraints
@@ -3963,13 +7615,27 @@ export interface CloudFormationParameterConstraints {
 }
 
 /**
+ * Converts an object of type 'CloudFormationParameterConstraints' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationParameterConstraints(obj: CloudFormationParameterConstraints | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AllowedValues': obj.allowedValues?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationStackResourceDriftInformationSummary
  */
 export interface CloudFormationStackResourceDriftInformationSummary {
   /**
    * @schema CloudFormationStackResourceDriftInformationSummary#StackResourceDriftStatus
    */
-  readonly stackResourceDriftStatus: string;
+  readonly stackResourceDriftStatus?: string;
 
   /**
    * @schema CloudFormationStackResourceDriftInformationSummary#LastCheckTimestamp
@@ -3977,6 +7643,21 @@ export interface CloudFormationStackResourceDriftInformationSummary {
   readonly lastCheckTimestamp?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationStackResourceDriftInformationSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackResourceDriftInformationSummary(obj: CloudFormationStackResourceDriftInformationSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackResourceDriftStatus': obj.stackResourceDriftStatus,
+    'LastCheckTimestamp': obj.lastCheckTimestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationAccountGateResult
@@ -3995,13 +7676,28 @@ export interface CloudFormationAccountGateResult {
 }
 
 /**
+ * Converts an object of type 'CloudFormationAccountGateResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationAccountGateResult(obj: CloudFormationAccountGateResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'StatusReason': obj.statusReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationStackDriftInformationSummary
  */
 export interface CloudFormationStackDriftInformationSummary {
   /**
    * @schema CloudFormationStackDriftInformationSummary#StackDriftStatus
    */
-  readonly stackDriftStatus: string;
+  readonly stackDriftStatus?: string;
 
   /**
    * @schema CloudFormationStackDriftInformationSummary#LastCheckTimestamp
@@ -4009,6 +7705,21 @@ export interface CloudFormationStackDriftInformationSummary {
   readonly lastCheckTimestamp?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationStackDriftInformationSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationStackDriftInformationSummary(obj: CloudFormationStackDriftInformationSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackDriftStatus': obj.stackDriftStatus,
+    'LastCheckTimestamp': obj.lastCheckTimestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudFormationResourceChangeDetail
@@ -4037,6 +7748,23 @@ export interface CloudFormationResourceChangeDetail {
 }
 
 /**
+ * Converts an object of type 'CloudFormationResourceChangeDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationResourceChangeDetail(obj: CloudFormationResourceChangeDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Target': toJson_CloudFormationResourceTargetDefinition(obj.target),
+    'Evaluation': obj.evaluation,
+    'ChangeSource': obj.changeSource,
+    'CausingEntity': obj.causingEntity,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudFormationResourceTargetDefinition
  */
 export interface CloudFormationResourceTargetDefinition {
@@ -4056,3 +7784,19 @@ export interface CloudFormationResourceTargetDefinition {
   readonly requiresRecreation?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudFormationResourceTargetDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudFormationResourceTargetDefinition(obj: CloudFormationResourceTargetDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Attribute': obj.attribute,
+    'Name': obj.name,
+    'RequiresRecreation': obj.requiresRecreation,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

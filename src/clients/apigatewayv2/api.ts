@@ -2093,6 +2093,7 @@ export class ApiGatewayV2ResponsesCreateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -2128,6 +2129,7 @@ export class ApiGatewayV2ResponsesCreateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -2163,6 +2165,7 @@ export class ApiGatewayV2ResponsesCreateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -2198,6 +2201,7 @@ export class ApiGatewayV2ResponsesCreateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -2233,6 +2237,7 @@ export class ApiGatewayV2ResponsesCreateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -2268,6 +2273,7 @@ export class ApiGatewayV2ResponsesCreateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -2303,6 +2309,7 @@ export class ApiGatewayV2ResponsesCreateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -2338,6 +2345,7 @@ export class ApiGatewayV2ResponsesCreateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -2373,6 +2381,7 @@ export class ApiGatewayV2ResponsesCreateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -2408,6 +2417,7 @@ export class ApiGatewayV2ResponsesCreateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -2443,6 +2453,7 @@ export class ApiGatewayV2ResponsesCreateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -2478,6 +2489,7 @@ export class ApiGatewayV2ResponsesCreateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -2513,6 +2525,7 @@ export class ApiGatewayV2ResponsesCreateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -2548,6 +2561,7 @@ export class ApiGatewayV2ResponsesCreateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -2583,6 +2597,7 @@ export class ApiGatewayV2ResponsesCreateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -2618,6 +2633,7 @@ export class ApiGatewayV2ResponsesCreateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -2628,6 +2644,42 @@ export class ApiGatewayV2ResponsesCreateIntegration {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateIntegration.RequestTemplates', props);
     return resource.getResponseField('RequestTemplates') as unknown as Record<string, string>;
+  }
+
+  public get responseParameters(): Record<string, Record<string, string>> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createIntegration',
+        service: 'ApiGatewayV2',
+        physicalResourceId: cr.PhysicalResourceId.of('ApiGatewayV2.CreateIntegration.ResponseParameters'),
+        outputPath: 'ResponseParameters',
+        parameters: {
+          ApiId: this.__input.apiId,
+          ConnectionId: this.__input.connectionId,
+          ConnectionType: this.__input.connectionType,
+          ContentHandlingStrategy: this.__input.contentHandlingStrategy,
+          CredentialsArn: this.__input.credentialsArn,
+          Description: this.__input.description,
+          IntegrationMethod: this.__input.integrationMethod,
+          IntegrationSubtype: this.__input.integrationSubtype,
+          IntegrationType: this.__input.integrationType,
+          IntegrationUri: this.__input.integrationUri,
+          PassthroughBehavior: this.__input.passthroughBehavior,
+          PayloadFormatVersion: this.__input.payloadFormatVersion,
+          RequestParameters: this.__input.requestParameters,
+          RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
+          TemplateSelectionExpression: this.__input.templateSelectionExpression,
+          TimeoutInMillis: this.__input.timeoutInMillis,
+          TlsConfig: {
+            ServerNameToVerify: this.__input.tlsConfig?.serverNameToVerify,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateIntegration.ResponseParameters', props);
+    return resource.getResponseField('ResponseParameters') as unknown as Record<string, Record<string, string>>;
   }
 
   public get templateSelectionExpression(): string {
@@ -2653,6 +2705,7 @@ export class ApiGatewayV2ResponsesCreateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -2688,6 +2741,7 @@ export class ApiGatewayV2ResponsesCreateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -2734,6 +2788,7 @@ export class ApiGatewayV2ResponsesCreateIntegrationTlsConfig {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -5874,6 +5929,24 @@ export class ApiGatewayV2ResponsesFetchIntegration {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetIntegration.RequestTemplates', props);
     return resource.getResponseField('RequestTemplates') as unknown as Record<string, string>;
+  }
+
+  public get responseParameters(): Record<string, Record<string, string>> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getIntegration',
+        service: 'ApiGatewayV2',
+        physicalResourceId: cr.PhysicalResourceId.of('ApiGatewayV2.GetIntegration.ResponseParameters'),
+        outputPath: 'ResponseParameters',
+        parameters: {
+          ApiId: this.__input.apiId,
+          IntegrationId: this.__input.integrationId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetIntegration.ResponseParameters', props);
+    return resource.getResponseField('ResponseParameters') as unknown as Record<string, Record<string, string>>;
   }
 
   public get templateSelectionExpression(): string {
@@ -9812,6 +9885,7 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -9848,6 +9922,7 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -9884,6 +9959,7 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -9920,6 +9996,7 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -9956,6 +10033,7 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -9992,6 +10070,7 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -10028,6 +10107,7 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -10064,6 +10144,7 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -10100,6 +10181,7 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -10136,6 +10218,7 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -10172,6 +10255,7 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -10208,6 +10292,7 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -10244,6 +10329,7 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -10280,6 +10366,7 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -10316,6 +10403,7 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -10352,6 +10440,7 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -10362,6 +10451,43 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateIntegration.RequestTemplates', props);
     return resource.getResponseField('RequestTemplates') as unknown as Record<string, string>;
+  }
+
+  public get responseParameters(): Record<string, Record<string, string>> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateIntegration',
+        service: 'ApiGatewayV2',
+        physicalResourceId: cr.PhysicalResourceId.of('ApiGatewayV2.UpdateIntegration.ResponseParameters'),
+        outputPath: 'ResponseParameters',
+        parameters: {
+          ApiId: this.__input.apiId,
+          ConnectionId: this.__input.connectionId,
+          ConnectionType: this.__input.connectionType,
+          ContentHandlingStrategy: this.__input.contentHandlingStrategy,
+          CredentialsArn: this.__input.credentialsArn,
+          Description: this.__input.description,
+          IntegrationId: this.__input.integrationId,
+          IntegrationMethod: this.__input.integrationMethod,
+          IntegrationSubtype: this.__input.integrationSubtype,
+          IntegrationType: this.__input.integrationType,
+          IntegrationUri: this.__input.integrationUri,
+          PassthroughBehavior: this.__input.passthroughBehavior,
+          PayloadFormatVersion: this.__input.payloadFormatVersion,
+          RequestParameters: this.__input.requestParameters,
+          RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
+          TemplateSelectionExpression: this.__input.templateSelectionExpression,
+          TimeoutInMillis: this.__input.timeoutInMillis,
+          TlsConfig: {
+            ServerNameToVerify: this.__input.tlsConfig?.serverNameToVerify,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateIntegration.ResponseParameters', props);
+    return resource.getResponseField('ResponseParameters') as unknown as Record<string, Record<string, string>>;
   }
 
   public get templateSelectionExpression(): string {
@@ -10388,6 +10514,7 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -10424,6 +10551,7 @@ export class ApiGatewayV2ResponsesUpdateIntegration {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {
@@ -10471,6 +10599,7 @@ export class ApiGatewayV2ResponsesUpdateIntegrationTlsConfig {
           PayloadFormatVersion: this.__input.payloadFormatVersion,
           RequestParameters: this.__input.requestParameters,
           RequestTemplates: this.__input.requestTemplates,
+          ResponseParameters: this.__input.responseParameters,
           TemplateSelectionExpression: this.__input.templateSelectionExpression,
           TimeoutInMillis: this.__input.timeoutInMillis,
           TlsConfig: {

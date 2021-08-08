@@ -15,6 +15,21 @@ export interface InspectorAddAttributesToFindingsRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorAddAttributesToFindingsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorAddAttributesToFindingsRequest(obj: InspectorAddAttributesToFindingsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'findingArns': obj.findingArns?.map(y => y),
+    'attributes': obj.attributes?.map(y => toJson_InspectorAttribute(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorAddAttributesToFindingsResponse
  */
 export interface InspectorAddAttributesToFindingsResponse {
@@ -24,6 +39,20 @@ export interface InspectorAddAttributesToFindingsResponse {
   readonly failedItems: { [key: string]: InspectorFailedItemDetails };
 
 }
+
+/**
+ * Converts an object of type 'InspectorAddAttributesToFindingsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorAddAttributesToFindingsResponse(obj: InspectorAddAttributesToFindingsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'failedItems': ((obj.failedItems) === undefined) ? undefined : (Object.entries(obj.failedItems).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_InspectorFailedItemDetails(i[1]) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorCreateAssessmentTargetRequest
@@ -42,6 +71,21 @@ export interface InspectorCreateAssessmentTargetRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorCreateAssessmentTargetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorCreateAssessmentTargetRequest(obj: InspectorCreateAssessmentTargetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTargetName': obj.assessmentTargetName,
+    'resourceGroupArn': obj.resourceGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorCreateAssessmentTargetResponse
  */
 export interface InspectorCreateAssessmentTargetResponse {
@@ -51,6 +95,20 @@ export interface InspectorCreateAssessmentTargetResponse {
   readonly assessmentTargetArn: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorCreateAssessmentTargetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorCreateAssessmentTargetResponse(obj: InspectorCreateAssessmentTargetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTargetArn': obj.assessmentTargetArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorCreateAssessmentTemplateRequest
@@ -84,6 +142,24 @@ export interface InspectorCreateAssessmentTemplateRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorCreateAssessmentTemplateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorCreateAssessmentTemplateRequest(obj: InspectorCreateAssessmentTemplateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTargetArn': obj.assessmentTargetArn,
+    'assessmentTemplateName': obj.assessmentTemplateName,
+    'durationInSeconds': obj.durationInSeconds,
+    'rulesPackageArns': obj.rulesPackageArns?.map(y => y),
+    'userAttributesForFindings': obj.userAttributesForFindings?.map(y => toJson_InspectorAttribute(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorCreateAssessmentTemplateResponse
  */
 export interface InspectorCreateAssessmentTemplateResponse {
@@ -93,6 +169,20 @@ export interface InspectorCreateAssessmentTemplateResponse {
   readonly assessmentTemplateArn: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorCreateAssessmentTemplateResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorCreateAssessmentTemplateResponse(obj: InspectorCreateAssessmentTemplateResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTemplateArn': obj.assessmentTemplateArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorCreateExclusionsPreviewRequest
@@ -106,6 +196,20 @@ export interface InspectorCreateExclusionsPreviewRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorCreateExclusionsPreviewRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorCreateExclusionsPreviewRequest(obj: InspectorCreateExclusionsPreviewRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTemplateArn': obj.assessmentTemplateArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorCreateExclusionsPreviewResponse
  */
 export interface InspectorCreateExclusionsPreviewResponse {
@@ -115,6 +219,20 @@ export interface InspectorCreateExclusionsPreviewResponse {
   readonly previewToken: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorCreateExclusionsPreviewResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorCreateExclusionsPreviewResponse(obj: InspectorCreateExclusionsPreviewResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'previewToken': obj.previewToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorCreateResourceGroupRequest
@@ -128,6 +246,20 @@ export interface InspectorCreateResourceGroupRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorCreateResourceGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorCreateResourceGroupRequest(obj: InspectorCreateResourceGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceGroupTags': obj.resourceGroupTags?.map(y => toJson_InspectorResourceGroupTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorCreateResourceGroupResponse
  */
 export interface InspectorCreateResourceGroupResponse {
@@ -137,6 +269,20 @@ export interface InspectorCreateResourceGroupResponse {
   readonly resourceGroupArn: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorCreateResourceGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorCreateResourceGroupResponse(obj: InspectorCreateResourceGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceGroupArn': obj.resourceGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorDeleteAssessmentRunRequest
@@ -150,6 +296,20 @@ export interface InspectorDeleteAssessmentRunRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorDeleteAssessmentRunRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDeleteAssessmentRunRequest(obj: InspectorDeleteAssessmentRunRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentRunArn': obj.assessmentRunArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorDeleteAssessmentTargetRequest
  */
 export interface InspectorDeleteAssessmentTargetRequest {
@@ -159,6 +319,20 @@ export interface InspectorDeleteAssessmentTargetRequest {
   readonly assessmentTargetArn: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorDeleteAssessmentTargetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDeleteAssessmentTargetRequest(obj: InspectorDeleteAssessmentTargetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTargetArn': obj.assessmentTargetArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorDeleteAssessmentTemplateRequest
@@ -172,6 +346,20 @@ export interface InspectorDeleteAssessmentTemplateRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorDeleteAssessmentTemplateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDeleteAssessmentTemplateRequest(obj: InspectorDeleteAssessmentTemplateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTemplateArn': obj.assessmentTemplateArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorDescribeAssessmentRunsRequest
  */
 export interface InspectorDescribeAssessmentRunsRequest {
@@ -181,6 +369,20 @@ export interface InspectorDescribeAssessmentRunsRequest {
   readonly assessmentRunArns: string[];
 
 }
+
+/**
+ * Converts an object of type 'InspectorDescribeAssessmentRunsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDescribeAssessmentRunsRequest(obj: InspectorDescribeAssessmentRunsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentRunArns': obj.assessmentRunArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorDescribeAssessmentRunsResponse
@@ -199,6 +401,21 @@ export interface InspectorDescribeAssessmentRunsResponse {
 }
 
 /**
+ * Converts an object of type 'InspectorDescribeAssessmentRunsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDescribeAssessmentRunsResponse(obj: InspectorDescribeAssessmentRunsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentRuns': obj.assessmentRuns?.map(y => toJson_InspectorAssessmentRun(y)),
+    'failedItems': ((obj.failedItems) === undefined) ? undefined : (Object.entries(obj.failedItems).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_InspectorFailedItemDetails(i[1]) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorDescribeAssessmentTargetsRequest
  */
 export interface InspectorDescribeAssessmentTargetsRequest {
@@ -208,6 +425,20 @@ export interface InspectorDescribeAssessmentTargetsRequest {
   readonly assessmentTargetArns: string[];
 
 }
+
+/**
+ * Converts an object of type 'InspectorDescribeAssessmentTargetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDescribeAssessmentTargetsRequest(obj: InspectorDescribeAssessmentTargetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTargetArns': obj.assessmentTargetArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorDescribeAssessmentTargetsResponse
@@ -226,6 +457,21 @@ export interface InspectorDescribeAssessmentTargetsResponse {
 }
 
 /**
+ * Converts an object of type 'InspectorDescribeAssessmentTargetsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDescribeAssessmentTargetsResponse(obj: InspectorDescribeAssessmentTargetsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTargets': obj.assessmentTargets?.map(y => toJson_InspectorAssessmentTarget(y)),
+    'failedItems': ((obj.failedItems) === undefined) ? undefined : (Object.entries(obj.failedItems).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_InspectorFailedItemDetails(i[1]) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorDescribeAssessmentTemplatesRequest
  */
 export interface InspectorDescribeAssessmentTemplatesRequest {
@@ -235,6 +481,20 @@ export interface InspectorDescribeAssessmentTemplatesRequest {
   readonly assessmentTemplateArns: string[];
 
 }
+
+/**
+ * Converts an object of type 'InspectorDescribeAssessmentTemplatesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDescribeAssessmentTemplatesRequest(obj: InspectorDescribeAssessmentTemplatesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTemplateArns': obj.assessmentTemplateArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorDescribeAssessmentTemplatesResponse
@@ -251,6 +511,21 @@ export interface InspectorDescribeAssessmentTemplatesResponse {
   readonly failedItems: { [key: string]: InspectorFailedItemDetails };
 
 }
+
+/**
+ * Converts an object of type 'InspectorDescribeAssessmentTemplatesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDescribeAssessmentTemplatesResponse(obj: InspectorDescribeAssessmentTemplatesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTemplates': obj.assessmentTemplates?.map(y => toJson_InspectorAssessmentTemplate(y)),
+    'failedItems': ((obj.failedItems) === undefined) ? undefined : (Object.entries(obj.failedItems).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_InspectorFailedItemDetails(i[1]) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorDescribeCrossAccountAccessRoleResponse
@@ -274,6 +549,22 @@ export interface InspectorDescribeCrossAccountAccessRoleResponse {
 }
 
 /**
+ * Converts an object of type 'InspectorDescribeCrossAccountAccessRoleResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDescribeCrossAccountAccessRoleResponse(obj: InspectorDescribeCrossAccountAccessRoleResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'roleArn': obj.roleArn,
+    'valid': obj.valid,
+    'registeredAt': obj.registeredAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorDescribeExclusionsRequest
  */
 export interface InspectorDescribeExclusionsRequest {
@@ -288,6 +579,21 @@ export interface InspectorDescribeExclusionsRequest {
   readonly locale?: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorDescribeExclusionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDescribeExclusionsRequest(obj: InspectorDescribeExclusionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exclusionArns': obj.exclusionArns?.map(y => y),
+    'locale': obj.locale,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorDescribeExclusionsResponse
@@ -306,6 +612,21 @@ export interface InspectorDescribeExclusionsResponse {
 }
 
 /**
+ * Converts an object of type 'InspectorDescribeExclusionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDescribeExclusionsResponse(obj: InspectorDescribeExclusionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exclusions': ((obj.exclusions) === undefined) ? undefined : (Object.entries(obj.exclusions).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_InspectorExclusion(i[1]) }), {})),
+    'failedItems': ((obj.failedItems) === undefined) ? undefined : (Object.entries(obj.failedItems).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_InspectorFailedItemDetails(i[1]) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorDescribeFindingsRequest
  */
 export interface InspectorDescribeFindingsRequest {
@@ -320,6 +641,21 @@ export interface InspectorDescribeFindingsRequest {
   readonly locale?: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorDescribeFindingsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDescribeFindingsRequest(obj: InspectorDescribeFindingsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'findingArns': obj.findingArns?.map(y => y),
+    'locale': obj.locale,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorDescribeFindingsResponse
@@ -338,6 +674,21 @@ export interface InspectorDescribeFindingsResponse {
 }
 
 /**
+ * Converts an object of type 'InspectorDescribeFindingsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDescribeFindingsResponse(obj: InspectorDescribeFindingsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'findings': obj.findings?.map(y => toJson_InspectorFinding(y)),
+    'failedItems': ((obj.failedItems) === undefined) ? undefined : (Object.entries(obj.failedItems).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_InspectorFailedItemDetails(i[1]) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorDescribeResourceGroupsRequest
  */
 export interface InspectorDescribeResourceGroupsRequest {
@@ -347,6 +698,20 @@ export interface InspectorDescribeResourceGroupsRequest {
   readonly resourceGroupArns: string[];
 
 }
+
+/**
+ * Converts an object of type 'InspectorDescribeResourceGroupsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDescribeResourceGroupsRequest(obj: InspectorDescribeResourceGroupsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceGroupArns': obj.resourceGroupArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorDescribeResourceGroupsResponse
@@ -365,6 +730,21 @@ export interface InspectorDescribeResourceGroupsResponse {
 }
 
 /**
+ * Converts an object of type 'InspectorDescribeResourceGroupsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDescribeResourceGroupsResponse(obj: InspectorDescribeResourceGroupsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceGroups': obj.resourceGroups?.map(y => toJson_InspectorResourceGroup(y)),
+    'failedItems': ((obj.failedItems) === undefined) ? undefined : (Object.entries(obj.failedItems).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_InspectorFailedItemDetails(i[1]) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorDescribeRulesPackagesRequest
  */
 export interface InspectorDescribeRulesPackagesRequest {
@@ -381,6 +761,21 @@ export interface InspectorDescribeRulesPackagesRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorDescribeRulesPackagesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDescribeRulesPackagesRequest(obj: InspectorDescribeRulesPackagesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'rulesPackageArns': obj.rulesPackageArns?.map(y => y),
+    'locale': obj.locale,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorDescribeRulesPackagesResponse
  */
 export interface InspectorDescribeRulesPackagesResponse {
@@ -395,6 +790,21 @@ export interface InspectorDescribeRulesPackagesResponse {
   readonly failedItems: { [key: string]: InspectorFailedItemDetails };
 
 }
+
+/**
+ * Converts an object of type 'InspectorDescribeRulesPackagesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDescribeRulesPackagesResponse(obj: InspectorDescribeRulesPackagesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'rulesPackages': obj.rulesPackages?.map(y => toJson_InspectorRulesPackage(y)),
+    'failedItems': ((obj.failedItems) === undefined) ? undefined : (Object.entries(obj.failedItems).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_InspectorFailedItemDetails(i[1]) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorGetAssessmentReportRequest
@@ -418,6 +828,22 @@ export interface InspectorGetAssessmentReportRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorGetAssessmentReportRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorGetAssessmentReportRequest(obj: InspectorGetAssessmentReportRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentRunArn': obj.assessmentRunArn,
+    'reportFileFormat': obj.reportFileFormat,
+    'reportType': obj.reportType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorGetAssessmentReportResponse
  */
 export interface InspectorGetAssessmentReportResponse {
@@ -432,6 +858,21 @@ export interface InspectorGetAssessmentReportResponse {
   readonly url?: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorGetAssessmentReportResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorGetAssessmentReportResponse(obj: InspectorGetAssessmentReportResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+    'url': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorGetExclusionsPreviewRequest
@@ -465,6 +906,24 @@ export interface InspectorGetExclusionsPreviewRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorGetExclusionsPreviewRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorGetExclusionsPreviewRequest(obj: InspectorGetExclusionsPreviewRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTemplateArn': obj.assessmentTemplateArn,
+    'previewToken': obj.previewToken,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'locale': obj.locale,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorGetExclusionsPreviewResponse
  */
 export interface InspectorGetExclusionsPreviewResponse {
@@ -486,6 +945,22 @@ export interface InspectorGetExclusionsPreviewResponse {
 }
 
 /**
+ * Converts an object of type 'InspectorGetExclusionsPreviewResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorGetExclusionsPreviewResponse(obj: InspectorGetExclusionsPreviewResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'previewStatus': obj.previewStatus,
+    'exclusionPreviews': obj.exclusionPreviews?.map(y => toJson_InspectorExclusionPreview(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorGetTelemetryMetadataRequest
  */
 export interface InspectorGetTelemetryMetadataRequest {
@@ -497,6 +972,20 @@ export interface InspectorGetTelemetryMetadataRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorGetTelemetryMetadataRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorGetTelemetryMetadataRequest(obj: InspectorGetTelemetryMetadataRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentRunArn': obj.assessmentRunArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorGetTelemetryMetadataResponse
  */
 export interface InspectorGetTelemetryMetadataResponse {
@@ -506,6 +995,20 @@ export interface InspectorGetTelemetryMetadataResponse {
   readonly telemetryMetadata: InspectorTelemetryMetadata[];
 
 }
+
+/**
+ * Converts an object of type 'InspectorGetTelemetryMetadataResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorGetTelemetryMetadataResponse(obj: InspectorGetTelemetryMetadataResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'telemetryMetadata': obj.telemetryMetadata?.map(y => toJson_InspectorTelemetryMetadata(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorListAssessmentRunAgentsRequest
@@ -534,6 +1037,23 @@ export interface InspectorListAssessmentRunAgentsRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorListAssessmentRunAgentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorListAssessmentRunAgentsRequest(obj: InspectorListAssessmentRunAgentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentRunArn': obj.assessmentRunArn,
+    'filter': toJson_InspectorAgentFilter(obj.filter),
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorListAssessmentRunAgentsResponse
  */
 export interface InspectorListAssessmentRunAgentsResponse {
@@ -548,6 +1068,21 @@ export interface InspectorListAssessmentRunAgentsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorListAssessmentRunAgentsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorListAssessmentRunAgentsResponse(obj: InspectorListAssessmentRunAgentsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentRunAgents': obj.assessmentRunAgents?.map(y => toJson_InspectorAssessmentRunAgent(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorListAssessmentRunsRequest
@@ -576,6 +1111,23 @@ export interface InspectorListAssessmentRunsRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorListAssessmentRunsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorListAssessmentRunsRequest(obj: InspectorListAssessmentRunsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTemplateArns': obj.assessmentTemplateArns?.map(y => y),
+    'filter': toJson_InspectorAssessmentRunFilter(obj.filter),
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorListAssessmentRunsResponse
  */
 export interface InspectorListAssessmentRunsResponse {
@@ -590,6 +1142,21 @@ export interface InspectorListAssessmentRunsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorListAssessmentRunsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorListAssessmentRunsResponse(obj: InspectorListAssessmentRunsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentRunArns': obj.assessmentRunArns?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorListAssessmentTargetsRequest
@@ -613,6 +1180,22 @@ export interface InspectorListAssessmentTargetsRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorListAssessmentTargetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorListAssessmentTargetsRequest(obj: InspectorListAssessmentTargetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filter': toJson_InspectorAssessmentTargetFilter(obj.filter),
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorListAssessmentTargetsResponse
  */
 export interface InspectorListAssessmentTargetsResponse {
@@ -627,6 +1210,21 @@ export interface InspectorListAssessmentTargetsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorListAssessmentTargetsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorListAssessmentTargetsResponse(obj: InspectorListAssessmentTargetsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTargetArns': obj.assessmentTargetArns?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorListAssessmentTemplatesRequest
@@ -655,6 +1253,23 @@ export interface InspectorListAssessmentTemplatesRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorListAssessmentTemplatesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorListAssessmentTemplatesRequest(obj: InspectorListAssessmentTemplatesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTargetArns': obj.assessmentTargetArns?.map(y => y),
+    'filter': toJson_InspectorAssessmentTemplateFilter(obj.filter),
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorListAssessmentTemplatesResponse
  */
 export interface InspectorListAssessmentTemplatesResponse {
@@ -669,6 +1284,21 @@ export interface InspectorListAssessmentTemplatesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorListAssessmentTemplatesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorListAssessmentTemplatesResponse(obj: InspectorListAssessmentTemplatesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTemplateArns': obj.assessmentTemplateArns?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorListEventSubscriptionsRequest
@@ -692,6 +1322,22 @@ export interface InspectorListEventSubscriptionsRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorListEventSubscriptionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorListEventSubscriptionsRequest(obj: InspectorListEventSubscriptionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorListEventSubscriptionsResponse
  */
 export interface InspectorListEventSubscriptionsResponse {
@@ -706,6 +1352,21 @@ export interface InspectorListEventSubscriptionsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorListEventSubscriptionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorListEventSubscriptionsResponse(obj: InspectorListEventSubscriptionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'subscriptions': obj.subscriptions?.map(y => toJson_InspectorSubscription(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorListExclusionsRequest
@@ -729,6 +1390,22 @@ export interface InspectorListExclusionsRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorListExclusionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorListExclusionsRequest(obj: InspectorListExclusionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentRunArn': obj.assessmentRunArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorListExclusionsResponse
  */
 export interface InspectorListExclusionsResponse {
@@ -743,6 +1420,21 @@ export interface InspectorListExclusionsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorListExclusionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorListExclusionsResponse(obj: InspectorListExclusionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exclusionArns': obj.exclusionArns?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorListFindingsRequest
@@ -771,6 +1463,23 @@ export interface InspectorListFindingsRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorListFindingsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorListFindingsRequest(obj: InspectorListFindingsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentRunArns': obj.assessmentRunArns?.map(y => y),
+    'filter': toJson_InspectorFindingFilter(obj.filter),
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorListFindingsResponse
  */
 export interface InspectorListFindingsResponse {
@@ -785,6 +1494,21 @@ export interface InspectorListFindingsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorListFindingsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorListFindingsResponse(obj: InspectorListFindingsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'findingArns': obj.findingArns?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorListRulesPackagesRequest
@@ -803,6 +1527,21 @@ export interface InspectorListRulesPackagesRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorListRulesPackagesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorListRulesPackagesRequest(obj: InspectorListRulesPackagesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorListRulesPackagesResponse
  */
 export interface InspectorListRulesPackagesResponse {
@@ -819,6 +1558,21 @@ export interface InspectorListRulesPackagesResponse {
 }
 
 /**
+ * Converts an object of type 'InspectorListRulesPackagesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorListRulesPackagesResponse(obj: InspectorListRulesPackagesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'rulesPackageArns': obj.rulesPackageArns?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorListTagsForResourceRequest
  */
 export interface InspectorListTagsForResourceRequest {
@@ -830,6 +1584,20 @@ export interface InspectorListTagsForResourceRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorListTagsForResourceRequest(obj: InspectorListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorListTagsForResourceResponse
  */
 export interface InspectorListTagsForResourceResponse {
@@ -839,6 +1607,20 @@ export interface InspectorListTagsForResourceResponse {
   readonly tags: InspectorTag[];
 
 }
+
+/**
+ * Converts an object of type 'InspectorListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorListTagsForResourceResponse(obj: InspectorListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': obj.tags?.map(y => toJson_InspectorTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorPreviewAgentsRequest
@@ -862,6 +1644,22 @@ export interface InspectorPreviewAgentsRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorPreviewAgentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorPreviewAgentsRequest(obj: InspectorPreviewAgentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'previewAgentsArn': obj.previewAgentsArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorPreviewAgentsResponse
  */
 export interface InspectorPreviewAgentsResponse {
@@ -878,6 +1676,21 @@ export interface InspectorPreviewAgentsResponse {
 }
 
 /**
+ * Converts an object of type 'InspectorPreviewAgentsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorPreviewAgentsResponse(obj: InspectorPreviewAgentsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'agentPreviews': obj.agentPreviews?.map(y => toJson_InspectorAgentPreview(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorRegisterCrossAccountAccessRoleRequest
  */
 export interface InspectorRegisterCrossAccountAccessRoleRequest {
@@ -887,6 +1700,20 @@ export interface InspectorRegisterCrossAccountAccessRoleRequest {
   readonly roleArn: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorRegisterCrossAccountAccessRoleRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorRegisterCrossAccountAccessRoleRequest(obj: InspectorRegisterCrossAccountAccessRoleRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'roleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorRemoveAttributesFromFindingsRequest
@@ -905,6 +1732,21 @@ export interface InspectorRemoveAttributesFromFindingsRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorRemoveAttributesFromFindingsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorRemoveAttributesFromFindingsRequest(obj: InspectorRemoveAttributesFromFindingsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'findingArns': obj.findingArns?.map(y => y),
+    'attributeKeys': obj.attributeKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorRemoveAttributesFromFindingsResponse
  */
 export interface InspectorRemoveAttributesFromFindingsResponse {
@@ -914,6 +1756,20 @@ export interface InspectorRemoveAttributesFromFindingsResponse {
   readonly failedItems: { [key: string]: InspectorFailedItemDetails };
 
 }
+
+/**
+ * Converts an object of type 'InspectorRemoveAttributesFromFindingsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorRemoveAttributesFromFindingsResponse(obj: InspectorRemoveAttributesFromFindingsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'failedItems': ((obj.failedItems) === undefined) ? undefined : (Object.entries(obj.failedItems).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_InspectorFailedItemDetails(i[1]) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorSetTagsForResourceRequest
@@ -932,6 +1788,21 @@ export interface InspectorSetTagsForResourceRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorSetTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorSetTagsForResourceRequest(obj: InspectorSetTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': obj.tags?.map(y => toJson_InspectorTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorStartAssessmentRunRequest
  */
 export interface InspectorStartAssessmentRunRequest {
@@ -948,6 +1819,21 @@ export interface InspectorStartAssessmentRunRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorStartAssessmentRunRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorStartAssessmentRunRequest(obj: InspectorStartAssessmentRunRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTemplateArn': obj.assessmentTemplateArn,
+    'assessmentRunName': obj.assessmentRunName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorStartAssessmentRunResponse
  */
 export interface InspectorStartAssessmentRunResponse {
@@ -957,6 +1843,20 @@ export interface InspectorStartAssessmentRunResponse {
   readonly assessmentRunArn: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorStartAssessmentRunResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorStartAssessmentRunResponse(obj: InspectorStartAssessmentRunResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentRunArn': obj.assessmentRunArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorStopAssessmentRunRequest
@@ -973,6 +1873,21 @@ export interface InspectorStopAssessmentRunRequest {
   readonly stopAction?: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorStopAssessmentRunRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorStopAssessmentRunRequest(obj: InspectorStopAssessmentRunRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentRunArn': obj.assessmentRunArn,
+    'stopAction': obj.stopAction,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorSubscribeToEventRequest
@@ -996,6 +1911,22 @@ export interface InspectorSubscribeToEventRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorSubscribeToEventRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorSubscribeToEventRequest(obj: InspectorSubscribeToEventRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'event': obj.event,
+    'topicArn': obj.topicArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorUnsubscribeFromEventRequest
  */
 export interface InspectorUnsubscribeFromEventRequest {
@@ -1015,6 +1946,22 @@ export interface InspectorUnsubscribeFromEventRequest {
   readonly topicArn: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorUnsubscribeFromEventRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorUnsubscribeFromEventRequest(obj: InspectorUnsubscribeFromEventRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'event': obj.event,
+    'topicArn': obj.topicArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorUpdateAssessmentTargetRequest
@@ -1038,6 +1985,22 @@ export interface InspectorUpdateAssessmentTargetRequest {
 }
 
 /**
+ * Converts an object of type 'InspectorUpdateAssessmentTargetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorUpdateAssessmentTargetRequest(obj: InspectorUpdateAssessmentTargetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTargetArn': obj.assessmentTargetArn,
+    'assessmentTargetName': obj.assessmentTargetName,
+    'resourceGroupArn': obj.resourceGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorAttribute
  */
 export interface InspectorAttribute {
@@ -1052,6 +2015,21 @@ export interface InspectorAttribute {
   readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorAttribute' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorAttribute(obj: InspectorAttribute | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorFailedItemDetails
@@ -1070,6 +2048,21 @@ export interface InspectorFailedItemDetails {
 }
 
 /**
+ * Converts an object of type 'InspectorFailedItemDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorFailedItemDetails(obj: InspectorFailedItemDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'failureCode': obj.failureCode,
+    'retryable': obj.retryable,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorResourceGroupTag
  */
 export interface InspectorResourceGroupTag {
@@ -1084,6 +2077,21 @@ export interface InspectorResourceGroupTag {
   readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorResourceGroupTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorResourceGroupTag(obj: InspectorResourceGroupTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorAssessmentRun
@@ -1167,6 +2175,34 @@ export interface InspectorAssessmentRun {
 }
 
 /**
+ * Converts an object of type 'InspectorAssessmentRun' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorAssessmentRun(obj: InspectorAssessmentRun | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'assessmentTemplateArn': obj.assessmentTemplateArn,
+    'state': obj.state,
+    'durationInSeconds': obj.durationInSeconds,
+    'rulesPackageArns': obj.rulesPackageArns?.map(y => y),
+    'userAttributesForFindings': obj.userAttributesForFindings?.map(y => toJson_InspectorAttribute(y)),
+    'createdAt': obj.createdAt,
+    'startedAt': obj.startedAt,
+    'completedAt': obj.completedAt,
+    'stateChangedAt': obj.stateChangedAt,
+    'dataCollected': obj.dataCollected,
+    'stateChanges': obj.stateChanges?.map(y => toJson_InspectorAssessmentRunStateChange(y)),
+    'notifications': obj.notifications?.map(y => toJson_InspectorAssessmentRunNotification(y)),
+    'findingCounts': ((obj.findingCounts) === undefined) ? undefined : (Object.entries(obj.findingCounts).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorAssessmentTarget
  */
 export interface InspectorAssessmentTarget {
@@ -1196,6 +2232,24 @@ export interface InspectorAssessmentTarget {
   readonly updatedAt: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorAssessmentTarget' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorAssessmentTarget(obj: InspectorAssessmentTarget | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'resourceGroupArn': obj.resourceGroupArn,
+    'createdAt': obj.createdAt,
+    'updatedAt': obj.updatedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorAssessmentTemplate
@@ -1249,6 +2303,28 @@ export interface InspectorAssessmentTemplate {
 }
 
 /**
+ * Converts an object of type 'InspectorAssessmentTemplate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorAssessmentTemplate(obj: InspectorAssessmentTemplate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'assessmentTargetArn': obj.assessmentTargetArn,
+    'durationInSeconds': obj.durationInSeconds,
+    'rulesPackageArns': obj.rulesPackageArns?.map(y => y),
+    'userAttributesForFindings': obj.userAttributesForFindings?.map(y => toJson_InspectorAttribute(y)),
+    'lastAssessmentRunArn': obj.lastAssessmentRunArn,
+    'assessmentRunCount': obj.assessmentRunCount,
+    'createdAt': obj.createdAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorExclusion
  */
 export interface InspectorExclusion {
@@ -1283,6 +2359,25 @@ export interface InspectorExclusion {
   readonly attributes?: InspectorAttribute[];
 
 }
+
+/**
+ * Converts an object of type 'InspectorExclusion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorExclusion(obj: InspectorExclusion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'title': obj.title,
+    'description': obj.description,
+    'recommendation': obj.recommendation,
+    'scopes': obj.scopes?.map(y => toJson_InspectorScope(y)),
+    'attributes': obj.attributes?.map(y => toJson_InspectorAttribute(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorFinding
@@ -1381,6 +2476,37 @@ export interface InspectorFinding {
 }
 
 /**
+ * Converts an object of type 'InspectorFinding' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorFinding(obj: InspectorFinding | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'schemaVersion': obj.schemaVersion,
+    'service': obj.service,
+    'serviceAttributes': toJson_InspectorInspectorServiceAttributes(obj.serviceAttributes),
+    'assetType': obj.assetType,
+    'assetAttributes': toJson_InspectorAssetAttributes(obj.assetAttributes),
+    'id': obj.id,
+    'title': obj.title,
+    'description': obj.description,
+    'recommendation': obj.recommendation,
+    'severity': obj.severity,
+    'numericSeverity': obj.numericSeverity,
+    'confidence': obj.confidence,
+    'indicatorOfCompromise': obj.indicatorOfCompromise,
+    'attributes': obj.attributes?.map(y => toJson_InspectorAttribute(y)),
+    'userAttributes': obj.userAttributes?.map(y => toJson_InspectorAttribute(y)),
+    'createdAt': obj.createdAt,
+    'updatedAt': obj.updatedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorResourceGroup
  */
 export interface InspectorResourceGroup {
@@ -1400,6 +2526,22 @@ export interface InspectorResourceGroup {
   readonly createdAt: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorResourceGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorResourceGroup(obj: InspectorResourceGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'tags': obj.tags?.map(y => toJson_InspectorResourceGroupTag(y)),
+    'createdAt': obj.createdAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorRulesPackage
@@ -1433,6 +2575,24 @@ export interface InspectorRulesPackage {
 }
 
 /**
+ * Converts an object of type 'InspectorRulesPackage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorRulesPackage(obj: InspectorRulesPackage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'version': obj.version,
+    'provider': obj.provider,
+    'description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorExclusionPreview
  */
 export interface InspectorExclusionPreview {
@@ -1464,6 +2624,24 @@ export interface InspectorExclusionPreview {
 }
 
 /**
+ * Converts an object of type 'InspectorExclusionPreview' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorExclusionPreview(obj: InspectorExclusionPreview | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'title': obj.title,
+    'description': obj.description,
+    'recommendation': obj.recommendation,
+    'scopes': obj.scopes?.map(y => toJson_InspectorScope(y)),
+    'attributes': obj.attributes?.map(y => toJson_InspectorAttribute(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorTelemetryMetadata
  */
 export interface InspectorTelemetryMetadata {
@@ -1485,6 +2663,22 @@ export interface InspectorTelemetryMetadata {
 }
 
 /**
+ * Converts an object of type 'InspectorTelemetryMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorTelemetryMetadata(obj: InspectorTelemetryMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'messageType': obj.messageType,
+    'count': obj.count,
+    'dataSize': obj.dataSize,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorAgentFilter
  */
 export interface InspectorAgentFilter {
@@ -1499,6 +2693,21 @@ export interface InspectorAgentFilter {
   readonly agentHealthCodes: string[];
 
 }
+
+/**
+ * Converts an object of type 'InspectorAgentFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorAgentFilter(obj: InspectorAgentFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'agentHealths': obj.agentHealths?.map(y => y),
+    'agentHealthCodes': obj.agentHealthCodes?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorAssessmentRunAgent
@@ -1542,6 +2751,26 @@ export interface InspectorAssessmentRunAgent {
 }
 
 /**
+ * Converts an object of type 'InspectorAssessmentRunAgent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorAssessmentRunAgent(obj: InspectorAssessmentRunAgent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'agentId': obj.agentId,
+    'assessmentRunArn': obj.assessmentRunArn,
+    'agentHealth': obj.agentHealth,
+    'agentHealthCode': obj.agentHealthCode,
+    'agentHealthDetails': obj.agentHealthDetails,
+    'autoScalingGroup': obj.autoScalingGroup,
+    'telemetryMetadata': obj.telemetryMetadata?.map(y => toJson_InspectorTelemetryMetadata(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorAssessmentRunFilter
  */
 export interface InspectorAssessmentRunFilter {
@@ -1583,6 +2812,26 @@ export interface InspectorAssessmentRunFilter {
 }
 
 /**
+ * Converts an object of type 'InspectorAssessmentRunFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorAssessmentRunFilter(obj: InspectorAssessmentRunFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'namePattern': obj.namePattern,
+    'states': obj.states?.map(y => y),
+    'durationRange': toJson_InspectorDurationRange(obj.durationRange),
+    'rulesPackageArns': obj.rulesPackageArns?.map(y => y),
+    'startTimeRange': toJson_InspectorTimestampRange(obj.startTimeRange),
+    'completionTimeRange': toJson_InspectorTimestampRange(obj.completionTimeRange),
+    'stateChangeTimeRange': toJson_InspectorTimestampRange(obj.stateChangeTimeRange),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorAssessmentTargetFilter
  */
 export interface InspectorAssessmentTargetFilter {
@@ -1592,6 +2841,20 @@ export interface InspectorAssessmentTargetFilter {
   readonly assessmentTargetNamePattern?: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorAssessmentTargetFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorAssessmentTargetFilter(obj: InspectorAssessmentTargetFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assessmentTargetNamePattern': obj.assessmentTargetNamePattern,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorAssessmentTemplateFilter
@@ -1615,6 +2878,22 @@ export interface InspectorAssessmentTemplateFilter {
 }
 
 /**
+ * Converts an object of type 'InspectorAssessmentTemplateFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorAssessmentTemplateFilter(obj: InspectorAssessmentTemplateFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'namePattern': obj.namePattern,
+    'durationRange': toJson_InspectorDurationRange(obj.durationRange),
+    'rulesPackageArns': obj.rulesPackageArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorSubscription
  */
 export interface InspectorSubscription {
@@ -1634,6 +2913,22 @@ export interface InspectorSubscription {
   readonly eventSubscriptions: InspectorEventSubscription[];
 
 }
+
+/**
+ * Converts an object of type 'InspectorSubscription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorSubscription(obj: InspectorSubscription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'topicArn': obj.topicArn,
+    'eventSubscriptions': obj.eventSubscriptions?.map(y => toJson_InspectorEventSubscription(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorFindingFilter
@@ -1682,6 +2977,27 @@ export interface InspectorFindingFilter {
 }
 
 /**
+ * Converts an object of type 'InspectorFindingFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorFindingFilter(obj: InspectorFindingFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'agentIds': obj.agentIds?.map(y => y),
+    'autoScalingGroups': obj.autoScalingGroups?.map(y => y),
+    'ruleNames': obj.ruleNames?.map(y => y),
+    'severities': obj.severities?.map(y => y),
+    'rulesPackageArns': obj.rulesPackageArns?.map(y => y),
+    'attributes': obj.attributes?.map(y => toJson_InspectorAttribute(y)),
+    'userAttributes': obj.userAttributes?.map(y => toJson_InspectorAttribute(y)),
+    'creationTimeRange': toJson_InspectorTimestampRange(obj.creationTimeRange),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorTag
  */
 export interface InspectorTag {
@@ -1696,6 +3012,21 @@ export interface InspectorTag {
   readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorTag(obj: InspectorTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorAgentPreview
@@ -1744,6 +3075,27 @@ export interface InspectorAgentPreview {
 }
 
 /**
+ * Converts an object of type 'InspectorAgentPreview' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorAgentPreview(obj: InspectorAgentPreview | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'hostname': obj.hostname,
+    'agentId': obj.agentId,
+    'autoScalingGroup': obj.autoScalingGroup,
+    'agentHealth': obj.agentHealth,
+    'agentVersion': obj.agentVersion,
+    'operatingSystem': obj.operatingSystem,
+    'kernelVersion': obj.kernelVersion,
+    'ipv4Address': obj.ipv4Address,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorAssessmentRunStateChange
  */
 export interface InspectorAssessmentRunStateChange {
@@ -1758,6 +3110,21 @@ export interface InspectorAssessmentRunStateChange {
   readonly state: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorAssessmentRunStateChange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorAssessmentRunStateChange(obj: InspectorAssessmentRunStateChange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'stateChangedAt': obj.stateChangedAt,
+    'state': obj.state,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorAssessmentRunNotification
@@ -1796,6 +3163,25 @@ export interface InspectorAssessmentRunNotification {
 }
 
 /**
+ * Converts an object of type 'InspectorAssessmentRunNotification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorAssessmentRunNotification(obj: InspectorAssessmentRunNotification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'date': obj.date,
+    'event': obj.event,
+    'message': obj.message,
+    'error': obj.error,
+    'snsTopicArn': obj.snsTopicArn,
+    'snsPublishStatusCode': obj.snsPublishStatusCode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorScope
  */
 export interface InspectorScope {
@@ -1810,6 +3196,21 @@ export interface InspectorScope {
   readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorScope' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorScope(obj: InspectorScope | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorInspectorServiceAttributes
@@ -1831,6 +3232,22 @@ export interface InspectorInspectorServiceAttributes {
   readonly rulesPackageArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorInspectorServiceAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorInspectorServiceAttributes(obj: InspectorInspectorServiceAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'schemaVersion': obj.schemaVersion,
+    'assessmentRunArn': obj.assessmentRunArn,
+    'rulesPackageArn': obj.rulesPackageArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorAssetAttributes
@@ -1879,6 +3296,27 @@ export interface InspectorAssetAttributes {
 }
 
 /**
+ * Converts an object of type 'InspectorAssetAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorAssetAttributes(obj: InspectorAssetAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'schemaVersion': obj.schemaVersion,
+    'agentId': obj.agentId,
+    'autoScalingGroup': obj.autoScalingGroup,
+    'amiId': obj.amiId,
+    'hostname': obj.hostname,
+    'ipv4Addresses': obj.ipv4Addresses?.map(y => y),
+    'tags': obj.tags?.map(y => toJson_InspectorTag(y)),
+    'networkInterfaces': obj.networkInterfaces?.map(y => toJson_InspectorNetworkInterface(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorDurationRange
  */
 export interface InspectorDurationRange {
@@ -1893,6 +3331,21 @@ export interface InspectorDurationRange {
   readonly maxSeconds?: number;
 
 }
+
+/**
+ * Converts an object of type 'InspectorDurationRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorDurationRange(obj: InspectorDurationRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'minSeconds': obj.minSeconds,
+    'maxSeconds': obj.maxSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorTimestampRange
@@ -1911,6 +3364,21 @@ export interface InspectorTimestampRange {
 }
 
 /**
+ * Converts an object of type 'InspectorTimestampRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorTimestampRange(obj: InspectorTimestampRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'beginDate': obj.beginDate,
+    'endDate': obj.endDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorEventSubscription
  */
 export interface InspectorEventSubscription {
@@ -1925,6 +3393,21 @@ export interface InspectorEventSubscription {
   readonly subscribedAt: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorEventSubscription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorEventSubscription(obj: InspectorEventSubscription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'event': obj.event,
+    'subscribedAt': obj.subscribedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema InspectorNetworkInterface
@@ -1983,6 +3466,29 @@ export interface InspectorNetworkInterface {
 }
 
 /**
+ * Converts an object of type 'InspectorNetworkInterface' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorNetworkInterface(obj: InspectorNetworkInterface | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'networkInterfaceId': obj.networkInterfaceId,
+    'subnetId': obj.subnetId,
+    'vpcId': obj.vpcId,
+    'privateDnsName': obj.privateDnsName,
+    'privateIpAddress': obj.privateIpAddress,
+    'privateIpAddresses': obj.privateIpAddresses?.map(y => toJson_InspectorPrivateIp(y)),
+    'publicDnsName': obj.publicDnsName,
+    'publicIp': obj.publicIp,
+    'ipv6Addresses': obj.ipv6Addresses?.map(y => y),
+    'securityGroups': obj.securityGroups?.map(y => toJson_InspectorSecurityGroup(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorPrivateIp
  */
 export interface InspectorPrivateIp {
@@ -1999,6 +3505,21 @@ export interface InspectorPrivateIp {
 }
 
 /**
+ * Converts an object of type 'InspectorPrivateIp' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorPrivateIp(obj: InspectorPrivateIp | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'privateDnsName': obj.privateDnsName,
+    'privateIpAddress': obj.privateIpAddress,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema InspectorSecurityGroup
  */
 export interface InspectorSecurityGroup {
@@ -2013,3 +3534,18 @@ export interface InspectorSecurityGroup {
   readonly groupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'InspectorSecurityGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_InspectorSecurityGroup(obj: InspectorSecurityGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'groupName': obj.groupName,
+    'groupId': obj.groupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

@@ -236,6 +236,7 @@ export class AcmpcaClient extends cdk.Construct {
               ExpirationInDays: input.revocationConfiguration?.crlConfiguration?.expirationInDays,
               CustomCname: input.revocationConfiguration?.crlConfiguration?.customCname,
               S3BucketName: input.revocationConfiguration?.crlConfiguration?.s3BucketName,
+              S3ObjectAcl: input.revocationConfiguration?.crlConfiguration?.s3ObjectAcl,
             },
           },
           Status: input.status,
@@ -280,6 +281,20 @@ export class ACMPCAResponsesCreateCertificateAuthority {
               Pseudonym: this.__input.certificateAuthorityConfiguration.subject.pseudonym,
               GenerationQualifier: this.__input.certificateAuthorityConfiguration.subject.generationQualifier,
             },
+            CsrExtensions: {
+              KeyUsage: {
+                DigitalSignature: this.__input.certificateAuthorityConfiguration.csrExtensions?.keyUsage?.digitalSignature,
+                NonRepudiation: this.__input.certificateAuthorityConfiguration.csrExtensions?.keyUsage?.nonRepudiation,
+                KeyEncipherment: this.__input.certificateAuthorityConfiguration.csrExtensions?.keyUsage?.keyEncipherment,
+                DataEncipherment: this.__input.certificateAuthorityConfiguration.csrExtensions?.keyUsage?.dataEncipherment,
+                KeyAgreement: this.__input.certificateAuthorityConfiguration.csrExtensions?.keyUsage?.keyAgreement,
+                KeyCertSign: this.__input.certificateAuthorityConfiguration.csrExtensions?.keyUsage?.keyCertSign,
+                CRLSign: this.__input.certificateAuthorityConfiguration.csrExtensions?.keyUsage?.crlSign,
+                EncipherOnly: this.__input.certificateAuthorityConfiguration.csrExtensions?.keyUsage?.encipherOnly,
+                DecipherOnly: this.__input.certificateAuthorityConfiguration.csrExtensions?.keyUsage?.decipherOnly,
+              },
+              SubjectInformationAccess: this.__input.certificateAuthorityConfiguration.csrExtensions?.subjectInformationAccess,
+            },
           },
           RevocationConfiguration: {
             CrlConfiguration: {
@@ -287,10 +302,12 @@ export class ACMPCAResponsesCreateCertificateAuthority {
               ExpirationInDays: this.__input.revocationConfiguration?.crlConfiguration?.expirationInDays,
               CustomCname: this.__input.revocationConfiguration?.crlConfiguration?.customCname,
               S3BucketName: this.__input.revocationConfiguration?.crlConfiguration?.s3BucketName,
+              S3ObjectAcl: this.__input.revocationConfiguration?.crlConfiguration?.s3ObjectAcl,
             },
           },
           CertificateAuthorityType: this.__input.certificateAuthorityType,
           IdempotencyToken: this.__input.idempotencyToken,
+          KeyStorageSecurityStandard: this.__input.keyStorageSecurityStandard,
           Tags: this.__input.tags,
         },
       },
@@ -557,6 +574,23 @@ export class ACMPCAResponsesDescribeCertificateAuthorityCertificateAuthority {
     return resource.getResponseField('CertificateAuthority.RestorableUntil') as unknown as string;
   }
 
+  public get keyStorageSecurityStandard(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCertificateAuthority',
+        service: 'ACMPCA',
+        physicalResourceId: cr.PhysicalResourceId.of('ACMPCA.DescribeCertificateAuthority.CertificateAuthority.KeyStorageSecurityStandard'),
+        outputPath: 'CertificateAuthority.KeyStorageSecurityStandard',
+        parameters: {
+          CertificateAuthorityArn: this.__input.certificateAuthorityArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCertificateAuthority.CertificateAuthority.KeyStorageSecurityStandard', props);
+    return resource.getResponseField('CertificateAuthority.KeyStorageSecurityStandard') as unknown as string;
+  }
+
 }
 
 export class ACMPCAResponsesDescribeCertificateAuthorityCertificateAuthorityCertificateAuthorityConfiguration {
@@ -600,6 +634,10 @@ export class ACMPCAResponsesDescribeCertificateAuthorityCertificateAuthorityCert
 
   public get subject(): ACMPCAResponsesDescribeCertificateAuthorityCertificateAuthorityCertificateAuthorityConfigurationSubject {
     return new ACMPCAResponsesDescribeCertificateAuthorityCertificateAuthorityCertificateAuthorityConfigurationSubject(this.__scope, this.__resources, this.__input);
+  }
+
+  public get csrExtensions(): ACMPCAResponsesDescribeCertificateAuthorityCertificateAuthorityCertificateAuthorityConfigurationCsrExtensions {
+    return new ACMPCAResponsesDescribeCertificateAuthorityCertificateAuthorityCertificateAuthorityConfigurationCsrExtensions(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -849,6 +887,194 @@ export class ACMPCAResponsesDescribeCertificateAuthorityCertificateAuthorityCert
 
 }
 
+export class ACMPCAResponsesDescribeCertificateAuthorityCertificateAuthorityCertificateAuthorityConfigurationCsrExtensions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AcmpcaDescribeCertificateAuthorityRequest) {
+  }
+
+  public get keyUsage(): ACMPCAResponsesDescribeCertificateAuthorityCertificateAuthorityCertificateAuthorityConfigurationCsrExtensionsKeyUsage {
+    return new ACMPCAResponsesDescribeCertificateAuthorityCertificateAuthorityCertificateAuthorityConfigurationCsrExtensionsKeyUsage(this.__scope, this.__resources, this.__input);
+  }
+
+  public get subjectInformationAccess(): shapes.AcmpcaAccessDescription[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCertificateAuthority',
+        service: 'ACMPCA',
+        physicalResourceId: cr.PhysicalResourceId.of('ACMPCA.DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.SubjectInformationAccess'),
+        outputPath: 'CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.SubjectInformationAccess',
+        parameters: {
+          CertificateAuthorityArn: this.__input.certificateAuthorityArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.SubjectInformationAccess', props);
+    return resource.getResponseField('CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.SubjectInformationAccess') as unknown as shapes.AcmpcaAccessDescription[];
+  }
+
+}
+
+export class ACMPCAResponsesDescribeCertificateAuthorityCertificateAuthorityCertificateAuthorityConfigurationCsrExtensionsKeyUsage {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AcmpcaDescribeCertificateAuthorityRequest) {
+  }
+
+  public get digitalSignature(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCertificateAuthority',
+        service: 'ACMPCA',
+        physicalResourceId: cr.PhysicalResourceId.of('ACMPCA.DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.DigitalSignature'),
+        outputPath: 'CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.DigitalSignature',
+        parameters: {
+          CertificateAuthorityArn: this.__input.certificateAuthorityArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.DigitalSignature', props);
+    return resource.getResponseField('CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.DigitalSignature') as unknown as boolean;
+  }
+
+  public get nonRepudiation(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCertificateAuthority',
+        service: 'ACMPCA',
+        physicalResourceId: cr.PhysicalResourceId.of('ACMPCA.DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.NonRepudiation'),
+        outputPath: 'CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.NonRepudiation',
+        parameters: {
+          CertificateAuthorityArn: this.__input.certificateAuthorityArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.NonRepudiation', props);
+    return resource.getResponseField('CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.NonRepudiation') as unknown as boolean;
+  }
+
+  public get keyEncipherment(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCertificateAuthority',
+        service: 'ACMPCA',
+        physicalResourceId: cr.PhysicalResourceId.of('ACMPCA.DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.KeyEncipherment'),
+        outputPath: 'CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.KeyEncipherment',
+        parameters: {
+          CertificateAuthorityArn: this.__input.certificateAuthorityArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.KeyEncipherment', props);
+    return resource.getResponseField('CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.KeyEncipherment') as unknown as boolean;
+  }
+
+  public get dataEncipherment(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCertificateAuthority',
+        service: 'ACMPCA',
+        physicalResourceId: cr.PhysicalResourceId.of('ACMPCA.DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.DataEncipherment'),
+        outputPath: 'CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.DataEncipherment',
+        parameters: {
+          CertificateAuthorityArn: this.__input.certificateAuthorityArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.DataEncipherment', props);
+    return resource.getResponseField('CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.DataEncipherment') as unknown as boolean;
+  }
+
+  public get keyAgreement(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCertificateAuthority',
+        service: 'ACMPCA',
+        physicalResourceId: cr.PhysicalResourceId.of('ACMPCA.DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.KeyAgreement'),
+        outputPath: 'CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.KeyAgreement',
+        parameters: {
+          CertificateAuthorityArn: this.__input.certificateAuthorityArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.KeyAgreement', props);
+    return resource.getResponseField('CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.KeyAgreement') as unknown as boolean;
+  }
+
+  public get keyCertSign(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCertificateAuthority',
+        service: 'ACMPCA',
+        physicalResourceId: cr.PhysicalResourceId.of('ACMPCA.DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.KeyCertSign'),
+        outputPath: 'CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.KeyCertSign',
+        parameters: {
+          CertificateAuthorityArn: this.__input.certificateAuthorityArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.KeyCertSign', props);
+    return resource.getResponseField('CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.KeyCertSign') as unknown as boolean;
+  }
+
+  public get crlSign(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCertificateAuthority',
+        service: 'ACMPCA',
+        physicalResourceId: cr.PhysicalResourceId.of('ACMPCA.DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.CRLSign'),
+        outputPath: 'CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.CRLSign',
+        parameters: {
+          CertificateAuthorityArn: this.__input.certificateAuthorityArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.CRLSign', props);
+    return resource.getResponseField('CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.CRLSign') as unknown as boolean;
+  }
+
+  public get encipherOnly(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCertificateAuthority',
+        service: 'ACMPCA',
+        physicalResourceId: cr.PhysicalResourceId.of('ACMPCA.DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.EncipherOnly'),
+        outputPath: 'CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.EncipherOnly',
+        parameters: {
+          CertificateAuthorityArn: this.__input.certificateAuthorityArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.EncipherOnly', props);
+    return resource.getResponseField('CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.EncipherOnly') as unknown as boolean;
+  }
+
+  public get decipherOnly(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCertificateAuthority',
+        service: 'ACMPCA',
+        physicalResourceId: cr.PhysicalResourceId.of('ACMPCA.DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.DecipherOnly'),
+        outputPath: 'CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.DecipherOnly',
+        parameters: {
+          CertificateAuthorityArn: this.__input.certificateAuthorityArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCertificateAuthority.CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.DecipherOnly', props);
+    return resource.getResponseField('CertificateAuthority.CertificateAuthorityConfiguration.CsrExtensions.KeyUsage.DecipherOnly') as unknown as boolean;
+  }
+
+}
+
 export class ACMPCAResponsesDescribeCertificateAuthorityCertificateAuthorityRevocationConfiguration {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AcmpcaDescribeCertificateAuthorityRequest) {
@@ -931,6 +1157,23 @@ export class ACMPCAResponsesDescribeCertificateAuthorityCertificateAuthorityRevo
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCertificateAuthority.CertificateAuthority.RevocationConfiguration.CrlConfiguration.S3BucketName', props);
     return resource.getResponseField('CertificateAuthority.RevocationConfiguration.CrlConfiguration.S3BucketName') as unknown as string;
+  }
+
+  public get s3ObjectAcl(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCertificateAuthority',
+        service: 'ACMPCA',
+        physicalResourceId: cr.PhysicalResourceId.of('ACMPCA.DescribeCertificateAuthority.CertificateAuthority.RevocationConfiguration.CrlConfiguration.S3ObjectAcl'),
+        outputPath: 'CertificateAuthority.RevocationConfiguration.CrlConfiguration.S3ObjectAcl',
+        parameters: {
+          CertificateAuthorityArn: this.__input.certificateAuthorityArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCertificateAuthority.CertificateAuthority.RevocationConfiguration.CrlConfiguration.S3ObjectAcl', props);
+    return resource.getResponseField('CertificateAuthority.RevocationConfiguration.CrlConfiguration.S3ObjectAcl') as unknown as string;
   }
 
 }
@@ -1160,6 +1403,40 @@ export class ACMPCAResponsesIssueCertificate {
         physicalResourceId: cr.PhysicalResourceId.of('ACMPCA.IssueCertificate.CertificateArn'),
         outputPath: 'CertificateArn',
         parameters: {
+          ApiPassthrough: {
+            Extensions: {
+              CertificatePolicies: this.__input.apiPassthrough?.extensions?.certificatePolicies,
+              ExtendedKeyUsage: this.__input.apiPassthrough?.extensions?.extendedKeyUsage,
+              KeyUsage: {
+                DigitalSignature: this.__input.apiPassthrough?.extensions?.keyUsage?.digitalSignature,
+                NonRepudiation: this.__input.apiPassthrough?.extensions?.keyUsage?.nonRepudiation,
+                KeyEncipherment: this.__input.apiPassthrough?.extensions?.keyUsage?.keyEncipherment,
+                DataEncipherment: this.__input.apiPassthrough?.extensions?.keyUsage?.dataEncipherment,
+                KeyAgreement: this.__input.apiPassthrough?.extensions?.keyUsage?.keyAgreement,
+                KeyCertSign: this.__input.apiPassthrough?.extensions?.keyUsage?.keyCertSign,
+                CRLSign: this.__input.apiPassthrough?.extensions?.keyUsage?.crlSign,
+                EncipherOnly: this.__input.apiPassthrough?.extensions?.keyUsage?.encipherOnly,
+                DecipherOnly: this.__input.apiPassthrough?.extensions?.keyUsage?.decipherOnly,
+              },
+              SubjectAlternativeNames: this.__input.apiPassthrough?.extensions?.subjectAlternativeNames,
+            },
+            Subject: {
+              Country: this.__input.apiPassthrough?.subject?.country,
+              Organization: this.__input.apiPassthrough?.subject?.organization,
+              OrganizationalUnit: this.__input.apiPassthrough?.subject?.organizationalUnit,
+              DistinguishedNameQualifier: this.__input.apiPassthrough?.subject?.distinguishedNameQualifier,
+              State: this.__input.apiPassthrough?.subject?.state,
+              CommonName: this.__input.apiPassthrough?.subject?.commonName,
+              SerialNumber: this.__input.apiPassthrough?.subject?.serialNumber,
+              Locality: this.__input.apiPassthrough?.subject?.locality,
+              Title: this.__input.apiPassthrough?.subject?.title,
+              Surname: this.__input.apiPassthrough?.subject?.surname,
+              GivenName: this.__input.apiPassthrough?.subject?.givenName,
+              Initials: this.__input.apiPassthrough?.subject?.initials,
+              Pseudonym: this.__input.apiPassthrough?.subject?.pseudonym,
+              GenerationQualifier: this.__input.apiPassthrough?.subject?.generationQualifier,
+            },
+          },
           CertificateAuthorityArn: this.__input.certificateAuthorityArn,
           Csr: {
           },
@@ -1168,6 +1445,10 @@ export class ACMPCAResponsesIssueCertificate {
           Validity: {
             Value: this.__input.validity.value,
             Type: this.__input.validity.type,
+          },
+          ValidityNotBefore: {
+            Value: this.__input.validityNotBefore?.value,
+            Type: this.__input.validityNotBefore?.type,
           },
           IdempotencyToken: this.__input.idempotencyToken,
         },

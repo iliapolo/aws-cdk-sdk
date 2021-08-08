@@ -8,6 +8,10 @@ export class MediaConnectClient extends cdk.Construct {
     super(scope, id);
   }
 
+  public addFlowMediaStreams(input: shapes.MediaConnectAddFlowMediaStreamsRequest): MediaConnectResponsesAddFlowMediaStreams {
+    return new MediaConnectResponsesAddFlowMediaStreams(this, this.__resources, input);
+  }
+
   public addFlowOutputs(input: shapes.MediaConnectAddFlowOutputsRequest): MediaConnectResponsesAddFlowOutputs {
     return new MediaConnectResponsesAddFlowOutputs(this, this.__resources, input);
   }
@@ -66,6 +70,10 @@ export class MediaConnectClient extends cdk.Construct {
 
   public purchaseOffering(input: shapes.MediaConnectPurchaseOfferingRequest): MediaConnectResponsesPurchaseOffering {
     return new MediaConnectResponsesPurchaseOffering(this, this.__resources, input);
+  }
+
+  public removeFlowMediaStream(input: shapes.MediaConnectRemoveFlowMediaStreamRequest): MediaConnectResponsesRemoveFlowMediaStream {
+    return new MediaConnectResponsesRemoveFlowMediaStream(this, this.__resources, input);
   }
 
   public removeFlowOutput(input: shapes.MediaConnectRemoveFlowOutputRequest): MediaConnectResponsesRemoveFlowOutput {
@@ -132,12 +140,59 @@ export class MediaConnectClient extends cdk.Construct {
     return new MediaConnectResponsesUpdateFlowEntitlement(this, this.__resources, input);
   }
 
+  public updateFlowMediaStream(input: shapes.MediaConnectUpdateFlowMediaStreamRequest): MediaConnectResponsesUpdateFlowMediaStream {
+    return new MediaConnectResponsesUpdateFlowMediaStream(this, this.__resources, input);
+  }
+
   public updateFlowOutput(input: shapes.MediaConnectUpdateFlowOutputRequest): MediaConnectResponsesUpdateFlowOutput {
     return new MediaConnectResponsesUpdateFlowOutput(this, this.__resources, input);
   }
 
   public updateFlowSource(input: shapes.MediaConnectUpdateFlowSourceRequest): MediaConnectResponsesUpdateFlowSource {
     return new MediaConnectResponsesUpdateFlowSource(this, this.__resources, input);
+  }
+
+}
+
+export class MediaConnectResponsesAddFlowMediaStreams {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaConnectAddFlowMediaStreamsRequest) {
+  }
+
+  public get flowArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addFlowMediaStreams',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.AddFlowMediaStreams.FlowArn'),
+        outputPath: 'FlowArn',
+        parameters: {
+          FlowArn: this.__input.flowArn,
+          MediaStreams: this.__input.mediaStreams,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddFlowMediaStreams.FlowArn', props);
+    return resource.getResponseField('FlowArn') as unknown as string;
+  }
+
+  public get mediaStreams(): shapes.MediaConnectMediaStream[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addFlowMediaStreams',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.AddFlowMediaStreams.MediaStreams'),
+        outputPath: 'MediaStreams',
+        parameters: {
+          FlowArn: this.__input.flowArn,
+          MediaStreams: this.__input.mediaStreams,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddFlowMediaStreams.MediaStreams', props);
+    return resource.getResponseField('MediaStreams') as unknown as shapes.MediaConnectMediaStream[];
   }
 
 }
@@ -298,6 +353,7 @@ export class MediaConnectResponsesCreateFlowFlow {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -317,6 +373,9 @@ export class MediaConnectResponsesCreateFlowFlow {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -324,7 +383,11 @@ export class MediaConnectResponsesCreateFlowFlow {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -347,6 +410,7 @@ export class MediaConnectResponsesCreateFlowFlow {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -366,6 +430,9 @@ export class MediaConnectResponsesCreateFlowFlow {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -373,7 +440,11 @@ export class MediaConnectResponsesCreateFlowFlow {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -396,6 +467,7 @@ export class MediaConnectResponsesCreateFlowFlow {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -415,6 +487,9 @@ export class MediaConnectResponsesCreateFlowFlow {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -422,7 +497,11 @@ export class MediaConnectResponsesCreateFlowFlow {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -445,6 +524,7 @@ export class MediaConnectResponsesCreateFlowFlow {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -464,6 +544,9 @@ export class MediaConnectResponsesCreateFlowFlow {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -471,7 +554,11 @@ export class MediaConnectResponsesCreateFlowFlow {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -494,6 +581,7 @@ export class MediaConnectResponsesCreateFlowFlow {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -513,6 +601,9 @@ export class MediaConnectResponsesCreateFlowFlow {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -520,7 +611,11 @@ export class MediaConnectResponsesCreateFlowFlow {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -530,6 +625,63 @@ export class MediaConnectResponsesCreateFlowFlow {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateFlow.Flow.FlowArn', props);
     return resource.getResponseField('Flow.FlowArn') as unknown as string;
+  }
+
+  public get mediaStreams(): shapes.MediaConnectMediaStream[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFlow',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.CreateFlow.Flow.MediaStreams'),
+        outputPath: 'Flow.MediaStreams',
+        parameters: {
+          AvailabilityZone: this.__input.availabilityZone,
+          Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
+          Name: this.__input.name,
+          Outputs: this.__input.outputs,
+          Source: {
+            Decryption: {
+              Algorithm: this.__input.source?.decryption?.algorithm,
+              ConstantInitializationVector: this.__input.source?.decryption?.constantInitializationVector,
+              DeviceId: this.__input.source?.decryption?.deviceId,
+              KeyType: this.__input.source?.decryption?.keyType,
+              Region: this.__input.source?.decryption?.region,
+              ResourceId: this.__input.source?.decryption?.resourceId,
+              RoleArn: this.__input.source?.decryption?.roleArn,
+              SecretArn: this.__input.source?.decryption?.secretArn,
+              Url: this.__input.source?.decryption?.url,
+            },
+            Description: this.__input.source?.description,
+            EntitlementArn: this.__input.source?.entitlementArn,
+            IngestPort: this.__input.source?.ingestPort,
+            MaxBitrate: this.__input.source?.maxBitrate,
+            MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
+            Name: this.__input.source?.name,
+            Protocol: this.__input.source?.protocol,
+            StreamId: this.__input.source?.streamId,
+            VpcInterfaceName: this.__input.source?.vpcInterfaceName,
+            WhitelistCidr: this.__input.source?.whitelistCidr,
+          },
+          SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
+            RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
+            State: this.__input.sourceFailoverConfig?.state,
+          },
+          Sources: this.__input.sources,
+          VpcInterfaces: this.__input.vpcInterfaces,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFlow.Flow.MediaStreams', props);
+    return resource.getResponseField('Flow.MediaStreams') as unknown as shapes.MediaConnectMediaStream[];
   }
 
   public get name(): string {
@@ -543,6 +695,7 @@ export class MediaConnectResponsesCreateFlowFlow {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -562,6 +715,9 @@ export class MediaConnectResponsesCreateFlowFlow {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -569,7 +725,11 @@ export class MediaConnectResponsesCreateFlowFlow {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -592,6 +752,7 @@ export class MediaConnectResponsesCreateFlowFlow {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -611,6 +772,9 @@ export class MediaConnectResponsesCreateFlowFlow {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -618,7 +782,11 @@ export class MediaConnectResponsesCreateFlowFlow {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -649,6 +817,7 @@ export class MediaConnectResponsesCreateFlowFlow {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -668,6 +837,9 @@ export class MediaConnectResponsesCreateFlowFlow {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -675,7 +847,11 @@ export class MediaConnectResponsesCreateFlowFlow {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -698,6 +874,7 @@ export class MediaConnectResponsesCreateFlowFlow {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -717,6 +894,9 @@ export class MediaConnectResponsesCreateFlowFlow {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -724,7 +904,11 @@ export class MediaConnectResponsesCreateFlowFlow {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -747,6 +931,7 @@ export class MediaConnectResponsesCreateFlowFlow {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -766,6 +951,9 @@ export class MediaConnectResponsesCreateFlowFlow {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -773,7 +961,11 @@ export class MediaConnectResponsesCreateFlowFlow {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -803,6 +995,7 @@ export class MediaConnectResponsesCreateFlowFlowSource {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -822,6 +1015,9 @@ export class MediaConnectResponsesCreateFlowFlowSource {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -829,7 +1025,11 @@ export class MediaConnectResponsesCreateFlowFlowSource {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -856,6 +1056,7 @@ export class MediaConnectResponsesCreateFlowFlowSource {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -875,6 +1076,9 @@ export class MediaConnectResponsesCreateFlowFlowSource {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -882,7 +1086,11 @@ export class MediaConnectResponsesCreateFlowFlowSource {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -905,6 +1113,7 @@ export class MediaConnectResponsesCreateFlowFlowSource {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -924,6 +1133,9 @@ export class MediaConnectResponsesCreateFlowFlowSource {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -931,7 +1143,11 @@ export class MediaConnectResponsesCreateFlowFlowSource {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -954,6 +1170,7 @@ export class MediaConnectResponsesCreateFlowFlowSource {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -973,6 +1190,9 @@ export class MediaConnectResponsesCreateFlowFlowSource {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -980,7 +1200,11 @@ export class MediaConnectResponsesCreateFlowFlowSource {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1003,6 +1227,7 @@ export class MediaConnectResponsesCreateFlowFlowSource {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1022,6 +1247,9 @@ export class MediaConnectResponsesCreateFlowFlowSource {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1029,7 +1257,11 @@ export class MediaConnectResponsesCreateFlowFlowSource {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1039,6 +1271,63 @@ export class MediaConnectResponsesCreateFlowFlowSource {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateFlow.Flow.Source.IngestPort', props);
     return resource.getResponseField('Flow.Source.IngestPort') as unknown as number;
+  }
+
+  public get mediaStreamSourceConfigurations(): shapes.MediaConnectMediaStreamSourceConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFlow',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.CreateFlow.Flow.Source.MediaStreamSourceConfigurations'),
+        outputPath: 'Flow.Source.MediaStreamSourceConfigurations',
+        parameters: {
+          AvailabilityZone: this.__input.availabilityZone,
+          Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
+          Name: this.__input.name,
+          Outputs: this.__input.outputs,
+          Source: {
+            Decryption: {
+              Algorithm: this.__input.source?.decryption?.algorithm,
+              ConstantInitializationVector: this.__input.source?.decryption?.constantInitializationVector,
+              DeviceId: this.__input.source?.decryption?.deviceId,
+              KeyType: this.__input.source?.decryption?.keyType,
+              Region: this.__input.source?.decryption?.region,
+              ResourceId: this.__input.source?.decryption?.resourceId,
+              RoleArn: this.__input.source?.decryption?.roleArn,
+              SecretArn: this.__input.source?.decryption?.secretArn,
+              Url: this.__input.source?.decryption?.url,
+            },
+            Description: this.__input.source?.description,
+            EntitlementArn: this.__input.source?.entitlementArn,
+            IngestPort: this.__input.source?.ingestPort,
+            MaxBitrate: this.__input.source?.maxBitrate,
+            MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
+            Name: this.__input.source?.name,
+            Protocol: this.__input.source?.protocol,
+            StreamId: this.__input.source?.streamId,
+            VpcInterfaceName: this.__input.source?.vpcInterfaceName,
+            WhitelistCidr: this.__input.source?.whitelistCidr,
+          },
+          SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
+            RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
+            State: this.__input.sourceFailoverConfig?.state,
+          },
+          Sources: this.__input.sources,
+          VpcInterfaces: this.__input.vpcInterfaces,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFlow.Flow.Source.MediaStreamSourceConfigurations', props);
+    return resource.getResponseField('Flow.Source.MediaStreamSourceConfigurations') as unknown as shapes.MediaConnectMediaStreamSourceConfiguration[];
   }
 
   public get name(): string {
@@ -1052,6 +1341,7 @@ export class MediaConnectResponsesCreateFlowFlowSource {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1071,6 +1361,9 @@ export class MediaConnectResponsesCreateFlowFlowSource {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1078,7 +1371,11 @@ export class MediaConnectResponsesCreateFlowFlowSource {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1101,6 +1398,7 @@ export class MediaConnectResponsesCreateFlowFlowSource {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1120,6 +1418,9 @@ export class MediaConnectResponsesCreateFlowFlowSource {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1127,7 +1428,11 @@ export class MediaConnectResponsesCreateFlowFlowSource {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1154,6 +1459,7 @@ export class MediaConnectResponsesCreateFlowFlowSource {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1173,6 +1479,9 @@ export class MediaConnectResponsesCreateFlowFlowSource {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1180,7 +1489,11 @@ export class MediaConnectResponsesCreateFlowFlowSource {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1203,6 +1516,7 @@ export class MediaConnectResponsesCreateFlowFlowSource {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1222,6 +1536,9 @@ export class MediaConnectResponsesCreateFlowFlowSource {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1229,7 +1546,11 @@ export class MediaConnectResponsesCreateFlowFlowSource {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1259,6 +1580,7 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1278,6 +1600,9 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1285,7 +1610,11 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1308,6 +1637,7 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1327,6 +1657,9 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1334,7 +1667,11 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1357,6 +1694,7 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1376,6 +1714,9 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1383,7 +1724,11 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1406,6 +1751,7 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1425,6 +1771,9 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1432,7 +1781,11 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1455,6 +1808,7 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1474,6 +1828,9 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1481,7 +1838,11 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1504,6 +1865,7 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1523,6 +1885,9 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1530,7 +1895,11 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1553,6 +1922,7 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1572,6 +1942,9 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1579,7 +1952,11 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1602,6 +1979,7 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1621,6 +1999,9 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1628,7 +2009,11 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1651,6 +2036,7 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1670,6 +2056,9 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1677,7 +2066,11 @@ export class MediaConnectResponsesCreateFlowFlowSourceDecryption {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1707,6 +2100,7 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1726,6 +2120,9 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1733,7 +2130,11 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1756,6 +2157,7 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1775,6 +2177,9 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1782,7 +2187,11 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1805,6 +2214,7 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1824,6 +2234,9 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1831,7 +2244,11 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1841,6 +2258,120 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateFlow.Flow.Source.Transport.MaxLatency', props);
     return resource.getResponseField('Flow.Source.Transport.MaxLatency') as unknown as number;
+  }
+
+  public get maxSyncBuffer(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFlow',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.CreateFlow.Flow.Source.Transport.MaxSyncBuffer'),
+        outputPath: 'Flow.Source.Transport.MaxSyncBuffer',
+        parameters: {
+          AvailabilityZone: this.__input.availabilityZone,
+          Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
+          Name: this.__input.name,
+          Outputs: this.__input.outputs,
+          Source: {
+            Decryption: {
+              Algorithm: this.__input.source?.decryption?.algorithm,
+              ConstantInitializationVector: this.__input.source?.decryption?.constantInitializationVector,
+              DeviceId: this.__input.source?.decryption?.deviceId,
+              KeyType: this.__input.source?.decryption?.keyType,
+              Region: this.__input.source?.decryption?.region,
+              ResourceId: this.__input.source?.decryption?.resourceId,
+              RoleArn: this.__input.source?.decryption?.roleArn,
+              SecretArn: this.__input.source?.decryption?.secretArn,
+              Url: this.__input.source?.decryption?.url,
+            },
+            Description: this.__input.source?.description,
+            EntitlementArn: this.__input.source?.entitlementArn,
+            IngestPort: this.__input.source?.ingestPort,
+            MaxBitrate: this.__input.source?.maxBitrate,
+            MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
+            Name: this.__input.source?.name,
+            Protocol: this.__input.source?.protocol,
+            StreamId: this.__input.source?.streamId,
+            VpcInterfaceName: this.__input.source?.vpcInterfaceName,
+            WhitelistCidr: this.__input.source?.whitelistCidr,
+          },
+          SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
+            RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
+            State: this.__input.sourceFailoverConfig?.state,
+          },
+          Sources: this.__input.sources,
+          VpcInterfaces: this.__input.vpcInterfaces,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFlow.Flow.Source.Transport.MaxSyncBuffer', props);
+    return resource.getResponseField('Flow.Source.Transport.MaxSyncBuffer') as unknown as number;
+  }
+
+  public get minLatency(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFlow',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.CreateFlow.Flow.Source.Transport.MinLatency'),
+        outputPath: 'Flow.Source.Transport.MinLatency',
+        parameters: {
+          AvailabilityZone: this.__input.availabilityZone,
+          Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
+          Name: this.__input.name,
+          Outputs: this.__input.outputs,
+          Source: {
+            Decryption: {
+              Algorithm: this.__input.source?.decryption?.algorithm,
+              ConstantInitializationVector: this.__input.source?.decryption?.constantInitializationVector,
+              DeviceId: this.__input.source?.decryption?.deviceId,
+              KeyType: this.__input.source?.decryption?.keyType,
+              Region: this.__input.source?.decryption?.region,
+              ResourceId: this.__input.source?.decryption?.resourceId,
+              RoleArn: this.__input.source?.decryption?.roleArn,
+              SecretArn: this.__input.source?.decryption?.secretArn,
+              Url: this.__input.source?.decryption?.url,
+            },
+            Description: this.__input.source?.description,
+            EntitlementArn: this.__input.source?.entitlementArn,
+            IngestPort: this.__input.source?.ingestPort,
+            MaxBitrate: this.__input.source?.maxBitrate,
+            MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
+            Name: this.__input.source?.name,
+            Protocol: this.__input.source?.protocol,
+            StreamId: this.__input.source?.streamId,
+            VpcInterfaceName: this.__input.source?.vpcInterfaceName,
+            WhitelistCidr: this.__input.source?.whitelistCidr,
+          },
+          SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
+            RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
+            State: this.__input.sourceFailoverConfig?.state,
+          },
+          Sources: this.__input.sources,
+          VpcInterfaces: this.__input.vpcInterfaces,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFlow.Flow.Source.Transport.MinLatency', props);
+    return resource.getResponseField('Flow.Source.Transport.MinLatency') as unknown as number;
   }
 
   public get protocol(): string {
@@ -1854,6 +2385,7 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1873,6 +2405,9 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1880,7 +2415,11 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1903,6 +2442,7 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1922,6 +2462,9 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1929,7 +2472,11 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -1952,6 +2499,7 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -1971,6 +2519,9 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -1978,7 +2529,11 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -2001,6 +2556,7 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -2020,6 +2576,9 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -2027,7 +2586,11 @@ export class MediaConnectResponsesCreateFlowFlowSourceTransport {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -2046,17 +2609,18 @@ export class MediaConnectResponsesCreateFlowFlowSourceFailoverConfig {
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaConnectCreateFlowRequest) {
   }
 
-  public get recoveryWindow(): number {
+  public get failoverMode(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
         action: 'createFlow',
         service: 'MediaConnect',
-        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.CreateFlow.Flow.SourceFailoverConfig.RecoveryWindow'),
-        outputPath: 'Flow.SourceFailoverConfig.RecoveryWindow',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.CreateFlow.Flow.SourceFailoverConfig.FailoverMode'),
+        outputPath: 'Flow.SourceFailoverConfig.FailoverMode',
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -2076,6 +2640,9 @@ export class MediaConnectResponsesCreateFlowFlowSourceFailoverConfig {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -2083,7 +2650,68 @@ export class MediaConnectResponsesCreateFlowFlowSourceFailoverConfig {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
+            State: this.__input.sourceFailoverConfig?.state,
+          },
+          Sources: this.__input.sources,
+          VpcInterfaces: this.__input.vpcInterfaces,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFlow.Flow.SourceFailoverConfig.FailoverMode', props);
+    return resource.getResponseField('Flow.SourceFailoverConfig.FailoverMode') as unknown as string;
+  }
+
+  public get recoveryWindow(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFlow',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.CreateFlow.Flow.SourceFailoverConfig.RecoveryWindow'),
+        outputPath: 'Flow.SourceFailoverConfig.RecoveryWindow',
+        parameters: {
+          AvailabilityZone: this.__input.availabilityZone,
+          Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
+          Name: this.__input.name,
+          Outputs: this.__input.outputs,
+          Source: {
+            Decryption: {
+              Algorithm: this.__input.source?.decryption?.algorithm,
+              ConstantInitializationVector: this.__input.source?.decryption?.constantInitializationVector,
+              DeviceId: this.__input.source?.decryption?.deviceId,
+              KeyType: this.__input.source?.decryption?.keyType,
+              Region: this.__input.source?.decryption?.region,
+              ResourceId: this.__input.source?.decryption?.resourceId,
+              RoleArn: this.__input.source?.decryption?.roleArn,
+              SecretArn: this.__input.source?.decryption?.secretArn,
+              Url: this.__input.source?.decryption?.url,
+            },
+            Description: this.__input.source?.description,
+            EntitlementArn: this.__input.source?.entitlementArn,
+            IngestPort: this.__input.source?.ingestPort,
+            MaxBitrate: this.__input.source?.maxBitrate,
+            MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
+            Name: this.__input.source?.name,
+            Protocol: this.__input.source?.protocol,
+            StreamId: this.__input.source?.streamId,
+            VpcInterfaceName: this.__input.source?.vpcInterfaceName,
+            WhitelistCidr: this.__input.source?.whitelistCidr,
+          },
+          SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
+            RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -2093,6 +2721,10 @@ export class MediaConnectResponsesCreateFlowFlowSourceFailoverConfig {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateFlow.Flow.SourceFailoverConfig.RecoveryWindow', props);
     return resource.getResponseField('Flow.SourceFailoverConfig.RecoveryWindow') as unknown as number;
+  }
+
+  public get sourcePriority(): MediaConnectResponsesCreateFlowFlowSourceFailoverConfigSourcePriority {
+    return new MediaConnectResponsesCreateFlowFlowSourceFailoverConfigSourcePriority(this.__scope, this.__resources, this.__input);
   }
 
   public get state(): string {
@@ -2106,6 +2738,7 @@ export class MediaConnectResponsesCreateFlowFlowSourceFailoverConfig {
         parameters: {
           AvailabilityZone: this.__input.availabilityZone,
           Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
           Name: this.__input.name,
           Outputs: this.__input.outputs,
           Source: {
@@ -2125,6 +2758,9 @@ export class MediaConnectResponsesCreateFlowFlowSourceFailoverConfig {
             IngestPort: this.__input.source?.ingestPort,
             MaxBitrate: this.__input.source?.maxBitrate,
             MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
             Name: this.__input.source?.name,
             Protocol: this.__input.source?.protocol,
             StreamId: this.__input.source?.streamId,
@@ -2132,7 +2768,11 @@ export class MediaConnectResponsesCreateFlowFlowSourceFailoverConfig {
             WhitelistCidr: this.__input.source?.whitelistCidr,
           },
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
           Sources: this.__input.sources,
@@ -2142,6 +2782,70 @@ export class MediaConnectResponsesCreateFlowFlowSourceFailoverConfig {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateFlow.Flow.SourceFailoverConfig.State', props);
     return resource.getResponseField('Flow.SourceFailoverConfig.State') as unknown as string;
+  }
+
+}
+
+export class MediaConnectResponsesCreateFlowFlowSourceFailoverConfigSourcePriority {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaConnectCreateFlowRequest) {
+  }
+
+  public get primarySource(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFlow',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.CreateFlow.Flow.SourceFailoverConfig.SourcePriority.PrimarySource'),
+        outputPath: 'Flow.SourceFailoverConfig.SourcePriority.PrimarySource',
+        parameters: {
+          AvailabilityZone: this.__input.availabilityZone,
+          Entitlements: this.__input.entitlements,
+          MediaStreams: this.__input.mediaStreams,
+          Name: this.__input.name,
+          Outputs: this.__input.outputs,
+          Source: {
+            Decryption: {
+              Algorithm: this.__input.source?.decryption?.algorithm,
+              ConstantInitializationVector: this.__input.source?.decryption?.constantInitializationVector,
+              DeviceId: this.__input.source?.decryption?.deviceId,
+              KeyType: this.__input.source?.decryption?.keyType,
+              Region: this.__input.source?.decryption?.region,
+              ResourceId: this.__input.source?.decryption?.resourceId,
+              RoleArn: this.__input.source?.decryption?.roleArn,
+              SecretArn: this.__input.source?.decryption?.secretArn,
+              Url: this.__input.source?.decryption?.url,
+            },
+            Description: this.__input.source?.description,
+            EntitlementArn: this.__input.source?.entitlementArn,
+            IngestPort: this.__input.source?.ingestPort,
+            MaxBitrate: this.__input.source?.maxBitrate,
+            MaxLatency: this.__input.source?.maxLatency,
+            MaxSyncBuffer: this.__input.source?.maxSyncBuffer,
+            MediaStreamSourceConfigurations: this.__input.source?.mediaStreamSourceConfigurations,
+            MinLatency: this.__input.source?.minLatency,
+            Name: this.__input.source?.name,
+            Protocol: this.__input.source?.protocol,
+            StreamId: this.__input.source?.streamId,
+            VpcInterfaceName: this.__input.source?.vpcInterfaceName,
+            WhitelistCidr: this.__input.source?.whitelistCidr,
+          },
+          SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
+            RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
+            State: this.__input.sourceFailoverConfig?.state,
+          },
+          Sources: this.__input.sources,
+          VpcInterfaces: this.__input.vpcInterfaces,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFlow.Flow.SourceFailoverConfig.SourcePriority.PrimarySource', props);
+    return resource.getResponseField('Flow.SourceFailoverConfig.SourcePriority.PrimarySource') as unknown as string;
   }
 
 }
@@ -2290,6 +2994,23 @@ export class MediaConnectResponsesDescribeFlowFlow {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFlow.Flow.FlowArn', props);
     return resource.getResponseField('Flow.FlowArn') as unknown as string;
+  }
+
+  public get mediaStreams(): shapes.MediaConnectMediaStream[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFlow',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.DescribeFlow.Flow.MediaStreams'),
+        outputPath: 'Flow.MediaStreams',
+        parameters: {
+          FlowArn: this.__input.flowArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFlow.Flow.MediaStreams', props);
+    return resource.getResponseField('Flow.MediaStreams') as unknown as shapes.MediaConnectMediaStream[];
   }
 
   public get name(): string {
@@ -2479,6 +3200,23 @@ export class MediaConnectResponsesDescribeFlowFlowSource {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFlow.Flow.Source.IngestPort', props);
     return resource.getResponseField('Flow.Source.IngestPort') as unknown as number;
+  }
+
+  public get mediaStreamSourceConfigurations(): shapes.MediaConnectMediaStreamSourceConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFlow',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.DescribeFlow.Flow.Source.MediaStreamSourceConfigurations'),
+        outputPath: 'Flow.Source.MediaStreamSourceConfigurations',
+        parameters: {
+          FlowArn: this.__input.flowArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFlow.Flow.Source.MediaStreamSourceConfigurations', props);
+    return resource.getResponseField('Flow.Source.MediaStreamSourceConfigurations') as unknown as shapes.MediaConnectMediaStreamSourceConfiguration[];
   }
 
   public get name(): string {
@@ -2771,6 +3509,40 @@ export class MediaConnectResponsesDescribeFlowFlowSourceTransport {
     return resource.getResponseField('Flow.Source.Transport.MaxLatency') as unknown as number;
   }
 
+  public get maxSyncBuffer(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFlow',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.DescribeFlow.Flow.Source.Transport.MaxSyncBuffer'),
+        outputPath: 'Flow.Source.Transport.MaxSyncBuffer',
+        parameters: {
+          FlowArn: this.__input.flowArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFlow.Flow.Source.Transport.MaxSyncBuffer', props);
+    return resource.getResponseField('Flow.Source.Transport.MaxSyncBuffer') as unknown as number;
+  }
+
+  public get minLatency(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFlow',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.DescribeFlow.Flow.Source.Transport.MinLatency'),
+        outputPath: 'Flow.Source.Transport.MinLatency',
+        parameters: {
+          FlowArn: this.__input.flowArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFlow.Flow.Source.Transport.MinLatency', props);
+    return resource.getResponseField('Flow.Source.Transport.MinLatency') as unknown as number;
+  }
+
   public get protocol(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -2846,6 +3618,23 @@ export class MediaConnectResponsesDescribeFlowFlowSourceFailoverConfig {
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaConnectDescribeFlowRequest) {
   }
 
+  public get failoverMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFlow',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.DescribeFlow.Flow.SourceFailoverConfig.FailoverMode'),
+        outputPath: 'Flow.SourceFailoverConfig.FailoverMode',
+        parameters: {
+          FlowArn: this.__input.flowArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFlow.Flow.SourceFailoverConfig.FailoverMode', props);
+    return resource.getResponseField('Flow.SourceFailoverConfig.FailoverMode') as unknown as string;
+  }
+
   public get recoveryWindow(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -2863,6 +3652,10 @@ export class MediaConnectResponsesDescribeFlowFlowSourceFailoverConfig {
     return resource.getResponseField('Flow.SourceFailoverConfig.RecoveryWindow') as unknown as number;
   }
 
+  public get sourcePriority(): MediaConnectResponsesDescribeFlowFlowSourceFailoverConfigSourcePriority {
+    return new MediaConnectResponsesDescribeFlowFlowSourceFailoverConfigSourcePriority(this.__scope, this.__resources, this.__input);
+  }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -2878,6 +3671,30 @@ export class MediaConnectResponsesDescribeFlowFlowSourceFailoverConfig {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFlow.Flow.SourceFailoverConfig.State', props);
     return resource.getResponseField('Flow.SourceFailoverConfig.State') as unknown as string;
+  }
+
+}
+
+export class MediaConnectResponsesDescribeFlowFlowSourceFailoverConfigSourcePriority {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaConnectDescribeFlowRequest) {
+  }
+
+  public get primarySource(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFlow',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.DescribeFlow.Flow.SourceFailoverConfig.SourcePriority.PrimarySource'),
+        outputPath: 'Flow.SourceFailoverConfig.SourcePriority.PrimarySource',
+        parameters: {
+          FlowArn: this.__input.flowArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFlow.Flow.SourceFailoverConfig.SourcePriority.PrimarySource', props);
+    return resource.getResponseField('Flow.SourceFailoverConfig.SourcePriority.PrimarySource') as unknown as string;
   }
 
 }
@@ -3889,6 +4706,49 @@ export class MediaConnectResponsesPurchaseOfferingReservationResourceSpecificati
 
 }
 
+export class MediaConnectResponsesRemoveFlowMediaStream {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaConnectRemoveFlowMediaStreamRequest) {
+  }
+
+  public get flowArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeFlowMediaStream',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.RemoveFlowMediaStream.FlowArn'),
+        outputPath: 'FlowArn',
+        parameters: {
+          FlowArn: this.__input.flowArn,
+          MediaStreamName: this.__input.mediaStreamName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveFlowMediaStream.FlowArn', props);
+    return resource.getResponseField('FlowArn') as unknown as string;
+  }
+
+  public get mediaStreamName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeFlowMediaStream',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.RemoveFlowMediaStream.MediaStreamName'),
+        outputPath: 'MediaStreamName',
+        parameters: {
+          FlowArn: this.__input.flowArn,
+          MediaStreamName: this.__input.mediaStreamName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveFlowMediaStream.MediaStreamName', props);
+    return resource.getResponseField('MediaStreamName') as unknown as string;
+  }
+
+}
+
 export class MediaConnectResponsesRemoveFlowOutput {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaConnectRemoveFlowOutputRequest) {
@@ -4188,7 +5048,11 @@ export class MediaConnectResponsesUpdateFlowFlow {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4209,7 +5073,11 @@ export class MediaConnectResponsesUpdateFlowFlow {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4230,7 +5098,11 @@ export class MediaConnectResponsesUpdateFlowFlow {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4251,7 +5123,11 @@ export class MediaConnectResponsesUpdateFlowFlow {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4272,7 +5148,11 @@ export class MediaConnectResponsesUpdateFlowFlow {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4280,6 +5160,31 @@ export class MediaConnectResponsesUpdateFlowFlow {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlow.Flow.FlowArn', props);
     return resource.getResponseField('Flow.FlowArn') as unknown as string;
+  }
+
+  public get mediaStreams(): shapes.MediaConnectMediaStream[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlow',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlow.Flow.MediaStreams'),
+        outputPath: 'Flow.MediaStreams',
+        parameters: {
+          FlowArn: this.__input.flowArn,
+          SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
+            RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
+            State: this.__input.sourceFailoverConfig?.state,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlow.Flow.MediaStreams', props);
+    return resource.getResponseField('Flow.MediaStreams') as unknown as shapes.MediaConnectMediaStream[];
   }
 
   public get name(): string {
@@ -4293,7 +5198,11 @@ export class MediaConnectResponsesUpdateFlowFlow {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4314,7 +5223,11 @@ export class MediaConnectResponsesUpdateFlowFlow {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4343,7 +5256,11 @@ export class MediaConnectResponsesUpdateFlowFlow {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4364,7 +5281,11 @@ export class MediaConnectResponsesUpdateFlowFlow {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4385,7 +5306,11 @@ export class MediaConnectResponsesUpdateFlowFlow {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4413,7 +5338,11 @@ export class MediaConnectResponsesUpdateFlowFlowSource {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4438,7 +5367,11 @@ export class MediaConnectResponsesUpdateFlowFlowSource {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4459,7 +5392,11 @@ export class MediaConnectResponsesUpdateFlowFlowSource {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4480,7 +5417,11 @@ export class MediaConnectResponsesUpdateFlowFlowSource {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4501,7 +5442,11 @@ export class MediaConnectResponsesUpdateFlowFlowSource {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4509,6 +5454,31 @@ export class MediaConnectResponsesUpdateFlowFlowSource {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlow.Flow.Source.IngestPort', props);
     return resource.getResponseField('Flow.Source.IngestPort') as unknown as number;
+  }
+
+  public get mediaStreamSourceConfigurations(): shapes.MediaConnectMediaStreamSourceConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlow',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlow.Flow.Source.MediaStreamSourceConfigurations'),
+        outputPath: 'Flow.Source.MediaStreamSourceConfigurations',
+        parameters: {
+          FlowArn: this.__input.flowArn,
+          SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
+            RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
+            State: this.__input.sourceFailoverConfig?.state,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlow.Flow.Source.MediaStreamSourceConfigurations', props);
+    return resource.getResponseField('Flow.Source.MediaStreamSourceConfigurations') as unknown as shapes.MediaConnectMediaStreamSourceConfiguration[];
   }
 
   public get name(): string {
@@ -4522,7 +5492,11 @@ export class MediaConnectResponsesUpdateFlowFlowSource {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4543,7 +5517,11 @@ export class MediaConnectResponsesUpdateFlowFlowSource {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4568,7 +5546,11 @@ export class MediaConnectResponsesUpdateFlowFlowSource {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4589,7 +5571,11 @@ export class MediaConnectResponsesUpdateFlowFlowSource {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4617,7 +5603,11 @@ export class MediaConnectResponsesUpdateFlowFlowSourceDecryption {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4638,7 +5628,11 @@ export class MediaConnectResponsesUpdateFlowFlowSourceDecryption {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4659,7 +5653,11 @@ export class MediaConnectResponsesUpdateFlowFlowSourceDecryption {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4680,7 +5678,11 @@ export class MediaConnectResponsesUpdateFlowFlowSourceDecryption {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4701,7 +5703,11 @@ export class MediaConnectResponsesUpdateFlowFlowSourceDecryption {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4722,7 +5728,11 @@ export class MediaConnectResponsesUpdateFlowFlowSourceDecryption {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4743,7 +5753,11 @@ export class MediaConnectResponsesUpdateFlowFlowSourceDecryption {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4764,7 +5778,11 @@ export class MediaConnectResponsesUpdateFlowFlowSourceDecryption {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4785,7 +5803,11 @@ export class MediaConnectResponsesUpdateFlowFlowSourceDecryption {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4813,7 +5835,11 @@ export class MediaConnectResponsesUpdateFlowFlowSourceTransport {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4834,7 +5860,11 @@ export class MediaConnectResponsesUpdateFlowFlowSourceTransport {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4855,7 +5885,11 @@ export class MediaConnectResponsesUpdateFlowFlowSourceTransport {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4863,6 +5897,56 @@ export class MediaConnectResponsesUpdateFlowFlowSourceTransport {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlow.Flow.Source.Transport.MaxLatency', props);
     return resource.getResponseField('Flow.Source.Transport.MaxLatency') as unknown as number;
+  }
+
+  public get maxSyncBuffer(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlow',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlow.Flow.Source.Transport.MaxSyncBuffer'),
+        outputPath: 'Flow.Source.Transport.MaxSyncBuffer',
+        parameters: {
+          FlowArn: this.__input.flowArn,
+          SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
+            RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
+            State: this.__input.sourceFailoverConfig?.state,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlow.Flow.Source.Transport.MaxSyncBuffer', props);
+    return resource.getResponseField('Flow.Source.Transport.MaxSyncBuffer') as unknown as number;
+  }
+
+  public get minLatency(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlow',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlow.Flow.Source.Transport.MinLatency'),
+        outputPath: 'Flow.Source.Transport.MinLatency',
+        parameters: {
+          FlowArn: this.__input.flowArn,
+          SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
+            RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
+            State: this.__input.sourceFailoverConfig?.state,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlow.Flow.Source.Transport.MinLatency', props);
+    return resource.getResponseField('Flow.Source.Transport.MinLatency') as unknown as number;
   }
 
   public get protocol(): string {
@@ -4876,7 +5960,11 @@ export class MediaConnectResponsesUpdateFlowFlowSourceTransport {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4897,7 +5985,11 @@ export class MediaConnectResponsesUpdateFlowFlowSourceTransport {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4918,7 +6010,11 @@ export class MediaConnectResponsesUpdateFlowFlowSourceTransport {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4939,7 +6035,11 @@ export class MediaConnectResponsesUpdateFlowFlowSourceTransport {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4956,6 +6056,31 @@ export class MediaConnectResponsesUpdateFlowFlowSourceFailoverConfig {
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaConnectUpdateFlowRequest) {
   }
 
+  public get failoverMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlow',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlow.Flow.SourceFailoverConfig.FailoverMode'),
+        outputPath: 'Flow.SourceFailoverConfig.FailoverMode',
+        parameters: {
+          FlowArn: this.__input.flowArn,
+          SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
+            RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
+            State: this.__input.sourceFailoverConfig?.state,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlow.Flow.SourceFailoverConfig.FailoverMode', props);
+    return resource.getResponseField('Flow.SourceFailoverConfig.FailoverMode') as unknown as string;
+  }
+
   public get recoveryWindow(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -4967,7 +6092,11 @@ export class MediaConnectResponsesUpdateFlowFlowSourceFailoverConfig {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4975,6 +6104,10 @@ export class MediaConnectResponsesUpdateFlowFlowSourceFailoverConfig {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlow.Flow.SourceFailoverConfig.RecoveryWindow', props);
     return resource.getResponseField('Flow.SourceFailoverConfig.RecoveryWindow') as unknown as number;
+  }
+
+  public get sourcePriority(): MediaConnectResponsesUpdateFlowFlowSourceFailoverConfigSourcePriority {
+    return new MediaConnectResponsesUpdateFlowFlowSourceFailoverConfigSourcePriority(this.__scope, this.__resources, this.__input);
   }
 
   public get state(): string {
@@ -4988,7 +6121,11 @@ export class MediaConnectResponsesUpdateFlowFlowSourceFailoverConfig {
         parameters: {
           FlowArn: this.__input.flowArn,
           SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
             RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
             State: this.__input.sourceFailoverConfig?.state,
           },
         },
@@ -4996,6 +6133,38 @@ export class MediaConnectResponsesUpdateFlowFlowSourceFailoverConfig {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlow.Flow.SourceFailoverConfig.State', props);
     return resource.getResponseField('Flow.SourceFailoverConfig.State') as unknown as string;
+  }
+
+}
+
+export class MediaConnectResponsesUpdateFlowFlowSourceFailoverConfigSourcePriority {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaConnectUpdateFlowRequest) {
+  }
+
+  public get primarySource(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlow',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlow.Flow.SourceFailoverConfig.SourcePriority.PrimarySource'),
+        outputPath: 'Flow.SourceFailoverConfig.SourcePriority.PrimarySource',
+        parameters: {
+          FlowArn: this.__input.flowArn,
+          SourceFailoverConfig: {
+            FailoverMode: this.__input.sourceFailoverConfig?.failoverMode,
+            RecoveryWindow: this.__input.sourceFailoverConfig?.recoveryWindow,
+            SourcePriority: {
+              PrimarySource: this.__input.sourceFailoverConfig?.sourcePriority?.primarySource,
+            },
+            State: this.__input.sourceFailoverConfig?.state,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlow.Flow.SourceFailoverConfig.SourcePriority.PrimarySource', props);
+    return resource.getResponseField('Flow.SourceFailoverConfig.SourcePriority.PrimarySource') as unknown as string;
   }
 
 }
@@ -5541,6 +6710,590 @@ export class MediaConnectResponsesUpdateFlowEntitlementEntitlementEncryption {
 
 }
 
+export class MediaConnectResponsesUpdateFlowMediaStream {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaConnectUpdateFlowMediaStreamRequest) {
+  }
+
+  public get flowArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowMediaStream',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowMediaStream.FlowArn'),
+        outputPath: 'FlowArn',
+        parameters: {
+          Attributes: {
+            Fmtp: {
+              ChannelOrder: this.__input.attributes?.fmtp?.channelOrder,
+              Colorimetry: this.__input.attributes?.fmtp?.colorimetry,
+              ExactFramerate: this.__input.attributes?.fmtp?.exactFramerate,
+              Par: this.__input.attributes?.fmtp?.par,
+              Range: this.__input.attributes?.fmtp?.range,
+              ScanMode: this.__input.attributes?.fmtp?.scanMode,
+              Tcs: this.__input.attributes?.fmtp?.tcs,
+            },
+            Lang: this.__input.attributes?.lang,
+          },
+          ClockRate: this.__input.clockRate,
+          Description: this.__input.description,
+          FlowArn: this.__input.flowArn,
+          MediaStreamName: this.__input.mediaStreamName,
+          MediaStreamType: this.__input.mediaStreamType,
+          VideoFormat: this.__input.videoFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowMediaStream.FlowArn', props);
+    return resource.getResponseField('FlowArn') as unknown as string;
+  }
+
+  public get mediaStream(): MediaConnectResponsesUpdateFlowMediaStreamMediaStream {
+    return new MediaConnectResponsesUpdateFlowMediaStreamMediaStream(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class MediaConnectResponsesUpdateFlowMediaStreamMediaStream {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaConnectUpdateFlowMediaStreamRequest) {
+  }
+
+  public get attributes(): MediaConnectResponsesUpdateFlowMediaStreamMediaStreamAttributes {
+    return new MediaConnectResponsesUpdateFlowMediaStreamMediaStreamAttributes(this.__scope, this.__resources, this.__input);
+  }
+
+  public get clockRate(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowMediaStream',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowMediaStream.MediaStream.ClockRate'),
+        outputPath: 'MediaStream.ClockRate',
+        parameters: {
+          Attributes: {
+            Fmtp: {
+              ChannelOrder: this.__input.attributes?.fmtp?.channelOrder,
+              Colorimetry: this.__input.attributes?.fmtp?.colorimetry,
+              ExactFramerate: this.__input.attributes?.fmtp?.exactFramerate,
+              Par: this.__input.attributes?.fmtp?.par,
+              Range: this.__input.attributes?.fmtp?.range,
+              ScanMode: this.__input.attributes?.fmtp?.scanMode,
+              Tcs: this.__input.attributes?.fmtp?.tcs,
+            },
+            Lang: this.__input.attributes?.lang,
+          },
+          ClockRate: this.__input.clockRate,
+          Description: this.__input.description,
+          FlowArn: this.__input.flowArn,
+          MediaStreamName: this.__input.mediaStreamName,
+          MediaStreamType: this.__input.mediaStreamType,
+          VideoFormat: this.__input.videoFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowMediaStream.MediaStream.ClockRate', props);
+    return resource.getResponseField('MediaStream.ClockRate') as unknown as number;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowMediaStream',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowMediaStream.MediaStream.Description'),
+        outputPath: 'MediaStream.Description',
+        parameters: {
+          Attributes: {
+            Fmtp: {
+              ChannelOrder: this.__input.attributes?.fmtp?.channelOrder,
+              Colorimetry: this.__input.attributes?.fmtp?.colorimetry,
+              ExactFramerate: this.__input.attributes?.fmtp?.exactFramerate,
+              Par: this.__input.attributes?.fmtp?.par,
+              Range: this.__input.attributes?.fmtp?.range,
+              ScanMode: this.__input.attributes?.fmtp?.scanMode,
+              Tcs: this.__input.attributes?.fmtp?.tcs,
+            },
+            Lang: this.__input.attributes?.lang,
+          },
+          ClockRate: this.__input.clockRate,
+          Description: this.__input.description,
+          FlowArn: this.__input.flowArn,
+          MediaStreamName: this.__input.mediaStreamName,
+          MediaStreamType: this.__input.mediaStreamType,
+          VideoFormat: this.__input.videoFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowMediaStream.MediaStream.Description', props);
+    return resource.getResponseField('MediaStream.Description') as unknown as string;
+  }
+
+  public get fmt(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowMediaStream',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowMediaStream.MediaStream.Fmt'),
+        outputPath: 'MediaStream.Fmt',
+        parameters: {
+          Attributes: {
+            Fmtp: {
+              ChannelOrder: this.__input.attributes?.fmtp?.channelOrder,
+              Colorimetry: this.__input.attributes?.fmtp?.colorimetry,
+              ExactFramerate: this.__input.attributes?.fmtp?.exactFramerate,
+              Par: this.__input.attributes?.fmtp?.par,
+              Range: this.__input.attributes?.fmtp?.range,
+              ScanMode: this.__input.attributes?.fmtp?.scanMode,
+              Tcs: this.__input.attributes?.fmtp?.tcs,
+            },
+            Lang: this.__input.attributes?.lang,
+          },
+          ClockRate: this.__input.clockRate,
+          Description: this.__input.description,
+          FlowArn: this.__input.flowArn,
+          MediaStreamName: this.__input.mediaStreamName,
+          MediaStreamType: this.__input.mediaStreamType,
+          VideoFormat: this.__input.videoFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowMediaStream.MediaStream.Fmt', props);
+    return resource.getResponseField('MediaStream.Fmt') as unknown as number;
+  }
+
+  public get mediaStreamId(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowMediaStream',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowMediaStream.MediaStream.MediaStreamId'),
+        outputPath: 'MediaStream.MediaStreamId',
+        parameters: {
+          Attributes: {
+            Fmtp: {
+              ChannelOrder: this.__input.attributes?.fmtp?.channelOrder,
+              Colorimetry: this.__input.attributes?.fmtp?.colorimetry,
+              ExactFramerate: this.__input.attributes?.fmtp?.exactFramerate,
+              Par: this.__input.attributes?.fmtp?.par,
+              Range: this.__input.attributes?.fmtp?.range,
+              ScanMode: this.__input.attributes?.fmtp?.scanMode,
+              Tcs: this.__input.attributes?.fmtp?.tcs,
+            },
+            Lang: this.__input.attributes?.lang,
+          },
+          ClockRate: this.__input.clockRate,
+          Description: this.__input.description,
+          FlowArn: this.__input.flowArn,
+          MediaStreamName: this.__input.mediaStreamName,
+          MediaStreamType: this.__input.mediaStreamType,
+          VideoFormat: this.__input.videoFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowMediaStream.MediaStream.MediaStreamId', props);
+    return resource.getResponseField('MediaStream.MediaStreamId') as unknown as number;
+  }
+
+  public get mediaStreamName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowMediaStream',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowMediaStream.MediaStream.MediaStreamName'),
+        outputPath: 'MediaStream.MediaStreamName',
+        parameters: {
+          Attributes: {
+            Fmtp: {
+              ChannelOrder: this.__input.attributes?.fmtp?.channelOrder,
+              Colorimetry: this.__input.attributes?.fmtp?.colorimetry,
+              ExactFramerate: this.__input.attributes?.fmtp?.exactFramerate,
+              Par: this.__input.attributes?.fmtp?.par,
+              Range: this.__input.attributes?.fmtp?.range,
+              ScanMode: this.__input.attributes?.fmtp?.scanMode,
+              Tcs: this.__input.attributes?.fmtp?.tcs,
+            },
+            Lang: this.__input.attributes?.lang,
+          },
+          ClockRate: this.__input.clockRate,
+          Description: this.__input.description,
+          FlowArn: this.__input.flowArn,
+          MediaStreamName: this.__input.mediaStreamName,
+          MediaStreamType: this.__input.mediaStreamType,
+          VideoFormat: this.__input.videoFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowMediaStream.MediaStream.MediaStreamName', props);
+    return resource.getResponseField('MediaStream.MediaStreamName') as unknown as string;
+  }
+
+  public get mediaStreamType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowMediaStream',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowMediaStream.MediaStream.MediaStreamType'),
+        outputPath: 'MediaStream.MediaStreamType',
+        parameters: {
+          Attributes: {
+            Fmtp: {
+              ChannelOrder: this.__input.attributes?.fmtp?.channelOrder,
+              Colorimetry: this.__input.attributes?.fmtp?.colorimetry,
+              ExactFramerate: this.__input.attributes?.fmtp?.exactFramerate,
+              Par: this.__input.attributes?.fmtp?.par,
+              Range: this.__input.attributes?.fmtp?.range,
+              ScanMode: this.__input.attributes?.fmtp?.scanMode,
+              Tcs: this.__input.attributes?.fmtp?.tcs,
+            },
+            Lang: this.__input.attributes?.lang,
+          },
+          ClockRate: this.__input.clockRate,
+          Description: this.__input.description,
+          FlowArn: this.__input.flowArn,
+          MediaStreamName: this.__input.mediaStreamName,
+          MediaStreamType: this.__input.mediaStreamType,
+          VideoFormat: this.__input.videoFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowMediaStream.MediaStream.MediaStreamType', props);
+    return resource.getResponseField('MediaStream.MediaStreamType') as unknown as string;
+  }
+
+  public get videoFormat(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowMediaStream',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowMediaStream.MediaStream.VideoFormat'),
+        outputPath: 'MediaStream.VideoFormat',
+        parameters: {
+          Attributes: {
+            Fmtp: {
+              ChannelOrder: this.__input.attributes?.fmtp?.channelOrder,
+              Colorimetry: this.__input.attributes?.fmtp?.colorimetry,
+              ExactFramerate: this.__input.attributes?.fmtp?.exactFramerate,
+              Par: this.__input.attributes?.fmtp?.par,
+              Range: this.__input.attributes?.fmtp?.range,
+              ScanMode: this.__input.attributes?.fmtp?.scanMode,
+              Tcs: this.__input.attributes?.fmtp?.tcs,
+            },
+            Lang: this.__input.attributes?.lang,
+          },
+          ClockRate: this.__input.clockRate,
+          Description: this.__input.description,
+          FlowArn: this.__input.flowArn,
+          MediaStreamName: this.__input.mediaStreamName,
+          MediaStreamType: this.__input.mediaStreamType,
+          VideoFormat: this.__input.videoFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowMediaStream.MediaStream.VideoFormat', props);
+    return resource.getResponseField('MediaStream.VideoFormat') as unknown as string;
+  }
+
+}
+
+export class MediaConnectResponsesUpdateFlowMediaStreamMediaStreamAttributes {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaConnectUpdateFlowMediaStreamRequest) {
+  }
+
+  public get fmtp(): MediaConnectResponsesUpdateFlowMediaStreamMediaStreamAttributesFmtp {
+    return new MediaConnectResponsesUpdateFlowMediaStreamMediaStreamAttributesFmtp(this.__scope, this.__resources, this.__input);
+  }
+
+  public get lang(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowMediaStream',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowMediaStream.MediaStream.Attributes.Lang'),
+        outputPath: 'MediaStream.Attributes.Lang',
+        parameters: {
+          Attributes: {
+            Fmtp: {
+              ChannelOrder: this.__input.attributes?.fmtp?.channelOrder,
+              Colorimetry: this.__input.attributes?.fmtp?.colorimetry,
+              ExactFramerate: this.__input.attributes?.fmtp?.exactFramerate,
+              Par: this.__input.attributes?.fmtp?.par,
+              Range: this.__input.attributes?.fmtp?.range,
+              ScanMode: this.__input.attributes?.fmtp?.scanMode,
+              Tcs: this.__input.attributes?.fmtp?.tcs,
+            },
+            Lang: this.__input.attributes?.lang,
+          },
+          ClockRate: this.__input.clockRate,
+          Description: this.__input.description,
+          FlowArn: this.__input.flowArn,
+          MediaStreamName: this.__input.mediaStreamName,
+          MediaStreamType: this.__input.mediaStreamType,
+          VideoFormat: this.__input.videoFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowMediaStream.MediaStream.Attributes.Lang', props);
+    return resource.getResponseField('MediaStream.Attributes.Lang') as unknown as string;
+  }
+
+}
+
+export class MediaConnectResponsesUpdateFlowMediaStreamMediaStreamAttributesFmtp {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaConnectUpdateFlowMediaStreamRequest) {
+  }
+
+  public get channelOrder(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowMediaStream',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowMediaStream.MediaStream.Attributes.Fmtp.ChannelOrder'),
+        outputPath: 'MediaStream.Attributes.Fmtp.ChannelOrder',
+        parameters: {
+          Attributes: {
+            Fmtp: {
+              ChannelOrder: this.__input.attributes?.fmtp?.channelOrder,
+              Colorimetry: this.__input.attributes?.fmtp?.colorimetry,
+              ExactFramerate: this.__input.attributes?.fmtp?.exactFramerate,
+              Par: this.__input.attributes?.fmtp?.par,
+              Range: this.__input.attributes?.fmtp?.range,
+              ScanMode: this.__input.attributes?.fmtp?.scanMode,
+              Tcs: this.__input.attributes?.fmtp?.tcs,
+            },
+            Lang: this.__input.attributes?.lang,
+          },
+          ClockRate: this.__input.clockRate,
+          Description: this.__input.description,
+          FlowArn: this.__input.flowArn,
+          MediaStreamName: this.__input.mediaStreamName,
+          MediaStreamType: this.__input.mediaStreamType,
+          VideoFormat: this.__input.videoFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowMediaStream.MediaStream.Attributes.Fmtp.ChannelOrder', props);
+    return resource.getResponseField('MediaStream.Attributes.Fmtp.ChannelOrder') as unknown as string;
+  }
+
+  public get colorimetry(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowMediaStream',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowMediaStream.MediaStream.Attributes.Fmtp.Colorimetry'),
+        outputPath: 'MediaStream.Attributes.Fmtp.Colorimetry',
+        parameters: {
+          Attributes: {
+            Fmtp: {
+              ChannelOrder: this.__input.attributes?.fmtp?.channelOrder,
+              Colorimetry: this.__input.attributes?.fmtp?.colorimetry,
+              ExactFramerate: this.__input.attributes?.fmtp?.exactFramerate,
+              Par: this.__input.attributes?.fmtp?.par,
+              Range: this.__input.attributes?.fmtp?.range,
+              ScanMode: this.__input.attributes?.fmtp?.scanMode,
+              Tcs: this.__input.attributes?.fmtp?.tcs,
+            },
+            Lang: this.__input.attributes?.lang,
+          },
+          ClockRate: this.__input.clockRate,
+          Description: this.__input.description,
+          FlowArn: this.__input.flowArn,
+          MediaStreamName: this.__input.mediaStreamName,
+          MediaStreamType: this.__input.mediaStreamType,
+          VideoFormat: this.__input.videoFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowMediaStream.MediaStream.Attributes.Fmtp.Colorimetry', props);
+    return resource.getResponseField('MediaStream.Attributes.Fmtp.Colorimetry') as unknown as string;
+  }
+
+  public get exactFramerate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowMediaStream',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowMediaStream.MediaStream.Attributes.Fmtp.ExactFramerate'),
+        outputPath: 'MediaStream.Attributes.Fmtp.ExactFramerate',
+        parameters: {
+          Attributes: {
+            Fmtp: {
+              ChannelOrder: this.__input.attributes?.fmtp?.channelOrder,
+              Colorimetry: this.__input.attributes?.fmtp?.colorimetry,
+              ExactFramerate: this.__input.attributes?.fmtp?.exactFramerate,
+              Par: this.__input.attributes?.fmtp?.par,
+              Range: this.__input.attributes?.fmtp?.range,
+              ScanMode: this.__input.attributes?.fmtp?.scanMode,
+              Tcs: this.__input.attributes?.fmtp?.tcs,
+            },
+            Lang: this.__input.attributes?.lang,
+          },
+          ClockRate: this.__input.clockRate,
+          Description: this.__input.description,
+          FlowArn: this.__input.flowArn,
+          MediaStreamName: this.__input.mediaStreamName,
+          MediaStreamType: this.__input.mediaStreamType,
+          VideoFormat: this.__input.videoFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowMediaStream.MediaStream.Attributes.Fmtp.ExactFramerate', props);
+    return resource.getResponseField('MediaStream.Attributes.Fmtp.ExactFramerate') as unknown as string;
+  }
+
+  public get par(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowMediaStream',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowMediaStream.MediaStream.Attributes.Fmtp.Par'),
+        outputPath: 'MediaStream.Attributes.Fmtp.Par',
+        parameters: {
+          Attributes: {
+            Fmtp: {
+              ChannelOrder: this.__input.attributes?.fmtp?.channelOrder,
+              Colorimetry: this.__input.attributes?.fmtp?.colorimetry,
+              ExactFramerate: this.__input.attributes?.fmtp?.exactFramerate,
+              Par: this.__input.attributes?.fmtp?.par,
+              Range: this.__input.attributes?.fmtp?.range,
+              ScanMode: this.__input.attributes?.fmtp?.scanMode,
+              Tcs: this.__input.attributes?.fmtp?.tcs,
+            },
+            Lang: this.__input.attributes?.lang,
+          },
+          ClockRate: this.__input.clockRate,
+          Description: this.__input.description,
+          FlowArn: this.__input.flowArn,
+          MediaStreamName: this.__input.mediaStreamName,
+          MediaStreamType: this.__input.mediaStreamType,
+          VideoFormat: this.__input.videoFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowMediaStream.MediaStream.Attributes.Fmtp.Par', props);
+    return resource.getResponseField('MediaStream.Attributes.Fmtp.Par') as unknown as string;
+  }
+
+  public get range(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowMediaStream',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowMediaStream.MediaStream.Attributes.Fmtp.Range'),
+        outputPath: 'MediaStream.Attributes.Fmtp.Range',
+        parameters: {
+          Attributes: {
+            Fmtp: {
+              ChannelOrder: this.__input.attributes?.fmtp?.channelOrder,
+              Colorimetry: this.__input.attributes?.fmtp?.colorimetry,
+              ExactFramerate: this.__input.attributes?.fmtp?.exactFramerate,
+              Par: this.__input.attributes?.fmtp?.par,
+              Range: this.__input.attributes?.fmtp?.range,
+              ScanMode: this.__input.attributes?.fmtp?.scanMode,
+              Tcs: this.__input.attributes?.fmtp?.tcs,
+            },
+            Lang: this.__input.attributes?.lang,
+          },
+          ClockRate: this.__input.clockRate,
+          Description: this.__input.description,
+          FlowArn: this.__input.flowArn,
+          MediaStreamName: this.__input.mediaStreamName,
+          MediaStreamType: this.__input.mediaStreamType,
+          VideoFormat: this.__input.videoFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowMediaStream.MediaStream.Attributes.Fmtp.Range', props);
+    return resource.getResponseField('MediaStream.Attributes.Fmtp.Range') as unknown as string;
+  }
+
+  public get scanMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowMediaStream',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowMediaStream.MediaStream.Attributes.Fmtp.ScanMode'),
+        outputPath: 'MediaStream.Attributes.Fmtp.ScanMode',
+        parameters: {
+          Attributes: {
+            Fmtp: {
+              ChannelOrder: this.__input.attributes?.fmtp?.channelOrder,
+              Colorimetry: this.__input.attributes?.fmtp?.colorimetry,
+              ExactFramerate: this.__input.attributes?.fmtp?.exactFramerate,
+              Par: this.__input.attributes?.fmtp?.par,
+              Range: this.__input.attributes?.fmtp?.range,
+              ScanMode: this.__input.attributes?.fmtp?.scanMode,
+              Tcs: this.__input.attributes?.fmtp?.tcs,
+            },
+            Lang: this.__input.attributes?.lang,
+          },
+          ClockRate: this.__input.clockRate,
+          Description: this.__input.description,
+          FlowArn: this.__input.flowArn,
+          MediaStreamName: this.__input.mediaStreamName,
+          MediaStreamType: this.__input.mediaStreamType,
+          VideoFormat: this.__input.videoFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowMediaStream.MediaStream.Attributes.Fmtp.ScanMode', props);
+    return resource.getResponseField('MediaStream.Attributes.Fmtp.ScanMode') as unknown as string;
+  }
+
+  public get tcs(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowMediaStream',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowMediaStream.MediaStream.Attributes.Fmtp.Tcs'),
+        outputPath: 'MediaStream.Attributes.Fmtp.Tcs',
+        parameters: {
+          Attributes: {
+            Fmtp: {
+              ChannelOrder: this.__input.attributes?.fmtp?.channelOrder,
+              Colorimetry: this.__input.attributes?.fmtp?.colorimetry,
+              ExactFramerate: this.__input.attributes?.fmtp?.exactFramerate,
+              Par: this.__input.attributes?.fmtp?.par,
+              Range: this.__input.attributes?.fmtp?.range,
+              ScanMode: this.__input.attributes?.fmtp?.scanMode,
+              Tcs: this.__input.attributes?.fmtp?.tcs,
+            },
+            Lang: this.__input.attributes?.lang,
+          },
+          ClockRate: this.__input.clockRate,
+          Description: this.__input.description,
+          FlowArn: this.__input.flowArn,
+          MediaStreamName: this.__input.mediaStreamName,
+          MediaStreamType: this.__input.mediaStreamType,
+          VideoFormat: this.__input.videoFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowMediaStream.MediaStream.Attributes.Fmtp.Tcs', props);
+    return resource.getResponseField('MediaStream.Attributes.Fmtp.Tcs') as unknown as string;
+  }
+
+}
+
 export class MediaConnectResponsesUpdateFlowOutput {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaConnectUpdateFlowOutputRequest) {
@@ -5571,6 +7324,8 @@ export class MediaConnectResponsesUpdateFlowOutput {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -5623,6 +7378,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutput {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -5664,6 +7421,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutput {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -5705,6 +7464,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutput {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -5750,6 +7511,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutput {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -5764,6 +7527,49 @@ export class MediaConnectResponsesUpdateFlowOutputOutput {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowOutput.Output.EntitlementArn', props);
     return resource.getResponseField('Output.EntitlementArn') as unknown as string;
+  }
+
+  public get listenerAddress(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowOutput',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowOutput.Output.ListenerAddress'),
+        outputPath: 'Output.ListenerAddress',
+        parameters: {
+          CidrAllowList: this.__input.cidrAllowList,
+          Description: this.__input.description,
+          Destination: this.__input.destination,
+          Encryption: {
+            Algorithm: this.__input.encryption?.algorithm,
+            ConstantInitializationVector: this.__input.encryption?.constantInitializationVector,
+            DeviceId: this.__input.encryption?.deviceId,
+            KeyType: this.__input.encryption?.keyType,
+            Region: this.__input.encryption?.region,
+            ResourceId: this.__input.encryption?.resourceId,
+            RoleArn: this.__input.encryption?.roleArn,
+            SecretArn: this.__input.encryption?.secretArn,
+            Url: this.__input.encryption?.url,
+          },
+          FlowArn: this.__input.flowArn,
+          MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
+          OutputArn: this.__input.outputArn,
+          Port: this.__input.port,
+          Protocol: this.__input.protocol,
+          RemoteId: this.__input.remoteId,
+          SmoothingLatency: this.__input.smoothingLatency,
+          StreamId: this.__input.streamId,
+          VpcInterfaceAttachment: {
+            VpcInterfaceName: this.__input.vpcInterfaceAttachment?.vpcInterfaceName,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowOutput.Output.ListenerAddress', props);
+    return resource.getResponseField('Output.ListenerAddress') as unknown as string;
   }
 
   public get mediaLiveInputArn(): string {
@@ -5791,6 +7597,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutput {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -5805,6 +7613,49 @@ export class MediaConnectResponsesUpdateFlowOutputOutput {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowOutput.Output.MediaLiveInputArn', props);
     return resource.getResponseField('Output.MediaLiveInputArn') as unknown as string;
+  }
+
+  public get mediaStreamOutputConfigurations(): shapes.MediaConnectMediaStreamOutputConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowOutput',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowOutput.Output.MediaStreamOutputConfigurations'),
+        outputPath: 'Output.MediaStreamOutputConfigurations',
+        parameters: {
+          CidrAllowList: this.__input.cidrAllowList,
+          Description: this.__input.description,
+          Destination: this.__input.destination,
+          Encryption: {
+            Algorithm: this.__input.encryption?.algorithm,
+            ConstantInitializationVector: this.__input.encryption?.constantInitializationVector,
+            DeviceId: this.__input.encryption?.deviceId,
+            KeyType: this.__input.encryption?.keyType,
+            Region: this.__input.encryption?.region,
+            ResourceId: this.__input.encryption?.resourceId,
+            RoleArn: this.__input.encryption?.roleArn,
+            SecretArn: this.__input.encryption?.secretArn,
+            Url: this.__input.encryption?.url,
+          },
+          FlowArn: this.__input.flowArn,
+          MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
+          OutputArn: this.__input.outputArn,
+          Port: this.__input.port,
+          Protocol: this.__input.protocol,
+          RemoteId: this.__input.remoteId,
+          SmoothingLatency: this.__input.smoothingLatency,
+          StreamId: this.__input.streamId,
+          VpcInterfaceAttachment: {
+            VpcInterfaceName: this.__input.vpcInterfaceAttachment?.vpcInterfaceName,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowOutput.Output.MediaStreamOutputConfigurations', props);
+    return resource.getResponseField('Output.MediaStreamOutputConfigurations') as unknown as shapes.MediaConnectMediaStreamOutputConfiguration[];
   }
 
   public get name(): string {
@@ -5832,6 +7683,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutput {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -5873,6 +7726,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutput {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -5914,6 +7769,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutput {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -5970,6 +7827,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutputEncryption {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -6011,6 +7870,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutputEncryption {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -6052,6 +7913,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutputEncryption {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -6093,6 +7956,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutputEncryption {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -6134,6 +7999,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutputEncryption {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -6175,6 +8042,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutputEncryption {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -6216,6 +8085,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutputEncryption {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -6257,6 +8128,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutputEncryption {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -6298,6 +8171,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutputEncryption {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -6346,6 +8221,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutputTransport {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -6387,6 +8264,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutputTransport {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -6428,6 +8307,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutputTransport {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -6442,6 +8323,92 @@ export class MediaConnectResponsesUpdateFlowOutputOutputTransport {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowOutput.Output.Transport.MaxLatency', props);
     return resource.getResponseField('Output.Transport.MaxLatency') as unknown as number;
+  }
+
+  public get maxSyncBuffer(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowOutput',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowOutput.Output.Transport.MaxSyncBuffer'),
+        outputPath: 'Output.Transport.MaxSyncBuffer',
+        parameters: {
+          CidrAllowList: this.__input.cidrAllowList,
+          Description: this.__input.description,
+          Destination: this.__input.destination,
+          Encryption: {
+            Algorithm: this.__input.encryption?.algorithm,
+            ConstantInitializationVector: this.__input.encryption?.constantInitializationVector,
+            DeviceId: this.__input.encryption?.deviceId,
+            KeyType: this.__input.encryption?.keyType,
+            Region: this.__input.encryption?.region,
+            ResourceId: this.__input.encryption?.resourceId,
+            RoleArn: this.__input.encryption?.roleArn,
+            SecretArn: this.__input.encryption?.secretArn,
+            Url: this.__input.encryption?.url,
+          },
+          FlowArn: this.__input.flowArn,
+          MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
+          OutputArn: this.__input.outputArn,
+          Port: this.__input.port,
+          Protocol: this.__input.protocol,
+          RemoteId: this.__input.remoteId,
+          SmoothingLatency: this.__input.smoothingLatency,
+          StreamId: this.__input.streamId,
+          VpcInterfaceAttachment: {
+            VpcInterfaceName: this.__input.vpcInterfaceAttachment?.vpcInterfaceName,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowOutput.Output.Transport.MaxSyncBuffer', props);
+    return resource.getResponseField('Output.Transport.MaxSyncBuffer') as unknown as number;
+  }
+
+  public get minLatency(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowOutput',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowOutput.Output.Transport.MinLatency'),
+        outputPath: 'Output.Transport.MinLatency',
+        parameters: {
+          CidrAllowList: this.__input.cidrAllowList,
+          Description: this.__input.description,
+          Destination: this.__input.destination,
+          Encryption: {
+            Algorithm: this.__input.encryption?.algorithm,
+            ConstantInitializationVector: this.__input.encryption?.constantInitializationVector,
+            DeviceId: this.__input.encryption?.deviceId,
+            KeyType: this.__input.encryption?.keyType,
+            Region: this.__input.encryption?.region,
+            ResourceId: this.__input.encryption?.resourceId,
+            RoleArn: this.__input.encryption?.roleArn,
+            SecretArn: this.__input.encryption?.secretArn,
+            Url: this.__input.encryption?.url,
+          },
+          FlowArn: this.__input.flowArn,
+          MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
+          OutputArn: this.__input.outputArn,
+          Port: this.__input.port,
+          Protocol: this.__input.protocol,
+          RemoteId: this.__input.remoteId,
+          SmoothingLatency: this.__input.smoothingLatency,
+          StreamId: this.__input.streamId,
+          VpcInterfaceAttachment: {
+            VpcInterfaceName: this.__input.vpcInterfaceAttachment?.vpcInterfaceName,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowOutput.Output.Transport.MinLatency', props);
+    return resource.getResponseField('Output.Transport.MinLatency') as unknown as number;
   }
 
   public get protocol(): string {
@@ -6469,6 +8436,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutputTransport {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -6510,6 +8479,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutputTransport {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -6551,6 +8522,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutputTransport {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -6592,6 +8565,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutputTransport {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -6640,6 +8615,8 @@ export class MediaConnectResponsesUpdateFlowOutputOutputVpcInterfaceAttachment {
           },
           FlowArn: this.__input.flowArn,
           MaxLatency: this.__input.maxLatency,
+          MediaStreamOutputConfigurations: this.__input.mediaStreamOutputConfigurations,
+          MinLatency: this.__input.minLatency,
           OutputArn: this.__input.outputArn,
           Port: this.__input.port,
           Protocol: this.__input.protocol,
@@ -6689,6 +8666,9 @@ export class MediaConnectResponsesUpdateFlowSource {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -6738,6 +8718,9 @@ export class MediaConnectResponsesUpdateFlowSourceSource {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -6780,6 +8763,9 @@ export class MediaConnectResponsesUpdateFlowSourceSource {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -6818,6 +8804,9 @@ export class MediaConnectResponsesUpdateFlowSourceSource {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -6856,6 +8845,9 @@ export class MediaConnectResponsesUpdateFlowSourceSource {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -6894,6 +8886,9 @@ export class MediaConnectResponsesUpdateFlowSourceSource {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -6904,6 +8899,47 @@ export class MediaConnectResponsesUpdateFlowSourceSource {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowSource.Source.IngestPort', props);
     return resource.getResponseField('Source.IngestPort') as unknown as number;
+  }
+
+  public get mediaStreamSourceConfigurations(): shapes.MediaConnectMediaStreamSourceConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowSource',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowSource.Source.MediaStreamSourceConfigurations'),
+        outputPath: 'Source.MediaStreamSourceConfigurations',
+        parameters: {
+          Decryption: {
+            Algorithm: this.__input.decryption?.algorithm,
+            ConstantInitializationVector: this.__input.decryption?.constantInitializationVector,
+            DeviceId: this.__input.decryption?.deviceId,
+            KeyType: this.__input.decryption?.keyType,
+            Region: this.__input.decryption?.region,
+            ResourceId: this.__input.decryption?.resourceId,
+            RoleArn: this.__input.decryption?.roleArn,
+            SecretArn: this.__input.decryption?.secretArn,
+            Url: this.__input.decryption?.url,
+          },
+          Description: this.__input.description,
+          EntitlementArn: this.__input.entitlementArn,
+          FlowArn: this.__input.flowArn,
+          IngestPort: this.__input.ingestPort,
+          MaxBitrate: this.__input.maxBitrate,
+          MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
+          Protocol: this.__input.protocol,
+          SourceArn: this.__input.sourceArn,
+          StreamId: this.__input.streamId,
+          VpcInterfaceName: this.__input.vpcInterfaceName,
+          WhitelistCidr: this.__input.whitelistCidr,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowSource.Source.MediaStreamSourceConfigurations', props);
+    return resource.getResponseField('Source.MediaStreamSourceConfigurations') as unknown as shapes.MediaConnectMediaStreamSourceConfiguration[];
   }
 
   public get name(): string {
@@ -6932,6 +8968,9 @@ export class MediaConnectResponsesUpdateFlowSourceSource {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -6970,6 +9009,9 @@ export class MediaConnectResponsesUpdateFlowSourceSource {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -7012,6 +9054,9 @@ export class MediaConnectResponsesUpdateFlowSourceSource {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -7050,6 +9095,9 @@ export class MediaConnectResponsesUpdateFlowSourceSource {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -7095,6 +9143,9 @@ export class MediaConnectResponsesUpdateFlowSourceSourceDecryption {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -7133,6 +9184,9 @@ export class MediaConnectResponsesUpdateFlowSourceSourceDecryption {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -7171,6 +9225,9 @@ export class MediaConnectResponsesUpdateFlowSourceSourceDecryption {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -7209,6 +9266,9 @@ export class MediaConnectResponsesUpdateFlowSourceSourceDecryption {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -7247,6 +9307,9 @@ export class MediaConnectResponsesUpdateFlowSourceSourceDecryption {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -7285,6 +9348,9 @@ export class MediaConnectResponsesUpdateFlowSourceSourceDecryption {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -7323,6 +9389,9 @@ export class MediaConnectResponsesUpdateFlowSourceSourceDecryption {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -7361,6 +9430,9 @@ export class MediaConnectResponsesUpdateFlowSourceSourceDecryption {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -7399,6 +9471,9 @@ export class MediaConnectResponsesUpdateFlowSourceSourceDecryption {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -7444,6 +9519,9 @@ export class MediaConnectResponsesUpdateFlowSourceSourceTransport {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -7482,6 +9560,9 @@ export class MediaConnectResponsesUpdateFlowSourceSourceTransport {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -7520,6 +9601,9 @@ export class MediaConnectResponsesUpdateFlowSourceSourceTransport {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -7530,6 +9614,88 @@ export class MediaConnectResponsesUpdateFlowSourceSourceTransport {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowSource.Source.Transport.MaxLatency', props);
     return resource.getResponseField('Source.Transport.MaxLatency') as unknown as number;
+  }
+
+  public get maxSyncBuffer(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowSource',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowSource.Source.Transport.MaxSyncBuffer'),
+        outputPath: 'Source.Transport.MaxSyncBuffer',
+        parameters: {
+          Decryption: {
+            Algorithm: this.__input.decryption?.algorithm,
+            ConstantInitializationVector: this.__input.decryption?.constantInitializationVector,
+            DeviceId: this.__input.decryption?.deviceId,
+            KeyType: this.__input.decryption?.keyType,
+            Region: this.__input.decryption?.region,
+            ResourceId: this.__input.decryption?.resourceId,
+            RoleArn: this.__input.decryption?.roleArn,
+            SecretArn: this.__input.decryption?.secretArn,
+            Url: this.__input.decryption?.url,
+          },
+          Description: this.__input.description,
+          EntitlementArn: this.__input.entitlementArn,
+          FlowArn: this.__input.flowArn,
+          IngestPort: this.__input.ingestPort,
+          MaxBitrate: this.__input.maxBitrate,
+          MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
+          Protocol: this.__input.protocol,
+          SourceArn: this.__input.sourceArn,
+          StreamId: this.__input.streamId,
+          VpcInterfaceName: this.__input.vpcInterfaceName,
+          WhitelistCidr: this.__input.whitelistCidr,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowSource.Source.Transport.MaxSyncBuffer', props);
+    return resource.getResponseField('Source.Transport.MaxSyncBuffer') as unknown as number;
+  }
+
+  public get minLatency(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFlowSource',
+        service: 'MediaConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaConnect.UpdateFlowSource.Source.Transport.MinLatency'),
+        outputPath: 'Source.Transport.MinLatency',
+        parameters: {
+          Decryption: {
+            Algorithm: this.__input.decryption?.algorithm,
+            ConstantInitializationVector: this.__input.decryption?.constantInitializationVector,
+            DeviceId: this.__input.decryption?.deviceId,
+            KeyType: this.__input.decryption?.keyType,
+            Region: this.__input.decryption?.region,
+            ResourceId: this.__input.decryption?.resourceId,
+            RoleArn: this.__input.decryption?.roleArn,
+            SecretArn: this.__input.decryption?.secretArn,
+            Url: this.__input.decryption?.url,
+          },
+          Description: this.__input.description,
+          EntitlementArn: this.__input.entitlementArn,
+          FlowArn: this.__input.flowArn,
+          IngestPort: this.__input.ingestPort,
+          MaxBitrate: this.__input.maxBitrate,
+          MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
+          Protocol: this.__input.protocol,
+          SourceArn: this.__input.sourceArn,
+          StreamId: this.__input.streamId,
+          VpcInterfaceName: this.__input.vpcInterfaceName,
+          WhitelistCidr: this.__input.whitelistCidr,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFlowSource.Source.Transport.MinLatency', props);
+    return resource.getResponseField('Source.Transport.MinLatency') as unknown as number;
   }
 
   public get protocol(): string {
@@ -7558,6 +9724,9 @@ export class MediaConnectResponsesUpdateFlowSourceSourceTransport {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -7596,6 +9765,9 @@ export class MediaConnectResponsesUpdateFlowSourceSourceTransport {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -7634,6 +9806,9 @@ export class MediaConnectResponsesUpdateFlowSourceSourceTransport {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,
@@ -7672,6 +9847,9 @@ export class MediaConnectResponsesUpdateFlowSourceSourceTransport {
           IngestPort: this.__input.ingestPort,
           MaxBitrate: this.__input.maxBitrate,
           MaxLatency: this.__input.maxLatency,
+          MaxSyncBuffer: this.__input.maxSyncBuffer,
+          MediaStreamSourceConfigurations: this.__input.mediaStreamSourceConfigurations,
+          MinLatency: this.__input.minLatency,
           Protocol: this.__input.protocol,
           SourceArn: this.__input.sourceArn,
           StreamId: this.__input.streamId,

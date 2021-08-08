@@ -50,6 +50,10 @@ export class SnowballClient extends cdk.Construct {
     return new SnowballResponsesCreateJob(this, this.__resources, input);
   }
 
+  public createLongTermPricing(input: shapes.SnowballCreateLongTermPricingRequest): SnowballResponsesCreateLongTermPricing {
+    return new SnowballResponsesCreateLongTermPricing(this, this.__resources, input);
+  }
+
   public createReturnShippingLabel(input: shapes.SnowballCreateReturnShippingLabelRequest): SnowballResponsesCreateReturnShippingLabel {
     return new SnowballResponsesCreateReturnShippingLabel(this, this.__resources, input);
   }
@@ -106,6 +110,10 @@ export class SnowballClient extends cdk.Construct {
     return new SnowballResponsesListJobs(this, this.__resources, input);
   }
 
+  public listLongTermPricing(input: shapes.SnowballListLongTermPricingRequest): SnowballResponsesListLongTermPricing {
+    return new SnowballResponsesListLongTermPricing(this, this.__resources, input);
+  }
+
   public updateCluster(input: shapes.SnowballUpdateClusterRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -121,6 +129,12 @@ export class SnowballClient extends cdk.Construct {
             S3Resources: input.resources?.s3Resources,
             LambdaResources: input.resources?.lambdaResources,
             Ec2AmiResources: input.resources?.ec2AmiResources,
+          },
+          OnDeviceServiceConfiguration: {
+            NFSOnDeviceService: {
+              StorageLimit: input.onDeviceServiceConfiguration?.nfsOnDeviceService?.storageLimit,
+              StorageUnit: input.onDeviceServiceConfiguration?.nfsOnDeviceService?.storageUnit,
+            },
           },
           AddressId: input.addressId,
           ShippingOption: input.shippingOption,
@@ -156,6 +170,12 @@ export class SnowballClient extends cdk.Construct {
             LambdaResources: input.resources?.lambdaResources,
             Ec2AmiResources: input.resources?.ec2AmiResources,
           },
+          OnDeviceServiceConfiguration: {
+            NFSOnDeviceService: {
+              StorageLimit: input.onDeviceServiceConfiguration?.nfsOnDeviceService?.storageLimit,
+              StorageUnit: input.onDeviceServiceConfiguration?.nfsOnDeviceService?.storageUnit,
+            },
+          },
           AddressId: input.addressId,
           ShippingOption: input.shippingOption,
           Description: input.description,
@@ -181,6 +201,23 @@ export class SnowballClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'UpdateJobShipmentState', props);
+  }
+
+  public updateLongTermPricing(input: shapes.SnowballUpdateLongTermPricingRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateLongTermPricing',
+        service: 'Snowball',
+        physicalResourceId: cr.PhysicalResourceId.of('Snowball.UpdateLongTermPricing'),
+        parameters: {
+          LongTermPricingId: input.longTermPricingId,
+          ReplacementJob: input.replacementJob,
+          IsLongTermPricingAutoRenew: input.isLongTermPricingAutoRenew,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateLongTermPricing', props);
   }
 
 }
@@ -244,6 +281,12 @@ export class SnowballResponsesCreateCluster {
             LambdaResources: this.__input.resources.lambdaResources,
             Ec2AmiResources: this.__input.resources.ec2AmiResources,
           },
+          OnDeviceServiceConfiguration: {
+            NFSOnDeviceService: {
+              StorageLimit: this.__input.onDeviceServiceConfiguration?.nfsOnDeviceService?.storageLimit,
+              StorageUnit: this.__input.onDeviceServiceConfiguration?.nfsOnDeviceService?.storageUnit,
+            },
+          },
           Description: this.__input.description,
           AddressId: this.__input.addressId,
           KmsKeyARN: this.__input.kmsKeyArn,
@@ -261,6 +304,7 @@ export class SnowballResponsesCreateCluster {
               GSTIN: this.__input.taxDocuments?.ind?.gstin,
             },
           },
+          RemoteManagement: this.__input.remoteManagement,
         },
       },
     };
@@ -290,6 +334,12 @@ export class SnowballResponsesCreateJob {
             LambdaResources: this.__input.resources?.lambdaResources,
             Ec2AmiResources: this.__input.resources?.ec2AmiResources,
           },
+          OnDeviceServiceConfiguration: {
+            NFSOnDeviceService: {
+              StorageLimit: this.__input.onDeviceServiceConfiguration?.nfsOnDeviceService?.storageLimit,
+              StorageUnit: this.__input.onDeviceServiceConfiguration?.nfsOnDeviceService?.storageUnit,
+            },
+          },
           Description: this.__input.description,
           AddressId: this.__input.addressId,
           KmsKeyARN: this.__input.kmsKeyArn,
@@ -316,11 +366,39 @@ export class SnowballResponsesCreateJob {
               },
             },
           },
+          RemoteManagement: this.__input.remoteManagement,
+          LongTermPricingId: this.__input.longTermPricingId,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateJob.JobId', props);
     return resource.getResponseField('JobId') as unknown as string;
+  }
+
+}
+
+export class SnowballResponsesCreateLongTermPricing {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SnowballCreateLongTermPricingRequest) {
+  }
+
+  public get longTermPricingId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createLongTermPricing',
+        service: 'Snowball',
+        physicalResourceId: cr.PhysicalResourceId.of('Snowball.CreateLongTermPricing.LongTermPricingId'),
+        outputPath: 'LongTermPricingId',
+        parameters: {
+          LongTermPricingType: this.__input.longTermPricingType,
+          IsLongTermPricingAutoRenew: this.__input.isLongTermPricingAutoRenew,
+          SnowballType: this.__input.snowballType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateLongTermPricing.LongTermPricingId', props);
+    return resource.getResponseField('LongTermPricingId') as unknown as string;
   }
 
 }
@@ -864,6 +942,10 @@ export class SnowballResponsesDescribeClusterClusterMetadata {
     return new SnowballResponsesDescribeClusterClusterMetadataTaxDocuments(this.__scope, this.__resources, this.__input);
   }
 
+  public get onDeviceServiceConfiguration(): SnowballResponsesDescribeClusterClusterMetadataOnDeviceServiceConfiguration {
+    return new SnowballResponsesDescribeClusterClusterMetadataOnDeviceServiceConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class SnowballResponsesDescribeClusterClusterMetadataResources {
@@ -1013,6 +1095,58 @@ export class SnowballResponsesDescribeClusterClusterMetadataTaxDocumentsInd {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCluster.ClusterMetadata.TaxDocuments.IND.GSTIN', props);
     return resource.getResponseField('ClusterMetadata.TaxDocuments.IND.GSTIN') as unknown as string;
+  }
+
+}
+
+export class SnowballResponsesDescribeClusterClusterMetadataOnDeviceServiceConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SnowballDescribeClusterRequest) {
+  }
+
+  public get nfsOnDeviceService(): SnowballResponsesDescribeClusterClusterMetadataOnDeviceServiceConfigurationNfsOnDeviceService {
+    return new SnowballResponsesDescribeClusterClusterMetadataOnDeviceServiceConfigurationNfsOnDeviceService(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SnowballResponsesDescribeClusterClusterMetadataOnDeviceServiceConfigurationNfsOnDeviceService {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SnowballDescribeClusterRequest) {
+  }
+
+  public get storageLimit(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCluster',
+        service: 'Snowball',
+        physicalResourceId: cr.PhysicalResourceId.of('Snowball.DescribeCluster.ClusterMetadata.OnDeviceServiceConfiguration.NFSOnDeviceService.StorageLimit'),
+        outputPath: 'ClusterMetadata.OnDeviceServiceConfiguration.NFSOnDeviceService.StorageLimit',
+        parameters: {
+          ClusterId: this.__input.clusterId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCluster.ClusterMetadata.OnDeviceServiceConfiguration.NFSOnDeviceService.StorageLimit', props);
+    return resource.getResponseField('ClusterMetadata.OnDeviceServiceConfiguration.NFSOnDeviceService.StorageLimit') as unknown as number;
+  }
+
+  public get storageUnit(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCluster',
+        service: 'Snowball',
+        physicalResourceId: cr.PhysicalResourceId.of('Snowball.DescribeCluster.ClusterMetadata.OnDeviceServiceConfiguration.NFSOnDeviceService.StorageUnit'),
+        outputPath: 'ClusterMetadata.OnDeviceServiceConfiguration.NFSOnDeviceService.StorageUnit',
+        parameters: {
+          ClusterId: this.__input.clusterId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCluster.ClusterMetadata.OnDeviceServiceConfiguration.NFSOnDeviceService.StorageUnit', props);
+    return resource.getResponseField('ClusterMetadata.OnDeviceServiceConfiguration.NFSOnDeviceService.StorageUnit') as unknown as string;
   }
 
 }
@@ -1280,6 +1414,44 @@ export class SnowballResponsesDescribeJobJobMetadata {
 
   public get deviceConfiguration(): SnowballResponsesDescribeJobJobMetadataDeviceConfiguration {
     return new SnowballResponsesDescribeJobJobMetadataDeviceConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get remoteManagement(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJob',
+        service: 'Snowball',
+        physicalResourceId: cr.PhysicalResourceId.of('Snowball.DescribeJob.JobMetadata.RemoteManagement'),
+        outputPath: 'JobMetadata.RemoteManagement',
+        parameters: {
+          JobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJob.JobMetadata.RemoteManagement', props);
+    return resource.getResponseField('JobMetadata.RemoteManagement') as unknown as string;
+  }
+
+  public get longTermPricingId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJob',
+        service: 'Snowball',
+        physicalResourceId: cr.PhysicalResourceId.of('Snowball.DescribeJob.JobMetadata.LongTermPricingId'),
+        outputPath: 'JobMetadata.LongTermPricingId',
+        parameters: {
+          JobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJob.JobMetadata.LongTermPricingId', props);
+    return resource.getResponseField('JobMetadata.LongTermPricingId') as unknown as string;
+  }
+
+  public get onDeviceServiceConfiguration(): SnowballResponsesDescribeJobJobMetadataOnDeviceServiceConfiguration {
+    return new SnowballResponsesDescribeJobJobMetadataOnDeviceServiceConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -1728,6 +1900,58 @@ export class SnowballResponsesDescribeJobJobMetadataDeviceConfigurationSnowconeD
 
 }
 
+export class SnowballResponsesDescribeJobJobMetadataOnDeviceServiceConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SnowballDescribeJobRequest) {
+  }
+
+  public get nfsOnDeviceService(): SnowballResponsesDescribeJobJobMetadataOnDeviceServiceConfigurationNfsOnDeviceService {
+    return new SnowballResponsesDescribeJobJobMetadataOnDeviceServiceConfigurationNfsOnDeviceService(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SnowballResponsesDescribeJobJobMetadataOnDeviceServiceConfigurationNfsOnDeviceService {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SnowballDescribeJobRequest) {
+  }
+
+  public get storageLimit(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJob',
+        service: 'Snowball',
+        physicalResourceId: cr.PhysicalResourceId.of('Snowball.DescribeJob.JobMetadata.OnDeviceServiceConfiguration.NFSOnDeviceService.StorageLimit'),
+        outputPath: 'JobMetadata.OnDeviceServiceConfiguration.NFSOnDeviceService.StorageLimit',
+        parameters: {
+          JobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJob.JobMetadata.OnDeviceServiceConfiguration.NFSOnDeviceService.StorageLimit', props);
+    return resource.getResponseField('JobMetadata.OnDeviceServiceConfiguration.NFSOnDeviceService.StorageLimit') as unknown as number;
+  }
+
+  public get storageUnit(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJob',
+        service: 'Snowball',
+        physicalResourceId: cr.PhysicalResourceId.of('Snowball.DescribeJob.JobMetadata.OnDeviceServiceConfiguration.NFSOnDeviceService.StorageUnit'),
+        outputPath: 'JobMetadata.OnDeviceServiceConfiguration.NFSOnDeviceService.StorageUnit',
+        parameters: {
+          JobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJob.JobMetadata.OnDeviceServiceConfiguration.NFSOnDeviceService.StorageUnit', props);
+    return resource.getResponseField('JobMetadata.OnDeviceServiceConfiguration.NFSOnDeviceService.StorageUnit') as unknown as string;
+  }
+
+}
+
 export class SnowballResponsesDescribeReturnShippingLabel {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SnowballDescribeReturnShippingLabelRequest) {
@@ -2049,6 +2273,49 @@ export class SnowballResponsesListJobs {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListJobs.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SnowballResponsesListLongTermPricing {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SnowballListLongTermPricingRequest) {
+  }
+
+  public get longTermPricingEntries(): shapes.SnowballLongTermPricingListEntry[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listLongTermPricing',
+        service: 'Snowball',
+        physicalResourceId: cr.PhysicalResourceId.of('Snowball.ListLongTermPricing.LongTermPricingEntries'),
+        outputPath: 'LongTermPricingEntries',
+        parameters: {
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListLongTermPricing.LongTermPricingEntries', props);
+    return resource.getResponseField('LongTermPricingEntries') as unknown as shapes.SnowballLongTermPricingListEntry[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listLongTermPricing',
+        service: 'Snowball',
+        physicalResourceId: cr.PhysicalResourceId.of('Snowball.ListLongTermPricing.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListLongTermPricing.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
 

@@ -5,12 +5,12 @@ export interface RdsAddRoleToDbClusterMessage {
   /**
    * @schema RdsAddRoleToDbClusterMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema RdsAddRoleToDbClusterMessage#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema RdsAddRoleToDbClusterMessage#FeatureName
@@ -20,25 +20,57 @@ export interface RdsAddRoleToDbClusterMessage {
 }
 
 /**
+ * Converts an object of type 'RdsAddRoleToDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsAddRoleToDbClusterMessage(obj: RdsAddRoleToDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'RoleArn': obj.roleArn,
+    'FeatureName': obj.featureName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsAddRoleToDbInstanceMessage
  */
 export interface RdsAddRoleToDbInstanceMessage {
   /**
    * @schema RdsAddRoleToDbInstanceMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
   /**
    * @schema RdsAddRoleToDbInstanceMessage#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema RdsAddRoleToDbInstanceMessage#FeatureName
    */
-  readonly featureName: string;
+  readonly featureName?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsAddRoleToDbInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsAddRoleToDbInstanceMessage(obj: RdsAddRoleToDbInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'RoleArn': obj.roleArn,
+    'FeatureName': obj.featureName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsAddSourceIdentifierToSubscriptionMessage
@@ -47,14 +79,29 @@ export interface RdsAddSourceIdentifierToSubscriptionMessage {
   /**
    * @schema RdsAddSourceIdentifierToSubscriptionMessage#SubscriptionName
    */
-  readonly subscriptionName: string;
+  readonly subscriptionName?: string;
 
   /**
    * @schema RdsAddSourceIdentifierToSubscriptionMessage#SourceIdentifier
    */
-  readonly sourceIdentifier: string;
+  readonly sourceIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsAddSourceIdentifierToSubscriptionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsAddSourceIdentifierToSubscriptionMessage(obj: RdsAddSourceIdentifierToSubscriptionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscriptionName': obj.subscriptionName,
+    'SourceIdentifier': obj.sourceIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsAddSourceIdentifierToSubscriptionResult
@@ -68,20 +115,49 @@ export interface RdsAddSourceIdentifierToSubscriptionResult {
 }
 
 /**
+ * Converts an object of type 'RdsAddSourceIdentifierToSubscriptionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsAddSourceIdentifierToSubscriptionResult(obj: RdsAddSourceIdentifierToSubscriptionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EventSubscription': toJson_RdsEventSubscription(obj.eventSubscription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsAddTagsToResourceMessage
  */
 export interface RdsAddTagsToResourceMessage {
   /**
    * @schema RdsAddTagsToResourceMessage#ResourceName
    */
-  readonly resourceName: string;
+  readonly resourceName?: string;
 
   /**
    * @schema RdsAddTagsToResourceMessage#Tags
    */
-  readonly tags: RdsTag[];
+  readonly tags?: RdsTag[];
 
 }
+
+/**
+ * Converts an object of type 'RdsAddTagsToResourceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsAddTagsToResourceMessage(obj: RdsAddTagsToResourceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceName': obj.resourceName,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsApplyPendingMaintenanceActionMessage
@@ -90,19 +166,35 @@ export interface RdsApplyPendingMaintenanceActionMessage {
   /**
    * @schema RdsApplyPendingMaintenanceActionMessage#ResourceIdentifier
    */
-  readonly resourceIdentifier: string;
+  readonly resourceIdentifier?: string;
 
   /**
    * @schema RdsApplyPendingMaintenanceActionMessage#ApplyAction
    */
-  readonly applyAction: string;
+  readonly applyAction?: string;
 
   /**
    * @schema RdsApplyPendingMaintenanceActionMessage#OptInType
    */
-  readonly optInType: string;
+  readonly optInType?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsApplyPendingMaintenanceActionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsApplyPendingMaintenanceActionMessage(obj: RdsApplyPendingMaintenanceActionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceIdentifier': obj.resourceIdentifier,
+    'ApplyAction': obj.applyAction,
+    'OptInType': obj.optInType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsApplyPendingMaintenanceActionResult
@@ -116,13 +208,27 @@ export interface RdsApplyPendingMaintenanceActionResult {
 }
 
 /**
+ * Converts an object of type 'RdsApplyPendingMaintenanceActionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsApplyPendingMaintenanceActionResult(obj: RdsApplyPendingMaintenanceActionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourcePendingMaintenanceActions': toJson_RdsResourcePendingMaintenanceActions(obj.resourcePendingMaintenanceActions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsAuthorizeDbSecurityGroupIngressMessage
  */
 export interface RdsAuthorizeDbSecurityGroupIngressMessage {
   /**
    * @schema RdsAuthorizeDbSecurityGroupIngressMessage#DBSecurityGroupName
    */
-  readonly dbSecurityGroupName: string;
+  readonly dbSecurityGroupName?: string;
 
   /**
    * @schema RdsAuthorizeDbSecurityGroupIngressMessage#CIDRIP
@@ -147,6 +253,24 @@ export interface RdsAuthorizeDbSecurityGroupIngressMessage {
 }
 
 /**
+ * Converts an object of type 'RdsAuthorizeDbSecurityGroupIngressMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsAuthorizeDbSecurityGroupIngressMessage(obj: RdsAuthorizeDbSecurityGroupIngressMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSecurityGroupName': obj.dbSecurityGroupName,
+    'CIDRIP': obj.cidrip,
+    'EC2SecurityGroupName': obj.ec2SecurityGroupName,
+    'EC2SecurityGroupId': obj.ec2SecurityGroupId,
+    'EC2SecurityGroupOwnerId': obj.ec2SecurityGroupOwnerId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsAuthorizeDbSecurityGroupIngressResult
  */
 export interface RdsAuthorizeDbSecurityGroupIngressResult {
@@ -158,18 +282,32 @@ export interface RdsAuthorizeDbSecurityGroupIngressResult {
 }
 
 /**
+ * Converts an object of type 'RdsAuthorizeDbSecurityGroupIngressResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsAuthorizeDbSecurityGroupIngressResult(obj: RdsAuthorizeDbSecurityGroupIngressResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSecurityGroup': toJson_RdsdbSecurityGroup(obj.dbSecurityGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsBacktrackDbClusterMessage
  */
 export interface RdsBacktrackDbClusterMessage {
   /**
    * @schema RdsBacktrackDbClusterMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema RdsBacktrackDbClusterMessage#BacktrackTo
    */
-  readonly backtrackTo: string;
+  readonly backtrackTo?: string;
 
   /**
    * @schema RdsBacktrackDbClusterMessage#Force
@@ -182,6 +320,23 @@ export interface RdsBacktrackDbClusterMessage {
   readonly useEarliestTimeOnPointInTimeUnavailable?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'RdsBacktrackDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsBacktrackDbClusterMessage(obj: RdsBacktrackDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'BacktrackTo': obj.backtrackTo,
+    'Force': obj.force,
+    'UseEarliestTimeOnPointInTimeUnavailable': obj.useEarliestTimeOnPointInTimeUnavailable,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbClusterBacktrack
@@ -220,15 +375,48 @@ export interface RdsdbClusterBacktrack {
 }
 
 /**
+ * Converts an object of type 'RdsdbClusterBacktrack' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbClusterBacktrack(obj: RdsdbClusterBacktrack | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'BacktrackIdentifier': obj.backtrackIdentifier,
+    'BacktrackTo': obj.backtrackTo,
+    'BacktrackedFrom': obj.backtrackedFrom,
+    'BacktrackRequestCreationTime': obj.backtrackRequestCreationTime,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCancelExportTaskMessage
  */
 export interface RdsCancelExportTaskMessage {
   /**
    * @schema RdsCancelExportTaskMessage#ExportTaskIdentifier
    */
-  readonly exportTaskIdentifier: string;
+  readonly exportTaskIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsCancelExportTaskMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCancelExportTaskMessage(obj: RdsCancelExportTaskMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExportTaskIdentifier': obj.exportTaskIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsExportTask
@@ -312,23 +500,51 @@ export interface RdsExportTask {
 }
 
 /**
+ * Converts an object of type 'RdsExportTask' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsExportTask(obj: RdsExportTask | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExportTaskIdentifier': obj.exportTaskIdentifier,
+    'SourceArn': obj.sourceArn,
+    'ExportOnly': obj.exportOnly?.map(y => y),
+    'SnapshotTime': obj.snapshotTime,
+    'TaskStartTime': obj.taskStartTime,
+    'TaskEndTime': obj.taskEndTime,
+    'S3Bucket': obj.s3Bucket,
+    'S3Prefix': obj.s3Prefix,
+    'IamRoleArn': obj.iamRoleArn,
+    'KmsKeyId': obj.kmsKeyId,
+    'Status': obj.status,
+    'PercentProgress': obj.percentProgress,
+    'TotalExtractedDataInGB': obj.totalExtractedDataInGb,
+    'FailureCause': obj.failureCause,
+    'WarningMessage': obj.warningMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCopyDbClusterParameterGroupMessage
  */
 export interface RdsCopyDbClusterParameterGroupMessage {
   /**
    * @schema RdsCopyDbClusterParameterGroupMessage#SourceDBClusterParameterGroupIdentifier
    */
-  readonly sourceDbClusterParameterGroupIdentifier: string;
+  readonly sourceDbClusterParameterGroupIdentifier?: string;
 
   /**
    * @schema RdsCopyDbClusterParameterGroupMessage#TargetDBClusterParameterGroupIdentifier
    */
-  readonly targetDbClusterParameterGroupIdentifier: string;
+  readonly targetDbClusterParameterGroupIdentifier?: string;
 
   /**
    * @schema RdsCopyDbClusterParameterGroupMessage#TargetDBClusterParameterGroupDescription
    */
-  readonly targetDbClusterParameterGroupDescription: string;
+  readonly targetDbClusterParameterGroupDescription?: string;
 
   /**
    * @schema RdsCopyDbClusterParameterGroupMessage#Tags
@@ -336,6 +552,23 @@ export interface RdsCopyDbClusterParameterGroupMessage {
   readonly tags?: RdsTag[];
 
 }
+
+/**
+ * Converts an object of type 'RdsCopyDbClusterParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCopyDbClusterParameterGroupMessage(obj: RdsCopyDbClusterParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceDBClusterParameterGroupIdentifier': obj.sourceDbClusterParameterGroupIdentifier,
+    'TargetDBClusterParameterGroupIdentifier': obj.targetDbClusterParameterGroupIdentifier,
+    'TargetDBClusterParameterGroupDescription': obj.targetDbClusterParameterGroupDescription,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsCopyDbClusterParameterGroupResult
@@ -349,18 +582,32 @@ export interface RdsCopyDbClusterParameterGroupResult {
 }
 
 /**
+ * Converts an object of type 'RdsCopyDbClusterParameterGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCopyDbClusterParameterGroupResult(obj: RdsCopyDbClusterParameterGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroup': toJson_RdsdbClusterParameterGroup(obj.dbClusterParameterGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCopyDbClusterSnapshotMessage
  */
 export interface RdsCopyDbClusterSnapshotMessage {
   /**
    * @schema RdsCopyDbClusterSnapshotMessage#SourceDBClusterSnapshotIdentifier
    */
-  readonly sourceDbClusterSnapshotIdentifier: string;
+  readonly sourceDbClusterSnapshotIdentifier?: string;
 
   /**
    * @schema RdsCopyDbClusterSnapshotMessage#TargetDBClusterSnapshotIdentifier
    */
-  readonly targetDbClusterSnapshotIdentifier: string;
+  readonly targetDbClusterSnapshotIdentifier?: string;
 
   /**
    * @schema RdsCopyDbClusterSnapshotMessage#KmsKeyId
@@ -390,6 +637,26 @@ export interface RdsCopyDbClusterSnapshotMessage {
 }
 
 /**
+ * Converts an object of type 'RdsCopyDbClusterSnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCopyDbClusterSnapshotMessage(obj: RdsCopyDbClusterSnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceDBClusterSnapshotIdentifier': obj.sourceDbClusterSnapshotIdentifier,
+    'TargetDBClusterSnapshotIdentifier': obj.targetDbClusterSnapshotIdentifier,
+    'KmsKeyId': obj.kmsKeyId,
+    'PreSignedUrl': obj.preSignedUrl,
+    'CopyTags': obj.copyTags,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+    'SourceRegion': obj.sourceRegion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCopyDbClusterSnapshotResult
  */
 export interface RdsCopyDbClusterSnapshotResult {
@@ -401,23 +668,37 @@ export interface RdsCopyDbClusterSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'RdsCopyDbClusterSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCopyDbClusterSnapshotResult(obj: RdsCopyDbClusterSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshot': toJson_RdsdbClusterSnapshot(obj.dbClusterSnapshot),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCopyDbParameterGroupMessage
  */
 export interface RdsCopyDbParameterGroupMessage {
   /**
    * @schema RdsCopyDbParameterGroupMessage#SourceDBParameterGroupIdentifier
    */
-  readonly sourceDbParameterGroupIdentifier: string;
+  readonly sourceDbParameterGroupIdentifier?: string;
 
   /**
    * @schema RdsCopyDbParameterGroupMessage#TargetDBParameterGroupIdentifier
    */
-  readonly targetDbParameterGroupIdentifier: string;
+  readonly targetDbParameterGroupIdentifier?: string;
 
   /**
    * @schema RdsCopyDbParameterGroupMessage#TargetDBParameterGroupDescription
    */
-  readonly targetDbParameterGroupDescription: string;
+  readonly targetDbParameterGroupDescription?: string;
 
   /**
    * @schema RdsCopyDbParameterGroupMessage#Tags
@@ -425,6 +706,23 @@ export interface RdsCopyDbParameterGroupMessage {
   readonly tags?: RdsTag[];
 
 }
+
+/**
+ * Converts an object of type 'RdsCopyDbParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCopyDbParameterGroupMessage(obj: RdsCopyDbParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceDBParameterGroupIdentifier': obj.sourceDbParameterGroupIdentifier,
+    'TargetDBParameterGroupIdentifier': obj.targetDbParameterGroupIdentifier,
+    'TargetDBParameterGroupDescription': obj.targetDbParameterGroupDescription,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsCopyDbParameterGroupResult
@@ -438,18 +736,32 @@ export interface RdsCopyDbParameterGroupResult {
 }
 
 /**
+ * Converts an object of type 'RdsCopyDbParameterGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCopyDbParameterGroupResult(obj: RdsCopyDbParameterGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroup': toJson_RdsdbParameterGroup(obj.dbParameterGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCopyDbSnapshotMessage
  */
 export interface RdsCopyDbSnapshotMessage {
   /**
    * @schema RdsCopyDbSnapshotMessage#SourceDBSnapshotIdentifier
    */
-  readonly sourceDbSnapshotIdentifier: string;
+  readonly sourceDbSnapshotIdentifier?: string;
 
   /**
    * @schema RdsCopyDbSnapshotMessage#TargetDBSnapshotIdentifier
    */
-  readonly targetDbSnapshotIdentifier: string;
+  readonly targetDbSnapshotIdentifier?: string;
 
   /**
    * @schema RdsCopyDbSnapshotMessage#KmsKeyId
@@ -489,6 +801,28 @@ export interface RdsCopyDbSnapshotMessage {
 }
 
 /**
+ * Converts an object of type 'RdsCopyDbSnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCopyDbSnapshotMessage(obj: RdsCopyDbSnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceDBSnapshotIdentifier': obj.sourceDbSnapshotIdentifier,
+    'TargetDBSnapshotIdentifier': obj.targetDbSnapshotIdentifier,
+    'KmsKeyId': obj.kmsKeyId,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+    'CopyTags': obj.copyTags,
+    'PreSignedUrl': obj.preSignedUrl,
+    'OptionGroupName': obj.optionGroupName,
+    'TargetCustomAvailabilityZone': obj.targetCustomAvailabilityZone,
+    'SourceRegion': obj.sourceRegion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCopyDbSnapshotResult
  */
 export interface RdsCopyDbSnapshotResult {
@@ -500,23 +834,37 @@ export interface RdsCopyDbSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'RdsCopyDbSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCopyDbSnapshotResult(obj: RdsCopyDbSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSnapshot': toJson_RdsdbSnapshot(obj.dbSnapshot),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCopyOptionGroupMessage
  */
 export interface RdsCopyOptionGroupMessage {
   /**
    * @schema RdsCopyOptionGroupMessage#SourceOptionGroupIdentifier
    */
-  readonly sourceOptionGroupIdentifier: string;
+  readonly sourceOptionGroupIdentifier?: string;
 
   /**
    * @schema RdsCopyOptionGroupMessage#TargetOptionGroupIdentifier
    */
-  readonly targetOptionGroupIdentifier: string;
+  readonly targetOptionGroupIdentifier?: string;
 
   /**
    * @schema RdsCopyOptionGroupMessage#TargetOptionGroupDescription
    */
-  readonly targetOptionGroupDescription: string;
+  readonly targetOptionGroupDescription?: string;
 
   /**
    * @schema RdsCopyOptionGroupMessage#Tags
@@ -524,6 +872,23 @@ export interface RdsCopyOptionGroupMessage {
   readonly tags?: RdsTag[];
 
 }
+
+/**
+ * Converts an object of type 'RdsCopyOptionGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCopyOptionGroupMessage(obj: RdsCopyOptionGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceOptionGroupIdentifier': obj.sourceOptionGroupIdentifier,
+    'TargetOptionGroupIdentifier': obj.targetOptionGroupIdentifier,
+    'TargetOptionGroupDescription': obj.targetOptionGroupDescription,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsCopyOptionGroupResult
@@ -537,13 +902,27 @@ export interface RdsCopyOptionGroupResult {
 }
 
 /**
+ * Converts an object of type 'RdsCopyOptionGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCopyOptionGroupResult(obj: RdsCopyOptionGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OptionGroup': toJson_RdsOptionGroup(obj.optionGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateCustomAvailabilityZoneMessage
  */
 export interface RdsCreateCustomAvailabilityZoneMessage {
   /**
    * @schema RdsCreateCustomAvailabilityZoneMessage#CustomAvailabilityZoneName
    */
-  readonly customAvailabilityZoneName: string;
+  readonly customAvailabilityZoneName?: string;
 
   /**
    * @schema RdsCreateCustomAvailabilityZoneMessage#ExistingVpnId
@@ -563,6 +942,23 @@ export interface RdsCreateCustomAvailabilityZoneMessage {
 }
 
 /**
+ * Converts an object of type 'RdsCreateCustomAvailabilityZoneMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateCustomAvailabilityZoneMessage(obj: RdsCreateCustomAvailabilityZoneMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CustomAvailabilityZoneName': obj.customAvailabilityZoneName,
+    'ExistingVpnId': obj.existingVpnId,
+    'NewVpnTunnelName': obj.newVpnTunnelName,
+    'VpnTunnelOriginatorIP': obj.vpnTunnelOriginatorIp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateCustomAvailabilityZoneResult
  */
 export interface RdsCreateCustomAvailabilityZoneResult {
@@ -572,6 +968,20 @@ export interface RdsCreateCustomAvailabilityZoneResult {
   readonly customAvailabilityZone?: RdsCustomAvailabilityZone;
 
 }
+
+/**
+ * Converts an object of type 'RdsCreateCustomAvailabilityZoneResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateCustomAvailabilityZoneResult(obj: RdsCreateCustomAvailabilityZoneResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CustomAvailabilityZone': toJson_RdsCustomAvailabilityZone(obj.customAvailabilityZone),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsCreateDbClusterMessage
@@ -600,7 +1010,7 @@ export interface RdsCreateDbClusterMessage {
   /**
    * @schema RdsCreateDbClusterMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema RdsCreateDbClusterMessage#DBClusterParameterGroupName
@@ -620,7 +1030,7 @@ export interface RdsCreateDbClusterMessage {
   /**
    * @schema RdsCreateDbClusterMessage#Engine
    */
-  readonly engine: string;
+  readonly engine?: string;
 
   /**
    * @schema RdsCreateDbClusterMessage#EngineVersion
@@ -750,6 +1160,53 @@ export interface RdsCreateDbClusterMessage {
 }
 
 /**
+ * Converts an object of type 'RdsCreateDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbClusterMessage(obj: RdsCreateDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AvailabilityZones': obj.availabilityZones?.map(y => y),
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'CharacterSetName': obj.characterSetName,
+    'DatabaseName': obj.databaseName,
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'Port': obj.port,
+    'MasterUsername': obj.masterUsername,
+    'MasterUserPassword': obj.masterUserPassword,
+    'OptionGroupName': obj.optionGroupName,
+    'PreferredBackupWindow': obj.preferredBackupWindow,
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'ReplicationSourceIdentifier': obj.replicationSourceIdentifier,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+    'StorageEncrypted': obj.storageEncrypted,
+    'KmsKeyId': obj.kmsKeyId,
+    'PreSignedUrl': obj.preSignedUrl,
+    'EnableIAMDatabaseAuthentication': obj.enableIamDatabaseAuthentication,
+    'BacktrackWindow': obj.backtrackWindow,
+    'EnableCloudwatchLogsExports': obj.enableCloudwatchLogsExports?.map(y => y),
+    'EngineMode': obj.engineMode,
+    'ScalingConfiguration': toJson_RdsScalingConfiguration(obj.scalingConfiguration),
+    'DeletionProtection': obj.deletionProtection,
+    'GlobalClusterIdentifier': obj.globalClusterIdentifier,
+    'EnableHttpEndpoint': obj.enableHttpEndpoint,
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+    'Domain': obj.domain,
+    'DomainIAMRoleName': obj.domainIamRoleName,
+    'EnableGlobalWriteForwarding': obj.enableGlobalWriteForwarding,
+    'SourceRegion': obj.sourceRegion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateDbClusterResult
  */
 export interface RdsCreateDbClusterResult {
@@ -761,23 +1218,37 @@ export interface RdsCreateDbClusterResult {
 }
 
 /**
+ * Converts an object of type 'RdsCreateDbClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbClusterResult(obj: RdsCreateDbClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_RdsdbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateDbClusterEndpointMessage
  */
 export interface RdsCreateDbClusterEndpointMessage {
   /**
    * @schema RdsCreateDbClusterEndpointMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema RdsCreateDbClusterEndpointMessage#DBClusterEndpointIdentifier
    */
-  readonly dbClusterEndpointIdentifier: string;
+  readonly dbClusterEndpointIdentifier?: string;
 
   /**
    * @schema RdsCreateDbClusterEndpointMessage#EndpointType
    */
-  readonly endpointType: string;
+  readonly endpointType?: string;
 
   /**
    * @schema RdsCreateDbClusterEndpointMessage#StaticMembers
@@ -795,6 +1266,25 @@ export interface RdsCreateDbClusterEndpointMessage {
   readonly tags?: RdsTag[];
 
 }
+
+/**
+ * Converts an object of type 'RdsCreateDbClusterEndpointMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbClusterEndpointMessage(obj: RdsCreateDbClusterEndpointMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'DBClusterEndpointIdentifier': obj.dbClusterEndpointIdentifier,
+    'EndpointType': obj.endpointType,
+    'StaticMembers': obj.staticMembers?.map(y => y),
+    'ExcludedMembers': obj.excludedMembers?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbClusterEndpoint
@@ -853,23 +1343,46 @@ export interface RdsdbClusterEndpoint {
 }
 
 /**
+ * Converts an object of type 'RdsdbClusterEndpoint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbClusterEndpoint(obj: RdsdbClusterEndpoint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterEndpointIdentifier': obj.dbClusterEndpointIdentifier,
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'DBClusterEndpointResourceIdentifier': obj.dbClusterEndpointResourceIdentifier,
+    'Endpoint': obj.endpoint,
+    'Status': obj.status,
+    'EndpointType': obj.endpointType,
+    'CustomEndpointType': obj.customEndpointType,
+    'StaticMembers': obj.staticMembers?.map(y => y),
+    'ExcludedMembers': obj.excludedMembers?.map(y => y),
+    'DBClusterEndpointArn': obj.dbClusterEndpointArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateDbClusterParameterGroupMessage
  */
 export interface RdsCreateDbClusterParameterGroupMessage {
   /**
    * @schema RdsCreateDbClusterParameterGroupMessage#DBClusterParameterGroupName
    */
-  readonly dbClusterParameterGroupName: string;
+  readonly dbClusterParameterGroupName?: string;
 
   /**
    * @schema RdsCreateDbClusterParameterGroupMessage#DBParameterGroupFamily
    */
-  readonly dbParameterGroupFamily: string;
+  readonly dbParameterGroupFamily?: string;
 
   /**
    * @schema RdsCreateDbClusterParameterGroupMessage#Description
    */
-  readonly description: string;
+  readonly description?: string;
 
   /**
    * @schema RdsCreateDbClusterParameterGroupMessage#Tags
@@ -877,6 +1390,23 @@ export interface RdsCreateDbClusterParameterGroupMessage {
   readonly tags?: RdsTag[];
 
 }
+
+/**
+ * Converts an object of type 'RdsCreateDbClusterParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbClusterParameterGroupMessage(obj: RdsCreateDbClusterParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'DBParameterGroupFamily': obj.dbParameterGroupFamily,
+    'Description': obj.description,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsCreateDbClusterParameterGroupResult
@@ -890,18 +1420,32 @@ export interface RdsCreateDbClusterParameterGroupResult {
 }
 
 /**
+ * Converts an object of type 'RdsCreateDbClusterParameterGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbClusterParameterGroupResult(obj: RdsCreateDbClusterParameterGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroup': toJson_RdsdbClusterParameterGroup(obj.dbClusterParameterGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateDbClusterSnapshotMessage
  */
 export interface RdsCreateDbClusterSnapshotMessage {
   /**
    * @schema RdsCreateDbClusterSnapshotMessage#DBClusterSnapshotIdentifier
    */
-  readonly dbClusterSnapshotIdentifier: string;
+  readonly dbClusterSnapshotIdentifier?: string;
 
   /**
    * @schema RdsCreateDbClusterSnapshotMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema RdsCreateDbClusterSnapshotMessage#Tags
@@ -909,6 +1453,22 @@ export interface RdsCreateDbClusterSnapshotMessage {
   readonly tags?: RdsTag[];
 
 }
+
+/**
+ * Converts an object of type 'RdsCreateDbClusterSnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbClusterSnapshotMessage(obj: RdsCreateDbClusterSnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshotIdentifier': obj.dbClusterSnapshotIdentifier,
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsCreateDbClusterSnapshotResult
@@ -922,6 +1482,20 @@ export interface RdsCreateDbClusterSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'RdsCreateDbClusterSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbClusterSnapshotResult(obj: RdsCreateDbClusterSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshot': toJson_RdsdbClusterSnapshot(obj.dbClusterSnapshot),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateDbInstanceMessage
  */
 export interface RdsCreateDbInstanceMessage {
@@ -933,7 +1507,7 @@ export interface RdsCreateDbInstanceMessage {
   /**
    * @schema RdsCreateDbInstanceMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
   /**
    * @schema RdsCreateDbInstanceMessage#AllocatedStorage
@@ -943,12 +1517,12 @@ export interface RdsCreateDbInstanceMessage {
   /**
    * @schema RdsCreateDbInstanceMessage#DBInstanceClass
    */
-  readonly dbInstanceClass: string;
+  readonly dbInstanceClass?: string;
 
   /**
    * @schema RdsCreateDbInstanceMessage#Engine
    */
-  readonly engine: string;
+  readonly engine?: string;
 
   /**
    * @schema RdsCreateDbInstanceMessage#MasterUsername
@@ -1160,7 +1734,73 @@ export interface RdsCreateDbInstanceMessage {
    */
   readonly maxAllocatedStorage?: number;
 
+  /**
+   * @schema RdsCreateDbInstanceMessage#EnableCustomerOwnedIp
+   */
+  readonly enableCustomerOwnedIp?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'RdsCreateDbInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbInstanceMessage(obj: RdsCreateDbInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBName': obj.dbName,
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'AllocatedStorage': obj.allocatedStorage,
+    'DBInstanceClass': obj.dbInstanceClass,
+    'Engine': obj.engine,
+    'MasterUsername': obj.masterUsername,
+    'MasterUserPassword': obj.masterUserPassword,
+    'DBSecurityGroups': obj.dbSecurityGroups?.map(y => y),
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'AvailabilityZone': obj.availabilityZone,
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'PreferredBackupWindow': obj.preferredBackupWindow,
+    'Port': obj.port,
+    'MultiAZ': obj.multiAz,
+    'EngineVersion': obj.engineVersion,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'LicenseModel': obj.licenseModel,
+    'Iops': obj.iops,
+    'OptionGroupName': obj.optionGroupName,
+    'CharacterSetName': obj.characterSetName,
+    'NcharCharacterSetName': obj.ncharCharacterSetName,
+    'PubliclyAccessible': obj.publiclyAccessible,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'StorageType': obj.storageType,
+    'TdeCredentialArn': obj.tdeCredentialArn,
+    'TdeCredentialPassword': obj.tdeCredentialPassword,
+    'StorageEncrypted': obj.storageEncrypted,
+    'KmsKeyId': obj.kmsKeyId,
+    'Domain': obj.domain,
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+    'MonitoringInterval': obj.monitoringInterval,
+    'MonitoringRoleArn': obj.monitoringRoleArn,
+    'DomainIAMRoleName': obj.domainIamRoleName,
+    'PromotionTier': obj.promotionTier,
+    'Timezone': obj.timezone,
+    'EnableIAMDatabaseAuthentication': obj.enableIamDatabaseAuthentication,
+    'EnablePerformanceInsights': obj.enablePerformanceInsights,
+    'PerformanceInsightsKMSKeyId': obj.performanceInsightsKmsKeyId,
+    'PerformanceInsightsRetentionPeriod': obj.performanceInsightsRetentionPeriod,
+    'EnableCloudwatchLogsExports': obj.enableCloudwatchLogsExports?.map(y => y),
+    'ProcessorFeatures': obj.processorFeatures?.map(y => toJson_RdsProcessorFeature(y)),
+    'DeletionProtection': obj.deletionProtection,
+    'MaxAllocatedStorage': obj.maxAllocatedStorage,
+    'EnableCustomerOwnedIp': obj.enableCustomerOwnedIp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsCreateDbInstanceResult
@@ -1174,18 +1814,32 @@ export interface RdsCreateDbInstanceResult {
 }
 
 /**
+ * Converts an object of type 'RdsCreateDbInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbInstanceResult(obj: RdsCreateDbInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstance': toJson_RdsdbInstance(obj.dbInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateDbInstanceReadReplicaMessage
  */
 export interface RdsCreateDbInstanceReadReplicaMessage {
   /**
    * @schema RdsCreateDbInstanceReadReplicaMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
   /**
    * @schema RdsCreateDbInstanceReadReplicaMessage#SourceDBInstanceIdentifier
    */
-  readonly sourceDbInstanceIdentifier: string;
+  readonly sourceDbInstanceIdentifier?: string;
 
   /**
    * @schema RdsCreateDbInstanceReadReplicaMessage#DBInstanceClass
@@ -1345,6 +1999,52 @@ export interface RdsCreateDbInstanceReadReplicaMessage {
 }
 
 /**
+ * Converts an object of type 'RdsCreateDbInstanceReadReplicaMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbInstanceReadReplicaMessage(obj: RdsCreateDbInstanceReadReplicaMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'SourceDBInstanceIdentifier': obj.sourceDbInstanceIdentifier,
+    'DBInstanceClass': obj.dbInstanceClass,
+    'AvailabilityZone': obj.availabilityZone,
+    'Port': obj.port,
+    'MultiAZ': obj.multiAz,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'Iops': obj.iops,
+    'OptionGroupName': obj.optionGroupName,
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'PubliclyAccessible': obj.publiclyAccessible,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'StorageType': obj.storageType,
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+    'MonitoringInterval': obj.monitoringInterval,
+    'MonitoringRoleArn': obj.monitoringRoleArn,
+    'KmsKeyId': obj.kmsKeyId,
+    'PreSignedUrl': obj.preSignedUrl,
+    'EnableIAMDatabaseAuthentication': obj.enableIamDatabaseAuthentication,
+    'EnablePerformanceInsights': obj.enablePerformanceInsights,
+    'PerformanceInsightsKMSKeyId': obj.performanceInsightsKmsKeyId,
+    'PerformanceInsightsRetentionPeriod': obj.performanceInsightsRetentionPeriod,
+    'EnableCloudwatchLogsExports': obj.enableCloudwatchLogsExports?.map(y => y),
+    'ProcessorFeatures': obj.processorFeatures?.map(y => toJson_RdsProcessorFeature(y)),
+    'UseDefaultProcessorFeatures': obj.useDefaultProcessorFeatures,
+    'DeletionProtection': obj.deletionProtection,
+    'Domain': obj.domain,
+    'DomainIAMRoleName': obj.domainIamRoleName,
+    'ReplicaMode': obj.replicaMode,
+    'MaxAllocatedStorage': obj.maxAllocatedStorage,
+    'SourceRegion': obj.sourceRegion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateDbInstanceReadReplicaResult
  */
 export interface RdsCreateDbInstanceReadReplicaResult {
@@ -1356,23 +2056,37 @@ export interface RdsCreateDbInstanceReadReplicaResult {
 }
 
 /**
+ * Converts an object of type 'RdsCreateDbInstanceReadReplicaResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbInstanceReadReplicaResult(obj: RdsCreateDbInstanceReadReplicaResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstance': toJson_RdsdbInstance(obj.dbInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateDbParameterGroupMessage
  */
 export interface RdsCreateDbParameterGroupMessage {
   /**
    * @schema RdsCreateDbParameterGroupMessage#DBParameterGroupName
    */
-  readonly dbParameterGroupName: string;
+  readonly dbParameterGroupName?: string;
 
   /**
    * @schema RdsCreateDbParameterGroupMessage#DBParameterGroupFamily
    */
-  readonly dbParameterGroupFamily: string;
+  readonly dbParameterGroupFamily?: string;
 
   /**
    * @schema RdsCreateDbParameterGroupMessage#Description
    */
-  readonly description: string;
+  readonly description?: string;
 
   /**
    * @schema RdsCreateDbParameterGroupMessage#Tags
@@ -1380,6 +2094,23 @@ export interface RdsCreateDbParameterGroupMessage {
   readonly tags?: RdsTag[];
 
 }
+
+/**
+ * Converts an object of type 'RdsCreateDbParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbParameterGroupMessage(obj: RdsCreateDbParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'DBParameterGroupFamily': obj.dbParameterGroupFamily,
+    'Description': obj.description,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsCreateDbParameterGroupResult
@@ -1393,33 +2124,47 @@ export interface RdsCreateDbParameterGroupResult {
 }
 
 /**
+ * Converts an object of type 'RdsCreateDbParameterGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbParameterGroupResult(obj: RdsCreateDbParameterGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroup': toJson_RdsdbParameterGroup(obj.dbParameterGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateDbProxyRequest
  */
 export interface RdsCreateDbProxyRequest {
   /**
    * @schema RdsCreateDbProxyRequest#DBProxyName
    */
-  readonly dbProxyName: string;
+  readonly dbProxyName?: string;
 
   /**
    * @schema RdsCreateDbProxyRequest#EngineFamily
    */
-  readonly engineFamily: string;
+  readonly engineFamily?: string;
 
   /**
    * @schema RdsCreateDbProxyRequest#Auth
    */
-  readonly auth: RdsUserAuthConfig[];
+  readonly auth?: RdsUserAuthConfig[];
 
   /**
    * @schema RdsCreateDbProxyRequest#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema RdsCreateDbProxyRequest#VpcSubnetIds
    */
-  readonly vpcSubnetIds: string[];
+  readonly vpcSubnetIds?: string[];
 
   /**
    * @schema RdsCreateDbProxyRequest#VpcSecurityGroupIds
@@ -1449,6 +2194,29 @@ export interface RdsCreateDbProxyRequest {
 }
 
 /**
+ * Converts an object of type 'RdsCreateDbProxyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbProxyRequest(obj: RdsCreateDbProxyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyName': obj.dbProxyName,
+    'EngineFamily': obj.engineFamily,
+    'Auth': obj.auth?.map(y => toJson_RdsUserAuthConfig(y)),
+    'RoleArn': obj.roleArn,
+    'VpcSubnetIds': obj.vpcSubnetIds?.map(y => y),
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'RequireTLS': obj.requireTls,
+    'IdleClientTimeout': obj.idleClientTimeout,
+    'DebugLogging': obj.debugLogging,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateDbProxyResponse
  */
 export interface RdsCreateDbProxyResponse {
@@ -1460,18 +2228,112 @@ export interface RdsCreateDbProxyResponse {
 }
 
 /**
+ * Converts an object of type 'RdsCreateDbProxyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbProxyResponse(obj: RdsCreateDbProxyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxy': toJson_RdsdbProxy(obj.dbProxy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RdsCreateDbProxyEndpointRequest
+ */
+export interface RdsCreateDbProxyEndpointRequest {
+  /**
+   * @schema RdsCreateDbProxyEndpointRequest#DBProxyName
+   */
+  readonly dbProxyName?: string;
+
+  /**
+   * @schema RdsCreateDbProxyEndpointRequest#DBProxyEndpointName
+   */
+  readonly dbProxyEndpointName?: string;
+
+  /**
+   * @schema RdsCreateDbProxyEndpointRequest#VpcSubnetIds
+   */
+  readonly vpcSubnetIds?: string[];
+
+  /**
+   * @schema RdsCreateDbProxyEndpointRequest#VpcSecurityGroupIds
+   */
+  readonly vpcSecurityGroupIds?: string[];
+
+  /**
+   * @schema RdsCreateDbProxyEndpointRequest#TargetRole
+   */
+  readonly targetRole?: string;
+
+  /**
+   * @schema RdsCreateDbProxyEndpointRequest#Tags
+   */
+  readonly tags?: RdsTag[];
+
+}
+
+/**
+ * Converts an object of type 'RdsCreateDbProxyEndpointRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbProxyEndpointRequest(obj: RdsCreateDbProxyEndpointRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyName': obj.dbProxyName,
+    'DBProxyEndpointName': obj.dbProxyEndpointName,
+    'VpcSubnetIds': obj.vpcSubnetIds?.map(y => y),
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'TargetRole': obj.targetRole,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RdsCreateDbProxyEndpointResponse
+ */
+export interface RdsCreateDbProxyEndpointResponse {
+  /**
+   * @schema RdsCreateDbProxyEndpointResponse#DBProxyEndpoint
+   */
+  readonly dbProxyEndpoint?: RdsdbProxyEndpoint;
+
+}
+
+/**
+ * Converts an object of type 'RdsCreateDbProxyEndpointResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbProxyEndpointResponse(obj: RdsCreateDbProxyEndpointResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyEndpoint': toJson_RdsdbProxyEndpoint(obj.dbProxyEndpoint),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateDbSecurityGroupMessage
  */
 export interface RdsCreateDbSecurityGroupMessage {
   /**
    * @schema RdsCreateDbSecurityGroupMessage#DBSecurityGroupName
    */
-  readonly dbSecurityGroupName: string;
+  readonly dbSecurityGroupName?: string;
 
   /**
    * @schema RdsCreateDbSecurityGroupMessage#DBSecurityGroupDescription
    */
-  readonly dbSecurityGroupDescription: string;
+  readonly dbSecurityGroupDescription?: string;
 
   /**
    * @schema RdsCreateDbSecurityGroupMessage#Tags
@@ -1479,6 +2341,22 @@ export interface RdsCreateDbSecurityGroupMessage {
   readonly tags?: RdsTag[];
 
 }
+
+/**
+ * Converts an object of type 'RdsCreateDbSecurityGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbSecurityGroupMessage(obj: RdsCreateDbSecurityGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSecurityGroupName': obj.dbSecurityGroupName,
+    'DBSecurityGroupDescription': obj.dbSecurityGroupDescription,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsCreateDbSecurityGroupResult
@@ -1492,18 +2370,32 @@ export interface RdsCreateDbSecurityGroupResult {
 }
 
 /**
+ * Converts an object of type 'RdsCreateDbSecurityGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbSecurityGroupResult(obj: RdsCreateDbSecurityGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSecurityGroup': toJson_RdsdbSecurityGroup(obj.dbSecurityGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateDbSnapshotMessage
  */
 export interface RdsCreateDbSnapshotMessage {
   /**
    * @schema RdsCreateDbSnapshotMessage#DBSnapshotIdentifier
    */
-  readonly dbSnapshotIdentifier: string;
+  readonly dbSnapshotIdentifier?: string;
 
   /**
    * @schema RdsCreateDbSnapshotMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
   /**
    * @schema RdsCreateDbSnapshotMessage#Tags
@@ -1511,6 +2403,22 @@ export interface RdsCreateDbSnapshotMessage {
   readonly tags?: RdsTag[];
 
 }
+
+/**
+ * Converts an object of type 'RdsCreateDbSnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbSnapshotMessage(obj: RdsCreateDbSnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSnapshotIdentifier': obj.dbSnapshotIdentifier,
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsCreateDbSnapshotResult
@@ -1524,23 +2432,37 @@ export interface RdsCreateDbSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'RdsCreateDbSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbSnapshotResult(obj: RdsCreateDbSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSnapshot': toJson_RdsdbSnapshot(obj.dbSnapshot),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateDbSubnetGroupMessage
  */
 export interface RdsCreateDbSubnetGroupMessage {
   /**
    * @schema RdsCreateDbSubnetGroupMessage#DBSubnetGroupName
    */
-  readonly dbSubnetGroupName: string;
+  readonly dbSubnetGroupName?: string;
 
   /**
    * @schema RdsCreateDbSubnetGroupMessage#DBSubnetGroupDescription
    */
-  readonly dbSubnetGroupDescription: string;
+  readonly dbSubnetGroupDescription?: string;
 
   /**
    * @schema RdsCreateDbSubnetGroupMessage#SubnetIds
    */
-  readonly subnetIds: string[];
+  readonly subnetIds?: string[];
 
   /**
    * @schema RdsCreateDbSubnetGroupMessage#Tags
@@ -1548,6 +2470,23 @@ export interface RdsCreateDbSubnetGroupMessage {
   readonly tags?: RdsTag[];
 
 }
+
+/**
+ * Converts an object of type 'RdsCreateDbSubnetGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbSubnetGroupMessage(obj: RdsCreateDbSubnetGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'DBSubnetGroupDescription': obj.dbSubnetGroupDescription,
+    'SubnetIds': obj.subnetIds?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsCreateDbSubnetGroupResult
@@ -1561,18 +2500,32 @@ export interface RdsCreateDbSubnetGroupResult {
 }
 
 /**
+ * Converts an object of type 'RdsCreateDbSubnetGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateDbSubnetGroupResult(obj: RdsCreateDbSubnetGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSubnetGroup': toJson_RdsdbSubnetGroup(obj.dbSubnetGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateEventSubscriptionMessage
  */
 export interface RdsCreateEventSubscriptionMessage {
   /**
    * @schema RdsCreateEventSubscriptionMessage#SubscriptionName
    */
-  readonly subscriptionName: string;
+  readonly subscriptionName?: string;
 
   /**
    * @schema RdsCreateEventSubscriptionMessage#SnsTopicArn
    */
-  readonly snsTopicArn: string;
+  readonly snsTopicArn?: string;
 
   /**
    * @schema RdsCreateEventSubscriptionMessage#SourceType
@@ -1602,6 +2555,26 @@ export interface RdsCreateEventSubscriptionMessage {
 }
 
 /**
+ * Converts an object of type 'RdsCreateEventSubscriptionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateEventSubscriptionMessage(obj: RdsCreateEventSubscriptionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscriptionName': obj.subscriptionName,
+    'SnsTopicArn': obj.snsTopicArn,
+    'SourceType': obj.sourceType,
+    'EventCategories': obj.eventCategories?.map(y => y),
+    'SourceIds': obj.sourceIds?.map(y => y),
+    'Enabled': obj.enabled,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateEventSubscriptionResult
  */
 export interface RdsCreateEventSubscriptionResult {
@@ -1611,6 +2584,20 @@ export interface RdsCreateEventSubscriptionResult {
   readonly eventSubscription?: RdsEventSubscription;
 
 }
+
+/**
+ * Converts an object of type 'RdsCreateEventSubscriptionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateEventSubscriptionResult(obj: RdsCreateEventSubscriptionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EventSubscription': toJson_RdsEventSubscription(obj.eventSubscription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsCreateGlobalClusterMessage
@@ -1654,6 +2641,26 @@ export interface RdsCreateGlobalClusterMessage {
 }
 
 /**
+ * Converts an object of type 'RdsCreateGlobalClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateGlobalClusterMessage(obj: RdsCreateGlobalClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalClusterIdentifier': obj.globalClusterIdentifier,
+    'SourceDBClusterIdentifier': obj.sourceDbClusterIdentifier,
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'DeletionProtection': obj.deletionProtection,
+    'DatabaseName': obj.databaseName,
+    'StorageEncrypted': obj.storageEncrypted,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateGlobalClusterResult
  */
 export interface RdsCreateGlobalClusterResult {
@@ -1665,28 +2672,42 @@ export interface RdsCreateGlobalClusterResult {
 }
 
 /**
+ * Converts an object of type 'RdsCreateGlobalClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateGlobalClusterResult(obj: RdsCreateGlobalClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalCluster': toJson_RdsGlobalCluster(obj.globalCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCreateOptionGroupMessage
  */
 export interface RdsCreateOptionGroupMessage {
   /**
    * @schema RdsCreateOptionGroupMessage#OptionGroupName
    */
-  readonly optionGroupName: string;
+  readonly optionGroupName?: string;
 
   /**
    * @schema RdsCreateOptionGroupMessage#EngineName
    */
-  readonly engineName: string;
+  readonly engineName?: string;
 
   /**
    * @schema RdsCreateOptionGroupMessage#MajorEngineVersion
    */
-  readonly majorEngineVersion: string;
+  readonly majorEngineVersion?: string;
 
   /**
    * @schema RdsCreateOptionGroupMessage#OptionGroupDescription
    */
-  readonly optionGroupDescription: string;
+  readonly optionGroupDescription?: string;
 
   /**
    * @schema RdsCreateOptionGroupMessage#Tags
@@ -1694,6 +2715,24 @@ export interface RdsCreateOptionGroupMessage {
   readonly tags?: RdsTag[];
 
 }
+
+/**
+ * Converts an object of type 'RdsCreateOptionGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateOptionGroupMessage(obj: RdsCreateOptionGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OptionGroupName': obj.optionGroupName,
+    'EngineName': obj.engineName,
+    'MajorEngineVersion': obj.majorEngineVersion,
+    'OptionGroupDescription': obj.optionGroupDescription,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsCreateOptionGroupResult
@@ -1707,15 +2746,43 @@ export interface RdsCreateOptionGroupResult {
 }
 
 /**
+ * Converts an object of type 'RdsCreateOptionGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCreateOptionGroupResult(obj: RdsCreateOptionGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OptionGroup': toJson_RdsOptionGroup(obj.optionGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDeleteCustomAvailabilityZoneMessage
  */
 export interface RdsDeleteCustomAvailabilityZoneMessage {
   /**
    * @schema RdsDeleteCustomAvailabilityZoneMessage#CustomAvailabilityZoneId
    */
-  readonly customAvailabilityZoneId: string;
+  readonly customAvailabilityZoneId?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDeleteCustomAvailabilityZoneMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteCustomAvailabilityZoneMessage(obj: RdsDeleteCustomAvailabilityZoneMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CustomAvailabilityZoneId': obj.customAvailabilityZoneId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDeleteCustomAvailabilityZoneResult
@@ -1729,13 +2796,27 @@ export interface RdsDeleteCustomAvailabilityZoneResult {
 }
 
 /**
+ * Converts an object of type 'RdsDeleteCustomAvailabilityZoneResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteCustomAvailabilityZoneResult(obj: RdsDeleteCustomAvailabilityZoneResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CustomAvailabilityZone': toJson_RdsCustomAvailabilityZone(obj.customAvailabilityZone),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDeleteDbClusterMessage
  */
 export interface RdsDeleteDbClusterMessage {
   /**
    * @schema RdsDeleteDbClusterMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema RdsDeleteDbClusterMessage#SkipFinalSnapshot
@@ -1750,6 +2831,22 @@ export interface RdsDeleteDbClusterMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDeleteDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbClusterMessage(obj: RdsDeleteDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'SkipFinalSnapshot': obj.skipFinalSnapshot,
+    'FinalDBSnapshotIdentifier': obj.finalDbSnapshotIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDeleteDbClusterResult
  */
 export interface RdsDeleteDbClusterResult {
@@ -1761,15 +2858,43 @@ export interface RdsDeleteDbClusterResult {
 }
 
 /**
+ * Converts an object of type 'RdsDeleteDbClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbClusterResult(obj: RdsDeleteDbClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_RdsdbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDeleteDbClusterEndpointMessage
  */
 export interface RdsDeleteDbClusterEndpointMessage {
   /**
    * @schema RdsDeleteDbClusterEndpointMessage#DBClusterEndpointIdentifier
    */
-  readonly dbClusterEndpointIdentifier: string;
+  readonly dbClusterEndpointIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDeleteDbClusterEndpointMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbClusterEndpointMessage(obj: RdsDeleteDbClusterEndpointMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterEndpointIdentifier': obj.dbClusterEndpointIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDeleteDbClusterParameterGroupMessage
@@ -1778,9 +2903,23 @@ export interface RdsDeleteDbClusterParameterGroupMessage {
   /**
    * @schema RdsDeleteDbClusterParameterGroupMessage#DBClusterParameterGroupName
    */
-  readonly dbClusterParameterGroupName: string;
+  readonly dbClusterParameterGroupName?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDeleteDbClusterParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbClusterParameterGroupMessage(obj: RdsDeleteDbClusterParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDeleteDbClusterSnapshotMessage
@@ -1789,9 +2928,23 @@ export interface RdsDeleteDbClusterSnapshotMessage {
   /**
    * @schema RdsDeleteDbClusterSnapshotMessage#DBClusterSnapshotIdentifier
    */
-  readonly dbClusterSnapshotIdentifier: string;
+  readonly dbClusterSnapshotIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDeleteDbClusterSnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbClusterSnapshotMessage(obj: RdsDeleteDbClusterSnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshotIdentifier': obj.dbClusterSnapshotIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDeleteDbClusterSnapshotResult
@@ -1805,13 +2958,27 @@ export interface RdsDeleteDbClusterSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'RdsDeleteDbClusterSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbClusterSnapshotResult(obj: RdsDeleteDbClusterSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshot': toJson_RdsdbClusterSnapshot(obj.dbClusterSnapshot),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDeleteDbInstanceMessage
  */
 export interface RdsDeleteDbInstanceMessage {
   /**
    * @schema RdsDeleteDbInstanceMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
   /**
    * @schema RdsDeleteDbInstanceMessage#SkipFinalSnapshot
@@ -1831,6 +2998,23 @@ export interface RdsDeleteDbInstanceMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDeleteDbInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbInstanceMessage(obj: RdsDeleteDbInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'SkipFinalSnapshot': obj.skipFinalSnapshot,
+    'FinalDBSnapshotIdentifier': obj.finalDbSnapshotIdentifier,
+    'DeleteAutomatedBackups': obj.deleteAutomatedBackups,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDeleteDbInstanceResult
  */
 export interface RdsDeleteDbInstanceResult {
@@ -1842,15 +3026,49 @@ export interface RdsDeleteDbInstanceResult {
 }
 
 /**
+ * Converts an object of type 'RdsDeleteDbInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbInstanceResult(obj: RdsDeleteDbInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstance': toJson_RdsdbInstance(obj.dbInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDeleteDbInstanceAutomatedBackupMessage
  */
 export interface RdsDeleteDbInstanceAutomatedBackupMessage {
   /**
    * @schema RdsDeleteDbInstanceAutomatedBackupMessage#DbiResourceId
    */
-  readonly dbiResourceId: string;
+  readonly dbiResourceId?: string;
+
+  /**
+   * @schema RdsDeleteDbInstanceAutomatedBackupMessage#DBInstanceAutomatedBackupsArn
+   */
+  readonly dbInstanceAutomatedBackupsArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDeleteDbInstanceAutomatedBackupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbInstanceAutomatedBackupMessage(obj: RdsDeleteDbInstanceAutomatedBackupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DbiResourceId': obj.dbiResourceId,
+    'DBInstanceAutomatedBackupsArn': obj.dbInstanceAutomatedBackupsArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDeleteDbInstanceAutomatedBackupResult
@@ -1864,15 +3082,43 @@ export interface RdsDeleteDbInstanceAutomatedBackupResult {
 }
 
 /**
+ * Converts an object of type 'RdsDeleteDbInstanceAutomatedBackupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbInstanceAutomatedBackupResult(obj: RdsDeleteDbInstanceAutomatedBackupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceAutomatedBackup': toJson_RdsdbInstanceAutomatedBackup(obj.dbInstanceAutomatedBackup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDeleteDbParameterGroupMessage
  */
 export interface RdsDeleteDbParameterGroupMessage {
   /**
    * @schema RdsDeleteDbParameterGroupMessage#DBParameterGroupName
    */
-  readonly dbParameterGroupName: string;
+  readonly dbParameterGroupName?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDeleteDbParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbParameterGroupMessage(obj: RdsDeleteDbParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupName': obj.dbParameterGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDeleteDbProxyRequest
@@ -1881,9 +3127,23 @@ export interface RdsDeleteDbProxyRequest {
   /**
    * @schema RdsDeleteDbProxyRequest#DBProxyName
    */
-  readonly dbProxyName: string;
+  readonly dbProxyName?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDeleteDbProxyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbProxyRequest(obj: RdsDeleteDbProxyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyName': obj.dbProxyName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDeleteDbProxyResponse
@@ -1897,15 +3157,93 @@ export interface RdsDeleteDbProxyResponse {
 }
 
 /**
+ * Converts an object of type 'RdsDeleteDbProxyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbProxyResponse(obj: RdsDeleteDbProxyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxy': toJson_RdsdbProxy(obj.dbProxy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RdsDeleteDbProxyEndpointRequest
+ */
+export interface RdsDeleteDbProxyEndpointRequest {
+  /**
+   * @schema RdsDeleteDbProxyEndpointRequest#DBProxyEndpointName
+   */
+  readonly dbProxyEndpointName?: string;
+
+}
+
+/**
+ * Converts an object of type 'RdsDeleteDbProxyEndpointRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbProxyEndpointRequest(obj: RdsDeleteDbProxyEndpointRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyEndpointName': obj.dbProxyEndpointName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RdsDeleteDbProxyEndpointResponse
+ */
+export interface RdsDeleteDbProxyEndpointResponse {
+  /**
+   * @schema RdsDeleteDbProxyEndpointResponse#DBProxyEndpoint
+   */
+  readonly dbProxyEndpoint?: RdsdbProxyEndpoint;
+
+}
+
+/**
+ * Converts an object of type 'RdsDeleteDbProxyEndpointResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbProxyEndpointResponse(obj: RdsDeleteDbProxyEndpointResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyEndpoint': toJson_RdsdbProxyEndpoint(obj.dbProxyEndpoint),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDeleteDbSecurityGroupMessage
  */
 export interface RdsDeleteDbSecurityGroupMessage {
   /**
    * @schema RdsDeleteDbSecurityGroupMessage#DBSecurityGroupName
    */
-  readonly dbSecurityGroupName: string;
+  readonly dbSecurityGroupName?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDeleteDbSecurityGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbSecurityGroupMessage(obj: RdsDeleteDbSecurityGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSecurityGroupName': obj.dbSecurityGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDeleteDbSnapshotMessage
@@ -1914,9 +3252,23 @@ export interface RdsDeleteDbSnapshotMessage {
   /**
    * @schema RdsDeleteDbSnapshotMessage#DBSnapshotIdentifier
    */
-  readonly dbSnapshotIdentifier: string;
+  readonly dbSnapshotIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDeleteDbSnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbSnapshotMessage(obj: RdsDeleteDbSnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSnapshotIdentifier': obj.dbSnapshotIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDeleteDbSnapshotResult
@@ -1930,15 +3282,43 @@ export interface RdsDeleteDbSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'RdsDeleteDbSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbSnapshotResult(obj: RdsDeleteDbSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSnapshot': toJson_RdsdbSnapshot(obj.dbSnapshot),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDeleteDbSubnetGroupMessage
  */
 export interface RdsDeleteDbSubnetGroupMessage {
   /**
    * @schema RdsDeleteDbSubnetGroupMessage#DBSubnetGroupName
    */
-  readonly dbSubnetGroupName: string;
+  readonly dbSubnetGroupName?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDeleteDbSubnetGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteDbSubnetGroupMessage(obj: RdsDeleteDbSubnetGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDeleteEventSubscriptionMessage
@@ -1947,9 +3327,23 @@ export interface RdsDeleteEventSubscriptionMessage {
   /**
    * @schema RdsDeleteEventSubscriptionMessage#SubscriptionName
    */
-  readonly subscriptionName: string;
+  readonly subscriptionName?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDeleteEventSubscriptionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteEventSubscriptionMessage(obj: RdsDeleteEventSubscriptionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscriptionName': obj.subscriptionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDeleteEventSubscriptionResult
@@ -1963,15 +3357,43 @@ export interface RdsDeleteEventSubscriptionResult {
 }
 
 /**
+ * Converts an object of type 'RdsDeleteEventSubscriptionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteEventSubscriptionResult(obj: RdsDeleteEventSubscriptionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EventSubscription': toJson_RdsEventSubscription(obj.eventSubscription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDeleteGlobalClusterMessage
  */
 export interface RdsDeleteGlobalClusterMessage {
   /**
    * @schema RdsDeleteGlobalClusterMessage#GlobalClusterIdentifier
    */
-  readonly globalClusterIdentifier: string;
+  readonly globalClusterIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDeleteGlobalClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteGlobalClusterMessage(obj: RdsDeleteGlobalClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalClusterIdentifier': obj.globalClusterIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDeleteGlobalClusterResult
@@ -1985,15 +3407,43 @@ export interface RdsDeleteGlobalClusterResult {
 }
 
 /**
+ * Converts an object of type 'RdsDeleteGlobalClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteGlobalClusterResult(obj: RdsDeleteGlobalClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalCluster': toJson_RdsGlobalCluster(obj.globalCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDeleteInstallationMediaMessage
  */
 export interface RdsDeleteInstallationMediaMessage {
   /**
    * @schema RdsDeleteInstallationMediaMessage#InstallationMediaId
    */
-  readonly installationMediaId: string;
+  readonly installationMediaId?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDeleteInstallationMediaMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteInstallationMediaMessage(obj: RdsDeleteInstallationMediaMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstallationMediaId': obj.installationMediaId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsInstallationMedia
@@ -2042,15 +3492,50 @@ export interface RdsInstallationMedia {
 }
 
 /**
+ * Converts an object of type 'RdsInstallationMedia' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsInstallationMedia(obj: RdsInstallationMedia | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstallationMediaId': obj.installationMediaId,
+    'CustomAvailabilityZoneId': obj.customAvailabilityZoneId,
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'EngineInstallationMediaPath': obj.engineInstallationMediaPath,
+    'OSInstallationMediaPath': obj.osInstallationMediaPath,
+    'Status': obj.status,
+    'FailureCause': toJson_RdsInstallationMediaFailureCause(obj.failureCause),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDeleteOptionGroupMessage
  */
 export interface RdsDeleteOptionGroupMessage {
   /**
    * @schema RdsDeleteOptionGroupMessage#OptionGroupName
    */
-  readonly optionGroupName: string;
+  readonly optionGroupName?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDeleteOptionGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeleteOptionGroupMessage(obj: RdsDeleteOptionGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OptionGroupName': obj.optionGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDeregisterDbProxyTargetsRequest
@@ -2059,7 +3544,7 @@ export interface RdsDeregisterDbProxyTargetsRequest {
   /**
    * @schema RdsDeregisterDbProxyTargetsRequest#DBProxyName
    */
-  readonly dbProxyName: string;
+  readonly dbProxyName?: string;
 
   /**
    * @schema RdsDeregisterDbProxyTargetsRequest#TargetGroupName
@@ -2079,16 +3564,59 @@ export interface RdsDeregisterDbProxyTargetsRequest {
 }
 
 /**
+ * Converts an object of type 'RdsDeregisterDbProxyTargetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeregisterDbProxyTargetsRequest(obj: RdsDeregisterDbProxyTargetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyName': obj.dbProxyName,
+    'TargetGroupName': obj.targetGroupName,
+    'DBInstanceIdentifiers': obj.dbInstanceIdentifiers?.map(y => y),
+    'DBClusterIdentifiers': obj.dbClusterIdentifiers?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDeregisterDbProxyTargetsResponse
  */
 export interface RdsDeregisterDbProxyTargetsResponse {
 }
 
 /**
+ * Converts an object of type 'RdsDeregisterDbProxyTargetsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDeregisterDbProxyTargetsResponse(obj: RdsDeregisterDbProxyTargetsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeAccountAttributesMessage
  */
 export interface RdsDescribeAccountAttributesMessage {
 }
+
+/**
+ * Converts an object of type 'RdsDescribeAccountAttributesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeAccountAttributesMessage(obj: RdsDescribeAccountAttributesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsAccountAttributesMessage
@@ -2100,6 +3628,20 @@ export interface RdsAccountAttributesMessage {
   readonly accountQuotas?: RdsAccountQuota[];
 
 }
+
+/**
+ * Converts an object of type 'RdsAccountAttributesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsAccountAttributesMessage(obj: RdsAccountAttributesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AccountQuotas': obj.accountQuotas?.map(y => toJson_RdsAccountQuota(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeCertificatesMessage
@@ -2128,6 +3670,23 @@ export interface RdsDescribeCertificatesMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeCertificatesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeCertificatesMessage(obj: RdsDescribeCertificatesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CertificateIdentifier': obj.certificateIdentifier,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCertificateMessage
  */
 export interface RdsCertificateMessage {
@@ -2142,6 +3701,21 @@ export interface RdsCertificateMessage {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsCertificateMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCertificateMessage(obj: RdsCertificateMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Certificates': obj.certificates?.map(y => toJson_RdsCertificate(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeCustomAvailabilityZonesMessage
@@ -2170,6 +3744,23 @@ export interface RdsDescribeCustomAvailabilityZonesMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeCustomAvailabilityZonesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeCustomAvailabilityZonesMessage(obj: RdsDescribeCustomAvailabilityZonesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CustomAvailabilityZoneId': obj.customAvailabilityZoneId,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCustomAvailabilityZoneMessage
  */
 export interface RdsCustomAvailabilityZoneMessage {
@@ -2186,13 +3777,28 @@ export interface RdsCustomAvailabilityZoneMessage {
 }
 
 /**
+ * Converts an object of type 'RdsCustomAvailabilityZoneMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCustomAvailabilityZoneMessage(obj: RdsCustomAvailabilityZoneMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'CustomAvailabilityZones': obj.customAvailabilityZones?.map(y => toJson_RdsCustomAvailabilityZone(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeDbClusterBacktracksMessage
  */
 export interface RdsDescribeDbClusterBacktracksMessage {
   /**
    * @schema RdsDescribeDbClusterBacktracksMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema RdsDescribeDbClusterBacktracksMessage#BacktrackIdentifier
@@ -2217,6 +3823,24 @@ export interface RdsDescribeDbClusterBacktracksMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbClusterBacktracksMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbClusterBacktracksMessage(obj: RdsDescribeDbClusterBacktracksMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'BacktrackIdentifier': obj.backtrackIdentifier,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbClusterBacktrackMessage
  */
 export interface RdsdbClusterBacktrackMessage {
@@ -2231,6 +3855,21 @@ export interface RdsdbClusterBacktrackMessage {
   readonly dbClusterBacktracks?: RdsdbClusterBacktrack[];
 
 }
+
+/**
+ * Converts an object of type 'RdsdbClusterBacktrackMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbClusterBacktrackMessage(obj: RdsdbClusterBacktrackMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBClusterBacktracks': obj.dbClusterBacktracks?.map(y => toJson_RdsdbClusterBacktrack(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeDbClusterEndpointsMessage
@@ -2264,6 +3903,24 @@ export interface RdsDescribeDbClusterEndpointsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbClusterEndpointsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbClusterEndpointsMessage(obj: RdsDescribeDbClusterEndpointsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'DBClusterEndpointIdentifier': obj.dbClusterEndpointIdentifier,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbClusterEndpointMessage
  */
 export interface RdsdbClusterEndpointMessage {
@@ -2278,6 +3935,21 @@ export interface RdsdbClusterEndpointMessage {
   readonly dbClusterEndpoints?: RdsdbClusterEndpoint[];
 
 }
+
+/**
+ * Converts an object of type 'RdsdbClusterEndpointMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbClusterEndpointMessage(obj: RdsdbClusterEndpointMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBClusterEndpoints': obj.dbClusterEndpoints?.map(y => toJson_RdsdbClusterEndpoint(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeDbClusterParameterGroupsMessage
@@ -2306,6 +3978,23 @@ export interface RdsDescribeDbClusterParameterGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbClusterParameterGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbClusterParameterGroupsMessage(obj: RdsDescribeDbClusterParameterGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbClusterParameterGroupsMessage
  */
 export interface RdsdbClusterParameterGroupsMessage {
@@ -2322,13 +4011,28 @@ export interface RdsdbClusterParameterGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsdbClusterParameterGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbClusterParameterGroupsMessage(obj: RdsdbClusterParameterGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBClusterParameterGroups': obj.dbClusterParameterGroups?.map(y => toJson_RdsdbClusterParameterGroup(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeDbClusterParametersMessage
  */
 export interface RdsDescribeDbClusterParametersMessage {
   /**
    * @schema RdsDescribeDbClusterParametersMessage#DBClusterParameterGroupName
    */
-  readonly dbClusterParameterGroupName: string;
+  readonly dbClusterParameterGroupName?: string;
 
   /**
    * @schema RdsDescribeDbClusterParametersMessage#Source
@@ -2353,6 +4057,24 @@ export interface RdsDescribeDbClusterParametersMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbClusterParametersMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbClusterParametersMessage(obj: RdsDescribeDbClusterParametersMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'Source': obj.source,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbClusterParameterGroupDetails
  */
 export interface RdsdbClusterParameterGroupDetails {
@@ -2369,15 +4091,44 @@ export interface RdsdbClusterParameterGroupDetails {
 }
 
 /**
+ * Converts an object of type 'RdsdbClusterParameterGroupDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbClusterParameterGroupDetails(obj: RdsdbClusterParameterGroupDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Parameters': obj.parameters?.map(y => toJson_RdsParameter(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeDbClusterSnapshotAttributesMessage
  */
 export interface RdsDescribeDbClusterSnapshotAttributesMessage {
   /**
    * @schema RdsDescribeDbClusterSnapshotAttributesMessage#DBClusterSnapshotIdentifier
    */
-  readonly dbClusterSnapshotIdentifier: string;
+  readonly dbClusterSnapshotIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDescribeDbClusterSnapshotAttributesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbClusterSnapshotAttributesMessage(obj: RdsDescribeDbClusterSnapshotAttributesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshotIdentifier': obj.dbClusterSnapshotIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeDbClusterSnapshotAttributesResult
@@ -2389,6 +4140,20 @@ export interface RdsDescribeDbClusterSnapshotAttributesResult {
   readonly dbClusterSnapshotAttributesResult?: RdsdbClusterSnapshotAttributesResult;
 
 }
+
+/**
+ * Converts an object of type 'RdsDescribeDbClusterSnapshotAttributesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbClusterSnapshotAttributesResult(obj: RdsDescribeDbClusterSnapshotAttributesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshotAttributesResult': toJson_RdsdbClusterSnapshotAttributesResult(obj.dbClusterSnapshotAttributesResult),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeDbClusterSnapshotsMessage
@@ -2437,6 +4202,27 @@ export interface RdsDescribeDbClusterSnapshotsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbClusterSnapshotsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbClusterSnapshotsMessage(obj: RdsDescribeDbClusterSnapshotsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'DBClusterSnapshotIdentifier': obj.dbClusterSnapshotIdentifier,
+    'SnapshotType': obj.snapshotType,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+    'IncludeShared': obj.includeShared,
+    'IncludePublic': obj.includePublic,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbClusterSnapshotMessage
  */
 export interface RdsdbClusterSnapshotMessage {
@@ -2451,6 +4237,21 @@ export interface RdsdbClusterSnapshotMessage {
   readonly dbClusterSnapshots?: RdsdbClusterSnapshot[];
 
 }
+
+/**
+ * Converts an object of type 'RdsdbClusterSnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbClusterSnapshotMessage(obj: RdsdbClusterSnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBClusterSnapshots': obj.dbClusterSnapshots?.map(y => toJson_RdsdbClusterSnapshot(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeDbClustersMessage
@@ -2484,6 +4285,24 @@ export interface RdsDescribeDbClustersMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbClustersMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbClustersMessage(obj: RdsDescribeDbClustersMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+    'IncludeShared': obj.includeShared,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbClusterMessage
  */
 export interface RdsdbClusterMessage {
@@ -2498,6 +4317,21 @@ export interface RdsdbClusterMessage {
   readonly dbClusters?: RdsdbCluster[];
 
 }
+
+/**
+ * Converts an object of type 'RdsdbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbClusterMessage(obj: RdsdbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBClusters': obj.dbClusters?.map(y => toJson_RdsdbCluster(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeDbEngineVersionsMessage
@@ -2556,6 +4390,29 @@ export interface RdsDescribeDbEngineVersionsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbEngineVersionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbEngineVersionsMessage(obj: RdsDescribeDbEngineVersionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'DBParameterGroupFamily': obj.dbParameterGroupFamily,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+    'DefaultOnly': obj.defaultOnly,
+    'ListSupportedCharacterSets': obj.listSupportedCharacterSets,
+    'ListSupportedTimezones': obj.listSupportedTimezones,
+    'IncludeAll': obj.includeAll,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbEngineVersionMessage
  */
 export interface RdsdbEngineVersionMessage {
@@ -2570,6 +4427,21 @@ export interface RdsdbEngineVersionMessage {
   readonly dbEngineVersions?: RdsdbEngineVersion[];
 
 }
+
+/**
+ * Converts an object of type 'RdsdbEngineVersionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbEngineVersionMessage(obj: RdsdbEngineVersionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBEngineVersions': obj.dbEngineVersions?.map(y => toJson_RdsdbEngineVersion(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeDbInstanceAutomatedBackupsMessage
@@ -2600,7 +4472,31 @@ export interface RdsDescribeDbInstanceAutomatedBackupsMessage {
    */
   readonly marker?: string;
 
+  /**
+   * @schema RdsDescribeDbInstanceAutomatedBackupsMessage#DBInstanceAutomatedBackupsArn
+   */
+  readonly dbInstanceAutomatedBackupsArn?: string;
+
 }
+
+/**
+ * Converts an object of type 'RdsDescribeDbInstanceAutomatedBackupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbInstanceAutomatedBackupsMessage(obj: RdsDescribeDbInstanceAutomatedBackupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DbiResourceId': obj.dbiResourceId,
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+    'DBInstanceAutomatedBackupsArn': obj.dbInstanceAutomatedBackupsArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbInstanceAutomatedBackupMessage
@@ -2617,6 +4513,21 @@ export interface RdsdbInstanceAutomatedBackupMessage {
   readonly dbInstanceAutomatedBackups?: RdsdbInstanceAutomatedBackup[];
 
 }
+
+/**
+ * Converts an object of type 'RdsdbInstanceAutomatedBackupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbInstanceAutomatedBackupMessage(obj: RdsdbInstanceAutomatedBackupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBInstanceAutomatedBackups': obj.dbInstanceAutomatedBackups?.map(y => toJson_RdsdbInstanceAutomatedBackup(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeDbInstancesMessage
@@ -2645,6 +4556,23 @@ export interface RdsDescribeDbInstancesMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbInstancesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbInstancesMessage(obj: RdsDescribeDbInstancesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbInstanceMessage
  */
 export interface RdsdbInstanceMessage {
@@ -2661,13 +4589,28 @@ export interface RdsdbInstanceMessage {
 }
 
 /**
+ * Converts an object of type 'RdsdbInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbInstanceMessage(obj: RdsdbInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBInstances': obj.dbInstances?.map(y => toJson_RdsdbInstance(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeDbLogFilesMessage
  */
 export interface RdsDescribeDbLogFilesMessage {
   /**
    * @schema RdsDescribeDbLogFilesMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
   /**
    * @schema RdsDescribeDbLogFilesMessage#FilenameContains
@@ -2702,6 +4645,26 @@ export interface RdsDescribeDbLogFilesMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbLogFilesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbLogFilesMessage(obj: RdsDescribeDbLogFilesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'FilenameContains': obj.filenameContains,
+    'FileLastWritten': obj.fileLastWritten,
+    'FileSize': obj.fileSize,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeDbLogFilesResponse
  */
 export interface RdsDescribeDbLogFilesResponse {
@@ -2716,6 +4679,21 @@ export interface RdsDescribeDbLogFilesResponse {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDescribeDbLogFilesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbLogFilesResponse(obj: RdsDescribeDbLogFilesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DescribeDBLogFiles': obj.describeDbLogFiles?.map(y => toJson_RdsDescribeDbLogFilesDetails(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeDbParameterGroupsMessage
@@ -2744,6 +4722,23 @@ export interface RdsDescribeDbParameterGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbParameterGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbParameterGroupsMessage(obj: RdsDescribeDbParameterGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbParameterGroupsMessage
  */
 export interface RdsdbParameterGroupsMessage {
@@ -2760,13 +4755,28 @@ export interface RdsdbParameterGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsdbParameterGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbParameterGroupsMessage(obj: RdsdbParameterGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBParameterGroups': obj.dbParameterGroups?.map(y => toJson_RdsdbParameterGroup(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeDbParametersMessage
  */
 export interface RdsDescribeDbParametersMessage {
   /**
    * @schema RdsDescribeDbParametersMessage#DBParameterGroupName
    */
-  readonly dbParameterGroupName: string;
+  readonly dbParameterGroupName?: string;
 
   /**
    * @schema RdsDescribeDbParametersMessage#Source
@@ -2791,6 +4801,24 @@ export interface RdsDescribeDbParametersMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbParametersMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbParametersMessage(obj: RdsDescribeDbParametersMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'Source': obj.source,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbParameterGroupDetails
  */
 export interface RdsdbParameterGroupDetails {
@@ -2805,6 +4833,21 @@ export interface RdsdbParameterGroupDetails {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsdbParameterGroupDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbParameterGroupDetails(obj: RdsdbParameterGroupDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Parameters': obj.parameters?.map(y => toJson_RdsParameter(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeDbProxiesRequest
@@ -2833,6 +4876,23 @@ export interface RdsDescribeDbProxiesRequest {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbProxiesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbProxiesRequest(obj: RdsDescribeDbProxiesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyName': obj.dbProxyName,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'Marker': obj.marker,
+    'MaxRecords': obj.maxRecords,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeDbProxiesResponse
  */
 export interface RdsDescribeDbProxiesResponse {
@@ -2849,13 +4909,108 @@ export interface RdsDescribeDbProxiesResponse {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbProxiesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbProxiesResponse(obj: RdsDescribeDbProxiesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxies': obj.dbProxies?.map(y => toJson_RdsdbProxy(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RdsDescribeDbProxyEndpointsRequest
+ */
+export interface RdsDescribeDbProxyEndpointsRequest {
+  /**
+   * @schema RdsDescribeDbProxyEndpointsRequest#DBProxyName
+   */
+  readonly dbProxyName?: string;
+
+  /**
+   * @schema RdsDescribeDbProxyEndpointsRequest#DBProxyEndpointName
+   */
+  readonly dbProxyEndpointName?: string;
+
+  /**
+   * @schema RdsDescribeDbProxyEndpointsRequest#Filters
+   */
+  readonly filters?: RdsFilter[];
+
+  /**
+   * @schema RdsDescribeDbProxyEndpointsRequest#Marker
+   */
+  readonly marker?: string;
+
+  /**
+   * @schema RdsDescribeDbProxyEndpointsRequest#MaxRecords
+   */
+  readonly maxRecords?: number;
+
+}
+
+/**
+ * Converts an object of type 'RdsDescribeDbProxyEndpointsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbProxyEndpointsRequest(obj: RdsDescribeDbProxyEndpointsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyName': obj.dbProxyName,
+    'DBProxyEndpointName': obj.dbProxyEndpointName,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'Marker': obj.marker,
+    'MaxRecords': obj.maxRecords,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RdsDescribeDbProxyEndpointsResponse
+ */
+export interface RdsDescribeDbProxyEndpointsResponse {
+  /**
+   * @schema RdsDescribeDbProxyEndpointsResponse#DBProxyEndpoints
+   */
+  readonly dbProxyEndpoints?: RdsdbProxyEndpoint[];
+
+  /**
+   * @schema RdsDescribeDbProxyEndpointsResponse#Marker
+   */
+  readonly marker?: string;
+
+}
+
+/**
+ * Converts an object of type 'RdsDescribeDbProxyEndpointsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbProxyEndpointsResponse(obj: RdsDescribeDbProxyEndpointsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyEndpoints': obj.dbProxyEndpoints?.map(y => toJson_RdsdbProxyEndpoint(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeDbProxyTargetGroupsRequest
  */
 export interface RdsDescribeDbProxyTargetGroupsRequest {
   /**
    * @schema RdsDescribeDbProxyTargetGroupsRequest#DBProxyName
    */
-  readonly dbProxyName: string;
+  readonly dbProxyName?: string;
 
   /**
    * @schema RdsDescribeDbProxyTargetGroupsRequest#TargetGroupName
@@ -2880,6 +5035,24 @@ export interface RdsDescribeDbProxyTargetGroupsRequest {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbProxyTargetGroupsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbProxyTargetGroupsRequest(obj: RdsDescribeDbProxyTargetGroupsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyName': obj.dbProxyName,
+    'TargetGroupName': obj.targetGroupName,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'Marker': obj.marker,
+    'MaxRecords': obj.maxRecords,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeDbProxyTargetGroupsResponse
  */
 export interface RdsDescribeDbProxyTargetGroupsResponse {
@@ -2896,13 +5069,28 @@ export interface RdsDescribeDbProxyTargetGroupsResponse {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbProxyTargetGroupsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbProxyTargetGroupsResponse(obj: RdsDescribeDbProxyTargetGroupsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TargetGroups': obj.targetGroups?.map(y => toJson_RdsdbProxyTargetGroup(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeDbProxyTargetsRequest
  */
 export interface RdsDescribeDbProxyTargetsRequest {
   /**
    * @schema RdsDescribeDbProxyTargetsRequest#DBProxyName
    */
-  readonly dbProxyName: string;
+  readonly dbProxyName?: string;
 
   /**
    * @schema RdsDescribeDbProxyTargetsRequest#TargetGroupName
@@ -2927,6 +5115,24 @@ export interface RdsDescribeDbProxyTargetsRequest {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbProxyTargetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbProxyTargetsRequest(obj: RdsDescribeDbProxyTargetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyName': obj.dbProxyName,
+    'TargetGroupName': obj.targetGroupName,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'Marker': obj.marker,
+    'MaxRecords': obj.maxRecords,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeDbProxyTargetsResponse
  */
 export interface RdsDescribeDbProxyTargetsResponse {
@@ -2941,6 +5147,21 @@ export interface RdsDescribeDbProxyTargetsResponse {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDescribeDbProxyTargetsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbProxyTargetsResponse(obj: RdsDescribeDbProxyTargetsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Targets': obj.targets?.map(y => toJson_RdsdbProxyTarget(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeDbSecurityGroupsMessage
@@ -2969,6 +5190,23 @@ export interface RdsDescribeDbSecurityGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbSecurityGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbSecurityGroupsMessage(obj: RdsDescribeDbSecurityGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSecurityGroupName': obj.dbSecurityGroupName,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbSecurityGroupMessage
  */
 export interface RdsdbSecurityGroupMessage {
@@ -2985,15 +5223,44 @@ export interface RdsdbSecurityGroupMessage {
 }
 
 /**
+ * Converts an object of type 'RdsdbSecurityGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbSecurityGroupMessage(obj: RdsdbSecurityGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBSecurityGroups': obj.dbSecurityGroups?.map(y => toJson_RdsdbSecurityGroup(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeDbSnapshotAttributesMessage
  */
 export interface RdsDescribeDbSnapshotAttributesMessage {
   /**
    * @schema RdsDescribeDbSnapshotAttributesMessage#DBSnapshotIdentifier
    */
-  readonly dbSnapshotIdentifier: string;
+  readonly dbSnapshotIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDescribeDbSnapshotAttributesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbSnapshotAttributesMessage(obj: RdsDescribeDbSnapshotAttributesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSnapshotIdentifier': obj.dbSnapshotIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeDbSnapshotAttributesResult
@@ -3005,6 +5272,20 @@ export interface RdsDescribeDbSnapshotAttributesResult {
   readonly dbSnapshotAttributesResult?: RdsdbSnapshotAttributesResult;
 
 }
+
+/**
+ * Converts an object of type 'RdsDescribeDbSnapshotAttributesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbSnapshotAttributesResult(obj: RdsDescribeDbSnapshotAttributesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSnapshotAttributesResult': toJson_RdsdbSnapshotAttributesResult(obj.dbSnapshotAttributesResult),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeDbSnapshotsMessage
@@ -3058,6 +5339,28 @@ export interface RdsDescribeDbSnapshotsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbSnapshotsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbSnapshotsMessage(obj: RdsDescribeDbSnapshotsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'DBSnapshotIdentifier': obj.dbSnapshotIdentifier,
+    'SnapshotType': obj.snapshotType,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+    'IncludeShared': obj.includeShared,
+    'IncludePublic': obj.includePublic,
+    'DbiResourceId': obj.dbiResourceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbSnapshotMessage
  */
 export interface RdsdbSnapshotMessage {
@@ -3072,6 +5375,21 @@ export interface RdsdbSnapshotMessage {
   readonly dbSnapshots?: RdsdbSnapshot[];
 
 }
+
+/**
+ * Converts an object of type 'RdsdbSnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbSnapshotMessage(obj: RdsdbSnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBSnapshots': obj.dbSnapshots?.map(y => toJson_RdsdbSnapshot(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeDbSubnetGroupsMessage
@@ -3100,6 +5418,23 @@ export interface RdsDescribeDbSubnetGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeDbSubnetGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbSubnetGroupsMessage(obj: RdsDescribeDbSubnetGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbSubnetGroupMessage
  */
 export interface RdsdbSubnetGroupMessage {
@@ -3116,13 +5451,28 @@ export interface RdsdbSubnetGroupMessage {
 }
 
 /**
+ * Converts an object of type 'RdsdbSubnetGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbSubnetGroupMessage(obj: RdsdbSubnetGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBSubnetGroups': obj.dbSubnetGroups?.map(y => toJson_RdsdbSubnetGroup(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeEngineDefaultClusterParametersMessage
  */
 export interface RdsDescribeEngineDefaultClusterParametersMessage {
   /**
    * @schema RdsDescribeEngineDefaultClusterParametersMessage#DBParameterGroupFamily
    */
-  readonly dbParameterGroupFamily: string;
+  readonly dbParameterGroupFamily?: string;
 
   /**
    * @schema RdsDescribeEngineDefaultClusterParametersMessage#Filters
@@ -3142,6 +5492,23 @@ export interface RdsDescribeEngineDefaultClusterParametersMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeEngineDefaultClusterParametersMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeEngineDefaultClusterParametersMessage(obj: RdsDescribeEngineDefaultClusterParametersMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupFamily': obj.dbParameterGroupFamily,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeEngineDefaultClusterParametersResult
  */
 export interface RdsDescribeEngineDefaultClusterParametersResult {
@@ -3153,13 +5520,27 @@ export interface RdsDescribeEngineDefaultClusterParametersResult {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeEngineDefaultClusterParametersResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeEngineDefaultClusterParametersResult(obj: RdsDescribeEngineDefaultClusterParametersResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EngineDefaults': toJson_RdsEngineDefaults(obj.engineDefaults),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeEngineDefaultParametersMessage
  */
 export interface RdsDescribeEngineDefaultParametersMessage {
   /**
    * @schema RdsDescribeEngineDefaultParametersMessage#DBParameterGroupFamily
    */
-  readonly dbParameterGroupFamily: string;
+  readonly dbParameterGroupFamily?: string;
 
   /**
    * @schema RdsDescribeEngineDefaultParametersMessage#Filters
@@ -3179,6 +5560,23 @@ export interface RdsDescribeEngineDefaultParametersMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeEngineDefaultParametersMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeEngineDefaultParametersMessage(obj: RdsDescribeEngineDefaultParametersMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupFamily': obj.dbParameterGroupFamily,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeEngineDefaultParametersResult
  */
 export interface RdsDescribeEngineDefaultParametersResult {
@@ -3188,6 +5586,20 @@ export interface RdsDescribeEngineDefaultParametersResult {
   readonly engineDefaults?: RdsEngineDefaults;
 
 }
+
+/**
+ * Converts an object of type 'RdsDescribeEngineDefaultParametersResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeEngineDefaultParametersResult(obj: RdsDescribeEngineDefaultParametersResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EngineDefaults': toJson_RdsEngineDefaults(obj.engineDefaults),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeEventCategoriesMessage
@@ -3206,6 +5618,21 @@ export interface RdsDescribeEventCategoriesMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeEventCategoriesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeEventCategoriesMessage(obj: RdsDescribeEventCategoriesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceType': obj.sourceType,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsEventCategoriesMessage
  */
 export interface RdsEventCategoriesMessage {
@@ -3215,6 +5642,20 @@ export interface RdsEventCategoriesMessage {
   readonly eventCategoriesMapList?: RdsEventCategoriesMap[];
 
 }
+
+/**
+ * Converts an object of type 'RdsEventCategoriesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsEventCategoriesMessage(obj: RdsEventCategoriesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EventCategoriesMapList': obj.eventCategoriesMapList?.map(y => toJson_RdsEventCategoriesMap(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeEventSubscriptionsMessage
@@ -3243,6 +5684,23 @@ export interface RdsDescribeEventSubscriptionsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeEventSubscriptionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeEventSubscriptionsMessage(obj: RdsDescribeEventSubscriptionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscriptionName': obj.subscriptionName,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsEventSubscriptionsMessage
  */
 export interface RdsEventSubscriptionsMessage {
@@ -3257,6 +5715,21 @@ export interface RdsEventSubscriptionsMessage {
   readonly eventSubscriptionsList?: RdsEventSubscription[];
 
 }
+
+/**
+ * Converts an object of type 'RdsEventSubscriptionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsEventSubscriptionsMessage(obj: RdsEventSubscriptionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'EventSubscriptionsList': obj.eventSubscriptionsList?.map(y => toJson_RdsEventSubscription(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeEventsMessage
@@ -3310,6 +5783,28 @@ export interface RdsDescribeEventsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeEventsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeEventsMessage(obj: RdsDescribeEventsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceIdentifier': obj.sourceIdentifier,
+    'SourceType': obj.sourceType,
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'Duration': obj.duration,
+    'EventCategories': obj.eventCategories?.map(y => y),
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsEventsMessage
  */
 export interface RdsEventsMessage {
@@ -3324,6 +5819,21 @@ export interface RdsEventsMessage {
   readonly events?: RdsEvent[];
 
 }
+
+/**
+ * Converts an object of type 'RdsEventsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsEventsMessage(obj: RdsEventsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'Events': obj.events?.map(y => toJson_RdsEvent(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeExportTasksMessage
@@ -3357,6 +5867,24 @@ export interface RdsDescribeExportTasksMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeExportTasksMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeExportTasksMessage(obj: RdsDescribeExportTasksMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExportTaskIdentifier': obj.exportTaskIdentifier,
+    'SourceArn': obj.sourceArn,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'Marker': obj.marker,
+    'MaxRecords': obj.maxRecords,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsExportTasksMessage
  */
 export interface RdsExportTasksMessage {
@@ -3371,6 +5899,21 @@ export interface RdsExportTasksMessage {
   readonly exportTasks?: RdsExportTask[];
 
 }
+
+/**
+ * Converts an object of type 'RdsExportTasksMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsExportTasksMessage(obj: RdsExportTasksMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'ExportTasks': obj.exportTasks?.map(y => toJson_RdsExportTask(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeGlobalClustersMessage
@@ -3399,6 +5942,23 @@ export interface RdsDescribeGlobalClustersMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeGlobalClustersMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeGlobalClustersMessage(obj: RdsDescribeGlobalClustersMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalClusterIdentifier': obj.globalClusterIdentifier,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsGlobalClustersMessage
  */
 export interface RdsGlobalClustersMessage {
@@ -3413,6 +5973,21 @@ export interface RdsGlobalClustersMessage {
   readonly globalClusters?: RdsGlobalCluster[];
 
 }
+
+/**
+ * Converts an object of type 'RdsGlobalClustersMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsGlobalClustersMessage(obj: RdsGlobalClustersMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'GlobalClusters': obj.globalClusters?.map(y => toJson_RdsGlobalCluster(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeInstallationMediaMessage
@@ -3441,6 +6016,23 @@ export interface RdsDescribeInstallationMediaMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeInstallationMediaMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeInstallationMediaMessage(obj: RdsDescribeInstallationMediaMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstallationMediaId': obj.installationMediaId,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsInstallationMediaMessage
  */
 export interface RdsInstallationMediaMessage {
@@ -3457,13 +6049,28 @@ export interface RdsInstallationMediaMessage {
 }
 
 /**
+ * Converts an object of type 'RdsInstallationMediaMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsInstallationMediaMessage(obj: RdsInstallationMediaMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'InstallationMedia': obj.installationMedia?.map(y => toJson_RdsInstallationMedia(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeOptionGroupOptionsMessage
  */
 export interface RdsDescribeOptionGroupOptionsMessage {
   /**
    * @schema RdsDescribeOptionGroupOptionsMessage#EngineName
    */
-  readonly engineName: string;
+  readonly engineName?: string;
 
   /**
    * @schema RdsDescribeOptionGroupOptionsMessage#MajorEngineVersion
@@ -3488,6 +6095,24 @@ export interface RdsDescribeOptionGroupOptionsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeOptionGroupOptionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeOptionGroupOptionsMessage(obj: RdsDescribeOptionGroupOptionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EngineName': obj.engineName,
+    'MajorEngineVersion': obj.majorEngineVersion,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsOptionGroupOptionsMessage
  */
 export interface RdsOptionGroupOptionsMessage {
@@ -3502,6 +6127,21 @@ export interface RdsOptionGroupOptionsMessage {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsOptionGroupOptionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsOptionGroupOptionsMessage(obj: RdsOptionGroupOptionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OptionGroupOptions': obj.optionGroupOptions?.map(y => toJson_RdsOptionGroupOption(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeOptionGroupsMessage
@@ -3540,6 +6180,25 @@ export interface RdsDescribeOptionGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeOptionGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeOptionGroupsMessage(obj: RdsDescribeOptionGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OptionGroupName': obj.optionGroupName,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'Marker': obj.marker,
+    'MaxRecords': obj.maxRecords,
+    'EngineName': obj.engineName,
+    'MajorEngineVersion': obj.majorEngineVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsOptionGroups
  */
 export interface RdsOptionGroups {
@@ -3556,13 +6215,28 @@ export interface RdsOptionGroups {
 }
 
 /**
+ * Converts an object of type 'RdsOptionGroups' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsOptionGroups(obj: RdsOptionGroups | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OptionGroupsList': obj.optionGroupsList?.map(y => toJson_RdsOptionGroup(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeOrderableDbInstanceOptionsMessage
  */
 export interface RdsDescribeOrderableDbInstanceOptionsMessage {
   /**
    * @schema RdsDescribeOrderableDbInstanceOptionsMessage#Engine
    */
-  readonly engine: string;
+  readonly engine?: string;
 
   /**
    * @schema RdsDescribeOrderableDbInstanceOptionsMessage#EngineVersion
@@ -3607,6 +6281,28 @@ export interface RdsDescribeOrderableDbInstanceOptionsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeOrderableDbInstanceOptionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeOrderableDbInstanceOptionsMessage(obj: RdsDescribeOrderableDbInstanceOptionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'DBInstanceClass': obj.dbInstanceClass,
+    'LicenseModel': obj.licenseModel,
+    'AvailabilityZoneGroup': obj.availabilityZoneGroup,
+    'Vpc': obj.vpc,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsOrderableDbInstanceOptionsMessage
  */
 export interface RdsOrderableDbInstanceOptionsMessage {
@@ -3621,6 +6317,21 @@ export interface RdsOrderableDbInstanceOptionsMessage {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsOrderableDbInstanceOptionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsOrderableDbInstanceOptionsMessage(obj: RdsOrderableDbInstanceOptionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OrderableDBInstanceOptions': obj.orderableDbInstanceOptions?.map(y => toJson_RdsOrderableDbInstanceOption(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribePendingMaintenanceActionsMessage
@@ -3649,6 +6360,23 @@ export interface RdsDescribePendingMaintenanceActionsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribePendingMaintenanceActionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribePendingMaintenanceActionsMessage(obj: RdsDescribePendingMaintenanceActionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceIdentifier': obj.resourceIdentifier,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'Marker': obj.marker,
+    'MaxRecords': obj.maxRecords,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsPendingMaintenanceActionsMessage
  */
 export interface RdsPendingMaintenanceActionsMessage {
@@ -3663,6 +6391,21 @@ export interface RdsPendingMaintenanceActionsMessage {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsPendingMaintenanceActionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsPendingMaintenanceActionsMessage(obj: RdsPendingMaintenanceActionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PendingMaintenanceActions': obj.pendingMaintenanceActions?.map(y => toJson_RdsResourcePendingMaintenanceActions(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeReservedDbInstancesMessage
@@ -3726,6 +6469,30 @@ export interface RdsDescribeReservedDbInstancesMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeReservedDbInstancesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeReservedDbInstancesMessage(obj: RdsDescribeReservedDbInstancesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReservedDBInstanceId': obj.reservedDbInstanceId,
+    'ReservedDBInstancesOfferingId': obj.reservedDbInstancesOfferingId,
+    'DBInstanceClass': obj.dbInstanceClass,
+    'Duration': obj.duration,
+    'ProductDescription': obj.productDescription,
+    'OfferingType': obj.offeringType,
+    'MultiAZ': obj.multiAz,
+    'LeaseId': obj.leaseId,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsReservedDbInstanceMessage
  */
 export interface RdsReservedDbInstanceMessage {
@@ -3740,6 +6507,21 @@ export interface RdsReservedDbInstanceMessage {
   readonly reservedDbInstances?: RdsReservedDbInstance[];
 
 }
+
+/**
+ * Converts an object of type 'RdsReservedDbInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsReservedDbInstanceMessage(obj: RdsReservedDbInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'ReservedDBInstances': obj.reservedDbInstances?.map(y => toJson_RdsReservedDbInstance(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeReservedDbInstancesOfferingsMessage
@@ -3793,6 +6575,28 @@ export interface RdsDescribeReservedDbInstancesOfferingsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeReservedDbInstancesOfferingsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeReservedDbInstancesOfferingsMessage(obj: RdsDescribeReservedDbInstancesOfferingsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReservedDBInstancesOfferingId': obj.reservedDbInstancesOfferingId,
+    'DBInstanceClass': obj.dbInstanceClass,
+    'Duration': obj.duration,
+    'ProductDescription': obj.productDescription,
+    'OfferingType': obj.offeringType,
+    'MultiAZ': obj.multiAz,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsReservedDbInstancesOfferingMessage
  */
 export interface RdsReservedDbInstancesOfferingMessage {
@@ -3807,6 +6611,21 @@ export interface RdsReservedDbInstancesOfferingMessage {
   readonly reservedDbInstancesOfferings?: RdsReservedDbInstancesOffering[];
 
 }
+
+/**
+ * Converts an object of type 'RdsReservedDbInstancesOfferingMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsReservedDbInstancesOfferingMessage(obj: RdsReservedDbInstancesOfferingMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'ReservedDBInstancesOfferings': obj.reservedDbInstancesOfferings?.map(y => toJson_RdsReservedDbInstancesOffering(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeSourceRegionsMessage
@@ -3835,6 +6654,23 @@ export interface RdsDescribeSourceRegionsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeSourceRegionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeSourceRegionsMessage(obj: RdsDescribeSourceRegionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RegionName': obj.regionName,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsSourceRegionMessage
  */
 export interface RdsSourceRegionMessage {
@@ -3851,15 +6687,44 @@ export interface RdsSourceRegionMessage {
 }
 
 /**
+ * Converts an object of type 'RdsSourceRegionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsSourceRegionMessage(obj: RdsSourceRegionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'SourceRegions': obj.sourceRegions?.map(y => toJson_RdsSourceRegion(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeValidDbInstanceModificationsMessage
  */
 export interface RdsDescribeValidDbInstanceModificationsMessage {
   /**
    * @schema RdsDescribeValidDbInstanceModificationsMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsDescribeValidDbInstanceModificationsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeValidDbInstanceModificationsMessage(obj: RdsDescribeValidDbInstanceModificationsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDescribeValidDbInstanceModificationsResult
@@ -3873,18 +6738,32 @@ export interface RdsDescribeValidDbInstanceModificationsResult {
 }
 
 /**
+ * Converts an object of type 'RdsDescribeValidDbInstanceModificationsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeValidDbInstanceModificationsResult(obj: RdsDescribeValidDbInstanceModificationsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ValidDBInstanceModificationsMessage': toJson_RdsValidDbInstanceModificationsMessage(obj.validDbInstanceModificationsMessage),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDownloadDbLogFilePortionMessage
  */
 export interface RdsDownloadDbLogFilePortionMessage {
   /**
    * @schema RdsDownloadDbLogFilePortionMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
   /**
    * @schema RdsDownloadDbLogFilePortionMessage#LogFileName
    */
-  readonly logFileName: string;
+  readonly logFileName?: string;
 
   /**
    * @schema RdsDownloadDbLogFilePortionMessage#Marker
@@ -3897,6 +6776,23 @@ export interface RdsDownloadDbLogFilePortionMessage {
   readonly numberOfLines?: number;
 
 }
+
+/**
+ * Converts an object of type 'RdsDownloadDbLogFilePortionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDownloadDbLogFilePortionMessage(obj: RdsDownloadDbLogFilePortionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'LogFileName': obj.logFileName,
+    'Marker': obj.marker,
+    'NumberOfLines': obj.numberOfLines,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsDownloadDbLogFilePortionDetails
@@ -3920,13 +6816,29 @@ export interface RdsDownloadDbLogFilePortionDetails {
 }
 
 /**
+ * Converts an object of type 'RdsDownloadDbLogFilePortionDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDownloadDbLogFilePortionDetails(obj: RdsDownloadDbLogFilePortionDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LogFileData': obj.logFileData,
+    'Marker': obj.marker,
+    'AdditionalDataPending': obj.additionalDataPending,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsFailoverDbClusterMessage
  */
 export interface RdsFailoverDbClusterMessage {
   /**
    * @schema RdsFailoverDbClusterMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema RdsFailoverDbClusterMessage#TargetDBInstanceIdentifier
@@ -3934,6 +6846,21 @@ export interface RdsFailoverDbClusterMessage {
   readonly targetDbInstanceIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsFailoverDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsFailoverDbClusterMessage(obj: RdsFailoverDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'TargetDBInstanceIdentifier': obj.targetDbInstanceIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsFailoverDbClusterResult
@@ -3947,35 +6874,123 @@ export interface RdsFailoverDbClusterResult {
 }
 
 /**
+ * Converts an object of type 'RdsFailoverDbClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsFailoverDbClusterResult(obj: RdsFailoverDbClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_RdsdbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RdsFailoverGlobalClusterMessage
+ */
+export interface RdsFailoverGlobalClusterMessage {
+  /**
+   * @schema RdsFailoverGlobalClusterMessage#GlobalClusterIdentifier
+   */
+  readonly globalClusterIdentifier?: string;
+
+  /**
+   * @schema RdsFailoverGlobalClusterMessage#TargetDbClusterIdentifier
+   */
+  readonly targetDbClusterIdentifier?: string;
+
+}
+
+/**
+ * Converts an object of type 'RdsFailoverGlobalClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsFailoverGlobalClusterMessage(obj: RdsFailoverGlobalClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalClusterIdentifier': obj.globalClusterIdentifier,
+    'TargetDbClusterIdentifier': obj.targetDbClusterIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RdsFailoverGlobalClusterResult
+ */
+export interface RdsFailoverGlobalClusterResult {
+  /**
+   * @schema RdsFailoverGlobalClusterResult#GlobalCluster
+   */
+  readonly globalCluster?: RdsGlobalCluster;
+
+}
+
+/**
+ * Converts an object of type 'RdsFailoverGlobalClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsFailoverGlobalClusterResult(obj: RdsFailoverGlobalClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalCluster': toJson_RdsGlobalCluster(obj.globalCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsImportInstallationMediaMessage
  */
 export interface RdsImportInstallationMediaMessage {
   /**
    * @schema RdsImportInstallationMediaMessage#CustomAvailabilityZoneId
    */
-  readonly customAvailabilityZoneId: string;
+  readonly customAvailabilityZoneId?: string;
 
   /**
    * @schema RdsImportInstallationMediaMessage#Engine
    */
-  readonly engine: string;
+  readonly engine?: string;
 
   /**
    * @schema RdsImportInstallationMediaMessage#EngineVersion
    */
-  readonly engineVersion: string;
+  readonly engineVersion?: string;
 
   /**
    * @schema RdsImportInstallationMediaMessage#EngineInstallationMediaPath
    */
-  readonly engineInstallationMediaPath: string;
+  readonly engineInstallationMediaPath?: string;
 
   /**
    * @schema RdsImportInstallationMediaMessage#OSInstallationMediaPath
    */
-  readonly osInstallationMediaPath: string;
+  readonly osInstallationMediaPath?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsImportInstallationMediaMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsImportInstallationMediaMessage(obj: RdsImportInstallationMediaMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CustomAvailabilityZoneId': obj.customAvailabilityZoneId,
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'EngineInstallationMediaPath': obj.engineInstallationMediaPath,
+    'OSInstallationMediaPath': obj.osInstallationMediaPath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsListTagsForResourceMessage
@@ -3984,7 +6999,7 @@ export interface RdsListTagsForResourceMessage {
   /**
    * @schema RdsListTagsForResourceMessage#ResourceName
    */
-  readonly resourceName: string;
+  readonly resourceName?: string;
 
   /**
    * @schema RdsListTagsForResourceMessage#Filters
@@ -3992,6 +7007,21 @@ export interface RdsListTagsForResourceMessage {
   readonly filters?: RdsFilter[];
 
 }
+
+/**
+ * Converts an object of type 'RdsListTagsForResourceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsListTagsForResourceMessage(obj: RdsListTagsForResourceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceName': obj.resourceName,
+    'Filters': obj.filters?.map(y => toJson_RdsFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsTagListMessage
@@ -4003,6 +7033,20 @@ export interface RdsTagListMessage {
   readonly tagList?: RdsTag[];
 
 }
+
+/**
+ * Converts an object of type 'RdsTagListMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsTagListMessage(obj: RdsTagListMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TagList': obj.tagList?.map(y => toJson_RdsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsModifyCertificatesMessage
@@ -4021,6 +7065,21 @@ export interface RdsModifyCertificatesMessage {
 }
 
 /**
+ * Converts an object of type 'RdsModifyCertificatesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyCertificatesMessage(obj: RdsModifyCertificatesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CertificateIdentifier': obj.certificateIdentifier,
+    'RemoveCustomerOverride': obj.removeCustomerOverride,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyCertificatesResult
  */
 export interface RdsModifyCertificatesResult {
@@ -4032,13 +7091,27 @@ export interface RdsModifyCertificatesResult {
 }
 
 /**
+ * Converts an object of type 'RdsModifyCertificatesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyCertificatesResult(obj: RdsModifyCertificatesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Certificate': toJson_RdsCertificate(obj.certificate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyCurrentDbClusterCapacityMessage
  */
 export interface RdsModifyCurrentDbClusterCapacityMessage {
   /**
    * @schema RdsModifyCurrentDbClusterCapacityMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema RdsModifyCurrentDbClusterCapacityMessage#Capacity
@@ -4056,6 +7129,23 @@ export interface RdsModifyCurrentDbClusterCapacityMessage {
   readonly timeoutAction?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsModifyCurrentDbClusterCapacityMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyCurrentDbClusterCapacityMessage(obj: RdsModifyCurrentDbClusterCapacityMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'Capacity': obj.capacity,
+    'SecondsBeforeTimeout': obj.secondsBeforeTimeout,
+    'TimeoutAction': obj.timeoutAction,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbClusterCapacityInfo
@@ -4089,13 +7179,31 @@ export interface RdsdbClusterCapacityInfo {
 }
 
 /**
+ * Converts an object of type 'RdsdbClusterCapacityInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbClusterCapacityInfo(obj: RdsdbClusterCapacityInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'PendingCapacity': obj.pendingCapacity,
+    'CurrentCapacity': obj.currentCapacity,
+    'SecondsBeforeTimeout': obj.secondsBeforeTimeout,
+    'TimeoutAction': obj.timeoutAction,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyDbClusterMessage
  */
 export interface RdsModifyDbClusterMessage {
   /**
    * @schema RdsModifyDbClusterMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema RdsModifyDbClusterMessage#NewDBClusterIdentifier
@@ -4215,6 +7323,43 @@ export interface RdsModifyDbClusterMessage {
 }
 
 /**
+ * Converts an object of type 'RdsModifyDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbClusterMessage(obj: RdsModifyDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'NewDBClusterIdentifier': obj.newDbClusterIdentifier,
+    'ApplyImmediately': obj.applyImmediately,
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'Port': obj.port,
+    'MasterUserPassword': obj.masterUserPassword,
+    'OptionGroupName': obj.optionGroupName,
+    'PreferredBackupWindow': obj.preferredBackupWindow,
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'EnableIAMDatabaseAuthentication': obj.enableIamDatabaseAuthentication,
+    'BacktrackWindow': obj.backtrackWindow,
+    'CloudwatchLogsExportConfiguration': toJson_RdsCloudwatchLogsExportConfiguration(obj.cloudwatchLogsExportConfiguration),
+    'EngineVersion': obj.engineVersion,
+    'AllowMajorVersionUpgrade': obj.allowMajorVersionUpgrade,
+    'DBInstanceParameterGroupName': obj.dbInstanceParameterGroupName,
+    'Domain': obj.domain,
+    'DomainIAMRoleName': obj.domainIamRoleName,
+    'ScalingConfiguration': toJson_RdsScalingConfiguration(obj.scalingConfiguration),
+    'DeletionProtection': obj.deletionProtection,
+    'EnableHttpEndpoint': obj.enableHttpEndpoint,
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+    'EnableGlobalWriteForwarding': obj.enableGlobalWriteForwarding,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyDbClusterResult
  */
 export interface RdsModifyDbClusterResult {
@@ -4226,13 +7371,27 @@ export interface RdsModifyDbClusterResult {
 }
 
 /**
+ * Converts an object of type 'RdsModifyDbClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbClusterResult(obj: RdsModifyDbClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_RdsdbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyDbClusterEndpointMessage
  */
 export interface RdsModifyDbClusterEndpointMessage {
   /**
    * @schema RdsModifyDbClusterEndpointMessage#DBClusterEndpointIdentifier
    */
-  readonly dbClusterEndpointIdentifier: string;
+  readonly dbClusterEndpointIdentifier?: string;
 
   /**
    * @schema RdsModifyDbClusterEndpointMessage#EndpointType
@@ -4252,20 +7411,52 @@ export interface RdsModifyDbClusterEndpointMessage {
 }
 
 /**
+ * Converts an object of type 'RdsModifyDbClusterEndpointMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbClusterEndpointMessage(obj: RdsModifyDbClusterEndpointMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterEndpointIdentifier': obj.dbClusterEndpointIdentifier,
+    'EndpointType': obj.endpointType,
+    'StaticMembers': obj.staticMembers?.map(y => y),
+    'ExcludedMembers': obj.excludedMembers?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyDbClusterParameterGroupMessage
  */
 export interface RdsModifyDbClusterParameterGroupMessage {
   /**
    * @schema RdsModifyDbClusterParameterGroupMessage#DBClusterParameterGroupName
    */
-  readonly dbClusterParameterGroupName: string;
+  readonly dbClusterParameterGroupName?: string;
 
   /**
    * @schema RdsModifyDbClusterParameterGroupMessage#Parameters
    */
-  readonly parameters: RdsParameter[];
+  readonly parameters?: RdsParameter[];
 
 }
+
+/**
+ * Converts an object of type 'RdsModifyDbClusterParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbClusterParameterGroupMessage(obj: RdsModifyDbClusterParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'Parameters': obj.parameters?.map(y => toJson_RdsParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbClusterParameterGroupNameMessage
@@ -4279,18 +7470,32 @@ export interface RdsdbClusterParameterGroupNameMessage {
 }
 
 /**
+ * Converts an object of type 'RdsdbClusterParameterGroupNameMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbClusterParameterGroupNameMessage(obj: RdsdbClusterParameterGroupNameMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyDbClusterSnapshotAttributeMessage
  */
 export interface RdsModifyDbClusterSnapshotAttributeMessage {
   /**
    * @schema RdsModifyDbClusterSnapshotAttributeMessage#DBClusterSnapshotIdentifier
    */
-  readonly dbClusterSnapshotIdentifier: string;
+  readonly dbClusterSnapshotIdentifier?: string;
 
   /**
    * @schema RdsModifyDbClusterSnapshotAttributeMessage#AttributeName
    */
-  readonly attributeName: string;
+  readonly attributeName?: string;
 
   /**
    * @schema RdsModifyDbClusterSnapshotAttributeMessage#ValuesToAdd
@@ -4305,6 +7510,23 @@ export interface RdsModifyDbClusterSnapshotAttributeMessage {
 }
 
 /**
+ * Converts an object of type 'RdsModifyDbClusterSnapshotAttributeMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbClusterSnapshotAttributeMessage(obj: RdsModifyDbClusterSnapshotAttributeMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshotIdentifier': obj.dbClusterSnapshotIdentifier,
+    'AttributeName': obj.attributeName,
+    'ValuesToAdd': obj.valuesToAdd?.map(y => y),
+    'ValuesToRemove': obj.valuesToRemove?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyDbClusterSnapshotAttributeResult
  */
 export interface RdsModifyDbClusterSnapshotAttributeResult {
@@ -4316,13 +7538,27 @@ export interface RdsModifyDbClusterSnapshotAttributeResult {
 }
 
 /**
+ * Converts an object of type 'RdsModifyDbClusterSnapshotAttributeResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbClusterSnapshotAttributeResult(obj: RdsModifyDbClusterSnapshotAttributeResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshotAttributesResult': toJson_RdsdbClusterSnapshotAttributesResult(obj.dbClusterSnapshotAttributesResult),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyDbInstanceMessage
  */
 export interface RdsModifyDbInstanceMessage {
   /**
    * @schema RdsModifyDbInstanceMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
   /**
    * @schema RdsModifyDbInstanceMessage#AllocatedStorage
@@ -4534,7 +7770,75 @@ export interface RdsModifyDbInstanceMessage {
    */
   readonly replicaMode?: string;
 
+  /**
+   * @schema RdsModifyDbInstanceMessage#EnableCustomerOwnedIp
+   */
+  readonly enableCustomerOwnedIp?: boolean;
+
+  /**
+   * @schema RdsModifyDbInstanceMessage#AwsBackupRecoveryPointArn
+   */
+  readonly awsBackupRecoveryPointArn?: string;
+
 }
+
+/**
+ * Converts an object of type 'RdsModifyDbInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbInstanceMessage(obj: RdsModifyDbInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'AllocatedStorage': obj.allocatedStorage,
+    'DBInstanceClass': obj.dbInstanceClass,
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'DBSecurityGroups': obj.dbSecurityGroups?.map(y => y),
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'ApplyImmediately': obj.applyImmediately,
+    'MasterUserPassword': obj.masterUserPassword,
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'PreferredBackupWindow': obj.preferredBackupWindow,
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'MultiAZ': obj.multiAz,
+    'EngineVersion': obj.engineVersion,
+    'AllowMajorVersionUpgrade': obj.allowMajorVersionUpgrade,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'LicenseModel': obj.licenseModel,
+    'Iops': obj.iops,
+    'OptionGroupName': obj.optionGroupName,
+    'NewDBInstanceIdentifier': obj.newDbInstanceIdentifier,
+    'StorageType': obj.storageType,
+    'TdeCredentialArn': obj.tdeCredentialArn,
+    'TdeCredentialPassword': obj.tdeCredentialPassword,
+    'CACertificateIdentifier': obj.caCertificateIdentifier,
+    'Domain': obj.domain,
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+    'MonitoringInterval': obj.monitoringInterval,
+    'DBPortNumber': obj.dbPortNumber,
+    'PubliclyAccessible': obj.publiclyAccessible,
+    'MonitoringRoleArn': obj.monitoringRoleArn,
+    'DomainIAMRoleName': obj.domainIamRoleName,
+    'PromotionTier': obj.promotionTier,
+    'EnableIAMDatabaseAuthentication': obj.enableIamDatabaseAuthentication,
+    'EnablePerformanceInsights': obj.enablePerformanceInsights,
+    'PerformanceInsightsKMSKeyId': obj.performanceInsightsKmsKeyId,
+    'PerformanceInsightsRetentionPeriod': obj.performanceInsightsRetentionPeriod,
+    'CloudwatchLogsExportConfiguration': toJson_RdsCloudwatchLogsExportConfiguration(obj.cloudwatchLogsExportConfiguration),
+    'ProcessorFeatures': obj.processorFeatures?.map(y => toJson_RdsProcessorFeature(y)),
+    'UseDefaultProcessorFeatures': obj.useDefaultProcessorFeatures,
+    'DeletionProtection': obj.deletionProtection,
+    'MaxAllocatedStorage': obj.maxAllocatedStorage,
+    'CertificateRotationRestart': obj.certificateRotationRestart,
+    'ReplicaMode': obj.replicaMode,
+    'EnableCustomerOwnedIp': obj.enableCustomerOwnedIp,
+    'AwsBackupRecoveryPointArn': obj.awsBackupRecoveryPointArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsModifyDbInstanceResult
@@ -4548,20 +7852,49 @@ export interface RdsModifyDbInstanceResult {
 }
 
 /**
+ * Converts an object of type 'RdsModifyDbInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbInstanceResult(obj: RdsModifyDbInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstance': toJson_RdsdbInstance(obj.dbInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyDbParameterGroupMessage
  */
 export interface RdsModifyDbParameterGroupMessage {
   /**
    * @schema RdsModifyDbParameterGroupMessage#DBParameterGroupName
    */
-  readonly dbParameterGroupName: string;
+  readonly dbParameterGroupName?: string;
 
   /**
    * @schema RdsModifyDbParameterGroupMessage#Parameters
    */
-  readonly parameters: RdsParameter[];
+  readonly parameters?: RdsParameter[];
 
 }
+
+/**
+ * Converts an object of type 'RdsModifyDbParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbParameterGroupMessage(obj: RdsModifyDbParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'Parameters': obj.parameters?.map(y => toJson_RdsParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbParameterGroupNameMessage
@@ -4575,13 +7908,27 @@ export interface RdsdbParameterGroupNameMessage {
 }
 
 /**
+ * Converts an object of type 'RdsdbParameterGroupNameMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbParameterGroupNameMessage(obj: RdsdbParameterGroupNameMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupName': obj.dbParameterGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyDbProxyRequest
  */
 export interface RdsModifyDbProxyRequest {
   /**
    * @schema RdsModifyDbProxyRequest#DBProxyName
    */
-  readonly dbProxyName: string;
+  readonly dbProxyName?: string;
 
   /**
    * @schema RdsModifyDbProxyRequest#NewDBProxyName
@@ -4621,6 +7968,27 @@ export interface RdsModifyDbProxyRequest {
 }
 
 /**
+ * Converts an object of type 'RdsModifyDbProxyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbProxyRequest(obj: RdsModifyDbProxyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyName': obj.dbProxyName,
+    'NewDBProxyName': obj.newDbProxyName,
+    'Auth': obj.auth?.map(y => toJson_RdsUserAuthConfig(y)),
+    'RequireTLS': obj.requireTls,
+    'IdleClientTimeout': obj.idleClientTimeout,
+    'DebugLogging': obj.debugLogging,
+    'RoleArn': obj.roleArn,
+    'SecurityGroups': obj.securityGroups?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyDbProxyResponse
  */
 export interface RdsModifyDbProxyResponse {
@@ -4632,18 +8000,94 @@ export interface RdsModifyDbProxyResponse {
 }
 
 /**
+ * Converts an object of type 'RdsModifyDbProxyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbProxyResponse(obj: RdsModifyDbProxyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxy': toJson_RdsdbProxy(obj.dbProxy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RdsModifyDbProxyEndpointRequest
+ */
+export interface RdsModifyDbProxyEndpointRequest {
+  /**
+   * @schema RdsModifyDbProxyEndpointRequest#DBProxyEndpointName
+   */
+  readonly dbProxyEndpointName?: string;
+
+  /**
+   * @schema RdsModifyDbProxyEndpointRequest#NewDBProxyEndpointName
+   */
+  readonly newDbProxyEndpointName?: string;
+
+  /**
+   * @schema RdsModifyDbProxyEndpointRequest#VpcSecurityGroupIds
+   */
+  readonly vpcSecurityGroupIds?: string[];
+
+}
+
+/**
+ * Converts an object of type 'RdsModifyDbProxyEndpointRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbProxyEndpointRequest(obj: RdsModifyDbProxyEndpointRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyEndpointName': obj.dbProxyEndpointName,
+    'NewDBProxyEndpointName': obj.newDbProxyEndpointName,
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RdsModifyDbProxyEndpointResponse
+ */
+export interface RdsModifyDbProxyEndpointResponse {
+  /**
+   * @schema RdsModifyDbProxyEndpointResponse#DBProxyEndpoint
+   */
+  readonly dbProxyEndpoint?: RdsdbProxyEndpoint;
+
+}
+
+/**
+ * Converts an object of type 'RdsModifyDbProxyEndpointResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbProxyEndpointResponse(obj: RdsModifyDbProxyEndpointResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyEndpoint': toJson_RdsdbProxyEndpoint(obj.dbProxyEndpoint),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyDbProxyTargetGroupRequest
  */
 export interface RdsModifyDbProxyTargetGroupRequest {
   /**
    * @schema RdsModifyDbProxyTargetGroupRequest#TargetGroupName
    */
-  readonly targetGroupName: string;
+  readonly targetGroupName?: string;
 
   /**
    * @schema RdsModifyDbProxyTargetGroupRequest#DBProxyName
    */
-  readonly dbProxyName: string;
+  readonly dbProxyName?: string;
 
   /**
    * @schema RdsModifyDbProxyTargetGroupRequest#ConnectionPoolConfig
@@ -4658,6 +8102,23 @@ export interface RdsModifyDbProxyTargetGroupRequest {
 }
 
 /**
+ * Converts an object of type 'RdsModifyDbProxyTargetGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbProxyTargetGroupRequest(obj: RdsModifyDbProxyTargetGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TargetGroupName': obj.targetGroupName,
+    'DBProxyName': obj.dbProxyName,
+    'ConnectionPoolConfig': toJson_RdsConnectionPoolConfiguration(obj.connectionPoolConfig),
+    'NewName': obj.newName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyDbProxyTargetGroupResponse
  */
 export interface RdsModifyDbProxyTargetGroupResponse {
@@ -4669,13 +8130,27 @@ export interface RdsModifyDbProxyTargetGroupResponse {
 }
 
 /**
+ * Converts an object of type 'RdsModifyDbProxyTargetGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbProxyTargetGroupResponse(obj: RdsModifyDbProxyTargetGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyTargetGroup': toJson_RdsdbProxyTargetGroup(obj.dbProxyTargetGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyDbSnapshotMessage
  */
 export interface RdsModifyDbSnapshotMessage {
   /**
    * @schema RdsModifyDbSnapshotMessage#DBSnapshotIdentifier
    */
-  readonly dbSnapshotIdentifier: string;
+  readonly dbSnapshotIdentifier?: string;
 
   /**
    * @schema RdsModifyDbSnapshotMessage#EngineVersion
@@ -4690,6 +8165,22 @@ export interface RdsModifyDbSnapshotMessage {
 }
 
 /**
+ * Converts an object of type 'RdsModifyDbSnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbSnapshotMessage(obj: RdsModifyDbSnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSnapshotIdentifier': obj.dbSnapshotIdentifier,
+    'EngineVersion': obj.engineVersion,
+    'OptionGroupName': obj.optionGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyDbSnapshotResult
  */
 export interface RdsModifyDbSnapshotResult {
@@ -4701,18 +8192,32 @@ export interface RdsModifyDbSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'RdsModifyDbSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbSnapshotResult(obj: RdsModifyDbSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSnapshot': toJson_RdsdbSnapshot(obj.dbSnapshot),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyDbSnapshotAttributeMessage
  */
 export interface RdsModifyDbSnapshotAttributeMessage {
   /**
    * @schema RdsModifyDbSnapshotAttributeMessage#DBSnapshotIdentifier
    */
-  readonly dbSnapshotIdentifier: string;
+  readonly dbSnapshotIdentifier?: string;
 
   /**
    * @schema RdsModifyDbSnapshotAttributeMessage#AttributeName
    */
-  readonly attributeName: string;
+  readonly attributeName?: string;
 
   /**
    * @schema RdsModifyDbSnapshotAttributeMessage#ValuesToAdd
@@ -4727,6 +8232,23 @@ export interface RdsModifyDbSnapshotAttributeMessage {
 }
 
 /**
+ * Converts an object of type 'RdsModifyDbSnapshotAttributeMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbSnapshotAttributeMessage(obj: RdsModifyDbSnapshotAttributeMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSnapshotIdentifier': obj.dbSnapshotIdentifier,
+    'AttributeName': obj.attributeName,
+    'ValuesToAdd': obj.valuesToAdd?.map(y => y),
+    'ValuesToRemove': obj.valuesToRemove?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyDbSnapshotAttributeResult
  */
 export interface RdsModifyDbSnapshotAttributeResult {
@@ -4738,13 +8260,27 @@ export interface RdsModifyDbSnapshotAttributeResult {
 }
 
 /**
+ * Converts an object of type 'RdsModifyDbSnapshotAttributeResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbSnapshotAttributeResult(obj: RdsModifyDbSnapshotAttributeResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSnapshotAttributesResult': toJson_RdsdbSnapshotAttributesResult(obj.dbSnapshotAttributesResult),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyDbSubnetGroupMessage
  */
 export interface RdsModifyDbSubnetGroupMessage {
   /**
    * @schema RdsModifyDbSubnetGroupMessage#DBSubnetGroupName
    */
-  readonly dbSubnetGroupName: string;
+  readonly dbSubnetGroupName?: string;
 
   /**
    * @schema RdsModifyDbSubnetGroupMessage#DBSubnetGroupDescription
@@ -4754,9 +8290,25 @@ export interface RdsModifyDbSubnetGroupMessage {
   /**
    * @schema RdsModifyDbSubnetGroupMessage#SubnetIds
    */
-  readonly subnetIds: string[];
+  readonly subnetIds?: string[];
 
 }
+
+/**
+ * Converts an object of type 'RdsModifyDbSubnetGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbSubnetGroupMessage(obj: RdsModifyDbSubnetGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'DBSubnetGroupDescription': obj.dbSubnetGroupDescription,
+    'SubnetIds': obj.subnetIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsModifyDbSubnetGroupResult
@@ -4770,13 +8322,27 @@ export interface RdsModifyDbSubnetGroupResult {
 }
 
 /**
+ * Converts an object of type 'RdsModifyDbSubnetGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyDbSubnetGroupResult(obj: RdsModifyDbSubnetGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSubnetGroup': toJson_RdsdbSubnetGroup(obj.dbSubnetGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyEventSubscriptionMessage
  */
 export interface RdsModifyEventSubscriptionMessage {
   /**
    * @schema RdsModifyEventSubscriptionMessage#SubscriptionName
    */
-  readonly subscriptionName: string;
+  readonly subscriptionName?: string;
 
   /**
    * @schema RdsModifyEventSubscriptionMessage#SnsTopicArn
@@ -4801,6 +8367,24 @@ export interface RdsModifyEventSubscriptionMessage {
 }
 
 /**
+ * Converts an object of type 'RdsModifyEventSubscriptionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyEventSubscriptionMessage(obj: RdsModifyEventSubscriptionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscriptionName': obj.subscriptionName,
+    'SnsTopicArn': obj.snsTopicArn,
+    'SourceType': obj.sourceType,
+    'EventCategories': obj.eventCategories?.map(y => y),
+    'Enabled': obj.enabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyEventSubscriptionResult
  */
 export interface RdsModifyEventSubscriptionResult {
@@ -4810,6 +8394,20 @@ export interface RdsModifyEventSubscriptionResult {
   readonly eventSubscription?: RdsEventSubscription;
 
 }
+
+/**
+ * Converts an object of type 'RdsModifyEventSubscriptionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyEventSubscriptionResult(obj: RdsModifyEventSubscriptionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EventSubscription': toJson_RdsEventSubscription(obj.eventSubscription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsModifyGlobalClusterMessage
@@ -4830,7 +8428,35 @@ export interface RdsModifyGlobalClusterMessage {
    */
   readonly deletionProtection?: boolean;
 
+  /**
+   * @schema RdsModifyGlobalClusterMessage#EngineVersion
+   */
+  readonly engineVersion?: string;
+
+  /**
+   * @schema RdsModifyGlobalClusterMessage#AllowMajorVersionUpgrade
+   */
+  readonly allowMajorVersionUpgrade?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'RdsModifyGlobalClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyGlobalClusterMessage(obj: RdsModifyGlobalClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalClusterIdentifier': obj.globalClusterIdentifier,
+    'NewGlobalClusterIdentifier': obj.newGlobalClusterIdentifier,
+    'DeletionProtection': obj.deletionProtection,
+    'EngineVersion': obj.engineVersion,
+    'AllowMajorVersionUpgrade': obj.allowMajorVersionUpgrade,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsModifyGlobalClusterResult
@@ -4844,13 +8470,27 @@ export interface RdsModifyGlobalClusterResult {
 }
 
 /**
+ * Converts an object of type 'RdsModifyGlobalClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyGlobalClusterResult(obj: RdsModifyGlobalClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalCluster': toJson_RdsGlobalCluster(obj.globalCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyOptionGroupMessage
  */
 export interface RdsModifyOptionGroupMessage {
   /**
    * @schema RdsModifyOptionGroupMessage#OptionGroupName
    */
-  readonly optionGroupName: string;
+  readonly optionGroupName?: string;
 
   /**
    * @schema RdsModifyOptionGroupMessage#OptionsToInclude
@@ -4870,6 +8510,23 @@ export interface RdsModifyOptionGroupMessage {
 }
 
 /**
+ * Converts an object of type 'RdsModifyOptionGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyOptionGroupMessage(obj: RdsModifyOptionGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OptionGroupName': obj.optionGroupName,
+    'OptionsToInclude': obj.optionsToInclude?.map(y => toJson_RdsOptionConfiguration(y)),
+    'OptionsToRemove': obj.optionsToRemove?.map(y => y),
+    'ApplyImmediately': obj.applyImmediately,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsModifyOptionGroupResult
  */
 export interface RdsModifyOptionGroupResult {
@@ -4881,13 +8538,27 @@ export interface RdsModifyOptionGroupResult {
 }
 
 /**
+ * Converts an object of type 'RdsModifyOptionGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsModifyOptionGroupResult(obj: RdsModifyOptionGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OptionGroup': toJson_RdsOptionGroup(obj.optionGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsPromoteReadReplicaMessage
  */
 export interface RdsPromoteReadReplicaMessage {
   /**
    * @schema RdsPromoteReadReplicaMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
   /**
    * @schema RdsPromoteReadReplicaMessage#BackupRetentionPeriod
@@ -4902,6 +8573,22 @@ export interface RdsPromoteReadReplicaMessage {
 }
 
 /**
+ * Converts an object of type 'RdsPromoteReadReplicaMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsPromoteReadReplicaMessage(obj: RdsPromoteReadReplicaMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'PreferredBackupWindow': obj.preferredBackupWindow,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsPromoteReadReplicaResult
  */
 export interface RdsPromoteReadReplicaResult {
@@ -4913,15 +8600,43 @@ export interface RdsPromoteReadReplicaResult {
 }
 
 /**
+ * Converts an object of type 'RdsPromoteReadReplicaResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsPromoteReadReplicaResult(obj: RdsPromoteReadReplicaResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstance': toJson_RdsdbInstance(obj.dbInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsPromoteReadReplicaDbClusterMessage
  */
 export interface RdsPromoteReadReplicaDbClusterMessage {
   /**
    * @schema RdsPromoteReadReplicaDbClusterMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsPromoteReadReplicaDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsPromoteReadReplicaDbClusterMessage(obj: RdsPromoteReadReplicaDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsPromoteReadReplicaDbClusterResult
@@ -4935,13 +8650,27 @@ export interface RdsPromoteReadReplicaDbClusterResult {
 }
 
 /**
+ * Converts an object of type 'RdsPromoteReadReplicaDbClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsPromoteReadReplicaDbClusterResult(obj: RdsPromoteReadReplicaDbClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_RdsdbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsPurchaseReservedDbInstancesOfferingMessage
  */
 export interface RdsPurchaseReservedDbInstancesOfferingMessage {
   /**
    * @schema RdsPurchaseReservedDbInstancesOfferingMessage#ReservedDBInstancesOfferingId
    */
-  readonly reservedDbInstancesOfferingId: string;
+  readonly reservedDbInstancesOfferingId?: string;
 
   /**
    * @schema RdsPurchaseReservedDbInstancesOfferingMessage#ReservedDBInstanceId
@@ -4961,6 +8690,23 @@ export interface RdsPurchaseReservedDbInstancesOfferingMessage {
 }
 
 /**
+ * Converts an object of type 'RdsPurchaseReservedDbInstancesOfferingMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsPurchaseReservedDbInstancesOfferingMessage(obj: RdsPurchaseReservedDbInstancesOfferingMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReservedDBInstancesOfferingId': obj.reservedDbInstancesOfferingId,
+    'ReservedDBInstanceId': obj.reservedDbInstanceId,
+    'DBInstanceCount': obj.dbInstanceCount,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsPurchaseReservedDbInstancesOfferingResult
  */
 export interface RdsPurchaseReservedDbInstancesOfferingResult {
@@ -4972,13 +8718,27 @@ export interface RdsPurchaseReservedDbInstancesOfferingResult {
 }
 
 /**
+ * Converts an object of type 'RdsPurchaseReservedDbInstancesOfferingResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsPurchaseReservedDbInstancesOfferingResult(obj: RdsPurchaseReservedDbInstancesOfferingResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReservedDBInstance': toJson_RdsReservedDbInstance(obj.reservedDbInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsRebootDbInstanceMessage
  */
 export interface RdsRebootDbInstanceMessage {
   /**
    * @schema RdsRebootDbInstanceMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
   /**
    * @schema RdsRebootDbInstanceMessage#ForceFailover
@@ -4986,6 +8746,21 @@ export interface RdsRebootDbInstanceMessage {
   readonly forceFailover?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'RdsRebootDbInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRebootDbInstanceMessage(obj: RdsRebootDbInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'ForceFailover': obj.forceFailover,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsRebootDbInstanceResult
@@ -4999,13 +8774,27 @@ export interface RdsRebootDbInstanceResult {
 }
 
 /**
+ * Converts an object of type 'RdsRebootDbInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRebootDbInstanceResult(obj: RdsRebootDbInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstance': toJson_RdsdbInstance(obj.dbInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsRegisterDbProxyTargetsRequest
  */
 export interface RdsRegisterDbProxyTargetsRequest {
   /**
    * @schema RdsRegisterDbProxyTargetsRequest#DBProxyName
    */
-  readonly dbProxyName: string;
+  readonly dbProxyName?: string;
 
   /**
    * @schema RdsRegisterDbProxyTargetsRequest#TargetGroupName
@@ -5025,6 +8814,23 @@ export interface RdsRegisterDbProxyTargetsRequest {
 }
 
 /**
+ * Converts an object of type 'RdsRegisterDbProxyTargetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRegisterDbProxyTargetsRequest(obj: RdsRegisterDbProxyTargetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyName': obj.dbProxyName,
+    'TargetGroupName': obj.targetGroupName,
+    'DBInstanceIdentifiers': obj.dbInstanceIdentifiers?.map(y => y),
+    'DBClusterIdentifiers': obj.dbClusterIdentifiers?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsRegisterDbProxyTargetsResponse
  */
 export interface RdsRegisterDbProxyTargetsResponse {
@@ -5034,6 +8840,20 @@ export interface RdsRegisterDbProxyTargetsResponse {
   readonly dbProxyTargets?: RdsdbProxyTarget[];
 
 }
+
+/**
+ * Converts an object of type 'RdsRegisterDbProxyTargetsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRegisterDbProxyTargetsResponse(obj: RdsRegisterDbProxyTargetsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyTargets': obj.dbProxyTargets?.map(y => toJson_RdsdbProxyTarget(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsRemoveFromGlobalClusterMessage
@@ -5052,6 +8872,21 @@ export interface RdsRemoveFromGlobalClusterMessage {
 }
 
 /**
+ * Converts an object of type 'RdsRemoveFromGlobalClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRemoveFromGlobalClusterMessage(obj: RdsRemoveFromGlobalClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalClusterIdentifier': obj.globalClusterIdentifier,
+    'DbClusterIdentifier': obj.dbClusterIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsRemoveFromGlobalClusterResult
  */
 export interface RdsRemoveFromGlobalClusterResult {
@@ -5063,18 +8898,32 @@ export interface RdsRemoveFromGlobalClusterResult {
 }
 
 /**
+ * Converts an object of type 'RdsRemoveFromGlobalClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRemoveFromGlobalClusterResult(obj: RdsRemoveFromGlobalClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalCluster': toJson_RdsGlobalCluster(obj.globalCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsRemoveRoleFromDbClusterMessage
  */
 export interface RdsRemoveRoleFromDbClusterMessage {
   /**
    * @schema RdsRemoveRoleFromDbClusterMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema RdsRemoveRoleFromDbClusterMessage#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema RdsRemoveRoleFromDbClusterMessage#FeatureName
@@ -5084,25 +8933,57 @@ export interface RdsRemoveRoleFromDbClusterMessage {
 }
 
 /**
+ * Converts an object of type 'RdsRemoveRoleFromDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRemoveRoleFromDbClusterMessage(obj: RdsRemoveRoleFromDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'RoleArn': obj.roleArn,
+    'FeatureName': obj.featureName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsRemoveRoleFromDbInstanceMessage
  */
 export interface RdsRemoveRoleFromDbInstanceMessage {
   /**
    * @schema RdsRemoveRoleFromDbInstanceMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
   /**
    * @schema RdsRemoveRoleFromDbInstanceMessage#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema RdsRemoveRoleFromDbInstanceMessage#FeatureName
    */
-  readonly featureName: string;
+  readonly featureName?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsRemoveRoleFromDbInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRemoveRoleFromDbInstanceMessage(obj: RdsRemoveRoleFromDbInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'RoleArn': obj.roleArn,
+    'FeatureName': obj.featureName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsRemoveSourceIdentifierFromSubscriptionMessage
@@ -5111,14 +8992,29 @@ export interface RdsRemoveSourceIdentifierFromSubscriptionMessage {
   /**
    * @schema RdsRemoveSourceIdentifierFromSubscriptionMessage#SubscriptionName
    */
-  readonly subscriptionName: string;
+  readonly subscriptionName?: string;
 
   /**
    * @schema RdsRemoveSourceIdentifierFromSubscriptionMessage#SourceIdentifier
    */
-  readonly sourceIdentifier: string;
+  readonly sourceIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsRemoveSourceIdentifierFromSubscriptionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRemoveSourceIdentifierFromSubscriptionMessage(obj: RdsRemoveSourceIdentifierFromSubscriptionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscriptionName': obj.subscriptionName,
+    'SourceIdentifier': obj.sourceIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsRemoveSourceIdentifierFromSubscriptionResult
@@ -5132,20 +9028,49 @@ export interface RdsRemoveSourceIdentifierFromSubscriptionResult {
 }
 
 /**
+ * Converts an object of type 'RdsRemoveSourceIdentifierFromSubscriptionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRemoveSourceIdentifierFromSubscriptionResult(obj: RdsRemoveSourceIdentifierFromSubscriptionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EventSubscription': toJson_RdsEventSubscription(obj.eventSubscription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsRemoveTagsFromResourceMessage
  */
 export interface RdsRemoveTagsFromResourceMessage {
   /**
    * @schema RdsRemoveTagsFromResourceMessage#ResourceName
    */
-  readonly resourceName: string;
+  readonly resourceName?: string;
 
   /**
    * @schema RdsRemoveTagsFromResourceMessage#TagKeys
    */
-  readonly tagKeys: string[];
+  readonly tagKeys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'RdsRemoveTagsFromResourceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRemoveTagsFromResourceMessage(obj: RdsRemoveTagsFromResourceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceName': obj.resourceName,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsResetDbClusterParameterGroupMessage
@@ -5154,7 +9079,7 @@ export interface RdsResetDbClusterParameterGroupMessage {
   /**
    * @schema RdsResetDbClusterParameterGroupMessage#DBClusterParameterGroupName
    */
-  readonly dbClusterParameterGroupName: string;
+  readonly dbClusterParameterGroupName?: string;
 
   /**
    * @schema RdsResetDbClusterParameterGroupMessage#ResetAllParameters
@@ -5169,13 +9094,29 @@ export interface RdsResetDbClusterParameterGroupMessage {
 }
 
 /**
+ * Converts an object of type 'RdsResetDbClusterParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsResetDbClusterParameterGroupMessage(obj: RdsResetDbClusterParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'ResetAllParameters': obj.resetAllParameters,
+    'Parameters': obj.parameters?.map(y => toJson_RdsParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsResetDbParameterGroupMessage
  */
 export interface RdsResetDbParameterGroupMessage {
   /**
    * @schema RdsResetDbParameterGroupMessage#DBParameterGroupName
    */
-  readonly dbParameterGroupName: string;
+  readonly dbParameterGroupName?: string;
 
   /**
    * @schema RdsResetDbParameterGroupMessage#ResetAllParameters
@@ -5188,6 +9129,22 @@ export interface RdsResetDbParameterGroupMessage {
   readonly parameters?: RdsParameter[];
 
 }
+
+/**
+ * Converts an object of type 'RdsResetDbParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsResetDbParameterGroupMessage(obj: RdsResetDbParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'ResetAllParameters': obj.resetAllParameters,
+    'Parameters': obj.parameters?.map(y => toJson_RdsParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsRestoreDbClusterFromS3Message
@@ -5216,7 +9173,7 @@ export interface RdsRestoreDbClusterFromS3Message {
   /**
    * @schema RdsRestoreDbClusterFromS3Message#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema RdsRestoreDbClusterFromS3Message#DBClusterParameterGroupName
@@ -5236,7 +9193,7 @@ export interface RdsRestoreDbClusterFromS3Message {
   /**
    * @schema RdsRestoreDbClusterFromS3Message#Engine
    */
-  readonly engine: string;
+  readonly engine?: string;
 
   /**
    * @schema RdsRestoreDbClusterFromS3Message#EngineVersion
@@ -5251,12 +9208,12 @@ export interface RdsRestoreDbClusterFromS3Message {
   /**
    * @schema RdsRestoreDbClusterFromS3Message#MasterUsername
    */
-  readonly masterUsername: string;
+  readonly masterUsername?: string;
 
   /**
    * @schema RdsRestoreDbClusterFromS3Message#MasterUserPassword
    */
-  readonly masterUserPassword: string;
+  readonly masterUserPassword?: string;
 
   /**
    * @schema RdsRestoreDbClusterFromS3Message#OptionGroupName
@@ -5296,17 +9253,17 @@ export interface RdsRestoreDbClusterFromS3Message {
   /**
    * @schema RdsRestoreDbClusterFromS3Message#SourceEngine
    */
-  readonly sourceEngine: string;
+  readonly sourceEngine?: string;
 
   /**
    * @schema RdsRestoreDbClusterFromS3Message#SourceEngineVersion
    */
-  readonly sourceEngineVersion: string;
+  readonly sourceEngineVersion?: string;
 
   /**
    * @schema RdsRestoreDbClusterFromS3Message#S3BucketName
    */
-  readonly s3BucketName: string;
+  readonly s3BucketName?: string;
 
   /**
    * @schema RdsRestoreDbClusterFromS3Message#S3Prefix
@@ -5316,7 +9273,7 @@ export interface RdsRestoreDbClusterFromS3Message {
   /**
    * @schema RdsRestoreDbClusterFromS3Message#S3IngestionRoleArn
    */
-  readonly s3IngestionRoleArn: string;
+  readonly s3IngestionRoleArn?: string;
 
   /**
    * @schema RdsRestoreDbClusterFromS3Message#BacktrackWindow
@@ -5351,6 +9308,50 @@ export interface RdsRestoreDbClusterFromS3Message {
 }
 
 /**
+ * Converts an object of type 'RdsRestoreDbClusterFromS3Message' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRestoreDbClusterFromS3Message(obj: RdsRestoreDbClusterFromS3Message | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AvailabilityZones': obj.availabilityZones?.map(y => y),
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'CharacterSetName': obj.characterSetName,
+    'DatabaseName': obj.databaseName,
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'Port': obj.port,
+    'MasterUsername': obj.masterUsername,
+    'MasterUserPassword': obj.masterUserPassword,
+    'OptionGroupName': obj.optionGroupName,
+    'PreferredBackupWindow': obj.preferredBackupWindow,
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+    'StorageEncrypted': obj.storageEncrypted,
+    'KmsKeyId': obj.kmsKeyId,
+    'EnableIAMDatabaseAuthentication': obj.enableIamDatabaseAuthentication,
+    'SourceEngine': obj.sourceEngine,
+    'SourceEngineVersion': obj.sourceEngineVersion,
+    'S3BucketName': obj.s3BucketName,
+    'S3Prefix': obj.s3Prefix,
+    'S3IngestionRoleArn': obj.s3IngestionRoleArn,
+    'BacktrackWindow': obj.backtrackWindow,
+    'EnableCloudwatchLogsExports': obj.enableCloudwatchLogsExports?.map(y => y),
+    'DeletionProtection': obj.deletionProtection,
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+    'Domain': obj.domain,
+    'DomainIAMRoleName': obj.domainIamRoleName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsRestoreDbClusterFromS3Result
  */
 export interface RdsRestoreDbClusterFromS3Result {
@@ -5360,6 +9361,20 @@ export interface RdsRestoreDbClusterFromS3Result {
   readonly dbCluster?: RdsdbCluster;
 
 }
+
+/**
+ * Converts an object of type 'RdsRestoreDbClusterFromS3Result' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRestoreDbClusterFromS3Result(obj: RdsRestoreDbClusterFromS3Result | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_RdsdbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsRestoreDbClusterFromSnapshotMessage
@@ -5373,17 +9388,17 @@ export interface RdsRestoreDbClusterFromSnapshotMessage {
   /**
    * @schema RdsRestoreDbClusterFromSnapshotMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema RdsRestoreDbClusterFromSnapshotMessage#SnapshotIdentifier
    */
-  readonly snapshotIdentifier: string;
+  readonly snapshotIdentifier?: string;
 
   /**
    * @schema RdsRestoreDbClusterFromSnapshotMessage#Engine
    */
-  readonly engine: string;
+  readonly engine?: string;
 
   /**
    * @schema RdsRestoreDbClusterFromSnapshotMessage#EngineVersion
@@ -5478,6 +9493,41 @@ export interface RdsRestoreDbClusterFromSnapshotMessage {
 }
 
 /**
+ * Converts an object of type 'RdsRestoreDbClusterFromSnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRestoreDbClusterFromSnapshotMessage(obj: RdsRestoreDbClusterFromSnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AvailabilityZones': obj.availabilityZones?.map(y => y),
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'SnapshotIdentifier': obj.snapshotIdentifier,
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'Port': obj.port,
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'DatabaseName': obj.databaseName,
+    'OptionGroupName': obj.optionGroupName,
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+    'KmsKeyId': obj.kmsKeyId,
+    'EnableIAMDatabaseAuthentication': obj.enableIamDatabaseAuthentication,
+    'BacktrackWindow': obj.backtrackWindow,
+    'EnableCloudwatchLogsExports': obj.enableCloudwatchLogsExports?.map(y => y),
+    'EngineMode': obj.engineMode,
+    'ScalingConfiguration': toJson_RdsScalingConfiguration(obj.scalingConfiguration),
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'DeletionProtection': obj.deletionProtection,
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+    'Domain': obj.domain,
+    'DomainIAMRoleName': obj.domainIamRoleName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsRestoreDbClusterFromSnapshotResult
  */
 export interface RdsRestoreDbClusterFromSnapshotResult {
@@ -5489,13 +9539,27 @@ export interface RdsRestoreDbClusterFromSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'RdsRestoreDbClusterFromSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRestoreDbClusterFromSnapshotResult(obj: RdsRestoreDbClusterFromSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_RdsdbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsRestoreDbClusterToPointInTimeMessage
  */
 export interface RdsRestoreDbClusterToPointInTimeMessage {
   /**
    * @schema RdsRestoreDbClusterToPointInTimeMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema RdsRestoreDbClusterToPointInTimeMessage#RestoreType
@@ -5505,7 +9569,7 @@ export interface RdsRestoreDbClusterToPointInTimeMessage {
   /**
    * @schema RdsRestoreDbClusterToPointInTimeMessage#SourceDBClusterIdentifier
    */
-  readonly sourceDbClusterIdentifier: string;
+  readonly sourceDbClusterIdentifier?: string;
 
   /**
    * @schema RdsRestoreDbClusterToPointInTimeMessage#RestoreToTime
@@ -5587,7 +9651,51 @@ export interface RdsRestoreDbClusterToPointInTimeMessage {
    */
   readonly domainIamRoleName?: string;
 
+  /**
+   * @schema RdsRestoreDbClusterToPointInTimeMessage#ScalingConfiguration
+   */
+  readonly scalingConfiguration?: RdsScalingConfiguration;
+
+  /**
+   * @schema RdsRestoreDbClusterToPointInTimeMessage#EngineMode
+   */
+  readonly engineMode?: string;
+
 }
+
+/**
+ * Converts an object of type 'RdsRestoreDbClusterToPointInTimeMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRestoreDbClusterToPointInTimeMessage(obj: RdsRestoreDbClusterToPointInTimeMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'RestoreType': obj.restoreType,
+    'SourceDBClusterIdentifier': obj.sourceDbClusterIdentifier,
+    'RestoreToTime': obj.restoreToTime,
+    'UseLatestRestorableTime': obj.useLatestRestorableTime,
+    'Port': obj.port,
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'OptionGroupName': obj.optionGroupName,
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+    'KmsKeyId': obj.kmsKeyId,
+    'EnableIAMDatabaseAuthentication': obj.enableIamDatabaseAuthentication,
+    'BacktrackWindow': obj.backtrackWindow,
+    'EnableCloudwatchLogsExports': obj.enableCloudwatchLogsExports?.map(y => y),
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'DeletionProtection': obj.deletionProtection,
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+    'Domain': obj.domain,
+    'DomainIAMRoleName': obj.domainIamRoleName,
+    'ScalingConfiguration': toJson_RdsScalingConfiguration(obj.scalingConfiguration),
+    'EngineMode': obj.engineMode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsRestoreDbClusterToPointInTimeResult
@@ -5601,18 +9709,32 @@ export interface RdsRestoreDbClusterToPointInTimeResult {
 }
 
 /**
+ * Converts an object of type 'RdsRestoreDbClusterToPointInTimeResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRestoreDbClusterToPointInTimeResult(obj: RdsRestoreDbClusterToPointInTimeResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_RdsdbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsRestoreDbInstanceFromDbSnapshotMessage
  */
 export interface RdsRestoreDbInstanceFromDbSnapshotMessage {
   /**
    * @schema RdsRestoreDbInstanceFromDbSnapshotMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
   /**
    * @schema RdsRestoreDbInstanceFromDbSnapshotMessage#DBSnapshotIdentifier
    */
-  readonly dbSnapshotIdentifier: string;
+  readonly dbSnapshotIdentifier?: string;
 
   /**
    * @schema RdsRestoreDbInstanceFromDbSnapshotMessage#DBInstanceClass
@@ -5744,7 +9866,54 @@ export interface RdsRestoreDbInstanceFromDbSnapshotMessage {
    */
   readonly deletionProtection?: boolean;
 
+  /**
+   * @schema RdsRestoreDbInstanceFromDbSnapshotMessage#EnableCustomerOwnedIp
+   */
+  readonly enableCustomerOwnedIp?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'RdsRestoreDbInstanceFromDbSnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRestoreDbInstanceFromDbSnapshotMessage(obj: RdsRestoreDbInstanceFromDbSnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'DBSnapshotIdentifier': obj.dbSnapshotIdentifier,
+    'DBInstanceClass': obj.dbInstanceClass,
+    'Port': obj.port,
+    'AvailabilityZone': obj.availabilityZone,
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'MultiAZ': obj.multiAz,
+    'PubliclyAccessible': obj.publiclyAccessible,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'LicenseModel': obj.licenseModel,
+    'DBName': obj.dbName,
+    'Engine': obj.engine,
+    'Iops': obj.iops,
+    'OptionGroupName': obj.optionGroupName,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+    'StorageType': obj.storageType,
+    'TdeCredentialArn': obj.tdeCredentialArn,
+    'TdeCredentialPassword': obj.tdeCredentialPassword,
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'Domain': obj.domain,
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+    'DomainIAMRoleName': obj.domainIamRoleName,
+    'EnableIAMDatabaseAuthentication': obj.enableIamDatabaseAuthentication,
+    'EnableCloudwatchLogsExports': obj.enableCloudwatchLogsExports?.map(y => y),
+    'ProcessorFeatures': obj.processorFeatures?.map(y => toJson_RdsProcessorFeature(y)),
+    'UseDefaultProcessorFeatures': obj.useDefaultProcessorFeatures,
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'DeletionProtection': obj.deletionProtection,
+    'EnableCustomerOwnedIp': obj.enableCustomerOwnedIp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsRestoreDbInstanceFromDbSnapshotResult
@@ -5758,6 +9927,20 @@ export interface RdsRestoreDbInstanceFromDbSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'RdsRestoreDbInstanceFromDbSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRestoreDbInstanceFromDbSnapshotResult(obj: RdsRestoreDbInstanceFromDbSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstance': toJson_RdsdbInstance(obj.dbInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsRestoreDbInstanceFromS3Message
  */
 export interface RdsRestoreDbInstanceFromS3Message {
@@ -5769,7 +9952,7 @@ export interface RdsRestoreDbInstanceFromS3Message {
   /**
    * @schema RdsRestoreDbInstanceFromS3Message#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
   /**
    * @schema RdsRestoreDbInstanceFromS3Message#AllocatedStorage
@@ -5779,12 +9962,12 @@ export interface RdsRestoreDbInstanceFromS3Message {
   /**
    * @schema RdsRestoreDbInstanceFromS3Message#DBInstanceClass
    */
-  readonly dbInstanceClass: string;
+  readonly dbInstanceClass?: string;
 
   /**
    * @schema RdsRestoreDbInstanceFromS3Message#Engine
    */
-  readonly engine: string;
+  readonly engine?: string;
 
   /**
    * @schema RdsRestoreDbInstanceFromS3Message#MasterUsername
@@ -5919,17 +10102,17 @@ export interface RdsRestoreDbInstanceFromS3Message {
   /**
    * @schema RdsRestoreDbInstanceFromS3Message#SourceEngine
    */
-  readonly sourceEngine: string;
+  readonly sourceEngine?: string;
 
   /**
    * @schema RdsRestoreDbInstanceFromS3Message#SourceEngineVersion
    */
-  readonly sourceEngineVersion: string;
+  readonly sourceEngineVersion?: string;
 
   /**
    * @schema RdsRestoreDbInstanceFromS3Message#S3BucketName
    */
-  readonly s3BucketName: string;
+  readonly s3BucketName?: string;
 
   /**
    * @schema RdsRestoreDbInstanceFromS3Message#S3Prefix
@@ -5939,7 +10122,7 @@ export interface RdsRestoreDbInstanceFromS3Message {
   /**
    * @schema RdsRestoreDbInstanceFromS3Message#S3IngestionRoleArn
    */
-  readonly s3IngestionRoleArn: string;
+  readonly s3IngestionRoleArn?: string;
 
   /**
    * @schema RdsRestoreDbInstanceFromS3Message#EnablePerformanceInsights
@@ -5984,6 +10167,63 @@ export interface RdsRestoreDbInstanceFromS3Message {
 }
 
 /**
+ * Converts an object of type 'RdsRestoreDbInstanceFromS3Message' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRestoreDbInstanceFromS3Message(obj: RdsRestoreDbInstanceFromS3Message | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBName': obj.dbName,
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'AllocatedStorage': obj.allocatedStorage,
+    'DBInstanceClass': obj.dbInstanceClass,
+    'Engine': obj.engine,
+    'MasterUsername': obj.masterUsername,
+    'MasterUserPassword': obj.masterUserPassword,
+    'DBSecurityGroups': obj.dbSecurityGroups?.map(y => y),
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'AvailabilityZone': obj.availabilityZone,
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'PreferredBackupWindow': obj.preferredBackupWindow,
+    'Port': obj.port,
+    'MultiAZ': obj.multiAz,
+    'EngineVersion': obj.engineVersion,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'LicenseModel': obj.licenseModel,
+    'Iops': obj.iops,
+    'OptionGroupName': obj.optionGroupName,
+    'PubliclyAccessible': obj.publiclyAccessible,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+    'StorageType': obj.storageType,
+    'StorageEncrypted': obj.storageEncrypted,
+    'KmsKeyId': obj.kmsKeyId,
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+    'MonitoringInterval': obj.monitoringInterval,
+    'MonitoringRoleArn': obj.monitoringRoleArn,
+    'EnableIAMDatabaseAuthentication': obj.enableIamDatabaseAuthentication,
+    'SourceEngine': obj.sourceEngine,
+    'SourceEngineVersion': obj.sourceEngineVersion,
+    'S3BucketName': obj.s3BucketName,
+    'S3Prefix': obj.s3Prefix,
+    'S3IngestionRoleArn': obj.s3IngestionRoleArn,
+    'EnablePerformanceInsights': obj.enablePerformanceInsights,
+    'PerformanceInsightsKMSKeyId': obj.performanceInsightsKmsKeyId,
+    'PerformanceInsightsRetentionPeriod': obj.performanceInsightsRetentionPeriod,
+    'EnableCloudwatchLogsExports': obj.enableCloudwatchLogsExports?.map(y => y),
+    'ProcessorFeatures': obj.processorFeatures?.map(y => toJson_RdsProcessorFeature(y)),
+    'UseDefaultProcessorFeatures': obj.useDefaultProcessorFeatures,
+    'DeletionProtection': obj.deletionProtection,
+    'MaxAllocatedStorage': obj.maxAllocatedStorage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsRestoreDbInstanceFromS3Result
  */
 export interface RdsRestoreDbInstanceFromS3Result {
@@ -5993,6 +10233,20 @@ export interface RdsRestoreDbInstanceFromS3Result {
   readonly dbInstance?: RdsdbInstance;
 
 }
+
+/**
+ * Converts an object of type 'RdsRestoreDbInstanceFromS3Result' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRestoreDbInstanceFromS3Result(obj: RdsRestoreDbInstanceFromS3Result | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstance': toJson_RdsdbInstance(obj.dbInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsRestoreDbInstanceToPointInTimeMessage
@@ -6006,7 +10260,7 @@ export interface RdsRestoreDbInstanceToPointInTimeMessage {
   /**
    * @schema RdsRestoreDbInstanceToPointInTimeMessage#TargetDBInstanceIdentifier
    */
-  readonly targetDbInstanceIdentifier: string;
+  readonly targetDbInstanceIdentifier?: string;
 
   /**
    * @schema RdsRestoreDbInstanceToPointInTimeMessage#RestoreTime
@@ -6158,7 +10412,64 @@ export interface RdsRestoreDbInstanceToPointInTimeMessage {
    */
   readonly maxAllocatedStorage?: number;
 
+  /**
+   * @schema RdsRestoreDbInstanceToPointInTimeMessage#SourceDBInstanceAutomatedBackupsArn
+   */
+  readonly sourceDbInstanceAutomatedBackupsArn?: string;
+
+  /**
+   * @schema RdsRestoreDbInstanceToPointInTimeMessage#EnableCustomerOwnedIp
+   */
+  readonly enableCustomerOwnedIp?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'RdsRestoreDbInstanceToPointInTimeMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRestoreDbInstanceToPointInTimeMessage(obj: RdsRestoreDbInstanceToPointInTimeMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceDBInstanceIdentifier': obj.sourceDbInstanceIdentifier,
+    'TargetDBInstanceIdentifier': obj.targetDbInstanceIdentifier,
+    'RestoreTime': obj.restoreTime,
+    'UseLatestRestorableTime': obj.useLatestRestorableTime,
+    'DBInstanceClass': obj.dbInstanceClass,
+    'Port': obj.port,
+    'AvailabilityZone': obj.availabilityZone,
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'MultiAZ': obj.multiAz,
+    'PubliclyAccessible': obj.publiclyAccessible,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'LicenseModel': obj.licenseModel,
+    'DBName': obj.dbName,
+    'Engine': obj.engine,
+    'Iops': obj.iops,
+    'OptionGroupName': obj.optionGroupName,
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+    'Tags': obj.tags?.map(y => toJson_RdsTag(y)),
+    'StorageType': obj.storageType,
+    'TdeCredentialArn': obj.tdeCredentialArn,
+    'TdeCredentialPassword': obj.tdeCredentialPassword,
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'Domain': obj.domain,
+    'DomainIAMRoleName': obj.domainIamRoleName,
+    'EnableIAMDatabaseAuthentication': obj.enableIamDatabaseAuthentication,
+    'EnableCloudwatchLogsExports': obj.enableCloudwatchLogsExports?.map(y => y),
+    'ProcessorFeatures': obj.processorFeatures?.map(y => toJson_RdsProcessorFeature(y)),
+    'UseDefaultProcessorFeatures': obj.useDefaultProcessorFeatures,
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'DeletionProtection': obj.deletionProtection,
+    'SourceDbiResourceId': obj.sourceDbiResourceId,
+    'MaxAllocatedStorage': obj.maxAllocatedStorage,
+    'SourceDBInstanceAutomatedBackupsArn': obj.sourceDbInstanceAutomatedBackupsArn,
+    'EnableCustomerOwnedIp': obj.enableCustomerOwnedIp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsRestoreDbInstanceToPointInTimeResult
@@ -6172,13 +10483,27 @@ export interface RdsRestoreDbInstanceToPointInTimeResult {
 }
 
 /**
+ * Converts an object of type 'RdsRestoreDbInstanceToPointInTimeResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRestoreDbInstanceToPointInTimeResult(obj: RdsRestoreDbInstanceToPointInTimeResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstance': toJson_RdsdbInstance(obj.dbInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsRevokeDbSecurityGroupIngressMessage
  */
 export interface RdsRevokeDbSecurityGroupIngressMessage {
   /**
    * @schema RdsRevokeDbSecurityGroupIngressMessage#DBSecurityGroupName
    */
-  readonly dbSecurityGroupName: string;
+  readonly dbSecurityGroupName?: string;
 
   /**
    * @schema RdsRevokeDbSecurityGroupIngressMessage#CIDRIP
@@ -6203,6 +10528,24 @@ export interface RdsRevokeDbSecurityGroupIngressMessage {
 }
 
 /**
+ * Converts an object of type 'RdsRevokeDbSecurityGroupIngressMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRevokeDbSecurityGroupIngressMessage(obj: RdsRevokeDbSecurityGroupIngressMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSecurityGroupName': obj.dbSecurityGroupName,
+    'CIDRIP': obj.cidrip,
+    'EC2SecurityGroupName': obj.ec2SecurityGroupName,
+    'EC2SecurityGroupId': obj.ec2SecurityGroupId,
+    'EC2SecurityGroupOwnerId': obj.ec2SecurityGroupOwnerId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsRevokeDbSecurityGroupIngressResult
  */
 export interface RdsRevokeDbSecurityGroupIngressResult {
@@ -6214,30 +10557,67 @@ export interface RdsRevokeDbSecurityGroupIngressResult {
 }
 
 /**
+ * Converts an object of type 'RdsRevokeDbSecurityGroupIngressResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRevokeDbSecurityGroupIngressResult(obj: RdsRevokeDbSecurityGroupIngressResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSecurityGroup': toJson_RdsdbSecurityGroup(obj.dbSecurityGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsStartActivityStreamRequest
  */
 export interface RdsStartActivityStreamRequest {
   /**
    * @schema RdsStartActivityStreamRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema RdsStartActivityStreamRequest#Mode
    */
-  readonly mode: string;
+  readonly mode?: string;
 
   /**
    * @schema RdsStartActivityStreamRequest#KmsKeyId
    */
-  readonly kmsKeyId: string;
+  readonly kmsKeyId?: string;
 
   /**
    * @schema RdsStartActivityStreamRequest#ApplyImmediately
    */
   readonly applyImmediately?: boolean;
 
+  /**
+   * @schema RdsStartActivityStreamRequest#EngineNativeAuditFieldsIncluded
+   */
+  readonly engineNativeAuditFieldsIncluded?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'RdsStartActivityStreamRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsStartActivityStreamRequest(obj: RdsStartActivityStreamRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'Mode': obj.mode,
+    'KmsKeyId': obj.kmsKeyId,
+    'ApplyImmediately': obj.applyImmediately,
+    'EngineNativeAuditFieldsIncluded': obj.engineNativeAuditFieldsIncluded,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsStartActivityStreamResponse
@@ -6268,7 +10648,31 @@ export interface RdsStartActivityStreamResponse {
    */
   readonly applyImmediately?: boolean;
 
+  /**
+   * @schema RdsStartActivityStreamResponse#EngineNativeAuditFieldsIncluded
+   */
+  readonly engineNativeAuditFieldsIncluded?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'RdsStartActivityStreamResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsStartActivityStreamResponse(obj: RdsStartActivityStreamResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'KmsKeyId': obj.kmsKeyId,
+    'KinesisStreamName': obj.kinesisStreamName,
+    'Status': obj.status,
+    'Mode': obj.mode,
+    'ApplyImmediately': obj.applyImmediately,
+    'EngineNativeAuditFieldsIncluded': obj.engineNativeAuditFieldsIncluded,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsStartDbClusterMessage
@@ -6277,9 +10681,23 @@ export interface RdsStartDbClusterMessage {
   /**
    * @schema RdsStartDbClusterMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsStartDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsStartDbClusterMessage(obj: RdsStartDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsStartDbClusterResult
@@ -6293,15 +10711,43 @@ export interface RdsStartDbClusterResult {
 }
 
 /**
+ * Converts an object of type 'RdsStartDbClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsStartDbClusterResult(obj: RdsStartDbClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_RdsdbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsStartDbInstanceMessage
  */
 export interface RdsStartDbInstanceMessage {
   /**
    * @schema RdsStartDbInstanceMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsStartDbInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsStartDbInstanceMessage(obj: RdsStartDbInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsStartDbInstanceResult
@@ -6315,33 +10761,115 @@ export interface RdsStartDbInstanceResult {
 }
 
 /**
+ * Converts an object of type 'RdsStartDbInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsStartDbInstanceResult(obj: RdsStartDbInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstance': toJson_RdsdbInstance(obj.dbInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RdsStartDbInstanceAutomatedBackupsReplicationMessage
+ */
+export interface RdsStartDbInstanceAutomatedBackupsReplicationMessage {
+  /**
+   * @schema RdsStartDbInstanceAutomatedBackupsReplicationMessage#SourceDBInstanceArn
+   */
+  readonly sourceDbInstanceArn?: string;
+
+  /**
+   * @schema RdsStartDbInstanceAutomatedBackupsReplicationMessage#BackupRetentionPeriod
+   */
+  readonly backupRetentionPeriod?: number;
+
+  /**
+   * @schema RdsStartDbInstanceAutomatedBackupsReplicationMessage#KmsKeyId
+   */
+  readonly kmsKeyId?: string;
+
+  /**
+   * @schema RdsStartDbInstanceAutomatedBackupsReplicationMessage#PreSignedUrl
+   */
+  readonly preSignedUrl?: string;
+
+}
+
+/**
+ * Converts an object of type 'RdsStartDbInstanceAutomatedBackupsReplicationMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsStartDbInstanceAutomatedBackupsReplicationMessage(obj: RdsStartDbInstanceAutomatedBackupsReplicationMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceDBInstanceArn': obj.sourceDbInstanceArn,
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'KmsKeyId': obj.kmsKeyId,
+    'PreSignedUrl': obj.preSignedUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RdsStartDbInstanceAutomatedBackupsReplicationResult
+ */
+export interface RdsStartDbInstanceAutomatedBackupsReplicationResult {
+  /**
+   * @schema RdsStartDbInstanceAutomatedBackupsReplicationResult#DBInstanceAutomatedBackup
+   */
+  readonly dbInstanceAutomatedBackup?: RdsdbInstanceAutomatedBackup;
+
+}
+
+/**
+ * Converts an object of type 'RdsStartDbInstanceAutomatedBackupsReplicationResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsStartDbInstanceAutomatedBackupsReplicationResult(obj: RdsStartDbInstanceAutomatedBackupsReplicationResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceAutomatedBackup': toJson_RdsdbInstanceAutomatedBackup(obj.dbInstanceAutomatedBackup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsStartExportTaskMessage
  */
 export interface RdsStartExportTaskMessage {
   /**
    * @schema RdsStartExportTaskMessage#ExportTaskIdentifier
    */
-  readonly exportTaskIdentifier: string;
+  readonly exportTaskIdentifier?: string;
 
   /**
    * @schema RdsStartExportTaskMessage#SourceArn
    */
-  readonly sourceArn: string;
+  readonly sourceArn?: string;
 
   /**
    * @schema RdsStartExportTaskMessage#S3BucketName
    */
-  readonly s3BucketName: string;
+  readonly s3BucketName?: string;
 
   /**
    * @schema RdsStartExportTaskMessage#IamRoleArn
    */
-  readonly iamRoleArn: string;
+  readonly iamRoleArn?: string;
 
   /**
    * @schema RdsStartExportTaskMessage#KmsKeyId
    */
-  readonly kmsKeyId: string;
+  readonly kmsKeyId?: string;
 
   /**
    * @schema RdsStartExportTaskMessage#S3Prefix
@@ -6356,13 +10884,33 @@ export interface RdsStartExportTaskMessage {
 }
 
 /**
+ * Converts an object of type 'RdsStartExportTaskMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsStartExportTaskMessage(obj: RdsStartExportTaskMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExportTaskIdentifier': obj.exportTaskIdentifier,
+    'SourceArn': obj.sourceArn,
+    'S3BucketName': obj.s3BucketName,
+    'IamRoleArn': obj.iamRoleArn,
+    'KmsKeyId': obj.kmsKeyId,
+    'S3Prefix': obj.s3Prefix,
+    'ExportOnly': obj.exportOnly?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsStopActivityStreamRequest
  */
 export interface RdsStopActivityStreamRequest {
   /**
    * @schema RdsStopActivityStreamRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema RdsStopActivityStreamRequest#ApplyImmediately
@@ -6370,6 +10918,21 @@ export interface RdsStopActivityStreamRequest {
   readonly applyImmediately?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'RdsStopActivityStreamRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsStopActivityStreamRequest(obj: RdsStopActivityStreamRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'ApplyImmediately': obj.applyImmediately,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsStopActivityStreamResponse
@@ -6393,15 +10956,45 @@ export interface RdsStopActivityStreamResponse {
 }
 
 /**
+ * Converts an object of type 'RdsStopActivityStreamResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsStopActivityStreamResponse(obj: RdsStopActivityStreamResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'KmsKeyId': obj.kmsKeyId,
+    'KinesisStreamName': obj.kinesisStreamName,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsStopDbClusterMessage
  */
 export interface RdsStopDbClusterMessage {
   /**
    * @schema RdsStopDbClusterMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsStopDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsStopDbClusterMessage(obj: RdsStopDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsStopDbClusterResult
@@ -6415,13 +11008,27 @@ export interface RdsStopDbClusterResult {
 }
 
 /**
+ * Converts an object of type 'RdsStopDbClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsStopDbClusterResult(obj: RdsStopDbClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_RdsdbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsStopDbInstanceMessage
  */
 export interface RdsStopDbInstanceMessage {
   /**
    * @schema RdsStopDbInstanceMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
   /**
    * @schema RdsStopDbInstanceMessage#DBSnapshotIdentifier
@@ -6429,6 +11036,21 @@ export interface RdsStopDbInstanceMessage {
   readonly dbSnapshotIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsStopDbInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsStopDbInstanceMessage(obj: RdsStopDbInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'DBSnapshotIdentifier': obj.dbSnapshotIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsStopDbInstanceResult
@@ -6440,6 +11062,70 @@ export interface RdsStopDbInstanceResult {
   readonly dbInstance?: RdsdbInstance;
 
 }
+
+/**
+ * Converts an object of type 'RdsStopDbInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsStopDbInstanceResult(obj: RdsStopDbInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstance': toJson_RdsdbInstance(obj.dbInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RdsStopDbInstanceAutomatedBackupsReplicationMessage
+ */
+export interface RdsStopDbInstanceAutomatedBackupsReplicationMessage {
+  /**
+   * @schema RdsStopDbInstanceAutomatedBackupsReplicationMessage#SourceDBInstanceArn
+   */
+  readonly sourceDbInstanceArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'RdsStopDbInstanceAutomatedBackupsReplicationMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsStopDbInstanceAutomatedBackupsReplicationMessage(obj: RdsStopDbInstanceAutomatedBackupsReplicationMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceDBInstanceArn': obj.sourceDbInstanceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RdsStopDbInstanceAutomatedBackupsReplicationResult
+ */
+export interface RdsStopDbInstanceAutomatedBackupsReplicationResult {
+  /**
+   * @schema RdsStopDbInstanceAutomatedBackupsReplicationResult#DBInstanceAutomatedBackup
+   */
+  readonly dbInstanceAutomatedBackup?: RdsdbInstanceAutomatedBackup;
+
+}
+
+/**
+ * Converts an object of type 'RdsStopDbInstanceAutomatedBackupsReplicationResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsStopDbInstanceAutomatedBackupsReplicationResult(obj: RdsStopDbInstanceAutomatedBackupsReplicationResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceAutomatedBackup': toJson_RdsdbInstanceAutomatedBackup(obj.dbInstanceAutomatedBackup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsEventSubscription
@@ -6498,6 +11184,29 @@ export interface RdsEventSubscription {
 }
 
 /**
+ * Converts an object of type 'RdsEventSubscription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsEventSubscription(obj: RdsEventSubscription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CustomerAwsId': obj.customerAwsId,
+    'CustSubscriptionId': obj.custSubscriptionId,
+    'SnsTopicArn': obj.snsTopicArn,
+    'Status': obj.status,
+    'SubscriptionCreationTime': obj.subscriptionCreationTime,
+    'SourceType': obj.sourceType,
+    'SourceIdsList': obj.sourceIdsList?.map(y => y),
+    'EventCategoriesList': obj.eventCategoriesList?.map(y => y),
+    'Enabled': obj.enabled,
+    'EventSubscriptionArn': obj.eventSubscriptionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsTag
  */
 export interface RdsTag {
@@ -6514,6 +11223,21 @@ export interface RdsTag {
 }
 
 /**
+ * Converts an object of type 'RdsTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsTag(obj: RdsTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsResourcePendingMaintenanceActions
  */
 export interface RdsResourcePendingMaintenanceActions {
@@ -6528,6 +11252,21 @@ export interface RdsResourcePendingMaintenanceActions {
   readonly pendingMaintenanceActionDetails?: RdsPendingMaintenanceAction[];
 
 }
+
+/**
+ * Converts an object of type 'RdsResourcePendingMaintenanceActions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsResourcePendingMaintenanceActions(obj: RdsResourcePendingMaintenanceActions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceIdentifier': obj.resourceIdentifier,
+    'PendingMaintenanceActionDetails': obj.pendingMaintenanceActionDetails?.map(y => toJson_RdsPendingMaintenanceAction(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbSecurityGroup
@@ -6571,6 +11310,26 @@ export interface RdsdbSecurityGroup {
 }
 
 /**
+ * Converts an object of type 'RdsdbSecurityGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbSecurityGroup(obj: RdsdbSecurityGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OwnerId': obj.ownerId,
+    'DBSecurityGroupName': obj.dbSecurityGroupName,
+    'DBSecurityGroupDescription': obj.dbSecurityGroupDescription,
+    'VpcId': obj.vpcId,
+    'EC2SecurityGroups': obj.ec2SecurityGroups?.map(y => toJson_Rdsec2SecurityGroup(y)),
+    'IPRanges': obj.ipRanges?.map(y => toJson_RdsipRange(y)),
+    'DBSecurityGroupArn': obj.dbSecurityGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbClusterParameterGroup
  */
 export interface RdsdbClusterParameterGroup {
@@ -6595,6 +11354,23 @@ export interface RdsdbClusterParameterGroup {
   readonly dbClusterParameterGroupArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsdbClusterParameterGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbClusterParameterGroup(obj: RdsdbClusterParameterGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'DBParameterGroupFamily': obj.dbParameterGroupFamily,
+    'Description': obj.description,
+    'DBClusterParameterGroupArn': obj.dbClusterParameterGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbClusterSnapshot
@@ -6624,6 +11400,11 @@ export interface RdsdbClusterSnapshot {
    * @schema RdsdbClusterSnapshot#Engine
    */
   readonly engine?: string;
+
+  /**
+   * @schema RdsdbClusterSnapshot#EngineMode
+   */
+  readonly engineMode?: string;
 
   /**
    * @schema RdsdbClusterSnapshot#AllocatedStorage
@@ -6708,6 +11489,41 @@ export interface RdsdbClusterSnapshot {
 }
 
 /**
+ * Converts an object of type 'RdsdbClusterSnapshot' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbClusterSnapshot(obj: RdsdbClusterSnapshot | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AvailabilityZones': obj.availabilityZones?.map(y => y),
+    'DBClusterSnapshotIdentifier': obj.dbClusterSnapshotIdentifier,
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'SnapshotCreateTime': obj.snapshotCreateTime,
+    'Engine': obj.engine,
+    'EngineMode': obj.engineMode,
+    'AllocatedStorage': obj.allocatedStorage,
+    'Status': obj.status,
+    'Port': obj.port,
+    'VpcId': obj.vpcId,
+    'ClusterCreateTime': obj.clusterCreateTime,
+    'MasterUsername': obj.masterUsername,
+    'EngineVersion': obj.engineVersion,
+    'LicenseModel': obj.licenseModel,
+    'SnapshotType': obj.snapshotType,
+    'PercentProgress': obj.percentProgress,
+    'StorageEncrypted': obj.storageEncrypted,
+    'KmsKeyId': obj.kmsKeyId,
+    'DBClusterSnapshotArn': obj.dbClusterSnapshotArn,
+    'SourceDBClusterSnapshotArn': obj.sourceDbClusterSnapshotArn,
+    'IAMDatabaseAuthenticationEnabled': obj.iamDatabaseAuthenticationEnabled,
+    'TagList': obj.tagList?.map(y => toJson_RdsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbParameterGroup
  */
 export interface RdsdbParameterGroup {
@@ -6732,6 +11548,23 @@ export interface RdsdbParameterGroup {
   readonly dbParameterGroupArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsdbParameterGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbParameterGroup(obj: RdsdbParameterGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'DBParameterGroupFamily': obj.dbParameterGroupFamily,
+    'Description': obj.description,
+    'DBParameterGroupArn': obj.dbParameterGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbSnapshot
@@ -6882,7 +11715,55 @@ export interface RdsdbSnapshot {
    */
   readonly tagList?: RdsTag[];
 
+  /**
+   * @schema RdsdbSnapshot#OriginalSnapshotCreateTime
+   */
+  readonly originalSnapshotCreateTime?: string;
+
 }
+
+/**
+ * Converts an object of type 'RdsdbSnapshot' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbSnapshot(obj: RdsdbSnapshot | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSnapshotIdentifier': obj.dbSnapshotIdentifier,
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'SnapshotCreateTime': obj.snapshotCreateTime,
+    'Engine': obj.engine,
+    'AllocatedStorage': obj.allocatedStorage,
+    'Status': obj.status,
+    'Port': obj.port,
+    'AvailabilityZone': obj.availabilityZone,
+    'VpcId': obj.vpcId,
+    'InstanceCreateTime': obj.instanceCreateTime,
+    'MasterUsername': obj.masterUsername,
+    'EngineVersion': obj.engineVersion,
+    'LicenseModel': obj.licenseModel,
+    'SnapshotType': obj.snapshotType,
+    'Iops': obj.iops,
+    'OptionGroupName': obj.optionGroupName,
+    'PercentProgress': obj.percentProgress,
+    'SourceRegion': obj.sourceRegion,
+    'SourceDBSnapshotIdentifier': obj.sourceDbSnapshotIdentifier,
+    'StorageType': obj.storageType,
+    'TdeCredentialArn': obj.tdeCredentialArn,
+    'Encrypted': obj.encrypted,
+    'KmsKeyId': obj.kmsKeyId,
+    'DBSnapshotArn': obj.dbSnapshotArn,
+    'Timezone': obj.timezone,
+    'IAMDatabaseAuthenticationEnabled': obj.iamDatabaseAuthenticationEnabled,
+    'ProcessorFeatures': obj.processorFeatures?.map(y => toJson_RdsProcessorFeature(y)),
+    'DbiResourceId': obj.dbiResourceId,
+    'TagList': obj.tagList?.map(y => toJson_RdsTag(y)),
+    'OriginalSnapshotCreateTime': obj.originalSnapshotCreateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsOptionGroup
@@ -6931,6 +11812,27 @@ export interface RdsOptionGroup {
 }
 
 /**
+ * Converts an object of type 'RdsOptionGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsOptionGroup(obj: RdsOptionGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OptionGroupName': obj.optionGroupName,
+    'OptionGroupDescription': obj.optionGroupDescription,
+    'EngineName': obj.engineName,
+    'MajorEngineVersion': obj.majorEngineVersion,
+    'Options': obj.options?.map(y => toJson_RdsOption(y)),
+    'AllowsVpcAndNonVpcInstanceMemberships': obj.allowsVpcAndNonVpcInstanceMemberships,
+    'VpcId': obj.vpcId,
+    'OptionGroupArn': obj.optionGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCustomAvailabilityZone
  */
 export interface RdsCustomAvailabilityZone {
@@ -6955,6 +11857,23 @@ export interface RdsCustomAvailabilityZone {
   readonly vpnDetails?: RdsVpnDetails;
 
 }
+
+/**
+ * Converts an object of type 'RdsCustomAvailabilityZone' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCustomAvailabilityZone(obj: RdsCustomAvailabilityZone | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CustomAvailabilityZoneId': obj.customAvailabilityZoneId,
+    'CustomAvailabilityZoneName': obj.customAvailabilityZoneName,
+    'CustomAvailabilityZoneStatus': obj.customAvailabilityZoneStatus,
+    'VpnDetails': toJson_RdsVpnDetails(obj.vpnDetails),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsScalingConfiguration
@@ -6986,6 +11905,24 @@ export interface RdsScalingConfiguration {
   readonly timeoutAction?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsScalingConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsScalingConfiguration(obj: RdsScalingConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MinCapacity': obj.minCapacity,
+    'MaxCapacity': obj.maxCapacity,
+    'AutoPause': obj.autoPause,
+    'SecondsUntilAutoPause': obj.secondsUntilAutoPause,
+    'TimeoutAction': obj.timeoutAction,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbCluster
@@ -7035,6 +11972,11 @@ export interface RdsdbCluster {
    * @schema RdsdbCluster#Status
    */
   readonly status?: string;
+
+  /**
+   * @schema RdsdbCluster#AutomaticRestartTime
+   */
+  readonly automaticRestartTime?: string;
 
   /**
    * @schema RdsdbCluster#PercentProgress
@@ -7266,7 +12208,82 @@ export interface RdsdbCluster {
    */
   readonly globalWriteForwardingRequested?: boolean;
 
+  /**
+   * @schema RdsdbCluster#PendingModifiedValues
+   */
+  readonly pendingModifiedValues?: RdsClusterPendingModifiedValues;
+
 }
+
+/**
+ * Converts an object of type 'RdsdbCluster' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbCluster(obj: RdsdbCluster | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AllocatedStorage': obj.allocatedStorage,
+    'AvailabilityZones': obj.availabilityZones?.map(y => y),
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'CharacterSetName': obj.characterSetName,
+    'DatabaseName': obj.databaseName,
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'DBClusterParameterGroup': obj.dbClusterParameterGroup,
+    'DBSubnetGroup': obj.dbSubnetGroup,
+    'Status': obj.status,
+    'AutomaticRestartTime': obj.automaticRestartTime,
+    'PercentProgress': obj.percentProgress,
+    'EarliestRestorableTime': obj.earliestRestorableTime,
+    'Endpoint': obj.endpoint,
+    'ReaderEndpoint': obj.readerEndpoint,
+    'CustomEndpoints': obj.customEndpoints?.map(y => y),
+    'MultiAZ': obj.multiAz,
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'LatestRestorableTime': obj.latestRestorableTime,
+    'Port': obj.port,
+    'MasterUsername': obj.masterUsername,
+    'DBClusterOptionGroupMemberships': obj.dbClusterOptionGroupMemberships?.map(y => toJson_RdsdbClusterOptionGroupStatus(y)),
+    'PreferredBackupWindow': obj.preferredBackupWindow,
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'ReplicationSourceIdentifier': obj.replicationSourceIdentifier,
+    'ReadReplicaIdentifiers': obj.readReplicaIdentifiers?.map(y => y),
+    'DBClusterMembers': obj.dbClusterMembers?.map(y => toJson_RdsdbClusterMember(y)),
+    'VpcSecurityGroups': obj.vpcSecurityGroups?.map(y => toJson_RdsVpcSecurityGroupMembership(y)),
+    'HostedZoneId': obj.hostedZoneId,
+    'StorageEncrypted': obj.storageEncrypted,
+    'KmsKeyId': obj.kmsKeyId,
+    'DbClusterResourceId': obj.dbClusterResourceId,
+    'DBClusterArn': obj.dbClusterArn,
+    'AssociatedRoles': obj.associatedRoles?.map(y => toJson_RdsdbClusterRole(y)),
+    'IAMDatabaseAuthenticationEnabled': obj.iamDatabaseAuthenticationEnabled,
+    'CloneGroupId': obj.cloneGroupId,
+    'ClusterCreateTime': obj.clusterCreateTime,
+    'EarliestBacktrackTime': obj.earliestBacktrackTime,
+    'BacktrackWindow': obj.backtrackWindow,
+    'BacktrackConsumedChangeRecords': obj.backtrackConsumedChangeRecords,
+    'EnabledCloudwatchLogsExports': obj.enabledCloudwatchLogsExports?.map(y => y),
+    'Capacity': obj.capacity,
+    'EngineMode': obj.engineMode,
+    'ScalingConfigurationInfo': toJson_RdsScalingConfigurationInfo(obj.scalingConfigurationInfo),
+    'DeletionProtection': obj.deletionProtection,
+    'HttpEndpointEnabled': obj.httpEndpointEnabled,
+    'ActivityStreamMode': obj.activityStreamMode,
+    'ActivityStreamStatus': obj.activityStreamStatus,
+    'ActivityStreamKmsKeyId': obj.activityStreamKmsKeyId,
+    'ActivityStreamKinesisStreamName': obj.activityStreamKinesisStreamName,
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+    'CrossAccountClone': obj.crossAccountClone,
+    'DomainMemberships': obj.domainMemberships?.map(y => toJson_RdsDomainMembership(y)),
+    'TagList': obj.tagList?.map(y => toJson_RdsTag(y)),
+    'GlobalWriteForwardingStatus': obj.globalWriteForwardingStatus,
+    'GlobalWriteForwardingRequested': obj.globalWriteForwardingRequested,
+    'PendingModifiedValues': toJson_RdsClusterPendingModifiedValues(obj.pendingModifiedValues),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsProcessorFeature
@@ -7283,6 +12300,21 @@ export interface RdsProcessorFeature {
   readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsProcessorFeature' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsProcessorFeature(obj: RdsProcessorFeature | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbInstance
@@ -7307,6 +12339,11 @@ export interface RdsdbInstance {
    * @schema RdsdbInstance#DBInstanceStatus
    */
   readonly dbInstanceStatus?: string;
+
+  /**
+   * @schema RdsdbInstance#AutomaticRestartTime
+   */
+  readonly automaticRestartTime?: string;
 
   /**
    * @schema RdsdbInstance#MasterUsername
@@ -7593,7 +12630,130 @@ export interface RdsdbInstance {
    */
   readonly tagList?: RdsTag[];
 
+  /**
+   * @schema RdsdbInstance#DBInstanceAutomatedBackupsReplications
+   */
+  readonly dbInstanceAutomatedBackupsReplications?: RdsdbInstanceAutomatedBackupsReplication[];
+
+  /**
+   * @schema RdsdbInstance#CustomerOwnedIpEnabled
+   */
+  readonly customerOwnedIpEnabled?: boolean;
+
+  /**
+   * @schema RdsdbInstance#AwsBackupRecoveryPointArn
+   */
+  readonly awsBackupRecoveryPointArn?: string;
+
+  /**
+   * @schema RdsdbInstance#ActivityStreamStatus
+   */
+  readonly activityStreamStatus?: string;
+
+  /**
+   * @schema RdsdbInstance#ActivityStreamKmsKeyId
+   */
+  readonly activityStreamKmsKeyId?: string;
+
+  /**
+   * @schema RdsdbInstance#ActivityStreamKinesisStreamName
+   */
+  readonly activityStreamKinesisStreamName?: string;
+
+  /**
+   * @schema RdsdbInstance#ActivityStreamMode
+   */
+  readonly activityStreamMode?: string;
+
+  /**
+   * @schema RdsdbInstance#ActivityStreamEngineNativeAuditFieldsIncluded
+   */
+  readonly activityStreamEngineNativeAuditFieldsIncluded?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'RdsdbInstance' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbInstance(obj: RdsdbInstance | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'DBInstanceClass': obj.dbInstanceClass,
+    'Engine': obj.engine,
+    'DBInstanceStatus': obj.dbInstanceStatus,
+    'AutomaticRestartTime': obj.automaticRestartTime,
+    'MasterUsername': obj.masterUsername,
+    'DBName': obj.dbName,
+    'Endpoint': toJson_RdsEndpoint(obj.endpoint),
+    'AllocatedStorage': obj.allocatedStorage,
+    'InstanceCreateTime': obj.instanceCreateTime,
+    'PreferredBackupWindow': obj.preferredBackupWindow,
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'DBSecurityGroups': obj.dbSecurityGroups?.map(y => toJson_RdsdbSecurityGroupMembership(y)),
+    'VpcSecurityGroups': obj.vpcSecurityGroups?.map(y => toJson_RdsVpcSecurityGroupMembership(y)),
+    'DBParameterGroups': obj.dbParameterGroups?.map(y => toJson_RdsdbParameterGroupStatus(y)),
+    'AvailabilityZone': obj.availabilityZone,
+    'DBSubnetGroup': toJson_RdsdbSubnetGroup(obj.dbSubnetGroup),
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'PendingModifiedValues': toJson_RdsPendingModifiedValues(obj.pendingModifiedValues),
+    'LatestRestorableTime': obj.latestRestorableTime,
+    'MultiAZ': obj.multiAz,
+    'EngineVersion': obj.engineVersion,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'ReadReplicaSourceDBInstanceIdentifier': obj.readReplicaSourceDbInstanceIdentifier,
+    'ReadReplicaDBInstanceIdentifiers': obj.readReplicaDbInstanceIdentifiers?.map(y => y),
+    'ReadReplicaDBClusterIdentifiers': obj.readReplicaDbClusterIdentifiers?.map(y => y),
+    'ReplicaMode': obj.replicaMode,
+    'LicenseModel': obj.licenseModel,
+    'Iops': obj.iops,
+    'OptionGroupMemberships': obj.optionGroupMemberships?.map(y => toJson_RdsOptionGroupMembership(y)),
+    'CharacterSetName': obj.characterSetName,
+    'NcharCharacterSetName': obj.ncharCharacterSetName,
+    'SecondaryAvailabilityZone': obj.secondaryAvailabilityZone,
+    'PubliclyAccessible': obj.publiclyAccessible,
+    'StatusInfos': obj.statusInfos?.map(y => toJson_RdsdbInstanceStatusInfo(y)),
+    'StorageType': obj.storageType,
+    'TdeCredentialArn': obj.tdeCredentialArn,
+    'DbInstancePort': obj.dbInstancePort,
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'StorageEncrypted': obj.storageEncrypted,
+    'KmsKeyId': obj.kmsKeyId,
+    'DbiResourceId': obj.dbiResourceId,
+    'CACertificateIdentifier': obj.caCertificateIdentifier,
+    'DomainMemberships': obj.domainMemberships?.map(y => toJson_RdsDomainMembership(y)),
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+    'MonitoringInterval': obj.monitoringInterval,
+    'EnhancedMonitoringResourceArn': obj.enhancedMonitoringResourceArn,
+    'MonitoringRoleArn': obj.monitoringRoleArn,
+    'PromotionTier': obj.promotionTier,
+    'DBInstanceArn': obj.dbInstanceArn,
+    'Timezone': obj.timezone,
+    'IAMDatabaseAuthenticationEnabled': obj.iamDatabaseAuthenticationEnabled,
+    'PerformanceInsightsEnabled': obj.performanceInsightsEnabled,
+    'PerformanceInsightsKMSKeyId': obj.performanceInsightsKmsKeyId,
+    'PerformanceInsightsRetentionPeriod': obj.performanceInsightsRetentionPeriod,
+    'EnabledCloudwatchLogsExports': obj.enabledCloudwatchLogsExports?.map(y => y),
+    'ProcessorFeatures': obj.processorFeatures?.map(y => toJson_RdsProcessorFeature(y)),
+    'DeletionProtection': obj.deletionProtection,
+    'AssociatedRoles': obj.associatedRoles?.map(y => toJson_RdsdbInstanceRole(y)),
+    'ListenerEndpoint': toJson_RdsEndpoint(obj.listenerEndpoint),
+    'MaxAllocatedStorage': obj.maxAllocatedStorage,
+    'TagList': obj.tagList?.map(y => toJson_RdsTag(y)),
+    'DBInstanceAutomatedBackupsReplications': obj.dbInstanceAutomatedBackupsReplications?.map(y => toJson_RdsdbInstanceAutomatedBackupsReplication(y)),
+    'CustomerOwnedIpEnabled': obj.customerOwnedIpEnabled,
+    'AwsBackupRecoveryPointArn': obj.awsBackupRecoveryPointArn,
+    'ActivityStreamStatus': obj.activityStreamStatus,
+    'ActivityStreamKmsKeyId': obj.activityStreamKmsKeyId,
+    'ActivityStreamKinesisStreamName': obj.activityStreamKinesisStreamName,
+    'ActivityStreamMode': obj.activityStreamMode,
+    'ActivityStreamEngineNativeAuditFieldsIncluded': obj.activityStreamEngineNativeAuditFieldsIncluded,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsUserAuthConfig
@@ -7627,6 +12787,24 @@ export interface RdsUserAuthConfig {
 }
 
 /**
+ * Converts an object of type 'RdsUserAuthConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsUserAuthConfig(obj: RdsUserAuthConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Description': obj.description,
+    'UserName': obj.userName,
+    'AuthScheme': obj.authScheme,
+    'SecretArn': obj.secretArn,
+    'IAMAuth': obj.iamAuth,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbProxy
  */
 export interface RdsdbProxy {
@@ -7649,6 +12827,11 @@ export interface RdsdbProxy {
    * @schema RdsdbProxy#EngineFamily
    */
   readonly engineFamily?: string;
+
+  /**
+   * @schema RdsdbProxy#VpcId
+   */
+  readonly vpcId?: string;
 
   /**
    * @schema RdsdbProxy#VpcSecurityGroupIds
@@ -7703,6 +12886,119 @@ export interface RdsdbProxy {
 }
 
 /**
+ * Converts an object of type 'RdsdbProxy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbProxy(obj: RdsdbProxy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyName': obj.dbProxyName,
+    'DBProxyArn': obj.dbProxyArn,
+    'Status': obj.status,
+    'EngineFamily': obj.engineFamily,
+    'VpcId': obj.vpcId,
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'VpcSubnetIds': obj.vpcSubnetIds?.map(y => y),
+    'Auth': obj.auth?.map(y => toJson_RdsUserAuthConfigInfo(y)),
+    'RoleArn': obj.roleArn,
+    'Endpoint': obj.endpoint,
+    'RequireTLS': obj.requireTls,
+    'IdleClientTimeout': obj.idleClientTimeout,
+    'DebugLogging': obj.debugLogging,
+    'CreatedDate': obj.createdDate,
+    'UpdatedDate': obj.updatedDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RdsdbProxyEndpoint
+ */
+export interface RdsdbProxyEndpoint {
+  /**
+   * @schema RdsdbProxyEndpoint#DBProxyEndpointName
+   */
+  readonly dbProxyEndpointName?: string;
+
+  /**
+   * @schema RdsdbProxyEndpoint#DBProxyEndpointArn
+   */
+  readonly dbProxyEndpointArn?: string;
+
+  /**
+   * @schema RdsdbProxyEndpoint#DBProxyName
+   */
+  readonly dbProxyName?: string;
+
+  /**
+   * @schema RdsdbProxyEndpoint#Status
+   */
+  readonly status?: string;
+
+  /**
+   * @schema RdsdbProxyEndpoint#VpcId
+   */
+  readonly vpcId?: string;
+
+  /**
+   * @schema RdsdbProxyEndpoint#VpcSecurityGroupIds
+   */
+  readonly vpcSecurityGroupIds?: string[];
+
+  /**
+   * @schema RdsdbProxyEndpoint#VpcSubnetIds
+   */
+  readonly vpcSubnetIds?: string[];
+
+  /**
+   * @schema RdsdbProxyEndpoint#Endpoint
+   */
+  readonly endpoint?: string;
+
+  /**
+   * @schema RdsdbProxyEndpoint#CreatedDate
+   */
+  readonly createdDate?: string;
+
+  /**
+   * @schema RdsdbProxyEndpoint#TargetRole
+   */
+  readonly targetRole?: string;
+
+  /**
+   * @schema RdsdbProxyEndpoint#IsDefault
+   */
+  readonly isDefault?: boolean;
+
+}
+
+/**
+ * Converts an object of type 'RdsdbProxyEndpoint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbProxyEndpoint(obj: RdsdbProxyEndpoint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyEndpointName': obj.dbProxyEndpointName,
+    'DBProxyEndpointArn': obj.dbProxyEndpointArn,
+    'DBProxyName': obj.dbProxyName,
+    'Status': obj.status,
+    'VpcId': obj.vpcId,
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'VpcSubnetIds': obj.vpcSubnetIds?.map(y => y),
+    'Endpoint': obj.endpoint,
+    'CreatedDate': obj.createdDate,
+    'TargetRole': obj.targetRole,
+    'IsDefault': obj.isDefault,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbSubnetGroup
  */
 export interface RdsdbSubnetGroup {
@@ -7737,6 +13033,25 @@ export interface RdsdbSubnetGroup {
   readonly dbSubnetGroupArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsdbSubnetGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbSubnetGroup(obj: RdsdbSubnetGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'DBSubnetGroupDescription': obj.dbSubnetGroupDescription,
+    'VpcId': obj.vpcId,
+    'SubnetGroupStatus': obj.subnetGroupStatus,
+    'Subnets': obj.subnets?.map(y => toJson_RdsSubnet(y)),
+    'DBSubnetGroupArn': obj.dbSubnetGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsGlobalCluster
@@ -7792,7 +13107,36 @@ export interface RdsGlobalCluster {
    */
   readonly globalClusterMembers?: RdsGlobalClusterMember[];
 
+  /**
+   * @schema RdsGlobalCluster#FailoverState
+   */
+  readonly failoverState?: RdsFailoverState;
+
 }
+
+/**
+ * Converts an object of type 'RdsGlobalCluster' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsGlobalCluster(obj: RdsGlobalCluster | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalClusterIdentifier': obj.globalClusterIdentifier,
+    'GlobalClusterResourceId': obj.globalClusterResourceId,
+    'GlobalClusterArn': obj.globalClusterArn,
+    'Status': obj.status,
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'DatabaseName': obj.databaseName,
+    'StorageEncrypted': obj.storageEncrypted,
+    'DeletionProtection': obj.deletionProtection,
+    'GlobalClusterMembers': obj.globalClusterMembers?.map(y => toJson_RdsGlobalClusterMember(y)),
+    'FailoverState': toJson_RdsFailoverState(obj.failoverState),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbInstanceAutomatedBackup
@@ -7913,7 +13257,61 @@ export interface RdsdbInstanceAutomatedBackup {
    */
   readonly iamDatabaseAuthenticationEnabled?: boolean;
 
+  /**
+   * @schema RdsdbInstanceAutomatedBackup#BackupRetentionPeriod
+   */
+  readonly backupRetentionPeriod?: number;
+
+  /**
+   * @schema RdsdbInstanceAutomatedBackup#DBInstanceAutomatedBackupsArn
+   */
+  readonly dbInstanceAutomatedBackupsArn?: string;
+
+  /**
+   * @schema RdsdbInstanceAutomatedBackup#DBInstanceAutomatedBackupsReplications
+   */
+  readonly dbInstanceAutomatedBackupsReplications?: RdsdbInstanceAutomatedBackupsReplication[];
+
 }
+
+/**
+ * Converts an object of type 'RdsdbInstanceAutomatedBackup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbInstanceAutomatedBackup(obj: RdsdbInstanceAutomatedBackup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceArn': obj.dbInstanceArn,
+    'DbiResourceId': obj.dbiResourceId,
+    'Region': obj.region,
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'RestoreWindow': toJson_RdsRestoreWindow(obj.restoreWindow),
+    'AllocatedStorage': obj.allocatedStorage,
+    'Status': obj.status,
+    'Port': obj.port,
+    'AvailabilityZone': obj.availabilityZone,
+    'VpcId': obj.vpcId,
+    'InstanceCreateTime': obj.instanceCreateTime,
+    'MasterUsername': obj.masterUsername,
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'LicenseModel': obj.licenseModel,
+    'Iops': obj.iops,
+    'OptionGroupName': obj.optionGroupName,
+    'TdeCredentialArn': obj.tdeCredentialArn,
+    'Encrypted': obj.encrypted,
+    'StorageType': obj.storageType,
+    'KmsKeyId': obj.kmsKeyId,
+    'Timezone': obj.timezone,
+    'IAMDatabaseAuthenticationEnabled': obj.iamDatabaseAuthenticationEnabled,
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'DBInstanceAutomatedBackupsArn': obj.dbInstanceAutomatedBackupsArn,
+    'DBInstanceAutomatedBackupsReplications': obj.dbInstanceAutomatedBackupsReplications?.map(y => toJson_RdsdbInstanceAutomatedBackupsReplication(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsInstallationMediaFailureCause
@@ -7925,6 +13323,20 @@ export interface RdsInstallationMediaFailureCause {
   readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsInstallationMediaFailureCause' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsInstallationMediaFailureCause(obj: RdsInstallationMediaFailureCause | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsAccountQuota
@@ -7948,20 +13360,51 @@ export interface RdsAccountQuota {
 }
 
 /**
+ * Converts an object of type 'RdsAccountQuota' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsAccountQuota(obj: RdsAccountQuota | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AccountQuotaName': obj.accountQuotaName,
+    'Used': obj.used,
+    'Max': obj.max,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsFilter
  */
 export interface RdsFilter {
   /**
    * @schema RdsFilter#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema RdsFilter#Values
    */
-  readonly values: string[];
+  readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'RdsFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsFilter(obj: RdsFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsCertificate
@@ -8008,6 +13451,27 @@ export interface RdsCertificate {
   readonly customerOverrideValidTill?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsCertificate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCertificate(obj: RdsCertificate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CertificateIdentifier': obj.certificateIdentifier,
+    'CertificateType': obj.certificateType,
+    'Thumbprint': obj.thumbprint,
+    'ValidFrom': obj.validFrom,
+    'ValidTill': obj.validTill,
+    'CertificateArn': obj.certificateArn,
+    'CustomerOverride': obj.customerOverride,
+    'CustomerOverrideValidTill': obj.customerOverrideValidTill,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsParameter
@@ -8071,6 +13535,30 @@ export interface RdsParameter {
 }
 
 /**
+ * Converts an object of type 'RdsParameter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsParameter(obj: RdsParameter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ParameterName': obj.parameterName,
+    'ParameterValue': obj.parameterValue,
+    'Description': obj.description,
+    'Source': obj.source,
+    'ApplyType': obj.applyType,
+    'DataType': obj.dataType,
+    'AllowedValues': obj.allowedValues,
+    'IsModifiable': obj.isModifiable,
+    'MinimumEngineVersion': obj.minimumEngineVersion,
+    'ApplyMethod': obj.applyMethod,
+    'SupportedEngineModes': obj.supportedEngineModes?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbClusterSnapshotAttributesResult
  */
 export interface RdsdbClusterSnapshotAttributesResult {
@@ -8085,6 +13573,21 @@ export interface RdsdbClusterSnapshotAttributesResult {
   readonly dbClusterSnapshotAttributes?: RdsdbClusterSnapshotAttribute[];
 
 }
+
+/**
+ * Converts an object of type 'RdsdbClusterSnapshotAttributesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbClusterSnapshotAttributesResult(obj: RdsdbClusterSnapshotAttributesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshotIdentifier': obj.dbClusterSnapshotIdentifier,
+    'DBClusterSnapshotAttributes': obj.dbClusterSnapshotAttributes?.map(y => toJson_RdsdbClusterSnapshotAttribute(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbEngineVersion
@@ -8183,6 +13686,37 @@ export interface RdsdbEngineVersion {
 }
 
 /**
+ * Converts an object of type 'RdsdbEngineVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbEngineVersion(obj: RdsdbEngineVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'DBParameterGroupFamily': obj.dbParameterGroupFamily,
+    'DBEngineDescription': obj.dbEngineDescription,
+    'DBEngineVersionDescription': obj.dbEngineVersionDescription,
+    'DefaultCharacterSet': toJson_RdsCharacterSet(obj.defaultCharacterSet),
+    'SupportedCharacterSets': obj.supportedCharacterSets?.map(y => toJson_RdsCharacterSet(y)),
+    'SupportedNcharCharacterSets': obj.supportedNcharCharacterSets?.map(y => toJson_RdsCharacterSet(y)),
+    'ValidUpgradeTarget': obj.validUpgradeTarget?.map(y => toJson_RdsUpgradeTarget(y)),
+    'SupportedTimezones': obj.supportedTimezones?.map(y => toJson_RdsTimezone(y)),
+    'ExportableLogTypes': obj.exportableLogTypes?.map(y => y),
+    'SupportsLogExportsToCloudwatchLogs': obj.supportsLogExportsToCloudwatchLogs,
+    'SupportsReadReplica': obj.supportsReadReplica,
+    'SupportedEngineModes': obj.supportedEngineModes?.map(y => y),
+    'SupportedFeatureNames': obj.supportedFeatureNames?.map(y => y),
+    'Status': obj.status,
+    'SupportsParallelQuery': obj.supportsParallelQuery,
+    'SupportsGlobalDatabases': obj.supportsGlobalDatabases,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDescribeDbLogFilesDetails
  */
 export interface RdsDescribeDbLogFilesDetails {
@@ -8202,6 +13736,22 @@ export interface RdsDescribeDbLogFilesDetails {
   readonly size?: number;
 
 }
+
+/**
+ * Converts an object of type 'RdsDescribeDbLogFilesDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDescribeDbLogFilesDetails(obj: RdsDescribeDbLogFilesDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LogFileName': obj.logFileName,
+    'LastWritten': obj.lastWritten,
+    'Size': obj.size,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbProxyTargetGroup
@@ -8250,6 +13800,27 @@ export interface RdsdbProxyTargetGroup {
 }
 
 /**
+ * Converts an object of type 'RdsdbProxyTargetGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbProxyTargetGroup(obj: RdsdbProxyTargetGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBProxyName': obj.dbProxyName,
+    'TargetGroupName': obj.targetGroupName,
+    'TargetGroupArn': obj.targetGroupArn,
+    'IsDefault': obj.isDefault,
+    'Status': obj.status,
+    'ConnectionPoolConfig': toJson_RdsConnectionPoolConfigurationInfo(obj.connectionPoolConfig),
+    'CreatedDate': obj.createdDate,
+    'UpdatedDate': obj.updatedDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbProxyTarget
  */
 export interface RdsdbProxyTarget {
@@ -8284,11 +13855,37 @@ export interface RdsdbProxyTarget {
   readonly type?: string;
 
   /**
+   * @schema RdsdbProxyTarget#Role
+   */
+  readonly role?: string;
+
+  /**
    * @schema RdsdbProxyTarget#TargetHealth
    */
   readonly targetHealth?: RdsTargetHealth;
 
 }
+
+/**
+ * Converts an object of type 'RdsdbProxyTarget' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbProxyTarget(obj: RdsdbProxyTarget | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TargetArn': obj.targetArn,
+    'Endpoint': obj.endpoint,
+    'TrackedClusterId': obj.trackedClusterId,
+    'RdsResourceId': obj.rdsResourceId,
+    'Port': obj.port,
+    'Type': obj.type,
+    'Role': obj.role,
+    'TargetHealth': toJson_RdsTargetHealth(obj.targetHealth),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbSnapshotAttributesResult
@@ -8305,6 +13902,21 @@ export interface RdsdbSnapshotAttributesResult {
   readonly dbSnapshotAttributes?: RdsdbSnapshotAttribute[];
 
 }
+
+/**
+ * Converts an object of type 'RdsdbSnapshotAttributesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbSnapshotAttributesResult(obj: RdsdbSnapshotAttributesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSnapshotIdentifier': obj.dbSnapshotIdentifier,
+    'DBSnapshotAttributes': obj.dbSnapshotAttributes?.map(y => toJson_RdsdbSnapshotAttribute(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsEngineDefaults
@@ -8328,6 +13940,22 @@ export interface RdsEngineDefaults {
 }
 
 /**
+ * Converts an object of type 'RdsEngineDefaults' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsEngineDefaults(obj: RdsEngineDefaults | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupFamily': obj.dbParameterGroupFamily,
+    'Marker': obj.marker,
+    'Parameters': obj.parameters?.map(y => toJson_RdsParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsEventCategoriesMap
  */
 export interface RdsEventCategoriesMap {
@@ -8342,6 +13970,21 @@ export interface RdsEventCategoriesMap {
   readonly eventCategories?: string[];
 
 }
+
+/**
+ * Converts an object of type 'RdsEventCategoriesMap' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsEventCategoriesMap(obj: RdsEventCategoriesMap | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceType': obj.sourceType,
+    'EventCategories': obj.eventCategories?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsEvent
@@ -8378,6 +14021,25 @@ export interface RdsEvent {
   readonly sourceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsEvent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsEvent(obj: RdsEvent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceIdentifier': obj.sourceIdentifier,
+    'SourceType': obj.sourceType,
+    'Message': obj.message,
+    'EventCategories': obj.eventCategories?.map(y => y),
+    'Date': obj.date,
+    'SourceArn': obj.sourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsOptionGroupOption
@@ -8464,6 +14126,35 @@ export interface RdsOptionGroupOption {
   readonly optionGroupOptionVersions?: RdsOptionVersion[];
 
 }
+
+/**
+ * Converts an object of type 'RdsOptionGroupOption' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsOptionGroupOption(obj: RdsOptionGroupOption | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Description': obj.description,
+    'EngineName': obj.engineName,
+    'MajorEngineVersion': obj.majorEngineVersion,
+    'MinimumRequiredMinorEngineVersion': obj.minimumRequiredMinorEngineVersion,
+    'PortRequired': obj.portRequired,
+    'DefaultPort': obj.defaultPort,
+    'OptionsDependedOn': obj.optionsDependedOn?.map(y => y),
+    'OptionsConflictsWith': obj.optionsConflictsWith?.map(y => y),
+    'Persistent': obj.persistent,
+    'Permanent': obj.permanent,
+    'RequiresAutoMinorEngineVersionUpgrade': obj.requiresAutoMinorEngineVersionUpgrade,
+    'VpcOnly': obj.vpcOnly,
+    'SupportsOptionVersionDowngrade': obj.supportsOptionVersionDowngrade,
+    'OptionGroupOptionSettings': obj.optionGroupOptionSettings?.map(y => toJson_RdsOptionGroupOptionSetting(y)),
+    'OptionGroupOptionVersions': obj.optionGroupOptionVersions?.map(y => toJson_RdsOptionVersion(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsOrderableDbInstanceOption
@@ -8600,11 +14291,57 @@ export interface RdsOrderableDbInstanceOption {
   readonly outpostCapable?: boolean;
 
   /**
+   * @schema RdsOrderableDbInstanceOption#SupportedActivityStreamModes
+   */
+  readonly supportedActivityStreamModes?: string[];
+
+  /**
    * @schema RdsOrderableDbInstanceOption#SupportsGlobalDatabases
    */
   readonly supportsGlobalDatabases?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'RdsOrderableDbInstanceOption' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsOrderableDbInstanceOption(obj: RdsOrderableDbInstanceOption | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'DBInstanceClass': obj.dbInstanceClass,
+    'LicenseModel': obj.licenseModel,
+    'AvailabilityZoneGroup': obj.availabilityZoneGroup,
+    'AvailabilityZones': obj.availabilityZones?.map(y => toJson_RdsAvailabilityZone(y)),
+    'MultiAZCapable': obj.multiAzCapable,
+    'ReadReplicaCapable': obj.readReplicaCapable,
+    'Vpc': obj.vpc,
+    'SupportsStorageEncryption': obj.supportsStorageEncryption,
+    'StorageType': obj.storageType,
+    'SupportsIops': obj.supportsIops,
+    'SupportsEnhancedMonitoring': obj.supportsEnhancedMonitoring,
+    'SupportsIAMDatabaseAuthentication': obj.supportsIamDatabaseAuthentication,
+    'SupportsPerformanceInsights': obj.supportsPerformanceInsights,
+    'MinStorageSize': obj.minStorageSize,
+    'MaxStorageSize': obj.maxStorageSize,
+    'MinIopsPerDbInstance': obj.minIopsPerDbInstance,
+    'MaxIopsPerDbInstance': obj.maxIopsPerDbInstance,
+    'MinIopsPerGib': obj.minIopsPerGib,
+    'MaxIopsPerGib': obj.maxIopsPerGib,
+    'AvailableProcessorFeatures': obj.availableProcessorFeatures?.map(y => toJson_RdsAvailableProcessorFeature(y)),
+    'SupportedEngineModes': obj.supportedEngineModes?.map(y => y),
+    'SupportsStorageAutoscaling': obj.supportsStorageAutoscaling,
+    'SupportsKerberosAuthentication': obj.supportsKerberosAuthentication,
+    'OutpostCapable': obj.outpostCapable,
+    'SupportedActivityStreamModes': obj.supportedActivityStreamModes?.map(y => y),
+    'SupportsGlobalDatabases': obj.supportsGlobalDatabases,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsReservedDbInstance
@@ -8693,6 +14430,35 @@ export interface RdsReservedDbInstance {
 }
 
 /**
+ * Converts an object of type 'RdsReservedDbInstance' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsReservedDbInstance(obj: RdsReservedDbInstance | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReservedDBInstanceId': obj.reservedDbInstanceId,
+    'ReservedDBInstancesOfferingId': obj.reservedDbInstancesOfferingId,
+    'DBInstanceClass': obj.dbInstanceClass,
+    'StartTime': obj.startTime,
+    'Duration': obj.duration,
+    'FixedPrice': obj.fixedPrice,
+    'UsagePrice': obj.usagePrice,
+    'CurrencyCode': obj.currencyCode,
+    'DBInstanceCount': obj.dbInstanceCount,
+    'ProductDescription': obj.productDescription,
+    'OfferingType': obj.offeringType,
+    'MultiAZ': obj.multiAz,
+    'State': obj.state,
+    'RecurringCharges': obj.recurringCharges?.map(y => toJson_RdsRecurringCharge(y)),
+    'ReservedDBInstanceArn': obj.reservedDbInstanceArn,
+    'LeaseId': obj.leaseId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsReservedDbInstancesOffering
  */
 export interface RdsReservedDbInstancesOffering {
@@ -8749,6 +14515,29 @@ export interface RdsReservedDbInstancesOffering {
 }
 
 /**
+ * Converts an object of type 'RdsReservedDbInstancesOffering' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsReservedDbInstancesOffering(obj: RdsReservedDbInstancesOffering | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReservedDBInstancesOfferingId': obj.reservedDbInstancesOfferingId,
+    'DBInstanceClass': obj.dbInstanceClass,
+    'Duration': obj.duration,
+    'FixedPrice': obj.fixedPrice,
+    'UsagePrice': obj.usagePrice,
+    'CurrencyCode': obj.currencyCode,
+    'ProductDescription': obj.productDescription,
+    'OfferingType': obj.offeringType,
+    'MultiAZ': obj.multiAz,
+    'RecurringCharges': obj.recurringCharges?.map(y => toJson_RdsRecurringCharge(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsSourceRegion
  */
 export interface RdsSourceRegion {
@@ -8767,7 +14556,29 @@ export interface RdsSourceRegion {
    */
   readonly status?: string;
 
+  /**
+   * @schema RdsSourceRegion#SupportsDBInstanceAutomatedBackupsReplication
+   */
+  readonly supportsDbInstanceAutomatedBackupsReplication?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'RdsSourceRegion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsSourceRegion(obj: RdsSourceRegion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RegionName': obj.regionName,
+    'Endpoint': obj.endpoint,
+    'Status': obj.status,
+    'SupportsDBInstanceAutomatedBackupsReplication': obj.supportsDbInstanceAutomatedBackupsReplication,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsValidDbInstanceModificationsMessage
@@ -8786,6 +14597,21 @@ export interface RdsValidDbInstanceModificationsMessage {
 }
 
 /**
+ * Converts an object of type 'RdsValidDbInstanceModificationsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsValidDbInstanceModificationsMessage(obj: RdsValidDbInstanceModificationsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Storage': obj.storage?.map(y => toJson_RdsValidStorageOptions(y)),
+    'ValidProcessorFeatures': obj.validProcessorFeatures?.map(y => toJson_RdsAvailableProcessorFeature(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCloudwatchLogsExportConfiguration
  */
 export interface RdsCloudwatchLogsExportConfiguration {
@@ -8800,6 +14626,21 @@ export interface RdsCloudwatchLogsExportConfiguration {
   readonly disableLogTypes?: string[];
 
 }
+
+/**
+ * Converts an object of type 'RdsCloudwatchLogsExportConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCloudwatchLogsExportConfiguration(obj: RdsCloudwatchLogsExportConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnableLogTypes': obj.enableLogTypes?.map(y => y),
+    'DisableLogTypes': obj.disableLogTypes?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsConnectionPoolConfiguration
@@ -8833,13 +14674,31 @@ export interface RdsConnectionPoolConfiguration {
 }
 
 /**
+ * Converts an object of type 'RdsConnectionPoolConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsConnectionPoolConfiguration(obj: RdsConnectionPoolConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxConnectionsPercent': obj.maxConnectionsPercent,
+    'MaxIdleConnectionsPercent': obj.maxIdleConnectionsPercent,
+    'ConnectionBorrowTimeout': obj.connectionBorrowTimeout,
+    'SessionPinningFilters': obj.sessionPinningFilters?.map(y => y),
+    'InitQuery': obj.initQuery,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsOptionConfiguration
  */
 export interface RdsOptionConfiguration {
   /**
    * @schema RdsOptionConfiguration#OptionName
    */
-  readonly optionName: string;
+  readonly optionName?: string;
 
   /**
    * @schema RdsOptionConfiguration#Port
@@ -8867,6 +14726,25 @@ export interface RdsOptionConfiguration {
   readonly optionSettings?: RdsOptionSetting[];
 
 }
+
+/**
+ * Converts an object of type 'RdsOptionConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsOptionConfiguration(obj: RdsOptionConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OptionName': obj.optionName,
+    'Port': obj.port,
+    'OptionVersion': obj.optionVersion,
+    'DBSecurityGroupMemberships': obj.dbSecurityGroupMemberships?.map(y => y),
+    'VpcSecurityGroupMemberships': obj.vpcSecurityGroupMemberships?.map(y => y),
+    'OptionSettings': obj.optionSettings?.map(y => toJson_RdsOptionSetting(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsPendingMaintenanceAction
@@ -8905,6 +14783,25 @@ export interface RdsPendingMaintenanceAction {
 }
 
 /**
+ * Converts an object of type 'RdsPendingMaintenanceAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsPendingMaintenanceAction(obj: RdsPendingMaintenanceAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Action': obj.action,
+    'AutoAppliedAfterDate': obj.autoAppliedAfterDate,
+    'ForcedApplyDate': obj.forcedApplyDate,
+    'OptInStatus': obj.optInStatus,
+    'CurrentApplyDate': obj.currentApplyDate,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema Rdsec2SecurityGroup
  */
 export interface Rdsec2SecurityGroup {
@@ -8931,6 +14828,23 @@ export interface Rdsec2SecurityGroup {
 }
 
 /**
+ * Converts an object of type 'Rdsec2SecurityGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_Rdsec2SecurityGroup(obj: Rdsec2SecurityGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'EC2SecurityGroupName': obj.ec2SecurityGroupName,
+    'EC2SecurityGroupId': obj.ec2SecurityGroupId,
+    'EC2SecurityGroupOwnerId': obj.ec2SecurityGroupOwnerId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsipRange
  */
 export interface RdsipRange {
@@ -8945,6 +14859,21 @@ export interface RdsipRange {
   readonly cidrip?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsipRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsipRange(obj: RdsipRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'CIDRIP': obj.cidrip,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsOption
@@ -8998,6 +14927,28 @@ export interface RdsOption {
 }
 
 /**
+ * Converts an object of type 'RdsOption' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsOption(obj: RdsOption | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OptionName': obj.optionName,
+    'OptionDescription': obj.optionDescription,
+    'Persistent': obj.persistent,
+    'Permanent': obj.permanent,
+    'Port': obj.port,
+    'OptionVersion': obj.optionVersion,
+    'OptionSettings': obj.optionSettings?.map(y => toJson_RdsOptionSetting(y)),
+    'DBSecurityGroupMemberships': obj.dbSecurityGroupMemberships?.map(y => toJson_RdsdbSecurityGroupMembership(y)),
+    'VpcSecurityGroupMemberships': obj.vpcSecurityGroupMemberships?.map(y => toJson_RdsVpcSecurityGroupMembership(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsVpnDetails
  */
 export interface RdsVpnDetails {
@@ -9034,6 +14985,25 @@ export interface RdsVpnDetails {
 }
 
 /**
+ * Converts an object of type 'RdsVpnDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsVpnDetails(obj: RdsVpnDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VpnId': obj.vpnId,
+    'VpnTunnelOriginatorIP': obj.vpnTunnelOriginatorIp,
+    'VpnGatewayIp': obj.vpnGatewayIp,
+    'VpnPSK': obj.vpnPsk,
+    'VpnName': obj.vpnName,
+    'VpnState': obj.vpnState,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbClusterOptionGroupStatus
  */
 export interface RdsdbClusterOptionGroupStatus {
@@ -9048,6 +15018,21 @@ export interface RdsdbClusterOptionGroupStatus {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsdbClusterOptionGroupStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbClusterOptionGroupStatus(obj: RdsdbClusterOptionGroupStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterOptionGroupName': obj.dbClusterOptionGroupName,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbClusterMember
@@ -9076,6 +15061,23 @@ export interface RdsdbClusterMember {
 }
 
 /**
+ * Converts an object of type 'RdsdbClusterMember' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbClusterMember(obj: RdsdbClusterMember | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'IsClusterWriter': obj.isClusterWriter,
+    'DBClusterParameterGroupStatus': obj.dbClusterParameterGroupStatus,
+    'PromotionTier': obj.promotionTier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsVpcSecurityGroupMembership
  */
 export interface RdsVpcSecurityGroupMembership {
@@ -9090,6 +15092,21 @@ export interface RdsVpcSecurityGroupMembership {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsVpcSecurityGroupMembership' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsVpcSecurityGroupMembership(obj: RdsVpcSecurityGroupMembership | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VpcSecurityGroupId': obj.vpcSecurityGroupId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbClusterRole
@@ -9111,6 +15128,22 @@ export interface RdsdbClusterRole {
   readonly featureName?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsdbClusterRole' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbClusterRole(obj: RdsdbClusterRole | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoleArn': obj.roleArn,
+    'Status': obj.status,
+    'FeatureName': obj.featureName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsScalingConfigurationInfo
@@ -9144,6 +15177,24 @@ export interface RdsScalingConfigurationInfo {
 }
 
 /**
+ * Converts an object of type 'RdsScalingConfigurationInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsScalingConfigurationInfo(obj: RdsScalingConfigurationInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MinCapacity': obj.minCapacity,
+    'MaxCapacity': obj.maxCapacity,
+    'AutoPause': obj.autoPause,
+    'SecondsUntilAutoPause': obj.secondsUntilAutoPause,
+    'TimeoutAction': obj.timeoutAction,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDomainMembership
  */
 export interface RdsDomainMembership {
@@ -9170,6 +15221,72 @@ export interface RdsDomainMembership {
 }
 
 /**
+ * Converts an object of type 'RdsDomainMembership' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDomainMembership(obj: RdsDomainMembership | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Domain': obj.domain,
+    'Status': obj.status,
+    'FQDN': obj.fqdn,
+    'IAMRoleName': obj.iamRoleName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RdsClusterPendingModifiedValues
+ */
+export interface RdsClusterPendingModifiedValues {
+  /**
+   * @schema RdsClusterPendingModifiedValues#PendingCloudwatchLogsExports
+   */
+  readonly pendingCloudwatchLogsExports?: RdsPendingCloudwatchLogsExports;
+
+  /**
+   * @schema RdsClusterPendingModifiedValues#DBClusterIdentifier
+   */
+  readonly dbClusterIdentifier?: string;
+
+  /**
+   * @schema RdsClusterPendingModifiedValues#MasterUserPassword
+   */
+  readonly masterUserPassword?: string;
+
+  /**
+   * @schema RdsClusterPendingModifiedValues#IAMDatabaseAuthenticationEnabled
+   */
+  readonly iamDatabaseAuthenticationEnabled?: boolean;
+
+  /**
+   * @schema RdsClusterPendingModifiedValues#EngineVersion
+   */
+  readonly engineVersion?: string;
+
+}
+
+/**
+ * Converts an object of type 'RdsClusterPendingModifiedValues' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsClusterPendingModifiedValues(obj: RdsClusterPendingModifiedValues | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PendingCloudwatchLogsExports': toJson_RdsPendingCloudwatchLogsExports(obj.pendingCloudwatchLogsExports),
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'MasterUserPassword': obj.masterUserPassword,
+    'IAMDatabaseAuthenticationEnabled': obj.iamDatabaseAuthenticationEnabled,
+    'EngineVersion': obj.engineVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsEndpoint
  */
 export interface RdsEndpoint {
@@ -9191,6 +15308,22 @@ export interface RdsEndpoint {
 }
 
 /**
+ * Converts an object of type 'RdsEndpoint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsEndpoint(obj: RdsEndpoint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Address': obj.address,
+    'Port': obj.port,
+    'HostedZoneId': obj.hostedZoneId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbSecurityGroupMembership
  */
 export interface RdsdbSecurityGroupMembership {
@@ -9207,6 +15340,21 @@ export interface RdsdbSecurityGroupMembership {
 }
 
 /**
+ * Converts an object of type 'RdsdbSecurityGroupMembership' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbSecurityGroupMembership(obj: RdsdbSecurityGroupMembership | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSecurityGroupName': obj.dbSecurityGroupName,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbParameterGroupStatus
  */
 export interface RdsdbParameterGroupStatus {
@@ -9221,6 +15369,21 @@ export interface RdsdbParameterGroupStatus {
   readonly parameterApplyStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsdbParameterGroupStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbParameterGroupStatus(obj: RdsdbParameterGroupStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'ParameterApplyStatus': obj.parameterApplyStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsPendingModifiedValues
@@ -9301,7 +15464,41 @@ export interface RdsPendingModifiedValues {
    */
   readonly processorFeatures?: RdsProcessorFeature[];
 
+  /**
+   * @schema RdsPendingModifiedValues#IAMDatabaseAuthenticationEnabled
+   */
+  readonly iamDatabaseAuthenticationEnabled?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'RdsPendingModifiedValues' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsPendingModifiedValues(obj: RdsPendingModifiedValues | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceClass': obj.dbInstanceClass,
+    'AllocatedStorage': obj.allocatedStorage,
+    'MasterUserPassword': obj.masterUserPassword,
+    'Port': obj.port,
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'MultiAZ': obj.multiAz,
+    'EngineVersion': obj.engineVersion,
+    'LicenseModel': obj.licenseModel,
+    'Iops': obj.iops,
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'StorageType': obj.storageType,
+    'CACertificateIdentifier': obj.caCertificateIdentifier,
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'PendingCloudwatchLogsExports': toJson_RdsPendingCloudwatchLogsExports(obj.pendingCloudwatchLogsExports),
+    'ProcessorFeatures': obj.processorFeatures?.map(y => toJson_RdsProcessorFeature(y)),
+    'IAMDatabaseAuthenticationEnabled': obj.iamDatabaseAuthenticationEnabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsOptionGroupMembership
@@ -9318,6 +15515,21 @@ export interface RdsOptionGroupMembership {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsOptionGroupMembership' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsOptionGroupMembership(obj: RdsOptionGroupMembership | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OptionGroupName': obj.optionGroupName,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbInstanceStatusInfo
@@ -9346,6 +15558,23 @@ export interface RdsdbInstanceStatusInfo {
 }
 
 /**
+ * Converts an object of type 'RdsdbInstanceStatusInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbInstanceStatusInfo(obj: RdsdbInstanceStatusInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StatusType': obj.statusType,
+    'Normal': obj.normal,
+    'Status': obj.status,
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbInstanceRole
  */
 export interface RdsdbInstanceRole {
@@ -9365,6 +15594,47 @@ export interface RdsdbInstanceRole {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsdbInstanceRole' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbInstanceRole(obj: RdsdbInstanceRole | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoleArn': obj.roleArn,
+    'FeatureName': obj.featureName,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RdsdbInstanceAutomatedBackupsReplication
+ */
+export interface RdsdbInstanceAutomatedBackupsReplication {
+  /**
+   * @schema RdsdbInstanceAutomatedBackupsReplication#DBInstanceAutomatedBackupsArn
+   */
+  readonly dbInstanceAutomatedBackupsArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'RdsdbInstanceAutomatedBackupsReplication' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbInstanceAutomatedBackupsReplication(obj: RdsdbInstanceAutomatedBackupsReplication | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceAutomatedBackupsArn': obj.dbInstanceAutomatedBackupsArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsUserAuthConfigInfo
@@ -9398,6 +15668,24 @@ export interface RdsUserAuthConfigInfo {
 }
 
 /**
+ * Converts an object of type 'RdsUserAuthConfigInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsUserAuthConfigInfo(obj: RdsUserAuthConfigInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Description': obj.description,
+    'UserName': obj.userName,
+    'AuthScheme': obj.authScheme,
+    'SecretArn': obj.secretArn,
+    'IAMAuth': obj.iamAuth,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsSubnet
  */
 export interface RdsSubnet {
@@ -9422,6 +15710,23 @@ export interface RdsSubnet {
   readonly subnetStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsSubnet' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsSubnet(obj: RdsSubnet | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubnetIdentifier': obj.subnetIdentifier,
+    'SubnetAvailabilityZone': toJson_RdsAvailabilityZone(obj.subnetAvailabilityZone),
+    'SubnetOutpost': toJson_RdsOutpost(obj.subnetOutpost),
+    'SubnetStatus': obj.subnetStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsGlobalClusterMember
@@ -9450,6 +15755,60 @@ export interface RdsGlobalClusterMember {
 }
 
 /**
+ * Converts an object of type 'RdsGlobalClusterMember' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsGlobalClusterMember(obj: RdsGlobalClusterMember | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterArn': obj.dbClusterArn,
+    'Readers': obj.readers?.map(y => y),
+    'IsWriter': obj.isWriter,
+    'GlobalWriteForwardingStatus': obj.globalWriteForwardingStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RdsFailoverState
+ */
+export interface RdsFailoverState {
+  /**
+   * @schema RdsFailoverState#Status
+   */
+  readonly status?: string;
+
+  /**
+   * @schema RdsFailoverState#FromDbClusterArn
+   */
+  readonly fromDbClusterArn?: string;
+
+  /**
+   * @schema RdsFailoverState#ToDbClusterArn
+   */
+  readonly toDbClusterArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'RdsFailoverState' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsFailoverState(obj: RdsFailoverState | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'FromDbClusterArn': obj.fromDbClusterArn,
+    'ToDbClusterArn': obj.toDbClusterArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsRestoreWindow
  */
 export interface RdsRestoreWindow {
@@ -9464,6 +15823,21 @@ export interface RdsRestoreWindow {
   readonly latestTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsRestoreWindow' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRestoreWindow(obj: RdsRestoreWindow | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EarliestTime': obj.earliestTime,
+    'LatestTime': obj.latestTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsdbClusterSnapshotAttribute
@@ -9482,6 +15856,21 @@ export interface RdsdbClusterSnapshotAttribute {
 }
 
 /**
+ * Converts an object of type 'RdsdbClusterSnapshotAttribute' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbClusterSnapshotAttribute(obj: RdsdbClusterSnapshotAttribute | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AttributeName': obj.attributeName,
+    'AttributeValues': obj.attributeValues?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsCharacterSet
  */
 export interface RdsCharacterSet {
@@ -9496,6 +15885,21 @@ export interface RdsCharacterSet {
   readonly characterSetDescription?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsCharacterSet' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsCharacterSet(obj: RdsCharacterSet | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CharacterSetName': obj.characterSetName,
+    'CharacterSetDescription': obj.characterSetDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsUpgradeTarget
@@ -9526,7 +15930,43 @@ export interface RdsUpgradeTarget {
    */
   readonly isMajorVersionUpgrade?: boolean;
 
+  /**
+   * @schema RdsUpgradeTarget#SupportedEngineModes
+   */
+  readonly supportedEngineModes?: string[];
+
+  /**
+   * @schema RdsUpgradeTarget#SupportsParallelQuery
+   */
+  readonly supportsParallelQuery?: boolean;
+
+  /**
+   * @schema RdsUpgradeTarget#SupportsGlobalDatabases
+   */
+  readonly supportsGlobalDatabases?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'RdsUpgradeTarget' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsUpgradeTarget(obj: RdsUpgradeTarget | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'Description': obj.description,
+    'AutoUpgrade': obj.autoUpgrade,
+    'IsMajorVersionUpgrade': obj.isMajorVersionUpgrade,
+    'SupportedEngineModes': obj.supportedEngineModes?.map(y => y),
+    'SupportsParallelQuery': obj.supportsParallelQuery,
+    'SupportsGlobalDatabases': obj.supportsGlobalDatabases,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsTimezone
@@ -9538,6 +15978,20 @@ export interface RdsTimezone {
   readonly timezoneName?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsTimezone' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsTimezone(obj: RdsTimezone | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TimezoneName': obj.timezoneName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsConnectionPoolConfigurationInfo
@@ -9571,6 +16025,24 @@ export interface RdsConnectionPoolConfigurationInfo {
 }
 
 /**
+ * Converts an object of type 'RdsConnectionPoolConfigurationInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsConnectionPoolConfigurationInfo(obj: RdsConnectionPoolConfigurationInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxConnectionsPercent': obj.maxConnectionsPercent,
+    'MaxIdleConnectionsPercent': obj.maxIdleConnectionsPercent,
+    'ConnectionBorrowTimeout': obj.connectionBorrowTimeout,
+    'SessionPinningFilters': obj.sessionPinningFilters?.map(y => y),
+    'InitQuery': obj.initQuery,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsTargetHealth
  */
 export interface RdsTargetHealth {
@@ -9592,6 +16064,22 @@ export interface RdsTargetHealth {
 }
 
 /**
+ * Converts an object of type 'RdsTargetHealth' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsTargetHealth(obj: RdsTargetHealth | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'State': obj.state,
+    'Reason': obj.reason,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsdbSnapshotAttribute
  */
 export interface RdsdbSnapshotAttribute {
@@ -9606,6 +16094,21 @@ export interface RdsdbSnapshotAttribute {
   readonly attributeValues?: string[];
 
 }
+
+/**
+ * Converts an object of type 'RdsdbSnapshotAttribute' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsdbSnapshotAttribute(obj: RdsdbSnapshotAttribute | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AttributeName': obj.attributeName,
+    'AttributeValues': obj.attributeValues?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsOptionGroupOptionSetting
@@ -9654,6 +16157,27 @@ export interface RdsOptionGroupOptionSetting {
 }
 
 /**
+ * Converts an object of type 'RdsOptionGroupOptionSetting' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsOptionGroupOptionSetting(obj: RdsOptionGroupOptionSetting | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SettingName': obj.settingName,
+    'SettingDescription': obj.settingDescription,
+    'DefaultValue': obj.defaultValue,
+    'ApplyType': obj.applyType,
+    'AllowedValues': obj.allowedValues,
+    'IsModifiable': obj.isModifiable,
+    'IsRequired': obj.isRequired,
+    'MinimumEngineVersionPerAllowedValue': obj.minimumEngineVersionPerAllowedValue?.map(y => toJson_RdsMinimumEngineVersionPerAllowedValue(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsOptionVersion
  */
 export interface RdsOptionVersion {
@@ -9670,6 +16194,21 @@ export interface RdsOptionVersion {
 }
 
 /**
+ * Converts an object of type 'RdsOptionVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsOptionVersion(obj: RdsOptionVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Version': obj.version,
+    'IsDefault': obj.isDefault,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsAvailabilityZone
  */
 export interface RdsAvailabilityZone {
@@ -9679,6 +16218,20 @@ export interface RdsAvailabilityZone {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsAvailabilityZone' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsAvailabilityZone(obj: RdsAvailabilityZone | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsAvailableProcessorFeature
@@ -9702,6 +16255,22 @@ export interface RdsAvailableProcessorFeature {
 }
 
 /**
+ * Converts an object of type 'RdsAvailableProcessorFeature' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsAvailableProcessorFeature(obj: RdsAvailableProcessorFeature | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'DefaultValue': obj.defaultValue,
+    'AllowedValues': obj.allowedValues,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsRecurringCharge
  */
 export interface RdsRecurringCharge {
@@ -9716,6 +16285,21 @@ export interface RdsRecurringCharge {
   readonly recurringChargeFrequency?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsRecurringCharge' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRecurringCharge(obj: RdsRecurringCharge | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RecurringChargeAmount': obj.recurringChargeAmount,
+    'RecurringChargeFrequency': obj.recurringChargeFrequency,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsValidStorageOptions
@@ -9747,6 +16331,24 @@ export interface RdsValidStorageOptions {
   readonly supportsStorageAutoscaling?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'RdsValidStorageOptions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsValidStorageOptions(obj: RdsValidStorageOptions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StorageType': obj.storageType,
+    'StorageSize': obj.storageSize?.map(y => toJson_RdsRange(y)),
+    'ProvisionedIops': obj.provisionedIops?.map(y => toJson_RdsRange(y)),
+    'IopsToStorageRatio': obj.iopsToStorageRatio?.map(y => toJson_RdsDoubleRange(y)),
+    'SupportsStorageAutoscaling': obj.supportsStorageAutoscaling,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsOptionSetting
@@ -9800,6 +16402,28 @@ export interface RdsOptionSetting {
 }
 
 /**
+ * Converts an object of type 'RdsOptionSetting' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsOptionSetting(obj: RdsOptionSetting | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Value': obj.value,
+    'DefaultValue': obj.defaultValue,
+    'Description': obj.description,
+    'ApplyType': obj.applyType,
+    'DataType': obj.dataType,
+    'AllowedValues': obj.allowedValues,
+    'IsModifiable': obj.isModifiable,
+    'IsCollection': obj.isCollection,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsPendingCloudwatchLogsExports
  */
 export interface RdsPendingCloudwatchLogsExports {
@@ -9816,6 +16440,21 @@ export interface RdsPendingCloudwatchLogsExports {
 }
 
 /**
+ * Converts an object of type 'RdsPendingCloudwatchLogsExports' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsPendingCloudwatchLogsExports(obj: RdsPendingCloudwatchLogsExports | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LogTypesToEnable': obj.logTypesToEnable?.map(y => y),
+    'LogTypesToDisable': obj.logTypesToDisable?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsOutpost
  */
 export interface RdsOutpost {
@@ -9825,6 +16464,20 @@ export interface RdsOutpost {
   readonly arn?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsOutpost' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsOutpost(obj: RdsOutpost | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsMinimumEngineVersionPerAllowedValue
@@ -9841,6 +16494,21 @@ export interface RdsMinimumEngineVersionPerAllowedValue {
   readonly minimumEngineVersion?: string;
 
 }
+
+/**
+ * Converts an object of type 'RdsMinimumEngineVersionPerAllowedValue' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsMinimumEngineVersionPerAllowedValue(obj: RdsMinimumEngineVersionPerAllowedValue | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AllowedValue': obj.allowedValue,
+    'MinimumEngineVersion': obj.minimumEngineVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RdsRange
@@ -9864,6 +16532,22 @@ export interface RdsRange {
 }
 
 /**
+ * Converts an object of type 'RdsRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsRange(obj: RdsRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'From': obj.from,
+    'To': obj.to,
+    'Step': obj.step,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RdsDoubleRange
  */
 export interface RdsDoubleRange {
@@ -9878,3 +16562,18 @@ export interface RdsDoubleRange {
   readonly to?: number;
 
 }
+
+/**
+ * Converts an object of type 'RdsDoubleRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RdsDoubleRange(obj: RdsDoubleRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'From': obj.from,
+    'To': obj.to,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

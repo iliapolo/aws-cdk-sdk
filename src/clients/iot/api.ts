@@ -174,6 +174,21 @@ export class IotClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'CancelCertificateTransfer', props);
   }
 
+  public cancelDetectMitigationActionsTask(input: shapes.IotCancelDetectMitigationActionsTaskRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'cancelDetectMitigationActionsTask',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.CancelDetectMitigationActionsTask'),
+        parameters: {
+          taskId: input.taskId,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'CancelDetectMitigationActionsTask', props);
+  }
+
   public cancelJob(input: shapes.IotCancelJobRequest): IotResponsesCancelJob {
     return new IotResponsesCancelJob(this, this.__resources, input);
   }
@@ -270,6 +285,10 @@ export class IotClient extends cdk.Construct {
     return new IotResponsesCreateCertificateFromCsr(this, this.__resources, input);
   }
 
+  public createCustomMetric(input: shapes.IotCreateCustomMetricRequest): IotResponsesCreateCustomMetric {
+    return new IotResponsesCreateCustomMetric(this, this.__resources, input);
+  }
+
   public createDimension(input: shapes.IotCreateDimensionRequest): IotResponsesCreateDimension {
     return new IotResponsesCreateDimension(this, this.__resources, input);
   }
@@ -284,6 +303,10 @@ export class IotClient extends cdk.Construct {
 
   public createJob(input: shapes.IotCreateJobRequest): IotResponsesCreateJob {
     return new IotResponsesCreateJob(this, this.__resources, input);
+  }
+
+  public createJobTemplate(input: shapes.IotCreateJobTemplateRequest): IotResponsesCreateJobTemplate {
+    return new IotResponsesCreateJobTemplate(this, this.__resources, input);
   }
 
   public createKeysAndCertificate(input: shapes.IotCreateKeysAndCertificateRequest): IotResponsesCreateKeysAndCertificate {
@@ -487,6 +510,13 @@ export class IotClient extends cdk.Construct {
                   },
                 },
               },
+              kafka: {
+                destinationArn: input.topicRulePayload.errorAction?.kafka?.destinationArn,
+                topic: input.topicRulePayload.errorAction?.kafka?.topic,
+                key: input.topicRulePayload.errorAction?.kafka?.key,
+                partition: input.topicRulePayload.errorAction?.kafka?.partition,
+                clientProperties: input.topicRulePayload.errorAction?.kafka?.clientProperties,
+              },
             },
           },
           tags: input.tags,
@@ -605,6 +635,21 @@ export class IotClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeleteCertificate', props);
   }
 
+  public deleteCustomMetric(input: shapes.IotDeleteCustomMetricRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCustomMetric',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DeleteCustomMetric'),
+        parameters: {
+          metricName: input.metricName,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteCustomMetric', props);
+  }
+
   public deleteDimension(input: shapes.IotDeleteDimensionRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -685,6 +730,21 @@ export class IotClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'DeleteJobExecution', props);
+  }
+
+  public deleteJobTemplate(input: shapes.IotDeleteJobTemplateRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteJobTemplate',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DeleteJobTemplate'),
+        parameters: {
+          jobTemplateId: input.jobTemplateId,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteJobTemplate', props);
   }
 
   public deleteMitigationAction(input: shapes.IotDeleteMitigationActionRequest): void {
@@ -1001,8 +1061,16 @@ export class IotClient extends cdk.Construct {
     return new IotResponsesDescribeCertificate(this, this.__resources, input);
   }
 
+  public describeCustomMetric(input: shapes.IotDescribeCustomMetricRequest): IotResponsesDescribeCustomMetric {
+    return new IotResponsesDescribeCustomMetric(this, this.__resources, input);
+  }
+
   public describeDefaultAuthorizer(): IotResponsesDescribeDefaultAuthorizer {
     return new IotResponsesDescribeDefaultAuthorizer(this, this.__resources);
+  }
+
+  public describeDetectMitigationActionsTask(input: shapes.IotDescribeDetectMitigationActionsTaskRequest): IotResponsesDescribeDetectMitigationActionsTask {
+    return new IotResponsesDescribeDetectMitigationActionsTask(this, this.__resources, input);
   }
 
   public describeDimension(input: shapes.IotDescribeDimensionRequest): IotResponsesDescribeDimension {
@@ -1031,6 +1099,10 @@ export class IotClient extends cdk.Construct {
 
   public describeJobExecution(input: shapes.IotDescribeJobExecutionRequest): IotResponsesDescribeJobExecution {
     return new IotResponsesDescribeJobExecution(this, this.__resources, input);
+  }
+
+  public describeJobTemplate(input: shapes.IotDescribeJobTemplateRequest): IotResponsesDescribeJobTemplate {
+    return new IotResponsesDescribeJobTemplate(this, this.__resources, input);
   }
 
   public describeMitigationAction(input: shapes.IotDescribeMitigationActionRequest): IotResponsesDescribeMitigationAction {
@@ -1171,6 +1243,10 @@ export class IotClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'EnableTopicRule', props);
   }
 
+  public fetchBehaviorModelTrainingSummaries(input: shapes.IotGetBehaviorModelTrainingSummariesRequest): IotResponsesFetchBehaviorModelTrainingSummaries {
+    return new IotResponsesFetchBehaviorModelTrainingSummaries(this, this.__resources, input);
+  }
+
   public fetchCardinality(input: shapes.IotGetCardinalityRequest): IotResponsesFetchCardinality {
     return new IotResponsesFetchCardinality(this, this.__resources, input);
   }
@@ -1275,6 +1351,18 @@ export class IotClient extends cdk.Construct {
     return new IotResponsesListCertificatesByCa(this, this.__resources, input);
   }
 
+  public listCustomMetrics(input: shapes.IotListCustomMetricsRequest): IotResponsesListCustomMetrics {
+    return new IotResponsesListCustomMetrics(this, this.__resources, input);
+  }
+
+  public listDetectMitigationActionsExecutions(input: shapes.IotListDetectMitigationActionsExecutionsRequest): IotResponsesListDetectMitigationActionsExecutions {
+    return new IotResponsesListDetectMitigationActionsExecutions(this, this.__resources, input);
+  }
+
+  public listDetectMitigationActionsTasks(input: shapes.IotListDetectMitigationActionsTasksRequest): IotResponsesListDetectMitigationActionsTasks {
+    return new IotResponsesListDetectMitigationActionsTasks(this, this.__resources, input);
+  }
+
   public listDimensions(input: shapes.IotListDimensionsRequest): IotResponsesListDimensions {
     return new IotResponsesListDimensions(this, this.__resources, input);
   }
@@ -1293,6 +1381,10 @@ export class IotClient extends cdk.Construct {
 
   public listJobExecutionsForThing(input: shapes.IotListJobExecutionsForThingRequest): IotResponsesListJobExecutionsForThing {
     return new IotResponsesListJobExecutionsForThing(this, this.__resources, input);
+  }
+
+  public listJobTemplates(input: shapes.IotListJobTemplatesRequest): IotResponsesListJobTemplates {
+    return new IotResponsesListJobTemplates(this, this.__resources, input);
   }
 
   public listJobs(input: shapes.IotListJobsRequest): IotResponsesListJobs {
@@ -1632,6 +1724,13 @@ export class IotClient extends cdk.Construct {
                   },
                 },
               },
+              kafka: {
+                destinationArn: input.topicRulePayload.errorAction?.kafka?.destinationArn,
+                topic: input.topicRulePayload.errorAction?.kafka?.topic,
+                key: input.topicRulePayload.errorAction?.kafka?.key,
+                partition: input.topicRulePayload.errorAction?.kafka?.partition,
+                clientProperties: input.topicRulePayload.errorAction?.kafka?.clientProperties,
+              },
             },
           },
         },
@@ -1720,6 +1819,10 @@ export class IotClient extends cdk.Construct {
 
   public startAuditMitigationActionsTask(input: shapes.IotStartAuditMitigationActionsTaskRequest): IotResponsesStartAuditMitigationActionsTask {
     return new IotResponsesStartAuditMitigationActionsTask(this, this.__resources, input);
+  }
+
+  public startDetectMitigationActionsTask(input: shapes.IotStartDetectMitigationActionsTaskRequest): IotResponsesStartDetectMitigationActionsTask {
+    return new IotResponsesStartDetectMitigationActionsTask(this, this.__resources, input);
   }
 
   public startOnDemandAuditTask(input: shapes.IotStartOnDemandAuditTaskRequest): IotResponsesStartOnDemandAuditTask {
@@ -1881,6 +1984,10 @@ export class IotClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'UpdateCertificate', props);
+  }
+
+  public updateCustomMetric(input: shapes.IotUpdateCustomMetricRequest): IotResponsesUpdateCustomMetric {
+    return new IotResponsesUpdateCustomMetric(this, this.__resources, input);
   }
 
   public updateDimension(input: shapes.IotUpdateDimensionRequest): IotResponsesUpdateDimension {
@@ -2401,6 +2508,55 @@ export class IotResponsesCreateCertificateFromCsr {
 
 }
 
+export class IotResponsesCreateCustomMetric {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotCreateCustomMetricRequest) {
+  }
+
+  public get metricName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCustomMetric',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.CreateCustomMetric.metricName'),
+        outputPath: 'metricName',
+        parameters: {
+          metricName: this.__input.metricName,
+          displayName: this.__input.displayName,
+          metricType: this.__input.metricType,
+          tags: this.__input.tags,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCustomMetric.metricName', props);
+    return resource.getResponseField('metricName') as unknown as string;
+  }
+
+  public get metricArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCustomMetric',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.CreateCustomMetric.metricArn'),
+        outputPath: 'metricArn',
+        parameters: {
+          metricName: this.__input.metricName,
+          displayName: this.__input.displayName,
+          metricType: this.__input.metricType,
+          tags: this.__input.tags,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCustomMetric.metricArn', props);
+    return resource.getResponseField('metricArn') as unknown as string;
+  }
+
+}
+
 export class IotResponsesCreateDimension {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotCreateDimensionRequest) {
@@ -2727,6 +2883,7 @@ export class IotResponsesCreateJob {
           },
           tags: this.__input.tags,
           namespaceId: this.__input.namespaceId,
+          jobTemplateArn: this.__input.jobTemplateArn,
         },
       },
     };
@@ -2772,6 +2929,7 @@ export class IotResponsesCreateJob {
           },
           tags: this.__input.tags,
           namespaceId: this.__input.namespaceId,
+          jobTemplateArn: this.__input.jobTemplateArn,
         },
       },
     };
@@ -2817,11 +2975,105 @@ export class IotResponsesCreateJob {
           },
           tags: this.__input.tags,
           namespaceId: this.__input.namespaceId,
+          jobTemplateArn: this.__input.jobTemplateArn,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateJob.description', props);
     return resource.getResponseField('description') as unknown as string;
+  }
+
+}
+
+export class IotResponsesCreateJobTemplate {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotCreateJobTemplateRequest) {
+  }
+
+  public get jobTemplateArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createJobTemplate',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.CreateJobTemplate.jobTemplateArn'),
+        outputPath: 'jobTemplateArn',
+        parameters: {
+          jobTemplateId: this.__input.jobTemplateId,
+          jobArn: this.__input.jobArn,
+          documentSource: this.__input.documentSource,
+          document: this.__input.document,
+          description: this.__input.description,
+          presignedUrlConfig: {
+            roleArn: this.__input.presignedUrlConfig?.roleArn,
+            expiresInSec: this.__input.presignedUrlConfig?.expiresInSec,
+          },
+          jobExecutionsRolloutConfig: {
+            maximumPerMinute: this.__input.jobExecutionsRolloutConfig?.maximumPerMinute,
+            exponentialRate: {
+              baseRatePerMinute: this.__input.jobExecutionsRolloutConfig?.exponentialRate?.baseRatePerMinute,
+              incrementFactor: this.__input.jobExecutionsRolloutConfig?.exponentialRate?.incrementFactor,
+              rateIncreaseCriteria: {
+                numberOfNotifiedThings: this.__input.jobExecutionsRolloutConfig?.exponentialRate?.rateIncreaseCriteria.numberOfNotifiedThings,
+                numberOfSucceededThings: this.__input.jobExecutionsRolloutConfig?.exponentialRate?.rateIncreaseCriteria.numberOfSucceededThings,
+              },
+            },
+          },
+          abortConfig: {
+            criteriaList: this.__input.abortConfig?.criteriaList,
+          },
+          timeoutConfig: {
+            inProgressTimeoutInMinutes: this.__input.timeoutConfig?.inProgressTimeoutInMinutes,
+          },
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateJobTemplate.jobTemplateArn', props);
+    return resource.getResponseField('jobTemplateArn') as unknown as string;
+  }
+
+  public get jobTemplateId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createJobTemplate',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.CreateJobTemplate.jobTemplateId'),
+        outputPath: 'jobTemplateId',
+        parameters: {
+          jobTemplateId: this.__input.jobTemplateId,
+          jobArn: this.__input.jobArn,
+          documentSource: this.__input.documentSource,
+          document: this.__input.document,
+          description: this.__input.description,
+          presignedUrlConfig: {
+            roleArn: this.__input.presignedUrlConfig?.roleArn,
+            expiresInSec: this.__input.presignedUrlConfig?.expiresInSec,
+          },
+          jobExecutionsRolloutConfig: {
+            maximumPerMinute: this.__input.jobExecutionsRolloutConfig?.maximumPerMinute,
+            exponentialRate: {
+              baseRatePerMinute: this.__input.jobExecutionsRolloutConfig?.exponentialRate?.baseRatePerMinute,
+              incrementFactor: this.__input.jobExecutionsRolloutConfig?.exponentialRate?.incrementFactor,
+              rateIncreaseCriteria: {
+                numberOfNotifiedThings: this.__input.jobExecutionsRolloutConfig?.exponentialRate?.rateIncreaseCriteria.numberOfNotifiedThings,
+                numberOfSucceededThings: this.__input.jobExecutionsRolloutConfig?.exponentialRate?.rateIncreaseCriteria.numberOfSucceededThings,
+              },
+            },
+          },
+          abortConfig: {
+            criteriaList: this.__input.abortConfig?.criteriaList,
+          },
+          timeoutConfig: {
+            inProgressTimeoutInMinutes: this.__input.timeoutConfig?.inProgressTimeoutInMinutes,
+          },
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateJobTemplate.jobTemplateId', props);
+    return resource.getResponseField('jobTemplateId') as unknown as string;
   }
 
 }
@@ -4170,6 +4422,12 @@ export class IotResponsesCreateTopicRuleDestinationTopicRuleDestination {
             httpUrlConfiguration: {
               confirmationUrl: this.__input.destinationConfiguration.httpUrlConfiguration?.confirmationUrl,
             },
+            vpcConfiguration: {
+              subnetIds: this.__input.destinationConfiguration.vpcConfiguration?.subnetIds,
+              securityGroups: this.__input.destinationConfiguration.vpcConfiguration?.securityGroups,
+              vpcId: this.__input.destinationConfiguration.vpcConfiguration?.vpcId,
+              roleArn: this.__input.destinationConfiguration.vpcConfiguration?.roleArn,
+            },
           },
         },
       },
@@ -4191,12 +4449,72 @@ export class IotResponsesCreateTopicRuleDestinationTopicRuleDestination {
             httpUrlConfiguration: {
               confirmationUrl: this.__input.destinationConfiguration.httpUrlConfiguration?.confirmationUrl,
             },
+            vpcConfiguration: {
+              subnetIds: this.__input.destinationConfiguration.vpcConfiguration?.subnetIds,
+              securityGroups: this.__input.destinationConfiguration.vpcConfiguration?.securityGroups,
+              vpcId: this.__input.destinationConfiguration.vpcConfiguration?.vpcId,
+              roleArn: this.__input.destinationConfiguration.vpcConfiguration?.roleArn,
+            },
           },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateTopicRuleDestination.topicRuleDestination.status', props);
     return resource.getResponseField('topicRuleDestination.status') as unknown as string;
+  }
+
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTopicRuleDestination',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.CreateTopicRuleDestination.topicRuleDestination.createdAt'),
+        outputPath: 'topicRuleDestination.createdAt',
+        parameters: {
+          destinationConfiguration: {
+            httpUrlConfiguration: {
+              confirmationUrl: this.__input.destinationConfiguration.httpUrlConfiguration?.confirmationUrl,
+            },
+            vpcConfiguration: {
+              subnetIds: this.__input.destinationConfiguration.vpcConfiguration?.subnetIds,
+              securityGroups: this.__input.destinationConfiguration.vpcConfiguration?.securityGroups,
+              vpcId: this.__input.destinationConfiguration.vpcConfiguration?.vpcId,
+              roleArn: this.__input.destinationConfiguration.vpcConfiguration?.roleArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTopicRuleDestination.topicRuleDestination.createdAt', props);
+    return resource.getResponseField('topicRuleDestination.createdAt') as unknown as string;
+  }
+
+  public get lastUpdatedAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTopicRuleDestination',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.CreateTopicRuleDestination.topicRuleDestination.lastUpdatedAt'),
+        outputPath: 'topicRuleDestination.lastUpdatedAt',
+        parameters: {
+          destinationConfiguration: {
+            httpUrlConfiguration: {
+              confirmationUrl: this.__input.destinationConfiguration.httpUrlConfiguration?.confirmationUrl,
+            },
+            vpcConfiguration: {
+              subnetIds: this.__input.destinationConfiguration.vpcConfiguration?.subnetIds,
+              securityGroups: this.__input.destinationConfiguration.vpcConfiguration?.securityGroups,
+              vpcId: this.__input.destinationConfiguration.vpcConfiguration?.vpcId,
+              roleArn: this.__input.destinationConfiguration.vpcConfiguration?.roleArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTopicRuleDestination.topicRuleDestination.lastUpdatedAt', props);
+    return resource.getResponseField('topicRuleDestination.lastUpdatedAt') as unknown as string;
   }
 
   public get statusReason(): string {
@@ -4212,6 +4530,12 @@ export class IotResponsesCreateTopicRuleDestinationTopicRuleDestination {
             httpUrlConfiguration: {
               confirmationUrl: this.__input.destinationConfiguration.httpUrlConfiguration?.confirmationUrl,
             },
+            vpcConfiguration: {
+              subnetIds: this.__input.destinationConfiguration.vpcConfiguration?.subnetIds,
+              securityGroups: this.__input.destinationConfiguration.vpcConfiguration?.securityGroups,
+              vpcId: this.__input.destinationConfiguration.vpcConfiguration?.vpcId,
+              roleArn: this.__input.destinationConfiguration.vpcConfiguration?.roleArn,
+            },
           },
         },
       },
@@ -4222,6 +4546,10 @@ export class IotResponsesCreateTopicRuleDestinationTopicRuleDestination {
 
   public get httpUrlProperties(): IotResponsesCreateTopicRuleDestinationTopicRuleDestinationHttpUrlProperties {
     return new IotResponsesCreateTopicRuleDestinationTopicRuleDestinationHttpUrlProperties(this.__scope, this.__resources, this.__input);
+  }
+
+  public get vpcProperties(): IotResponsesCreateTopicRuleDestinationTopicRuleDestinationVpcProperties {
+    return new IotResponsesCreateTopicRuleDestinationTopicRuleDestinationVpcProperties(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -4244,12 +4572,133 @@ export class IotResponsesCreateTopicRuleDestinationTopicRuleDestinationHttpUrlPr
             httpUrlConfiguration: {
               confirmationUrl: this.__input.destinationConfiguration.httpUrlConfiguration?.confirmationUrl,
             },
+            vpcConfiguration: {
+              subnetIds: this.__input.destinationConfiguration.vpcConfiguration?.subnetIds,
+              securityGroups: this.__input.destinationConfiguration.vpcConfiguration?.securityGroups,
+              vpcId: this.__input.destinationConfiguration.vpcConfiguration?.vpcId,
+              roleArn: this.__input.destinationConfiguration.vpcConfiguration?.roleArn,
+            },
           },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateTopicRuleDestination.topicRuleDestination.httpUrlProperties.confirmationUrl', props);
     return resource.getResponseField('topicRuleDestination.httpUrlProperties.confirmationUrl') as unknown as string;
+  }
+
+}
+
+export class IotResponsesCreateTopicRuleDestinationTopicRuleDestinationVpcProperties {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotCreateTopicRuleDestinationRequest) {
+  }
+
+  public get subnetIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTopicRuleDestination',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.CreateTopicRuleDestination.topicRuleDestination.vpcProperties.subnetIds'),
+        outputPath: 'topicRuleDestination.vpcProperties.subnetIds',
+        parameters: {
+          destinationConfiguration: {
+            httpUrlConfiguration: {
+              confirmationUrl: this.__input.destinationConfiguration.httpUrlConfiguration?.confirmationUrl,
+            },
+            vpcConfiguration: {
+              subnetIds: this.__input.destinationConfiguration.vpcConfiguration?.subnetIds,
+              securityGroups: this.__input.destinationConfiguration.vpcConfiguration?.securityGroups,
+              vpcId: this.__input.destinationConfiguration.vpcConfiguration?.vpcId,
+              roleArn: this.__input.destinationConfiguration.vpcConfiguration?.roleArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTopicRuleDestination.topicRuleDestination.vpcProperties.subnetIds', props);
+    return resource.getResponseField('topicRuleDestination.vpcProperties.subnetIds') as unknown as string[];
+  }
+
+  public get securityGroups(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTopicRuleDestination',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.CreateTopicRuleDestination.topicRuleDestination.vpcProperties.securityGroups'),
+        outputPath: 'topicRuleDestination.vpcProperties.securityGroups',
+        parameters: {
+          destinationConfiguration: {
+            httpUrlConfiguration: {
+              confirmationUrl: this.__input.destinationConfiguration.httpUrlConfiguration?.confirmationUrl,
+            },
+            vpcConfiguration: {
+              subnetIds: this.__input.destinationConfiguration.vpcConfiguration?.subnetIds,
+              securityGroups: this.__input.destinationConfiguration.vpcConfiguration?.securityGroups,
+              vpcId: this.__input.destinationConfiguration.vpcConfiguration?.vpcId,
+              roleArn: this.__input.destinationConfiguration.vpcConfiguration?.roleArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTopicRuleDestination.topicRuleDestination.vpcProperties.securityGroups', props);
+    return resource.getResponseField('topicRuleDestination.vpcProperties.securityGroups') as unknown as string[];
+  }
+
+  public get vpcId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTopicRuleDestination',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.CreateTopicRuleDestination.topicRuleDestination.vpcProperties.vpcId'),
+        outputPath: 'topicRuleDestination.vpcProperties.vpcId',
+        parameters: {
+          destinationConfiguration: {
+            httpUrlConfiguration: {
+              confirmationUrl: this.__input.destinationConfiguration.httpUrlConfiguration?.confirmationUrl,
+            },
+            vpcConfiguration: {
+              subnetIds: this.__input.destinationConfiguration.vpcConfiguration?.subnetIds,
+              securityGroups: this.__input.destinationConfiguration.vpcConfiguration?.securityGroups,
+              vpcId: this.__input.destinationConfiguration.vpcConfiguration?.vpcId,
+              roleArn: this.__input.destinationConfiguration.vpcConfiguration?.roleArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTopicRuleDestination.topicRuleDestination.vpcProperties.vpcId', props);
+    return resource.getResponseField('topicRuleDestination.vpcProperties.vpcId') as unknown as string;
+  }
+
+  public get roleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTopicRuleDestination',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.CreateTopicRuleDestination.topicRuleDestination.vpcProperties.roleArn'),
+        outputPath: 'topicRuleDestination.vpcProperties.roleArn',
+        parameters: {
+          destinationConfiguration: {
+            httpUrlConfiguration: {
+              confirmationUrl: this.__input.destinationConfiguration.httpUrlConfiguration?.confirmationUrl,
+            },
+            vpcConfiguration: {
+              subnetIds: this.__input.destinationConfiguration.vpcConfiguration?.subnetIds,
+              securityGroups: this.__input.destinationConfiguration.vpcConfiguration?.securityGroups,
+              vpcId: this.__input.destinationConfiguration.vpcConfiguration?.vpcId,
+              roleArn: this.__input.destinationConfiguration.vpcConfiguration?.roleArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTopicRuleDestination.topicRuleDestination.vpcProperties.roleArn', props);
+    return resource.getResponseField('topicRuleDestination.vpcProperties.roleArn') as unknown as string;
   }
 
 }
@@ -6472,6 +6921,115 @@ export class IotResponsesDescribeCertificateCertificateDescriptionValidity {
 
 }
 
+export class IotResponsesDescribeCustomMetric {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotDescribeCustomMetricRequest) {
+  }
+
+  public get metricName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomMetric',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeCustomMetric.metricName'),
+        outputPath: 'metricName',
+        parameters: {
+          metricName: this.__input.metricName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomMetric.metricName', props);
+    return resource.getResponseField('metricName') as unknown as string;
+  }
+
+  public get metricArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomMetric',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeCustomMetric.metricArn'),
+        outputPath: 'metricArn',
+        parameters: {
+          metricName: this.__input.metricName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomMetric.metricArn', props);
+    return resource.getResponseField('metricArn') as unknown as string;
+  }
+
+  public get metricType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomMetric',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeCustomMetric.metricType'),
+        outputPath: 'metricType',
+        parameters: {
+          metricName: this.__input.metricName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomMetric.metricType', props);
+    return resource.getResponseField('metricType') as unknown as string;
+  }
+
+  public get displayName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomMetric',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeCustomMetric.displayName'),
+        outputPath: 'displayName',
+        parameters: {
+          metricName: this.__input.metricName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomMetric.displayName', props);
+    return resource.getResponseField('displayName') as unknown as string;
+  }
+
+  public get creationDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomMetric',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeCustomMetric.creationDate'),
+        outputPath: 'creationDate',
+        parameters: {
+          metricName: this.__input.metricName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomMetric.creationDate', props);
+    return resource.getResponseField('creationDate') as unknown as string;
+  }
+
+  public get lastModifiedDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCustomMetric',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeCustomMetric.lastModifiedDate'),
+        outputPath: 'lastModifiedDate',
+        parameters: {
+          metricName: this.__input.metricName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCustomMetric.lastModifiedDate', props);
+    return resource.getResponseField('lastModifiedDate') as unknown as string;
+  }
+
+}
+
 export class IotResponsesDescribeDefaultAuthorizer {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
@@ -6630,6 +7188,312 @@ export class IotResponsesDescribeDefaultAuthorizerAuthorizerDescription {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDefaultAuthorizer.authorizerDescription.signingDisabled', props);
     return resource.getResponseField('authorizerDescription.signingDisabled') as unknown as boolean;
+  }
+
+}
+
+export class IotResponsesDescribeDetectMitigationActionsTask {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotDescribeDetectMitigationActionsTaskRequest) {
+  }
+
+  public get taskSummary(): IotResponsesDescribeDetectMitigationActionsTaskTaskSummary {
+    return new IotResponsesDescribeDetectMitigationActionsTaskTaskSummary(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IotResponsesDescribeDetectMitigationActionsTaskTaskSummary {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotDescribeDetectMitigationActionsTaskRequest) {
+  }
+
+  public get taskId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDetectMitigationActionsTask',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeDetectMitigationActionsTask.taskSummary.taskId'),
+        outputPath: 'taskSummary.taskId',
+        parameters: {
+          taskId: this.__input.taskId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDetectMitigationActionsTask.taskSummary.taskId', props);
+    return resource.getResponseField('taskSummary.taskId') as unknown as string;
+  }
+
+  public get taskStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDetectMitigationActionsTask',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeDetectMitigationActionsTask.taskSummary.taskStatus'),
+        outputPath: 'taskSummary.taskStatus',
+        parameters: {
+          taskId: this.__input.taskId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDetectMitigationActionsTask.taskSummary.taskStatus', props);
+    return resource.getResponseField('taskSummary.taskStatus') as unknown as string;
+  }
+
+  public get taskStartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDetectMitigationActionsTask',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeDetectMitigationActionsTask.taskSummary.taskStartTime'),
+        outputPath: 'taskSummary.taskStartTime',
+        parameters: {
+          taskId: this.__input.taskId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDetectMitigationActionsTask.taskSummary.taskStartTime', props);
+    return resource.getResponseField('taskSummary.taskStartTime') as unknown as string;
+  }
+
+  public get taskEndTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDetectMitigationActionsTask',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeDetectMitigationActionsTask.taskSummary.taskEndTime'),
+        outputPath: 'taskSummary.taskEndTime',
+        parameters: {
+          taskId: this.__input.taskId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDetectMitigationActionsTask.taskSummary.taskEndTime', props);
+    return resource.getResponseField('taskSummary.taskEndTime') as unknown as string;
+  }
+
+  public get target(): IotResponsesDescribeDetectMitigationActionsTaskTaskSummaryTarget {
+    return new IotResponsesDescribeDetectMitigationActionsTaskTaskSummaryTarget(this.__scope, this.__resources, this.__input);
+  }
+
+  public get violationEventOccurrenceRange(): IotResponsesDescribeDetectMitigationActionsTaskTaskSummaryViolationEventOccurrenceRange {
+    return new IotResponsesDescribeDetectMitigationActionsTaskTaskSummaryViolationEventOccurrenceRange(this.__scope, this.__resources, this.__input);
+  }
+
+  public get onlyActiveViolationsIncluded(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDetectMitigationActionsTask',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeDetectMitigationActionsTask.taskSummary.onlyActiveViolationsIncluded'),
+        outputPath: 'taskSummary.onlyActiveViolationsIncluded',
+        parameters: {
+          taskId: this.__input.taskId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDetectMitigationActionsTask.taskSummary.onlyActiveViolationsIncluded', props);
+    return resource.getResponseField('taskSummary.onlyActiveViolationsIncluded') as unknown as boolean;
+  }
+
+  public get suppressedAlertsIncluded(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDetectMitigationActionsTask',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeDetectMitigationActionsTask.taskSummary.suppressedAlertsIncluded'),
+        outputPath: 'taskSummary.suppressedAlertsIncluded',
+        parameters: {
+          taskId: this.__input.taskId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDetectMitigationActionsTask.taskSummary.suppressedAlertsIncluded', props);
+    return resource.getResponseField('taskSummary.suppressedAlertsIncluded') as unknown as boolean;
+  }
+
+  public get actionsDefinition(): shapes.IotMitigationAction[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDetectMitigationActionsTask',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeDetectMitigationActionsTask.taskSummary.actionsDefinition'),
+        outputPath: 'taskSummary.actionsDefinition',
+        parameters: {
+          taskId: this.__input.taskId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDetectMitigationActionsTask.taskSummary.actionsDefinition', props);
+    return resource.getResponseField('taskSummary.actionsDefinition') as unknown as shapes.IotMitigationAction[];
+  }
+
+  public get taskStatistics(): IotResponsesDescribeDetectMitigationActionsTaskTaskSummaryTaskStatistics {
+    return new IotResponsesDescribeDetectMitigationActionsTaskTaskSummaryTaskStatistics(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IotResponsesDescribeDetectMitigationActionsTaskTaskSummaryTarget {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotDescribeDetectMitigationActionsTaskRequest) {
+  }
+
+  public get violationIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDetectMitigationActionsTask',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeDetectMitigationActionsTask.taskSummary.target.violationIds'),
+        outputPath: 'taskSummary.target.violationIds',
+        parameters: {
+          taskId: this.__input.taskId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDetectMitigationActionsTask.taskSummary.target.violationIds', props);
+    return resource.getResponseField('taskSummary.target.violationIds') as unknown as string[];
+  }
+
+  public get securityProfileName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDetectMitigationActionsTask',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeDetectMitigationActionsTask.taskSummary.target.securityProfileName'),
+        outputPath: 'taskSummary.target.securityProfileName',
+        parameters: {
+          taskId: this.__input.taskId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDetectMitigationActionsTask.taskSummary.target.securityProfileName', props);
+    return resource.getResponseField('taskSummary.target.securityProfileName') as unknown as string;
+  }
+
+  public get behaviorName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDetectMitigationActionsTask',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeDetectMitigationActionsTask.taskSummary.target.behaviorName'),
+        outputPath: 'taskSummary.target.behaviorName',
+        parameters: {
+          taskId: this.__input.taskId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDetectMitigationActionsTask.taskSummary.target.behaviorName', props);
+    return resource.getResponseField('taskSummary.target.behaviorName') as unknown as string;
+  }
+
+}
+
+export class IotResponsesDescribeDetectMitigationActionsTaskTaskSummaryViolationEventOccurrenceRange {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotDescribeDetectMitigationActionsTaskRequest) {
+  }
+
+  public get startTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDetectMitigationActionsTask',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeDetectMitigationActionsTask.taskSummary.violationEventOccurrenceRange.startTime'),
+        outputPath: 'taskSummary.violationEventOccurrenceRange.startTime',
+        parameters: {
+          taskId: this.__input.taskId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDetectMitigationActionsTask.taskSummary.violationEventOccurrenceRange.startTime', props);
+    return resource.getResponseField('taskSummary.violationEventOccurrenceRange.startTime') as unknown as string;
+  }
+
+  public get endTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDetectMitigationActionsTask',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeDetectMitigationActionsTask.taskSummary.violationEventOccurrenceRange.endTime'),
+        outputPath: 'taskSummary.violationEventOccurrenceRange.endTime',
+        parameters: {
+          taskId: this.__input.taskId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDetectMitigationActionsTask.taskSummary.violationEventOccurrenceRange.endTime', props);
+    return resource.getResponseField('taskSummary.violationEventOccurrenceRange.endTime') as unknown as string;
+  }
+
+}
+
+export class IotResponsesDescribeDetectMitigationActionsTaskTaskSummaryTaskStatistics {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotDescribeDetectMitigationActionsTaskRequest) {
+  }
+
+  public get actionsExecuted(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDetectMitigationActionsTask',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeDetectMitigationActionsTask.taskSummary.taskStatistics.actionsExecuted'),
+        outputPath: 'taskSummary.taskStatistics.actionsExecuted',
+        parameters: {
+          taskId: this.__input.taskId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDetectMitigationActionsTask.taskSummary.taskStatistics.actionsExecuted', props);
+    return resource.getResponseField('taskSummary.taskStatistics.actionsExecuted') as unknown as number;
+  }
+
+  public get actionsSkipped(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDetectMitigationActionsTask',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeDetectMitigationActionsTask.taskSummary.taskStatistics.actionsSkipped'),
+        outputPath: 'taskSummary.taskStatistics.actionsSkipped',
+        parameters: {
+          taskId: this.__input.taskId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDetectMitigationActionsTask.taskSummary.taskStatistics.actionsSkipped', props);
+    return resource.getResponseField('taskSummary.taskStatistics.actionsSkipped') as unknown as number;
+  }
+
+  public get actionsFailed(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDetectMitigationActionsTask',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeDetectMitigationActionsTask.taskSummary.taskStatistics.actionsFailed'),
+        outputPath: 'taskSummary.taskStatistics.actionsFailed',
+        parameters: {
+          taskId: this.__input.taskId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDetectMitigationActionsTask.taskSummary.taskStatistics.actionsFailed', props);
+    return resource.getResponseField('taskSummary.taskStatistics.actionsFailed') as unknown as number;
   }
 
 }
@@ -7342,6 +8206,23 @@ export class IotResponsesDescribeJobJob {
     return resource.getResponseField('job.namespaceId') as unknown as string;
   }
 
+  public get jobTemplateArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJob',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeJob.job.jobTemplateArn'),
+        outputPath: 'job.jobTemplateArn',
+        parameters: {
+          jobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJob.job.jobTemplateArn', props);
+    return resource.getResponseField('job.jobTemplateArn') as unknown as string;
+  }
+
 }
 
 export class IotResponsesDescribeJobJobPresignedUrlConfig {
@@ -7941,6 +8822,334 @@ export class IotResponsesDescribeJobExecutionExecutionStatusDetails {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobExecution.execution.statusDetails.detailsMap', props);
     return resource.getResponseField('execution.statusDetails.detailsMap') as unknown as Record<string, string>;
+  }
+
+}
+
+export class IotResponsesDescribeJobTemplate {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotDescribeJobTemplateRequest) {
+  }
+
+  public get jobTemplateArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobTemplate',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeJobTemplate.jobTemplateArn'),
+        outputPath: 'jobTemplateArn',
+        parameters: {
+          jobTemplateId: this.__input.jobTemplateId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobTemplate.jobTemplateArn', props);
+    return resource.getResponseField('jobTemplateArn') as unknown as string;
+  }
+
+  public get jobTemplateId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobTemplate',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeJobTemplate.jobTemplateId'),
+        outputPath: 'jobTemplateId',
+        parameters: {
+          jobTemplateId: this.__input.jobTemplateId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobTemplate.jobTemplateId', props);
+    return resource.getResponseField('jobTemplateId') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobTemplate',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeJobTemplate.description'),
+        outputPath: 'description',
+        parameters: {
+          jobTemplateId: this.__input.jobTemplateId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobTemplate.description', props);
+    return resource.getResponseField('description') as unknown as string;
+  }
+
+  public get documentSource(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobTemplate',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeJobTemplate.documentSource'),
+        outputPath: 'documentSource',
+        parameters: {
+          jobTemplateId: this.__input.jobTemplateId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobTemplate.documentSource', props);
+    return resource.getResponseField('documentSource') as unknown as string;
+  }
+
+  public get document(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobTemplate',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeJobTemplate.document'),
+        outputPath: 'document',
+        parameters: {
+          jobTemplateId: this.__input.jobTemplateId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobTemplate.document', props);
+    return resource.getResponseField('document') as unknown as string;
+  }
+
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobTemplate',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeJobTemplate.createdAt'),
+        outputPath: 'createdAt',
+        parameters: {
+          jobTemplateId: this.__input.jobTemplateId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobTemplate.createdAt', props);
+    return resource.getResponseField('createdAt') as unknown as string;
+  }
+
+  public get presignedUrlConfig(): IotResponsesDescribeJobTemplatePresignedUrlConfig {
+    return new IotResponsesDescribeJobTemplatePresignedUrlConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get jobExecutionsRolloutConfig(): IotResponsesDescribeJobTemplateJobExecutionsRolloutConfig {
+    return new IotResponsesDescribeJobTemplateJobExecutionsRolloutConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get abortConfig(): IotResponsesDescribeJobTemplateAbortConfig {
+    return new IotResponsesDescribeJobTemplateAbortConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get timeoutConfig(): IotResponsesDescribeJobTemplateTimeoutConfig {
+    return new IotResponsesDescribeJobTemplateTimeoutConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IotResponsesDescribeJobTemplatePresignedUrlConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotDescribeJobTemplateRequest) {
+  }
+
+  public get roleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobTemplate',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeJobTemplate.presignedUrlConfig.roleArn'),
+        outputPath: 'presignedUrlConfig.roleArn',
+        parameters: {
+          jobTemplateId: this.__input.jobTemplateId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobTemplate.presignedUrlConfig.roleArn', props);
+    return resource.getResponseField('presignedUrlConfig.roleArn') as unknown as string;
+  }
+
+  public get expiresInSec(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobTemplate',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeJobTemplate.presignedUrlConfig.expiresInSec'),
+        outputPath: 'presignedUrlConfig.expiresInSec',
+        parameters: {
+          jobTemplateId: this.__input.jobTemplateId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobTemplate.presignedUrlConfig.expiresInSec', props);
+    return resource.getResponseField('presignedUrlConfig.expiresInSec') as unknown as number;
+  }
+
+}
+
+export class IotResponsesDescribeJobTemplateJobExecutionsRolloutConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotDescribeJobTemplateRequest) {
+  }
+
+  public get maximumPerMinute(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobTemplate',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeJobTemplate.jobExecutionsRolloutConfig.maximumPerMinute'),
+        outputPath: 'jobExecutionsRolloutConfig.maximumPerMinute',
+        parameters: {
+          jobTemplateId: this.__input.jobTemplateId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobTemplate.jobExecutionsRolloutConfig.maximumPerMinute', props);
+    return resource.getResponseField('jobExecutionsRolloutConfig.maximumPerMinute') as unknown as number;
+  }
+
+  public get exponentialRate(): IotResponsesDescribeJobTemplateJobExecutionsRolloutConfigExponentialRate {
+    return new IotResponsesDescribeJobTemplateJobExecutionsRolloutConfigExponentialRate(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IotResponsesDescribeJobTemplateJobExecutionsRolloutConfigExponentialRate {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotDescribeJobTemplateRequest) {
+  }
+
+  public get baseRatePerMinute(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobTemplate',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeJobTemplate.jobExecutionsRolloutConfig.exponentialRate.baseRatePerMinute'),
+        outputPath: 'jobExecutionsRolloutConfig.exponentialRate.baseRatePerMinute',
+        parameters: {
+          jobTemplateId: this.__input.jobTemplateId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobTemplate.jobExecutionsRolloutConfig.exponentialRate.baseRatePerMinute', props);
+    return resource.getResponseField('jobExecutionsRolloutConfig.exponentialRate.baseRatePerMinute') as unknown as number;
+  }
+
+  public get incrementFactor(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobTemplate',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeJobTemplate.jobExecutionsRolloutConfig.exponentialRate.incrementFactor'),
+        outputPath: 'jobExecutionsRolloutConfig.exponentialRate.incrementFactor',
+        parameters: {
+          jobTemplateId: this.__input.jobTemplateId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobTemplate.jobExecutionsRolloutConfig.exponentialRate.incrementFactor', props);
+    return resource.getResponseField('jobExecutionsRolloutConfig.exponentialRate.incrementFactor') as unknown as number;
+  }
+
+  public get rateIncreaseCriteria(): IotResponsesDescribeJobTemplateJobExecutionsRolloutConfigExponentialRateRateIncreaseCriteria {
+    return new IotResponsesDescribeJobTemplateJobExecutionsRolloutConfigExponentialRateRateIncreaseCriteria(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IotResponsesDescribeJobTemplateJobExecutionsRolloutConfigExponentialRateRateIncreaseCriteria {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotDescribeJobTemplateRequest) {
+  }
+
+  public get numberOfNotifiedThings(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobTemplate',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeJobTemplate.jobExecutionsRolloutConfig.exponentialRate.rateIncreaseCriteria.numberOfNotifiedThings'),
+        outputPath: 'jobExecutionsRolloutConfig.exponentialRate.rateIncreaseCriteria.numberOfNotifiedThings',
+        parameters: {
+          jobTemplateId: this.__input.jobTemplateId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobTemplate.jobExecutionsRolloutConfig.exponentialRate.rateIncreaseCriteria.numberOfNotifiedThings', props);
+    return resource.getResponseField('jobExecutionsRolloutConfig.exponentialRate.rateIncreaseCriteria.numberOfNotifiedThings') as unknown as number;
+  }
+
+  public get numberOfSucceededThings(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobTemplate',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeJobTemplate.jobExecutionsRolloutConfig.exponentialRate.rateIncreaseCriteria.numberOfSucceededThings'),
+        outputPath: 'jobExecutionsRolloutConfig.exponentialRate.rateIncreaseCriteria.numberOfSucceededThings',
+        parameters: {
+          jobTemplateId: this.__input.jobTemplateId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobTemplate.jobExecutionsRolloutConfig.exponentialRate.rateIncreaseCriteria.numberOfSucceededThings', props);
+    return resource.getResponseField('jobExecutionsRolloutConfig.exponentialRate.rateIncreaseCriteria.numberOfSucceededThings') as unknown as number;
+  }
+
+}
+
+export class IotResponsesDescribeJobTemplateAbortConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotDescribeJobTemplateRequest) {
+  }
+
+  public get criteriaList(): shapes.IotAbortCriteria[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobTemplate',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeJobTemplate.abortConfig.criteriaList'),
+        outputPath: 'abortConfig.criteriaList',
+        parameters: {
+          jobTemplateId: this.__input.jobTemplateId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobTemplate.abortConfig.criteriaList', props);
+    return resource.getResponseField('abortConfig.criteriaList') as unknown as shapes.IotAbortCriteria[];
+  }
+
+}
+
+export class IotResponsesDescribeJobTemplateTimeoutConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotDescribeJobTemplateRequest) {
+  }
+
+  public get inProgressTimeoutInMinutes(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobTemplate',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.DescribeJobTemplate.timeoutConfig.inProgressTimeoutInMinutes'),
+        outputPath: 'timeoutConfig.inProgressTimeoutInMinutes',
+        parameters: {
+          jobTemplateId: this.__input.jobTemplateId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobTemplate.timeoutConfig.inProgressTimeoutInMinutes', props);
+    return resource.getResponseField('timeoutConfig.inProgressTimeoutInMinutes') as unknown as number;
   }
 
 }
@@ -9942,6 +11151,51 @@ export class IotResponsesDescribeThingTypeThingTypeMetadata {
 
 }
 
+export class IotResponsesFetchBehaviorModelTrainingSummaries {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotGetBehaviorModelTrainingSummariesRequest) {
+  }
+
+  public get summaries(): shapes.IotBehaviorModelTrainingSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getBehaviorModelTrainingSummaries',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.GetBehaviorModelTrainingSummaries.summaries'),
+        outputPath: 'summaries',
+        parameters: {
+          securityProfileName: this.__input.securityProfileName,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetBehaviorModelTrainingSummaries.summaries', props);
+    return resource.getResponseField('summaries') as unknown as shapes.IotBehaviorModelTrainingSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getBehaviorModelTrainingSummaries',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.GetBehaviorModelTrainingSummaries.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          securityProfileName: this.__input.securityProfileName,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetBehaviorModelTrainingSummaries.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
 export class IotResponsesFetchCardinality {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotGetCardinalityRequest) {
@@ -11376,6 +12630,10 @@ export class IotResponsesFetchTopicRuleRuleErrorAction {
 
   public get http(): IotResponsesFetchTopicRuleRuleErrorActionHttp {
     return new IotResponsesFetchTopicRuleRuleErrorActionHttp(this.__scope, this.__resources, this.__input);
+  }
+
+  public get kafka(): IotResponsesFetchTopicRuleRuleErrorActionKafka {
+    return new IotResponsesFetchTopicRuleRuleErrorActionKafka(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -12873,6 +14131,98 @@ export class IotResponsesFetchTopicRuleRuleErrorActionHttpAuthSigv4 {
 
 }
 
+export class IotResponsesFetchTopicRuleRuleErrorActionKafka {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotGetTopicRuleRequest) {
+  }
+
+  public get destinationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getTopicRule',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.GetTopicRule.rule.errorAction.kafka.destinationArn'),
+        outputPath: 'rule.errorAction.kafka.destinationArn',
+        parameters: {
+          ruleName: this.__input.ruleName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetTopicRule.rule.errorAction.kafka.destinationArn', props);
+    return resource.getResponseField('rule.errorAction.kafka.destinationArn') as unknown as string;
+  }
+
+  public get topic(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getTopicRule',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.GetTopicRule.rule.errorAction.kafka.topic'),
+        outputPath: 'rule.errorAction.kafka.topic',
+        parameters: {
+          ruleName: this.__input.ruleName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetTopicRule.rule.errorAction.kafka.topic', props);
+    return resource.getResponseField('rule.errorAction.kafka.topic') as unknown as string;
+  }
+
+  public get key(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getTopicRule',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.GetTopicRule.rule.errorAction.kafka.key'),
+        outputPath: 'rule.errorAction.kafka.key',
+        parameters: {
+          ruleName: this.__input.ruleName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetTopicRule.rule.errorAction.kafka.key', props);
+    return resource.getResponseField('rule.errorAction.kafka.key') as unknown as string;
+  }
+
+  public get partition(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getTopicRule',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.GetTopicRule.rule.errorAction.kafka.partition'),
+        outputPath: 'rule.errorAction.kafka.partition',
+        parameters: {
+          ruleName: this.__input.ruleName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetTopicRule.rule.errorAction.kafka.partition', props);
+    return resource.getResponseField('rule.errorAction.kafka.partition') as unknown as string;
+  }
+
+  public get clientProperties(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getTopicRule',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.GetTopicRule.rule.errorAction.kafka.clientProperties'),
+        outputPath: 'rule.errorAction.kafka.clientProperties',
+        parameters: {
+          ruleName: this.__input.ruleName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetTopicRule.rule.errorAction.kafka.clientProperties', props);
+    return resource.getResponseField('rule.errorAction.kafka.clientProperties') as unknown as Record<string, string>;
+  }
+
+}
+
 export class IotResponsesFetchTopicRuleDestination {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotGetTopicRuleDestinationRequest) {
@@ -12923,6 +14273,40 @@ export class IotResponsesFetchTopicRuleDestinationTopicRuleDestination {
     return resource.getResponseField('topicRuleDestination.status') as unknown as string;
   }
 
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getTopicRuleDestination',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.GetTopicRuleDestination.topicRuleDestination.createdAt'),
+        outputPath: 'topicRuleDestination.createdAt',
+        parameters: {
+          arn: this.__input.arn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetTopicRuleDestination.topicRuleDestination.createdAt', props);
+    return resource.getResponseField('topicRuleDestination.createdAt') as unknown as string;
+  }
+
+  public get lastUpdatedAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getTopicRuleDestination',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.GetTopicRuleDestination.topicRuleDestination.lastUpdatedAt'),
+        outputPath: 'topicRuleDestination.lastUpdatedAt',
+        parameters: {
+          arn: this.__input.arn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetTopicRuleDestination.topicRuleDestination.lastUpdatedAt', props);
+    return resource.getResponseField('topicRuleDestination.lastUpdatedAt') as unknown as string;
+  }
+
   public get statusReason(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -12942,6 +14326,10 @@ export class IotResponsesFetchTopicRuleDestinationTopicRuleDestination {
 
   public get httpUrlProperties(): IotResponsesFetchTopicRuleDestinationTopicRuleDestinationHttpUrlProperties {
     return new IotResponsesFetchTopicRuleDestinationTopicRuleDestinationHttpUrlProperties(this.__scope, this.__resources, this.__input);
+  }
+
+  public get vpcProperties(): IotResponsesFetchTopicRuleDestinationTopicRuleDestinationVpcProperties {
+    return new IotResponsesFetchTopicRuleDestinationTopicRuleDestinationVpcProperties(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -12966,6 +14354,81 @@ export class IotResponsesFetchTopicRuleDestinationTopicRuleDestinationHttpUrlPro
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetTopicRuleDestination.topicRuleDestination.httpUrlProperties.confirmationUrl', props);
     return resource.getResponseField('topicRuleDestination.httpUrlProperties.confirmationUrl') as unknown as string;
+  }
+
+}
+
+export class IotResponsesFetchTopicRuleDestinationTopicRuleDestinationVpcProperties {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotGetTopicRuleDestinationRequest) {
+  }
+
+  public get subnetIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getTopicRuleDestination',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.GetTopicRuleDestination.topicRuleDestination.vpcProperties.subnetIds'),
+        outputPath: 'topicRuleDestination.vpcProperties.subnetIds',
+        parameters: {
+          arn: this.__input.arn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetTopicRuleDestination.topicRuleDestination.vpcProperties.subnetIds', props);
+    return resource.getResponseField('topicRuleDestination.vpcProperties.subnetIds') as unknown as string[];
+  }
+
+  public get securityGroups(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getTopicRuleDestination',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.GetTopicRuleDestination.topicRuleDestination.vpcProperties.securityGroups'),
+        outputPath: 'topicRuleDestination.vpcProperties.securityGroups',
+        parameters: {
+          arn: this.__input.arn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetTopicRuleDestination.topicRuleDestination.vpcProperties.securityGroups', props);
+    return resource.getResponseField('topicRuleDestination.vpcProperties.securityGroups') as unknown as string[];
+  }
+
+  public get vpcId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getTopicRuleDestination',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.GetTopicRuleDestination.topicRuleDestination.vpcProperties.vpcId'),
+        outputPath: 'topicRuleDestination.vpcProperties.vpcId',
+        parameters: {
+          arn: this.__input.arn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetTopicRuleDestination.topicRuleDestination.vpcProperties.vpcId', props);
+    return resource.getResponseField('topicRuleDestination.vpcProperties.vpcId') as unknown as string;
+  }
+
+  public get roleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getTopicRuleDestination',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.GetTopicRuleDestination.topicRuleDestination.vpcProperties.roleArn'),
+        outputPath: 'topicRuleDestination.vpcProperties.roleArn',
+        parameters: {
+          arn: this.__input.arn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetTopicRuleDestination.topicRuleDestination.vpcProperties.roleArn', props);
+    return resource.getResponseField('topicRuleDestination.vpcProperties.roleArn') as unknown as string;
   }
 
 }
@@ -13041,6 +14504,8 @@ export class IotResponsesListActiveViolations {
         parameters: {
           thingName: this.__input.thingName,
           securityProfileName: this.__input.securityProfileName,
+          behaviorCriteriaType: this.__input.behaviorCriteriaType,
+          listSuppressedAlerts: this.__input.listSuppressedAlerts,
           nextToken: this.__input.nextToken,
           maxResults: this.__input.maxResults,
         },
@@ -13061,6 +14526,8 @@ export class IotResponsesListActiveViolations {
         parameters: {
           thingName: this.__input.thingName,
           securityProfileName: this.__input.securityProfileName,
+          behaviorCriteriaType: this.__input.behaviorCriteriaType,
+          listSuppressedAlerts: this.__input.listSuppressedAlerts,
           nextToken: this.__input.nextToken,
           maxResults: this.__input.maxResults,
         },
@@ -13653,6 +15120,149 @@ export class IotResponsesListCertificatesByCa {
 
 }
 
+export class IotResponsesListCustomMetrics {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotListCustomMetricsRequest) {
+  }
+
+  public get metricNames(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listCustomMetrics',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.ListCustomMetrics.metricNames'),
+        outputPath: 'metricNames',
+        parameters: {
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListCustomMetrics.metricNames', props);
+    return resource.getResponseField('metricNames') as unknown as string[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listCustomMetrics',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.ListCustomMetrics.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListCustomMetrics.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
+export class IotResponsesListDetectMitigationActionsExecutions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotListDetectMitigationActionsExecutionsRequest) {
+  }
+
+  public get actionsExecutions(): shapes.IotDetectMitigationActionExecution[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listDetectMitigationActionsExecutions',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.ListDetectMitigationActionsExecutions.actionsExecutions'),
+        outputPath: 'actionsExecutions',
+        parameters: {
+          taskId: this.__input.taskId,
+          violationId: this.__input.violationId,
+          thingName: this.__input.thingName,
+          startTime: this.__input.startTime,
+          endTime: this.__input.endTime,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListDetectMitigationActionsExecutions.actionsExecutions', props);
+    return resource.getResponseField('actionsExecutions') as unknown as shapes.IotDetectMitigationActionExecution[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listDetectMitigationActionsExecutions',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.ListDetectMitigationActionsExecutions.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          taskId: this.__input.taskId,
+          violationId: this.__input.violationId,
+          thingName: this.__input.thingName,
+          startTime: this.__input.startTime,
+          endTime: this.__input.endTime,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListDetectMitigationActionsExecutions.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
+export class IotResponsesListDetectMitigationActionsTasks {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotListDetectMitigationActionsTasksRequest) {
+  }
+
+  public get tasks(): shapes.IotDetectMitigationActionsTaskSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listDetectMitigationActionsTasks',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.ListDetectMitigationActionsTasks.tasks'),
+        outputPath: 'tasks',
+        parameters: {
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+          startTime: this.__input.startTime,
+          endTime: this.__input.endTime,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListDetectMitigationActionsTasks.tasks', props);
+    return resource.getResponseField('tasks') as unknown as shapes.IotDetectMitigationActionsTaskSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listDetectMitigationActionsTasks',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.ListDetectMitigationActionsTasks.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+          startTime: this.__input.startTime,
+          endTime: this.__input.endTime,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListDetectMitigationActionsTasks.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
 export class IotResponsesListDimensions {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotListDimensionsRequest) {
@@ -13875,6 +15485,49 @@ export class IotResponsesListJobExecutionsForThing {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListJobExecutionsForThing.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
+export class IotResponsesListJobTemplates {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotListJobTemplatesRequest) {
+  }
+
+  public get jobTemplates(): shapes.IotJobTemplateSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listJobTemplates',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.ListJobTemplates.jobTemplates'),
+        outputPath: 'jobTemplates',
+        parameters: {
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListJobTemplates.jobTemplates', props);
+    return resource.getResponseField('jobTemplates') as unknown as shapes.IotJobTemplateSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listJobTemplates',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.ListJobTemplates.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListJobTemplates.nextToken', props);
     return resource.getResponseField('nextToken') as unknown as string;
   }
 
@@ -14469,6 +16122,7 @@ export class IotResponsesListSecurityProfiles {
           nextToken: this.__input.nextToken,
           maxResults: this.__input.maxResults,
           dimensionName: this.__input.dimensionName,
+          metricName: this.__input.metricName,
         },
       },
     };
@@ -14488,6 +16142,7 @@ export class IotResponsesListSecurityProfiles {
           nextToken: this.__input.nextToken,
           maxResults: this.__input.maxResults,
           dimensionName: this.__input.dimensionName,
+          metricName: this.__input.metricName,
         },
       },
     };
@@ -15037,6 +16692,7 @@ export class IotResponsesListThings {
           attributeName: this.__input.attributeName,
           attributeValue: this.__input.attributeValue,
           thingTypeName: this.__input.thingTypeName,
+          usePrefixAttributeValue: this.__input.usePrefixAttributeValue,
         },
       },
     };
@@ -15058,6 +16714,7 @@ export class IotResponsesListThings {
           attributeName: this.__input.attributeName,
           attributeValue: this.__input.attributeValue,
           thingTypeName: this.__input.thingTypeName,
+          usePrefixAttributeValue: this.__input.usePrefixAttributeValue,
         },
       },
     };
@@ -15312,6 +16969,8 @@ export class IotResponsesListViolationEvents {
           endTime: this.__input.endTime,
           thingName: this.__input.thingName,
           securityProfileName: this.__input.securityProfileName,
+          behaviorCriteriaType: this.__input.behaviorCriteriaType,
+          listSuppressedAlerts: this.__input.listSuppressedAlerts,
           nextToken: this.__input.nextToken,
           maxResults: this.__input.maxResults,
         },
@@ -15334,6 +16993,8 @@ export class IotResponsesListViolationEvents {
           endTime: this.__input.endTime,
           thingName: this.__input.thingName,
           securityProfileName: this.__input.securityProfileName,
+          behaviorCriteriaType: this.__input.behaviorCriteriaType,
+          listSuppressedAlerts: this.__input.listSuppressedAlerts,
           nextToken: this.__input.nextToken,
           maxResults: this.__input.maxResults,
         },
@@ -15672,6 +17333,43 @@ export class IotResponsesStartAuditMitigationActionsTask {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'StartAuditMitigationActionsTask.taskId', props);
+    return resource.getResponseField('taskId') as unknown as string;
+  }
+
+}
+
+export class IotResponsesStartDetectMitigationActionsTask {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotStartDetectMitigationActionsTaskRequest) {
+  }
+
+  public get taskId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startDetectMitigationActionsTask',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.StartDetectMitigationActionsTask.taskId'),
+        outputPath: 'taskId',
+        parameters: {
+          taskId: this.__input.taskId,
+          target: {
+            violationIds: this.__input.target.violationIds,
+            securityProfileName: this.__input.target.securityProfileName,
+            behaviorName: this.__input.target.behaviorName,
+          },
+          actions: this.__input.actions,
+          violationEventOccurrenceRange: {
+            startTime: this.__input.violationEventOccurrenceRange?.startTime,
+            endTime: this.__input.violationEventOccurrenceRange?.endTime,
+          },
+          includeOnlyActiveViolations: this.__input.includeOnlyActiveViolations,
+          includeSuppressedAlerts: this.__input.includeSuppressedAlerts,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartDetectMitigationActionsTask.taskId', props);
     return resource.getResponseField('taskId') as unknown as string;
   }
 
@@ -16023,6 +17721,121 @@ export class IotResponsesUpdateBillingGroup {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBillingGroup.version', props);
     return resource.getResponseField('version') as unknown as number;
+  }
+
+}
+
+export class IotResponsesUpdateCustomMetric {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotUpdateCustomMetricRequest) {
+  }
+
+  public get metricName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomMetric',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.UpdateCustomMetric.metricName'),
+        outputPath: 'metricName',
+        parameters: {
+          metricName: this.__input.metricName,
+          displayName: this.__input.displayName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomMetric.metricName', props);
+    return resource.getResponseField('metricName') as unknown as string;
+  }
+
+  public get metricArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomMetric',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.UpdateCustomMetric.metricArn'),
+        outputPath: 'metricArn',
+        parameters: {
+          metricName: this.__input.metricName,
+          displayName: this.__input.displayName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomMetric.metricArn', props);
+    return resource.getResponseField('metricArn') as unknown as string;
+  }
+
+  public get metricType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomMetric',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.UpdateCustomMetric.metricType'),
+        outputPath: 'metricType',
+        parameters: {
+          metricName: this.__input.metricName,
+          displayName: this.__input.displayName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomMetric.metricType', props);
+    return resource.getResponseField('metricType') as unknown as string;
+  }
+
+  public get displayName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomMetric',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.UpdateCustomMetric.displayName'),
+        outputPath: 'displayName',
+        parameters: {
+          metricName: this.__input.metricName,
+          displayName: this.__input.displayName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomMetric.displayName', props);
+    return resource.getResponseField('displayName') as unknown as string;
+  }
+
+  public get creationDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomMetric',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.UpdateCustomMetric.creationDate'),
+        outputPath: 'creationDate',
+        parameters: {
+          metricName: this.__input.metricName,
+          displayName: this.__input.displayName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomMetric.creationDate', props);
+    return resource.getResponseField('creationDate') as unknown as string;
+  }
+
+  public get lastModifiedDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCustomMetric',
+        service: 'Iot',
+        physicalResourceId: cr.PhysicalResourceId.of('Iot.UpdateCustomMetric.lastModifiedDate'),
+        outputPath: 'lastModifiedDate',
+        parameters: {
+          metricName: this.__input.metricName,
+          displayName: this.__input.displayName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCustomMetric.lastModifiedDate', props);
+    return resource.getResponseField('lastModifiedDate') as unknown as string;
   }
 
 }

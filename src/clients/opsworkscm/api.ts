@@ -82,22 +82,8 @@ export class OpsWorksCmClient extends cdk.Construct {
     return new OpsWorksCMResponsesListTagsForResource(this, this.__resources, input);
   }
 
-  public restoreServer(input: shapes.OpsWorksCmRestoreServerRequest): void {
-    const props: cr.AwsCustomResourceProps = {
-      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
-      onUpdate: {
-        action: 'restoreServer',
-        service: 'OpsWorksCM',
-        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer'),
-        parameters: {
-          BackupId: input.backupId,
-          ServerName: input.serverName,
-          InstanceType: input.instanceType,
-          KeyPair: input.keyPair,
-        },
-      },
-    };
-    new cr.AwsCustomResource(this, 'RestoreServer', props);
+  public restoreServer(input: shapes.OpsWorksCmRestoreServerRequest): OpsWorksCMResponsesRestoreServer {
+    return new OpsWorksCMResponsesRestoreServer(this, this.__resources, input);
   }
 
   public startMaintenance(input: shapes.OpsWorksCmStartMaintenanceRequest): OpsWorksCMResponsesStartMaintenance {
@@ -1897,6 +1883,504 @@ export class OpsWorksCMResponsesListTagsForResource {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListTagsForResource.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class OpsWorksCMResponsesRestoreServer {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.OpsWorksCmRestoreServerRequest) {
+  }
+
+  public get server(): OpsWorksCMResponsesRestoreServerServer {
+    return new OpsWorksCMResponsesRestoreServerServer(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class OpsWorksCMResponsesRestoreServerServer {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.OpsWorksCmRestoreServerRequest) {
+  }
+
+  public get associatePublicIpAddress(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.AssociatePublicIpAddress'),
+        outputPath: 'Server.AssociatePublicIpAddress',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.AssociatePublicIpAddress', props);
+    return resource.getResponseField('Server.AssociatePublicIpAddress') as unknown as boolean;
+  }
+
+  public get backupRetentionCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.BackupRetentionCount'),
+        outputPath: 'Server.BackupRetentionCount',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.BackupRetentionCount', props);
+    return resource.getResponseField('Server.BackupRetentionCount') as unknown as number;
+  }
+
+  public get serverName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.ServerName'),
+        outputPath: 'Server.ServerName',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.ServerName', props);
+    return resource.getResponseField('Server.ServerName') as unknown as string;
+  }
+
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.CreatedAt'),
+        outputPath: 'Server.CreatedAt',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.CreatedAt', props);
+    return resource.getResponseField('Server.CreatedAt') as unknown as string;
+  }
+
+  public get cloudFormationStackArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.CloudFormationStackArn'),
+        outputPath: 'Server.CloudFormationStackArn',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.CloudFormationStackArn', props);
+    return resource.getResponseField('Server.CloudFormationStackArn') as unknown as string;
+  }
+
+  public get customDomain(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.CustomDomain'),
+        outputPath: 'Server.CustomDomain',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.CustomDomain', props);
+    return resource.getResponseField('Server.CustomDomain') as unknown as string;
+  }
+
+  public get disableAutomatedBackup(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.DisableAutomatedBackup'),
+        outputPath: 'Server.DisableAutomatedBackup',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.DisableAutomatedBackup', props);
+    return resource.getResponseField('Server.DisableAutomatedBackup') as unknown as boolean;
+  }
+
+  public get endpoint(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.Endpoint'),
+        outputPath: 'Server.Endpoint',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.Endpoint', props);
+    return resource.getResponseField('Server.Endpoint') as unknown as string;
+  }
+
+  public get engine(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.Engine'),
+        outputPath: 'Server.Engine',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.Engine', props);
+    return resource.getResponseField('Server.Engine') as unknown as string;
+  }
+
+  public get engineModel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.EngineModel'),
+        outputPath: 'Server.EngineModel',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.EngineModel', props);
+    return resource.getResponseField('Server.EngineModel') as unknown as string;
+  }
+
+  public get engineAttributes(): shapes.OpsWorksCmEngineAttribute[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.EngineAttributes'),
+        outputPath: 'Server.EngineAttributes',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.EngineAttributes', props);
+    return resource.getResponseField('Server.EngineAttributes') as unknown as shapes.OpsWorksCmEngineAttribute[];
+  }
+
+  public get engineVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.EngineVersion'),
+        outputPath: 'Server.EngineVersion',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.EngineVersion', props);
+    return resource.getResponseField('Server.EngineVersion') as unknown as string;
+  }
+
+  public get instanceProfileArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.InstanceProfileArn'),
+        outputPath: 'Server.InstanceProfileArn',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.InstanceProfileArn', props);
+    return resource.getResponseField('Server.InstanceProfileArn') as unknown as string;
+  }
+
+  public get instanceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.InstanceType'),
+        outputPath: 'Server.InstanceType',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.InstanceType', props);
+    return resource.getResponseField('Server.InstanceType') as unknown as string;
+  }
+
+  public get keyPair(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.KeyPair'),
+        outputPath: 'Server.KeyPair',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.KeyPair', props);
+    return resource.getResponseField('Server.KeyPair') as unknown as string;
+  }
+
+  public get maintenanceStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.MaintenanceStatus'),
+        outputPath: 'Server.MaintenanceStatus',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.MaintenanceStatus', props);
+    return resource.getResponseField('Server.MaintenanceStatus') as unknown as string;
+  }
+
+  public get preferredMaintenanceWindow(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.PreferredMaintenanceWindow'),
+        outputPath: 'Server.PreferredMaintenanceWindow',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.PreferredMaintenanceWindow', props);
+    return resource.getResponseField('Server.PreferredMaintenanceWindow') as unknown as string;
+  }
+
+  public get preferredBackupWindow(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.PreferredBackupWindow'),
+        outputPath: 'Server.PreferredBackupWindow',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.PreferredBackupWindow', props);
+    return resource.getResponseField('Server.PreferredBackupWindow') as unknown as string;
+  }
+
+  public get securityGroupIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.SecurityGroupIds'),
+        outputPath: 'Server.SecurityGroupIds',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.SecurityGroupIds', props);
+    return resource.getResponseField('Server.SecurityGroupIds') as unknown as string[];
+  }
+
+  public get serviceRoleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.ServiceRoleArn'),
+        outputPath: 'Server.ServiceRoleArn',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.ServiceRoleArn', props);
+    return resource.getResponseField('Server.ServiceRoleArn') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.Status'),
+        outputPath: 'Server.Status',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.Status', props);
+    return resource.getResponseField('Server.Status') as unknown as string;
+  }
+
+  public get statusReason(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.StatusReason'),
+        outputPath: 'Server.StatusReason',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.StatusReason', props);
+    return resource.getResponseField('Server.StatusReason') as unknown as string;
+  }
+
+  public get subnetIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.SubnetIds'),
+        outputPath: 'Server.SubnetIds',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.SubnetIds', props);
+    return resource.getResponseField('Server.SubnetIds') as unknown as string[];
+  }
+
+  public get serverArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreServer',
+        service: 'OpsWorksCM',
+        physicalResourceId: cr.PhysicalResourceId.of('OpsWorksCM.RestoreServer.Server.ServerArn'),
+        outputPath: 'Server.ServerArn',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ServerName: this.__input.serverName,
+          InstanceType: this.__input.instanceType,
+          KeyPair: this.__input.keyPair,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreServer.Server.ServerArn', props);
+    return resource.getResponseField('Server.ServerArn') as unknown as string;
   }
 
 }

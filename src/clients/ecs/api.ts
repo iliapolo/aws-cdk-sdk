@@ -88,6 +88,10 @@ export class EcsClient extends cdk.Construct {
     return new ECSResponsesDiscoverPollEndpoint(this, this.__resources, input);
   }
 
+  public executeCommand(input: shapes.EcsExecuteCommandRequest): ECSResponsesExecuteCommand {
+    return new ECSResponsesExecuteCommand(this, this.__resources, input);
+  }
+
   public listAccountSettings(input: shapes.EcsListAccountSettingsRequest): ECSResponsesListAccountSettings {
     return new ECSResponsesListAccountSettings(this, this.__resources, input);
   }
@@ -206,6 +210,10 @@ export class EcsClient extends cdk.Construct {
 
   public updateCapacityProvider(input: shapes.EcsUpdateCapacityProviderRequest): ECSResponsesUpdateCapacityProvider {
     return new ECSResponsesUpdateCapacityProvider(this, this.__resources, input);
+  }
+
+  public updateCluster(input: shapes.EcsUpdateClusterRequest): ECSResponsesUpdateCluster {
+    return new ECSResponsesUpdateCluster(this, this.__resources, input);
   }
 
   public updateClusterSettings(input: shapes.EcsUpdateClusterSettingsRequest): ECSResponsesUpdateClusterSettings {
@@ -679,6 +687,19 @@ export class ECSResponsesCreateClusterCluster {
           clusterName: this.__input.clusterName,
           tags: this.__input.tags,
           settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
           capacityProviders: this.__input.capacityProviders,
           defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
         },
@@ -700,6 +721,19 @@ export class ECSResponsesCreateClusterCluster {
           clusterName: this.__input.clusterName,
           tags: this.__input.tags,
           settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
           capacityProviders: this.__input.capacityProviders,
           defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
         },
@@ -707,6 +741,10 @@ export class ECSResponsesCreateClusterCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.cluster.clusterName', props);
     return resource.getResponseField('cluster.clusterName') as unknown as string;
+  }
+
+  public get configuration(): ECSResponsesCreateClusterClusterConfiguration {
+    return new ECSResponsesCreateClusterClusterConfiguration(this.__scope, this.__resources, this.__input);
   }
 
   public get status(): string {
@@ -721,6 +759,19 @@ export class ECSResponsesCreateClusterCluster {
           clusterName: this.__input.clusterName,
           tags: this.__input.tags,
           settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
           capacityProviders: this.__input.capacityProviders,
           defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
         },
@@ -742,6 +793,19 @@ export class ECSResponsesCreateClusterCluster {
           clusterName: this.__input.clusterName,
           tags: this.__input.tags,
           settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
           capacityProviders: this.__input.capacityProviders,
           defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
         },
@@ -763,6 +827,19 @@ export class ECSResponsesCreateClusterCluster {
           clusterName: this.__input.clusterName,
           tags: this.__input.tags,
           settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
           capacityProviders: this.__input.capacityProviders,
           defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
         },
@@ -784,6 +861,19 @@ export class ECSResponsesCreateClusterCluster {
           clusterName: this.__input.clusterName,
           tags: this.__input.tags,
           settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
           capacityProviders: this.__input.capacityProviders,
           defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
         },
@@ -805,6 +895,19 @@ export class ECSResponsesCreateClusterCluster {
           clusterName: this.__input.clusterName,
           tags: this.__input.tags,
           settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
           capacityProviders: this.__input.capacityProviders,
           defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
         },
@@ -826,6 +929,19 @@ export class ECSResponsesCreateClusterCluster {
           clusterName: this.__input.clusterName,
           tags: this.__input.tags,
           settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
           capacityProviders: this.__input.capacityProviders,
           defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
         },
@@ -847,6 +963,19 @@ export class ECSResponsesCreateClusterCluster {
           clusterName: this.__input.clusterName,
           tags: this.__input.tags,
           settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
           capacityProviders: this.__input.capacityProviders,
           defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
         },
@@ -868,6 +997,19 @@ export class ECSResponsesCreateClusterCluster {
           clusterName: this.__input.clusterName,
           tags: this.__input.tags,
           settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
           capacityProviders: this.__input.capacityProviders,
           defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
         },
@@ -889,6 +1031,19 @@ export class ECSResponsesCreateClusterCluster {
           clusterName: this.__input.clusterName,
           tags: this.__input.tags,
           settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
           capacityProviders: this.__input.capacityProviders,
           defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
         },
@@ -910,6 +1065,19 @@ export class ECSResponsesCreateClusterCluster {
           clusterName: this.__input.clusterName,
           tags: this.__input.tags,
           settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
           capacityProviders: this.__input.capacityProviders,
           defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
         },
@@ -931,6 +1099,19 @@ export class ECSResponsesCreateClusterCluster {
           clusterName: this.__input.clusterName,
           tags: this.__input.tags,
           settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
           capacityProviders: this.__input.capacityProviders,
           defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
         },
@@ -952,6 +1133,19 @@ export class ECSResponsesCreateClusterCluster {
           clusterName: this.__input.clusterName,
           tags: this.__input.tags,
           settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
           capacityProviders: this.__input.capacityProviders,
           defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
         },
@@ -959,6 +1153,273 @@ export class ECSResponsesCreateClusterCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.cluster.attachmentsStatus', props);
     return resource.getResponseField('cluster.attachmentsStatus') as unknown as string;
+  }
+
+}
+
+export class ECSResponsesCreateClusterClusterConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsCreateClusterRequest) {
+  }
+
+  public get executeCommandConfiguration(): ECSResponsesCreateClusterClusterConfigurationExecuteCommandConfiguration {
+    return new ECSResponsesCreateClusterClusterConfigurationExecuteCommandConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ECSResponsesCreateClusterClusterConfigurationExecuteCommandConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsCreateClusterRequest) {
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.CreateCluster.cluster.configuration.executeCommandConfiguration.kmsKeyId'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.kmsKeyId',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          tags: this.__input.tags,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+          capacityProviders: this.__input.capacityProviders,
+          defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.cluster.configuration.executeCommandConfiguration.kmsKeyId', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.kmsKeyId') as unknown as string;
+  }
+
+  public get logging(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.CreateCluster.cluster.configuration.executeCommandConfiguration.logging'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logging',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          tags: this.__input.tags,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+          capacityProviders: this.__input.capacityProviders,
+          defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.cluster.configuration.executeCommandConfiguration.logging', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logging') as unknown as string;
+  }
+
+  public get logConfiguration(): ECSResponsesCreateClusterClusterConfigurationExecuteCommandConfigurationLogConfiguration {
+    return new ECSResponsesCreateClusterClusterConfigurationExecuteCommandConfigurationLogConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ECSResponsesCreateClusterClusterConfigurationExecuteCommandConfigurationLogConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsCreateClusterRequest) {
+  }
+
+  public get cloudWatchLogGroupName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.CreateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          tags: this.__input.tags,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+          capacityProviders: this.__input.capacityProviders,
+          defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName') as unknown as string;
+  }
+
+  public get cloudWatchEncryptionEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.CreateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          tags: this.__input.tags,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+          capacityProviders: this.__input.capacityProviders,
+          defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled') as unknown as boolean;
+  }
+
+  public get s3BucketName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.CreateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          tags: this.__input.tags,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+          capacityProviders: this.__input.capacityProviders,
+          defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName') as unknown as string;
+  }
+
+  public get s3EncryptionEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.CreateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          tags: this.__input.tags,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+          capacityProviders: this.__input.capacityProviders,
+          defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled') as unknown as boolean;
+  }
+
+  public get s3KeyPrefix(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.CreateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          tags: this.__input.tags,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+          capacityProviders: this.__input.capacityProviders,
+          defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix') as unknown as string;
   }
 
 }
@@ -1024,6 +1485,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -1076,6 +1538,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -1128,6 +1591,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -1180,6 +1644,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -1232,6 +1697,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -1284,6 +1750,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -1336,6 +1803,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -1388,6 +1856,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -1440,6 +1909,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -1492,6 +1962,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -1544,6 +2015,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -1596,6 +2068,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -1648,6 +2121,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -1704,6 +2178,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -1756,6 +2231,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -1808,6 +2284,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -1860,6 +2337,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -1912,6 +2390,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -1964,6 +2443,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -2016,6 +2496,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -2072,6 +2553,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -2124,6 +2606,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -2180,6 +2663,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -2232,6 +2716,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -2284,6 +2769,7 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -2336,11 +2822,65 @@ export class ECSResponsesCreateServiceService {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateService.service.propagateTags', props);
     return resource.getResponseField('service.propagateTags') as unknown as string;
+  }
+
+  public get enableExecuteCommand(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createService',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.CreateService.service.enableExecuteCommand'),
+        outputPath: 'service.enableExecuteCommand',
+        parameters: {
+          cluster: this.__input.cluster,
+          serviceName: this.__input.serviceName,
+          taskDefinition: this.__input.taskDefinition,
+          loadBalancers: this.__input.loadBalancers,
+          serviceRegistries: this.__input.serviceRegistries,
+          desiredCount: this.__input.desiredCount,
+          clientToken: this.__input.clientToken,
+          launchType: this.__input.launchType,
+          capacityProviderStrategy: this.__input.capacityProviderStrategy,
+          platformVersion: this.__input.platformVersion,
+          role: this.__input.role,
+          deploymentConfiguration: {
+            deploymentCircuitBreaker: {
+              enable: this.__input.deploymentConfiguration?.deploymentCircuitBreaker?.enable,
+              rollback: this.__input.deploymentConfiguration?.deploymentCircuitBreaker?.rollback,
+            },
+            maximumPercent: this.__input.deploymentConfiguration?.maximumPercent,
+            minimumHealthyPercent: this.__input.deploymentConfiguration?.minimumHealthyPercent,
+          },
+          placementConstraints: this.__input.placementConstraints,
+          placementStrategy: this.__input.placementStrategy,
+          networkConfiguration: {
+            awsvpcConfiguration: {
+              subnets: this.__input.networkConfiguration?.awsvpcConfiguration?.subnets,
+              securityGroups: this.__input.networkConfiguration?.awsvpcConfiguration?.securityGroups,
+              assignPublicIp: this.__input.networkConfiguration?.awsvpcConfiguration?.assignPublicIp,
+            },
+          },
+          healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          schedulingStrategy: this.__input.schedulingStrategy,
+          deploymentController: {
+            type: this.__input.deploymentController?.type,
+          },
+          tags: this.__input.tags,
+          enableECSManagedTags: this.__input.enableECSManagedTags,
+          propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateService.service.enableExecuteCommand', props);
+    return resource.getResponseField('service.enableExecuteCommand') as unknown as boolean;
   }
 
 }
@@ -2399,6 +2939,7 @@ export class ECSResponsesCreateServiceServiceDeploymentConfiguration {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -2451,6 +2992,7 @@ export class ECSResponsesCreateServiceServiceDeploymentConfiguration {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -2510,6 +3052,7 @@ export class ECSResponsesCreateServiceServiceDeploymentConfigurationDeploymentCi
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -2562,6 +3105,7 @@ export class ECSResponsesCreateServiceServiceDeploymentConfigurationDeploymentCi
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -2632,6 +3176,7 @@ export class ECSResponsesCreateServiceServiceNetworkConfigurationAwsvpcConfigura
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -2684,6 +3229,7 @@ export class ECSResponsesCreateServiceServiceNetworkConfigurationAwsvpcConfigura
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -2736,6 +3282,7 @@ export class ECSResponsesCreateServiceServiceNetworkConfigurationAwsvpcConfigura
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -2795,6 +3342,7 @@ export class ECSResponsesCreateServiceServiceDeploymentController {
           tags: this.__input.tags,
           enableECSManagedTags: this.__input.enableECSManagedTags,
           propagateTags: this.__input.propagateTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -4251,6 +4799,10 @@ export class ECSResponsesDeleteClusterCluster {
     return resource.getResponseField('cluster.clusterName') as unknown as string;
   }
 
+  public get configuration(): ECSResponsesDeleteClusterClusterConfiguration {
+    return new ECSResponsesDeleteClusterClusterConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
   public get status(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -4453,6 +5005,154 @@ export class ECSResponsesDeleteClusterCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCluster.cluster.attachmentsStatus', props);
     return resource.getResponseField('cluster.attachmentsStatus') as unknown as string;
+  }
+
+}
+
+export class ECSResponsesDeleteClusterClusterConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsDeleteClusterRequest) {
+  }
+
+  public get executeCommandConfiguration(): ECSResponsesDeleteClusterClusterConfigurationExecuteCommandConfiguration {
+    return new ECSResponsesDeleteClusterClusterConfigurationExecuteCommandConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ECSResponsesDeleteClusterClusterConfigurationExecuteCommandConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsDeleteClusterRequest) {
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.DeleteCluster.cluster.configuration.executeCommandConfiguration.kmsKeyId'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.kmsKeyId',
+        parameters: {
+          cluster: this.__input.cluster,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCluster.cluster.configuration.executeCommandConfiguration.kmsKeyId', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.kmsKeyId') as unknown as string;
+  }
+
+  public get logging(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.DeleteCluster.cluster.configuration.executeCommandConfiguration.logging'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logging',
+        parameters: {
+          cluster: this.__input.cluster,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCluster.cluster.configuration.executeCommandConfiguration.logging', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logging') as unknown as string;
+  }
+
+  public get logConfiguration(): ECSResponsesDeleteClusterClusterConfigurationExecuteCommandConfigurationLogConfiguration {
+    return new ECSResponsesDeleteClusterClusterConfigurationExecuteCommandConfigurationLogConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ECSResponsesDeleteClusterClusterConfigurationExecuteCommandConfigurationLogConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsDeleteClusterRequest) {
+  }
+
+  public get cloudWatchLogGroupName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.DeleteCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName',
+        parameters: {
+          cluster: this.__input.cluster,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName') as unknown as string;
+  }
+
+  public get cloudWatchEncryptionEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.DeleteCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled',
+        parameters: {
+          cluster: this.__input.cluster,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled') as unknown as boolean;
+  }
+
+  public get s3BucketName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.DeleteCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName',
+        parameters: {
+          cluster: this.__input.cluster,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName') as unknown as string;
+  }
+
+  public get s3EncryptionEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.DeleteCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled',
+        parameters: {
+          cluster: this.__input.cluster,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled') as unknown as boolean;
+  }
+
+  public get s3KeyPrefix(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.DeleteCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix',
+        parameters: {
+          cluster: this.__input.cluster,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix') as unknown as string;
   }
 
 }
@@ -4977,6 +5677,25 @@ export class ECSResponsesDeleteServiceService {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteService.service.propagateTags', props);
     return resource.getResponseField('service.propagateTags') as unknown as string;
+  }
+
+  public get enableExecuteCommand(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteService',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.DeleteService.service.enableExecuteCommand'),
+        outputPath: 'service.enableExecuteCommand',
+        parameters: {
+          cluster: this.__input.cluster,
+          service: this.__input.service,
+          force: this.__input.force,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteService.service.enableExecuteCommand', props);
+    return resource.getResponseField('service.enableExecuteCommand') as unknown as boolean;
   }
 
 }
@@ -6463,6 +7182,61 @@ export class ECSResponsesDeregisterTaskDefinitionTaskDefinition {
     return new ECSResponsesDeregisterTaskDefinitionTaskDefinitionProxyConfiguration(this.__scope, this.__resources, this.__input);
   }
 
+  public get registeredAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deregisterTaskDefinition',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.DeregisterTaskDefinition.taskDefinition.registeredAt'),
+        outputPath: 'taskDefinition.registeredAt',
+        parameters: {
+          taskDefinition: this.__input.taskDefinition,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeregisterTaskDefinition.taskDefinition.registeredAt', props);
+    return resource.getResponseField('taskDefinition.registeredAt') as unknown as string;
+  }
+
+  public get deregisteredAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deregisterTaskDefinition',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.DeregisterTaskDefinition.taskDefinition.deregisteredAt'),
+        outputPath: 'taskDefinition.deregisteredAt',
+        parameters: {
+          taskDefinition: this.__input.taskDefinition,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeregisterTaskDefinition.taskDefinition.deregisteredAt', props);
+    return resource.getResponseField('taskDefinition.deregisteredAt') as unknown as string;
+  }
+
+  public get registeredBy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deregisterTaskDefinition',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.DeregisterTaskDefinition.taskDefinition.registeredBy'),
+        outputPath: 'taskDefinition.registeredBy',
+        parameters: {
+          taskDefinition: this.__input.taskDefinition,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeregisterTaskDefinition.taskDefinition.registeredBy', props);
+    return resource.getResponseField('taskDefinition.registeredBy') as unknown as string;
+  }
+
+  public get ephemeralStorage(): ECSResponsesDeregisterTaskDefinitionTaskDefinitionEphemeralStorage {
+    return new ECSResponsesDeregisterTaskDefinitionTaskDefinitionEphemeralStorage(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class ECSResponsesDeregisterTaskDefinitionTaskDefinitionProxyConfiguration {
@@ -6519,6 +7293,30 @@ export class ECSResponsesDeregisterTaskDefinitionTaskDefinitionProxyConfiguratio
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeregisterTaskDefinition.taskDefinition.proxyConfiguration.properties', props);
     return resource.getResponseField('taskDefinition.proxyConfiguration.properties') as unknown as shapes.EcsKeyValuePair[];
+  }
+
+}
+
+export class ECSResponsesDeregisterTaskDefinitionTaskDefinitionEphemeralStorage {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsDeregisterTaskDefinitionRequest) {
+  }
+
+  public get sizeInGiB(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deregisterTaskDefinition',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.DeregisterTaskDefinition.taskDefinition.ephemeralStorage.sizeInGiB'),
+        outputPath: 'taskDefinition.ephemeralStorage.sizeInGiB',
+        parameters: {
+          taskDefinition: this.__input.taskDefinition,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeregisterTaskDefinition.taskDefinition.ephemeralStorage.sizeInGiB', props);
+    return resource.getResponseField('taskDefinition.ephemeralStorage.sizeInGiB') as unknown as number;
   }
 
 }
@@ -7085,6 +7883,64 @@ export class ECSResponsesDescribeTaskDefinitionTaskDefinition {
     return new ECSResponsesDescribeTaskDefinitionTaskDefinitionProxyConfiguration(this.__scope, this.__resources, this.__input);
   }
 
+  public get registeredAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTaskDefinition',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.DescribeTaskDefinition.taskDefinition.registeredAt'),
+        outputPath: 'taskDefinition.registeredAt',
+        parameters: {
+          taskDefinition: this.__input.taskDefinition,
+          include: this.__input.include,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTaskDefinition.taskDefinition.registeredAt', props);
+    return resource.getResponseField('taskDefinition.registeredAt') as unknown as string;
+  }
+
+  public get deregisteredAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTaskDefinition',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.DescribeTaskDefinition.taskDefinition.deregisteredAt'),
+        outputPath: 'taskDefinition.deregisteredAt',
+        parameters: {
+          taskDefinition: this.__input.taskDefinition,
+          include: this.__input.include,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTaskDefinition.taskDefinition.deregisteredAt', props);
+    return resource.getResponseField('taskDefinition.deregisteredAt') as unknown as string;
+  }
+
+  public get registeredBy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTaskDefinition',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.DescribeTaskDefinition.taskDefinition.registeredBy'),
+        outputPath: 'taskDefinition.registeredBy',
+        parameters: {
+          taskDefinition: this.__input.taskDefinition,
+          include: this.__input.include,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTaskDefinition.taskDefinition.registeredBy', props);
+    return resource.getResponseField('taskDefinition.registeredBy') as unknown as string;
+  }
+
+  public get ephemeralStorage(): ECSResponsesDescribeTaskDefinitionTaskDefinitionEphemeralStorage {
+    return new ECSResponsesDescribeTaskDefinitionTaskDefinitionEphemeralStorage(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class ECSResponsesDescribeTaskDefinitionTaskDefinitionProxyConfiguration {
@@ -7144,6 +8000,31 @@ export class ECSResponsesDescribeTaskDefinitionTaskDefinitionProxyConfiguration 
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTaskDefinition.taskDefinition.proxyConfiguration.properties', props);
     return resource.getResponseField('taskDefinition.proxyConfiguration.properties') as unknown as shapes.EcsKeyValuePair[];
+  }
+
+}
+
+export class ECSResponsesDescribeTaskDefinitionTaskDefinitionEphemeralStorage {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsDescribeTaskDefinitionRequest) {
+  }
+
+  public get sizeInGiB(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTaskDefinition',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.DescribeTaskDefinition.taskDefinition.ephemeralStorage.sizeInGiB'),
+        outputPath: 'taskDefinition.ephemeralStorage.sizeInGiB',
+        parameters: {
+          taskDefinition: this.__input.taskDefinition,
+          include: this.__input.include,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTaskDefinition.taskDefinition.ephemeralStorage.sizeInGiB', props);
+    return resource.getResponseField('taskDefinition.ephemeralStorage.sizeInGiB') as unknown as number;
   }
 
 }
@@ -7279,6 +8160,192 @@ export class ECSResponsesDiscoverPollEndpoint {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DiscoverPollEndpoint.telemetryEndpoint', props);
     return resource.getResponseField('telemetryEndpoint') as unknown as string;
+  }
+
+}
+
+export class ECSResponsesExecuteCommand {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsExecuteCommandRequest) {
+  }
+
+  public get clusterArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'executeCommand',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.ExecuteCommand.clusterArn'),
+        outputPath: 'clusterArn',
+        parameters: {
+          cluster: this.__input.cluster,
+          container: this.__input.container,
+          command: this.__input.command,
+          interactive: this.__input.interactive,
+          task: this.__input.task,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ExecuteCommand.clusterArn', props);
+    return resource.getResponseField('clusterArn') as unknown as string;
+  }
+
+  public get containerArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'executeCommand',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.ExecuteCommand.containerArn'),
+        outputPath: 'containerArn',
+        parameters: {
+          cluster: this.__input.cluster,
+          container: this.__input.container,
+          command: this.__input.command,
+          interactive: this.__input.interactive,
+          task: this.__input.task,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ExecuteCommand.containerArn', props);
+    return resource.getResponseField('containerArn') as unknown as string;
+  }
+
+  public get containerName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'executeCommand',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.ExecuteCommand.containerName'),
+        outputPath: 'containerName',
+        parameters: {
+          cluster: this.__input.cluster,
+          container: this.__input.container,
+          command: this.__input.command,
+          interactive: this.__input.interactive,
+          task: this.__input.task,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ExecuteCommand.containerName', props);
+    return resource.getResponseField('containerName') as unknown as string;
+  }
+
+  public get interactive(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'executeCommand',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.ExecuteCommand.interactive'),
+        outputPath: 'interactive',
+        parameters: {
+          cluster: this.__input.cluster,
+          container: this.__input.container,
+          command: this.__input.command,
+          interactive: this.__input.interactive,
+          task: this.__input.task,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ExecuteCommand.interactive', props);
+    return resource.getResponseField('interactive') as unknown as boolean;
+  }
+
+  public get session(): ECSResponsesExecuteCommandSession {
+    return new ECSResponsesExecuteCommandSession(this.__scope, this.__resources, this.__input);
+  }
+
+  public get taskArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'executeCommand',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.ExecuteCommand.taskArn'),
+        outputPath: 'taskArn',
+        parameters: {
+          cluster: this.__input.cluster,
+          container: this.__input.container,
+          command: this.__input.command,
+          interactive: this.__input.interactive,
+          task: this.__input.task,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ExecuteCommand.taskArn', props);
+    return resource.getResponseField('taskArn') as unknown as string;
+  }
+
+}
+
+export class ECSResponsesExecuteCommandSession {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsExecuteCommandRequest) {
+  }
+
+  public get sessionId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'executeCommand',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.ExecuteCommand.session.sessionId'),
+        outputPath: 'session.sessionId',
+        parameters: {
+          cluster: this.__input.cluster,
+          container: this.__input.container,
+          command: this.__input.command,
+          interactive: this.__input.interactive,
+          task: this.__input.task,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ExecuteCommand.session.sessionId', props);
+    return resource.getResponseField('session.sessionId') as unknown as string;
+  }
+
+  public get streamUrl(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'executeCommand',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.ExecuteCommand.session.streamUrl'),
+        outputPath: 'session.streamUrl',
+        parameters: {
+          cluster: this.__input.cluster,
+          container: this.__input.container,
+          command: this.__input.command,
+          interactive: this.__input.interactive,
+          task: this.__input.task,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ExecuteCommand.session.streamUrl', props);
+    return resource.getResponseField('session.streamUrl') as unknown as string;
+  }
+
+  public get tokenValue(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'executeCommand',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.ExecuteCommand.session.tokenValue'),
+        outputPath: 'session.tokenValue',
+        parameters: {
+          cluster: this.__input.cluster,
+          container: this.__input.container,
+          command: this.__input.command,
+          interactive: this.__input.interactive,
+          task: this.__input.task,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ExecuteCommand.session.tokenValue', props);
+    return resource.getResponseField('session.tokenValue') as unknown as string;
   }
 
 }
@@ -7929,6 +8996,10 @@ export class ECSResponsesPutClusterCapacityProvidersCluster {
     return resource.getResponseField('cluster.clusterName') as unknown as string;
   }
 
+  public get configuration(): ECSResponsesPutClusterCapacityProvidersClusterConfiguration {
+    return new ECSResponsesPutClusterCapacityProvidersClusterConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
   public get status(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -8155,6 +9226,168 @@ export class ECSResponsesPutClusterCapacityProvidersCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'PutClusterCapacityProviders.cluster.attachmentsStatus', props);
     return resource.getResponseField('cluster.attachmentsStatus') as unknown as string;
+  }
+
+}
+
+export class ECSResponsesPutClusterCapacityProvidersClusterConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsPutClusterCapacityProvidersRequest) {
+  }
+
+  public get executeCommandConfiguration(): ECSResponsesPutClusterCapacityProvidersClusterConfigurationExecuteCommandConfiguration {
+    return new ECSResponsesPutClusterCapacityProvidersClusterConfigurationExecuteCommandConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ECSResponsesPutClusterCapacityProvidersClusterConfigurationExecuteCommandConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsPutClusterCapacityProvidersRequest) {
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putClusterCapacityProviders',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.PutClusterCapacityProviders.cluster.configuration.executeCommandConfiguration.kmsKeyId'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.kmsKeyId',
+        parameters: {
+          cluster: this.__input.cluster,
+          capacityProviders: this.__input.capacityProviders,
+          defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutClusterCapacityProviders.cluster.configuration.executeCommandConfiguration.kmsKeyId', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.kmsKeyId') as unknown as string;
+  }
+
+  public get logging(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putClusterCapacityProviders',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.PutClusterCapacityProviders.cluster.configuration.executeCommandConfiguration.logging'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logging',
+        parameters: {
+          cluster: this.__input.cluster,
+          capacityProviders: this.__input.capacityProviders,
+          defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutClusterCapacityProviders.cluster.configuration.executeCommandConfiguration.logging', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logging') as unknown as string;
+  }
+
+  public get logConfiguration(): ECSResponsesPutClusterCapacityProvidersClusterConfigurationExecuteCommandConfigurationLogConfiguration {
+    return new ECSResponsesPutClusterCapacityProvidersClusterConfigurationExecuteCommandConfigurationLogConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ECSResponsesPutClusterCapacityProvidersClusterConfigurationExecuteCommandConfigurationLogConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsPutClusterCapacityProvidersRequest) {
+  }
+
+  public get cloudWatchLogGroupName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putClusterCapacityProviders',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.PutClusterCapacityProviders.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName',
+        parameters: {
+          cluster: this.__input.cluster,
+          capacityProviders: this.__input.capacityProviders,
+          defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutClusterCapacityProviders.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName') as unknown as string;
+  }
+
+  public get cloudWatchEncryptionEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putClusterCapacityProviders',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.PutClusterCapacityProviders.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled',
+        parameters: {
+          cluster: this.__input.cluster,
+          capacityProviders: this.__input.capacityProviders,
+          defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutClusterCapacityProviders.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled') as unknown as boolean;
+  }
+
+  public get s3BucketName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putClusterCapacityProviders',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.PutClusterCapacityProviders.cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName',
+        parameters: {
+          cluster: this.__input.cluster,
+          capacityProviders: this.__input.capacityProviders,
+          defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutClusterCapacityProviders.cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName') as unknown as string;
+  }
+
+  public get s3EncryptionEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putClusterCapacityProviders',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.PutClusterCapacityProviders.cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled',
+        parameters: {
+          cluster: this.__input.cluster,
+          capacityProviders: this.__input.capacityProviders,
+          defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutClusterCapacityProviders.cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled') as unknown as boolean;
+  }
+
+  public get s3KeyPrefix(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putClusterCapacityProviders',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.PutClusterCapacityProviders.cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix',
+        parameters: {
+          cluster: this.__input.cluster,
+          capacityProviders: this.__input.capacityProviders,
+          defaultCapacityProviderStrategy: this.__input.defaultCapacityProviderStrategy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutClusterCapacityProviders.cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix') as unknown as string;
   }
 
 }
@@ -8776,6 +10009,9 @@ export class ECSResponsesRegisterTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -8818,6 +10054,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -8853,6 +10092,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -8888,6 +10130,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -8923,6 +10168,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -8958,6 +10206,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -8993,6 +10244,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -9028,6 +10282,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -9063,6 +10320,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -9098,6 +10358,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -9133,6 +10396,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -9168,6 +10434,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -9203,6 +10472,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -9238,6 +10510,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -9273,6 +10548,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -9308,6 +10586,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -9343,6 +10624,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -9378,6 +10662,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -9413,6 +10700,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -9422,6 +10712,124 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinition {
 
   public get proxyConfiguration(): ECSResponsesRegisterTaskDefinitionTaskDefinitionProxyConfiguration {
     return new ECSResponsesRegisterTaskDefinitionTaskDefinitionProxyConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get registeredAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'registerTaskDefinition',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.RegisterTaskDefinition.taskDefinition.registeredAt'),
+        outputPath: 'taskDefinition.registeredAt',
+        parameters: {
+          family: this.__input.family,
+          taskRoleArn: this.__input.taskRoleArn,
+          executionRoleArn: this.__input.executionRoleArn,
+          networkMode: this.__input.networkMode,
+          containerDefinitions: this.__input.containerDefinitions,
+          volumes: this.__input.volumes,
+          placementConstraints: this.__input.placementConstraints,
+          requiresCompatibilities: this.__input.requiresCompatibilities,
+          cpu: this.__input.cpu,
+          memory: this.__input.memory,
+          tags: this.__input.tags,
+          pidMode: this.__input.pidMode,
+          ipcMode: this.__input.ipcMode,
+          proxyConfiguration: {
+            type: this.__input.proxyConfiguration?.type,
+            containerName: this.__input.proxyConfiguration?.containerName,
+            properties: this.__input.proxyConfiguration?.properties,
+          },
+          inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RegisterTaskDefinition.taskDefinition.registeredAt', props);
+    return resource.getResponseField('taskDefinition.registeredAt') as unknown as string;
+  }
+
+  public get deregisteredAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'registerTaskDefinition',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.RegisterTaskDefinition.taskDefinition.deregisteredAt'),
+        outputPath: 'taskDefinition.deregisteredAt',
+        parameters: {
+          family: this.__input.family,
+          taskRoleArn: this.__input.taskRoleArn,
+          executionRoleArn: this.__input.executionRoleArn,
+          networkMode: this.__input.networkMode,
+          containerDefinitions: this.__input.containerDefinitions,
+          volumes: this.__input.volumes,
+          placementConstraints: this.__input.placementConstraints,
+          requiresCompatibilities: this.__input.requiresCompatibilities,
+          cpu: this.__input.cpu,
+          memory: this.__input.memory,
+          tags: this.__input.tags,
+          pidMode: this.__input.pidMode,
+          ipcMode: this.__input.ipcMode,
+          proxyConfiguration: {
+            type: this.__input.proxyConfiguration?.type,
+            containerName: this.__input.proxyConfiguration?.containerName,
+            properties: this.__input.proxyConfiguration?.properties,
+          },
+          inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RegisterTaskDefinition.taskDefinition.deregisteredAt', props);
+    return resource.getResponseField('taskDefinition.deregisteredAt') as unknown as string;
+  }
+
+  public get registeredBy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'registerTaskDefinition',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.RegisterTaskDefinition.taskDefinition.registeredBy'),
+        outputPath: 'taskDefinition.registeredBy',
+        parameters: {
+          family: this.__input.family,
+          taskRoleArn: this.__input.taskRoleArn,
+          executionRoleArn: this.__input.executionRoleArn,
+          networkMode: this.__input.networkMode,
+          containerDefinitions: this.__input.containerDefinitions,
+          volumes: this.__input.volumes,
+          placementConstraints: this.__input.placementConstraints,
+          requiresCompatibilities: this.__input.requiresCompatibilities,
+          cpu: this.__input.cpu,
+          memory: this.__input.memory,
+          tags: this.__input.tags,
+          pidMode: this.__input.pidMode,
+          ipcMode: this.__input.ipcMode,
+          proxyConfiguration: {
+            type: this.__input.proxyConfiguration?.type,
+            containerName: this.__input.proxyConfiguration?.containerName,
+            properties: this.__input.proxyConfiguration?.properties,
+          },
+          inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RegisterTaskDefinition.taskDefinition.registeredBy', props);
+    return resource.getResponseField('taskDefinition.registeredBy') as unknown as string;
+  }
+
+  public get ephemeralStorage(): ECSResponsesRegisterTaskDefinitionTaskDefinitionEphemeralStorage {
+    return new ECSResponsesRegisterTaskDefinitionTaskDefinitionEphemeralStorage(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -9459,6 +10867,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinitionProxyConfiguration 
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -9494,6 +10905,9 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinitionProxyConfiguration 
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
@@ -9529,11 +10943,59 @@ export class ECSResponsesRegisterTaskDefinitionTaskDefinitionProxyConfiguration 
             properties: this.__input.proxyConfiguration?.properties,
           },
           inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RegisterTaskDefinition.taskDefinition.proxyConfiguration.properties', props);
     return resource.getResponseField('taskDefinition.proxyConfiguration.properties') as unknown as shapes.EcsKeyValuePair[];
+  }
+
+}
+
+export class ECSResponsesRegisterTaskDefinitionTaskDefinitionEphemeralStorage {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsRegisterTaskDefinitionRequest) {
+  }
+
+  public get sizeInGiB(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'registerTaskDefinition',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.RegisterTaskDefinition.taskDefinition.ephemeralStorage.sizeInGiB'),
+        outputPath: 'taskDefinition.ephemeralStorage.sizeInGiB',
+        parameters: {
+          family: this.__input.family,
+          taskRoleArn: this.__input.taskRoleArn,
+          executionRoleArn: this.__input.executionRoleArn,
+          networkMode: this.__input.networkMode,
+          containerDefinitions: this.__input.containerDefinitions,
+          volumes: this.__input.volumes,
+          placementConstraints: this.__input.placementConstraints,
+          requiresCompatibilities: this.__input.requiresCompatibilities,
+          cpu: this.__input.cpu,
+          memory: this.__input.memory,
+          tags: this.__input.tags,
+          pidMode: this.__input.pidMode,
+          ipcMode: this.__input.ipcMode,
+          proxyConfiguration: {
+            type: this.__input.proxyConfiguration?.type,
+            containerName: this.__input.proxyConfiguration?.containerName,
+            properties: this.__input.proxyConfiguration?.properties,
+          },
+          inferenceAccelerators: this.__input.inferenceAccelerators,
+          ephemeralStorage: {
+            sizeInGiB: this.__input.ephemeralStorage?.sizeInGiB,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RegisterTaskDefinition.taskDefinition.ephemeralStorage.sizeInGiB', props);
+    return resource.getResponseField('taskDefinition.ephemeralStorage.sizeInGiB') as unknown as number;
   }
 
 }
@@ -9556,6 +11018,7 @@ export class ECSResponsesRunTask {
           cluster: this.__input.cluster,
           count: this.__input.count,
           enableECSManagedTags: this.__input.enableECSManagedTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
           group: this.__input.group,
           launchType: this.__input.launchType,
           networkConfiguration: {
@@ -9572,6 +11035,9 @@ export class ECSResponsesRunTask {
             executionRoleArn: this.__input.overrides?.executionRoleArn,
             memory: this.__input.overrides?.memory,
             taskRoleArn: this.__input.overrides?.taskRoleArn,
+            ephemeralStorage: {
+              sizeInGiB: this.__input.overrides?.ephemeralStorage?.sizeInGiB,
+            },
           },
           placementConstraints: this.__input.placementConstraints,
           placementStrategy: this.__input.placementStrategy,
@@ -9601,6 +11067,7 @@ export class ECSResponsesRunTask {
           cluster: this.__input.cluster,
           count: this.__input.count,
           enableECSManagedTags: this.__input.enableECSManagedTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
           group: this.__input.group,
           launchType: this.__input.launchType,
           networkConfiguration: {
@@ -9617,6 +11084,9 @@ export class ECSResponsesRunTask {
             executionRoleArn: this.__input.overrides?.executionRoleArn,
             memory: this.__input.overrides?.memory,
             taskRoleArn: this.__input.overrides?.taskRoleArn,
+            ephemeralStorage: {
+              sizeInGiB: this.__input.overrides?.ephemeralStorage?.sizeInGiB,
+            },
           },
           placementConstraints: this.__input.placementConstraints,
           placementStrategy: this.__input.placementStrategy,
@@ -9652,6 +11122,7 @@ export class ECSResponsesStartTask {
           cluster: this.__input.cluster,
           containerInstances: this.__input.containerInstances,
           enableECSManagedTags: this.__input.enableECSManagedTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
           group: this.__input.group,
           networkConfiguration: {
             awsvpcConfiguration: {
@@ -9667,6 +11138,9 @@ export class ECSResponsesStartTask {
             executionRoleArn: this.__input.overrides?.executionRoleArn,
             memory: this.__input.overrides?.memory,
             taskRoleArn: this.__input.overrides?.taskRoleArn,
+            ephemeralStorage: {
+              sizeInGiB: this.__input.overrides?.ephemeralStorage?.sizeInGiB,
+            },
           },
           propagateTags: this.__input.propagateTags,
           referenceId: this.__input.referenceId,
@@ -9692,6 +11166,7 @@ export class ECSResponsesStartTask {
           cluster: this.__input.cluster,
           containerInstances: this.__input.containerInstances,
           enableECSManagedTags: this.__input.enableECSManagedTags,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
           group: this.__input.group,
           networkConfiguration: {
             awsvpcConfiguration: {
@@ -9707,6 +11182,9 @@ export class ECSResponsesStartTask {
             executionRoleArn: this.__input.overrides?.executionRoleArn,
             memory: this.__input.overrides?.memory,
             taskRoleArn: this.__input.overrides?.taskRoleArn,
+            ephemeralStorage: {
+              sizeInGiB: this.__input.overrides?.ephemeralStorage?.sizeInGiB,
+            },
           },
           propagateTags: this.__input.propagateTags,
           referenceId: this.__input.referenceId,
@@ -9964,6 +11442,25 @@ export class ECSResponsesStopTaskTask {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'StopTask.task.desiredStatus', props);
     return resource.getResponseField('task.desiredStatus') as unknown as string;
+  }
+
+  public get enableExecuteCommand(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopTask',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.StopTask.task.enableExecuteCommand'),
+        outputPath: 'task.enableExecuteCommand',
+        parameters: {
+          cluster: this.__input.cluster,
+          task: this.__input.task,
+          reason: this.__input.reason,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopTask.task.enableExecuteCommand', props);
+    return resource.getResponseField('task.enableExecuteCommand') as unknown as boolean;
   }
 
   public get executionStoppedAt(): string {
@@ -10350,6 +11847,10 @@ export class ECSResponsesStopTaskTask {
     return resource.getResponseField('task.version') as unknown as number;
   }
 
+  public get ephemeralStorage(): ECSResponsesStopTaskTaskEphemeralStorage {
+    return new ECSResponsesStopTaskTaskEphemeralStorage(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class ECSResponsesStopTaskTaskOverrides {
@@ -10471,6 +11972,62 @@ export class ECSResponsesStopTaskTaskOverrides {
     return resource.getResponseField('task.overrides.taskRoleArn') as unknown as string;
   }
 
+  public get ephemeralStorage(): ECSResponsesStopTaskTaskOverridesEphemeralStorage {
+    return new ECSResponsesStopTaskTaskOverridesEphemeralStorage(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ECSResponsesStopTaskTaskOverridesEphemeralStorage {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsStopTaskRequest) {
+  }
+
+  public get sizeInGiB(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopTask',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.StopTask.task.overrides.ephemeralStorage.sizeInGiB'),
+        outputPath: 'task.overrides.ephemeralStorage.sizeInGiB',
+        parameters: {
+          cluster: this.__input.cluster,
+          task: this.__input.task,
+          reason: this.__input.reason,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopTask.task.overrides.ephemeralStorage.sizeInGiB', props);
+    return resource.getResponseField('task.overrides.ephemeralStorage.sizeInGiB') as unknown as number;
+  }
+
+}
+
+export class ECSResponsesStopTaskTaskEphemeralStorage {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsStopTaskRequest) {
+  }
+
+  public get sizeInGiB(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopTask',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.StopTask.task.ephemeralStorage.sizeInGiB'),
+        outputPath: 'task.ephemeralStorage.sizeInGiB',
+        parameters: {
+          cluster: this.__input.cluster,
+          task: this.__input.task,
+          reason: this.__input.reason,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopTask.task.ephemeralStorage.sizeInGiB', props);
+    return resource.getResponseField('task.ephemeralStorage.sizeInGiB') as unknown as number;
+  }
+
 }
 
 export class ECSResponsesSubmitAttachmentStateChanges {
@@ -10549,6 +12106,7 @@ export class ECSResponsesSubmitTaskStateChange {
           reason: this.__input.reason,
           containers: this.__input.containers,
           attachments: this.__input.attachments,
+          managedAgents: this.__input.managedAgents,
           pullStartedAt: this.__input.pullStartedAt,
           pullStoppedAt: this.__input.pullStoppedAt,
           executionStoppedAt: this.__input.executionStoppedAt,
@@ -10952,6 +12510,708 @@ export class ECSResponsesUpdateCapacityProviderCapacityProviderAutoScalingGroupP
 
 }
 
+export class ECSResponsesUpdateCluster {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsUpdateClusterRequest) {
+  }
+
+  public get cluster(): ECSResponsesUpdateClusterCluster {
+    return new ECSResponsesUpdateClusterCluster(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ECSResponsesUpdateClusterCluster {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsUpdateClusterRequest) {
+  }
+
+  public get clusterArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.clusterArn'),
+        outputPath: 'cluster.clusterArn',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.clusterArn', props);
+    return resource.getResponseField('cluster.clusterArn') as unknown as string;
+  }
+
+  public get clusterName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.clusterName'),
+        outputPath: 'cluster.clusterName',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.clusterName', props);
+    return resource.getResponseField('cluster.clusterName') as unknown as string;
+  }
+
+  public get configuration(): ECSResponsesUpdateClusterClusterConfiguration {
+    return new ECSResponsesUpdateClusterClusterConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.status'),
+        outputPath: 'cluster.status',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.status', props);
+    return resource.getResponseField('cluster.status') as unknown as string;
+  }
+
+  public get registeredContainerInstancesCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.registeredContainerInstancesCount'),
+        outputPath: 'cluster.registeredContainerInstancesCount',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.registeredContainerInstancesCount', props);
+    return resource.getResponseField('cluster.registeredContainerInstancesCount') as unknown as number;
+  }
+
+  public get runningTasksCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.runningTasksCount'),
+        outputPath: 'cluster.runningTasksCount',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.runningTasksCount', props);
+    return resource.getResponseField('cluster.runningTasksCount') as unknown as number;
+  }
+
+  public get pendingTasksCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.pendingTasksCount'),
+        outputPath: 'cluster.pendingTasksCount',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.pendingTasksCount', props);
+    return resource.getResponseField('cluster.pendingTasksCount') as unknown as number;
+  }
+
+  public get activeServicesCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.activeServicesCount'),
+        outputPath: 'cluster.activeServicesCount',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.activeServicesCount', props);
+    return resource.getResponseField('cluster.activeServicesCount') as unknown as number;
+  }
+
+  public get statistics(): shapes.EcsKeyValuePair[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.statistics'),
+        outputPath: 'cluster.statistics',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.statistics', props);
+    return resource.getResponseField('cluster.statistics') as unknown as shapes.EcsKeyValuePair[];
+  }
+
+  public get tags(): shapes.EcsTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.tags'),
+        outputPath: 'cluster.tags',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.tags', props);
+    return resource.getResponseField('cluster.tags') as unknown as shapes.EcsTag[];
+  }
+
+  public get settings(): shapes.EcsClusterSetting[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.settings'),
+        outputPath: 'cluster.settings',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.settings', props);
+    return resource.getResponseField('cluster.settings') as unknown as shapes.EcsClusterSetting[];
+  }
+
+  public get capacityProviders(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.capacityProviders'),
+        outputPath: 'cluster.capacityProviders',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.capacityProviders', props);
+    return resource.getResponseField('cluster.capacityProviders') as unknown as string[];
+  }
+
+  public get defaultCapacityProviderStrategy(): shapes.EcsCapacityProviderStrategyItem[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.defaultCapacityProviderStrategy'),
+        outputPath: 'cluster.defaultCapacityProviderStrategy',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.defaultCapacityProviderStrategy', props);
+    return resource.getResponseField('cluster.defaultCapacityProviderStrategy') as unknown as shapes.EcsCapacityProviderStrategyItem[];
+  }
+
+  public get attachments(): shapes.EcsAttachment[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.attachments'),
+        outputPath: 'cluster.attachments',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.attachments', props);
+    return resource.getResponseField('cluster.attachments') as unknown as shapes.EcsAttachment[];
+  }
+
+  public get attachmentsStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.attachmentsStatus'),
+        outputPath: 'cluster.attachmentsStatus',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.attachmentsStatus', props);
+    return resource.getResponseField('cluster.attachmentsStatus') as unknown as string;
+  }
+
+}
+
+export class ECSResponsesUpdateClusterClusterConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsUpdateClusterRequest) {
+  }
+
+  public get executeCommandConfiguration(): ECSResponsesUpdateClusterClusterConfigurationExecuteCommandConfiguration {
+    return new ECSResponsesUpdateClusterClusterConfigurationExecuteCommandConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ECSResponsesUpdateClusterClusterConfigurationExecuteCommandConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsUpdateClusterRequest) {
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.configuration.executeCommandConfiguration.kmsKeyId'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.kmsKeyId',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.configuration.executeCommandConfiguration.kmsKeyId', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.kmsKeyId') as unknown as string;
+  }
+
+  public get logging(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.configuration.executeCommandConfiguration.logging'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logging',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.configuration.executeCommandConfiguration.logging', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logging') as unknown as string;
+  }
+
+  public get logConfiguration(): ECSResponsesUpdateClusterClusterConfigurationExecuteCommandConfigurationLogConfiguration {
+    return new ECSResponsesUpdateClusterClusterConfigurationExecuteCommandConfigurationLogConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ECSResponsesUpdateClusterClusterConfigurationExecuteCommandConfigurationLogConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsUpdateClusterRequest) {
+  }
+
+  public get cloudWatchLogGroupName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName') as unknown as string;
+  }
+
+  public get cloudWatchEncryptionEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled') as unknown as boolean;
+  }
+
+  public get s3BucketName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName') as unknown as string;
+  }
+
+  public get s3EncryptionEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled') as unknown as boolean;
+  }
+
+  public get s3KeyPrefix(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateCluster',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+          configuration: {
+            executeCommandConfiguration: {
+              kmsKeyId: this.__input.configuration?.executeCommandConfiguration?.kmsKeyId,
+              logging: this.__input.configuration?.executeCommandConfiguration?.logging,
+              logConfiguration: {
+                cloudWatchLogGroupName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchLogGroupName,
+                cloudWatchEncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.cloudWatchEncryptionEnabled,
+                s3BucketName: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3BucketName,
+                s3EncryptionEnabled: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3EncryptionEnabled,
+                s3KeyPrefix: this.__input.configuration?.executeCommandConfiguration?.logConfiguration?.s3KeyPrefix,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCluster.cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix') as unknown as string;
+  }
+
+}
+
 export class ECSResponsesUpdateClusterSettings {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsUpdateClusterSettingsRequest) {
@@ -11002,6 +13262,10 @@ export class ECSResponsesUpdateClusterSettingsCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateClusterSettings.cluster.clusterName', props);
     return resource.getResponseField('cluster.clusterName') as unknown as string;
+  }
+
+  public get configuration(): ECSResponsesUpdateClusterSettingsClusterConfiguration {
+    return new ECSResponsesUpdateClusterSettingsClusterConfiguration(this.__scope, this.__resources, this.__input);
   }
 
   public get status(): string {
@@ -11218,6 +13482,161 @@ export class ECSResponsesUpdateClusterSettingsCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateClusterSettings.cluster.attachmentsStatus', props);
     return resource.getResponseField('cluster.attachmentsStatus') as unknown as string;
+  }
+
+}
+
+export class ECSResponsesUpdateClusterSettingsClusterConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsUpdateClusterSettingsRequest) {
+  }
+
+  public get executeCommandConfiguration(): ECSResponsesUpdateClusterSettingsClusterConfigurationExecuteCommandConfiguration {
+    return new ECSResponsesUpdateClusterSettingsClusterConfigurationExecuteCommandConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ECSResponsesUpdateClusterSettingsClusterConfigurationExecuteCommandConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsUpdateClusterSettingsRequest) {
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateClusterSettings',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateClusterSettings.cluster.configuration.executeCommandConfiguration.kmsKeyId'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.kmsKeyId',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateClusterSettings.cluster.configuration.executeCommandConfiguration.kmsKeyId', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.kmsKeyId') as unknown as string;
+  }
+
+  public get logging(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateClusterSettings',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateClusterSettings.cluster.configuration.executeCommandConfiguration.logging'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logging',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateClusterSettings.cluster.configuration.executeCommandConfiguration.logging', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logging') as unknown as string;
+  }
+
+  public get logConfiguration(): ECSResponsesUpdateClusterSettingsClusterConfigurationExecuteCommandConfigurationLogConfiguration {
+    return new ECSResponsesUpdateClusterSettingsClusterConfigurationExecuteCommandConfigurationLogConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ECSResponsesUpdateClusterSettingsClusterConfigurationExecuteCommandConfigurationLogConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcsUpdateClusterSettingsRequest) {
+  }
+
+  public get cloudWatchLogGroupName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateClusterSettings',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateClusterSettings.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateClusterSettings.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchLogGroupName') as unknown as string;
+  }
+
+  public get cloudWatchEncryptionEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateClusterSettings',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateClusterSettings.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateClusterSettings.cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.cloudWatchEncryptionEnabled') as unknown as boolean;
+  }
+
+  public get s3BucketName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateClusterSettings',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateClusterSettings.cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateClusterSettings.cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.s3BucketName') as unknown as string;
+  }
+
+  public get s3EncryptionEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateClusterSettings',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateClusterSettings.cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateClusterSettings.cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.s3EncryptionEnabled') as unknown as boolean;
+  }
+
+  public get s3KeyPrefix(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateClusterSettings',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateClusterSettings.cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix'),
+        outputPath: 'cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix',
+        parameters: {
+          cluster: this.__input.cluster,
+          settings: this.__input.settings,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateClusterSettings.cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix', props);
+    return resource.getResponseField('cluster.configuration.executeCommandConfiguration.logConfiguration.s3KeyPrefix') as unknown as string;
   }
 
 }
@@ -11688,6 +14107,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -11729,6 +14149,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -11770,6 +14191,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -11811,6 +14233,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -11852,6 +14275,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -11893,6 +14317,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -11934,6 +14359,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -11975,6 +14401,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12016,6 +14443,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12057,6 +14485,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12098,6 +14527,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12139,6 +14569,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12180,6 +14611,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12225,6 +14657,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12266,6 +14699,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12307,6 +14741,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12348,6 +14783,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12389,6 +14825,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12430,6 +14867,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12471,6 +14909,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12516,6 +14955,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12557,6 +14997,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12602,6 +15043,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12643,6 +15085,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12684,6 +15127,7 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12725,11 +15169,54 @@ export class ECSResponsesUpdateServiceService {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateService.service.propagateTags', props);
     return resource.getResponseField('service.propagateTags') as unknown as string;
+  }
+
+  public get enableExecuteCommand(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateService',
+        service: 'ECS',
+        physicalResourceId: cr.PhysicalResourceId.of('ECS.UpdateService.service.enableExecuteCommand'),
+        outputPath: 'service.enableExecuteCommand',
+        parameters: {
+          cluster: this.__input.cluster,
+          service: this.__input.service,
+          desiredCount: this.__input.desiredCount,
+          taskDefinition: this.__input.taskDefinition,
+          capacityProviderStrategy: this.__input.capacityProviderStrategy,
+          deploymentConfiguration: {
+            deploymentCircuitBreaker: {
+              enable: this.__input.deploymentConfiguration?.deploymentCircuitBreaker?.enable,
+              rollback: this.__input.deploymentConfiguration?.deploymentCircuitBreaker?.rollback,
+            },
+            maximumPercent: this.__input.deploymentConfiguration?.maximumPercent,
+            minimumHealthyPercent: this.__input.deploymentConfiguration?.minimumHealthyPercent,
+          },
+          networkConfiguration: {
+            awsvpcConfiguration: {
+              subnets: this.__input.networkConfiguration?.awsvpcConfiguration?.subnets,
+              securityGroups: this.__input.networkConfiguration?.awsvpcConfiguration?.securityGroups,
+              assignPublicIp: this.__input.networkConfiguration?.awsvpcConfiguration?.assignPublicIp,
+            },
+          },
+          placementConstraints: this.__input.placementConstraints,
+          placementStrategy: this.__input.placementStrategy,
+          platformVersion: this.__input.platformVersion,
+          forceNewDeployment: this.__input.forceNewDeployment,
+          healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateService.service.enableExecuteCommand', props);
+    return resource.getResponseField('service.enableExecuteCommand') as unknown as boolean;
   }
 
 }
@@ -12777,6 +15264,7 @@ export class ECSResponsesUpdateServiceServiceDeploymentConfiguration {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12818,6 +15306,7 @@ export class ECSResponsesUpdateServiceServiceDeploymentConfiguration {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12866,6 +15355,7 @@ export class ECSResponsesUpdateServiceServiceDeploymentConfigurationDeploymentCi
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12907,6 +15397,7 @@ export class ECSResponsesUpdateServiceServiceDeploymentConfigurationDeploymentCi
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -12966,6 +15457,7 @@ export class ECSResponsesUpdateServiceServiceNetworkConfigurationAwsvpcConfigura
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -13007,6 +15499,7 @@ export class ECSResponsesUpdateServiceServiceNetworkConfigurationAwsvpcConfigura
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -13048,6 +15541,7 @@ export class ECSResponsesUpdateServiceServiceNetworkConfigurationAwsvpcConfigura
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };
@@ -13096,6 +15590,7 @@ export class ECSResponsesUpdateServiceServiceDeploymentController {
           platformVersion: this.__input.platformVersion,
           forceNewDeployment: this.__input.forceNewDeployment,
           healthCheckGracePeriodSeconds: this.__input.healthCheckGracePeriodSeconds,
+          enableExecuteCommand: this.__input.enableExecuteCommand,
         },
       },
     };

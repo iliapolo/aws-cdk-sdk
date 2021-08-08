@@ -133,6 +133,22 @@ export class BackupClient extends cdk.Construct {
     return new BackupResponsesDescribeRestoreJob(this, this.__resources, input);
   }
 
+  public disassociateRecoveryPoint(input: shapes.BackupDisassociateRecoveryPointInput): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateRecoveryPoint',
+        service: 'Backup',
+        physicalResourceId: cr.PhysicalResourceId.of('Backup.DisassociateRecoveryPoint'),
+        parameters: {
+          BackupVaultName: input.backupVaultName,
+          RecoveryPointArn: input.recoveryPointArn,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DisassociateRecoveryPoint', props);
+  }
+
   public exportBackupPlanTemplate(input: shapes.BackupExportBackupPlanTemplateInput): BackupResponsesExportBackupPlanTemplate {
     return new BackupResponsesExportBackupPlanTemplate(this, this.__resources, input);
   }

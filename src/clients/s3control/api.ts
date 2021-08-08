@@ -12,6 +12,10 @@ export class S3ControlClient extends cdk.Construct {
     return new S3ControlResponsesCreateAccessPoint(this, this.__resources, input);
   }
 
+  public createAccessPointForObjectLambda(input: shapes.S3ControlCreateAccessPointForObjectLambdaRequest): S3ControlResponsesCreateAccessPointForObjectLambda {
+    return new S3ControlResponsesCreateAccessPointForObjectLambda(this, this.__resources, input);
+  }
+
   public createBucket(input: shapes.S3ControlCreateBucketRequest): S3ControlResponsesCreateBucket {
     return new S3ControlResponsesCreateBucket(this, this.__resources, input);
   }
@@ -36,6 +40,22 @@ export class S3ControlClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeleteAccessPoint', props);
   }
 
+  public deleteAccessPointForObjectLambda(input: shapes.S3ControlDeleteAccessPointForObjectLambdaRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAccessPointForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.DeleteAccessPointForObjectLambda'),
+        parameters: {
+          AccountId: input.accountId,
+          Name: input.name,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteAccessPointForObjectLambda', props);
+  }
+
   public deleteAccessPointPolicy(input: shapes.S3ControlDeleteAccessPointPolicyRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -50,6 +70,22 @@ export class S3ControlClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'DeleteAccessPointPolicy', props);
+  }
+
+  public deleteAccessPointPolicyForObjectLambda(input: shapes.S3ControlDeleteAccessPointPolicyForObjectLambdaRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAccessPointPolicyForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.DeleteAccessPointPolicyForObjectLambda'),
+        parameters: {
+          AccountId: input.accountId,
+          Name: input.name,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteAccessPointPolicyForObjectLambda', props);
   }
 
   public deleteBucket(input: shapes.S3ControlDeleteBucketRequest): void {
@@ -187,12 +223,28 @@ export class S3ControlClient extends cdk.Construct {
     return new S3ControlResponsesFetchAccessPoint(this, this.__resources, input);
   }
 
+  public fetchAccessPointConfigurationForObjectLambda(input: shapes.S3ControlGetAccessPointConfigurationForObjectLambdaRequest): S3ControlResponsesFetchAccessPointConfigurationForObjectLambda {
+    return new S3ControlResponsesFetchAccessPointConfigurationForObjectLambda(this, this.__resources, input);
+  }
+
+  public fetchAccessPointForObjectLambda(input: shapes.S3ControlGetAccessPointForObjectLambdaRequest): S3ControlResponsesFetchAccessPointForObjectLambda {
+    return new S3ControlResponsesFetchAccessPointForObjectLambda(this, this.__resources, input);
+  }
+
   public fetchAccessPointPolicy(input: shapes.S3ControlGetAccessPointPolicyRequest): S3ControlResponsesFetchAccessPointPolicy {
     return new S3ControlResponsesFetchAccessPointPolicy(this, this.__resources, input);
   }
 
+  public fetchAccessPointPolicyForObjectLambda(input: shapes.S3ControlGetAccessPointPolicyForObjectLambdaRequest): S3ControlResponsesFetchAccessPointPolicyForObjectLambda {
+    return new S3ControlResponsesFetchAccessPointPolicyForObjectLambda(this, this.__resources, input);
+  }
+
   public fetchAccessPointPolicyStatus(input: shapes.S3ControlGetAccessPointPolicyStatusRequest): S3ControlResponsesFetchAccessPointPolicyStatus {
     return new S3ControlResponsesFetchAccessPointPolicyStatus(this, this.__resources, input);
+  }
+
+  public fetchAccessPointPolicyStatusForObjectLambda(input: shapes.S3ControlGetAccessPointPolicyStatusForObjectLambdaRequest): S3ControlResponsesFetchAccessPointPolicyStatusForObjectLambda {
+    return new S3ControlResponsesFetchAccessPointPolicyStatusForObjectLambda(this, this.__resources, input);
   }
 
   public fetchBucket(input: shapes.S3ControlGetBucketRequest): S3ControlResponsesFetchBucket {
@@ -231,6 +283,10 @@ export class S3ControlClient extends cdk.Construct {
     return new S3ControlResponsesListAccessPoints(this, this.__resources, input);
   }
 
+  public listAccessPointsForObjectLambda(input: shapes.S3ControlListAccessPointsForObjectLambdaRequest): S3ControlResponsesListAccessPointsForObjectLambda {
+    return new S3ControlResponsesListAccessPointsForObjectLambda(this, this.__resources, input);
+  }
+
   public listJobs(input: shapes.S3ControlListJobsRequest): S3ControlResponsesListJobs {
     return new S3ControlResponsesListJobs(this, this.__resources, input);
   }
@@ -241,6 +297,28 @@ export class S3ControlClient extends cdk.Construct {
 
   public listStorageLensConfigurations(input: shapes.S3ControlListStorageLensConfigurationsRequest): S3ControlResponsesListStorageLensConfigurations {
     return new S3ControlResponsesListStorageLensConfigurations(this, this.__resources, input);
+  }
+
+  public putAccessPointConfigurationForObjectLambda(input: shapes.S3ControlPutAccessPointConfigurationForObjectLambdaRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putAccessPointConfigurationForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.PutAccessPointConfigurationForObjectLambda'),
+        parameters: {
+          AccountId: input.accountId,
+          Name: input.name,
+          Configuration: {
+            SupportingAccessPoint: input.configuration.supportingAccessPoint,
+            CloudWatchMetricsEnabled: input.configuration.cloudWatchMetricsEnabled,
+            AllowedFeatures: input.configuration.allowedFeatures,
+            TransformationConfigurations: input.configuration.transformationConfigurations,
+          },
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'PutAccessPointConfigurationForObjectLambda', props);
   }
 
   public putAccessPointPolicy(input: shapes.S3ControlPutAccessPointPolicyRequest): void {
@@ -258,6 +336,23 @@ export class S3ControlClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'PutAccessPointPolicy', props);
+  }
+
+  public putAccessPointPolicyForObjectLambda(input: shapes.S3ControlPutAccessPointPolicyForObjectLambdaRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putAccessPointPolicyForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.PutAccessPointPolicyForObjectLambda'),
+        parameters: {
+          AccountId: input.accountId,
+          Name: input.name,
+          Policy: input.policy,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'PutAccessPointPolicyForObjectLambda', props);
   }
 
   public putBucketLifecycleConfiguration(input: shapes.S3ControlPutBucketLifecycleConfigurationRequest): void {
@@ -483,6 +578,65 @@ export class S3ControlResponsesCreateAccessPoint {
     return resource.getResponseField('AccessPointArn') as unknown as string;
   }
 
+  public get alias(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAccessPoint',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.CreateAccessPoint.Alias'),
+        outputPath: 'Alias',
+        parameters: {
+          AccountId: this.__input.accountId,
+          Name: this.__input.name,
+          Bucket: this.__input.bucket,
+          VpcConfiguration: {
+            VpcId: this.__input.vpcConfiguration?.vpcId,
+          },
+          PublicAccessBlockConfiguration: {
+            BlockPublicAcls: this.__input.publicAccessBlockConfiguration?.blockPublicAcls,
+            IgnorePublicAcls: this.__input.publicAccessBlockConfiguration?.ignorePublicAcls,
+            BlockPublicPolicy: this.__input.publicAccessBlockConfiguration?.blockPublicPolicy,
+            RestrictPublicBuckets: this.__input.publicAccessBlockConfiguration?.restrictPublicBuckets,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAccessPoint.Alias', props);
+    return resource.getResponseField('Alias') as unknown as string;
+  }
+
+}
+
+export class S3ControlResponsesCreateAccessPointForObjectLambda {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.S3ControlCreateAccessPointForObjectLambdaRequest) {
+  }
+
+  public get objectLambdaAccessPointArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAccessPointForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.CreateAccessPointForObjectLambda.ObjectLambdaAccessPointArn'),
+        outputPath: 'ObjectLambdaAccessPointArn',
+        parameters: {
+          AccountId: this.__input.accountId,
+          Name: this.__input.name,
+          Configuration: {
+            SupportingAccessPoint: this.__input.configuration.supportingAccessPoint,
+            CloudWatchMetricsEnabled: this.__input.configuration.cloudWatchMetricsEnabled,
+            AllowedFeatures: this.__input.configuration.allowedFeatures,
+            TransformationConfigurations: this.__input.configuration.transformationConfigurations,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAccessPointForObjectLambda.ObjectLambdaAccessPointArn', props);
+    return resource.getResponseField('ObjectLambdaAccessPointArn') as unknown as string;
+  }
+
 }
 
 export class S3ControlResponsesCreateBucket {
@@ -597,6 +751,7 @@ export class S3ControlResponsesCreateJob {
               ObjectLockLegalHoldStatus: this.__input.operation.s3PutObjectCopy?.objectLockLegalHoldStatus,
               ObjectLockMode: this.__input.operation.s3PutObjectCopy?.objectLockMode,
               ObjectLockRetainUntilDate: this.__input.operation.s3PutObjectCopy?.objectLockRetainUntilDate,
+              BucketKeyEnabled: this.__input.operation.s3PutObjectCopy?.bucketKeyEnabled,
             },
             S3PutObjectAcl: {
               AccessControlPolicy: {
@@ -612,6 +767,8 @@ export class S3ControlResponsesCreateJob {
             },
             S3PutObjectTagging: {
               TagSet: this.__input.operation.s3PutObjectTagging?.tagSet,
+            },
+            S3DeleteObjectTagging: {
             },
             S3InitiateRestoreObject: {
               ExpirationInDays: this.__input.operation.s3InitiateRestoreObject?.expirationInDays,
@@ -1070,6 +1227,24 @@ export class S3ControlResponsesDescribeJobJobOperation {
     return new S3ControlResponsesDescribeJobJobOperationS3PutObjectTagging(this.__scope, this.__resources, this.__input);
   }
 
+  public get s3DeleteObjectTagging(): any {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJob',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.DescribeJob.Job.Operation.S3DeleteObjectTagging'),
+        outputPath: 'Job.Operation.S3DeleteObjectTagging',
+        parameters: {
+          AccountId: this.__input.accountId,
+          JobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJob.Job.Operation.S3DeleteObjectTagging', props);
+    return resource.getResponseField('Job.Operation.S3DeleteObjectTagging') as unknown as any;
+  }
+
   public get s3InitiateRestoreObject(): S3ControlResponsesDescribeJobJobOperationS3InitiateRestoreObject {
     return new S3ControlResponsesDescribeJobJobOperationS3InitiateRestoreObject(this.__scope, this.__resources, this.__input);
   }
@@ -1386,6 +1561,24 @@ export class S3ControlResponsesDescribeJobJobOperationS3PutObjectCopy {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJob.Job.Operation.S3PutObjectCopy.ObjectLockRetainUntilDate', props);
     return resource.getResponseField('Job.Operation.S3PutObjectCopy.ObjectLockRetainUntilDate') as unknown as string;
+  }
+
+  public get bucketKeyEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJob',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.DescribeJob.Job.Operation.S3PutObjectCopy.BucketKeyEnabled'),
+        outputPath: 'Job.Operation.S3PutObjectCopy.BucketKeyEnabled',
+        parameters: {
+          AccountId: this.__input.accountId,
+          JobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJob.Job.Operation.S3PutObjectCopy.BucketKeyEnabled', props);
+    return resource.getResponseField('Job.Operation.S3PutObjectCopy.BucketKeyEnabled') as unknown as boolean;
   }
 
 }
@@ -2126,6 +2319,60 @@ export class S3ControlResponsesFetchAccessPoint {
     return resource.getResponseField('CreationDate') as unknown as string;
   }
 
+  public get alias(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPoint',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.GetAccessPoint.Alias'),
+        outputPath: 'Alias',
+        parameters: {
+          AccountId: this.__input.accountId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPoint.Alias', props);
+    return resource.getResponseField('Alias') as unknown as string;
+  }
+
+  public get accessPointArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPoint',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.GetAccessPoint.AccessPointArn'),
+        outputPath: 'AccessPointArn',
+        parameters: {
+          AccountId: this.__input.accountId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPoint.AccessPointArn', props);
+    return resource.getResponseField('AccessPointArn') as unknown as string;
+  }
+
+  public get endpoints(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPoint',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.GetAccessPoint.Endpoints'),
+        outputPath: 'Endpoints',
+        parameters: {
+          AccountId: this.__input.accountId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPoint.Endpoints', props);
+    return resource.getResponseField('Endpoints') as unknown as Record<string, string>;
+  }
+
 }
 
 export class S3ControlResponsesFetchAccessPointVpcConfiguration {
@@ -2232,6 +2479,222 @@ export class S3ControlResponsesFetchAccessPointPublicAccessBlockConfiguration {
 
 }
 
+export class S3ControlResponsesFetchAccessPointConfigurationForObjectLambda {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.S3ControlGetAccessPointConfigurationForObjectLambdaRequest) {
+  }
+
+  public get configuration(): S3ControlResponsesFetchAccessPointConfigurationForObjectLambdaConfiguration {
+    return new S3ControlResponsesFetchAccessPointConfigurationForObjectLambdaConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class S3ControlResponsesFetchAccessPointConfigurationForObjectLambdaConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.S3ControlGetAccessPointConfigurationForObjectLambdaRequest) {
+  }
+
+  public get supportingAccessPoint(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPointConfigurationForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.GetAccessPointConfigurationForObjectLambda.Configuration.SupportingAccessPoint'),
+        outputPath: 'Configuration.SupportingAccessPoint',
+        parameters: {
+          AccountId: this.__input.accountId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPointConfigurationForObjectLambda.Configuration.SupportingAccessPoint', props);
+    return resource.getResponseField('Configuration.SupportingAccessPoint') as unknown as string;
+  }
+
+  public get cloudWatchMetricsEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPointConfigurationForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.GetAccessPointConfigurationForObjectLambda.Configuration.CloudWatchMetricsEnabled'),
+        outputPath: 'Configuration.CloudWatchMetricsEnabled',
+        parameters: {
+          AccountId: this.__input.accountId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPointConfigurationForObjectLambda.Configuration.CloudWatchMetricsEnabled', props);
+    return resource.getResponseField('Configuration.CloudWatchMetricsEnabled') as unknown as boolean;
+  }
+
+  public get allowedFeatures(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPointConfigurationForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.GetAccessPointConfigurationForObjectLambda.Configuration.AllowedFeatures'),
+        outputPath: 'Configuration.AllowedFeatures',
+        parameters: {
+          AccountId: this.__input.accountId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPointConfigurationForObjectLambda.Configuration.AllowedFeatures', props);
+    return resource.getResponseField('Configuration.AllowedFeatures') as unknown as string[];
+  }
+
+  public get transformationConfigurations(): shapes.S3ControlObjectLambdaTransformationConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPointConfigurationForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.GetAccessPointConfigurationForObjectLambda.Configuration.TransformationConfigurations'),
+        outputPath: 'Configuration.TransformationConfigurations',
+        parameters: {
+          AccountId: this.__input.accountId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPointConfigurationForObjectLambda.Configuration.TransformationConfigurations', props);
+    return resource.getResponseField('Configuration.TransformationConfigurations') as unknown as shapes.S3ControlObjectLambdaTransformationConfiguration[];
+  }
+
+}
+
+export class S3ControlResponsesFetchAccessPointForObjectLambda {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.S3ControlGetAccessPointForObjectLambdaRequest) {
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPointForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.GetAccessPointForObjectLambda.Name'),
+        outputPath: 'Name',
+        parameters: {
+          AccountId: this.__input.accountId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPointForObjectLambda.Name', props);
+    return resource.getResponseField('Name') as unknown as string;
+  }
+
+  public get publicAccessBlockConfiguration(): S3ControlResponsesFetchAccessPointForObjectLambdaPublicAccessBlockConfiguration {
+    return new S3ControlResponsesFetchAccessPointForObjectLambdaPublicAccessBlockConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get creationDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPointForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.GetAccessPointForObjectLambda.CreationDate'),
+        outputPath: 'CreationDate',
+        parameters: {
+          AccountId: this.__input.accountId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPointForObjectLambda.CreationDate', props);
+    return resource.getResponseField('CreationDate') as unknown as string;
+  }
+
+}
+
+export class S3ControlResponsesFetchAccessPointForObjectLambdaPublicAccessBlockConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.S3ControlGetAccessPointForObjectLambdaRequest) {
+  }
+
+  public get blockPublicAcls(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPointForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.GetAccessPointForObjectLambda.PublicAccessBlockConfiguration.BlockPublicAcls'),
+        outputPath: 'PublicAccessBlockConfiguration.BlockPublicAcls',
+        parameters: {
+          AccountId: this.__input.accountId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPointForObjectLambda.PublicAccessBlockConfiguration.BlockPublicAcls', props);
+    return resource.getResponseField('PublicAccessBlockConfiguration.BlockPublicAcls') as unknown as boolean;
+  }
+
+  public get ignorePublicAcls(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPointForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.GetAccessPointForObjectLambda.PublicAccessBlockConfiguration.IgnorePublicAcls'),
+        outputPath: 'PublicAccessBlockConfiguration.IgnorePublicAcls',
+        parameters: {
+          AccountId: this.__input.accountId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPointForObjectLambda.PublicAccessBlockConfiguration.IgnorePublicAcls', props);
+    return resource.getResponseField('PublicAccessBlockConfiguration.IgnorePublicAcls') as unknown as boolean;
+  }
+
+  public get blockPublicPolicy(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPointForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.GetAccessPointForObjectLambda.PublicAccessBlockConfiguration.BlockPublicPolicy'),
+        outputPath: 'PublicAccessBlockConfiguration.BlockPublicPolicy',
+        parameters: {
+          AccountId: this.__input.accountId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPointForObjectLambda.PublicAccessBlockConfiguration.BlockPublicPolicy', props);
+    return resource.getResponseField('PublicAccessBlockConfiguration.BlockPublicPolicy') as unknown as boolean;
+  }
+
+  public get restrictPublicBuckets(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPointForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.GetAccessPointForObjectLambda.PublicAccessBlockConfiguration.RestrictPublicBuckets'),
+        outputPath: 'PublicAccessBlockConfiguration.RestrictPublicBuckets',
+        parameters: {
+          AccountId: this.__input.accountId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPointForObjectLambda.PublicAccessBlockConfiguration.RestrictPublicBuckets', props);
+    return resource.getResponseField('PublicAccessBlockConfiguration.RestrictPublicBuckets') as unknown as boolean;
+  }
+
+}
+
 export class S3ControlResponsesFetchAccessPointPolicy {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.S3ControlGetAccessPointPolicyRequest) {
@@ -2252,6 +2715,31 @@ export class S3ControlResponsesFetchAccessPointPolicy {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPointPolicy.Policy', props);
+    return resource.getResponseField('Policy') as unknown as string;
+  }
+
+}
+
+export class S3ControlResponsesFetchAccessPointPolicyForObjectLambda {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.S3ControlGetAccessPointPolicyForObjectLambdaRequest) {
+  }
+
+  public get policy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPointPolicyForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.GetAccessPointPolicyForObjectLambda.Policy'),
+        outputPath: 'Policy',
+        parameters: {
+          AccountId: this.__input.accountId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPointPolicyForObjectLambda.Policy', props);
     return resource.getResponseField('Policy') as unknown as string;
   }
 
@@ -2288,6 +2776,42 @@ export class S3ControlResponsesFetchAccessPointPolicyStatusPolicyStatus {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPointPolicyStatus.PolicyStatus.IsPublic', props);
+    return resource.getResponseField('PolicyStatus.IsPublic') as unknown as boolean;
+  }
+
+}
+
+export class S3ControlResponsesFetchAccessPointPolicyStatusForObjectLambda {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.S3ControlGetAccessPointPolicyStatusForObjectLambdaRequest) {
+  }
+
+  public get policyStatus(): S3ControlResponsesFetchAccessPointPolicyStatusForObjectLambdaPolicyStatus {
+    return new S3ControlResponsesFetchAccessPointPolicyStatusForObjectLambdaPolicyStatus(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class S3ControlResponsesFetchAccessPointPolicyStatusForObjectLambdaPolicyStatus {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.S3ControlGetAccessPointPolicyStatusForObjectLambdaRequest) {
+  }
+
+  public get isPublic(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPointPolicyStatusForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.GetAccessPointPolicyStatusForObjectLambda.PolicyStatus.IsPublic'),
+        outputPath: 'PolicyStatus.IsPublic',
+        parameters: {
+          AccountId: this.__input.accountId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPointPolicyStatusForObjectLambda.PolicyStatus.IsPublic', props);
     return resource.getResponseField('PolicyStatus.IsPublic') as unknown as boolean;
   }
 
@@ -3157,6 +3681,51 @@ export class S3ControlResponsesListAccessPoints {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListAccessPoints.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class S3ControlResponsesListAccessPointsForObjectLambda {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.S3ControlListAccessPointsForObjectLambdaRequest) {
+  }
+
+  public get objectLambdaAccessPointList(): shapes.S3ControlObjectLambdaAccessPoint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAccessPointsForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.ListAccessPointsForObjectLambda.ObjectLambdaAccessPointList'),
+        outputPath: 'ObjectLambdaAccessPointList',
+        parameters: {
+          AccountId: this.__input.accountId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAccessPointsForObjectLambda.ObjectLambdaAccessPointList', props);
+    return resource.getResponseField('ObjectLambdaAccessPointList') as unknown as shapes.S3ControlObjectLambdaAccessPoint[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAccessPointsForObjectLambda',
+        service: 'S3Control',
+        physicalResourceId: cr.PhysicalResourceId.of('S3Control.ListAccessPointsForObjectLambda.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          AccountId: this.__input.accountId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAccessPointsForObjectLambda.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
 

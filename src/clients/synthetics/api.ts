@@ -148,6 +148,10 @@ export class SyntheticsClient extends cdk.Construct {
             SubnetIds: input.vpcConfig?.subnetIds,
             SecurityGroupIds: input.vpcConfig?.securityGroupIds,
           },
+          VisualReference: {
+            BaseScreenshots: input.visualReference?.baseScreenshots,
+            BaseCanaryRunId: input.visualReference?.baseCanaryRunId,
+          },
         },
       },
     };
@@ -554,6 +558,10 @@ export class SyntheticsResponsesCreateCanaryCanary {
 
   public get vpcConfig(): SyntheticsResponsesCreateCanaryCanaryVpcConfig {
     return new SyntheticsResponsesCreateCanaryCanaryVpcConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get visualReference(): SyntheticsResponsesCreateCanaryCanaryVisualReference {
+    return new SyntheticsResponsesCreateCanaryCanaryVisualReference(this.__scope, this.__resources, this.__input);
   }
 
   public get tags(): Record<string, string> {
@@ -1410,6 +1418,103 @@ export class SyntheticsResponsesCreateCanaryCanaryVpcConfig {
 
 }
 
+export class SyntheticsResponsesCreateCanaryCanaryVisualReference {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SyntheticsCreateCanaryRequest) {
+  }
+
+  public get baseScreenshots(): shapes.SyntheticsBaseScreenshot[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCanary',
+        service: 'Synthetics',
+        physicalResourceId: cr.PhysicalResourceId.of('Synthetics.CreateCanary.Canary.VisualReference.BaseScreenshots'),
+        outputPath: 'Canary.VisualReference.BaseScreenshots',
+        parameters: {
+          Name: this.__input.name,
+          Code: {
+            S3Bucket: this.__input.code.s3Bucket,
+            S3Key: this.__input.code.s3Key,
+            S3Version: this.__input.code.s3Version,
+            ZipFile: {
+            },
+            Handler: this.__input.code.handler,
+          },
+          ArtifactS3Location: this.__input.artifactS3Location,
+          ExecutionRoleArn: this.__input.executionRoleArn,
+          Schedule: {
+            Expression: this.__input.schedule.expression,
+            DurationInSeconds: this.__input.schedule.durationInSeconds,
+          },
+          RunConfig: {
+            TimeoutInSeconds: this.__input.runConfig?.timeoutInSeconds,
+            MemoryInMB: this.__input.runConfig?.memoryInMb,
+            ActiveTracing: this.__input.runConfig?.activeTracing,
+            EnvironmentVariables: this.__input.runConfig?.environmentVariables,
+          },
+          SuccessRetentionPeriodInDays: this.__input.successRetentionPeriodInDays,
+          FailureRetentionPeriodInDays: this.__input.failureRetentionPeriodInDays,
+          RuntimeVersion: this.__input.runtimeVersion,
+          VpcConfig: {
+            SubnetIds: this.__input.vpcConfig?.subnetIds,
+            SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCanary.Canary.VisualReference.BaseScreenshots', props);
+    return resource.getResponseField('Canary.VisualReference.BaseScreenshots') as unknown as shapes.SyntheticsBaseScreenshot[];
+  }
+
+  public get baseCanaryRunId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCanary',
+        service: 'Synthetics',
+        physicalResourceId: cr.PhysicalResourceId.of('Synthetics.CreateCanary.Canary.VisualReference.BaseCanaryRunId'),
+        outputPath: 'Canary.VisualReference.BaseCanaryRunId',
+        parameters: {
+          Name: this.__input.name,
+          Code: {
+            S3Bucket: this.__input.code.s3Bucket,
+            S3Key: this.__input.code.s3Key,
+            S3Version: this.__input.code.s3Version,
+            ZipFile: {
+            },
+            Handler: this.__input.code.handler,
+          },
+          ArtifactS3Location: this.__input.artifactS3Location,
+          ExecutionRoleArn: this.__input.executionRoleArn,
+          Schedule: {
+            Expression: this.__input.schedule.expression,
+            DurationInSeconds: this.__input.schedule.durationInSeconds,
+          },
+          RunConfig: {
+            TimeoutInSeconds: this.__input.runConfig?.timeoutInSeconds,
+            MemoryInMB: this.__input.runConfig?.memoryInMb,
+            ActiveTracing: this.__input.runConfig?.activeTracing,
+            EnvironmentVariables: this.__input.runConfig?.environmentVariables,
+          },
+          SuccessRetentionPeriodInDays: this.__input.successRetentionPeriodInDays,
+          FailureRetentionPeriodInDays: this.__input.failureRetentionPeriodInDays,
+          RuntimeVersion: this.__input.runtimeVersion,
+          VpcConfig: {
+            SubnetIds: this.__input.vpcConfig?.subnetIds,
+            SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCanary.Canary.VisualReference.BaseCanaryRunId', props);
+    return resource.getResponseField('Canary.VisualReference.BaseCanaryRunId') as unknown as string;
+  }
+
+}
+
 export class SyntheticsResponsesDescribeCanaries {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SyntheticsDescribeCanariesRequest) {
@@ -1713,6 +1818,10 @@ export class SyntheticsResponsesFetchCanaryCanary {
 
   public get vpcConfig(): SyntheticsResponsesFetchCanaryCanaryVpcConfig {
     return new SyntheticsResponsesFetchCanaryCanaryVpcConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get visualReference(): SyntheticsResponsesFetchCanaryCanaryVisualReference {
+    return new SyntheticsResponsesFetchCanaryCanaryVisualReference(this.__scope, this.__resources, this.__input);
   }
 
   public get tags(): Record<string, string> {
@@ -2061,6 +2170,47 @@ export class SyntheticsResponsesFetchCanaryCanaryVpcConfig {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetCanary.Canary.VpcConfig.SecurityGroupIds', props);
     return resource.getResponseField('Canary.VpcConfig.SecurityGroupIds') as unknown as string[];
+  }
+
+}
+
+export class SyntheticsResponsesFetchCanaryCanaryVisualReference {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SyntheticsGetCanaryRequest) {
+  }
+
+  public get baseScreenshots(): shapes.SyntheticsBaseScreenshot[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getCanary',
+        service: 'Synthetics',
+        physicalResourceId: cr.PhysicalResourceId.of('Synthetics.GetCanary.Canary.VisualReference.BaseScreenshots'),
+        outputPath: 'Canary.VisualReference.BaseScreenshots',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetCanary.Canary.VisualReference.BaseScreenshots', props);
+    return resource.getResponseField('Canary.VisualReference.BaseScreenshots') as unknown as shapes.SyntheticsBaseScreenshot[];
+  }
+
+  public get baseCanaryRunId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getCanary',
+        service: 'Synthetics',
+        physicalResourceId: cr.PhysicalResourceId.of('Synthetics.GetCanary.Canary.VisualReference.BaseCanaryRunId'),
+        outputPath: 'Canary.VisualReference.BaseCanaryRunId',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetCanary.Canary.VisualReference.BaseCanaryRunId', props);
+    return resource.getResponseField('Canary.VisualReference.BaseCanaryRunId') as unknown as string;
   }
 
 }

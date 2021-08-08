@@ -16,6 +16,7 @@ export class Macie2Client extends cdk.Construct {
         service: 'Macie2',
         physicalResourceId: cr.PhysicalResourceId.of('Macie2.AcceptInvitation'),
         parameters: {
+          administratorAccountId: input.administratorAccountId,
           invitationId: input.invitationId,
           masterAccount: input.masterAccount,
         },
@@ -157,6 +158,20 @@ export class Macie2Client extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DisableOrganizationAdminAccount', props);
   }
 
+  public disassociateFromAdministratorAccount(): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateFromAdministratorAccount',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.DisassociateFromAdministratorAccount'),
+        parameters: {
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DisassociateFromAdministratorAccount', props);
+  }
+
   public disassociateFromMasterAccount(): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -219,6 +234,10 @@ export class Macie2Client extends cdk.Construct {
     new cr.AwsCustomResource(this, 'EnableOrganizationAdminAccount', props);
   }
 
+  public fetchAdministratorAccount(): Macie2ResponsesFetchAdministratorAccount {
+    return new Macie2ResponsesFetchAdministratorAccount(this, this.__resources);
+  }
+
   public fetchBucketStatistics(input: shapes.Macie2GetBucketStatisticsRequest): Macie2ResponsesFetchBucketStatistics {
     return new Macie2ResponsesFetchBucketStatistics(this, this.__resources, input);
   }
@@ -243,6 +262,10 @@ export class Macie2Client extends cdk.Construct {
     return new Macie2ResponsesFetchFindingsFilter(this, this.__resources, input);
   }
 
+  public fetchFindingsPublicationConfiguration(): Macie2ResponsesFetchFindingsPublicationConfiguration {
+    return new Macie2ResponsesFetchFindingsPublicationConfiguration(this, this.__resources);
+  }
+
   public fetchInvitationsCount(): Macie2ResponsesFetchInvitationsCount {
     return new Macie2ResponsesFetchInvitationsCount(this, this.__resources);
   }
@@ -263,8 +286,8 @@ export class Macie2Client extends cdk.Construct {
     return new Macie2ResponsesFetchUsageStatistics(this, this.__resources, input);
   }
 
-  public fetchUsageTotals(): Macie2ResponsesFetchUsageTotals {
-    return new Macie2ResponsesFetchUsageTotals(this, this.__resources);
+  public fetchUsageTotals(input: shapes.Macie2GetUsageTotalsRequest): Macie2ResponsesFetchUsageTotals {
+    return new Macie2ResponsesFetchUsageTotals(this, this.__resources, input);
   }
 
   public listClassificationJobs(input: shapes.Macie2ListClassificationJobsRequest): Macie2ResponsesListClassificationJobs {
@@ -301,6 +324,29 @@ export class Macie2Client extends cdk.Construct {
 
   public putClassificationExportConfiguration(input: shapes.Macie2PutClassificationExportConfigurationRequest): Macie2ResponsesPutClassificationExportConfiguration {
     return new Macie2ResponsesPutClassificationExportConfiguration(this, this.__resources, input);
+  }
+
+  public putFindingsPublicationConfiguration(input: shapes.Macie2PutFindingsPublicationConfigurationRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putFindingsPublicationConfiguration',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.PutFindingsPublicationConfiguration'),
+        parameters: {
+          clientToken: input.clientToken,
+          securityHubConfiguration: {
+            publishClassificationFindings: input.securityHubConfiguration?.publishClassificationFindings,
+            publishPolicyFindings: input.securityHubConfiguration?.publishPolicyFindings,
+          },
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'PutFindingsPublicationConfiguration', props);
+  }
+
+  public searchResources(input: shapes.Macie2SearchResourcesRequest): Macie2ResponsesSearchResources {
+    return new Macie2ResponsesSearchResources(this, this.__resources, input);
   }
 
   public tagResource(input: shapes.Macie2TagResourceRequest): void {
@@ -479,6 +525,14 @@ export class Macie2ResponsesCreateClassificationJob {
                 and: this.__input.s3JobDefinition.scoping?.includes?.and,
               },
             },
+            bucketCriteria: {
+              excludes: {
+                and: this.__input.s3JobDefinition.bucketCriteria?.excludes?.and,
+              },
+              includes: {
+                and: this.__input.s3JobDefinition.bucketCriteria?.includes?.and,
+              },
+            },
           },
           samplingPercentage: this.__input.samplingPercentage,
           scheduleFrequency: {
@@ -522,6 +576,14 @@ export class Macie2ResponsesCreateClassificationJob {
               },
               includes: {
                 and: this.__input.s3JobDefinition.scoping?.includes?.and,
+              },
+            },
+            bucketCriteria: {
+              excludes: {
+                and: this.__input.s3JobDefinition.bucketCriteria?.excludes?.and,
+              },
+              includes: {
+                and: this.__input.s3JobDefinition.bucketCriteria?.includes?.and,
               },
             },
           },
@@ -1087,6 +1149,10 @@ export class Macie2ResponsesDescribeClassificationJobS3JobDefinition {
     return new Macie2ResponsesDescribeClassificationJobS3JobDefinitionScoping(this.__scope, this.__resources, this.__input);
   }
 
+  public get bucketCriteria(): Macie2ResponsesDescribeClassificationJobS3JobDefinitionBucketCriteria {
+    return new Macie2ResponsesDescribeClassificationJobS3JobDefinitionBucketCriteria(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class Macie2ResponsesDescribeClassificationJobS3JobDefinitionScoping {
@@ -1148,6 +1214,69 @@ export class Macie2ResponsesDescribeClassificationJobS3JobDefinitionScopingInclu
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeClassificationJob.s3JobDefinition.scoping.includes.and', props);
     return resource.getResponseField('s3JobDefinition.scoping.includes.and') as unknown as shapes.Macie2JobScopeTerm[];
+  }
+
+}
+
+export class Macie2ResponsesDescribeClassificationJobS3JobDefinitionBucketCriteria {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Macie2DescribeClassificationJobRequest) {
+  }
+
+  public get excludes(): Macie2ResponsesDescribeClassificationJobS3JobDefinitionBucketCriteriaExcludes {
+    return new Macie2ResponsesDescribeClassificationJobS3JobDefinitionBucketCriteriaExcludes(this.__scope, this.__resources, this.__input);
+  }
+
+  public get includes(): Macie2ResponsesDescribeClassificationJobS3JobDefinitionBucketCriteriaIncludes {
+    return new Macie2ResponsesDescribeClassificationJobS3JobDefinitionBucketCriteriaIncludes(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class Macie2ResponsesDescribeClassificationJobS3JobDefinitionBucketCriteriaExcludes {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Macie2DescribeClassificationJobRequest) {
+  }
+
+  public get and(): shapes.Macie2CriteriaForJob[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeClassificationJob',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.DescribeClassificationJob.s3JobDefinition.bucketCriteria.excludes.and'),
+        outputPath: 's3JobDefinition.bucketCriteria.excludes.and',
+        parameters: {
+          jobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeClassificationJob.s3JobDefinition.bucketCriteria.excludes.and', props);
+    return resource.getResponseField('s3JobDefinition.bucketCriteria.excludes.and') as unknown as shapes.Macie2CriteriaForJob[];
+  }
+
+}
+
+export class Macie2ResponsesDescribeClassificationJobS3JobDefinitionBucketCriteriaIncludes {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Macie2DescribeClassificationJobRequest) {
+  }
+
+  public get and(): shapes.Macie2CriteriaForJob[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeClassificationJob',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.DescribeClassificationJob.s3JobDefinition.bucketCriteria.includes.and'),
+        outputPath: 's3JobDefinition.bucketCriteria.includes.and',
+        parameters: {
+          jobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeClassificationJob.s3JobDefinition.bucketCriteria.includes.and', props);
+    return resource.getResponseField('s3JobDefinition.bucketCriteria.includes.and') as unknown as shapes.Macie2CriteriaForJob[];
   }
 
 }
@@ -1370,6 +1499,88 @@ export class Macie2ResponsesDescribeOrganizationConfiguration {
 
 }
 
+export class Macie2ResponsesFetchAdministratorAccount {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get administrator(): Macie2ResponsesFetchAdministratorAccountAdministrator {
+    return new Macie2ResponsesFetchAdministratorAccountAdministrator(this.__scope, this.__resources);
+  }
+
+}
+
+export class Macie2ResponsesFetchAdministratorAccountAdministrator {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get accountId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAdministratorAccount',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.GetAdministratorAccount.administrator.accountId'),
+        outputPath: 'administrator.accountId',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAdministratorAccount.administrator.accountId', props);
+    return resource.getResponseField('administrator.accountId') as unknown as string;
+  }
+
+  public get invitationId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAdministratorAccount',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.GetAdministratorAccount.administrator.invitationId'),
+        outputPath: 'administrator.invitationId',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAdministratorAccount.administrator.invitationId', props);
+    return resource.getResponseField('administrator.invitationId') as unknown as string;
+  }
+
+  public get invitedAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAdministratorAccount',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.GetAdministratorAccount.administrator.invitedAt'),
+        outputPath: 'administrator.invitedAt',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAdministratorAccount.administrator.invitedAt', props);
+    return resource.getResponseField('administrator.invitedAt') as unknown as string;
+  }
+
+  public get relationshipStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAdministratorAccount',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.GetAdministratorAccount.administrator.relationshipStatus'),
+        outputPath: 'administrator.relationshipStatus',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAdministratorAccount.administrator.relationshipStatus', props);
+    return resource.getResponseField('administrator.relationshipStatus') as unknown as string;
+  }
+
+}
+
 export class Macie2ResponsesFetchBucketStatistics {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Macie2GetBucketStatisticsRequest) {
@@ -1398,6 +1609,10 @@ export class Macie2ResponsesFetchBucketStatistics {
 
   public get bucketCountByEncryptionType(): Macie2ResponsesFetchBucketStatisticsBucketCountByEncryptionType {
     return new Macie2ResponsesFetchBucketStatisticsBucketCountByEncryptionType(this.__scope, this.__resources, this.__input);
+  }
+
+  public get bucketCountByObjectEncryptionRequirement(): Macie2ResponsesFetchBucketStatisticsBucketCountByObjectEncryptionRequirement {
+    return new Macie2ResponsesFetchBucketStatisticsBucketCountByObjectEncryptionRequirement(this.__scope, this.__resources, this.__input);
   }
 
   public get bucketCountBySharedAccessType(): Macie2ResponsesFetchBucketStatisticsBucketCountBySharedAccessType {
@@ -1645,6 +1860,81 @@ export class Macie2ResponsesFetchBucketStatisticsBucketCountByEncryptionType {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetBucketStatistics.bucketCountByEncryptionType.unencrypted', props);
     return resource.getResponseField('bucketCountByEncryptionType.unencrypted') as unknown as number;
+  }
+
+  public get unknown(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getBucketStatistics',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.GetBucketStatistics.bucketCountByEncryptionType.unknown'),
+        outputPath: 'bucketCountByEncryptionType.unknown',
+        parameters: {
+          accountId: this.__input.accountId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetBucketStatistics.bucketCountByEncryptionType.unknown', props);
+    return resource.getResponseField('bucketCountByEncryptionType.unknown') as unknown as number;
+  }
+
+}
+
+export class Macie2ResponsesFetchBucketStatisticsBucketCountByObjectEncryptionRequirement {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Macie2GetBucketStatisticsRequest) {
+  }
+
+  public get allowsUnencryptedObjectUploads(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getBucketStatistics',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.GetBucketStatistics.bucketCountByObjectEncryptionRequirement.allowsUnencryptedObjectUploads'),
+        outputPath: 'bucketCountByObjectEncryptionRequirement.allowsUnencryptedObjectUploads',
+        parameters: {
+          accountId: this.__input.accountId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetBucketStatistics.bucketCountByObjectEncryptionRequirement.allowsUnencryptedObjectUploads', props);
+    return resource.getResponseField('bucketCountByObjectEncryptionRequirement.allowsUnencryptedObjectUploads') as unknown as number;
+  }
+
+  public get deniesUnencryptedObjectUploads(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getBucketStatistics',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.GetBucketStatistics.bucketCountByObjectEncryptionRequirement.deniesUnencryptedObjectUploads'),
+        outputPath: 'bucketCountByObjectEncryptionRequirement.deniesUnencryptedObjectUploads',
+        parameters: {
+          accountId: this.__input.accountId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetBucketStatistics.bucketCountByObjectEncryptionRequirement.deniesUnencryptedObjectUploads', props);
+    return resource.getResponseField('bucketCountByObjectEncryptionRequirement.deniesUnencryptedObjectUploads') as unknown as number;
+  }
+
+  public get unknown(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getBucketStatistics',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.GetBucketStatistics.bucketCountByObjectEncryptionRequirement.unknown'),
+        outputPath: 'bucketCountByObjectEncryptionRequirement.unknown',
+        parameters: {
+          accountId: this.__input.accountId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetBucketStatistics.bucketCountByObjectEncryptionRequirement.unknown', props);
+    return resource.getResponseField('bucketCountByObjectEncryptionRequirement.unknown') as unknown as number;
   }
 
 }
@@ -2325,6 +2615,56 @@ export class Macie2ResponsesFetchFindingsFilterFindingCriteria {
 
 }
 
+export class Macie2ResponsesFetchFindingsPublicationConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get securityHubConfiguration(): Macie2ResponsesFetchFindingsPublicationConfigurationSecurityHubConfiguration {
+    return new Macie2ResponsesFetchFindingsPublicationConfigurationSecurityHubConfiguration(this.__scope, this.__resources);
+  }
+
+}
+
+export class Macie2ResponsesFetchFindingsPublicationConfigurationSecurityHubConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get publishClassificationFindings(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFindingsPublicationConfiguration',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.GetFindingsPublicationConfiguration.securityHubConfiguration.publishClassificationFindings'),
+        outputPath: 'securityHubConfiguration.publishClassificationFindings',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFindingsPublicationConfiguration.securityHubConfiguration.publishClassificationFindings', props);
+    return resource.getResponseField('securityHubConfiguration.publishClassificationFindings') as unknown as boolean;
+  }
+
+  public get publishPolicyFindings(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFindingsPublicationConfiguration',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.GetFindingsPublicationConfiguration.securityHubConfiguration.publishPolicyFindings'),
+        outputPath: 'securityHubConfiguration.publishPolicyFindings',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFindingsPublicationConfiguration.securityHubConfiguration.publishPolicyFindings', props);
+    return resource.getResponseField('securityHubConfiguration.publishPolicyFindings') as unknown as boolean;
+  }
+
+}
+
 export class Macie2ResponsesFetchInvitationsCount {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
@@ -2539,6 +2879,23 @@ export class Macie2ResponsesFetchMember {
     return resource.getResponseField('accountId') as unknown as string;
   }
 
+  public get administratorAccountId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getMember',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.GetMember.administratorAccountId'),
+        outputPath: 'administratorAccountId',
+        parameters: {
+          id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetMember.administratorAccountId', props);
+    return resource.getResponseField('administratorAccountId') as unknown as string;
+  }
+
   public get arn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -2681,6 +3038,7 @@ export class Macie2ResponsesFetchUsageStatistics {
             key: this.__input.sortBy?.key,
             orderBy: this.__input.sortBy?.orderBy,
           },
+          timeRange: this.__input.timeRange,
         },
       },
     };
@@ -2704,6 +3062,7 @@ export class Macie2ResponsesFetchUsageStatistics {
             key: this.__input.sortBy?.key,
             orderBy: this.__input.sortBy?.orderBy,
           },
+          timeRange: this.__input.timeRange,
         },
       },
     };
@@ -2711,11 +3070,52 @@ export class Macie2ResponsesFetchUsageStatistics {
     return resource.getResponseField('records') as unknown as shapes.Macie2UsageRecord[];
   }
 
+  public get timeRange(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getUsageStatistics',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.GetUsageStatistics.timeRange'),
+        outputPath: 'timeRange',
+        parameters: {
+          filterBy: this.__input.filterBy,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+          sortBy: {
+            key: this.__input.sortBy?.key,
+            orderBy: this.__input.sortBy?.orderBy,
+          },
+          timeRange: this.__input.timeRange,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetUsageStatistics.timeRange', props);
+    return resource.getResponseField('timeRange') as unknown as string;
+  }
+
 }
 
 export class Macie2ResponsesFetchUsageTotals {
 
-  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Macie2GetUsageTotalsRequest) {
+  }
+
+  public get timeRange(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getUsageTotals',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.GetUsageTotals.timeRange'),
+        outputPath: 'timeRange',
+        parameters: {
+          timeRange: this.__input.timeRange,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetUsageTotals.timeRange', props);
+    return resource.getResponseField('timeRange') as unknown as string;
   }
 
   public get usageTotals(): shapes.Macie2UsageTotal[] {
@@ -2727,6 +3127,7 @@ export class Macie2ResponsesFetchUsageTotals {
         physicalResourceId: cr.PhysicalResourceId.of('Macie2.GetUsageTotals.usageTotals'),
         outputPath: 'usageTotals',
         parameters: {
+          timeRange: this.__input.timeRange,
         },
       },
     };
@@ -3191,6 +3592,73 @@ export class Macie2ResponsesPutClassificationExportConfigurationConfigurationS3D
 
 }
 
+export class Macie2ResponsesSearchResources {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Macie2SearchResourcesRequest) {
+  }
+
+  public get matchingResources(): shapes.Macie2MatchingResource[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'searchResources',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.SearchResources.matchingResources'),
+        outputPath: 'matchingResources',
+        parameters: {
+          bucketCriteria: {
+            excludes: {
+              and: this.__input.bucketCriteria?.excludes?.and,
+            },
+            includes: {
+              and: this.__input.bucketCriteria?.includes?.and,
+            },
+          },
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+          sortCriteria: {
+            attributeName: this.__input.sortCriteria?.attributeName,
+            orderBy: this.__input.sortCriteria?.orderBy,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SearchResources.matchingResources', props);
+    return resource.getResponseField('matchingResources') as unknown as shapes.Macie2MatchingResource[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'searchResources',
+        service: 'Macie2',
+        physicalResourceId: cr.PhysicalResourceId.of('Macie2.SearchResources.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          bucketCriteria: {
+            excludes: {
+              and: this.__input.bucketCriteria?.excludes?.and,
+            },
+            includes: {
+              and: this.__input.bucketCriteria?.includes?.and,
+            },
+          },
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+          sortCriteria: {
+            attributeName: this.__input.sortCriteria?.attributeName,
+            orderBy: this.__input.sortCriteria?.orderBy,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SearchResources.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
 export class Macie2ResponsesTestCustomDataIdentifier {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Macie2TestCustomDataIdentifierRequest) {
@@ -3241,6 +3709,7 @@ export class Macie2ResponsesUpdateFindingsFilter {
           id: this.__input.id,
           name: this.__input.name,
           position: this.__input.position,
+          clientToken: this.__input.clientToken,
         },
       },
     };
@@ -3265,6 +3734,7 @@ export class Macie2ResponsesUpdateFindingsFilter {
           id: this.__input.id,
           name: this.__input.name,
           position: this.__input.position,
+          clientToken: this.__input.clientToken,
         },
       },
     };

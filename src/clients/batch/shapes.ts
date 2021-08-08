@@ -15,10 +15,38 @@ export interface BatchCancelJobRequest {
 }
 
 /**
+ * Converts an object of type 'BatchCancelJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchCancelJobRequest(obj: BatchCancelJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobId': obj.jobId,
+    'reason': obj.reason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchCancelJobResponse
  */
 export interface BatchCancelJobResponse {
 }
+
+/**
+ * Converts an object of type 'BatchCancelJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchCancelJobResponse(obj: BatchCancelJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchCreateComputeEnvironmentRequest
@@ -47,7 +75,7 @@ export interface BatchCreateComputeEnvironmentRequest {
   /**
    * @schema BatchCreateComputeEnvironmentRequest#serviceRole
    */
-  readonly serviceRole: string;
+  readonly serviceRole?: string;
 
   /**
    * @schema BatchCreateComputeEnvironmentRequest#tags
@@ -55,6 +83,25 @@ export interface BatchCreateComputeEnvironmentRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'BatchCreateComputeEnvironmentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchCreateComputeEnvironmentRequest(obj: BatchCreateComputeEnvironmentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'computeEnvironmentName': obj.computeEnvironmentName,
+    'type': obj.type,
+    'state': obj.state,
+    'computeResources': toJson_BatchComputeResource(obj.computeResources),
+    'serviceRole': obj.serviceRole,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchCreateComputeEnvironmentResponse
@@ -71,6 +118,21 @@ export interface BatchCreateComputeEnvironmentResponse {
   readonly computeEnvironmentArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'BatchCreateComputeEnvironmentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchCreateComputeEnvironmentResponse(obj: BatchCreateComputeEnvironmentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'computeEnvironmentName': obj.computeEnvironmentName,
+    'computeEnvironmentArn': obj.computeEnvironmentArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchCreateJobQueueRequest
@@ -104,6 +166,24 @@ export interface BatchCreateJobQueueRequest {
 }
 
 /**
+ * Converts an object of type 'BatchCreateJobQueueRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchCreateJobQueueRequest(obj: BatchCreateJobQueueRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobQueueName': obj.jobQueueName,
+    'state': obj.state,
+    'priority': obj.priority,
+    'computeEnvironmentOrder': obj.computeEnvironmentOrder?.map(y => toJson_BatchComputeEnvironmentOrder(y)),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchCreateJobQueueResponse
  */
 export interface BatchCreateJobQueueResponse {
@@ -120,6 +200,21 @@ export interface BatchCreateJobQueueResponse {
 }
 
 /**
+ * Converts an object of type 'BatchCreateJobQueueResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchCreateJobQueueResponse(obj: BatchCreateJobQueueResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobQueueName': obj.jobQueueName,
+    'jobQueueArn': obj.jobQueueArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchDeleteComputeEnvironmentRequest
  */
 export interface BatchDeleteComputeEnvironmentRequest {
@@ -131,10 +226,37 @@ export interface BatchDeleteComputeEnvironmentRequest {
 }
 
 /**
+ * Converts an object of type 'BatchDeleteComputeEnvironmentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchDeleteComputeEnvironmentRequest(obj: BatchDeleteComputeEnvironmentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'computeEnvironment': obj.computeEnvironment,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchDeleteComputeEnvironmentResponse
  */
 export interface BatchDeleteComputeEnvironmentResponse {
 }
+
+/**
+ * Converts an object of type 'BatchDeleteComputeEnvironmentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchDeleteComputeEnvironmentResponse(obj: BatchDeleteComputeEnvironmentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchDeleteJobQueueRequest
@@ -148,10 +270,37 @@ export interface BatchDeleteJobQueueRequest {
 }
 
 /**
+ * Converts an object of type 'BatchDeleteJobQueueRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchDeleteJobQueueRequest(obj: BatchDeleteJobQueueRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobQueue': obj.jobQueue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchDeleteJobQueueResponse
  */
 export interface BatchDeleteJobQueueResponse {
 }
+
+/**
+ * Converts an object of type 'BatchDeleteJobQueueResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchDeleteJobQueueResponse(obj: BatchDeleteJobQueueResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchDeregisterJobDefinitionRequest
@@ -165,10 +314,37 @@ export interface BatchDeregisterJobDefinitionRequest {
 }
 
 /**
+ * Converts an object of type 'BatchDeregisterJobDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchDeregisterJobDefinitionRequest(obj: BatchDeregisterJobDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobDefinition': obj.jobDefinition,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchDeregisterJobDefinitionResponse
  */
 export interface BatchDeregisterJobDefinitionResponse {
 }
+
+/**
+ * Converts an object of type 'BatchDeregisterJobDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchDeregisterJobDefinitionResponse(obj: BatchDeregisterJobDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchDescribeComputeEnvironmentsRequest
@@ -192,6 +368,22 @@ export interface BatchDescribeComputeEnvironmentsRequest {
 }
 
 /**
+ * Converts an object of type 'BatchDescribeComputeEnvironmentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchDescribeComputeEnvironmentsRequest(obj: BatchDescribeComputeEnvironmentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'computeEnvironments': obj.computeEnvironments?.map(y => y),
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchDescribeComputeEnvironmentsResponse
  */
 export interface BatchDescribeComputeEnvironmentsResponse {
@@ -206,6 +398,21 @@ export interface BatchDescribeComputeEnvironmentsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'BatchDescribeComputeEnvironmentsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchDescribeComputeEnvironmentsResponse(obj: BatchDescribeComputeEnvironmentsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'computeEnvironments': obj.computeEnvironments?.map(y => toJson_BatchComputeEnvironmentDetail(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchDescribeJobDefinitionsRequest
@@ -239,6 +446,24 @@ export interface BatchDescribeJobDefinitionsRequest {
 }
 
 /**
+ * Converts an object of type 'BatchDescribeJobDefinitionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchDescribeJobDefinitionsRequest(obj: BatchDescribeJobDefinitionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobDefinitions': obj.jobDefinitions?.map(y => y),
+    'maxResults': obj.maxResults,
+    'jobDefinitionName': obj.jobDefinitionName,
+    'status': obj.status,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchDescribeJobDefinitionsResponse
  */
 export interface BatchDescribeJobDefinitionsResponse {
@@ -253,6 +478,21 @@ export interface BatchDescribeJobDefinitionsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'BatchDescribeJobDefinitionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchDescribeJobDefinitionsResponse(obj: BatchDescribeJobDefinitionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobDefinitions': obj.jobDefinitions?.map(y => toJson_BatchJobDefinition(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchDescribeJobQueuesRequest
@@ -276,6 +516,22 @@ export interface BatchDescribeJobQueuesRequest {
 }
 
 /**
+ * Converts an object of type 'BatchDescribeJobQueuesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchDescribeJobQueuesRequest(obj: BatchDescribeJobQueuesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobQueues': obj.jobQueues?.map(y => y),
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchDescribeJobQueuesResponse
  */
 export interface BatchDescribeJobQueuesResponse {
@@ -292,6 +548,21 @@ export interface BatchDescribeJobQueuesResponse {
 }
 
 /**
+ * Converts an object of type 'BatchDescribeJobQueuesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchDescribeJobQueuesResponse(obj: BatchDescribeJobQueuesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobQueues': obj.jobQueues?.map(y => toJson_BatchJobQueueDetail(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchDescribeJobsRequest
  */
 export interface BatchDescribeJobsRequest {
@@ -303,6 +574,20 @@ export interface BatchDescribeJobsRequest {
 }
 
 /**
+ * Converts an object of type 'BatchDescribeJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchDescribeJobsRequest(obj: BatchDescribeJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobs': obj.jobs?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchDescribeJobsResponse
  */
 export interface BatchDescribeJobsResponse {
@@ -312,6 +597,20 @@ export interface BatchDescribeJobsResponse {
   readonly jobs?: BatchJobDetail[];
 
 }
+
+/**
+ * Converts an object of type 'BatchDescribeJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchDescribeJobsResponse(obj: BatchDescribeJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobs': obj.jobs?.map(y => toJson_BatchJobDetail(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchListJobsRequest
@@ -347,7 +646,32 @@ export interface BatchListJobsRequest {
    */
   readonly nextToken?: string;
 
+  /**
+   * @schema BatchListJobsRequest#filters
+   */
+  readonly filters?: BatchKeyValuesPair[];
+
 }
+
+/**
+ * Converts an object of type 'BatchListJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchListJobsRequest(obj: BatchListJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobQueue': obj.jobQueue,
+    'arrayJobId': obj.arrayJobId,
+    'multiNodeJobId': obj.multiNodeJobId,
+    'jobStatus': obj.jobStatus,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+    'filters': obj.filters?.map(y => toJson_BatchKeyValuesPair(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchListJobsResponse
@@ -366,6 +690,21 @@ export interface BatchListJobsResponse {
 }
 
 /**
+ * Converts an object of type 'BatchListJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchListJobsResponse(obj: BatchListJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobSummaryList': obj.jobSummaryList?.map(y => toJson_BatchJobSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchListTagsForResourceRequest
  */
 export interface BatchListTagsForResourceRequest {
@@ -377,6 +716,20 @@ export interface BatchListTagsForResourceRequest {
 }
 
 /**
+ * Converts an object of type 'BatchListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchListTagsForResourceRequest(obj: BatchListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchListTagsForResourceResponse
  */
 export interface BatchListTagsForResourceResponse {
@@ -386,6 +739,20 @@ export interface BatchListTagsForResourceResponse {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'BatchListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchListTagsForResourceResponse(obj: BatchListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchRegisterJobDefinitionRequest
@@ -422,6 +789,11 @@ export interface BatchRegisterJobDefinitionRequest {
   readonly retryStrategy?: BatchRetryStrategy;
 
   /**
+   * @schema BatchRegisterJobDefinitionRequest#propagateTags
+   */
+  readonly propagateTags?: boolean;
+
+  /**
    * @schema BatchRegisterJobDefinitionRequest#timeout
    */
   readonly timeout?: BatchJobTimeout;
@@ -431,7 +803,35 @@ export interface BatchRegisterJobDefinitionRequest {
    */
   readonly tags?: { [key: string]: string };
 
+  /**
+   * @schema BatchRegisterJobDefinitionRequest#platformCapabilities
+   */
+  readonly platformCapabilities?: string[];
+
 }
+
+/**
+ * Converts an object of type 'BatchRegisterJobDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchRegisterJobDefinitionRequest(obj: BatchRegisterJobDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobDefinitionName': obj.jobDefinitionName,
+    'type': obj.type,
+    'parameters': ((obj.parameters) === undefined) ? undefined : (Object.entries(obj.parameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'containerProperties': toJson_BatchContainerProperties(obj.containerProperties),
+    'nodeProperties': toJson_BatchNodeProperties(obj.nodeProperties),
+    'retryStrategy': toJson_BatchRetryStrategy(obj.retryStrategy),
+    'propagateTags': obj.propagateTags,
+    'timeout': toJson_BatchJobTimeout(obj.timeout),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'platformCapabilities': obj.platformCapabilities?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchRegisterJobDefinitionResponse
@@ -453,6 +853,22 @@ export interface BatchRegisterJobDefinitionResponse {
   readonly revision: number;
 
 }
+
+/**
+ * Converts an object of type 'BatchRegisterJobDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchRegisterJobDefinitionResponse(obj: BatchRegisterJobDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobDefinitionName': obj.jobDefinitionName,
+    'jobDefinitionArn': obj.jobDefinitionArn,
+    'revision': obj.revision,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchSubmitJobRequest
@@ -504,6 +920,11 @@ export interface BatchSubmitJobRequest {
   readonly retryStrategy?: BatchRetryStrategy;
 
   /**
+   * @schema BatchSubmitJobRequest#propagateTags
+   */
+  readonly propagateTags?: boolean;
+
+  /**
    * @schema BatchSubmitJobRequest#timeout
    */
   readonly timeout?: BatchJobTimeout;
@@ -514,6 +935,31 @@ export interface BatchSubmitJobRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'BatchSubmitJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchSubmitJobRequest(obj: BatchSubmitJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobName': obj.jobName,
+    'jobQueue': obj.jobQueue,
+    'arrayProperties': toJson_BatchArrayProperties(obj.arrayProperties),
+    'dependsOn': obj.dependsOn?.map(y => toJson_BatchJobDependency(y)),
+    'jobDefinition': obj.jobDefinition,
+    'parameters': ((obj.parameters) === undefined) ? undefined : (Object.entries(obj.parameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'containerOverrides': toJson_BatchContainerOverrides(obj.containerOverrides),
+    'nodeOverrides': toJson_BatchNodeOverrides(obj.nodeOverrides),
+    'retryStrategy': toJson_BatchRetryStrategy(obj.retryStrategy),
+    'propagateTags': obj.propagateTags,
+    'timeout': toJson_BatchJobTimeout(obj.timeout),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchSubmitJobResponse
@@ -537,6 +983,22 @@ export interface BatchSubmitJobResponse {
 }
 
 /**
+ * Converts an object of type 'BatchSubmitJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchSubmitJobResponse(obj: BatchSubmitJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobArn': obj.jobArn,
+    'jobName': obj.jobName,
+    'jobId': obj.jobId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchTagResourceRequest
  */
 export interface BatchTagResourceRequest {
@@ -553,10 +1015,38 @@ export interface BatchTagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'BatchTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchTagResourceRequest(obj: BatchTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchTagResourceResponse
  */
 export interface BatchTagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'BatchTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchTagResourceResponse(obj: BatchTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchTerminateJobRequest
@@ -575,10 +1065,38 @@ export interface BatchTerminateJobRequest {
 }
 
 /**
+ * Converts an object of type 'BatchTerminateJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchTerminateJobRequest(obj: BatchTerminateJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobId': obj.jobId,
+    'reason': obj.reason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchTerminateJobResponse
  */
 export interface BatchTerminateJobResponse {
 }
+
+/**
+ * Converts an object of type 'BatchTerminateJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchTerminateJobResponse(obj: BatchTerminateJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchUntagResourceRequest
@@ -597,10 +1115,38 @@ export interface BatchUntagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'BatchUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchUntagResourceRequest(obj: BatchUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchUntagResourceResponse
  */
 export interface BatchUntagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'BatchUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchUntagResourceResponse(obj: BatchUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchUpdateComputeEnvironmentRequest
@@ -629,6 +1175,23 @@ export interface BatchUpdateComputeEnvironmentRequest {
 }
 
 /**
+ * Converts an object of type 'BatchUpdateComputeEnvironmentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchUpdateComputeEnvironmentRequest(obj: BatchUpdateComputeEnvironmentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'computeEnvironment': obj.computeEnvironment,
+    'state': obj.state,
+    'computeResources': toJson_BatchComputeResourceUpdate(obj.computeResources),
+    'serviceRole': obj.serviceRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchUpdateComputeEnvironmentResponse
  */
 export interface BatchUpdateComputeEnvironmentResponse {
@@ -643,6 +1206,21 @@ export interface BatchUpdateComputeEnvironmentResponse {
   readonly computeEnvironmentArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'BatchUpdateComputeEnvironmentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchUpdateComputeEnvironmentResponse(obj: BatchUpdateComputeEnvironmentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'computeEnvironmentName': obj.computeEnvironmentName,
+    'computeEnvironmentArn': obj.computeEnvironmentArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchUpdateJobQueueRequest
@@ -671,6 +1249,23 @@ export interface BatchUpdateJobQueueRequest {
 }
 
 /**
+ * Converts an object of type 'BatchUpdateJobQueueRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchUpdateJobQueueRequest(obj: BatchUpdateJobQueueRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobQueue': obj.jobQueue,
+    'state': obj.state,
+    'priority': obj.priority,
+    'computeEnvironmentOrder': obj.computeEnvironmentOrder?.map(y => toJson_BatchComputeEnvironmentOrder(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchUpdateJobQueueResponse
  */
 export interface BatchUpdateJobQueueResponse {
@@ -685,6 +1280,21 @@ export interface BatchUpdateJobQueueResponse {
   readonly jobQueueArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'BatchUpdateJobQueueResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchUpdateJobQueueResponse(obj: BatchUpdateJobQueueResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobQueueName': obj.jobQueueName,
+    'jobQueueArn': obj.jobQueueArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchComputeResource
@@ -703,7 +1313,7 @@ export interface BatchComputeResource {
   /**
    * @schema BatchComputeResource#minvCpus
    */
-  readonly minvCpus: number;
+  readonly minvCpus?: number;
 
   /**
    * @schema BatchComputeResource#maxvCpus
@@ -718,7 +1328,7 @@ export interface BatchComputeResource {
   /**
    * @schema BatchComputeResource#instanceTypes
    */
-  readonly instanceTypes: string[];
+  readonly instanceTypes?: string[];
 
   /**
    * @schema BatchComputeResource#imageId
@@ -743,7 +1353,7 @@ export interface BatchComputeResource {
   /**
    * @schema BatchComputeResource#instanceRole
    */
-  readonly instanceRole: string;
+  readonly instanceRole?: string;
 
   /**
    * @schema BatchComputeResource#tags
@@ -778,6 +1388,36 @@ export interface BatchComputeResource {
 }
 
 /**
+ * Converts an object of type 'BatchComputeResource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchComputeResource(obj: BatchComputeResource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+    'allocationStrategy': obj.allocationStrategy,
+    'minvCpus': obj.minvCpus,
+    'maxvCpus': obj.maxvCpus,
+    'desiredvCpus': obj.desiredvCpus,
+    'instanceTypes': obj.instanceTypes?.map(y => y),
+    'imageId': obj.imageId,
+    'subnets': obj.subnets?.map(y => y),
+    'securityGroupIds': obj.securityGroupIds?.map(y => y),
+    'ec2KeyPair': obj.ec2KeyPair,
+    'instanceRole': obj.instanceRole,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'placementGroup': obj.placementGroup,
+    'bidPercentage': obj.bidPercentage,
+    'spotIamFleetRole': obj.spotIamFleetRole,
+    'launchTemplate': toJson_BatchLaunchTemplateSpecification(obj.launchTemplate),
+    'ec2Configuration': obj.ec2Configuration?.map(y => toJson_BatchEc2Configuration(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchComputeEnvironmentOrder
  */
 export interface BatchComputeEnvironmentOrder {
@@ -792,6 +1432,21 @@ export interface BatchComputeEnvironmentOrder {
   readonly computeEnvironment: string;
 
 }
+
+/**
+ * Converts an object of type 'BatchComputeEnvironmentOrder' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchComputeEnvironmentOrder(obj: BatchComputeEnvironmentOrder | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'order': obj.order,
+    'computeEnvironment': obj.computeEnvironment,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchComputeEnvironmentDetail
@@ -848,6 +1503,29 @@ export interface BatchComputeEnvironmentDetail {
   readonly serviceRole?: string;
 
 }
+
+/**
+ * Converts an object of type 'BatchComputeEnvironmentDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchComputeEnvironmentDetail(obj: BatchComputeEnvironmentDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'computeEnvironmentName': obj.computeEnvironmentName,
+    'computeEnvironmentArn': obj.computeEnvironmentArn,
+    'ecsClusterArn': obj.ecsClusterArn,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'type': obj.type,
+    'state': obj.state,
+    'status': obj.status,
+    'statusReason': obj.statusReason,
+    'computeResources': toJson_BatchComputeResource(obj.computeResources),
+    'serviceRole': obj.serviceRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchJobDefinition
@@ -908,7 +1586,43 @@ export interface BatchJobDefinition {
    */
   readonly tags?: { [key: string]: string };
 
+  /**
+   * @schema BatchJobDefinition#propagateTags
+   */
+  readonly propagateTags?: boolean;
+
+  /**
+   * @schema BatchJobDefinition#platformCapabilities
+   */
+  readonly platformCapabilities?: string[];
+
 }
+
+/**
+ * Converts an object of type 'BatchJobDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchJobDefinition(obj: BatchJobDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobDefinitionName': obj.jobDefinitionName,
+    'jobDefinitionArn': obj.jobDefinitionArn,
+    'revision': obj.revision,
+    'status': obj.status,
+    'type': obj.type,
+    'parameters': ((obj.parameters) === undefined) ? undefined : (Object.entries(obj.parameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'retryStrategy': toJson_BatchRetryStrategy(obj.retryStrategy),
+    'containerProperties': toJson_BatchContainerProperties(obj.containerProperties),
+    'timeout': toJson_BatchJobTimeout(obj.timeout),
+    'nodeProperties': toJson_BatchNodeProperties(obj.nodeProperties),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'propagateTags': obj.propagateTags,
+    'platformCapabilities': obj.platformCapabilities?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchJobQueueDetail
@@ -955,6 +1669,27 @@ export interface BatchJobQueueDetail {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'BatchJobQueueDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchJobQueueDetail(obj: BatchJobQueueDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobQueueName': obj.jobQueueName,
+    'jobQueueArn': obj.jobQueueArn,
+    'state': obj.state,
+    'status': obj.status,
+    'statusReason': obj.statusReason,
+    'priority': obj.priority,
+    'computeEnvironmentOrder': obj.computeEnvironmentOrder?.map(y => toJson_BatchComputeEnvironmentOrder(y)),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchJobDetail
@@ -1060,7 +1795,83 @@ export interface BatchJobDetail {
    */
   readonly tags?: { [key: string]: string };
 
+  /**
+   * @schema BatchJobDetail#propagateTags
+   */
+  readonly propagateTags?: boolean;
+
+  /**
+   * @schema BatchJobDetail#platformCapabilities
+   */
+  readonly platformCapabilities?: string[];
+
 }
+
+/**
+ * Converts an object of type 'BatchJobDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchJobDetail(obj: BatchJobDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobArn': obj.jobArn,
+    'jobName': obj.jobName,
+    'jobId': obj.jobId,
+    'jobQueue': obj.jobQueue,
+    'status': obj.status,
+    'attempts': obj.attempts?.map(y => toJson_BatchAttemptDetail(y)),
+    'statusReason': obj.statusReason,
+    'createdAt': obj.createdAt,
+    'retryStrategy': toJson_BatchRetryStrategy(obj.retryStrategy),
+    'startedAt': obj.startedAt,
+    'stoppedAt': obj.stoppedAt,
+    'dependsOn': obj.dependsOn?.map(y => toJson_BatchJobDependency(y)),
+    'jobDefinition': obj.jobDefinition,
+    'parameters': ((obj.parameters) === undefined) ? undefined : (Object.entries(obj.parameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'container': toJson_BatchContainerDetail(obj.container),
+    'nodeDetails': toJson_BatchNodeDetails(obj.nodeDetails),
+    'nodeProperties': toJson_BatchNodeProperties(obj.nodeProperties),
+    'arrayProperties': toJson_BatchArrayPropertiesDetail(obj.arrayProperties),
+    'timeout': toJson_BatchJobTimeout(obj.timeout),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'propagateTags': obj.propagateTags,
+    'platformCapabilities': obj.platformCapabilities?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema BatchKeyValuesPair
+ */
+export interface BatchKeyValuesPair {
+  /**
+   * @schema BatchKeyValuesPair#name
+   */
+  readonly name?: string;
+
+  /**
+   * @schema BatchKeyValuesPair#values
+   */
+  readonly values?: string[];
+
+}
+
+/**
+ * Converts an object of type 'BatchKeyValuesPair' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchKeyValuesPair(obj: BatchKeyValuesPair | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchJobSummary
@@ -1121,7 +1932,37 @@ export interface BatchJobSummary {
    */
   readonly nodeProperties?: BatchNodePropertiesSummary;
 
+  /**
+   * @schema BatchJobSummary#jobDefinition
+   */
+  readonly jobDefinition?: string;
+
 }
+
+/**
+ * Converts an object of type 'BatchJobSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchJobSummary(obj: BatchJobSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobArn': obj.jobArn,
+    'jobId': obj.jobId,
+    'jobName': obj.jobName,
+    'createdAt': obj.createdAt,
+    'status': obj.status,
+    'statusReason': obj.statusReason,
+    'startedAt': obj.startedAt,
+    'stoppedAt': obj.stoppedAt,
+    'container': toJson_BatchContainerSummary(obj.container),
+    'arrayProperties': toJson_BatchArrayPropertiesSummary(obj.arrayProperties),
+    'nodeProperties': toJson_BatchNodePropertiesSummary(obj.nodeProperties),
+    'jobDefinition': obj.jobDefinition,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchContainerProperties
@@ -1217,7 +2058,50 @@ export interface BatchContainerProperties {
    */
   readonly secrets?: BatchSecret[];
 
+  /**
+   * @schema BatchContainerProperties#networkConfiguration
+   */
+  readonly networkConfiguration?: BatchNetworkConfiguration;
+
+  /**
+   * @schema BatchContainerProperties#fargatePlatformConfiguration
+   */
+  readonly fargatePlatformConfiguration?: BatchFargatePlatformConfiguration;
+
 }
+
+/**
+ * Converts an object of type 'BatchContainerProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchContainerProperties(obj: BatchContainerProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'image': obj.image,
+    'vcpus': obj.vcpus,
+    'memory': obj.memory,
+    'command': obj.command?.map(y => y),
+    'jobRoleArn': obj.jobRoleArn,
+    'executionRoleArn': obj.executionRoleArn,
+    'volumes': obj.volumes?.map(y => toJson_BatchVolume(y)),
+    'environment': obj.environment?.map(y => toJson_BatchKeyValuePair(y)),
+    'mountPoints': obj.mountPoints?.map(y => toJson_BatchMountPoint(y)),
+    'readonlyRootFilesystem': obj.readonlyRootFilesystem,
+    'privileged': obj.privileged,
+    'ulimits': obj.ulimits?.map(y => toJson_BatchUlimit(y)),
+    'user': obj.user,
+    'instanceType': obj.instanceType,
+    'resourceRequirements': obj.resourceRequirements?.map(y => toJson_BatchResourceRequirement(y)),
+    'linuxParameters': toJson_BatchLinuxParameters(obj.linuxParameters),
+    'logConfiguration': toJson_BatchLogConfiguration(obj.logConfiguration),
+    'secrets': obj.secrets?.map(y => toJson_BatchSecret(y)),
+    'networkConfiguration': toJson_BatchNetworkConfiguration(obj.networkConfiguration),
+    'fargatePlatformConfiguration': toJson_BatchFargatePlatformConfiguration(obj.fargatePlatformConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchNodeProperties
@@ -1241,6 +2125,22 @@ export interface BatchNodeProperties {
 }
 
 /**
+ * Converts an object of type 'BatchNodeProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchNodeProperties(obj: BatchNodeProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'numNodes': obj.numNodes,
+    'mainNode': obj.mainNode,
+    'nodeRangeProperties': obj.nodeRangeProperties?.map(y => toJson_BatchNodeRangeProperty(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchRetryStrategy
  */
 export interface BatchRetryStrategy {
@@ -1257,6 +2157,21 @@ export interface BatchRetryStrategy {
 }
 
 /**
+ * Converts an object of type 'BatchRetryStrategy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchRetryStrategy(obj: BatchRetryStrategy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'attempts': obj.attempts,
+    'evaluateOnExit': obj.evaluateOnExit?.map(y => toJson_BatchEvaluateOnExit(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchJobTimeout
  */
 export interface BatchJobTimeout {
@@ -1268,6 +2183,20 @@ export interface BatchJobTimeout {
 }
 
 /**
+ * Converts an object of type 'BatchJobTimeout' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchJobTimeout(obj: BatchJobTimeout | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'attemptDurationSeconds': obj.attemptDurationSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchArrayProperties
  */
 export interface BatchArrayProperties {
@@ -1277,6 +2206,20 @@ export interface BatchArrayProperties {
   readonly size?: number;
 
 }
+
+/**
+ * Converts an object of type 'BatchArrayProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchArrayProperties(obj: BatchArrayProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'size': obj.size,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchJobDependency
@@ -1293,6 +2236,21 @@ export interface BatchJobDependency {
   readonly type?: string;
 
 }
+
+/**
+ * Converts an object of type 'BatchJobDependency' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchJobDependency(obj: BatchJobDependency | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobId': obj.jobId,
+    'type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchContainerOverrides
@@ -1331,6 +2289,25 @@ export interface BatchContainerOverrides {
 }
 
 /**
+ * Converts an object of type 'BatchContainerOverrides' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchContainerOverrides(obj: BatchContainerOverrides | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'vcpus': obj.vcpus,
+    'memory': obj.memory,
+    'command': obj.command?.map(y => y),
+    'instanceType': obj.instanceType,
+    'environment': obj.environment?.map(y => toJson_BatchKeyValuePair(y)),
+    'resourceRequirements': obj.resourceRequirements?.map(y => toJson_BatchResourceRequirement(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchNodeOverrides
  */
 export interface BatchNodeOverrides {
@@ -1345,6 +2322,21 @@ export interface BatchNodeOverrides {
   readonly nodePropertyOverrides?: BatchNodePropertyOverride[];
 
 }
+
+/**
+ * Converts an object of type 'BatchNodeOverrides' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchNodeOverrides(obj: BatchNodeOverrides | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'numNodes': obj.numNodes,
+    'nodePropertyOverrides': obj.nodePropertyOverrides?.map(y => toJson_BatchNodePropertyOverride(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchComputeResourceUpdate
@@ -1365,7 +2357,35 @@ export interface BatchComputeResourceUpdate {
    */
   readonly desiredvCpus?: number;
 
+  /**
+   * @schema BatchComputeResourceUpdate#subnets
+   */
+  readonly subnets?: string[];
+
+  /**
+   * @schema BatchComputeResourceUpdate#securityGroupIds
+   */
+  readonly securityGroupIds?: string[];
+
 }
+
+/**
+ * Converts an object of type 'BatchComputeResourceUpdate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchComputeResourceUpdate(obj: BatchComputeResourceUpdate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'minvCpus': obj.minvCpus,
+    'maxvCpus': obj.maxvCpus,
+    'desiredvCpus': obj.desiredvCpus,
+    'subnets': obj.subnets?.map(y => y),
+    'securityGroupIds': obj.securityGroupIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchLaunchTemplateSpecification
@@ -1389,6 +2409,22 @@ export interface BatchLaunchTemplateSpecification {
 }
 
 /**
+ * Converts an object of type 'BatchLaunchTemplateSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchLaunchTemplateSpecification(obj: BatchLaunchTemplateSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'launchTemplateId': obj.launchTemplateId,
+    'launchTemplateName': obj.launchTemplateName,
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchEc2Configuration
  */
 export interface BatchEc2Configuration {
@@ -1403,6 +2439,21 @@ export interface BatchEc2Configuration {
   readonly imageIdOverride?: string;
 
 }
+
+/**
+ * Converts an object of type 'BatchEc2Configuration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchEc2Configuration(obj: BatchEc2Configuration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imageType': obj.imageType,
+    'imageIdOverride': obj.imageIdOverride,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchAttemptDetail
@@ -1429,6 +2480,23 @@ export interface BatchAttemptDetail {
   readonly statusReason?: string;
 
 }
+
+/**
+ * Converts an object of type 'BatchAttemptDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchAttemptDetail(obj: BatchAttemptDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'container': toJson_BatchAttemptContainerDetail(obj.container),
+    'startedAt': obj.startedAt,
+    'stoppedAt': obj.stoppedAt,
+    'statusReason': obj.statusReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchContainerDetail
@@ -1554,7 +2622,56 @@ export interface BatchContainerDetail {
    */
   readonly secrets?: BatchSecret[];
 
+  /**
+   * @schema BatchContainerDetail#networkConfiguration
+   */
+  readonly networkConfiguration?: BatchNetworkConfiguration;
+
+  /**
+   * @schema BatchContainerDetail#fargatePlatformConfiguration
+   */
+  readonly fargatePlatformConfiguration?: BatchFargatePlatformConfiguration;
+
 }
+
+/**
+ * Converts an object of type 'BatchContainerDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchContainerDetail(obj: BatchContainerDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'image': obj.image,
+    'vcpus': obj.vcpus,
+    'memory': obj.memory,
+    'command': obj.command?.map(y => y),
+    'jobRoleArn': obj.jobRoleArn,
+    'executionRoleArn': obj.executionRoleArn,
+    'volumes': obj.volumes?.map(y => toJson_BatchVolume(y)),
+    'environment': obj.environment?.map(y => toJson_BatchKeyValuePair(y)),
+    'mountPoints': obj.mountPoints?.map(y => toJson_BatchMountPoint(y)),
+    'readonlyRootFilesystem': obj.readonlyRootFilesystem,
+    'ulimits': obj.ulimits?.map(y => toJson_BatchUlimit(y)),
+    'privileged': obj.privileged,
+    'user': obj.user,
+    'exitCode': obj.exitCode,
+    'reason': obj.reason,
+    'containerInstanceArn': obj.containerInstanceArn,
+    'taskArn': obj.taskArn,
+    'logStreamName': obj.logStreamName,
+    'instanceType': obj.instanceType,
+    'networkInterfaces': obj.networkInterfaces?.map(y => toJson_BatchNetworkInterface(y)),
+    'resourceRequirements': obj.resourceRequirements?.map(y => toJson_BatchResourceRequirement(y)),
+    'linuxParameters': toJson_BatchLinuxParameters(obj.linuxParameters),
+    'logConfiguration': toJson_BatchLogConfiguration(obj.logConfiguration),
+    'secrets': obj.secrets?.map(y => toJson_BatchSecret(y)),
+    'networkConfiguration': toJson_BatchNetworkConfiguration(obj.networkConfiguration),
+    'fargatePlatformConfiguration': toJson_BatchFargatePlatformConfiguration(obj.fargatePlatformConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchNodeDetails
@@ -1571,6 +2688,21 @@ export interface BatchNodeDetails {
   readonly isMainNode?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'BatchNodeDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchNodeDetails(obj: BatchNodeDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nodeIndex': obj.nodeIndex,
+    'isMainNode': obj.isMainNode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchArrayPropertiesDetail
@@ -1594,6 +2726,22 @@ export interface BatchArrayPropertiesDetail {
 }
 
 /**
+ * Converts an object of type 'BatchArrayPropertiesDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchArrayPropertiesDetail(obj: BatchArrayPropertiesDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'statusSummary': ((obj.statusSummary) === undefined) ? undefined : (Object.entries(obj.statusSummary).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'size': obj.size,
+    'index': obj.index,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchContainerSummary
  */
 export interface BatchContainerSummary {
@@ -1610,6 +2758,21 @@ export interface BatchContainerSummary {
 }
 
 /**
+ * Converts an object of type 'BatchContainerSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchContainerSummary(obj: BatchContainerSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exitCode': obj.exitCode,
+    'reason': obj.reason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchArrayPropertiesSummary
  */
 export interface BatchArrayPropertiesSummary {
@@ -1624,6 +2787,21 @@ export interface BatchArrayPropertiesSummary {
   readonly index?: number;
 
 }
+
+/**
+ * Converts an object of type 'BatchArrayPropertiesSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchArrayPropertiesSummary(obj: BatchArrayPropertiesSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'size': obj.size,
+    'index': obj.index,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchNodePropertiesSummary
@@ -1647,6 +2825,22 @@ export interface BatchNodePropertiesSummary {
 }
 
 /**
+ * Converts an object of type 'BatchNodePropertiesSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchNodePropertiesSummary(obj: BatchNodePropertiesSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'isMainNode': obj.isMainNode,
+    'numNodes': obj.numNodes,
+    'nodeIndex': obj.nodeIndex,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchVolume
  */
 export interface BatchVolume {
@@ -1660,7 +2854,28 @@ export interface BatchVolume {
    */
   readonly name?: string;
 
+  /**
+   * @schema BatchVolume#efsVolumeConfiguration
+   */
+  readonly efsVolumeConfiguration?: BatchEfsVolumeConfiguration;
+
 }
+
+/**
+ * Converts an object of type 'BatchVolume' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchVolume(obj: BatchVolume | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'host': toJson_BatchHost(obj.host),
+    'name': obj.name,
+    'efsVolumeConfiguration': toJson_BatchEfsVolumeConfiguration(obj.efsVolumeConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchKeyValuePair
@@ -1677,6 +2892,21 @@ export interface BatchKeyValuePair {
   readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'BatchKeyValuePair' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchKeyValuePair(obj: BatchKeyValuePair | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchMountPoint
@@ -1700,6 +2930,22 @@ export interface BatchMountPoint {
 }
 
 /**
+ * Converts an object of type 'BatchMountPoint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchMountPoint(obj: BatchMountPoint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'containerPath': obj.containerPath,
+    'readOnly': obj.readOnly,
+    'sourceVolume': obj.sourceVolume,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchUlimit
  */
 export interface BatchUlimit {
@@ -1721,6 +2967,22 @@ export interface BatchUlimit {
 }
 
 /**
+ * Converts an object of type 'BatchUlimit' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchUlimit(obj: BatchUlimit | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'hardLimit': obj.hardLimit,
+    'name': obj.name,
+    'softLimit': obj.softLimit,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchResourceRequirement
  */
 export interface BatchResourceRequirement {
@@ -1735,6 +2997,21 @@ export interface BatchResourceRequirement {
   readonly type: string;
 
 }
+
+/**
+ * Converts an object of type 'BatchResourceRequirement' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchResourceRequirement(obj: BatchResourceRequirement | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'value': obj.value,
+    'type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchLinuxParameters
@@ -1773,6 +3050,25 @@ export interface BatchLinuxParameters {
 }
 
 /**
+ * Converts an object of type 'BatchLinuxParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchLinuxParameters(obj: BatchLinuxParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'devices': obj.devices?.map(y => toJson_BatchDevice(y)),
+    'initProcessEnabled': obj.initProcessEnabled,
+    'sharedMemorySize': obj.sharedMemorySize,
+    'tmpfs': obj.tmpfs?.map(y => toJson_BatchTmpfs(y)),
+    'maxSwap': obj.maxSwap,
+    'swappiness': obj.swappiness,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchLogConfiguration
  */
 export interface BatchLogConfiguration {
@@ -1794,6 +3090,22 @@ export interface BatchLogConfiguration {
 }
 
 /**
+ * Converts an object of type 'BatchLogConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchLogConfiguration(obj: BatchLogConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'logDriver': obj.logDriver,
+    'options': ((obj.options) === undefined) ? undefined : (Object.entries(obj.options).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'secretOptions': obj.secretOptions?.map(y => toJson_BatchSecret(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchSecret
  */
 export interface BatchSecret {
@@ -1810,6 +3122,71 @@ export interface BatchSecret {
 }
 
 /**
+ * Converts an object of type 'BatchSecret' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchSecret(obj: BatchSecret | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'valueFrom': obj.valueFrom,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema BatchNetworkConfiguration
+ */
+export interface BatchNetworkConfiguration {
+  /**
+   * @schema BatchNetworkConfiguration#assignPublicIp
+   */
+  readonly assignPublicIp?: string;
+
+}
+
+/**
+ * Converts an object of type 'BatchNetworkConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchNetworkConfiguration(obj: BatchNetworkConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'assignPublicIp': obj.assignPublicIp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema BatchFargatePlatformConfiguration
+ */
+export interface BatchFargatePlatformConfiguration {
+  /**
+   * @schema BatchFargatePlatformConfiguration#platformVersion
+   */
+  readonly platformVersion?: string;
+
+}
+
+/**
+ * Converts an object of type 'BatchFargatePlatformConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchFargatePlatformConfiguration(obj: BatchFargatePlatformConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'platformVersion': obj.platformVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchNodeRangeProperty
  */
 export interface BatchNodeRangeProperty {
@@ -1824,6 +3201,21 @@ export interface BatchNodeRangeProperty {
   readonly container?: BatchContainerProperties;
 
 }
+
+/**
+ * Converts an object of type 'BatchNodeRangeProperty' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchNodeRangeProperty(obj: BatchNodeRangeProperty | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'targetNodes': obj.targetNodes,
+    'container': toJson_BatchContainerProperties(obj.container),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchEvaluateOnExit
@@ -1852,6 +3244,23 @@ export interface BatchEvaluateOnExit {
 }
 
 /**
+ * Converts an object of type 'BatchEvaluateOnExit' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchEvaluateOnExit(obj: BatchEvaluateOnExit | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'onStatusReason': obj.onStatusReason,
+    'onReason': obj.onReason,
+    'onExitCode': obj.onExitCode,
+    'action': obj.action,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchNodePropertyOverride
  */
 export interface BatchNodePropertyOverride {
@@ -1866,6 +3275,21 @@ export interface BatchNodePropertyOverride {
   readonly containerOverrides?: BatchContainerOverrides;
 
 }
+
+/**
+ * Converts an object of type 'BatchNodePropertyOverride' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchNodePropertyOverride(obj: BatchNodePropertyOverride | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'targetNodes': obj.targetNodes,
+    'containerOverrides': toJson_BatchContainerOverrides(obj.containerOverrides),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchAttemptContainerDetail
@@ -1904,6 +3328,25 @@ export interface BatchAttemptContainerDetail {
 }
 
 /**
+ * Converts an object of type 'BatchAttemptContainerDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchAttemptContainerDetail(obj: BatchAttemptContainerDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'containerInstanceArn': obj.containerInstanceArn,
+    'taskArn': obj.taskArn,
+    'exitCode': obj.exitCode,
+    'reason': obj.reason,
+    'logStreamName': obj.logStreamName,
+    'networkInterfaces': obj.networkInterfaces?.map(y => toJson_BatchNetworkInterface(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchNetworkInterface
  */
 export interface BatchNetworkInterface {
@@ -1925,6 +3368,22 @@ export interface BatchNetworkInterface {
 }
 
 /**
+ * Converts an object of type 'BatchNetworkInterface' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchNetworkInterface(obj: BatchNetworkInterface | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'attachmentId': obj.attachmentId,
+    'ipv6Address': obj.ipv6Address,
+    'privateIpv4Address': obj.privateIpv4Address,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchHost
  */
 export interface BatchHost {
@@ -1934,6 +3393,69 @@ export interface BatchHost {
   readonly sourcePath?: string;
 
 }
+
+/**
+ * Converts an object of type 'BatchHost' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchHost(obj: BatchHost | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sourcePath': obj.sourcePath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema BatchEfsVolumeConfiguration
+ */
+export interface BatchEfsVolumeConfiguration {
+  /**
+   * @schema BatchEfsVolumeConfiguration#fileSystemId
+   */
+  readonly fileSystemId: string;
+
+  /**
+   * @schema BatchEfsVolumeConfiguration#rootDirectory
+   */
+  readonly rootDirectory?: string;
+
+  /**
+   * @schema BatchEfsVolumeConfiguration#transitEncryption
+   */
+  readonly transitEncryption?: string;
+
+  /**
+   * @schema BatchEfsVolumeConfiguration#transitEncryptionPort
+   */
+  readonly transitEncryptionPort?: number;
+
+  /**
+   * @schema BatchEfsVolumeConfiguration#authorizationConfig
+   */
+  readonly authorizationConfig?: BatchEfsAuthorizationConfig;
+
+}
+
+/**
+ * Converts an object of type 'BatchEfsVolumeConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchEfsVolumeConfiguration(obj: BatchEfsVolumeConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fileSystemId': obj.fileSystemId,
+    'rootDirectory': obj.rootDirectory,
+    'transitEncryption': obj.transitEncryption,
+    'transitEncryptionPort': obj.transitEncryptionPort,
+    'authorizationConfig': toJson_BatchEfsAuthorizationConfig(obj.authorizationConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema BatchDevice
@@ -1957,6 +3479,22 @@ export interface BatchDevice {
 }
 
 /**
+ * Converts an object of type 'BatchDevice' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchDevice(obj: BatchDevice | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'hostPath': obj.hostPath,
+    'containerPath': obj.containerPath,
+    'permissions': obj.permissions?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema BatchTmpfs
  */
 export interface BatchTmpfs {
@@ -1976,3 +3514,50 @@ export interface BatchTmpfs {
   readonly mountOptions?: string[];
 
 }
+
+/**
+ * Converts an object of type 'BatchTmpfs' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchTmpfs(obj: BatchTmpfs | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'containerPath': obj.containerPath,
+    'size': obj.size,
+    'mountOptions': obj.mountOptions?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema BatchEfsAuthorizationConfig
+ */
+export interface BatchEfsAuthorizationConfig {
+  /**
+   * @schema BatchEfsAuthorizationConfig#accessPointId
+   */
+  readonly accessPointId?: string;
+
+  /**
+   * @schema BatchEfsAuthorizationConfig#iam
+   */
+  readonly iam?: string;
+
+}
+
+/**
+ * Converts an object of type 'BatchEfsAuthorizationConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_BatchEfsAuthorizationConfig(obj: BatchEfsAuthorizationConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessPointId': obj.accessPointId,
+    'iam': obj.iam,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

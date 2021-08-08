@@ -494,6 +494,7 @@ export class BatchResponsesListJobs {
           jobStatus: this.__input.jobStatus,
           maxResults: this.__input.maxResults,
           nextToken: this.__input.nextToken,
+          filters: this.__input.filters,
         },
       },
     };
@@ -516,6 +517,7 @@ export class BatchResponsesListJobs {
           jobStatus: this.__input.jobStatus,
           maxResults: this.__input.maxResults,
           nextToken: this.__input.nextToken,
+          filters: this.__input.filters,
         },
       },
     };
@@ -596,6 +598,12 @@ export class BatchResponsesRegisterJobDefinition {
               secretOptions: this.__input.containerProperties?.logConfiguration?.secretOptions,
             },
             secrets: this.__input.containerProperties?.secrets,
+            networkConfiguration: {
+              assignPublicIp: this.__input.containerProperties?.networkConfiguration?.assignPublicIp,
+            },
+            fargatePlatformConfiguration: {
+              platformVersion: this.__input.containerProperties?.fargatePlatformConfiguration?.platformVersion,
+            },
           },
           nodeProperties: {
             numNodes: this.__input.nodeProperties?.numNodes,
@@ -606,10 +614,12 @@ export class BatchResponsesRegisterJobDefinition {
             attempts: this.__input.retryStrategy?.attempts,
             evaluateOnExit: this.__input.retryStrategy?.evaluateOnExit,
           },
+          propagateTags: this.__input.propagateTags,
           timeout: {
             attemptDurationSeconds: this.__input.timeout?.attemptDurationSeconds,
           },
           tags: this.__input.tags,
+          platformCapabilities: this.__input.platformCapabilities,
         },
       },
     };
@@ -659,6 +669,12 @@ export class BatchResponsesRegisterJobDefinition {
               secretOptions: this.__input.containerProperties?.logConfiguration?.secretOptions,
             },
             secrets: this.__input.containerProperties?.secrets,
+            networkConfiguration: {
+              assignPublicIp: this.__input.containerProperties?.networkConfiguration?.assignPublicIp,
+            },
+            fargatePlatformConfiguration: {
+              platformVersion: this.__input.containerProperties?.fargatePlatformConfiguration?.platformVersion,
+            },
           },
           nodeProperties: {
             numNodes: this.__input.nodeProperties?.numNodes,
@@ -669,10 +685,12 @@ export class BatchResponsesRegisterJobDefinition {
             attempts: this.__input.retryStrategy?.attempts,
             evaluateOnExit: this.__input.retryStrategy?.evaluateOnExit,
           },
+          propagateTags: this.__input.propagateTags,
           timeout: {
             attemptDurationSeconds: this.__input.timeout?.attemptDurationSeconds,
           },
           tags: this.__input.tags,
+          platformCapabilities: this.__input.platformCapabilities,
         },
       },
     };
@@ -722,6 +740,12 @@ export class BatchResponsesRegisterJobDefinition {
               secretOptions: this.__input.containerProperties?.logConfiguration?.secretOptions,
             },
             secrets: this.__input.containerProperties?.secrets,
+            networkConfiguration: {
+              assignPublicIp: this.__input.containerProperties?.networkConfiguration?.assignPublicIp,
+            },
+            fargatePlatformConfiguration: {
+              platformVersion: this.__input.containerProperties?.fargatePlatformConfiguration?.platformVersion,
+            },
           },
           nodeProperties: {
             numNodes: this.__input.nodeProperties?.numNodes,
@@ -732,10 +756,12 @@ export class BatchResponsesRegisterJobDefinition {
             attempts: this.__input.retryStrategy?.attempts,
             evaluateOnExit: this.__input.retryStrategy?.evaluateOnExit,
           },
+          propagateTags: this.__input.propagateTags,
           timeout: {
             attemptDurationSeconds: this.__input.timeout?.attemptDurationSeconds,
           },
           tags: this.__input.tags,
+          platformCapabilities: this.__input.platformCapabilities,
         },
       },
     };
@@ -783,6 +809,7 @@ export class BatchResponsesSubmitJob {
             attempts: this.__input.retryStrategy?.attempts,
             evaluateOnExit: this.__input.retryStrategy?.evaluateOnExit,
           },
+          propagateTags: this.__input.propagateTags,
           timeout: {
             attemptDurationSeconds: this.__input.timeout?.attemptDurationSeconds,
           },
@@ -827,6 +854,7 @@ export class BatchResponsesSubmitJob {
             attempts: this.__input.retryStrategy?.attempts,
             evaluateOnExit: this.__input.retryStrategy?.evaluateOnExit,
           },
+          propagateTags: this.__input.propagateTags,
           timeout: {
             attemptDurationSeconds: this.__input.timeout?.attemptDurationSeconds,
           },
@@ -871,6 +899,7 @@ export class BatchResponsesSubmitJob {
             attempts: this.__input.retryStrategy?.attempts,
             evaluateOnExit: this.__input.retryStrategy?.evaluateOnExit,
           },
+          propagateTags: this.__input.propagateTags,
           timeout: {
             attemptDurationSeconds: this.__input.timeout?.attemptDurationSeconds,
           },
@@ -904,6 +933,8 @@ export class BatchResponsesUpdateComputeEnvironment {
             minvCpus: this.__input.computeResources?.minvCpus,
             maxvCpus: this.__input.computeResources?.maxvCpus,
             desiredvCpus: this.__input.computeResources?.desiredvCpus,
+            subnets: this.__input.computeResources?.subnets,
+            securityGroupIds: this.__input.computeResources?.securityGroupIds,
           },
           serviceRole: this.__input.serviceRole,
         },
@@ -928,6 +959,8 @@ export class BatchResponsesUpdateComputeEnvironment {
             minvCpus: this.__input.computeResources?.minvCpus,
             maxvCpus: this.__input.computeResources?.maxvCpus,
             desiredvCpus: this.__input.computeResources?.desiredvCpus,
+            subnets: this.__input.computeResources?.subnets,
+            securityGroupIds: this.__input.computeResources?.securityGroupIds,
           },
           serviceRole: this.__input.serviceRole,
         },

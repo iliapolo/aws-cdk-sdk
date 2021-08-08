@@ -35,6 +35,25 @@ export interface SavingsPlansCreateSavingsPlanRequest {
 }
 
 /**
+ * Converts an object of type 'SavingsPlansCreateSavingsPlanRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansCreateSavingsPlanRequest(obj: SavingsPlansCreateSavingsPlanRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'savingsPlanOfferingId': obj.savingsPlanOfferingId,
+    'commitment': obj.commitment,
+    'upfrontPaymentAmount': obj.upfrontPaymentAmount,
+    'purchaseTime': obj.purchaseTime,
+    'clientToken': obj.clientToken,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SavingsPlansCreateSavingsPlanResponse
  */
 export interface SavingsPlansCreateSavingsPlanResponse {
@@ -44,6 +63,20 @@ export interface SavingsPlansCreateSavingsPlanResponse {
   readonly savingsPlanId?: string;
 
 }
+
+/**
+ * Converts an object of type 'SavingsPlansCreateSavingsPlanResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansCreateSavingsPlanResponse(obj: SavingsPlansCreateSavingsPlanResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'savingsPlanId': obj.savingsPlanId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SavingsPlansDeleteQueuedSavingsPlanRequest
@@ -57,10 +90,37 @@ export interface SavingsPlansDeleteQueuedSavingsPlanRequest {
 }
 
 /**
+ * Converts an object of type 'SavingsPlansDeleteQueuedSavingsPlanRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansDeleteQueuedSavingsPlanRequest(obj: SavingsPlansDeleteQueuedSavingsPlanRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'savingsPlanId': obj.savingsPlanId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SavingsPlansDeleteQueuedSavingsPlanResponse
  */
 export interface SavingsPlansDeleteQueuedSavingsPlanResponse {
 }
+
+/**
+ * Converts an object of type 'SavingsPlansDeleteQueuedSavingsPlanResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansDeleteQueuedSavingsPlanResponse(obj: SavingsPlansDeleteQueuedSavingsPlanResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SavingsPlansDescribeSavingsPlanRatesRequest
@@ -89,6 +149,23 @@ export interface SavingsPlansDescribeSavingsPlanRatesRequest {
 }
 
 /**
+ * Converts an object of type 'SavingsPlansDescribeSavingsPlanRatesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansDescribeSavingsPlanRatesRequest(obj: SavingsPlansDescribeSavingsPlanRatesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'savingsPlanId': obj.savingsPlanId,
+    'filters': obj.filters?.map(y => toJson_SavingsPlansSavingsPlanRateFilter(y)),
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SavingsPlansDescribeSavingsPlanRatesResponse
  */
 export interface SavingsPlansDescribeSavingsPlanRatesResponse {
@@ -108,6 +185,22 @@ export interface SavingsPlansDescribeSavingsPlanRatesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SavingsPlansDescribeSavingsPlanRatesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansDescribeSavingsPlanRatesResponse(obj: SavingsPlansDescribeSavingsPlanRatesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'savingsPlanId': obj.savingsPlanId,
+    'searchResults': obj.searchResults?.map(y => toJson_SavingsPlansSavingsPlanRate(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SavingsPlansDescribeSavingsPlansRequest
@@ -146,6 +239,25 @@ export interface SavingsPlansDescribeSavingsPlansRequest {
 }
 
 /**
+ * Converts an object of type 'SavingsPlansDescribeSavingsPlansRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansDescribeSavingsPlansRequest(obj: SavingsPlansDescribeSavingsPlansRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'savingsPlanArns': obj.savingsPlanArns?.map(y => y),
+    'savingsPlanIds': obj.savingsPlanIds?.map(y => y),
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'states': obj.states?.map(y => y),
+    'filters': obj.filters?.map(y => toJson_SavingsPlansSavingsPlanFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SavingsPlansDescribeSavingsPlansResponse
  */
 export interface SavingsPlansDescribeSavingsPlansResponse {
@@ -160,6 +272,21 @@ export interface SavingsPlansDescribeSavingsPlansResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SavingsPlansDescribeSavingsPlansResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansDescribeSavingsPlansResponse(obj: SavingsPlansDescribeSavingsPlansResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'savingsPlans': obj.savingsPlans?.map(y => toJson_SavingsPlansSavingsPlan(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SavingsPlansDescribeSavingsPlansOfferingRatesRequest
@@ -218,6 +345,29 @@ export interface SavingsPlansDescribeSavingsPlansOfferingRatesRequest {
 }
 
 /**
+ * Converts an object of type 'SavingsPlansDescribeSavingsPlansOfferingRatesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansDescribeSavingsPlansOfferingRatesRequest(obj: SavingsPlansDescribeSavingsPlansOfferingRatesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'savingsPlanOfferingIds': obj.savingsPlanOfferingIds?.map(y => y),
+    'savingsPlanPaymentOptions': obj.savingsPlanPaymentOptions?.map(y => y),
+    'savingsPlanTypes': obj.savingsPlanTypes?.map(y => y),
+    'products': obj.products?.map(y => y),
+    'serviceCodes': obj.serviceCodes?.map(y => y),
+    'usageTypes': obj.usageTypes?.map(y => y),
+    'operations': obj.operations?.map(y => y),
+    'filters': obj.filters?.map(y => toJson_SavingsPlansSavingsPlanOfferingRateFilterElement(y)),
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SavingsPlansDescribeSavingsPlansOfferingRatesResponse
  */
 export interface SavingsPlansDescribeSavingsPlansOfferingRatesResponse {
@@ -232,6 +382,21 @@ export interface SavingsPlansDescribeSavingsPlansOfferingRatesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SavingsPlansDescribeSavingsPlansOfferingRatesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansDescribeSavingsPlansOfferingRatesResponse(obj: SavingsPlansDescribeSavingsPlansOfferingRatesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'searchResults': obj.searchResults?.map(y => toJson_SavingsPlansSavingsPlanOfferingRate(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SavingsPlansDescribeSavingsPlansOfferingsRequest
@@ -305,6 +470,32 @@ export interface SavingsPlansDescribeSavingsPlansOfferingsRequest {
 }
 
 /**
+ * Converts an object of type 'SavingsPlansDescribeSavingsPlansOfferingsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansDescribeSavingsPlansOfferingsRequest(obj: SavingsPlansDescribeSavingsPlansOfferingsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'offeringIds': obj.offeringIds?.map(y => y),
+    'paymentOptions': obj.paymentOptions?.map(y => y),
+    'productType': obj.productType,
+    'planTypes': obj.planTypes?.map(y => y),
+    'durations': obj.durations?.map(y => y),
+    'currencies': obj.currencies?.map(y => y),
+    'descriptions': obj.descriptions?.map(y => y),
+    'serviceCodes': obj.serviceCodes?.map(y => y),
+    'usageTypes': obj.usageTypes?.map(y => y),
+    'operations': obj.operations?.map(y => y),
+    'filters': obj.filters?.map(y => toJson_SavingsPlansSavingsPlanOfferingFilterElement(y)),
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SavingsPlansDescribeSavingsPlansOfferingsResponse
  */
 export interface SavingsPlansDescribeSavingsPlansOfferingsResponse {
@@ -321,6 +512,21 @@ export interface SavingsPlansDescribeSavingsPlansOfferingsResponse {
 }
 
 /**
+ * Converts an object of type 'SavingsPlansDescribeSavingsPlansOfferingsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansDescribeSavingsPlansOfferingsResponse(obj: SavingsPlansDescribeSavingsPlansOfferingsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'searchResults': obj.searchResults?.map(y => toJson_SavingsPlansSavingsPlanOffering(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SavingsPlansListTagsForResourceRequest
  */
 export interface SavingsPlansListTagsForResourceRequest {
@@ -332,6 +538,20 @@ export interface SavingsPlansListTagsForResourceRequest {
 }
 
 /**
+ * Converts an object of type 'SavingsPlansListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansListTagsForResourceRequest(obj: SavingsPlansListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SavingsPlansListTagsForResourceResponse
  */
 export interface SavingsPlansListTagsForResourceResponse {
@@ -341,6 +561,20 @@ export interface SavingsPlansListTagsForResourceResponse {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'SavingsPlansListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansListTagsForResourceResponse(obj: SavingsPlansListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SavingsPlansTagResourceRequest
@@ -359,10 +593,38 @@ export interface SavingsPlansTagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'SavingsPlansTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansTagResourceRequest(obj: SavingsPlansTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SavingsPlansTagResourceResponse
  */
 export interface SavingsPlansTagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'SavingsPlansTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansTagResourceResponse(obj: SavingsPlansTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SavingsPlansUntagResourceRequest
@@ -381,10 +643,38 @@ export interface SavingsPlansUntagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'SavingsPlansUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansUntagResourceRequest(obj: SavingsPlansUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SavingsPlansUntagResourceResponse
  */
 export interface SavingsPlansUntagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'SavingsPlansUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansUntagResourceResponse(obj: SavingsPlansUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SavingsPlansSavingsPlanRateFilter
@@ -401,6 +691,21 @@ export interface SavingsPlansSavingsPlanRateFilter {
   readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'SavingsPlansSavingsPlanRateFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansSavingsPlanRateFilter(obj: SavingsPlansSavingsPlanRateFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SavingsPlansSavingsPlanRate
@@ -449,6 +754,27 @@ export interface SavingsPlansSavingsPlanRate {
 }
 
 /**
+ * Converts an object of type 'SavingsPlansSavingsPlanRate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansSavingsPlanRate(obj: SavingsPlansSavingsPlanRate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'rate': obj.rate,
+    'currency': obj.currency,
+    'unit': obj.unit,
+    'productType': obj.productType,
+    'serviceCode': obj.serviceCode,
+    'usageType': obj.usageType,
+    'operation': obj.operation,
+    'properties': obj.properties?.map(y => toJson_SavingsPlansSavingsPlanRateProperty(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SavingsPlansSavingsPlanFilter
  */
 export interface SavingsPlansSavingsPlanFilter {
@@ -463,6 +789,21 @@ export interface SavingsPlansSavingsPlanFilter {
   readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'SavingsPlansSavingsPlanFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansSavingsPlanFilter(obj: SavingsPlansSavingsPlanFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SavingsPlansSavingsPlan
@@ -561,6 +902,37 @@ export interface SavingsPlansSavingsPlan {
 }
 
 /**
+ * Converts an object of type 'SavingsPlansSavingsPlan' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansSavingsPlan(obj: SavingsPlansSavingsPlan | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'offeringId': obj.offeringId,
+    'savingsPlanId': obj.savingsPlanId,
+    'savingsPlanArn': obj.savingsPlanArn,
+    'description': obj.description,
+    'start': obj.start,
+    'end': obj.end,
+    'state': obj.state,
+    'region': obj.region,
+    'ec2InstanceFamily': obj.ec2InstanceFamily,
+    'savingsPlanType': obj.savingsPlanType,
+    'paymentOption': obj.paymentOption,
+    'productTypes': obj.productTypes?.map(y => y),
+    'currency': obj.currency,
+    'commitment': obj.commitment,
+    'upfrontPaymentAmount': obj.upfrontPaymentAmount,
+    'recurringPaymentAmount': obj.recurringPaymentAmount,
+    'termDurationInSeconds': obj.termDurationInSeconds,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SavingsPlansSavingsPlanOfferingRateFilterElement
  */
 export interface SavingsPlansSavingsPlanOfferingRateFilterElement {
@@ -575,6 +947,21 @@ export interface SavingsPlansSavingsPlanOfferingRateFilterElement {
   readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'SavingsPlansSavingsPlanOfferingRateFilterElement' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansSavingsPlanOfferingRateFilterElement(obj: SavingsPlansSavingsPlanOfferingRateFilterElement | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SavingsPlansSavingsPlanOfferingRate
@@ -623,6 +1010,27 @@ export interface SavingsPlansSavingsPlanOfferingRate {
 }
 
 /**
+ * Converts an object of type 'SavingsPlansSavingsPlanOfferingRate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansSavingsPlanOfferingRate(obj: SavingsPlansSavingsPlanOfferingRate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'savingsPlanOffering': toJson_SavingsPlansParentSavingsPlanOffering(obj.savingsPlanOffering),
+    'rate': obj.rate,
+    'unit': obj.unit,
+    'productType': obj.productType,
+    'serviceCode': obj.serviceCode,
+    'usageType': obj.usageType,
+    'operation': obj.operation,
+    'properties': obj.properties?.map(y => toJson_SavingsPlansSavingsPlanOfferingRateProperty(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SavingsPlansSavingsPlanOfferingFilterElement
  */
 export interface SavingsPlansSavingsPlanOfferingFilterElement {
@@ -637,6 +1045,21 @@ export interface SavingsPlansSavingsPlanOfferingFilterElement {
   readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'SavingsPlansSavingsPlanOfferingFilterElement' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansSavingsPlanOfferingFilterElement(obj: SavingsPlansSavingsPlanOfferingFilterElement | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SavingsPlansSavingsPlanOffering
@@ -700,6 +1123,30 @@ export interface SavingsPlansSavingsPlanOffering {
 }
 
 /**
+ * Converts an object of type 'SavingsPlansSavingsPlanOffering' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansSavingsPlanOffering(obj: SavingsPlansSavingsPlanOffering | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'offeringId': obj.offeringId,
+    'productTypes': obj.productTypes?.map(y => y),
+    'planType': obj.planType,
+    'description': obj.description,
+    'paymentOption': obj.paymentOption,
+    'durationSeconds': obj.durationSeconds,
+    'currency': obj.currency,
+    'serviceCode': obj.serviceCode,
+    'usageType': obj.usageType,
+    'operation': obj.operation,
+    'properties': obj.properties?.map(y => toJson_SavingsPlansSavingsPlanOfferingProperty(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SavingsPlansSavingsPlanRateProperty
  */
 export interface SavingsPlansSavingsPlanRateProperty {
@@ -714,6 +1161,21 @@ export interface SavingsPlansSavingsPlanRateProperty {
   readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'SavingsPlansSavingsPlanRateProperty' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansSavingsPlanRateProperty(obj: SavingsPlansSavingsPlanRateProperty | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SavingsPlansParentSavingsPlanOffering
@@ -752,6 +1214,25 @@ export interface SavingsPlansParentSavingsPlanOffering {
 }
 
 /**
+ * Converts an object of type 'SavingsPlansParentSavingsPlanOffering' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansParentSavingsPlanOffering(obj: SavingsPlansParentSavingsPlanOffering | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'offeringId': obj.offeringId,
+    'paymentOption': obj.paymentOption,
+    'planType': obj.planType,
+    'durationSeconds': obj.durationSeconds,
+    'currency': obj.currency,
+    'planDescription': obj.planDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SavingsPlansSavingsPlanOfferingRateProperty
  */
 export interface SavingsPlansSavingsPlanOfferingRateProperty {
@@ -768,6 +1249,21 @@ export interface SavingsPlansSavingsPlanOfferingRateProperty {
 }
 
 /**
+ * Converts an object of type 'SavingsPlansSavingsPlanOfferingRateProperty' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansSavingsPlanOfferingRateProperty(obj: SavingsPlansSavingsPlanOfferingRateProperty | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SavingsPlansSavingsPlanOfferingProperty
  */
 export interface SavingsPlansSavingsPlanOfferingProperty {
@@ -782,3 +1278,18 @@ export interface SavingsPlansSavingsPlanOfferingProperty {
   readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'SavingsPlansSavingsPlanOfferingProperty' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SavingsPlansSavingsPlanOfferingProperty(obj: SavingsPlansSavingsPlanOfferingProperty | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

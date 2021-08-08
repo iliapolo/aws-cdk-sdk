@@ -97,6 +97,10 @@ export class ManagedBlockchainClient extends cdk.Construct {
     return new ManagedBlockchainResponsesListProposals(this, this.__resources, input);
   }
 
+  public listTagsForResource(input: shapes.ManagedBlockchainListTagsForResourceRequest): ManagedBlockchainResponsesListTagsForResource {
+    return new ManagedBlockchainResponsesListTagsForResource(this, this.__resources, input);
+  }
+
   public rejectInvitation(input: shapes.ManagedBlockchainRejectInvitationInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -110,6 +114,38 @@ export class ManagedBlockchainClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'RejectInvitation', props);
+  }
+
+  public tagResource(input: shapes.ManagedBlockchainTagResourceRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'tagResource',
+        service: 'ManagedBlockchain',
+        physicalResourceId: cr.PhysicalResourceId.of('ManagedBlockchain.TagResource'),
+        parameters: {
+          ResourceArn: input.resourceArn,
+          Tags: input.tags,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'TagResource', props);
+  }
+
+  public untagResource(input: shapes.ManagedBlockchainUntagResourceRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'untagResource',
+        service: 'ManagedBlockchain',
+        physicalResourceId: cr.PhysicalResourceId.of('ManagedBlockchain.UntagResource'),
+        parameters: {
+          ResourceArn: input.resourceArn,
+          TagKeys: input.tagKeys,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UntagResource', props);
   }
 
   public updateMember(input: shapes.ManagedBlockchainUpdateMemberInput): void {
@@ -223,6 +259,8 @@ export class ManagedBlockchainResponsesCreateMember {
                 },
               },
             },
+            Tags: this.__input.memberConfiguration.tags,
+            KmsKeyArn: this.__input.memberConfiguration.kmsKeyArn,
           },
         },
       },
@@ -282,7 +320,10 @@ export class ManagedBlockchainResponsesCreateNetwork {
                 },
               },
             },
+            Tags: this.__input.memberConfiguration.tags,
+            KmsKeyArn: this.__input.memberConfiguration.kmsKeyArn,
           },
+          Tags: this.__input.tags,
         },
       },
     };
@@ -334,7 +375,10 @@ export class ManagedBlockchainResponsesCreateNetwork {
                 },
               },
             },
+            Tags: this.__input.memberConfiguration.tags,
+            KmsKeyArn: this.__input.memberConfiguration.kmsKeyArn,
           },
+          Tags: this.__input.tags,
         },
       },
     };
@@ -380,6 +424,7 @@ export class ManagedBlockchainResponsesCreateNode {
             },
             StateDB: this.__input.nodeConfiguration.stateDb,
           },
+          Tags: this.__input.tags,
         },
       },
     };
@@ -411,6 +456,7 @@ export class ManagedBlockchainResponsesCreateProposal {
             Removals: this.__input.actions.removals,
           },
           Description: this.__input.description,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -550,6 +596,60 @@ export class ManagedBlockchainResponsesFetchMemberMember {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetMember.Member.CreationDate', props);
     return resource.getResponseField('Member.CreationDate') as unknown as string;
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getMember',
+        service: 'ManagedBlockchain',
+        physicalResourceId: cr.PhysicalResourceId.of('ManagedBlockchain.GetMember.Member.Tags'),
+        outputPath: 'Member.Tags',
+        parameters: {
+          NetworkId: this.__input.networkId,
+          MemberId: this.__input.memberId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetMember.Member.Tags', props);
+    return resource.getResponseField('Member.Tags') as unknown as Record<string, string>;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getMember',
+        service: 'ManagedBlockchain',
+        physicalResourceId: cr.PhysicalResourceId.of('ManagedBlockchain.GetMember.Member.Arn'),
+        outputPath: 'Member.Arn',
+        parameters: {
+          NetworkId: this.__input.networkId,
+          MemberId: this.__input.memberId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetMember.Member.Arn', props);
+    return resource.getResponseField('Member.Arn') as unknown as string;
+  }
+
+  public get kmsKeyArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getMember',
+        service: 'ManagedBlockchain',
+        physicalResourceId: cr.PhysicalResourceId.of('ManagedBlockchain.GetMember.Member.KmsKeyArn'),
+        outputPath: 'Member.KmsKeyArn',
+        parameters: {
+          NetworkId: this.__input.networkId,
+          MemberId: this.__input.memberId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetMember.Member.KmsKeyArn', props);
+    return resource.getResponseField('Member.KmsKeyArn') as unknown as string;
   }
 
 }
@@ -826,6 +926,40 @@ export class ManagedBlockchainResponsesFetchNetworkNetwork {
     return resource.getResponseField('Network.CreationDate') as unknown as string;
   }
 
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getNetwork',
+        service: 'ManagedBlockchain',
+        physicalResourceId: cr.PhysicalResourceId.of('ManagedBlockchain.GetNetwork.Network.Tags'),
+        outputPath: 'Network.Tags',
+        parameters: {
+          NetworkId: this.__input.networkId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetNetwork.Network.Tags', props);
+    return resource.getResponseField('Network.Tags') as unknown as Record<string, string>;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getNetwork',
+        service: 'ManagedBlockchain',
+        physicalResourceId: cr.PhysicalResourceId.of('ManagedBlockchain.GetNetwork.Network.Arn'),
+        outputPath: 'Network.Arn',
+        parameters: {
+          NetworkId: this.__input.networkId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetNetwork.Network.Arn', props);
+    return resource.getResponseField('Network.Arn') as unknown as string;
+  }
+
 }
 
 export class ManagedBlockchainResponsesFetchNetworkNetworkFrameworkAttributes {
@@ -835,6 +969,10 @@ export class ManagedBlockchainResponsesFetchNetworkNetworkFrameworkAttributes {
 
   public get fabric(): ManagedBlockchainResponsesFetchNetworkNetworkFrameworkAttributesFabric {
     return new ManagedBlockchainResponsesFetchNetworkNetworkFrameworkAttributesFabric(this.__scope, this.__resources, this.__input);
+  }
+
+  public get ethereum(): ManagedBlockchainResponsesFetchNetworkNetworkFrameworkAttributesEthereum {
+    return new ManagedBlockchainResponsesFetchNetworkNetworkFrameworkAttributesEthereum(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -876,6 +1014,30 @@ export class ManagedBlockchainResponsesFetchNetworkNetworkFrameworkAttributesFab
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetNetwork.Network.FrameworkAttributes.Fabric.Edition', props);
     return resource.getResponseField('Network.FrameworkAttributes.Fabric.Edition') as unknown as string;
+  }
+
+}
+
+export class ManagedBlockchainResponsesFetchNetworkNetworkFrameworkAttributesEthereum {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ManagedBlockchainGetNetworkInput) {
+  }
+
+  public get chainId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getNetwork',
+        service: 'ManagedBlockchain',
+        physicalResourceId: cr.PhysicalResourceId.of('ManagedBlockchain.GetNetwork.Network.FrameworkAttributes.Ethereum.ChainId'),
+        outputPath: 'Network.FrameworkAttributes.Ethereum.ChainId',
+        parameters: {
+          NetworkId: this.__input.networkId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetNetwork.Network.FrameworkAttributes.Ethereum.ChainId', props);
+    return resource.getResponseField('Network.FrameworkAttributes.Ethereum.ChainId') as unknown as string;
   }
 
 }
@@ -1125,6 +1287,63 @@ export class ManagedBlockchainResponsesFetchNodeNode {
     return resource.getResponseField('Node.CreationDate') as unknown as string;
   }
 
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getNode',
+        service: 'ManagedBlockchain',
+        physicalResourceId: cr.PhysicalResourceId.of('ManagedBlockchain.GetNode.Node.Tags'),
+        outputPath: 'Node.Tags',
+        parameters: {
+          NetworkId: this.__input.networkId,
+          MemberId: this.__input.memberId,
+          NodeId: this.__input.nodeId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetNode.Node.Tags', props);
+    return resource.getResponseField('Node.Tags') as unknown as Record<string, string>;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getNode',
+        service: 'ManagedBlockchain',
+        physicalResourceId: cr.PhysicalResourceId.of('ManagedBlockchain.GetNode.Node.Arn'),
+        outputPath: 'Node.Arn',
+        parameters: {
+          NetworkId: this.__input.networkId,
+          MemberId: this.__input.memberId,
+          NodeId: this.__input.nodeId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetNode.Node.Arn', props);
+    return resource.getResponseField('Node.Arn') as unknown as string;
+  }
+
+  public get kmsKeyArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getNode',
+        service: 'ManagedBlockchain',
+        physicalResourceId: cr.PhysicalResourceId.of('ManagedBlockchain.GetNode.Node.KmsKeyArn'),
+        outputPath: 'Node.KmsKeyArn',
+        parameters: {
+          NetworkId: this.__input.networkId,
+          MemberId: this.__input.memberId,
+          NodeId: this.__input.nodeId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetNode.Node.KmsKeyArn', props);
+    return resource.getResponseField('Node.KmsKeyArn') as unknown as string;
+  }
+
 }
 
 export class ManagedBlockchainResponsesFetchNodeNodeFrameworkAttributes {
@@ -1134,6 +1353,10 @@ export class ManagedBlockchainResponsesFetchNodeNodeFrameworkAttributes {
 
   public get fabric(): ManagedBlockchainResponsesFetchNodeNodeFrameworkAttributesFabric {
     return new ManagedBlockchainResponsesFetchNodeNodeFrameworkAttributesFabric(this.__scope, this.__resources, this.__input);
+  }
+
+  public get ethereum(): ManagedBlockchainResponsesFetchNodeNodeFrameworkAttributesEthereum {
+    return new ManagedBlockchainResponsesFetchNodeNodeFrameworkAttributesEthereum(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -1179,6 +1402,51 @@ export class ManagedBlockchainResponsesFetchNodeNodeFrameworkAttributesFabric {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetNode.Node.FrameworkAttributes.Fabric.PeerEventEndpoint', props);
     return resource.getResponseField('Node.FrameworkAttributes.Fabric.PeerEventEndpoint') as unknown as string;
+  }
+
+}
+
+export class ManagedBlockchainResponsesFetchNodeNodeFrameworkAttributesEthereum {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ManagedBlockchainGetNodeInput) {
+  }
+
+  public get httpEndpoint(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getNode',
+        service: 'ManagedBlockchain',
+        physicalResourceId: cr.PhysicalResourceId.of('ManagedBlockchain.GetNode.Node.FrameworkAttributes.Ethereum.HttpEndpoint'),
+        outputPath: 'Node.FrameworkAttributes.Ethereum.HttpEndpoint',
+        parameters: {
+          NetworkId: this.__input.networkId,
+          MemberId: this.__input.memberId,
+          NodeId: this.__input.nodeId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetNode.Node.FrameworkAttributes.Ethereum.HttpEndpoint', props);
+    return resource.getResponseField('Node.FrameworkAttributes.Ethereum.HttpEndpoint') as unknown as string;
+  }
+
+  public get webSocketEndpoint(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getNode',
+        service: 'ManagedBlockchain',
+        physicalResourceId: cr.PhysicalResourceId.of('ManagedBlockchain.GetNode.Node.FrameworkAttributes.Ethereum.WebSocketEndpoint'),
+        outputPath: 'Node.FrameworkAttributes.Ethereum.WebSocketEndpoint',
+        parameters: {
+          NetworkId: this.__input.networkId,
+          MemberId: this.__input.memberId,
+          NodeId: this.__input.nodeId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetNode.Node.FrameworkAttributes.Ethereum.WebSocketEndpoint', props);
+    return resource.getResponseField('Node.FrameworkAttributes.Ethereum.WebSocketEndpoint') as unknown as string;
   }
 
 }
@@ -1499,6 +1767,42 @@ export class ManagedBlockchainResponsesFetchProposalProposal {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetProposal.Proposal.OutstandingVoteCount', props);
     return resource.getResponseField('Proposal.OutstandingVoteCount') as unknown as number;
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getProposal',
+        service: 'ManagedBlockchain',
+        physicalResourceId: cr.PhysicalResourceId.of('ManagedBlockchain.GetProposal.Proposal.Tags'),
+        outputPath: 'Proposal.Tags',
+        parameters: {
+          NetworkId: this.__input.networkId,
+          ProposalId: this.__input.proposalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetProposal.Proposal.Tags', props);
+    return resource.getResponseField('Proposal.Tags') as unknown as Record<string, string>;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getProposal',
+        service: 'ManagedBlockchain',
+        physicalResourceId: cr.PhysicalResourceId.of('ManagedBlockchain.GetProposal.Proposal.Arn'),
+        outputPath: 'Proposal.Arn',
+        parameters: {
+          NetworkId: this.__input.networkId,
+          ProposalId: this.__input.proposalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetProposal.Proposal.Arn', props);
+    return resource.getResponseField('Proposal.Arn') as unknown as string;
   }
 
 }
@@ -1826,6 +2130,30 @@ export class ManagedBlockchainResponsesListProposals {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListProposals.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class ManagedBlockchainResponsesListTagsForResource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ManagedBlockchainListTagsForResourceRequest) {
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listTagsForResource',
+        service: 'ManagedBlockchain',
+        physicalResourceId: cr.PhysicalResourceId.of('ManagedBlockchain.ListTagsForResource.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          ResourceArn: this.__input.resourceArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListTagsForResource.Tags', props);
+    return resource.getResponseField('Tags') as unknown as Record<string, string>;
   }
 
 }

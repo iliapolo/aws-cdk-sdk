@@ -151,6 +151,10 @@ export class RekognitionClient extends cdk.Construct {
     return new RekognitionResponsesListStreamProcessors(this, this.__resources, input);
   }
 
+  public listTagsForResource(input: shapes.RekognitionListTagsForResourceRequest): RekognitionResponsesListTagsForResource {
+    return new RekognitionResponsesListTagsForResource(this, this.__resources, input);
+  }
+
   public recognizeCelebrities(input: shapes.RekognitionRecognizeCelebritiesRequest): RekognitionResponsesRecognizeCelebrities {
     return new RekognitionResponsesRecognizeCelebrities(this, this.__resources, input);
   }
@@ -231,6 +235,38 @@ export class RekognitionClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'StopStreamProcessor', props);
+  }
+
+  public tagResource(input: shapes.RekognitionTagResourceRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'tagResource',
+        service: 'Rekognition',
+        physicalResourceId: cr.PhysicalResourceId.of('Rekognition.TagResource'),
+        parameters: {
+          ResourceArn: input.resourceArn,
+          Tags: input.tags,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'TagResource', props);
+  }
+
+  public untagResource(input: shapes.RekognitionUntagResourceRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'untagResource',
+        service: 'Rekognition',
+        physicalResourceId: cr.PhysicalResourceId.of('Rekognition.UntagResource'),
+        parameters: {
+          ResourceArn: input.resourceArn,
+          TagKeys: input.tagKeys,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UntagResource', props);
   }
 
 }
@@ -603,6 +639,7 @@ export class RekognitionResponsesCreateCollection {
         outputPath: 'StatusCode',
         parameters: {
           CollectionId: this.__input.collectionId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -620,6 +657,7 @@ export class RekognitionResponsesCreateCollection {
         outputPath: 'CollectionArn',
         parameters: {
           CollectionId: this.__input.collectionId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -637,6 +675,7 @@ export class RekognitionResponsesCreateCollection {
         outputPath: 'FaceModelVersion',
         parameters: {
           CollectionId: this.__input.collectionId,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -697,6 +736,8 @@ export class RekognitionResponsesCreateProjectVersion {
             Assets: this.__input.testingData.assets,
             AutoCreate: this.__input.testingData.autoCreate,
           },
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -738,6 +779,7 @@ export class RekognitionResponsesCreateStreamProcessor {
             },
           },
           RoleArn: this.__input.roleArn,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -3907,6 +3949,30 @@ export class RekognitionResponsesListStreamProcessors {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListStreamProcessors.StreamProcessors', props);
     return resource.getResponseField('StreamProcessors') as unknown as shapes.RekognitionStreamProcessor[];
+  }
+
+}
+
+export class RekognitionResponsesListTagsForResource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RekognitionListTagsForResourceRequest) {
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listTagsForResource',
+        service: 'Rekognition',
+        physicalResourceId: cr.PhysicalResourceId.of('Rekognition.ListTagsForResource.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          ResourceArn: this.__input.resourceArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListTagsForResource.Tags', props);
+    return resource.getResponseField('Tags') as unknown as Record<string, string>;
   }
 
 }

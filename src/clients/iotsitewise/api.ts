@@ -62,10 +62,6 @@ export class IoTSiteWiseClient extends cdk.Construct {
     return new IoTSiteWiseResponsesCreatePortal(this, this.__resources, input);
   }
 
-  public createPresignedPortalUrl(input: shapes.IoTSiteWiseCreatePresignedPortalUrlRequest): IoTSiteWiseResponsesCreatePresignedPortalUrl {
-    return new IoTSiteWiseResponsesCreatePresignedPortalUrl(this, this.__resources, input);
-  }
-
   public createProject(input: shapes.IoTSiteWiseCreateProjectRequest): IoTSiteWiseResponsesCreateProject {
     return new IoTSiteWiseResponsesCreateProject(this, this.__resources, input);
   }
@@ -189,6 +185,10 @@ export class IoTSiteWiseClient extends cdk.Construct {
     return new IoTSiteWiseResponsesDescribeProject(this, this.__resources, input);
   }
 
+  public describeStorageConfiguration(): IoTSiteWiseResponsesDescribeStorageConfiguration {
+    return new IoTSiteWiseResponsesDescribeStorageConfiguration(this, this.__resources);
+  }
+
   public disassociateAssets(input: shapes.IoTSiteWiseDisassociateAssetsRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -219,12 +219,20 @@ export class IoTSiteWiseClient extends cdk.Construct {
     return new IoTSiteWiseResponsesFetchAssetPropertyValueHistory(this, this.__resources, input);
   }
 
+  public fetchInterpolatedAssetPropertyValues(input: shapes.IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest): IoTSiteWiseResponsesFetchInterpolatedAssetPropertyValues {
+    return new IoTSiteWiseResponsesFetchInterpolatedAssetPropertyValues(this, this.__resources, input);
+  }
+
   public listAccessPolicies(input: shapes.IoTSiteWiseListAccessPoliciesRequest): IoTSiteWiseResponsesListAccessPolicies {
     return new IoTSiteWiseResponsesListAccessPolicies(this, this.__resources, input);
   }
 
   public listAssetModels(input: shapes.IoTSiteWiseListAssetModelsRequest): IoTSiteWiseResponsesListAssetModels {
     return new IoTSiteWiseResponsesListAssetModels(this, this.__resources, input);
+  }
+
+  public listAssetRelationships(input: shapes.IoTSiteWiseListAssetRelationshipsRequest): IoTSiteWiseResponsesListAssetRelationships {
+    return new IoTSiteWiseResponsesListAssetRelationships(this, this.__resources, input);
   }
 
   public listAssets(input: shapes.IoTSiteWiseListAssetsRequest): IoTSiteWiseResponsesListAssets {
@@ -280,6 +288,10 @@ export class IoTSiteWiseClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'PutLoggingOptions', props);
   }
 
+  public putStorageConfiguration(input: shapes.IoTSiteWisePutStorageConfigurationRequest): IoTSiteWiseResponsesPutStorageConfiguration {
+    return new IoTSiteWiseResponsesPutStorageConfiguration(this, this.__resources, input);
+  }
+
   public tagResource(input: shapes.IoTSiteWiseTagResourceRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -330,6 +342,9 @@ export class IoTSiteWiseClient extends cdk.Construct {
             },
             iamUser: {
               arn: input.accessPolicyIdentity.iamUser?.arn,
+            },
+            iamRole: {
+              arn: input.accessPolicyIdentity.iamRole?.arn,
             },
           },
           accessPolicyResource: {
@@ -538,6 +553,9 @@ export class IoTSiteWiseResponsesCreateAccessPolicy {
             iamUser: {
               arn: this.__input.accessPolicyIdentity.iamUser?.arn,
             },
+            iamRole: {
+              arn: this.__input.accessPolicyIdentity.iamRole?.arn,
+            },
           },
           accessPolicyResource: {
             portal: {
@@ -575,6 +593,9 @@ export class IoTSiteWiseResponsesCreateAccessPolicy {
             },
             iamUser: {
               arn: this.__input.accessPolicyIdentity.iamUser?.arn,
+            },
+            iamRole: {
+              arn: this.__input.accessPolicyIdentity.iamRole?.arn,
             },
           },
           accessPolicyResource: {
@@ -724,6 +745,26 @@ export class IoTSiteWiseResponsesCreateAssetAssetStatusError {
     return resource.getResponseField('assetStatus.error.message') as unknown as string;
   }
 
+  public get details(): shapes.IoTSiteWiseDetailedError[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAsset',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.CreateAsset.assetStatus.error.details'),
+        outputPath: 'assetStatus.error.details',
+        parameters: {
+          assetName: this.__input.assetName,
+          assetModelId: this.__input.assetModelId,
+          clientToken: this.__input.clientToken,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAsset.assetStatus.error.details', props);
+    return resource.getResponseField('assetStatus.error.details') as unknown as shapes.IoTSiteWiseDetailedError[];
+  }
+
 }
 
 export class IoTSiteWiseResponsesCreateAssetModel {
@@ -744,6 +785,7 @@ export class IoTSiteWiseResponsesCreateAssetModel {
           assetModelDescription: this.__input.assetModelDescription,
           assetModelProperties: this.__input.assetModelProperties,
           assetModelHierarchies: this.__input.assetModelHierarchies,
+          assetModelCompositeModels: this.__input.assetModelCompositeModels,
           clientToken: this.__input.clientToken,
           tags: this.__input.tags,
         },
@@ -766,6 +808,7 @@ export class IoTSiteWiseResponsesCreateAssetModel {
           assetModelDescription: this.__input.assetModelDescription,
           assetModelProperties: this.__input.assetModelProperties,
           assetModelHierarchies: this.__input.assetModelHierarchies,
+          assetModelCompositeModels: this.__input.assetModelCompositeModels,
           clientToken: this.__input.clientToken,
           tags: this.__input.tags,
         },
@@ -799,6 +842,7 @@ export class IoTSiteWiseResponsesCreateAssetModelAssetModelStatus {
           assetModelDescription: this.__input.assetModelDescription,
           assetModelProperties: this.__input.assetModelProperties,
           assetModelHierarchies: this.__input.assetModelHierarchies,
+          assetModelCompositeModels: this.__input.assetModelCompositeModels,
           clientToken: this.__input.clientToken,
           tags: this.__input.tags,
         },
@@ -832,6 +876,7 @@ export class IoTSiteWiseResponsesCreateAssetModelAssetModelStatusError {
           assetModelDescription: this.__input.assetModelDescription,
           assetModelProperties: this.__input.assetModelProperties,
           assetModelHierarchies: this.__input.assetModelHierarchies,
+          assetModelCompositeModels: this.__input.assetModelCompositeModels,
           clientToken: this.__input.clientToken,
           tags: this.__input.tags,
         },
@@ -854,6 +899,7 @@ export class IoTSiteWiseResponsesCreateAssetModelAssetModelStatusError {
           assetModelDescription: this.__input.assetModelDescription,
           assetModelProperties: this.__input.assetModelProperties,
           assetModelHierarchies: this.__input.assetModelHierarchies,
+          assetModelCompositeModels: this.__input.assetModelCompositeModels,
           clientToken: this.__input.clientToken,
           tags: this.__input.tags,
         },
@@ -861,6 +907,29 @@ export class IoTSiteWiseResponsesCreateAssetModelAssetModelStatusError {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateAssetModel.assetModelStatus.error.message', props);
     return resource.getResponseField('assetModelStatus.error.message') as unknown as string;
+  }
+
+  public get details(): shapes.IoTSiteWiseDetailedError[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAssetModel',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.CreateAssetModel.assetModelStatus.error.details'),
+        outputPath: 'assetModelStatus.error.details',
+        parameters: {
+          assetModelName: this.__input.assetModelName,
+          assetModelDescription: this.__input.assetModelDescription,
+          assetModelProperties: this.__input.assetModelProperties,
+          assetModelHierarchies: this.__input.assetModelHierarchies,
+          assetModelCompositeModels: this.__input.assetModelCompositeModels,
+          clientToken: this.__input.clientToken,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAssetModel.assetModelStatus.error.details', props);
+    return resource.getResponseField('assetModelStatus.error.details') as unknown as shapes.IoTSiteWiseDetailedError[];
   }
 
 }
@@ -933,7 +1002,10 @@ export class IoTSiteWiseResponsesCreateGateway {
           gatewayName: this.__input.gatewayName,
           gatewayPlatform: {
             greengrass: {
-              groupArn: this.__input.gatewayPlatform.greengrass.groupArn,
+              groupArn: this.__input.gatewayPlatform.greengrass?.groupArn,
+            },
+            greengrassV2: {
+              coreDeviceThingName: this.__input.gatewayPlatform.greengrassV2?.coreDeviceThingName,
             },
           },
           tags: this.__input.tags,
@@ -956,7 +1028,10 @@ export class IoTSiteWiseResponsesCreateGateway {
           gatewayName: this.__input.gatewayName,
           gatewayPlatform: {
             greengrass: {
-              groupArn: this.__input.gatewayPlatform.greengrass.groupArn,
+              groupArn: this.__input.gatewayPlatform.greengrass?.groupArn,
+            },
+            greengrassV2: {
+              coreDeviceThingName: this.__input.gatewayPlatform.greengrassV2?.coreDeviceThingName,
             },
           },
           tags: this.__input.tags,
@@ -995,6 +1070,11 @@ export class IoTSiteWiseResponsesCreatePortal {
           roleArn: this.__input.roleArn,
           tags: this.__input.tags,
           portalAuthMode: this.__input.portalAuthMode,
+          notificationSenderEmail: this.__input.notificationSenderEmail,
+          alarms: {
+            alarmRoleArn: this.__input.alarms?.alarmRoleArn,
+            notificationLambdaArn: this.__input.alarms?.notificationLambdaArn,
+          },
         },
       },
     };
@@ -1023,6 +1103,11 @@ export class IoTSiteWiseResponsesCreatePortal {
           roleArn: this.__input.roleArn,
           tags: this.__input.tags,
           portalAuthMode: this.__input.portalAuthMode,
+          notificationSenderEmail: this.__input.notificationSenderEmail,
+          alarms: {
+            alarmRoleArn: this.__input.alarms?.alarmRoleArn,
+            notificationLambdaArn: this.__input.alarms?.notificationLambdaArn,
+          },
         },
       },
     };
@@ -1051,6 +1136,11 @@ export class IoTSiteWiseResponsesCreatePortal {
           roleArn: this.__input.roleArn,
           tags: this.__input.tags,
           portalAuthMode: this.__input.portalAuthMode,
+          notificationSenderEmail: this.__input.notificationSenderEmail,
+          alarms: {
+            alarmRoleArn: this.__input.alarms?.alarmRoleArn,
+            notificationLambdaArn: this.__input.alarms?.notificationLambdaArn,
+          },
         },
       },
     };
@@ -1083,6 +1173,11 @@ export class IoTSiteWiseResponsesCreatePortal {
           roleArn: this.__input.roleArn,
           tags: this.__input.tags,
           portalAuthMode: this.__input.portalAuthMode,
+          notificationSenderEmail: this.__input.notificationSenderEmail,
+          alarms: {
+            alarmRoleArn: this.__input.alarms?.alarmRoleArn,
+            notificationLambdaArn: this.__input.alarms?.notificationLambdaArn,
+          },
         },
       },
     };
@@ -1118,6 +1213,11 @@ export class IoTSiteWiseResponsesCreatePortalPortalStatus {
           roleArn: this.__input.roleArn,
           tags: this.__input.tags,
           portalAuthMode: this.__input.portalAuthMode,
+          notificationSenderEmail: this.__input.notificationSenderEmail,
+          alarms: {
+            alarmRoleArn: this.__input.alarms?.alarmRoleArn,
+            notificationLambdaArn: this.__input.alarms?.notificationLambdaArn,
+          },
         },
       },
     };
@@ -1157,6 +1257,11 @@ export class IoTSiteWiseResponsesCreatePortalPortalStatusError {
           roleArn: this.__input.roleArn,
           tags: this.__input.tags,
           portalAuthMode: this.__input.portalAuthMode,
+          notificationSenderEmail: this.__input.notificationSenderEmail,
+          alarms: {
+            alarmRoleArn: this.__input.alarms?.alarmRoleArn,
+            notificationLambdaArn: this.__input.alarms?.notificationLambdaArn,
+          },
         },
       },
     };
@@ -1185,36 +1290,16 @@ export class IoTSiteWiseResponsesCreatePortalPortalStatusError {
           roleArn: this.__input.roleArn,
           tags: this.__input.tags,
           portalAuthMode: this.__input.portalAuthMode,
+          notificationSenderEmail: this.__input.notificationSenderEmail,
+          alarms: {
+            alarmRoleArn: this.__input.alarms?.alarmRoleArn,
+            notificationLambdaArn: this.__input.alarms?.notificationLambdaArn,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreatePortal.portalStatus.error.message', props);
     return resource.getResponseField('portalStatus.error.message') as unknown as string;
-  }
-
-}
-
-export class IoTSiteWiseResponsesCreatePresignedPortalUrl {
-
-  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseCreatePresignedPortalUrlRequest) {
-  }
-
-  public get presignedPortalUrl(): string {
-    const props: cr.AwsCustomResourceProps = {
-      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
-      onUpdate: {
-        action: 'createPresignedPortalUrl',
-        service: 'IoTSiteWise',
-        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.CreatePresignedPortalUrl.presignedPortalUrl'),
-        outputPath: 'presignedPortalUrl',
-        parameters: {
-          portalId: this.__input.portalId,
-          sessionDurationSeconds: this.__input.sessionDurationSeconds,
-        },
-      },
-    };
-    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePresignedPortalUrl.presignedPortalUrl', props);
-    return resource.getResponseField('presignedPortalUrl') as unknown as string;
   }
 
 }
@@ -1349,6 +1434,24 @@ export class IoTSiteWiseResponsesDeleteAssetAssetStatusError {
     return resource.getResponseField('assetStatus.error.message') as unknown as string;
   }
 
+  public get details(): shapes.IoTSiteWiseDetailedError[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAsset',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DeleteAsset.assetStatus.error.details'),
+        outputPath: 'assetStatus.error.details',
+        parameters: {
+          assetId: this.__input.assetId,
+          clientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteAsset.assetStatus.error.details', props);
+    return resource.getResponseField('assetStatus.error.details') as unknown as shapes.IoTSiteWiseDetailedError[];
+  }
+
 }
 
 export class IoTSiteWiseResponsesDeleteAssetModel {
@@ -1430,6 +1533,24 @@ export class IoTSiteWiseResponsesDeleteAssetModelAssetModelStatusError {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteAssetModel.assetModelStatus.error.message', props);
     return resource.getResponseField('assetModelStatus.error.message') as unknown as string;
+  }
+
+  public get details(): shapes.IoTSiteWiseDetailedError[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAssetModel',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DeleteAssetModel.assetModelStatus.error.details'),
+        outputPath: 'assetModelStatus.error.details',
+        parameters: {
+          assetModelId: this.__input.assetModelId,
+          clientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteAssetModel.assetModelStatus.error.details', props);
+    return resource.getResponseField('assetModelStatus.error.details') as unknown as shapes.IoTSiteWiseDetailedError[];
   }
 
 }
@@ -1634,6 +1755,10 @@ export class IoTSiteWiseResponsesDescribeAccessPolicyAccessPolicyIdentity {
     return new IoTSiteWiseResponsesDescribeAccessPolicyAccessPolicyIdentityIamUser(this.__scope, this.__resources, this.__input);
   }
 
+  public get iamRole(): IoTSiteWiseResponsesDescribeAccessPolicyAccessPolicyIdentityIamRole {
+    return new IoTSiteWiseResponsesDescribeAccessPolicyAccessPolicyIdentityIamRole(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class IoTSiteWiseResponsesDescribeAccessPolicyAccessPolicyIdentityUser {
@@ -1704,6 +1829,30 @@ export class IoTSiteWiseResponsesDescribeAccessPolicyAccessPolicyIdentityIamUser
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAccessPolicy.accessPolicyIdentity.iamUser.arn', props);
     return resource.getResponseField('accessPolicyIdentity.iamUser.arn') as unknown as string;
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAccessPolicyAccessPolicyIdentityIamRole {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAccessPolicyRequest) {
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAccessPolicy',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAccessPolicy.accessPolicyIdentity.iamRole.arn'),
+        outputPath: 'accessPolicyIdentity.iamRole.arn',
+        parameters: {
+          accessPolicyId: this.__input.accessPolicyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAccessPolicy.accessPolicyIdentity.iamRole.arn', props);
+    return resource.getResponseField('accessPolicyIdentity.iamRole.arn') as unknown as string;
   }
 
 }
@@ -1878,6 +2027,23 @@ export class IoTSiteWiseResponsesDescribeAsset {
     return resource.getResponseField('assetHierarchies') as unknown as shapes.IoTSiteWiseAssetHierarchy[];
   }
 
+  public get assetCompositeModels(): shapes.IoTSiteWiseAssetCompositeModel[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAsset',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAsset.assetCompositeModels'),
+        outputPath: 'assetCompositeModels',
+        parameters: {
+          assetId: this.__input.assetId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAsset.assetCompositeModels', props);
+    return resource.getResponseField('assetCompositeModels') as unknown as shapes.IoTSiteWiseAssetCompositeModel[];
+  }
+
   public get assetCreationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -1983,6 +2149,23 @@ export class IoTSiteWiseResponsesDescribeAssetAssetStatusError {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAsset.assetStatus.error.message', props);
     return resource.getResponseField('assetStatus.error.message') as unknown as string;
+  }
+
+  public get details(): shapes.IoTSiteWiseDetailedError[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAsset',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAsset.assetStatus.error.details'),
+        outputPath: 'assetStatus.error.details',
+        parameters: {
+          assetId: this.__input.assetId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAsset.assetStatus.error.details', props);
+    return resource.getResponseField('assetStatus.error.details') as unknown as shapes.IoTSiteWiseDetailedError[];
   }
 
 }
@@ -2094,6 +2277,23 @@ export class IoTSiteWiseResponsesDescribeAssetModel {
     return resource.getResponseField('assetModelHierarchies') as unknown as shapes.IoTSiteWiseAssetModelHierarchy[];
   }
 
+  public get assetModelCompositeModels(): shapes.IoTSiteWiseAssetModelCompositeModel[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetModel',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetModel.assetModelCompositeModels'),
+        outputPath: 'assetModelCompositeModels',
+        parameters: {
+          assetModelId: this.__input.assetModelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetModel.assetModelCompositeModels', props);
+    return resource.getResponseField('assetModelCompositeModels') as unknown as shapes.IoTSiteWiseAssetModelCompositeModel[];
+  }
+
   public get assetModelCreationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -2201,6 +2401,23 @@ export class IoTSiteWiseResponsesDescribeAssetModelAssetModelStatusError {
     return resource.getResponseField('assetModelStatus.error.message') as unknown as string;
   }
 
+  public get details(): shapes.IoTSiteWiseDetailedError[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetModel',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetModel.assetModelStatus.error.details'),
+        outputPath: 'assetModelStatus.error.details',
+        parameters: {
+          assetModelId: this.__input.assetModelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetModel.assetModelStatus.error.details', props);
+    return resource.getResponseField('assetModelStatus.error.details') as unknown as shapes.IoTSiteWiseDetailedError[];
+  }
+
 }
 
 export class IoTSiteWiseResponsesDescribeAssetProperty {
@@ -2264,6 +2481,10 @@ export class IoTSiteWiseResponsesDescribeAssetProperty {
 
   public get assetProperty(): IoTSiteWiseResponsesDescribeAssetPropertyAssetProperty {
     return new IoTSiteWiseResponsesDescribeAssetPropertyAssetProperty(this.__scope, this.__resources, this.__input);
+  }
+
+  public get compositeModel(): IoTSiteWiseResponsesDescribeAssetPropertyCompositeModel {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyCompositeModel(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -2425,22 +2646,8 @@ export class IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyType {
     return new IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeAttribute(this.__scope, this.__resources, this.__input);
   }
 
-  public get measurement(): any {
-    const props: cr.AwsCustomResourceProps = {
-      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
-      onUpdate: {
-        action: 'describeAssetProperty',
-        service: 'IoTSiteWise',
-        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.assetProperty.type.measurement'),
-        outputPath: 'assetProperty.type.measurement',
-        parameters: {
-          assetId: this.__input.assetId,
-          propertyId: this.__input.propertyId,
-        },
-      },
-    };
-    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.assetProperty.type.measurement', props);
-    return resource.getResponseField('assetProperty.type.measurement') as unknown as any;
+  public get measurement(): IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeMeasurement {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeMeasurement(this.__scope, this.__resources, this.__input);
   }
 
   public get transform(): IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeTransform {
@@ -2474,6 +2681,53 @@ export class IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeAttribute
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.assetProperty.type.attribute.defaultValue', props);
     return resource.getResponseField('assetProperty.type.attribute.defaultValue') as unknown as string;
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeMeasurement {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get processingConfig(): IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeMeasurementProcessingConfig {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeMeasurementProcessingConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeMeasurementProcessingConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get forwardingConfig(): IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeMeasurementProcessingConfigForwardingConfig {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeMeasurementProcessingConfigForwardingConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeMeasurementProcessingConfigForwardingConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.assetProperty.type.measurement.processingConfig.forwardingConfig.state'),
+        outputPath: 'assetProperty.type.measurement.processingConfig.forwardingConfig.state',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.assetProperty.type.measurement.processingConfig.forwardingConfig.state', props);
+    return resource.getResponseField('assetProperty.type.measurement.processingConfig.forwardingConfig.state') as unknown as string;
   }
 
 }
@@ -2517,6 +2771,64 @@ export class IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeTransform
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.assetProperty.type.transform.variables', props);
     return resource.getResponseField('assetProperty.type.transform.variables') as unknown as shapes.IoTSiteWiseExpressionVariable[];
+  }
+
+  public get processingConfig(): IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeTransformProcessingConfig {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeTransformProcessingConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeTransformProcessingConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get computeLocation(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.assetProperty.type.transform.processingConfig.computeLocation'),
+        outputPath: 'assetProperty.type.transform.processingConfig.computeLocation',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.assetProperty.type.transform.processingConfig.computeLocation', props);
+    return resource.getResponseField('assetProperty.type.transform.processingConfig.computeLocation') as unknown as string;
+  }
+
+  public get forwardingConfig(): IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeTransformProcessingConfigForwardingConfig {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeTransformProcessingConfigForwardingConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeTransformProcessingConfigForwardingConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.assetProperty.type.transform.processingConfig.forwardingConfig.state'),
+        outputPath: 'assetProperty.type.transform.processingConfig.forwardingConfig.state',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.assetProperty.type.transform.processingConfig.forwardingConfig.state', props);
+    return resource.getResponseField('assetProperty.type.transform.processingConfig.forwardingConfig.state') as unknown as string;
   }
 
 }
@@ -2566,6 +2878,10 @@ export class IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeMetric {
     return new IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeMetricWindow(this.__scope, this.__resources, this.__input);
   }
 
+  public get processingConfig(): IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeMetricProcessingConfig {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeMetricProcessingConfig(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeMetricWindow {
@@ -2600,6 +2916,570 @@ export class IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeMetricWin
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.assetProperty.type.metric.window.tumbling.interval', props);
     return resource.getResponseField('assetProperty.type.metric.window.tumbling.interval') as unknown as string;
+  }
+
+  public get offset(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.assetProperty.type.metric.window.tumbling.offset'),
+        outputPath: 'assetProperty.type.metric.window.tumbling.offset',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.assetProperty.type.metric.window.tumbling.offset', props);
+    return resource.getResponseField('assetProperty.type.metric.window.tumbling.offset') as unknown as string;
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyAssetPropertyTypeMetricProcessingConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get computeLocation(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.assetProperty.type.metric.processingConfig.computeLocation'),
+        outputPath: 'assetProperty.type.metric.processingConfig.computeLocation',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.assetProperty.type.metric.processingConfig.computeLocation', props);
+    return resource.getResponseField('assetProperty.type.metric.processingConfig.computeLocation') as unknown as string;
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyCompositeModel {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.name'),
+        outputPath: 'compositeModel.name',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.name', props);
+    return resource.getResponseField('compositeModel.name') as unknown as string;
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.type'),
+        outputPath: 'compositeModel.type',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.type', props);
+    return resource.getResponseField('compositeModel.type') as unknown as string;
+  }
+
+  public get assetProperty(): IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetProperty {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetProperty(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetProperty {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.assetProperty.id'),
+        outputPath: 'compositeModel.assetProperty.id',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.assetProperty.id', props);
+    return resource.getResponseField('compositeModel.assetProperty.id') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.assetProperty.name'),
+        outputPath: 'compositeModel.assetProperty.name',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.assetProperty.name', props);
+    return resource.getResponseField('compositeModel.assetProperty.name') as unknown as string;
+  }
+
+  public get alias(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.assetProperty.alias'),
+        outputPath: 'compositeModel.assetProperty.alias',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.assetProperty.alias', props);
+    return resource.getResponseField('compositeModel.assetProperty.alias') as unknown as string;
+  }
+
+  public get notification(): IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyNotification {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyNotification(this.__scope, this.__resources, this.__input);
+  }
+
+  public get dataType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.assetProperty.dataType'),
+        outputPath: 'compositeModel.assetProperty.dataType',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.assetProperty.dataType', props);
+    return resource.getResponseField('compositeModel.assetProperty.dataType') as unknown as string;
+  }
+
+  public get unit(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.assetProperty.unit'),
+        outputPath: 'compositeModel.assetProperty.unit',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.assetProperty.unit', props);
+    return resource.getResponseField('compositeModel.assetProperty.unit') as unknown as string;
+  }
+
+  public get type(): IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyType {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyType(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyNotification {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get topic(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.assetProperty.notification.topic'),
+        outputPath: 'compositeModel.assetProperty.notification.topic',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.assetProperty.notification.topic', props);
+    return resource.getResponseField('compositeModel.assetProperty.notification.topic') as unknown as string;
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.assetProperty.notification.state'),
+        outputPath: 'compositeModel.assetProperty.notification.state',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.assetProperty.notification.state', props);
+    return resource.getResponseField('compositeModel.assetProperty.notification.state') as unknown as string;
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyType {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get attribute(): IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeAttribute {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeAttribute(this.__scope, this.__resources, this.__input);
+  }
+
+  public get measurement(): IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMeasurement {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMeasurement(this.__scope, this.__resources, this.__input);
+  }
+
+  public get transform(): IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeTransform {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeTransform(this.__scope, this.__resources, this.__input);
+  }
+
+  public get metric(): IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMetric {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMetric(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeAttribute {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get defaultValue(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.assetProperty.type.attribute.defaultValue'),
+        outputPath: 'compositeModel.assetProperty.type.attribute.defaultValue',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.assetProperty.type.attribute.defaultValue', props);
+    return resource.getResponseField('compositeModel.assetProperty.type.attribute.defaultValue') as unknown as string;
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMeasurement {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get processingConfig(): IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMeasurementProcessingConfig {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMeasurementProcessingConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMeasurementProcessingConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get forwardingConfig(): IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMeasurementProcessingConfigForwardingConfig {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMeasurementProcessingConfigForwardingConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMeasurementProcessingConfigForwardingConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.assetProperty.type.measurement.processingConfig.forwardingConfig.state'),
+        outputPath: 'compositeModel.assetProperty.type.measurement.processingConfig.forwardingConfig.state',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.assetProperty.type.measurement.processingConfig.forwardingConfig.state', props);
+    return resource.getResponseField('compositeModel.assetProperty.type.measurement.processingConfig.forwardingConfig.state') as unknown as string;
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeTransform {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get expression(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.assetProperty.type.transform.expression'),
+        outputPath: 'compositeModel.assetProperty.type.transform.expression',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.assetProperty.type.transform.expression', props);
+    return resource.getResponseField('compositeModel.assetProperty.type.transform.expression') as unknown as string;
+  }
+
+  public get variables(): shapes.IoTSiteWiseExpressionVariable[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.assetProperty.type.transform.variables'),
+        outputPath: 'compositeModel.assetProperty.type.transform.variables',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.assetProperty.type.transform.variables', props);
+    return resource.getResponseField('compositeModel.assetProperty.type.transform.variables') as unknown as shapes.IoTSiteWiseExpressionVariable[];
+  }
+
+  public get processingConfig(): IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeTransformProcessingConfig {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeTransformProcessingConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeTransformProcessingConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get computeLocation(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.assetProperty.type.transform.processingConfig.computeLocation'),
+        outputPath: 'compositeModel.assetProperty.type.transform.processingConfig.computeLocation',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.assetProperty.type.transform.processingConfig.computeLocation', props);
+    return resource.getResponseField('compositeModel.assetProperty.type.transform.processingConfig.computeLocation') as unknown as string;
+  }
+
+  public get forwardingConfig(): IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeTransformProcessingConfigForwardingConfig {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeTransformProcessingConfigForwardingConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeTransformProcessingConfigForwardingConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.assetProperty.type.transform.processingConfig.forwardingConfig.state'),
+        outputPath: 'compositeModel.assetProperty.type.transform.processingConfig.forwardingConfig.state',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.assetProperty.type.transform.processingConfig.forwardingConfig.state', props);
+    return resource.getResponseField('compositeModel.assetProperty.type.transform.processingConfig.forwardingConfig.state') as unknown as string;
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMetric {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get expression(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.assetProperty.type.metric.expression'),
+        outputPath: 'compositeModel.assetProperty.type.metric.expression',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.assetProperty.type.metric.expression', props);
+    return resource.getResponseField('compositeModel.assetProperty.type.metric.expression') as unknown as string;
+  }
+
+  public get variables(): shapes.IoTSiteWiseExpressionVariable[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.assetProperty.type.metric.variables'),
+        outputPath: 'compositeModel.assetProperty.type.metric.variables',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.assetProperty.type.metric.variables', props);
+    return resource.getResponseField('compositeModel.assetProperty.type.metric.variables') as unknown as shapes.IoTSiteWiseExpressionVariable[];
+  }
+
+  public get window(): IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMetricWindow {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMetricWindow(this.__scope, this.__resources, this.__input);
+  }
+
+  public get processingConfig(): IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMetricProcessingConfig {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMetricProcessingConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMetricWindow {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get tumbling(): IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMetricWindowTumbling {
+    return new IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMetricWindowTumbling(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMetricWindowTumbling {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get interval(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.assetProperty.type.metric.window.tumbling.interval'),
+        outputPath: 'compositeModel.assetProperty.type.metric.window.tumbling.interval',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.assetProperty.type.metric.window.tumbling.interval', props);
+    return resource.getResponseField('compositeModel.assetProperty.type.metric.window.tumbling.interval') as unknown as string;
+  }
+
+  public get offset(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.assetProperty.type.metric.window.tumbling.offset'),
+        outputPath: 'compositeModel.assetProperty.type.metric.window.tumbling.offset',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.assetProperty.type.metric.window.tumbling.offset', props);
+    return resource.getResponseField('compositeModel.assetProperty.type.metric.window.tumbling.offset') as unknown as string;
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeAssetPropertyCompositeModelAssetPropertyTypeMetricProcessingConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeAssetPropertyRequest) {
+  }
+
+  public get computeLocation(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssetProperty',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeAssetProperty.compositeModel.assetProperty.type.metric.processingConfig.computeLocation'),
+        outputPath: 'compositeModel.assetProperty.type.metric.processingConfig.computeLocation',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssetProperty.compositeModel.assetProperty.type.metric.processingConfig.computeLocation', props);
+    return resource.getResponseField('compositeModel.assetProperty.type.metric.processingConfig.computeLocation') as unknown as string;
   }
 
 }
@@ -2978,6 +3858,10 @@ export class IoTSiteWiseResponsesDescribeGatewayGatewayPlatform {
     return new IoTSiteWiseResponsesDescribeGatewayGatewayPlatformGreengrass(this.__scope, this.__resources, this.__input);
   }
 
+  public get greengrassV2(): IoTSiteWiseResponsesDescribeGatewayGatewayPlatformGreengrassV2 {
+    return new IoTSiteWiseResponsesDescribeGatewayGatewayPlatformGreengrassV2(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class IoTSiteWiseResponsesDescribeGatewayGatewayPlatformGreengrass {
@@ -3000,6 +3884,30 @@ export class IoTSiteWiseResponsesDescribeGatewayGatewayPlatformGreengrass {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeGateway.gatewayPlatform.greengrass.groupArn', props);
     return resource.getResponseField('gatewayPlatform.greengrass.groupArn') as unknown as string;
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeGatewayGatewayPlatformGreengrassV2 {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribeGatewayRequest) {
+  }
+
+  public get coreDeviceThingName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeGateway',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeGateway.gatewayPlatform.greengrassV2.coreDeviceThingName'),
+        outputPath: 'gatewayPlatform.greengrassV2.coreDeviceThingName',
+        parameters: {
+          gatewayId: this.__input.gatewayId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeGateway.gatewayPlatform.greengrassV2.coreDeviceThingName', props);
+    return resource.getResponseField('gatewayPlatform.greengrassV2.coreDeviceThingName') as unknown as string;
   }
 
 }
@@ -3317,6 +4225,27 @@ export class IoTSiteWiseResponsesDescribePortal {
     return resource.getResponseField('portalAuthMode') as unknown as string;
   }
 
+  public get notificationSenderEmail(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePortal',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribePortal.notificationSenderEmail'),
+        outputPath: 'notificationSenderEmail',
+        parameters: {
+          portalId: this.__input.portalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePortal.notificationSenderEmail', props);
+    return resource.getResponseField('notificationSenderEmail') as unknown as string;
+  }
+
+  public get alarms(): IoTSiteWiseResponsesDescribePortalAlarms {
+    return new IoTSiteWiseResponsesDescribePortalAlarms(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class IoTSiteWiseResponsesDescribePortalPortalStatus {
@@ -3425,6 +4354,47 @@ export class IoTSiteWiseResponsesDescribePortalPortalLogoImageLocation {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribePortal.portalLogoImageLocation.url', props);
     return resource.getResponseField('portalLogoImageLocation.url') as unknown as string;
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribePortalAlarms {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseDescribePortalRequest) {
+  }
+
+  public get alarmRoleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePortal',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribePortal.alarms.alarmRoleArn'),
+        outputPath: 'alarms.alarmRoleArn',
+        parameters: {
+          portalId: this.__input.portalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePortal.alarms.alarmRoleArn', props);
+    return resource.getResponseField('alarms.alarmRoleArn') as unknown as string;
+  }
+
+  public get notificationLambdaArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePortal',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribePortal.alarms.notificationLambdaArn'),
+        outputPath: 'alarms.notificationLambdaArn',
+        parameters: {
+          portalId: this.__input.portalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePortal.alarms.notificationLambdaArn', props);
+    return resource.getResponseField('alarms.notificationLambdaArn') as unknown as string;
   }
 
 }
@@ -3551,6 +4521,169 @@ export class IoTSiteWiseResponsesDescribeProject {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProject.projectLastUpdateDate', props);
     return resource.getResponseField('projectLastUpdateDate') as unknown as string;
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeStorageConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get storageType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeStorageConfiguration',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeStorageConfiguration.storageType'),
+        outputPath: 'storageType',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeStorageConfiguration.storageType', props);
+    return resource.getResponseField('storageType') as unknown as string;
+  }
+
+  public get multiLayerStorage(): IoTSiteWiseResponsesDescribeStorageConfigurationMultiLayerStorage {
+    return new IoTSiteWiseResponsesDescribeStorageConfigurationMultiLayerStorage(this.__scope, this.__resources);
+  }
+
+  public get configurationStatus(): IoTSiteWiseResponsesDescribeStorageConfigurationConfigurationStatus {
+    return new IoTSiteWiseResponsesDescribeStorageConfigurationConfigurationStatus(this.__scope, this.__resources);
+  }
+
+  public get lastUpdateDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeStorageConfiguration',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeStorageConfiguration.lastUpdateDate'),
+        outputPath: 'lastUpdateDate',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeStorageConfiguration.lastUpdateDate', props);
+    return resource.getResponseField('lastUpdateDate') as unknown as string;
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeStorageConfigurationMultiLayerStorage {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get customerManagedS3Storage(): IoTSiteWiseResponsesDescribeStorageConfigurationMultiLayerStorageCustomerManagedS3Storage {
+    return new IoTSiteWiseResponsesDescribeStorageConfigurationMultiLayerStorageCustomerManagedS3Storage(this.__scope, this.__resources);
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeStorageConfigurationMultiLayerStorageCustomerManagedS3Storage {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get s3ResourceArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeStorageConfiguration',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeStorageConfiguration.multiLayerStorage.customerManagedS3Storage.s3ResourceArn'),
+        outputPath: 'multiLayerStorage.customerManagedS3Storage.s3ResourceArn',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeStorageConfiguration.multiLayerStorage.customerManagedS3Storage.s3ResourceArn', props);
+    return resource.getResponseField('multiLayerStorage.customerManagedS3Storage.s3ResourceArn') as unknown as string;
+  }
+
+  public get roleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeStorageConfiguration',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeStorageConfiguration.multiLayerStorage.customerManagedS3Storage.roleArn'),
+        outputPath: 'multiLayerStorage.customerManagedS3Storage.roleArn',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeStorageConfiguration.multiLayerStorage.customerManagedS3Storage.roleArn', props);
+    return resource.getResponseField('multiLayerStorage.customerManagedS3Storage.roleArn') as unknown as string;
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeStorageConfigurationConfigurationStatus {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeStorageConfiguration',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeStorageConfiguration.configurationStatus.state'),
+        outputPath: 'configurationStatus.state',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeStorageConfiguration.configurationStatus.state', props);
+    return resource.getResponseField('configurationStatus.state') as unknown as string;
+  }
+
+  public get error(): IoTSiteWiseResponsesDescribeStorageConfigurationConfigurationStatusError {
+    return new IoTSiteWiseResponsesDescribeStorageConfigurationConfigurationStatusError(this.__scope, this.__resources);
+  }
+
+}
+
+export class IoTSiteWiseResponsesDescribeStorageConfigurationConfigurationStatusError {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get code(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeStorageConfiguration',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeStorageConfiguration.configurationStatus.error.code'),
+        outputPath: 'configurationStatus.error.code',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeStorageConfiguration.configurationStatus.error.code', props);
+    return resource.getResponseField('configurationStatus.error.code') as unknown as string;
+  }
+
+  public get message(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeStorageConfiguration',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.DescribeStorageConfiguration.configurationStatus.error.message'),
+        outputPath: 'configurationStatus.error.message',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeStorageConfiguration.configurationStatus.error.message', props);
+    return resource.getResponseField('configurationStatus.error.message') as unknown as string;
   }
 
 }
@@ -3846,6 +4979,69 @@ export class IoTSiteWiseResponsesFetchAssetPropertyValueHistory {
 
 }
 
+export class IoTSiteWiseResponsesFetchInterpolatedAssetPropertyValues {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseGetInterpolatedAssetPropertyValuesRequest) {
+  }
+
+  public get interpolatedAssetPropertyValues(): shapes.IoTSiteWiseInterpolatedAssetPropertyValue[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getInterpolatedAssetPropertyValues',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.GetInterpolatedAssetPropertyValues.interpolatedAssetPropertyValues'),
+        outputPath: 'interpolatedAssetPropertyValues',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+          propertyAlias: this.__input.propertyAlias,
+          startTimeInSeconds: this.__input.startTimeInSeconds,
+          startTimeOffsetInNanos: this.__input.startTimeOffsetInNanos,
+          endTimeInSeconds: this.__input.endTimeInSeconds,
+          endTimeOffsetInNanos: this.__input.endTimeOffsetInNanos,
+          quality: this.__input.quality,
+          intervalInSeconds: this.__input.intervalInSeconds,
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+          type: this.__input.type,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetInterpolatedAssetPropertyValues.interpolatedAssetPropertyValues', props);
+    return resource.getResponseField('interpolatedAssetPropertyValues') as unknown as shapes.IoTSiteWiseInterpolatedAssetPropertyValue[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getInterpolatedAssetPropertyValues',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.GetInterpolatedAssetPropertyValues.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          assetId: this.__input.assetId,
+          propertyId: this.__input.propertyId,
+          propertyAlias: this.__input.propertyAlias,
+          startTimeInSeconds: this.__input.startTimeInSeconds,
+          startTimeOffsetInNanos: this.__input.startTimeOffsetInNanos,
+          endTimeInSeconds: this.__input.endTimeInSeconds,
+          endTimeOffsetInNanos: this.__input.endTimeOffsetInNanos,
+          quality: this.__input.quality,
+          intervalInSeconds: this.__input.intervalInSeconds,
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+          type: this.__input.type,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetInterpolatedAssetPropertyValues.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
 export class IoTSiteWiseResponsesListAccessPolicies {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseListAccessPoliciesRequest) {
@@ -3937,6 +5133,53 @@ export class IoTSiteWiseResponsesListAssetModels {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListAssetModels.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
+export class IoTSiteWiseResponsesListAssetRelationships {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseListAssetRelationshipsRequest) {
+  }
+
+  public get assetRelationshipSummaries(): shapes.IoTSiteWiseAssetRelationshipSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAssetRelationships',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.ListAssetRelationships.assetRelationshipSummaries'),
+        outputPath: 'assetRelationshipSummaries',
+        parameters: {
+          assetId: this.__input.assetId,
+          traversalType: this.__input.traversalType,
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAssetRelationships.assetRelationshipSummaries', props);
+    return resource.getResponseField('assetRelationshipSummaries') as unknown as shapes.IoTSiteWiseAssetRelationshipSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAssetRelationships',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.ListAssetRelationships.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          assetId: this.__input.assetId,
+          traversalType: this.__input.traversalType,
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAssetRelationships.nextToken', props);
     return resource.getResponseField('nextToken') as unknown as string;
   }
 
@@ -4402,6 +5645,195 @@ export class IoTSiteWiseResponsesPutDefaultEncryptionConfigurationConfigurationS
 
 }
 
+export class IoTSiteWiseResponsesPutStorageConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWisePutStorageConfigurationRequest) {
+  }
+
+  public get storageType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putStorageConfiguration',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.PutStorageConfiguration.storageType'),
+        outputPath: 'storageType',
+        parameters: {
+          storageType: this.__input.storageType,
+          multiLayerStorage: {
+            customerManagedS3Storage: {
+              s3ResourceArn: this.__input.multiLayerStorage?.customerManagedS3Storage.s3ResourceArn,
+              roleArn: this.__input.multiLayerStorage?.customerManagedS3Storage.roleArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutStorageConfiguration.storageType', props);
+    return resource.getResponseField('storageType') as unknown as string;
+  }
+
+  public get multiLayerStorage(): IoTSiteWiseResponsesPutStorageConfigurationMultiLayerStorage {
+    return new IoTSiteWiseResponsesPutStorageConfigurationMultiLayerStorage(this.__scope, this.__resources, this.__input);
+  }
+
+  public get configurationStatus(): IoTSiteWiseResponsesPutStorageConfigurationConfigurationStatus {
+    return new IoTSiteWiseResponsesPutStorageConfigurationConfigurationStatus(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTSiteWiseResponsesPutStorageConfigurationMultiLayerStorage {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWisePutStorageConfigurationRequest) {
+  }
+
+  public get customerManagedS3Storage(): IoTSiteWiseResponsesPutStorageConfigurationMultiLayerStorageCustomerManagedS3Storage {
+    return new IoTSiteWiseResponsesPutStorageConfigurationMultiLayerStorageCustomerManagedS3Storage(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTSiteWiseResponsesPutStorageConfigurationMultiLayerStorageCustomerManagedS3Storage {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWisePutStorageConfigurationRequest) {
+  }
+
+  public get s3ResourceArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putStorageConfiguration',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.PutStorageConfiguration.multiLayerStorage.customerManagedS3Storage.s3ResourceArn'),
+        outputPath: 'multiLayerStorage.customerManagedS3Storage.s3ResourceArn',
+        parameters: {
+          storageType: this.__input.storageType,
+          multiLayerStorage: {
+            customerManagedS3Storage: {
+              s3ResourceArn: this.__input.multiLayerStorage?.customerManagedS3Storage.s3ResourceArn,
+              roleArn: this.__input.multiLayerStorage?.customerManagedS3Storage.roleArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutStorageConfiguration.multiLayerStorage.customerManagedS3Storage.s3ResourceArn', props);
+    return resource.getResponseField('multiLayerStorage.customerManagedS3Storage.s3ResourceArn') as unknown as string;
+  }
+
+  public get roleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putStorageConfiguration',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.PutStorageConfiguration.multiLayerStorage.customerManagedS3Storage.roleArn'),
+        outputPath: 'multiLayerStorage.customerManagedS3Storage.roleArn',
+        parameters: {
+          storageType: this.__input.storageType,
+          multiLayerStorage: {
+            customerManagedS3Storage: {
+              s3ResourceArn: this.__input.multiLayerStorage?.customerManagedS3Storage.s3ResourceArn,
+              roleArn: this.__input.multiLayerStorage?.customerManagedS3Storage.roleArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutStorageConfiguration.multiLayerStorage.customerManagedS3Storage.roleArn', props);
+    return resource.getResponseField('multiLayerStorage.customerManagedS3Storage.roleArn') as unknown as string;
+  }
+
+}
+
+export class IoTSiteWiseResponsesPutStorageConfigurationConfigurationStatus {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWisePutStorageConfigurationRequest) {
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putStorageConfiguration',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.PutStorageConfiguration.configurationStatus.state'),
+        outputPath: 'configurationStatus.state',
+        parameters: {
+          storageType: this.__input.storageType,
+          multiLayerStorage: {
+            customerManagedS3Storage: {
+              s3ResourceArn: this.__input.multiLayerStorage?.customerManagedS3Storage.s3ResourceArn,
+              roleArn: this.__input.multiLayerStorage?.customerManagedS3Storage.roleArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutStorageConfiguration.configurationStatus.state', props);
+    return resource.getResponseField('configurationStatus.state') as unknown as string;
+  }
+
+  public get error(): IoTSiteWiseResponsesPutStorageConfigurationConfigurationStatusError {
+    return new IoTSiteWiseResponsesPutStorageConfigurationConfigurationStatusError(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTSiteWiseResponsesPutStorageConfigurationConfigurationStatusError {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWisePutStorageConfigurationRequest) {
+  }
+
+  public get code(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putStorageConfiguration',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.PutStorageConfiguration.configurationStatus.error.code'),
+        outputPath: 'configurationStatus.error.code',
+        parameters: {
+          storageType: this.__input.storageType,
+          multiLayerStorage: {
+            customerManagedS3Storage: {
+              s3ResourceArn: this.__input.multiLayerStorage?.customerManagedS3Storage.s3ResourceArn,
+              roleArn: this.__input.multiLayerStorage?.customerManagedS3Storage.roleArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutStorageConfiguration.configurationStatus.error.code', props);
+    return resource.getResponseField('configurationStatus.error.code') as unknown as string;
+  }
+
+  public get message(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putStorageConfiguration',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.PutStorageConfiguration.configurationStatus.error.message'),
+        outputPath: 'configurationStatus.error.message',
+        parameters: {
+          storageType: this.__input.storageType,
+          multiLayerStorage: {
+            customerManagedS3Storage: {
+              s3ResourceArn: this.__input.multiLayerStorage?.customerManagedS3Storage.s3ResourceArn,
+              roleArn: this.__input.multiLayerStorage?.customerManagedS3Storage.roleArn,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutStorageConfiguration.configurationStatus.error.message', props);
+    return resource.getResponseField('configurationStatus.error.message') as unknown as string;
+  }
+
+}
+
 export class IoTSiteWiseResponsesUpdateAsset {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTSiteWiseUpdateAssetRequest) {
@@ -4486,6 +5918,25 @@ export class IoTSiteWiseResponsesUpdateAssetAssetStatusError {
     return resource.getResponseField('assetStatus.error.message') as unknown as string;
   }
 
+  public get details(): shapes.IoTSiteWiseDetailedError[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAsset',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.UpdateAsset.assetStatus.error.details'),
+        outputPath: 'assetStatus.error.details',
+        parameters: {
+          assetId: this.__input.assetId,
+          assetName: this.__input.assetName,
+          clientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAsset.assetStatus.error.details', props);
+    return resource.getResponseField('assetStatus.error.details') as unknown as shapes.IoTSiteWiseDetailedError[];
+  }
+
 }
 
 export class IoTSiteWiseResponsesUpdateAssetModel {
@@ -4518,6 +5969,7 @@ export class IoTSiteWiseResponsesUpdateAssetModelAssetModelStatus {
           assetModelDescription: this.__input.assetModelDescription,
           assetModelProperties: this.__input.assetModelProperties,
           assetModelHierarchies: this.__input.assetModelHierarchies,
+          assetModelCompositeModels: this.__input.assetModelCompositeModels,
           clientToken: this.__input.clientToken,
         },
       },
@@ -4551,6 +6003,7 @@ export class IoTSiteWiseResponsesUpdateAssetModelAssetModelStatusError {
           assetModelDescription: this.__input.assetModelDescription,
           assetModelProperties: this.__input.assetModelProperties,
           assetModelHierarchies: this.__input.assetModelHierarchies,
+          assetModelCompositeModels: this.__input.assetModelCompositeModels,
           clientToken: this.__input.clientToken,
         },
       },
@@ -4573,12 +6026,36 @@ export class IoTSiteWiseResponsesUpdateAssetModelAssetModelStatusError {
           assetModelDescription: this.__input.assetModelDescription,
           assetModelProperties: this.__input.assetModelProperties,
           assetModelHierarchies: this.__input.assetModelHierarchies,
+          assetModelCompositeModels: this.__input.assetModelCompositeModels,
           clientToken: this.__input.clientToken,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAssetModel.assetModelStatus.error.message', props);
     return resource.getResponseField('assetModelStatus.error.message') as unknown as string;
+  }
+
+  public get details(): shapes.IoTSiteWiseDetailedError[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAssetModel',
+        service: 'IoTSiteWise',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTSiteWise.UpdateAssetModel.assetModelStatus.error.details'),
+        outputPath: 'assetModelStatus.error.details',
+        parameters: {
+          assetModelId: this.__input.assetModelId,
+          assetModelName: this.__input.assetModelName,
+          assetModelDescription: this.__input.assetModelDescription,
+          assetModelProperties: this.__input.assetModelProperties,
+          assetModelHierarchies: this.__input.assetModelHierarchies,
+          assetModelCompositeModels: this.__input.assetModelCompositeModels,
+          clientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAssetModel.assetModelStatus.error.details', props);
+    return resource.getResponseField('assetModelStatus.error.details') as unknown as shapes.IoTSiteWiseDetailedError[];
   }
 
 }
@@ -4667,6 +6144,11 @@ export class IoTSiteWiseResponsesUpdatePortalPortalStatus {
           },
           roleArn: this.__input.roleArn,
           clientToken: this.__input.clientToken,
+          notificationSenderEmail: this.__input.notificationSenderEmail,
+          alarms: {
+            alarmRoleArn: this.__input.alarms?.alarmRoleArn,
+            notificationLambdaArn: this.__input.alarms?.notificationLambdaArn,
+          },
         },
       },
     };
@@ -4708,6 +6190,11 @@ export class IoTSiteWiseResponsesUpdatePortalPortalStatusError {
           },
           roleArn: this.__input.roleArn,
           clientToken: this.__input.clientToken,
+          notificationSenderEmail: this.__input.notificationSenderEmail,
+          alarms: {
+            alarmRoleArn: this.__input.alarms?.alarmRoleArn,
+            notificationLambdaArn: this.__input.alarms?.notificationLambdaArn,
+          },
         },
       },
     };
@@ -4738,6 +6225,11 @@ export class IoTSiteWiseResponsesUpdatePortalPortalStatusError {
           },
           roleArn: this.__input.roleArn,
           clientToken: this.__input.clientToken,
+          notificationSenderEmail: this.__input.notificationSenderEmail,
+          alarms: {
+            alarmRoleArn: this.__input.alarms?.alarmRoleArn,
+            notificationLambdaArn: this.__input.alarms?.notificationLambdaArn,
+          },
         },
       },
     };

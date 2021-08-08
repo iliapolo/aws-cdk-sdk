@@ -74,6 +74,10 @@ export class MediaLiveClient extends cdk.Construct {
     return new MediaLiveResponsesCreateMultiplexProgram(this, this.__resources, input);
   }
 
+  public createPartnerInput(input: shapes.MediaLiveCreatePartnerInputRequest): MediaLiveResponsesCreatePartnerInput {
+    return new MediaLiveResponsesCreatePartnerInput(this, this.__resources, input);
+  }
+
   public createTags(input: shapes.MediaLiveCreateTagsRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -292,6 +296,7 @@ export class MediaLiveClient extends cdk.Construct {
         parameters: {
           InputDeviceId: input.inputDeviceId,
           TargetCustomerId: input.targetCustomerId,
+          TargetRegion: input.targetRegion,
           TransferMessage: input.transferMessage,
         },
       },
@@ -632,6 +637,13 @@ export class MediaLiveResponsesCreateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -655,6 +667,11 @@ export class MediaLiveResponsesCreateChannelChannel {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -741,6 +758,13 @@ export class MediaLiveResponsesCreateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -764,6 +788,11 @@ export class MediaLiveResponsesCreateChannelChannel {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -846,6 +875,13 @@ export class MediaLiveResponsesCreateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -869,6 +905,11 @@ export class MediaLiveResponsesCreateChannelChannel {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -951,6 +992,13 @@ export class MediaLiveResponsesCreateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -974,6 +1022,11 @@ export class MediaLiveResponsesCreateChannelChannel {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -1060,6 +1113,13 @@ export class MediaLiveResponsesCreateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -1083,6 +1143,11 @@ export class MediaLiveResponsesCreateChannelChannel {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -1165,6 +1230,13 @@ export class MediaLiveResponsesCreateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -1188,6 +1260,11 @@ export class MediaLiveResponsesCreateChannelChannel {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -1274,6 +1351,13 @@ export class MediaLiveResponsesCreateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -1297,6 +1381,11 @@ export class MediaLiveResponsesCreateChannelChannel {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -1379,6 +1468,13 @@ export class MediaLiveResponsesCreateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -1402,6 +1498,11 @@ export class MediaLiveResponsesCreateChannelChannel {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -1484,6 +1585,13 @@ export class MediaLiveResponsesCreateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -1507,6 +1615,11 @@ export class MediaLiveResponsesCreateChannelChannel {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -1589,6 +1702,13 @@ export class MediaLiveResponsesCreateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -1612,6 +1732,11 @@ export class MediaLiveResponsesCreateChannelChannel {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -1694,6 +1819,13 @@ export class MediaLiveResponsesCreateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -1717,6 +1849,11 @@ export class MediaLiveResponsesCreateChannelChannel {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -1799,6 +1936,13 @@ export class MediaLiveResponsesCreateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -1822,6 +1966,11 @@ export class MediaLiveResponsesCreateChannelChannel {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -1904,6 +2053,13 @@ export class MediaLiveResponsesCreateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -1927,11 +2083,20 @@ export class MediaLiveResponsesCreateChannelChannel {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateChannel.Channel.Tags', props);
     return resource.getResponseField('Channel.Tags') as unknown as Record<string, string>;
+  }
+
+  public get vpc(): MediaLiveResponsesCreateChannelChannelVpc {
+    return new MediaLiveResponsesCreateChannelChannelVpc(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -2016,6 +2181,13 @@ export class MediaLiveResponsesCreateChannelChannelCdiInputSpecification {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -2039,6 +2211,11 @@ export class MediaLiveResponsesCreateChannelChannelCdiInputSpecification {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -2128,6 +2305,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettings {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -2151,6 +2335,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettings {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -2245,6 +2434,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettings {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -2268,6 +2464,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettings {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -2281,6 +2482,10 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettings {
 
   public get globalConfiguration(): MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfiguration {
     return new MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get motionGraphicsConfiguration(): MediaLiveResponsesCreateChannelChannelEncoderSettingsMotionGraphicsConfiguration {
+    return new MediaLiveResponsesCreateChannelChannelEncoderSettingsMotionGraphicsConfiguration(this.__scope, this.__resources, this.__input);
   }
 
   public get nielsenConfiguration(): MediaLiveResponsesCreateChannelChannelEncoderSettingsNielsenConfiguration {
@@ -2362,6 +2567,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettings {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -2385,6 +2597,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettings {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -2471,6 +2688,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettings {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -2494,6 +2718,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettings {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -2587,6 +2816,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailBlanking 
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -2610,6 +2846,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailBlanking 
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -2699,6 +2940,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailBlankingA
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -2722,6 +2970,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailBlankingA
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -2804,6 +3057,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailBlankingA
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -2827,6 +3087,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailBlankingA
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -2909,6 +3174,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailBlankingA
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -2932,6 +3204,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailBlankingA
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -3047,6 +3324,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailConfigura
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -3070,6 +3354,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailConfigura
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -3152,6 +3441,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailConfigura
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -3175,6 +3471,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailConfigura
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -3257,6 +3558,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailConfigura
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -3280,6 +3588,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailConfigura
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -3369,6 +3682,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailConfigura
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -3392,6 +3712,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailConfigura
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -3474,6 +3799,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailConfigura
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -3497,6 +3829,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailConfigura
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -3579,6 +3916,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailConfigura
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -3602,6 +3946,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsAvailConfigura
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -3695,6 +4044,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsBlackoutSlate 
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -3718,6 +4074,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsBlackoutSlate 
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -3804,6 +4165,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsBlackoutSlate 
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -3827,6 +4195,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsBlackoutSlate 
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -3909,6 +4282,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsBlackoutSlate 
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -3932,6 +4312,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsBlackoutSlate 
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -4021,6 +4406,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsBlackoutSlateB
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -4044,6 +4436,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsBlackoutSlateB
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -4126,6 +4523,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsBlackoutSlateB
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -4149,6 +4553,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsBlackoutSlateB
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -4231,6 +4640,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsBlackoutSlateB
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -4254,6 +4670,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsBlackoutSlateB
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -4343,6 +4764,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsBlackoutSlateN
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -4366,6 +4794,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsBlackoutSlateN
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -4448,6 +4881,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsBlackoutSlateN
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -4471,6 +4911,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsBlackoutSlateN
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -4553,6 +4998,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsBlackoutSlateN
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -4576,6 +5028,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsBlackoutSlateN
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -4665,6 +5122,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsFeatureActivat
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -4688,6 +5152,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsFeatureActivat
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -4777,6 +5246,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -4800,6 +5276,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -4882,6 +5363,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -4905,6 +5393,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -4991,6 +5484,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -5014,6 +5514,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -5096,6 +5601,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -5119,6 +5631,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -5201,6 +5718,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -5224,6 +5748,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -5313,6 +5842,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -5336,6 +5872,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -5418,6 +5959,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -5441,6 +5989,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -5527,6 +6080,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -5550,6 +6110,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -5632,6 +6197,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -5655,6 +6227,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -5744,6 +6321,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -5767,6 +6351,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -5849,6 +6438,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -5872,6 +6468,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -5954,6 +6555,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -5977,11 +6585,268 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsGlobalConfigur
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateChannel.Channel.EncoderSettings.GlobalConfiguration.InputLossBehavior.InputLossImageSlate.Username', props);
     return resource.getResponseField('Channel.EncoderSettings.GlobalConfiguration.InputLossBehavior.InputLossImageSlate.Username') as unknown as string;
+  }
+
+}
+
+export class MediaLiveResponsesCreateChannelChannelEncoderSettingsMotionGraphicsConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveCreateChannelRequest) {
+  }
+
+  public get motionGraphicsInsertion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreateChannel.Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion'),
+        outputPath: 'Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion',
+        parameters: {
+          CdiInputSpecification: {
+            Resolution: this.__input.cdiInputSpecification?.resolution,
+          },
+          ChannelClass: this.__input.channelClass,
+          Destinations: this.__input.destinations,
+          EncoderSettings: {
+            AudioDescriptions: this.__input.encoderSettings?.audioDescriptions,
+            AvailBlanking: {
+              AvailBlankingImage: {
+                PasswordParam: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.uri,
+                Username: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.username,
+              },
+              State: this.__input.encoderSettings?.availBlanking?.state,
+            },
+            AvailConfiguration: {
+              AvailSettings: {
+                Scte35SpliceInsert: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.webDeliveryAllowedFlag,
+                },
+                Scte35TimeSignalApos: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.webDeliveryAllowedFlag,
+                },
+              },
+            },
+            BlackoutSlate: {
+              BlackoutSlateImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.username,
+              },
+              NetworkEndBlackout: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackout,
+              NetworkEndBlackoutImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.username,
+              },
+              NetworkId: this.__input.encoderSettings?.blackoutSlate?.networkId,
+              State: this.__input.encoderSettings?.blackoutSlate?.state,
+            },
+            CaptionDescriptions: this.__input.encoderSettings?.captionDescriptions,
+            FeatureActivations: {
+              InputPrepareScheduleActions: this.__input.encoderSettings?.featureActivations?.inputPrepareScheduleActions,
+            },
+            GlobalConfiguration: {
+              InitialAudioGain: this.__input.encoderSettings?.globalConfiguration?.initialAudioGain,
+              InputEndAction: this.__input.encoderSettings?.globalConfiguration?.inputEndAction,
+              InputLossBehavior: {
+                BlackFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.blackFrameMsec,
+                InputLossImageColor: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageColor,
+                InputLossImageSlate: {
+                  PasswordParam: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.passwordParam,
+                  Uri: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.uri,
+                  Username: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.username,
+                },
+                InputLossImageType: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageType,
+                RepeatFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.repeatFrameMsec,
+              },
+              OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
+              OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
+              SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
+            NielsenConfiguration: {
+              DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
+              NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
+            },
+            OutputGroups: this.__input.encoderSettings?.outputGroups,
+            TimecodeConfig: {
+              Source: this.__input.encoderSettings?.timecodeConfig.source,
+              SyncThreshold: this.__input.encoderSettings?.timecodeConfig.syncThreshold,
+            },
+            VideoDescriptions: this.__input.encoderSettings?.videoDescriptions,
+          },
+          InputAttachments: this.__input.inputAttachments,
+          InputSpecification: {
+            Codec: this.__input.inputSpecification?.codec,
+            MaximumBitrate: this.__input.inputSpecification?.maximumBitrate,
+            Resolution: this.__input.inputSpecification?.resolution,
+          },
+          LogLevel: this.__input.logLevel,
+          Name: this.__input.name,
+          RequestId: this.__input.requestId,
+          Reserved: this.__input.reserved,
+          RoleArn: this.__input.roleArn,
+          Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateChannel.Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion', props);
+    return resource.getResponseField('Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion') as unknown as string;
+  }
+
+  public get motionGraphicsSettings(): MediaLiveResponsesCreateChannelChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+    return new MediaLiveResponsesCreateChannelChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class MediaLiveResponsesCreateChannelChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveCreateChannelRequest) {
+  }
+
+  public get htmlMotionGraphicsSettings(): any {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreateChannel.Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings'),
+        outputPath: 'Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings',
+        parameters: {
+          CdiInputSpecification: {
+            Resolution: this.__input.cdiInputSpecification?.resolution,
+          },
+          ChannelClass: this.__input.channelClass,
+          Destinations: this.__input.destinations,
+          EncoderSettings: {
+            AudioDescriptions: this.__input.encoderSettings?.audioDescriptions,
+            AvailBlanking: {
+              AvailBlankingImage: {
+                PasswordParam: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.uri,
+                Username: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.username,
+              },
+              State: this.__input.encoderSettings?.availBlanking?.state,
+            },
+            AvailConfiguration: {
+              AvailSettings: {
+                Scte35SpliceInsert: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.webDeliveryAllowedFlag,
+                },
+                Scte35TimeSignalApos: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.webDeliveryAllowedFlag,
+                },
+              },
+            },
+            BlackoutSlate: {
+              BlackoutSlateImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.username,
+              },
+              NetworkEndBlackout: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackout,
+              NetworkEndBlackoutImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.username,
+              },
+              NetworkId: this.__input.encoderSettings?.blackoutSlate?.networkId,
+              State: this.__input.encoderSettings?.blackoutSlate?.state,
+            },
+            CaptionDescriptions: this.__input.encoderSettings?.captionDescriptions,
+            FeatureActivations: {
+              InputPrepareScheduleActions: this.__input.encoderSettings?.featureActivations?.inputPrepareScheduleActions,
+            },
+            GlobalConfiguration: {
+              InitialAudioGain: this.__input.encoderSettings?.globalConfiguration?.initialAudioGain,
+              InputEndAction: this.__input.encoderSettings?.globalConfiguration?.inputEndAction,
+              InputLossBehavior: {
+                BlackFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.blackFrameMsec,
+                InputLossImageColor: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageColor,
+                InputLossImageSlate: {
+                  PasswordParam: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.passwordParam,
+                  Uri: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.uri,
+                  Username: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.username,
+                },
+                InputLossImageType: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageType,
+                RepeatFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.repeatFrameMsec,
+              },
+              OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
+              OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
+              SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
+            NielsenConfiguration: {
+              DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
+              NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
+            },
+            OutputGroups: this.__input.encoderSettings?.outputGroups,
+            TimecodeConfig: {
+              Source: this.__input.encoderSettings?.timecodeConfig.source,
+              SyncThreshold: this.__input.encoderSettings?.timecodeConfig.syncThreshold,
+            },
+            VideoDescriptions: this.__input.encoderSettings?.videoDescriptions,
+          },
+          InputAttachments: this.__input.inputAttachments,
+          InputSpecification: {
+            Codec: this.__input.inputSpecification?.codec,
+            MaximumBitrate: this.__input.inputSpecification?.maximumBitrate,
+            Resolution: this.__input.inputSpecification?.resolution,
+          },
+          LogLevel: this.__input.logLevel,
+          Name: this.__input.name,
+          RequestId: this.__input.requestId,
+          Reserved: this.__input.reserved,
+          RoleArn: this.__input.roleArn,
+          Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateChannel.Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings', props);
+    return resource.getResponseField('Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings') as unknown as any;
   }
 
 }
@@ -6066,6 +6931,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsNielsenConfigu
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -6089,6 +6961,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsNielsenConfigu
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -6171,6 +7048,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsNielsenConfigu
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -6194,6 +7078,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsNielsenConfigu
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -6283,6 +7172,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsTimecodeConfig
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -6306,6 +7202,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsTimecodeConfig
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -6388,6 +7289,13 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsTimecodeConfig
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -6411,6 +7319,11 @@ export class MediaLiveResponsesCreateChannelChannelEncoderSettingsTimecodeConfig
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -6500,6 +7413,13 @@ export class MediaLiveResponsesCreateChannelChannelInputSpecification {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -6523,6 +7443,11 @@ export class MediaLiveResponsesCreateChannelChannelInputSpecification {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -6605,6 +7530,13 @@ export class MediaLiveResponsesCreateChannelChannelInputSpecification {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -6628,6 +7560,11 @@ export class MediaLiveResponsesCreateChannelChannelInputSpecification {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
@@ -6710,6 +7647,13 @@ export class MediaLiveResponsesCreateChannelChannelInputSpecification {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -6733,11 +7677,491 @@ export class MediaLiveResponsesCreateChannelChannelInputSpecification {
           Reserved: this.__input.reserved,
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateChannel.Channel.InputSpecification.Resolution', props);
     return resource.getResponseField('Channel.InputSpecification.Resolution') as unknown as string;
+  }
+
+}
+
+export class MediaLiveResponsesCreateChannelChannelVpc {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveCreateChannelRequest) {
+  }
+
+  public get availabilityZones(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreateChannel.Channel.Vpc.AvailabilityZones'),
+        outputPath: 'Channel.Vpc.AvailabilityZones',
+        parameters: {
+          CdiInputSpecification: {
+            Resolution: this.__input.cdiInputSpecification?.resolution,
+          },
+          ChannelClass: this.__input.channelClass,
+          Destinations: this.__input.destinations,
+          EncoderSettings: {
+            AudioDescriptions: this.__input.encoderSettings?.audioDescriptions,
+            AvailBlanking: {
+              AvailBlankingImage: {
+                PasswordParam: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.uri,
+                Username: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.username,
+              },
+              State: this.__input.encoderSettings?.availBlanking?.state,
+            },
+            AvailConfiguration: {
+              AvailSettings: {
+                Scte35SpliceInsert: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.webDeliveryAllowedFlag,
+                },
+                Scte35TimeSignalApos: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.webDeliveryAllowedFlag,
+                },
+              },
+            },
+            BlackoutSlate: {
+              BlackoutSlateImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.username,
+              },
+              NetworkEndBlackout: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackout,
+              NetworkEndBlackoutImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.username,
+              },
+              NetworkId: this.__input.encoderSettings?.blackoutSlate?.networkId,
+              State: this.__input.encoderSettings?.blackoutSlate?.state,
+            },
+            CaptionDescriptions: this.__input.encoderSettings?.captionDescriptions,
+            FeatureActivations: {
+              InputPrepareScheduleActions: this.__input.encoderSettings?.featureActivations?.inputPrepareScheduleActions,
+            },
+            GlobalConfiguration: {
+              InitialAudioGain: this.__input.encoderSettings?.globalConfiguration?.initialAudioGain,
+              InputEndAction: this.__input.encoderSettings?.globalConfiguration?.inputEndAction,
+              InputLossBehavior: {
+                BlackFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.blackFrameMsec,
+                InputLossImageColor: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageColor,
+                InputLossImageSlate: {
+                  PasswordParam: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.passwordParam,
+                  Uri: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.uri,
+                  Username: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.username,
+                },
+                InputLossImageType: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageType,
+                RepeatFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.repeatFrameMsec,
+              },
+              OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
+              OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
+              SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
+            NielsenConfiguration: {
+              DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
+              NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
+            },
+            OutputGroups: this.__input.encoderSettings?.outputGroups,
+            TimecodeConfig: {
+              Source: this.__input.encoderSettings?.timecodeConfig.source,
+              SyncThreshold: this.__input.encoderSettings?.timecodeConfig.syncThreshold,
+            },
+            VideoDescriptions: this.__input.encoderSettings?.videoDescriptions,
+          },
+          InputAttachments: this.__input.inputAttachments,
+          InputSpecification: {
+            Codec: this.__input.inputSpecification?.codec,
+            MaximumBitrate: this.__input.inputSpecification?.maximumBitrate,
+            Resolution: this.__input.inputSpecification?.resolution,
+          },
+          LogLevel: this.__input.logLevel,
+          Name: this.__input.name,
+          RequestId: this.__input.requestId,
+          Reserved: this.__input.reserved,
+          RoleArn: this.__input.roleArn,
+          Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateChannel.Channel.Vpc.AvailabilityZones', props);
+    return resource.getResponseField('Channel.Vpc.AvailabilityZones') as unknown as string[];
+  }
+
+  public get networkInterfaceIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreateChannel.Channel.Vpc.NetworkInterfaceIds'),
+        outputPath: 'Channel.Vpc.NetworkInterfaceIds',
+        parameters: {
+          CdiInputSpecification: {
+            Resolution: this.__input.cdiInputSpecification?.resolution,
+          },
+          ChannelClass: this.__input.channelClass,
+          Destinations: this.__input.destinations,
+          EncoderSettings: {
+            AudioDescriptions: this.__input.encoderSettings?.audioDescriptions,
+            AvailBlanking: {
+              AvailBlankingImage: {
+                PasswordParam: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.uri,
+                Username: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.username,
+              },
+              State: this.__input.encoderSettings?.availBlanking?.state,
+            },
+            AvailConfiguration: {
+              AvailSettings: {
+                Scte35SpliceInsert: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.webDeliveryAllowedFlag,
+                },
+                Scte35TimeSignalApos: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.webDeliveryAllowedFlag,
+                },
+              },
+            },
+            BlackoutSlate: {
+              BlackoutSlateImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.username,
+              },
+              NetworkEndBlackout: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackout,
+              NetworkEndBlackoutImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.username,
+              },
+              NetworkId: this.__input.encoderSettings?.blackoutSlate?.networkId,
+              State: this.__input.encoderSettings?.blackoutSlate?.state,
+            },
+            CaptionDescriptions: this.__input.encoderSettings?.captionDescriptions,
+            FeatureActivations: {
+              InputPrepareScheduleActions: this.__input.encoderSettings?.featureActivations?.inputPrepareScheduleActions,
+            },
+            GlobalConfiguration: {
+              InitialAudioGain: this.__input.encoderSettings?.globalConfiguration?.initialAudioGain,
+              InputEndAction: this.__input.encoderSettings?.globalConfiguration?.inputEndAction,
+              InputLossBehavior: {
+                BlackFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.blackFrameMsec,
+                InputLossImageColor: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageColor,
+                InputLossImageSlate: {
+                  PasswordParam: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.passwordParam,
+                  Uri: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.uri,
+                  Username: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.username,
+                },
+                InputLossImageType: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageType,
+                RepeatFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.repeatFrameMsec,
+              },
+              OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
+              OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
+              SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
+            NielsenConfiguration: {
+              DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
+              NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
+            },
+            OutputGroups: this.__input.encoderSettings?.outputGroups,
+            TimecodeConfig: {
+              Source: this.__input.encoderSettings?.timecodeConfig.source,
+              SyncThreshold: this.__input.encoderSettings?.timecodeConfig.syncThreshold,
+            },
+            VideoDescriptions: this.__input.encoderSettings?.videoDescriptions,
+          },
+          InputAttachments: this.__input.inputAttachments,
+          InputSpecification: {
+            Codec: this.__input.inputSpecification?.codec,
+            MaximumBitrate: this.__input.inputSpecification?.maximumBitrate,
+            Resolution: this.__input.inputSpecification?.resolution,
+          },
+          LogLevel: this.__input.logLevel,
+          Name: this.__input.name,
+          RequestId: this.__input.requestId,
+          Reserved: this.__input.reserved,
+          RoleArn: this.__input.roleArn,
+          Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateChannel.Channel.Vpc.NetworkInterfaceIds', props);
+    return resource.getResponseField('Channel.Vpc.NetworkInterfaceIds') as unknown as string[];
+  }
+
+  public get securityGroupIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreateChannel.Channel.Vpc.SecurityGroupIds'),
+        outputPath: 'Channel.Vpc.SecurityGroupIds',
+        parameters: {
+          CdiInputSpecification: {
+            Resolution: this.__input.cdiInputSpecification?.resolution,
+          },
+          ChannelClass: this.__input.channelClass,
+          Destinations: this.__input.destinations,
+          EncoderSettings: {
+            AudioDescriptions: this.__input.encoderSettings?.audioDescriptions,
+            AvailBlanking: {
+              AvailBlankingImage: {
+                PasswordParam: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.uri,
+                Username: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.username,
+              },
+              State: this.__input.encoderSettings?.availBlanking?.state,
+            },
+            AvailConfiguration: {
+              AvailSettings: {
+                Scte35SpliceInsert: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.webDeliveryAllowedFlag,
+                },
+                Scte35TimeSignalApos: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.webDeliveryAllowedFlag,
+                },
+              },
+            },
+            BlackoutSlate: {
+              BlackoutSlateImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.username,
+              },
+              NetworkEndBlackout: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackout,
+              NetworkEndBlackoutImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.username,
+              },
+              NetworkId: this.__input.encoderSettings?.blackoutSlate?.networkId,
+              State: this.__input.encoderSettings?.blackoutSlate?.state,
+            },
+            CaptionDescriptions: this.__input.encoderSettings?.captionDescriptions,
+            FeatureActivations: {
+              InputPrepareScheduleActions: this.__input.encoderSettings?.featureActivations?.inputPrepareScheduleActions,
+            },
+            GlobalConfiguration: {
+              InitialAudioGain: this.__input.encoderSettings?.globalConfiguration?.initialAudioGain,
+              InputEndAction: this.__input.encoderSettings?.globalConfiguration?.inputEndAction,
+              InputLossBehavior: {
+                BlackFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.blackFrameMsec,
+                InputLossImageColor: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageColor,
+                InputLossImageSlate: {
+                  PasswordParam: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.passwordParam,
+                  Uri: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.uri,
+                  Username: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.username,
+                },
+                InputLossImageType: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageType,
+                RepeatFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.repeatFrameMsec,
+              },
+              OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
+              OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
+              SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
+            NielsenConfiguration: {
+              DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
+              NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
+            },
+            OutputGroups: this.__input.encoderSettings?.outputGroups,
+            TimecodeConfig: {
+              Source: this.__input.encoderSettings?.timecodeConfig.source,
+              SyncThreshold: this.__input.encoderSettings?.timecodeConfig.syncThreshold,
+            },
+            VideoDescriptions: this.__input.encoderSettings?.videoDescriptions,
+          },
+          InputAttachments: this.__input.inputAttachments,
+          InputSpecification: {
+            Codec: this.__input.inputSpecification?.codec,
+            MaximumBitrate: this.__input.inputSpecification?.maximumBitrate,
+            Resolution: this.__input.inputSpecification?.resolution,
+          },
+          LogLevel: this.__input.logLevel,
+          Name: this.__input.name,
+          RequestId: this.__input.requestId,
+          Reserved: this.__input.reserved,
+          RoleArn: this.__input.roleArn,
+          Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateChannel.Channel.Vpc.SecurityGroupIds', props);
+    return resource.getResponseField('Channel.Vpc.SecurityGroupIds') as unknown as string[];
+  }
+
+  public get subnetIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreateChannel.Channel.Vpc.SubnetIds'),
+        outputPath: 'Channel.Vpc.SubnetIds',
+        parameters: {
+          CdiInputSpecification: {
+            Resolution: this.__input.cdiInputSpecification?.resolution,
+          },
+          ChannelClass: this.__input.channelClass,
+          Destinations: this.__input.destinations,
+          EncoderSettings: {
+            AudioDescriptions: this.__input.encoderSettings?.audioDescriptions,
+            AvailBlanking: {
+              AvailBlankingImage: {
+                PasswordParam: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.uri,
+                Username: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.username,
+              },
+              State: this.__input.encoderSettings?.availBlanking?.state,
+            },
+            AvailConfiguration: {
+              AvailSettings: {
+                Scte35SpliceInsert: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.webDeliveryAllowedFlag,
+                },
+                Scte35TimeSignalApos: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.webDeliveryAllowedFlag,
+                },
+              },
+            },
+            BlackoutSlate: {
+              BlackoutSlateImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.username,
+              },
+              NetworkEndBlackout: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackout,
+              NetworkEndBlackoutImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.username,
+              },
+              NetworkId: this.__input.encoderSettings?.blackoutSlate?.networkId,
+              State: this.__input.encoderSettings?.blackoutSlate?.state,
+            },
+            CaptionDescriptions: this.__input.encoderSettings?.captionDescriptions,
+            FeatureActivations: {
+              InputPrepareScheduleActions: this.__input.encoderSettings?.featureActivations?.inputPrepareScheduleActions,
+            },
+            GlobalConfiguration: {
+              InitialAudioGain: this.__input.encoderSettings?.globalConfiguration?.initialAudioGain,
+              InputEndAction: this.__input.encoderSettings?.globalConfiguration?.inputEndAction,
+              InputLossBehavior: {
+                BlackFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.blackFrameMsec,
+                InputLossImageColor: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageColor,
+                InputLossImageSlate: {
+                  PasswordParam: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.passwordParam,
+                  Uri: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.uri,
+                  Username: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.username,
+                },
+                InputLossImageType: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageType,
+                RepeatFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.repeatFrameMsec,
+              },
+              OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
+              OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
+              SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
+            NielsenConfiguration: {
+              DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
+              NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
+            },
+            OutputGroups: this.__input.encoderSettings?.outputGroups,
+            TimecodeConfig: {
+              Source: this.__input.encoderSettings?.timecodeConfig.source,
+              SyncThreshold: this.__input.encoderSettings?.timecodeConfig.syncThreshold,
+            },
+            VideoDescriptions: this.__input.encoderSettings?.videoDescriptions,
+          },
+          InputAttachments: this.__input.inputAttachments,
+          InputSpecification: {
+            Codec: this.__input.inputSpecification?.codec,
+            MaximumBitrate: this.__input.inputSpecification?.maximumBitrate,
+            Resolution: this.__input.inputSpecification?.resolution,
+          },
+          LogLevel: this.__input.logLevel,
+          Name: this.__input.name,
+          RequestId: this.__input.requestId,
+          Reserved: this.__input.reserved,
+          RoleArn: this.__input.roleArn,
+          Tags: this.__input.tags,
+          Vpc: {
+            PublicAddressAllocationIds: this.__input.vpc?.publicAddressAllocationIds,
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateChannel.Channel.Vpc.SubnetIds', props);
+    return resource.getResponseField('Channel.Vpc.SubnetIds') as unknown as string[];
   }
 
 }
@@ -6936,6 +8360,36 @@ export class MediaLiveResponsesCreateInputInput {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateInput.Input.InputDevices', props);
     return resource.getResponseField('Input.InputDevices') as unknown as shapes.MediaLiveInputDeviceSettings[];
+  }
+
+  public get inputPartnerIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreateInput.Input.InputPartnerIds'),
+        outputPath: 'Input.InputPartnerIds',
+        parameters: {
+          Destinations: this.__input.destinations,
+          InputDevices: this.__input.inputDevices,
+          InputSecurityGroups: this.__input.inputSecurityGroups,
+          MediaConnectFlows: this.__input.mediaConnectFlows,
+          Name: this.__input.name,
+          RequestId: this.__input.requestId,
+          RoleArn: this.__input.roleArn,
+          Sources: this.__input.sources,
+          Tags: this.__input.tags,
+          Type: this.__input.type,
+          Vpc: {
+            SecurityGroupIds: this.__input.vpc?.securityGroupIds,
+            SubnetIds: this.__input.vpc?.subnetIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateInput.Input.InputPartnerIds', props);
+    return resource.getResponseField('Input.InputPartnerIds') as unknown as string[];
   }
 
   public get inputSourceType(): string {
@@ -8616,6 +10070,328 @@ export class MediaLiveResponsesCreateMultiplexProgramMultiplexProgramPacketIdent
 
 }
 
+export class MediaLiveResponsesCreatePartnerInput {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveCreatePartnerInputRequest) {
+  }
+
+  public get input(): MediaLiveResponsesCreatePartnerInputInput {
+    return new MediaLiveResponsesCreatePartnerInputInput(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class MediaLiveResponsesCreatePartnerInputInput {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveCreatePartnerInputRequest) {
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPartnerInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreatePartnerInput.Input.Arn'),
+        outputPath: 'Input.Arn',
+        parameters: {
+          InputId: this.__input.inputId,
+          RequestId: this.__input.requestId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePartnerInput.Input.Arn', props);
+    return resource.getResponseField('Input.Arn') as unknown as string;
+  }
+
+  public get attachedChannels(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPartnerInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreatePartnerInput.Input.AttachedChannels'),
+        outputPath: 'Input.AttachedChannels',
+        parameters: {
+          InputId: this.__input.inputId,
+          RequestId: this.__input.requestId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePartnerInput.Input.AttachedChannels', props);
+    return resource.getResponseField('Input.AttachedChannels') as unknown as string[];
+  }
+
+  public get destinations(): shapes.MediaLiveInputDestination[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPartnerInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreatePartnerInput.Input.Destinations'),
+        outputPath: 'Input.Destinations',
+        parameters: {
+          InputId: this.__input.inputId,
+          RequestId: this.__input.requestId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePartnerInput.Input.Destinations', props);
+    return resource.getResponseField('Input.Destinations') as unknown as shapes.MediaLiveInputDestination[];
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPartnerInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreatePartnerInput.Input.Id'),
+        outputPath: 'Input.Id',
+        parameters: {
+          InputId: this.__input.inputId,
+          RequestId: this.__input.requestId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePartnerInput.Input.Id', props);
+    return resource.getResponseField('Input.Id') as unknown as string;
+  }
+
+  public get inputClass(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPartnerInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreatePartnerInput.Input.InputClass'),
+        outputPath: 'Input.InputClass',
+        parameters: {
+          InputId: this.__input.inputId,
+          RequestId: this.__input.requestId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePartnerInput.Input.InputClass', props);
+    return resource.getResponseField('Input.InputClass') as unknown as string;
+  }
+
+  public get inputDevices(): shapes.MediaLiveInputDeviceSettings[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPartnerInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreatePartnerInput.Input.InputDevices'),
+        outputPath: 'Input.InputDevices',
+        parameters: {
+          InputId: this.__input.inputId,
+          RequestId: this.__input.requestId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePartnerInput.Input.InputDevices', props);
+    return resource.getResponseField('Input.InputDevices') as unknown as shapes.MediaLiveInputDeviceSettings[];
+  }
+
+  public get inputPartnerIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPartnerInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreatePartnerInput.Input.InputPartnerIds'),
+        outputPath: 'Input.InputPartnerIds',
+        parameters: {
+          InputId: this.__input.inputId,
+          RequestId: this.__input.requestId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePartnerInput.Input.InputPartnerIds', props);
+    return resource.getResponseField('Input.InputPartnerIds') as unknown as string[];
+  }
+
+  public get inputSourceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPartnerInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreatePartnerInput.Input.InputSourceType'),
+        outputPath: 'Input.InputSourceType',
+        parameters: {
+          InputId: this.__input.inputId,
+          RequestId: this.__input.requestId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePartnerInput.Input.InputSourceType', props);
+    return resource.getResponseField('Input.InputSourceType') as unknown as string;
+  }
+
+  public get mediaConnectFlows(): shapes.MediaLiveMediaConnectFlow[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPartnerInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreatePartnerInput.Input.MediaConnectFlows'),
+        outputPath: 'Input.MediaConnectFlows',
+        parameters: {
+          InputId: this.__input.inputId,
+          RequestId: this.__input.requestId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePartnerInput.Input.MediaConnectFlows', props);
+    return resource.getResponseField('Input.MediaConnectFlows') as unknown as shapes.MediaLiveMediaConnectFlow[];
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPartnerInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreatePartnerInput.Input.Name'),
+        outputPath: 'Input.Name',
+        parameters: {
+          InputId: this.__input.inputId,
+          RequestId: this.__input.requestId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePartnerInput.Input.Name', props);
+    return resource.getResponseField('Input.Name') as unknown as string;
+  }
+
+  public get roleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPartnerInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreatePartnerInput.Input.RoleArn'),
+        outputPath: 'Input.RoleArn',
+        parameters: {
+          InputId: this.__input.inputId,
+          RequestId: this.__input.requestId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePartnerInput.Input.RoleArn', props);
+    return resource.getResponseField('Input.RoleArn') as unknown as string;
+  }
+
+  public get securityGroups(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPartnerInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreatePartnerInput.Input.SecurityGroups'),
+        outputPath: 'Input.SecurityGroups',
+        parameters: {
+          InputId: this.__input.inputId,
+          RequestId: this.__input.requestId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePartnerInput.Input.SecurityGroups', props);
+    return resource.getResponseField('Input.SecurityGroups') as unknown as string[];
+  }
+
+  public get sources(): shapes.MediaLiveInputSource[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPartnerInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreatePartnerInput.Input.Sources'),
+        outputPath: 'Input.Sources',
+        parameters: {
+          InputId: this.__input.inputId,
+          RequestId: this.__input.requestId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePartnerInput.Input.Sources', props);
+    return resource.getResponseField('Input.Sources') as unknown as shapes.MediaLiveInputSource[];
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPartnerInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreatePartnerInput.Input.State'),
+        outputPath: 'Input.State',
+        parameters: {
+          InputId: this.__input.inputId,
+          RequestId: this.__input.requestId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePartnerInput.Input.State', props);
+    return resource.getResponseField('Input.State') as unknown as string;
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPartnerInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreatePartnerInput.Input.Tags'),
+        outputPath: 'Input.Tags',
+        parameters: {
+          InputId: this.__input.inputId,
+          RequestId: this.__input.requestId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePartnerInput.Input.Tags', props);
+    return resource.getResponseField('Input.Tags') as unknown as Record<string, string>;
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPartnerInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.CreatePartnerInput.Input.Type'),
+        outputPath: 'Input.Type',
+        parameters: {
+          InputId: this.__input.inputId,
+          RequestId: this.__input.requestId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePartnerInput.Input.Type', props);
+    return resource.getResponseField('Input.Type') as unknown as string;
+  }
+
+}
+
 export class MediaLiveResponsesDeleteChannel {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveDeleteChannelRequest) {
@@ -8854,6 +10630,10 @@ export class MediaLiveResponsesDeleteChannel {
     return resource.getResponseField('Tags') as unknown as Record<string, string>;
   }
 
+  public get vpc(): MediaLiveResponsesDeleteChannelVpc {
+    return new MediaLiveResponsesDeleteChannelVpc(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class MediaLiveResponsesDeleteChannelCdiInputSpecification {
@@ -8937,6 +10717,10 @@ export class MediaLiveResponsesDeleteChannelEncoderSettings {
 
   public get globalConfiguration(): MediaLiveResponsesDeleteChannelEncoderSettingsGlobalConfiguration {
     return new MediaLiveResponsesDeleteChannelEncoderSettingsGlobalConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get motionGraphicsConfiguration(): MediaLiveResponsesDeleteChannelEncoderSettingsMotionGraphicsConfiguration {
+    return new MediaLiveResponsesDeleteChannelEncoderSettingsMotionGraphicsConfiguration(this.__scope, this.__resources, this.__input);
   }
 
   public get nielsenConfiguration(): MediaLiveResponsesDeleteChannelEncoderSettingsNielsenConfiguration {
@@ -9650,6 +11434,58 @@ export class MediaLiveResponsesDeleteChannelEncoderSettingsGlobalConfigurationIn
 
 }
 
+export class MediaLiveResponsesDeleteChannelEncoderSettingsMotionGraphicsConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveDeleteChannelRequest) {
+  }
+
+  public get motionGraphicsInsertion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DeleteChannel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion'),
+        outputPath: 'EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteChannel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion', props);
+    return resource.getResponseField('EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion') as unknown as string;
+  }
+
+  public get motionGraphicsSettings(): MediaLiveResponsesDeleteChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+    return new MediaLiveResponsesDeleteChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class MediaLiveResponsesDeleteChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveDeleteChannelRequest) {
+  }
+
+  public get htmlMotionGraphicsSettings(): any {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DeleteChannel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings'),
+        outputPath: 'EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteChannel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings', props);
+    return resource.getResponseField('EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings') as unknown as any;
+  }
+
+}
+
 export class MediaLiveResponsesDeleteChannelEncoderSettingsNielsenConfiguration {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveDeleteChannelRequest) {
@@ -9786,6 +11622,81 @@ export class MediaLiveResponsesDeleteChannelInputSpecification {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteChannel.InputSpecification.Resolution', props);
     return resource.getResponseField('InputSpecification.Resolution') as unknown as string;
+  }
+
+}
+
+export class MediaLiveResponsesDeleteChannelVpc {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveDeleteChannelRequest) {
+  }
+
+  public get availabilityZones(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DeleteChannel.Vpc.AvailabilityZones'),
+        outputPath: 'Vpc.AvailabilityZones',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteChannel.Vpc.AvailabilityZones', props);
+    return resource.getResponseField('Vpc.AvailabilityZones') as unknown as string[];
+  }
+
+  public get networkInterfaceIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DeleteChannel.Vpc.NetworkInterfaceIds'),
+        outputPath: 'Vpc.NetworkInterfaceIds',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteChannel.Vpc.NetworkInterfaceIds', props);
+    return resource.getResponseField('Vpc.NetworkInterfaceIds') as unknown as string[];
+  }
+
+  public get securityGroupIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DeleteChannel.Vpc.SecurityGroupIds'),
+        outputPath: 'Vpc.SecurityGroupIds',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteChannel.Vpc.SecurityGroupIds', props);
+    return resource.getResponseField('Vpc.SecurityGroupIds') as unknown as string[];
+  }
+
+  public get subnetIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DeleteChannel.Vpc.SubnetIds'),
+        outputPath: 'Vpc.SubnetIds',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteChannel.Vpc.SubnetIds', props);
+    return resource.getResponseField('Vpc.SubnetIds') as unknown as string[];
   }
 
 }
@@ -11204,6 +13115,10 @@ export class MediaLiveResponsesDescribeChannel {
     return resource.getResponseField('Tags') as unknown as Record<string, string>;
   }
 
+  public get vpc(): MediaLiveResponsesDescribeChannelVpc {
+    return new MediaLiveResponsesDescribeChannelVpc(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class MediaLiveResponsesDescribeChannelCdiInputSpecification {
@@ -11287,6 +13202,10 @@ export class MediaLiveResponsesDescribeChannelEncoderSettings {
 
   public get globalConfiguration(): MediaLiveResponsesDescribeChannelEncoderSettingsGlobalConfiguration {
     return new MediaLiveResponsesDescribeChannelEncoderSettingsGlobalConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get motionGraphicsConfiguration(): MediaLiveResponsesDescribeChannelEncoderSettingsMotionGraphicsConfiguration {
+    return new MediaLiveResponsesDescribeChannelEncoderSettingsMotionGraphicsConfiguration(this.__scope, this.__resources, this.__input);
   }
 
   public get nielsenConfiguration(): MediaLiveResponsesDescribeChannelEncoderSettingsNielsenConfiguration {
@@ -12000,6 +13919,58 @@ export class MediaLiveResponsesDescribeChannelEncoderSettingsGlobalConfiguration
 
 }
 
+export class MediaLiveResponsesDescribeChannelEncoderSettingsMotionGraphicsConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveDescribeChannelRequest) {
+  }
+
+  public get motionGraphicsInsertion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DescribeChannel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion'),
+        outputPath: 'EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeChannel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion', props);
+    return resource.getResponseField('EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion') as unknown as string;
+  }
+
+  public get motionGraphicsSettings(): MediaLiveResponsesDescribeChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+    return new MediaLiveResponsesDescribeChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class MediaLiveResponsesDescribeChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveDescribeChannelRequest) {
+  }
+
+  public get htmlMotionGraphicsSettings(): any {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DescribeChannel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings'),
+        outputPath: 'EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeChannel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings', props);
+    return resource.getResponseField('EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings') as unknown as any;
+  }
+
+}
+
 export class MediaLiveResponsesDescribeChannelEncoderSettingsNielsenConfiguration {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveDescribeChannelRequest) {
@@ -12140,6 +14111,81 @@ export class MediaLiveResponsesDescribeChannelInputSpecification {
 
 }
 
+export class MediaLiveResponsesDescribeChannelVpc {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveDescribeChannelRequest) {
+  }
+
+  public get availabilityZones(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DescribeChannel.Vpc.AvailabilityZones'),
+        outputPath: 'Vpc.AvailabilityZones',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeChannel.Vpc.AvailabilityZones', props);
+    return resource.getResponseField('Vpc.AvailabilityZones') as unknown as string[];
+  }
+
+  public get networkInterfaceIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DescribeChannel.Vpc.NetworkInterfaceIds'),
+        outputPath: 'Vpc.NetworkInterfaceIds',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeChannel.Vpc.NetworkInterfaceIds', props);
+    return resource.getResponseField('Vpc.NetworkInterfaceIds') as unknown as string[];
+  }
+
+  public get securityGroupIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DescribeChannel.Vpc.SecurityGroupIds'),
+        outputPath: 'Vpc.SecurityGroupIds',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeChannel.Vpc.SecurityGroupIds', props);
+    return resource.getResponseField('Vpc.SecurityGroupIds') as unknown as string[];
+  }
+
+  public get subnetIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DescribeChannel.Vpc.SubnetIds'),
+        outputPath: 'Vpc.SubnetIds',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeChannel.Vpc.SubnetIds', props);
+    return resource.getResponseField('Vpc.SubnetIds') as unknown as string[];
+  }
+
+}
+
 export class MediaLiveResponsesDescribeInput {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveDescribeInputRequest) {
@@ -12245,6 +14291,23 @@ export class MediaLiveResponsesDescribeInput {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeInput.InputDevices', props);
     return resource.getResponseField('InputDevices') as unknown as shapes.MediaLiveInputDeviceSettings[];
+  }
+
+  public get inputPartnerIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DescribeInput.InputPartnerIds'),
+        outputPath: 'InputPartnerIds',
+        parameters: {
+          InputId: this.__input.inputId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeInput.InputPartnerIds', props);
+    return resource.getResponseField('InputPartnerIds') as unknown as string[];
   }
 
   public get inputSourceType(): string {
@@ -12568,6 +14631,10 @@ export class MediaLiveResponsesDescribeInputDevice {
     return resource.getResponseField('Type') as unknown as string;
   }
 
+  public get uhdDeviceSettings(): MediaLiveResponsesDescribeInputDeviceUhdDeviceSettings {
+    return new MediaLiveResponsesDescribeInputDeviceUhdDeviceSettings(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class MediaLiveResponsesDescribeInputDeviceHdDeviceSettings {
@@ -12801,6 +14868,149 @@ export class MediaLiveResponsesDescribeInputDeviceNetworkSettings {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeInputDevice.NetworkSettings.SubnetMask', props);
     return resource.getResponseField('NetworkSettings.SubnetMask') as unknown as string;
+  }
+
+}
+
+export class MediaLiveResponsesDescribeInputDeviceUhdDeviceSettings {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveDescribeInputDeviceRequest) {
+  }
+
+  public get activeInput(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeInputDevice',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DescribeInputDevice.UhdDeviceSettings.ActiveInput'),
+        outputPath: 'UhdDeviceSettings.ActiveInput',
+        parameters: {
+          InputDeviceId: this.__input.inputDeviceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeInputDevice.UhdDeviceSettings.ActiveInput', props);
+    return resource.getResponseField('UhdDeviceSettings.ActiveInput') as unknown as string;
+  }
+
+  public get configuredInput(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeInputDevice',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DescribeInputDevice.UhdDeviceSettings.ConfiguredInput'),
+        outputPath: 'UhdDeviceSettings.ConfiguredInput',
+        parameters: {
+          InputDeviceId: this.__input.inputDeviceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeInputDevice.UhdDeviceSettings.ConfiguredInput', props);
+    return resource.getResponseField('UhdDeviceSettings.ConfiguredInput') as unknown as string;
+  }
+
+  public get deviceState(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeInputDevice',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DescribeInputDevice.UhdDeviceSettings.DeviceState'),
+        outputPath: 'UhdDeviceSettings.DeviceState',
+        parameters: {
+          InputDeviceId: this.__input.inputDeviceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeInputDevice.UhdDeviceSettings.DeviceState', props);
+    return resource.getResponseField('UhdDeviceSettings.DeviceState') as unknown as string;
+  }
+
+  public get framerate(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeInputDevice',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DescribeInputDevice.UhdDeviceSettings.Framerate'),
+        outputPath: 'UhdDeviceSettings.Framerate',
+        parameters: {
+          InputDeviceId: this.__input.inputDeviceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeInputDevice.UhdDeviceSettings.Framerate', props);
+    return resource.getResponseField('UhdDeviceSettings.Framerate') as unknown as number;
+  }
+
+  public get height(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeInputDevice',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DescribeInputDevice.UhdDeviceSettings.Height'),
+        outputPath: 'UhdDeviceSettings.Height',
+        parameters: {
+          InputDeviceId: this.__input.inputDeviceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeInputDevice.UhdDeviceSettings.Height', props);
+    return resource.getResponseField('UhdDeviceSettings.Height') as unknown as number;
+  }
+
+  public get maxBitrate(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeInputDevice',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DescribeInputDevice.UhdDeviceSettings.MaxBitrate'),
+        outputPath: 'UhdDeviceSettings.MaxBitrate',
+        parameters: {
+          InputDeviceId: this.__input.inputDeviceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeInputDevice.UhdDeviceSettings.MaxBitrate', props);
+    return resource.getResponseField('UhdDeviceSettings.MaxBitrate') as unknown as number;
+  }
+
+  public get scanType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeInputDevice',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DescribeInputDevice.UhdDeviceSettings.ScanType'),
+        outputPath: 'UhdDeviceSettings.ScanType',
+        parameters: {
+          InputDeviceId: this.__input.inputDeviceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeInputDevice.UhdDeviceSettings.ScanType', props);
+    return resource.getResponseField('UhdDeviceSettings.ScanType') as unknown as string;
+  }
+
+  public get width(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeInputDevice',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.DescribeInputDevice.UhdDeviceSettings.Width'),
+        outputPath: 'UhdDeviceSettings.Width',
+        parameters: {
+          InputDeviceId: this.__input.inputDeviceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeInputDevice.UhdDeviceSettings.Width', props);
+    return resource.getResponseField('UhdDeviceSettings.Width') as unknown as number;
   }
 
 }
@@ -15824,6 +18034,10 @@ export class MediaLiveResponsesStartChannel {
     return resource.getResponseField('Tags') as unknown as Record<string, string>;
   }
 
+  public get vpc(): MediaLiveResponsesStartChannelVpc {
+    return new MediaLiveResponsesStartChannelVpc(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class MediaLiveResponsesStartChannelCdiInputSpecification {
@@ -15907,6 +18121,10 @@ export class MediaLiveResponsesStartChannelEncoderSettings {
 
   public get globalConfiguration(): MediaLiveResponsesStartChannelEncoderSettingsGlobalConfiguration {
     return new MediaLiveResponsesStartChannelEncoderSettingsGlobalConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get motionGraphicsConfiguration(): MediaLiveResponsesStartChannelEncoderSettingsMotionGraphicsConfiguration {
+    return new MediaLiveResponsesStartChannelEncoderSettingsMotionGraphicsConfiguration(this.__scope, this.__resources, this.__input);
   }
 
   public get nielsenConfiguration(): MediaLiveResponsesStartChannelEncoderSettingsNielsenConfiguration {
@@ -16620,6 +18838,58 @@ export class MediaLiveResponsesStartChannelEncoderSettingsGlobalConfigurationInp
 
 }
 
+export class MediaLiveResponsesStartChannelEncoderSettingsMotionGraphicsConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveStartChannelRequest) {
+  }
+
+  public get motionGraphicsInsertion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.StartChannel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion'),
+        outputPath: 'EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartChannel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion', props);
+    return resource.getResponseField('EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion') as unknown as string;
+  }
+
+  public get motionGraphicsSettings(): MediaLiveResponsesStartChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+    return new MediaLiveResponsesStartChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class MediaLiveResponsesStartChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveStartChannelRequest) {
+  }
+
+  public get htmlMotionGraphicsSettings(): any {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.StartChannel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings'),
+        outputPath: 'EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartChannel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings', props);
+    return resource.getResponseField('EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings') as unknown as any;
+  }
+
+}
+
 export class MediaLiveResponsesStartChannelEncoderSettingsNielsenConfiguration {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveStartChannelRequest) {
@@ -16756,6 +19026,81 @@ export class MediaLiveResponsesStartChannelInputSpecification {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'StartChannel.InputSpecification.Resolution', props);
     return resource.getResponseField('InputSpecification.Resolution') as unknown as string;
+  }
+
+}
+
+export class MediaLiveResponsesStartChannelVpc {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveStartChannelRequest) {
+  }
+
+  public get availabilityZones(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.StartChannel.Vpc.AvailabilityZones'),
+        outputPath: 'Vpc.AvailabilityZones',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartChannel.Vpc.AvailabilityZones', props);
+    return resource.getResponseField('Vpc.AvailabilityZones') as unknown as string[];
+  }
+
+  public get networkInterfaceIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.StartChannel.Vpc.NetworkInterfaceIds'),
+        outputPath: 'Vpc.NetworkInterfaceIds',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartChannel.Vpc.NetworkInterfaceIds', props);
+    return resource.getResponseField('Vpc.NetworkInterfaceIds') as unknown as string[];
+  }
+
+  public get securityGroupIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.StartChannel.Vpc.SecurityGroupIds'),
+        outputPath: 'Vpc.SecurityGroupIds',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartChannel.Vpc.SecurityGroupIds', props);
+    return resource.getResponseField('Vpc.SecurityGroupIds') as unknown as string[];
+  }
+
+  public get subnetIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.StartChannel.Vpc.SubnetIds'),
+        outputPath: 'Vpc.SubnetIds',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartChannel.Vpc.SubnetIds', props);
+    return resource.getResponseField('Vpc.SubnetIds') as unknown as string[];
   }
 
 }
@@ -17237,6 +19582,10 @@ export class MediaLiveResponsesStopChannel {
     return resource.getResponseField('Tags') as unknown as Record<string, string>;
   }
 
+  public get vpc(): MediaLiveResponsesStopChannelVpc {
+    return new MediaLiveResponsesStopChannelVpc(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class MediaLiveResponsesStopChannelCdiInputSpecification {
@@ -17320,6 +19669,10 @@ export class MediaLiveResponsesStopChannelEncoderSettings {
 
   public get globalConfiguration(): MediaLiveResponsesStopChannelEncoderSettingsGlobalConfiguration {
     return new MediaLiveResponsesStopChannelEncoderSettingsGlobalConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get motionGraphicsConfiguration(): MediaLiveResponsesStopChannelEncoderSettingsMotionGraphicsConfiguration {
+    return new MediaLiveResponsesStopChannelEncoderSettingsMotionGraphicsConfiguration(this.__scope, this.__resources, this.__input);
   }
 
   public get nielsenConfiguration(): MediaLiveResponsesStopChannelEncoderSettingsNielsenConfiguration {
@@ -18033,6 +20386,58 @@ export class MediaLiveResponsesStopChannelEncoderSettingsGlobalConfigurationInpu
 
 }
 
+export class MediaLiveResponsesStopChannelEncoderSettingsMotionGraphicsConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveStopChannelRequest) {
+  }
+
+  public get motionGraphicsInsertion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.StopChannel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion'),
+        outputPath: 'EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopChannel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion', props);
+    return resource.getResponseField('EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion') as unknown as string;
+  }
+
+  public get motionGraphicsSettings(): MediaLiveResponsesStopChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+    return new MediaLiveResponsesStopChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class MediaLiveResponsesStopChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveStopChannelRequest) {
+  }
+
+  public get htmlMotionGraphicsSettings(): any {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.StopChannel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings'),
+        outputPath: 'EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopChannel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings', props);
+    return resource.getResponseField('EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings') as unknown as any;
+  }
+
+}
+
 export class MediaLiveResponsesStopChannelEncoderSettingsNielsenConfiguration {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveStopChannelRequest) {
@@ -18169,6 +20574,81 @@ export class MediaLiveResponsesStopChannelInputSpecification {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'StopChannel.InputSpecification.Resolution', props);
     return resource.getResponseField('InputSpecification.Resolution') as unknown as string;
+  }
+
+}
+
+export class MediaLiveResponsesStopChannelVpc {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveStopChannelRequest) {
+  }
+
+  public get availabilityZones(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.StopChannel.Vpc.AvailabilityZones'),
+        outputPath: 'Vpc.AvailabilityZones',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopChannel.Vpc.AvailabilityZones', props);
+    return resource.getResponseField('Vpc.AvailabilityZones') as unknown as string[];
+  }
+
+  public get networkInterfaceIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.StopChannel.Vpc.NetworkInterfaceIds'),
+        outputPath: 'Vpc.NetworkInterfaceIds',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopChannel.Vpc.NetworkInterfaceIds', props);
+    return resource.getResponseField('Vpc.NetworkInterfaceIds') as unknown as string[];
+  }
+
+  public get securityGroupIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.StopChannel.Vpc.SecurityGroupIds'),
+        outputPath: 'Vpc.SecurityGroupIds',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopChannel.Vpc.SecurityGroupIds', props);
+    return resource.getResponseField('Vpc.SecurityGroupIds') as unknown as string[];
+  }
+
+  public get subnetIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.StopChannel.Vpc.SubnetIds'),
+        outputPath: 'Vpc.SubnetIds',
+        parameters: {
+          ChannelId: this.__input.channelId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopChannel.Vpc.SubnetIds', props);
+    return resource.getResponseField('Vpc.SubnetIds') as unknown as string[];
   }
 
 }
@@ -18503,6 +20983,13 @@ export class MediaLiveResponsesUpdateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -18609,6 +21096,13 @@ export class MediaLiveResponsesUpdateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -18711,6 +21205,13 @@ export class MediaLiveResponsesUpdateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -18812,6 +21313,13 @@ export class MediaLiveResponsesUpdateChannelChannel {
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -18919,6 +21427,13 @@ export class MediaLiveResponsesUpdateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -19020,6 +21535,13 @@ export class MediaLiveResponsesUpdateChannelChannel {
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -19127,6 +21649,13 @@ export class MediaLiveResponsesUpdateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -19228,6 +21757,13 @@ export class MediaLiveResponsesUpdateChannelChannel {
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -19331,6 +21867,13 @@ export class MediaLiveResponsesUpdateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -19432,6 +21975,13 @@ export class MediaLiveResponsesUpdateChannelChannel {
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -19535,6 +22085,13 @@ export class MediaLiveResponsesUpdateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -19636,6 +22193,13 @@ export class MediaLiveResponsesUpdateChannelChannel {
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -19739,6 +22303,13 @@ export class MediaLiveResponsesUpdateChannelChannel {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -19764,6 +22335,10 @@ export class MediaLiveResponsesUpdateChannelChannel {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateChannel.Channel.Tags', props);
     return resource.getResponseField('Channel.Tags') as unknown as Record<string, string>;
+  }
+
+  public get vpc(): MediaLiveResponsesUpdateChannelChannelVpc {
+    return new MediaLiveResponsesUpdateChannelChannelVpc(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -19847,6 +22422,13 @@ export class MediaLiveResponsesUpdateChannelChannelCdiInputSpecification {
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -19956,6 +22538,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettings {
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -20071,6 +22660,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettings {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -20104,6 +22700,10 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettings {
 
   public get globalConfiguration(): MediaLiveResponsesUpdateChannelChannelEncoderSettingsGlobalConfiguration {
     return new MediaLiveResponsesUpdateChannelChannelEncoderSettingsGlobalConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get motionGraphicsConfiguration(): MediaLiveResponsesUpdateChannelChannelEncoderSettingsMotionGraphicsConfiguration {
+    return new MediaLiveResponsesUpdateChannelChannelEncoderSettingsMotionGraphicsConfiguration(this.__scope, this.__resources, this.__input);
   }
 
   public get nielsenConfiguration(): MediaLiveResponsesUpdateChannelChannelEncoderSettingsNielsenConfiguration {
@@ -20184,6 +22784,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettings {
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -20290,6 +22897,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettings {
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -20404,6 +23018,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsAvailBlanking 
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -20513,6 +23134,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsAvailBlankingA
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -20615,6 +23243,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsAvailBlankingA
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -20716,6 +23351,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsAvailBlankingA
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -20852,6 +23494,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsAvailConfigura
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -20954,6 +23603,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsAvailConfigura
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -21055,6 +23711,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsAvailConfigura
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -21165,6 +23828,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsAvailConfigura
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -21267,6 +23937,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsAvailConfigura
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -21368,6 +24045,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsAvailConfigura
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -21482,6 +24166,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsBlackoutSlate 
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -21588,6 +24279,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsBlackoutSlate 
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -21689,6 +24387,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsBlackoutSlate 
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -21799,6 +24504,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsBlackoutSlateB
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -21901,6 +24613,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsBlackoutSlateB
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -22002,6 +24721,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsBlackoutSlateB
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -22112,6 +24838,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsBlackoutSlateN
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -22214,6 +24947,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsBlackoutSlateN
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -22315,6 +25055,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsBlackoutSlateN
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -22425,6 +25172,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsFeatureActivat
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -22534,6 +25288,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -22635,6 +25396,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsGlobalConfigur
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -22742,6 +25510,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -22844,6 +25619,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -22945,6 +25727,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsGlobalConfigur
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -23055,6 +25844,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -23156,6 +25952,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsGlobalConfigur
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -23263,6 +26066,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -23364,6 +26174,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsGlobalConfigur
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -23474,6 +26291,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -23575,6 +26399,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsGlobalConfigur
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -23678,6 +26509,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsGlobalConfigur
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -23703,6 +26541,242 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsGlobalConfigur
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateChannel.Channel.EncoderSettings.GlobalConfiguration.InputLossBehavior.InputLossImageSlate.Username', props);
     return resource.getResponseField('Channel.EncoderSettings.GlobalConfiguration.InputLossBehavior.InputLossImageSlate.Username') as unknown as string;
+  }
+
+}
+
+export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsMotionGraphicsConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveUpdateChannelRequest) {
+  }
+
+  public get motionGraphicsInsertion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateChannel.Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion'),
+        outputPath: 'Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion',
+        parameters: {
+          CdiInputSpecification: {
+            Resolution: this.__input.cdiInputSpecification?.resolution,
+          },
+          ChannelId: this.__input.channelId,
+          Destinations: this.__input.destinations,
+          EncoderSettings: {
+            AudioDescriptions: this.__input.encoderSettings?.audioDescriptions,
+            AvailBlanking: {
+              AvailBlankingImage: {
+                PasswordParam: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.uri,
+                Username: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.username,
+              },
+              State: this.__input.encoderSettings?.availBlanking?.state,
+            },
+            AvailConfiguration: {
+              AvailSettings: {
+                Scte35SpliceInsert: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.webDeliveryAllowedFlag,
+                },
+                Scte35TimeSignalApos: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.webDeliveryAllowedFlag,
+                },
+              },
+            },
+            BlackoutSlate: {
+              BlackoutSlateImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.username,
+              },
+              NetworkEndBlackout: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackout,
+              NetworkEndBlackoutImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.username,
+              },
+              NetworkId: this.__input.encoderSettings?.blackoutSlate?.networkId,
+              State: this.__input.encoderSettings?.blackoutSlate?.state,
+            },
+            CaptionDescriptions: this.__input.encoderSettings?.captionDescriptions,
+            FeatureActivations: {
+              InputPrepareScheduleActions: this.__input.encoderSettings?.featureActivations?.inputPrepareScheduleActions,
+            },
+            GlobalConfiguration: {
+              InitialAudioGain: this.__input.encoderSettings?.globalConfiguration?.initialAudioGain,
+              InputEndAction: this.__input.encoderSettings?.globalConfiguration?.inputEndAction,
+              InputLossBehavior: {
+                BlackFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.blackFrameMsec,
+                InputLossImageColor: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageColor,
+                InputLossImageSlate: {
+                  PasswordParam: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.passwordParam,
+                  Uri: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.uri,
+                  Username: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.username,
+                },
+                InputLossImageType: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageType,
+                RepeatFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.repeatFrameMsec,
+              },
+              OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
+              OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
+              SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
+            NielsenConfiguration: {
+              DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
+              NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
+            },
+            OutputGroups: this.__input.encoderSettings?.outputGroups,
+            TimecodeConfig: {
+              Source: this.__input.encoderSettings?.timecodeConfig.source,
+              SyncThreshold: this.__input.encoderSettings?.timecodeConfig.syncThreshold,
+            },
+            VideoDescriptions: this.__input.encoderSettings?.videoDescriptions,
+          },
+          InputAttachments: this.__input.inputAttachments,
+          InputSpecification: {
+            Codec: this.__input.inputSpecification?.codec,
+            MaximumBitrate: this.__input.inputSpecification?.maximumBitrate,
+            Resolution: this.__input.inputSpecification?.resolution,
+          },
+          LogLevel: this.__input.logLevel,
+          Name: this.__input.name,
+          RoleArn: this.__input.roleArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateChannel.Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion', props);
+    return resource.getResponseField('Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion') as unknown as string;
+  }
+
+  public get motionGraphicsSettings(): MediaLiveResponsesUpdateChannelChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+    return new MediaLiveResponsesUpdateChannelChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveUpdateChannelRequest) {
+  }
+
+  public get htmlMotionGraphicsSettings(): any {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateChannel.Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings'),
+        outputPath: 'Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings',
+        parameters: {
+          CdiInputSpecification: {
+            Resolution: this.__input.cdiInputSpecification?.resolution,
+          },
+          ChannelId: this.__input.channelId,
+          Destinations: this.__input.destinations,
+          EncoderSettings: {
+            AudioDescriptions: this.__input.encoderSettings?.audioDescriptions,
+            AvailBlanking: {
+              AvailBlankingImage: {
+                PasswordParam: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.uri,
+                Username: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.username,
+              },
+              State: this.__input.encoderSettings?.availBlanking?.state,
+            },
+            AvailConfiguration: {
+              AvailSettings: {
+                Scte35SpliceInsert: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.webDeliveryAllowedFlag,
+                },
+                Scte35TimeSignalApos: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.webDeliveryAllowedFlag,
+                },
+              },
+            },
+            BlackoutSlate: {
+              BlackoutSlateImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.username,
+              },
+              NetworkEndBlackout: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackout,
+              NetworkEndBlackoutImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.username,
+              },
+              NetworkId: this.__input.encoderSettings?.blackoutSlate?.networkId,
+              State: this.__input.encoderSettings?.blackoutSlate?.state,
+            },
+            CaptionDescriptions: this.__input.encoderSettings?.captionDescriptions,
+            FeatureActivations: {
+              InputPrepareScheduleActions: this.__input.encoderSettings?.featureActivations?.inputPrepareScheduleActions,
+            },
+            GlobalConfiguration: {
+              InitialAudioGain: this.__input.encoderSettings?.globalConfiguration?.initialAudioGain,
+              InputEndAction: this.__input.encoderSettings?.globalConfiguration?.inputEndAction,
+              InputLossBehavior: {
+                BlackFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.blackFrameMsec,
+                InputLossImageColor: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageColor,
+                InputLossImageSlate: {
+                  PasswordParam: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.passwordParam,
+                  Uri: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.uri,
+                  Username: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.username,
+                },
+                InputLossImageType: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageType,
+                RepeatFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.repeatFrameMsec,
+              },
+              OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
+              OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
+              SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
+            NielsenConfiguration: {
+              DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
+              NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
+            },
+            OutputGroups: this.__input.encoderSettings?.outputGroups,
+            TimecodeConfig: {
+              Source: this.__input.encoderSettings?.timecodeConfig.source,
+              SyncThreshold: this.__input.encoderSettings?.timecodeConfig.syncThreshold,
+            },
+            VideoDescriptions: this.__input.encoderSettings?.videoDescriptions,
+          },
+          InputAttachments: this.__input.inputAttachments,
+          InputSpecification: {
+            Codec: this.__input.inputSpecification?.codec,
+            MaximumBitrate: this.__input.inputSpecification?.maximumBitrate,
+            Resolution: this.__input.inputSpecification?.resolution,
+          },
+          LogLevel: this.__input.logLevel,
+          Name: this.__input.name,
+          RoleArn: this.__input.roleArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateChannel.Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings', props);
+    return resource.getResponseField('Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings') as unknown as any;
   }
 
 }
@@ -23786,6 +26860,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsNielsenConfigu
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -23888,6 +26969,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsNielsenConfigu
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -23998,6 +27086,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsTimecodeConfig
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -24099,6 +27194,13 @@ export class MediaLiveResponsesUpdateChannelChannelEncoderSettingsTimecodeConfig
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -24209,6 +27311,13 @@ export class MediaLiveResponsesUpdateChannelChannelInputSpecification {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -24310,6 +27419,13 @@ export class MediaLiveResponsesUpdateChannelChannelInputSpecification {
               OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
             },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
@@ -24413,6 +27529,13 @@ export class MediaLiveResponsesUpdateChannelChannelInputSpecification {
               OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
               SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
             },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
             NielsenConfiguration: {
               DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
               NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
@@ -24438,6 +27561,449 @@ export class MediaLiveResponsesUpdateChannelChannelInputSpecification {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateChannel.Channel.InputSpecification.Resolution', props);
     return resource.getResponseField('Channel.InputSpecification.Resolution') as unknown as string;
+  }
+
+}
+
+export class MediaLiveResponsesUpdateChannelChannelVpc {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveUpdateChannelRequest) {
+  }
+
+  public get availabilityZones(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateChannel.Channel.Vpc.AvailabilityZones'),
+        outputPath: 'Channel.Vpc.AvailabilityZones',
+        parameters: {
+          CdiInputSpecification: {
+            Resolution: this.__input.cdiInputSpecification?.resolution,
+          },
+          ChannelId: this.__input.channelId,
+          Destinations: this.__input.destinations,
+          EncoderSettings: {
+            AudioDescriptions: this.__input.encoderSettings?.audioDescriptions,
+            AvailBlanking: {
+              AvailBlankingImage: {
+                PasswordParam: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.uri,
+                Username: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.username,
+              },
+              State: this.__input.encoderSettings?.availBlanking?.state,
+            },
+            AvailConfiguration: {
+              AvailSettings: {
+                Scte35SpliceInsert: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.webDeliveryAllowedFlag,
+                },
+                Scte35TimeSignalApos: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.webDeliveryAllowedFlag,
+                },
+              },
+            },
+            BlackoutSlate: {
+              BlackoutSlateImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.username,
+              },
+              NetworkEndBlackout: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackout,
+              NetworkEndBlackoutImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.username,
+              },
+              NetworkId: this.__input.encoderSettings?.blackoutSlate?.networkId,
+              State: this.__input.encoderSettings?.blackoutSlate?.state,
+            },
+            CaptionDescriptions: this.__input.encoderSettings?.captionDescriptions,
+            FeatureActivations: {
+              InputPrepareScheduleActions: this.__input.encoderSettings?.featureActivations?.inputPrepareScheduleActions,
+            },
+            GlobalConfiguration: {
+              InitialAudioGain: this.__input.encoderSettings?.globalConfiguration?.initialAudioGain,
+              InputEndAction: this.__input.encoderSettings?.globalConfiguration?.inputEndAction,
+              InputLossBehavior: {
+                BlackFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.blackFrameMsec,
+                InputLossImageColor: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageColor,
+                InputLossImageSlate: {
+                  PasswordParam: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.passwordParam,
+                  Uri: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.uri,
+                  Username: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.username,
+                },
+                InputLossImageType: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageType,
+                RepeatFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.repeatFrameMsec,
+              },
+              OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
+              OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
+              SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
+            NielsenConfiguration: {
+              DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
+              NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
+            },
+            OutputGroups: this.__input.encoderSettings?.outputGroups,
+            TimecodeConfig: {
+              Source: this.__input.encoderSettings?.timecodeConfig.source,
+              SyncThreshold: this.__input.encoderSettings?.timecodeConfig.syncThreshold,
+            },
+            VideoDescriptions: this.__input.encoderSettings?.videoDescriptions,
+          },
+          InputAttachments: this.__input.inputAttachments,
+          InputSpecification: {
+            Codec: this.__input.inputSpecification?.codec,
+            MaximumBitrate: this.__input.inputSpecification?.maximumBitrate,
+            Resolution: this.__input.inputSpecification?.resolution,
+          },
+          LogLevel: this.__input.logLevel,
+          Name: this.__input.name,
+          RoleArn: this.__input.roleArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateChannel.Channel.Vpc.AvailabilityZones', props);
+    return resource.getResponseField('Channel.Vpc.AvailabilityZones') as unknown as string[];
+  }
+
+  public get networkInterfaceIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateChannel.Channel.Vpc.NetworkInterfaceIds'),
+        outputPath: 'Channel.Vpc.NetworkInterfaceIds',
+        parameters: {
+          CdiInputSpecification: {
+            Resolution: this.__input.cdiInputSpecification?.resolution,
+          },
+          ChannelId: this.__input.channelId,
+          Destinations: this.__input.destinations,
+          EncoderSettings: {
+            AudioDescriptions: this.__input.encoderSettings?.audioDescriptions,
+            AvailBlanking: {
+              AvailBlankingImage: {
+                PasswordParam: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.uri,
+                Username: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.username,
+              },
+              State: this.__input.encoderSettings?.availBlanking?.state,
+            },
+            AvailConfiguration: {
+              AvailSettings: {
+                Scte35SpliceInsert: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.webDeliveryAllowedFlag,
+                },
+                Scte35TimeSignalApos: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.webDeliveryAllowedFlag,
+                },
+              },
+            },
+            BlackoutSlate: {
+              BlackoutSlateImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.username,
+              },
+              NetworkEndBlackout: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackout,
+              NetworkEndBlackoutImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.username,
+              },
+              NetworkId: this.__input.encoderSettings?.blackoutSlate?.networkId,
+              State: this.__input.encoderSettings?.blackoutSlate?.state,
+            },
+            CaptionDescriptions: this.__input.encoderSettings?.captionDescriptions,
+            FeatureActivations: {
+              InputPrepareScheduleActions: this.__input.encoderSettings?.featureActivations?.inputPrepareScheduleActions,
+            },
+            GlobalConfiguration: {
+              InitialAudioGain: this.__input.encoderSettings?.globalConfiguration?.initialAudioGain,
+              InputEndAction: this.__input.encoderSettings?.globalConfiguration?.inputEndAction,
+              InputLossBehavior: {
+                BlackFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.blackFrameMsec,
+                InputLossImageColor: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageColor,
+                InputLossImageSlate: {
+                  PasswordParam: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.passwordParam,
+                  Uri: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.uri,
+                  Username: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.username,
+                },
+                InputLossImageType: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageType,
+                RepeatFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.repeatFrameMsec,
+              },
+              OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
+              OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
+              SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
+            NielsenConfiguration: {
+              DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
+              NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
+            },
+            OutputGroups: this.__input.encoderSettings?.outputGroups,
+            TimecodeConfig: {
+              Source: this.__input.encoderSettings?.timecodeConfig.source,
+              SyncThreshold: this.__input.encoderSettings?.timecodeConfig.syncThreshold,
+            },
+            VideoDescriptions: this.__input.encoderSettings?.videoDescriptions,
+          },
+          InputAttachments: this.__input.inputAttachments,
+          InputSpecification: {
+            Codec: this.__input.inputSpecification?.codec,
+            MaximumBitrate: this.__input.inputSpecification?.maximumBitrate,
+            Resolution: this.__input.inputSpecification?.resolution,
+          },
+          LogLevel: this.__input.logLevel,
+          Name: this.__input.name,
+          RoleArn: this.__input.roleArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateChannel.Channel.Vpc.NetworkInterfaceIds', props);
+    return resource.getResponseField('Channel.Vpc.NetworkInterfaceIds') as unknown as string[];
+  }
+
+  public get securityGroupIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateChannel.Channel.Vpc.SecurityGroupIds'),
+        outputPath: 'Channel.Vpc.SecurityGroupIds',
+        parameters: {
+          CdiInputSpecification: {
+            Resolution: this.__input.cdiInputSpecification?.resolution,
+          },
+          ChannelId: this.__input.channelId,
+          Destinations: this.__input.destinations,
+          EncoderSettings: {
+            AudioDescriptions: this.__input.encoderSettings?.audioDescriptions,
+            AvailBlanking: {
+              AvailBlankingImage: {
+                PasswordParam: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.uri,
+                Username: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.username,
+              },
+              State: this.__input.encoderSettings?.availBlanking?.state,
+            },
+            AvailConfiguration: {
+              AvailSettings: {
+                Scte35SpliceInsert: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.webDeliveryAllowedFlag,
+                },
+                Scte35TimeSignalApos: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.webDeliveryAllowedFlag,
+                },
+              },
+            },
+            BlackoutSlate: {
+              BlackoutSlateImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.username,
+              },
+              NetworkEndBlackout: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackout,
+              NetworkEndBlackoutImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.username,
+              },
+              NetworkId: this.__input.encoderSettings?.blackoutSlate?.networkId,
+              State: this.__input.encoderSettings?.blackoutSlate?.state,
+            },
+            CaptionDescriptions: this.__input.encoderSettings?.captionDescriptions,
+            FeatureActivations: {
+              InputPrepareScheduleActions: this.__input.encoderSettings?.featureActivations?.inputPrepareScheduleActions,
+            },
+            GlobalConfiguration: {
+              InitialAudioGain: this.__input.encoderSettings?.globalConfiguration?.initialAudioGain,
+              InputEndAction: this.__input.encoderSettings?.globalConfiguration?.inputEndAction,
+              InputLossBehavior: {
+                BlackFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.blackFrameMsec,
+                InputLossImageColor: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageColor,
+                InputLossImageSlate: {
+                  PasswordParam: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.passwordParam,
+                  Uri: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.uri,
+                  Username: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.username,
+                },
+                InputLossImageType: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageType,
+                RepeatFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.repeatFrameMsec,
+              },
+              OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
+              OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
+              SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
+            NielsenConfiguration: {
+              DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
+              NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
+            },
+            OutputGroups: this.__input.encoderSettings?.outputGroups,
+            TimecodeConfig: {
+              Source: this.__input.encoderSettings?.timecodeConfig.source,
+              SyncThreshold: this.__input.encoderSettings?.timecodeConfig.syncThreshold,
+            },
+            VideoDescriptions: this.__input.encoderSettings?.videoDescriptions,
+          },
+          InputAttachments: this.__input.inputAttachments,
+          InputSpecification: {
+            Codec: this.__input.inputSpecification?.codec,
+            MaximumBitrate: this.__input.inputSpecification?.maximumBitrate,
+            Resolution: this.__input.inputSpecification?.resolution,
+          },
+          LogLevel: this.__input.logLevel,
+          Name: this.__input.name,
+          RoleArn: this.__input.roleArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateChannel.Channel.Vpc.SecurityGroupIds', props);
+    return resource.getResponseField('Channel.Vpc.SecurityGroupIds') as unknown as string[];
+  }
+
+  public get subnetIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateChannel',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateChannel.Channel.Vpc.SubnetIds'),
+        outputPath: 'Channel.Vpc.SubnetIds',
+        parameters: {
+          CdiInputSpecification: {
+            Resolution: this.__input.cdiInputSpecification?.resolution,
+          },
+          ChannelId: this.__input.channelId,
+          Destinations: this.__input.destinations,
+          EncoderSettings: {
+            AudioDescriptions: this.__input.encoderSettings?.audioDescriptions,
+            AvailBlanking: {
+              AvailBlankingImage: {
+                PasswordParam: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.uri,
+                Username: this.__input.encoderSettings?.availBlanking?.availBlankingImage?.username,
+              },
+              State: this.__input.encoderSettings?.availBlanking?.state,
+            },
+            AvailConfiguration: {
+              AvailSettings: {
+                Scte35SpliceInsert: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35SpliceInsert?.webDeliveryAllowedFlag,
+                },
+                Scte35TimeSignalApos: {
+                  AdAvailOffset: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.adAvailOffset,
+                  NoRegionalBlackoutFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.noRegionalBlackoutFlag,
+                  WebDeliveryAllowedFlag: this.__input.encoderSettings?.availConfiguration?.availSettings?.scte35TimeSignalApos?.webDeliveryAllowedFlag,
+                },
+              },
+            },
+            BlackoutSlate: {
+              BlackoutSlateImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.blackoutSlateImage?.username,
+              },
+              NetworkEndBlackout: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackout,
+              NetworkEndBlackoutImage: {
+                PasswordParam: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.passwordParam,
+                Uri: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.uri,
+                Username: this.__input.encoderSettings?.blackoutSlate?.networkEndBlackoutImage?.username,
+              },
+              NetworkId: this.__input.encoderSettings?.blackoutSlate?.networkId,
+              State: this.__input.encoderSettings?.blackoutSlate?.state,
+            },
+            CaptionDescriptions: this.__input.encoderSettings?.captionDescriptions,
+            FeatureActivations: {
+              InputPrepareScheduleActions: this.__input.encoderSettings?.featureActivations?.inputPrepareScheduleActions,
+            },
+            GlobalConfiguration: {
+              InitialAudioGain: this.__input.encoderSettings?.globalConfiguration?.initialAudioGain,
+              InputEndAction: this.__input.encoderSettings?.globalConfiguration?.inputEndAction,
+              InputLossBehavior: {
+                BlackFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.blackFrameMsec,
+                InputLossImageColor: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageColor,
+                InputLossImageSlate: {
+                  PasswordParam: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.passwordParam,
+                  Uri: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.uri,
+                  Username: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageSlate?.username,
+                },
+                InputLossImageType: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.inputLossImageType,
+                RepeatFrameMsec: this.__input.encoderSettings?.globalConfiguration?.inputLossBehavior?.repeatFrameMsec,
+              },
+              OutputLockingMode: this.__input.encoderSettings?.globalConfiguration?.outputLockingMode,
+              OutputTimingSource: this.__input.encoderSettings?.globalConfiguration?.outputTimingSource,
+              SupportLowFramerateInputs: this.__input.encoderSettings?.globalConfiguration?.supportLowFramerateInputs,
+            },
+            MotionGraphicsConfiguration: {
+              MotionGraphicsInsertion: this.__input.encoderSettings?.motionGraphicsConfiguration?.motionGraphicsInsertion,
+              MotionGraphicsSettings: {
+                HtmlMotionGraphicsSettings: {
+                },
+              },
+            },
+            NielsenConfiguration: {
+              DistributorId: this.__input.encoderSettings?.nielsenConfiguration?.distributorId,
+              NielsenPcmToId3Tagging: this.__input.encoderSettings?.nielsenConfiguration?.nielsenPcmToId3Tagging,
+            },
+            OutputGroups: this.__input.encoderSettings?.outputGroups,
+            TimecodeConfig: {
+              Source: this.__input.encoderSettings?.timecodeConfig.source,
+              SyncThreshold: this.__input.encoderSettings?.timecodeConfig.syncThreshold,
+            },
+            VideoDescriptions: this.__input.encoderSettings?.videoDescriptions,
+          },
+          InputAttachments: this.__input.inputAttachments,
+          InputSpecification: {
+            Codec: this.__input.inputSpecification?.codec,
+            MaximumBitrate: this.__input.inputSpecification?.maximumBitrate,
+            Resolution: this.__input.inputSpecification?.resolution,
+          },
+          LogLevel: this.__input.logLevel,
+          Name: this.__input.name,
+          RoleArn: this.__input.roleArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateChannel.Channel.Vpc.SubnetIds', props);
+    return resource.getResponseField('Channel.Vpc.SubnetIds') as unknown as string[];
   }
 
 }
@@ -24717,6 +28283,10 @@ export class MediaLiveResponsesUpdateChannelClassChannel {
     return resource.getResponseField('Channel.Tags') as unknown as Record<string, string>;
   }
 
+  public get vpc(): MediaLiveResponsesUpdateChannelClassChannelVpc {
+    return new MediaLiveResponsesUpdateChannelClassChannelVpc(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class MediaLiveResponsesUpdateChannelClassChannelCdiInputSpecification {
@@ -24806,6 +28376,10 @@ export class MediaLiveResponsesUpdateChannelClassChannelEncoderSettings {
 
   public get globalConfiguration(): MediaLiveResponsesUpdateChannelClassChannelEncoderSettingsGlobalConfiguration {
     return new MediaLiveResponsesUpdateChannelClassChannelEncoderSettingsGlobalConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get motionGraphicsConfiguration(): MediaLiveResponsesUpdateChannelClassChannelEncoderSettingsMotionGraphicsConfiguration {
+    return new MediaLiveResponsesUpdateChannelClassChannelEncoderSettingsMotionGraphicsConfiguration(this.__scope, this.__resources, this.__input);
   }
 
   public get nielsenConfiguration(): MediaLiveResponsesUpdateChannelClassChannelEncoderSettingsNielsenConfiguration {
@@ -25587,6 +29161,62 @@ export class MediaLiveResponsesUpdateChannelClassChannelEncoderSettingsGlobalCon
 
 }
 
+export class MediaLiveResponsesUpdateChannelClassChannelEncoderSettingsMotionGraphicsConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveUpdateChannelClassRequest) {
+  }
+
+  public get motionGraphicsInsertion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateChannelClass',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateChannelClass.Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion'),
+        outputPath: 'Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion',
+        parameters: {
+          ChannelClass: this.__input.channelClass,
+          ChannelId: this.__input.channelId,
+          Destinations: this.__input.destinations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateChannelClass.Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion', props);
+    return resource.getResponseField('Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsInsertion') as unknown as string;
+  }
+
+  public get motionGraphicsSettings(): MediaLiveResponsesUpdateChannelClassChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+    return new MediaLiveResponsesUpdateChannelClassChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class MediaLiveResponsesUpdateChannelClassChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveUpdateChannelClassRequest) {
+  }
+
+  public get htmlMotionGraphicsSettings(): any {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateChannelClass',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateChannelClass.Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings'),
+        outputPath: 'Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings',
+        parameters: {
+          ChannelClass: this.__input.channelClass,
+          ChannelId: this.__input.channelId,
+          Destinations: this.__input.destinations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateChannelClass.Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings', props);
+    return resource.getResponseField('Channel.EncoderSettings.MotionGraphicsConfiguration.MotionGraphicsSettings.HtmlMotionGraphicsSettings') as unknown as any;
+  }
+
+}
+
 export class MediaLiveResponsesUpdateChannelClassChannelEncoderSettingsNielsenConfiguration {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveUpdateChannelClassRequest) {
@@ -25737,6 +29367,89 @@ export class MediaLiveResponsesUpdateChannelClassChannelInputSpecification {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateChannelClass.Channel.InputSpecification.Resolution', props);
     return resource.getResponseField('Channel.InputSpecification.Resolution') as unknown as string;
+  }
+
+}
+
+export class MediaLiveResponsesUpdateChannelClassChannelVpc {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveUpdateChannelClassRequest) {
+  }
+
+  public get availabilityZones(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateChannelClass',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateChannelClass.Channel.Vpc.AvailabilityZones'),
+        outputPath: 'Channel.Vpc.AvailabilityZones',
+        parameters: {
+          ChannelClass: this.__input.channelClass,
+          ChannelId: this.__input.channelId,
+          Destinations: this.__input.destinations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateChannelClass.Channel.Vpc.AvailabilityZones', props);
+    return resource.getResponseField('Channel.Vpc.AvailabilityZones') as unknown as string[];
+  }
+
+  public get networkInterfaceIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateChannelClass',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateChannelClass.Channel.Vpc.NetworkInterfaceIds'),
+        outputPath: 'Channel.Vpc.NetworkInterfaceIds',
+        parameters: {
+          ChannelClass: this.__input.channelClass,
+          ChannelId: this.__input.channelId,
+          Destinations: this.__input.destinations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateChannelClass.Channel.Vpc.NetworkInterfaceIds', props);
+    return resource.getResponseField('Channel.Vpc.NetworkInterfaceIds') as unknown as string[];
+  }
+
+  public get securityGroupIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateChannelClass',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateChannelClass.Channel.Vpc.SecurityGroupIds'),
+        outputPath: 'Channel.Vpc.SecurityGroupIds',
+        parameters: {
+          ChannelClass: this.__input.channelClass,
+          ChannelId: this.__input.channelId,
+          Destinations: this.__input.destinations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateChannelClass.Channel.Vpc.SecurityGroupIds', props);
+    return resource.getResponseField('Channel.Vpc.SecurityGroupIds') as unknown as string[];
+  }
+
+  public get subnetIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateChannelClass',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateChannelClass.Channel.Vpc.SubnetIds'),
+        outputPath: 'Channel.Vpc.SubnetIds',
+        parameters: {
+          ChannelClass: this.__input.channelClass,
+          ChannelId: this.__input.channelId,
+          Destinations: this.__input.destinations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateChannelClass.Channel.Vpc.SubnetIds', props);
+    return resource.getResponseField('Channel.Vpc.SubnetIds') as unknown as string[];
   }
 
 }
@@ -25899,6 +29612,30 @@ export class MediaLiveResponsesUpdateInputInput {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateInput.Input.InputDevices', props);
     return resource.getResponseField('Input.InputDevices') as unknown as shapes.MediaLiveInputDeviceSettings[];
+  }
+
+  public get inputPartnerIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateInput',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateInput.Input.InputPartnerIds'),
+        outputPath: 'Input.InputPartnerIds',
+        parameters: {
+          Destinations: this.__input.destinations,
+          InputDevices: this.__input.inputDevices,
+          InputId: this.__input.inputId,
+          InputSecurityGroups: this.__input.inputSecurityGroups,
+          MediaConnectFlows: this.__input.mediaConnectFlows,
+          Name: this.__input.name,
+          RoleArn: this.__input.roleArn,
+          Sources: this.__input.sources,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateInput.Input.InputPartnerIds', props);
+    return resource.getResponseField('Input.InputPartnerIds') as unknown as string[];
   }
 
   public get inputSourceType(): string {
@@ -26139,6 +29876,10 @@ export class MediaLiveResponsesUpdateInputDevice {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26161,6 +29902,10 @@ export class MediaLiveResponsesUpdateInputDevice {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26183,6 +29928,10 @@ export class MediaLiveResponsesUpdateInputDevice {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26205,6 +29954,10 @@ export class MediaLiveResponsesUpdateInputDevice {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26231,6 +29984,10 @@ export class MediaLiveResponsesUpdateInputDevice {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26253,6 +30010,10 @@ export class MediaLiveResponsesUpdateInputDevice {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26275,6 +30036,10 @@ export class MediaLiveResponsesUpdateInputDevice {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26301,6 +30066,10 @@ export class MediaLiveResponsesUpdateInputDevice {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26323,11 +30092,19 @@ export class MediaLiveResponsesUpdateInputDevice {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateInputDevice.Type', props);
     return resource.getResponseField('Type') as unknown as string;
+  }
+
+  public get uhdDeviceSettings(): MediaLiveResponsesUpdateInputDeviceUhdDeviceSettings {
+    return new MediaLiveResponsesUpdateInputDeviceUhdDeviceSettings(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -26352,6 +30129,10 @@ export class MediaLiveResponsesUpdateInputDeviceHdDeviceSettings {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26374,6 +30155,10 @@ export class MediaLiveResponsesUpdateInputDeviceHdDeviceSettings {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26396,6 +30181,10 @@ export class MediaLiveResponsesUpdateInputDeviceHdDeviceSettings {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26418,6 +30207,10 @@ export class MediaLiveResponsesUpdateInputDeviceHdDeviceSettings {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26440,6 +30233,10 @@ export class MediaLiveResponsesUpdateInputDeviceHdDeviceSettings {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26462,6 +30259,10 @@ export class MediaLiveResponsesUpdateInputDeviceHdDeviceSettings {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26484,6 +30285,10 @@ export class MediaLiveResponsesUpdateInputDeviceHdDeviceSettings {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26506,6 +30311,10 @@ export class MediaLiveResponsesUpdateInputDeviceHdDeviceSettings {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26535,6 +30344,10 @@ export class MediaLiveResponsesUpdateInputDeviceNetworkSettings {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26557,6 +30370,10 @@ export class MediaLiveResponsesUpdateInputDeviceNetworkSettings {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26579,6 +30396,10 @@ export class MediaLiveResponsesUpdateInputDeviceNetworkSettings {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26601,6 +30422,10 @@ export class MediaLiveResponsesUpdateInputDeviceNetworkSettings {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
@@ -26623,11 +30448,230 @@ export class MediaLiveResponsesUpdateInputDeviceNetworkSettings {
           },
           InputDeviceId: this.__input.inputDeviceId,
           Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateInputDevice.NetworkSettings.SubnetMask', props);
     return resource.getResponseField('NetworkSettings.SubnetMask') as unknown as string;
+  }
+
+}
+
+export class MediaLiveResponsesUpdateInputDeviceUhdDeviceSettings {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaLiveUpdateInputDeviceRequest) {
+  }
+
+  public get activeInput(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateInputDevice',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateInputDevice.UhdDeviceSettings.ActiveInput'),
+        outputPath: 'UhdDeviceSettings.ActiveInput',
+        parameters: {
+          HdDeviceSettings: {
+            ConfiguredInput: this.__input.hdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.hdDeviceSettings?.maxBitrate,
+          },
+          InputDeviceId: this.__input.inputDeviceId,
+          Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateInputDevice.UhdDeviceSettings.ActiveInput', props);
+    return resource.getResponseField('UhdDeviceSettings.ActiveInput') as unknown as string;
+  }
+
+  public get configuredInput(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateInputDevice',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateInputDevice.UhdDeviceSettings.ConfiguredInput'),
+        outputPath: 'UhdDeviceSettings.ConfiguredInput',
+        parameters: {
+          HdDeviceSettings: {
+            ConfiguredInput: this.__input.hdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.hdDeviceSettings?.maxBitrate,
+          },
+          InputDeviceId: this.__input.inputDeviceId,
+          Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateInputDevice.UhdDeviceSettings.ConfiguredInput', props);
+    return resource.getResponseField('UhdDeviceSettings.ConfiguredInput') as unknown as string;
+  }
+
+  public get deviceState(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateInputDevice',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateInputDevice.UhdDeviceSettings.DeviceState'),
+        outputPath: 'UhdDeviceSettings.DeviceState',
+        parameters: {
+          HdDeviceSettings: {
+            ConfiguredInput: this.__input.hdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.hdDeviceSettings?.maxBitrate,
+          },
+          InputDeviceId: this.__input.inputDeviceId,
+          Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateInputDevice.UhdDeviceSettings.DeviceState', props);
+    return resource.getResponseField('UhdDeviceSettings.DeviceState') as unknown as string;
+  }
+
+  public get framerate(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateInputDevice',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateInputDevice.UhdDeviceSettings.Framerate'),
+        outputPath: 'UhdDeviceSettings.Framerate',
+        parameters: {
+          HdDeviceSettings: {
+            ConfiguredInput: this.__input.hdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.hdDeviceSettings?.maxBitrate,
+          },
+          InputDeviceId: this.__input.inputDeviceId,
+          Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateInputDevice.UhdDeviceSettings.Framerate', props);
+    return resource.getResponseField('UhdDeviceSettings.Framerate') as unknown as number;
+  }
+
+  public get height(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateInputDevice',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateInputDevice.UhdDeviceSettings.Height'),
+        outputPath: 'UhdDeviceSettings.Height',
+        parameters: {
+          HdDeviceSettings: {
+            ConfiguredInput: this.__input.hdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.hdDeviceSettings?.maxBitrate,
+          },
+          InputDeviceId: this.__input.inputDeviceId,
+          Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateInputDevice.UhdDeviceSettings.Height', props);
+    return resource.getResponseField('UhdDeviceSettings.Height') as unknown as number;
+  }
+
+  public get maxBitrate(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateInputDevice',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateInputDevice.UhdDeviceSettings.MaxBitrate'),
+        outputPath: 'UhdDeviceSettings.MaxBitrate',
+        parameters: {
+          HdDeviceSettings: {
+            ConfiguredInput: this.__input.hdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.hdDeviceSettings?.maxBitrate,
+          },
+          InputDeviceId: this.__input.inputDeviceId,
+          Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateInputDevice.UhdDeviceSettings.MaxBitrate', props);
+    return resource.getResponseField('UhdDeviceSettings.MaxBitrate') as unknown as number;
+  }
+
+  public get scanType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateInputDevice',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateInputDevice.UhdDeviceSettings.ScanType'),
+        outputPath: 'UhdDeviceSettings.ScanType',
+        parameters: {
+          HdDeviceSettings: {
+            ConfiguredInput: this.__input.hdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.hdDeviceSettings?.maxBitrate,
+          },
+          InputDeviceId: this.__input.inputDeviceId,
+          Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateInputDevice.UhdDeviceSettings.ScanType', props);
+    return resource.getResponseField('UhdDeviceSettings.ScanType') as unknown as string;
+  }
+
+  public get width(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateInputDevice',
+        service: 'MediaLive',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaLive.UpdateInputDevice.UhdDeviceSettings.Width'),
+        outputPath: 'UhdDeviceSettings.Width',
+        parameters: {
+          HdDeviceSettings: {
+            ConfiguredInput: this.__input.hdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.hdDeviceSettings?.maxBitrate,
+          },
+          InputDeviceId: this.__input.inputDeviceId,
+          Name: this.__input.name,
+          UhdDeviceSettings: {
+            ConfiguredInput: this.__input.uhdDeviceSettings?.configuredInput,
+            MaxBitrate: this.__input.uhdDeviceSettings?.maxBitrate,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateInputDevice.UhdDeviceSettings.Width', props);
+    return resource.getResponseField('UhdDeviceSettings.Width') as unknown as number;
   }
 
 }

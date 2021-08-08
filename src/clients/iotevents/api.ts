@@ -8,12 +8,31 @@ export class IoTEventsClient extends cdk.Construct {
     super(scope, id);
   }
 
+  public createAlarmModel(input: shapes.IoTEventsCreateAlarmModelRequest): IoTEventsResponsesCreateAlarmModel {
+    return new IoTEventsResponsesCreateAlarmModel(this, this.__resources, input);
+  }
+
   public createDetectorModel(input: shapes.IoTEventsCreateDetectorModelRequest): IoTEventsResponsesCreateDetectorModel {
     return new IoTEventsResponsesCreateDetectorModel(this, this.__resources, input);
   }
 
   public createInput(input: shapes.IoTEventsCreateInputRequest): IoTEventsResponsesCreateInput {
     return new IoTEventsResponsesCreateInput(this, this.__resources, input);
+  }
+
+  public deleteAlarmModel(input: shapes.IoTEventsDeleteAlarmModelRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DeleteAlarmModel'),
+        parameters: {
+          alarmModelName: input.alarmModelName,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteAlarmModel', props);
   }
 
   public deleteDetectorModel(input: shapes.IoTEventsDeleteDetectorModelRequest): void {
@@ -46,8 +65,16 @@ export class IoTEventsClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeleteInput', props);
   }
 
+  public describeAlarmModel(input: shapes.IoTEventsDescribeAlarmModelRequest): IoTEventsResponsesDescribeAlarmModel {
+    return new IoTEventsResponsesDescribeAlarmModel(this, this.__resources, input);
+  }
+
   public describeDetectorModel(input: shapes.IoTEventsDescribeDetectorModelRequest): IoTEventsResponsesDescribeDetectorModel {
     return new IoTEventsResponsesDescribeDetectorModel(this, this.__resources, input);
+  }
+
+  public describeDetectorModelAnalysis(input: shapes.IoTEventsDescribeDetectorModelAnalysisRequest): IoTEventsResponsesDescribeDetectorModelAnalysis {
+    return new IoTEventsResponsesDescribeDetectorModelAnalysis(this, this.__resources, input);
   }
 
   public describeInput(input: shapes.IoTEventsDescribeInputRequest): IoTEventsResponsesDescribeInput {
@@ -58,12 +85,28 @@ export class IoTEventsClient extends cdk.Construct {
     return new IoTEventsResponsesDescribeLoggingOptions(this, this.__resources);
   }
 
+  public fetchDetectorModelAnalysisResults(input: shapes.IoTEventsGetDetectorModelAnalysisResultsRequest): IoTEventsResponsesFetchDetectorModelAnalysisResults {
+    return new IoTEventsResponsesFetchDetectorModelAnalysisResults(this, this.__resources, input);
+  }
+
+  public listAlarmModelVersions(input: shapes.IoTEventsListAlarmModelVersionsRequest): IoTEventsResponsesListAlarmModelVersions {
+    return new IoTEventsResponsesListAlarmModelVersions(this, this.__resources, input);
+  }
+
+  public listAlarmModels(input: shapes.IoTEventsListAlarmModelsRequest): IoTEventsResponsesListAlarmModels {
+    return new IoTEventsResponsesListAlarmModels(this, this.__resources, input);
+  }
+
   public listDetectorModelVersions(input: shapes.IoTEventsListDetectorModelVersionsRequest): IoTEventsResponsesListDetectorModelVersions {
     return new IoTEventsResponsesListDetectorModelVersions(this, this.__resources, input);
   }
 
   public listDetectorModels(input: shapes.IoTEventsListDetectorModelsRequest): IoTEventsResponsesListDetectorModels {
     return new IoTEventsResponsesListDetectorModels(this, this.__resources, input);
+  }
+
+  public listInputRoutings(input: shapes.IoTEventsListInputRoutingsRequest): IoTEventsResponsesListInputRoutings {
+    return new IoTEventsResponsesListInputRoutings(this, this.__resources, input);
   }
 
   public listInputs(input: shapes.IoTEventsListInputsRequest): IoTEventsResponsesListInputs {
@@ -92,6 +135,10 @@ export class IoTEventsClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'PutLoggingOptions', props);
+  }
+
+  public startDetectorModelAnalysis(input: shapes.IoTEventsStartDetectorModelAnalysisRequest): IoTEventsResponsesStartDetectorModelAnalysis {
+    return new IoTEventsResponsesStartDetectorModelAnalysis(this, this.__resources, input);
   }
 
   public tagResource(input: shapes.IoTEventsTagResourceRequest): void {
@@ -126,12 +173,238 @@ export class IoTEventsClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'UntagResource', props);
   }
 
+  public updateAlarmModel(input: shapes.IoTEventsUpdateAlarmModelRequest): IoTEventsResponsesUpdateAlarmModel {
+    return new IoTEventsResponsesUpdateAlarmModel(this, this.__resources, input);
+  }
+
   public updateDetectorModel(input: shapes.IoTEventsUpdateDetectorModelRequest): IoTEventsResponsesUpdateDetectorModel {
     return new IoTEventsResponsesUpdateDetectorModel(this, this.__resources, input);
   }
 
   public updateInput(input: shapes.IoTEventsUpdateInputRequest): IoTEventsResponsesUpdateInput {
     return new IoTEventsResponsesUpdateInput(this, this.__resources, input);
+  }
+
+}
+
+export class IoTEventsResponsesCreateAlarmModel {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsCreateAlarmModelRequest) {
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.CreateAlarmModel.creationTime'),
+        outputPath: 'creationTime',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelDescription: this.__input.alarmModelDescription,
+          roleArn: this.__input.roleArn,
+          tags: this.__input.tags,
+          key: this.__input.key,
+          severity: this.__input.severity,
+          alarmRule: {
+            simpleRule: {
+              inputProperty: this.__input.alarmRule.simpleRule?.inputProperty,
+              comparisonOperator: this.__input.alarmRule.simpleRule?.comparisonOperator,
+              threshold: this.__input.alarmRule.simpleRule?.threshold,
+            },
+          },
+          alarmNotification: {
+            notificationActions: this.__input.alarmNotification?.notificationActions,
+          },
+          alarmEventActions: {
+            alarmActions: this.__input.alarmEventActions?.alarmActions,
+          },
+          alarmCapabilities: {
+            initializationConfiguration: {
+              disabledOnInitialization: this.__input.alarmCapabilities?.initializationConfiguration?.disabledOnInitialization,
+            },
+            acknowledgeFlow: {
+              enabled: this.__input.alarmCapabilities?.acknowledgeFlow?.enabled,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAlarmModel.creationTime', props);
+    return resource.getResponseField('creationTime') as unknown as string;
+  }
+
+  public get alarmModelArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.CreateAlarmModel.alarmModelArn'),
+        outputPath: 'alarmModelArn',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelDescription: this.__input.alarmModelDescription,
+          roleArn: this.__input.roleArn,
+          tags: this.__input.tags,
+          key: this.__input.key,
+          severity: this.__input.severity,
+          alarmRule: {
+            simpleRule: {
+              inputProperty: this.__input.alarmRule.simpleRule?.inputProperty,
+              comparisonOperator: this.__input.alarmRule.simpleRule?.comparisonOperator,
+              threshold: this.__input.alarmRule.simpleRule?.threshold,
+            },
+          },
+          alarmNotification: {
+            notificationActions: this.__input.alarmNotification?.notificationActions,
+          },
+          alarmEventActions: {
+            alarmActions: this.__input.alarmEventActions?.alarmActions,
+          },
+          alarmCapabilities: {
+            initializationConfiguration: {
+              disabledOnInitialization: this.__input.alarmCapabilities?.initializationConfiguration?.disabledOnInitialization,
+            },
+            acknowledgeFlow: {
+              enabled: this.__input.alarmCapabilities?.acknowledgeFlow?.enabled,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAlarmModel.alarmModelArn', props);
+    return resource.getResponseField('alarmModelArn') as unknown as string;
+  }
+
+  public get alarmModelVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.CreateAlarmModel.alarmModelVersion'),
+        outputPath: 'alarmModelVersion',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelDescription: this.__input.alarmModelDescription,
+          roleArn: this.__input.roleArn,
+          tags: this.__input.tags,
+          key: this.__input.key,
+          severity: this.__input.severity,
+          alarmRule: {
+            simpleRule: {
+              inputProperty: this.__input.alarmRule.simpleRule?.inputProperty,
+              comparisonOperator: this.__input.alarmRule.simpleRule?.comparisonOperator,
+              threshold: this.__input.alarmRule.simpleRule?.threshold,
+            },
+          },
+          alarmNotification: {
+            notificationActions: this.__input.alarmNotification?.notificationActions,
+          },
+          alarmEventActions: {
+            alarmActions: this.__input.alarmEventActions?.alarmActions,
+          },
+          alarmCapabilities: {
+            initializationConfiguration: {
+              disabledOnInitialization: this.__input.alarmCapabilities?.initializationConfiguration?.disabledOnInitialization,
+            },
+            acknowledgeFlow: {
+              enabled: this.__input.alarmCapabilities?.acknowledgeFlow?.enabled,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAlarmModel.alarmModelVersion', props);
+    return resource.getResponseField('alarmModelVersion') as unknown as string;
+  }
+
+  public get lastUpdateTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.CreateAlarmModel.lastUpdateTime'),
+        outputPath: 'lastUpdateTime',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelDescription: this.__input.alarmModelDescription,
+          roleArn: this.__input.roleArn,
+          tags: this.__input.tags,
+          key: this.__input.key,
+          severity: this.__input.severity,
+          alarmRule: {
+            simpleRule: {
+              inputProperty: this.__input.alarmRule.simpleRule?.inputProperty,
+              comparisonOperator: this.__input.alarmRule.simpleRule?.comparisonOperator,
+              threshold: this.__input.alarmRule.simpleRule?.threshold,
+            },
+          },
+          alarmNotification: {
+            notificationActions: this.__input.alarmNotification?.notificationActions,
+          },
+          alarmEventActions: {
+            alarmActions: this.__input.alarmEventActions?.alarmActions,
+          },
+          alarmCapabilities: {
+            initializationConfiguration: {
+              disabledOnInitialization: this.__input.alarmCapabilities?.initializationConfiguration?.disabledOnInitialization,
+            },
+            acknowledgeFlow: {
+              enabled: this.__input.alarmCapabilities?.acknowledgeFlow?.enabled,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAlarmModel.lastUpdateTime', props);
+    return resource.getResponseField('lastUpdateTime') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.CreateAlarmModel.status'),
+        outputPath: 'status',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelDescription: this.__input.alarmModelDescription,
+          roleArn: this.__input.roleArn,
+          tags: this.__input.tags,
+          key: this.__input.key,
+          severity: this.__input.severity,
+          alarmRule: {
+            simpleRule: {
+              inputProperty: this.__input.alarmRule.simpleRule?.inputProperty,
+              comparisonOperator: this.__input.alarmRule.simpleRule?.comparisonOperator,
+              threshold: this.__input.alarmRule.simpleRule?.threshold,
+            },
+          },
+          alarmNotification: {
+            notificationActions: this.__input.alarmNotification?.notificationActions,
+          },
+          alarmEventActions: {
+            alarmActions: this.__input.alarmEventActions?.alarmActions,
+          },
+          alarmCapabilities: {
+            initializationConfiguration: {
+              disabledOnInitialization: this.__input.alarmCapabilities?.initializationConfiguration?.disabledOnInitialization,
+            },
+            acknowledgeFlow: {
+              enabled: this.__input.alarmCapabilities?.acknowledgeFlow?.enabled,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAlarmModel.status', props);
+    return resource.getResponseField('status') as unknown as string;
   }
 
 }
@@ -564,6 +837,414 @@ export class IoTEventsResponsesCreateInputInputConfiguration {
 
 }
 
+export class IoTEventsResponsesDescribeAlarmModel {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsDescribeAlarmModelRequest) {
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeAlarmModel.creationTime'),
+        outputPath: 'creationTime',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelVersion: this.__input.alarmModelVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAlarmModel.creationTime', props);
+    return resource.getResponseField('creationTime') as unknown as string;
+  }
+
+  public get alarmModelArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeAlarmModel.alarmModelArn'),
+        outputPath: 'alarmModelArn',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelVersion: this.__input.alarmModelVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAlarmModel.alarmModelArn', props);
+    return resource.getResponseField('alarmModelArn') as unknown as string;
+  }
+
+  public get alarmModelVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeAlarmModel.alarmModelVersion'),
+        outputPath: 'alarmModelVersion',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelVersion: this.__input.alarmModelVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAlarmModel.alarmModelVersion', props);
+    return resource.getResponseField('alarmModelVersion') as unknown as string;
+  }
+
+  public get lastUpdateTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeAlarmModel.lastUpdateTime'),
+        outputPath: 'lastUpdateTime',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelVersion: this.__input.alarmModelVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAlarmModel.lastUpdateTime', props);
+    return resource.getResponseField('lastUpdateTime') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeAlarmModel.status'),
+        outputPath: 'status',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelVersion: this.__input.alarmModelVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAlarmModel.status', props);
+    return resource.getResponseField('status') as unknown as string;
+  }
+
+  public get statusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeAlarmModel.statusMessage'),
+        outputPath: 'statusMessage',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelVersion: this.__input.alarmModelVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAlarmModel.statusMessage', props);
+    return resource.getResponseField('statusMessage') as unknown as string;
+  }
+
+  public get alarmModelName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeAlarmModel.alarmModelName'),
+        outputPath: 'alarmModelName',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelVersion: this.__input.alarmModelVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAlarmModel.alarmModelName', props);
+    return resource.getResponseField('alarmModelName') as unknown as string;
+  }
+
+  public get alarmModelDescription(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeAlarmModel.alarmModelDescription'),
+        outputPath: 'alarmModelDescription',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelVersion: this.__input.alarmModelVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAlarmModel.alarmModelDescription', props);
+    return resource.getResponseField('alarmModelDescription') as unknown as string;
+  }
+
+  public get roleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeAlarmModel.roleArn'),
+        outputPath: 'roleArn',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelVersion: this.__input.alarmModelVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAlarmModel.roleArn', props);
+    return resource.getResponseField('roleArn') as unknown as string;
+  }
+
+  public get key(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeAlarmModel.key'),
+        outputPath: 'key',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelVersion: this.__input.alarmModelVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAlarmModel.key', props);
+    return resource.getResponseField('key') as unknown as string;
+  }
+
+  public get severity(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeAlarmModel.severity'),
+        outputPath: 'severity',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelVersion: this.__input.alarmModelVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAlarmModel.severity', props);
+    return resource.getResponseField('severity') as unknown as number;
+  }
+
+  public get alarmRule(): IoTEventsResponsesDescribeAlarmModelAlarmRule {
+    return new IoTEventsResponsesDescribeAlarmModelAlarmRule(this.__scope, this.__resources, this.__input);
+  }
+
+  public get alarmNotification(): IoTEventsResponsesDescribeAlarmModelAlarmNotification {
+    return new IoTEventsResponsesDescribeAlarmModelAlarmNotification(this.__scope, this.__resources, this.__input);
+  }
+
+  public get alarmEventActions(): IoTEventsResponsesDescribeAlarmModelAlarmEventActions {
+    return new IoTEventsResponsesDescribeAlarmModelAlarmEventActions(this.__scope, this.__resources, this.__input);
+  }
+
+  public get alarmCapabilities(): IoTEventsResponsesDescribeAlarmModelAlarmCapabilities {
+    return new IoTEventsResponsesDescribeAlarmModelAlarmCapabilities(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTEventsResponsesDescribeAlarmModelAlarmRule {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsDescribeAlarmModelRequest) {
+  }
+
+  public get simpleRule(): IoTEventsResponsesDescribeAlarmModelAlarmRuleSimpleRule {
+    return new IoTEventsResponsesDescribeAlarmModelAlarmRuleSimpleRule(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTEventsResponsesDescribeAlarmModelAlarmRuleSimpleRule {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsDescribeAlarmModelRequest) {
+  }
+
+  public get inputProperty(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeAlarmModel.alarmRule.simpleRule.inputProperty'),
+        outputPath: 'alarmRule.simpleRule.inputProperty',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelVersion: this.__input.alarmModelVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAlarmModel.alarmRule.simpleRule.inputProperty', props);
+    return resource.getResponseField('alarmRule.simpleRule.inputProperty') as unknown as string;
+  }
+
+  public get comparisonOperator(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeAlarmModel.alarmRule.simpleRule.comparisonOperator'),
+        outputPath: 'alarmRule.simpleRule.comparisonOperator',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelVersion: this.__input.alarmModelVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAlarmModel.alarmRule.simpleRule.comparisonOperator', props);
+    return resource.getResponseField('alarmRule.simpleRule.comparisonOperator') as unknown as string;
+  }
+
+  public get threshold(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeAlarmModel.alarmRule.simpleRule.threshold'),
+        outputPath: 'alarmRule.simpleRule.threshold',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelVersion: this.__input.alarmModelVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAlarmModel.alarmRule.simpleRule.threshold', props);
+    return resource.getResponseField('alarmRule.simpleRule.threshold') as unknown as string;
+  }
+
+}
+
+export class IoTEventsResponsesDescribeAlarmModelAlarmNotification {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsDescribeAlarmModelRequest) {
+  }
+
+  public get notificationActions(): shapes.IoTEventsNotificationAction[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeAlarmModel.alarmNotification.notificationActions'),
+        outputPath: 'alarmNotification.notificationActions',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelVersion: this.__input.alarmModelVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAlarmModel.alarmNotification.notificationActions', props);
+    return resource.getResponseField('alarmNotification.notificationActions') as unknown as shapes.IoTEventsNotificationAction[];
+  }
+
+}
+
+export class IoTEventsResponsesDescribeAlarmModelAlarmEventActions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsDescribeAlarmModelRequest) {
+  }
+
+  public get alarmActions(): shapes.IoTEventsAlarmAction[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeAlarmModel.alarmEventActions.alarmActions'),
+        outputPath: 'alarmEventActions.alarmActions',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelVersion: this.__input.alarmModelVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAlarmModel.alarmEventActions.alarmActions', props);
+    return resource.getResponseField('alarmEventActions.alarmActions') as unknown as shapes.IoTEventsAlarmAction[];
+  }
+
+}
+
+export class IoTEventsResponsesDescribeAlarmModelAlarmCapabilities {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsDescribeAlarmModelRequest) {
+  }
+
+  public get initializationConfiguration(): IoTEventsResponsesDescribeAlarmModelAlarmCapabilitiesInitializationConfiguration {
+    return new IoTEventsResponsesDescribeAlarmModelAlarmCapabilitiesInitializationConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get acknowledgeFlow(): IoTEventsResponsesDescribeAlarmModelAlarmCapabilitiesAcknowledgeFlow {
+    return new IoTEventsResponsesDescribeAlarmModelAlarmCapabilitiesAcknowledgeFlow(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IoTEventsResponsesDescribeAlarmModelAlarmCapabilitiesInitializationConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsDescribeAlarmModelRequest) {
+  }
+
+  public get disabledOnInitialization(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeAlarmModel.alarmCapabilities.initializationConfiguration.disabledOnInitialization'),
+        outputPath: 'alarmCapabilities.initializationConfiguration.disabledOnInitialization',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelVersion: this.__input.alarmModelVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAlarmModel.alarmCapabilities.initializationConfiguration.disabledOnInitialization', props);
+    return resource.getResponseField('alarmCapabilities.initializationConfiguration.disabledOnInitialization') as unknown as boolean;
+  }
+
+}
+
+export class IoTEventsResponsesDescribeAlarmModelAlarmCapabilitiesAcknowledgeFlow {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsDescribeAlarmModelRequest) {
+  }
+
+  public get enabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeAlarmModel.alarmCapabilities.acknowledgeFlow.enabled'),
+        outputPath: 'alarmCapabilities.acknowledgeFlow.enabled',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelVersion: this.__input.alarmModelVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAlarmModel.alarmCapabilities.acknowledgeFlow.enabled', props);
+    return resource.getResponseField('alarmCapabilities.acknowledgeFlow.enabled') as unknown as boolean;
+  }
+
+}
+
 export class IoTEventsResponsesDescribeDetectorModel {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsDescribeDetectorModelRequest) {
@@ -820,6 +1501,30 @@ export class IoTEventsResponsesDescribeDetectorModelDetectorModelDetectorModelCo
 
 }
 
+export class IoTEventsResponsesDescribeDetectorModelAnalysis {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsDescribeDetectorModelAnalysisRequest) {
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDetectorModelAnalysis',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.DescribeDetectorModelAnalysis.status'),
+        outputPath: 'status',
+        parameters: {
+          analysisId: this.__input.analysisId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDetectorModelAnalysis.status', props);
+    return resource.getResponseField('status') as unknown as string;
+  }
+
+}
+
 export class IoTEventsResponsesDescribeInput {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsDescribeInputRequest) {
@@ -1061,6 +1766,139 @@ export class IoTEventsResponsesDescribeLoggingOptionsLoggingOptions {
 
 }
 
+export class IoTEventsResponsesFetchDetectorModelAnalysisResults {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsGetDetectorModelAnalysisResultsRequest) {
+  }
+
+  public get analysisResults(): shapes.IoTEventsAnalysisResult[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDetectorModelAnalysisResults',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.GetDetectorModelAnalysisResults.analysisResults'),
+        outputPath: 'analysisResults',
+        parameters: {
+          analysisId: this.__input.analysisId,
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDetectorModelAnalysisResults.analysisResults', props);
+    return resource.getResponseField('analysisResults') as unknown as shapes.IoTEventsAnalysisResult[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDetectorModelAnalysisResults',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.GetDetectorModelAnalysisResults.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          analysisId: this.__input.analysisId,
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDetectorModelAnalysisResults.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
+export class IoTEventsResponsesListAlarmModelVersions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsListAlarmModelVersionsRequest) {
+  }
+
+  public get alarmModelVersionSummaries(): shapes.IoTEventsAlarmModelVersionSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAlarmModelVersions',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.ListAlarmModelVersions.alarmModelVersionSummaries'),
+        outputPath: 'alarmModelVersionSummaries',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAlarmModelVersions.alarmModelVersionSummaries', props);
+    return resource.getResponseField('alarmModelVersionSummaries') as unknown as shapes.IoTEventsAlarmModelVersionSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAlarmModelVersions',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.ListAlarmModelVersions.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAlarmModelVersions.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
+export class IoTEventsResponsesListAlarmModels {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsListAlarmModelsRequest) {
+  }
+
+  public get alarmModelSummaries(): shapes.IoTEventsAlarmModelSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAlarmModels',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.ListAlarmModels.alarmModelSummaries'),
+        outputPath: 'alarmModelSummaries',
+        parameters: {
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAlarmModels.alarmModelSummaries', props);
+    return resource.getResponseField('alarmModelSummaries') as unknown as shapes.IoTEventsAlarmModelSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAlarmModels',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.ListAlarmModels.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAlarmModels.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
 export class IoTEventsResponsesListDetectorModelVersions {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsListDetectorModelVersionsRequest) {
@@ -1149,6 +1987,71 @@ export class IoTEventsResponsesListDetectorModels {
 
 }
 
+export class IoTEventsResponsesListInputRoutings {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsListInputRoutingsRequest) {
+  }
+
+  public get routedResources(): shapes.IoTEventsRoutedResource[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listInputRoutings',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.ListInputRoutings.routedResources'),
+        outputPath: 'routedResources',
+        parameters: {
+          inputIdentifier: {
+            iotEventsInputIdentifier: {
+              inputName: this.__input.inputIdentifier.iotEventsInputIdentifier?.inputName,
+            },
+            iotSiteWiseInputIdentifier: {
+              iotSiteWiseAssetModelPropertyIdentifier: {
+                assetModelId: this.__input.inputIdentifier.iotSiteWiseInputIdentifier?.iotSiteWiseAssetModelPropertyIdentifier?.assetModelId,
+                propertyId: this.__input.inputIdentifier.iotSiteWiseInputIdentifier?.iotSiteWiseAssetModelPropertyIdentifier?.propertyId,
+              },
+            },
+          },
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListInputRoutings.routedResources', props);
+    return resource.getResponseField('routedResources') as unknown as shapes.IoTEventsRoutedResource[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listInputRoutings',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.ListInputRoutings.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          inputIdentifier: {
+            iotEventsInputIdentifier: {
+              inputName: this.__input.inputIdentifier.iotEventsInputIdentifier?.inputName,
+            },
+            iotSiteWiseInputIdentifier: {
+              iotSiteWiseAssetModelPropertyIdentifier: {
+                assetModelId: this.__input.inputIdentifier.iotSiteWiseInputIdentifier?.iotSiteWiseAssetModelPropertyIdentifier?.assetModelId,
+                propertyId: this.__input.inputIdentifier.iotSiteWiseInputIdentifier?.iotSiteWiseAssetModelPropertyIdentifier?.propertyId,
+              },
+            },
+          },
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListInputRoutings.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
 export class IoTEventsResponsesListInputs {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsListInputsRequest) {
@@ -1212,6 +2115,245 @@ export class IoTEventsResponsesListTagsForResource {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListTagsForResource.tags', props);
     return resource.getResponseField('tags') as unknown as shapes.IoTEventsTag[];
+  }
+
+}
+
+export class IoTEventsResponsesStartDetectorModelAnalysis {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsStartDetectorModelAnalysisRequest) {
+  }
+
+  public get analysisId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startDetectorModelAnalysis',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.StartDetectorModelAnalysis.analysisId'),
+        outputPath: 'analysisId',
+        parameters: {
+          detectorModelDefinition: {
+            states: this.__input.detectorModelDefinition.states,
+            initialStateName: this.__input.detectorModelDefinition.initialStateName,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartDetectorModelAnalysis.analysisId', props);
+    return resource.getResponseField('analysisId') as unknown as string;
+  }
+
+}
+
+export class IoTEventsResponsesUpdateAlarmModel {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IoTEventsUpdateAlarmModelRequest) {
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.UpdateAlarmModel.creationTime'),
+        outputPath: 'creationTime',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelDescription: this.__input.alarmModelDescription,
+          roleArn: this.__input.roleArn,
+          severity: this.__input.severity,
+          alarmRule: {
+            simpleRule: {
+              inputProperty: this.__input.alarmRule.simpleRule?.inputProperty,
+              comparisonOperator: this.__input.alarmRule.simpleRule?.comparisonOperator,
+              threshold: this.__input.alarmRule.simpleRule?.threshold,
+            },
+          },
+          alarmNotification: {
+            notificationActions: this.__input.alarmNotification?.notificationActions,
+          },
+          alarmEventActions: {
+            alarmActions: this.__input.alarmEventActions?.alarmActions,
+          },
+          alarmCapabilities: {
+            initializationConfiguration: {
+              disabledOnInitialization: this.__input.alarmCapabilities?.initializationConfiguration?.disabledOnInitialization,
+            },
+            acknowledgeFlow: {
+              enabled: this.__input.alarmCapabilities?.acknowledgeFlow?.enabled,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAlarmModel.creationTime', props);
+    return resource.getResponseField('creationTime') as unknown as string;
+  }
+
+  public get alarmModelArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.UpdateAlarmModel.alarmModelArn'),
+        outputPath: 'alarmModelArn',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelDescription: this.__input.alarmModelDescription,
+          roleArn: this.__input.roleArn,
+          severity: this.__input.severity,
+          alarmRule: {
+            simpleRule: {
+              inputProperty: this.__input.alarmRule.simpleRule?.inputProperty,
+              comparisonOperator: this.__input.alarmRule.simpleRule?.comparisonOperator,
+              threshold: this.__input.alarmRule.simpleRule?.threshold,
+            },
+          },
+          alarmNotification: {
+            notificationActions: this.__input.alarmNotification?.notificationActions,
+          },
+          alarmEventActions: {
+            alarmActions: this.__input.alarmEventActions?.alarmActions,
+          },
+          alarmCapabilities: {
+            initializationConfiguration: {
+              disabledOnInitialization: this.__input.alarmCapabilities?.initializationConfiguration?.disabledOnInitialization,
+            },
+            acknowledgeFlow: {
+              enabled: this.__input.alarmCapabilities?.acknowledgeFlow?.enabled,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAlarmModel.alarmModelArn', props);
+    return resource.getResponseField('alarmModelArn') as unknown as string;
+  }
+
+  public get alarmModelVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.UpdateAlarmModel.alarmModelVersion'),
+        outputPath: 'alarmModelVersion',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelDescription: this.__input.alarmModelDescription,
+          roleArn: this.__input.roleArn,
+          severity: this.__input.severity,
+          alarmRule: {
+            simpleRule: {
+              inputProperty: this.__input.alarmRule.simpleRule?.inputProperty,
+              comparisonOperator: this.__input.alarmRule.simpleRule?.comparisonOperator,
+              threshold: this.__input.alarmRule.simpleRule?.threshold,
+            },
+          },
+          alarmNotification: {
+            notificationActions: this.__input.alarmNotification?.notificationActions,
+          },
+          alarmEventActions: {
+            alarmActions: this.__input.alarmEventActions?.alarmActions,
+          },
+          alarmCapabilities: {
+            initializationConfiguration: {
+              disabledOnInitialization: this.__input.alarmCapabilities?.initializationConfiguration?.disabledOnInitialization,
+            },
+            acknowledgeFlow: {
+              enabled: this.__input.alarmCapabilities?.acknowledgeFlow?.enabled,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAlarmModel.alarmModelVersion', props);
+    return resource.getResponseField('alarmModelVersion') as unknown as string;
+  }
+
+  public get lastUpdateTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.UpdateAlarmModel.lastUpdateTime'),
+        outputPath: 'lastUpdateTime',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelDescription: this.__input.alarmModelDescription,
+          roleArn: this.__input.roleArn,
+          severity: this.__input.severity,
+          alarmRule: {
+            simpleRule: {
+              inputProperty: this.__input.alarmRule.simpleRule?.inputProperty,
+              comparisonOperator: this.__input.alarmRule.simpleRule?.comparisonOperator,
+              threshold: this.__input.alarmRule.simpleRule?.threshold,
+            },
+          },
+          alarmNotification: {
+            notificationActions: this.__input.alarmNotification?.notificationActions,
+          },
+          alarmEventActions: {
+            alarmActions: this.__input.alarmEventActions?.alarmActions,
+          },
+          alarmCapabilities: {
+            initializationConfiguration: {
+              disabledOnInitialization: this.__input.alarmCapabilities?.initializationConfiguration?.disabledOnInitialization,
+            },
+            acknowledgeFlow: {
+              enabled: this.__input.alarmCapabilities?.acknowledgeFlow?.enabled,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAlarmModel.lastUpdateTime', props);
+    return resource.getResponseField('lastUpdateTime') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAlarmModel',
+        service: 'IoTEvents',
+        physicalResourceId: cr.PhysicalResourceId.of('IoTEvents.UpdateAlarmModel.status'),
+        outputPath: 'status',
+        parameters: {
+          alarmModelName: this.__input.alarmModelName,
+          alarmModelDescription: this.__input.alarmModelDescription,
+          roleArn: this.__input.roleArn,
+          severity: this.__input.severity,
+          alarmRule: {
+            simpleRule: {
+              inputProperty: this.__input.alarmRule.simpleRule?.inputProperty,
+              comparisonOperator: this.__input.alarmRule.simpleRule?.comparisonOperator,
+              threshold: this.__input.alarmRule.simpleRule?.threshold,
+            },
+          },
+          alarmNotification: {
+            notificationActions: this.__input.alarmNotification?.notificationActions,
+          },
+          alarmEventActions: {
+            alarmActions: this.__input.alarmEventActions?.alarmActions,
+          },
+          alarmCapabilities: {
+            initializationConfiguration: {
+              disabledOnInitialization: this.__input.alarmCapabilities?.initializationConfiguration?.disabledOnInitialization,
+            },
+            acknowledgeFlow: {
+              enabled: this.__input.alarmCapabilities?.acknowledgeFlow?.enabled,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAlarmModel.status', props);
+    return resource.getResponseField('status') as unknown as string;
   }
 
 }

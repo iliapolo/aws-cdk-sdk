@@ -8,6 +8,10 @@ export class RedshiftDataClient extends cdk.Construct {
     super(scope, id);
   }
 
+  public batchExecuteStatement(input: shapes.RedshiftDataBatchExecuteStatementInput): RedshiftDataResponsesBatchExecuteStatement {
+    return new RedshiftDataResponsesBatchExecuteStatement(this, this.__resources, input);
+  }
+
   public cancelStatement(input: shapes.RedshiftDataCancelStatementRequest): RedshiftDataResponsesCancelStatement {
     return new RedshiftDataResponsesCancelStatement(this, this.__resources, input);
   }
@@ -42,6 +46,151 @@ export class RedshiftDataClient extends cdk.Construct {
 
   public listTables(input: shapes.RedshiftDataListTablesRequest): RedshiftDataResponsesListTables {
     return new RedshiftDataResponsesListTables(this, this.__resources, input);
+  }
+
+}
+
+export class RedshiftDataResponsesBatchExecuteStatement {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDataBatchExecuteStatementInput) {
+  }
+
+  public get clusterIdentifier(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'batchExecuteStatement',
+        service: 'RedshiftData',
+        physicalResourceId: cr.PhysicalResourceId.of('RedshiftData.BatchExecuteStatement.ClusterIdentifier'),
+        outputPath: 'ClusterIdentifier',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Database: this.__input.database,
+          DbUser: this.__input.dbUser,
+          SecretArn: this.__input.secretArn,
+          Sqls: this.__input.sqls,
+          StatementName: this.__input.statementName,
+          WithEvent: this.__input.withEvent,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'BatchExecuteStatement.ClusterIdentifier', props);
+    return resource.getResponseField('ClusterIdentifier') as unknown as string;
+  }
+
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'batchExecuteStatement',
+        service: 'RedshiftData',
+        physicalResourceId: cr.PhysicalResourceId.of('RedshiftData.BatchExecuteStatement.CreatedAt'),
+        outputPath: 'CreatedAt',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Database: this.__input.database,
+          DbUser: this.__input.dbUser,
+          SecretArn: this.__input.secretArn,
+          Sqls: this.__input.sqls,
+          StatementName: this.__input.statementName,
+          WithEvent: this.__input.withEvent,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'BatchExecuteStatement.CreatedAt', props);
+    return resource.getResponseField('CreatedAt') as unknown as string;
+  }
+
+  public get database(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'batchExecuteStatement',
+        service: 'RedshiftData',
+        physicalResourceId: cr.PhysicalResourceId.of('RedshiftData.BatchExecuteStatement.Database'),
+        outputPath: 'Database',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Database: this.__input.database,
+          DbUser: this.__input.dbUser,
+          SecretArn: this.__input.secretArn,
+          Sqls: this.__input.sqls,
+          StatementName: this.__input.statementName,
+          WithEvent: this.__input.withEvent,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'BatchExecuteStatement.Database', props);
+    return resource.getResponseField('Database') as unknown as string;
+  }
+
+  public get dbUser(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'batchExecuteStatement',
+        service: 'RedshiftData',
+        physicalResourceId: cr.PhysicalResourceId.of('RedshiftData.BatchExecuteStatement.DbUser'),
+        outputPath: 'DbUser',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Database: this.__input.database,
+          DbUser: this.__input.dbUser,
+          SecretArn: this.__input.secretArn,
+          Sqls: this.__input.sqls,
+          StatementName: this.__input.statementName,
+          WithEvent: this.__input.withEvent,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'BatchExecuteStatement.DbUser', props);
+    return resource.getResponseField('DbUser') as unknown as string;
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'batchExecuteStatement',
+        service: 'RedshiftData',
+        physicalResourceId: cr.PhysicalResourceId.of('RedshiftData.BatchExecuteStatement.Id'),
+        outputPath: 'Id',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Database: this.__input.database,
+          DbUser: this.__input.dbUser,
+          SecretArn: this.__input.secretArn,
+          Sqls: this.__input.sqls,
+          StatementName: this.__input.statementName,
+          WithEvent: this.__input.withEvent,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'BatchExecuteStatement.Id', props);
+    return resource.getResponseField('Id') as unknown as string;
+  }
+
+  public get secretArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'batchExecuteStatement',
+        service: 'RedshiftData',
+        physicalResourceId: cr.PhysicalResourceId.of('RedshiftData.BatchExecuteStatement.SecretArn'),
+        outputPath: 'SecretArn',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Database: this.__input.database,
+          DbUser: this.__input.dbUser,
+          SecretArn: this.__input.secretArn,
+          Sqls: this.__input.sqls,
+          StatementName: this.__input.statementName,
+          WithEvent: this.__input.withEvent,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'BatchExecuteStatement.SecretArn', props);
+    return resource.getResponseField('SecretArn') as unknown as string;
   }
 
 }
@@ -177,6 +326,23 @@ export class RedshiftDataResponsesDescribeStatement {
     return resource.getResponseField('Error') as unknown as string;
   }
 
+  public get hasResultSet(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeStatement',
+        service: 'RedshiftData',
+        physicalResourceId: cr.PhysicalResourceId.of('RedshiftData.DescribeStatement.HasResultSet'),
+        outputPath: 'HasResultSet',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeStatement.HasResultSet', props);
+    return resource.getResponseField('HasResultSet') as unknown as boolean;
+  }
+
   public get id(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -192,6 +358,23 @@ export class RedshiftDataResponsesDescribeStatement {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeStatement.Id', props);
     return resource.getResponseField('Id') as unknown as string;
+  }
+
+  public get queryParameters(): shapes.RedshiftDataSqlParameter[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeStatement',
+        service: 'RedshiftData',
+        physicalResourceId: cr.PhysicalResourceId.of('RedshiftData.DescribeStatement.QueryParameters'),
+        outputPath: 'QueryParameters',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeStatement.QueryParameters', props);
+    return resource.getResponseField('QueryParameters') as unknown as shapes.RedshiftDataSqlParameter[];
   }
 
   public get queryString(): string {
@@ -313,6 +496,23 @@ export class RedshiftDataResponsesDescribeStatement {
     return resource.getResponseField('Status') as unknown as string;
   }
 
+  public get subStatements(): shapes.RedshiftDataSubStatementData[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeStatement',
+        service: 'RedshiftData',
+        physicalResourceId: cr.PhysicalResourceId.of('RedshiftData.DescribeStatement.SubStatements'),
+        outputPath: 'SubStatements',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeStatement.SubStatements', props);
+    return resource.getResponseField('SubStatements') as unknown as shapes.RedshiftDataSubStatementData[];
+  }
+
   public get updatedAt(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -347,6 +547,7 @@ export class RedshiftDataResponsesDescribeTable {
         outputPath: 'ColumnList',
         parameters: {
           ClusterIdentifier: this.__input.clusterIdentifier,
+          ConnectedDatabase: this.__input.connectedDatabase,
           Database: this.__input.database,
           DbUser: this.__input.dbUser,
           MaxResults: this.__input.maxResults,
@@ -371,6 +572,7 @@ export class RedshiftDataResponsesDescribeTable {
         outputPath: 'NextToken',
         parameters: {
           ClusterIdentifier: this.__input.clusterIdentifier,
+          ConnectedDatabase: this.__input.connectedDatabase,
           Database: this.__input.database,
           DbUser: this.__input.dbUser,
           MaxResults: this.__input.maxResults,
@@ -395,6 +597,7 @@ export class RedshiftDataResponsesDescribeTable {
         outputPath: 'TableName',
         parameters: {
           ClusterIdentifier: this.__input.clusterIdentifier,
+          ConnectedDatabase: this.__input.connectedDatabase,
           Database: this.__input.database,
           DbUser: this.__input.dbUser,
           MaxResults: this.__input.maxResults,
@@ -428,6 +631,7 @@ export class RedshiftDataResponsesExecuteStatement {
           ClusterIdentifier: this.__input.clusterIdentifier,
           Database: this.__input.database,
           DbUser: this.__input.dbUser,
+          Parameters: this.__input.parameters,
           SecretArn: this.__input.secretArn,
           Sql: this.__input.sql,
           StatementName: this.__input.statementName,
@@ -451,6 +655,7 @@ export class RedshiftDataResponsesExecuteStatement {
           ClusterIdentifier: this.__input.clusterIdentifier,
           Database: this.__input.database,
           DbUser: this.__input.dbUser,
+          Parameters: this.__input.parameters,
           SecretArn: this.__input.secretArn,
           Sql: this.__input.sql,
           StatementName: this.__input.statementName,
@@ -474,6 +679,7 @@ export class RedshiftDataResponsesExecuteStatement {
           ClusterIdentifier: this.__input.clusterIdentifier,
           Database: this.__input.database,
           DbUser: this.__input.dbUser,
+          Parameters: this.__input.parameters,
           SecretArn: this.__input.secretArn,
           Sql: this.__input.sql,
           StatementName: this.__input.statementName,
@@ -497,6 +703,7 @@ export class RedshiftDataResponsesExecuteStatement {
           ClusterIdentifier: this.__input.clusterIdentifier,
           Database: this.__input.database,
           DbUser: this.__input.dbUser,
+          Parameters: this.__input.parameters,
           SecretArn: this.__input.secretArn,
           Sql: this.__input.sql,
           StatementName: this.__input.statementName,
@@ -520,6 +727,7 @@ export class RedshiftDataResponsesExecuteStatement {
           ClusterIdentifier: this.__input.clusterIdentifier,
           Database: this.__input.database,
           DbUser: this.__input.dbUser,
+          Parameters: this.__input.parameters,
           SecretArn: this.__input.secretArn,
           Sql: this.__input.sql,
           StatementName: this.__input.statementName,
@@ -543,6 +751,7 @@ export class RedshiftDataResponsesExecuteStatement {
           ClusterIdentifier: this.__input.clusterIdentifier,
           Database: this.__input.database,
           DbUser: this.__input.dbUser,
+          Parameters: this.__input.parameters,
           SecretArn: this.__input.secretArn,
           Sql: this.__input.sql,
           StatementName: this.__input.statementName,
@@ -701,6 +910,7 @@ export class RedshiftDataResponsesListSchemas {
         outputPath: 'NextToken',
         parameters: {
           ClusterIdentifier: this.__input.clusterIdentifier,
+          ConnectedDatabase: this.__input.connectedDatabase,
           Database: this.__input.database,
           DbUser: this.__input.dbUser,
           MaxResults: this.__input.maxResults,
@@ -724,6 +934,7 @@ export class RedshiftDataResponsesListSchemas {
         outputPath: 'Schemas',
         parameters: {
           ClusterIdentifier: this.__input.clusterIdentifier,
+          ConnectedDatabase: this.__input.connectedDatabase,
           Database: this.__input.database,
           DbUser: this.__input.dbUser,
           MaxResults: this.__input.maxResults,
@@ -755,6 +966,7 @@ export class RedshiftDataResponsesListStatements {
         parameters: {
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          RoleLevel: this.__input.roleLevel,
           StatementName: this.__input.statementName,
           Status: this.__input.status,
         },
@@ -775,6 +987,7 @@ export class RedshiftDataResponsesListStatements {
         parameters: {
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          RoleLevel: this.__input.roleLevel,
           StatementName: this.__input.statementName,
           Status: this.__input.status,
         },
@@ -801,6 +1014,7 @@ export class RedshiftDataResponsesListTables {
         outputPath: 'NextToken',
         parameters: {
           ClusterIdentifier: this.__input.clusterIdentifier,
+          ConnectedDatabase: this.__input.connectedDatabase,
           Database: this.__input.database,
           DbUser: this.__input.dbUser,
           MaxResults: this.__input.maxResults,
@@ -825,6 +1039,7 @@ export class RedshiftDataResponsesListTables {
         outputPath: 'Tables',
         parameters: {
           ClusterIdentifier: this.__input.clusterIdentifier,
+          ConnectedDatabase: this.__input.connectedDatabase,
           Database: this.__input.database,
           DbUser: this.__input.dbUser,
           MaxResults: this.__input.maxResults,

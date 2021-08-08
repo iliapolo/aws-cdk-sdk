@@ -5,14 +5,29 @@ export interface ElastiCacheAddTagsToResourceMessage {
   /**
    * @schema ElastiCacheAddTagsToResourceMessage#ResourceName
    */
-  readonly resourceName: string;
+  readonly resourceName?: string;
 
   /**
    * @schema ElastiCacheAddTagsToResourceMessage#Tags
    */
-  readonly tags: ElastiCacheTag[];
+  readonly tags?: ElastiCacheTag[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheAddTagsToResourceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheAddTagsToResourceMessage(obj: ElastiCacheAddTagsToResourceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceName': obj.resourceName,
+    'Tags': obj.tags?.map(y => toJson_ElastiCacheTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheTagListMessage
@@ -26,25 +41,55 @@ export interface ElastiCacheTagListMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheTagListMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheTagListMessage(obj: ElastiCacheTagListMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TagList': obj.tagList?.map(y => toJson_ElastiCacheTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheAuthorizeCacheSecurityGroupIngressMessage
  */
 export interface ElastiCacheAuthorizeCacheSecurityGroupIngressMessage {
   /**
    * @schema ElastiCacheAuthorizeCacheSecurityGroupIngressMessage#CacheSecurityGroupName
    */
-  readonly cacheSecurityGroupName: string;
+  readonly cacheSecurityGroupName?: string;
 
   /**
    * @schema ElastiCacheAuthorizeCacheSecurityGroupIngressMessage#EC2SecurityGroupName
    */
-  readonly ec2SecurityGroupName: string;
+  readonly ec2SecurityGroupName?: string;
 
   /**
    * @schema ElastiCacheAuthorizeCacheSecurityGroupIngressMessage#EC2SecurityGroupOwnerId
    */
-  readonly ec2SecurityGroupOwnerId: string;
+  readonly ec2SecurityGroupOwnerId?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheAuthorizeCacheSecurityGroupIngressMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheAuthorizeCacheSecurityGroupIngressMessage(obj: ElastiCacheAuthorizeCacheSecurityGroupIngressMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheSecurityGroupName': obj.cacheSecurityGroupName,
+    'EC2SecurityGroupName': obj.ec2SecurityGroupName,
+    'EC2SecurityGroupOwnerId': obj.ec2SecurityGroupOwnerId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheAuthorizeCacheSecurityGroupIngressResult
@@ -56,6 +101,20 @@ export interface ElastiCacheAuthorizeCacheSecurityGroupIngressResult {
   readonly cacheSecurityGroup?: ElastiCacheCacheSecurityGroup;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheAuthorizeCacheSecurityGroupIngressResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheAuthorizeCacheSecurityGroupIngressResult(obj: ElastiCacheAuthorizeCacheSecurityGroupIngressResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheSecurityGroup': toJson_ElastiCacheCacheSecurityGroup(obj.cacheSecurityGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheBatchApplyUpdateActionMessage
@@ -74,9 +133,25 @@ export interface ElastiCacheBatchApplyUpdateActionMessage {
   /**
    * @schema ElastiCacheBatchApplyUpdateActionMessage#ServiceUpdateName
    */
-  readonly serviceUpdateName: string;
+  readonly serviceUpdateName?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheBatchApplyUpdateActionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheBatchApplyUpdateActionMessage(obj: ElastiCacheBatchApplyUpdateActionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupIds': obj.replicationGroupIds?.map(y => y),
+    'CacheClusterIds': obj.cacheClusterIds?.map(y => y),
+    'ServiceUpdateName': obj.serviceUpdateName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheUpdateActionResultsMessage
@@ -95,6 +170,21 @@ export interface ElastiCacheUpdateActionResultsMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheUpdateActionResultsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheUpdateActionResultsMessage(obj: ElastiCacheUpdateActionResultsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProcessedUpdateActions': obj.processedUpdateActions?.map(y => toJson_ElastiCacheProcessedUpdateAction(y)),
+    'UnprocessedUpdateActions': obj.unprocessedUpdateActions?.map(y => toJson_ElastiCacheUnprocessedUpdateAction(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheBatchStopUpdateActionMessage
  */
 export interface ElastiCacheBatchStopUpdateActionMessage {
@@ -111,9 +201,25 @@ export interface ElastiCacheBatchStopUpdateActionMessage {
   /**
    * @schema ElastiCacheBatchStopUpdateActionMessage#ServiceUpdateName
    */
-  readonly serviceUpdateName: string;
+  readonly serviceUpdateName?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheBatchStopUpdateActionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheBatchStopUpdateActionMessage(obj: ElastiCacheBatchStopUpdateActionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupIds': obj.replicationGroupIds?.map(y => y),
+    'CacheClusterIds': obj.cacheClusterIds?.map(y => y),
+    'ServiceUpdateName': obj.serviceUpdateName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCompleteMigrationMessage
@@ -122,7 +228,7 @@ export interface ElastiCacheCompleteMigrationMessage {
   /**
    * @schema ElastiCacheCompleteMigrationMessage#ReplicationGroupId
    */
-  readonly replicationGroupId: string;
+  readonly replicationGroupId?: string;
 
   /**
    * @schema ElastiCacheCompleteMigrationMessage#Force
@@ -130,6 +236,21 @@ export interface ElastiCacheCompleteMigrationMessage {
   readonly force?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCompleteMigrationMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCompleteMigrationMessage(obj: ElastiCacheCompleteMigrationMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupId': obj.replicationGroupId,
+    'Force': obj.force,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCompleteMigrationResponse
@@ -143,18 +264,32 @@ export interface ElastiCacheCompleteMigrationResponse {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheCompleteMigrationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCompleteMigrationResponse(obj: ElastiCacheCompleteMigrationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroup': toJson_ElastiCacheReplicationGroup(obj.replicationGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheCopySnapshotMessage
  */
 export interface ElastiCacheCopySnapshotMessage {
   /**
    * @schema ElastiCacheCopySnapshotMessage#SourceSnapshotName
    */
-  readonly sourceSnapshotName: string;
+  readonly sourceSnapshotName?: string;
 
   /**
    * @schema ElastiCacheCopySnapshotMessage#TargetSnapshotName
    */
-  readonly targetSnapshotName: string;
+  readonly targetSnapshotName?: string;
 
   /**
    * @schema ElastiCacheCopySnapshotMessage#TargetBucket
@@ -166,7 +301,30 @@ export interface ElastiCacheCopySnapshotMessage {
    */
   readonly kmsKeyId?: string;
 
+  /**
+   * @schema ElastiCacheCopySnapshotMessage#Tags
+   */
+  readonly tags?: ElastiCacheTag[];
+
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCopySnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCopySnapshotMessage(obj: ElastiCacheCopySnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceSnapshotName': obj.sourceSnapshotName,
+    'TargetSnapshotName': obj.targetSnapshotName,
+    'TargetBucket': obj.targetBucket,
+    'KmsKeyId': obj.kmsKeyId,
+    'Tags': obj.tags?.map(y => toJson_ElastiCacheTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCopySnapshotResult
@@ -180,13 +338,27 @@ export interface ElastiCacheCopySnapshotResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheCopySnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCopySnapshotResult(obj: ElastiCacheCopySnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Snapshot': toJson_ElastiCacheSnapshot(obj.snapshot),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheCreateCacheClusterMessage
  */
 export interface ElastiCacheCreateCacheClusterMessage {
   /**
    * @schema ElastiCacheCreateCacheClusterMessage#CacheClusterId
    */
-  readonly cacheClusterId: string;
+  readonly cacheClusterId?: string;
 
   /**
    * @schema ElastiCacheCreateCacheClusterMessage#ReplicationGroupId
@@ -313,7 +485,52 @@ export interface ElastiCacheCreateCacheClusterMessage {
    */
   readonly preferredOutpostArns?: string[];
 
+  /**
+   * @schema ElastiCacheCreateCacheClusterMessage#LogDeliveryConfigurations
+   */
+  readonly logDeliveryConfigurations?: ElastiCacheLogDeliveryConfigurationRequest[];
+
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCreateCacheClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCreateCacheClusterMessage(obj: ElastiCacheCreateCacheClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheClusterId': obj.cacheClusterId,
+    'ReplicationGroupId': obj.replicationGroupId,
+    'AZMode': obj.azMode,
+    'PreferredAvailabilityZone': obj.preferredAvailabilityZone,
+    'PreferredAvailabilityZones': obj.preferredAvailabilityZones?.map(y => y),
+    'NumCacheNodes': obj.numCacheNodes,
+    'CacheNodeType': obj.cacheNodeType,
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'CacheParameterGroupName': obj.cacheParameterGroupName,
+    'CacheSubnetGroupName': obj.cacheSubnetGroupName,
+    'CacheSecurityGroupNames': obj.cacheSecurityGroupNames?.map(y => y),
+    'SecurityGroupIds': obj.securityGroupIds?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_ElastiCacheTag(y)),
+    'SnapshotArns': obj.snapshotArns?.map(y => y),
+    'SnapshotName': obj.snapshotName,
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'Port': obj.port,
+    'NotificationTopicArn': obj.notificationTopicArn,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'SnapshotRetentionLimit': obj.snapshotRetentionLimit,
+    'SnapshotWindow': obj.snapshotWindow,
+    'AuthToken': obj.authToken,
+    'OutpostMode': obj.outpostMode,
+    'PreferredOutpostArn': obj.preferredOutpostArn,
+    'PreferredOutpostArns': obj.preferredOutpostArns?.map(y => y),
+    'LogDeliveryConfigurations': obj.logDeliveryConfigurations?.map(y => toJson_ElastiCacheLogDeliveryConfigurationRequest(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCreateCacheClusterResult
@@ -327,25 +544,61 @@ export interface ElastiCacheCreateCacheClusterResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheCreateCacheClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCreateCacheClusterResult(obj: ElastiCacheCreateCacheClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheCluster': toJson_ElastiCacheCacheCluster(obj.cacheCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheCreateCacheParameterGroupMessage
  */
 export interface ElastiCacheCreateCacheParameterGroupMessage {
   /**
    * @schema ElastiCacheCreateCacheParameterGroupMessage#CacheParameterGroupName
    */
-  readonly cacheParameterGroupName: string;
+  readonly cacheParameterGroupName?: string;
 
   /**
    * @schema ElastiCacheCreateCacheParameterGroupMessage#CacheParameterGroupFamily
    */
-  readonly cacheParameterGroupFamily: string;
+  readonly cacheParameterGroupFamily?: string;
 
   /**
    * @schema ElastiCacheCreateCacheParameterGroupMessage#Description
    */
-  readonly description: string;
+  readonly description?: string;
+
+  /**
+   * @schema ElastiCacheCreateCacheParameterGroupMessage#Tags
+   */
+  readonly tags?: ElastiCacheTag[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCreateCacheParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCreateCacheParameterGroupMessage(obj: ElastiCacheCreateCacheParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheParameterGroupName': obj.cacheParameterGroupName,
+    'CacheParameterGroupFamily': obj.cacheParameterGroupFamily,
+    'Description': obj.description,
+    'Tags': obj.tags?.map(y => toJson_ElastiCacheTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCreateCacheParameterGroupResult
@@ -359,20 +612,55 @@ export interface ElastiCacheCreateCacheParameterGroupResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheCreateCacheParameterGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCreateCacheParameterGroupResult(obj: ElastiCacheCreateCacheParameterGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheParameterGroup': toJson_ElastiCacheCacheParameterGroup(obj.cacheParameterGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheCreateCacheSecurityGroupMessage
  */
 export interface ElastiCacheCreateCacheSecurityGroupMessage {
   /**
    * @schema ElastiCacheCreateCacheSecurityGroupMessage#CacheSecurityGroupName
    */
-  readonly cacheSecurityGroupName: string;
+  readonly cacheSecurityGroupName?: string;
 
   /**
    * @schema ElastiCacheCreateCacheSecurityGroupMessage#Description
    */
-  readonly description: string;
+  readonly description?: string;
+
+  /**
+   * @schema ElastiCacheCreateCacheSecurityGroupMessage#Tags
+   */
+  readonly tags?: ElastiCacheTag[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCreateCacheSecurityGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCreateCacheSecurityGroupMessage(obj: ElastiCacheCreateCacheSecurityGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheSecurityGroupName': obj.cacheSecurityGroupName,
+    'Description': obj.description,
+    'Tags': obj.tags?.map(y => toJson_ElastiCacheTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCreateCacheSecurityGroupResult
@@ -386,25 +674,61 @@ export interface ElastiCacheCreateCacheSecurityGroupResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheCreateCacheSecurityGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCreateCacheSecurityGroupResult(obj: ElastiCacheCreateCacheSecurityGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheSecurityGroup': toJson_ElastiCacheCacheSecurityGroup(obj.cacheSecurityGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheCreateCacheSubnetGroupMessage
  */
 export interface ElastiCacheCreateCacheSubnetGroupMessage {
   /**
    * @schema ElastiCacheCreateCacheSubnetGroupMessage#CacheSubnetGroupName
    */
-  readonly cacheSubnetGroupName: string;
+  readonly cacheSubnetGroupName?: string;
 
   /**
    * @schema ElastiCacheCreateCacheSubnetGroupMessage#CacheSubnetGroupDescription
    */
-  readonly cacheSubnetGroupDescription: string;
+  readonly cacheSubnetGroupDescription?: string;
 
   /**
    * @schema ElastiCacheCreateCacheSubnetGroupMessage#SubnetIds
    */
-  readonly subnetIds: string[];
+  readonly subnetIds?: string[];
+
+  /**
+   * @schema ElastiCacheCreateCacheSubnetGroupMessage#Tags
+   */
+  readonly tags?: ElastiCacheTag[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCreateCacheSubnetGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCreateCacheSubnetGroupMessage(obj: ElastiCacheCreateCacheSubnetGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheSubnetGroupName': obj.cacheSubnetGroupName,
+    'CacheSubnetGroupDescription': obj.cacheSubnetGroupDescription,
+    'SubnetIds': obj.subnetIds?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_ElastiCacheTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCreateCacheSubnetGroupResult
@@ -418,13 +742,27 @@ export interface ElastiCacheCreateCacheSubnetGroupResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheCreateCacheSubnetGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCreateCacheSubnetGroupResult(obj: ElastiCacheCreateCacheSubnetGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheSubnetGroup': toJson_ElastiCacheCacheSubnetGroup(obj.cacheSubnetGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheCreateGlobalReplicationGroupMessage
  */
 export interface ElastiCacheCreateGlobalReplicationGroupMessage {
   /**
    * @schema ElastiCacheCreateGlobalReplicationGroupMessage#GlobalReplicationGroupIdSuffix
    */
-  readonly globalReplicationGroupIdSuffix: string;
+  readonly globalReplicationGroupIdSuffix?: string;
 
   /**
    * @schema ElastiCacheCreateGlobalReplicationGroupMessage#GlobalReplicationGroupDescription
@@ -434,9 +772,25 @@ export interface ElastiCacheCreateGlobalReplicationGroupMessage {
   /**
    * @schema ElastiCacheCreateGlobalReplicationGroupMessage#PrimaryReplicationGroupId
    */
-  readonly primaryReplicationGroupId: string;
+  readonly primaryReplicationGroupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCreateGlobalReplicationGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCreateGlobalReplicationGroupMessage(obj: ElastiCacheCreateGlobalReplicationGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroupIdSuffix': obj.globalReplicationGroupIdSuffix,
+    'GlobalReplicationGroupDescription': obj.globalReplicationGroupDescription,
+    'PrimaryReplicationGroupId': obj.primaryReplicationGroupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCreateGlobalReplicationGroupResult
@@ -450,18 +804,32 @@ export interface ElastiCacheCreateGlobalReplicationGroupResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheCreateGlobalReplicationGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCreateGlobalReplicationGroupResult(obj: ElastiCacheCreateGlobalReplicationGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroup': toJson_ElastiCacheGlobalReplicationGroup(obj.globalReplicationGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheCreateReplicationGroupMessage
  */
 export interface ElastiCacheCreateReplicationGroupMessage {
   /**
    * @schema ElastiCacheCreateReplicationGroupMessage#ReplicationGroupId
    */
-  readonly replicationGroupId: string;
+  readonly replicationGroupId?: string;
 
   /**
    * @schema ElastiCacheCreateReplicationGroupMessage#ReplicationGroupDescription
    */
-  readonly replicationGroupDescription: string;
+  readonly replicationGroupDescription?: string;
 
   /**
    * @schema ElastiCacheCreateReplicationGroupMessage#GlobalReplicationGroupId
@@ -613,7 +981,58 @@ export interface ElastiCacheCreateReplicationGroupMessage {
    */
   readonly userGroupIds?: string[];
 
+  /**
+   * @schema ElastiCacheCreateReplicationGroupMessage#LogDeliveryConfigurations
+   */
+  readonly logDeliveryConfigurations?: ElastiCacheLogDeliveryConfigurationRequest[];
+
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCreateReplicationGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCreateReplicationGroupMessage(obj: ElastiCacheCreateReplicationGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupId': obj.replicationGroupId,
+    'ReplicationGroupDescription': obj.replicationGroupDescription,
+    'GlobalReplicationGroupId': obj.globalReplicationGroupId,
+    'PrimaryClusterId': obj.primaryClusterId,
+    'AutomaticFailoverEnabled': obj.automaticFailoverEnabled,
+    'MultiAZEnabled': obj.multiAzEnabled,
+    'NumCacheClusters': obj.numCacheClusters,
+    'PreferredCacheClusterAZs': obj.preferredCacheClusterAZs?.map(y => y),
+    'NumNodeGroups': obj.numNodeGroups,
+    'ReplicasPerNodeGroup': obj.replicasPerNodeGroup,
+    'NodeGroupConfiguration': obj.nodeGroupConfiguration?.map(y => toJson_ElastiCacheNodeGroupConfiguration(y)),
+    'CacheNodeType': obj.cacheNodeType,
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'CacheParameterGroupName': obj.cacheParameterGroupName,
+    'CacheSubnetGroupName': obj.cacheSubnetGroupName,
+    'CacheSecurityGroupNames': obj.cacheSecurityGroupNames?.map(y => y),
+    'SecurityGroupIds': obj.securityGroupIds?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_ElastiCacheTag(y)),
+    'SnapshotArns': obj.snapshotArns?.map(y => y),
+    'SnapshotName': obj.snapshotName,
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'Port': obj.port,
+    'NotificationTopicArn': obj.notificationTopicArn,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'SnapshotRetentionLimit': obj.snapshotRetentionLimit,
+    'SnapshotWindow': obj.snapshotWindow,
+    'AuthToken': obj.authToken,
+    'TransitEncryptionEnabled': obj.transitEncryptionEnabled,
+    'AtRestEncryptionEnabled': obj.atRestEncryptionEnabled,
+    'KmsKeyId': obj.kmsKeyId,
+    'UserGroupIds': obj.userGroupIds?.map(y => y),
+    'LogDeliveryConfigurations': obj.logDeliveryConfigurations?.map(y => toJson_ElastiCacheLogDeliveryConfigurationRequest(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCreateReplicationGroupResult
@@ -625,6 +1044,20 @@ export interface ElastiCacheCreateReplicationGroupResult {
   readonly replicationGroup?: ElastiCacheReplicationGroup;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCreateReplicationGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCreateReplicationGroupResult(obj: ElastiCacheCreateReplicationGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroup': toJson_ElastiCacheReplicationGroup(obj.replicationGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCreateSnapshotMessage
@@ -643,14 +1076,37 @@ export interface ElastiCacheCreateSnapshotMessage {
   /**
    * @schema ElastiCacheCreateSnapshotMessage#SnapshotName
    */
-  readonly snapshotName: string;
+  readonly snapshotName?: string;
 
   /**
    * @schema ElastiCacheCreateSnapshotMessage#KmsKeyId
    */
   readonly kmsKeyId?: string;
 
+  /**
+   * @schema ElastiCacheCreateSnapshotMessage#Tags
+   */
+  readonly tags?: ElastiCacheTag[];
+
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCreateSnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCreateSnapshotMessage(obj: ElastiCacheCreateSnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupId': obj.replicationGroupId,
+    'CacheClusterId': obj.cacheClusterId,
+    'SnapshotName': obj.snapshotName,
+    'KmsKeyId': obj.kmsKeyId,
+    'Tags': obj.tags?.map(y => toJson_ElastiCacheTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCreateSnapshotResult
@@ -664,23 +1120,37 @@ export interface ElastiCacheCreateSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheCreateSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCreateSnapshotResult(obj: ElastiCacheCreateSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Snapshot': toJson_ElastiCacheSnapshot(obj.snapshot),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheCreateUserMessage
  */
 export interface ElastiCacheCreateUserMessage {
   /**
    * @schema ElastiCacheCreateUserMessage#UserId
    */
-  readonly userId: string;
+  readonly userId?: string;
 
   /**
    * @schema ElastiCacheCreateUserMessage#UserName
    */
-  readonly userName: string;
+  readonly userName?: string;
 
   /**
    * @schema ElastiCacheCreateUserMessage#Engine
    */
-  readonly engine: string;
+  readonly engine?: string;
 
   /**
    * @schema ElastiCacheCreateUserMessage#Passwords
@@ -690,14 +1160,39 @@ export interface ElastiCacheCreateUserMessage {
   /**
    * @schema ElastiCacheCreateUserMessage#AccessString
    */
-  readonly accessString: string;
+  readonly accessString?: string;
 
   /**
    * @schema ElastiCacheCreateUserMessage#NoPasswordRequired
    */
   readonly noPasswordRequired?: boolean;
 
+  /**
+   * @schema ElastiCacheCreateUserMessage#Tags
+   */
+  readonly tags?: ElastiCacheTag[];
+
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCreateUserMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCreateUserMessage(obj: ElastiCacheCreateUserMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserId': obj.userId,
+    'UserName': obj.userName,
+    'Engine': obj.engine,
+    'Passwords': obj.passwords?.map(y => y),
+    'AccessString': obj.accessString,
+    'NoPasswordRequired': obj.noPasswordRequired,
+    'Tags': obj.tags?.map(y => toJson_ElastiCacheTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheUser
@@ -746,25 +1241,68 @@ export interface ElastiCacheUser {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheUser' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheUser(obj: ElastiCacheUser | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserId': obj.userId,
+    'UserName': obj.userName,
+    'Status': obj.status,
+    'Engine': obj.engine,
+    'AccessString': obj.accessString,
+    'UserGroupIds': obj.userGroupIds?.map(y => y),
+    'Authentication': toJson_ElastiCacheAuthentication(obj.authentication),
+    'ARN': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheCreateUserGroupMessage
  */
 export interface ElastiCacheCreateUserGroupMessage {
   /**
    * @schema ElastiCacheCreateUserGroupMessage#UserGroupId
    */
-  readonly userGroupId: string;
+  readonly userGroupId?: string;
 
   /**
    * @schema ElastiCacheCreateUserGroupMessage#Engine
    */
-  readonly engine: string;
+  readonly engine?: string;
 
   /**
    * @schema ElastiCacheCreateUserGroupMessage#UserIds
    */
   readonly userIds?: string[];
 
+  /**
+   * @schema ElastiCacheCreateUserGroupMessage#Tags
+   */
+  readonly tags?: ElastiCacheTag[];
+
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCreateUserGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCreateUserGroupMessage(obj: ElastiCacheCreateUserGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserGroupId': obj.userGroupId,
+    'Engine': obj.engine,
+    'UserIds': obj.userIds?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_ElastiCacheTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheUserGroup
@@ -808,18 +1346,38 @@ export interface ElastiCacheUserGroup {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheUserGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheUserGroup(obj: ElastiCacheUserGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserGroupId': obj.userGroupId,
+    'Status': obj.status,
+    'Engine': obj.engine,
+    'UserIds': obj.userIds?.map(y => y),
+    'PendingChanges': toJson_ElastiCacheUserGroupPendingChanges(obj.pendingChanges),
+    'ReplicationGroups': obj.replicationGroups?.map(y => y),
+    'ARN': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheDecreaseNodeGroupsInGlobalReplicationGroupMessage
  */
 export interface ElastiCacheDecreaseNodeGroupsInGlobalReplicationGroupMessage {
   /**
    * @schema ElastiCacheDecreaseNodeGroupsInGlobalReplicationGroupMessage#GlobalReplicationGroupId
    */
-  readonly globalReplicationGroupId: string;
+  readonly globalReplicationGroupId?: string;
 
   /**
    * @schema ElastiCacheDecreaseNodeGroupsInGlobalReplicationGroupMessage#NodeGroupCount
    */
-  readonly nodeGroupCount: number;
+  readonly nodeGroupCount?: number;
 
   /**
    * @schema ElastiCacheDecreaseNodeGroupsInGlobalReplicationGroupMessage#GlobalNodeGroupsToRemove
@@ -834,9 +1392,27 @@ export interface ElastiCacheDecreaseNodeGroupsInGlobalReplicationGroupMessage {
   /**
    * @schema ElastiCacheDecreaseNodeGroupsInGlobalReplicationGroupMessage#ApplyImmediately
    */
-  readonly applyImmediately: boolean;
+  readonly applyImmediately?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheDecreaseNodeGroupsInGlobalReplicationGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDecreaseNodeGroupsInGlobalReplicationGroupMessage(obj: ElastiCacheDecreaseNodeGroupsInGlobalReplicationGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroupId': obj.globalReplicationGroupId,
+    'NodeGroupCount': obj.nodeGroupCount,
+    'GlobalNodeGroupsToRemove': obj.globalNodeGroupsToRemove?.map(y => y),
+    'GlobalNodeGroupsToRetain': obj.globalNodeGroupsToRetain?.map(y => y),
+    'ApplyImmediately': obj.applyImmediately,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDecreaseNodeGroupsInGlobalReplicationGroupResult
@@ -850,13 +1426,27 @@ export interface ElastiCacheDecreaseNodeGroupsInGlobalReplicationGroupResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDecreaseNodeGroupsInGlobalReplicationGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDecreaseNodeGroupsInGlobalReplicationGroupResult(obj: ElastiCacheDecreaseNodeGroupsInGlobalReplicationGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroup': toJson_ElastiCacheGlobalReplicationGroup(obj.globalReplicationGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheDecreaseReplicaCountMessage
  */
 export interface ElastiCacheDecreaseReplicaCountMessage {
   /**
    * @schema ElastiCacheDecreaseReplicaCountMessage#ReplicationGroupId
    */
-  readonly replicationGroupId: string;
+  readonly replicationGroupId?: string;
 
   /**
    * @schema ElastiCacheDecreaseReplicaCountMessage#NewReplicaCount
@@ -876,9 +1466,27 @@ export interface ElastiCacheDecreaseReplicaCountMessage {
   /**
    * @schema ElastiCacheDecreaseReplicaCountMessage#ApplyImmediately
    */
-  readonly applyImmediately: boolean;
+  readonly applyImmediately?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheDecreaseReplicaCountMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDecreaseReplicaCountMessage(obj: ElastiCacheDecreaseReplicaCountMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupId': obj.replicationGroupId,
+    'NewReplicaCount': obj.newReplicaCount,
+    'ReplicaConfiguration': obj.replicaConfiguration?.map(y => toJson_ElastiCacheConfigureShard(y)),
+    'ReplicasToRemove': obj.replicasToRemove?.map(y => y),
+    'ApplyImmediately': obj.applyImmediately,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDecreaseReplicaCountResult
@@ -892,13 +1500,27 @@ export interface ElastiCacheDecreaseReplicaCountResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDecreaseReplicaCountResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDecreaseReplicaCountResult(obj: ElastiCacheDecreaseReplicaCountResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroup': toJson_ElastiCacheReplicationGroup(obj.replicationGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheDeleteCacheClusterMessage
  */
 export interface ElastiCacheDeleteCacheClusterMessage {
   /**
    * @schema ElastiCacheDeleteCacheClusterMessage#CacheClusterId
    */
-  readonly cacheClusterId: string;
+  readonly cacheClusterId?: string;
 
   /**
    * @schema ElastiCacheDeleteCacheClusterMessage#FinalSnapshotIdentifier
@@ -906,6 +1528,21 @@ export interface ElastiCacheDeleteCacheClusterMessage {
   readonly finalSnapshotIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheDeleteCacheClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDeleteCacheClusterMessage(obj: ElastiCacheDeleteCacheClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheClusterId': obj.cacheClusterId,
+    'FinalSnapshotIdentifier': obj.finalSnapshotIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDeleteCacheClusterResult
@@ -919,15 +1556,43 @@ export interface ElastiCacheDeleteCacheClusterResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDeleteCacheClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDeleteCacheClusterResult(obj: ElastiCacheDeleteCacheClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheCluster': toJson_ElastiCacheCacheCluster(obj.cacheCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheDeleteCacheParameterGroupMessage
  */
 export interface ElastiCacheDeleteCacheParameterGroupMessage {
   /**
    * @schema ElastiCacheDeleteCacheParameterGroupMessage#CacheParameterGroupName
    */
-  readonly cacheParameterGroupName: string;
+  readonly cacheParameterGroupName?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheDeleteCacheParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDeleteCacheParameterGroupMessage(obj: ElastiCacheDeleteCacheParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheParameterGroupName': obj.cacheParameterGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDeleteCacheSecurityGroupMessage
@@ -936,9 +1601,23 @@ export interface ElastiCacheDeleteCacheSecurityGroupMessage {
   /**
    * @schema ElastiCacheDeleteCacheSecurityGroupMessage#CacheSecurityGroupName
    */
-  readonly cacheSecurityGroupName: string;
+  readonly cacheSecurityGroupName?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheDeleteCacheSecurityGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDeleteCacheSecurityGroupMessage(obj: ElastiCacheDeleteCacheSecurityGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheSecurityGroupName': obj.cacheSecurityGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDeleteCacheSubnetGroupMessage
@@ -947,9 +1626,23 @@ export interface ElastiCacheDeleteCacheSubnetGroupMessage {
   /**
    * @schema ElastiCacheDeleteCacheSubnetGroupMessage#CacheSubnetGroupName
    */
-  readonly cacheSubnetGroupName: string;
+  readonly cacheSubnetGroupName?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheDeleteCacheSubnetGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDeleteCacheSubnetGroupMessage(obj: ElastiCacheDeleteCacheSubnetGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheSubnetGroupName': obj.cacheSubnetGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDeleteGlobalReplicationGroupMessage
@@ -958,14 +1651,29 @@ export interface ElastiCacheDeleteGlobalReplicationGroupMessage {
   /**
    * @schema ElastiCacheDeleteGlobalReplicationGroupMessage#GlobalReplicationGroupId
    */
-  readonly globalReplicationGroupId: string;
+  readonly globalReplicationGroupId?: string;
 
   /**
    * @schema ElastiCacheDeleteGlobalReplicationGroupMessage#RetainPrimaryReplicationGroup
    */
-  readonly retainPrimaryReplicationGroup: boolean;
+  readonly retainPrimaryReplicationGroup?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheDeleteGlobalReplicationGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDeleteGlobalReplicationGroupMessage(obj: ElastiCacheDeleteGlobalReplicationGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroupId': obj.globalReplicationGroupId,
+    'RetainPrimaryReplicationGroup': obj.retainPrimaryReplicationGroup,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDeleteGlobalReplicationGroupResult
@@ -979,13 +1687,27 @@ export interface ElastiCacheDeleteGlobalReplicationGroupResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDeleteGlobalReplicationGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDeleteGlobalReplicationGroupResult(obj: ElastiCacheDeleteGlobalReplicationGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroup': toJson_ElastiCacheGlobalReplicationGroup(obj.globalReplicationGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheDeleteReplicationGroupMessage
  */
 export interface ElastiCacheDeleteReplicationGroupMessage {
   /**
    * @schema ElastiCacheDeleteReplicationGroupMessage#ReplicationGroupId
    */
-  readonly replicationGroupId: string;
+  readonly replicationGroupId?: string;
 
   /**
    * @schema ElastiCacheDeleteReplicationGroupMessage#RetainPrimaryCluster
@@ -1000,6 +1722,22 @@ export interface ElastiCacheDeleteReplicationGroupMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDeleteReplicationGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDeleteReplicationGroupMessage(obj: ElastiCacheDeleteReplicationGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupId': obj.replicationGroupId,
+    'RetainPrimaryCluster': obj.retainPrimaryCluster,
+    'FinalSnapshotIdentifier': obj.finalSnapshotIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheDeleteReplicationGroupResult
  */
 export interface ElastiCacheDeleteReplicationGroupResult {
@@ -1011,15 +1749,43 @@ export interface ElastiCacheDeleteReplicationGroupResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDeleteReplicationGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDeleteReplicationGroupResult(obj: ElastiCacheDeleteReplicationGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroup': toJson_ElastiCacheReplicationGroup(obj.replicationGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheDeleteSnapshotMessage
  */
 export interface ElastiCacheDeleteSnapshotMessage {
   /**
    * @schema ElastiCacheDeleteSnapshotMessage#SnapshotName
    */
-  readonly snapshotName: string;
+  readonly snapshotName?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheDeleteSnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDeleteSnapshotMessage(obj: ElastiCacheDeleteSnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SnapshotName': obj.snapshotName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDeleteSnapshotResult
@@ -1033,15 +1799,43 @@ export interface ElastiCacheDeleteSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDeleteSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDeleteSnapshotResult(obj: ElastiCacheDeleteSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Snapshot': toJson_ElastiCacheSnapshot(obj.snapshot),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheDeleteUserMessage
  */
 export interface ElastiCacheDeleteUserMessage {
   /**
    * @schema ElastiCacheDeleteUserMessage#UserId
    */
-  readonly userId: string;
+  readonly userId?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheDeleteUserMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDeleteUserMessage(obj: ElastiCacheDeleteUserMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserId': obj.userId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDeleteUserGroupMessage
@@ -1050,9 +1844,23 @@ export interface ElastiCacheDeleteUserGroupMessage {
   /**
    * @schema ElastiCacheDeleteUserGroupMessage#UserGroupId
    */
-  readonly userGroupId: string;
+  readonly userGroupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheDeleteUserGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDeleteUserGroupMessage(obj: ElastiCacheDeleteUserGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserGroupId': obj.userGroupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDescribeCacheClustersMessage
@@ -1086,6 +1894,24 @@ export interface ElastiCacheDescribeCacheClustersMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDescribeCacheClustersMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeCacheClustersMessage(obj: ElastiCacheDescribeCacheClustersMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheClusterId': obj.cacheClusterId,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+    'ShowCacheNodeInfo': obj.showCacheNodeInfo,
+    'ShowCacheClustersNotInReplicationGroups': obj.showCacheClustersNotInReplicationGroups,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheCacheClusterMessage
  */
 export interface ElastiCacheCacheClusterMessage {
@@ -1100,6 +1926,21 @@ export interface ElastiCacheCacheClusterMessage {
   readonly cacheClusters?: ElastiCacheCacheCluster[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCacheClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCacheClusterMessage(obj: ElastiCacheCacheClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'CacheClusters': obj.cacheClusters?.map(y => toJson_ElastiCacheCacheCluster(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDescribeCacheEngineVersionsMessage
@@ -1138,6 +1979,25 @@ export interface ElastiCacheDescribeCacheEngineVersionsMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDescribeCacheEngineVersionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeCacheEngineVersionsMessage(obj: ElastiCacheDescribeCacheEngineVersionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'CacheParameterGroupFamily': obj.cacheParameterGroupFamily,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+    'DefaultOnly': obj.defaultOnly,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheCacheEngineVersionMessage
  */
 export interface ElastiCacheCacheEngineVersionMessage {
@@ -1152,6 +2012,21 @@ export interface ElastiCacheCacheEngineVersionMessage {
   readonly cacheEngineVersions?: ElastiCacheCacheEngineVersion[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCacheEngineVersionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCacheEngineVersionMessage(obj: ElastiCacheCacheEngineVersionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'CacheEngineVersions': obj.cacheEngineVersions?.map(y => toJson_ElastiCacheCacheEngineVersion(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDescribeCacheParameterGroupsMessage
@@ -1175,6 +2050,22 @@ export interface ElastiCacheDescribeCacheParameterGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDescribeCacheParameterGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeCacheParameterGroupsMessage(obj: ElastiCacheDescribeCacheParameterGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheParameterGroupName': obj.cacheParameterGroupName,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheCacheParameterGroupsMessage
  */
 export interface ElastiCacheCacheParameterGroupsMessage {
@@ -1191,13 +2082,28 @@ export interface ElastiCacheCacheParameterGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheCacheParameterGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCacheParameterGroupsMessage(obj: ElastiCacheCacheParameterGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'CacheParameterGroups': obj.cacheParameterGroups?.map(y => toJson_ElastiCacheCacheParameterGroup(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheDescribeCacheParametersMessage
  */
 export interface ElastiCacheDescribeCacheParametersMessage {
   /**
    * @schema ElastiCacheDescribeCacheParametersMessage#CacheParameterGroupName
    */
-  readonly cacheParameterGroupName: string;
+  readonly cacheParameterGroupName?: string;
 
   /**
    * @schema ElastiCacheDescribeCacheParametersMessage#Source
@@ -1215,6 +2121,23 @@ export interface ElastiCacheDescribeCacheParametersMessage {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheDescribeCacheParametersMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeCacheParametersMessage(obj: ElastiCacheDescribeCacheParametersMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheParameterGroupName': obj.cacheParameterGroupName,
+    'Source': obj.source,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCacheParameterGroupDetails
@@ -1238,6 +2161,22 @@ export interface ElastiCacheCacheParameterGroupDetails {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheCacheParameterGroupDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCacheParameterGroupDetails(obj: ElastiCacheCacheParameterGroupDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'Parameters': obj.parameters?.map(y => toJson_ElastiCacheParameter(y)),
+    'CacheNodeTypeSpecificParameters': obj.cacheNodeTypeSpecificParameters?.map(y => toJson_ElastiCacheCacheNodeTypeSpecificParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheDescribeCacheSecurityGroupsMessage
  */
 export interface ElastiCacheDescribeCacheSecurityGroupsMessage {
@@ -1259,6 +2198,22 @@ export interface ElastiCacheDescribeCacheSecurityGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDescribeCacheSecurityGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeCacheSecurityGroupsMessage(obj: ElastiCacheDescribeCacheSecurityGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheSecurityGroupName': obj.cacheSecurityGroupName,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheCacheSecurityGroupMessage
  */
 export interface ElastiCacheCacheSecurityGroupMessage {
@@ -1273,6 +2228,21 @@ export interface ElastiCacheCacheSecurityGroupMessage {
   readonly cacheSecurityGroups?: ElastiCacheCacheSecurityGroup[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCacheSecurityGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCacheSecurityGroupMessage(obj: ElastiCacheCacheSecurityGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'CacheSecurityGroups': obj.cacheSecurityGroups?.map(y => toJson_ElastiCacheCacheSecurityGroup(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDescribeCacheSubnetGroupsMessage
@@ -1296,6 +2266,22 @@ export interface ElastiCacheDescribeCacheSubnetGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDescribeCacheSubnetGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeCacheSubnetGroupsMessage(obj: ElastiCacheDescribeCacheSubnetGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheSubnetGroupName': obj.cacheSubnetGroupName,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheCacheSubnetGroupMessage
  */
 export interface ElastiCacheCacheSubnetGroupMessage {
@@ -1312,13 +2298,28 @@ export interface ElastiCacheCacheSubnetGroupMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheCacheSubnetGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCacheSubnetGroupMessage(obj: ElastiCacheCacheSubnetGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'CacheSubnetGroups': obj.cacheSubnetGroups?.map(y => toJson_ElastiCacheCacheSubnetGroup(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheDescribeEngineDefaultParametersMessage
  */
 export interface ElastiCacheDescribeEngineDefaultParametersMessage {
   /**
    * @schema ElastiCacheDescribeEngineDefaultParametersMessage#CacheParameterGroupFamily
    */
-  readonly cacheParameterGroupFamily: string;
+  readonly cacheParameterGroupFamily?: string;
 
   /**
    * @schema ElastiCacheDescribeEngineDefaultParametersMessage#MaxRecords
@@ -1333,6 +2334,22 @@ export interface ElastiCacheDescribeEngineDefaultParametersMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDescribeEngineDefaultParametersMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeEngineDefaultParametersMessage(obj: ElastiCacheDescribeEngineDefaultParametersMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheParameterGroupFamily': obj.cacheParameterGroupFamily,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheDescribeEngineDefaultParametersResult
  */
 export interface ElastiCacheDescribeEngineDefaultParametersResult {
@@ -1342,6 +2359,20 @@ export interface ElastiCacheDescribeEngineDefaultParametersResult {
   readonly engineDefaults?: ElastiCacheEngineDefaults;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheDescribeEngineDefaultParametersResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeEngineDefaultParametersResult(obj: ElastiCacheDescribeEngineDefaultParametersResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EngineDefaults': toJson_ElastiCacheEngineDefaults(obj.engineDefaults),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDescribeEventsMessage
@@ -1385,6 +2416,26 @@ export interface ElastiCacheDescribeEventsMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDescribeEventsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeEventsMessage(obj: ElastiCacheDescribeEventsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceIdentifier': obj.sourceIdentifier,
+    'SourceType': obj.sourceType,
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'Duration': obj.duration,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheEventsMessage
  */
 export interface ElastiCacheEventsMessage {
@@ -1399,6 +2450,21 @@ export interface ElastiCacheEventsMessage {
   readonly events?: ElastiCacheEvent[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheEventsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheEventsMessage(obj: ElastiCacheEventsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'Events': obj.events?.map(y => toJson_ElastiCacheEvent(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDescribeGlobalReplicationGroupsMessage
@@ -1427,6 +2493,23 @@ export interface ElastiCacheDescribeGlobalReplicationGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDescribeGlobalReplicationGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeGlobalReplicationGroupsMessage(obj: ElastiCacheDescribeGlobalReplicationGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroupId': obj.globalReplicationGroupId,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+    'ShowMemberInfo': obj.showMemberInfo,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheDescribeGlobalReplicationGroupsResult
  */
 export interface ElastiCacheDescribeGlobalReplicationGroupsResult {
@@ -1441,6 +2524,21 @@ export interface ElastiCacheDescribeGlobalReplicationGroupsResult {
   readonly globalReplicationGroups?: ElastiCacheGlobalReplicationGroup[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheDescribeGlobalReplicationGroupsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeGlobalReplicationGroupsResult(obj: ElastiCacheDescribeGlobalReplicationGroupsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'GlobalReplicationGroups': obj.globalReplicationGroups?.map(y => toJson_ElastiCacheGlobalReplicationGroup(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDescribeReplicationGroupsMessage
@@ -1464,6 +2562,22 @@ export interface ElastiCacheDescribeReplicationGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDescribeReplicationGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeReplicationGroupsMessage(obj: ElastiCacheDescribeReplicationGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupId': obj.replicationGroupId,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheReplicationGroupMessage
  */
 export interface ElastiCacheReplicationGroupMessage {
@@ -1478,6 +2592,21 @@ export interface ElastiCacheReplicationGroupMessage {
   readonly replicationGroups?: ElastiCacheReplicationGroup[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheReplicationGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheReplicationGroupMessage(obj: ElastiCacheReplicationGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'ReplicationGroups': obj.replicationGroups?.map(y => toJson_ElastiCacheReplicationGroup(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDescribeReservedCacheNodesMessage
@@ -1526,6 +2655,27 @@ export interface ElastiCacheDescribeReservedCacheNodesMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDescribeReservedCacheNodesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeReservedCacheNodesMessage(obj: ElastiCacheDescribeReservedCacheNodesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReservedCacheNodeId': obj.reservedCacheNodeId,
+    'ReservedCacheNodesOfferingId': obj.reservedCacheNodesOfferingId,
+    'CacheNodeType': obj.cacheNodeType,
+    'Duration': obj.duration,
+    'ProductDescription': obj.productDescription,
+    'OfferingType': obj.offeringType,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheReservedCacheNodeMessage
  */
 export interface ElastiCacheReservedCacheNodeMessage {
@@ -1540,6 +2690,21 @@ export interface ElastiCacheReservedCacheNodeMessage {
   readonly reservedCacheNodes?: ElastiCacheReservedCacheNode[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheReservedCacheNodeMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheReservedCacheNodeMessage(obj: ElastiCacheReservedCacheNodeMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'ReservedCacheNodes': obj.reservedCacheNodes?.map(y => toJson_ElastiCacheReservedCacheNode(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDescribeReservedCacheNodesOfferingsMessage
@@ -1583,6 +2748,26 @@ export interface ElastiCacheDescribeReservedCacheNodesOfferingsMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDescribeReservedCacheNodesOfferingsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeReservedCacheNodesOfferingsMessage(obj: ElastiCacheDescribeReservedCacheNodesOfferingsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReservedCacheNodesOfferingId': obj.reservedCacheNodesOfferingId,
+    'CacheNodeType': obj.cacheNodeType,
+    'Duration': obj.duration,
+    'ProductDescription': obj.productDescription,
+    'OfferingType': obj.offeringType,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheReservedCacheNodesOfferingMessage
  */
 export interface ElastiCacheReservedCacheNodesOfferingMessage {
@@ -1597,6 +2782,21 @@ export interface ElastiCacheReservedCacheNodesOfferingMessage {
   readonly reservedCacheNodesOfferings?: ElastiCacheReservedCacheNodesOffering[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheReservedCacheNodesOfferingMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheReservedCacheNodesOfferingMessage(obj: ElastiCacheReservedCacheNodesOfferingMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'ReservedCacheNodesOfferings': obj.reservedCacheNodesOfferings?.map(y => toJson_ElastiCacheReservedCacheNodesOffering(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDescribeServiceUpdatesMessage
@@ -1625,6 +2825,23 @@ export interface ElastiCacheDescribeServiceUpdatesMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDescribeServiceUpdatesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeServiceUpdatesMessage(obj: ElastiCacheDescribeServiceUpdatesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ServiceUpdateName': obj.serviceUpdateName,
+    'ServiceUpdateStatus': obj.serviceUpdateStatus?.map(y => y),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheServiceUpdatesMessage
  */
 export interface ElastiCacheServiceUpdatesMessage {
@@ -1639,6 +2856,21 @@ export interface ElastiCacheServiceUpdatesMessage {
   readonly serviceUpdates?: ElastiCacheServiceUpdate[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheServiceUpdatesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheServiceUpdatesMessage(obj: ElastiCacheServiceUpdatesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'ServiceUpdates': obj.serviceUpdates?.map(y => toJson_ElastiCacheServiceUpdate(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDescribeSnapshotsMessage
@@ -1682,6 +2914,26 @@ export interface ElastiCacheDescribeSnapshotsMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDescribeSnapshotsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeSnapshotsMessage(obj: ElastiCacheDescribeSnapshotsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupId': obj.replicationGroupId,
+    'CacheClusterId': obj.cacheClusterId,
+    'SnapshotName': obj.snapshotName,
+    'SnapshotSource': obj.snapshotSource,
+    'Marker': obj.marker,
+    'MaxRecords': obj.maxRecords,
+    'ShowNodeGroupConfig': obj.showNodeGroupConfig,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheDescribeSnapshotsListMessage
  */
 export interface ElastiCacheDescribeSnapshotsListMessage {
@@ -1696,6 +2948,21 @@ export interface ElastiCacheDescribeSnapshotsListMessage {
   readonly snapshots?: ElastiCacheSnapshot[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheDescribeSnapshotsListMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeSnapshotsListMessage(obj: ElastiCacheDescribeSnapshotsListMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'Snapshots': obj.snapshots?.map(y => toJson_ElastiCacheSnapshot(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDescribeUpdateActionsMessage
@@ -1754,6 +3021,29 @@ export interface ElastiCacheDescribeUpdateActionsMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDescribeUpdateActionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeUpdateActionsMessage(obj: ElastiCacheDescribeUpdateActionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ServiceUpdateName': obj.serviceUpdateName,
+    'ReplicationGroupIds': obj.replicationGroupIds?.map(y => y),
+    'CacheClusterIds': obj.cacheClusterIds?.map(y => y),
+    'Engine': obj.engine,
+    'ServiceUpdateStatus': obj.serviceUpdateStatus?.map(y => y),
+    'ServiceUpdateTimeRange': toJson_ElastiCacheTimeRangeFilter(obj.serviceUpdateTimeRange),
+    'UpdateActionStatus': obj.updateActionStatus?.map(y => y),
+    'ShowNodeLevelUpdateStatus': obj.showNodeLevelUpdateStatus,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheUpdateActionsMessage
  */
 export interface ElastiCacheUpdateActionsMessage {
@@ -1768,6 +3058,21 @@ export interface ElastiCacheUpdateActionsMessage {
   readonly updateActions?: ElastiCacheUpdateAction[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheUpdateActionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheUpdateActionsMessage(obj: ElastiCacheUpdateActionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'UpdateActions': obj.updateActions?.map(y => toJson_ElastiCacheUpdateAction(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDescribeUserGroupsMessage
@@ -1791,6 +3096,22 @@ export interface ElastiCacheDescribeUserGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDescribeUserGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeUserGroupsMessage(obj: ElastiCacheDescribeUserGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserGroupId': obj.userGroupId,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheDescribeUserGroupsResult
  */
 export interface ElastiCacheDescribeUserGroupsResult {
@@ -1805,6 +3126,21 @@ export interface ElastiCacheDescribeUserGroupsResult {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheDescribeUserGroupsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeUserGroupsResult(obj: ElastiCacheDescribeUserGroupsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserGroups': obj.userGroups?.map(y => toJson_ElastiCacheUserGroup(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDescribeUsersMessage
@@ -1838,6 +3174,24 @@ export interface ElastiCacheDescribeUsersMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDescribeUsersMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeUsersMessage(obj: ElastiCacheDescribeUsersMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Engine': obj.engine,
+    'UserId': obj.userId,
+    'Filters': obj.filters?.map(y => toJson_ElastiCacheFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheDescribeUsersResult
  */
 export interface ElastiCacheDescribeUsersResult {
@@ -1854,25 +3208,56 @@ export interface ElastiCacheDescribeUsersResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDescribeUsersResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDescribeUsersResult(obj: ElastiCacheDescribeUsersResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Users': obj.users?.map(y => toJson_ElastiCacheUser(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheDisassociateGlobalReplicationGroupMessage
  */
 export interface ElastiCacheDisassociateGlobalReplicationGroupMessage {
   /**
    * @schema ElastiCacheDisassociateGlobalReplicationGroupMessage#GlobalReplicationGroupId
    */
-  readonly globalReplicationGroupId: string;
+  readonly globalReplicationGroupId?: string;
 
   /**
    * @schema ElastiCacheDisassociateGlobalReplicationGroupMessage#ReplicationGroupId
    */
-  readonly replicationGroupId: string;
+  readonly replicationGroupId?: string;
 
   /**
    * @schema ElastiCacheDisassociateGlobalReplicationGroupMessage#ReplicationGroupRegion
    */
-  readonly replicationGroupRegion: string;
+  readonly replicationGroupRegion?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheDisassociateGlobalReplicationGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDisassociateGlobalReplicationGroupMessage(obj: ElastiCacheDisassociateGlobalReplicationGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroupId': obj.globalReplicationGroupId,
+    'ReplicationGroupId': obj.replicationGroupId,
+    'ReplicationGroupRegion': obj.replicationGroupRegion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheDisassociateGlobalReplicationGroupResult
@@ -1886,25 +3271,55 @@ export interface ElastiCacheDisassociateGlobalReplicationGroupResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheDisassociateGlobalReplicationGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDisassociateGlobalReplicationGroupResult(obj: ElastiCacheDisassociateGlobalReplicationGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroup': toJson_ElastiCacheGlobalReplicationGroup(obj.globalReplicationGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheFailoverGlobalReplicationGroupMessage
  */
 export interface ElastiCacheFailoverGlobalReplicationGroupMessage {
   /**
    * @schema ElastiCacheFailoverGlobalReplicationGroupMessage#GlobalReplicationGroupId
    */
-  readonly globalReplicationGroupId: string;
+  readonly globalReplicationGroupId?: string;
 
   /**
    * @schema ElastiCacheFailoverGlobalReplicationGroupMessage#PrimaryRegion
    */
-  readonly primaryRegion: string;
+  readonly primaryRegion?: string;
 
   /**
    * @schema ElastiCacheFailoverGlobalReplicationGroupMessage#PrimaryReplicationGroupId
    */
-  readonly primaryReplicationGroupId: string;
+  readonly primaryReplicationGroupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheFailoverGlobalReplicationGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheFailoverGlobalReplicationGroupMessage(obj: ElastiCacheFailoverGlobalReplicationGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroupId': obj.globalReplicationGroupId,
+    'PrimaryRegion': obj.primaryRegion,
+    'PrimaryReplicationGroupId': obj.primaryReplicationGroupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheFailoverGlobalReplicationGroupResult
@@ -1918,18 +3333,32 @@ export interface ElastiCacheFailoverGlobalReplicationGroupResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheFailoverGlobalReplicationGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheFailoverGlobalReplicationGroupResult(obj: ElastiCacheFailoverGlobalReplicationGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroup': toJson_ElastiCacheGlobalReplicationGroup(obj.globalReplicationGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheIncreaseNodeGroupsInGlobalReplicationGroupMessage
  */
 export interface ElastiCacheIncreaseNodeGroupsInGlobalReplicationGroupMessage {
   /**
    * @schema ElastiCacheIncreaseNodeGroupsInGlobalReplicationGroupMessage#GlobalReplicationGroupId
    */
-  readonly globalReplicationGroupId: string;
+  readonly globalReplicationGroupId?: string;
 
   /**
    * @schema ElastiCacheIncreaseNodeGroupsInGlobalReplicationGroupMessage#NodeGroupCount
    */
-  readonly nodeGroupCount: number;
+  readonly nodeGroupCount?: number;
 
   /**
    * @schema ElastiCacheIncreaseNodeGroupsInGlobalReplicationGroupMessage#RegionalConfigurations
@@ -1939,9 +3368,26 @@ export interface ElastiCacheIncreaseNodeGroupsInGlobalReplicationGroupMessage {
   /**
    * @schema ElastiCacheIncreaseNodeGroupsInGlobalReplicationGroupMessage#ApplyImmediately
    */
-  readonly applyImmediately: boolean;
+  readonly applyImmediately?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheIncreaseNodeGroupsInGlobalReplicationGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheIncreaseNodeGroupsInGlobalReplicationGroupMessage(obj: ElastiCacheIncreaseNodeGroupsInGlobalReplicationGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroupId': obj.globalReplicationGroupId,
+    'NodeGroupCount': obj.nodeGroupCount,
+    'RegionalConfigurations': obj.regionalConfigurations?.map(y => toJson_ElastiCacheRegionalConfiguration(y)),
+    'ApplyImmediately': obj.applyImmediately,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheIncreaseNodeGroupsInGlobalReplicationGroupResult
@@ -1955,13 +3401,27 @@ export interface ElastiCacheIncreaseNodeGroupsInGlobalReplicationGroupResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheIncreaseNodeGroupsInGlobalReplicationGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheIncreaseNodeGroupsInGlobalReplicationGroupResult(obj: ElastiCacheIncreaseNodeGroupsInGlobalReplicationGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroup': toJson_ElastiCacheGlobalReplicationGroup(obj.globalReplicationGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheIncreaseReplicaCountMessage
  */
 export interface ElastiCacheIncreaseReplicaCountMessage {
   /**
    * @schema ElastiCacheIncreaseReplicaCountMessage#ReplicationGroupId
    */
-  readonly replicationGroupId: string;
+  readonly replicationGroupId?: string;
 
   /**
    * @schema ElastiCacheIncreaseReplicaCountMessage#NewReplicaCount
@@ -1976,9 +3436,26 @@ export interface ElastiCacheIncreaseReplicaCountMessage {
   /**
    * @schema ElastiCacheIncreaseReplicaCountMessage#ApplyImmediately
    */
-  readonly applyImmediately: boolean;
+  readonly applyImmediately?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheIncreaseReplicaCountMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheIncreaseReplicaCountMessage(obj: ElastiCacheIncreaseReplicaCountMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupId': obj.replicationGroupId,
+    'NewReplicaCount': obj.newReplicaCount,
+    'ReplicaConfiguration': obj.replicaConfiguration?.map(y => toJson_ElastiCacheConfigureShard(y)),
+    'ApplyImmediately': obj.applyImmediately,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheIncreaseReplicaCountResult
@@ -1990,6 +3467,20 @@ export interface ElastiCacheIncreaseReplicaCountResult {
   readonly replicationGroup?: ElastiCacheReplicationGroup;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheIncreaseReplicaCountResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheIncreaseReplicaCountResult(obj: ElastiCacheIncreaseReplicaCountResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroup': toJson_ElastiCacheReplicationGroup(obj.replicationGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheListAllowedNodeTypeModificationsMessage
@@ -2008,6 +3499,21 @@ export interface ElastiCacheListAllowedNodeTypeModificationsMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheListAllowedNodeTypeModificationsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheListAllowedNodeTypeModificationsMessage(obj: ElastiCacheListAllowedNodeTypeModificationsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheClusterId': obj.cacheClusterId,
+    'ReplicationGroupId': obj.replicationGroupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheAllowedNodeTypeModificationsMessage
  */
 export interface ElastiCacheAllowedNodeTypeModificationsMessage {
@@ -2024,15 +3530,44 @@ export interface ElastiCacheAllowedNodeTypeModificationsMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheAllowedNodeTypeModificationsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheAllowedNodeTypeModificationsMessage(obj: ElastiCacheAllowedNodeTypeModificationsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ScaleUpModifications': obj.scaleUpModifications?.map(y => y),
+    'ScaleDownModifications': obj.scaleDownModifications?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheListTagsForResourceMessage
  */
 export interface ElastiCacheListTagsForResourceMessage {
   /**
    * @schema ElastiCacheListTagsForResourceMessage#ResourceName
    */
-  readonly resourceName: string;
+  readonly resourceName?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheListTagsForResourceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheListTagsForResourceMessage(obj: ElastiCacheListTagsForResourceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceName': obj.resourceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheModifyCacheClusterMessage
@@ -2041,7 +3576,7 @@ export interface ElastiCacheModifyCacheClusterMessage {
   /**
    * @schema ElastiCacheModifyCacheClusterMessage#CacheClusterId
    */
-  readonly cacheClusterId: string;
+  readonly cacheClusterId?: string;
 
   /**
    * @schema ElastiCacheModifyCacheClusterMessage#NumCacheNodes
@@ -2133,7 +3668,45 @@ export interface ElastiCacheModifyCacheClusterMessage {
    */
   readonly authTokenUpdateStrategy?: string;
 
+  /**
+   * @schema ElastiCacheModifyCacheClusterMessage#LogDeliveryConfigurations
+   */
+  readonly logDeliveryConfigurations?: ElastiCacheLogDeliveryConfigurationRequest[];
+
 }
+
+/**
+ * Converts an object of type 'ElastiCacheModifyCacheClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheModifyCacheClusterMessage(obj: ElastiCacheModifyCacheClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheClusterId': obj.cacheClusterId,
+    'NumCacheNodes': obj.numCacheNodes,
+    'CacheNodeIdsToRemove': obj.cacheNodeIdsToRemove?.map(y => y),
+    'AZMode': obj.azMode,
+    'NewAvailabilityZones': obj.newAvailabilityZones?.map(y => y),
+    'CacheSecurityGroupNames': obj.cacheSecurityGroupNames?.map(y => y),
+    'SecurityGroupIds': obj.securityGroupIds?.map(y => y),
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'NotificationTopicArn': obj.notificationTopicArn,
+    'CacheParameterGroupName': obj.cacheParameterGroupName,
+    'NotificationTopicStatus': obj.notificationTopicStatus,
+    'ApplyImmediately': obj.applyImmediately,
+    'EngineVersion': obj.engineVersion,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'SnapshotRetentionLimit': obj.snapshotRetentionLimit,
+    'SnapshotWindow': obj.snapshotWindow,
+    'CacheNodeType': obj.cacheNodeType,
+    'AuthToken': obj.authToken,
+    'AuthTokenUpdateStrategy': obj.authTokenUpdateStrategy,
+    'LogDeliveryConfigurations': obj.logDeliveryConfigurations?.map(y => toJson_ElastiCacheLogDeliveryConfigurationRequest(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheModifyCacheClusterResult
@@ -2147,20 +3720,49 @@ export interface ElastiCacheModifyCacheClusterResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheModifyCacheClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheModifyCacheClusterResult(obj: ElastiCacheModifyCacheClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheCluster': toJson_ElastiCacheCacheCluster(obj.cacheCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheModifyCacheParameterGroupMessage
  */
 export interface ElastiCacheModifyCacheParameterGroupMessage {
   /**
    * @schema ElastiCacheModifyCacheParameterGroupMessage#CacheParameterGroupName
    */
-  readonly cacheParameterGroupName: string;
+  readonly cacheParameterGroupName?: string;
 
   /**
    * @schema ElastiCacheModifyCacheParameterGroupMessage#ParameterNameValues
    */
-  readonly parameterNameValues: ElastiCacheParameterNameValue[];
+  readonly parameterNameValues?: ElastiCacheParameterNameValue[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheModifyCacheParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheModifyCacheParameterGroupMessage(obj: ElastiCacheModifyCacheParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheParameterGroupName': obj.cacheParameterGroupName,
+    'ParameterNameValues': obj.parameterNameValues?.map(y => toJson_ElastiCacheParameterNameValue(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCacheParameterGroupNameMessage
@@ -2174,13 +3776,27 @@ export interface ElastiCacheCacheParameterGroupNameMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheCacheParameterGroupNameMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCacheParameterGroupNameMessage(obj: ElastiCacheCacheParameterGroupNameMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheParameterGroupName': obj.cacheParameterGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheModifyCacheSubnetGroupMessage
  */
 export interface ElastiCacheModifyCacheSubnetGroupMessage {
   /**
    * @schema ElastiCacheModifyCacheSubnetGroupMessage#CacheSubnetGroupName
    */
-  readonly cacheSubnetGroupName: string;
+  readonly cacheSubnetGroupName?: string;
 
   /**
    * @schema ElastiCacheModifyCacheSubnetGroupMessage#CacheSubnetGroupDescription
@@ -2195,6 +3811,22 @@ export interface ElastiCacheModifyCacheSubnetGroupMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheModifyCacheSubnetGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheModifyCacheSubnetGroupMessage(obj: ElastiCacheModifyCacheSubnetGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheSubnetGroupName': obj.cacheSubnetGroupName,
+    'CacheSubnetGroupDescription': obj.cacheSubnetGroupDescription,
+    'SubnetIds': obj.subnetIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheModifyCacheSubnetGroupResult
  */
 export interface ElastiCacheModifyCacheSubnetGroupResult {
@@ -2206,18 +3838,32 @@ export interface ElastiCacheModifyCacheSubnetGroupResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheModifyCacheSubnetGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheModifyCacheSubnetGroupResult(obj: ElastiCacheModifyCacheSubnetGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheSubnetGroup': toJson_ElastiCacheCacheSubnetGroup(obj.cacheSubnetGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheModifyGlobalReplicationGroupMessage
  */
 export interface ElastiCacheModifyGlobalReplicationGroupMessage {
   /**
    * @schema ElastiCacheModifyGlobalReplicationGroupMessage#GlobalReplicationGroupId
    */
-  readonly globalReplicationGroupId: string;
+  readonly globalReplicationGroupId?: string;
 
   /**
    * @schema ElastiCacheModifyGlobalReplicationGroupMessage#ApplyImmediately
    */
-  readonly applyImmediately: boolean;
+  readonly applyImmediately?: boolean;
 
   /**
    * @schema ElastiCacheModifyGlobalReplicationGroupMessage#CacheNodeType
@@ -2228,6 +3874,11 @@ export interface ElastiCacheModifyGlobalReplicationGroupMessage {
    * @schema ElastiCacheModifyGlobalReplicationGroupMessage#EngineVersion
    */
   readonly engineVersion?: string;
+
+  /**
+   * @schema ElastiCacheModifyGlobalReplicationGroupMessage#CacheParameterGroupName
+   */
+  readonly cacheParameterGroupName?: string;
 
   /**
    * @schema ElastiCacheModifyGlobalReplicationGroupMessage#GlobalReplicationGroupDescription
@@ -2242,6 +3893,26 @@ export interface ElastiCacheModifyGlobalReplicationGroupMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheModifyGlobalReplicationGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheModifyGlobalReplicationGroupMessage(obj: ElastiCacheModifyGlobalReplicationGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroupId': obj.globalReplicationGroupId,
+    'ApplyImmediately': obj.applyImmediately,
+    'CacheNodeType': obj.cacheNodeType,
+    'EngineVersion': obj.engineVersion,
+    'CacheParameterGroupName': obj.cacheParameterGroupName,
+    'GlobalReplicationGroupDescription': obj.globalReplicationGroupDescription,
+    'AutomaticFailoverEnabled': obj.automaticFailoverEnabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheModifyGlobalReplicationGroupResult
  */
 export interface ElastiCacheModifyGlobalReplicationGroupResult {
@@ -2253,13 +3924,27 @@ export interface ElastiCacheModifyGlobalReplicationGroupResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheModifyGlobalReplicationGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheModifyGlobalReplicationGroupResult(obj: ElastiCacheModifyGlobalReplicationGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroup': toJson_ElastiCacheGlobalReplicationGroup(obj.globalReplicationGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheModifyReplicationGroupMessage
  */
 export interface ElastiCacheModifyReplicationGroupMessage {
   /**
    * @schema ElastiCacheModifyReplicationGroupMessage#ReplicationGroupId
    */
-  readonly replicationGroupId: string;
+  readonly replicationGroupId?: string;
 
   /**
    * @schema ElastiCacheModifyReplicationGroupMessage#ReplicationGroupDescription
@@ -2376,7 +4061,50 @@ export interface ElastiCacheModifyReplicationGroupMessage {
    */
   readonly removeUserGroups?: boolean;
 
+  /**
+   * @schema ElastiCacheModifyReplicationGroupMessage#LogDeliveryConfigurations
+   */
+  readonly logDeliveryConfigurations?: ElastiCacheLogDeliveryConfigurationRequest[];
+
 }
+
+/**
+ * Converts an object of type 'ElastiCacheModifyReplicationGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheModifyReplicationGroupMessage(obj: ElastiCacheModifyReplicationGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupId': obj.replicationGroupId,
+    'ReplicationGroupDescription': obj.replicationGroupDescription,
+    'PrimaryClusterId': obj.primaryClusterId,
+    'SnapshottingClusterId': obj.snapshottingClusterId,
+    'AutomaticFailoverEnabled': obj.automaticFailoverEnabled,
+    'MultiAZEnabled': obj.multiAzEnabled,
+    'NodeGroupId': obj.nodeGroupId,
+    'CacheSecurityGroupNames': obj.cacheSecurityGroupNames?.map(y => y),
+    'SecurityGroupIds': obj.securityGroupIds?.map(y => y),
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'NotificationTopicArn': obj.notificationTopicArn,
+    'CacheParameterGroupName': obj.cacheParameterGroupName,
+    'NotificationTopicStatus': obj.notificationTopicStatus,
+    'ApplyImmediately': obj.applyImmediately,
+    'EngineVersion': obj.engineVersion,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'SnapshotRetentionLimit': obj.snapshotRetentionLimit,
+    'SnapshotWindow': obj.snapshotWindow,
+    'CacheNodeType': obj.cacheNodeType,
+    'AuthToken': obj.authToken,
+    'AuthTokenUpdateStrategy': obj.authTokenUpdateStrategy,
+    'UserGroupIdsToAdd': obj.userGroupIdsToAdd?.map(y => y),
+    'UserGroupIdsToRemove': obj.userGroupIdsToRemove?.map(y => y),
+    'RemoveUserGroups': obj.removeUserGroups,
+    'LogDeliveryConfigurations': obj.logDeliveryConfigurations?.map(y => toJson_ElastiCacheLogDeliveryConfigurationRequest(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheModifyReplicationGroupResult
@@ -2390,23 +4118,37 @@ export interface ElastiCacheModifyReplicationGroupResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheModifyReplicationGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheModifyReplicationGroupResult(obj: ElastiCacheModifyReplicationGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroup': toJson_ElastiCacheReplicationGroup(obj.replicationGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheModifyReplicationGroupShardConfigurationMessage
  */
 export interface ElastiCacheModifyReplicationGroupShardConfigurationMessage {
   /**
    * @schema ElastiCacheModifyReplicationGroupShardConfigurationMessage#ReplicationGroupId
    */
-  readonly replicationGroupId: string;
+  readonly replicationGroupId?: string;
 
   /**
    * @schema ElastiCacheModifyReplicationGroupShardConfigurationMessage#NodeGroupCount
    */
-  readonly nodeGroupCount: number;
+  readonly nodeGroupCount?: number;
 
   /**
    * @schema ElastiCacheModifyReplicationGroupShardConfigurationMessage#ApplyImmediately
    */
-  readonly applyImmediately: boolean;
+  readonly applyImmediately?: boolean;
 
   /**
    * @schema ElastiCacheModifyReplicationGroupShardConfigurationMessage#ReshardingConfiguration
@@ -2426,6 +4168,25 @@ export interface ElastiCacheModifyReplicationGroupShardConfigurationMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheModifyReplicationGroupShardConfigurationMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheModifyReplicationGroupShardConfigurationMessage(obj: ElastiCacheModifyReplicationGroupShardConfigurationMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupId': obj.replicationGroupId,
+    'NodeGroupCount': obj.nodeGroupCount,
+    'ApplyImmediately': obj.applyImmediately,
+    'ReshardingConfiguration': obj.reshardingConfiguration?.map(y => toJson_ElastiCacheReshardingConfiguration(y)),
+    'NodeGroupsToRemove': obj.nodeGroupsToRemove?.map(y => y),
+    'NodeGroupsToRetain': obj.nodeGroupsToRetain?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheModifyReplicationGroupShardConfigurationResult
  */
 export interface ElastiCacheModifyReplicationGroupShardConfigurationResult {
@@ -2437,13 +4198,27 @@ export interface ElastiCacheModifyReplicationGroupShardConfigurationResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheModifyReplicationGroupShardConfigurationResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheModifyReplicationGroupShardConfigurationResult(obj: ElastiCacheModifyReplicationGroupShardConfigurationResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroup': toJson_ElastiCacheReplicationGroup(obj.replicationGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheModifyUserMessage
  */
 export interface ElastiCacheModifyUserMessage {
   /**
    * @schema ElastiCacheModifyUserMessage#UserId
    */
-  readonly userId: string;
+  readonly userId?: string;
 
   /**
    * @schema ElastiCacheModifyUserMessage#AccessString
@@ -2468,13 +4243,31 @@ export interface ElastiCacheModifyUserMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheModifyUserMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheModifyUserMessage(obj: ElastiCacheModifyUserMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserId': obj.userId,
+    'AccessString': obj.accessString,
+    'AppendAccessString': obj.appendAccessString,
+    'Passwords': obj.passwords?.map(y => y),
+    'NoPasswordRequired': obj.noPasswordRequired,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheModifyUserGroupMessage
  */
 export interface ElastiCacheModifyUserGroupMessage {
   /**
    * @schema ElastiCacheModifyUserGroupMessage#UserGroupId
    */
-  readonly userGroupId: string;
+  readonly userGroupId?: string;
 
   /**
    * @schema ElastiCacheModifyUserGroupMessage#UserIdsToAdd
@@ -2489,13 +4282,29 @@ export interface ElastiCacheModifyUserGroupMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheModifyUserGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheModifyUserGroupMessage(obj: ElastiCacheModifyUserGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserGroupId': obj.userGroupId,
+    'UserIdsToAdd': obj.userIdsToAdd?.map(y => y),
+    'UserIdsToRemove': obj.userIdsToRemove?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCachePurchaseReservedCacheNodesOfferingMessage
  */
 export interface ElastiCachePurchaseReservedCacheNodesOfferingMessage {
   /**
    * @schema ElastiCachePurchaseReservedCacheNodesOfferingMessage#ReservedCacheNodesOfferingId
    */
-  readonly reservedCacheNodesOfferingId: string;
+  readonly reservedCacheNodesOfferingId?: string;
 
   /**
    * @schema ElastiCachePurchaseReservedCacheNodesOfferingMessage#ReservedCacheNodeId
@@ -2507,7 +4316,29 @@ export interface ElastiCachePurchaseReservedCacheNodesOfferingMessage {
    */
   readonly cacheNodeCount?: number;
 
+  /**
+   * @schema ElastiCachePurchaseReservedCacheNodesOfferingMessage#Tags
+   */
+  readonly tags?: ElastiCacheTag[];
+
 }
+
+/**
+ * Converts an object of type 'ElastiCachePurchaseReservedCacheNodesOfferingMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCachePurchaseReservedCacheNodesOfferingMessage(obj: ElastiCachePurchaseReservedCacheNodesOfferingMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReservedCacheNodesOfferingId': obj.reservedCacheNodesOfferingId,
+    'ReservedCacheNodeId': obj.reservedCacheNodeId,
+    'CacheNodeCount': obj.cacheNodeCount,
+    'Tags': obj.tags?.map(y => toJson_ElastiCacheTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCachePurchaseReservedCacheNodesOfferingResult
@@ -2521,20 +4352,49 @@ export interface ElastiCachePurchaseReservedCacheNodesOfferingResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCachePurchaseReservedCacheNodesOfferingResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCachePurchaseReservedCacheNodesOfferingResult(obj: ElastiCachePurchaseReservedCacheNodesOfferingResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReservedCacheNode': toJson_ElastiCacheReservedCacheNode(obj.reservedCacheNode),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheRebalanceSlotsInGlobalReplicationGroupMessage
  */
 export interface ElastiCacheRebalanceSlotsInGlobalReplicationGroupMessage {
   /**
    * @schema ElastiCacheRebalanceSlotsInGlobalReplicationGroupMessage#GlobalReplicationGroupId
    */
-  readonly globalReplicationGroupId: string;
+  readonly globalReplicationGroupId?: string;
 
   /**
    * @schema ElastiCacheRebalanceSlotsInGlobalReplicationGroupMessage#ApplyImmediately
    */
-  readonly applyImmediately: boolean;
+  readonly applyImmediately?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheRebalanceSlotsInGlobalReplicationGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheRebalanceSlotsInGlobalReplicationGroupMessage(obj: ElastiCacheRebalanceSlotsInGlobalReplicationGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroupId': obj.globalReplicationGroupId,
+    'ApplyImmediately': obj.applyImmediately,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheRebalanceSlotsInGlobalReplicationGroupResult
@@ -2548,20 +4408,49 @@ export interface ElastiCacheRebalanceSlotsInGlobalReplicationGroupResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheRebalanceSlotsInGlobalReplicationGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheRebalanceSlotsInGlobalReplicationGroupResult(obj: ElastiCacheRebalanceSlotsInGlobalReplicationGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroup': toJson_ElastiCacheGlobalReplicationGroup(obj.globalReplicationGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheRebootCacheClusterMessage
  */
 export interface ElastiCacheRebootCacheClusterMessage {
   /**
    * @schema ElastiCacheRebootCacheClusterMessage#CacheClusterId
    */
-  readonly cacheClusterId: string;
+  readonly cacheClusterId?: string;
 
   /**
    * @schema ElastiCacheRebootCacheClusterMessage#CacheNodeIdsToReboot
    */
-  readonly cacheNodeIdsToReboot: string[];
+  readonly cacheNodeIdsToReboot?: string[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheRebootCacheClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheRebootCacheClusterMessage(obj: ElastiCacheRebootCacheClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheClusterId': obj.cacheClusterId,
+    'CacheNodeIdsToReboot': obj.cacheNodeIdsToReboot?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheRebootCacheClusterResult
@@ -2575,20 +4464,49 @@ export interface ElastiCacheRebootCacheClusterResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheRebootCacheClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheRebootCacheClusterResult(obj: ElastiCacheRebootCacheClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheCluster': toJson_ElastiCacheCacheCluster(obj.cacheCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheRemoveTagsFromResourceMessage
  */
 export interface ElastiCacheRemoveTagsFromResourceMessage {
   /**
    * @schema ElastiCacheRemoveTagsFromResourceMessage#ResourceName
    */
-  readonly resourceName: string;
+  readonly resourceName?: string;
 
   /**
    * @schema ElastiCacheRemoveTagsFromResourceMessage#TagKeys
    */
-  readonly tagKeys: string[];
+  readonly tagKeys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheRemoveTagsFromResourceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheRemoveTagsFromResourceMessage(obj: ElastiCacheRemoveTagsFromResourceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceName': obj.resourceName,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheResetCacheParameterGroupMessage
@@ -2597,7 +4515,7 @@ export interface ElastiCacheResetCacheParameterGroupMessage {
   /**
    * @schema ElastiCacheResetCacheParameterGroupMessage#CacheParameterGroupName
    */
-  readonly cacheParameterGroupName: string;
+  readonly cacheParameterGroupName?: string;
 
   /**
    * @schema ElastiCacheResetCacheParameterGroupMessage#ResetAllParameters
@@ -2612,25 +4530,57 @@ export interface ElastiCacheResetCacheParameterGroupMessage {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheResetCacheParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheResetCacheParameterGroupMessage(obj: ElastiCacheResetCacheParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheParameterGroupName': obj.cacheParameterGroupName,
+    'ResetAllParameters': obj.resetAllParameters,
+    'ParameterNameValues': obj.parameterNameValues?.map(y => toJson_ElastiCacheParameterNameValue(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheRevokeCacheSecurityGroupIngressMessage
  */
 export interface ElastiCacheRevokeCacheSecurityGroupIngressMessage {
   /**
    * @schema ElastiCacheRevokeCacheSecurityGroupIngressMessage#CacheSecurityGroupName
    */
-  readonly cacheSecurityGroupName: string;
+  readonly cacheSecurityGroupName?: string;
 
   /**
    * @schema ElastiCacheRevokeCacheSecurityGroupIngressMessage#EC2SecurityGroupName
    */
-  readonly ec2SecurityGroupName: string;
+  readonly ec2SecurityGroupName?: string;
 
   /**
    * @schema ElastiCacheRevokeCacheSecurityGroupIngressMessage#EC2SecurityGroupOwnerId
    */
-  readonly ec2SecurityGroupOwnerId: string;
+  readonly ec2SecurityGroupOwnerId?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheRevokeCacheSecurityGroupIngressMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheRevokeCacheSecurityGroupIngressMessage(obj: ElastiCacheRevokeCacheSecurityGroupIngressMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheSecurityGroupName': obj.cacheSecurityGroupName,
+    'EC2SecurityGroupName': obj.ec2SecurityGroupName,
+    'EC2SecurityGroupOwnerId': obj.ec2SecurityGroupOwnerId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheRevokeCacheSecurityGroupIngressResult
@@ -2644,20 +4594,49 @@ export interface ElastiCacheRevokeCacheSecurityGroupIngressResult {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheRevokeCacheSecurityGroupIngressResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheRevokeCacheSecurityGroupIngressResult(obj: ElastiCacheRevokeCacheSecurityGroupIngressResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheSecurityGroup': toJson_ElastiCacheCacheSecurityGroup(obj.cacheSecurityGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheStartMigrationMessage
  */
 export interface ElastiCacheStartMigrationMessage {
   /**
    * @schema ElastiCacheStartMigrationMessage#ReplicationGroupId
    */
-  readonly replicationGroupId: string;
+  readonly replicationGroupId?: string;
 
   /**
    * @schema ElastiCacheStartMigrationMessage#CustomerNodeEndpointList
    */
-  readonly customerNodeEndpointList: ElastiCacheCustomerNodeEndpoint[];
+  readonly customerNodeEndpointList?: ElastiCacheCustomerNodeEndpoint[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheStartMigrationMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheStartMigrationMessage(obj: ElastiCacheStartMigrationMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupId': obj.replicationGroupId,
+    'CustomerNodeEndpointList': obj.customerNodeEndpointList?.map(y => toJson_ElastiCacheCustomerNodeEndpoint(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheStartMigrationResponse
@@ -2671,20 +4650,49 @@ export interface ElastiCacheStartMigrationResponse {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheStartMigrationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheStartMigrationResponse(obj: ElastiCacheStartMigrationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroup': toJson_ElastiCacheReplicationGroup(obj.replicationGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheTestFailoverMessage
  */
 export interface ElastiCacheTestFailoverMessage {
   /**
    * @schema ElastiCacheTestFailoverMessage#ReplicationGroupId
    */
-  readonly replicationGroupId: string;
+  readonly replicationGroupId?: string;
 
   /**
    * @schema ElastiCacheTestFailoverMessage#NodeGroupId
    */
-  readonly nodeGroupId: string;
+  readonly nodeGroupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheTestFailoverMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheTestFailoverMessage(obj: ElastiCacheTestFailoverMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupId': obj.replicationGroupId,
+    'NodeGroupId': obj.nodeGroupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheTestFailoverResult
@@ -2696,6 +4704,20 @@ export interface ElastiCacheTestFailoverResult {
   readonly replicationGroup?: ElastiCacheReplicationGroup;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheTestFailoverResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheTestFailoverResult(obj: ElastiCacheTestFailoverResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroup': toJson_ElastiCacheReplicationGroup(obj.replicationGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheTag
@@ -2712,6 +4734,21 @@ export interface ElastiCacheTag {
   readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheTag(obj: ElastiCacheTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCacheSecurityGroup
@@ -2745,6 +4782,24 @@ export interface ElastiCacheCacheSecurityGroup {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheCacheSecurityGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCacheSecurityGroup(obj: ElastiCacheCacheSecurityGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OwnerId': obj.ownerId,
+    'CacheSecurityGroupName': obj.cacheSecurityGroupName,
+    'Description': obj.description,
+    'EC2SecurityGroups': obj.ec2SecurityGroups?.map(y => toJson_ElastiCacheEc2SecurityGroup(y)),
+    'ARN': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheProcessedUpdateAction
  */
 export interface ElastiCacheProcessedUpdateAction {
@@ -2769,6 +4824,23 @@ export interface ElastiCacheProcessedUpdateAction {
   readonly updateActionStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheProcessedUpdateAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheProcessedUpdateAction(obj: ElastiCacheProcessedUpdateAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupId': obj.replicationGroupId,
+    'CacheClusterId': obj.cacheClusterId,
+    'ServiceUpdateName': obj.serviceUpdateName,
+    'UpdateActionStatus': obj.updateActionStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheUnprocessedUpdateAction
@@ -2800,6 +4872,24 @@ export interface ElastiCacheUnprocessedUpdateAction {
   readonly errorMessage?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheUnprocessedUpdateAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheUnprocessedUpdateAction(obj: ElastiCacheUnprocessedUpdateAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupId': obj.replicationGroupId,
+    'CacheClusterId': obj.cacheClusterId,
+    'ServiceUpdateName': obj.serviceUpdateName,
+    'ErrorType': obj.errorType,
+    'ErrorMessage': obj.errorMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheReplicationGroup
@@ -2920,7 +5010,49 @@ export interface ElastiCacheReplicationGroup {
    */
   readonly userGroupIds?: string[];
 
+  /**
+   * @schema ElastiCacheReplicationGroup#LogDeliveryConfigurations
+   */
+  readonly logDeliveryConfigurations?: ElastiCacheLogDeliveryConfiguration[];
+
 }
+
+/**
+ * Converts an object of type 'ElastiCacheReplicationGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheReplicationGroup(obj: ElastiCacheReplicationGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupId': obj.replicationGroupId,
+    'Description': obj.description,
+    'GlobalReplicationGroupInfo': toJson_ElastiCacheGlobalReplicationGroupInfo(obj.globalReplicationGroupInfo),
+    'Status': obj.status,
+    'PendingModifiedValues': toJson_ElastiCacheReplicationGroupPendingModifiedValues(obj.pendingModifiedValues),
+    'MemberClusters': obj.memberClusters?.map(y => y),
+    'NodeGroups': obj.nodeGroups?.map(y => toJson_ElastiCacheNodeGroup(y)),
+    'SnapshottingClusterId': obj.snapshottingClusterId,
+    'AutomaticFailover': obj.automaticFailover,
+    'MultiAZ': obj.multiAz,
+    'ConfigurationEndpoint': toJson_ElastiCacheEndpoint(obj.configurationEndpoint),
+    'SnapshotRetentionLimit': obj.snapshotRetentionLimit,
+    'SnapshotWindow': obj.snapshotWindow,
+    'ClusterEnabled': obj.clusterEnabled,
+    'CacheNodeType': obj.cacheNodeType,
+    'AuthTokenEnabled': obj.authTokenEnabled,
+    'AuthTokenLastModifiedDate': obj.authTokenLastModifiedDate,
+    'TransitEncryptionEnabled': obj.transitEncryptionEnabled,
+    'AtRestEncryptionEnabled': obj.atRestEncryptionEnabled,
+    'MemberClustersOutpostArns': obj.memberClustersOutpostArns?.map(y => y),
+    'KmsKeyId': obj.kmsKeyId,
+    'ARN': obj.arn,
+    'UserGroupIds': obj.userGroupIds?.map(y => y),
+    'LogDeliveryConfigurations': obj.logDeliveryConfigurations?.map(y => toJson_ElastiCacheLogDeliveryConfiguration(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheSnapshot
@@ -3062,6 +5194,95 @@ export interface ElastiCacheSnapshot {
   readonly arn?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheSnapshot' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheSnapshot(obj: ElastiCacheSnapshot | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SnapshotName': obj.snapshotName,
+    'ReplicationGroupId': obj.replicationGroupId,
+    'ReplicationGroupDescription': obj.replicationGroupDescription,
+    'CacheClusterId': obj.cacheClusterId,
+    'SnapshotStatus': obj.snapshotStatus,
+    'SnapshotSource': obj.snapshotSource,
+    'CacheNodeType': obj.cacheNodeType,
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'NumCacheNodes': obj.numCacheNodes,
+    'PreferredAvailabilityZone': obj.preferredAvailabilityZone,
+    'PreferredOutpostArn': obj.preferredOutpostArn,
+    'CacheClusterCreateTime': obj.cacheClusterCreateTime,
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'TopicArn': obj.topicArn,
+    'Port': obj.port,
+    'CacheParameterGroupName': obj.cacheParameterGroupName,
+    'CacheSubnetGroupName': obj.cacheSubnetGroupName,
+    'VpcId': obj.vpcId,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'SnapshotRetentionLimit': obj.snapshotRetentionLimit,
+    'SnapshotWindow': obj.snapshotWindow,
+    'NumNodeGroups': obj.numNodeGroups,
+    'AutomaticFailover': obj.automaticFailover,
+    'NodeSnapshots': obj.nodeSnapshots?.map(y => toJson_ElastiCacheNodeSnapshot(y)),
+    'KmsKeyId': obj.kmsKeyId,
+    'ARN': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ElastiCacheLogDeliveryConfigurationRequest
+ */
+export interface ElastiCacheLogDeliveryConfigurationRequest {
+  /**
+   * @schema ElastiCacheLogDeliveryConfigurationRequest#LogType
+   */
+  readonly logType?: string;
+
+  /**
+   * @schema ElastiCacheLogDeliveryConfigurationRequest#DestinationType
+   */
+  readonly destinationType?: string;
+
+  /**
+   * @schema ElastiCacheLogDeliveryConfigurationRequest#DestinationDetails
+   */
+  readonly destinationDetails?: ElastiCacheDestinationDetails;
+
+  /**
+   * @schema ElastiCacheLogDeliveryConfigurationRequest#LogFormat
+   */
+  readonly logFormat?: string;
+
+  /**
+   * @schema ElastiCacheLogDeliveryConfigurationRequest#Enabled
+   */
+  readonly enabled?: boolean;
+
+}
+
+/**
+ * Converts an object of type 'ElastiCacheLogDeliveryConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheLogDeliveryConfigurationRequest(obj: ElastiCacheLogDeliveryConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LogType': obj.logType,
+    'DestinationType': obj.destinationType,
+    'DestinationDetails': toJson_ElastiCacheDestinationDetails(obj.destinationDetails),
+    'LogFormat': obj.logFormat,
+    'Enabled': obj.enabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCacheCluster
@@ -3207,7 +5428,60 @@ export interface ElastiCacheCacheCluster {
    */
   readonly arn?: string;
 
+  /**
+   * @schema ElastiCacheCacheCluster#ReplicationGroupLogDeliveryEnabled
+   */
+  readonly replicationGroupLogDeliveryEnabled?: boolean;
+
+  /**
+   * @schema ElastiCacheCacheCluster#LogDeliveryConfigurations
+   */
+  readonly logDeliveryConfigurations?: ElastiCacheLogDeliveryConfiguration[];
+
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCacheCluster' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCacheCluster(obj: ElastiCacheCacheCluster | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheClusterId': obj.cacheClusterId,
+    'ConfigurationEndpoint': toJson_ElastiCacheEndpoint(obj.configurationEndpoint),
+    'ClientDownloadLandingPage': obj.clientDownloadLandingPage,
+    'CacheNodeType': obj.cacheNodeType,
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'CacheClusterStatus': obj.cacheClusterStatus,
+    'NumCacheNodes': obj.numCacheNodes,
+    'PreferredAvailabilityZone': obj.preferredAvailabilityZone,
+    'PreferredOutpostArn': obj.preferredOutpostArn,
+    'CacheClusterCreateTime': obj.cacheClusterCreateTime,
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'PendingModifiedValues': toJson_ElastiCachePendingModifiedValues(obj.pendingModifiedValues),
+    'NotificationConfiguration': toJson_ElastiCacheNotificationConfiguration(obj.notificationConfiguration),
+    'CacheSecurityGroups': obj.cacheSecurityGroups?.map(y => toJson_ElastiCacheCacheSecurityGroupMembership(y)),
+    'CacheParameterGroup': toJson_ElastiCacheCacheParameterGroupStatus(obj.cacheParameterGroup),
+    'CacheSubnetGroupName': obj.cacheSubnetGroupName,
+    'CacheNodes': obj.cacheNodes?.map(y => toJson_ElastiCacheCacheNode(y)),
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'SecurityGroups': obj.securityGroups?.map(y => toJson_ElastiCacheSecurityGroupMembership(y)),
+    'ReplicationGroupId': obj.replicationGroupId,
+    'SnapshotRetentionLimit': obj.snapshotRetentionLimit,
+    'SnapshotWindow': obj.snapshotWindow,
+    'AuthTokenEnabled': obj.authTokenEnabled,
+    'AuthTokenLastModifiedDate': obj.authTokenLastModifiedDate,
+    'TransitEncryptionEnabled': obj.transitEncryptionEnabled,
+    'AtRestEncryptionEnabled': obj.atRestEncryptionEnabled,
+    'ARN': obj.arn,
+    'ReplicationGroupLogDeliveryEnabled': obj.replicationGroupLogDeliveryEnabled,
+    'LogDeliveryConfigurations': obj.logDeliveryConfigurations?.map(y => toJson_ElastiCacheLogDeliveryConfiguration(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCacheParameterGroup
@@ -3241,6 +5515,24 @@ export interface ElastiCacheCacheParameterGroup {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheCacheParameterGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCacheParameterGroup(obj: ElastiCacheCacheParameterGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheParameterGroupName': obj.cacheParameterGroupName,
+    'CacheParameterGroupFamily': obj.cacheParameterGroupFamily,
+    'Description': obj.description,
+    'IsGlobal': obj.isGlobal,
+    'ARN': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheCacheSubnetGroup
  */
 export interface ElastiCacheCacheSubnetGroup {
@@ -3270,6 +5562,24 @@ export interface ElastiCacheCacheSubnetGroup {
   readonly arn?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCacheSubnetGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCacheSubnetGroup(obj: ElastiCacheCacheSubnetGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheSubnetGroupName': obj.cacheSubnetGroupName,
+    'CacheSubnetGroupDescription': obj.cacheSubnetGroupDescription,
+    'VpcId': obj.vpcId,
+    'Subnets': obj.subnets?.map(y => toJson_ElastiCacheSubnet(y)),
+    'ARN': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheGlobalReplicationGroup
@@ -3343,6 +5653,32 @@ export interface ElastiCacheGlobalReplicationGroup {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheGlobalReplicationGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheGlobalReplicationGroup(obj: ElastiCacheGlobalReplicationGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroupId': obj.globalReplicationGroupId,
+    'GlobalReplicationGroupDescription': obj.globalReplicationGroupDescription,
+    'Status': obj.status,
+    'CacheNodeType': obj.cacheNodeType,
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'Members': obj.members?.map(y => toJson_ElastiCacheGlobalReplicationGroupMember(y)),
+    'ClusterEnabled': obj.clusterEnabled,
+    'GlobalNodeGroups': obj.globalNodeGroups?.map(y => toJson_ElastiCacheGlobalNodeGroup(y)),
+    'AuthTokenEnabled': obj.authTokenEnabled,
+    'TransitEncryptionEnabled': obj.transitEncryptionEnabled,
+    'AtRestEncryptionEnabled': obj.atRestEncryptionEnabled,
+    'ARN': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheNodeGroupConfiguration
  */
 export interface ElastiCacheNodeGroupConfiguration {
@@ -3384,6 +5720,26 @@ export interface ElastiCacheNodeGroupConfiguration {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheNodeGroupConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheNodeGroupConfiguration(obj: ElastiCacheNodeGroupConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NodeGroupId': obj.nodeGroupId,
+    'Slots': obj.slots,
+    'ReplicaCount': obj.replicaCount,
+    'PrimaryAvailabilityZone': obj.primaryAvailabilityZone,
+    'ReplicaAvailabilityZones': obj.replicaAvailabilityZones?.map(y => y),
+    'PrimaryOutpostArn': obj.primaryOutpostArn,
+    'ReplicaOutpostArns': obj.replicaOutpostArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheAuthentication
  */
 export interface ElastiCacheAuthentication {
@@ -3398,6 +5754,21 @@ export interface ElastiCacheAuthentication {
   readonly passwordCount?: number;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheAuthentication' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheAuthentication(obj: ElastiCacheAuthentication | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'PasswordCount': obj.passwordCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheUserGroupPendingChanges
@@ -3416,18 +5787,33 @@ export interface ElastiCacheUserGroupPendingChanges {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheUserGroupPendingChanges' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheUserGroupPendingChanges(obj: ElastiCacheUserGroupPendingChanges | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserIdsToRemove': obj.userIdsToRemove?.map(y => y),
+    'UserIdsToAdd': obj.userIdsToAdd?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheConfigureShard
  */
 export interface ElastiCacheConfigureShard {
   /**
    * @schema ElastiCacheConfigureShard#NodeGroupId
    */
-  readonly nodeGroupId: string;
+  readonly nodeGroupId?: string;
 
   /**
    * @schema ElastiCacheConfigureShard#NewReplicaCount
    */
-  readonly newReplicaCount: number;
+  readonly newReplicaCount?: number;
 
   /**
    * @schema ElastiCacheConfigureShard#PreferredAvailabilityZones
@@ -3440,6 +5826,23 @@ export interface ElastiCacheConfigureShard {
   readonly preferredOutpostArns?: string[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheConfigureShard' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheConfigureShard(obj: ElastiCacheConfigureShard | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NodeGroupId': obj.nodeGroupId,
+    'NewReplicaCount': obj.newReplicaCount,
+    'PreferredAvailabilityZones': obj.preferredAvailabilityZones?.map(y => y),
+    'PreferredOutpostArns': obj.preferredOutpostArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCacheEngineVersion
@@ -3471,6 +5874,24 @@ export interface ElastiCacheCacheEngineVersion {
   readonly cacheEngineVersionDescription?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCacheEngineVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCacheEngineVersion(obj: ElastiCacheCacheEngineVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'CacheParameterGroupFamily': obj.cacheParameterGroupFamily,
+    'CacheEngineDescription': obj.cacheEngineDescription,
+    'CacheEngineVersionDescription': obj.cacheEngineVersionDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheParameter
@@ -3524,6 +5945,28 @@ export interface ElastiCacheParameter {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheParameter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheParameter(obj: ElastiCacheParameter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ParameterName': obj.parameterName,
+    'ParameterValue': obj.parameterValue,
+    'Description': obj.description,
+    'Source': obj.source,
+    'DataType': obj.dataType,
+    'AllowedValues': obj.allowedValues,
+    'IsModifiable': obj.isModifiable,
+    'MinimumEngineVersion': obj.minimumEngineVersion,
+    'ChangeType': obj.changeType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheCacheNodeTypeSpecificParameter
  */
 export interface ElastiCacheCacheNodeTypeSpecificParameter {
@@ -3575,6 +6018,28 @@ export interface ElastiCacheCacheNodeTypeSpecificParameter {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheCacheNodeTypeSpecificParameter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCacheNodeTypeSpecificParameter(obj: ElastiCacheCacheNodeTypeSpecificParameter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ParameterName': obj.parameterName,
+    'Description': obj.description,
+    'Source': obj.source,
+    'DataType': obj.dataType,
+    'AllowedValues': obj.allowedValues,
+    'IsModifiable': obj.isModifiable,
+    'MinimumEngineVersion': obj.minimumEngineVersion,
+    'CacheNodeTypeSpecificValues': obj.cacheNodeTypeSpecificValues?.map(y => toJson_ElastiCacheCacheNodeTypeSpecificValue(y)),
+    'ChangeType': obj.changeType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheEngineDefaults
  */
 export interface ElastiCacheEngineDefaults {
@@ -3601,6 +6066,23 @@ export interface ElastiCacheEngineDefaults {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheEngineDefaults' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheEngineDefaults(obj: ElastiCacheEngineDefaults | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheParameterGroupFamily': obj.cacheParameterGroupFamily,
+    'Marker': obj.marker,
+    'Parameters': obj.parameters?.map(y => toJson_ElastiCacheParameter(y)),
+    'CacheNodeTypeSpecificParameters': obj.cacheNodeTypeSpecificParameters?.map(y => toJson_ElastiCacheCacheNodeTypeSpecificParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheEvent
  */
 export interface ElastiCacheEvent {
@@ -3625,6 +6107,23 @@ export interface ElastiCacheEvent {
   readonly date?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheEvent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheEvent(obj: ElastiCacheEvent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceIdentifier': obj.sourceIdentifier,
+    'SourceType': obj.sourceType,
+    'Message': obj.message,
+    'Date': obj.date,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheReservedCacheNode
@@ -3698,6 +6197,32 @@ export interface ElastiCacheReservedCacheNode {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheReservedCacheNode' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheReservedCacheNode(obj: ElastiCacheReservedCacheNode | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReservedCacheNodeId': obj.reservedCacheNodeId,
+    'ReservedCacheNodesOfferingId': obj.reservedCacheNodesOfferingId,
+    'CacheNodeType': obj.cacheNodeType,
+    'StartTime': obj.startTime,
+    'Duration': obj.duration,
+    'FixedPrice': obj.fixedPrice,
+    'UsagePrice': obj.usagePrice,
+    'CacheNodeCount': obj.cacheNodeCount,
+    'ProductDescription': obj.productDescription,
+    'OfferingType': obj.offeringType,
+    'State': obj.state,
+    'RecurringCharges': obj.recurringCharges?.map(y => toJson_ElastiCacheRecurringCharge(y)),
+    'ReservationARN': obj.reservationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheReservedCacheNodesOffering
  */
 export interface ElastiCacheReservedCacheNodesOffering {
@@ -3742,6 +6267,27 @@ export interface ElastiCacheReservedCacheNodesOffering {
   readonly recurringCharges?: ElastiCacheRecurringCharge[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheReservedCacheNodesOffering' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheReservedCacheNodesOffering(obj: ElastiCacheReservedCacheNodesOffering | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReservedCacheNodesOfferingId': obj.reservedCacheNodesOfferingId,
+    'CacheNodeType': obj.cacheNodeType,
+    'Duration': obj.duration,
+    'FixedPrice': obj.fixedPrice,
+    'UsagePrice': obj.usagePrice,
+    'ProductDescription': obj.productDescription,
+    'OfferingType': obj.offeringType,
+    'RecurringCharges': obj.recurringCharges?.map(y => toJson_ElastiCacheRecurringCharge(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheServiceUpdate
@@ -3810,6 +6356,31 @@ export interface ElastiCacheServiceUpdate {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheServiceUpdate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheServiceUpdate(obj: ElastiCacheServiceUpdate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ServiceUpdateName': obj.serviceUpdateName,
+    'ServiceUpdateReleaseDate': obj.serviceUpdateReleaseDate,
+    'ServiceUpdateEndDate': obj.serviceUpdateEndDate,
+    'ServiceUpdateSeverity': obj.serviceUpdateSeverity,
+    'ServiceUpdateRecommendedApplyByDate': obj.serviceUpdateRecommendedApplyByDate,
+    'ServiceUpdateStatus': obj.serviceUpdateStatus,
+    'ServiceUpdateDescription': obj.serviceUpdateDescription,
+    'ServiceUpdateType': obj.serviceUpdateType,
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'AutoUpdateAfterRecommendedApplyByDate': obj.autoUpdateAfterRecommendedApplyByDate,
+    'EstimatedUpdateTime': obj.estimatedUpdateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheTimeRangeFilter
  */
 export interface ElastiCacheTimeRangeFilter {
@@ -3824,6 +6395,21 @@ export interface ElastiCacheTimeRangeFilter {
   readonly endTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheTimeRangeFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheTimeRangeFilter(obj: ElastiCacheTimeRangeFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheUpdateAction
@@ -3917,20 +6503,65 @@ export interface ElastiCacheUpdateAction {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheUpdateAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheUpdateAction(obj: ElastiCacheUpdateAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupId': obj.replicationGroupId,
+    'CacheClusterId': obj.cacheClusterId,
+    'ServiceUpdateName': obj.serviceUpdateName,
+    'ServiceUpdateReleaseDate': obj.serviceUpdateReleaseDate,
+    'ServiceUpdateSeverity': obj.serviceUpdateSeverity,
+    'ServiceUpdateStatus': obj.serviceUpdateStatus,
+    'ServiceUpdateRecommendedApplyByDate': obj.serviceUpdateRecommendedApplyByDate,
+    'ServiceUpdateType': obj.serviceUpdateType,
+    'UpdateActionAvailableDate': obj.updateActionAvailableDate,
+    'UpdateActionStatus': obj.updateActionStatus,
+    'NodesUpdated': obj.nodesUpdated,
+    'UpdateActionStatusModifiedDate': obj.updateActionStatusModifiedDate,
+    'SlaMet': obj.slaMet,
+    'NodeGroupUpdateStatus': obj.nodeGroupUpdateStatus?.map(y => toJson_ElastiCacheNodeGroupUpdateStatus(y)),
+    'CacheNodeUpdateStatus': obj.cacheNodeUpdateStatus?.map(y => toJson_ElastiCacheCacheNodeUpdateStatus(y)),
+    'EstimatedUpdateTime': obj.estimatedUpdateTime,
+    'Engine': obj.engine,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheFilter
  */
 export interface ElastiCacheFilter {
   /**
    * @schema ElastiCacheFilter#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema ElastiCacheFilter#Values
    */
-  readonly values: string[];
+  readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheFilter(obj: ElastiCacheFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheRegionalConfiguration
@@ -3939,19 +6570,35 @@ export interface ElastiCacheRegionalConfiguration {
   /**
    * @schema ElastiCacheRegionalConfiguration#ReplicationGroupId
    */
-  readonly replicationGroupId: string;
+  readonly replicationGroupId?: string;
 
   /**
    * @schema ElastiCacheRegionalConfiguration#ReplicationGroupRegion
    */
-  readonly replicationGroupRegion: string;
+  readonly replicationGroupRegion?: string;
 
   /**
    * @schema ElastiCacheRegionalConfiguration#ReshardingConfiguration
    */
-  readonly reshardingConfiguration: ElastiCacheReshardingConfiguration[];
+  readonly reshardingConfiguration?: ElastiCacheReshardingConfiguration[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheRegionalConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheRegionalConfiguration(obj: ElastiCacheRegionalConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupId': obj.replicationGroupId,
+    'ReplicationGroupRegion': obj.replicationGroupRegion,
+    'ReshardingConfiguration': obj.reshardingConfiguration?.map(y => toJson_ElastiCacheReshardingConfiguration(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheParameterNameValue
@@ -3970,6 +6617,21 @@ export interface ElastiCacheParameterNameValue {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheParameterNameValue' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheParameterNameValue(obj: ElastiCacheParameterNameValue | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ParameterName': obj.parameterName,
+    'ParameterValue': obj.parameterValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheReshardingConfiguration
  */
 export interface ElastiCacheReshardingConfiguration {
@@ -3986,6 +6648,21 @@ export interface ElastiCacheReshardingConfiguration {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheReshardingConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheReshardingConfiguration(obj: ElastiCacheReshardingConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NodeGroupId': obj.nodeGroupId,
+    'PreferredAvailabilityZones': obj.preferredAvailabilityZones?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheCustomerNodeEndpoint
  */
 export interface ElastiCacheCustomerNodeEndpoint {
@@ -4000,6 +6677,21 @@ export interface ElastiCacheCustomerNodeEndpoint {
   readonly port?: number;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCustomerNodeEndpoint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCustomerNodeEndpoint(obj: ElastiCacheCustomerNodeEndpoint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Address': obj.address,
+    'Port': obj.port,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheEc2SecurityGroup
@@ -4023,6 +6715,22 @@ export interface ElastiCacheEc2SecurityGroup {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheEc2SecurityGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheEc2SecurityGroup(obj: ElastiCacheEc2SecurityGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'EC2SecurityGroupName': obj.ec2SecurityGroupName,
+    'EC2SecurityGroupOwnerId': obj.ec2SecurityGroupOwnerId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheGlobalReplicationGroupInfo
  */
 export interface ElastiCacheGlobalReplicationGroupInfo {
@@ -4037,6 +6745,21 @@ export interface ElastiCacheGlobalReplicationGroupInfo {
   readonly globalReplicationGroupMemberRole?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheGlobalReplicationGroupInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheGlobalReplicationGroupInfo(obj: ElastiCacheGlobalReplicationGroupInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalReplicationGroupId': obj.globalReplicationGroupId,
+    'GlobalReplicationGroupMemberRole': obj.globalReplicationGroupMemberRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheReplicationGroupPendingModifiedValues
@@ -4067,7 +6790,31 @@ export interface ElastiCacheReplicationGroupPendingModifiedValues {
    */
   readonly userGroups?: ElastiCacheUserGroupsUpdateStatus;
 
+  /**
+   * @schema ElastiCacheReplicationGroupPendingModifiedValues#LogDeliveryConfigurations
+   */
+  readonly logDeliveryConfigurations?: ElastiCachePendingLogDeliveryConfiguration[];
+
 }
+
+/**
+ * Converts an object of type 'ElastiCacheReplicationGroupPendingModifiedValues' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheReplicationGroupPendingModifiedValues(obj: ElastiCacheReplicationGroupPendingModifiedValues | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PrimaryClusterId': obj.primaryClusterId,
+    'AutomaticFailoverStatus': obj.automaticFailoverStatus,
+    'Resharding': toJson_ElastiCacheReshardingStatus(obj.resharding),
+    'AuthTokenStatus': obj.authTokenStatus,
+    'UserGroups': toJson_ElastiCacheUserGroupsUpdateStatus(obj.userGroups),
+    'LogDeliveryConfigurations': obj.logDeliveryConfigurations?.map(y => toJson_ElastiCachePendingLogDeliveryConfiguration(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheNodeGroup
@@ -4106,6 +6853,25 @@ export interface ElastiCacheNodeGroup {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheNodeGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheNodeGroup(obj: ElastiCacheNodeGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NodeGroupId': obj.nodeGroupId,
+    'Status': obj.status,
+    'PrimaryEndpoint': toJson_ElastiCacheEndpoint(obj.primaryEndpoint),
+    'ReaderEndpoint': toJson_ElastiCacheEndpoint(obj.readerEndpoint),
+    'Slots': obj.slots,
+    'NodeGroupMembers': obj.nodeGroupMembers?.map(y => toJson_ElastiCacheNodeGroupMember(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheEndpoint
  */
 export interface ElastiCacheEndpoint {
@@ -4120,6 +6886,76 @@ export interface ElastiCacheEndpoint {
   readonly port?: number;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheEndpoint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheEndpoint(obj: ElastiCacheEndpoint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Address': obj.address,
+    'Port': obj.port,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ElastiCacheLogDeliveryConfiguration
+ */
+export interface ElastiCacheLogDeliveryConfiguration {
+  /**
+   * @schema ElastiCacheLogDeliveryConfiguration#LogType
+   */
+  readonly logType?: string;
+
+  /**
+   * @schema ElastiCacheLogDeliveryConfiguration#DestinationType
+   */
+  readonly destinationType?: string;
+
+  /**
+   * @schema ElastiCacheLogDeliveryConfiguration#DestinationDetails
+   */
+  readonly destinationDetails?: ElastiCacheDestinationDetails;
+
+  /**
+   * @schema ElastiCacheLogDeliveryConfiguration#LogFormat
+   */
+  readonly logFormat?: string;
+
+  /**
+   * @schema ElastiCacheLogDeliveryConfiguration#Status
+   */
+  readonly status?: string;
+
+  /**
+   * @schema ElastiCacheLogDeliveryConfiguration#Message
+   */
+  readonly message?: string;
+
+}
+
+/**
+ * Converts an object of type 'ElastiCacheLogDeliveryConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheLogDeliveryConfiguration(obj: ElastiCacheLogDeliveryConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LogType': obj.logType,
+    'DestinationType': obj.destinationType,
+    'DestinationDetails': toJson_ElastiCacheDestinationDetails(obj.destinationDetails),
+    'LogFormat': obj.logFormat,
+    'Status': obj.status,
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheNodeSnapshot
@@ -4163,6 +6999,57 @@ export interface ElastiCacheNodeSnapshot {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheNodeSnapshot' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheNodeSnapshot(obj: ElastiCacheNodeSnapshot | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheClusterId': obj.cacheClusterId,
+    'NodeGroupId': obj.nodeGroupId,
+    'CacheNodeId': obj.cacheNodeId,
+    'NodeGroupConfiguration': toJson_ElastiCacheNodeGroupConfiguration(obj.nodeGroupConfiguration),
+    'CacheSize': obj.cacheSize,
+    'CacheNodeCreateTime': obj.cacheNodeCreateTime,
+    'SnapshotCreateTime': obj.snapshotCreateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ElastiCacheDestinationDetails
+ */
+export interface ElastiCacheDestinationDetails {
+  /**
+   * @schema ElastiCacheDestinationDetails#CloudWatchLogsDetails
+   */
+  readonly cloudWatchLogsDetails?: ElastiCacheCloudWatchLogsDestinationDetails;
+
+  /**
+   * @schema ElastiCacheDestinationDetails#KinesisFirehoseDetails
+   */
+  readonly kinesisFirehoseDetails?: ElastiCacheKinesisFirehoseDestinationDetails;
+
+}
+
+/**
+ * Converts an object of type 'ElastiCacheDestinationDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheDestinationDetails(obj: ElastiCacheDestinationDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CloudWatchLogsDetails': toJson_ElastiCacheCloudWatchLogsDestinationDetails(obj.cloudWatchLogsDetails),
+    'KinesisFirehoseDetails': toJson_ElastiCacheKinesisFirehoseDestinationDetails(obj.kinesisFirehoseDetails),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCachePendingModifiedValues
  */
 export interface ElastiCachePendingModifiedValues {
@@ -4191,7 +7078,31 @@ export interface ElastiCachePendingModifiedValues {
    */
   readonly authTokenStatus?: string;
 
+  /**
+   * @schema ElastiCachePendingModifiedValues#LogDeliveryConfigurations
+   */
+  readonly logDeliveryConfigurations?: ElastiCachePendingLogDeliveryConfiguration[];
+
 }
+
+/**
+ * Converts an object of type 'ElastiCachePendingModifiedValues' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCachePendingModifiedValues(obj: ElastiCachePendingModifiedValues | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NumCacheNodes': obj.numCacheNodes,
+    'CacheNodeIdsToRemove': obj.cacheNodeIdsToRemove?.map(y => y),
+    'EngineVersion': obj.engineVersion,
+    'CacheNodeType': obj.cacheNodeType,
+    'AuthTokenStatus': obj.authTokenStatus,
+    'LogDeliveryConfigurations': obj.logDeliveryConfigurations?.map(y => toJson_ElastiCachePendingLogDeliveryConfiguration(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheNotificationConfiguration
@@ -4210,6 +7121,21 @@ export interface ElastiCacheNotificationConfiguration {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheNotificationConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheNotificationConfiguration(obj: ElastiCacheNotificationConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TopicArn': obj.topicArn,
+    'TopicStatus': obj.topicStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheCacheSecurityGroupMembership
  */
 export interface ElastiCacheCacheSecurityGroupMembership {
@@ -4224,6 +7150,21 @@ export interface ElastiCacheCacheSecurityGroupMembership {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCacheSecurityGroupMembership' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCacheSecurityGroupMembership(obj: ElastiCacheCacheSecurityGroupMembership | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheSecurityGroupName': obj.cacheSecurityGroupName,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCacheParameterGroupStatus
@@ -4245,6 +7186,22 @@ export interface ElastiCacheCacheParameterGroupStatus {
   readonly cacheNodeIdsToReboot?: string[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheCacheParameterGroupStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCacheParameterGroupStatus(obj: ElastiCacheCacheParameterGroupStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheParameterGroupName': obj.cacheParameterGroupName,
+    'ParameterApplyStatus': obj.parameterApplyStatus,
+    'CacheNodeIdsToReboot': obj.cacheNodeIdsToReboot?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCacheNode
@@ -4293,6 +7250,27 @@ export interface ElastiCacheCacheNode {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheCacheNode' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCacheNode(obj: ElastiCacheCacheNode | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheNodeId': obj.cacheNodeId,
+    'CacheNodeStatus': obj.cacheNodeStatus,
+    'CacheNodeCreateTime': obj.cacheNodeCreateTime,
+    'Endpoint': toJson_ElastiCacheEndpoint(obj.endpoint),
+    'ParameterGroupStatus': obj.parameterGroupStatus,
+    'SourceCacheNodeId': obj.sourceCacheNodeId,
+    'CustomerAvailabilityZone': obj.customerAvailabilityZone,
+    'CustomerOutpostArn': obj.customerOutpostArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheSecurityGroupMembership
  */
 export interface ElastiCacheSecurityGroupMembership {
@@ -4307,6 +7285,21 @@ export interface ElastiCacheSecurityGroupMembership {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheSecurityGroupMembership' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheSecurityGroupMembership(obj: ElastiCacheSecurityGroupMembership | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SecurityGroupId': obj.securityGroupId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheSubnet
@@ -4328,6 +7321,22 @@ export interface ElastiCacheSubnet {
   readonly subnetOutpost?: ElastiCacheSubnetOutpost;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheSubnet' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheSubnet(obj: ElastiCacheSubnet | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubnetIdentifier': obj.subnetIdentifier,
+    'SubnetAvailabilityZone': toJson_ElastiCacheAvailabilityZone(obj.subnetAvailabilityZone),
+    'SubnetOutpost': toJson_ElastiCacheSubnetOutpost(obj.subnetOutpost),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheGlobalReplicationGroupMember
@@ -4361,6 +7370,24 @@ export interface ElastiCacheGlobalReplicationGroupMember {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheGlobalReplicationGroupMember' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheGlobalReplicationGroupMember(obj: ElastiCacheGlobalReplicationGroupMember | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationGroupId': obj.replicationGroupId,
+    'ReplicationGroupRegion': obj.replicationGroupRegion,
+    'Role': obj.role,
+    'AutomaticFailover': obj.automaticFailover,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheGlobalNodeGroup
  */
 export interface ElastiCacheGlobalNodeGroup {
@@ -4375,6 +7402,21 @@ export interface ElastiCacheGlobalNodeGroup {
   readonly slots?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheGlobalNodeGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheGlobalNodeGroup(obj: ElastiCacheGlobalNodeGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GlobalNodeGroupId': obj.globalNodeGroupId,
+    'Slots': obj.slots,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCacheNodeTypeSpecificValue
@@ -4393,6 +7435,21 @@ export interface ElastiCacheCacheNodeTypeSpecificValue {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheCacheNodeTypeSpecificValue' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCacheNodeTypeSpecificValue(obj: ElastiCacheCacheNodeTypeSpecificValue | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheNodeType': obj.cacheNodeType,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheRecurringCharge
  */
 export interface ElastiCacheRecurringCharge {
@@ -4409,6 +7466,21 @@ export interface ElastiCacheRecurringCharge {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheRecurringCharge' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheRecurringCharge(obj: ElastiCacheRecurringCharge | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RecurringChargeAmount': obj.recurringChargeAmount,
+    'RecurringChargeFrequency': obj.recurringChargeFrequency,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheNodeGroupUpdateStatus
  */
 export interface ElastiCacheNodeGroupUpdateStatus {
@@ -4423,6 +7495,21 @@ export interface ElastiCacheNodeGroupUpdateStatus {
   readonly nodeGroupMemberUpdateStatus?: ElastiCacheNodeGroupMemberUpdateStatus[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheNodeGroupUpdateStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheNodeGroupUpdateStatus(obj: ElastiCacheNodeGroupUpdateStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NodeGroupId': obj.nodeGroupId,
+    'NodeGroupMemberUpdateStatus': obj.nodeGroupMemberUpdateStatus?.map(y => toJson_ElastiCacheNodeGroupMemberUpdateStatus(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheCacheNodeUpdateStatus
@@ -4471,6 +7558,27 @@ export interface ElastiCacheCacheNodeUpdateStatus {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheCacheNodeUpdateStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCacheNodeUpdateStatus(obj: ElastiCacheCacheNodeUpdateStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheNodeId': obj.cacheNodeId,
+    'NodeUpdateStatus': obj.nodeUpdateStatus,
+    'NodeDeletionDate': obj.nodeDeletionDate,
+    'NodeUpdateStartDate': obj.nodeUpdateStartDate,
+    'NodeUpdateEndDate': obj.nodeUpdateEndDate,
+    'NodeUpdateInitiatedBy': obj.nodeUpdateInitiatedBy,
+    'NodeUpdateInitiatedDate': obj.nodeUpdateInitiatedDate,
+    'NodeUpdateStatusModifiedDate': obj.nodeUpdateStatusModifiedDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheReshardingStatus
  */
 export interface ElastiCacheReshardingStatus {
@@ -4480,6 +7588,20 @@ export interface ElastiCacheReshardingStatus {
   readonly slotMigration?: ElastiCacheSlotMigration;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheReshardingStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheReshardingStatus(obj: ElastiCacheReshardingStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SlotMigration': toJson_ElastiCacheSlotMigration(obj.slotMigration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheUserGroupsUpdateStatus
@@ -4496,6 +7618,64 @@ export interface ElastiCacheUserGroupsUpdateStatus {
   readonly userGroupIdsToRemove?: string[];
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheUserGroupsUpdateStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheUserGroupsUpdateStatus(obj: ElastiCacheUserGroupsUpdateStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserGroupIdsToAdd': obj.userGroupIdsToAdd?.map(y => y),
+    'UserGroupIdsToRemove': obj.userGroupIdsToRemove?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ElastiCachePendingLogDeliveryConfiguration
+ */
+export interface ElastiCachePendingLogDeliveryConfiguration {
+  /**
+   * @schema ElastiCachePendingLogDeliveryConfiguration#LogType
+   */
+  readonly logType?: string;
+
+  /**
+   * @schema ElastiCachePendingLogDeliveryConfiguration#DestinationType
+   */
+  readonly destinationType?: string;
+
+  /**
+   * @schema ElastiCachePendingLogDeliveryConfiguration#DestinationDetails
+   */
+  readonly destinationDetails?: ElastiCacheDestinationDetails;
+
+  /**
+   * @schema ElastiCachePendingLogDeliveryConfiguration#LogFormat
+   */
+  readonly logFormat?: string;
+
+}
+
+/**
+ * Converts an object of type 'ElastiCachePendingLogDeliveryConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCachePendingLogDeliveryConfiguration(obj: ElastiCachePendingLogDeliveryConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LogType': obj.logType,
+    'DestinationType': obj.destinationType,
+    'DestinationDetails': toJson_ElastiCacheDestinationDetails(obj.destinationDetails),
+    'LogFormat': obj.logFormat,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheNodeGroupMember
@@ -4534,6 +7714,75 @@ export interface ElastiCacheNodeGroupMember {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheNodeGroupMember' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheNodeGroupMember(obj: ElastiCacheNodeGroupMember | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheClusterId': obj.cacheClusterId,
+    'CacheNodeId': obj.cacheNodeId,
+    'ReadEndpoint': toJson_ElastiCacheEndpoint(obj.readEndpoint),
+    'PreferredAvailabilityZone': obj.preferredAvailabilityZone,
+    'PreferredOutpostArn': obj.preferredOutpostArn,
+    'CurrentRole': obj.currentRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ElastiCacheCloudWatchLogsDestinationDetails
+ */
+export interface ElastiCacheCloudWatchLogsDestinationDetails {
+  /**
+   * @schema ElastiCacheCloudWatchLogsDestinationDetails#LogGroup
+   */
+  readonly logGroup?: string;
+
+}
+
+/**
+ * Converts an object of type 'ElastiCacheCloudWatchLogsDestinationDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheCloudWatchLogsDestinationDetails(obj: ElastiCacheCloudWatchLogsDestinationDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LogGroup': obj.logGroup,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ElastiCacheKinesisFirehoseDestinationDetails
+ */
+export interface ElastiCacheKinesisFirehoseDestinationDetails {
+  /**
+   * @schema ElastiCacheKinesisFirehoseDestinationDetails#DeliveryStream
+   */
+  readonly deliveryStream?: string;
+
+}
+
+/**
+ * Converts an object of type 'ElastiCacheKinesisFirehoseDestinationDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheKinesisFirehoseDestinationDetails(obj: ElastiCacheKinesisFirehoseDestinationDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeliveryStream': obj.deliveryStream,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheAvailabilityZone
  */
 export interface ElastiCacheAvailabilityZone {
@@ -4545,6 +7794,20 @@ export interface ElastiCacheAvailabilityZone {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheAvailabilityZone' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheAvailabilityZone(obj: ElastiCacheAvailabilityZone | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheSubnetOutpost
  */
 export interface ElastiCacheSubnetOutpost {
@@ -4554,6 +7817,20 @@ export interface ElastiCacheSubnetOutpost {
   readonly subnetOutpostArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheSubnetOutpost' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheSubnetOutpost(obj: ElastiCacheSubnetOutpost | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubnetOutpostArn': obj.subnetOutpostArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ElastiCacheNodeGroupMemberUpdateStatus
@@ -4607,6 +7884,28 @@ export interface ElastiCacheNodeGroupMemberUpdateStatus {
 }
 
 /**
+ * Converts an object of type 'ElastiCacheNodeGroupMemberUpdateStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheNodeGroupMemberUpdateStatus(obj: ElastiCacheNodeGroupMemberUpdateStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CacheClusterId': obj.cacheClusterId,
+    'CacheNodeId': obj.cacheNodeId,
+    'NodeUpdateStatus': obj.nodeUpdateStatus,
+    'NodeDeletionDate': obj.nodeDeletionDate,
+    'NodeUpdateStartDate': obj.nodeUpdateStartDate,
+    'NodeUpdateEndDate': obj.nodeUpdateEndDate,
+    'NodeUpdateInitiatedBy': obj.nodeUpdateInitiatedBy,
+    'NodeUpdateInitiatedDate': obj.nodeUpdateInitiatedDate,
+    'NodeUpdateStatusModifiedDate': obj.nodeUpdateStatusModifiedDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ElastiCacheSlotMigration
  */
 export interface ElastiCacheSlotMigration {
@@ -4616,3 +7915,17 @@ export interface ElastiCacheSlotMigration {
   readonly progressPercentage?: number;
 
 }
+
+/**
+ * Converts an object of type 'ElastiCacheSlotMigration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ElastiCacheSlotMigration(obj: ElastiCacheSlotMigration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProgressPercentage': obj.progressPercentage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

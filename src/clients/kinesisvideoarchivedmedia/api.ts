@@ -177,6 +177,7 @@ export class KinesisVideoArchivedMediaResponsesFetchMediaForFragmentList {
         outputPath: 'ContentType',
         parameters: {
           StreamName: this.__input.streamName,
+          StreamARN: this.__input.streamArn,
           Fragments: this.__input.fragments,
         },
       },
@@ -195,6 +196,7 @@ export class KinesisVideoArchivedMediaResponsesFetchMediaForFragmentList {
         outputPath: 'Payload',
         parameters: {
           StreamName: this.__input.streamName,
+          StreamARN: this.__input.streamArn,
           Fragments: this.__input.fragments,
         },
       },
@@ -220,6 +222,7 @@ export class KinesisVideoArchivedMediaResponsesListFragments {
         outputPath: 'Fragments',
         parameters: {
           StreamName: this.__input.streamName,
+          StreamARN: this.__input.streamArn,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
           FragmentSelector: {
@@ -246,6 +249,7 @@ export class KinesisVideoArchivedMediaResponsesListFragments {
         outputPath: 'NextToken',
         parameters: {
           StreamName: this.__input.streamName,
+          StreamARN: this.__input.streamArn,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
           FragmentSelector: {

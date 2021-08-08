@@ -32,6 +32,10 @@ export class EcrClient extends cdk.Construct {
     return new ECRResponsesDeleteLifecyclePolicy(this, this.__resources, input);
   }
 
+  public deleteRegistryPolicy(): ECRResponsesDeleteRegistryPolicy {
+    return new ECRResponsesDeleteRegistryPolicy(this, this.__resources);
+  }
+
   public deleteRepository(input: shapes.EcrDeleteRepositoryRequest): ECRResponsesDeleteRepository {
     return new ECRResponsesDeleteRepository(this, this.__resources, input);
   }
@@ -46,6 +50,10 @@ export class EcrClient extends cdk.Construct {
 
   public describeImages(input: shapes.EcrDescribeImagesRequest): ECRResponsesDescribeImages {
     return new ECRResponsesDescribeImages(this, this.__resources, input);
+  }
+
+  public describeRegistry(): ECRResponsesDescribeRegistry {
+    return new ECRResponsesDescribeRegistry(this, this.__resources);
   }
 
   public describeRepositories(input: shapes.EcrDescribeRepositoriesRequest): ECRResponsesDescribeRepositories {
@@ -66,6 +74,10 @@ export class EcrClient extends cdk.Construct {
 
   public fetchLifecyclePolicyPreview(input: shapes.EcrGetLifecyclePolicyPreviewRequest): ECRResponsesFetchLifecyclePolicyPreview {
     return new ECRResponsesFetchLifecyclePolicyPreview(this, this.__resources, input);
+  }
+
+  public fetchRegistryPolicy(): ECRResponsesFetchRegistryPolicy {
+    return new ECRResponsesFetchRegistryPolicy(this, this.__resources);
   }
 
   public fetchRepositoryPolicy(input: shapes.EcrGetRepositoryPolicyRequest): ECRResponsesFetchRepositoryPolicy {
@@ -98,6 +110,14 @@ export class EcrClient extends cdk.Construct {
 
   public putLifecyclePolicy(input: shapes.EcrPutLifecyclePolicyRequest): ECRResponsesPutLifecyclePolicy {
     return new ECRResponsesPutLifecyclePolicy(this, this.__resources, input);
+  }
+
+  public putRegistryPolicy(input: shapes.EcrPutRegistryPolicyRequest): ECRResponsesPutRegistryPolicy {
+    return new ECRResponsesPutRegistryPolicy(this, this.__resources, input);
+  }
+
+  public putReplicationConfiguration(input: shapes.EcrPutReplicationConfigurationRequest): ECRResponsesPutReplicationConfiguration {
+    return new ECRResponsesPutReplicationConfiguration(this, this.__resources, input);
   }
 
   public putRepositoryPolicy(input: shapes.EcrSetRepositoryPolicyRequest): ECRResponsesPutRepositoryPolicy {
@@ -723,6 +743,45 @@ export class ECRResponsesDeleteLifecyclePolicy {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteLifecyclePolicy.lastEvaluatedAt', props);
     return resource.getResponseField('lastEvaluatedAt') as unknown as string;
+  }
+
+}
+
+export class ECRResponsesDeleteRegistryPolicy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get registryId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteRegistryPolicy',
+        service: 'ECR',
+        physicalResourceId: cr.PhysicalResourceId.of('ECR.DeleteRegistryPolicy.registryId'),
+        outputPath: 'registryId',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteRegistryPolicy.registryId', props);
+    return resource.getResponseField('registryId') as unknown as string;
+  }
+
+  public get policyText(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteRegistryPolicy',
+        service: 'ECR',
+        physicalResourceId: cr.PhysicalResourceId.of('ECR.DeleteRegistryPolicy.policyText'),
+        outputPath: 'policyText',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteRegistryPolicy.policyText', props);
+    return resource.getResponseField('policyText') as unknown as string;
   }
 
 }
@@ -1358,6 +1417,56 @@ export class ECRResponsesDescribeImages {
 
 }
 
+export class ECRResponsesDescribeRegistry {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get registryId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeRegistry',
+        service: 'ECR',
+        physicalResourceId: cr.PhysicalResourceId.of('ECR.DescribeRegistry.registryId'),
+        outputPath: 'registryId',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeRegistry.registryId', props);
+    return resource.getResponseField('registryId') as unknown as string;
+  }
+
+  public get replicationConfiguration(): ECRResponsesDescribeRegistryReplicationConfiguration {
+    return new ECRResponsesDescribeRegistryReplicationConfiguration(this.__scope, this.__resources);
+  }
+
+}
+
+export class ECRResponsesDescribeRegistryReplicationConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get rules(): shapes.EcrReplicationRule[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeRegistry',
+        service: 'ECR',
+        physicalResourceId: cr.PhysicalResourceId.of('ECR.DescribeRegistry.replicationConfiguration.rules'),
+        outputPath: 'replicationConfiguration.rules',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeRegistry.replicationConfiguration.rules', props);
+    return resource.getResponseField('replicationConfiguration.rules') as unknown as shapes.EcrReplicationRule[];
+  }
+
+}
+
 export class ECRResponsesDescribeRepositories {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcrDescribeRepositoriesRequest) {
@@ -1735,6 +1844,45 @@ export class ECRResponsesFetchLifecyclePolicyPreviewSummary {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetLifecyclePolicyPreview.summary.expiringImageTotalCount', props);
     return resource.getResponseField('summary.expiringImageTotalCount') as unknown as number;
+  }
+
+}
+
+export class ECRResponsesFetchRegistryPolicy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get registryId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getRegistryPolicy',
+        service: 'ECR',
+        physicalResourceId: cr.PhysicalResourceId.of('ECR.GetRegistryPolicy.registryId'),
+        outputPath: 'registryId',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetRegistryPolicy.registryId', props);
+    return resource.getResponseField('registryId') as unknown as string;
+  }
+
+  public get policyText(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getRegistryPolicy',
+        service: 'ECR',
+        physicalResourceId: cr.PhysicalResourceId.of('ECR.GetRegistryPolicy.policyText'),
+        outputPath: 'policyText',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetRegistryPolicy.policyText', props);
+    return resource.getResponseField('policyText') as unknown as string;
   }
 
 }
@@ -2286,6 +2434,84 @@ export class ECRResponsesPutLifecyclePolicy {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'PutLifecyclePolicy.lifecyclePolicyText', props);
     return resource.getResponseField('lifecyclePolicyText') as unknown as string;
+  }
+
+}
+
+export class ECRResponsesPutRegistryPolicy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcrPutRegistryPolicyRequest) {
+  }
+
+  public get registryId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putRegistryPolicy',
+        service: 'ECR',
+        physicalResourceId: cr.PhysicalResourceId.of('ECR.PutRegistryPolicy.registryId'),
+        outputPath: 'registryId',
+        parameters: {
+          policyText: this.__input.policyText,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutRegistryPolicy.registryId', props);
+    return resource.getResponseField('registryId') as unknown as string;
+  }
+
+  public get policyText(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putRegistryPolicy',
+        service: 'ECR',
+        physicalResourceId: cr.PhysicalResourceId.of('ECR.PutRegistryPolicy.policyText'),
+        outputPath: 'policyText',
+        parameters: {
+          policyText: this.__input.policyText,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutRegistryPolicy.policyText', props);
+    return resource.getResponseField('policyText') as unknown as string;
+  }
+
+}
+
+export class ECRResponsesPutReplicationConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcrPutReplicationConfigurationRequest) {
+  }
+
+  public get replicationConfiguration(): ECRResponsesPutReplicationConfigurationReplicationConfiguration {
+    return new ECRResponsesPutReplicationConfigurationReplicationConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ECRResponsesPutReplicationConfigurationReplicationConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcrPutReplicationConfigurationRequest) {
+  }
+
+  public get rules(): shapes.EcrReplicationRule[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putReplicationConfiguration',
+        service: 'ECR',
+        physicalResourceId: cr.PhysicalResourceId.of('ECR.PutReplicationConfiguration.replicationConfiguration.rules'),
+        outputPath: 'replicationConfiguration.rules',
+        parameters: {
+          replicationConfiguration: {
+            rules: this.__input.replicationConfiguration.rules,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutReplicationConfiguration.replicationConfiguration.rules', props);
+    return resource.getResponseField('replicationConfiguration.rules') as unknown as shapes.EcrReplicationRule[];
   }
 
 }

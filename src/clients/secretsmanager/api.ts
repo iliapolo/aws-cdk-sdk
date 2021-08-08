@@ -56,12 +56,24 @@ export class SecretsManagerClient extends cdk.Construct {
     return new SecretsManagerResponsesPutSecretValue(this, this.__resources, input);
   }
 
+  public removeRegionsFromReplication(input: shapes.SecretsManagerRemoveRegionsFromReplicationRequest): SecretsManagerResponsesRemoveRegionsFromReplication {
+    return new SecretsManagerResponsesRemoveRegionsFromReplication(this, this.__resources, input);
+  }
+
+  public replicateSecretToRegions(input: shapes.SecretsManagerReplicateSecretToRegionsRequest): SecretsManagerResponsesReplicateSecretToRegions {
+    return new SecretsManagerResponsesReplicateSecretToRegions(this, this.__resources, input);
+  }
+
   public restoreSecret(input: shapes.SecretsManagerRestoreSecretRequest): SecretsManagerResponsesRestoreSecret {
     return new SecretsManagerResponsesRestoreSecret(this, this.__resources, input);
   }
 
   public rotateSecret(input: shapes.SecretsManagerRotateSecretRequest): SecretsManagerResponsesRotateSecret {
     return new SecretsManagerResponsesRotateSecret(this, this.__resources, input);
+  }
+
+  public stopReplicationToReplica(input: shapes.SecretsManagerStopReplicationToReplicaRequest): SecretsManagerResponsesStopReplicationToReplica {
+    return new SecretsManagerResponsesStopReplicationToReplica(this, this.__resources, input);
   }
 
   public tagResource(input: shapes.SecretsManagerTagResourceRequest): void {
@@ -190,6 +202,8 @@ export class SecretsManagerResponsesCreateSecret {
           },
           SecretString: this.__input.secretString,
           Tags: this.__input.tags,
+          AddReplicaRegions: this.__input.addReplicaRegions,
+          ForceOverwriteReplicaSecret: this.__input.forceOverwriteReplicaSecret,
         },
       },
     };
@@ -214,6 +228,8 @@ export class SecretsManagerResponsesCreateSecret {
           },
           SecretString: this.__input.secretString,
           Tags: this.__input.tags,
+          AddReplicaRegions: this.__input.addReplicaRegions,
+          ForceOverwriteReplicaSecret: this.__input.forceOverwriteReplicaSecret,
         },
       },
     };
@@ -238,11 +254,39 @@ export class SecretsManagerResponsesCreateSecret {
           },
           SecretString: this.__input.secretString,
           Tags: this.__input.tags,
+          AddReplicaRegions: this.__input.addReplicaRegions,
+          ForceOverwriteReplicaSecret: this.__input.forceOverwriteReplicaSecret,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateSecret.VersionId', props);
     return resource.getResponseField('VersionId') as unknown as string;
+  }
+
+  public get replicationStatus(): shapes.SecretsManagerReplicationStatusType[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createSecret',
+        service: 'SecretsManager',
+        physicalResourceId: cr.PhysicalResourceId.of('SecretsManager.CreateSecret.ReplicationStatus'),
+        outputPath: 'ReplicationStatus',
+        parameters: {
+          Name: this.__input.name,
+          ClientRequestToken: this.__input.clientRequestToken,
+          Description: this.__input.description,
+          KmsKeyId: this.__input.kmsKeyId,
+          SecretBinary: {
+          },
+          SecretString: this.__input.secretString,
+          Tags: this.__input.tags,
+          AddReplicaRegions: this.__input.addReplicaRegions,
+          ForceOverwriteReplicaSecret: this.__input.forceOverwriteReplicaSecret,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateSecret.ReplicationStatus', props);
+    return resource.getResponseField('ReplicationStatus') as unknown as shapes.SecretsManagerReplicationStatusType[];
   }
 
 }
@@ -597,6 +641,40 @@ export class SecretsManagerResponsesDescribeSecret {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeSecret.CreatedDate', props);
     return resource.getResponseField('CreatedDate') as unknown as string;
+  }
+
+  public get primaryRegion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeSecret',
+        service: 'SecretsManager',
+        physicalResourceId: cr.PhysicalResourceId.of('SecretsManager.DescribeSecret.PrimaryRegion'),
+        outputPath: 'PrimaryRegion',
+        parameters: {
+          SecretId: this.__input.secretId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeSecret.PrimaryRegion', props);
+    return resource.getResponseField('PrimaryRegion') as unknown as string;
+  }
+
+  public get replicationStatus(): shapes.SecretsManagerReplicationStatusType[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeSecret',
+        service: 'SecretsManager',
+        physicalResourceId: cr.PhysicalResourceId.of('SecretsManager.DescribeSecret.ReplicationStatus'),
+        outputPath: 'ReplicationStatus',
+        parameters: {
+          SecretId: this.__input.secretId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeSecret.ReplicationStatus', props);
+    return resource.getResponseField('ReplicationStatus') as unknown as shapes.SecretsManagerReplicationStatusType[];
   }
 
 }
@@ -1128,6 +1206,94 @@ export class SecretsManagerResponsesPutSecretValue {
 
 }
 
+export class SecretsManagerResponsesRemoveRegionsFromReplication {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SecretsManagerRemoveRegionsFromReplicationRequest) {
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeRegionsFromReplication',
+        service: 'SecretsManager',
+        physicalResourceId: cr.PhysicalResourceId.of('SecretsManager.RemoveRegionsFromReplication.ARN'),
+        outputPath: 'ARN',
+        parameters: {
+          SecretId: this.__input.secretId,
+          RemoveReplicaRegions: this.__input.removeReplicaRegions,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveRegionsFromReplication.ARN', props);
+    return resource.getResponseField('ARN') as unknown as string;
+  }
+
+  public get replicationStatus(): shapes.SecretsManagerReplicationStatusType[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeRegionsFromReplication',
+        service: 'SecretsManager',
+        physicalResourceId: cr.PhysicalResourceId.of('SecretsManager.RemoveRegionsFromReplication.ReplicationStatus'),
+        outputPath: 'ReplicationStatus',
+        parameters: {
+          SecretId: this.__input.secretId,
+          RemoveReplicaRegions: this.__input.removeReplicaRegions,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveRegionsFromReplication.ReplicationStatus', props);
+    return resource.getResponseField('ReplicationStatus') as unknown as shapes.SecretsManagerReplicationStatusType[];
+  }
+
+}
+
+export class SecretsManagerResponsesReplicateSecretToRegions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SecretsManagerReplicateSecretToRegionsRequest) {
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateSecretToRegions',
+        service: 'SecretsManager',
+        physicalResourceId: cr.PhysicalResourceId.of('SecretsManager.ReplicateSecretToRegions.ARN'),
+        outputPath: 'ARN',
+        parameters: {
+          SecretId: this.__input.secretId,
+          AddReplicaRegions: this.__input.addReplicaRegions,
+          ForceOverwriteReplicaSecret: this.__input.forceOverwriteReplicaSecret,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateSecretToRegions.ARN', props);
+    return resource.getResponseField('ARN') as unknown as string;
+  }
+
+  public get replicationStatus(): shapes.SecretsManagerReplicationStatusType[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateSecretToRegions',
+        service: 'SecretsManager',
+        physicalResourceId: cr.PhysicalResourceId.of('SecretsManager.ReplicateSecretToRegions.ReplicationStatus'),
+        outputPath: 'ReplicationStatus',
+        parameters: {
+          SecretId: this.__input.secretId,
+          AddReplicaRegions: this.__input.addReplicaRegions,
+          ForceOverwriteReplicaSecret: this.__input.forceOverwriteReplicaSecret,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateSecretToRegions.ReplicationStatus', props);
+    return resource.getResponseField('ReplicationStatus') as unknown as shapes.SecretsManagerReplicationStatusType[];
+  }
+
+}
+
 export class SecretsManagerResponsesRestoreSecret {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SecretsManagerRestoreSecretRequest) {
@@ -1238,6 +1404,30 @@ export class SecretsManagerResponsesRotateSecret {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RotateSecret.VersionId', props);
     return resource.getResponseField('VersionId') as unknown as string;
+  }
+
+}
+
+export class SecretsManagerResponsesStopReplicationToReplica {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SecretsManagerStopReplicationToReplicaRequest) {
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopReplicationToReplica',
+        service: 'SecretsManager',
+        physicalResourceId: cr.PhysicalResourceId.of('SecretsManager.StopReplicationToReplica.ARN'),
+        outputPath: 'ARN',
+        parameters: {
+          SecretId: this.__input.secretId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopReplicationToReplica.ARN', props);
+    return resource.getResponseField('ARN') as unknown as string;
   }
 
 }

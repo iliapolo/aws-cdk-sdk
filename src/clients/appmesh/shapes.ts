@@ -40,6 +40,26 @@ export interface AppMeshCreateGatewayRouteInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshCreateGatewayRouteInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshCreateGatewayRouteInput(obj: AppMeshCreateGatewayRouteInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientToken': obj.clientToken,
+    'gatewayRouteName': obj.gatewayRouteName,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'spec': toJson_AppMeshGatewayRouteSpec(obj.spec),
+    'tags': obj.tags?.map(y => toJson_AppMeshTagRef(y)),
+    'virtualGatewayName': obj.virtualGatewayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshCreateGatewayRouteOutput
  */
 export interface AppMeshCreateGatewayRouteOutput {
@@ -49,6 +69,20 @@ export interface AppMeshCreateGatewayRouteOutput {
   readonly gatewayRoute: AppMeshGatewayRouteData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshCreateGatewayRouteOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshCreateGatewayRouteOutput(obj: AppMeshCreateGatewayRouteOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewayRoute': toJson_AppMeshGatewayRouteData(obj.gatewayRoute),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshCreateMeshInput
@@ -77,6 +111,23 @@ export interface AppMeshCreateMeshInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshCreateMeshInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshCreateMeshInput(obj: AppMeshCreateMeshInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientToken': obj.clientToken,
+    'meshName': obj.meshName,
+    'spec': toJson_AppMeshMeshSpec(obj.spec),
+    'tags': obj.tags?.map(y => toJson_AppMeshTagRef(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshCreateMeshOutput
  */
 export interface AppMeshCreateMeshOutput {
@@ -86,6 +137,20 @@ export interface AppMeshCreateMeshOutput {
   readonly mesh: AppMeshMeshData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshCreateMeshOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshCreateMeshOutput(obj: AppMeshCreateMeshOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'mesh': toJson_AppMeshMeshData(obj.mesh),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshCreateRouteInput
@@ -129,6 +194,26 @@ export interface AppMeshCreateRouteInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshCreateRouteInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshCreateRouteInput(obj: AppMeshCreateRouteInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientToken': obj.clientToken,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'routeName': obj.routeName,
+    'spec': toJson_AppMeshRouteSpec(obj.spec),
+    'tags': obj.tags?.map(y => toJson_AppMeshTagRef(y)),
+    'virtualRouterName': obj.virtualRouterName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshCreateRouteOutput
  */
 export interface AppMeshCreateRouteOutput {
@@ -138,6 +223,20 @@ export interface AppMeshCreateRouteOutput {
   readonly route: AppMeshRouteData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshCreateRouteOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshCreateRouteOutput(obj: AppMeshCreateRouteOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'route': toJson_AppMeshRouteData(obj.route),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshCreateVirtualGatewayInput
@@ -176,6 +275,25 @@ export interface AppMeshCreateVirtualGatewayInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshCreateVirtualGatewayInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshCreateVirtualGatewayInput(obj: AppMeshCreateVirtualGatewayInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientToken': obj.clientToken,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'spec': toJson_AppMeshVirtualGatewaySpec(obj.spec),
+    'tags': obj.tags?.map(y => toJson_AppMeshTagRef(y)),
+    'virtualGatewayName': obj.virtualGatewayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshCreateVirtualGatewayOutput
  */
 export interface AppMeshCreateVirtualGatewayOutput {
@@ -185,6 +303,20 @@ export interface AppMeshCreateVirtualGatewayOutput {
   readonly virtualGateway: AppMeshVirtualGatewayData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshCreateVirtualGatewayOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshCreateVirtualGatewayOutput(obj: AppMeshCreateVirtualGatewayOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualGateway': toJson_AppMeshVirtualGatewayData(obj.virtualGateway),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshCreateVirtualNodeInput
@@ -223,6 +355,25 @@ export interface AppMeshCreateVirtualNodeInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshCreateVirtualNodeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshCreateVirtualNodeInput(obj: AppMeshCreateVirtualNodeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientToken': obj.clientToken,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'spec': toJson_AppMeshVirtualNodeSpec(obj.spec),
+    'tags': obj.tags?.map(y => toJson_AppMeshTagRef(y)),
+    'virtualNodeName': obj.virtualNodeName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshCreateVirtualNodeOutput
  */
 export interface AppMeshCreateVirtualNodeOutput {
@@ -232,6 +383,20 @@ export interface AppMeshCreateVirtualNodeOutput {
   readonly virtualNode: AppMeshVirtualNodeData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshCreateVirtualNodeOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshCreateVirtualNodeOutput(obj: AppMeshCreateVirtualNodeOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualNode': toJson_AppMeshVirtualNodeData(obj.virtualNode),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshCreateVirtualRouterInput
@@ -270,6 +435,25 @@ export interface AppMeshCreateVirtualRouterInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshCreateVirtualRouterInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshCreateVirtualRouterInput(obj: AppMeshCreateVirtualRouterInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientToken': obj.clientToken,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'spec': toJson_AppMeshVirtualRouterSpec(obj.spec),
+    'tags': obj.tags?.map(y => toJson_AppMeshTagRef(y)),
+    'virtualRouterName': obj.virtualRouterName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshCreateVirtualRouterOutput
  */
 export interface AppMeshCreateVirtualRouterOutput {
@@ -279,6 +463,20 @@ export interface AppMeshCreateVirtualRouterOutput {
   readonly virtualRouter: AppMeshVirtualRouterData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshCreateVirtualRouterOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshCreateVirtualRouterOutput(obj: AppMeshCreateVirtualRouterOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualRouter': toJson_AppMeshVirtualRouterData(obj.virtualRouter),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshCreateVirtualServiceInput
@@ -317,6 +515,25 @@ export interface AppMeshCreateVirtualServiceInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshCreateVirtualServiceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshCreateVirtualServiceInput(obj: AppMeshCreateVirtualServiceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientToken': obj.clientToken,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'spec': toJson_AppMeshVirtualServiceSpec(obj.spec),
+    'tags': obj.tags?.map(y => toJson_AppMeshTagRef(y)),
+    'virtualServiceName': obj.virtualServiceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshCreateVirtualServiceOutput
  */
 export interface AppMeshCreateVirtualServiceOutput {
@@ -326,6 +543,20 @@ export interface AppMeshCreateVirtualServiceOutput {
   readonly virtualService: AppMeshVirtualServiceData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshCreateVirtualServiceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshCreateVirtualServiceOutput(obj: AppMeshCreateVirtualServiceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualService': toJson_AppMeshVirtualServiceData(obj.virtualService),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshDeleteGatewayRouteInput
@@ -354,6 +585,23 @@ export interface AppMeshDeleteGatewayRouteInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshDeleteGatewayRouteInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDeleteGatewayRouteInput(obj: AppMeshDeleteGatewayRouteInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewayRouteName': obj.gatewayRouteName,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'virtualGatewayName': obj.virtualGatewayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshDeleteGatewayRouteOutput
  */
 export interface AppMeshDeleteGatewayRouteOutput {
@@ -363,6 +611,20 @@ export interface AppMeshDeleteGatewayRouteOutput {
   readonly gatewayRoute: AppMeshGatewayRouteData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshDeleteGatewayRouteOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDeleteGatewayRouteOutput(obj: AppMeshDeleteGatewayRouteOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewayRoute': toJson_AppMeshGatewayRouteData(obj.gatewayRoute),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshDeleteMeshInput
@@ -376,6 +638,20 @@ export interface AppMeshDeleteMeshInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshDeleteMeshInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDeleteMeshInput(obj: AppMeshDeleteMeshInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshName': obj.meshName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshDeleteMeshOutput
  */
 export interface AppMeshDeleteMeshOutput {
@@ -385,6 +661,20 @@ export interface AppMeshDeleteMeshOutput {
   readonly mesh: AppMeshMeshData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshDeleteMeshOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDeleteMeshOutput(obj: AppMeshDeleteMeshOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'mesh': toJson_AppMeshMeshData(obj.mesh),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshDeleteRouteInput
@@ -413,6 +703,23 @@ export interface AppMeshDeleteRouteInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshDeleteRouteInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDeleteRouteInput(obj: AppMeshDeleteRouteInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'routeName': obj.routeName,
+    'virtualRouterName': obj.virtualRouterName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshDeleteRouteOutput
  */
 export interface AppMeshDeleteRouteOutput {
@@ -422,6 +729,20 @@ export interface AppMeshDeleteRouteOutput {
   readonly route: AppMeshRouteData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshDeleteRouteOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDeleteRouteOutput(obj: AppMeshDeleteRouteOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'route': toJson_AppMeshRouteData(obj.route),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshDeleteVirtualGatewayInput
@@ -445,6 +766,22 @@ export interface AppMeshDeleteVirtualGatewayInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshDeleteVirtualGatewayInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDeleteVirtualGatewayInput(obj: AppMeshDeleteVirtualGatewayInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'virtualGatewayName': obj.virtualGatewayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshDeleteVirtualGatewayOutput
  */
 export interface AppMeshDeleteVirtualGatewayOutput {
@@ -454,6 +791,20 @@ export interface AppMeshDeleteVirtualGatewayOutput {
   readonly virtualGateway: AppMeshVirtualGatewayData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshDeleteVirtualGatewayOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDeleteVirtualGatewayOutput(obj: AppMeshDeleteVirtualGatewayOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualGateway': toJson_AppMeshVirtualGatewayData(obj.virtualGateway),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshDeleteVirtualNodeInput
@@ -477,6 +828,22 @@ export interface AppMeshDeleteVirtualNodeInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshDeleteVirtualNodeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDeleteVirtualNodeInput(obj: AppMeshDeleteVirtualNodeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'virtualNodeName': obj.virtualNodeName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshDeleteVirtualNodeOutput
  */
 export interface AppMeshDeleteVirtualNodeOutput {
@@ -486,6 +853,20 @@ export interface AppMeshDeleteVirtualNodeOutput {
   readonly virtualNode: AppMeshVirtualNodeData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshDeleteVirtualNodeOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDeleteVirtualNodeOutput(obj: AppMeshDeleteVirtualNodeOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualNode': toJson_AppMeshVirtualNodeData(obj.virtualNode),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshDeleteVirtualRouterInput
@@ -509,6 +890,22 @@ export interface AppMeshDeleteVirtualRouterInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshDeleteVirtualRouterInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDeleteVirtualRouterInput(obj: AppMeshDeleteVirtualRouterInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'virtualRouterName': obj.virtualRouterName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshDeleteVirtualRouterOutput
  */
 export interface AppMeshDeleteVirtualRouterOutput {
@@ -518,6 +915,20 @@ export interface AppMeshDeleteVirtualRouterOutput {
   readonly virtualRouter: AppMeshVirtualRouterData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshDeleteVirtualRouterOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDeleteVirtualRouterOutput(obj: AppMeshDeleteVirtualRouterOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualRouter': toJson_AppMeshVirtualRouterData(obj.virtualRouter),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshDeleteVirtualServiceInput
@@ -541,6 +952,22 @@ export interface AppMeshDeleteVirtualServiceInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshDeleteVirtualServiceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDeleteVirtualServiceInput(obj: AppMeshDeleteVirtualServiceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'virtualServiceName': obj.virtualServiceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshDeleteVirtualServiceOutput
  */
 export interface AppMeshDeleteVirtualServiceOutput {
@@ -550,6 +977,20 @@ export interface AppMeshDeleteVirtualServiceOutput {
   readonly virtualService: AppMeshVirtualServiceData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshDeleteVirtualServiceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDeleteVirtualServiceOutput(obj: AppMeshDeleteVirtualServiceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualService': toJson_AppMeshVirtualServiceData(obj.virtualService),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshDescribeGatewayRouteInput
@@ -578,6 +1019,23 @@ export interface AppMeshDescribeGatewayRouteInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshDescribeGatewayRouteInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDescribeGatewayRouteInput(obj: AppMeshDescribeGatewayRouteInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewayRouteName': obj.gatewayRouteName,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'virtualGatewayName': obj.virtualGatewayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshDescribeGatewayRouteOutput
  */
 export interface AppMeshDescribeGatewayRouteOutput {
@@ -587,6 +1045,20 @@ export interface AppMeshDescribeGatewayRouteOutput {
   readonly gatewayRoute: AppMeshGatewayRouteData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshDescribeGatewayRouteOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDescribeGatewayRouteOutput(obj: AppMeshDescribeGatewayRouteOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewayRoute': toJson_AppMeshGatewayRouteData(obj.gatewayRoute),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshDescribeMeshInput
@@ -605,6 +1077,21 @@ export interface AppMeshDescribeMeshInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshDescribeMeshInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDescribeMeshInput(obj: AppMeshDescribeMeshInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshDescribeMeshOutput
  */
 export interface AppMeshDescribeMeshOutput {
@@ -614,6 +1101,20 @@ export interface AppMeshDescribeMeshOutput {
   readonly mesh: AppMeshMeshData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshDescribeMeshOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDescribeMeshOutput(obj: AppMeshDescribeMeshOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'mesh': toJson_AppMeshMeshData(obj.mesh),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshDescribeRouteInput
@@ -642,6 +1143,23 @@ export interface AppMeshDescribeRouteInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshDescribeRouteInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDescribeRouteInput(obj: AppMeshDescribeRouteInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'routeName': obj.routeName,
+    'virtualRouterName': obj.virtualRouterName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshDescribeRouteOutput
  */
 export interface AppMeshDescribeRouteOutput {
@@ -651,6 +1169,20 @@ export interface AppMeshDescribeRouteOutput {
   readonly route: AppMeshRouteData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshDescribeRouteOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDescribeRouteOutput(obj: AppMeshDescribeRouteOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'route': toJson_AppMeshRouteData(obj.route),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshDescribeVirtualGatewayInput
@@ -674,6 +1206,22 @@ export interface AppMeshDescribeVirtualGatewayInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshDescribeVirtualGatewayInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDescribeVirtualGatewayInput(obj: AppMeshDescribeVirtualGatewayInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'virtualGatewayName': obj.virtualGatewayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshDescribeVirtualGatewayOutput
  */
 export interface AppMeshDescribeVirtualGatewayOutput {
@@ -683,6 +1231,20 @@ export interface AppMeshDescribeVirtualGatewayOutput {
   readonly virtualGateway: AppMeshVirtualGatewayData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshDescribeVirtualGatewayOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDescribeVirtualGatewayOutput(obj: AppMeshDescribeVirtualGatewayOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualGateway': toJson_AppMeshVirtualGatewayData(obj.virtualGateway),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshDescribeVirtualNodeInput
@@ -706,6 +1268,22 @@ export interface AppMeshDescribeVirtualNodeInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshDescribeVirtualNodeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDescribeVirtualNodeInput(obj: AppMeshDescribeVirtualNodeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'virtualNodeName': obj.virtualNodeName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshDescribeVirtualNodeOutput
  */
 export interface AppMeshDescribeVirtualNodeOutput {
@@ -715,6 +1293,20 @@ export interface AppMeshDescribeVirtualNodeOutput {
   readonly virtualNode: AppMeshVirtualNodeData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshDescribeVirtualNodeOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDescribeVirtualNodeOutput(obj: AppMeshDescribeVirtualNodeOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualNode': toJson_AppMeshVirtualNodeData(obj.virtualNode),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshDescribeVirtualRouterInput
@@ -738,6 +1330,22 @@ export interface AppMeshDescribeVirtualRouterInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshDescribeVirtualRouterInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDescribeVirtualRouterInput(obj: AppMeshDescribeVirtualRouterInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'virtualRouterName': obj.virtualRouterName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshDescribeVirtualRouterOutput
  */
 export interface AppMeshDescribeVirtualRouterOutput {
@@ -747,6 +1355,20 @@ export interface AppMeshDescribeVirtualRouterOutput {
   readonly virtualRouter: AppMeshVirtualRouterData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshDescribeVirtualRouterOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDescribeVirtualRouterOutput(obj: AppMeshDescribeVirtualRouterOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualRouter': toJson_AppMeshVirtualRouterData(obj.virtualRouter),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshDescribeVirtualServiceInput
@@ -770,6 +1392,22 @@ export interface AppMeshDescribeVirtualServiceInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshDescribeVirtualServiceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDescribeVirtualServiceInput(obj: AppMeshDescribeVirtualServiceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'virtualServiceName': obj.virtualServiceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshDescribeVirtualServiceOutput
  */
 export interface AppMeshDescribeVirtualServiceOutput {
@@ -779,6 +1417,20 @@ export interface AppMeshDescribeVirtualServiceOutput {
   readonly virtualService: AppMeshVirtualServiceData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshDescribeVirtualServiceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDescribeVirtualServiceOutput(obj: AppMeshDescribeVirtualServiceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualService': toJson_AppMeshVirtualServiceData(obj.virtualService),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshListGatewayRoutesInput
@@ -812,6 +1464,24 @@ export interface AppMeshListGatewayRoutesInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshListGatewayRoutesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListGatewayRoutesInput(obj: AppMeshListGatewayRoutesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'limit': obj.limit,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'nextToken': obj.nextToken,
+    'virtualGatewayName': obj.virtualGatewayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshListGatewayRoutesOutput
  */
 export interface AppMeshListGatewayRoutesOutput {
@@ -826,6 +1496,21 @@ export interface AppMeshListGatewayRoutesOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshListGatewayRoutesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListGatewayRoutesOutput(obj: AppMeshListGatewayRoutesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewayRoutes': obj.gatewayRoutes?.map(y => toJson_AppMeshGatewayRouteRef(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshListMeshesInput
@@ -844,6 +1529,21 @@ export interface AppMeshListMeshesInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshListMeshesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListMeshesInput(obj: AppMeshListMeshesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'limit': obj.limit,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshListMeshesOutput
  */
 export interface AppMeshListMeshesOutput {
@@ -858,6 +1558,21 @@ export interface AppMeshListMeshesOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshListMeshesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListMeshesOutput(obj: AppMeshListMeshesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshes': obj.meshes?.map(y => toJson_AppMeshMeshRef(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshListRoutesInput
@@ -891,6 +1606,24 @@ export interface AppMeshListRoutesInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshListRoutesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListRoutesInput(obj: AppMeshListRoutesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'limit': obj.limit,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'nextToken': obj.nextToken,
+    'virtualRouterName': obj.virtualRouterName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshListRoutesOutput
  */
 export interface AppMeshListRoutesOutput {
@@ -905,6 +1638,21 @@ export interface AppMeshListRoutesOutput {
   readonly routes: AppMeshRouteRef[];
 
 }
+
+/**
+ * Converts an object of type 'AppMeshListRoutesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListRoutesOutput(obj: AppMeshListRoutesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'routes': obj.routes?.map(y => toJson_AppMeshRouteRef(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshListTagsForResourceInput
@@ -928,6 +1676,22 @@ export interface AppMeshListTagsForResourceInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshListTagsForResourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListTagsForResourceInput(obj: AppMeshListTagsForResourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'limit': obj.limit,
+    'nextToken': obj.nextToken,
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshListTagsForResourceOutput
  */
 export interface AppMeshListTagsForResourceOutput {
@@ -942,6 +1706,21 @@ export interface AppMeshListTagsForResourceOutput {
   readonly tags: AppMeshTagRef[];
 
 }
+
+/**
+ * Converts an object of type 'AppMeshListTagsForResourceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListTagsForResourceOutput(obj: AppMeshListTagsForResourceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'tags': obj.tags?.map(y => toJson_AppMeshTagRef(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshListVirtualGatewaysInput
@@ -970,6 +1749,23 @@ export interface AppMeshListVirtualGatewaysInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshListVirtualGatewaysInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListVirtualGatewaysInput(obj: AppMeshListVirtualGatewaysInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'limit': obj.limit,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshListVirtualGatewaysOutput
  */
 export interface AppMeshListVirtualGatewaysOutput {
@@ -984,6 +1780,21 @@ export interface AppMeshListVirtualGatewaysOutput {
   readonly virtualGateways: AppMeshVirtualGatewayRef[];
 
 }
+
+/**
+ * Converts an object of type 'AppMeshListVirtualGatewaysOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListVirtualGatewaysOutput(obj: AppMeshListVirtualGatewaysOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'virtualGateways': obj.virtualGateways?.map(y => toJson_AppMeshVirtualGatewayRef(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshListVirtualNodesInput
@@ -1012,6 +1823,23 @@ export interface AppMeshListVirtualNodesInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshListVirtualNodesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListVirtualNodesInput(obj: AppMeshListVirtualNodesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'limit': obj.limit,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshListVirtualNodesOutput
  */
 export interface AppMeshListVirtualNodesOutput {
@@ -1026,6 +1854,21 @@ export interface AppMeshListVirtualNodesOutput {
   readonly virtualNodes: AppMeshVirtualNodeRef[];
 
 }
+
+/**
+ * Converts an object of type 'AppMeshListVirtualNodesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListVirtualNodesOutput(obj: AppMeshListVirtualNodesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'virtualNodes': obj.virtualNodes?.map(y => toJson_AppMeshVirtualNodeRef(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshListVirtualRoutersInput
@@ -1054,6 +1897,23 @@ export interface AppMeshListVirtualRoutersInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshListVirtualRoutersInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListVirtualRoutersInput(obj: AppMeshListVirtualRoutersInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'limit': obj.limit,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshListVirtualRoutersOutput
  */
 export interface AppMeshListVirtualRoutersOutput {
@@ -1068,6 +1928,21 @@ export interface AppMeshListVirtualRoutersOutput {
   readonly virtualRouters: AppMeshVirtualRouterRef[];
 
 }
+
+/**
+ * Converts an object of type 'AppMeshListVirtualRoutersOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListVirtualRoutersOutput(obj: AppMeshListVirtualRoutersOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'virtualRouters': obj.virtualRouters?.map(y => toJson_AppMeshVirtualRouterRef(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshListVirtualServicesInput
@@ -1096,6 +1971,23 @@ export interface AppMeshListVirtualServicesInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshListVirtualServicesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListVirtualServicesInput(obj: AppMeshListVirtualServicesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'limit': obj.limit,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshListVirtualServicesOutput
  */
 export interface AppMeshListVirtualServicesOutput {
@@ -1110,6 +2002,21 @@ export interface AppMeshListVirtualServicesOutput {
   readonly virtualServices: AppMeshVirtualServiceRef[];
 
 }
+
+/**
+ * Converts an object of type 'AppMeshListVirtualServicesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListVirtualServicesOutput(obj: AppMeshListVirtualServicesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'virtualServices': obj.virtualServices?.map(y => toJson_AppMeshVirtualServiceRef(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshTagResourceInput
@@ -1128,10 +2035,38 @@ export interface AppMeshTagResourceInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshTagResourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshTagResourceInput(obj: AppMeshTagResourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': obj.tags?.map(y => toJson_AppMeshTagRef(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshTagResourceOutput
  */
 export interface AppMeshTagResourceOutput {
 }
+
+/**
+ * Converts an object of type 'AppMeshTagResourceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshTagResourceOutput(obj: AppMeshTagResourceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshUntagResourceInput
@@ -1150,10 +2085,38 @@ export interface AppMeshUntagResourceInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshUntagResourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshUntagResourceInput(obj: AppMeshUntagResourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshUntagResourceOutput
  */
 export interface AppMeshUntagResourceOutput {
 }
+
+/**
+ * Converts an object of type 'AppMeshUntagResourceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshUntagResourceOutput(obj: AppMeshUntagResourceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshUpdateGatewayRouteInput
@@ -1192,6 +2155,25 @@ export interface AppMeshUpdateGatewayRouteInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshUpdateGatewayRouteInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshUpdateGatewayRouteInput(obj: AppMeshUpdateGatewayRouteInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientToken': obj.clientToken,
+    'gatewayRouteName': obj.gatewayRouteName,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'spec': toJson_AppMeshGatewayRouteSpec(obj.spec),
+    'virtualGatewayName': obj.virtualGatewayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshUpdateGatewayRouteOutput
  */
 export interface AppMeshUpdateGatewayRouteOutput {
@@ -1201,6 +2183,20 @@ export interface AppMeshUpdateGatewayRouteOutput {
   readonly gatewayRoute: AppMeshGatewayRouteData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshUpdateGatewayRouteOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshUpdateGatewayRouteOutput(obj: AppMeshUpdateGatewayRouteOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewayRoute': toJson_AppMeshGatewayRouteData(obj.gatewayRoute),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshUpdateMeshInput
@@ -1224,6 +2220,22 @@ export interface AppMeshUpdateMeshInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshUpdateMeshInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshUpdateMeshInput(obj: AppMeshUpdateMeshInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientToken': obj.clientToken,
+    'meshName': obj.meshName,
+    'spec': toJson_AppMeshMeshSpec(obj.spec),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshUpdateMeshOutput
  */
 export interface AppMeshUpdateMeshOutput {
@@ -1233,6 +2245,20 @@ export interface AppMeshUpdateMeshOutput {
   readonly mesh: AppMeshMeshData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshUpdateMeshOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshUpdateMeshOutput(obj: AppMeshUpdateMeshOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'mesh': toJson_AppMeshMeshData(obj.mesh),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshUpdateRouteInput
@@ -1271,6 +2297,25 @@ export interface AppMeshUpdateRouteInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshUpdateRouteInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshUpdateRouteInput(obj: AppMeshUpdateRouteInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientToken': obj.clientToken,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'routeName': obj.routeName,
+    'spec': toJson_AppMeshRouteSpec(obj.spec),
+    'virtualRouterName': obj.virtualRouterName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshUpdateRouteOutput
  */
 export interface AppMeshUpdateRouteOutput {
@@ -1280,6 +2325,20 @@ export interface AppMeshUpdateRouteOutput {
   readonly route: AppMeshRouteData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshUpdateRouteOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshUpdateRouteOutput(obj: AppMeshUpdateRouteOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'route': toJson_AppMeshRouteData(obj.route),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshUpdateVirtualGatewayInput
@@ -1313,6 +2372,24 @@ export interface AppMeshUpdateVirtualGatewayInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshUpdateVirtualGatewayInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshUpdateVirtualGatewayInput(obj: AppMeshUpdateVirtualGatewayInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientToken': obj.clientToken,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'spec': toJson_AppMeshVirtualGatewaySpec(obj.spec),
+    'virtualGatewayName': obj.virtualGatewayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshUpdateVirtualGatewayOutput
  */
 export interface AppMeshUpdateVirtualGatewayOutput {
@@ -1322,6 +2399,20 @@ export interface AppMeshUpdateVirtualGatewayOutput {
   readonly virtualGateway: AppMeshVirtualGatewayData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshUpdateVirtualGatewayOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshUpdateVirtualGatewayOutput(obj: AppMeshUpdateVirtualGatewayOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualGateway': toJson_AppMeshVirtualGatewayData(obj.virtualGateway),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshUpdateVirtualNodeInput
@@ -1355,6 +2446,24 @@ export interface AppMeshUpdateVirtualNodeInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshUpdateVirtualNodeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshUpdateVirtualNodeInput(obj: AppMeshUpdateVirtualNodeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientToken': obj.clientToken,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'spec': toJson_AppMeshVirtualNodeSpec(obj.spec),
+    'virtualNodeName': obj.virtualNodeName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshUpdateVirtualNodeOutput
  */
 export interface AppMeshUpdateVirtualNodeOutput {
@@ -1364,6 +2473,20 @@ export interface AppMeshUpdateVirtualNodeOutput {
   readonly virtualNode: AppMeshVirtualNodeData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshUpdateVirtualNodeOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshUpdateVirtualNodeOutput(obj: AppMeshUpdateVirtualNodeOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualNode': toJson_AppMeshVirtualNodeData(obj.virtualNode),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshUpdateVirtualRouterInput
@@ -1397,6 +2520,24 @@ export interface AppMeshUpdateVirtualRouterInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshUpdateVirtualRouterInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshUpdateVirtualRouterInput(obj: AppMeshUpdateVirtualRouterInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientToken': obj.clientToken,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'spec': toJson_AppMeshVirtualRouterSpec(obj.spec),
+    'virtualRouterName': obj.virtualRouterName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshUpdateVirtualRouterOutput
  */
 export interface AppMeshUpdateVirtualRouterOutput {
@@ -1406,6 +2547,20 @@ export interface AppMeshUpdateVirtualRouterOutput {
   readonly virtualRouter: AppMeshVirtualRouterData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshUpdateVirtualRouterOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshUpdateVirtualRouterOutput(obj: AppMeshUpdateVirtualRouterOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualRouter': toJson_AppMeshVirtualRouterData(obj.virtualRouter),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshUpdateVirtualServiceInput
@@ -1439,6 +2594,24 @@ export interface AppMeshUpdateVirtualServiceInput {
 }
 
 /**
+ * Converts an object of type 'AppMeshUpdateVirtualServiceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshUpdateVirtualServiceInput(obj: AppMeshUpdateVirtualServiceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientToken': obj.clientToken,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'spec': toJson_AppMeshVirtualServiceSpec(obj.spec),
+    'virtualServiceName': obj.virtualServiceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshUpdateVirtualServiceOutput
  */
 export interface AppMeshUpdateVirtualServiceOutput {
@@ -1448,6 +2621,20 @@ export interface AppMeshUpdateVirtualServiceOutput {
   readonly virtualService: AppMeshVirtualServiceData;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshUpdateVirtualServiceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshUpdateVirtualServiceOutput(obj: AppMeshUpdateVirtualServiceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualService': toJson_AppMeshVirtualServiceData(obj.virtualService),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshGatewayRouteSpec
@@ -1468,7 +2655,29 @@ export interface AppMeshGatewayRouteSpec {
    */
   readonly httpRoute?: AppMeshHttpGatewayRoute;
 
+  /**
+   * @schema AppMeshGatewayRouteSpec#priority
+   */
+  readonly priority?: number;
+
 }
+
+/**
+ * Converts an object of type 'AppMeshGatewayRouteSpec' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGatewayRouteSpec(obj: AppMeshGatewayRouteSpec | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'grpcRoute': toJson_AppMeshGrpcGatewayRoute(obj.grpcRoute),
+    'http2Route': toJson_AppMeshHttpGatewayRoute(obj.http2Route),
+    'httpRoute': toJson_AppMeshHttpGatewayRoute(obj.httpRoute),
+    'priority': obj.priority,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshTagRef
@@ -1485,6 +2694,21 @@ export interface AppMeshTagRef {
   readonly value: string;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshTagRef' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshTagRef(obj: AppMeshTagRef | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshGatewayRouteData
@@ -1523,6 +2747,25 @@ export interface AppMeshGatewayRouteData {
 }
 
 /**
+ * Converts an object of type 'AppMeshGatewayRouteData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGatewayRouteData(obj: AppMeshGatewayRouteData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'gatewayRouteName': obj.gatewayRouteName,
+    'meshName': obj.meshName,
+    'metadata': toJson_AppMeshResourceMetadata(obj.metadata),
+    'spec': toJson_AppMeshGatewayRouteSpec(obj.spec),
+    'status': toJson_AppMeshGatewayRouteStatus(obj.status),
+    'virtualGatewayName': obj.virtualGatewayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshMeshSpec
  */
 export interface AppMeshMeshSpec {
@@ -1532,6 +2775,20 @@ export interface AppMeshMeshSpec {
   readonly egressFilter?: AppMeshEgressFilter;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshMeshSpec' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshMeshSpec(obj: AppMeshMeshSpec | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'egressFilter': toJson_AppMeshEgressFilter(obj.egressFilter),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshMeshData
@@ -1558,6 +2815,23 @@ export interface AppMeshMeshData {
   readonly status: AppMeshMeshStatus;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshMeshData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshMeshData(obj: AppMeshMeshData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshName': obj.meshName,
+    'metadata': toJson_AppMeshResourceMetadata(obj.metadata),
+    'spec': toJson_AppMeshMeshSpec(obj.spec),
+    'status': toJson_AppMeshMeshStatus(obj.status),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshRouteSpec
@@ -1589,6 +2863,24 @@ export interface AppMeshRouteSpec {
   readonly tcpRoute?: AppMeshTcpRoute;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshRouteSpec' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshRouteSpec(obj: AppMeshRouteSpec | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'grpcRoute': toJson_AppMeshGrpcRoute(obj.grpcRoute),
+    'http2Route': toJson_AppMeshHttpRoute(obj.http2Route),
+    'httpRoute': toJson_AppMeshHttpRoute(obj.httpRoute),
+    'priority': obj.priority,
+    'tcpRoute': toJson_AppMeshTcpRoute(obj.tcpRoute),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshRouteData
@@ -1627,6 +2919,25 @@ export interface AppMeshRouteData {
 }
 
 /**
+ * Converts an object of type 'AppMeshRouteData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshRouteData(obj: AppMeshRouteData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshName': obj.meshName,
+    'metadata': toJson_AppMeshResourceMetadata(obj.metadata),
+    'routeName': obj.routeName,
+    'spec': toJson_AppMeshRouteSpec(obj.spec),
+    'status': toJson_AppMeshRouteStatus(obj.status),
+    'virtualRouterName': obj.virtualRouterName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualGatewaySpec
  */
 export interface AppMeshVirtualGatewaySpec {
@@ -1646,6 +2957,22 @@ export interface AppMeshVirtualGatewaySpec {
   readonly logging?: AppMeshVirtualGatewayLogging;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewaySpec' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewaySpec(obj: AppMeshVirtualGatewaySpec | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'backendDefaults': toJson_AppMeshVirtualGatewayBackendDefaults(obj.backendDefaults),
+    'listeners': obj.listeners?.map(y => toJson_AppMeshVirtualGatewayListener(y)),
+    'logging': toJson_AppMeshVirtualGatewayLogging(obj.logging),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualGatewayData
@@ -1679,6 +3006,24 @@ export interface AppMeshVirtualGatewayData {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualGatewayData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayData(obj: AppMeshVirtualGatewayData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshName': obj.meshName,
+    'metadata': toJson_AppMeshResourceMetadata(obj.metadata),
+    'spec': toJson_AppMeshVirtualGatewaySpec(obj.spec),
+    'status': toJson_AppMeshVirtualGatewayStatus(obj.status),
+    'virtualGatewayName': obj.virtualGatewayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualNodeSpec
  */
 export interface AppMeshVirtualNodeSpec {
@@ -1708,6 +3053,24 @@ export interface AppMeshVirtualNodeSpec {
   readonly serviceDiscovery?: AppMeshServiceDiscovery;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualNodeSpec' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualNodeSpec(obj: AppMeshVirtualNodeSpec | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'backendDefaults': toJson_AppMeshBackendDefaults(obj.backendDefaults),
+    'backends': obj.backends?.map(y => toJson_AppMeshBackend(y)),
+    'listeners': obj.listeners?.map(y => toJson_AppMeshListener(y)),
+    'logging': toJson_AppMeshLogging(obj.logging),
+    'serviceDiscovery': toJson_AppMeshServiceDiscovery(obj.serviceDiscovery),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualNodeData
@@ -1741,6 +3104,24 @@ export interface AppMeshVirtualNodeData {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualNodeData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualNodeData(obj: AppMeshVirtualNodeData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshName': obj.meshName,
+    'metadata': toJson_AppMeshResourceMetadata(obj.metadata),
+    'spec': toJson_AppMeshVirtualNodeSpec(obj.spec),
+    'status': toJson_AppMeshVirtualNodeStatus(obj.status),
+    'virtualNodeName': obj.virtualNodeName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualRouterSpec
  */
 export interface AppMeshVirtualRouterSpec {
@@ -1750,6 +3131,20 @@ export interface AppMeshVirtualRouterSpec {
   readonly listeners?: AppMeshVirtualRouterListener[];
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualRouterSpec' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualRouterSpec(obj: AppMeshVirtualRouterSpec | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'listeners': obj.listeners?.map(y => toJson_AppMeshVirtualRouterListener(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualRouterData
@@ -1783,6 +3178,24 @@ export interface AppMeshVirtualRouterData {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualRouterData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualRouterData(obj: AppMeshVirtualRouterData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshName': obj.meshName,
+    'metadata': toJson_AppMeshResourceMetadata(obj.metadata),
+    'spec': toJson_AppMeshVirtualRouterSpec(obj.spec),
+    'status': toJson_AppMeshVirtualRouterStatus(obj.status),
+    'virtualRouterName': obj.virtualRouterName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualServiceSpec
  */
 export interface AppMeshVirtualServiceSpec {
@@ -1792,6 +3205,20 @@ export interface AppMeshVirtualServiceSpec {
   readonly provider?: AppMeshVirtualServiceProvider;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualServiceSpec' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualServiceSpec(obj: AppMeshVirtualServiceSpec | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'provider': toJson_AppMeshVirtualServiceProvider(obj.provider),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualServiceData
@@ -1823,6 +3250,24 @@ export interface AppMeshVirtualServiceData {
   readonly virtualServiceName: string;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualServiceData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualServiceData(obj: AppMeshVirtualServiceData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'meshName': obj.meshName,
+    'metadata': toJson_AppMeshResourceMetadata(obj.metadata),
+    'spec': toJson_AppMeshVirtualServiceSpec(obj.spec),
+    'status': toJson_AppMeshVirtualServiceStatus(obj.status),
+    'virtualServiceName': obj.virtualServiceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshGatewayRouteRef
@@ -1876,6 +3321,28 @@ export interface AppMeshGatewayRouteRef {
 }
 
 /**
+ * Converts an object of type 'AppMeshGatewayRouteRef' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGatewayRouteRef(obj: AppMeshGatewayRouteRef | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'createdAt': obj.createdAt,
+    'gatewayRouteName': obj.gatewayRouteName,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'resourceOwner': obj.resourceOwner,
+    'version': obj.version,
+    'virtualGatewayName': obj.virtualGatewayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshMeshRef
  */
 export interface AppMeshMeshRef {
@@ -1915,6 +3382,26 @@ export interface AppMeshMeshRef {
   readonly version: number;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshMeshRef' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshMeshRef(obj: AppMeshMeshRef | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'createdAt': obj.createdAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'resourceOwner': obj.resourceOwner,
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshRouteRef
@@ -1968,6 +3455,28 @@ export interface AppMeshRouteRef {
 }
 
 /**
+ * Converts an object of type 'AppMeshRouteRef' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshRouteRef(obj: AppMeshRouteRef | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'createdAt': obj.createdAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'resourceOwner': obj.resourceOwner,
+    'routeName': obj.routeName,
+    'version': obj.version,
+    'virtualRouterName': obj.virtualRouterName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualGatewayRef
  */
 export interface AppMeshVirtualGatewayRef {
@@ -2012,6 +3521,27 @@ export interface AppMeshVirtualGatewayRef {
   readonly virtualGatewayName: string;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewayRef' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayRef(obj: AppMeshVirtualGatewayRef | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'createdAt': obj.createdAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'resourceOwner': obj.resourceOwner,
+    'version': obj.version,
+    'virtualGatewayName': obj.virtualGatewayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualNodeRef
@@ -2060,6 +3590,27 @@ export interface AppMeshVirtualNodeRef {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualNodeRef' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualNodeRef(obj: AppMeshVirtualNodeRef | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'createdAt': obj.createdAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'resourceOwner': obj.resourceOwner,
+    'version': obj.version,
+    'virtualNodeName': obj.virtualNodeName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualRouterRef
  */
 export interface AppMeshVirtualRouterRef {
@@ -2104,6 +3655,27 @@ export interface AppMeshVirtualRouterRef {
   readonly virtualRouterName: string;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualRouterRef' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualRouterRef(obj: AppMeshVirtualRouterRef | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'createdAt': obj.createdAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'resourceOwner': obj.resourceOwner,
+    'version': obj.version,
+    'virtualRouterName': obj.virtualRouterName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualServiceRef
@@ -2152,6 +3724,27 @@ export interface AppMeshVirtualServiceRef {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualServiceRef' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualServiceRef(obj: AppMeshVirtualServiceRef | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'createdAt': obj.createdAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'meshName': obj.meshName,
+    'meshOwner': obj.meshOwner,
+    'resourceOwner': obj.resourceOwner,
+    'version': obj.version,
+    'virtualServiceName': obj.virtualServiceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshGrpcGatewayRoute
  */
 export interface AppMeshGrpcGatewayRoute {
@@ -2168,6 +3761,21 @@ export interface AppMeshGrpcGatewayRoute {
 }
 
 /**
+ * Converts an object of type 'AppMeshGrpcGatewayRoute' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGrpcGatewayRoute(obj: AppMeshGrpcGatewayRoute | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'action': toJson_AppMeshGrpcGatewayRouteAction(obj.action),
+    'match': toJson_AppMeshGrpcGatewayRouteMatch(obj.match),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshHttpGatewayRoute
  */
 export interface AppMeshHttpGatewayRoute {
@@ -2182,6 +3790,21 @@ export interface AppMeshHttpGatewayRoute {
   readonly match: AppMeshHttpGatewayRouteMatch;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshHttpGatewayRoute' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshHttpGatewayRoute(obj: AppMeshHttpGatewayRoute | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'action': toJson_AppMeshHttpGatewayRouteAction(obj.action),
+    'match': toJson_AppMeshHttpGatewayRouteMatch(obj.match),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshResourceMetadata
@@ -2225,6 +3848,26 @@ export interface AppMeshResourceMetadata {
 }
 
 /**
+ * Converts an object of type 'AppMeshResourceMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshResourceMetadata(obj: AppMeshResourceMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'createdAt': obj.createdAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'meshOwner': obj.meshOwner,
+    'resourceOwner': obj.resourceOwner,
+    'uid': obj.uid,
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshGatewayRouteStatus
  */
 export interface AppMeshGatewayRouteStatus {
@@ -2234,6 +3877,20 @@ export interface AppMeshGatewayRouteStatus {
   readonly status: string;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshGatewayRouteStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGatewayRouteStatus(obj: AppMeshGatewayRouteStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshEgressFilter
@@ -2247,6 +3904,20 @@ export interface AppMeshEgressFilter {
 }
 
 /**
+ * Converts an object of type 'AppMeshEgressFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshEgressFilter(obj: AppMeshEgressFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshMeshStatus
  */
 export interface AppMeshMeshStatus {
@@ -2256,6 +3927,20 @@ export interface AppMeshMeshStatus {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshMeshStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshMeshStatus(obj: AppMeshMeshStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshGrpcRoute
@@ -2284,6 +3969,23 @@ export interface AppMeshGrpcRoute {
 }
 
 /**
+ * Converts an object of type 'AppMeshGrpcRoute' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGrpcRoute(obj: AppMeshGrpcRoute | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'action': toJson_AppMeshGrpcRouteAction(obj.action),
+    'match': toJson_AppMeshGrpcRouteMatch(obj.match),
+    'retryPolicy': toJson_AppMeshGrpcRetryPolicy(obj.retryPolicy),
+    'timeout': toJson_AppMeshGrpcTimeout(obj.timeout),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshHttpRoute
  */
 export interface AppMeshHttpRoute {
@@ -2310,6 +4012,23 @@ export interface AppMeshHttpRoute {
 }
 
 /**
+ * Converts an object of type 'AppMeshHttpRoute' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshHttpRoute(obj: AppMeshHttpRoute | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'action': toJson_AppMeshHttpRouteAction(obj.action),
+    'match': toJson_AppMeshHttpRouteMatch(obj.match),
+    'retryPolicy': toJson_AppMeshHttpRetryPolicy(obj.retryPolicy),
+    'timeout': toJson_AppMeshHttpTimeout(obj.timeout),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshTcpRoute
  */
 export interface AppMeshTcpRoute {
@@ -2326,6 +4045,21 @@ export interface AppMeshTcpRoute {
 }
 
 /**
+ * Converts an object of type 'AppMeshTcpRoute' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshTcpRoute(obj: AppMeshTcpRoute | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'action': toJson_AppMeshTcpRouteAction(obj.action),
+    'timeout': toJson_AppMeshTcpTimeout(obj.timeout),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshRouteStatus
  */
 export interface AppMeshRouteStatus {
@@ -2337,6 +4071,20 @@ export interface AppMeshRouteStatus {
 }
 
 /**
+ * Converts an object of type 'AppMeshRouteStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshRouteStatus(obj: AppMeshRouteStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualGatewayBackendDefaults
  */
 export interface AppMeshVirtualGatewayBackendDefaults {
@@ -2346,6 +4094,20 @@ export interface AppMeshVirtualGatewayBackendDefaults {
   readonly clientPolicy?: AppMeshVirtualGatewayClientPolicy;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewayBackendDefaults' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayBackendDefaults(obj: AppMeshVirtualGatewayBackendDefaults | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientPolicy': toJson_AppMeshVirtualGatewayClientPolicy(obj.clientPolicy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualGatewayListener
@@ -2374,6 +4136,23 @@ export interface AppMeshVirtualGatewayListener {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualGatewayListener' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayListener(obj: AppMeshVirtualGatewayListener | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionPool': toJson_AppMeshVirtualGatewayConnectionPool(obj.connectionPool),
+    'healthCheck': toJson_AppMeshVirtualGatewayHealthCheckPolicy(obj.healthCheck),
+    'portMapping': toJson_AppMeshVirtualGatewayPortMapping(obj.portMapping),
+    'tls': toJson_AppMeshVirtualGatewayListenerTls(obj.tls),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualGatewayLogging
  */
 export interface AppMeshVirtualGatewayLogging {
@@ -2383,6 +4162,20 @@ export interface AppMeshVirtualGatewayLogging {
   readonly accessLog?: AppMeshVirtualGatewayAccessLog;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewayLogging' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayLogging(obj: AppMeshVirtualGatewayLogging | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessLog': toJson_AppMeshVirtualGatewayAccessLog(obj.accessLog),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualGatewayStatus
@@ -2396,6 +4189,20 @@ export interface AppMeshVirtualGatewayStatus {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualGatewayStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayStatus(obj: AppMeshVirtualGatewayStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshBackendDefaults
  */
 export interface AppMeshBackendDefaults {
@@ -2407,6 +4214,20 @@ export interface AppMeshBackendDefaults {
 }
 
 /**
+ * Converts an object of type 'AppMeshBackendDefaults' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshBackendDefaults(obj: AppMeshBackendDefaults | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientPolicy': toJson_AppMeshClientPolicy(obj.clientPolicy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshBackend
  */
 export interface AppMeshBackend {
@@ -2416,6 +4237,20 @@ export interface AppMeshBackend {
   readonly virtualService?: AppMeshVirtualServiceBackend;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshBackend' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshBackend(obj: AppMeshBackend | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualService': toJson_AppMeshVirtualServiceBackend(obj.virtualService),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshListener
@@ -2454,6 +4289,25 @@ export interface AppMeshListener {
 }
 
 /**
+ * Converts an object of type 'AppMeshListener' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListener(obj: AppMeshListener | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'connectionPool': toJson_AppMeshVirtualNodeConnectionPool(obj.connectionPool),
+    'healthCheck': toJson_AppMeshHealthCheckPolicy(obj.healthCheck),
+    'outlierDetection': toJson_AppMeshOutlierDetection(obj.outlierDetection),
+    'portMapping': toJson_AppMeshPortMapping(obj.portMapping),
+    'timeout': toJson_AppMeshListenerTimeout(obj.timeout),
+    'tls': toJson_AppMeshListenerTls(obj.tls),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshLogging
  */
 export interface AppMeshLogging {
@@ -2463,6 +4317,20 @@ export interface AppMeshLogging {
   readonly accessLog?: AppMeshAccessLog;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshLogging' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshLogging(obj: AppMeshLogging | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessLog': toJson_AppMeshAccessLog(obj.accessLog),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshServiceDiscovery
@@ -2481,6 +4349,21 @@ export interface AppMeshServiceDiscovery {
 }
 
 /**
+ * Converts an object of type 'AppMeshServiceDiscovery' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshServiceDiscovery(obj: AppMeshServiceDiscovery | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'awsCloudMap': toJson_AppMeshAwsCloudMapServiceDiscovery(obj.awsCloudMap),
+    'dns': toJson_AppMeshDnsServiceDiscovery(obj.dns),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualNodeStatus
  */
 export interface AppMeshVirtualNodeStatus {
@@ -2490,6 +4373,20 @@ export interface AppMeshVirtualNodeStatus {
   readonly status: string;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualNodeStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualNodeStatus(obj: AppMeshVirtualNodeStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualRouterListener
@@ -2503,6 +4400,20 @@ export interface AppMeshVirtualRouterListener {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualRouterListener' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualRouterListener(obj: AppMeshVirtualRouterListener | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'portMapping': toJson_AppMeshPortMapping(obj.portMapping),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualRouterStatus
  */
 export interface AppMeshVirtualRouterStatus {
@@ -2512,6 +4423,20 @@ export interface AppMeshVirtualRouterStatus {
   readonly status: string;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualRouterStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualRouterStatus(obj: AppMeshVirtualRouterStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualServiceProvider
@@ -2530,6 +4455,21 @@ export interface AppMeshVirtualServiceProvider {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualServiceProvider' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualServiceProvider(obj: AppMeshVirtualServiceProvider | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualNode': toJson_AppMeshVirtualNodeServiceProvider(obj.virtualNode),
+    'virtualRouter': toJson_AppMeshVirtualRouterServiceProvider(obj.virtualRouter),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualServiceStatus
  */
 export interface AppMeshVirtualServiceStatus {
@@ -2541,9 +4481,28 @@ export interface AppMeshVirtualServiceStatus {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualServiceStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualServiceStatus(obj: AppMeshVirtualServiceStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshGrpcGatewayRouteAction
  */
 export interface AppMeshGrpcGatewayRouteAction {
+  /**
+   * @schema AppMeshGrpcGatewayRouteAction#rewrite
+   */
+  readonly rewrite?: AppMeshGrpcGatewayRouteRewrite;
+
   /**
    * @schema AppMeshGrpcGatewayRouteAction#target
    */
@@ -2552,9 +4511,34 @@ export interface AppMeshGrpcGatewayRouteAction {
 }
 
 /**
+ * Converts an object of type 'AppMeshGrpcGatewayRouteAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGrpcGatewayRouteAction(obj: AppMeshGrpcGatewayRouteAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'rewrite': toJson_AppMeshGrpcGatewayRouteRewrite(obj.rewrite),
+    'target': toJson_AppMeshGatewayRouteTarget(obj.target),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshGrpcGatewayRouteMatch
  */
 export interface AppMeshGrpcGatewayRouteMatch {
+  /**
+   * @schema AppMeshGrpcGatewayRouteMatch#hostname
+   */
+  readonly hostname?: AppMeshGatewayRouteHostnameMatch;
+
+  /**
+   * @schema AppMeshGrpcGatewayRouteMatch#metadata
+   */
+  readonly metadata?: AppMeshGrpcGatewayRouteMetadata[];
+
   /**
    * @schema AppMeshGrpcGatewayRouteMatch#serviceName
    */
@@ -2563,9 +4547,30 @@ export interface AppMeshGrpcGatewayRouteMatch {
 }
 
 /**
+ * Converts an object of type 'AppMeshGrpcGatewayRouteMatch' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGrpcGatewayRouteMatch(obj: AppMeshGrpcGatewayRouteMatch | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'hostname': toJson_AppMeshGatewayRouteHostnameMatch(obj.hostname),
+    'metadata': obj.metadata?.map(y => toJson_AppMeshGrpcGatewayRouteMetadata(y)),
+    'serviceName': obj.serviceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshHttpGatewayRouteAction
  */
 export interface AppMeshHttpGatewayRouteAction {
+  /**
+   * @schema AppMeshHttpGatewayRouteAction#rewrite
+   */
+  readonly rewrite?: AppMeshHttpGatewayRouteRewrite;
+
   /**
    * @schema AppMeshHttpGatewayRouteAction#target
    */
@@ -2574,15 +4579,74 @@ export interface AppMeshHttpGatewayRouteAction {
 }
 
 /**
+ * Converts an object of type 'AppMeshHttpGatewayRouteAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshHttpGatewayRouteAction(obj: AppMeshHttpGatewayRouteAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'rewrite': toJson_AppMeshHttpGatewayRouteRewrite(obj.rewrite),
+    'target': toJson_AppMeshGatewayRouteTarget(obj.target),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshHttpGatewayRouteMatch
  */
 export interface AppMeshHttpGatewayRouteMatch {
   /**
+   * @schema AppMeshHttpGatewayRouteMatch#headers
+   */
+  readonly headers?: AppMeshHttpGatewayRouteHeader[];
+
+  /**
+   * @schema AppMeshHttpGatewayRouteMatch#hostname
+   */
+  readonly hostname?: AppMeshGatewayRouteHostnameMatch;
+
+  /**
+   * @schema AppMeshHttpGatewayRouteMatch#method
+   */
+  readonly method?: string;
+
+  /**
+   * @schema AppMeshHttpGatewayRouteMatch#path
+   */
+  readonly path?: AppMeshHttpPathMatch;
+
+  /**
    * @schema AppMeshHttpGatewayRouteMatch#prefix
    */
-  readonly prefix: string;
+  readonly prefix?: string;
+
+  /**
+   * @schema AppMeshHttpGatewayRouteMatch#queryParameters
+   */
+  readonly queryParameters?: AppMeshHttpQueryParameter[];
 
 }
+
+/**
+ * Converts an object of type 'AppMeshHttpGatewayRouteMatch' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshHttpGatewayRouteMatch(obj: AppMeshHttpGatewayRouteMatch | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'headers': obj.headers?.map(y => toJson_AppMeshHttpGatewayRouteHeader(y)),
+    'hostname': toJson_AppMeshGatewayRouteHostnameMatch(obj.hostname),
+    'method': obj.method,
+    'path': toJson_AppMeshHttpPathMatch(obj.path),
+    'prefix': obj.prefix,
+    'queryParameters': obj.queryParameters?.map(y => toJson_AppMeshHttpQueryParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshGrpcRouteAction
@@ -2594,6 +4658,20 @@ export interface AppMeshGrpcRouteAction {
   readonly weightedTargets: AppMeshWeightedTarget[];
 
 }
+
+/**
+ * Converts an object of type 'AppMeshGrpcRouteAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGrpcRouteAction(obj: AppMeshGrpcRouteAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'weightedTargets': obj.weightedTargets?.map(y => toJson_AppMeshWeightedTarget(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshGrpcRouteMatch
@@ -2615,6 +4693,22 @@ export interface AppMeshGrpcRouteMatch {
   readonly serviceName?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshGrpcRouteMatch' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGrpcRouteMatch(obj: AppMeshGrpcRouteMatch | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'metadata': obj.metadata?.map(y => toJson_AppMeshGrpcRouteMetadata(y)),
+    'methodName': obj.methodName,
+    'serviceName': obj.serviceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshGrpcRetryPolicy
@@ -2648,6 +4742,24 @@ export interface AppMeshGrpcRetryPolicy {
 }
 
 /**
+ * Converts an object of type 'AppMeshGrpcRetryPolicy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGrpcRetryPolicy(obj: AppMeshGrpcRetryPolicy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'grpcRetryEvents': obj.grpcRetryEvents?.map(y => y),
+    'httpRetryEvents': obj.httpRetryEvents?.map(y => y),
+    'maxRetries': obj.maxRetries,
+    'perRetryTimeout': toJson_AppMeshDuration(obj.perRetryTimeout),
+    'tcpRetryEvents': obj.tcpRetryEvents?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshGrpcTimeout
  */
 export interface AppMeshGrpcTimeout {
@@ -2664,6 +4776,21 @@ export interface AppMeshGrpcTimeout {
 }
 
 /**
+ * Converts an object of type 'AppMeshGrpcTimeout' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGrpcTimeout(obj: AppMeshGrpcTimeout | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'idle': toJson_AppMeshDuration(obj.idle),
+    'perRequest': toJson_AppMeshDuration(obj.perRequest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshHttpRouteAction
  */
 export interface AppMeshHttpRouteAction {
@@ -2673,6 +4800,20 @@ export interface AppMeshHttpRouteAction {
   readonly weightedTargets: AppMeshWeightedTarget[];
 
 }
+
+/**
+ * Converts an object of type 'AppMeshHttpRouteAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshHttpRouteAction(obj: AppMeshHttpRouteAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'weightedTargets': obj.weightedTargets?.map(y => toJson_AppMeshWeightedTarget(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshHttpRouteMatch
@@ -2689,9 +4830,19 @@ export interface AppMeshHttpRouteMatch {
   readonly method?: string;
 
   /**
+   * @schema AppMeshHttpRouteMatch#path
+   */
+  readonly path?: AppMeshHttpPathMatch;
+
+  /**
    * @schema AppMeshHttpRouteMatch#prefix
    */
-  readonly prefix: string;
+  readonly prefix?: string;
+
+  /**
+   * @schema AppMeshHttpRouteMatch#queryParameters
+   */
+  readonly queryParameters?: AppMeshHttpQueryParameter[];
 
   /**
    * @schema AppMeshHttpRouteMatch#scheme
@@ -2699,6 +4850,25 @@ export interface AppMeshHttpRouteMatch {
   readonly scheme?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshHttpRouteMatch' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshHttpRouteMatch(obj: AppMeshHttpRouteMatch | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'headers': obj.headers?.map(y => toJson_AppMeshHttpRouteHeader(y)),
+    'method': obj.method,
+    'path': toJson_AppMeshHttpPathMatch(obj.path),
+    'prefix': obj.prefix,
+    'queryParameters': obj.queryParameters?.map(y => toJson_AppMeshHttpQueryParameter(y)),
+    'scheme': obj.scheme,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshHttpRetryPolicy
@@ -2727,6 +4897,23 @@ export interface AppMeshHttpRetryPolicy {
 }
 
 /**
+ * Converts an object of type 'AppMeshHttpRetryPolicy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshHttpRetryPolicy(obj: AppMeshHttpRetryPolicy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'httpRetryEvents': obj.httpRetryEvents?.map(y => y),
+    'maxRetries': obj.maxRetries,
+    'perRetryTimeout': toJson_AppMeshDuration(obj.perRetryTimeout),
+    'tcpRetryEvents': obj.tcpRetryEvents?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshHttpTimeout
  */
 export interface AppMeshHttpTimeout {
@@ -2743,6 +4930,21 @@ export interface AppMeshHttpTimeout {
 }
 
 /**
+ * Converts an object of type 'AppMeshHttpTimeout' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshHttpTimeout(obj: AppMeshHttpTimeout | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'idle': toJson_AppMeshDuration(obj.idle),
+    'perRequest': toJson_AppMeshDuration(obj.perRequest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshTcpRouteAction
  */
 export interface AppMeshTcpRouteAction {
@@ -2752,6 +4954,20 @@ export interface AppMeshTcpRouteAction {
   readonly weightedTargets: AppMeshWeightedTarget[];
 
 }
+
+/**
+ * Converts an object of type 'AppMeshTcpRouteAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshTcpRouteAction(obj: AppMeshTcpRouteAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'weightedTargets': obj.weightedTargets?.map(y => toJson_AppMeshWeightedTarget(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshTcpTimeout
@@ -2765,6 +4981,20 @@ export interface AppMeshTcpTimeout {
 }
 
 /**
+ * Converts an object of type 'AppMeshTcpTimeout' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshTcpTimeout(obj: AppMeshTcpTimeout | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'idle': toJson_AppMeshDuration(obj.idle),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualGatewayClientPolicy
  */
 export interface AppMeshVirtualGatewayClientPolicy {
@@ -2774,6 +5004,20 @@ export interface AppMeshVirtualGatewayClientPolicy {
   readonly tls?: AppMeshVirtualGatewayClientPolicyTls;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewayClientPolicy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayClientPolicy(obj: AppMeshVirtualGatewayClientPolicy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tls': toJson_AppMeshVirtualGatewayClientPolicyTls(obj.tls),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualGatewayConnectionPool
@@ -2795,6 +5039,22 @@ export interface AppMeshVirtualGatewayConnectionPool {
   readonly http2?: AppMeshVirtualGatewayHttp2ConnectionPool;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewayConnectionPool' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayConnectionPool(obj: AppMeshVirtualGatewayConnectionPool | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'grpc': toJson_AppMeshVirtualGatewayGrpcConnectionPool(obj.grpc),
+    'http': toJson_AppMeshVirtualGatewayHttpConnectionPool(obj.http),
+    'http2': toJson_AppMeshVirtualGatewayHttp2ConnectionPool(obj.http2),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualGatewayHealthCheckPolicy
@@ -2838,6 +5098,26 @@ export interface AppMeshVirtualGatewayHealthCheckPolicy {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualGatewayHealthCheckPolicy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayHealthCheckPolicy(obj: AppMeshVirtualGatewayHealthCheckPolicy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'healthyThreshold': obj.healthyThreshold,
+    'intervalMillis': obj.intervalMillis,
+    'path': obj.path,
+    'port': obj.port,
+    'protocol': obj.protocol,
+    'timeoutMillis': obj.timeoutMillis,
+    'unhealthyThreshold': obj.unhealthyThreshold,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualGatewayPortMapping
  */
 export interface AppMeshVirtualGatewayPortMapping {
@@ -2854,6 +5134,21 @@ export interface AppMeshVirtualGatewayPortMapping {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualGatewayPortMapping' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayPortMapping(obj: AppMeshVirtualGatewayPortMapping | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'port': obj.port,
+    'protocol': obj.protocol,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualGatewayListenerTls
  */
 export interface AppMeshVirtualGatewayListenerTls {
@@ -2867,7 +5162,28 @@ export interface AppMeshVirtualGatewayListenerTls {
    */
   readonly mode: string;
 
+  /**
+   * @schema AppMeshVirtualGatewayListenerTls#validation
+   */
+  readonly validation?: AppMeshVirtualGatewayListenerTlsValidationContext;
+
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewayListenerTls' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayListenerTls(obj: AppMeshVirtualGatewayListenerTls | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificate': toJson_AppMeshVirtualGatewayListenerTlsCertificate(obj.certificate),
+    'mode': obj.mode,
+    'validation': toJson_AppMeshVirtualGatewayListenerTlsValidationContext(obj.validation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualGatewayAccessLog
@@ -2881,6 +5197,20 @@ export interface AppMeshVirtualGatewayAccessLog {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualGatewayAccessLog' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayAccessLog(obj: AppMeshVirtualGatewayAccessLog | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'file': toJson_AppMeshVirtualGatewayFileAccessLog(obj.file),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshClientPolicy
  */
 export interface AppMeshClientPolicy {
@@ -2890,6 +5220,20 @@ export interface AppMeshClientPolicy {
   readonly tls?: AppMeshClientPolicyTls;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshClientPolicy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshClientPolicy(obj: AppMeshClientPolicy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tls': toJson_AppMeshClientPolicyTls(obj.tls),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualServiceBackend
@@ -2906,6 +5250,21 @@ export interface AppMeshVirtualServiceBackend {
   readonly virtualServiceName: string;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualServiceBackend' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualServiceBackend(obj: AppMeshVirtualServiceBackend | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientPolicy': toJson_AppMeshClientPolicy(obj.clientPolicy),
+    'virtualServiceName': obj.virtualServiceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualNodeConnectionPool
@@ -2932,6 +5291,23 @@ export interface AppMeshVirtualNodeConnectionPool {
   readonly tcp?: AppMeshVirtualNodeTcpConnectionPool;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualNodeConnectionPool' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualNodeConnectionPool(obj: AppMeshVirtualNodeConnectionPool | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'grpc': toJson_AppMeshVirtualNodeGrpcConnectionPool(obj.grpc),
+    'http': toJson_AppMeshVirtualNodeHttpConnectionPool(obj.http),
+    'http2': toJson_AppMeshVirtualNodeHttp2ConnectionPool(obj.http2),
+    'tcp': toJson_AppMeshVirtualNodeTcpConnectionPool(obj.tcp),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshHealthCheckPolicy
@@ -2975,6 +5351,26 @@ export interface AppMeshHealthCheckPolicy {
 }
 
 /**
+ * Converts an object of type 'AppMeshHealthCheckPolicy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshHealthCheckPolicy(obj: AppMeshHealthCheckPolicy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'healthyThreshold': obj.healthyThreshold,
+    'intervalMillis': obj.intervalMillis,
+    'path': obj.path,
+    'port': obj.port,
+    'protocol': obj.protocol,
+    'timeoutMillis': obj.timeoutMillis,
+    'unhealthyThreshold': obj.unhealthyThreshold,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshOutlierDetection
  */
 export interface AppMeshOutlierDetection {
@@ -3001,6 +5397,23 @@ export interface AppMeshOutlierDetection {
 }
 
 /**
+ * Converts an object of type 'AppMeshOutlierDetection' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshOutlierDetection(obj: AppMeshOutlierDetection | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'baseEjectionDuration': toJson_AppMeshDuration(obj.baseEjectionDuration),
+    'interval': toJson_AppMeshDuration(obj.interval),
+    'maxEjectionPercent': obj.maxEjectionPercent,
+    'maxServerErrors': obj.maxServerErrors,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshPortMapping
  */
 export interface AppMeshPortMapping {
@@ -3015,6 +5428,21 @@ export interface AppMeshPortMapping {
   readonly protocol: string;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshPortMapping' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshPortMapping(obj: AppMeshPortMapping | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'port': obj.port,
+    'protocol': obj.protocol,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshListenerTimeout
@@ -3043,6 +5471,23 @@ export interface AppMeshListenerTimeout {
 }
 
 /**
+ * Converts an object of type 'AppMeshListenerTimeout' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListenerTimeout(obj: AppMeshListenerTimeout | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'grpc': toJson_AppMeshGrpcTimeout(obj.grpc),
+    'http': toJson_AppMeshHttpTimeout(obj.http),
+    'http2': toJson_AppMeshHttpTimeout(obj.http2),
+    'tcp': toJson_AppMeshTcpTimeout(obj.tcp),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshListenerTls
  */
 export interface AppMeshListenerTls {
@@ -3056,7 +5501,28 @@ export interface AppMeshListenerTls {
    */
   readonly mode: string;
 
+  /**
+   * @schema AppMeshListenerTls#validation
+   */
+  readonly validation?: AppMeshListenerTlsValidationContext;
+
 }
+
+/**
+ * Converts an object of type 'AppMeshListenerTls' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListenerTls(obj: AppMeshListenerTls | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificate': toJson_AppMeshListenerTlsCertificate(obj.certificate),
+    'mode': obj.mode,
+    'validation': toJson_AppMeshListenerTlsValidationContext(obj.validation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshAccessLog
@@ -3068,6 +5534,20 @@ export interface AppMeshAccessLog {
   readonly file?: AppMeshFileAccessLog;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshAccessLog' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshAccessLog(obj: AppMeshAccessLog | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'file': toJson_AppMeshFileAccessLog(obj.file),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshAwsCloudMapServiceDiscovery
@@ -3091,6 +5571,22 @@ export interface AppMeshAwsCloudMapServiceDiscovery {
 }
 
 /**
+ * Converts an object of type 'AppMeshAwsCloudMapServiceDiscovery' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshAwsCloudMapServiceDiscovery(obj: AppMeshAwsCloudMapServiceDiscovery | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'attributes': obj.attributes?.map(y => toJson_AppMeshAwsCloudMapInstanceAttribute(y)),
+    'namespaceName': obj.namespaceName,
+    'serviceName': obj.serviceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshDnsServiceDiscovery
  */
 export interface AppMeshDnsServiceDiscovery {
@@ -3099,7 +5595,27 @@ export interface AppMeshDnsServiceDiscovery {
    */
   readonly hostname: string;
 
+  /**
+   * @schema AppMeshDnsServiceDiscovery#responseType
+   */
+  readonly responseType?: string;
+
 }
+
+/**
+ * Converts an object of type 'AppMeshDnsServiceDiscovery' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDnsServiceDiscovery(obj: AppMeshDnsServiceDiscovery | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'hostname': obj.hostname,
+    'responseType': obj.responseType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualNodeServiceProvider
@@ -3113,6 +5629,20 @@ export interface AppMeshVirtualNodeServiceProvider {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualNodeServiceProvider' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualNodeServiceProvider(obj: AppMeshVirtualNodeServiceProvider | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualNodeName': obj.virtualNodeName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualRouterServiceProvider
  */
 export interface AppMeshVirtualRouterServiceProvider {
@@ -3124,6 +5654,45 @@ export interface AppMeshVirtualRouterServiceProvider {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualRouterServiceProvider' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualRouterServiceProvider(obj: AppMeshVirtualRouterServiceProvider | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualRouterName': obj.virtualRouterName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshGrpcGatewayRouteRewrite
+ */
+export interface AppMeshGrpcGatewayRouteRewrite {
+  /**
+   * @schema AppMeshGrpcGatewayRouteRewrite#hostname
+   */
+  readonly hostname?: AppMeshGatewayRouteHostnameRewrite;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshGrpcGatewayRouteRewrite' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGrpcGatewayRouteRewrite(obj: AppMeshGrpcGatewayRouteRewrite | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'hostname': toJson_AppMeshGatewayRouteHostnameRewrite(obj.hostname),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshGatewayRouteTarget
  */
 export interface AppMeshGatewayRouteTarget {
@@ -3133,6 +5702,224 @@ export interface AppMeshGatewayRouteTarget {
   readonly virtualService: AppMeshGatewayRouteVirtualService;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshGatewayRouteTarget' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGatewayRouteTarget(obj: AppMeshGatewayRouteTarget | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualService': toJson_AppMeshGatewayRouteVirtualService(obj.virtualService),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshGatewayRouteHostnameMatch
+ */
+export interface AppMeshGatewayRouteHostnameMatch {
+  /**
+   * @schema AppMeshGatewayRouteHostnameMatch#exact
+   */
+  readonly exact?: string;
+
+  /**
+   * @schema AppMeshGatewayRouteHostnameMatch#suffix
+   */
+  readonly suffix?: string;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshGatewayRouteHostnameMatch' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGatewayRouteHostnameMatch(obj: AppMeshGatewayRouteHostnameMatch | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exact': obj.exact,
+    'suffix': obj.suffix,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshGrpcGatewayRouteMetadata
+ */
+export interface AppMeshGrpcGatewayRouteMetadata {
+  /**
+   * @schema AppMeshGrpcGatewayRouteMetadata#invert
+   */
+  readonly invert?: boolean;
+
+  /**
+   * @schema AppMeshGrpcGatewayRouteMetadata#match
+   */
+  readonly match?: AppMeshGrpcMetadataMatchMethod;
+
+  /**
+   * @schema AppMeshGrpcGatewayRouteMetadata#name
+   */
+  readonly name: string;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshGrpcGatewayRouteMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGrpcGatewayRouteMetadata(obj: AppMeshGrpcGatewayRouteMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'invert': obj.invert,
+    'match': toJson_AppMeshGrpcMetadataMatchMethod(obj.match),
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshHttpGatewayRouteRewrite
+ */
+export interface AppMeshHttpGatewayRouteRewrite {
+  /**
+   * @schema AppMeshHttpGatewayRouteRewrite#hostname
+   */
+  readonly hostname?: AppMeshGatewayRouteHostnameRewrite;
+
+  /**
+   * @schema AppMeshHttpGatewayRouteRewrite#path
+   */
+  readonly path?: AppMeshHttpGatewayRoutePathRewrite;
+
+  /**
+   * @schema AppMeshHttpGatewayRouteRewrite#prefix
+   */
+  readonly prefix?: AppMeshHttpGatewayRoutePrefixRewrite;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshHttpGatewayRouteRewrite' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshHttpGatewayRouteRewrite(obj: AppMeshHttpGatewayRouteRewrite | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'hostname': toJson_AppMeshGatewayRouteHostnameRewrite(obj.hostname),
+    'path': toJson_AppMeshHttpGatewayRoutePathRewrite(obj.path),
+    'prefix': toJson_AppMeshHttpGatewayRoutePrefixRewrite(obj.prefix),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshHttpGatewayRouteHeader
+ */
+export interface AppMeshHttpGatewayRouteHeader {
+  /**
+   * @schema AppMeshHttpGatewayRouteHeader#invert
+   */
+  readonly invert?: boolean;
+
+  /**
+   * @schema AppMeshHttpGatewayRouteHeader#match
+   */
+  readonly match?: AppMeshHeaderMatchMethod;
+
+  /**
+   * @schema AppMeshHttpGatewayRouteHeader#name
+   */
+  readonly name: string;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshHttpGatewayRouteHeader' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshHttpGatewayRouteHeader(obj: AppMeshHttpGatewayRouteHeader | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'invert': obj.invert,
+    'match': toJson_AppMeshHeaderMatchMethod(obj.match),
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshHttpPathMatch
+ */
+export interface AppMeshHttpPathMatch {
+  /**
+   * @schema AppMeshHttpPathMatch#exact
+   */
+  readonly exact?: string;
+
+  /**
+   * @schema AppMeshHttpPathMatch#regex
+   */
+  readonly regex?: string;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshHttpPathMatch' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshHttpPathMatch(obj: AppMeshHttpPathMatch | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exact': obj.exact,
+    'regex': obj.regex,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshHttpQueryParameter
+ */
+export interface AppMeshHttpQueryParameter {
+  /**
+   * @schema AppMeshHttpQueryParameter#match
+   */
+  readonly match?: AppMeshQueryParameterMatch;
+
+  /**
+   * @schema AppMeshHttpQueryParameter#name
+   */
+  readonly name: string;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshHttpQueryParameter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshHttpQueryParameter(obj: AppMeshHttpQueryParameter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'match': toJson_AppMeshQueryParameterMatch(obj.match),
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshWeightedTarget
@@ -3149,6 +5936,21 @@ export interface AppMeshWeightedTarget {
   readonly weight: number;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshWeightedTarget' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshWeightedTarget(obj: AppMeshWeightedTarget | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualNode': obj.virtualNode,
+    'weight': obj.weight,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshGrpcRouteMetadata
@@ -3172,6 +5974,22 @@ export interface AppMeshGrpcRouteMetadata {
 }
 
 /**
+ * Converts an object of type 'AppMeshGrpcRouteMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGrpcRouteMetadata(obj: AppMeshGrpcRouteMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'invert': obj.invert,
+    'match': toJson_AppMeshGrpcRouteMetadataMatchMethod(obj.match),
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshDuration
  */
 export interface AppMeshDuration {
@@ -3186,6 +6004,21 @@ export interface AppMeshDuration {
   readonly value?: number;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshDuration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshDuration(obj: AppMeshDuration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'unit': obj.unit,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshHttpRouteHeader
@@ -3209,9 +6042,30 @@ export interface AppMeshHttpRouteHeader {
 }
 
 /**
+ * Converts an object of type 'AppMeshHttpRouteHeader' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshHttpRouteHeader(obj: AppMeshHttpRouteHeader | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'invert': obj.invert,
+    'match': toJson_AppMeshHeaderMatchMethod(obj.match),
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualGatewayClientPolicyTls
  */
 export interface AppMeshVirtualGatewayClientPolicyTls {
+  /**
+   * @schema AppMeshVirtualGatewayClientPolicyTls#certificate
+   */
+  readonly certificate?: AppMeshVirtualGatewayClientTlsCertificate;
+
   /**
    * @schema AppMeshVirtualGatewayClientPolicyTls#enforce
    */
@@ -3230,6 +6084,23 @@ export interface AppMeshVirtualGatewayClientPolicyTls {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualGatewayClientPolicyTls' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayClientPolicyTls(obj: AppMeshVirtualGatewayClientPolicyTls | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificate': toJson_AppMeshVirtualGatewayClientTlsCertificate(obj.certificate),
+    'enforce': obj.enforce,
+    'ports': obj.ports?.map(y => y),
+    'validation': toJson_AppMeshVirtualGatewayTlsValidationContext(obj.validation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualGatewayGrpcConnectionPool
  */
 export interface AppMeshVirtualGatewayGrpcConnectionPool {
@@ -3239,6 +6110,20 @@ export interface AppMeshVirtualGatewayGrpcConnectionPool {
   readonly maxRequests: number;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewayGrpcConnectionPool' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayGrpcConnectionPool(obj: AppMeshVirtualGatewayGrpcConnectionPool | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxRequests': obj.maxRequests,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualGatewayHttpConnectionPool
@@ -3257,6 +6142,21 @@ export interface AppMeshVirtualGatewayHttpConnectionPool {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualGatewayHttpConnectionPool' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayHttpConnectionPool(obj: AppMeshVirtualGatewayHttpConnectionPool | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxConnections': obj.maxConnections,
+    'maxPendingRequests': obj.maxPendingRequests,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualGatewayHttp2ConnectionPool
  */
 export interface AppMeshVirtualGatewayHttp2ConnectionPool {
@@ -3266,6 +6166,20 @@ export interface AppMeshVirtualGatewayHttp2ConnectionPool {
   readonly maxRequests: number;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewayHttp2ConnectionPool' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayHttp2ConnectionPool(obj: AppMeshVirtualGatewayHttp2ConnectionPool | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxRequests': obj.maxRequests,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualGatewayListenerTlsCertificate
@@ -3281,7 +6195,59 @@ export interface AppMeshVirtualGatewayListenerTlsCertificate {
    */
   readonly file?: AppMeshVirtualGatewayListenerTlsFileCertificate;
 
+  /**
+   * @schema AppMeshVirtualGatewayListenerTlsCertificate#sds
+   */
+  readonly sds?: AppMeshVirtualGatewayListenerTlsSdsCertificate;
+
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewayListenerTlsCertificate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayListenerTlsCertificate(obj: AppMeshVirtualGatewayListenerTlsCertificate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'acm': toJson_AppMeshVirtualGatewayListenerTlsAcmCertificate(obj.acm),
+    'file': toJson_AppMeshVirtualGatewayListenerTlsFileCertificate(obj.file),
+    'sds': toJson_AppMeshVirtualGatewayListenerTlsSdsCertificate(obj.sds),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshVirtualGatewayListenerTlsValidationContext
+ */
+export interface AppMeshVirtualGatewayListenerTlsValidationContext {
+  /**
+   * @schema AppMeshVirtualGatewayListenerTlsValidationContext#subjectAlternativeNames
+   */
+  readonly subjectAlternativeNames?: AppMeshSubjectAlternativeNames;
+
+  /**
+   * @schema AppMeshVirtualGatewayListenerTlsValidationContext#trust
+   */
+  readonly trust: AppMeshVirtualGatewayListenerTlsValidationContextTrust;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewayListenerTlsValidationContext' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayListenerTlsValidationContext(obj: AppMeshVirtualGatewayListenerTlsValidationContext | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'subjectAlternativeNames': toJson_AppMeshSubjectAlternativeNames(obj.subjectAlternativeNames),
+    'trust': toJson_AppMeshVirtualGatewayListenerTlsValidationContextTrust(obj.trust),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualGatewayFileAccessLog
@@ -3295,9 +6261,28 @@ export interface AppMeshVirtualGatewayFileAccessLog {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualGatewayFileAccessLog' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayFileAccessLog(obj: AppMeshVirtualGatewayFileAccessLog | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'path': obj.path,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshClientPolicyTls
  */
 export interface AppMeshClientPolicyTls {
+  /**
+   * @schema AppMeshClientPolicyTls#certificate
+   */
+  readonly certificate?: AppMeshClientTlsCertificate;
+
   /**
    * @schema AppMeshClientPolicyTls#enforce
    */
@@ -3316,6 +6301,23 @@ export interface AppMeshClientPolicyTls {
 }
 
 /**
+ * Converts an object of type 'AppMeshClientPolicyTls' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshClientPolicyTls(obj: AppMeshClientPolicyTls | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificate': toJson_AppMeshClientTlsCertificate(obj.certificate),
+    'enforce': obj.enforce,
+    'ports': obj.ports?.map(y => y),
+    'validation': toJson_AppMeshTlsValidationContext(obj.validation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualNodeGrpcConnectionPool
  */
 export interface AppMeshVirtualNodeGrpcConnectionPool {
@@ -3325,6 +6327,20 @@ export interface AppMeshVirtualNodeGrpcConnectionPool {
   readonly maxRequests: number;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualNodeGrpcConnectionPool' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualNodeGrpcConnectionPool(obj: AppMeshVirtualNodeGrpcConnectionPool | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxRequests': obj.maxRequests,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualNodeHttpConnectionPool
@@ -3343,6 +6359,21 @@ export interface AppMeshVirtualNodeHttpConnectionPool {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualNodeHttpConnectionPool' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualNodeHttpConnectionPool(obj: AppMeshVirtualNodeHttpConnectionPool | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxConnections': obj.maxConnections,
+    'maxPendingRequests': obj.maxPendingRequests,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualNodeHttp2ConnectionPool
  */
 export interface AppMeshVirtualNodeHttp2ConnectionPool {
@@ -3354,6 +6385,20 @@ export interface AppMeshVirtualNodeHttp2ConnectionPool {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualNodeHttp2ConnectionPool' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualNodeHttp2ConnectionPool(obj: AppMeshVirtualNodeHttp2ConnectionPool | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxRequests': obj.maxRequests,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualNodeTcpConnectionPool
  */
 export interface AppMeshVirtualNodeTcpConnectionPool {
@@ -3363,6 +6408,20 @@ export interface AppMeshVirtualNodeTcpConnectionPool {
   readonly maxConnections: number;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualNodeTcpConnectionPool' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualNodeTcpConnectionPool(obj: AppMeshVirtualNodeTcpConnectionPool | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxConnections': obj.maxConnections,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshListenerTlsCertificate
@@ -3378,7 +6437,59 @@ export interface AppMeshListenerTlsCertificate {
    */
   readonly file?: AppMeshListenerTlsFileCertificate;
 
+  /**
+   * @schema AppMeshListenerTlsCertificate#sds
+   */
+  readonly sds?: AppMeshListenerTlsSdsCertificate;
+
 }
+
+/**
+ * Converts an object of type 'AppMeshListenerTlsCertificate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListenerTlsCertificate(obj: AppMeshListenerTlsCertificate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'acm': toJson_AppMeshListenerTlsAcmCertificate(obj.acm),
+    'file': toJson_AppMeshListenerTlsFileCertificate(obj.file),
+    'sds': toJson_AppMeshListenerTlsSdsCertificate(obj.sds),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshListenerTlsValidationContext
+ */
+export interface AppMeshListenerTlsValidationContext {
+  /**
+   * @schema AppMeshListenerTlsValidationContext#subjectAlternativeNames
+   */
+  readonly subjectAlternativeNames?: AppMeshSubjectAlternativeNames;
+
+  /**
+   * @schema AppMeshListenerTlsValidationContext#trust
+   */
+  readonly trust: AppMeshListenerTlsValidationContextTrust;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshListenerTlsValidationContext' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListenerTlsValidationContext(obj: AppMeshListenerTlsValidationContext | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'subjectAlternativeNames': toJson_AppMeshSubjectAlternativeNames(obj.subjectAlternativeNames),
+    'trust': toJson_AppMeshListenerTlsValidationContextTrust(obj.trust),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshFileAccessLog
@@ -3390,6 +6501,20 @@ export interface AppMeshFileAccessLog {
   readonly path: string;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshFileAccessLog' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshFileAccessLog(obj: AppMeshFileAccessLog | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'path': obj.path,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshAwsCloudMapInstanceAttribute
@@ -3408,6 +6533,46 @@ export interface AppMeshAwsCloudMapInstanceAttribute {
 }
 
 /**
+ * Converts an object of type 'AppMeshAwsCloudMapInstanceAttribute' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshAwsCloudMapInstanceAttribute(obj: AppMeshAwsCloudMapInstanceAttribute | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshGatewayRouteHostnameRewrite
+ */
+export interface AppMeshGatewayRouteHostnameRewrite {
+  /**
+   * @schema AppMeshGatewayRouteHostnameRewrite#defaultTargetHostname
+   */
+  readonly defaultTargetHostname?: string;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshGatewayRouteHostnameRewrite' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGatewayRouteHostnameRewrite(obj: AppMeshGatewayRouteHostnameRewrite | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'defaultTargetHostname': obj.defaultTargetHostname,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshGatewayRouteVirtualService
  */
 export interface AppMeshGatewayRouteVirtualService {
@@ -3419,35 +6584,123 @@ export interface AppMeshGatewayRouteVirtualService {
 }
 
 /**
- * @schema AppMeshGrpcRouteMetadataMatchMethod
+ * Converts an object of type 'AppMeshGatewayRouteVirtualService' to JSON representation.
  */
-export interface AppMeshGrpcRouteMetadataMatchMethod {
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGatewayRouteVirtualService(obj: AppMeshGatewayRouteVirtualService | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'virtualServiceName': obj.virtualServiceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshGrpcMetadataMatchMethod
+ */
+export interface AppMeshGrpcMetadataMatchMethod {
   /**
-   * @schema AppMeshGrpcRouteMetadataMatchMethod#exact
+   * @schema AppMeshGrpcMetadataMatchMethod#exact
    */
   readonly exact?: string;
 
   /**
-   * @schema AppMeshGrpcRouteMetadataMatchMethod#prefix
+   * @schema AppMeshGrpcMetadataMatchMethod#prefix
    */
   readonly prefix?: string;
 
   /**
-   * @schema AppMeshGrpcRouteMetadataMatchMethod#range
+   * @schema AppMeshGrpcMetadataMatchMethod#range
    */
   readonly range?: AppMeshMatchRange;
 
   /**
-   * @schema AppMeshGrpcRouteMetadataMatchMethod#regex
+   * @schema AppMeshGrpcMetadataMatchMethod#regex
    */
   readonly regex?: string;
 
   /**
-   * @schema AppMeshGrpcRouteMetadataMatchMethod#suffix
+   * @schema AppMeshGrpcMetadataMatchMethod#suffix
    */
   readonly suffix?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshGrpcMetadataMatchMethod' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGrpcMetadataMatchMethod(obj: AppMeshGrpcMetadataMatchMethod | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exact': obj.exact,
+    'prefix': obj.prefix,
+    'range': toJson_AppMeshMatchRange(obj.range),
+    'regex': obj.regex,
+    'suffix': obj.suffix,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshHttpGatewayRoutePathRewrite
+ */
+export interface AppMeshHttpGatewayRoutePathRewrite {
+  /**
+   * @schema AppMeshHttpGatewayRoutePathRewrite#exact
+   */
+  readonly exact?: string;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshHttpGatewayRoutePathRewrite' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshHttpGatewayRoutePathRewrite(obj: AppMeshHttpGatewayRoutePathRewrite | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exact': obj.exact,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshHttpGatewayRoutePrefixRewrite
+ */
+export interface AppMeshHttpGatewayRoutePrefixRewrite {
+  /**
+   * @schema AppMeshHttpGatewayRoutePrefixRewrite#defaultPrefix
+   */
+  readonly defaultPrefix?: string;
+
+  /**
+   * @schema AppMeshHttpGatewayRoutePrefixRewrite#value
+   */
+  readonly value?: string;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshHttpGatewayRoutePrefixRewrite' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshHttpGatewayRoutePrefixRewrite(obj: AppMeshHttpGatewayRoutePrefixRewrite | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'defaultPrefix': obj.defaultPrefix,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshHeaderMatchMethod
@@ -3481,15 +6734,158 @@ export interface AppMeshHeaderMatchMethod {
 }
 
 /**
+ * Converts an object of type 'AppMeshHeaderMatchMethod' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshHeaderMatchMethod(obj: AppMeshHeaderMatchMethod | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exact': obj.exact,
+    'prefix': obj.prefix,
+    'range': toJson_AppMeshMatchRange(obj.range),
+    'regex': obj.regex,
+    'suffix': obj.suffix,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshQueryParameterMatch
+ */
+export interface AppMeshQueryParameterMatch {
+  /**
+   * @schema AppMeshQueryParameterMatch#exact
+   */
+  readonly exact?: string;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshQueryParameterMatch' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshQueryParameterMatch(obj: AppMeshQueryParameterMatch | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exact': obj.exact,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshGrpcRouteMetadataMatchMethod
+ */
+export interface AppMeshGrpcRouteMetadataMatchMethod {
+  /**
+   * @schema AppMeshGrpcRouteMetadataMatchMethod#exact
+   */
+  readonly exact?: string;
+
+  /**
+   * @schema AppMeshGrpcRouteMetadataMatchMethod#prefix
+   */
+  readonly prefix?: string;
+
+  /**
+   * @schema AppMeshGrpcRouteMetadataMatchMethod#range
+   */
+  readonly range?: AppMeshMatchRange;
+
+  /**
+   * @schema AppMeshGrpcRouteMetadataMatchMethod#regex
+   */
+  readonly regex?: string;
+
+  /**
+   * @schema AppMeshGrpcRouteMetadataMatchMethod#suffix
+   */
+  readonly suffix?: string;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshGrpcRouteMetadataMatchMethod' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshGrpcRouteMetadataMatchMethod(obj: AppMeshGrpcRouteMetadataMatchMethod | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exact': obj.exact,
+    'prefix': obj.prefix,
+    'range': toJson_AppMeshMatchRange(obj.range),
+    'regex': obj.regex,
+    'suffix': obj.suffix,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshVirtualGatewayClientTlsCertificate
+ */
+export interface AppMeshVirtualGatewayClientTlsCertificate {
+  /**
+   * @schema AppMeshVirtualGatewayClientTlsCertificate#file
+   */
+  readonly file?: AppMeshVirtualGatewayListenerTlsFileCertificate;
+
+  /**
+   * @schema AppMeshVirtualGatewayClientTlsCertificate#sds
+   */
+  readonly sds?: AppMeshVirtualGatewayListenerTlsSdsCertificate;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewayClientTlsCertificate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayClientTlsCertificate(obj: AppMeshVirtualGatewayClientTlsCertificate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'file': toJson_AppMeshVirtualGatewayListenerTlsFileCertificate(obj.file),
+    'sds': toJson_AppMeshVirtualGatewayListenerTlsSdsCertificate(obj.sds),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualGatewayTlsValidationContext
  */
 export interface AppMeshVirtualGatewayTlsValidationContext {
+  /**
+   * @schema AppMeshVirtualGatewayTlsValidationContext#subjectAlternativeNames
+   */
+  readonly subjectAlternativeNames?: AppMeshSubjectAlternativeNames;
+
   /**
    * @schema AppMeshVirtualGatewayTlsValidationContext#trust
    */
   readonly trust: AppMeshVirtualGatewayTlsValidationContextTrust;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewayTlsValidationContext' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayTlsValidationContext(obj: AppMeshVirtualGatewayTlsValidationContext | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'subjectAlternativeNames': toJson_AppMeshSubjectAlternativeNames(obj.subjectAlternativeNames),
+    'trust': toJson_AppMeshVirtualGatewayTlsValidationContextTrust(obj.trust),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualGatewayListenerTlsAcmCertificate
@@ -3501,6 +6897,20 @@ export interface AppMeshVirtualGatewayListenerTlsAcmCertificate {
   readonly certificateArn: string;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewayListenerTlsAcmCertificate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayListenerTlsAcmCertificate(obj: AppMeshVirtualGatewayListenerTlsAcmCertificate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificateArn': obj.certificateArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualGatewayListenerTlsFileCertificate
@@ -3519,15 +6929,162 @@ export interface AppMeshVirtualGatewayListenerTlsFileCertificate {
 }
 
 /**
+ * Converts an object of type 'AppMeshVirtualGatewayListenerTlsFileCertificate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayListenerTlsFileCertificate(obj: AppMeshVirtualGatewayListenerTlsFileCertificate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificateChain': obj.certificateChain,
+    'privateKey': obj.privateKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshVirtualGatewayListenerTlsSdsCertificate
+ */
+export interface AppMeshVirtualGatewayListenerTlsSdsCertificate {
+  /**
+   * @schema AppMeshVirtualGatewayListenerTlsSdsCertificate#secretName
+   */
+  readonly secretName: string;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewayListenerTlsSdsCertificate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayListenerTlsSdsCertificate(obj: AppMeshVirtualGatewayListenerTlsSdsCertificate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'secretName': obj.secretName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshSubjectAlternativeNames
+ */
+export interface AppMeshSubjectAlternativeNames {
+  /**
+   * @schema AppMeshSubjectAlternativeNames#match
+   */
+  readonly match: AppMeshSubjectAlternativeNameMatchers;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshSubjectAlternativeNames' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshSubjectAlternativeNames(obj: AppMeshSubjectAlternativeNames | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'match': toJson_AppMeshSubjectAlternativeNameMatchers(obj.match),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshVirtualGatewayListenerTlsValidationContextTrust
+ */
+export interface AppMeshVirtualGatewayListenerTlsValidationContextTrust {
+  /**
+   * @schema AppMeshVirtualGatewayListenerTlsValidationContextTrust#file
+   */
+  readonly file?: AppMeshVirtualGatewayTlsValidationContextFileTrust;
+
+  /**
+   * @schema AppMeshVirtualGatewayListenerTlsValidationContextTrust#sds
+   */
+  readonly sds?: AppMeshVirtualGatewayTlsValidationContextSdsTrust;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewayListenerTlsValidationContextTrust' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayListenerTlsValidationContextTrust(obj: AppMeshVirtualGatewayListenerTlsValidationContextTrust | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'file': toJson_AppMeshVirtualGatewayTlsValidationContextFileTrust(obj.file),
+    'sds': toJson_AppMeshVirtualGatewayTlsValidationContextSdsTrust(obj.sds),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshClientTlsCertificate
+ */
+export interface AppMeshClientTlsCertificate {
+  /**
+   * @schema AppMeshClientTlsCertificate#file
+   */
+  readonly file?: AppMeshListenerTlsFileCertificate;
+
+  /**
+   * @schema AppMeshClientTlsCertificate#sds
+   */
+  readonly sds?: AppMeshListenerTlsSdsCertificate;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshClientTlsCertificate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshClientTlsCertificate(obj: AppMeshClientTlsCertificate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'file': toJson_AppMeshListenerTlsFileCertificate(obj.file),
+    'sds': toJson_AppMeshListenerTlsSdsCertificate(obj.sds),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshTlsValidationContext
  */
 export interface AppMeshTlsValidationContext {
+  /**
+   * @schema AppMeshTlsValidationContext#subjectAlternativeNames
+   */
+  readonly subjectAlternativeNames?: AppMeshSubjectAlternativeNames;
+
   /**
    * @schema AppMeshTlsValidationContext#trust
    */
   readonly trust: AppMeshTlsValidationContextTrust;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshTlsValidationContext' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshTlsValidationContext(obj: AppMeshTlsValidationContext | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'subjectAlternativeNames': toJson_AppMeshSubjectAlternativeNames(obj.subjectAlternativeNames),
+    'trust': toJson_AppMeshTlsValidationContextTrust(obj.trust),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshListenerTlsAcmCertificate
@@ -3539,6 +7096,20 @@ export interface AppMeshListenerTlsAcmCertificate {
   readonly certificateArn: string;
 
 }
+
+/**
+ * Converts an object of type 'AppMeshListenerTlsAcmCertificate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListenerTlsAcmCertificate(obj: AppMeshListenerTlsAcmCertificate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificateArn': obj.certificateArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshListenerTlsFileCertificate
@@ -3557,6 +7128,77 @@ export interface AppMeshListenerTlsFileCertificate {
 }
 
 /**
+ * Converts an object of type 'AppMeshListenerTlsFileCertificate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListenerTlsFileCertificate(obj: AppMeshListenerTlsFileCertificate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificateChain': obj.certificateChain,
+    'privateKey': obj.privateKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshListenerTlsSdsCertificate
+ */
+export interface AppMeshListenerTlsSdsCertificate {
+  /**
+   * @schema AppMeshListenerTlsSdsCertificate#secretName
+   */
+  readonly secretName: string;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshListenerTlsSdsCertificate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListenerTlsSdsCertificate(obj: AppMeshListenerTlsSdsCertificate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'secretName': obj.secretName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshListenerTlsValidationContextTrust
+ */
+export interface AppMeshListenerTlsValidationContextTrust {
+  /**
+   * @schema AppMeshListenerTlsValidationContextTrust#file
+   */
+  readonly file?: AppMeshTlsValidationContextFileTrust;
+
+  /**
+   * @schema AppMeshListenerTlsValidationContextTrust#sds
+   */
+  readonly sds?: AppMeshTlsValidationContextSdsTrust;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshListenerTlsValidationContextTrust' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshListenerTlsValidationContextTrust(obj: AppMeshListenerTlsValidationContextTrust | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'file': toJson_AppMeshTlsValidationContextFileTrust(obj.file),
+    'sds': toJson_AppMeshTlsValidationContextSdsTrust(obj.sds),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshMatchRange
  */
 export interface AppMeshMatchRange {
@@ -3573,6 +7215,21 @@ export interface AppMeshMatchRange {
 }
 
 /**
+ * Converts an object of type 'AppMeshMatchRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshMatchRange(obj: AppMeshMatchRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'end': obj.end,
+    'start': obj.start,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppMeshVirtualGatewayTlsValidationContextTrust
  */
 export interface AppMeshVirtualGatewayTlsValidationContextTrust {
@@ -3586,7 +7243,103 @@ export interface AppMeshVirtualGatewayTlsValidationContextTrust {
    */
   readonly file?: AppMeshVirtualGatewayTlsValidationContextFileTrust;
 
+  /**
+   * @schema AppMeshVirtualGatewayTlsValidationContextTrust#sds
+   */
+  readonly sds?: AppMeshVirtualGatewayTlsValidationContextSdsTrust;
+
 }
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewayTlsValidationContextTrust' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayTlsValidationContextTrust(obj: AppMeshVirtualGatewayTlsValidationContextTrust | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'acm': toJson_AppMeshVirtualGatewayTlsValidationContextAcmTrust(obj.acm),
+    'file': toJson_AppMeshVirtualGatewayTlsValidationContextFileTrust(obj.file),
+    'sds': toJson_AppMeshVirtualGatewayTlsValidationContextSdsTrust(obj.sds),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshSubjectAlternativeNameMatchers
+ */
+export interface AppMeshSubjectAlternativeNameMatchers {
+  /**
+   * @schema AppMeshSubjectAlternativeNameMatchers#exact
+   */
+  readonly exact: string[];
+
+}
+
+/**
+ * Converts an object of type 'AppMeshSubjectAlternativeNameMatchers' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshSubjectAlternativeNameMatchers(obj: AppMeshSubjectAlternativeNameMatchers | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exact': obj.exact?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshVirtualGatewayTlsValidationContextFileTrust
+ */
+export interface AppMeshVirtualGatewayTlsValidationContextFileTrust {
+  /**
+   * @schema AppMeshVirtualGatewayTlsValidationContextFileTrust#certificateChain
+   */
+  readonly certificateChain: string;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewayTlsValidationContextFileTrust' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayTlsValidationContextFileTrust(obj: AppMeshVirtualGatewayTlsValidationContextFileTrust | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificateChain': obj.certificateChain,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshVirtualGatewayTlsValidationContextSdsTrust
+ */
+export interface AppMeshVirtualGatewayTlsValidationContextSdsTrust {
+  /**
+   * @schema AppMeshVirtualGatewayTlsValidationContextSdsTrust#secretName
+   */
+  readonly secretName: string;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshVirtualGatewayTlsValidationContextSdsTrust' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayTlsValidationContextSdsTrust(obj: AppMeshVirtualGatewayTlsValidationContextSdsTrust | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'secretName': obj.secretName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshTlsValidationContextTrust
@@ -3602,7 +7355,78 @@ export interface AppMeshTlsValidationContextTrust {
    */
   readonly file?: AppMeshTlsValidationContextFileTrust;
 
+  /**
+   * @schema AppMeshTlsValidationContextTrust#sds
+   */
+  readonly sds?: AppMeshTlsValidationContextSdsTrust;
+
 }
+
+/**
+ * Converts an object of type 'AppMeshTlsValidationContextTrust' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshTlsValidationContextTrust(obj: AppMeshTlsValidationContextTrust | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'acm': toJson_AppMeshTlsValidationContextAcmTrust(obj.acm),
+    'file': toJson_AppMeshTlsValidationContextFileTrust(obj.file),
+    'sds': toJson_AppMeshTlsValidationContextSdsTrust(obj.sds),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshTlsValidationContextFileTrust
+ */
+export interface AppMeshTlsValidationContextFileTrust {
+  /**
+   * @schema AppMeshTlsValidationContextFileTrust#certificateChain
+   */
+  readonly certificateChain: string;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshTlsValidationContextFileTrust' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshTlsValidationContextFileTrust(obj: AppMeshTlsValidationContextFileTrust | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificateChain': obj.certificateChain,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppMeshTlsValidationContextSdsTrust
+ */
+export interface AppMeshTlsValidationContextSdsTrust {
+  /**
+   * @schema AppMeshTlsValidationContextSdsTrust#secretName
+   */
+  readonly secretName: string;
+
+}
+
+/**
+ * Converts an object of type 'AppMeshTlsValidationContextSdsTrust' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshTlsValidationContextSdsTrust(obj: AppMeshTlsValidationContextSdsTrust | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'secretName': obj.secretName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshVirtualGatewayTlsValidationContextAcmTrust
@@ -3616,15 +7440,18 @@ export interface AppMeshVirtualGatewayTlsValidationContextAcmTrust {
 }
 
 /**
- * @schema AppMeshVirtualGatewayTlsValidationContextFileTrust
+ * Converts an object of type 'AppMeshVirtualGatewayTlsValidationContextAcmTrust' to JSON representation.
  */
-export interface AppMeshVirtualGatewayTlsValidationContextFileTrust {
-  /**
-   * @schema AppMeshVirtualGatewayTlsValidationContextFileTrust#certificateChain
-   */
-  readonly certificateChain: string;
-
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshVirtualGatewayTlsValidationContextAcmTrust(obj: AppMeshVirtualGatewayTlsValidationContextAcmTrust | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificateAuthorityArns': obj.certificateAuthorityArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
 }
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppMeshTlsValidationContextAcmTrust
@@ -3638,12 +7465,15 @@ export interface AppMeshTlsValidationContextAcmTrust {
 }
 
 /**
- * @schema AppMeshTlsValidationContextFileTrust
+ * Converts an object of type 'AppMeshTlsValidationContextAcmTrust' to JSON representation.
  */
-export interface AppMeshTlsValidationContextFileTrust {
-  /**
-   * @schema AppMeshTlsValidationContextFileTrust#certificateChain
-   */
-  readonly certificateChain: string;
-
+/* eslint-disable max-len, quote-props */
+export function toJson_AppMeshTlsValidationContextAcmTrust(obj: AppMeshTlsValidationContextAcmTrust | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificateAuthorityArns': obj.certificateAuthorityArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
 }
+/* eslint-enable max-len, quote-props */

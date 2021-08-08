@@ -25,6 +25,10 @@ export class SsmClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'AddTagsToResource', props);
   }
 
+  public associateOpsItemRelatedItem(input: shapes.SsmAssociateOpsItemRelatedItemRequest): SSMResponsesAssociateOpsItemRelatedItem {
+    return new SSMResponsesAssociateOpsItemRelatedItem(this, this.__resources, input);
+  }
+
   public cancelCommand(input: shapes.SsmCancelCommandRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -69,6 +73,10 @@ export class SsmClient extends cdk.Construct {
     return new SSMResponsesCreateOpsItem(this, this.__resources, input);
   }
 
+  public createOpsMetadata(input: shapes.SsmCreateOpsMetadataRequest): SSMResponsesCreateOpsMetadata {
+    return new SSMResponsesCreateOpsMetadata(this, this.__resources, input);
+  }
+
   public createPatchBaseline(input: shapes.SsmCreatePatchBaselineRequest): SSMResponsesCreatePatchBaseline {
     return new SSMResponsesCreatePatchBaseline(this, this.__resources, input);
   }
@@ -101,6 +109,7 @@ export class SsmClient extends cdk.Construct {
             },
             SourceRegions: input.syncSource?.sourceRegions,
             IncludeFutureRegions: input.syncSource?.includeFutureRegions,
+            EnableAllOpsDataSources: input.syncSource?.enableAllOpsDataSources,
           },
         },
       },
@@ -164,6 +173,21 @@ export class SsmClient extends cdk.Construct {
 
   public deleteMaintenanceWindow(input: shapes.SsmDeleteMaintenanceWindowRequest): SSMResponsesDeleteMaintenanceWindow {
     return new SSMResponsesDeleteMaintenanceWindow(this, this.__resources, input);
+  }
+
+  public deleteOpsMetadata(input: shapes.SsmDeleteOpsMetadataRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteOpsMetadata',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.DeleteOpsMetadata'),
+        parameters: {
+          OpsMetadataArn: input.opsMetadataArn,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteOpsMetadata', props);
   }
 
   public deleteParameter(input: shapes.SsmDeleteParameterRequest): void {
@@ -360,6 +384,22 @@ export class SsmClient extends cdk.Construct {
     return new SSMResponsesDescribeSessions(this, this.__resources, input);
   }
 
+  public disassociateOpsItemRelatedItem(input: shapes.SsmDisassociateOpsItemRelatedItemRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateOpsItemRelatedItem',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.DisassociateOpsItemRelatedItem'),
+        parameters: {
+          OpsItemId: input.opsItemId,
+          AssociationId: input.associationId,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DisassociateOpsItemRelatedItem', props);
+  }
+
   public fetchAutomationExecution(input: shapes.SsmGetAutomationExecutionRequest): SSMResponsesFetchAutomationExecution {
     return new SSMResponsesFetchAutomationExecution(this, this.__resources, input);
   }
@@ -418,6 +458,10 @@ export class SsmClient extends cdk.Construct {
 
   public fetchOpsItem(input: shapes.SsmGetOpsItemRequest): SSMResponsesFetchOpsItem {
     return new SSMResponsesFetchOpsItem(this, this.__resources, input);
+  }
+
+  public fetchOpsMetadata(input: shapes.SsmGetOpsMetadataRequest): SSMResponsesFetchOpsMetadata {
+    return new SSMResponsesFetchOpsMetadata(this, this.__resources, input);
   }
 
   public fetchOpsSummary(input: shapes.SsmGetOpsSummaryRequest): SSMResponsesFetchOpsSummary {
@@ -480,6 +524,10 @@ export class SsmClient extends cdk.Construct {
     return new SSMResponsesListComplianceSummaries(this, this.__resources, input);
   }
 
+  public listDocumentMetadataHistory(input: shapes.SsmListDocumentMetadataHistoryRequest): SSMResponsesListDocumentMetadataHistory {
+    return new SSMResponsesListDocumentMetadataHistory(this, this.__resources, input);
+  }
+
   public listDocumentVersions(input: shapes.SsmListDocumentVersionsRequest): SSMResponsesListDocumentVersions {
     return new SSMResponsesListDocumentVersions(this, this.__resources, input);
   }
@@ -490,6 +538,18 @@ export class SsmClient extends cdk.Construct {
 
   public listInventoryEntries(input: shapes.SsmListInventoryEntriesRequest): SSMResponsesListInventoryEntries {
     return new SSMResponsesListInventoryEntries(this, this.__resources, input);
+  }
+
+  public listOpsItemEvents(input: shapes.SsmListOpsItemEventsRequest): SSMResponsesListOpsItemEvents {
+    return new SSMResponsesListOpsItemEvents(this, this.__resources, input);
+  }
+
+  public listOpsItemRelatedItems(input: shapes.SsmListOpsItemRelatedItemsRequest): SSMResponsesListOpsItemRelatedItems {
+    return new SSMResponsesListOpsItemRelatedItems(this, this.__resources, input);
+  }
+
+  public listOpsMetadata(input: shapes.SsmListOpsMetadataRequest): SSMResponsesListOpsMetadata {
+    return new SSMResponsesListOpsMetadata(this, this.__resources, input);
   }
 
   public listResourceComplianceSummaries(input: shapes.SsmListResourceComplianceSummariesRequest): SSMResponsesListResourceComplianceSummaries {
@@ -637,6 +697,10 @@ export class SsmClient extends cdk.Construct {
     return new SSMResponsesStartAutomationExecution(this, this.__resources, input);
   }
 
+  public startChangeRequestExecution(input: shapes.SsmStartChangeRequestExecutionRequest): SSMResponsesStartChangeRequestExecution {
+    return new SSMResponsesStartChangeRequestExecution(this, this.__resources, input);
+  }
+
   public startSession(input: shapes.SsmStartSessionRequest): SSMResponsesStartSession {
     return new SSMResponsesStartSession(this, this.__resources, input);
   }
@@ -661,6 +725,10 @@ export class SsmClient extends cdk.Construct {
     return new SSMResponsesTerminateSession(this, this.__resources, input);
   }
 
+  public unlabelParameterVersion(input: shapes.SsmUnlabelParameterVersionRequest): SSMResponsesUnlabelParameterVersion {
+    return new SSMResponsesUnlabelParameterVersion(this, this.__resources, input);
+  }
+
   public updateAssociation(input: shapes.SsmUpdateAssociationRequest): SSMResponsesUpdateAssociation {
     return new SSMResponsesUpdateAssociation(this, this.__resources, input);
   }
@@ -675,6 +743,26 @@ export class SsmClient extends cdk.Construct {
 
   public updateDocumentDefaultVersion(input: shapes.SsmUpdateDocumentDefaultVersionRequest): SSMResponsesUpdateDocumentDefaultVersion {
     return new SSMResponsesUpdateDocumentDefaultVersion(this, this.__resources, input);
+  }
+
+  public updateDocumentMetadata(input: shapes.SsmUpdateDocumentMetadataRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateDocumentMetadata',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.UpdateDocumentMetadata'),
+        parameters: {
+          Name: input.name,
+          DocumentVersion: input.documentVersion,
+          DocumentReviews: {
+            Action: input.documentReviews.action,
+            Comment: input.documentReviews.comment,
+          },
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateDocumentMetadata', props);
   }
 
   public updateMaintenanceWindow(input: shapes.SsmUpdateMaintenanceWindowRequest): SSMResponsesUpdateMaintenanceWindow {
@@ -724,10 +812,18 @@ export class SsmClient extends cdk.Construct {
           Title: input.title,
           Category: input.category,
           Severity: input.severity,
+          ActualStartTime: input.actualStartTime,
+          ActualEndTime: input.actualEndTime,
+          PlannedStartTime: input.plannedStartTime,
+          PlannedEndTime: input.plannedEndTime,
         },
       },
     };
     new cr.AwsCustomResource(this, 'UpdateOpsItem', props);
+  }
+
+  public updateOpsMetadata(input: shapes.SsmUpdateOpsMetadataRequest): SSMResponsesUpdateOpsMetadata {
+    return new SSMResponsesUpdateOpsMetadata(this, this.__resources, input);
   }
 
   public updatePatchBaseline(input: shapes.SsmUpdatePatchBaselineRequest): SSMResponsesUpdatePatchBaseline {
@@ -752,6 +848,7 @@ export class SsmClient extends cdk.Construct {
             },
             SourceRegions: input.syncSource.sourceRegions,
             IncludeFutureRegions: input.syncSource.includeFutureRegions,
+            EnableAllOpsDataSources: input.syncSource.enableAllOpsDataSources,
           },
         },
       },
@@ -773,6 +870,33 @@ export class SsmClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'UpdateServiceSetting', props);
+  }
+
+}
+
+export class SSMResponsesAssociateOpsItemRelatedItem {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SsmAssociateOpsItemRelatedItemRequest) {
+  }
+
+  public get associationId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateOpsItemRelatedItem',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.AssociateOpsItemRelatedItem.AssociationId'),
+        outputPath: 'AssociationId',
+        parameters: {
+          OpsItemId: this.__input.opsItemId,
+          AssociationType: this.__input.associationType,
+          ResourceType: this.__input.resourceType,
+          ResourceUri: this.__input.resourceUri,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateOpsItemRelatedItem.AssociationId', props);
+    return resource.getResponseField('AssociationId') as unknown as string;
   }
 
 }
@@ -897,6 +1021,8 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -933,6 +1059,8 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -969,6 +1097,8 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1005,6 +1135,8 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1041,6 +1173,8 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1085,6 +1219,8 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1121,6 +1257,8 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1157,6 +1295,8 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1193,6 +1333,8 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1229,6 +1371,8 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1265,6 +1409,8 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1305,6 +1451,8 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1341,6 +1489,8 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1377,6 +1527,8 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1413,6 +1565,8 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1449,6 +1603,8 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1485,6 +1641,8 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1521,6 +1679,8 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1557,11 +1717,89 @@ export class SSMResponsesCreateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateAssociation.AssociationDescription.ApplyOnlyAtCronInterval', props);
     return resource.getResponseField('AssociationDescription.ApplyOnlyAtCronInterval') as unknown as boolean;
+  }
+
+  public get calendarNames(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAssociation',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.CreateAssociation.AssociationDescription.CalendarNames'),
+        outputPath: 'AssociationDescription.CalendarNames',
+        parameters: {
+          Name: this.__input.name,
+          DocumentVersion: this.__input.documentVersion,
+          InstanceId: this.__input.instanceId,
+          Parameters: this.__input.parameters,
+          Targets: this.__input.targets,
+          ScheduleExpression: this.__input.scheduleExpression,
+          OutputLocation: {
+            S3Location: {
+              OutputS3Region: this.__input.outputLocation?.s3Location?.outputS3Region,
+              OutputS3BucketName: this.__input.outputLocation?.s3Location?.outputS3BucketName,
+              OutputS3KeyPrefix: this.__input.outputLocation?.s3Location?.outputS3KeyPrefix,
+            },
+          },
+          AssociationName: this.__input.associationName,
+          AutomationTargetParameterName: this.__input.automationTargetParameterName,
+          MaxErrors: this.__input.maxErrors,
+          MaxConcurrency: this.__input.maxConcurrency,
+          ComplianceSeverity: this.__input.complianceSeverity,
+          SyncCompliance: this.__input.syncCompliance,
+          ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAssociation.AssociationDescription.CalendarNames', props);
+    return resource.getResponseField('AssociationDescription.CalendarNames') as unknown as string[];
+  }
+
+  public get targetLocations(): shapes.SsmTargetLocation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAssociation',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.CreateAssociation.AssociationDescription.TargetLocations'),
+        outputPath: 'AssociationDescription.TargetLocations',
+        parameters: {
+          Name: this.__input.name,
+          DocumentVersion: this.__input.documentVersion,
+          InstanceId: this.__input.instanceId,
+          Parameters: this.__input.parameters,
+          Targets: this.__input.targets,
+          ScheduleExpression: this.__input.scheduleExpression,
+          OutputLocation: {
+            S3Location: {
+              OutputS3Region: this.__input.outputLocation?.s3Location?.outputS3Region,
+              OutputS3BucketName: this.__input.outputLocation?.s3Location?.outputS3BucketName,
+              OutputS3KeyPrefix: this.__input.outputLocation?.s3Location?.outputS3KeyPrefix,
+            },
+          },
+          AssociationName: this.__input.associationName,
+          AutomationTargetParameterName: this.__input.automationTargetParameterName,
+          MaxErrors: this.__input.maxErrors,
+          MaxConcurrency: this.__input.maxConcurrency,
+          ComplianceSeverity: this.__input.complianceSeverity,
+          SyncCompliance: this.__input.syncCompliance,
+          ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAssociation.AssociationDescription.TargetLocations', props);
+    return resource.getResponseField('AssociationDescription.TargetLocations') as unknown as shapes.SsmTargetLocation[];
   }
 
 }
@@ -1600,6 +1838,8 @@ export class SSMResponsesCreateAssociationAssociationDescriptionStatus {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1636,6 +1876,8 @@ export class SSMResponsesCreateAssociationAssociationDescriptionStatus {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1672,6 +1914,8 @@ export class SSMResponsesCreateAssociationAssociationDescriptionStatus {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1708,6 +1952,8 @@ export class SSMResponsesCreateAssociationAssociationDescriptionStatus {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1751,6 +1997,8 @@ export class SSMResponsesCreateAssociationAssociationDescriptionOverview {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1787,6 +2035,8 @@ export class SSMResponsesCreateAssociationAssociationDescriptionOverview {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1823,6 +2073,8 @@ export class SSMResponsesCreateAssociationAssociationDescriptionOverview {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1877,6 +2129,8 @@ export class SSMResponsesCreateAssociationAssociationDescriptionOutputLocationS3
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1913,6 +2167,8 @@ export class SSMResponsesCreateAssociationAssociationDescriptionOutputLocationS3
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -1949,6 +2205,8 @@ export class SSMResponsesCreateAssociationAssociationDescriptionOutputLocationS3
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -2028,6 +2286,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2053,6 +2312,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2078,6 +2338,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2103,6 +2364,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2113,6 +2375,32 @@ export class SSMResponsesCreateDocumentDocumentDescription {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateDocument.DocumentDescription.Name', props);
     return resource.getResponseField('DocumentDescription.Name') as unknown as string;
+  }
+
+  public get displayName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.CreateDocument.DocumentDescription.DisplayName'),
+        outputPath: 'DocumentDescription.DisplayName',
+        parameters: {
+          Content: this.__input.content,
+          Requires: this.__input.requires,
+          Attachments: this.__input.attachments,
+          Name: this.__input.name,
+          DisplayName: this.__input.displayName,
+          VersionName: this.__input.versionName,
+          DocumentType: this.__input.documentType,
+          DocumentFormat: this.__input.documentFormat,
+          TargetType: this.__input.targetType,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDocument.DocumentDescription.DisplayName', props);
+    return resource.getResponseField('DocumentDescription.DisplayName') as unknown as string;
   }
 
   public get versionName(): string {
@@ -2128,6 +2416,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2153,6 +2442,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2178,6 +2468,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2203,6 +2494,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2228,6 +2520,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2253,6 +2546,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2278,6 +2572,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2303,6 +2598,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2328,6 +2624,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2353,6 +2650,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2378,6 +2676,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2403,6 +2702,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2428,6 +2728,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2453,6 +2754,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2478,6 +2780,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2503,6 +2806,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2528,6 +2832,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2553,6 +2858,7 @@ export class SSMResponsesCreateDocumentDocumentDescription {
           Requires: this.__input.requires,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentType: this.__input.documentType,
           DocumentFormat: this.__input.documentFormat,
@@ -2563,6 +2869,136 @@ export class SSMResponsesCreateDocumentDocumentDescription {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateDocument.DocumentDescription.Requires', props);
     return resource.getResponseField('DocumentDescription.Requires') as unknown as shapes.SsmDocumentRequires[];
+  }
+
+  public get author(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.CreateDocument.DocumentDescription.Author'),
+        outputPath: 'DocumentDescription.Author',
+        parameters: {
+          Content: this.__input.content,
+          Requires: this.__input.requires,
+          Attachments: this.__input.attachments,
+          Name: this.__input.name,
+          DisplayName: this.__input.displayName,
+          VersionName: this.__input.versionName,
+          DocumentType: this.__input.documentType,
+          DocumentFormat: this.__input.documentFormat,
+          TargetType: this.__input.targetType,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDocument.DocumentDescription.Author', props);
+    return resource.getResponseField('DocumentDescription.Author') as unknown as string;
+  }
+
+  public get reviewInformation(): shapes.SsmReviewInformation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.CreateDocument.DocumentDescription.ReviewInformation'),
+        outputPath: 'DocumentDescription.ReviewInformation',
+        parameters: {
+          Content: this.__input.content,
+          Requires: this.__input.requires,
+          Attachments: this.__input.attachments,
+          Name: this.__input.name,
+          DisplayName: this.__input.displayName,
+          VersionName: this.__input.versionName,
+          DocumentType: this.__input.documentType,
+          DocumentFormat: this.__input.documentFormat,
+          TargetType: this.__input.targetType,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDocument.DocumentDescription.ReviewInformation', props);
+    return resource.getResponseField('DocumentDescription.ReviewInformation') as unknown as shapes.SsmReviewInformation[];
+  }
+
+  public get approvedVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.CreateDocument.DocumentDescription.ApprovedVersion'),
+        outputPath: 'DocumentDescription.ApprovedVersion',
+        parameters: {
+          Content: this.__input.content,
+          Requires: this.__input.requires,
+          Attachments: this.__input.attachments,
+          Name: this.__input.name,
+          DisplayName: this.__input.displayName,
+          VersionName: this.__input.versionName,
+          DocumentType: this.__input.documentType,
+          DocumentFormat: this.__input.documentFormat,
+          TargetType: this.__input.targetType,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDocument.DocumentDescription.ApprovedVersion', props);
+    return resource.getResponseField('DocumentDescription.ApprovedVersion') as unknown as string;
+  }
+
+  public get pendingReviewVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.CreateDocument.DocumentDescription.PendingReviewVersion'),
+        outputPath: 'DocumentDescription.PendingReviewVersion',
+        parameters: {
+          Content: this.__input.content,
+          Requires: this.__input.requires,
+          Attachments: this.__input.attachments,
+          Name: this.__input.name,
+          DisplayName: this.__input.displayName,
+          VersionName: this.__input.versionName,
+          DocumentType: this.__input.documentType,
+          DocumentFormat: this.__input.documentFormat,
+          TargetType: this.__input.targetType,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDocument.DocumentDescription.PendingReviewVersion', props);
+    return resource.getResponseField('DocumentDescription.PendingReviewVersion') as unknown as string;
+  }
+
+  public get reviewStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.CreateDocument.DocumentDescription.ReviewStatus'),
+        outputPath: 'DocumentDescription.ReviewStatus',
+        parameters: {
+          Content: this.__input.content,
+          Requires: this.__input.requires,
+          Attachments: this.__input.attachments,
+          Name: this.__input.name,
+          DisplayName: this.__input.displayName,
+          VersionName: this.__input.versionName,
+          DocumentType: this.__input.documentType,
+          DocumentFormat: this.__input.documentFormat,
+          TargetType: this.__input.targetType,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDocument.DocumentDescription.ReviewStatus', props);
+    return resource.getResponseField('DocumentDescription.ReviewStatus') as unknown as string;
   }
 
 }
@@ -2617,6 +3053,7 @@ export class SSMResponsesCreateOpsItem {
         outputPath: 'OpsItemId',
         parameters: {
           Description: this.__input.description,
+          OpsItemType: this.__input.opsItemType,
           OperationalData: this.__input.operationalData,
           Notifications: this.__input.notifications,
           Priority: this.__input.priority,
@@ -2626,11 +3063,41 @@ export class SSMResponsesCreateOpsItem {
           Tags: this.__input.tags,
           Category: this.__input.category,
           Severity: this.__input.severity,
+          ActualStartTime: this.__input.actualStartTime,
+          ActualEndTime: this.__input.actualEndTime,
+          PlannedStartTime: this.__input.plannedStartTime,
+          PlannedEndTime: this.__input.plannedEndTime,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateOpsItem.OpsItemId', props);
     return resource.getResponseField('OpsItemId') as unknown as string;
+  }
+
+}
+
+export class SSMResponsesCreateOpsMetadata {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SsmCreateOpsMetadataRequest) {
+  }
+
+  public get opsMetadataArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createOpsMetadata',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.CreateOpsMetadata.OpsMetadataArn'),
+        outputPath: 'OpsMetadataArn',
+        parameters: {
+          ResourceId: this.__input.resourceId,
+          Metadata: this.__input.metadata,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateOpsMetadata.OpsMetadataArn', props);
+    return resource.getResponseField('OpsMetadataArn') as unknown as string;
   }
 
 }
@@ -3466,6 +3933,46 @@ export class SSMResponsesDescribeAssociationAssociationDescription {
     return resource.getResponseField('AssociationDescription.ApplyOnlyAtCronInterval') as unknown as boolean;
   }
 
+  public get calendarNames(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssociation',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.DescribeAssociation.AssociationDescription.CalendarNames'),
+        outputPath: 'AssociationDescription.CalendarNames',
+        parameters: {
+          Name: this.__input.name,
+          InstanceId: this.__input.instanceId,
+          AssociationId: this.__input.associationId,
+          AssociationVersion: this.__input.associationVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssociation.AssociationDescription.CalendarNames', props);
+    return resource.getResponseField('AssociationDescription.CalendarNames') as unknown as string[];
+  }
+
+  public get targetLocations(): shapes.SsmTargetLocation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAssociation',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.DescribeAssociation.AssociationDescription.TargetLocations'),
+        outputPath: 'AssociationDescription.TargetLocations',
+        parameters: {
+          Name: this.__input.name,
+          InstanceId: this.__input.instanceId,
+          AssociationId: this.__input.associationId,
+          AssociationVersion: this.__input.associationVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAssociation.AssociationDescription.TargetLocations', props);
+    return resource.getResponseField('AssociationDescription.TargetLocations') as unknown as shapes.SsmTargetLocation[];
+  }
+
 }
 
 export class SSMResponsesDescribeAssociationAssociationDescriptionStatus {
@@ -4027,6 +4534,25 @@ export class SSMResponsesDescribeDocumentDocument {
     return resource.getResponseField('Document.Name') as unknown as string;
   }
 
+  public get displayName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.DescribeDocument.Document.DisplayName'),
+        outputPath: 'Document.DisplayName',
+        parameters: {
+          Name: this.__input.name,
+          DocumentVersion: this.__input.documentVersion,
+          VersionName: this.__input.versionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDocument.Document.DisplayName', props);
+    return resource.getResponseField('Document.DisplayName') as unknown as string;
+  }
+
   public get versionName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -4369,6 +4895,101 @@ export class SSMResponsesDescribeDocumentDocument {
     return resource.getResponseField('Document.Requires') as unknown as shapes.SsmDocumentRequires[];
   }
 
+  public get author(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.DescribeDocument.Document.Author'),
+        outputPath: 'Document.Author',
+        parameters: {
+          Name: this.__input.name,
+          DocumentVersion: this.__input.documentVersion,
+          VersionName: this.__input.versionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDocument.Document.Author', props);
+    return resource.getResponseField('Document.Author') as unknown as string;
+  }
+
+  public get reviewInformation(): shapes.SsmReviewInformation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.DescribeDocument.Document.ReviewInformation'),
+        outputPath: 'Document.ReviewInformation',
+        parameters: {
+          Name: this.__input.name,
+          DocumentVersion: this.__input.documentVersion,
+          VersionName: this.__input.versionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDocument.Document.ReviewInformation', props);
+    return resource.getResponseField('Document.ReviewInformation') as unknown as shapes.SsmReviewInformation[];
+  }
+
+  public get approvedVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.DescribeDocument.Document.ApprovedVersion'),
+        outputPath: 'Document.ApprovedVersion',
+        parameters: {
+          Name: this.__input.name,
+          DocumentVersion: this.__input.documentVersion,
+          VersionName: this.__input.versionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDocument.Document.ApprovedVersion', props);
+    return resource.getResponseField('Document.ApprovedVersion') as unknown as string;
+  }
+
+  public get pendingReviewVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.DescribeDocument.Document.PendingReviewVersion'),
+        outputPath: 'Document.PendingReviewVersion',
+        parameters: {
+          Name: this.__input.name,
+          DocumentVersion: this.__input.documentVersion,
+          VersionName: this.__input.versionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDocument.Document.PendingReviewVersion', props);
+    return resource.getResponseField('Document.PendingReviewVersion') as unknown as string;
+  }
+
+  public get reviewStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.DescribeDocument.Document.ReviewStatus'),
+        outputPath: 'Document.ReviewStatus',
+        parameters: {
+          Name: this.__input.name,
+          DocumentVersion: this.__input.documentVersion,
+          VersionName: this.__input.versionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDocument.Document.ReviewStatus', props);
+    return resource.getResponseField('Document.ReviewStatus') as unknown as string;
+  }
+
 }
 
 export class SSMResponsesDescribeDocumentPermission {
@@ -4387,6 +5008,8 @@ export class SSMResponsesDescribeDocumentPermission {
         parameters: {
           Name: this.__input.name,
           PermissionType: this.__input.permissionType,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
         },
       },
     };
@@ -4405,11 +5028,33 @@ export class SSMResponsesDescribeDocumentPermission {
         parameters: {
           Name: this.__input.name,
           PermissionType: this.__input.permissionType,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDocumentPermission.AccountSharingInfoList', props);
     return resource.getResponseField('AccountSharingInfoList') as unknown as shapes.SsmAccountSharingInfo[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDocumentPermission',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.DescribeDocumentPermission.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          Name: this.__input.name,
+          PermissionType: this.__input.permissionType,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDocumentPermission.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
 
 }
@@ -5455,6 +6100,57 @@ export class SSMResponsesDescribePatchGroupState {
     return resource.getResponseField('InstancesWithUnreportedNotApplicablePatches') as unknown as number;
   }
 
+  public get instancesWithCriticalNonCompliantPatches(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePatchGroupState',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.DescribePatchGroupState.InstancesWithCriticalNonCompliantPatches'),
+        outputPath: 'InstancesWithCriticalNonCompliantPatches',
+        parameters: {
+          PatchGroup: this.__input.patchGroup,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePatchGroupState.InstancesWithCriticalNonCompliantPatches', props);
+    return resource.getResponseField('InstancesWithCriticalNonCompliantPatches') as unknown as number;
+  }
+
+  public get instancesWithSecurityNonCompliantPatches(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePatchGroupState',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.DescribePatchGroupState.InstancesWithSecurityNonCompliantPatches'),
+        outputPath: 'InstancesWithSecurityNonCompliantPatches',
+        parameters: {
+          PatchGroup: this.__input.patchGroup,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePatchGroupState.InstancesWithSecurityNonCompliantPatches', props);
+    return resource.getResponseField('InstancesWithSecurityNonCompliantPatches') as unknown as number;
+  }
+
+  public get instancesWithOtherNonCompliantPatches(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePatchGroupState',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.DescribePatchGroupState.InstancesWithOtherNonCompliantPatches'),
+        outputPath: 'InstancesWithOtherNonCompliantPatches',
+        parameters: {
+          PatchGroup: this.__input.patchGroup,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePatchGroupState.InstancesWithOtherNonCompliantPatches', props);
+    return resource.getResponseField('InstancesWithOtherNonCompliantPatches') as unknown as number;
+  }
+
 }
 
 export class SSMResponsesDescribePatchGroups {
@@ -6011,6 +6707,108 @@ export class SSMResponsesFetchAutomationExecutionAutomationExecution {
 
   public get progressCounters(): SSMResponsesFetchAutomationExecutionAutomationExecutionProgressCounters {
     return new SSMResponsesFetchAutomationExecutionAutomationExecutionProgressCounters(this.__scope, this.__resources, this.__input);
+  }
+
+  public get automationSubtype(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAutomationExecution',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.GetAutomationExecution.AutomationExecution.AutomationSubtype'),
+        outputPath: 'AutomationExecution.AutomationSubtype',
+        parameters: {
+          AutomationExecutionId: this.__input.automationExecutionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAutomationExecution.AutomationExecution.AutomationSubtype', props);
+    return resource.getResponseField('AutomationExecution.AutomationSubtype') as unknown as string;
+  }
+
+  public get scheduledTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAutomationExecution',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.GetAutomationExecution.AutomationExecution.ScheduledTime'),
+        outputPath: 'AutomationExecution.ScheduledTime',
+        parameters: {
+          AutomationExecutionId: this.__input.automationExecutionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAutomationExecution.AutomationExecution.ScheduledTime', props);
+    return resource.getResponseField('AutomationExecution.ScheduledTime') as unknown as string;
+  }
+
+  public get runbooks(): shapes.SsmRunbook[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAutomationExecution',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.GetAutomationExecution.AutomationExecution.Runbooks'),
+        outputPath: 'AutomationExecution.Runbooks',
+        parameters: {
+          AutomationExecutionId: this.__input.automationExecutionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAutomationExecution.AutomationExecution.Runbooks', props);
+    return resource.getResponseField('AutomationExecution.Runbooks') as unknown as shapes.SsmRunbook[];
+  }
+
+  public get opsItemId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAutomationExecution',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.GetAutomationExecution.AutomationExecution.OpsItemId'),
+        outputPath: 'AutomationExecution.OpsItemId',
+        parameters: {
+          AutomationExecutionId: this.__input.automationExecutionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAutomationExecution.AutomationExecution.OpsItemId', props);
+    return resource.getResponseField('AutomationExecution.OpsItemId') as unknown as string;
+  }
+
+  public get associationId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAutomationExecution',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.GetAutomationExecution.AutomationExecution.AssociationId'),
+        outputPath: 'AutomationExecution.AssociationId',
+        parameters: {
+          AutomationExecutionId: this.__input.automationExecutionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAutomationExecution.AutomationExecution.AssociationId', props);
+    return resource.getResponseField('AutomationExecution.AssociationId') as unknown as string;
+  }
+
+  public get changeRequestName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAutomationExecution',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.GetAutomationExecution.AutomationExecution.ChangeRequestName'),
+        outputPath: 'AutomationExecution.ChangeRequestName',
+        parameters: {
+          AutomationExecutionId: this.__input.automationExecutionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAutomationExecution.AutomationExecution.ChangeRequestName', props);
+    return resource.getResponseField('AutomationExecution.ChangeRequestName') as unknown as string;
   }
 
 }
@@ -6667,6 +7465,21 @@ export class SSMResponsesFetchDeployablePatchSnapshotForInstance {
         parameters: {
           InstanceId: this.__input.instanceId,
           SnapshotId: this.__input.snapshotId,
+          BaselineOverride: {
+            OperatingSystem: this.__input.baselineOverride?.operatingSystem,
+            GlobalFilters: {
+              PatchFilters: this.__input.baselineOverride?.globalFilters?.patchFilters,
+            },
+            ApprovalRules: {
+              PatchRules: this.__input.baselineOverride?.approvalRules?.patchRules,
+            },
+            ApprovedPatches: this.__input.baselineOverride?.approvedPatches,
+            ApprovedPatchesComplianceLevel: this.__input.baselineOverride?.approvedPatchesComplianceLevel,
+            RejectedPatches: this.__input.baselineOverride?.rejectedPatches,
+            RejectedPatchesAction: this.__input.baselineOverride?.rejectedPatchesAction,
+            ApprovedPatchesEnableNonSecurity: this.__input.baselineOverride?.approvedPatchesEnableNonSecurity,
+            Sources: this.__input.baselineOverride?.sources,
+          },
         },
       },
     };
@@ -6685,6 +7498,21 @@ export class SSMResponsesFetchDeployablePatchSnapshotForInstance {
         parameters: {
           InstanceId: this.__input.instanceId,
           SnapshotId: this.__input.snapshotId,
+          BaselineOverride: {
+            OperatingSystem: this.__input.baselineOverride?.operatingSystem,
+            GlobalFilters: {
+              PatchFilters: this.__input.baselineOverride?.globalFilters?.patchFilters,
+            },
+            ApprovalRules: {
+              PatchRules: this.__input.baselineOverride?.approvalRules?.patchRules,
+            },
+            ApprovedPatches: this.__input.baselineOverride?.approvedPatches,
+            ApprovedPatchesComplianceLevel: this.__input.baselineOverride?.approvedPatchesComplianceLevel,
+            RejectedPatches: this.__input.baselineOverride?.rejectedPatches,
+            RejectedPatchesAction: this.__input.baselineOverride?.rejectedPatchesAction,
+            ApprovedPatchesEnableNonSecurity: this.__input.baselineOverride?.approvedPatchesEnableNonSecurity,
+            Sources: this.__input.baselineOverride?.sources,
+          },
         },
       },
     };
@@ -6703,6 +7531,21 @@ export class SSMResponsesFetchDeployablePatchSnapshotForInstance {
         parameters: {
           InstanceId: this.__input.instanceId,
           SnapshotId: this.__input.snapshotId,
+          BaselineOverride: {
+            OperatingSystem: this.__input.baselineOverride?.operatingSystem,
+            GlobalFilters: {
+              PatchFilters: this.__input.baselineOverride?.globalFilters?.patchFilters,
+            },
+            ApprovalRules: {
+              PatchRules: this.__input.baselineOverride?.approvalRules?.patchRules,
+            },
+            ApprovedPatches: this.__input.baselineOverride?.approvedPatches,
+            ApprovedPatchesComplianceLevel: this.__input.baselineOverride?.approvedPatchesComplianceLevel,
+            RejectedPatches: this.__input.baselineOverride?.rejectedPatches,
+            RejectedPatchesAction: this.__input.baselineOverride?.rejectedPatchesAction,
+            ApprovedPatchesEnableNonSecurity: this.__input.baselineOverride?.approvedPatchesEnableNonSecurity,
+            Sources: this.__input.baselineOverride?.sources,
+          },
         },
       },
     };
@@ -6721,6 +7564,21 @@ export class SSMResponsesFetchDeployablePatchSnapshotForInstance {
         parameters: {
           InstanceId: this.__input.instanceId,
           SnapshotId: this.__input.snapshotId,
+          BaselineOverride: {
+            OperatingSystem: this.__input.baselineOverride?.operatingSystem,
+            GlobalFilters: {
+              PatchFilters: this.__input.baselineOverride?.globalFilters?.patchFilters,
+            },
+            ApprovalRules: {
+              PatchRules: this.__input.baselineOverride?.approvalRules?.patchRules,
+            },
+            ApprovedPatches: this.__input.baselineOverride?.approvedPatches,
+            ApprovedPatchesComplianceLevel: this.__input.baselineOverride?.approvedPatchesComplianceLevel,
+            RejectedPatches: this.__input.baselineOverride?.rejectedPatches,
+            RejectedPatchesAction: this.__input.baselineOverride?.rejectedPatchesAction,
+            ApprovedPatchesEnableNonSecurity: this.__input.baselineOverride?.approvedPatchesEnableNonSecurity,
+            Sources: this.__input.baselineOverride?.sources,
+          },
         },
       },
     };
@@ -6753,6 +7611,46 @@ export class SSMResponsesFetchDocument {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetDocument.Name', props);
     return resource.getResponseField('Name') as unknown as string;
+  }
+
+  public get createdDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.GetDocument.CreatedDate'),
+        outputPath: 'CreatedDate',
+        parameters: {
+          Name: this.__input.name,
+          VersionName: this.__input.versionName,
+          DocumentVersion: this.__input.documentVersion,
+          DocumentFormat: this.__input.documentFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDocument.CreatedDate', props);
+    return resource.getResponseField('CreatedDate') as unknown as string;
+  }
+
+  public get displayName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.GetDocument.DisplayName'),
+        outputPath: 'DisplayName',
+        parameters: {
+          Name: this.__input.name,
+          VersionName: this.__input.versionName,
+          DocumentVersion: this.__input.documentVersion,
+          DocumentFormat: this.__input.documentFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDocument.DisplayName', props);
+    return resource.getResponseField('DisplayName') as unknown as string;
   }
 
   public get versionName(): string {
@@ -6933,6 +7831,26 @@ export class SSMResponsesFetchDocument {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetDocument.AttachmentsContent', props);
     return resource.getResponseField('AttachmentsContent') as unknown as shapes.SsmAttachmentContent[];
+  }
+
+  public get reviewStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.GetDocument.ReviewStatus'),
+        outputPath: 'ReviewStatus',
+        parameters: {
+          Name: this.__input.name,
+          VersionName: this.__input.versionName,
+          DocumentVersion: this.__input.documentVersion,
+          DocumentFormat: this.__input.documentFormat,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDocument.ReviewStatus', props);
+    return resource.getResponseField('ReviewStatus') as unknown as string;
   }
 
 }
@@ -8658,6 +9576,23 @@ export class SSMResponsesFetchOpsItemOpsItem {
     return resource.getResponseField('OpsItem.CreatedBy') as unknown as string;
   }
 
+  public get opsItemType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getOpsItem',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.GetOpsItem.OpsItem.OpsItemType'),
+        outputPath: 'OpsItem.OpsItemType',
+        parameters: {
+          OpsItemId: this.__input.opsItemId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetOpsItem.OpsItem.OpsItemType', props);
+    return resource.getResponseField('OpsItem.OpsItemType') as unknown as string;
+  }
+
   public get createdTime(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -8911,6 +9846,138 @@ export class SSMResponsesFetchOpsItemOpsItem {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetOpsItem.OpsItem.Severity', props);
     return resource.getResponseField('OpsItem.Severity') as unknown as string;
+  }
+
+  public get actualStartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getOpsItem',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.GetOpsItem.OpsItem.ActualStartTime'),
+        outputPath: 'OpsItem.ActualStartTime',
+        parameters: {
+          OpsItemId: this.__input.opsItemId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetOpsItem.OpsItem.ActualStartTime', props);
+    return resource.getResponseField('OpsItem.ActualStartTime') as unknown as string;
+  }
+
+  public get actualEndTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getOpsItem',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.GetOpsItem.OpsItem.ActualEndTime'),
+        outputPath: 'OpsItem.ActualEndTime',
+        parameters: {
+          OpsItemId: this.__input.opsItemId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetOpsItem.OpsItem.ActualEndTime', props);
+    return resource.getResponseField('OpsItem.ActualEndTime') as unknown as string;
+  }
+
+  public get plannedStartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getOpsItem',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.GetOpsItem.OpsItem.PlannedStartTime'),
+        outputPath: 'OpsItem.PlannedStartTime',
+        parameters: {
+          OpsItemId: this.__input.opsItemId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetOpsItem.OpsItem.PlannedStartTime', props);
+    return resource.getResponseField('OpsItem.PlannedStartTime') as unknown as string;
+  }
+
+  public get plannedEndTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getOpsItem',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.GetOpsItem.OpsItem.PlannedEndTime'),
+        outputPath: 'OpsItem.PlannedEndTime',
+        parameters: {
+          OpsItemId: this.__input.opsItemId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetOpsItem.OpsItem.PlannedEndTime', props);
+    return resource.getResponseField('OpsItem.PlannedEndTime') as unknown as string;
+  }
+
+}
+
+export class SSMResponsesFetchOpsMetadata {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SsmGetOpsMetadataRequest) {
+  }
+
+  public get resourceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getOpsMetadata',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.GetOpsMetadata.ResourceId'),
+        outputPath: 'ResourceId',
+        parameters: {
+          OpsMetadataArn: this.__input.opsMetadataArn,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetOpsMetadata.ResourceId', props);
+    return resource.getResponseField('ResourceId') as unknown as string;
+  }
+
+  public get metadata(): Record<string, shapes.SsmMetadataValue> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getOpsMetadata',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.GetOpsMetadata.Metadata'),
+        outputPath: 'Metadata',
+        parameters: {
+          OpsMetadataArn: this.__input.opsMetadataArn,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetOpsMetadata.Metadata', props);
+    return resource.getResponseField('Metadata') as unknown as Record<string, shapes.SsmMetadataValue>;
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getOpsMetadata',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.GetOpsMetadata.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          OpsMetadataArn: this.__input.opsMetadataArn,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetOpsMetadata.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
 
 }
@@ -10081,6 +11148,129 @@ export class SSMResponsesListComplianceSummaries {
 
 }
 
+export class SSMResponsesListDocumentMetadataHistory {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SsmListDocumentMetadataHistoryRequest) {
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listDocumentMetadataHistory',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.ListDocumentMetadataHistory.Name'),
+        outputPath: 'Name',
+        parameters: {
+          Name: this.__input.name,
+          DocumentVersion: this.__input.documentVersion,
+          Metadata: this.__input.metadata,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListDocumentMetadataHistory.Name', props);
+    return resource.getResponseField('Name') as unknown as string;
+  }
+
+  public get documentVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listDocumentMetadataHistory',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.ListDocumentMetadataHistory.DocumentVersion'),
+        outputPath: 'DocumentVersion',
+        parameters: {
+          Name: this.__input.name,
+          DocumentVersion: this.__input.documentVersion,
+          Metadata: this.__input.metadata,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListDocumentMetadataHistory.DocumentVersion', props);
+    return resource.getResponseField('DocumentVersion') as unknown as string;
+  }
+
+  public get author(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listDocumentMetadataHistory',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.ListDocumentMetadataHistory.Author'),
+        outputPath: 'Author',
+        parameters: {
+          Name: this.__input.name,
+          DocumentVersion: this.__input.documentVersion,
+          Metadata: this.__input.metadata,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListDocumentMetadataHistory.Author', props);
+    return resource.getResponseField('Author') as unknown as string;
+  }
+
+  public get metadata(): SSMResponsesListDocumentMetadataHistoryMetadata {
+    return new SSMResponsesListDocumentMetadataHistoryMetadata(this.__scope, this.__resources, this.__input);
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listDocumentMetadataHistory',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.ListDocumentMetadataHistory.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          Name: this.__input.name,
+          DocumentVersion: this.__input.documentVersion,
+          Metadata: this.__input.metadata,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListDocumentMetadataHistory.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SSMResponsesListDocumentMetadataHistoryMetadata {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SsmListDocumentMetadataHistoryRequest) {
+  }
+
+  public get reviewerResponse(): shapes.SsmDocumentReviewerResponseSource[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listDocumentMetadataHistory',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.ListDocumentMetadataHistory.Metadata.ReviewerResponse'),
+        outputPath: 'Metadata.ReviewerResponse',
+        parameters: {
+          Name: this.__input.name,
+          DocumentVersion: this.__input.documentVersion,
+          Metadata: this.__input.metadata,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListDocumentMetadataHistory.Metadata.ReviewerResponse', props);
+    return resource.getResponseField('Metadata.ReviewerResponse') as unknown as shapes.SsmDocumentReviewerResponseSource[];
+  }
+
+}
+
 export class SSMResponsesListDocumentVersions {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SsmListDocumentVersionsRequest) {
@@ -10301,6 +11491,143 @@ export class SSMResponsesListInventoryEntries {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListInventoryEntries.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SSMResponsesListOpsItemEvents {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SsmListOpsItemEventsRequest) {
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listOpsItemEvents',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.ListOpsItemEvents.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListOpsItemEvents.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+  public get summaries(): shapes.SsmOpsItemEventSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listOpsItemEvents',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.ListOpsItemEvents.Summaries'),
+        outputPath: 'Summaries',
+        parameters: {
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListOpsItemEvents.Summaries', props);
+    return resource.getResponseField('Summaries') as unknown as shapes.SsmOpsItemEventSummary[];
+  }
+
+}
+
+export class SSMResponsesListOpsItemRelatedItems {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SsmListOpsItemRelatedItemsRequest) {
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listOpsItemRelatedItems',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.ListOpsItemRelatedItems.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          OpsItemId: this.__input.opsItemId,
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListOpsItemRelatedItems.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+  public get summaries(): shapes.SsmOpsItemRelatedItemSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listOpsItemRelatedItems',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.ListOpsItemRelatedItems.Summaries'),
+        outputPath: 'Summaries',
+        parameters: {
+          OpsItemId: this.__input.opsItemId,
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListOpsItemRelatedItems.Summaries', props);
+    return resource.getResponseField('Summaries') as unknown as shapes.SsmOpsItemRelatedItemSummary[];
+  }
+
+}
+
+export class SSMResponsesListOpsMetadata {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SsmListOpsMetadataRequest) {
+  }
+
+  public get opsMetadataList(): shapes.SsmOpsMetadata[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listOpsMetadata',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.ListOpsMetadata.OpsMetadataList'),
+        outputPath: 'OpsMetadataList',
+        parameters: {
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListOpsMetadata.OpsMetadataList', props);
+    return resource.getResponseField('OpsMetadataList') as unknown as shapes.SsmOpsMetadata[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listOpsMetadata',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.ListOpsMetadata.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListOpsMetadata.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
 
@@ -12013,6 +13340,39 @@ export class SSMResponsesStartAutomationExecution {
 
 }
 
+export class SSMResponsesStartChangeRequestExecution {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SsmStartChangeRequestExecutionRequest) {
+  }
+
+  public get automationExecutionId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startChangeRequestExecution',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.StartChangeRequestExecution.AutomationExecutionId'),
+        outputPath: 'AutomationExecutionId',
+        parameters: {
+          ScheduledTime: this.__input.scheduledTime,
+          DocumentName: this.__input.documentName,
+          DocumentVersion: this.__input.documentVersion,
+          Parameters: this.__input.parameters,
+          ChangeRequestName: this.__input.changeRequestName,
+          ClientToken: this.__input.clientToken,
+          Runbooks: this.__input.runbooks,
+          Tags: this.__input.tags,
+          ScheduledEndTime: this.__input.scheduledEndTime,
+          ChangeDetails: this.__input.changeDetails,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartChangeRequestExecution.AutomationExecutionId', props);
+    return resource.getResponseField('AutomationExecutionId') as unknown as string;
+  }
+
+}
+
 export class SSMResponsesStartSession {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SsmStartSessionRequest) {
@@ -12101,6 +13461,51 @@ export class SSMResponsesTerminateSession {
 
 }
 
+export class SSMResponsesUnlabelParameterVersion {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SsmUnlabelParameterVersionRequest) {
+  }
+
+  public get removedLabels(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'unlabelParameterVersion',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.UnlabelParameterVersion.RemovedLabels'),
+        outputPath: 'RemovedLabels',
+        parameters: {
+          Name: this.__input.name,
+          ParameterVersion: this.__input.parameterVersion,
+          Labels: this.__input.labels,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UnlabelParameterVersion.RemovedLabels', props);
+    return resource.getResponseField('RemovedLabels') as unknown as string[];
+  }
+
+  public get invalidLabels(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'unlabelParameterVersion',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.UnlabelParameterVersion.InvalidLabels'),
+        outputPath: 'InvalidLabels',
+        parameters: {
+          Name: this.__input.name,
+          ParameterVersion: this.__input.parameterVersion,
+          Labels: this.__input.labels,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UnlabelParameterVersion.InvalidLabels', props);
+    return resource.getResponseField('InvalidLabels') as unknown as string[];
+  }
+
+}
+
 export class SSMResponsesUpdateAssociation {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SsmUpdateAssociationRequest) {
@@ -12147,6 +13552,8 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12184,6 +13591,8 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12221,6 +13630,8 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12258,6 +13669,8 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12295,6 +13708,8 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12340,6 +13755,8 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12377,6 +13794,8 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12414,6 +13833,8 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12451,6 +13872,8 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12488,6 +13911,8 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12525,6 +13950,8 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12566,6 +13993,8 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12603,6 +14032,8 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12640,6 +14071,8 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12677,6 +14110,8 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12714,6 +14149,8 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12751,6 +14188,8 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12788,6 +14227,8 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12825,11 +14266,91 @@ export class SSMResponsesUpdateAssociationAssociationDescription {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAssociation.AssociationDescription.ApplyOnlyAtCronInterval', props);
     return resource.getResponseField('AssociationDescription.ApplyOnlyAtCronInterval') as unknown as boolean;
+  }
+
+  public get calendarNames(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAssociation',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.UpdateAssociation.AssociationDescription.CalendarNames'),
+        outputPath: 'AssociationDescription.CalendarNames',
+        parameters: {
+          AssociationId: this.__input.associationId,
+          Parameters: this.__input.parameters,
+          DocumentVersion: this.__input.documentVersion,
+          ScheduleExpression: this.__input.scheduleExpression,
+          OutputLocation: {
+            S3Location: {
+              OutputS3Region: this.__input.outputLocation?.s3Location?.outputS3Region,
+              OutputS3BucketName: this.__input.outputLocation?.s3Location?.outputS3BucketName,
+              OutputS3KeyPrefix: this.__input.outputLocation?.s3Location?.outputS3KeyPrefix,
+            },
+          },
+          Name: this.__input.name,
+          Targets: this.__input.targets,
+          AssociationName: this.__input.associationName,
+          AssociationVersion: this.__input.associationVersion,
+          AutomationTargetParameterName: this.__input.automationTargetParameterName,
+          MaxErrors: this.__input.maxErrors,
+          MaxConcurrency: this.__input.maxConcurrency,
+          ComplianceSeverity: this.__input.complianceSeverity,
+          SyncCompliance: this.__input.syncCompliance,
+          ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAssociation.AssociationDescription.CalendarNames', props);
+    return resource.getResponseField('AssociationDescription.CalendarNames') as unknown as string[];
+  }
+
+  public get targetLocations(): shapes.SsmTargetLocation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAssociation',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.UpdateAssociation.AssociationDescription.TargetLocations'),
+        outputPath: 'AssociationDescription.TargetLocations',
+        parameters: {
+          AssociationId: this.__input.associationId,
+          Parameters: this.__input.parameters,
+          DocumentVersion: this.__input.documentVersion,
+          ScheduleExpression: this.__input.scheduleExpression,
+          OutputLocation: {
+            S3Location: {
+              OutputS3Region: this.__input.outputLocation?.s3Location?.outputS3Region,
+              OutputS3BucketName: this.__input.outputLocation?.s3Location?.outputS3BucketName,
+              OutputS3KeyPrefix: this.__input.outputLocation?.s3Location?.outputS3KeyPrefix,
+            },
+          },
+          Name: this.__input.name,
+          Targets: this.__input.targets,
+          AssociationName: this.__input.associationName,
+          AssociationVersion: this.__input.associationVersion,
+          AutomationTargetParameterName: this.__input.automationTargetParameterName,
+          MaxErrors: this.__input.maxErrors,
+          MaxConcurrency: this.__input.maxConcurrency,
+          ComplianceSeverity: this.__input.complianceSeverity,
+          SyncCompliance: this.__input.syncCompliance,
+          ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAssociation.AssociationDescription.TargetLocations', props);
+    return resource.getResponseField('AssociationDescription.TargetLocations') as unknown as shapes.SsmTargetLocation[];
   }
 
 }
@@ -12869,6 +14390,8 @@ export class SSMResponsesUpdateAssociationAssociationDescriptionStatus {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12906,6 +14429,8 @@ export class SSMResponsesUpdateAssociationAssociationDescriptionStatus {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12943,6 +14468,8 @@ export class SSMResponsesUpdateAssociationAssociationDescriptionStatus {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -12980,6 +14507,8 @@ export class SSMResponsesUpdateAssociationAssociationDescriptionStatus {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -13024,6 +14553,8 @@ export class SSMResponsesUpdateAssociationAssociationDescriptionOverview {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -13061,6 +14592,8 @@ export class SSMResponsesUpdateAssociationAssociationDescriptionOverview {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -13098,6 +14631,8 @@ export class SSMResponsesUpdateAssociationAssociationDescriptionOverview {
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -13153,6 +14688,8 @@ export class SSMResponsesUpdateAssociationAssociationDescriptionOutputLocationS3
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -13190,6 +14727,8 @@ export class SSMResponsesUpdateAssociationAssociationDescriptionOutputLocationS3
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -13227,6 +14766,8 @@ export class SSMResponsesUpdateAssociationAssociationDescriptionOutputLocationS3
           ComplianceSeverity: this.__input.complianceSeverity,
           SyncCompliance: this.__input.syncCompliance,
           ApplyOnlyAtCronInterval: this.__input.applyOnlyAtCronInterval,
+          CalendarNames: this.__input.calendarNames,
+          TargetLocations: this.__input.targetLocations,
         },
       },
     };
@@ -13720,6 +15261,54 @@ export class SSMResponsesUpdateAssociationStatusAssociationDescription {
     return resource.getResponseField('AssociationDescription.ApplyOnlyAtCronInterval') as unknown as boolean;
   }
 
+  public get calendarNames(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAssociationStatus',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.UpdateAssociationStatus.AssociationDescription.CalendarNames'),
+        outputPath: 'AssociationDescription.CalendarNames',
+        parameters: {
+          Name: this.__input.name,
+          InstanceId: this.__input.instanceId,
+          AssociationStatus: {
+            Date: this.__input.associationStatus.date,
+            Name: this.__input.associationStatus.name,
+            Message: this.__input.associationStatus.message,
+            AdditionalInfo: this.__input.associationStatus.additionalInfo,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAssociationStatus.AssociationDescription.CalendarNames', props);
+    return resource.getResponseField('AssociationDescription.CalendarNames') as unknown as string[];
+  }
+
+  public get targetLocations(): shapes.SsmTargetLocation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAssociationStatus',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.UpdateAssociationStatus.AssociationDescription.TargetLocations'),
+        outputPath: 'AssociationDescription.TargetLocations',
+        parameters: {
+          Name: this.__input.name,
+          InstanceId: this.__input.instanceId,
+          AssociationStatus: {
+            Date: this.__input.associationStatus.date,
+            Name: this.__input.associationStatus.name,
+            Message: this.__input.associationStatus.message,
+            AdditionalInfo: this.__input.associationStatus.additionalInfo,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAssociationStatus.AssociationDescription.TargetLocations', props);
+    return resource.getResponseField('AssociationDescription.TargetLocations') as unknown as shapes.SsmTargetLocation[];
+  }
+
 }
 
 export class SSMResponsesUpdateAssociationStatusAssociationDescriptionStatus {
@@ -14022,6 +15611,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14045,6 +15635,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14068,6 +15659,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14091,6 +15683,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14100,6 +15693,30 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateDocument.DocumentDescription.Name', props);
     return resource.getResponseField('DocumentDescription.Name') as unknown as string;
+  }
+
+  public get displayName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.UpdateDocument.DocumentDescription.DisplayName'),
+        outputPath: 'DocumentDescription.DisplayName',
+        parameters: {
+          Content: this.__input.content,
+          Attachments: this.__input.attachments,
+          Name: this.__input.name,
+          DisplayName: this.__input.displayName,
+          VersionName: this.__input.versionName,
+          DocumentVersion: this.__input.documentVersion,
+          DocumentFormat: this.__input.documentFormat,
+          TargetType: this.__input.targetType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateDocument.DocumentDescription.DisplayName', props);
+    return resource.getResponseField('DocumentDescription.DisplayName') as unknown as string;
   }
 
   public get versionName(): string {
@@ -14114,6 +15731,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14137,6 +15755,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14160,6 +15779,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14183,6 +15803,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14206,6 +15827,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14229,6 +15851,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14252,6 +15875,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14275,6 +15899,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14298,6 +15923,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14321,6 +15947,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14344,6 +15971,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14367,6 +15995,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14390,6 +16019,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14413,6 +16043,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14436,6 +16067,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14459,6 +16091,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14482,6 +16115,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14505,6 +16139,7 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
           Content: this.__input.content,
           Attachments: this.__input.attachments,
           Name: this.__input.name,
+          DisplayName: this.__input.displayName,
           VersionName: this.__input.versionName,
           DocumentVersion: this.__input.documentVersion,
           DocumentFormat: this.__input.documentFormat,
@@ -14514,6 +16149,126 @@ export class SSMResponsesUpdateDocumentDocumentDescription {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateDocument.DocumentDescription.Requires', props);
     return resource.getResponseField('DocumentDescription.Requires') as unknown as shapes.SsmDocumentRequires[];
+  }
+
+  public get author(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.UpdateDocument.DocumentDescription.Author'),
+        outputPath: 'DocumentDescription.Author',
+        parameters: {
+          Content: this.__input.content,
+          Attachments: this.__input.attachments,
+          Name: this.__input.name,
+          DisplayName: this.__input.displayName,
+          VersionName: this.__input.versionName,
+          DocumentVersion: this.__input.documentVersion,
+          DocumentFormat: this.__input.documentFormat,
+          TargetType: this.__input.targetType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateDocument.DocumentDescription.Author', props);
+    return resource.getResponseField('DocumentDescription.Author') as unknown as string;
+  }
+
+  public get reviewInformation(): shapes.SsmReviewInformation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.UpdateDocument.DocumentDescription.ReviewInformation'),
+        outputPath: 'DocumentDescription.ReviewInformation',
+        parameters: {
+          Content: this.__input.content,
+          Attachments: this.__input.attachments,
+          Name: this.__input.name,
+          DisplayName: this.__input.displayName,
+          VersionName: this.__input.versionName,
+          DocumentVersion: this.__input.documentVersion,
+          DocumentFormat: this.__input.documentFormat,
+          TargetType: this.__input.targetType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateDocument.DocumentDescription.ReviewInformation', props);
+    return resource.getResponseField('DocumentDescription.ReviewInformation') as unknown as shapes.SsmReviewInformation[];
+  }
+
+  public get approvedVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.UpdateDocument.DocumentDescription.ApprovedVersion'),
+        outputPath: 'DocumentDescription.ApprovedVersion',
+        parameters: {
+          Content: this.__input.content,
+          Attachments: this.__input.attachments,
+          Name: this.__input.name,
+          DisplayName: this.__input.displayName,
+          VersionName: this.__input.versionName,
+          DocumentVersion: this.__input.documentVersion,
+          DocumentFormat: this.__input.documentFormat,
+          TargetType: this.__input.targetType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateDocument.DocumentDescription.ApprovedVersion', props);
+    return resource.getResponseField('DocumentDescription.ApprovedVersion') as unknown as string;
+  }
+
+  public get pendingReviewVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.UpdateDocument.DocumentDescription.PendingReviewVersion'),
+        outputPath: 'DocumentDescription.PendingReviewVersion',
+        parameters: {
+          Content: this.__input.content,
+          Attachments: this.__input.attachments,
+          Name: this.__input.name,
+          DisplayName: this.__input.displayName,
+          VersionName: this.__input.versionName,
+          DocumentVersion: this.__input.documentVersion,
+          DocumentFormat: this.__input.documentFormat,
+          TargetType: this.__input.targetType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateDocument.DocumentDescription.PendingReviewVersion', props);
+    return resource.getResponseField('DocumentDescription.PendingReviewVersion') as unknown as string;
+  }
+
+  public get reviewStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateDocument',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.UpdateDocument.DocumentDescription.ReviewStatus'),
+        outputPath: 'DocumentDescription.ReviewStatus',
+        parameters: {
+          Content: this.__input.content,
+          Attachments: this.__input.attachments,
+          Name: this.__input.name,
+          DisplayName: this.__input.displayName,
+          VersionName: this.__input.versionName,
+          DocumentVersion: this.__input.documentVersion,
+          DocumentFormat: this.__input.documentFormat,
+          TargetType: this.__input.targetType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateDocument.DocumentDescription.ReviewStatus', props);
+    return resource.getResponseField('DocumentDescription.ReviewStatus') as unknown as string;
   }
 
 }
@@ -17596,6 +19351,32 @@ export class SSMResponsesUpdateMaintenanceWindowTaskLoggingInfo {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateMaintenanceWindowTask.LoggingInfo.S3Region', props);
     return resource.getResponseField('LoggingInfo.S3Region') as unknown as string;
+  }
+
+}
+
+export class SSMResponsesUpdateOpsMetadata {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SsmUpdateOpsMetadataRequest) {
+  }
+
+  public get opsMetadataArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateOpsMetadata',
+        service: 'SSM',
+        physicalResourceId: cr.PhysicalResourceId.of('SSM.UpdateOpsMetadata.OpsMetadataArn'),
+        outputPath: 'OpsMetadataArn',
+        parameters: {
+          OpsMetadataArn: this.__input.opsMetadataArn,
+          MetadataToUpdate: this.__input.metadataToUpdate,
+          KeysToDelete: this.__input.keysToDelete,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateOpsMetadata.OpsMetadataArn', props);
+    return resource.getResponseField('OpsMetadataArn') as unknown as string;
   }
 
 }

@@ -820,9 +820,14 @@ export class MediaPackageResponsesCreateOriginEndpoint {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -845,6 +850,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -880,6 +889,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -904,6 +917,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -950,9 +967,14 @@ export class MediaPackageResponsesCreateOriginEndpoint {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -975,6 +997,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1010,6 +1036,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1034,6 +1064,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1084,9 +1118,14 @@ export class MediaPackageResponsesCreateOriginEndpoint {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1109,6 +1148,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1144,6 +1187,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1168,6 +1215,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1214,9 +1265,14 @@ export class MediaPackageResponsesCreateOriginEndpoint {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1239,6 +1295,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1274,6 +1334,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1298,6 +1362,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1340,9 +1408,14 @@ export class MediaPackageResponsesCreateOriginEndpoint {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1365,6 +1438,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1400,6 +1477,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1424,6 +1505,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1470,9 +1555,14 @@ export class MediaPackageResponsesCreateOriginEndpoint {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1495,6 +1585,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1530,6 +1624,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1554,6 +1652,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1596,9 +1698,14 @@ export class MediaPackageResponsesCreateOriginEndpoint {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1621,6 +1728,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1656,6 +1767,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1680,6 +1795,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1722,9 +1841,14 @@ export class MediaPackageResponsesCreateOriginEndpoint {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1747,6 +1871,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1782,6 +1910,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1806,6 +1938,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1848,9 +1984,14 @@ export class MediaPackageResponsesCreateOriginEndpoint {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1873,6 +2014,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1908,6 +2053,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1932,6 +2081,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1974,9 +2127,14 @@ export class MediaPackageResponsesCreateOriginEndpoint {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1999,6 +2157,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2034,6 +2196,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2058,6 +2224,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2100,9 +2270,14 @@ export class MediaPackageResponsesCreateOriginEndpoint {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2125,6 +2300,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2160,6 +2339,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2184,6 +2367,10 @@ export class MediaPackageResponsesCreateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2233,9 +2420,14 @@ export class MediaPackageResponsesCreateOriginEndpointAuthorization {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2258,6 +2450,10 @@ export class MediaPackageResponsesCreateOriginEndpointAuthorization {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2293,6 +2489,10 @@ export class MediaPackageResponsesCreateOriginEndpointAuthorization {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2317,6 +2517,10 @@ export class MediaPackageResponsesCreateOriginEndpointAuthorization {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2359,9 +2563,14 @@ export class MediaPackageResponsesCreateOriginEndpointAuthorization {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2384,6 +2593,10 @@ export class MediaPackageResponsesCreateOriginEndpointAuthorization {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2419,6 +2632,10 @@ export class MediaPackageResponsesCreateOriginEndpointAuthorization {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2443,6 +2660,10 @@ export class MediaPackageResponsesCreateOriginEndpointAuthorization {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2496,9 +2717,14 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2521,6 +2747,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2556,6 +2786,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2580,6 +2814,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2622,9 +2860,14 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2647,6 +2890,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2682,6 +2929,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2706,6 +2957,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2748,9 +3003,14 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2773,6 +3033,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2808,6 +3072,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2832,6 +3100,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2869,14 +3141,14 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryption {
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageCreateOriginEndpointRequest) {
   }
 
-  public get keyRotationIntervalSeconds(): number {
+  public get constantInitializationVector(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
         action: 'createOriginEndpoint',
         service: 'MediaPackage',
-        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.CmafPackage.Encryption.KeyRotationIntervalSeconds'),
-        outputPath: 'CmafPackage.Encryption.KeyRotationIntervalSeconds',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.CmafPackage.Encryption.ConstantInitializationVector'),
+        outputPath: 'CmafPackage.Encryption.ConstantInitializationVector',
         parameters: {
           Authorization: {
             CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
@@ -2885,9 +3157,14 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryption {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2910,6 +3187,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryption {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2945,6 +3226,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryption {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2969,6 +3254,153 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryption {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestWindowSeconds: this.__input.mssPackage?.manifestWindowSeconds,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.mssPackage?.streamSelection?.streamOrder,
+            },
+          },
+          Origination: this.__input.origination,
+          StartoverWindowSeconds: this.__input.startoverWindowSeconds,
+          Tags: this.__input.tags,
+          TimeDelaySeconds: this.__input.timeDelaySeconds,
+          Whitelist: this.__input.whitelist,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateOriginEndpoint.CmafPackage.Encryption.ConstantInitializationVector', props);
+    return resource.getResponseField('CmafPackage.Encryption.ConstantInitializationVector') as unknown as string;
+  }
+
+  public get keyRotationIntervalSeconds(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.CmafPackage.Encryption.KeyRotationIntervalSeconds'),
+        outputPath: 'CmafPackage.Encryption.KeyRotationIntervalSeconds',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          ChannelId: this.__input.channelId,
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+            SegmentPrefix: this.__input.cmafPackage?.segmentPrefix,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.cmafPackage?.streamSelection?.streamOrder,
+            },
+          },
+          DashPackage: {
+            AdTriggers: this.__input.dashPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.dashPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestLayout: this.__input.dashPackage?.manifestLayout,
+            ManifestWindowSeconds: this.__input.dashPackage?.manifestWindowSeconds,
+            MinBufferTimeSeconds: this.__input.dashPackage?.minBufferTimeSeconds,
+            MinUpdatePeriodSeconds: this.__input.dashPackage?.minUpdatePeriodSeconds,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            Profile: this.__input.dashPackage?.profile,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.dashPackage?.streamSelection?.streamOrder,
+            },
+            SuggestedPresentationDelaySeconds: this.__input.dashPackage?.suggestedPresentationDelaySeconds,
+            UtcTiming: this.__input.dashPackage?.utcTiming,
+            UtcTimingUri: this.__input.dashPackage?.utcTimingUri,
+          },
+          Description: this.__input.description,
+          HlsPackage: {
+            AdMarkers: this.__input.hlsPackage?.adMarkers,
+            AdTriggers: this.__input.hlsPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.hlsPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              KeyRotationIntervalSeconds: this.__input.hlsPackage?.encryption?.keyRotationIntervalSeconds,
+              RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeIframeOnlyStream: this.__input.hlsPackage?.includeIframeOnlyStream,
+            PlaylistType: this.__input.hlsPackage?.playlistType,
+            PlaylistWindowSeconds: this.__input.hlsPackage?.playlistWindowSeconds,
+            ProgramDateTimeIntervalSeconds: this.__input.hlsPackage?.programDateTimeIntervalSeconds,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.hlsPackage?.streamSelection?.streamOrder,
+            },
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          ManifestName: this.__input.manifestName,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3022,9 +3454,14 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3047,6 +3484,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3082,6 +3523,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3106,6 +3551,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3132,6 +3581,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
     return resource.getResponseField('CmafPackage.Encryption.SpekeKeyProvider.CertificateArn') as unknown as string;
   }
 
+  public get encryptionContractConfiguration(): MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
+    return new MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
   public get resourceId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -3148,9 +3601,14 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3173,6 +3631,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3208,6 +3670,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3232,6 +3698,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3274,9 +3744,14 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3299,6 +3774,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3334,6 +3813,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3358,6 +3841,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3400,9 +3887,14 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3425,6 +3917,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3460,6 +3956,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3484,6 +3984,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3526,9 +4030,14 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3551,6 +4060,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3586,6 +4099,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3610,6 +4127,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3638,19 +4159,19 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpeke
 
 }
 
-export class MediaPackageResponsesCreateOriginEndpointCmafPackageStreamSelection {
+export class MediaPackageResponsesCreateOriginEndpointCmafPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageCreateOriginEndpointRequest) {
   }
 
-  public get maxVideoBitsPerSecond(): number {
+  public get presetSpeke20Audio(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
         action: 'createOriginEndpoint',
         service: 'MediaPackage',
-        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.CmafPackage.StreamSelection.MaxVideoBitsPerSecond'),
-        outputPath: 'CmafPackage.StreamSelection.MaxVideoBitsPerSecond',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio'),
+        outputPath: 'CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio',
         parameters: {
           Authorization: {
             CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
@@ -3659,9 +4180,14 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageStreamSelection
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3684,6 +4210,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageStreamSelection
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3719,6 +4249,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageStreamSelection
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3743,6 +4277,303 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageStreamSelection
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestWindowSeconds: this.__input.mssPackage?.manifestWindowSeconds,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.mssPackage?.streamSelection?.streamOrder,
+            },
+          },
+          Origination: this.__input.origination,
+          StartoverWindowSeconds: this.__input.startoverWindowSeconds,
+          Tags: this.__input.tags,
+          TimeDelaySeconds: this.__input.timeDelaySeconds,
+          Whitelist: this.__input.whitelist,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateOriginEndpoint.CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio', props);
+    return resource.getResponseField('CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio') as unknown as string;
+  }
+
+  public get presetSpeke20Video(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video'),
+        outputPath: 'CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          ChannelId: this.__input.channelId,
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+            SegmentPrefix: this.__input.cmafPackage?.segmentPrefix,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.cmafPackage?.streamSelection?.streamOrder,
+            },
+          },
+          DashPackage: {
+            AdTriggers: this.__input.dashPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.dashPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestLayout: this.__input.dashPackage?.manifestLayout,
+            ManifestWindowSeconds: this.__input.dashPackage?.manifestWindowSeconds,
+            MinBufferTimeSeconds: this.__input.dashPackage?.minBufferTimeSeconds,
+            MinUpdatePeriodSeconds: this.__input.dashPackage?.minUpdatePeriodSeconds,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            Profile: this.__input.dashPackage?.profile,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.dashPackage?.streamSelection?.streamOrder,
+            },
+            SuggestedPresentationDelaySeconds: this.__input.dashPackage?.suggestedPresentationDelaySeconds,
+            UtcTiming: this.__input.dashPackage?.utcTiming,
+            UtcTimingUri: this.__input.dashPackage?.utcTimingUri,
+          },
+          Description: this.__input.description,
+          HlsPackage: {
+            AdMarkers: this.__input.hlsPackage?.adMarkers,
+            AdTriggers: this.__input.hlsPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.hlsPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              KeyRotationIntervalSeconds: this.__input.hlsPackage?.encryption?.keyRotationIntervalSeconds,
+              RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeIframeOnlyStream: this.__input.hlsPackage?.includeIframeOnlyStream,
+            PlaylistType: this.__input.hlsPackage?.playlistType,
+            PlaylistWindowSeconds: this.__input.hlsPackage?.playlistWindowSeconds,
+            ProgramDateTimeIntervalSeconds: this.__input.hlsPackage?.programDateTimeIntervalSeconds,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.hlsPackage?.streamSelection?.streamOrder,
+            },
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          ManifestName: this.__input.manifestName,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestWindowSeconds: this.__input.mssPackage?.manifestWindowSeconds,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.mssPackage?.streamSelection?.streamOrder,
+            },
+          },
+          Origination: this.__input.origination,
+          StartoverWindowSeconds: this.__input.startoverWindowSeconds,
+          Tags: this.__input.tags,
+          TimeDelaySeconds: this.__input.timeDelaySeconds,
+          Whitelist: this.__input.whitelist,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateOriginEndpoint.CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video', props);
+    return resource.getResponseField('CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video') as unknown as string;
+  }
+
+}
+
+export class MediaPackageResponsesCreateOriginEndpointCmafPackageStreamSelection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageCreateOriginEndpointRequest) {
+  }
+
+  public get maxVideoBitsPerSecond(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.CmafPackage.StreamSelection.MaxVideoBitsPerSecond'),
+        outputPath: 'CmafPackage.StreamSelection.MaxVideoBitsPerSecond',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          ChannelId: this.__input.channelId,
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+            SegmentPrefix: this.__input.cmafPackage?.segmentPrefix,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.cmafPackage?.streamSelection?.streamOrder,
+            },
+          },
+          DashPackage: {
+            AdTriggers: this.__input.dashPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.dashPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestLayout: this.__input.dashPackage?.manifestLayout,
+            ManifestWindowSeconds: this.__input.dashPackage?.manifestWindowSeconds,
+            MinBufferTimeSeconds: this.__input.dashPackage?.minBufferTimeSeconds,
+            MinUpdatePeriodSeconds: this.__input.dashPackage?.minUpdatePeriodSeconds,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            Profile: this.__input.dashPackage?.profile,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.dashPackage?.streamSelection?.streamOrder,
+            },
+            SuggestedPresentationDelaySeconds: this.__input.dashPackage?.suggestedPresentationDelaySeconds,
+            UtcTiming: this.__input.dashPackage?.utcTiming,
+            UtcTimingUri: this.__input.dashPackage?.utcTimingUri,
+          },
+          Description: this.__input.description,
+          HlsPackage: {
+            AdMarkers: this.__input.hlsPackage?.adMarkers,
+            AdTriggers: this.__input.hlsPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.hlsPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              KeyRotationIntervalSeconds: this.__input.hlsPackage?.encryption?.keyRotationIntervalSeconds,
+              RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeIframeOnlyStream: this.__input.hlsPackage?.includeIframeOnlyStream,
+            PlaylistType: this.__input.hlsPackage?.playlistType,
+            PlaylistWindowSeconds: this.__input.hlsPackage?.playlistWindowSeconds,
+            ProgramDateTimeIntervalSeconds: this.__input.hlsPackage?.programDateTimeIntervalSeconds,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.hlsPackage?.streamSelection?.streamOrder,
+            },
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          ManifestName: this.__input.manifestName,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3785,9 +4616,14 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageStreamSelection
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3810,6 +4646,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageStreamSelection
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3845,6 +4685,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageStreamSelection
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3869,6 +4713,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageStreamSelection
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3911,9 +4759,14 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageStreamSelection
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3936,6 +4789,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageStreamSelection
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3971,6 +4828,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageStreamSelection
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -3995,6 +4856,10 @@ export class MediaPackageResponsesCreateOriginEndpointCmafPackageStreamSelection
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4044,9 +4909,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4069,6 +4939,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4104,6 +4978,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4128,6 +5006,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4170,9 +5052,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4195,6 +5082,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4230,6 +5121,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4254,6 +5149,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4300,9 +5199,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4325,6 +5229,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4360,6 +5268,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4384,6 +5296,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4426,9 +5342,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4451,6 +5372,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4486,6 +5411,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4510,6 +5439,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4552,9 +5485,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4577,6 +5515,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4612,6 +5554,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4636,6 +5582,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4678,9 +5628,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4703,6 +5658,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4738,6 +5697,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4762,6 +5725,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4804,9 +5771,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4829,6 +5801,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4864,6 +5840,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4888,6 +5868,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4930,9 +5914,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4955,6 +5944,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -4990,6 +5983,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5014,6 +6011,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5056,9 +6057,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5081,6 +6087,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5116,6 +6126,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5140,6 +6154,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5182,9 +6200,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5207,6 +6230,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5242,6 +6269,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5266,6 +6297,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5312,9 +6347,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5337,6 +6377,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5372,6 +6416,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5396,6 +6444,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5438,9 +6490,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5463,6 +6520,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5498,6 +6559,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5522,6 +6587,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5564,9 +6633,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5589,6 +6663,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5624,6 +6702,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5648,6 +6730,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5697,9 +6783,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryption {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5722,6 +6813,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryption {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5757,6 +6852,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryption {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5781,6 +6880,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryption {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5834,9 +6937,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5859,6 +6967,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5894,6 +7006,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5918,6 +7034,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5944,6 +7064,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
     return resource.getResponseField('DashPackage.Encryption.SpekeKeyProvider.CertificateArn') as unknown as string;
   }
 
+  public get encryptionContractConfiguration(): MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
+    return new MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
   public get resourceId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -5960,9 +7084,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -5985,6 +7114,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6020,6 +7153,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6044,6 +7181,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6086,9 +7227,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6111,6 +7257,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6146,6 +7296,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6170,6 +7324,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6212,9 +7370,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6237,6 +7400,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6272,6 +7439,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6296,6 +7467,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6338,9 +7513,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6363,6 +7543,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6398,6 +7582,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6422,6 +7610,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6450,19 +7642,19 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpeke
 
 }
 
-export class MediaPackageResponsesCreateOriginEndpointDashPackageStreamSelection {
+export class MediaPackageResponsesCreateOriginEndpointDashPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageCreateOriginEndpointRequest) {
   }
 
-  public get maxVideoBitsPerSecond(): number {
+  public get presetSpeke20Audio(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
         action: 'createOriginEndpoint',
         service: 'MediaPackage',
-        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.DashPackage.StreamSelection.MaxVideoBitsPerSecond'),
-        outputPath: 'DashPackage.StreamSelection.MaxVideoBitsPerSecond',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio'),
+        outputPath: 'DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio',
         parameters: {
           Authorization: {
             CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
@@ -6471,9 +7663,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageStreamSelection
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6496,6 +7693,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageStreamSelection
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6531,6 +7732,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageStreamSelection
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6555,6 +7760,303 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageStreamSelection
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestWindowSeconds: this.__input.mssPackage?.manifestWindowSeconds,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.mssPackage?.streamSelection?.streamOrder,
+            },
+          },
+          Origination: this.__input.origination,
+          StartoverWindowSeconds: this.__input.startoverWindowSeconds,
+          Tags: this.__input.tags,
+          TimeDelaySeconds: this.__input.timeDelaySeconds,
+          Whitelist: this.__input.whitelist,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateOriginEndpoint.DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio', props);
+    return resource.getResponseField('DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio') as unknown as string;
+  }
+
+  public get presetSpeke20Video(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video'),
+        outputPath: 'DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          ChannelId: this.__input.channelId,
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+            SegmentPrefix: this.__input.cmafPackage?.segmentPrefix,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.cmafPackage?.streamSelection?.streamOrder,
+            },
+          },
+          DashPackage: {
+            AdTriggers: this.__input.dashPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.dashPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestLayout: this.__input.dashPackage?.manifestLayout,
+            ManifestWindowSeconds: this.__input.dashPackage?.manifestWindowSeconds,
+            MinBufferTimeSeconds: this.__input.dashPackage?.minBufferTimeSeconds,
+            MinUpdatePeriodSeconds: this.__input.dashPackage?.minUpdatePeriodSeconds,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            Profile: this.__input.dashPackage?.profile,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.dashPackage?.streamSelection?.streamOrder,
+            },
+            SuggestedPresentationDelaySeconds: this.__input.dashPackage?.suggestedPresentationDelaySeconds,
+            UtcTiming: this.__input.dashPackage?.utcTiming,
+            UtcTimingUri: this.__input.dashPackage?.utcTimingUri,
+          },
+          Description: this.__input.description,
+          HlsPackage: {
+            AdMarkers: this.__input.hlsPackage?.adMarkers,
+            AdTriggers: this.__input.hlsPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.hlsPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              KeyRotationIntervalSeconds: this.__input.hlsPackage?.encryption?.keyRotationIntervalSeconds,
+              RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeIframeOnlyStream: this.__input.hlsPackage?.includeIframeOnlyStream,
+            PlaylistType: this.__input.hlsPackage?.playlistType,
+            PlaylistWindowSeconds: this.__input.hlsPackage?.playlistWindowSeconds,
+            ProgramDateTimeIntervalSeconds: this.__input.hlsPackage?.programDateTimeIntervalSeconds,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.hlsPackage?.streamSelection?.streamOrder,
+            },
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          ManifestName: this.__input.manifestName,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestWindowSeconds: this.__input.mssPackage?.manifestWindowSeconds,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.mssPackage?.streamSelection?.streamOrder,
+            },
+          },
+          Origination: this.__input.origination,
+          StartoverWindowSeconds: this.__input.startoverWindowSeconds,
+          Tags: this.__input.tags,
+          TimeDelaySeconds: this.__input.timeDelaySeconds,
+          Whitelist: this.__input.whitelist,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateOriginEndpoint.DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video', props);
+    return resource.getResponseField('DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video') as unknown as string;
+  }
+
+}
+
+export class MediaPackageResponsesCreateOriginEndpointDashPackageStreamSelection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageCreateOriginEndpointRequest) {
+  }
+
+  public get maxVideoBitsPerSecond(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.DashPackage.StreamSelection.MaxVideoBitsPerSecond'),
+        outputPath: 'DashPackage.StreamSelection.MaxVideoBitsPerSecond',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          ChannelId: this.__input.channelId,
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+            SegmentPrefix: this.__input.cmafPackage?.segmentPrefix,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.cmafPackage?.streamSelection?.streamOrder,
+            },
+          },
+          DashPackage: {
+            AdTriggers: this.__input.dashPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.dashPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestLayout: this.__input.dashPackage?.manifestLayout,
+            ManifestWindowSeconds: this.__input.dashPackage?.manifestWindowSeconds,
+            MinBufferTimeSeconds: this.__input.dashPackage?.minBufferTimeSeconds,
+            MinUpdatePeriodSeconds: this.__input.dashPackage?.minUpdatePeriodSeconds,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            Profile: this.__input.dashPackage?.profile,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.dashPackage?.streamSelection?.streamOrder,
+            },
+            SuggestedPresentationDelaySeconds: this.__input.dashPackage?.suggestedPresentationDelaySeconds,
+            UtcTiming: this.__input.dashPackage?.utcTiming,
+            UtcTimingUri: this.__input.dashPackage?.utcTimingUri,
+          },
+          Description: this.__input.description,
+          HlsPackage: {
+            AdMarkers: this.__input.hlsPackage?.adMarkers,
+            AdTriggers: this.__input.hlsPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.hlsPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              KeyRotationIntervalSeconds: this.__input.hlsPackage?.encryption?.keyRotationIntervalSeconds,
+              RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeIframeOnlyStream: this.__input.hlsPackage?.includeIframeOnlyStream,
+            PlaylistType: this.__input.hlsPackage?.playlistType,
+            PlaylistWindowSeconds: this.__input.hlsPackage?.playlistWindowSeconds,
+            ProgramDateTimeIntervalSeconds: this.__input.hlsPackage?.programDateTimeIntervalSeconds,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.hlsPackage?.streamSelection?.streamOrder,
+            },
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          ManifestName: this.__input.manifestName,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6597,9 +8099,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageStreamSelection
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6622,6 +8129,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageStreamSelection
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6657,6 +8168,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageStreamSelection
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6681,6 +8196,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageStreamSelection
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6723,9 +8242,14 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageStreamSelection
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6748,6 +8272,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageStreamSelection
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6783,6 +8311,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageStreamSelection
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6807,6 +8339,10 @@ export class MediaPackageResponsesCreateOriginEndpointDashPackageStreamSelection
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6856,9 +8392,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6881,6 +8422,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6916,6 +8461,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6940,6 +8489,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -6982,9 +8535,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7007,6 +8565,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7042,6 +8604,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7066,6 +8632,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7108,9 +8678,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7133,6 +8708,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7168,6 +8747,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7192,6 +8775,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7238,9 +8825,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7263,6 +8855,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7298,6 +8894,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7322,6 +8922,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7364,9 +8968,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7389,6 +8998,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7424,6 +9037,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7448,6 +9065,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7490,9 +9111,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7515,6 +9141,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7550,6 +9180,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7574,6 +9208,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7616,9 +9254,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7641,6 +9284,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7676,6 +9323,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7700,6 +9351,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7742,9 +9397,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7767,6 +9427,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7802,6 +9466,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7826,6 +9494,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7872,9 +9544,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7897,6 +9574,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7932,6 +9613,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -7956,6 +9641,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8005,9 +9694,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryption {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8030,6 +9724,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryption {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8065,6 +9763,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryption {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8089,6 +9791,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryption {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8131,9 +9837,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryption {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8156,6 +9867,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryption {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8191,6 +9906,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryption {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8215,6 +9934,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryption {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8257,9 +9980,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryption {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8282,6 +10010,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryption {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8317,6 +10049,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryption {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8341,6 +10077,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryption {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8383,9 +10123,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryption {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8408,6 +10153,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryption {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8443,6 +10192,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryption {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8467,6 +10220,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryption {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8520,9 +10277,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8545,6 +10307,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8580,6 +10346,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8604,6 +10374,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8630,6 +10404,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
     return resource.getResponseField('HlsPackage.Encryption.SpekeKeyProvider.CertificateArn') as unknown as string;
   }
 
+  public get encryptionContractConfiguration(): MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
+    return new MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
   public get resourceId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -8646,9 +10424,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8671,6 +10454,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8706,6 +10493,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8730,6 +10521,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8772,9 +10567,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8797,6 +10597,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8832,6 +10636,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8856,6 +10664,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8898,9 +10710,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8923,6 +10740,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8958,6 +10779,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -8982,6 +10807,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9024,9 +10853,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9049,6 +10883,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9084,6 +10922,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9108,6 +10950,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9136,19 +10982,19 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeK
 
 }
 
-export class MediaPackageResponsesCreateOriginEndpointHlsPackageStreamSelection {
+export class MediaPackageResponsesCreateOriginEndpointHlsPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageCreateOriginEndpointRequest) {
   }
 
-  public get maxVideoBitsPerSecond(): number {
+  public get presetSpeke20Audio(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
         action: 'createOriginEndpoint',
         service: 'MediaPackage',
-        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.HlsPackage.StreamSelection.MaxVideoBitsPerSecond'),
-        outputPath: 'HlsPackage.StreamSelection.MaxVideoBitsPerSecond',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio'),
+        outputPath: 'HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio',
         parameters: {
           Authorization: {
             CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
@@ -9157,9 +11003,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageStreamSelection 
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9182,6 +11033,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageStreamSelection 
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9217,6 +11072,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageStreamSelection 
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9241,6 +11100,303 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageStreamSelection 
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestWindowSeconds: this.__input.mssPackage?.manifestWindowSeconds,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.mssPackage?.streamSelection?.streamOrder,
+            },
+          },
+          Origination: this.__input.origination,
+          StartoverWindowSeconds: this.__input.startoverWindowSeconds,
+          Tags: this.__input.tags,
+          TimeDelaySeconds: this.__input.timeDelaySeconds,
+          Whitelist: this.__input.whitelist,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateOriginEndpoint.HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio', props);
+    return resource.getResponseField('HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio') as unknown as string;
+  }
+
+  public get presetSpeke20Video(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video'),
+        outputPath: 'HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          ChannelId: this.__input.channelId,
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+            SegmentPrefix: this.__input.cmafPackage?.segmentPrefix,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.cmafPackage?.streamSelection?.streamOrder,
+            },
+          },
+          DashPackage: {
+            AdTriggers: this.__input.dashPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.dashPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestLayout: this.__input.dashPackage?.manifestLayout,
+            ManifestWindowSeconds: this.__input.dashPackage?.manifestWindowSeconds,
+            MinBufferTimeSeconds: this.__input.dashPackage?.minBufferTimeSeconds,
+            MinUpdatePeriodSeconds: this.__input.dashPackage?.minUpdatePeriodSeconds,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            Profile: this.__input.dashPackage?.profile,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.dashPackage?.streamSelection?.streamOrder,
+            },
+            SuggestedPresentationDelaySeconds: this.__input.dashPackage?.suggestedPresentationDelaySeconds,
+            UtcTiming: this.__input.dashPackage?.utcTiming,
+            UtcTimingUri: this.__input.dashPackage?.utcTimingUri,
+          },
+          Description: this.__input.description,
+          HlsPackage: {
+            AdMarkers: this.__input.hlsPackage?.adMarkers,
+            AdTriggers: this.__input.hlsPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.hlsPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              KeyRotationIntervalSeconds: this.__input.hlsPackage?.encryption?.keyRotationIntervalSeconds,
+              RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeIframeOnlyStream: this.__input.hlsPackage?.includeIframeOnlyStream,
+            PlaylistType: this.__input.hlsPackage?.playlistType,
+            PlaylistWindowSeconds: this.__input.hlsPackage?.playlistWindowSeconds,
+            ProgramDateTimeIntervalSeconds: this.__input.hlsPackage?.programDateTimeIntervalSeconds,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.hlsPackage?.streamSelection?.streamOrder,
+            },
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          ManifestName: this.__input.manifestName,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestWindowSeconds: this.__input.mssPackage?.manifestWindowSeconds,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.mssPackage?.streamSelection?.streamOrder,
+            },
+          },
+          Origination: this.__input.origination,
+          StartoverWindowSeconds: this.__input.startoverWindowSeconds,
+          Tags: this.__input.tags,
+          TimeDelaySeconds: this.__input.timeDelaySeconds,
+          Whitelist: this.__input.whitelist,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateOriginEndpoint.HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video', props);
+    return resource.getResponseField('HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video') as unknown as string;
+  }
+
+}
+
+export class MediaPackageResponsesCreateOriginEndpointHlsPackageStreamSelection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageCreateOriginEndpointRequest) {
+  }
+
+  public get maxVideoBitsPerSecond(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.HlsPackage.StreamSelection.MaxVideoBitsPerSecond'),
+        outputPath: 'HlsPackage.StreamSelection.MaxVideoBitsPerSecond',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          ChannelId: this.__input.channelId,
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+            SegmentPrefix: this.__input.cmafPackage?.segmentPrefix,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.cmafPackage?.streamSelection?.streamOrder,
+            },
+          },
+          DashPackage: {
+            AdTriggers: this.__input.dashPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.dashPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestLayout: this.__input.dashPackage?.manifestLayout,
+            ManifestWindowSeconds: this.__input.dashPackage?.manifestWindowSeconds,
+            MinBufferTimeSeconds: this.__input.dashPackage?.minBufferTimeSeconds,
+            MinUpdatePeriodSeconds: this.__input.dashPackage?.minUpdatePeriodSeconds,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            Profile: this.__input.dashPackage?.profile,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.dashPackage?.streamSelection?.streamOrder,
+            },
+            SuggestedPresentationDelaySeconds: this.__input.dashPackage?.suggestedPresentationDelaySeconds,
+            UtcTiming: this.__input.dashPackage?.utcTiming,
+            UtcTimingUri: this.__input.dashPackage?.utcTimingUri,
+          },
+          Description: this.__input.description,
+          HlsPackage: {
+            AdMarkers: this.__input.hlsPackage?.adMarkers,
+            AdTriggers: this.__input.hlsPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.hlsPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              KeyRotationIntervalSeconds: this.__input.hlsPackage?.encryption?.keyRotationIntervalSeconds,
+              RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeIframeOnlyStream: this.__input.hlsPackage?.includeIframeOnlyStream,
+            PlaylistType: this.__input.hlsPackage?.playlistType,
+            PlaylistWindowSeconds: this.__input.hlsPackage?.playlistWindowSeconds,
+            ProgramDateTimeIntervalSeconds: this.__input.hlsPackage?.programDateTimeIntervalSeconds,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.hlsPackage?.streamSelection?.streamOrder,
+            },
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          ManifestName: this.__input.manifestName,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9283,9 +11439,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageStreamSelection 
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9308,6 +11469,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageStreamSelection 
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9343,6 +11508,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageStreamSelection 
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9367,6 +11536,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageStreamSelection 
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9409,9 +11582,14 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageStreamSelection 
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9434,6 +11612,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageStreamSelection 
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9469,6 +11651,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageStreamSelection 
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9493,6 +11679,10 @@ export class MediaPackageResponsesCreateOriginEndpointHlsPackageStreamSelection 
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9546,9 +11736,14 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9571,6 +11766,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9606,6 +11805,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9630,6 +11833,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9672,9 +11879,14 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackage {
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9697,6 +11909,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9732,6 +11948,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9756,6 +11976,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9820,9 +12044,14 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9845,6 +12074,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9880,6 +12113,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9904,6 +12141,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9930,6 +12171,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
     return resource.getResponseField('MssPackage.Encryption.SpekeKeyProvider.CertificateArn') as unknown as string;
   }
 
+  public get encryptionContractConfiguration(): MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
+    return new MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
   public get resourceId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -9946,9 +12191,14 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -9971,6 +12221,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10006,6 +12260,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10030,6 +12288,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10072,9 +12334,14 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10097,6 +12364,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10132,6 +12403,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10156,6 +12431,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10198,9 +12477,14 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10223,6 +12507,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10258,6 +12546,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10282,6 +12574,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10324,9 +12620,14 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10349,6 +12650,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10384,6 +12689,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10408,6 +12717,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10436,19 +12749,19 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeK
 
 }
 
-export class MediaPackageResponsesCreateOriginEndpointMssPackageStreamSelection {
+export class MediaPackageResponsesCreateOriginEndpointMssPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageCreateOriginEndpointRequest) {
   }
 
-  public get maxVideoBitsPerSecond(): number {
+  public get presetSpeke20Audio(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
         action: 'createOriginEndpoint',
         service: 'MediaPackage',
-        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.MssPackage.StreamSelection.MaxVideoBitsPerSecond'),
-        outputPath: 'MssPackage.StreamSelection.MaxVideoBitsPerSecond',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio'),
+        outputPath: 'MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio',
         parameters: {
           Authorization: {
             CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
@@ -10457,9 +12770,14 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageStreamSelection 
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10482,6 +12800,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageStreamSelection 
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10517,6 +12839,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageStreamSelection 
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10541,6 +12867,303 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageStreamSelection 
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestWindowSeconds: this.__input.mssPackage?.manifestWindowSeconds,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.mssPackage?.streamSelection?.streamOrder,
+            },
+          },
+          Origination: this.__input.origination,
+          StartoverWindowSeconds: this.__input.startoverWindowSeconds,
+          Tags: this.__input.tags,
+          TimeDelaySeconds: this.__input.timeDelaySeconds,
+          Whitelist: this.__input.whitelist,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateOriginEndpoint.MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio', props);
+    return resource.getResponseField('MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio') as unknown as string;
+  }
+
+  public get presetSpeke20Video(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video'),
+        outputPath: 'MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          ChannelId: this.__input.channelId,
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+            SegmentPrefix: this.__input.cmafPackage?.segmentPrefix,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.cmafPackage?.streamSelection?.streamOrder,
+            },
+          },
+          DashPackage: {
+            AdTriggers: this.__input.dashPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.dashPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestLayout: this.__input.dashPackage?.manifestLayout,
+            ManifestWindowSeconds: this.__input.dashPackage?.manifestWindowSeconds,
+            MinBufferTimeSeconds: this.__input.dashPackage?.minBufferTimeSeconds,
+            MinUpdatePeriodSeconds: this.__input.dashPackage?.minUpdatePeriodSeconds,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            Profile: this.__input.dashPackage?.profile,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.dashPackage?.streamSelection?.streamOrder,
+            },
+            SuggestedPresentationDelaySeconds: this.__input.dashPackage?.suggestedPresentationDelaySeconds,
+            UtcTiming: this.__input.dashPackage?.utcTiming,
+            UtcTimingUri: this.__input.dashPackage?.utcTimingUri,
+          },
+          Description: this.__input.description,
+          HlsPackage: {
+            AdMarkers: this.__input.hlsPackage?.adMarkers,
+            AdTriggers: this.__input.hlsPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.hlsPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              KeyRotationIntervalSeconds: this.__input.hlsPackage?.encryption?.keyRotationIntervalSeconds,
+              RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeIframeOnlyStream: this.__input.hlsPackage?.includeIframeOnlyStream,
+            PlaylistType: this.__input.hlsPackage?.playlistType,
+            PlaylistWindowSeconds: this.__input.hlsPackage?.playlistWindowSeconds,
+            ProgramDateTimeIntervalSeconds: this.__input.hlsPackage?.programDateTimeIntervalSeconds,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.hlsPackage?.streamSelection?.streamOrder,
+            },
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          ManifestName: this.__input.manifestName,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestWindowSeconds: this.__input.mssPackage?.manifestWindowSeconds,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.mssPackage?.streamSelection?.streamOrder,
+            },
+          },
+          Origination: this.__input.origination,
+          StartoverWindowSeconds: this.__input.startoverWindowSeconds,
+          Tags: this.__input.tags,
+          TimeDelaySeconds: this.__input.timeDelaySeconds,
+          Whitelist: this.__input.whitelist,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateOriginEndpoint.MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video', props);
+    return resource.getResponseField('MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video') as unknown as string;
+  }
+
+}
+
+export class MediaPackageResponsesCreateOriginEndpointMssPackageStreamSelection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageCreateOriginEndpointRequest) {
+  }
+
+  public get maxVideoBitsPerSecond(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.CreateOriginEndpoint.MssPackage.StreamSelection.MaxVideoBitsPerSecond'),
+        outputPath: 'MssPackage.StreamSelection.MaxVideoBitsPerSecond',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          ChannelId: this.__input.channelId,
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+            SegmentPrefix: this.__input.cmafPackage?.segmentPrefix,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.cmafPackage?.streamSelection?.streamOrder,
+            },
+          },
+          DashPackage: {
+            AdTriggers: this.__input.dashPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.dashPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestLayout: this.__input.dashPackage?.manifestLayout,
+            ManifestWindowSeconds: this.__input.dashPackage?.manifestWindowSeconds,
+            MinBufferTimeSeconds: this.__input.dashPackage?.minBufferTimeSeconds,
+            MinUpdatePeriodSeconds: this.__input.dashPackage?.minUpdatePeriodSeconds,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            Profile: this.__input.dashPackage?.profile,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.dashPackage?.streamSelection?.streamOrder,
+            },
+            SuggestedPresentationDelaySeconds: this.__input.dashPackage?.suggestedPresentationDelaySeconds,
+            UtcTiming: this.__input.dashPackage?.utcTiming,
+            UtcTimingUri: this.__input.dashPackage?.utcTimingUri,
+          },
+          Description: this.__input.description,
+          HlsPackage: {
+            AdMarkers: this.__input.hlsPackage?.adMarkers,
+            AdTriggers: this.__input.hlsPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.hlsPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              KeyRotationIntervalSeconds: this.__input.hlsPackage?.encryption?.keyRotationIntervalSeconds,
+              RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeIframeOnlyStream: this.__input.hlsPackage?.includeIframeOnlyStream,
+            PlaylistType: this.__input.hlsPackage?.playlistType,
+            PlaylistWindowSeconds: this.__input.hlsPackage?.playlistWindowSeconds,
+            ProgramDateTimeIntervalSeconds: this.__input.hlsPackage?.programDateTimeIntervalSeconds,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.hlsPackage?.streamSelection?.streamOrder,
+            },
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          ManifestName: this.__input.manifestName,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10583,9 +13206,14 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageStreamSelection 
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10608,6 +13236,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageStreamSelection 
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10643,6 +13275,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageStreamSelection 
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10667,6 +13303,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageStreamSelection 
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10709,9 +13349,14 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageStreamSelection 
           ChannelId: this.__input.channelId,
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10734,6 +13379,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageStreamSelection 
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10769,6 +13418,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageStreamSelection 
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -10793,6 +13446,10 @@ export class MediaPackageResponsesCreateOriginEndpointMssPackageStreamSelection 
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -11511,6 +14168,23 @@ export class MediaPackageResponsesDescribeOriginEndpointCmafPackageEncryption {
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageDescribeOriginEndpointRequest) {
   }
 
+  public get constantInitializationVector(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.DescribeOriginEndpoint.CmafPackage.Encryption.ConstantInitializationVector'),
+        outputPath: 'CmafPackage.Encryption.ConstantInitializationVector',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeOriginEndpoint.CmafPackage.Encryption.ConstantInitializationVector', props);
+    return resource.getResponseField('CmafPackage.Encryption.ConstantInitializationVector') as unknown as string;
+  }
+
   public get keyRotationIntervalSeconds(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -11554,6 +14228,10 @@ export class MediaPackageResponsesDescribeOriginEndpointCmafPackageEncryptionSpe
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeOriginEndpoint.CmafPackage.Encryption.SpekeKeyProvider.CertificateArn', props);
     return resource.getResponseField('CmafPackage.Encryption.SpekeKeyProvider.CertificateArn') as unknown as string;
+  }
+
+  public get encryptionContractConfiguration(): MediaPackageResponsesDescribeOriginEndpointCmafPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
+    return new MediaPackageResponsesDescribeOriginEndpointCmafPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration(this.__scope, this.__resources, this.__input);
   }
 
   public get resourceId(): string {
@@ -11622,6 +14300,47 @@ export class MediaPackageResponsesDescribeOriginEndpointCmafPackageEncryptionSpe
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeOriginEndpoint.CmafPackage.Encryption.SpekeKeyProvider.Url', props);
     return resource.getResponseField('CmafPackage.Encryption.SpekeKeyProvider.Url') as unknown as string;
+  }
+
+}
+
+export class MediaPackageResponsesDescribeOriginEndpointCmafPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageDescribeOriginEndpointRequest) {
+  }
+
+  public get presetSpeke20Audio(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.DescribeOriginEndpoint.CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio'),
+        outputPath: 'CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeOriginEndpoint.CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio', props);
+    return resource.getResponseField('CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio') as unknown as string;
+  }
+
+  public get presetSpeke20Video(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.DescribeOriginEndpoint.CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video'),
+        outputPath: 'CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeOriginEndpoint.CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video', props);
+    return resource.getResponseField('CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video') as unknown as string;
   }
 
 }
@@ -11970,6 +14689,10 @@ export class MediaPackageResponsesDescribeOriginEndpointDashPackageEncryptionSpe
     return resource.getResponseField('DashPackage.Encryption.SpekeKeyProvider.CertificateArn') as unknown as string;
   }
 
+  public get encryptionContractConfiguration(): MediaPackageResponsesDescribeOriginEndpointDashPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
+    return new MediaPackageResponsesDescribeOriginEndpointDashPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
   public get resourceId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -12036,6 +14759,47 @@ export class MediaPackageResponsesDescribeOriginEndpointDashPackageEncryptionSpe
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeOriginEndpoint.DashPackage.Encryption.SpekeKeyProvider.Url', props);
     return resource.getResponseField('DashPackage.Encryption.SpekeKeyProvider.Url') as unknown as string;
+  }
+
+}
+
+export class MediaPackageResponsesDescribeOriginEndpointDashPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageDescribeOriginEndpointRequest) {
+  }
+
+  public get presetSpeke20Audio(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.DescribeOriginEndpoint.DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio'),
+        outputPath: 'DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeOriginEndpoint.DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio', props);
+    return resource.getResponseField('DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio') as unknown as string;
+  }
+
+  public get presetSpeke20Video(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.DescribeOriginEndpoint.DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video'),
+        outputPath: 'DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeOriginEndpoint.DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video', props);
+    return resource.getResponseField('DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video') as unknown as string;
   }
 
 }
@@ -12367,6 +15131,10 @@ export class MediaPackageResponsesDescribeOriginEndpointHlsPackageEncryptionSpek
     return resource.getResponseField('HlsPackage.Encryption.SpekeKeyProvider.CertificateArn') as unknown as string;
   }
 
+  public get encryptionContractConfiguration(): MediaPackageResponsesDescribeOriginEndpointHlsPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
+    return new MediaPackageResponsesDescribeOriginEndpointHlsPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
   public get resourceId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -12433,6 +15201,47 @@ export class MediaPackageResponsesDescribeOriginEndpointHlsPackageEncryptionSpek
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeOriginEndpoint.HlsPackage.Encryption.SpekeKeyProvider.Url', props);
     return resource.getResponseField('HlsPackage.Encryption.SpekeKeyProvider.Url') as unknown as string;
+  }
+
+}
+
+export class MediaPackageResponsesDescribeOriginEndpointHlsPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageDescribeOriginEndpointRequest) {
+  }
+
+  public get presetSpeke20Audio(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.DescribeOriginEndpoint.HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio'),
+        outputPath: 'HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeOriginEndpoint.HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio', props);
+    return resource.getResponseField('HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio') as unknown as string;
+  }
+
+  public get presetSpeke20Video(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.DescribeOriginEndpoint.HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video'),
+        outputPath: 'HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeOriginEndpoint.HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video', props);
+    return resource.getResponseField('HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video') as unknown as string;
   }
 
 }
@@ -12577,6 +15386,10 @@ export class MediaPackageResponsesDescribeOriginEndpointMssPackageEncryptionSpek
     return resource.getResponseField('MssPackage.Encryption.SpekeKeyProvider.CertificateArn') as unknown as string;
   }
 
+  public get encryptionContractConfiguration(): MediaPackageResponsesDescribeOriginEndpointMssPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
+    return new MediaPackageResponsesDescribeOriginEndpointMssPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
   public get resourceId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -12643,6 +15456,47 @@ export class MediaPackageResponsesDescribeOriginEndpointMssPackageEncryptionSpek
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeOriginEndpoint.MssPackage.Encryption.SpekeKeyProvider.Url', props);
     return resource.getResponseField('MssPackage.Encryption.SpekeKeyProvider.Url') as unknown as string;
+  }
+
+}
+
+export class MediaPackageResponsesDescribeOriginEndpointMssPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageDescribeOriginEndpointRequest) {
+  }
+
+  public get presetSpeke20Audio(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.DescribeOriginEndpoint.MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio'),
+        outputPath: 'MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeOriginEndpoint.MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio', props);
+    return resource.getResponseField('MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio') as unknown as string;
+  }
+
+  public get presetSpeke20Video(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.DescribeOriginEndpoint.MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video'),
+        outputPath: 'MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeOriginEndpoint.MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video', props);
+    return resource.getResponseField('MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video') as unknown as string;
   }
 
 }
@@ -13375,9 +16229,14 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13400,6 +16259,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13435,6 +16298,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13459,6 +16326,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13503,9 +16374,14 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13528,6 +16404,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13563,6 +16443,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13587,6 +16471,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13635,9 +16523,14 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13660,6 +16553,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13695,6 +16592,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13719,6 +16620,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13763,9 +16668,14 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13788,6 +16698,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13823,6 +16737,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13847,6 +16765,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13887,9 +16809,14 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13912,6 +16839,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13947,6 +16878,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -13971,6 +16906,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14015,9 +16954,14 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14040,6 +16984,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14075,6 +17023,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14099,6 +17051,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14139,9 +17095,14 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14164,6 +17125,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14199,6 +17164,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14223,6 +17192,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14263,9 +17236,14 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14288,6 +17266,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14323,6 +17305,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14347,6 +17333,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14387,9 +17377,14 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14412,6 +17407,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14447,6 +17446,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14471,6 +17474,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14511,9 +17518,14 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14536,6 +17548,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14571,6 +17587,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14595,6 +17615,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14635,9 +17659,14 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14660,6 +17689,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14695,6 +17728,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14719,6 +17756,10 @@ export class MediaPackageResponsesUpdateOriginEndpoint {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14766,9 +17807,14 @@ export class MediaPackageResponsesUpdateOriginEndpointAuthorization {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14791,6 +17837,10 @@ export class MediaPackageResponsesUpdateOriginEndpointAuthorization {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14826,6 +17876,10 @@ export class MediaPackageResponsesUpdateOriginEndpointAuthorization {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14850,6 +17904,10 @@ export class MediaPackageResponsesUpdateOriginEndpointAuthorization {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14890,9 +17948,14 @@ export class MediaPackageResponsesUpdateOriginEndpointAuthorization {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14915,6 +17978,10 @@ export class MediaPackageResponsesUpdateOriginEndpointAuthorization {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14950,6 +18017,10 @@ export class MediaPackageResponsesUpdateOriginEndpointAuthorization {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -14974,6 +18045,10 @@ export class MediaPackageResponsesUpdateOriginEndpointAuthorization {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15025,9 +18100,14 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15050,6 +18130,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15085,6 +18169,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15109,6 +18197,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15149,9 +18241,14 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15174,6 +18271,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15209,6 +18310,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15233,6 +18338,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15273,9 +18382,14 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15298,6 +18412,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15333,6 +18451,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15357,6 +18479,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15393,14 +18519,14 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryption {
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageUpdateOriginEndpointRequest) {
   }
 
-  public get keyRotationIntervalSeconds(): number {
+  public get constantInitializationVector(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
         action: 'updateOriginEndpoint',
         service: 'MediaPackage',
-        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.CmafPackage.Encryption.KeyRotationIntervalSeconds'),
-        outputPath: 'CmafPackage.Encryption.KeyRotationIntervalSeconds',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.CmafPackage.Encryption.ConstantInitializationVector'),
+        outputPath: 'CmafPackage.Encryption.ConstantInitializationVector',
         parameters: {
           Authorization: {
             CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
@@ -15408,9 +18534,14 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryption {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15433,6 +18564,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryption {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15468,6 +18603,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryption {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15492,6 +18631,151 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryption {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestWindowSeconds: this.__input.mssPackage?.manifestWindowSeconds,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.mssPackage?.streamSelection?.streamOrder,
+            },
+          },
+          Origination: this.__input.origination,
+          StartoverWindowSeconds: this.__input.startoverWindowSeconds,
+          TimeDelaySeconds: this.__input.timeDelaySeconds,
+          Whitelist: this.__input.whitelist,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateOriginEndpoint.CmafPackage.Encryption.ConstantInitializationVector', props);
+    return resource.getResponseField('CmafPackage.Encryption.ConstantInitializationVector') as unknown as string;
+  }
+
+  public get keyRotationIntervalSeconds(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.CmafPackage.Encryption.KeyRotationIntervalSeconds'),
+        outputPath: 'CmafPackage.Encryption.KeyRotationIntervalSeconds',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+            SegmentPrefix: this.__input.cmafPackage?.segmentPrefix,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.cmafPackage?.streamSelection?.streamOrder,
+            },
+          },
+          DashPackage: {
+            AdTriggers: this.__input.dashPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.dashPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestLayout: this.__input.dashPackage?.manifestLayout,
+            ManifestWindowSeconds: this.__input.dashPackage?.manifestWindowSeconds,
+            MinBufferTimeSeconds: this.__input.dashPackage?.minBufferTimeSeconds,
+            MinUpdatePeriodSeconds: this.__input.dashPackage?.minUpdatePeriodSeconds,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            Profile: this.__input.dashPackage?.profile,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.dashPackage?.streamSelection?.streamOrder,
+            },
+            SuggestedPresentationDelaySeconds: this.__input.dashPackage?.suggestedPresentationDelaySeconds,
+            UtcTiming: this.__input.dashPackage?.utcTiming,
+            UtcTimingUri: this.__input.dashPackage?.utcTimingUri,
+          },
+          Description: this.__input.description,
+          HlsPackage: {
+            AdMarkers: this.__input.hlsPackage?.adMarkers,
+            AdTriggers: this.__input.hlsPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.hlsPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              KeyRotationIntervalSeconds: this.__input.hlsPackage?.encryption?.keyRotationIntervalSeconds,
+              RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeIframeOnlyStream: this.__input.hlsPackage?.includeIframeOnlyStream,
+            PlaylistType: this.__input.hlsPackage?.playlistType,
+            PlaylistWindowSeconds: this.__input.hlsPackage?.playlistWindowSeconds,
+            ProgramDateTimeIntervalSeconds: this.__input.hlsPackage?.programDateTimeIntervalSeconds,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.hlsPackage?.streamSelection?.streamOrder,
+            },
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          ManifestName: this.__input.manifestName,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15543,9 +18827,14 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15568,6 +18857,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15603,6 +18896,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15627,6 +18924,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15652,6 +18953,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
     return resource.getResponseField('CmafPackage.Encryption.SpekeKeyProvider.CertificateArn') as unknown as string;
   }
 
+  public get encryptionContractConfiguration(): MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
+    return new MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
   public get resourceId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -15667,9 +18972,14 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15692,6 +19002,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15727,6 +19041,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15751,6 +19069,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15791,9 +19113,14 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15816,6 +19143,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15851,6 +19182,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15875,6 +19210,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15915,9 +19254,14 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15940,6 +19284,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15975,6 +19323,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -15999,6 +19351,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16039,9 +19395,14 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16064,6 +19425,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16099,6 +19464,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16123,6 +19492,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16150,19 +19523,19 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpeke
 
 }
 
-export class MediaPackageResponsesUpdateOriginEndpointCmafPackageStreamSelection {
+export class MediaPackageResponsesUpdateOriginEndpointCmafPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageUpdateOriginEndpointRequest) {
   }
 
-  public get maxVideoBitsPerSecond(): number {
+  public get presetSpeke20Audio(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
         action: 'updateOriginEndpoint',
         service: 'MediaPackage',
-        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.CmafPackage.StreamSelection.MaxVideoBitsPerSecond'),
-        outputPath: 'CmafPackage.StreamSelection.MaxVideoBitsPerSecond',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio'),
+        outputPath: 'CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio',
         parameters: {
           Authorization: {
             CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
@@ -16170,9 +19543,14 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageStreamSelection
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16195,6 +19573,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageStreamSelection
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16230,6 +19612,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageStreamSelection
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16254,6 +19640,299 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageStreamSelection
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestWindowSeconds: this.__input.mssPackage?.manifestWindowSeconds,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.mssPackage?.streamSelection?.streamOrder,
+            },
+          },
+          Origination: this.__input.origination,
+          StartoverWindowSeconds: this.__input.startoverWindowSeconds,
+          TimeDelaySeconds: this.__input.timeDelaySeconds,
+          Whitelist: this.__input.whitelist,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateOriginEndpoint.CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio', props);
+    return resource.getResponseField('CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio') as unknown as string;
+  }
+
+  public get presetSpeke20Video(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video'),
+        outputPath: 'CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+            SegmentPrefix: this.__input.cmafPackage?.segmentPrefix,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.cmafPackage?.streamSelection?.streamOrder,
+            },
+          },
+          DashPackage: {
+            AdTriggers: this.__input.dashPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.dashPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestLayout: this.__input.dashPackage?.manifestLayout,
+            ManifestWindowSeconds: this.__input.dashPackage?.manifestWindowSeconds,
+            MinBufferTimeSeconds: this.__input.dashPackage?.minBufferTimeSeconds,
+            MinUpdatePeriodSeconds: this.__input.dashPackage?.minUpdatePeriodSeconds,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            Profile: this.__input.dashPackage?.profile,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.dashPackage?.streamSelection?.streamOrder,
+            },
+            SuggestedPresentationDelaySeconds: this.__input.dashPackage?.suggestedPresentationDelaySeconds,
+            UtcTiming: this.__input.dashPackage?.utcTiming,
+            UtcTimingUri: this.__input.dashPackage?.utcTimingUri,
+          },
+          Description: this.__input.description,
+          HlsPackage: {
+            AdMarkers: this.__input.hlsPackage?.adMarkers,
+            AdTriggers: this.__input.hlsPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.hlsPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              KeyRotationIntervalSeconds: this.__input.hlsPackage?.encryption?.keyRotationIntervalSeconds,
+              RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeIframeOnlyStream: this.__input.hlsPackage?.includeIframeOnlyStream,
+            PlaylistType: this.__input.hlsPackage?.playlistType,
+            PlaylistWindowSeconds: this.__input.hlsPackage?.playlistWindowSeconds,
+            ProgramDateTimeIntervalSeconds: this.__input.hlsPackage?.programDateTimeIntervalSeconds,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.hlsPackage?.streamSelection?.streamOrder,
+            },
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          ManifestName: this.__input.manifestName,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestWindowSeconds: this.__input.mssPackage?.manifestWindowSeconds,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.mssPackage?.streamSelection?.streamOrder,
+            },
+          },
+          Origination: this.__input.origination,
+          StartoverWindowSeconds: this.__input.startoverWindowSeconds,
+          TimeDelaySeconds: this.__input.timeDelaySeconds,
+          Whitelist: this.__input.whitelist,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateOriginEndpoint.CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video', props);
+    return resource.getResponseField('CmafPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video') as unknown as string;
+  }
+
+}
+
+export class MediaPackageResponsesUpdateOriginEndpointCmafPackageStreamSelection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageUpdateOriginEndpointRequest) {
+  }
+
+  public get maxVideoBitsPerSecond(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.CmafPackage.StreamSelection.MaxVideoBitsPerSecond'),
+        outputPath: 'CmafPackage.StreamSelection.MaxVideoBitsPerSecond',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+            SegmentPrefix: this.__input.cmafPackage?.segmentPrefix,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.cmafPackage?.streamSelection?.streamOrder,
+            },
+          },
+          DashPackage: {
+            AdTriggers: this.__input.dashPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.dashPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestLayout: this.__input.dashPackage?.manifestLayout,
+            ManifestWindowSeconds: this.__input.dashPackage?.manifestWindowSeconds,
+            MinBufferTimeSeconds: this.__input.dashPackage?.minBufferTimeSeconds,
+            MinUpdatePeriodSeconds: this.__input.dashPackage?.minUpdatePeriodSeconds,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            Profile: this.__input.dashPackage?.profile,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.dashPackage?.streamSelection?.streamOrder,
+            },
+            SuggestedPresentationDelaySeconds: this.__input.dashPackage?.suggestedPresentationDelaySeconds,
+            UtcTiming: this.__input.dashPackage?.utcTiming,
+            UtcTimingUri: this.__input.dashPackage?.utcTimingUri,
+          },
+          Description: this.__input.description,
+          HlsPackage: {
+            AdMarkers: this.__input.hlsPackage?.adMarkers,
+            AdTriggers: this.__input.hlsPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.hlsPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              KeyRotationIntervalSeconds: this.__input.hlsPackage?.encryption?.keyRotationIntervalSeconds,
+              RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeIframeOnlyStream: this.__input.hlsPackage?.includeIframeOnlyStream,
+            PlaylistType: this.__input.hlsPackage?.playlistType,
+            PlaylistWindowSeconds: this.__input.hlsPackage?.playlistWindowSeconds,
+            ProgramDateTimeIntervalSeconds: this.__input.hlsPackage?.programDateTimeIntervalSeconds,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.hlsPackage?.streamSelection?.streamOrder,
+            },
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          ManifestName: this.__input.manifestName,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16294,9 +19973,14 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageStreamSelection
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16319,6 +20003,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageStreamSelection
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16354,6 +20042,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageStreamSelection
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16378,6 +20070,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageStreamSelection
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16418,9 +20114,14 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageStreamSelection
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16443,6 +20144,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageStreamSelection
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16478,6 +20183,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageStreamSelection
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16502,6 +20211,10 @@ export class MediaPackageResponsesUpdateOriginEndpointCmafPackageStreamSelection
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16549,9 +20262,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16574,6 +20292,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16609,6 +20331,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16633,6 +20359,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16673,9 +20403,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16698,6 +20433,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16733,6 +20472,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16757,6 +20500,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16801,9 +20548,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16826,6 +20578,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16861,6 +20617,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16885,6 +20645,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16925,9 +20689,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16950,6 +20719,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -16985,6 +20758,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17009,6 +20786,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17049,9 +20830,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17074,6 +20860,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17109,6 +20899,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17133,6 +20927,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17173,9 +20971,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17198,6 +21001,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17233,6 +21040,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17257,6 +21068,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17297,9 +21112,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17322,6 +21142,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17357,6 +21181,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17381,6 +21209,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17421,9 +21253,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17446,6 +21283,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17481,6 +21322,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17505,6 +21350,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17545,9 +21394,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17570,6 +21424,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17605,6 +21463,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17629,6 +21491,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17669,9 +21535,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17694,6 +21565,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17729,6 +21604,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17753,6 +21632,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17797,9 +21680,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17822,6 +21710,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17857,6 +21749,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17881,6 +21777,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17921,9 +21821,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17946,6 +21851,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -17981,6 +21890,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18005,6 +21918,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18045,9 +21962,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18070,6 +21992,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18105,6 +22031,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18129,6 +22059,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18176,9 +22110,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryption {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18201,6 +22140,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryption {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18236,6 +22179,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryption {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18260,6 +22207,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryption {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18311,9 +22262,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18336,6 +22292,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18371,6 +22331,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18395,6 +22359,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18420,6 +22388,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
     return resource.getResponseField('DashPackage.Encryption.SpekeKeyProvider.CertificateArn') as unknown as string;
   }
 
+  public get encryptionContractConfiguration(): MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
+    return new MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
   public get resourceId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -18435,9 +22407,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18460,6 +22437,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18495,6 +22476,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18519,6 +22504,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18559,9 +22548,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18584,6 +22578,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18619,6 +22617,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18643,6 +22645,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18683,9 +22689,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18708,6 +22719,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18743,6 +22758,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18767,6 +22786,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18807,9 +22830,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18832,6 +22860,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18867,6 +22899,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18891,6 +22927,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18918,19 +22958,19 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpeke
 
 }
 
-export class MediaPackageResponsesUpdateOriginEndpointDashPackageStreamSelection {
+export class MediaPackageResponsesUpdateOriginEndpointDashPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageUpdateOriginEndpointRequest) {
   }
 
-  public get maxVideoBitsPerSecond(): number {
+  public get presetSpeke20Audio(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
         action: 'updateOriginEndpoint',
         service: 'MediaPackage',
-        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.DashPackage.StreamSelection.MaxVideoBitsPerSecond'),
-        outputPath: 'DashPackage.StreamSelection.MaxVideoBitsPerSecond',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio'),
+        outputPath: 'DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio',
         parameters: {
           Authorization: {
             CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
@@ -18938,9 +22978,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageStreamSelection
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18963,6 +23008,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageStreamSelection
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -18998,6 +23047,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageStreamSelection
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19022,6 +23075,299 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageStreamSelection
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestWindowSeconds: this.__input.mssPackage?.manifestWindowSeconds,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.mssPackage?.streamSelection?.streamOrder,
+            },
+          },
+          Origination: this.__input.origination,
+          StartoverWindowSeconds: this.__input.startoverWindowSeconds,
+          TimeDelaySeconds: this.__input.timeDelaySeconds,
+          Whitelist: this.__input.whitelist,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateOriginEndpoint.DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio', props);
+    return resource.getResponseField('DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio') as unknown as string;
+  }
+
+  public get presetSpeke20Video(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video'),
+        outputPath: 'DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+            SegmentPrefix: this.__input.cmafPackage?.segmentPrefix,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.cmafPackage?.streamSelection?.streamOrder,
+            },
+          },
+          DashPackage: {
+            AdTriggers: this.__input.dashPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.dashPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestLayout: this.__input.dashPackage?.manifestLayout,
+            ManifestWindowSeconds: this.__input.dashPackage?.manifestWindowSeconds,
+            MinBufferTimeSeconds: this.__input.dashPackage?.minBufferTimeSeconds,
+            MinUpdatePeriodSeconds: this.__input.dashPackage?.minUpdatePeriodSeconds,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            Profile: this.__input.dashPackage?.profile,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.dashPackage?.streamSelection?.streamOrder,
+            },
+            SuggestedPresentationDelaySeconds: this.__input.dashPackage?.suggestedPresentationDelaySeconds,
+            UtcTiming: this.__input.dashPackage?.utcTiming,
+            UtcTimingUri: this.__input.dashPackage?.utcTimingUri,
+          },
+          Description: this.__input.description,
+          HlsPackage: {
+            AdMarkers: this.__input.hlsPackage?.adMarkers,
+            AdTriggers: this.__input.hlsPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.hlsPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              KeyRotationIntervalSeconds: this.__input.hlsPackage?.encryption?.keyRotationIntervalSeconds,
+              RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeIframeOnlyStream: this.__input.hlsPackage?.includeIframeOnlyStream,
+            PlaylistType: this.__input.hlsPackage?.playlistType,
+            PlaylistWindowSeconds: this.__input.hlsPackage?.playlistWindowSeconds,
+            ProgramDateTimeIntervalSeconds: this.__input.hlsPackage?.programDateTimeIntervalSeconds,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.hlsPackage?.streamSelection?.streamOrder,
+            },
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          ManifestName: this.__input.manifestName,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestWindowSeconds: this.__input.mssPackage?.manifestWindowSeconds,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.mssPackage?.streamSelection?.streamOrder,
+            },
+          },
+          Origination: this.__input.origination,
+          StartoverWindowSeconds: this.__input.startoverWindowSeconds,
+          TimeDelaySeconds: this.__input.timeDelaySeconds,
+          Whitelist: this.__input.whitelist,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateOriginEndpoint.DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video', props);
+    return resource.getResponseField('DashPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video') as unknown as string;
+  }
+
+}
+
+export class MediaPackageResponsesUpdateOriginEndpointDashPackageStreamSelection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageUpdateOriginEndpointRequest) {
+  }
+
+  public get maxVideoBitsPerSecond(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.DashPackage.StreamSelection.MaxVideoBitsPerSecond'),
+        outputPath: 'DashPackage.StreamSelection.MaxVideoBitsPerSecond',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+            SegmentPrefix: this.__input.cmafPackage?.segmentPrefix,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.cmafPackage?.streamSelection?.streamOrder,
+            },
+          },
+          DashPackage: {
+            AdTriggers: this.__input.dashPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.dashPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestLayout: this.__input.dashPackage?.manifestLayout,
+            ManifestWindowSeconds: this.__input.dashPackage?.manifestWindowSeconds,
+            MinBufferTimeSeconds: this.__input.dashPackage?.minBufferTimeSeconds,
+            MinUpdatePeriodSeconds: this.__input.dashPackage?.minUpdatePeriodSeconds,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            Profile: this.__input.dashPackage?.profile,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.dashPackage?.streamSelection?.streamOrder,
+            },
+            SuggestedPresentationDelaySeconds: this.__input.dashPackage?.suggestedPresentationDelaySeconds,
+            UtcTiming: this.__input.dashPackage?.utcTiming,
+            UtcTimingUri: this.__input.dashPackage?.utcTimingUri,
+          },
+          Description: this.__input.description,
+          HlsPackage: {
+            AdMarkers: this.__input.hlsPackage?.adMarkers,
+            AdTriggers: this.__input.hlsPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.hlsPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              KeyRotationIntervalSeconds: this.__input.hlsPackage?.encryption?.keyRotationIntervalSeconds,
+              RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeIframeOnlyStream: this.__input.hlsPackage?.includeIframeOnlyStream,
+            PlaylistType: this.__input.hlsPackage?.playlistType,
+            PlaylistWindowSeconds: this.__input.hlsPackage?.playlistWindowSeconds,
+            ProgramDateTimeIntervalSeconds: this.__input.hlsPackage?.programDateTimeIntervalSeconds,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.hlsPackage?.streamSelection?.streamOrder,
+            },
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          ManifestName: this.__input.manifestName,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19062,9 +23408,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageStreamSelection
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19087,6 +23438,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageStreamSelection
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19122,6 +23477,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageStreamSelection
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19146,6 +23505,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageStreamSelection
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19186,9 +23549,14 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageStreamSelection
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19211,6 +23579,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageStreamSelection
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19246,6 +23618,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageStreamSelection
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19270,6 +23646,10 @@ export class MediaPackageResponsesUpdateOriginEndpointDashPackageStreamSelection
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19317,9 +23697,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19342,6 +23727,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19377,6 +23766,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19401,6 +23794,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19441,9 +23838,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19466,6 +23868,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19501,6 +23907,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19525,6 +23935,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19565,9 +23979,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19590,6 +24009,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19625,6 +24048,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19649,6 +24076,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19693,9 +24124,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19718,6 +24154,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19753,6 +24193,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19777,6 +24221,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19817,9 +24265,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19842,6 +24295,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19877,6 +24334,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19901,6 +24362,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19941,9 +24406,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -19966,6 +24436,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20001,6 +24475,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20025,6 +24503,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20065,9 +24547,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20090,6 +24577,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20125,6 +24616,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20149,6 +24644,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20189,9 +24688,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20214,6 +24718,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20249,6 +24757,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20273,6 +24785,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20317,9 +24833,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20342,6 +24863,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20377,6 +24902,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20401,6 +24930,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20448,9 +24981,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryption {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20473,6 +25011,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryption {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20508,6 +25050,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryption {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20532,6 +25078,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryption {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20572,9 +25122,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryption {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20597,6 +25152,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryption {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20632,6 +25191,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryption {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20656,6 +25219,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryption {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20696,9 +25263,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryption {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20721,6 +25293,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryption {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20756,6 +25332,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryption {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20780,6 +25360,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryption {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20820,9 +25404,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryption {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20845,6 +25434,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryption {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20880,6 +25473,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryption {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20904,6 +25501,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryption {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20955,9 +25556,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -20980,6 +25586,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21015,6 +25625,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21039,6 +25653,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21064,6 +25682,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
     return resource.getResponseField('HlsPackage.Encryption.SpekeKeyProvider.CertificateArn') as unknown as string;
   }
 
+  public get encryptionContractConfiguration(): MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
+    return new MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
   public get resourceId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -21079,9 +25701,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21104,6 +25731,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21139,6 +25770,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21163,6 +25798,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21203,9 +25842,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21228,6 +25872,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21263,6 +25911,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21287,6 +25939,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21327,9 +25983,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21352,6 +26013,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21387,6 +26052,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21411,6 +26080,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21451,9 +26124,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21476,6 +26154,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21511,6 +26193,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21535,6 +26221,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21562,19 +26252,19 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeK
 
 }
 
-export class MediaPackageResponsesUpdateOriginEndpointHlsPackageStreamSelection {
+export class MediaPackageResponsesUpdateOriginEndpointHlsPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageUpdateOriginEndpointRequest) {
   }
 
-  public get maxVideoBitsPerSecond(): number {
+  public get presetSpeke20Audio(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
         action: 'updateOriginEndpoint',
         service: 'MediaPackage',
-        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.HlsPackage.StreamSelection.MaxVideoBitsPerSecond'),
-        outputPath: 'HlsPackage.StreamSelection.MaxVideoBitsPerSecond',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio'),
+        outputPath: 'HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio',
         parameters: {
           Authorization: {
             CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
@@ -21582,9 +26272,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageStreamSelection 
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21607,6 +26302,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageStreamSelection 
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21642,6 +26341,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageStreamSelection 
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21666,6 +26369,299 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageStreamSelection 
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestWindowSeconds: this.__input.mssPackage?.manifestWindowSeconds,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.mssPackage?.streamSelection?.streamOrder,
+            },
+          },
+          Origination: this.__input.origination,
+          StartoverWindowSeconds: this.__input.startoverWindowSeconds,
+          TimeDelaySeconds: this.__input.timeDelaySeconds,
+          Whitelist: this.__input.whitelist,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateOriginEndpoint.HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio', props);
+    return resource.getResponseField('HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio') as unknown as string;
+  }
+
+  public get presetSpeke20Video(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video'),
+        outputPath: 'HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+            SegmentPrefix: this.__input.cmafPackage?.segmentPrefix,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.cmafPackage?.streamSelection?.streamOrder,
+            },
+          },
+          DashPackage: {
+            AdTriggers: this.__input.dashPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.dashPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestLayout: this.__input.dashPackage?.manifestLayout,
+            ManifestWindowSeconds: this.__input.dashPackage?.manifestWindowSeconds,
+            MinBufferTimeSeconds: this.__input.dashPackage?.minBufferTimeSeconds,
+            MinUpdatePeriodSeconds: this.__input.dashPackage?.minUpdatePeriodSeconds,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            Profile: this.__input.dashPackage?.profile,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.dashPackage?.streamSelection?.streamOrder,
+            },
+            SuggestedPresentationDelaySeconds: this.__input.dashPackage?.suggestedPresentationDelaySeconds,
+            UtcTiming: this.__input.dashPackage?.utcTiming,
+            UtcTimingUri: this.__input.dashPackage?.utcTimingUri,
+          },
+          Description: this.__input.description,
+          HlsPackage: {
+            AdMarkers: this.__input.hlsPackage?.adMarkers,
+            AdTriggers: this.__input.hlsPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.hlsPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              KeyRotationIntervalSeconds: this.__input.hlsPackage?.encryption?.keyRotationIntervalSeconds,
+              RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeIframeOnlyStream: this.__input.hlsPackage?.includeIframeOnlyStream,
+            PlaylistType: this.__input.hlsPackage?.playlistType,
+            PlaylistWindowSeconds: this.__input.hlsPackage?.playlistWindowSeconds,
+            ProgramDateTimeIntervalSeconds: this.__input.hlsPackage?.programDateTimeIntervalSeconds,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.hlsPackage?.streamSelection?.streamOrder,
+            },
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          ManifestName: this.__input.manifestName,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestWindowSeconds: this.__input.mssPackage?.manifestWindowSeconds,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.mssPackage?.streamSelection?.streamOrder,
+            },
+          },
+          Origination: this.__input.origination,
+          StartoverWindowSeconds: this.__input.startoverWindowSeconds,
+          TimeDelaySeconds: this.__input.timeDelaySeconds,
+          Whitelist: this.__input.whitelist,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateOriginEndpoint.HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video', props);
+    return resource.getResponseField('HlsPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video') as unknown as string;
+  }
+
+}
+
+export class MediaPackageResponsesUpdateOriginEndpointHlsPackageStreamSelection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageUpdateOriginEndpointRequest) {
+  }
+
+  public get maxVideoBitsPerSecond(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.HlsPackage.StreamSelection.MaxVideoBitsPerSecond'),
+        outputPath: 'HlsPackage.StreamSelection.MaxVideoBitsPerSecond',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+            SegmentPrefix: this.__input.cmafPackage?.segmentPrefix,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.cmafPackage?.streamSelection?.streamOrder,
+            },
+          },
+          DashPackage: {
+            AdTriggers: this.__input.dashPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.dashPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestLayout: this.__input.dashPackage?.manifestLayout,
+            ManifestWindowSeconds: this.__input.dashPackage?.manifestWindowSeconds,
+            MinBufferTimeSeconds: this.__input.dashPackage?.minBufferTimeSeconds,
+            MinUpdatePeriodSeconds: this.__input.dashPackage?.minUpdatePeriodSeconds,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            Profile: this.__input.dashPackage?.profile,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.dashPackage?.streamSelection?.streamOrder,
+            },
+            SuggestedPresentationDelaySeconds: this.__input.dashPackage?.suggestedPresentationDelaySeconds,
+            UtcTiming: this.__input.dashPackage?.utcTiming,
+            UtcTimingUri: this.__input.dashPackage?.utcTimingUri,
+          },
+          Description: this.__input.description,
+          HlsPackage: {
+            AdMarkers: this.__input.hlsPackage?.adMarkers,
+            AdTriggers: this.__input.hlsPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.hlsPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              KeyRotationIntervalSeconds: this.__input.hlsPackage?.encryption?.keyRotationIntervalSeconds,
+              RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeIframeOnlyStream: this.__input.hlsPackage?.includeIframeOnlyStream,
+            PlaylistType: this.__input.hlsPackage?.playlistType,
+            PlaylistWindowSeconds: this.__input.hlsPackage?.playlistWindowSeconds,
+            ProgramDateTimeIntervalSeconds: this.__input.hlsPackage?.programDateTimeIntervalSeconds,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.hlsPackage?.streamSelection?.streamOrder,
+            },
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          ManifestName: this.__input.manifestName,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21706,9 +26702,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageStreamSelection 
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21731,6 +26732,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageStreamSelection 
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21766,6 +26771,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageStreamSelection 
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21790,6 +26799,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageStreamSelection 
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21830,9 +26843,14 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageStreamSelection 
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21855,6 +26873,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageStreamSelection 
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21890,6 +26912,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageStreamSelection 
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21914,6 +26940,10 @@ export class MediaPackageResponsesUpdateOriginEndpointHlsPackageStreamSelection 
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21965,9 +26995,14 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -21990,6 +27025,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22025,6 +27064,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22049,6 +27092,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22089,9 +27136,14 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackage {
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22114,6 +27166,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackage {
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22149,6 +27205,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackage {
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22173,6 +27233,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackage {
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22235,9 +27299,14 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22260,6 +27329,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22295,6 +27368,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22319,6 +27396,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22344,6 +27425,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
     return resource.getResponseField('MssPackage.Encryption.SpekeKeyProvider.CertificateArn') as unknown as string;
   }
 
+  public get encryptionContractConfiguration(): MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
+    return new MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
   public get resourceId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -22359,9 +27444,14 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22384,6 +27474,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22419,6 +27513,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22443,6 +27541,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22483,9 +27585,14 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22508,6 +27615,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22543,6 +27654,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22567,6 +27682,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22607,9 +27726,14 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22632,6 +27756,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22667,6 +27795,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22691,6 +27823,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22731,9 +27867,14 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22756,6 +27897,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22791,6 +27936,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22815,6 +27964,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22842,19 +27995,19 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeK
 
 }
 
-export class MediaPackageResponsesUpdateOriginEndpointMssPackageStreamSelection {
+export class MediaPackageResponsesUpdateOriginEndpointMssPackageEncryptionSpekeKeyProviderEncryptionContractConfiguration {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageUpdateOriginEndpointRequest) {
   }
 
-  public get maxVideoBitsPerSecond(): number {
+  public get presetSpeke20Audio(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
         action: 'updateOriginEndpoint',
         service: 'MediaPackage',
-        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.MssPackage.StreamSelection.MaxVideoBitsPerSecond'),
-        outputPath: 'MssPackage.StreamSelection.MaxVideoBitsPerSecond',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio'),
+        outputPath: 'MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio',
         parameters: {
           Authorization: {
             CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
@@ -22862,9 +28015,14 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageStreamSelection 
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22887,6 +28045,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageStreamSelection 
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22922,6 +28084,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageStreamSelection 
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22946,6 +28112,299 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageStreamSelection 
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestWindowSeconds: this.__input.mssPackage?.manifestWindowSeconds,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.mssPackage?.streamSelection?.streamOrder,
+            },
+          },
+          Origination: this.__input.origination,
+          StartoverWindowSeconds: this.__input.startoverWindowSeconds,
+          TimeDelaySeconds: this.__input.timeDelaySeconds,
+          Whitelist: this.__input.whitelist,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateOriginEndpoint.MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio', props);
+    return resource.getResponseField('MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Audio') as unknown as string;
+  }
+
+  public get presetSpeke20Video(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video'),
+        outputPath: 'MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+            SegmentPrefix: this.__input.cmafPackage?.segmentPrefix,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.cmafPackage?.streamSelection?.streamOrder,
+            },
+          },
+          DashPackage: {
+            AdTriggers: this.__input.dashPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.dashPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestLayout: this.__input.dashPackage?.manifestLayout,
+            ManifestWindowSeconds: this.__input.dashPackage?.manifestWindowSeconds,
+            MinBufferTimeSeconds: this.__input.dashPackage?.minBufferTimeSeconds,
+            MinUpdatePeriodSeconds: this.__input.dashPackage?.minUpdatePeriodSeconds,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            Profile: this.__input.dashPackage?.profile,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.dashPackage?.streamSelection?.streamOrder,
+            },
+            SuggestedPresentationDelaySeconds: this.__input.dashPackage?.suggestedPresentationDelaySeconds,
+            UtcTiming: this.__input.dashPackage?.utcTiming,
+            UtcTimingUri: this.__input.dashPackage?.utcTimingUri,
+          },
+          Description: this.__input.description,
+          HlsPackage: {
+            AdMarkers: this.__input.hlsPackage?.adMarkers,
+            AdTriggers: this.__input.hlsPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.hlsPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              KeyRotationIntervalSeconds: this.__input.hlsPackage?.encryption?.keyRotationIntervalSeconds,
+              RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeIframeOnlyStream: this.__input.hlsPackage?.includeIframeOnlyStream,
+            PlaylistType: this.__input.hlsPackage?.playlistType,
+            PlaylistWindowSeconds: this.__input.hlsPackage?.playlistWindowSeconds,
+            ProgramDateTimeIntervalSeconds: this.__input.hlsPackage?.programDateTimeIntervalSeconds,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.hlsPackage?.streamSelection?.streamOrder,
+            },
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          ManifestName: this.__input.manifestName,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestWindowSeconds: this.__input.mssPackage?.manifestWindowSeconds,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.mssPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.mssPackage?.streamSelection?.streamOrder,
+            },
+          },
+          Origination: this.__input.origination,
+          StartoverWindowSeconds: this.__input.startoverWindowSeconds,
+          TimeDelaySeconds: this.__input.timeDelaySeconds,
+          Whitelist: this.__input.whitelist,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateOriginEndpoint.MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video', props);
+    return resource.getResponseField('MssPackage.Encryption.SpekeKeyProvider.EncryptionContractConfiguration.PresetSpeke20Video') as unknown as string;
+  }
+
+}
+
+export class MediaPackageResponsesUpdateOriginEndpointMssPackageStreamSelection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageUpdateOriginEndpointRequest) {
+  }
+
+  public get maxVideoBitsPerSecond(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateOriginEndpoint',
+        service: 'MediaPackage',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackage.UpdateOriginEndpoint.MssPackage.StreamSelection.MaxVideoBitsPerSecond'),
+        outputPath: 'MssPackage.StreamSelection.MaxVideoBitsPerSecond',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+            SegmentPrefix: this.__input.cmafPackage?.segmentPrefix,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.cmafPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.cmafPackage?.streamSelection?.streamOrder,
+            },
+          },
+          DashPackage: {
+            AdTriggers: this.__input.dashPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.dashPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            ManifestLayout: this.__input.dashPackage?.manifestLayout,
+            ManifestWindowSeconds: this.__input.dashPackage?.manifestWindowSeconds,
+            MinBufferTimeSeconds: this.__input.dashPackage?.minBufferTimeSeconds,
+            MinUpdatePeriodSeconds: this.__input.dashPackage?.minUpdatePeriodSeconds,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            Profile: this.__input.dashPackage?.profile,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.dashPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.dashPackage?.streamSelection?.streamOrder,
+            },
+            SuggestedPresentationDelaySeconds: this.__input.dashPackage?.suggestedPresentationDelaySeconds,
+            UtcTiming: this.__input.dashPackage?.utcTiming,
+            UtcTimingUri: this.__input.dashPackage?.utcTimingUri,
+          },
+          Description: this.__input.description,
+          HlsPackage: {
+            AdMarkers: this.__input.hlsPackage?.adMarkers,
+            AdTriggers: this.__input.hlsPackage?.adTriggers,
+            AdsOnDeliveryRestrictions: this.__input.hlsPackage?.adsOnDeliveryRestrictions,
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              KeyRotationIntervalSeconds: this.__input.hlsPackage?.encryption?.keyRotationIntervalSeconds,
+              RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
+                ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeIframeOnlyStream: this.__input.hlsPackage?.includeIframeOnlyStream,
+            PlaylistType: this.__input.hlsPackage?.playlistType,
+            PlaylistWindowSeconds: this.__input.hlsPackage?.playlistWindowSeconds,
+            ProgramDateTimeIntervalSeconds: this.__input.hlsPackage?.programDateTimeIntervalSeconds,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            StreamSelection: {
+              MaxVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.maxVideoBitsPerSecond,
+              MinVideoBitsPerSecond: this.__input.hlsPackage?.streamSelection?.minVideoBitsPerSecond,
+              StreamOrder: this.__input.hlsPackage?.streamSelection?.streamOrder,
+            },
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          ManifestName: this.__input.manifestName,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -22986,9 +28445,14 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageStreamSelection 
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -23011,6 +28475,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageStreamSelection 
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -23046,6 +28514,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageStreamSelection 
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -23070,6 +28542,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageStreamSelection 
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -23110,9 +28586,14 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageStreamSelection 
           },
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               KeyRotationIntervalSeconds: this.__input.cmafPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.cmafPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.cmafPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -23135,6 +28616,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageStreamSelection 
               KeyRotationIntervalSeconds: this.__input.dashPackage?.encryption?.keyRotationIntervalSeconds,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.dashPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.dashPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -23170,6 +28655,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageStreamSelection 
               RepeatExtXKey: this.__input.hlsPackage?.encryption?.repeatExtXKey,
               SpekeKeyProvider: {
                 CertificateArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.hlsPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.hlsPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -23194,6 +28683,10 @@ export class MediaPackageResponsesUpdateOriginEndpointMssPackageStreamSelection 
             Encryption: {
               SpekeKeyProvider: {
                 CertificateArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.certificateArn,
+                EncryptionContractConfiguration: {
+                  PresetSpeke20Audio: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Audio,
+                  PresetSpeke20Video: this.__input.mssPackage?.encryption?.spekeKeyProvider.encryptionContractConfiguration?.presetSpeke20Video,
+                },
                 ResourceId: this.__input.mssPackage?.encryption?.spekeKeyProvider.resourceId,
                 RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,

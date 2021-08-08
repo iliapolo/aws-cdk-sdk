@@ -20,6 +20,10 @@ export class IvsClient extends cdk.Construct {
     return new IVSResponsesCreateChannel(this, this.__resources, input);
   }
 
+  public createRecordingConfiguration(input: shapes.IvsCreateRecordingConfigurationRequest): IVSResponsesCreateRecordingConfiguration {
+    return new IVSResponsesCreateRecordingConfiguration(this, this.__resources, input);
+  }
+
   public createStreamKey(input: shapes.IvsCreateStreamKeyRequest): IVSResponsesCreateStreamKey {
     return new IVSResponsesCreateStreamKey(this, this.__resources, input);
   }
@@ -54,6 +58,21 @@ export class IvsClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeletePlaybackKeyPair', props);
   }
 
+  public deleteRecordingConfiguration(input: shapes.IvsDeleteRecordingConfigurationRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteRecordingConfiguration',
+        service: 'IVS',
+        physicalResourceId: cr.PhysicalResourceId.of('IVS.DeleteRecordingConfiguration'),
+        parameters: {
+          arn: input.arn,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteRecordingConfiguration', props);
+  }
+
   public deleteStreamKey(input: shapes.IvsDeleteStreamKeyRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -77,6 +96,10 @@ export class IvsClient extends cdk.Construct {
     return new IVSResponsesFetchPlaybackKeyPair(this, this.__resources, input);
   }
 
+  public fetchRecordingConfiguration(input: shapes.IvsGetRecordingConfigurationRequest): IVSResponsesFetchRecordingConfiguration {
+    return new IVSResponsesFetchRecordingConfiguration(this, this.__resources, input);
+  }
+
   public fetchStream(input: shapes.IvsGetStreamRequest): IVSResponsesFetchStream {
     return new IVSResponsesFetchStream(this, this.__resources, input);
   }
@@ -95,6 +118,10 @@ export class IvsClient extends cdk.Construct {
 
   public listPlaybackKeyPairs(input: shapes.IvsListPlaybackKeyPairsRequest): IVSResponsesListPlaybackKeyPairs {
     return new IVSResponsesListPlaybackKeyPairs(this, this.__resources, input);
+  }
+
+  public listRecordingConfigurations(input: shapes.IvsListRecordingConfigurationsRequest): IVSResponsesListRecordingConfigurations {
+    return new IVSResponsesListRecordingConfigurations(this, this.__resources, input);
   }
 
   public listStreamKeys(input: shapes.IvsListStreamKeysRequest): IVSResponsesListStreamKeys {
@@ -293,6 +320,7 @@ export class IVSResponsesCreateChannelChannel {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
           tags: this.__input.tags,
         },
       },
@@ -314,6 +342,7 @@ export class IVSResponsesCreateChannelChannel {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
           tags: this.__input.tags,
         },
       },
@@ -335,6 +364,7 @@ export class IVSResponsesCreateChannelChannel {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
           tags: this.__input.tags,
         },
       },
@@ -356,12 +386,35 @@ export class IVSResponsesCreateChannelChannel {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
           tags: this.__input.tags,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateChannel.channel.type', props);
     return resource.getResponseField('channel.type') as unknown as string;
+  }
+
+  public get recordingConfigurationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createChannel',
+        service: 'IVS',
+        physicalResourceId: cr.PhysicalResourceId.of('IVS.CreateChannel.channel.recordingConfigurationArn'),
+        outputPath: 'channel.recordingConfigurationArn',
+        parameters: {
+          name: this.__input.name,
+          latencyMode: this.__input.latencyMode,
+          type: this.__input.type,
+          authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateChannel.channel.recordingConfigurationArn', props);
+    return resource.getResponseField('channel.recordingConfigurationArn') as unknown as string;
   }
 
   public get ingestEndpoint(): string {
@@ -377,6 +430,7 @@ export class IVSResponsesCreateChannelChannel {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
           tags: this.__input.tags,
         },
       },
@@ -398,6 +452,7 @@ export class IVSResponsesCreateChannelChannel {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
           tags: this.__input.tags,
         },
       },
@@ -419,6 +474,7 @@ export class IVSResponsesCreateChannelChannel {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
           tags: this.__input.tags,
         },
       },
@@ -440,6 +496,7 @@ export class IVSResponsesCreateChannelChannel {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
           tags: this.__input.tags,
         },
       },
@@ -468,6 +525,7 @@ export class IVSResponsesCreateChannelStreamKey {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
           tags: this.__input.tags,
         },
       },
@@ -489,6 +547,7 @@ export class IVSResponsesCreateChannelStreamKey {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
           tags: this.__input.tags,
         },
       },
@@ -510,6 +569,7 @@ export class IVSResponsesCreateChannelStreamKey {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
           tags: this.__input.tags,
         },
       },
@@ -531,12 +591,168 @@ export class IVSResponsesCreateChannelStreamKey {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
           tags: this.__input.tags,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateChannel.streamKey.tags', props);
     return resource.getResponseField('streamKey.tags') as unknown as Record<string, string>;
+  }
+
+}
+
+export class IVSResponsesCreateRecordingConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IvsCreateRecordingConfigurationRequest) {
+  }
+
+  public get recordingConfiguration(): IVSResponsesCreateRecordingConfigurationRecordingConfiguration {
+    return new IVSResponsesCreateRecordingConfigurationRecordingConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IVSResponsesCreateRecordingConfigurationRecordingConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IvsCreateRecordingConfigurationRequest) {
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createRecordingConfiguration',
+        service: 'IVS',
+        physicalResourceId: cr.PhysicalResourceId.of('IVS.CreateRecordingConfiguration.recordingConfiguration.arn'),
+        outputPath: 'recordingConfiguration.arn',
+        parameters: {
+          name: this.__input.name,
+          destinationConfiguration: {
+            s3: {
+              bucketName: this.__input.destinationConfiguration.s3?.bucketName,
+            },
+          },
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateRecordingConfiguration.recordingConfiguration.arn', props);
+    return resource.getResponseField('recordingConfiguration.arn') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createRecordingConfiguration',
+        service: 'IVS',
+        physicalResourceId: cr.PhysicalResourceId.of('IVS.CreateRecordingConfiguration.recordingConfiguration.name'),
+        outputPath: 'recordingConfiguration.name',
+        parameters: {
+          name: this.__input.name,
+          destinationConfiguration: {
+            s3: {
+              bucketName: this.__input.destinationConfiguration.s3?.bucketName,
+            },
+          },
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateRecordingConfiguration.recordingConfiguration.name', props);
+    return resource.getResponseField('recordingConfiguration.name') as unknown as string;
+  }
+
+  public get destinationConfiguration(): IVSResponsesCreateRecordingConfigurationRecordingConfigurationDestinationConfiguration {
+    return new IVSResponsesCreateRecordingConfigurationRecordingConfigurationDestinationConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createRecordingConfiguration',
+        service: 'IVS',
+        physicalResourceId: cr.PhysicalResourceId.of('IVS.CreateRecordingConfiguration.recordingConfiguration.state'),
+        outputPath: 'recordingConfiguration.state',
+        parameters: {
+          name: this.__input.name,
+          destinationConfiguration: {
+            s3: {
+              bucketName: this.__input.destinationConfiguration.s3?.bucketName,
+            },
+          },
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateRecordingConfiguration.recordingConfiguration.state', props);
+    return resource.getResponseField('recordingConfiguration.state') as unknown as string;
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createRecordingConfiguration',
+        service: 'IVS',
+        physicalResourceId: cr.PhysicalResourceId.of('IVS.CreateRecordingConfiguration.recordingConfiguration.tags'),
+        outputPath: 'recordingConfiguration.tags',
+        parameters: {
+          name: this.__input.name,
+          destinationConfiguration: {
+            s3: {
+              bucketName: this.__input.destinationConfiguration.s3?.bucketName,
+            },
+          },
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateRecordingConfiguration.recordingConfiguration.tags', props);
+    return resource.getResponseField('recordingConfiguration.tags') as unknown as Record<string, string>;
+  }
+
+}
+
+export class IVSResponsesCreateRecordingConfigurationRecordingConfigurationDestinationConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IvsCreateRecordingConfigurationRequest) {
+  }
+
+  public get s3(): IVSResponsesCreateRecordingConfigurationRecordingConfigurationDestinationConfigurationS3 {
+    return new IVSResponsesCreateRecordingConfigurationRecordingConfigurationDestinationConfigurationS3(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IVSResponsesCreateRecordingConfigurationRecordingConfigurationDestinationConfigurationS3 {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IvsCreateRecordingConfigurationRequest) {
+  }
+
+  public get bucketName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createRecordingConfiguration',
+        service: 'IVS',
+        physicalResourceId: cr.PhysicalResourceId.of('IVS.CreateRecordingConfiguration.recordingConfiguration.destinationConfiguration.s3.bucketName'),
+        outputPath: 'recordingConfiguration.destinationConfiguration.s3.bucketName',
+        parameters: {
+          name: this.__input.name,
+          destinationConfiguration: {
+            s3: {
+              bucketName: this.__input.destinationConfiguration.s3?.bucketName,
+            },
+          },
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateRecordingConfiguration.recordingConfiguration.destinationConfiguration.s3.bucketName', props);
+    return resource.getResponseField('recordingConfiguration.destinationConfiguration.s3.bucketName') as unknown as string;
   }
 
 }
@@ -715,6 +931,23 @@ export class IVSResponsesFetchChannelChannel {
     return resource.getResponseField('channel.type') as unknown as string;
   }
 
+  public get recordingConfigurationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getChannel',
+        service: 'IVS',
+        physicalResourceId: cr.PhysicalResourceId.of('IVS.GetChannel.channel.recordingConfigurationArn'),
+        outputPath: 'channel.recordingConfigurationArn',
+        parameters: {
+          arn: this.__input.arn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetChannel.channel.recordingConfigurationArn', props);
+    return resource.getResponseField('channel.recordingConfigurationArn') as unknown as string;
+  }
+
   public get ingestEndpoint(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -867,6 +1100,131 @@ export class IVSResponsesFetchPlaybackKeyPairKeyPair {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetPlaybackKeyPair.keyPair.tags', props);
     return resource.getResponseField('keyPair.tags') as unknown as Record<string, string>;
+  }
+
+}
+
+export class IVSResponsesFetchRecordingConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IvsGetRecordingConfigurationRequest) {
+  }
+
+  public get recordingConfiguration(): IVSResponsesFetchRecordingConfigurationRecordingConfiguration {
+    return new IVSResponsesFetchRecordingConfigurationRecordingConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IVSResponsesFetchRecordingConfigurationRecordingConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IvsGetRecordingConfigurationRequest) {
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getRecordingConfiguration',
+        service: 'IVS',
+        physicalResourceId: cr.PhysicalResourceId.of('IVS.GetRecordingConfiguration.recordingConfiguration.arn'),
+        outputPath: 'recordingConfiguration.arn',
+        parameters: {
+          arn: this.__input.arn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetRecordingConfiguration.recordingConfiguration.arn', props);
+    return resource.getResponseField('recordingConfiguration.arn') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getRecordingConfiguration',
+        service: 'IVS',
+        physicalResourceId: cr.PhysicalResourceId.of('IVS.GetRecordingConfiguration.recordingConfiguration.name'),
+        outputPath: 'recordingConfiguration.name',
+        parameters: {
+          arn: this.__input.arn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetRecordingConfiguration.recordingConfiguration.name', props);
+    return resource.getResponseField('recordingConfiguration.name') as unknown as string;
+  }
+
+  public get destinationConfiguration(): IVSResponsesFetchRecordingConfigurationRecordingConfigurationDestinationConfiguration {
+    return new IVSResponsesFetchRecordingConfigurationRecordingConfigurationDestinationConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getRecordingConfiguration',
+        service: 'IVS',
+        physicalResourceId: cr.PhysicalResourceId.of('IVS.GetRecordingConfiguration.recordingConfiguration.state'),
+        outputPath: 'recordingConfiguration.state',
+        parameters: {
+          arn: this.__input.arn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetRecordingConfiguration.recordingConfiguration.state', props);
+    return resource.getResponseField('recordingConfiguration.state') as unknown as string;
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getRecordingConfiguration',
+        service: 'IVS',
+        physicalResourceId: cr.PhysicalResourceId.of('IVS.GetRecordingConfiguration.recordingConfiguration.tags'),
+        outputPath: 'recordingConfiguration.tags',
+        parameters: {
+          arn: this.__input.arn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetRecordingConfiguration.recordingConfiguration.tags', props);
+    return resource.getResponseField('recordingConfiguration.tags') as unknown as Record<string, string>;
+  }
+
+}
+
+export class IVSResponsesFetchRecordingConfigurationRecordingConfigurationDestinationConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IvsGetRecordingConfigurationRequest) {
+  }
+
+  public get s3(): IVSResponsesFetchRecordingConfigurationRecordingConfigurationDestinationConfigurationS3 {
+    return new IVSResponsesFetchRecordingConfigurationRecordingConfigurationDestinationConfigurationS3(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class IVSResponsesFetchRecordingConfigurationRecordingConfigurationDestinationConfigurationS3 {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IvsGetRecordingConfigurationRequest) {
+  }
+
+  public get bucketName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getRecordingConfiguration',
+        service: 'IVS',
+        physicalResourceId: cr.PhysicalResourceId.of('IVS.GetRecordingConfiguration.recordingConfiguration.destinationConfiguration.s3.bucketName'),
+        outputPath: 'recordingConfiguration.destinationConfiguration.s3.bucketName',
+        parameters: {
+          arn: this.__input.arn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetRecordingConfiguration.recordingConfiguration.destinationConfiguration.s3.bucketName', props);
+    return resource.getResponseField('recordingConfiguration.destinationConfiguration.s3.bucketName') as unknown as string;
   }
 
 }
@@ -1186,6 +1544,7 @@ export class IVSResponsesListChannels {
         outputPath: 'channels',
         parameters: {
           filterByName: this.__input.filterByName,
+          filterByRecordingConfigurationArn: this.__input.filterByRecordingConfigurationArn,
           nextToken: this.__input.nextToken,
           maxResults: this.__input.maxResults,
         },
@@ -1205,6 +1564,7 @@ export class IVSResponsesListChannels {
         outputPath: 'nextToken',
         parameters: {
           filterByName: this.__input.filterByName,
+          filterByRecordingConfigurationArn: this.__input.filterByRecordingConfigurationArn,
           nextToken: this.__input.nextToken,
           maxResults: this.__input.maxResults,
         },
@@ -1254,6 +1614,49 @@ export class IVSResponsesListPlaybackKeyPairs {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListPlaybackKeyPairs.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
+export class IVSResponsesListRecordingConfigurations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IvsListRecordingConfigurationsRequest) {
+  }
+
+  public get recordingConfigurations(): shapes.IvsRecordingConfigurationSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listRecordingConfigurations',
+        service: 'IVS',
+        physicalResourceId: cr.PhysicalResourceId.of('IVS.ListRecordingConfigurations.recordingConfigurations'),
+        outputPath: 'recordingConfigurations',
+        parameters: {
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListRecordingConfigurations.recordingConfigurations', props);
+    return resource.getResponseField('recordingConfigurations') as unknown as shapes.IvsRecordingConfigurationSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listRecordingConfigurations',
+        service: 'IVS',
+        physicalResourceId: cr.PhysicalResourceId.of('IVS.ListRecordingConfigurations.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListRecordingConfigurations.nextToken', props);
     return resource.getResponseField('nextToken') as unknown as string;
   }
 
@@ -1422,6 +1825,7 @@ export class IVSResponsesUpdateChannelChannel {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
         },
       },
     };
@@ -1443,6 +1847,7 @@ export class IVSResponsesUpdateChannelChannel {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
         },
       },
     };
@@ -1464,6 +1869,7 @@ export class IVSResponsesUpdateChannelChannel {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
         },
       },
     };
@@ -1485,11 +1891,34 @@ export class IVSResponsesUpdateChannelChannel {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateChannel.channel.type', props);
     return resource.getResponseField('channel.type') as unknown as string;
+  }
+
+  public get recordingConfigurationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateChannel',
+        service: 'IVS',
+        physicalResourceId: cr.PhysicalResourceId.of('IVS.UpdateChannel.channel.recordingConfigurationArn'),
+        outputPath: 'channel.recordingConfigurationArn',
+        parameters: {
+          arn: this.__input.arn,
+          name: this.__input.name,
+          latencyMode: this.__input.latencyMode,
+          type: this.__input.type,
+          authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateChannel.channel.recordingConfigurationArn', props);
+    return resource.getResponseField('channel.recordingConfigurationArn') as unknown as string;
   }
 
   public get ingestEndpoint(): string {
@@ -1506,6 +1935,7 @@ export class IVSResponsesUpdateChannelChannel {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
         },
       },
     };
@@ -1527,6 +1957,7 @@ export class IVSResponsesUpdateChannelChannel {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
         },
       },
     };
@@ -1548,6 +1979,7 @@ export class IVSResponsesUpdateChannelChannel {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
         },
       },
     };
@@ -1569,6 +2001,7 @@ export class IVSResponsesUpdateChannelChannel {
           latencyMode: this.__input.latencyMode,
           type: this.__input.type,
           authorized: this.__input.authorized,
+          recordingConfigurationArn: this.__input.recordingConfigurationArn,
         },
       },
     };

@@ -12,6 +12,10 @@ export class PiClient extends cdk.Construct {
     return new PIResponsesDescribeDimensionKeys(this, this.__resources, input);
   }
 
+  public fetchDimensionKeyDetails(input: shapes.PiGetDimensionKeyDetailsRequest): PIResponsesFetchDimensionKeyDetails {
+    return new PIResponsesFetchDimensionKeyDetails(this, this.__resources, input);
+  }
+
   public fetchResourceMetrics(input: shapes.PiGetResourceMetricsRequest): PIResponsesFetchResourceMetrics {
     return new PIResponsesFetchResourceMetrics(this, this.__resources, input);
   }
@@ -196,6 +200,34 @@ export class PIResponsesDescribeDimensionKeys {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDimensionKeys.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class PIResponsesFetchDimensionKeyDetails {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.PiGetDimensionKeyDetailsRequest) {
+  }
+
+  public get dimensions(): shapes.PiDimensionKeyDetail[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDimensionKeyDetails',
+        service: 'PI',
+        physicalResourceId: cr.PhysicalResourceId.of('PI.GetDimensionKeyDetails.Dimensions'),
+        outputPath: 'Dimensions',
+        parameters: {
+          ServiceType: this.__input.serviceType,
+          Identifier: this.__input.identifier,
+          Group: this.__input.group,
+          GroupIdentifier: this.__input.groupIdentifier,
+          RequestedDimensions: this.__input.requestedDimensions,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDimensionKeyDetails.Dimensions', props);
+    return resource.getResponseField('Dimensions') as unknown as shapes.PiDimensionKeyDetail[];
   }
 
 }

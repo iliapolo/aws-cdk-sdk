@@ -42,6 +42,22 @@ export class SnsClient extends cdk.Construct {
     return new SNSResponsesCreatePlatformEndpoint(this, this.__resources, input);
   }
 
+  public createSmsSandboxPhoneNumber(input: shapes.SnsCreateSmsSandboxPhoneNumberInput): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createSmsSandboxPhoneNumber',
+        service: 'SNS',
+        physicalResourceId: cr.PhysicalResourceId.of('SNS.CreateSMSSandboxPhoneNumber'),
+        parameters: {
+          PhoneNumber: input.phoneNumber,
+          LanguageCode: input.languageCode,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'CreateSMSSandboxPhoneNumber', props);
+  }
+
   public createTopic(input: shapes.SnsCreateTopicInput): SNSResponsesCreateTopic {
     return new SNSResponsesCreateTopic(this, this.__resources, input);
   }
@@ -76,6 +92,21 @@ export class SnsClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeletePlatformApplication', props);
   }
 
+  public deleteSmsSandboxPhoneNumber(input: shapes.SnsDeleteSmsSandboxPhoneNumberInput): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteSmsSandboxPhoneNumber',
+        service: 'SNS',
+        physicalResourceId: cr.PhysicalResourceId.of('SNS.DeleteSMSSandboxPhoneNumber'),
+        parameters: {
+          PhoneNumber: input.phoneNumber,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteSMSSandboxPhoneNumber', props);
+  }
+
   public deleteTopic(input: shapes.SnsDeleteTopicInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -103,6 +134,10 @@ export class SnsClient extends cdk.Construct {
     return new SNSResponsesFetchSmsAttributes(this, this.__resources, input);
   }
 
+  public fetchSmsSandboxAccountStatus(): SNSResponsesFetchSmsSandboxAccountStatus {
+    return new SNSResponsesFetchSmsSandboxAccountStatus(this, this.__resources);
+  }
+
   public fetchSubscriptionAttributes(input: shapes.SnsGetSubscriptionAttributesInput): SNSResponsesFetchSubscriptionAttributes {
     return new SNSResponsesFetchSubscriptionAttributes(this, this.__resources, input);
   }
@@ -115,12 +150,20 @@ export class SnsClient extends cdk.Construct {
     return new SNSResponsesListEndpointsByPlatformApplication(this, this.__resources, input);
   }
 
+  public listOriginationNumbers(input: shapes.SnsListOriginationNumbersRequest): SNSResponsesListOriginationNumbers {
+    return new SNSResponsesListOriginationNumbers(this, this.__resources, input);
+  }
+
   public listPhoneNumbersOptedOut(input: shapes.SnsListPhoneNumbersOptedOutInput): SNSResponsesListPhoneNumbersOptedOut {
     return new SNSResponsesListPhoneNumbersOptedOut(this, this.__resources, input);
   }
 
   public listPlatformApplications(input: shapes.SnsListPlatformApplicationsInput): SNSResponsesListPlatformApplications {
     return new SNSResponsesListPlatformApplications(this, this.__resources, input);
+  }
+
+  public listSmsSandboxPhoneNumbers(input: shapes.SnsListSmsSandboxPhoneNumbersInput): SNSResponsesListSmsSandboxPhoneNumbers {
+    return new SNSResponsesListSmsSandboxPhoneNumbers(this, this.__resources, input);
   }
 
   public listSubscriptions(input: shapes.SnsListSubscriptionsInput): SNSResponsesListSubscriptions {
@@ -304,6 +347,22 @@ export class SnsClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'UntagResource', props);
+  }
+
+  public verifySmsSandboxPhoneNumber(input: shapes.SnsVerifySmsSandboxPhoneNumberInput): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'verifySmsSandboxPhoneNumber',
+        service: 'SNS',
+        physicalResourceId: cr.PhysicalResourceId.of('SNS.VerifySMSSandboxPhoneNumber'),
+        parameters: {
+          PhoneNumber: input.phoneNumber,
+          OneTimePassword: input.oneTimePassword,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'VerifySMSSandboxPhoneNumber', props);
   }
 
 }
@@ -509,6 +568,29 @@ export class SNSResponsesFetchSmsAttributes {
 
 }
 
+export class SNSResponsesFetchSmsSandboxAccountStatus {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get isInSandbox(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getSmsSandboxAccountStatus',
+        service: 'SNS',
+        physicalResourceId: cr.PhysicalResourceId.of('SNS.GetSMSSandboxAccountStatus.IsInSandbox'),
+        outputPath: 'IsInSandbox',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetSMSSandboxAccountStatus.IsInSandbox', props);
+    return resource.getResponseField('IsInSandbox') as unknown as boolean;
+  }
+
+}
+
 export class SNSResponsesFetchSubscriptionAttributes {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SnsGetSubscriptionAttributesInput) {
@@ -600,6 +682,49 @@ export class SNSResponsesListEndpointsByPlatformApplication {
 
 }
 
+export class SNSResponsesListOriginationNumbers {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SnsListOriginationNumbersRequest) {
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listOriginationNumbers',
+        service: 'SNS',
+        physicalResourceId: cr.PhysicalResourceId.of('SNS.ListOriginationNumbers.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListOriginationNumbers.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+  public get phoneNumbers(): shapes.SnsPhoneNumberInformation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listOriginationNumbers',
+        service: 'SNS',
+        physicalResourceId: cr.PhysicalResourceId.of('SNS.ListOriginationNumbers.PhoneNumbers'),
+        outputPath: 'PhoneNumbers',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListOriginationNumbers.PhoneNumbers', props);
+    return resource.getResponseField('PhoneNumbers') as unknown as shapes.SnsPhoneNumberInformation[];
+  }
+
+}
+
 export class SNSResponsesListPhoneNumbersOptedOut {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SnsListPhoneNumbersOptedOutInput) {
@@ -677,6 +802,49 @@ export class SNSResponsesListPlatformApplications {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListPlatformApplications.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SNSResponsesListSmsSandboxPhoneNumbers {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SnsListSmsSandboxPhoneNumbersInput) {
+  }
+
+  public get phoneNumbers(): shapes.SnssmsSandboxPhoneNumber[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listSmsSandboxPhoneNumbers',
+        service: 'SNS',
+        physicalResourceId: cr.PhysicalResourceId.of('SNS.ListSMSSandboxPhoneNumbers.PhoneNumbers'),
+        outputPath: 'PhoneNumbers',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListSMSSandboxPhoneNumbers.PhoneNumbers', props);
+    return resource.getResponseField('PhoneNumbers') as unknown as shapes.SnssmsSandboxPhoneNumber[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listSmsSandboxPhoneNumbers',
+        service: 'SNS',
+        physicalResourceId: cr.PhysicalResourceId.of('SNS.ListSMSSandboxPhoneNumbers.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListSMSSandboxPhoneNumbers.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
 

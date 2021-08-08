@@ -20,6 +20,22 @@ export interface HealthDescribeAffectedAccountsForOrganizationRequest {
 }
 
 /**
+ * Converts an object of type 'HealthDescribeAffectedAccountsForOrganizationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeAffectedAccountsForOrganizationRequest(obj: HealthDescribeAffectedAccountsForOrganizationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventArn': obj.eventArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthDescribeAffectedAccountsForOrganizationResponse
  */
 export interface HealthDescribeAffectedAccountsForOrganizationResponse {
@@ -39,6 +55,22 @@ export interface HealthDescribeAffectedAccountsForOrganizationResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'HealthDescribeAffectedAccountsForOrganizationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeAffectedAccountsForOrganizationResponse(obj: HealthDescribeAffectedAccountsForOrganizationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'affectedAccounts': obj.affectedAccounts?.map(y => y),
+    'eventScopeCode': obj.eventScopeCode,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema HealthDescribeAffectedEntitiesRequest
@@ -67,6 +99,23 @@ export interface HealthDescribeAffectedEntitiesRequest {
 }
 
 /**
+ * Converts an object of type 'HealthDescribeAffectedEntitiesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeAffectedEntitiesRequest(obj: HealthDescribeAffectedEntitiesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filter': toJson_HealthEntityFilter(obj.filter),
+    'locale': obj.locale,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthDescribeAffectedEntitiesResponse
  */
 export interface HealthDescribeAffectedEntitiesResponse {
@@ -81,6 +130,21 @@ export interface HealthDescribeAffectedEntitiesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'HealthDescribeAffectedEntitiesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeAffectedEntitiesResponse(obj: HealthDescribeAffectedEntitiesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'entities': obj.entities?.map(y => toJson_HealthAffectedEntity(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema HealthDescribeAffectedEntitiesForOrganizationRequest
@@ -109,6 +173,23 @@ export interface HealthDescribeAffectedEntitiesForOrganizationRequest {
 }
 
 /**
+ * Converts an object of type 'HealthDescribeAffectedEntitiesForOrganizationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeAffectedEntitiesForOrganizationRequest(obj: HealthDescribeAffectedEntitiesForOrganizationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'organizationEntityFilters': obj.organizationEntityFilters?.map(y => toJson_HealthEventAccountFilter(y)),
+    'locale': obj.locale,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthDescribeAffectedEntitiesForOrganizationResponse
  */
 export interface HealthDescribeAffectedEntitiesForOrganizationResponse {
@@ -130,6 +211,22 @@ export interface HealthDescribeAffectedEntitiesForOrganizationResponse {
 }
 
 /**
+ * Converts an object of type 'HealthDescribeAffectedEntitiesForOrganizationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeAffectedEntitiesForOrganizationResponse(obj: HealthDescribeAffectedEntitiesForOrganizationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'entities': obj.entities?.map(y => toJson_HealthAffectedEntity(y)),
+    'failedSet': obj.failedSet?.map(y => toJson_HealthOrganizationAffectedEntitiesErrorItem(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthDescribeEntityAggregatesRequest
  */
 export interface HealthDescribeEntityAggregatesRequest {
@@ -141,6 +238,20 @@ export interface HealthDescribeEntityAggregatesRequest {
 }
 
 /**
+ * Converts an object of type 'HealthDescribeEntityAggregatesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeEntityAggregatesRequest(obj: HealthDescribeEntityAggregatesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventArns': obj.eventArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthDescribeEntityAggregatesResponse
  */
 export interface HealthDescribeEntityAggregatesResponse {
@@ -150,6 +261,20 @@ export interface HealthDescribeEntityAggregatesResponse {
   readonly entityAggregates?: HealthEntityAggregate[];
 
 }
+
+/**
+ * Converts an object of type 'HealthDescribeEntityAggregatesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeEntityAggregatesResponse(obj: HealthDescribeEntityAggregatesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'entityAggregates': obj.entityAggregates?.map(y => toJson_HealthEntityAggregate(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema HealthDescribeEventAggregatesRequest
@@ -178,6 +303,23 @@ export interface HealthDescribeEventAggregatesRequest {
 }
 
 /**
+ * Converts an object of type 'HealthDescribeEventAggregatesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeEventAggregatesRequest(obj: HealthDescribeEventAggregatesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filter': toJson_HealthEventFilter(obj.filter),
+    'aggregateField': obj.aggregateField,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthDescribeEventAggregatesResponse
  */
 export interface HealthDescribeEventAggregatesResponse {
@@ -192,6 +334,21 @@ export interface HealthDescribeEventAggregatesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'HealthDescribeEventAggregatesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeEventAggregatesResponse(obj: HealthDescribeEventAggregatesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventAggregates': obj.eventAggregates?.map(y => toJson_HealthEventAggregate(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema HealthDescribeEventDetailsRequest
@@ -210,6 +367,21 @@ export interface HealthDescribeEventDetailsRequest {
 }
 
 /**
+ * Converts an object of type 'HealthDescribeEventDetailsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeEventDetailsRequest(obj: HealthDescribeEventDetailsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventArns': obj.eventArns?.map(y => y),
+    'locale': obj.locale,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthDescribeEventDetailsResponse
  */
 export interface HealthDescribeEventDetailsResponse {
@@ -224,6 +396,21 @@ export interface HealthDescribeEventDetailsResponse {
   readonly failedSet?: HealthEventDetailsErrorItem[];
 
 }
+
+/**
+ * Converts an object of type 'HealthDescribeEventDetailsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeEventDetailsResponse(obj: HealthDescribeEventDetailsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'successfulSet': obj.successfulSet?.map(y => toJson_HealthEventDetails(y)),
+    'failedSet': obj.failedSet?.map(y => toJson_HealthEventDetailsErrorItem(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema HealthDescribeEventDetailsForOrganizationRequest
@@ -242,6 +429,21 @@ export interface HealthDescribeEventDetailsForOrganizationRequest {
 }
 
 /**
+ * Converts an object of type 'HealthDescribeEventDetailsForOrganizationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeEventDetailsForOrganizationRequest(obj: HealthDescribeEventDetailsForOrganizationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'organizationEventDetailFilters': obj.organizationEventDetailFilters?.map(y => toJson_HealthEventAccountFilter(y)),
+    'locale': obj.locale,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthDescribeEventDetailsForOrganizationResponse
  */
 export interface HealthDescribeEventDetailsForOrganizationResponse {
@@ -256,6 +458,21 @@ export interface HealthDescribeEventDetailsForOrganizationResponse {
   readonly failedSet?: HealthOrganizationEventDetailsErrorItem[];
 
 }
+
+/**
+ * Converts an object of type 'HealthDescribeEventDetailsForOrganizationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeEventDetailsForOrganizationResponse(obj: HealthDescribeEventDetailsForOrganizationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'successfulSet': obj.successfulSet?.map(y => toJson_HealthOrganizationEventDetails(y)),
+    'failedSet': obj.failedSet?.map(y => toJson_HealthOrganizationEventDetailsErrorItem(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema HealthDescribeEventTypesRequest
@@ -284,6 +501,23 @@ export interface HealthDescribeEventTypesRequest {
 }
 
 /**
+ * Converts an object of type 'HealthDescribeEventTypesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeEventTypesRequest(obj: HealthDescribeEventTypesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filter': toJson_HealthEventTypeFilter(obj.filter),
+    'locale': obj.locale,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthDescribeEventTypesResponse
  */
 export interface HealthDescribeEventTypesResponse {
@@ -298,6 +532,21 @@ export interface HealthDescribeEventTypesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'HealthDescribeEventTypesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeEventTypesResponse(obj: HealthDescribeEventTypesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventTypes': obj.eventTypes?.map(y => toJson_HealthEventType(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema HealthDescribeEventsRequest
@@ -326,6 +575,23 @@ export interface HealthDescribeEventsRequest {
 }
 
 /**
+ * Converts an object of type 'HealthDescribeEventsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeEventsRequest(obj: HealthDescribeEventsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filter': toJson_HealthEventFilter(obj.filter),
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'locale': obj.locale,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthDescribeEventsResponse
  */
 export interface HealthDescribeEventsResponse {
@@ -340,6 +606,21 @@ export interface HealthDescribeEventsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'HealthDescribeEventsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeEventsResponse(obj: HealthDescribeEventsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'events': obj.events?.map(y => toJson_HealthEvent(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema HealthDescribeEventsForOrganizationRequest
@@ -368,6 +649,23 @@ export interface HealthDescribeEventsForOrganizationRequest {
 }
 
 /**
+ * Converts an object of type 'HealthDescribeEventsForOrganizationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeEventsForOrganizationRequest(obj: HealthDescribeEventsForOrganizationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filter': toJson_HealthOrganizationEventFilter(obj.filter),
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'locale': obj.locale,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthDescribeEventsForOrganizationResponse
  */
 export interface HealthDescribeEventsForOrganizationResponse {
@@ -384,6 +682,21 @@ export interface HealthDescribeEventsForOrganizationResponse {
 }
 
 /**
+ * Converts an object of type 'HealthDescribeEventsForOrganizationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeEventsForOrganizationResponse(obj: HealthDescribeEventsForOrganizationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'events': obj.events?.map(y => toJson_HealthOrganizationEvent(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthDescribeHealthServiceStatusForOrganizationResponse
  */
 export interface HealthDescribeHealthServiceStatusForOrganizationResponse {
@@ -393,6 +706,20 @@ export interface HealthDescribeHealthServiceStatusForOrganizationResponse {
   readonly healthServiceAccessStatusForOrganization?: string;
 
 }
+
+/**
+ * Converts an object of type 'HealthDescribeHealthServiceStatusForOrganizationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDescribeHealthServiceStatusForOrganizationResponse(obj: HealthDescribeHealthServiceStatusForOrganizationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'healthServiceAccessStatusForOrganization': obj.healthServiceAccessStatusForOrganization,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema HealthEntityFilter
@@ -429,6 +756,25 @@ export interface HealthEntityFilter {
   readonly statusCodes?: string[];
 
 }
+
+/**
+ * Converts an object of type 'HealthEntityFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthEntityFilter(obj: HealthEntityFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventArns': obj.eventArns?.map(y => y),
+    'entityArns': obj.entityArns?.map(y => y),
+    'entityValues': obj.entityValues?.map(y => y),
+    'lastUpdatedTimes': obj.lastUpdatedTimes?.map(y => toJson_HealthDateTimeRange(y)),
+    'tags': obj.tags?.map(y => ((y) === undefined) ? undefined : (Object.entries(y).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {}))),
+    'statusCodes': obj.statusCodes?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema HealthAffectedEntity
@@ -477,6 +823,27 @@ export interface HealthAffectedEntity {
 }
 
 /**
+ * Converts an object of type 'HealthAffectedEntity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthAffectedEntity(obj: HealthAffectedEntity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'entityArn': obj.entityArn,
+    'eventArn': obj.eventArn,
+    'entityValue': obj.entityValue,
+    'entityUrl': obj.entityUrl,
+    'awsAccountId': obj.awsAccountId,
+    'lastUpdatedTime': obj.lastUpdatedTime,
+    'statusCode': obj.statusCode,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthEventAccountFilter
  */
 export interface HealthEventAccountFilter {
@@ -491,6 +858,21 @@ export interface HealthEventAccountFilter {
   readonly awsAccountId?: string;
 
 }
+
+/**
+ * Converts an object of type 'HealthEventAccountFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthEventAccountFilter(obj: HealthEventAccountFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventArn': obj.eventArn,
+    'awsAccountId': obj.awsAccountId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema HealthOrganizationAffectedEntitiesErrorItem
@@ -519,6 +901,23 @@ export interface HealthOrganizationAffectedEntitiesErrorItem {
 }
 
 /**
+ * Converts an object of type 'HealthOrganizationAffectedEntitiesErrorItem' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthOrganizationAffectedEntitiesErrorItem(obj: HealthOrganizationAffectedEntitiesErrorItem | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'awsAccountId': obj.awsAccountId,
+    'eventArn': obj.eventArn,
+    'errorName': obj.errorName,
+    'errorMessage': obj.errorMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthEntityAggregate
  */
 export interface HealthEntityAggregate {
@@ -533,6 +932,21 @@ export interface HealthEntityAggregate {
   readonly count?: number;
 
 }
+
+/**
+ * Converts an object of type 'HealthEntityAggregate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthEntityAggregate(obj: HealthEntityAggregate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventArn': obj.eventArn,
+    'count': obj.count,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema HealthEventFilter
@@ -606,6 +1020,32 @@ export interface HealthEventFilter {
 }
 
 /**
+ * Converts an object of type 'HealthEventFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthEventFilter(obj: HealthEventFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventArns': obj.eventArns?.map(y => y),
+    'eventTypeCodes': obj.eventTypeCodes?.map(y => y),
+    'services': obj.services?.map(y => y),
+    'regions': obj.regions?.map(y => y),
+    'availabilityZones': obj.availabilityZones?.map(y => y),
+    'startTimes': obj.startTimes?.map(y => toJson_HealthDateTimeRange(y)),
+    'endTimes': obj.endTimes?.map(y => toJson_HealthDateTimeRange(y)),
+    'lastUpdatedTimes': obj.lastUpdatedTimes?.map(y => toJson_HealthDateTimeRange(y)),
+    'entityArns': obj.entityArns?.map(y => y),
+    'entityValues': obj.entityValues?.map(y => y),
+    'eventTypeCategories': obj.eventTypeCategories?.map(y => y),
+    'tags': obj.tags?.map(y => ((y) === undefined) ? undefined : (Object.entries(y).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {}))),
+    'eventStatusCodes': obj.eventStatusCodes?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthEventAggregate
  */
 export interface HealthEventAggregate {
@@ -620,6 +1060,21 @@ export interface HealthEventAggregate {
   readonly count?: number;
 
 }
+
+/**
+ * Converts an object of type 'HealthEventAggregate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthEventAggregate(obj: HealthEventAggregate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'aggregateValue': obj.aggregateValue,
+    'count': obj.count,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema HealthEventDetails
@@ -643,6 +1098,22 @@ export interface HealthEventDetails {
 }
 
 /**
+ * Converts an object of type 'HealthEventDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthEventDetails(obj: HealthEventDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'event': toJson_HealthEvent(obj.event),
+    'eventDescription': toJson_HealthEventDescription(obj.eventDescription),
+    'eventMetadata': ((obj.eventMetadata) === undefined) ? undefined : (Object.entries(obj.eventMetadata).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthEventDetailsErrorItem
  */
 export interface HealthEventDetailsErrorItem {
@@ -662,6 +1133,22 @@ export interface HealthEventDetailsErrorItem {
   readonly errorMessage?: string;
 
 }
+
+/**
+ * Converts an object of type 'HealthEventDetailsErrorItem' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthEventDetailsErrorItem(obj: HealthEventDetailsErrorItem | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventArn': obj.eventArn,
+    'errorName': obj.errorName,
+    'errorMessage': obj.errorMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema HealthOrganizationEventDetails
@@ -690,6 +1177,23 @@ export interface HealthOrganizationEventDetails {
 }
 
 /**
+ * Converts an object of type 'HealthOrganizationEventDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthOrganizationEventDetails(obj: HealthOrganizationEventDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'awsAccountId': obj.awsAccountId,
+    'event': toJson_HealthEvent(obj.event),
+    'eventDescription': toJson_HealthEventDescription(obj.eventDescription),
+    'eventMetadata': ((obj.eventMetadata) === undefined) ? undefined : (Object.entries(obj.eventMetadata).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthOrganizationEventDetailsErrorItem
  */
 export interface HealthOrganizationEventDetailsErrorItem {
@@ -716,6 +1220,23 @@ export interface HealthOrganizationEventDetailsErrorItem {
 }
 
 /**
+ * Converts an object of type 'HealthOrganizationEventDetailsErrorItem' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthOrganizationEventDetailsErrorItem(obj: HealthOrganizationEventDetailsErrorItem | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'awsAccountId': obj.awsAccountId,
+    'eventArn': obj.eventArn,
+    'errorName': obj.errorName,
+    'errorMessage': obj.errorMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthEventTypeFilter
  */
 export interface HealthEventTypeFilter {
@@ -737,6 +1258,22 @@ export interface HealthEventTypeFilter {
 }
 
 /**
+ * Converts an object of type 'HealthEventTypeFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthEventTypeFilter(obj: HealthEventTypeFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventTypeCodes': obj.eventTypeCodes?.map(y => y),
+    'services': obj.services?.map(y => y),
+    'eventTypeCategories': obj.eventTypeCategories?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthEventType
  */
 export interface HealthEventType {
@@ -756,6 +1293,22 @@ export interface HealthEventType {
   readonly category?: string;
 
 }
+
+/**
+ * Converts an object of type 'HealthEventType' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthEventType(obj: HealthEventType | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'service': obj.service,
+    'code': obj.code,
+    'category': obj.category,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema HealthEvent
@@ -819,6 +1372,30 @@ export interface HealthEvent {
 }
 
 /**
+ * Converts an object of type 'HealthEvent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthEvent(obj: HealthEvent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'service': obj.service,
+    'eventTypeCode': obj.eventTypeCode,
+    'eventTypeCategory': obj.eventTypeCategory,
+    'region': obj.region,
+    'availabilityZone': obj.availabilityZone,
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+    'lastUpdatedTime': obj.lastUpdatedTime,
+    'statusCode': obj.statusCode,
+    'eventScopeCode': obj.eventScopeCode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthOrganizationEventFilter
  */
 export interface HealthOrganizationEventFilter {
@@ -880,6 +1457,30 @@ export interface HealthOrganizationEventFilter {
 }
 
 /**
+ * Converts an object of type 'HealthOrganizationEventFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthOrganizationEventFilter(obj: HealthOrganizationEventFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventTypeCodes': obj.eventTypeCodes?.map(y => y),
+    'awsAccountIds': obj.awsAccountIds?.map(y => y),
+    'services': obj.services?.map(y => y),
+    'regions': obj.regions?.map(y => y),
+    'startTime': toJson_HealthDateTimeRange(obj.startTime),
+    'endTime': toJson_HealthDateTimeRange(obj.endTime),
+    'lastUpdatedTime': toJson_HealthDateTimeRange(obj.lastUpdatedTime),
+    'entityArns': obj.entityArns?.map(y => y),
+    'entityValues': obj.entityValues?.map(y => y),
+    'eventTypeCategories': obj.eventTypeCategories?.map(y => y),
+    'eventStatusCodes': obj.eventStatusCodes?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthOrganizationEvent
  */
 export interface HealthOrganizationEvent {
@@ -936,6 +1537,29 @@ export interface HealthOrganizationEvent {
 }
 
 /**
+ * Converts an object of type 'HealthOrganizationEvent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthOrganizationEvent(obj: HealthOrganizationEvent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'service': obj.service,
+    'eventTypeCode': obj.eventTypeCode,
+    'eventTypeCategory': obj.eventTypeCategory,
+    'eventScopeCode': obj.eventScopeCode,
+    'region': obj.region,
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+    'lastUpdatedTime': obj.lastUpdatedTime,
+    'statusCode': obj.statusCode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthDateTimeRange
  */
 export interface HealthDateTimeRange {
@@ -952,6 +1576,21 @@ export interface HealthDateTimeRange {
 }
 
 /**
+ * Converts an object of type 'HealthDateTimeRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthDateTimeRange(obj: HealthDateTimeRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'from': obj.from,
+    'to': obj.to,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema HealthEventDescription
  */
 export interface HealthEventDescription {
@@ -961,3 +1600,17 @@ export interface HealthEventDescription {
   readonly latestDescription?: string;
 
 }
+
+/**
+ * Converts an object of type 'HealthEventDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_HealthEventDescription(obj: HealthEventDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'latestDescription': obj.latestDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

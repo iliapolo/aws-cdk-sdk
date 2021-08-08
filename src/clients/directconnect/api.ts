@@ -40,6 +40,10 @@ export class DirectConnectClient extends cdk.Construct {
     return new DirectConnectResponsesAssociateHostedConnection(this, this.__resources, input);
   }
 
+  public associateMacSecKey(input: shapes.DirectConnectAssociateMacSecKeyRequest): DirectConnectResponsesAssociateMacSecKey {
+    return new DirectConnectResponsesAssociateMacSecKey(this, this.__resources, input);
+  }
+
   public associateVirtualInterface(input: shapes.DirectConnectAssociateVirtualInterfaceRequest): DirectConnectResponsesAssociateVirtualInterface {
     return new DirectConnectResponsesAssociateVirtualInterface(this, this.__resources, input);
   }
@@ -200,6 +204,10 @@ export class DirectConnectClient extends cdk.Construct {
     return new DirectConnectResponsesDisassociateConnectionFromLag(this, this.__resources, input);
   }
 
+  public disassociateMacSecKey(input: shapes.DirectConnectDisassociateMacSecKeyRequest): DirectConnectResponsesDisassociateMacSecKey {
+    return new DirectConnectResponsesDisassociateMacSecKey(this, this.__resources, input);
+  }
+
   public listVirtualInterfaceTestHistory(input: shapes.DirectConnectListVirtualInterfaceTestHistoryRequest): DirectConnectResponsesListVirtualInterfaceTestHistory {
     return new DirectConnectResponsesListVirtualInterfaceTestHistory(this, this.__resources, input);
   }
@@ -242,6 +250,10 @@ export class DirectConnectClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'UntagResource', props);
+  }
+
+  public updateConnection(input: shapes.DirectConnectUpdateConnectionRequest): DirectConnectResponsesUpdateConnection {
+    return new DirectConnectResponsesUpdateConnection(this, this.__resources, input);
   }
 
   public updateDirectConnectGatewayAssociation(input: shapes.DirectConnectUpdateDirectConnectGatewayAssociationRequest): DirectConnectResponsesUpdateDirectConnectGatewayAssociation {
@@ -846,6 +858,27 @@ export class DirectConnectResponsesAllocateConnectionOnInterconnect {
     return resource.getResponseField('awsDeviceV2') as unknown as string;
   }
 
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'allocateConnectionOnInterconnect',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AllocateConnectionOnInterconnect.awsLogicalDeviceId'),
+        outputPath: 'awsLogicalDeviceId',
+        parameters: {
+          bandwidth: this.__input.bandwidth,
+          connectionName: this.__input.connectionName,
+          ownerAccount: this.__input.ownerAccount,
+          interconnectId: this.__input.interconnectId,
+          vlan: this.__input.vlan,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AllocateConnectionOnInterconnect.awsLogicalDeviceId', props);
+    return resource.getResponseField('awsLogicalDeviceId') as unknown as string;
+  }
+
   public get hasLogicalRedundancy(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -907,6 +940,90 @@ export class DirectConnectResponsesAllocateConnectionOnInterconnect {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AllocateConnectionOnInterconnect.providerName', props);
     return resource.getResponseField('providerName') as unknown as string;
+  }
+
+  public get macSecCapable(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'allocateConnectionOnInterconnect',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AllocateConnectionOnInterconnect.macSecCapable'),
+        outputPath: 'macSecCapable',
+        parameters: {
+          bandwidth: this.__input.bandwidth,
+          connectionName: this.__input.connectionName,
+          ownerAccount: this.__input.ownerAccount,
+          interconnectId: this.__input.interconnectId,
+          vlan: this.__input.vlan,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AllocateConnectionOnInterconnect.macSecCapable', props);
+    return resource.getResponseField('macSecCapable') as unknown as boolean;
+  }
+
+  public get portEncryptionStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'allocateConnectionOnInterconnect',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AllocateConnectionOnInterconnect.portEncryptionStatus'),
+        outputPath: 'portEncryptionStatus',
+        parameters: {
+          bandwidth: this.__input.bandwidth,
+          connectionName: this.__input.connectionName,
+          ownerAccount: this.__input.ownerAccount,
+          interconnectId: this.__input.interconnectId,
+          vlan: this.__input.vlan,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AllocateConnectionOnInterconnect.portEncryptionStatus', props);
+    return resource.getResponseField('portEncryptionStatus') as unknown as string;
+  }
+
+  public get encryptionMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'allocateConnectionOnInterconnect',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AllocateConnectionOnInterconnect.encryptionMode'),
+        outputPath: 'encryptionMode',
+        parameters: {
+          bandwidth: this.__input.bandwidth,
+          connectionName: this.__input.connectionName,
+          ownerAccount: this.__input.ownerAccount,
+          interconnectId: this.__input.interconnectId,
+          vlan: this.__input.vlan,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AllocateConnectionOnInterconnect.encryptionMode', props);
+    return resource.getResponseField('encryptionMode') as unknown as string;
+  }
+
+  public get macSecKeys(): shapes.DirectConnectMacSecKey[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'allocateConnectionOnInterconnect',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AllocateConnectionOnInterconnect.macSecKeys'),
+        outputPath: 'macSecKeys',
+        parameters: {
+          bandwidth: this.__input.bandwidth,
+          connectionName: this.__input.connectionName,
+          ownerAccount: this.__input.ownerAccount,
+          interconnectId: this.__input.interconnectId,
+          vlan: this.__input.vlan,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AllocateConnectionOnInterconnect.macSecKeys', props);
+    return resource.getResponseField('macSecKeys') as unknown as shapes.DirectConnectMacSecKey[];
   }
 
 }
@@ -1224,6 +1341,28 @@ export class DirectConnectResponsesAllocateHostedConnection {
     return resource.getResponseField('awsDeviceV2') as unknown as string;
   }
 
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'allocateHostedConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AllocateHostedConnection.awsLogicalDeviceId'),
+        outputPath: 'awsLogicalDeviceId',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          ownerAccount: this.__input.ownerAccount,
+          bandwidth: this.__input.bandwidth,
+          connectionName: this.__input.connectionName,
+          vlan: this.__input.vlan,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AllocateHostedConnection.awsLogicalDeviceId', props);
+    return resource.getResponseField('awsLogicalDeviceId') as unknown as string;
+  }
+
   public get hasLogicalRedundancy(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -1288,6 +1427,94 @@ export class DirectConnectResponsesAllocateHostedConnection {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AllocateHostedConnection.providerName', props);
     return resource.getResponseField('providerName') as unknown as string;
+  }
+
+  public get macSecCapable(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'allocateHostedConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AllocateHostedConnection.macSecCapable'),
+        outputPath: 'macSecCapable',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          ownerAccount: this.__input.ownerAccount,
+          bandwidth: this.__input.bandwidth,
+          connectionName: this.__input.connectionName,
+          vlan: this.__input.vlan,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AllocateHostedConnection.macSecCapable', props);
+    return resource.getResponseField('macSecCapable') as unknown as boolean;
+  }
+
+  public get portEncryptionStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'allocateHostedConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AllocateHostedConnection.portEncryptionStatus'),
+        outputPath: 'portEncryptionStatus',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          ownerAccount: this.__input.ownerAccount,
+          bandwidth: this.__input.bandwidth,
+          connectionName: this.__input.connectionName,
+          vlan: this.__input.vlan,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AllocateHostedConnection.portEncryptionStatus', props);
+    return resource.getResponseField('portEncryptionStatus') as unknown as string;
+  }
+
+  public get encryptionMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'allocateHostedConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AllocateHostedConnection.encryptionMode'),
+        outputPath: 'encryptionMode',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          ownerAccount: this.__input.ownerAccount,
+          bandwidth: this.__input.bandwidth,
+          connectionName: this.__input.connectionName,
+          vlan: this.__input.vlan,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AllocateHostedConnection.encryptionMode', props);
+    return resource.getResponseField('encryptionMode') as unknown as string;
+  }
+
+  public get macSecKeys(): shapes.DirectConnectMacSecKey[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'allocateHostedConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AllocateHostedConnection.macSecKeys'),
+        outputPath: 'macSecKeys',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          ownerAccount: this.__input.ownerAccount,
+          bandwidth: this.__input.bandwidth,
+          connectionName: this.__input.connectionName,
+          vlan: this.__input.vlan,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AllocateHostedConnection.macSecKeys', props);
+    return resource.getResponseField('macSecKeys') as unknown as shapes.DirectConnectMacSecKey[];
   }
 
 }
@@ -1962,6 +2189,35 @@ export class DirectConnectResponsesAllocatePrivateVirtualInterface {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AllocatePrivateVirtualInterface.awsDeviceV2', props);
     return resource.getResponseField('awsDeviceV2') as unknown as string;
+  }
+
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'allocatePrivateVirtualInterface',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AllocatePrivateVirtualInterface.awsLogicalDeviceId'),
+        outputPath: 'awsLogicalDeviceId',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          ownerAccount: this.__input.ownerAccount,
+          newPrivateVirtualInterfaceAllocation: {
+            virtualInterfaceName: this.__input.newPrivateVirtualInterfaceAllocation.virtualInterfaceName,
+            vlan: this.__input.newPrivateVirtualInterfaceAllocation.vlan,
+            asn: this.__input.newPrivateVirtualInterfaceAllocation.asn,
+            mtu: this.__input.newPrivateVirtualInterfaceAllocation.mtu,
+            authKey: this.__input.newPrivateVirtualInterfaceAllocation.authKey,
+            amazonAddress: this.__input.newPrivateVirtualInterfaceAllocation.amazonAddress,
+            addressFamily: this.__input.newPrivateVirtualInterfaceAllocation.addressFamily,
+            customerAddress: this.__input.newPrivateVirtualInterfaceAllocation.customerAddress,
+            tags: this.__input.newPrivateVirtualInterfaceAllocation.tags,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AllocatePrivateVirtualInterface.awsLogicalDeviceId', props);
+    return resource.getResponseField('awsLogicalDeviceId') as unknown as string;
   }
 
   public get tags(): shapes.DirectConnectTag[] {
@@ -2665,6 +2921,35 @@ export class DirectConnectResponsesAllocatePublicVirtualInterface {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AllocatePublicVirtualInterface.awsDeviceV2', props);
     return resource.getResponseField('awsDeviceV2') as unknown as string;
+  }
+
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'allocatePublicVirtualInterface',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AllocatePublicVirtualInterface.awsLogicalDeviceId'),
+        outputPath: 'awsLogicalDeviceId',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          ownerAccount: this.__input.ownerAccount,
+          newPublicVirtualInterfaceAllocation: {
+            virtualInterfaceName: this.__input.newPublicVirtualInterfaceAllocation.virtualInterfaceName,
+            vlan: this.__input.newPublicVirtualInterfaceAllocation.vlan,
+            asn: this.__input.newPublicVirtualInterfaceAllocation.asn,
+            authKey: this.__input.newPublicVirtualInterfaceAllocation.authKey,
+            amazonAddress: this.__input.newPublicVirtualInterfaceAllocation.amazonAddress,
+            customerAddress: this.__input.newPublicVirtualInterfaceAllocation.customerAddress,
+            addressFamily: this.__input.newPublicVirtualInterfaceAllocation.addressFamily,
+            routeFilterPrefixes: this.__input.newPublicVirtualInterfaceAllocation.routeFilterPrefixes,
+            tags: this.__input.newPublicVirtualInterfaceAllocation.tags,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AllocatePublicVirtualInterface.awsLogicalDeviceId', props);
+    return resource.getResponseField('awsLogicalDeviceId') as unknown as string;
   }
 
   public get tags(): shapes.DirectConnectTag[] {
@@ -3381,6 +3666,35 @@ export class DirectConnectResponsesAllocateTransitVirtualInterfaceVirtualInterfa
     return resource.getResponseField('virtualInterface.awsDeviceV2') as unknown as string;
   }
 
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'allocateTransitVirtualInterface',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AllocateTransitVirtualInterface.virtualInterface.awsLogicalDeviceId'),
+        outputPath: 'virtualInterface.awsLogicalDeviceId',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          ownerAccount: this.__input.ownerAccount,
+          newTransitVirtualInterfaceAllocation: {
+            virtualInterfaceName: this.__input.newTransitVirtualInterfaceAllocation.virtualInterfaceName,
+            vlan: this.__input.newTransitVirtualInterfaceAllocation.vlan,
+            asn: this.__input.newTransitVirtualInterfaceAllocation.asn,
+            mtu: this.__input.newTransitVirtualInterfaceAllocation.mtu,
+            authKey: this.__input.newTransitVirtualInterfaceAllocation.authKey,
+            amazonAddress: this.__input.newTransitVirtualInterfaceAllocation.amazonAddress,
+            customerAddress: this.__input.newTransitVirtualInterfaceAllocation.customerAddress,
+            addressFamily: this.__input.newTransitVirtualInterfaceAllocation.addressFamily,
+            tags: this.__input.newTransitVirtualInterfaceAllocation.tags,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AllocateTransitVirtualInterface.virtualInterface.awsLogicalDeviceId', props);
+    return resource.getResponseField('virtualInterface.awsLogicalDeviceId') as unknown as string;
+  }
+
   public get tags(): shapes.DirectConnectTag[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -3669,6 +3983,24 @@ export class DirectConnectResponsesAssociateConnectionWithLag {
     return resource.getResponseField('awsDeviceV2') as unknown as string;
   }
 
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateConnectionWithLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AssociateConnectionWithLag.awsLogicalDeviceId'),
+        outputPath: 'awsLogicalDeviceId',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          lagId: this.__input.lagId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateConnectionWithLag.awsLogicalDeviceId', props);
+    return resource.getResponseField('awsLogicalDeviceId') as unknown as string;
+  }
+
   public get hasLogicalRedundancy(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -3721,6 +4053,78 @@ export class DirectConnectResponsesAssociateConnectionWithLag {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AssociateConnectionWithLag.providerName', props);
     return resource.getResponseField('providerName') as unknown as string;
+  }
+
+  public get macSecCapable(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateConnectionWithLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AssociateConnectionWithLag.macSecCapable'),
+        outputPath: 'macSecCapable',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          lagId: this.__input.lagId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateConnectionWithLag.macSecCapable', props);
+    return resource.getResponseField('macSecCapable') as unknown as boolean;
+  }
+
+  public get portEncryptionStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateConnectionWithLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AssociateConnectionWithLag.portEncryptionStatus'),
+        outputPath: 'portEncryptionStatus',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          lagId: this.__input.lagId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateConnectionWithLag.portEncryptionStatus', props);
+    return resource.getResponseField('portEncryptionStatus') as unknown as string;
+  }
+
+  public get encryptionMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateConnectionWithLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AssociateConnectionWithLag.encryptionMode'),
+        outputPath: 'encryptionMode',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          lagId: this.__input.lagId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateConnectionWithLag.encryptionMode', props);
+    return resource.getResponseField('encryptionMode') as unknown as string;
+  }
+
+  public get macSecKeys(): shapes.DirectConnectMacSecKey[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateConnectionWithLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AssociateConnectionWithLag.macSecKeys'),
+        outputPath: 'macSecKeys',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          lagId: this.__input.lagId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateConnectionWithLag.macSecKeys', props);
+    return resource.getResponseField('macSecKeys') as unknown as shapes.DirectConnectMacSecKey[];
   }
 
 }
@@ -3982,6 +4386,24 @@ export class DirectConnectResponsesAssociateHostedConnection {
     return resource.getResponseField('awsDeviceV2') as unknown as string;
   }
 
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateHostedConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AssociateHostedConnection.awsLogicalDeviceId'),
+        outputPath: 'awsLogicalDeviceId',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          parentConnectionId: this.__input.parentConnectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateHostedConnection.awsLogicalDeviceId', props);
+    return resource.getResponseField('awsLogicalDeviceId') as unknown as string;
+  }
+
   public get hasLogicalRedundancy(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -4034,6 +4456,125 @@ export class DirectConnectResponsesAssociateHostedConnection {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AssociateHostedConnection.providerName', props);
     return resource.getResponseField('providerName') as unknown as string;
+  }
+
+  public get macSecCapable(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateHostedConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AssociateHostedConnection.macSecCapable'),
+        outputPath: 'macSecCapable',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          parentConnectionId: this.__input.parentConnectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateHostedConnection.macSecCapable', props);
+    return resource.getResponseField('macSecCapable') as unknown as boolean;
+  }
+
+  public get portEncryptionStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateHostedConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AssociateHostedConnection.portEncryptionStatus'),
+        outputPath: 'portEncryptionStatus',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          parentConnectionId: this.__input.parentConnectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateHostedConnection.portEncryptionStatus', props);
+    return resource.getResponseField('portEncryptionStatus') as unknown as string;
+  }
+
+  public get encryptionMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateHostedConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AssociateHostedConnection.encryptionMode'),
+        outputPath: 'encryptionMode',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          parentConnectionId: this.__input.parentConnectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateHostedConnection.encryptionMode', props);
+    return resource.getResponseField('encryptionMode') as unknown as string;
+  }
+
+  public get macSecKeys(): shapes.DirectConnectMacSecKey[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateHostedConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AssociateHostedConnection.macSecKeys'),
+        outputPath: 'macSecKeys',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          parentConnectionId: this.__input.parentConnectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateHostedConnection.macSecKeys', props);
+    return resource.getResponseField('macSecKeys') as unknown as shapes.DirectConnectMacSecKey[];
+  }
+
+}
+
+export class DirectConnectResponsesAssociateMacSecKey {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DirectConnectAssociateMacSecKeyRequest) {
+  }
+
+  public get connectionId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateMacSecKey',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AssociateMacSecKey.connectionId'),
+        outputPath: 'connectionId',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          secretARN: this.__input.secretARN,
+          ckn: this.__input.ckn,
+          cak: this.__input.cak,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateMacSecKey.connectionId', props);
+    return resource.getResponseField('connectionId') as unknown as string;
+  }
+
+  public get macSecKeys(): shapes.DirectConnectMacSecKey[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateMacSecKey',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AssociateMacSecKey.macSecKeys'),
+        outputPath: 'macSecKeys',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          secretARN: this.__input.secretARN,
+          ckn: this.__input.ckn,
+          cak: this.__input.cak,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateMacSecKey.macSecKeys', props);
+    return resource.getResponseField('macSecKeys') as unknown as shapes.DirectConnectMacSecKey[];
   }
 
 }
@@ -4455,6 +4996,24 @@ export class DirectConnectResponsesAssociateVirtualInterface {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AssociateVirtualInterface.awsDeviceV2', props);
     return resource.getResponseField('awsDeviceV2') as unknown as string;
+  }
+
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateVirtualInterface',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.AssociateVirtualInterface.awsLogicalDeviceId'),
+        outputPath: 'awsLogicalDeviceId',
+        parameters: {
+          virtualInterfaceId: this.__input.virtualInterfaceId,
+          connectionId: this.__input.connectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateVirtualInterface.awsLogicalDeviceId', props);
+    return resource.getResponseField('awsLogicalDeviceId') as unknown as string;
   }
 
   public get tags(): shapes.DirectConnectTag[] {
@@ -5144,6 +5703,30 @@ export class DirectConnectResponsesCreateBgpPeerVirtualInterface {
     return resource.getResponseField('virtualInterface.awsDeviceV2') as unknown as string;
   }
 
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBgpPeer',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.CreateBGPPeer.virtualInterface.awsLogicalDeviceId'),
+        outputPath: 'virtualInterface.awsLogicalDeviceId',
+        parameters: {
+          virtualInterfaceId: this.__input.virtualInterfaceId,
+          newBGPPeer: {
+            asn: this.__input.newBGPPeer?.asn,
+            authKey: this.__input.newBGPPeer?.authKey,
+            addressFamily: this.__input.newBGPPeer?.addressFamily,
+            amazonAddress: this.__input.newBGPPeer?.amazonAddress,
+            customerAddress: this.__input.newBGPPeer?.customerAddress,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBGPPeer.virtualInterface.awsLogicalDeviceId', props);
+    return resource.getResponseField('virtualInterface.awsLogicalDeviceId') as unknown as string;
+  }
+
   public get tags(): shapes.DirectConnectTag[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -5190,6 +5773,7 @@ export class DirectConnectResponsesCreateConnection {
           lagId: this.__input.lagId,
           tags: this.__input.tags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -5212,6 +5796,7 @@ export class DirectConnectResponsesCreateConnection {
           lagId: this.__input.lagId,
           tags: this.__input.tags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -5234,6 +5819,7 @@ export class DirectConnectResponsesCreateConnection {
           lagId: this.__input.lagId,
           tags: this.__input.tags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -5256,6 +5842,7 @@ export class DirectConnectResponsesCreateConnection {
           lagId: this.__input.lagId,
           tags: this.__input.tags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -5278,6 +5865,7 @@ export class DirectConnectResponsesCreateConnection {
           lagId: this.__input.lagId,
           tags: this.__input.tags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -5300,6 +5888,7 @@ export class DirectConnectResponsesCreateConnection {
           lagId: this.__input.lagId,
           tags: this.__input.tags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -5322,6 +5911,7 @@ export class DirectConnectResponsesCreateConnection {
           lagId: this.__input.lagId,
           tags: this.__input.tags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -5344,6 +5934,7 @@ export class DirectConnectResponsesCreateConnection {
           lagId: this.__input.lagId,
           tags: this.__input.tags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -5366,6 +5957,7 @@ export class DirectConnectResponsesCreateConnection {
           lagId: this.__input.lagId,
           tags: this.__input.tags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -5388,6 +5980,7 @@ export class DirectConnectResponsesCreateConnection {
           lagId: this.__input.lagId,
           tags: this.__input.tags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -5410,6 +6003,7 @@ export class DirectConnectResponsesCreateConnection {
           lagId: this.__input.lagId,
           tags: this.__input.tags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -5432,6 +6026,7 @@ export class DirectConnectResponsesCreateConnection {
           lagId: this.__input.lagId,
           tags: this.__input.tags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -5454,6 +6049,7 @@ export class DirectConnectResponsesCreateConnection {
           lagId: this.__input.lagId,
           tags: this.__input.tags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -5476,11 +6072,35 @@ export class DirectConnectResponsesCreateConnection {
           lagId: this.__input.lagId,
           tags: this.__input.tags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.awsDeviceV2', props);
     return resource.getResponseField('awsDeviceV2') as unknown as string;
+  }
+
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.CreateConnection.awsLogicalDeviceId'),
+        outputPath: 'awsLogicalDeviceId',
+        parameters: {
+          location: this.__input.location,
+          bandwidth: this.__input.bandwidth,
+          connectionName: this.__input.connectionName,
+          lagId: this.__input.lagId,
+          tags: this.__input.tags,
+          providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.awsLogicalDeviceId', props);
+    return resource.getResponseField('awsLogicalDeviceId') as unknown as string;
   }
 
   public get hasLogicalRedundancy(): string {
@@ -5498,6 +6118,7 @@ export class DirectConnectResponsesCreateConnection {
           lagId: this.__input.lagId,
           tags: this.__input.tags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -5520,6 +6141,7 @@ export class DirectConnectResponsesCreateConnection {
           lagId: this.__input.lagId,
           tags: this.__input.tags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -5542,11 +6164,104 @@ export class DirectConnectResponsesCreateConnection {
           lagId: this.__input.lagId,
           tags: this.__input.tags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.providerName', props);
     return resource.getResponseField('providerName') as unknown as string;
+  }
+
+  public get macSecCapable(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.CreateConnection.macSecCapable'),
+        outputPath: 'macSecCapable',
+        parameters: {
+          location: this.__input.location,
+          bandwidth: this.__input.bandwidth,
+          connectionName: this.__input.connectionName,
+          lagId: this.__input.lagId,
+          tags: this.__input.tags,
+          providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.macSecCapable', props);
+    return resource.getResponseField('macSecCapable') as unknown as boolean;
+  }
+
+  public get portEncryptionStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.CreateConnection.portEncryptionStatus'),
+        outputPath: 'portEncryptionStatus',
+        parameters: {
+          location: this.__input.location,
+          bandwidth: this.__input.bandwidth,
+          connectionName: this.__input.connectionName,
+          lagId: this.__input.lagId,
+          tags: this.__input.tags,
+          providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.portEncryptionStatus', props);
+    return resource.getResponseField('portEncryptionStatus') as unknown as string;
+  }
+
+  public get encryptionMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.CreateConnection.encryptionMode'),
+        outputPath: 'encryptionMode',
+        parameters: {
+          location: this.__input.location,
+          bandwidth: this.__input.bandwidth,
+          connectionName: this.__input.connectionName,
+          lagId: this.__input.lagId,
+          tags: this.__input.tags,
+          providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.encryptionMode', props);
+    return resource.getResponseField('encryptionMode') as unknown as string;
+  }
+
+  public get macSecKeys(): shapes.DirectConnectMacSecKey[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.CreateConnection.macSecKeys'),
+        outputPath: 'macSecKeys',
+        parameters: {
+          location: this.__input.location,
+          bandwidth: this.__input.bandwidth,
+          connectionName: this.__input.connectionName,
+          lagId: this.__input.lagId,
+          tags: this.__input.tags,
+          providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.macSecKeys', props);
+    return resource.getResponseField('macSecKeys') as unknown as shapes.DirectConnectMacSecKey[];
   }
 
 }
@@ -6452,6 +7167,28 @@ export class DirectConnectResponsesCreateInterconnect {
     return resource.getResponseField('awsDeviceV2') as unknown as string;
   }
 
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createInterconnect',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.CreateInterconnect.awsLogicalDeviceId'),
+        outputPath: 'awsLogicalDeviceId',
+        parameters: {
+          interconnectName: this.__input.interconnectName,
+          bandwidth: this.__input.bandwidth,
+          location: this.__input.location,
+          lagId: this.__input.lagId,
+          tags: this.__input.tags,
+          providerName: this.__input.providerName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateInterconnect.awsLogicalDeviceId', props);
+    return resource.getResponseField('awsLogicalDeviceId') as unknown as string;
+  }
+
   public get hasLogicalRedundancy(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -6542,6 +7279,7 @@ export class DirectConnectResponsesCreateLag {
           tags: this.__input.tags,
           childConnectionTags: this.__input.childConnectionTags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -6566,6 +7304,7 @@ export class DirectConnectResponsesCreateLag {
           tags: this.__input.tags,
           childConnectionTags: this.__input.childConnectionTags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -6590,6 +7329,7 @@ export class DirectConnectResponsesCreateLag {
           tags: this.__input.tags,
           childConnectionTags: this.__input.childConnectionTags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -6614,6 +7354,7 @@ export class DirectConnectResponsesCreateLag {
           tags: this.__input.tags,
           childConnectionTags: this.__input.childConnectionTags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -6638,6 +7379,7 @@ export class DirectConnectResponsesCreateLag {
           tags: this.__input.tags,
           childConnectionTags: this.__input.childConnectionTags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -6662,6 +7404,7 @@ export class DirectConnectResponsesCreateLag {
           tags: this.__input.tags,
           childConnectionTags: this.__input.childConnectionTags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -6686,6 +7429,7 @@ export class DirectConnectResponsesCreateLag {
           tags: this.__input.tags,
           childConnectionTags: this.__input.childConnectionTags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -6710,6 +7454,7 @@ export class DirectConnectResponsesCreateLag {
           tags: this.__input.tags,
           childConnectionTags: this.__input.childConnectionTags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -6734,6 +7479,7 @@ export class DirectConnectResponsesCreateLag {
           tags: this.__input.tags,
           childConnectionTags: this.__input.childConnectionTags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -6758,6 +7504,7 @@ export class DirectConnectResponsesCreateLag {
           tags: this.__input.tags,
           childConnectionTags: this.__input.childConnectionTags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -6782,11 +7529,37 @@ export class DirectConnectResponsesCreateLag {
           tags: this.__input.tags,
           childConnectionTags: this.__input.childConnectionTags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateLag.awsDeviceV2', props);
     return resource.getResponseField('awsDeviceV2') as unknown as string;
+  }
+
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.CreateLag.awsLogicalDeviceId'),
+        outputPath: 'awsLogicalDeviceId',
+        parameters: {
+          numberOfConnections: this.__input.numberOfConnections,
+          location: this.__input.location,
+          connectionsBandwidth: this.__input.connectionsBandwidth,
+          lagName: this.__input.lagName,
+          connectionId: this.__input.connectionId,
+          tags: this.__input.tags,
+          childConnectionTags: this.__input.childConnectionTags,
+          providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateLag.awsLogicalDeviceId', props);
+    return resource.getResponseField('awsLogicalDeviceId') as unknown as string;
   }
 
   public get connections(): shapes.DirectConnectConnection[] {
@@ -6806,6 +7579,7 @@ export class DirectConnectResponsesCreateLag {
           tags: this.__input.tags,
           childConnectionTags: this.__input.childConnectionTags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -6830,6 +7604,7 @@ export class DirectConnectResponsesCreateLag {
           tags: this.__input.tags,
           childConnectionTags: this.__input.childConnectionTags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -6854,6 +7629,7 @@ export class DirectConnectResponsesCreateLag {
           tags: this.__input.tags,
           childConnectionTags: this.__input.childConnectionTags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -6878,6 +7654,7 @@ export class DirectConnectResponsesCreateLag {
           tags: this.__input.tags,
           childConnectionTags: this.__input.childConnectionTags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -6902,6 +7679,7 @@ export class DirectConnectResponsesCreateLag {
           tags: this.__input.tags,
           childConnectionTags: this.__input.childConnectionTags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
@@ -6926,11 +7704,87 @@ export class DirectConnectResponsesCreateLag {
           tags: this.__input.tags,
           childConnectionTags: this.__input.childConnectionTags,
           providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateLag.providerName', props);
     return resource.getResponseField('providerName') as unknown as string;
+  }
+
+  public get macSecCapable(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.CreateLag.macSecCapable'),
+        outputPath: 'macSecCapable',
+        parameters: {
+          numberOfConnections: this.__input.numberOfConnections,
+          location: this.__input.location,
+          connectionsBandwidth: this.__input.connectionsBandwidth,
+          lagName: this.__input.lagName,
+          connectionId: this.__input.connectionId,
+          tags: this.__input.tags,
+          childConnectionTags: this.__input.childConnectionTags,
+          providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateLag.macSecCapable', props);
+    return resource.getResponseField('macSecCapable') as unknown as boolean;
+  }
+
+  public get encryptionMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.CreateLag.encryptionMode'),
+        outputPath: 'encryptionMode',
+        parameters: {
+          numberOfConnections: this.__input.numberOfConnections,
+          location: this.__input.location,
+          connectionsBandwidth: this.__input.connectionsBandwidth,
+          lagName: this.__input.lagName,
+          connectionId: this.__input.connectionId,
+          tags: this.__input.tags,
+          childConnectionTags: this.__input.childConnectionTags,
+          providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateLag.encryptionMode', props);
+    return resource.getResponseField('encryptionMode') as unknown as string;
+  }
+
+  public get macSecKeys(): shapes.DirectConnectMacSecKey[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.CreateLag.macSecKeys'),
+        outputPath: 'macSecKeys',
+        parameters: {
+          numberOfConnections: this.__input.numberOfConnections,
+          location: this.__input.location,
+          connectionsBandwidth: this.__input.connectionsBandwidth,
+          lagName: this.__input.lagName,
+          connectionId: this.__input.connectionId,
+          tags: this.__input.tags,
+          childConnectionTags: this.__input.childConnectionTags,
+          providerName: this.__input.providerName,
+          requestMACSec: this.__input.requestMACSec,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateLag.macSecKeys', props);
+    return resource.getResponseField('macSecKeys') as unknown as shapes.DirectConnectMacSecKey[];
   }
 
 }
@@ -7630,6 +8484,36 @@ export class DirectConnectResponsesCreatePrivateVirtualInterface {
     return resource.getResponseField('awsDeviceV2') as unknown as string;
   }
 
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPrivateVirtualInterface',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.CreatePrivateVirtualInterface.awsLogicalDeviceId'),
+        outputPath: 'awsLogicalDeviceId',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          newPrivateVirtualInterface: {
+            virtualInterfaceName: this.__input.newPrivateVirtualInterface.virtualInterfaceName,
+            vlan: this.__input.newPrivateVirtualInterface.vlan,
+            asn: this.__input.newPrivateVirtualInterface.asn,
+            mtu: this.__input.newPrivateVirtualInterface.mtu,
+            authKey: this.__input.newPrivateVirtualInterface.authKey,
+            amazonAddress: this.__input.newPrivateVirtualInterface.amazonAddress,
+            customerAddress: this.__input.newPrivateVirtualInterface.customerAddress,
+            addressFamily: this.__input.newPrivateVirtualInterface.addressFamily,
+            virtualGatewayId: this.__input.newPrivateVirtualInterface.virtualGatewayId,
+            directConnectGatewayId: this.__input.newPrivateVirtualInterface.directConnectGatewayId,
+            tags: this.__input.newPrivateVirtualInterface.tags,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePrivateVirtualInterface.awsLogicalDeviceId', props);
+    return resource.getResponseField('awsLogicalDeviceId') as unknown as string;
+  }
+
   public get tags(): shapes.DirectConnectTag[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -8309,6 +9193,34 @@ export class DirectConnectResponsesCreatePublicVirtualInterface {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreatePublicVirtualInterface.awsDeviceV2', props);
     return resource.getResponseField('awsDeviceV2') as unknown as string;
+  }
+
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPublicVirtualInterface',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.CreatePublicVirtualInterface.awsLogicalDeviceId'),
+        outputPath: 'awsLogicalDeviceId',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          newPublicVirtualInterface: {
+            virtualInterfaceName: this.__input.newPublicVirtualInterface.virtualInterfaceName,
+            vlan: this.__input.newPublicVirtualInterface.vlan,
+            asn: this.__input.newPublicVirtualInterface.asn,
+            authKey: this.__input.newPublicVirtualInterface.authKey,
+            amazonAddress: this.__input.newPublicVirtualInterface.amazonAddress,
+            customerAddress: this.__input.newPublicVirtualInterface.customerAddress,
+            addressFamily: this.__input.newPublicVirtualInterface.addressFamily,
+            routeFilterPrefixes: this.__input.newPublicVirtualInterface.routeFilterPrefixes,
+            tags: this.__input.newPublicVirtualInterface.tags,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePublicVirtualInterface.awsLogicalDeviceId', props);
+    return resource.getResponseField('awsLogicalDeviceId') as unknown as string;
   }
 
   public get tags(): shapes.DirectConnectTag[] {
@@ -9024,6 +9936,35 @@ export class DirectConnectResponsesCreateTransitVirtualInterfaceVirtualInterface
     return resource.getResponseField('virtualInterface.awsDeviceV2') as unknown as string;
   }
 
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitVirtualInterface',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.CreateTransitVirtualInterface.virtualInterface.awsLogicalDeviceId'),
+        outputPath: 'virtualInterface.awsLogicalDeviceId',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          newTransitVirtualInterface: {
+            virtualInterfaceName: this.__input.newTransitVirtualInterface.virtualInterfaceName,
+            vlan: this.__input.newTransitVirtualInterface.vlan,
+            asn: this.__input.newTransitVirtualInterface.asn,
+            mtu: this.__input.newTransitVirtualInterface.mtu,
+            authKey: this.__input.newTransitVirtualInterface.authKey,
+            amazonAddress: this.__input.newTransitVirtualInterface.amazonAddress,
+            customerAddress: this.__input.newTransitVirtualInterface.customerAddress,
+            addressFamily: this.__input.newTransitVirtualInterface.addressFamily,
+            directConnectGatewayId: this.__input.newTransitVirtualInterface.directConnectGatewayId,
+            tags: this.__input.newTransitVirtualInterface.tags,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitVirtualInterface.virtualInterface.awsLogicalDeviceId', props);
+    return resource.getResponseField('virtualInterface.awsLogicalDeviceId') as unknown as string;
+  }
+
   public get tags(): shapes.DirectConnectTag[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -9531,6 +10472,26 @@ export class DirectConnectResponsesDeleteBgpPeerVirtualInterface {
     return resource.getResponseField('virtualInterface.awsDeviceV2') as unknown as string;
   }
 
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteBgpPeer',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.DeleteBGPPeer.virtualInterface.awsLogicalDeviceId'),
+        outputPath: 'virtualInterface.awsLogicalDeviceId',
+        parameters: {
+          virtualInterfaceId: this.__input.virtualInterfaceId,
+          asn: this.__input.asn,
+          customerAddress: this.__input.customerAddress,
+          bgpPeerId: this.__input.bgpPeerId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteBGPPeer.virtualInterface.awsLogicalDeviceId', props);
+    return resource.getResponseField('virtualInterface.awsLogicalDeviceId') as unknown as string;
+  }
+
   public get tags(): shapes.DirectConnectTag[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -9796,6 +10757,23 @@ export class DirectConnectResponsesDeleteConnection {
     return resource.getResponseField('awsDeviceV2') as unknown as string;
   }
 
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.DeleteConnection.awsLogicalDeviceId'),
+        outputPath: 'awsLogicalDeviceId',
+        parameters: {
+          connectionId: this.__input.connectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.awsLogicalDeviceId', props);
+    return resource.getResponseField('awsLogicalDeviceId') as unknown as string;
+  }
+
   public get hasLogicalRedundancy(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -9845,6 +10823,74 @@ export class DirectConnectResponsesDeleteConnection {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.providerName', props);
     return resource.getResponseField('providerName') as unknown as string;
+  }
+
+  public get macSecCapable(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.DeleteConnection.macSecCapable'),
+        outputPath: 'macSecCapable',
+        parameters: {
+          connectionId: this.__input.connectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.macSecCapable', props);
+    return resource.getResponseField('macSecCapable') as unknown as boolean;
+  }
+
+  public get portEncryptionStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.DeleteConnection.portEncryptionStatus'),
+        outputPath: 'portEncryptionStatus',
+        parameters: {
+          connectionId: this.__input.connectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.portEncryptionStatus', props);
+    return resource.getResponseField('portEncryptionStatus') as unknown as string;
+  }
+
+  public get encryptionMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.DeleteConnection.encryptionMode'),
+        outputPath: 'encryptionMode',
+        parameters: {
+          connectionId: this.__input.connectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.encryptionMode', props);
+    return resource.getResponseField('encryptionMode') as unknown as string;
+  }
+
+  public get macSecKeys(): shapes.DirectConnectMacSecKey[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.DeleteConnection.macSecKeys'),
+        outputPath: 'macSecKeys',
+        parameters: {
+          connectionId: this.__input.connectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.macSecKeys', props);
+    return resource.getResponseField('macSecKeys') as unknown as shapes.DirectConnectMacSecKey[];
   }
 
 }
@@ -10660,6 +11706,23 @@ export class DirectConnectResponsesDeleteLag {
     return resource.getResponseField('awsDeviceV2') as unknown as string;
   }
 
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.DeleteLag.awsLogicalDeviceId'),
+        outputPath: 'awsLogicalDeviceId',
+        parameters: {
+          lagId: this.__input.lagId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteLag.awsLogicalDeviceId', props);
+    return resource.getResponseField('awsLogicalDeviceId') as unknown as string;
+  }
+
   public get connections(): shapes.DirectConnectConnection[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -10760,6 +11823,57 @@ export class DirectConnectResponsesDeleteLag {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteLag.providerName', props);
     return resource.getResponseField('providerName') as unknown as string;
+  }
+
+  public get macSecCapable(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.DeleteLag.macSecCapable'),
+        outputPath: 'macSecCapable',
+        parameters: {
+          lagId: this.__input.lagId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteLag.macSecCapable', props);
+    return resource.getResponseField('macSecCapable') as unknown as boolean;
+  }
+
+  public get encryptionMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.DeleteLag.encryptionMode'),
+        outputPath: 'encryptionMode',
+        parameters: {
+          lagId: this.__input.lagId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteLag.encryptionMode', props);
+    return resource.getResponseField('encryptionMode') as unknown as string;
+  }
+
+  public get macSecKeys(): shapes.DirectConnectMacSecKey[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.DeleteLag.macSecKeys'),
+        outputPath: 'macSecKeys',
+        parameters: {
+          lagId: this.__input.lagId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteLag.macSecKeys', props);
+    return resource.getResponseField('macSecKeys') as unknown as shapes.DirectConnectMacSecKey[];
   }
 
 }
@@ -11605,6 +12719,24 @@ export class DirectConnectResponsesDisassociateConnectionFromLag {
     return resource.getResponseField('awsDeviceV2') as unknown as string;
   }
 
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateConnectionFromLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.DisassociateConnectionFromLag.awsLogicalDeviceId'),
+        outputPath: 'awsLogicalDeviceId',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          lagId: this.__input.lagId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateConnectionFromLag.awsLogicalDeviceId', props);
+    return resource.getResponseField('awsLogicalDeviceId') as unknown as string;
+  }
+
   public get hasLogicalRedundancy(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -11657,6 +12789,121 @@ export class DirectConnectResponsesDisassociateConnectionFromLag {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateConnectionFromLag.providerName', props);
     return resource.getResponseField('providerName') as unknown as string;
+  }
+
+  public get macSecCapable(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateConnectionFromLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.DisassociateConnectionFromLag.macSecCapable'),
+        outputPath: 'macSecCapable',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          lagId: this.__input.lagId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateConnectionFromLag.macSecCapable', props);
+    return resource.getResponseField('macSecCapable') as unknown as boolean;
+  }
+
+  public get portEncryptionStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateConnectionFromLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.DisassociateConnectionFromLag.portEncryptionStatus'),
+        outputPath: 'portEncryptionStatus',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          lagId: this.__input.lagId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateConnectionFromLag.portEncryptionStatus', props);
+    return resource.getResponseField('portEncryptionStatus') as unknown as string;
+  }
+
+  public get encryptionMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateConnectionFromLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.DisassociateConnectionFromLag.encryptionMode'),
+        outputPath: 'encryptionMode',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          lagId: this.__input.lagId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateConnectionFromLag.encryptionMode', props);
+    return resource.getResponseField('encryptionMode') as unknown as string;
+  }
+
+  public get macSecKeys(): shapes.DirectConnectMacSecKey[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateConnectionFromLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.DisassociateConnectionFromLag.macSecKeys'),
+        outputPath: 'macSecKeys',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          lagId: this.__input.lagId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateConnectionFromLag.macSecKeys', props);
+    return resource.getResponseField('macSecKeys') as unknown as shapes.DirectConnectMacSecKey[];
+  }
+
+}
+
+export class DirectConnectResponsesDisassociateMacSecKey {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DirectConnectDisassociateMacSecKeyRequest) {
+  }
+
+  public get connectionId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateMacSecKey',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.DisassociateMacSecKey.connectionId'),
+        outputPath: 'connectionId',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          secretARN: this.__input.secretARN,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateMacSecKey.connectionId', props);
+    return resource.getResponseField('connectionId') as unknown as string;
+  }
+
+  public get macSecKeys(): shapes.DirectConnectMacSecKey[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateMacSecKey',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.DisassociateMacSecKey.macSecKeys'),
+        outputPath: 'macSecKeys',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          secretARN: this.__input.secretARN,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateMacSecKey.macSecKeys', props);
+    return resource.getResponseField('macSecKeys') as unknown as shapes.DirectConnectMacSecKey[];
   }
 
 }
@@ -12036,6 +13283,431 @@ export class DirectConnectResponsesStopBgpFailoverTestVirtualInterfaceTest {
 
 }
 
+export class DirectConnectResponsesUpdateConnection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DirectConnectUpdateConnectionRequest) {
+  }
+
+  public get ownerAccount(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.ownerAccount'),
+        outputPath: 'ownerAccount',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.ownerAccount', props);
+    return resource.getResponseField('ownerAccount') as unknown as string;
+  }
+
+  public get connectionId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.connectionId'),
+        outputPath: 'connectionId',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.connectionId', props);
+    return resource.getResponseField('connectionId') as unknown as string;
+  }
+
+  public get connectionName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.connectionName'),
+        outputPath: 'connectionName',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.connectionName', props);
+    return resource.getResponseField('connectionName') as unknown as string;
+  }
+
+  public get connectionState(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.connectionState'),
+        outputPath: 'connectionState',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.connectionState', props);
+    return resource.getResponseField('connectionState') as unknown as string;
+  }
+
+  public get region(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.region'),
+        outputPath: 'region',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.region', props);
+    return resource.getResponseField('region') as unknown as string;
+  }
+
+  public get location(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.location'),
+        outputPath: 'location',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.location', props);
+    return resource.getResponseField('location') as unknown as string;
+  }
+
+  public get bandwidth(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.bandwidth'),
+        outputPath: 'bandwidth',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.bandwidth', props);
+    return resource.getResponseField('bandwidth') as unknown as string;
+  }
+
+  public get vlan(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.vlan'),
+        outputPath: 'vlan',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.vlan', props);
+    return resource.getResponseField('vlan') as unknown as number;
+  }
+
+  public get partnerName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.partnerName'),
+        outputPath: 'partnerName',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.partnerName', props);
+    return resource.getResponseField('partnerName') as unknown as string;
+  }
+
+  public get loaIssueTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.loaIssueTime'),
+        outputPath: 'loaIssueTime',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.loaIssueTime', props);
+    return resource.getResponseField('loaIssueTime') as unknown as string;
+  }
+
+  public get lagId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.lagId'),
+        outputPath: 'lagId',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.lagId', props);
+    return resource.getResponseField('lagId') as unknown as string;
+  }
+
+  public get awsDevice(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.awsDevice'),
+        outputPath: 'awsDevice',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.awsDevice', props);
+    return resource.getResponseField('awsDevice') as unknown as string;
+  }
+
+  public get jumboFrameCapable(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.jumboFrameCapable'),
+        outputPath: 'jumboFrameCapable',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.jumboFrameCapable', props);
+    return resource.getResponseField('jumboFrameCapable') as unknown as boolean;
+  }
+
+  public get awsDeviceV2(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.awsDeviceV2'),
+        outputPath: 'awsDeviceV2',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.awsDeviceV2', props);
+    return resource.getResponseField('awsDeviceV2') as unknown as string;
+  }
+
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.awsLogicalDeviceId'),
+        outputPath: 'awsLogicalDeviceId',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.awsLogicalDeviceId', props);
+    return resource.getResponseField('awsLogicalDeviceId') as unknown as string;
+  }
+
+  public get hasLogicalRedundancy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.hasLogicalRedundancy'),
+        outputPath: 'hasLogicalRedundancy',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.hasLogicalRedundancy', props);
+    return resource.getResponseField('hasLogicalRedundancy') as unknown as string;
+  }
+
+  public get tags(): shapes.DirectConnectTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.tags'),
+        outputPath: 'tags',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.tags', props);
+    return resource.getResponseField('tags') as unknown as shapes.DirectConnectTag[];
+  }
+
+  public get providerName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.providerName'),
+        outputPath: 'providerName',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.providerName', props);
+    return resource.getResponseField('providerName') as unknown as string;
+  }
+
+  public get macSecCapable(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.macSecCapable'),
+        outputPath: 'macSecCapable',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.macSecCapable', props);
+    return resource.getResponseField('macSecCapable') as unknown as boolean;
+  }
+
+  public get portEncryptionStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.portEncryptionStatus'),
+        outputPath: 'portEncryptionStatus',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.portEncryptionStatus', props);
+    return resource.getResponseField('portEncryptionStatus') as unknown as string;
+  }
+
+  public get encryptionMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.encryptionMode'),
+        outputPath: 'encryptionMode',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.encryptionMode', props);
+    return resource.getResponseField('encryptionMode') as unknown as string;
+  }
+
+  public get macSecKeys(): shapes.DirectConnectMacSecKey[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateConnection.macSecKeys'),
+        outputPath: 'macSecKeys',
+        parameters: {
+          connectionId: this.__input.connectionId,
+          connectionName: this.__input.connectionName,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.macSecKeys', props);
+    return resource.getResponseField('macSecKeys') as unknown as shapes.DirectConnectMacSecKey[];
+  }
+
+}
+
 export class DirectConnectResponsesUpdateDirectConnectGatewayAssociation {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DirectConnectUpdateDirectConnectGatewayAssociationRequest) {
@@ -12329,6 +14001,7 @@ export class DirectConnectResponsesUpdateLag {
           lagId: this.__input.lagId,
           lagName: this.__input.lagName,
           minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
         },
       },
     };
@@ -12348,6 +14021,7 @@ export class DirectConnectResponsesUpdateLag {
           lagId: this.__input.lagId,
           lagName: this.__input.lagName,
           minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
         },
       },
     };
@@ -12367,6 +14041,7 @@ export class DirectConnectResponsesUpdateLag {
           lagId: this.__input.lagId,
           lagName: this.__input.lagName,
           minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
         },
       },
     };
@@ -12386,6 +14061,7 @@ export class DirectConnectResponsesUpdateLag {
           lagId: this.__input.lagId,
           lagName: this.__input.lagName,
           minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
         },
       },
     };
@@ -12405,6 +14081,7 @@ export class DirectConnectResponsesUpdateLag {
           lagId: this.__input.lagId,
           lagName: this.__input.lagName,
           minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
         },
       },
     };
@@ -12424,6 +14101,7 @@ export class DirectConnectResponsesUpdateLag {
           lagId: this.__input.lagId,
           lagName: this.__input.lagName,
           minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
         },
       },
     };
@@ -12443,6 +14121,7 @@ export class DirectConnectResponsesUpdateLag {
           lagId: this.__input.lagId,
           lagName: this.__input.lagName,
           minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
         },
       },
     };
@@ -12462,6 +14141,7 @@ export class DirectConnectResponsesUpdateLag {
           lagId: this.__input.lagId,
           lagName: this.__input.lagName,
           minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
         },
       },
     };
@@ -12481,6 +14161,7 @@ export class DirectConnectResponsesUpdateLag {
           lagId: this.__input.lagId,
           lagName: this.__input.lagName,
           minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
         },
       },
     };
@@ -12500,6 +14181,7 @@ export class DirectConnectResponsesUpdateLag {
           lagId: this.__input.lagId,
           lagName: this.__input.lagName,
           minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
         },
       },
     };
@@ -12519,11 +14201,32 @@ export class DirectConnectResponsesUpdateLag {
           lagId: this.__input.lagId,
           lagName: this.__input.lagName,
           minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateLag.awsDeviceV2', props);
     return resource.getResponseField('awsDeviceV2') as unknown as string;
+  }
+
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateLag.awsLogicalDeviceId'),
+        outputPath: 'awsLogicalDeviceId',
+        parameters: {
+          lagId: this.__input.lagId,
+          lagName: this.__input.lagName,
+          minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateLag.awsLogicalDeviceId', props);
+    return resource.getResponseField('awsLogicalDeviceId') as unknown as string;
   }
 
   public get connections(): shapes.DirectConnectConnection[] {
@@ -12538,6 +14241,7 @@ export class DirectConnectResponsesUpdateLag {
           lagId: this.__input.lagId,
           lagName: this.__input.lagName,
           minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
         },
       },
     };
@@ -12557,6 +14261,7 @@ export class DirectConnectResponsesUpdateLag {
           lagId: this.__input.lagId,
           lagName: this.__input.lagName,
           minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
         },
       },
     };
@@ -12576,6 +14281,7 @@ export class DirectConnectResponsesUpdateLag {
           lagId: this.__input.lagId,
           lagName: this.__input.lagName,
           minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
         },
       },
     };
@@ -12595,6 +14301,7 @@ export class DirectConnectResponsesUpdateLag {
           lagId: this.__input.lagId,
           lagName: this.__input.lagName,
           minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
         },
       },
     };
@@ -12614,6 +14321,7 @@ export class DirectConnectResponsesUpdateLag {
           lagId: this.__input.lagId,
           lagName: this.__input.lagName,
           minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
         },
       },
     };
@@ -12633,11 +14341,72 @@ export class DirectConnectResponsesUpdateLag {
           lagId: this.__input.lagId,
           lagName: this.__input.lagName,
           minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateLag.providerName', props);
     return resource.getResponseField('providerName') as unknown as string;
+  }
+
+  public get macSecCapable(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateLag.macSecCapable'),
+        outputPath: 'macSecCapable',
+        parameters: {
+          lagId: this.__input.lagId,
+          lagName: this.__input.lagName,
+          minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateLag.macSecCapable', props);
+    return resource.getResponseField('macSecCapable') as unknown as boolean;
+  }
+
+  public get encryptionMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateLag.encryptionMode'),
+        outputPath: 'encryptionMode',
+        parameters: {
+          lagId: this.__input.lagId,
+          lagName: this.__input.lagName,
+          minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateLag.encryptionMode', props);
+    return resource.getResponseField('encryptionMode') as unknown as string;
+  }
+
+  public get macSecKeys(): shapes.DirectConnectMacSecKey[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateLag',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateLag.macSecKeys'),
+        outputPath: 'macSecKeys',
+        parameters: {
+          lagId: this.__input.lagId,
+          lagName: this.__input.lagName,
+          minimumLinks: this.__input.minimumLinks,
+          encryptionMode: this.__input.encryptionMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateLag.macSecKeys', props);
+    return resource.getResponseField('macSecKeys') as unknown as shapes.DirectConnectMacSecKey[];
   }
 
 }
@@ -13059,6 +14828,24 @@ export class DirectConnectResponsesUpdateVirtualInterfaceAttributes {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateVirtualInterfaceAttributes.awsDeviceV2', props);
     return resource.getResponseField('awsDeviceV2') as unknown as string;
+  }
+
+  public get awsLogicalDeviceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateVirtualInterfaceAttributes',
+        service: 'DirectConnect',
+        physicalResourceId: cr.PhysicalResourceId.of('DirectConnect.UpdateVirtualInterfaceAttributes.awsLogicalDeviceId'),
+        outputPath: 'awsLogicalDeviceId',
+        parameters: {
+          virtualInterfaceId: this.__input.virtualInterfaceId,
+          mtu: this.__input.mtu,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateVirtualInterfaceAttributes.awsLogicalDeviceId', props);
+    return resource.getResponseField('awsLogicalDeviceId') as unknown as string;
   }
 
   public get tags(): shapes.DirectConnectTag[] {

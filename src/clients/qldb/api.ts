@@ -119,6 +119,10 @@ export class QldbClient extends cdk.Construct {
     return new QLDBResponsesUpdateLedger(this, this.__resources, input);
   }
 
+  public updateLedgerPermissionsMode(input: shapes.QldbUpdateLedgerPermissionsModeRequest): QLDBResponsesUpdateLedgerPermissionsMode {
+    return new QLDBResponsesUpdateLedgerPermissionsMode(this, this.__resources, input);
+  }
+
 }
 
 export class QLDBResponsesCancelJournalKinesisStream {
@@ -164,6 +168,7 @@ export class QLDBResponsesCreateLedger {
           Tags: this.__input.tags,
           PermissionsMode: this.__input.permissionsMode,
           DeletionProtection: this.__input.deletionProtection,
+          KmsKey: this.__input.kmsKey,
         },
       },
     };
@@ -184,6 +189,7 @@ export class QLDBResponsesCreateLedger {
           Tags: this.__input.tags,
           PermissionsMode: this.__input.permissionsMode,
           DeletionProtection: this.__input.deletionProtection,
+          KmsKey: this.__input.kmsKey,
         },
       },
     };
@@ -204,6 +210,7 @@ export class QLDBResponsesCreateLedger {
           Tags: this.__input.tags,
           PermissionsMode: this.__input.permissionsMode,
           DeletionProtection: this.__input.deletionProtection,
+          KmsKey: this.__input.kmsKey,
         },
       },
     };
@@ -224,11 +231,33 @@ export class QLDBResponsesCreateLedger {
           Tags: this.__input.tags,
           PermissionsMode: this.__input.permissionsMode,
           DeletionProtection: this.__input.deletionProtection,
+          KmsKey: this.__input.kmsKey,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateLedger.CreationDateTime', props);
     return resource.getResponseField('CreationDateTime') as unknown as string;
+  }
+
+  public get permissionsMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createLedger',
+        service: 'QLDB',
+        physicalResourceId: cr.PhysicalResourceId.of('QLDB.CreateLedger.PermissionsMode'),
+        outputPath: 'PermissionsMode',
+        parameters: {
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+          PermissionsMode: this.__input.permissionsMode,
+          DeletionProtection: this.__input.deletionProtection,
+          KmsKey: this.__input.kmsKey,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateLedger.PermissionsMode', props);
+    return resource.getResponseField('PermissionsMode') as unknown as string;
   }
 
   public get deletionProtection(): boolean {
@@ -244,11 +273,33 @@ export class QLDBResponsesCreateLedger {
           Tags: this.__input.tags,
           PermissionsMode: this.__input.permissionsMode,
           DeletionProtection: this.__input.deletionProtection,
+          KmsKey: this.__input.kmsKey,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateLedger.DeletionProtection', props);
     return resource.getResponseField('DeletionProtection') as unknown as boolean;
+  }
+
+  public get kmsKeyArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createLedger',
+        service: 'QLDB',
+        physicalResourceId: cr.PhysicalResourceId.of('QLDB.CreateLedger.KmsKeyArn'),
+        outputPath: 'KmsKeyArn',
+        parameters: {
+          Name: this.__input.name,
+          Tags: this.__input.tags,
+          PermissionsMode: this.__input.permissionsMode,
+          DeletionProtection: this.__input.deletionProtection,
+          KmsKey: this.__input.kmsKey,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateLedger.KmsKeyArn', props);
+    return resource.getResponseField('KmsKeyArn') as unknown as string;
   }
 
 }
@@ -809,6 +860,23 @@ export class QLDBResponsesDescribeLedger {
     return resource.getResponseField('CreationDateTime') as unknown as string;
   }
 
+  public get permissionsMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeLedger',
+        service: 'QLDB',
+        physicalResourceId: cr.PhysicalResourceId.of('QLDB.DescribeLedger.PermissionsMode'),
+        outputPath: 'PermissionsMode',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeLedger.PermissionsMode', props);
+    return resource.getResponseField('PermissionsMode') as unknown as string;
+  }
+
   public get deletionProtection(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -824,6 +892,68 @@ export class QLDBResponsesDescribeLedger {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeLedger.DeletionProtection', props);
     return resource.getResponseField('DeletionProtection') as unknown as boolean;
+  }
+
+  public get encryptionDescription(): QLDBResponsesDescribeLedgerEncryptionDescription {
+    return new QLDBResponsesDescribeLedgerEncryptionDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class QLDBResponsesDescribeLedgerEncryptionDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QldbDescribeLedgerRequest) {
+  }
+
+  public get kmsKeyArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeLedger',
+        service: 'QLDB',
+        physicalResourceId: cr.PhysicalResourceId.of('QLDB.DescribeLedger.EncryptionDescription.KmsKeyArn'),
+        outputPath: 'EncryptionDescription.KmsKeyArn',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeLedger.EncryptionDescription.KmsKeyArn', props);
+    return resource.getResponseField('EncryptionDescription.KmsKeyArn') as unknown as string;
+  }
+
+  public get encryptionStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeLedger',
+        service: 'QLDB',
+        physicalResourceId: cr.PhysicalResourceId.of('QLDB.DescribeLedger.EncryptionDescription.EncryptionStatus'),
+        outputPath: 'EncryptionDescription.EncryptionStatus',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeLedger.EncryptionDescription.EncryptionStatus', props);
+    return resource.getResponseField('EncryptionDescription.EncryptionStatus') as unknown as string;
+  }
+
+  public get inaccessibleKmsKeyDateTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeLedger',
+        service: 'QLDB',
+        physicalResourceId: cr.PhysicalResourceId.of('QLDB.DescribeLedger.EncryptionDescription.InaccessibleKmsKeyDateTime'),
+        outputPath: 'EncryptionDescription.InaccessibleKmsKeyDateTime',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeLedger.EncryptionDescription.InaccessibleKmsKeyDateTime', props);
+    return resource.getResponseField('EncryptionDescription.InaccessibleKmsKeyDateTime') as unknown as string;
   }
 
 }
@@ -1316,6 +1446,7 @@ export class QLDBResponsesUpdateLedger {
         parameters: {
           Name: this.__input.name,
           DeletionProtection: this.__input.deletionProtection,
+          KmsKey: this.__input.kmsKey,
         },
       },
     };
@@ -1334,6 +1465,7 @@ export class QLDBResponsesUpdateLedger {
         parameters: {
           Name: this.__input.name,
           DeletionProtection: this.__input.deletionProtection,
+          KmsKey: this.__input.kmsKey,
         },
       },
     };
@@ -1352,6 +1484,7 @@ export class QLDBResponsesUpdateLedger {
         parameters: {
           Name: this.__input.name,
           DeletionProtection: this.__input.deletionProtection,
+          KmsKey: this.__input.kmsKey,
         },
       },
     };
@@ -1370,6 +1503,7 @@ export class QLDBResponsesUpdateLedger {
         parameters: {
           Name: this.__input.name,
           DeletionProtection: this.__input.deletionProtection,
+          KmsKey: this.__input.kmsKey,
         },
       },
     };
@@ -1388,11 +1522,141 @@ export class QLDBResponsesUpdateLedger {
         parameters: {
           Name: this.__input.name,
           DeletionProtection: this.__input.deletionProtection,
+          KmsKey: this.__input.kmsKey,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateLedger.DeletionProtection', props);
     return resource.getResponseField('DeletionProtection') as unknown as boolean;
+  }
+
+  public get encryptionDescription(): QLDBResponsesUpdateLedgerEncryptionDescription {
+    return new QLDBResponsesUpdateLedgerEncryptionDescription(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class QLDBResponsesUpdateLedgerEncryptionDescription {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QldbUpdateLedgerRequest) {
+  }
+
+  public get kmsKeyArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateLedger',
+        service: 'QLDB',
+        physicalResourceId: cr.PhysicalResourceId.of('QLDB.UpdateLedger.EncryptionDescription.KmsKeyArn'),
+        outputPath: 'EncryptionDescription.KmsKeyArn',
+        parameters: {
+          Name: this.__input.name,
+          DeletionProtection: this.__input.deletionProtection,
+          KmsKey: this.__input.kmsKey,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateLedger.EncryptionDescription.KmsKeyArn', props);
+    return resource.getResponseField('EncryptionDescription.KmsKeyArn') as unknown as string;
+  }
+
+  public get encryptionStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateLedger',
+        service: 'QLDB',
+        physicalResourceId: cr.PhysicalResourceId.of('QLDB.UpdateLedger.EncryptionDescription.EncryptionStatus'),
+        outputPath: 'EncryptionDescription.EncryptionStatus',
+        parameters: {
+          Name: this.__input.name,
+          DeletionProtection: this.__input.deletionProtection,
+          KmsKey: this.__input.kmsKey,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateLedger.EncryptionDescription.EncryptionStatus', props);
+    return resource.getResponseField('EncryptionDescription.EncryptionStatus') as unknown as string;
+  }
+
+  public get inaccessibleKmsKeyDateTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateLedger',
+        service: 'QLDB',
+        physicalResourceId: cr.PhysicalResourceId.of('QLDB.UpdateLedger.EncryptionDescription.InaccessibleKmsKeyDateTime'),
+        outputPath: 'EncryptionDescription.InaccessibleKmsKeyDateTime',
+        parameters: {
+          Name: this.__input.name,
+          DeletionProtection: this.__input.deletionProtection,
+          KmsKey: this.__input.kmsKey,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateLedger.EncryptionDescription.InaccessibleKmsKeyDateTime', props);
+    return resource.getResponseField('EncryptionDescription.InaccessibleKmsKeyDateTime') as unknown as string;
+  }
+
+}
+
+export class QLDBResponsesUpdateLedgerPermissionsMode {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QldbUpdateLedgerPermissionsModeRequest) {
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateLedgerPermissionsMode',
+        service: 'QLDB',
+        physicalResourceId: cr.PhysicalResourceId.of('QLDB.UpdateLedgerPermissionsMode.Name'),
+        outputPath: 'Name',
+        parameters: {
+          Name: this.__input.name,
+          PermissionsMode: this.__input.permissionsMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateLedgerPermissionsMode.Name', props);
+    return resource.getResponseField('Name') as unknown as string;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateLedgerPermissionsMode',
+        service: 'QLDB',
+        physicalResourceId: cr.PhysicalResourceId.of('QLDB.UpdateLedgerPermissionsMode.Arn'),
+        outputPath: 'Arn',
+        parameters: {
+          Name: this.__input.name,
+          PermissionsMode: this.__input.permissionsMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateLedgerPermissionsMode.Arn', props);
+    return resource.getResponseField('Arn') as unknown as string;
+  }
+
+  public get permissionsMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateLedgerPermissionsMode',
+        service: 'QLDB',
+        physicalResourceId: cr.PhysicalResourceId.of('QLDB.UpdateLedgerPermissionsMode.PermissionsMode'),
+        outputPath: 'PermissionsMode',
+        parameters: {
+          Name: this.__input.name,
+          PermissionsMode: this.__input.permissionsMode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateLedgerPermissionsMode.PermissionsMode', props);
+    return resource.getResponseField('PermissionsMode') as unknown as string;
   }
 
 }

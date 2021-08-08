@@ -10,6 +10,20 @@ export interface RoboMakerBatchDeleteWorldsRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerBatchDeleteWorldsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerBatchDeleteWorldsRequest(obj: RoboMakerBatchDeleteWorldsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'worlds': obj.worlds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerBatchDeleteWorldsResponse
  */
 export interface RoboMakerBatchDeleteWorldsResponse {
@@ -21,6 +35,20 @@ export interface RoboMakerBatchDeleteWorldsResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerBatchDeleteWorldsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerBatchDeleteWorldsResponse(obj: RoboMakerBatchDeleteWorldsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'unprocessedWorlds': obj.unprocessedWorlds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerBatchDescribeSimulationJobRequest
  */
 export interface RoboMakerBatchDescribeSimulationJobRequest {
@@ -30,6 +58,20 @@ export interface RoboMakerBatchDescribeSimulationJobRequest {
   readonly jobs: string[];
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerBatchDescribeSimulationJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerBatchDescribeSimulationJobRequest(obj: RoboMakerBatchDescribeSimulationJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobs': obj.jobs?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerBatchDescribeSimulationJobResponse
@@ -48,6 +90,21 @@ export interface RoboMakerBatchDescribeSimulationJobResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerBatchDescribeSimulationJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerBatchDescribeSimulationJobResponse(obj: RoboMakerBatchDescribeSimulationJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobs': obj.jobs?.map(y => toJson_RoboMakerSimulationJob(y)),
+    'unprocessedJobs': obj.unprocessedJobs?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerCancelDeploymentJobRequest
  */
 export interface RoboMakerCancelDeploymentJobRequest {
@@ -59,10 +116,37 @@ export interface RoboMakerCancelDeploymentJobRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerCancelDeploymentJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCancelDeploymentJobRequest(obj: RoboMakerCancelDeploymentJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'job': obj.job,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerCancelDeploymentJobResponse
  */
 export interface RoboMakerCancelDeploymentJobResponse {
 }
+
+/**
+ * Converts an object of type 'RoboMakerCancelDeploymentJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCancelDeploymentJobResponse(obj: RoboMakerCancelDeploymentJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerCancelSimulationJobRequest
@@ -76,10 +160,37 @@ export interface RoboMakerCancelSimulationJobRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerCancelSimulationJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCancelSimulationJobRequest(obj: RoboMakerCancelSimulationJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'job': obj.job,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerCancelSimulationJobResponse
  */
 export interface RoboMakerCancelSimulationJobResponse {
 }
+
+/**
+ * Converts an object of type 'RoboMakerCancelSimulationJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCancelSimulationJobResponse(obj: RoboMakerCancelSimulationJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerCancelSimulationJobBatchRequest
@@ -93,10 +204,37 @@ export interface RoboMakerCancelSimulationJobBatchRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerCancelSimulationJobBatchRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCancelSimulationJobBatchRequest(obj: RoboMakerCancelSimulationJobBatchRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'batch': obj.batch,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerCancelSimulationJobBatchResponse
  */
 export interface RoboMakerCancelSimulationJobBatchResponse {
 }
+
+/**
+ * Converts an object of type 'RoboMakerCancelSimulationJobBatchResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCancelSimulationJobBatchResponse(obj: RoboMakerCancelSimulationJobBatchResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerCancelWorldExportJobRequest
@@ -110,10 +248,37 @@ export interface RoboMakerCancelWorldExportJobRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerCancelWorldExportJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCancelWorldExportJobRequest(obj: RoboMakerCancelWorldExportJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'job': obj.job,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerCancelWorldExportJobResponse
  */
 export interface RoboMakerCancelWorldExportJobResponse {
 }
+
+/**
+ * Converts an object of type 'RoboMakerCancelWorldExportJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCancelWorldExportJobResponse(obj: RoboMakerCancelWorldExportJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerCancelWorldGenerationJobRequest
@@ -127,10 +292,37 @@ export interface RoboMakerCancelWorldGenerationJobRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerCancelWorldGenerationJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCancelWorldGenerationJobRequest(obj: RoboMakerCancelWorldGenerationJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'job': obj.job,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerCancelWorldGenerationJobResponse
  */
 export interface RoboMakerCancelWorldGenerationJobResponse {
 }
+
+/**
+ * Converts an object of type 'RoboMakerCancelWorldGenerationJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCancelWorldGenerationJobResponse(obj: RoboMakerCancelWorldGenerationJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerCreateDeploymentJobRequest
@@ -162,6 +354,24 @@ export interface RoboMakerCreateDeploymentJobRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerCreateDeploymentJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateDeploymentJobRequest(obj: RoboMakerCreateDeploymentJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentConfig': toJson_RoboMakerDeploymentConfig(obj.deploymentConfig),
+    'clientRequestToken': obj.clientRequestToken,
+    'fleet': obj.fleet,
+    'deploymentApplicationConfigs': obj.deploymentApplicationConfigs?.map(y => toJson_RoboMakerDeploymentApplicationConfig(y)),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerCreateDeploymentJobResponse
@@ -215,6 +425,28 @@ export interface RoboMakerCreateDeploymentJobResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerCreateDeploymentJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateDeploymentJobResponse(obj: RoboMakerCreateDeploymentJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'fleet': obj.fleet,
+    'status': obj.status,
+    'deploymentApplicationConfigs': obj.deploymentApplicationConfigs?.map(y => toJson_RoboMakerDeploymentApplicationConfig(y)),
+    'failureReason': obj.failureReason,
+    'failureCode': obj.failureCode,
+    'createdAt': obj.createdAt,
+    'deploymentConfig': toJson_RoboMakerDeploymentConfig(obj.deploymentConfig),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerCreateFleetRequest
  */
 export interface RoboMakerCreateFleetRequest {
@@ -229,6 +461,21 @@ export interface RoboMakerCreateFleetRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerCreateFleetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateFleetRequest(obj: RoboMakerCreateFleetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerCreateFleetResponse
@@ -257,6 +504,23 @@ export interface RoboMakerCreateFleetResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerCreateFleetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateFleetResponse(obj: RoboMakerCreateFleetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'createdAt': obj.createdAt,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerCreateRobotRequest
  */
 export interface RoboMakerCreateRobotRequest {
@@ -281,6 +545,23 @@ export interface RoboMakerCreateRobotRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerCreateRobotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateRobotRequest(obj: RoboMakerCreateRobotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'architecture': obj.architecture,
+    'greengrassGroupId': obj.greengrassGroupId,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerCreateRobotResponse
@@ -319,6 +600,25 @@ export interface RoboMakerCreateRobotResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerCreateRobotResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateRobotResponse(obj: RoboMakerCreateRobotResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'createdAt': obj.createdAt,
+    'greengrassGroupId': obj.greengrassGroupId,
+    'architecture': obj.architecture,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerCreateRobotApplicationRequest
  */
 export interface RoboMakerCreateRobotApplicationRequest {
@@ -343,6 +643,23 @@ export interface RoboMakerCreateRobotApplicationRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerCreateRobotApplicationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateRobotApplicationRequest(obj: RoboMakerCreateRobotApplicationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'sources': obj.sources?.map(y => toJson_RoboMakerSourceConfig(y)),
+    'robotSoftwareSuite': toJson_RoboMakerRobotSoftwareSuite(obj.robotSoftwareSuite),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerCreateRobotApplicationResponse
@@ -391,6 +708,27 @@ export interface RoboMakerCreateRobotApplicationResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerCreateRobotApplicationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateRobotApplicationResponse(obj: RoboMakerCreateRobotApplicationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'version': obj.version,
+    'sources': obj.sources?.map(y => toJson_RoboMakerSource(y)),
+    'robotSoftwareSuite': toJson_RoboMakerRobotSoftwareSuite(obj.robotSoftwareSuite),
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'revisionId': obj.revisionId,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerCreateRobotApplicationVersionRequest
  */
 export interface RoboMakerCreateRobotApplicationVersionRequest {
@@ -405,6 +743,21 @@ export interface RoboMakerCreateRobotApplicationVersionRequest {
   readonly currentRevisionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerCreateRobotApplicationVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateRobotApplicationVersionRequest(obj: RoboMakerCreateRobotApplicationVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'application': obj.application,
+    'currentRevisionId': obj.currentRevisionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerCreateRobotApplicationVersionResponse
@@ -448,6 +801,26 @@ export interface RoboMakerCreateRobotApplicationVersionResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerCreateRobotApplicationVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateRobotApplicationVersionResponse(obj: RoboMakerCreateRobotApplicationVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'version': obj.version,
+    'sources': obj.sources?.map(y => toJson_RoboMakerSource(y)),
+    'robotSoftwareSuite': toJson_RoboMakerRobotSoftwareSuite(obj.robotSoftwareSuite),
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'revisionId': obj.revisionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerCreateSimulationApplicationRequest
  */
 export interface RoboMakerCreateSimulationApplicationRequest {
@@ -482,6 +855,25 @@ export interface RoboMakerCreateSimulationApplicationRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerCreateSimulationApplicationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateSimulationApplicationRequest(obj: RoboMakerCreateSimulationApplicationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'sources': obj.sources?.map(y => toJson_RoboMakerSourceConfig(y)),
+    'simulationSoftwareSuite': toJson_RoboMakerSimulationSoftwareSuite(obj.simulationSoftwareSuite),
+    'robotSoftwareSuite': toJson_RoboMakerRobotSoftwareSuite(obj.robotSoftwareSuite),
+    'renderingEngine': toJson_RoboMakerRenderingEngine(obj.renderingEngine),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerCreateSimulationApplicationResponse
@@ -540,6 +932,29 @@ export interface RoboMakerCreateSimulationApplicationResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerCreateSimulationApplicationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateSimulationApplicationResponse(obj: RoboMakerCreateSimulationApplicationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'version': obj.version,
+    'sources': obj.sources?.map(y => toJson_RoboMakerSource(y)),
+    'simulationSoftwareSuite': toJson_RoboMakerSimulationSoftwareSuite(obj.simulationSoftwareSuite),
+    'robotSoftwareSuite': toJson_RoboMakerRobotSoftwareSuite(obj.robotSoftwareSuite),
+    'renderingEngine': toJson_RoboMakerRenderingEngine(obj.renderingEngine),
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'revisionId': obj.revisionId,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerCreateSimulationApplicationVersionRequest
  */
 export interface RoboMakerCreateSimulationApplicationVersionRequest {
@@ -554,6 +969,21 @@ export interface RoboMakerCreateSimulationApplicationVersionRequest {
   readonly currentRevisionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerCreateSimulationApplicationVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateSimulationApplicationVersionRequest(obj: RoboMakerCreateSimulationApplicationVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'application': obj.application,
+    'currentRevisionId': obj.currentRevisionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerCreateSimulationApplicationVersionResponse
@@ -605,6 +1035,28 @@ export interface RoboMakerCreateSimulationApplicationVersionResponse {
   readonly revisionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerCreateSimulationApplicationVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateSimulationApplicationVersionResponse(obj: RoboMakerCreateSimulationApplicationVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'version': obj.version,
+    'sources': obj.sources?.map(y => toJson_RoboMakerSource(y)),
+    'simulationSoftwareSuite': toJson_RoboMakerSimulationSoftwareSuite(obj.simulationSoftwareSuite),
+    'robotSoftwareSuite': toJson_RoboMakerRobotSoftwareSuite(obj.robotSoftwareSuite),
+    'renderingEngine': toJson_RoboMakerRenderingEngine(obj.renderingEngine),
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'revisionId': obj.revisionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerCreateSimulationJobRequest
@@ -671,6 +1123,31 @@ export interface RoboMakerCreateSimulationJobRequest {
   readonly compute?: RoboMakerCompute;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerCreateSimulationJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateSimulationJobRequest(obj: RoboMakerCreateSimulationJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientRequestToken': obj.clientRequestToken,
+    'outputLocation': toJson_RoboMakerOutputLocation(obj.outputLocation),
+    'loggingConfig': toJson_RoboMakerLoggingConfig(obj.loggingConfig),
+    'maxJobDurationInSeconds': obj.maxJobDurationInSeconds,
+    'iamRole': obj.iamRole,
+    'failureBehavior': obj.failureBehavior,
+    'robotApplications': obj.robotApplications?.map(y => toJson_RoboMakerRobotApplicationConfig(y)),
+    'simulationApplications': obj.simulationApplications?.map(y => toJson_RoboMakerSimulationApplicationConfig(y)),
+    'dataSources': obj.dataSources?.map(y => toJson_RoboMakerDataSourceConfig(y)),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'vpcConfig': toJson_RoboMakerVpcConfig(obj.vpcConfig),
+    'compute': toJson_RoboMakerCompute(obj.compute),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerCreateSimulationJobResponse
@@ -769,6 +1246,37 @@ export interface RoboMakerCreateSimulationJobResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerCreateSimulationJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateSimulationJobResponse(obj: RoboMakerCreateSimulationJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'status': obj.status,
+    'lastStartedAt': obj.lastStartedAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'failureBehavior': obj.failureBehavior,
+    'failureCode': obj.failureCode,
+    'clientRequestToken': obj.clientRequestToken,
+    'outputLocation': toJson_RoboMakerOutputLocation(obj.outputLocation),
+    'loggingConfig': toJson_RoboMakerLoggingConfig(obj.loggingConfig),
+    'maxJobDurationInSeconds': obj.maxJobDurationInSeconds,
+    'simulationTimeMillis': obj.simulationTimeMillis,
+    'iamRole': obj.iamRole,
+    'robotApplications': obj.robotApplications?.map(y => toJson_RoboMakerRobotApplicationConfig(y)),
+    'simulationApplications': obj.simulationApplications?.map(y => toJson_RoboMakerSimulationApplicationConfig(y)),
+    'dataSources': obj.dataSources?.map(y => toJson_RoboMakerDataSource(y)),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'vpcConfig': toJson_RoboMakerVpcConfigResponse(obj.vpcConfig),
+    'compute': toJson_RoboMakerComputeResponse(obj.compute),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerCreateWorldExportJobRequest
  */
 export interface RoboMakerCreateWorldExportJobRequest {
@@ -798,6 +1306,24 @@ export interface RoboMakerCreateWorldExportJobRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerCreateWorldExportJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateWorldExportJobRequest(obj: RoboMakerCreateWorldExportJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientRequestToken': obj.clientRequestToken,
+    'worlds': obj.worlds?.map(y => y),
+    'outputLocation': toJson_RoboMakerOutputLocation(obj.outputLocation),
+    'iamRole': obj.iamRole,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerCreateWorldExportJobResponse
@@ -846,6 +1372,27 @@ export interface RoboMakerCreateWorldExportJobResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerCreateWorldExportJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateWorldExportJobResponse(obj: RoboMakerCreateWorldExportJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'status': obj.status,
+    'createdAt': obj.createdAt,
+    'failureCode': obj.failureCode,
+    'clientRequestToken': obj.clientRequestToken,
+    'outputLocation': toJson_RoboMakerOutputLocation(obj.outputLocation),
+    'iamRole': obj.iamRole,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerCreateWorldGenerationJobRequest
  */
 export interface RoboMakerCreateWorldGenerationJobRequest {
@@ -875,6 +1422,24 @@ export interface RoboMakerCreateWorldGenerationJobRequest {
   readonly worldTags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerCreateWorldGenerationJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateWorldGenerationJobRequest(obj: RoboMakerCreateWorldGenerationJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientRequestToken': obj.clientRequestToken,
+    'template': obj.template,
+    'worldCount': toJson_RoboMakerWorldCount(obj.worldCount),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'worldTags': ((obj.worldTags) === undefined) ? undefined : (Object.entries(obj.worldTags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerCreateWorldGenerationJobResponse
@@ -928,6 +1493,28 @@ export interface RoboMakerCreateWorldGenerationJobResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerCreateWorldGenerationJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateWorldGenerationJobResponse(obj: RoboMakerCreateWorldGenerationJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'status': obj.status,
+    'createdAt': obj.createdAt,
+    'failureCode': obj.failureCode,
+    'clientRequestToken': obj.clientRequestToken,
+    'template': obj.template,
+    'worldCount': toJson_RoboMakerWorldCount(obj.worldCount),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'worldTags': ((obj.worldTags) === undefined) ? undefined : (Object.entries(obj.worldTags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerCreateWorldTemplateRequest
  */
 export interface RoboMakerCreateWorldTemplateRequest {
@@ -957,6 +1544,24 @@ export interface RoboMakerCreateWorldTemplateRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerCreateWorldTemplateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateWorldTemplateRequest(obj: RoboMakerCreateWorldTemplateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientRequestToken': obj.clientRequestToken,
+    'name': obj.name,
+    'templateBody': obj.templateBody,
+    'templateLocation': toJson_RoboMakerTemplateLocation(obj.templateLocation),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerCreateWorldTemplateResponse
@@ -990,6 +1595,24 @@ export interface RoboMakerCreateWorldTemplateResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerCreateWorldTemplateResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCreateWorldTemplateResponse(obj: RoboMakerCreateWorldTemplateResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'clientRequestToken': obj.clientRequestToken,
+    'createdAt': obj.createdAt,
+    'name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDeleteFleetRequest
  */
 export interface RoboMakerDeleteFleetRequest {
@@ -1001,10 +1624,37 @@ export interface RoboMakerDeleteFleetRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDeleteFleetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDeleteFleetRequest(obj: RoboMakerDeleteFleetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fleet': obj.fleet,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDeleteFleetResponse
  */
 export interface RoboMakerDeleteFleetResponse {
 }
+
+/**
+ * Converts an object of type 'RoboMakerDeleteFleetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDeleteFleetResponse(obj: RoboMakerDeleteFleetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDeleteRobotRequest
@@ -1018,10 +1668,37 @@ export interface RoboMakerDeleteRobotRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDeleteRobotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDeleteRobotRequest(obj: RoboMakerDeleteRobotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'robot': obj.robot,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDeleteRobotResponse
  */
 export interface RoboMakerDeleteRobotResponse {
 }
+
+/**
+ * Converts an object of type 'RoboMakerDeleteRobotResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDeleteRobotResponse(obj: RoboMakerDeleteRobotResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDeleteRobotApplicationRequest
@@ -1040,10 +1717,38 @@ export interface RoboMakerDeleteRobotApplicationRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDeleteRobotApplicationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDeleteRobotApplicationRequest(obj: RoboMakerDeleteRobotApplicationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'application': obj.application,
+    'applicationVersion': obj.applicationVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDeleteRobotApplicationResponse
  */
 export interface RoboMakerDeleteRobotApplicationResponse {
 }
+
+/**
+ * Converts an object of type 'RoboMakerDeleteRobotApplicationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDeleteRobotApplicationResponse(obj: RoboMakerDeleteRobotApplicationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDeleteSimulationApplicationRequest
@@ -1062,10 +1767,38 @@ export interface RoboMakerDeleteSimulationApplicationRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDeleteSimulationApplicationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDeleteSimulationApplicationRequest(obj: RoboMakerDeleteSimulationApplicationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'application': obj.application,
+    'applicationVersion': obj.applicationVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDeleteSimulationApplicationResponse
  */
 export interface RoboMakerDeleteSimulationApplicationResponse {
 }
+
+/**
+ * Converts an object of type 'RoboMakerDeleteSimulationApplicationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDeleteSimulationApplicationResponse(obj: RoboMakerDeleteSimulationApplicationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDeleteWorldTemplateRequest
@@ -1079,10 +1812,37 @@ export interface RoboMakerDeleteWorldTemplateRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDeleteWorldTemplateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDeleteWorldTemplateRequest(obj: RoboMakerDeleteWorldTemplateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'template': obj.template,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDeleteWorldTemplateResponse
  */
 export interface RoboMakerDeleteWorldTemplateResponse {
 }
+
+/**
+ * Converts an object of type 'RoboMakerDeleteWorldTemplateResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDeleteWorldTemplateResponse(obj: RoboMakerDeleteWorldTemplateResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDeregisterRobotRequest
@@ -1101,6 +1861,21 @@ export interface RoboMakerDeregisterRobotRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDeregisterRobotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDeregisterRobotRequest(obj: RoboMakerDeregisterRobotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fleet': obj.fleet,
+    'robot': obj.robot,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDeregisterRobotResponse
  */
 export interface RoboMakerDeregisterRobotResponse {
@@ -1117,6 +1892,21 @@ export interface RoboMakerDeregisterRobotResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDeregisterRobotResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDeregisterRobotResponse(obj: RoboMakerDeregisterRobotResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fleet': obj.fleet,
+    'robot': obj.robot,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDescribeDeploymentJobRequest
  */
 export interface RoboMakerDescribeDeploymentJobRequest {
@@ -1126,6 +1916,20 @@ export interface RoboMakerDescribeDeploymentJobRequest {
   readonly job: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerDescribeDeploymentJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeDeploymentJobRequest(obj: RoboMakerDescribeDeploymentJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'job': obj.job,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDescribeDeploymentJobResponse
@@ -1184,6 +1988,29 @@ export interface RoboMakerDescribeDeploymentJobResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDescribeDeploymentJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeDeploymentJobResponse(obj: RoboMakerDescribeDeploymentJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'fleet': obj.fleet,
+    'status': obj.status,
+    'deploymentConfig': toJson_RoboMakerDeploymentConfig(obj.deploymentConfig),
+    'deploymentApplicationConfigs': obj.deploymentApplicationConfigs?.map(y => toJson_RoboMakerDeploymentApplicationConfig(y)),
+    'failureReason': obj.failureReason,
+    'failureCode': obj.failureCode,
+    'createdAt': obj.createdAt,
+    'robotDeploymentSummary': obj.robotDeploymentSummary?.map(y => toJson_RoboMakerRobotDeployment(y)),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDescribeFleetRequest
  */
 export interface RoboMakerDescribeFleetRequest {
@@ -1193,6 +2020,20 @@ export interface RoboMakerDescribeFleetRequest {
   readonly fleet: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerDescribeFleetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeFleetRequest(obj: RoboMakerDescribeFleetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fleet': obj.fleet,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDescribeFleetResponse
@@ -1241,6 +2082,27 @@ export interface RoboMakerDescribeFleetResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDescribeFleetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeFleetResponse(obj: RoboMakerDescribeFleetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'robots': obj.robots?.map(y => toJson_RoboMakerRobot(y)),
+    'createdAt': obj.createdAt,
+    'lastDeploymentStatus': obj.lastDeploymentStatus,
+    'lastDeploymentJob': obj.lastDeploymentJob,
+    'lastDeploymentTime': obj.lastDeploymentTime,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDescribeRobotRequest
  */
 export interface RoboMakerDescribeRobotRequest {
@@ -1250,6 +2112,20 @@ export interface RoboMakerDescribeRobotRequest {
   readonly robot: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerDescribeRobotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeRobotRequest(obj: RoboMakerDescribeRobotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'robot': obj.robot,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDescribeRobotResponse
@@ -1308,6 +2184,29 @@ export interface RoboMakerDescribeRobotResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDescribeRobotResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeRobotResponse(obj: RoboMakerDescribeRobotResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'fleetArn': obj.fleetArn,
+    'status': obj.status,
+    'greengrassGroupId': obj.greengrassGroupId,
+    'createdAt': obj.createdAt,
+    'architecture': obj.architecture,
+    'lastDeploymentJob': obj.lastDeploymentJob,
+    'lastDeploymentTime': obj.lastDeploymentTime,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDescribeRobotApplicationRequest
  */
 export interface RoboMakerDescribeRobotApplicationRequest {
@@ -1322,6 +2221,21 @@ export interface RoboMakerDescribeRobotApplicationRequest {
   readonly applicationVersion?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerDescribeRobotApplicationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeRobotApplicationRequest(obj: RoboMakerDescribeRobotApplicationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'application': obj.application,
+    'applicationVersion': obj.applicationVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDescribeRobotApplicationResponse
@@ -1370,6 +2284,27 @@ export interface RoboMakerDescribeRobotApplicationResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDescribeRobotApplicationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeRobotApplicationResponse(obj: RoboMakerDescribeRobotApplicationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'version': obj.version,
+    'sources': obj.sources?.map(y => toJson_RoboMakerSource(y)),
+    'robotSoftwareSuite': toJson_RoboMakerRobotSoftwareSuite(obj.robotSoftwareSuite),
+    'revisionId': obj.revisionId,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDescribeSimulationApplicationRequest
  */
 export interface RoboMakerDescribeSimulationApplicationRequest {
@@ -1384,6 +2319,21 @@ export interface RoboMakerDescribeSimulationApplicationRequest {
   readonly applicationVersion?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerDescribeSimulationApplicationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeSimulationApplicationRequest(obj: RoboMakerDescribeSimulationApplicationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'application': obj.application,
+    'applicationVersion': obj.applicationVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDescribeSimulationApplicationResponse
@@ -1442,6 +2392,29 @@ export interface RoboMakerDescribeSimulationApplicationResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDescribeSimulationApplicationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeSimulationApplicationResponse(obj: RoboMakerDescribeSimulationApplicationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'version': obj.version,
+    'sources': obj.sources?.map(y => toJson_RoboMakerSource(y)),
+    'simulationSoftwareSuite': toJson_RoboMakerSimulationSoftwareSuite(obj.simulationSoftwareSuite),
+    'robotSoftwareSuite': toJson_RoboMakerRobotSoftwareSuite(obj.robotSoftwareSuite),
+    'renderingEngine': toJson_RoboMakerRenderingEngine(obj.renderingEngine),
+    'revisionId': obj.revisionId,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDescribeSimulationJobRequest
  */
 export interface RoboMakerDescribeSimulationJobRequest {
@@ -1451,6 +2424,20 @@ export interface RoboMakerDescribeSimulationJobRequest {
   readonly job: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerDescribeSimulationJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeSimulationJobRequest(obj: RoboMakerDescribeSimulationJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'job': obj.job,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDescribeSimulationJobResponse
@@ -1564,6 +2551,40 @@ export interface RoboMakerDescribeSimulationJobResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDescribeSimulationJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeSimulationJobResponse(obj: RoboMakerDescribeSimulationJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'status': obj.status,
+    'lastStartedAt': obj.lastStartedAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'failureBehavior': obj.failureBehavior,
+    'failureCode': obj.failureCode,
+    'failureReason': obj.failureReason,
+    'clientRequestToken': obj.clientRequestToken,
+    'outputLocation': toJson_RoboMakerOutputLocation(obj.outputLocation),
+    'loggingConfig': toJson_RoboMakerLoggingConfig(obj.loggingConfig),
+    'maxJobDurationInSeconds': obj.maxJobDurationInSeconds,
+    'simulationTimeMillis': obj.simulationTimeMillis,
+    'iamRole': obj.iamRole,
+    'robotApplications': obj.robotApplications?.map(y => toJson_RoboMakerRobotApplicationConfig(y)),
+    'simulationApplications': obj.simulationApplications?.map(y => toJson_RoboMakerSimulationApplicationConfig(y)),
+    'dataSources': obj.dataSources?.map(y => toJson_RoboMakerDataSource(y)),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'vpcConfig': toJson_RoboMakerVpcConfigResponse(obj.vpcConfig),
+    'networkInterface': toJson_RoboMakerNetworkInterface(obj.networkInterface),
+    'compute': toJson_RoboMakerComputeResponse(obj.compute),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDescribeSimulationJobBatchRequest
  */
 export interface RoboMakerDescribeSimulationJobBatchRequest {
@@ -1573,6 +2594,20 @@ export interface RoboMakerDescribeSimulationJobBatchRequest {
   readonly batch: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerDescribeSimulationJobBatchRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeSimulationJobBatchRequest(obj: RoboMakerDescribeSimulationJobBatchRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'batch': obj.batch,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDescribeSimulationJobBatchResponse
@@ -1641,6 +2676,31 @@ export interface RoboMakerDescribeSimulationJobBatchResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDescribeSimulationJobBatchResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeSimulationJobBatchResponse(obj: RoboMakerDescribeSimulationJobBatchResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'status': obj.status,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'createdAt': obj.createdAt,
+    'clientRequestToken': obj.clientRequestToken,
+    'batchPolicy': toJson_RoboMakerBatchPolicy(obj.batchPolicy),
+    'failureCode': obj.failureCode,
+    'failureReason': obj.failureReason,
+    'failedRequests': obj.failedRequests?.map(y => toJson_RoboMakerFailedCreateSimulationJobRequest(y)),
+    'pendingRequests': obj.pendingRequests?.map(y => toJson_RoboMakerSimulationJobRequest(y)),
+    'createdRequests': obj.createdRequests?.map(y => toJson_RoboMakerSimulationJobSummary(y)),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDescribeWorldRequest
  */
 export interface RoboMakerDescribeWorldRequest {
@@ -1650,6 +2710,20 @@ export interface RoboMakerDescribeWorldRequest {
   readonly world: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerDescribeWorldRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeWorldRequest(obj: RoboMakerDescribeWorldRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'world': obj.world,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDescribeWorldResponse
@@ -1680,7 +2754,31 @@ export interface RoboMakerDescribeWorldResponse {
    */
   readonly tags?: { [key: string]: string };
 
+  /**
+   * @schema RoboMakerDescribeWorldResponse#worldDescriptionBody
+   */
+  readonly worldDescriptionBody?: string;
+
 }
+
+/**
+ * Converts an object of type 'RoboMakerDescribeWorldResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeWorldResponse(obj: RoboMakerDescribeWorldResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'generationJob': obj.generationJob,
+    'template': obj.template,
+    'createdAt': obj.createdAt,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'worldDescriptionBody': obj.worldDescriptionBody,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDescribeWorldExportJobRequest
@@ -1692,6 +2790,20 @@ export interface RoboMakerDescribeWorldExportJobRequest {
   readonly job: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerDescribeWorldExportJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeWorldExportJobRequest(obj: RoboMakerDescribeWorldExportJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'job': obj.job,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDescribeWorldExportJobResponse
@@ -1750,6 +2862,29 @@ export interface RoboMakerDescribeWorldExportJobResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDescribeWorldExportJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeWorldExportJobResponse(obj: RoboMakerDescribeWorldExportJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'status': obj.status,
+    'createdAt': obj.createdAt,
+    'failureCode': obj.failureCode,
+    'failureReason': obj.failureReason,
+    'clientRequestToken': obj.clientRequestToken,
+    'worlds': obj.worlds?.map(y => y),
+    'outputLocation': toJson_RoboMakerOutputLocation(obj.outputLocation),
+    'iamRole': obj.iamRole,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDescribeWorldGenerationJobRequest
  */
 export interface RoboMakerDescribeWorldGenerationJobRequest {
@@ -1759,6 +2894,20 @@ export interface RoboMakerDescribeWorldGenerationJobRequest {
   readonly job: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerDescribeWorldGenerationJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeWorldGenerationJobRequest(obj: RoboMakerDescribeWorldGenerationJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'job': obj.job,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDescribeWorldGenerationJobResponse
@@ -1822,6 +2971,30 @@ export interface RoboMakerDescribeWorldGenerationJobResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDescribeWorldGenerationJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeWorldGenerationJobResponse(obj: RoboMakerDescribeWorldGenerationJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'status': obj.status,
+    'createdAt': obj.createdAt,
+    'failureCode': obj.failureCode,
+    'failureReason': obj.failureReason,
+    'clientRequestToken': obj.clientRequestToken,
+    'template': obj.template,
+    'worldCount': toJson_RoboMakerWorldCount(obj.worldCount),
+    'finishedWorldsSummary': toJson_RoboMakerFinishedWorldsSummary(obj.finishedWorldsSummary),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'worldTags': ((obj.worldTags) === undefined) ? undefined : (Object.entries(obj.worldTags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDescribeWorldTemplateRequest
  */
 export interface RoboMakerDescribeWorldTemplateRequest {
@@ -1831,6 +3004,20 @@ export interface RoboMakerDescribeWorldTemplateRequest {
   readonly template: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerDescribeWorldTemplateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeWorldTemplateRequest(obj: RoboMakerDescribeWorldTemplateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'template': obj.template,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDescribeWorldTemplateResponse
@@ -1866,7 +3053,32 @@ export interface RoboMakerDescribeWorldTemplateResponse {
    */
   readonly tags?: { [key: string]: string };
 
+  /**
+   * @schema RoboMakerDescribeWorldTemplateResponse#version
+   */
+  readonly version?: string;
+
 }
+
+/**
+ * Converts an object of type 'RoboMakerDescribeWorldTemplateResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDescribeWorldTemplateResponse(obj: RoboMakerDescribeWorldTemplateResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'clientRequestToken': obj.clientRequestToken,
+    'name': obj.name,
+    'createdAt': obj.createdAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerGetWorldTemplateBodyRequest
@@ -1885,6 +3097,21 @@ export interface RoboMakerGetWorldTemplateBodyRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerGetWorldTemplateBodyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerGetWorldTemplateBodyRequest(obj: RoboMakerGetWorldTemplateBodyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'template': obj.template,
+    'generationJob': obj.generationJob,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerGetWorldTemplateBodyResponse
  */
 export interface RoboMakerGetWorldTemplateBodyResponse {
@@ -1894,6 +3121,20 @@ export interface RoboMakerGetWorldTemplateBodyResponse {
   readonly templateBody?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerGetWorldTemplateBodyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerGetWorldTemplateBodyResponse(obj: RoboMakerGetWorldTemplateBodyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'templateBody': obj.templateBody,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerListDeploymentJobsRequest
@@ -1917,6 +3158,22 @@ export interface RoboMakerListDeploymentJobsRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerListDeploymentJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListDeploymentJobsRequest(obj: RoboMakerListDeploymentJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filters': obj.filters?.map(y => toJson_RoboMakerFilter(y)),
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerListDeploymentJobsResponse
  */
 export interface RoboMakerListDeploymentJobsResponse {
@@ -1931,6 +3188,21 @@ export interface RoboMakerListDeploymentJobsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerListDeploymentJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListDeploymentJobsResponse(obj: RoboMakerListDeploymentJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deploymentJobs': obj.deploymentJobs?.map(y => toJson_RoboMakerDeploymentJob(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerListFleetsRequest
@@ -1954,6 +3226,22 @@ export interface RoboMakerListFleetsRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerListFleetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListFleetsRequest(obj: RoboMakerListFleetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'filters': obj.filters?.map(y => toJson_RoboMakerFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerListFleetsResponse
  */
 export interface RoboMakerListFleetsResponse {
@@ -1968,6 +3256,21 @@ export interface RoboMakerListFleetsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerListFleetsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListFleetsResponse(obj: RoboMakerListFleetsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fleetDetails': obj.fleetDetails?.map(y => toJson_RoboMakerFleet(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerListRobotApplicationsRequest
@@ -1996,6 +3299,23 @@ export interface RoboMakerListRobotApplicationsRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerListRobotApplicationsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListRobotApplicationsRequest(obj: RoboMakerListRobotApplicationsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'versionQualifier': obj.versionQualifier,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'filters': obj.filters?.map(y => toJson_RoboMakerFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerListRobotApplicationsResponse
  */
 export interface RoboMakerListRobotApplicationsResponse {
@@ -2010,6 +3330,21 @@ export interface RoboMakerListRobotApplicationsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerListRobotApplicationsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListRobotApplicationsResponse(obj: RoboMakerListRobotApplicationsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'robotApplicationSummaries': obj.robotApplicationSummaries?.map(y => toJson_RoboMakerRobotApplicationSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerListRobotsRequest
@@ -2033,6 +3368,22 @@ export interface RoboMakerListRobotsRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerListRobotsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListRobotsRequest(obj: RoboMakerListRobotsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'filters': obj.filters?.map(y => toJson_RoboMakerFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerListRobotsResponse
  */
 export interface RoboMakerListRobotsResponse {
@@ -2047,6 +3398,21 @@ export interface RoboMakerListRobotsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerListRobotsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListRobotsResponse(obj: RoboMakerListRobotsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'robots': obj.robots?.map(y => toJson_RoboMakerRobot(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerListSimulationApplicationsRequest
@@ -2075,6 +3441,23 @@ export interface RoboMakerListSimulationApplicationsRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerListSimulationApplicationsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListSimulationApplicationsRequest(obj: RoboMakerListSimulationApplicationsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'versionQualifier': obj.versionQualifier,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'filters': obj.filters?.map(y => toJson_RoboMakerFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerListSimulationApplicationsResponse
  */
 export interface RoboMakerListSimulationApplicationsResponse {
@@ -2089,6 +3472,21 @@ export interface RoboMakerListSimulationApplicationsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerListSimulationApplicationsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListSimulationApplicationsResponse(obj: RoboMakerListSimulationApplicationsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'simulationApplicationSummaries': obj.simulationApplicationSummaries?.map(y => toJson_RoboMakerSimulationApplicationSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerListSimulationJobBatchesRequest
@@ -2112,6 +3510,22 @@ export interface RoboMakerListSimulationJobBatchesRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerListSimulationJobBatchesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListSimulationJobBatchesRequest(obj: RoboMakerListSimulationJobBatchesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'filters': obj.filters?.map(y => toJson_RoboMakerFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerListSimulationJobBatchesResponse
  */
 export interface RoboMakerListSimulationJobBatchesResponse {
@@ -2126,6 +3540,21 @@ export interface RoboMakerListSimulationJobBatchesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerListSimulationJobBatchesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListSimulationJobBatchesResponse(obj: RoboMakerListSimulationJobBatchesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'simulationJobBatchSummaries': obj.simulationJobBatchSummaries?.map(y => toJson_RoboMakerSimulationJobBatchSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerListSimulationJobsRequest
@@ -2149,6 +3578,22 @@ export interface RoboMakerListSimulationJobsRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerListSimulationJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListSimulationJobsRequest(obj: RoboMakerListSimulationJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'filters': obj.filters?.map(y => toJson_RoboMakerFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerListSimulationJobsResponse
  */
 export interface RoboMakerListSimulationJobsResponse {
@@ -2165,6 +3610,21 @@ export interface RoboMakerListSimulationJobsResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerListSimulationJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListSimulationJobsResponse(obj: RoboMakerListSimulationJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'simulationJobSummaries': obj.simulationJobSummaries?.map(y => toJson_RoboMakerSimulationJobSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerListTagsForResourceRequest
  */
 export interface RoboMakerListTagsForResourceRequest {
@@ -2176,6 +3636,20 @@ export interface RoboMakerListTagsForResourceRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListTagsForResourceRequest(obj: RoboMakerListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerListTagsForResourceResponse
  */
 export interface RoboMakerListTagsForResourceResponse {
@@ -2185,6 +3659,20 @@ export interface RoboMakerListTagsForResourceResponse {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListTagsForResourceResponse(obj: RoboMakerListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerListWorldExportJobsRequest
@@ -2208,6 +3696,22 @@ export interface RoboMakerListWorldExportJobsRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerListWorldExportJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListWorldExportJobsRequest(obj: RoboMakerListWorldExportJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'filters': obj.filters?.map(y => toJson_RoboMakerFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerListWorldExportJobsResponse
  */
 export interface RoboMakerListWorldExportJobsResponse {
@@ -2222,6 +3726,21 @@ export interface RoboMakerListWorldExportJobsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerListWorldExportJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListWorldExportJobsResponse(obj: RoboMakerListWorldExportJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'worldExportJobSummaries': obj.worldExportJobSummaries?.map(y => toJson_RoboMakerWorldExportJobSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerListWorldGenerationJobsRequest
@@ -2245,6 +3764,22 @@ export interface RoboMakerListWorldGenerationJobsRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerListWorldGenerationJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListWorldGenerationJobsRequest(obj: RoboMakerListWorldGenerationJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'filters': obj.filters?.map(y => toJson_RoboMakerFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerListWorldGenerationJobsResponse
  */
 export interface RoboMakerListWorldGenerationJobsResponse {
@@ -2259,6 +3794,21 @@ export interface RoboMakerListWorldGenerationJobsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerListWorldGenerationJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListWorldGenerationJobsResponse(obj: RoboMakerListWorldGenerationJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'worldGenerationJobSummaries': obj.worldGenerationJobSummaries?.map(y => toJson_RoboMakerWorldGenerationJobSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerListWorldTemplatesRequest
@@ -2277,6 +3827,21 @@ export interface RoboMakerListWorldTemplatesRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerListWorldTemplatesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListWorldTemplatesRequest(obj: RoboMakerListWorldTemplatesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerListWorldTemplatesResponse
  */
 export interface RoboMakerListWorldTemplatesResponse {
@@ -2291,6 +3856,21 @@ export interface RoboMakerListWorldTemplatesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerListWorldTemplatesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListWorldTemplatesResponse(obj: RoboMakerListWorldTemplatesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'templateSummaries': obj.templateSummaries?.map(y => toJson_RoboMakerTemplateSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerListWorldsRequest
@@ -2314,6 +3894,22 @@ export interface RoboMakerListWorldsRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerListWorldsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListWorldsRequest(obj: RoboMakerListWorldsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'filters': obj.filters?.map(y => toJson_RoboMakerFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerListWorldsResponse
  */
 export interface RoboMakerListWorldsResponse {
@@ -2328,6 +3924,21 @@ export interface RoboMakerListWorldsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerListWorldsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerListWorldsResponse(obj: RoboMakerListWorldsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'worldSummaries': obj.worldSummaries?.map(y => toJson_RoboMakerWorldSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerRegisterRobotRequest
@@ -2346,6 +3957,21 @@ export interface RoboMakerRegisterRobotRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerRegisterRobotRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerRegisterRobotRequest(obj: RoboMakerRegisterRobotRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fleet': obj.fleet,
+    'robot': obj.robot,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerRegisterRobotResponse
  */
 export interface RoboMakerRegisterRobotResponse {
@@ -2362,6 +3988,21 @@ export interface RoboMakerRegisterRobotResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerRegisterRobotResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerRegisterRobotResponse(obj: RoboMakerRegisterRobotResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fleet': obj.fleet,
+    'robot': obj.robot,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerRestartSimulationJobRequest
  */
 export interface RoboMakerRestartSimulationJobRequest {
@@ -2373,10 +4014,37 @@ export interface RoboMakerRestartSimulationJobRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerRestartSimulationJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerRestartSimulationJobRequest(obj: RoboMakerRestartSimulationJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'job': obj.job,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerRestartSimulationJobResponse
  */
 export interface RoboMakerRestartSimulationJobResponse {
 }
+
+/**
+ * Converts an object of type 'RoboMakerRestartSimulationJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerRestartSimulationJobResponse(obj: RoboMakerRestartSimulationJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerStartSimulationJobBatchRequest
@@ -2403,6 +4071,23 @@ export interface RoboMakerStartSimulationJobBatchRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerStartSimulationJobBatchRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerStartSimulationJobBatchRequest(obj: RoboMakerStartSimulationJobBatchRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientRequestToken': obj.clientRequestToken,
+    'batchPolicy': toJson_RoboMakerBatchPolicy(obj.batchPolicy),
+    'createSimulationJobRequests': obj.createSimulationJobRequests?.map(y => toJson_RoboMakerSimulationJobRequest(y)),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerStartSimulationJobBatchResponse
@@ -2466,6 +4151,30 @@ export interface RoboMakerStartSimulationJobBatchResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerStartSimulationJobBatchResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerStartSimulationJobBatchResponse(obj: RoboMakerStartSimulationJobBatchResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'status': obj.status,
+    'createdAt': obj.createdAt,
+    'clientRequestToken': obj.clientRequestToken,
+    'batchPolicy': toJson_RoboMakerBatchPolicy(obj.batchPolicy),
+    'failureCode': obj.failureCode,
+    'failureReason': obj.failureReason,
+    'failedRequests': obj.failedRequests?.map(y => toJson_RoboMakerFailedCreateSimulationJobRequest(y)),
+    'pendingRequests': obj.pendingRequests?.map(y => toJson_RoboMakerSimulationJobRequest(y)),
+    'createdRequests': obj.createdRequests?.map(y => toJson_RoboMakerSimulationJobSummary(y)),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerSyncDeploymentJobRequest
  */
 export interface RoboMakerSyncDeploymentJobRequest {
@@ -2480,6 +4189,21 @@ export interface RoboMakerSyncDeploymentJobRequest {
   readonly fleet: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerSyncDeploymentJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerSyncDeploymentJobRequest(obj: RoboMakerSyncDeploymentJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientRequestToken': obj.clientRequestToken,
+    'fleet': obj.fleet,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerSyncDeploymentJobResponse
@@ -2528,6 +4252,27 @@ export interface RoboMakerSyncDeploymentJobResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerSyncDeploymentJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerSyncDeploymentJobResponse(obj: RoboMakerSyncDeploymentJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'fleet': obj.fleet,
+    'status': obj.status,
+    'deploymentConfig': toJson_RoboMakerDeploymentConfig(obj.deploymentConfig),
+    'deploymentApplicationConfigs': obj.deploymentApplicationConfigs?.map(y => toJson_RoboMakerDeploymentApplicationConfig(y)),
+    'failureReason': obj.failureReason,
+    'failureCode': obj.failureCode,
+    'createdAt': obj.createdAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerTagResourceRequest
  */
 export interface RoboMakerTagResourceRequest {
@@ -2544,10 +4289,38 @@ export interface RoboMakerTagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerTagResourceRequest(obj: RoboMakerTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerTagResourceResponse
  */
 export interface RoboMakerTagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'RoboMakerTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerTagResourceResponse(obj: RoboMakerTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerUntagResourceRequest
@@ -2566,10 +4339,38 @@ export interface RoboMakerUntagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerUntagResourceRequest(obj: RoboMakerUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerUntagResourceResponse
  */
 export interface RoboMakerUntagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'RoboMakerUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerUntagResourceResponse(obj: RoboMakerUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerUpdateRobotApplicationRequest
@@ -2596,6 +4397,23 @@ export interface RoboMakerUpdateRobotApplicationRequest {
   readonly currentRevisionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerUpdateRobotApplicationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerUpdateRobotApplicationRequest(obj: RoboMakerUpdateRobotApplicationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'application': obj.application,
+    'sources': obj.sources?.map(y => toJson_RoboMakerSourceConfig(y)),
+    'robotSoftwareSuite': toJson_RoboMakerRobotSoftwareSuite(obj.robotSoftwareSuite),
+    'currentRevisionId': obj.currentRevisionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerUpdateRobotApplicationResponse
@@ -2639,6 +4457,26 @@ export interface RoboMakerUpdateRobotApplicationResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerUpdateRobotApplicationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerUpdateRobotApplicationResponse(obj: RoboMakerUpdateRobotApplicationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'version': obj.version,
+    'sources': obj.sources?.map(y => toJson_RoboMakerSource(y)),
+    'robotSoftwareSuite': toJson_RoboMakerRobotSoftwareSuite(obj.robotSoftwareSuite),
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'revisionId': obj.revisionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerUpdateSimulationApplicationRequest
  */
 export interface RoboMakerUpdateSimulationApplicationRequest {
@@ -2673,6 +4511,25 @@ export interface RoboMakerUpdateSimulationApplicationRequest {
   readonly currentRevisionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerUpdateSimulationApplicationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerUpdateSimulationApplicationRequest(obj: RoboMakerUpdateSimulationApplicationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'application': obj.application,
+    'sources': obj.sources?.map(y => toJson_RoboMakerSourceConfig(y)),
+    'simulationSoftwareSuite': toJson_RoboMakerSimulationSoftwareSuite(obj.simulationSoftwareSuite),
+    'robotSoftwareSuite': toJson_RoboMakerRobotSoftwareSuite(obj.robotSoftwareSuite),
+    'renderingEngine': toJson_RoboMakerRenderingEngine(obj.renderingEngine),
+    'currentRevisionId': obj.currentRevisionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerUpdateSimulationApplicationResponse
@@ -2726,6 +4583,28 @@ export interface RoboMakerUpdateSimulationApplicationResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerUpdateSimulationApplicationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerUpdateSimulationApplicationResponse(obj: RoboMakerUpdateSimulationApplicationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'version': obj.version,
+    'sources': obj.sources?.map(y => toJson_RoboMakerSource(y)),
+    'simulationSoftwareSuite': toJson_RoboMakerSimulationSoftwareSuite(obj.simulationSoftwareSuite),
+    'robotSoftwareSuite': toJson_RoboMakerRobotSoftwareSuite(obj.robotSoftwareSuite),
+    'renderingEngine': toJson_RoboMakerRenderingEngine(obj.renderingEngine),
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'revisionId': obj.revisionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerUpdateWorldTemplateRequest
  */
 export interface RoboMakerUpdateWorldTemplateRequest {
@@ -2752,6 +4631,23 @@ export interface RoboMakerUpdateWorldTemplateRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerUpdateWorldTemplateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerUpdateWorldTemplateRequest(obj: RoboMakerUpdateWorldTemplateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'template': obj.template,
+    'name': obj.name,
+    'templateBody': obj.templateBody,
+    'templateLocation': toJson_RoboMakerTemplateLocation(obj.templateLocation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerUpdateWorldTemplateResponse
  */
 export interface RoboMakerUpdateWorldTemplateResponse {
@@ -2776,6 +4672,23 @@ export interface RoboMakerUpdateWorldTemplateResponse {
   readonly lastUpdatedAt?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerUpdateWorldTemplateResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerUpdateWorldTemplateResponse(obj: RoboMakerUpdateWorldTemplateResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'createdAt': obj.createdAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerSimulationJob
@@ -2889,6 +4802,40 @@ export interface RoboMakerSimulationJob {
 }
 
 /**
+ * Converts an object of type 'RoboMakerSimulationJob' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerSimulationJob(obj: RoboMakerSimulationJob | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'status': obj.status,
+    'lastStartedAt': obj.lastStartedAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'failureBehavior': obj.failureBehavior,
+    'failureCode': obj.failureCode,
+    'failureReason': obj.failureReason,
+    'clientRequestToken': obj.clientRequestToken,
+    'outputLocation': toJson_RoboMakerOutputLocation(obj.outputLocation),
+    'loggingConfig': toJson_RoboMakerLoggingConfig(obj.loggingConfig),
+    'maxJobDurationInSeconds': obj.maxJobDurationInSeconds,
+    'simulationTimeMillis': obj.simulationTimeMillis,
+    'iamRole': obj.iamRole,
+    'robotApplications': obj.robotApplications?.map(y => toJson_RoboMakerRobotApplicationConfig(y)),
+    'simulationApplications': obj.simulationApplications?.map(y => toJson_RoboMakerSimulationApplicationConfig(y)),
+    'dataSources': obj.dataSources?.map(y => toJson_RoboMakerDataSource(y)),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'vpcConfig': toJson_RoboMakerVpcConfigResponse(obj.vpcConfig),
+    'networkInterface': toJson_RoboMakerNetworkInterface(obj.networkInterface),
+    'compute': toJson_RoboMakerComputeResponse(obj.compute),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDeploymentConfig
  */
 export interface RoboMakerDeploymentConfig {
@@ -2915,6 +4862,23 @@ export interface RoboMakerDeploymentConfig {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDeploymentConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDeploymentConfig(obj: RoboMakerDeploymentConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'concurrentDeploymentPercentage': obj.concurrentDeploymentPercentage,
+    'failureThresholdPercentage': obj.failureThresholdPercentage,
+    'robotDeploymentTimeoutInSeconds': obj.robotDeploymentTimeoutInSeconds,
+    'downloadConditionFile': toJson_RoboMakerS3Object(obj.downloadConditionFile),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerDeploymentApplicationConfig
  */
 export interface RoboMakerDeploymentApplicationConfig {
@@ -2934,6 +4898,22 @@ export interface RoboMakerDeploymentApplicationConfig {
   readonly launchConfig: RoboMakerDeploymentLaunchConfig;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerDeploymentApplicationConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDeploymentApplicationConfig(obj: RoboMakerDeploymentApplicationConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'application': obj.application,
+    'applicationVersion': obj.applicationVersion,
+    'launchConfig': toJson_RoboMakerDeploymentLaunchConfig(obj.launchConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerSourceConfig
@@ -2957,6 +4937,22 @@ export interface RoboMakerSourceConfig {
 }
 
 /**
+ * Converts an object of type 'RoboMakerSourceConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerSourceConfig(obj: RoboMakerSourceConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    's3Bucket': obj.s3Bucket,
+    's3Key': obj.s3Key,
+    'architecture': obj.architecture,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerRobotSoftwareSuite
  */
 export interface RoboMakerRobotSoftwareSuite {
@@ -2971,6 +4967,21 @@ export interface RoboMakerRobotSoftwareSuite {
   readonly version?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerRobotSoftwareSuite' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerRobotSoftwareSuite(obj: RoboMakerRobotSoftwareSuite | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerSource
@@ -2999,6 +5010,23 @@ export interface RoboMakerSource {
 }
 
 /**
+ * Converts an object of type 'RoboMakerSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerSource(obj: RoboMakerSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    's3Bucket': obj.s3Bucket,
+    's3Key': obj.s3Key,
+    'etag': obj.etag,
+    'architecture': obj.architecture,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerSimulationSoftwareSuite
  */
 export interface RoboMakerSimulationSoftwareSuite {
@@ -3013,6 +5041,21 @@ export interface RoboMakerSimulationSoftwareSuite {
   readonly version?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerSimulationSoftwareSuite' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerSimulationSoftwareSuite(obj: RoboMakerSimulationSoftwareSuite | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerRenderingEngine
@@ -3031,6 +5074,21 @@ export interface RoboMakerRenderingEngine {
 }
 
 /**
+ * Converts an object of type 'RoboMakerRenderingEngine' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerRenderingEngine(obj: RoboMakerRenderingEngine | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerOutputLocation
  */
 export interface RoboMakerOutputLocation {
@@ -3047,6 +5105,21 @@ export interface RoboMakerOutputLocation {
 }
 
 /**
+ * Converts an object of type 'RoboMakerOutputLocation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerOutputLocation(obj: RoboMakerOutputLocation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    's3Bucket': obj.s3Bucket,
+    's3Prefix': obj.s3Prefix,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerLoggingConfig
  */
 export interface RoboMakerLoggingConfig {
@@ -3056,6 +5129,20 @@ export interface RoboMakerLoggingConfig {
   readonly recordAllRosTopics: boolean;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerLoggingConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerLoggingConfig(obj: RoboMakerLoggingConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'recordAllRosTopics': obj.recordAllRosTopics,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerRobotApplicationConfig
@@ -3076,7 +5163,47 @@ export interface RoboMakerRobotApplicationConfig {
    */
   readonly launchConfig: RoboMakerLaunchConfig;
 
+  /**
+   * @schema RoboMakerRobotApplicationConfig#uploadConfigurations
+   */
+  readonly uploadConfigurations?: RoboMakerUploadConfiguration[];
+
+  /**
+   * @schema RoboMakerRobotApplicationConfig#useDefaultUploadConfigurations
+   */
+  readonly useDefaultUploadConfigurations?: boolean;
+
+  /**
+   * @schema RoboMakerRobotApplicationConfig#tools
+   */
+  readonly tools?: RoboMakerTool[];
+
+  /**
+   * @schema RoboMakerRobotApplicationConfig#useDefaultTools
+   */
+  readonly useDefaultTools?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'RoboMakerRobotApplicationConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerRobotApplicationConfig(obj: RoboMakerRobotApplicationConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'application': obj.application,
+    'applicationVersion': obj.applicationVersion,
+    'launchConfig': toJson_RoboMakerLaunchConfig(obj.launchConfig),
+    'uploadConfigurations': obj.uploadConfigurations?.map(y => toJson_RoboMakerUploadConfiguration(y)),
+    'useDefaultUploadConfigurations': obj.useDefaultUploadConfigurations,
+    'tools': obj.tools?.map(y => toJson_RoboMakerTool(y)),
+    'useDefaultTools': obj.useDefaultTools,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerSimulationApplicationConfig
@@ -3098,11 +5225,52 @@ export interface RoboMakerSimulationApplicationConfig {
   readonly launchConfig: RoboMakerLaunchConfig;
 
   /**
+   * @schema RoboMakerSimulationApplicationConfig#uploadConfigurations
+   */
+  readonly uploadConfigurations?: RoboMakerUploadConfiguration[];
+
+  /**
    * @schema RoboMakerSimulationApplicationConfig#worldConfigs
    */
   readonly worldConfigs?: RoboMakerWorldConfig[];
 
+  /**
+   * @schema RoboMakerSimulationApplicationConfig#useDefaultUploadConfigurations
+   */
+  readonly useDefaultUploadConfigurations?: boolean;
+
+  /**
+   * @schema RoboMakerSimulationApplicationConfig#tools
+   */
+  readonly tools?: RoboMakerTool[];
+
+  /**
+   * @schema RoboMakerSimulationApplicationConfig#useDefaultTools
+   */
+  readonly useDefaultTools?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'RoboMakerSimulationApplicationConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerSimulationApplicationConfig(obj: RoboMakerSimulationApplicationConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'application': obj.application,
+    'applicationVersion': obj.applicationVersion,
+    'launchConfig': toJson_RoboMakerLaunchConfig(obj.launchConfig),
+    'uploadConfigurations': obj.uploadConfigurations?.map(y => toJson_RoboMakerUploadConfiguration(y)),
+    'worldConfigs': obj.worldConfigs?.map(y => toJson_RoboMakerWorldConfig(y)),
+    'useDefaultUploadConfigurations': obj.useDefaultUploadConfigurations,
+    'tools': obj.tools?.map(y => toJson_RoboMakerTool(y)),
+    'useDefaultTools': obj.useDefaultTools,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDataSourceConfig
@@ -3126,6 +5294,22 @@ export interface RoboMakerDataSourceConfig {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDataSourceConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDataSourceConfig(obj: RoboMakerDataSourceConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    's3Bucket': obj.s3Bucket,
+    's3Keys': obj.s3Keys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerVpcConfig
  */
 export interface RoboMakerVpcConfig {
@@ -3147,6 +5331,22 @@ export interface RoboMakerVpcConfig {
 }
 
 /**
+ * Converts an object of type 'RoboMakerVpcConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerVpcConfig(obj: RoboMakerVpcConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'subnets': obj.subnets?.map(y => y),
+    'securityGroups': obj.securityGroups?.map(y => y),
+    'assignPublicIp': obj.assignPublicIp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerCompute
  */
 export interface RoboMakerCompute {
@@ -3156,6 +5356,20 @@ export interface RoboMakerCompute {
   readonly simulationUnitLimit?: number;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerCompute' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerCompute(obj: RoboMakerCompute | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'simulationUnitLimit': obj.simulationUnitLimit,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDataSource
@@ -3177,6 +5391,22 @@ export interface RoboMakerDataSource {
   readonly s3Keys?: RoboMakerS3KeyOutput[];
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerDataSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDataSource(obj: RoboMakerDataSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    's3Bucket': obj.s3Bucket,
+    's3Keys': obj.s3Keys?.map(y => toJson_RoboMakerS3KeyOutput(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerVpcConfigResponse
@@ -3205,6 +5435,23 @@ export interface RoboMakerVpcConfigResponse {
 }
 
 /**
+ * Converts an object of type 'RoboMakerVpcConfigResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerVpcConfigResponse(obj: RoboMakerVpcConfigResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'subnets': obj.subnets?.map(y => y),
+    'securityGroups': obj.securityGroups?.map(y => y),
+    'vpcId': obj.vpcId,
+    'assignPublicIp': obj.assignPublicIp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerComputeResponse
  */
 export interface RoboMakerComputeResponse {
@@ -3214,6 +5461,20 @@ export interface RoboMakerComputeResponse {
   readonly simulationUnitLimit?: number;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerComputeResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerComputeResponse(obj: RoboMakerComputeResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'simulationUnitLimit': obj.simulationUnitLimit,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerWorldCount
@@ -3232,6 +5493,21 @@ export interface RoboMakerWorldCount {
 }
 
 /**
+ * Converts an object of type 'RoboMakerWorldCount' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerWorldCount(obj: RoboMakerWorldCount | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'floorplanCount': obj.floorplanCount,
+    'interiorCountPerFloorplan': obj.interiorCountPerFloorplan,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerTemplateLocation
  */
 export interface RoboMakerTemplateLocation {
@@ -3246,6 +5522,21 @@ export interface RoboMakerTemplateLocation {
   readonly s3Key: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerTemplateLocation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerTemplateLocation(obj: RoboMakerTemplateLocation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    's3Bucket': obj.s3Bucket,
+    's3Key': obj.s3Key,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerRobotDeployment
@@ -3287,6 +5578,26 @@ export interface RoboMakerRobotDeployment {
   readonly failureCode?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerRobotDeployment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerRobotDeployment(obj: RoboMakerRobotDeployment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'deploymentStartTime': obj.deploymentStartTime,
+    'deploymentFinishTime': obj.deploymentFinishTime,
+    'status': obj.status,
+    'progressDetail': toJson_RoboMakerProgressDetail(obj.progressDetail),
+    'failureReason': obj.failureReason,
+    'failureCode': obj.failureCode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerRobot
@@ -3340,6 +5651,28 @@ export interface RoboMakerRobot {
 }
 
 /**
+ * Converts an object of type 'RoboMakerRobot' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerRobot(obj: RoboMakerRobot | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'fleetArn': obj.fleetArn,
+    'status': obj.status,
+    'greenGrassGroupId': obj.greenGrassGroupId,
+    'createdAt': obj.createdAt,
+    'architecture': obj.architecture,
+    'lastDeploymentJob': obj.lastDeploymentJob,
+    'lastDeploymentTime': obj.lastDeploymentTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerNetworkInterface
  */
 export interface RoboMakerNetworkInterface {
@@ -3361,6 +5694,22 @@ export interface RoboMakerNetworkInterface {
 }
 
 /**
+ * Converts an object of type 'RoboMakerNetworkInterface' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerNetworkInterface(obj: RoboMakerNetworkInterface | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'networkInterfaceId': obj.networkInterfaceId,
+    'privateIpAddress': obj.privateIpAddress,
+    'publicIpAddress': obj.publicIpAddress,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerBatchPolicy
  */
 export interface RoboMakerBatchPolicy {
@@ -3375,6 +5724,21 @@ export interface RoboMakerBatchPolicy {
   readonly maxConcurrency?: number;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerBatchPolicy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerBatchPolicy(obj: RoboMakerBatchPolicy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'timeoutInSeconds': obj.timeoutInSeconds,
+    'maxConcurrency': obj.maxConcurrency,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerFailedCreateSimulationJobRequest
@@ -3401,6 +5765,23 @@ export interface RoboMakerFailedCreateSimulationJobRequest {
   readonly failedAt?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerFailedCreateSimulationJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerFailedCreateSimulationJobRequest(obj: RoboMakerFailedCreateSimulationJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'request': toJson_RoboMakerSimulationJobRequest(obj.request),
+    'failureReason': obj.failureReason,
+    'failureCode': obj.failureCode,
+    'failedAt': obj.failedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerSimulationJobRequest
@@ -3469,6 +5850,31 @@ export interface RoboMakerSimulationJobRequest {
 }
 
 /**
+ * Converts an object of type 'RoboMakerSimulationJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerSimulationJobRequest(obj: RoboMakerSimulationJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'outputLocation': toJson_RoboMakerOutputLocation(obj.outputLocation),
+    'loggingConfig': toJson_RoboMakerLoggingConfig(obj.loggingConfig),
+    'maxJobDurationInSeconds': obj.maxJobDurationInSeconds,
+    'iamRole': obj.iamRole,
+    'failureBehavior': obj.failureBehavior,
+    'useDefaultApplications': obj.useDefaultApplications,
+    'robotApplications': obj.robotApplications?.map(y => toJson_RoboMakerRobotApplicationConfig(y)),
+    'simulationApplications': obj.simulationApplications?.map(y => toJson_RoboMakerSimulationApplicationConfig(y)),
+    'dataSources': obj.dataSources?.map(y => toJson_RoboMakerDataSourceConfig(y)),
+    'vpcConfig': toJson_RoboMakerVpcConfig(obj.vpcConfig),
+    'compute': toJson_RoboMakerCompute(obj.compute),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerSimulationJobSummary
  */
 export interface RoboMakerSimulationJobSummary {
@@ -3510,6 +5916,26 @@ export interface RoboMakerSimulationJobSummary {
 }
 
 /**
+ * Converts an object of type 'RoboMakerSimulationJobSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerSimulationJobSummary(obj: RoboMakerSimulationJobSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'name': obj.name,
+    'status': obj.status,
+    'simulationApplicationNames': obj.simulationApplicationNames?.map(y => y),
+    'robotApplicationNames': obj.robotApplicationNames?.map(y => y),
+    'dataSourceNames': obj.dataSourceNames?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerFinishedWorldsSummary
  */
 export interface RoboMakerFinishedWorldsSummary {
@@ -3531,6 +5957,22 @@ export interface RoboMakerFinishedWorldsSummary {
 }
 
 /**
+ * Converts an object of type 'RoboMakerFinishedWorldsSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerFinishedWorldsSummary(obj: RoboMakerFinishedWorldsSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'finishedCount': obj.finishedCount,
+    'succeededWorlds': obj.succeededWorlds?.map(y => y),
+    'failureSummary': toJson_RoboMakerFailureSummary(obj.failureSummary),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerFilter
  */
 export interface RoboMakerFilter {
@@ -3545,6 +5987,21 @@ export interface RoboMakerFilter {
   readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerFilter(obj: RoboMakerFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDeploymentJob
@@ -3593,6 +6050,27 @@ export interface RoboMakerDeploymentJob {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDeploymentJob' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDeploymentJob(obj: RoboMakerDeploymentJob | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'fleet': obj.fleet,
+    'status': obj.status,
+    'deploymentApplicationConfigs': obj.deploymentApplicationConfigs?.map(y => toJson_RoboMakerDeploymentApplicationConfig(y)),
+    'deploymentConfig': toJson_RoboMakerDeploymentConfig(obj.deploymentConfig),
+    'failureReason': obj.failureReason,
+    'failureCode': obj.failureCode,
+    'createdAt': obj.createdAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerFleet
  */
 export interface RoboMakerFleet {
@@ -3629,6 +6107,25 @@ export interface RoboMakerFleet {
 }
 
 /**
+ * Converts an object of type 'RoboMakerFleet' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerFleet(obj: RoboMakerFleet | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'createdAt': obj.createdAt,
+    'lastDeploymentStatus': obj.lastDeploymentStatus,
+    'lastDeploymentJob': obj.lastDeploymentJob,
+    'lastDeploymentTime': obj.lastDeploymentTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerRobotApplicationSummary
  */
 export interface RoboMakerRobotApplicationSummary {
@@ -3658,6 +6155,24 @@ export interface RoboMakerRobotApplicationSummary {
   readonly robotSoftwareSuite?: RoboMakerRobotSoftwareSuite;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerRobotApplicationSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerRobotApplicationSummary(obj: RoboMakerRobotApplicationSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'version': obj.version,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'robotSoftwareSuite': toJson_RoboMakerRobotSoftwareSuite(obj.robotSoftwareSuite),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerSimulationApplicationSummary
@@ -3694,6 +6209,25 @@ export interface RoboMakerSimulationApplicationSummary {
   readonly simulationSoftwareSuite?: RoboMakerSimulationSoftwareSuite;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerSimulationApplicationSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerSimulationApplicationSummary(obj: RoboMakerSimulationApplicationSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'version': obj.version,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'robotSoftwareSuite': toJson_RoboMakerRobotSoftwareSuite(obj.robotSoftwareSuite),
+    'simulationSoftwareSuite': toJson_RoboMakerSimulationSoftwareSuite(obj.simulationSoftwareSuite),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerSimulationJobBatchSummary
@@ -3737,6 +6271,26 @@ export interface RoboMakerSimulationJobBatchSummary {
 }
 
 /**
+ * Converts an object of type 'RoboMakerSimulationJobBatchSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerSimulationJobBatchSummary(obj: RoboMakerSimulationJobBatchSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'createdAt': obj.createdAt,
+    'status': obj.status,
+    'failedRequestCount': obj.failedRequestCount,
+    'pendingRequestCount': obj.pendingRequestCount,
+    'createdRequestCount': obj.createdRequestCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerWorldExportJobSummary
  */
 export interface RoboMakerWorldExportJobSummary {
@@ -3761,6 +6315,23 @@ export interface RoboMakerWorldExportJobSummary {
   readonly worlds?: string[];
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerWorldExportJobSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerWorldExportJobSummary(obj: RoboMakerWorldExportJobSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'status': obj.status,
+    'createdAt': obj.createdAt,
+    'worlds': obj.worlds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerWorldGenerationJobSummary
@@ -3804,6 +6375,26 @@ export interface RoboMakerWorldGenerationJobSummary {
 }
 
 /**
+ * Converts an object of type 'RoboMakerWorldGenerationJobSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerWorldGenerationJobSummary(obj: RoboMakerWorldGenerationJobSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'template': obj.template,
+    'createdAt': obj.createdAt,
+    'status': obj.status,
+    'worldCount': toJson_RoboMakerWorldCount(obj.worldCount),
+    'succeededWorldCount': obj.succeededWorldCount,
+    'failedWorldCount': obj.failedWorldCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerTemplateSummary
  */
 export interface RoboMakerTemplateSummary {
@@ -3827,7 +6418,30 @@ export interface RoboMakerTemplateSummary {
    */
   readonly name?: string;
 
+  /**
+   * @schema RoboMakerTemplateSummary#version
+   */
+  readonly version?: string;
+
 }
+
+/**
+ * Converts an object of type 'RoboMakerTemplateSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerTemplateSummary(obj: RoboMakerTemplateSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'createdAt': obj.createdAt,
+    'lastUpdatedAt': obj.lastUpdatedAt,
+    'name': obj.name,
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerWorldSummary
@@ -3856,6 +6470,23 @@ export interface RoboMakerWorldSummary {
 }
 
 /**
+ * Converts an object of type 'RoboMakerWorldSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerWorldSummary(obj: RoboMakerWorldSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'createdAt': obj.createdAt,
+    'generationJob': obj.generationJob,
+    'template': obj.template,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerS3Object
  */
 export interface RoboMakerS3Object {
@@ -3875,6 +6506,22 @@ export interface RoboMakerS3Object {
   readonly etag?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerS3Object' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerS3Object(obj: RoboMakerS3Object | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucket': obj.bucket,
+    'key': obj.key,
+    'etag': obj.etag,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerDeploymentLaunchConfig
@@ -3908,6 +6555,24 @@ export interface RoboMakerDeploymentLaunchConfig {
 }
 
 /**
+ * Converts an object of type 'RoboMakerDeploymentLaunchConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerDeploymentLaunchConfig(obj: RoboMakerDeploymentLaunchConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'packageName': obj.packageName,
+    'preLaunchFile': obj.preLaunchFile,
+    'launchFile': obj.launchFile,
+    'postLaunchFile': obj.postLaunchFile,
+    'environmentVariables': ((obj.environmentVariables) === undefined) ? undefined : (Object.entries(obj.environmentVariables).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerLaunchConfig
  */
 export interface RoboMakerLaunchConfig {
@@ -3934,9 +6599,113 @@ export interface RoboMakerLaunchConfig {
   /**
    * @schema RoboMakerLaunchConfig#streamUI
    */
-  readonly streamUI?: boolean;
+  readonly streamUi?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerLaunchConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerLaunchConfig(obj: RoboMakerLaunchConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'packageName': obj.packageName,
+    'launchFile': obj.launchFile,
+    'environmentVariables': ((obj.environmentVariables) === undefined) ? undefined : (Object.entries(obj.environmentVariables).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'portForwardingConfig': toJson_RoboMakerPortForwardingConfig(obj.portForwardingConfig),
+    'streamUI': obj.streamUi,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RoboMakerUploadConfiguration
+ */
+export interface RoboMakerUploadConfiguration {
+  /**
+   * @schema RoboMakerUploadConfiguration#name
+   */
+  readonly name: string;
+
+  /**
+   * @schema RoboMakerUploadConfiguration#path
+   */
+  readonly path: string;
+
+  /**
+   * @schema RoboMakerUploadConfiguration#uploadBehavior
+   */
+  readonly uploadBehavior: string;
+
+}
+
+/**
+ * Converts an object of type 'RoboMakerUploadConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerUploadConfiguration(obj: RoboMakerUploadConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'path': obj.path,
+    'uploadBehavior': obj.uploadBehavior,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema RoboMakerTool
+ */
+export interface RoboMakerTool {
+  /**
+   * @schema RoboMakerTool#streamUI
+   */
+  readonly streamUi?: boolean;
+
+  /**
+   * @schema RoboMakerTool#name
+   */
+  readonly name: string;
+
+  /**
+   * @schema RoboMakerTool#command
+   */
+  readonly command: string;
+
+  /**
+   * @schema RoboMakerTool#streamOutputToCloudWatch
+   */
+  readonly streamOutputToCloudWatch?: boolean;
+
+  /**
+   * @schema RoboMakerTool#exitBehavior
+   */
+  readonly exitBehavior?: string;
+
+}
+
+/**
+ * Converts an object of type 'RoboMakerTool' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerTool(obj: RoboMakerTool | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'streamUI': obj.streamUi,
+    'name': obj.name,
+    'command': obj.command,
+    'streamOutputToCloudWatch': obj.streamOutputToCloudWatch,
+    'exitBehavior': obj.exitBehavior,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerWorldConfig
@@ -3948,6 +6717,20 @@ export interface RoboMakerWorldConfig {
   readonly world?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerWorldConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerWorldConfig(obj: RoboMakerWorldConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'world': obj.world,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerS3KeyOutput
@@ -3964,6 +6747,21 @@ export interface RoboMakerS3KeyOutput {
   readonly etag?: string;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerS3KeyOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerS3KeyOutput(obj: RoboMakerS3KeyOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    's3Key': obj.s3Key,
+    'etag': obj.etag,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerProgressDetail
@@ -3992,6 +6790,23 @@ export interface RoboMakerProgressDetail {
 }
 
 /**
+ * Converts an object of type 'RoboMakerProgressDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerProgressDetail(obj: RoboMakerProgressDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'currentProgress': obj.currentProgress,
+    'percentDone': obj.percentDone,
+    'estimatedTimeRemainingSeconds': obj.estimatedTimeRemainingSeconds,
+    'targetResource': obj.targetResource,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerFailureSummary
  */
 export interface RoboMakerFailureSummary {
@@ -4008,6 +6823,21 @@ export interface RoboMakerFailureSummary {
 }
 
 /**
+ * Converts an object of type 'RoboMakerFailureSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerFailureSummary(obj: RoboMakerFailureSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'totalFailureCount': obj.totalFailureCount,
+    'failures': obj.failures?.map(y => toJson_RoboMakerWorldFailure(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerPortForwardingConfig
  */
 export interface RoboMakerPortForwardingConfig {
@@ -4017,6 +6847,20 @@ export interface RoboMakerPortForwardingConfig {
   readonly portMappings?: RoboMakerPortMapping[];
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerPortForwardingConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerPortForwardingConfig(obj: RoboMakerPortForwardingConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'portMappings': obj.portMappings?.map(y => toJson_RoboMakerPortMapping(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema RoboMakerWorldFailure
@@ -4040,6 +6884,22 @@ export interface RoboMakerWorldFailure {
 }
 
 /**
+ * Converts an object of type 'RoboMakerWorldFailure' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerWorldFailure(obj: RoboMakerWorldFailure | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'failureCode': obj.failureCode,
+    'sampleFailureReason': obj.sampleFailureReason,
+    'failureCount': obj.failureCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema RoboMakerPortMapping
  */
 export interface RoboMakerPortMapping {
@@ -4059,3 +6919,19 @@ export interface RoboMakerPortMapping {
   readonly enableOnPublicIp?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'RoboMakerPortMapping' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_RoboMakerPortMapping(obj: RoboMakerPortMapping | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobPort': obj.jobPort,
+    'applicationPort': obj.applicationPort,
+    'enableOnPublicIp': obj.enableOnPublicIp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

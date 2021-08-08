@@ -35,6 +35,25 @@ export interface SignerAddProfilePermissionRequest {
 }
 
 /**
+ * Converts an object of type 'SignerAddProfilePermissionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerAddProfilePermissionRequest(obj: SignerAddProfilePermissionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'profileName': obj.profileName,
+    'profileVersion': obj.profileVersion,
+    'action': obj.action,
+    'principal': obj.principal,
+    'revisionId': obj.revisionId,
+    'statementId': obj.statementId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerAddProfilePermissionResponse
  */
 export interface SignerAddProfilePermissionResponse {
@@ -44,6 +63,20 @@ export interface SignerAddProfilePermissionResponse {
   readonly revisionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerAddProfilePermissionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerAddProfilePermissionResponse(obj: SignerAddProfilePermissionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'revisionId': obj.revisionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerCancelSigningProfileRequest
@@ -57,6 +90,20 @@ export interface SignerCancelSigningProfileRequest {
 }
 
 /**
+ * Converts an object of type 'SignerCancelSigningProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerCancelSigningProfileRequest(obj: SignerCancelSigningProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'profileName': obj.profileName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerDescribeSigningJobRequest
  */
 export interface SignerDescribeSigningJobRequest {
@@ -66,6 +113,20 @@ export interface SignerDescribeSigningJobRequest {
   readonly jobId: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerDescribeSigningJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerDescribeSigningJobRequest(obj: SignerDescribeSigningJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobId': obj.jobId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerDescribeSigningJobResponse
@@ -169,6 +230,38 @@ export interface SignerDescribeSigningJobResponse {
 }
 
 /**
+ * Converts an object of type 'SignerDescribeSigningJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerDescribeSigningJobResponse(obj: SignerDescribeSigningJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobId': obj.jobId,
+    'source': toJson_SignerSource(obj.source),
+    'signingMaterial': toJson_SignerSigningMaterial(obj.signingMaterial),
+    'platformId': obj.platformId,
+    'platformDisplayName': obj.platformDisplayName,
+    'profileName': obj.profileName,
+    'profileVersion': obj.profileVersion,
+    'overrides': toJson_SignerSigningPlatformOverrides(obj.overrides),
+    'signingParameters': ((obj.signingParameters) === undefined) ? undefined : (Object.entries(obj.signingParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'createdAt': obj.createdAt,
+    'completedAt': obj.completedAt,
+    'signatureExpiresAt': obj.signatureExpiresAt,
+    'requestedBy': obj.requestedBy,
+    'status': obj.status,
+    'statusReason': obj.statusReason,
+    'revocationRecord': toJson_SignerSigningJobRevocationRecord(obj.revocationRecord),
+    'signedObject': toJson_SignerSignedObject(obj.signedObject),
+    'jobOwner': obj.jobOwner,
+    'jobInvoker': obj.jobInvoker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerGetSigningPlatformRequest
  */
 export interface SignerGetSigningPlatformRequest {
@@ -178,6 +271,20 @@ export interface SignerGetSigningPlatformRequest {
   readonly platformId: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerGetSigningPlatformRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerGetSigningPlatformRequest(obj: SignerGetSigningPlatformRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'platformId': obj.platformId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerGetSigningPlatformResponse
@@ -221,7 +328,7 @@ export interface SignerGetSigningPlatformResponse {
   /**
    * @schema SignerGetSigningPlatformResponse#maxSizeInMB
    */
-  readonly maxSizeInMB?: number;
+  readonly maxSizeInMb?: number;
 
   /**
    * @schema SignerGetSigningPlatformResponse#revocationSupported
@@ -229,6 +336,28 @@ export interface SignerGetSigningPlatformResponse {
   readonly revocationSupported?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'SignerGetSigningPlatformResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerGetSigningPlatformResponse(obj: SignerGetSigningPlatformResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'platformId': obj.platformId,
+    'displayName': obj.displayName,
+    'partner': obj.partner,
+    'target': obj.target,
+    'category': obj.category,
+    'signingConfiguration': toJson_SignerSigningConfiguration(obj.signingConfiguration),
+    'signingImageFormat': toJson_SignerSigningImageFormat(obj.signingImageFormat),
+    'maxSizeInMB': obj.maxSizeInMb,
+    'revocationSupported': obj.revocationSupported,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerGetSigningProfileRequest
@@ -245,6 +374,21 @@ export interface SignerGetSigningProfileRequest {
   readonly profileOwner?: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerGetSigningProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerGetSigningProfileRequest(obj: SignerGetSigningProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'profileName': obj.profileName,
+    'profileOwner': obj.profileOwner,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerGetSigningProfileResponse
@@ -323,6 +467,33 @@ export interface SignerGetSigningProfileResponse {
 }
 
 /**
+ * Converts an object of type 'SignerGetSigningProfileResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerGetSigningProfileResponse(obj: SignerGetSigningProfileResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'profileName': obj.profileName,
+    'profileVersion': obj.profileVersion,
+    'profileVersionArn': obj.profileVersionArn,
+    'revocationRecord': toJson_SignerSigningProfileRevocationRecord(obj.revocationRecord),
+    'signingMaterial': toJson_SignerSigningMaterial(obj.signingMaterial),
+    'platformId': obj.platformId,
+    'platformDisplayName': obj.platformDisplayName,
+    'signatureValidityPeriod': toJson_SignerSignatureValidityPeriod(obj.signatureValidityPeriod),
+    'overrides': toJson_SignerSigningPlatformOverrides(obj.overrides),
+    'signingParameters': ((obj.signingParameters) === undefined) ? undefined : (Object.entries(obj.signingParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'status': obj.status,
+    'statusReason': obj.statusReason,
+    'arn': obj.arn,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerListProfilePermissionsRequest
  */
 export interface SignerListProfilePermissionsRequest {
@@ -337,6 +508,21 @@ export interface SignerListProfilePermissionsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerListProfilePermissionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerListProfilePermissionsRequest(obj: SignerListProfilePermissionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'profileName': obj.profileName,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerListProfilePermissionsResponse
@@ -363,6 +549,23 @@ export interface SignerListProfilePermissionsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerListProfilePermissionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerListProfilePermissionsResponse(obj: SignerListProfilePermissionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'revisionId': obj.revisionId,
+    'policySizeBytes': obj.policySizeBytes,
+    'permissions': obj.permissions?.map(y => toJson_SignerPermission(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerListSigningJobsRequest
@@ -416,6 +619,28 @@ export interface SignerListSigningJobsRequest {
 }
 
 /**
+ * Converts an object of type 'SignerListSigningJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerListSigningJobsRequest(obj: SignerListSigningJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+    'platformId': obj.platformId,
+    'requestedBy': obj.requestedBy,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+    'isRevoked': obj.isRevoked,
+    'signatureExpiresBefore': obj.signatureExpiresBefore,
+    'signatureExpiresAfter': obj.signatureExpiresAfter,
+    'jobInvoker': obj.jobInvoker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerListSigningJobsResponse
  */
 export interface SignerListSigningJobsResponse {
@@ -430,6 +655,21 @@ export interface SignerListSigningJobsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerListSigningJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerListSigningJobsResponse(obj: SignerListSigningJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobs': obj.jobs?.map(y => toJson_SignerSigningJob(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerListSigningPlatformsRequest
@@ -463,6 +703,24 @@ export interface SignerListSigningPlatformsRequest {
 }
 
 /**
+ * Converts an object of type 'SignerListSigningPlatformsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerListSigningPlatformsRequest(obj: SignerListSigningPlatformsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'category': obj.category,
+    'partner': obj.partner,
+    'target': obj.target,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerListSigningPlatformsResponse
  */
 export interface SignerListSigningPlatformsResponse {
@@ -477,6 +735,21 @@ export interface SignerListSigningPlatformsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerListSigningPlatformsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerListSigningPlatformsResponse(obj: SignerListSigningPlatformsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'platforms': obj.platforms?.map(y => toJson_SignerSigningPlatform(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerListSigningProfilesRequest
@@ -510,6 +783,24 @@ export interface SignerListSigningProfilesRequest {
 }
 
 /**
+ * Converts an object of type 'SignerListSigningProfilesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerListSigningProfilesRequest(obj: SignerListSigningProfilesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'includeCanceled': obj.includeCanceled,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+    'platformId': obj.platformId,
+    'statuses': obj.statuses?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerListSigningProfilesResponse
  */
 export interface SignerListSigningProfilesResponse {
@@ -526,6 +817,21 @@ export interface SignerListSigningProfilesResponse {
 }
 
 /**
+ * Converts an object of type 'SignerListSigningProfilesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerListSigningProfilesResponse(obj: SignerListSigningProfilesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'profiles': obj.profiles?.map(y => toJson_SignerSigningProfile(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerListTagsForResourceRequest
  */
 export interface SignerListTagsForResourceRequest {
@@ -537,6 +843,20 @@ export interface SignerListTagsForResourceRequest {
 }
 
 /**
+ * Converts an object of type 'SignerListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerListTagsForResourceRequest(obj: SignerListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerListTagsForResourceResponse
  */
 export interface SignerListTagsForResourceResponse {
@@ -546,6 +866,20 @@ export interface SignerListTagsForResourceResponse {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'SignerListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerListTagsForResourceResponse(obj: SignerListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerPutSigningProfileRequest
@@ -589,6 +923,26 @@ export interface SignerPutSigningProfileRequest {
 }
 
 /**
+ * Converts an object of type 'SignerPutSigningProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerPutSigningProfileRequest(obj: SignerPutSigningProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'profileName': obj.profileName,
+    'signingMaterial': toJson_SignerSigningMaterial(obj.signingMaterial),
+    'signatureValidityPeriod': toJson_SignerSignatureValidityPeriod(obj.signatureValidityPeriod),
+    'platformId': obj.platformId,
+    'overrides': toJson_SignerSigningPlatformOverrides(obj.overrides),
+    'signingParameters': ((obj.signingParameters) === undefined) ? undefined : (Object.entries(obj.signingParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerPutSigningProfileResponse
  */
 export interface SignerPutSigningProfileResponse {
@@ -608,6 +962,22 @@ export interface SignerPutSigningProfileResponse {
   readonly profileVersionArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerPutSigningProfileResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerPutSigningProfileResponse(obj: SignerPutSigningProfileResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'profileVersion': obj.profileVersion,
+    'profileVersionArn': obj.profileVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerRemoveProfilePermissionRequest
@@ -631,6 +1001,22 @@ export interface SignerRemoveProfilePermissionRequest {
 }
 
 /**
+ * Converts an object of type 'SignerRemoveProfilePermissionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerRemoveProfilePermissionRequest(obj: SignerRemoveProfilePermissionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'profileName': obj.profileName,
+    'revisionId': obj.revisionId,
+    'statementId': obj.statementId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerRemoveProfilePermissionResponse
  */
 export interface SignerRemoveProfilePermissionResponse {
@@ -640,6 +1026,20 @@ export interface SignerRemoveProfilePermissionResponse {
   readonly revisionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerRemoveProfilePermissionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerRemoveProfilePermissionResponse(obj: SignerRemoveProfilePermissionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'revisionId': obj.revisionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerRevokeSignatureRequest
@@ -661,6 +1061,22 @@ export interface SignerRevokeSignatureRequest {
   readonly reason: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerRevokeSignatureRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerRevokeSignatureRequest(obj: SignerRevokeSignatureRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobId': obj.jobId,
+    'jobOwner': obj.jobOwner,
+    'reason': obj.reason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerRevokeSigningProfileRequest
@@ -687,6 +1103,23 @@ export interface SignerRevokeSigningProfileRequest {
   readonly effectiveTime: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerRevokeSigningProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerRevokeSigningProfileRequest(obj: SignerRevokeSigningProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'profileName': obj.profileName,
+    'profileVersion': obj.profileVersion,
+    'reason': obj.reason,
+    'effectiveTime': obj.effectiveTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerStartSigningJobRequest
@@ -720,6 +1153,24 @@ export interface SignerStartSigningJobRequest {
 }
 
 /**
+ * Converts an object of type 'SignerStartSigningJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerStartSigningJobRequest(obj: SignerStartSigningJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'source': toJson_SignerSource(obj.source),
+    'destination': toJson_SignerDestination(obj.destination),
+    'profileName': obj.profileName,
+    'clientRequestToken': obj.clientRequestToken,
+    'profileOwner': obj.profileOwner,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerStartSigningJobResponse
  */
 export interface SignerStartSigningJobResponse {
@@ -734,6 +1185,21 @@ export interface SignerStartSigningJobResponse {
   readonly jobOwner?: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerStartSigningJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerStartSigningJobResponse(obj: SignerStartSigningJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobId': obj.jobId,
+    'jobOwner': obj.jobOwner,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerTagResourceRequest
@@ -752,10 +1218,38 @@ export interface SignerTagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'SignerTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerTagResourceRequest(obj: SignerTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerTagResourceResponse
  */
 export interface SignerTagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'SignerTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerTagResourceResponse(obj: SignerTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerUntagResourceRequest
@@ -774,10 +1268,38 @@ export interface SignerUntagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'SignerUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerUntagResourceRequest(obj: SignerUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerUntagResourceResponse
  */
 export interface SignerUntagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'SignerUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerUntagResourceResponse(obj: SignerUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerSource
@@ -791,6 +1313,20 @@ export interface SignerSource {
 }
 
 /**
+ * Converts an object of type 'SignerSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerSource(obj: SignerSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    's3': toJson_SignerS3Source(obj.s3),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerSigningMaterial
  */
 export interface SignerSigningMaterial {
@@ -800,6 +1336,20 @@ export interface SignerSigningMaterial {
   readonly certificateArn: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerSigningMaterial' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerSigningMaterial(obj: SignerSigningMaterial | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'certificateArn': obj.certificateArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerSigningPlatformOverrides
@@ -816,6 +1366,21 @@ export interface SignerSigningPlatformOverrides {
   readonly signingImageFormat?: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerSigningPlatformOverrides' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerSigningPlatformOverrides(obj: SignerSigningPlatformOverrides | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'signingConfiguration': toJson_SignerSigningConfigurationOverrides(obj.signingConfiguration),
+    'signingImageFormat': obj.signingImageFormat,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerSigningJobRevocationRecord
@@ -839,6 +1404,22 @@ export interface SignerSigningJobRevocationRecord {
 }
 
 /**
+ * Converts an object of type 'SignerSigningJobRevocationRecord' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerSigningJobRevocationRecord(obj: SignerSigningJobRevocationRecord | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reason': obj.reason,
+    'revokedAt': obj.revokedAt,
+    'revokedBy': obj.revokedBy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerSignedObject
  */
 export interface SignerSignedObject {
@@ -848,6 +1429,20 @@ export interface SignerSignedObject {
   readonly s3?: SignerS3SignedObject;
 
 }
+
+/**
+ * Converts an object of type 'SignerSignedObject' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerSignedObject(obj: SignerSignedObject | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    's3': toJson_SignerS3SignedObject(obj.s3),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerSigningConfiguration
@@ -866,6 +1461,21 @@ export interface SignerSigningConfiguration {
 }
 
 /**
+ * Converts an object of type 'SignerSigningConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerSigningConfiguration(obj: SignerSigningConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'encryptionAlgorithmOptions': toJson_SignerEncryptionAlgorithmOptions(obj.encryptionAlgorithmOptions),
+    'hashAlgorithmOptions': toJson_SignerHashAlgorithmOptions(obj.hashAlgorithmOptions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerSigningImageFormat
  */
 export interface SignerSigningImageFormat {
@@ -880,6 +1490,21 @@ export interface SignerSigningImageFormat {
   readonly defaultFormat: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerSigningImageFormat' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerSigningImageFormat(obj: SignerSigningImageFormat | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'supportedFormats': obj.supportedFormats?.map(y => y),
+    'defaultFormat': obj.defaultFormat,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerSigningProfileRevocationRecord
@@ -903,6 +1528,22 @@ export interface SignerSigningProfileRevocationRecord {
 }
 
 /**
+ * Converts an object of type 'SignerSigningProfileRevocationRecord' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerSigningProfileRevocationRecord(obj: SignerSigningProfileRevocationRecord | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'revocationEffectiveFrom': obj.revocationEffectiveFrom,
+    'revokedAt': obj.revokedAt,
+    'revokedBy': obj.revokedBy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerSignatureValidityPeriod
  */
 export interface SignerSignatureValidityPeriod {
@@ -917,6 +1558,21 @@ export interface SignerSignatureValidityPeriod {
   readonly type?: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerSignatureValidityPeriod' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerSignatureValidityPeriod(obj: SignerSignatureValidityPeriod | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'value': obj.value,
+    'type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerPermission
@@ -943,6 +1599,23 @@ export interface SignerPermission {
   readonly profileVersion?: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerPermission' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerPermission(obj: SignerPermission | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'action': obj.action,
+    'principal': obj.principal,
+    'statementId': obj.statementId,
+    'profileVersion': obj.profileVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerSigningJob
@@ -1021,6 +1694,33 @@ export interface SignerSigningJob {
 }
 
 /**
+ * Converts an object of type 'SignerSigningJob' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerSigningJob(obj: SignerSigningJob | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobId': obj.jobId,
+    'source': toJson_SignerSource(obj.source),
+    'signedObject': toJson_SignerSignedObject(obj.signedObject),
+    'signingMaterial': toJson_SignerSigningMaterial(obj.signingMaterial),
+    'createdAt': obj.createdAt,
+    'status': obj.status,
+    'isRevoked': obj.isRevoked,
+    'profileName': obj.profileName,
+    'profileVersion': obj.profileVersion,
+    'platformId': obj.platformId,
+    'platformDisplayName': obj.platformDisplayName,
+    'signatureExpiresAt': obj.signatureExpiresAt,
+    'jobOwner': obj.jobOwner,
+    'jobInvoker': obj.jobInvoker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerSigningPlatform
  */
 export interface SignerSigningPlatform {
@@ -1062,7 +1762,7 @@ export interface SignerSigningPlatform {
   /**
    * @schema SignerSigningPlatform#maxSizeInMB
    */
-  readonly maxSizeInMB?: number;
+  readonly maxSizeInMb?: number;
 
   /**
    * @schema SignerSigningPlatform#revocationSupported
@@ -1070,6 +1770,28 @@ export interface SignerSigningPlatform {
   readonly revocationSupported?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'SignerSigningPlatform' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerSigningPlatform(obj: SignerSigningPlatform | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'platformId': obj.platformId,
+    'displayName': obj.displayName,
+    'partner': obj.partner,
+    'target': obj.target,
+    'category': obj.category,
+    'signingConfiguration': toJson_SignerSigningConfiguration(obj.signingConfiguration),
+    'signingImageFormat': toJson_SignerSigningImageFormat(obj.signingImageFormat),
+    'maxSizeInMB': obj.maxSizeInMb,
+    'revocationSupported': obj.revocationSupported,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerSigningProfile
@@ -1133,6 +1855,30 @@ export interface SignerSigningProfile {
 }
 
 /**
+ * Converts an object of type 'SignerSigningProfile' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerSigningProfile(obj: SignerSigningProfile | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'profileName': obj.profileName,
+    'profileVersion': obj.profileVersion,
+    'profileVersionArn': obj.profileVersionArn,
+    'signingMaterial': toJson_SignerSigningMaterial(obj.signingMaterial),
+    'signatureValidityPeriod': toJson_SignerSignatureValidityPeriod(obj.signatureValidityPeriod),
+    'platformId': obj.platformId,
+    'platformDisplayName': obj.platformDisplayName,
+    'signingParameters': ((obj.signingParameters) === undefined) ? undefined : (Object.entries(obj.signingParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'status': obj.status,
+    'arn': obj.arn,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerDestination
  */
 export interface SignerDestination {
@@ -1142,6 +1888,20 @@ export interface SignerDestination {
   readonly s3?: SignerS3Destination;
 
 }
+
+/**
+ * Converts an object of type 'SignerDestination' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerDestination(obj: SignerDestination | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    's3': toJson_SignerS3Destination(obj.s3),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerS3Source
@@ -1165,6 +1925,22 @@ export interface SignerS3Source {
 }
 
 /**
+ * Converts an object of type 'SignerS3Source' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerS3Source(obj: SignerS3Source | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketName': obj.bucketName,
+    'key': obj.key,
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerSigningConfigurationOverrides
  */
 export interface SignerSigningConfigurationOverrides {
@@ -1179,6 +1955,21 @@ export interface SignerSigningConfigurationOverrides {
   readonly hashAlgorithm?: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerSigningConfigurationOverrides' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerSigningConfigurationOverrides(obj: SignerSigningConfigurationOverrides | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'encryptionAlgorithm': obj.encryptionAlgorithm,
+    'hashAlgorithm': obj.hashAlgorithm,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerS3SignedObject
@@ -1197,6 +1988,21 @@ export interface SignerS3SignedObject {
 }
 
 /**
+ * Converts an object of type 'SignerS3SignedObject' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerS3SignedObject(obj: SignerS3SignedObject | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketName': obj.bucketName,
+    'key': obj.key,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerEncryptionAlgorithmOptions
  */
 export interface SignerEncryptionAlgorithmOptions {
@@ -1211,6 +2017,21 @@ export interface SignerEncryptionAlgorithmOptions {
   readonly defaultValue: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerEncryptionAlgorithmOptions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerEncryptionAlgorithmOptions(obj: SignerEncryptionAlgorithmOptions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'allowedValues': obj.allowedValues?.map(y => y),
+    'defaultValue': obj.defaultValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SignerHashAlgorithmOptions
@@ -1229,6 +2050,21 @@ export interface SignerHashAlgorithmOptions {
 }
 
 /**
+ * Converts an object of type 'SignerHashAlgorithmOptions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerHashAlgorithmOptions(obj: SignerHashAlgorithmOptions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'allowedValues': obj.allowedValues?.map(y => y),
+    'defaultValue': obj.defaultValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SignerS3Destination
  */
 export interface SignerS3Destination {
@@ -1243,3 +2079,18 @@ export interface SignerS3Destination {
   readonly prefix?: string;
 
 }
+
+/**
+ * Converts an object of type 'SignerS3Destination' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SignerS3Destination(obj: SignerS3Destination | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketName': obj.bucketName,
+    'prefix': obj.prefix,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

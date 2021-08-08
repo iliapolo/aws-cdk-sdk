@@ -35,6 +35,25 @@ export interface AppSyncCreateApiCacheRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncCreateApiCacheRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncCreateApiCacheRequest(obj: AppSyncCreateApiCacheRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'ttl': obj.ttl,
+    'transitEncryptionEnabled': obj.transitEncryptionEnabled,
+    'atRestEncryptionEnabled': obj.atRestEncryptionEnabled,
+    'apiCachingBehavior': obj.apiCachingBehavior,
+    'type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncCreateApiCacheResponse
  */
 export interface AppSyncCreateApiCacheResponse {
@@ -44,6 +63,20 @@ export interface AppSyncCreateApiCacheResponse {
   readonly apiCache?: AppSyncApiCache;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncCreateApiCacheResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncCreateApiCacheResponse(obj: AppSyncCreateApiCacheResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiCache': toJson_AppSyncApiCache(obj.apiCache),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncCreateApiKeyRequest
@@ -67,6 +100,22 @@ export interface AppSyncCreateApiKeyRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncCreateApiKeyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncCreateApiKeyRequest(obj: AppSyncCreateApiKeyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'description': obj.description,
+    'expires': obj.expires,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncCreateApiKeyResponse
  */
 export interface AppSyncCreateApiKeyResponse {
@@ -76,6 +125,20 @@ export interface AppSyncCreateApiKeyResponse {
   readonly apiKey?: AppSyncApiKey;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncCreateApiKeyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncCreateApiKeyResponse(obj: AppSyncCreateApiKeyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiKey': toJson_AppSyncApiKey(obj.apiKey),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncCreateDataSourceRequest
@@ -134,6 +197,29 @@ export interface AppSyncCreateDataSourceRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncCreateDataSourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncCreateDataSourceRequest(obj: AppSyncCreateDataSourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'name': obj.name,
+    'description': obj.description,
+    'type': obj.type,
+    'serviceRoleArn': obj.serviceRoleArn,
+    'dynamodbConfig': toJson_AppSyncDynamodbDataSourceConfig(obj.dynamodbConfig),
+    'lambdaConfig': toJson_AppSyncLambdaDataSourceConfig(obj.lambdaConfig),
+    'elasticsearchConfig': toJson_AppSyncElasticsearchDataSourceConfig(obj.elasticsearchConfig),
+    'httpConfig': toJson_AppSyncHttpDataSourceConfig(obj.httpConfig),
+    'relationalDatabaseConfig': toJson_AppSyncRelationalDatabaseDataSourceConfig(obj.relationalDatabaseConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncCreateDataSourceResponse
  */
 export interface AppSyncCreateDataSourceResponse {
@@ -143,6 +229,20 @@ export interface AppSyncCreateDataSourceResponse {
   readonly dataSource?: AppSyncDataSource;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncCreateDataSourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncCreateDataSourceResponse(obj: AppSyncCreateDataSourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dataSource': toJson_AppSyncDataSource(obj.dataSource),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncCreateFunctionRequest
@@ -183,7 +283,33 @@ export interface AppSyncCreateFunctionRequest {
    */
   readonly functionVersion: string;
 
+  /**
+   * @schema AppSyncCreateFunctionRequest#syncConfig
+   */
+  readonly syncConfig?: AppSyncSyncConfig;
+
 }
+
+/**
+ * Converts an object of type 'AppSyncCreateFunctionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncCreateFunctionRequest(obj: AppSyncCreateFunctionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'name': obj.name,
+    'description': obj.description,
+    'dataSourceName': obj.dataSourceName,
+    'requestMappingTemplate': obj.requestMappingTemplate,
+    'responseMappingTemplate': obj.responseMappingTemplate,
+    'functionVersion': obj.functionVersion,
+    'syncConfig': toJson_AppSyncSyncConfig(obj.syncConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncCreateFunctionResponse
@@ -195,6 +321,20 @@ export interface AppSyncCreateFunctionResponse {
   readonly functionConfiguration?: AppSyncFunctionConfiguration;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncCreateFunctionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncCreateFunctionResponse(obj: AppSyncCreateFunctionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'functionConfiguration': toJson_AppSyncFunctionConfiguration(obj.functionConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncCreateGraphqlApiRequest
@@ -223,7 +363,7 @@ export interface AppSyncCreateGraphqlApiRequest {
   /**
    * @schema AppSyncCreateGraphqlApiRequest#openIDConnectConfig
    */
-  readonly openIDConnectConfig?: AppSyncOpenIdConnectConfig;
+  readonly openIdConnectConfig?: AppSyncOpenIdConnectConfig;
 
   /**
    * @schema AppSyncCreateGraphqlApiRequest#tags
@@ -240,7 +380,34 @@ export interface AppSyncCreateGraphqlApiRequest {
    */
   readonly xrayEnabled?: boolean;
 
+  /**
+   * @schema AppSyncCreateGraphqlApiRequest#lambdaAuthorizerConfig
+   */
+  readonly lambdaAuthorizerConfig?: AppSyncLambdaAuthorizerConfig;
+
 }
+
+/**
+ * Converts an object of type 'AppSyncCreateGraphqlApiRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncCreateGraphqlApiRequest(obj: AppSyncCreateGraphqlApiRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'logConfig': toJson_AppSyncLogConfig(obj.logConfig),
+    'authenticationType': obj.authenticationType,
+    'userPoolConfig': toJson_AppSyncUserPoolConfig(obj.userPoolConfig),
+    'openIDConnectConfig': toJson_AppSyncOpenIdConnectConfig(obj.openIdConnectConfig),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'additionalAuthenticationProviders': obj.additionalAuthenticationProviders?.map(y => toJson_AppSyncAdditionalAuthenticationProvider(y)),
+    'xrayEnabled': obj.xrayEnabled,
+    'lambdaAuthorizerConfig': toJson_AppSyncLambdaAuthorizerConfig(obj.lambdaAuthorizerConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncCreateGraphqlApiResponse
@@ -252,6 +419,20 @@ export interface AppSyncCreateGraphqlApiResponse {
   readonly graphqlApi?: AppSyncGraphqlApi;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncCreateGraphqlApiResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncCreateGraphqlApiResponse(obj: AppSyncCreateGraphqlApiResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'graphqlApi': toJson_AppSyncGraphqlApi(obj.graphqlApi),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncCreateResolverRequest
@@ -310,6 +491,29 @@ export interface AppSyncCreateResolverRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncCreateResolverRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncCreateResolverRequest(obj: AppSyncCreateResolverRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'typeName': obj.typeName,
+    'fieldName': obj.fieldName,
+    'dataSourceName': obj.dataSourceName,
+    'requestMappingTemplate': obj.requestMappingTemplate,
+    'responseMappingTemplate': obj.responseMappingTemplate,
+    'kind': obj.kind,
+    'pipelineConfig': toJson_AppSyncPipelineConfig(obj.pipelineConfig),
+    'syncConfig': toJson_AppSyncSyncConfig(obj.syncConfig),
+    'cachingConfig': toJson_AppSyncCachingConfig(obj.cachingConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncCreateResolverResponse
  */
 export interface AppSyncCreateResolverResponse {
@@ -319,6 +523,20 @@ export interface AppSyncCreateResolverResponse {
   readonly resolver?: AppSyncResolver;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncCreateResolverResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncCreateResolverResponse(obj: AppSyncCreateResolverResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resolver': toJson_AppSyncResolver(obj.resolver),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncCreateTypeRequest
@@ -342,6 +560,22 @@ export interface AppSyncCreateTypeRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncCreateTypeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncCreateTypeRequest(obj: AppSyncCreateTypeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'definition': obj.definition,
+    'format': obj.format,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncCreateTypeResponse
  */
 export interface AppSyncCreateTypeResponse {
@@ -351,6 +585,20 @@ export interface AppSyncCreateTypeResponse {
   readonly type?: AppSyncType;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncCreateTypeResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncCreateTypeResponse(obj: AppSyncCreateTypeResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': toJson_AppSyncType(obj.type),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncDeleteApiCacheRequest
@@ -364,10 +612,37 @@ export interface AppSyncDeleteApiCacheRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncDeleteApiCacheRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncDeleteApiCacheRequest(obj: AppSyncDeleteApiCacheRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncDeleteApiCacheResponse
  */
 export interface AppSyncDeleteApiCacheResponse {
 }
+
+/**
+ * Converts an object of type 'AppSyncDeleteApiCacheResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncDeleteApiCacheResponse(obj: AppSyncDeleteApiCacheResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncDeleteApiKeyRequest
@@ -386,10 +661,38 @@ export interface AppSyncDeleteApiKeyRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncDeleteApiKeyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncDeleteApiKeyRequest(obj: AppSyncDeleteApiKeyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncDeleteApiKeyResponse
  */
 export interface AppSyncDeleteApiKeyResponse {
 }
+
+/**
+ * Converts an object of type 'AppSyncDeleteApiKeyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncDeleteApiKeyResponse(obj: AppSyncDeleteApiKeyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncDeleteDataSourceRequest
@@ -408,10 +711,38 @@ export interface AppSyncDeleteDataSourceRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncDeleteDataSourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncDeleteDataSourceRequest(obj: AppSyncDeleteDataSourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncDeleteDataSourceResponse
  */
 export interface AppSyncDeleteDataSourceResponse {
 }
+
+/**
+ * Converts an object of type 'AppSyncDeleteDataSourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncDeleteDataSourceResponse(obj: AppSyncDeleteDataSourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncDeleteFunctionRequest
@@ -430,10 +761,38 @@ export interface AppSyncDeleteFunctionRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncDeleteFunctionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncDeleteFunctionRequest(obj: AppSyncDeleteFunctionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'functionId': obj.functionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncDeleteFunctionResponse
  */
 export interface AppSyncDeleteFunctionResponse {
 }
+
+/**
+ * Converts an object of type 'AppSyncDeleteFunctionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncDeleteFunctionResponse(obj: AppSyncDeleteFunctionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncDeleteGraphqlApiRequest
@@ -447,10 +806,37 @@ export interface AppSyncDeleteGraphqlApiRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncDeleteGraphqlApiRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncDeleteGraphqlApiRequest(obj: AppSyncDeleteGraphqlApiRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncDeleteGraphqlApiResponse
  */
 export interface AppSyncDeleteGraphqlApiResponse {
 }
+
+/**
+ * Converts an object of type 'AppSyncDeleteGraphqlApiResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncDeleteGraphqlApiResponse(obj: AppSyncDeleteGraphqlApiResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncDeleteResolverRequest
@@ -474,10 +860,39 @@ export interface AppSyncDeleteResolverRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncDeleteResolverRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncDeleteResolverRequest(obj: AppSyncDeleteResolverRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'typeName': obj.typeName,
+    'fieldName': obj.fieldName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncDeleteResolverResponse
  */
 export interface AppSyncDeleteResolverResponse {
 }
+
+/**
+ * Converts an object of type 'AppSyncDeleteResolverResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncDeleteResolverResponse(obj: AppSyncDeleteResolverResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncDeleteTypeRequest
@@ -496,10 +911,38 @@ export interface AppSyncDeleteTypeRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncDeleteTypeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncDeleteTypeRequest(obj: AppSyncDeleteTypeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'typeName': obj.typeName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncDeleteTypeResponse
  */
 export interface AppSyncDeleteTypeResponse {
 }
+
+/**
+ * Converts an object of type 'AppSyncDeleteTypeResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncDeleteTypeResponse(obj: AppSyncDeleteTypeResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncFlushApiCacheRequest
@@ -513,10 +956,37 @@ export interface AppSyncFlushApiCacheRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncFlushApiCacheRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncFlushApiCacheRequest(obj: AppSyncFlushApiCacheRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncFlushApiCacheResponse
  */
 export interface AppSyncFlushApiCacheResponse {
 }
+
+/**
+ * Converts an object of type 'AppSyncFlushApiCacheResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncFlushApiCacheResponse(obj: AppSyncFlushApiCacheResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncGetApiCacheRequest
@@ -530,6 +1000,20 @@ export interface AppSyncGetApiCacheRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncGetApiCacheRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncGetApiCacheRequest(obj: AppSyncGetApiCacheRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncGetApiCacheResponse
  */
 export interface AppSyncGetApiCacheResponse {
@@ -539,6 +1023,20 @@ export interface AppSyncGetApiCacheResponse {
   readonly apiCache?: AppSyncApiCache;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncGetApiCacheResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncGetApiCacheResponse(obj: AppSyncGetApiCacheResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiCache': toJson_AppSyncApiCache(obj.apiCache),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncGetDataSourceRequest
@@ -557,6 +1055,21 @@ export interface AppSyncGetDataSourceRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncGetDataSourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncGetDataSourceRequest(obj: AppSyncGetDataSourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncGetDataSourceResponse
  */
 export interface AppSyncGetDataSourceResponse {
@@ -566,6 +1079,20 @@ export interface AppSyncGetDataSourceResponse {
   readonly dataSource?: AppSyncDataSource;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncGetDataSourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncGetDataSourceResponse(obj: AppSyncGetDataSourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dataSource': toJson_AppSyncDataSource(obj.dataSource),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncGetFunctionRequest
@@ -584,6 +1111,21 @@ export interface AppSyncGetFunctionRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncGetFunctionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncGetFunctionRequest(obj: AppSyncGetFunctionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'functionId': obj.functionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncGetFunctionResponse
  */
 export interface AppSyncGetFunctionResponse {
@@ -593,6 +1135,20 @@ export interface AppSyncGetFunctionResponse {
   readonly functionConfiguration?: AppSyncFunctionConfiguration;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncGetFunctionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncGetFunctionResponse(obj: AppSyncGetFunctionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'functionConfiguration': toJson_AppSyncFunctionConfiguration(obj.functionConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncGetGraphqlApiRequest
@@ -606,6 +1162,20 @@ export interface AppSyncGetGraphqlApiRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncGetGraphqlApiRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncGetGraphqlApiRequest(obj: AppSyncGetGraphqlApiRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncGetGraphqlApiResponse
  */
 export interface AppSyncGetGraphqlApiResponse {
@@ -615,6 +1185,20 @@ export interface AppSyncGetGraphqlApiResponse {
   readonly graphqlApi?: AppSyncGraphqlApi;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncGetGraphqlApiResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncGetGraphqlApiResponse(obj: AppSyncGetGraphqlApiResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'graphqlApi': toJson_AppSyncGraphqlApi(obj.graphqlApi),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncGetIntrospectionSchemaRequest
@@ -638,6 +1222,22 @@ export interface AppSyncGetIntrospectionSchemaRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncGetIntrospectionSchemaRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncGetIntrospectionSchemaRequest(obj: AppSyncGetIntrospectionSchemaRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'format': obj.format,
+    'includeDirectives': obj.includeDirectives,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncGetIntrospectionSchemaResponse
  */
 export interface AppSyncGetIntrospectionSchemaResponse {
@@ -647,6 +1247,20 @@ export interface AppSyncGetIntrospectionSchemaResponse {
   readonly schema?: any;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncGetIntrospectionSchemaResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncGetIntrospectionSchemaResponse(obj: AppSyncGetIntrospectionSchemaResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'schema': obj.schema,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncGetResolverRequest
@@ -670,6 +1284,22 @@ export interface AppSyncGetResolverRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncGetResolverRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncGetResolverRequest(obj: AppSyncGetResolverRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'typeName': obj.typeName,
+    'fieldName': obj.fieldName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncGetResolverResponse
  */
 export interface AppSyncGetResolverResponse {
@@ -681,6 +1311,20 @@ export interface AppSyncGetResolverResponse {
 }
 
 /**
+ * Converts an object of type 'AppSyncGetResolverResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncGetResolverResponse(obj: AppSyncGetResolverResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resolver': toJson_AppSyncResolver(obj.resolver),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncGetSchemaCreationStatusRequest
  */
 export interface AppSyncGetSchemaCreationStatusRequest {
@@ -690,6 +1334,20 @@ export interface AppSyncGetSchemaCreationStatusRequest {
   readonly apiId: string;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncGetSchemaCreationStatusRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncGetSchemaCreationStatusRequest(obj: AppSyncGetSchemaCreationStatusRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncGetSchemaCreationStatusResponse
@@ -706,6 +1364,21 @@ export interface AppSyncGetSchemaCreationStatusResponse {
   readonly details?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncGetSchemaCreationStatusResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncGetSchemaCreationStatusResponse(obj: AppSyncGetSchemaCreationStatusResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+    'details': obj.details,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncGetTypeRequest
@@ -729,6 +1402,22 @@ export interface AppSyncGetTypeRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncGetTypeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncGetTypeRequest(obj: AppSyncGetTypeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'typeName': obj.typeName,
+    'format': obj.format,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncGetTypeResponse
  */
 export interface AppSyncGetTypeResponse {
@@ -738,6 +1427,20 @@ export interface AppSyncGetTypeResponse {
   readonly type?: AppSyncType;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncGetTypeResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncGetTypeResponse(obj: AppSyncGetTypeResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': toJson_AppSyncType(obj.type),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncListApiKeysRequest
@@ -761,6 +1464,22 @@ export interface AppSyncListApiKeysRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncListApiKeysRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncListApiKeysRequest(obj: AppSyncListApiKeysRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncListApiKeysResponse
  */
 export interface AppSyncListApiKeysResponse {
@@ -775,6 +1494,21 @@ export interface AppSyncListApiKeysResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncListApiKeysResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncListApiKeysResponse(obj: AppSyncListApiKeysResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiKeys': obj.apiKeys?.map(y => toJson_AppSyncApiKey(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncListDataSourcesRequest
@@ -798,6 +1532,22 @@ export interface AppSyncListDataSourcesRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncListDataSourcesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncListDataSourcesRequest(obj: AppSyncListDataSourcesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncListDataSourcesResponse
  */
 export interface AppSyncListDataSourcesResponse {
@@ -812,6 +1562,21 @@ export interface AppSyncListDataSourcesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncListDataSourcesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncListDataSourcesResponse(obj: AppSyncListDataSourcesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dataSources': obj.dataSources?.map(y => toJson_AppSyncDataSource(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncListFunctionsRequest
@@ -835,6 +1600,22 @@ export interface AppSyncListFunctionsRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncListFunctionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncListFunctionsRequest(obj: AppSyncListFunctionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncListFunctionsResponse
  */
 export interface AppSyncListFunctionsResponse {
@@ -849,6 +1630,21 @@ export interface AppSyncListFunctionsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncListFunctionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncListFunctionsResponse(obj: AppSyncListFunctionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'functions': obj.functions?.map(y => toJson_AppSyncFunctionConfiguration(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncListGraphqlApisRequest
@@ -867,6 +1663,21 @@ export interface AppSyncListGraphqlApisRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncListGraphqlApisRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncListGraphqlApisRequest(obj: AppSyncListGraphqlApisRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncListGraphqlApisResponse
  */
 export interface AppSyncListGraphqlApisResponse {
@@ -881,6 +1692,21 @@ export interface AppSyncListGraphqlApisResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncListGraphqlApisResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncListGraphqlApisResponse(obj: AppSyncListGraphqlApisResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'graphqlApis': obj.graphqlApis?.map(y => toJson_AppSyncGraphqlApi(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncListResolversRequest
@@ -909,6 +1735,23 @@ export interface AppSyncListResolversRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncListResolversRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncListResolversRequest(obj: AppSyncListResolversRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'typeName': obj.typeName,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncListResolversResponse
  */
 export interface AppSyncListResolversResponse {
@@ -923,6 +1766,21 @@ export interface AppSyncListResolversResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncListResolversResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncListResolversResponse(obj: AppSyncListResolversResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resolvers': obj.resolvers?.map(y => toJson_AppSyncResolver(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncListResolversByFunctionRequest
@@ -951,6 +1809,23 @@ export interface AppSyncListResolversByFunctionRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncListResolversByFunctionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncListResolversByFunctionRequest(obj: AppSyncListResolversByFunctionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'functionId': obj.functionId,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncListResolversByFunctionResponse
  */
 export interface AppSyncListResolversByFunctionResponse {
@@ -967,6 +1842,21 @@ export interface AppSyncListResolversByFunctionResponse {
 }
 
 /**
+ * Converts an object of type 'AppSyncListResolversByFunctionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncListResolversByFunctionResponse(obj: AppSyncListResolversByFunctionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resolvers': obj.resolvers?.map(y => toJson_AppSyncResolver(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncListTagsForResourceRequest
  */
 export interface AppSyncListTagsForResourceRequest {
@@ -978,6 +1868,20 @@ export interface AppSyncListTagsForResourceRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncListTagsForResourceRequest(obj: AppSyncListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncListTagsForResourceResponse
  */
 export interface AppSyncListTagsForResourceResponse {
@@ -987,6 +1891,20 @@ export interface AppSyncListTagsForResourceResponse {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'AppSyncListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncListTagsForResourceResponse(obj: AppSyncListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncListTypesRequest
@@ -1015,6 +1933,23 @@ export interface AppSyncListTypesRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncListTypesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncListTypesRequest(obj: AppSyncListTypesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'format': obj.format,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncListTypesResponse
  */
 export interface AppSyncListTypesResponse {
@@ -1029,6 +1964,21 @@ export interface AppSyncListTypesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncListTypesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncListTypesResponse(obj: AppSyncListTypesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'types': obj.types?.map(y => toJson_AppSyncType(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncStartSchemaCreationRequest
@@ -1047,6 +1997,21 @@ export interface AppSyncStartSchemaCreationRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncStartSchemaCreationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncStartSchemaCreationRequest(obj: AppSyncStartSchemaCreationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'definition': obj.definition,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncStartSchemaCreationResponse
  */
 export interface AppSyncStartSchemaCreationResponse {
@@ -1056,6 +2021,20 @@ export interface AppSyncStartSchemaCreationResponse {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncStartSchemaCreationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncStartSchemaCreationResponse(obj: AppSyncStartSchemaCreationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncTagResourceRequest
@@ -1074,10 +2053,38 @@ export interface AppSyncTagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncTagResourceRequest(obj: AppSyncTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncTagResourceResponse
  */
 export interface AppSyncTagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'AppSyncTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncTagResourceResponse(obj: AppSyncTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncUntagResourceRequest
@@ -1096,10 +2103,38 @@ export interface AppSyncUntagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncUntagResourceRequest(obj: AppSyncUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncUntagResourceResponse
  */
 export interface AppSyncUntagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'AppSyncUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncUntagResourceResponse(obj: AppSyncUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncUpdateApiCacheRequest
@@ -1128,6 +2163,23 @@ export interface AppSyncUpdateApiCacheRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncUpdateApiCacheRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncUpdateApiCacheRequest(obj: AppSyncUpdateApiCacheRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'ttl': obj.ttl,
+    'apiCachingBehavior': obj.apiCachingBehavior,
+    'type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncUpdateApiCacheResponse
  */
 export interface AppSyncUpdateApiCacheResponse {
@@ -1137,6 +2189,20 @@ export interface AppSyncUpdateApiCacheResponse {
   readonly apiCache?: AppSyncApiCache;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncUpdateApiCacheResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncUpdateApiCacheResponse(obj: AppSyncUpdateApiCacheResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiCache': toJson_AppSyncApiCache(obj.apiCache),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncUpdateApiKeyRequest
@@ -1165,6 +2231,23 @@ export interface AppSyncUpdateApiKeyRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncUpdateApiKeyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncUpdateApiKeyRequest(obj: AppSyncUpdateApiKeyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'id': obj.id,
+    'description': obj.description,
+    'expires': obj.expires,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncUpdateApiKeyResponse
  */
 export interface AppSyncUpdateApiKeyResponse {
@@ -1174,6 +2257,20 @@ export interface AppSyncUpdateApiKeyResponse {
   readonly apiKey?: AppSyncApiKey;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncUpdateApiKeyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncUpdateApiKeyResponse(obj: AppSyncUpdateApiKeyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiKey': toJson_AppSyncApiKey(obj.apiKey),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncUpdateDataSourceRequest
@@ -1232,6 +2329,29 @@ export interface AppSyncUpdateDataSourceRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncUpdateDataSourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncUpdateDataSourceRequest(obj: AppSyncUpdateDataSourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'name': obj.name,
+    'description': obj.description,
+    'type': obj.type,
+    'serviceRoleArn': obj.serviceRoleArn,
+    'dynamodbConfig': toJson_AppSyncDynamodbDataSourceConfig(obj.dynamodbConfig),
+    'lambdaConfig': toJson_AppSyncLambdaDataSourceConfig(obj.lambdaConfig),
+    'elasticsearchConfig': toJson_AppSyncElasticsearchDataSourceConfig(obj.elasticsearchConfig),
+    'httpConfig': toJson_AppSyncHttpDataSourceConfig(obj.httpConfig),
+    'relationalDatabaseConfig': toJson_AppSyncRelationalDatabaseDataSourceConfig(obj.relationalDatabaseConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncUpdateDataSourceResponse
  */
 export interface AppSyncUpdateDataSourceResponse {
@@ -1241,6 +2361,20 @@ export interface AppSyncUpdateDataSourceResponse {
   readonly dataSource?: AppSyncDataSource;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncUpdateDataSourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncUpdateDataSourceResponse(obj: AppSyncUpdateDataSourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dataSource': toJson_AppSyncDataSource(obj.dataSource),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncUpdateFunctionRequest
@@ -1286,7 +2420,34 @@ export interface AppSyncUpdateFunctionRequest {
    */
   readonly functionVersion: string;
 
+  /**
+   * @schema AppSyncUpdateFunctionRequest#syncConfig
+   */
+  readonly syncConfig?: AppSyncSyncConfig;
+
 }
+
+/**
+ * Converts an object of type 'AppSyncUpdateFunctionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncUpdateFunctionRequest(obj: AppSyncUpdateFunctionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'name': obj.name,
+    'description': obj.description,
+    'functionId': obj.functionId,
+    'dataSourceName': obj.dataSourceName,
+    'requestMappingTemplate': obj.requestMappingTemplate,
+    'responseMappingTemplate': obj.responseMappingTemplate,
+    'functionVersion': obj.functionVersion,
+    'syncConfig': toJson_AppSyncSyncConfig(obj.syncConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncUpdateFunctionResponse
@@ -1298,6 +2459,20 @@ export interface AppSyncUpdateFunctionResponse {
   readonly functionConfiguration?: AppSyncFunctionConfiguration;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncUpdateFunctionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncUpdateFunctionResponse(obj: AppSyncUpdateFunctionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'functionConfiguration': toJson_AppSyncFunctionConfiguration(obj.functionConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncUpdateGraphqlApiRequest
@@ -1331,7 +2506,7 @@ export interface AppSyncUpdateGraphqlApiRequest {
   /**
    * @schema AppSyncUpdateGraphqlApiRequest#openIDConnectConfig
    */
-  readonly openIDConnectConfig?: AppSyncOpenIdConnectConfig;
+  readonly openIdConnectConfig?: AppSyncOpenIdConnectConfig;
 
   /**
    * @schema AppSyncUpdateGraphqlApiRequest#additionalAuthenticationProviders
@@ -1343,7 +2518,34 @@ export interface AppSyncUpdateGraphqlApiRequest {
    */
   readonly xrayEnabled?: boolean;
 
+  /**
+   * @schema AppSyncUpdateGraphqlApiRequest#lambdaAuthorizerConfig
+   */
+  readonly lambdaAuthorizerConfig?: AppSyncLambdaAuthorizerConfig;
+
 }
+
+/**
+ * Converts an object of type 'AppSyncUpdateGraphqlApiRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncUpdateGraphqlApiRequest(obj: AppSyncUpdateGraphqlApiRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'name': obj.name,
+    'logConfig': toJson_AppSyncLogConfig(obj.logConfig),
+    'authenticationType': obj.authenticationType,
+    'userPoolConfig': toJson_AppSyncUserPoolConfig(obj.userPoolConfig),
+    'openIDConnectConfig': toJson_AppSyncOpenIdConnectConfig(obj.openIdConnectConfig),
+    'additionalAuthenticationProviders': obj.additionalAuthenticationProviders?.map(y => toJson_AppSyncAdditionalAuthenticationProvider(y)),
+    'xrayEnabled': obj.xrayEnabled,
+    'lambdaAuthorizerConfig': toJson_AppSyncLambdaAuthorizerConfig(obj.lambdaAuthorizerConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncUpdateGraphqlApiResponse
@@ -1355,6 +2557,20 @@ export interface AppSyncUpdateGraphqlApiResponse {
   readonly graphqlApi?: AppSyncGraphqlApi;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncUpdateGraphqlApiResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncUpdateGraphqlApiResponse(obj: AppSyncUpdateGraphqlApiResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'graphqlApi': toJson_AppSyncGraphqlApi(obj.graphqlApi),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncUpdateResolverRequest
@@ -1413,6 +2629,29 @@ export interface AppSyncUpdateResolverRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncUpdateResolverRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncUpdateResolverRequest(obj: AppSyncUpdateResolverRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'typeName': obj.typeName,
+    'fieldName': obj.fieldName,
+    'dataSourceName': obj.dataSourceName,
+    'requestMappingTemplate': obj.requestMappingTemplate,
+    'responseMappingTemplate': obj.responseMappingTemplate,
+    'kind': obj.kind,
+    'pipelineConfig': toJson_AppSyncPipelineConfig(obj.pipelineConfig),
+    'syncConfig': toJson_AppSyncSyncConfig(obj.syncConfig),
+    'cachingConfig': toJson_AppSyncCachingConfig(obj.cachingConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncUpdateResolverResponse
  */
 export interface AppSyncUpdateResolverResponse {
@@ -1422,6 +2661,20 @@ export interface AppSyncUpdateResolverResponse {
   readonly resolver?: AppSyncResolver;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncUpdateResolverResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncUpdateResolverResponse(obj: AppSyncUpdateResolverResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resolver': toJson_AppSyncResolver(obj.resolver),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncUpdateTypeRequest
@@ -1450,6 +2703,23 @@ export interface AppSyncUpdateTypeRequest {
 }
 
 /**
+ * Converts an object of type 'AppSyncUpdateTypeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncUpdateTypeRequest(obj: AppSyncUpdateTypeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apiId': obj.apiId,
+    'typeName': obj.typeName,
+    'definition': obj.definition,
+    'format': obj.format,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncUpdateTypeResponse
  */
 export interface AppSyncUpdateTypeResponse {
@@ -1459,6 +2729,20 @@ export interface AppSyncUpdateTypeResponse {
   readonly type?: AppSyncType;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncUpdateTypeResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncUpdateTypeResponse(obj: AppSyncUpdateTypeResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': toJson_AppSyncType(obj.type),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncApiCache
@@ -1497,6 +2781,25 @@ export interface AppSyncApiCache {
 }
 
 /**
+ * Converts an object of type 'AppSyncApiCache' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncApiCache(obj: AppSyncApiCache | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ttl': obj.ttl,
+    'apiCachingBehavior': obj.apiCachingBehavior,
+    'transitEncryptionEnabled': obj.transitEncryptionEnabled,
+    'atRestEncryptionEnabled': obj.atRestEncryptionEnabled,
+    'type': obj.type,
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncApiKey
  */
 export interface AppSyncApiKey {
@@ -1521,6 +2824,23 @@ export interface AppSyncApiKey {
   readonly deletes?: number;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncApiKey' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncApiKey(obj: AppSyncApiKey | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'description': obj.description,
+    'expires': obj.expires,
+    'deletes': obj.deletes,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncDynamodbDataSourceConfig
@@ -1554,6 +2874,24 @@ export interface AppSyncDynamodbDataSourceConfig {
 }
 
 /**
+ * Converts an object of type 'AppSyncDynamodbDataSourceConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncDynamodbDataSourceConfig(obj: AppSyncDynamodbDataSourceConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tableName': obj.tableName,
+    'awsRegion': obj.awsRegion,
+    'useCallerCredentials': obj.useCallerCredentials,
+    'deltaSyncConfig': toJson_AppSyncDeltaSyncConfig(obj.deltaSyncConfig),
+    'versioned': obj.versioned,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncLambdaDataSourceConfig
  */
 export interface AppSyncLambdaDataSourceConfig {
@@ -1563,6 +2901,20 @@ export interface AppSyncLambdaDataSourceConfig {
   readonly lambdaFunctionArn: string;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncLambdaDataSourceConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncLambdaDataSourceConfig(obj: AppSyncLambdaDataSourceConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'lambdaFunctionArn': obj.lambdaFunctionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncElasticsearchDataSourceConfig
@@ -1581,6 +2933,21 @@ export interface AppSyncElasticsearchDataSourceConfig {
 }
 
 /**
+ * Converts an object of type 'AppSyncElasticsearchDataSourceConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncElasticsearchDataSourceConfig(obj: AppSyncElasticsearchDataSourceConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'endpoint': obj.endpoint,
+    'awsRegion': obj.awsRegion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncHttpDataSourceConfig
  */
 export interface AppSyncHttpDataSourceConfig {
@@ -1597,6 +2964,21 @@ export interface AppSyncHttpDataSourceConfig {
 }
 
 /**
+ * Converts an object of type 'AppSyncHttpDataSourceConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncHttpDataSourceConfig(obj: AppSyncHttpDataSourceConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'endpoint': obj.endpoint,
+    'authorizationConfig': toJson_AppSyncAuthorizationConfig(obj.authorizationConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncRelationalDatabaseDataSourceConfig
  */
 export interface AppSyncRelationalDatabaseDataSourceConfig {
@@ -1611,6 +2993,21 @@ export interface AppSyncRelationalDatabaseDataSourceConfig {
   readonly rdsHttpEndpointConfig?: AppSyncRdsHttpEndpointConfig;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncRelationalDatabaseDataSourceConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncRelationalDatabaseDataSourceConfig(obj: AppSyncRelationalDatabaseDataSourceConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'relationalDatabaseSourceType': obj.relationalDatabaseSourceType,
+    'rdsHttpEndpointConfig': toJson_AppSyncRdsHttpEndpointConfig(obj.rdsHttpEndpointConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncDataSource
@@ -1669,6 +3066,66 @@ export interface AppSyncDataSource {
 }
 
 /**
+ * Converts an object of type 'AppSyncDataSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncDataSource(obj: AppSyncDataSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dataSourceArn': obj.dataSourceArn,
+    'name': obj.name,
+    'description': obj.description,
+    'type': obj.type,
+    'serviceRoleArn': obj.serviceRoleArn,
+    'dynamodbConfig': toJson_AppSyncDynamodbDataSourceConfig(obj.dynamodbConfig),
+    'lambdaConfig': toJson_AppSyncLambdaDataSourceConfig(obj.lambdaConfig),
+    'elasticsearchConfig': toJson_AppSyncElasticsearchDataSourceConfig(obj.elasticsearchConfig),
+    'httpConfig': toJson_AppSyncHttpDataSourceConfig(obj.httpConfig),
+    'relationalDatabaseConfig': toJson_AppSyncRelationalDatabaseDataSourceConfig(obj.relationalDatabaseConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppSyncSyncConfig
+ */
+export interface AppSyncSyncConfig {
+  /**
+   * @schema AppSyncSyncConfig#conflictHandler
+   */
+  readonly conflictHandler?: string;
+
+  /**
+   * @schema AppSyncSyncConfig#conflictDetection
+   */
+  readonly conflictDetection?: string;
+
+  /**
+   * @schema AppSyncSyncConfig#lambdaConflictHandlerConfig
+   */
+  readonly lambdaConflictHandlerConfig?: AppSyncLambdaConflictHandlerConfig;
+
+}
+
+/**
+ * Converts an object of type 'AppSyncSyncConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncSyncConfig(obj: AppSyncSyncConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'conflictHandler': obj.conflictHandler,
+    'conflictDetection': obj.conflictDetection,
+    'lambdaConflictHandlerConfig': toJson_AppSyncLambdaConflictHandlerConfig(obj.lambdaConflictHandlerConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncFunctionConfiguration
  */
 export interface AppSyncFunctionConfiguration {
@@ -1712,7 +3169,34 @@ export interface AppSyncFunctionConfiguration {
    */
   readonly functionVersion?: string;
 
+  /**
+   * @schema AppSyncFunctionConfiguration#syncConfig
+   */
+  readonly syncConfig?: AppSyncSyncConfig;
+
 }
+
+/**
+ * Converts an object of type 'AppSyncFunctionConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncFunctionConfiguration(obj: AppSyncFunctionConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'functionId': obj.functionId,
+    'functionArn': obj.functionArn,
+    'name': obj.name,
+    'description': obj.description,
+    'dataSourceName': obj.dataSourceName,
+    'requestMappingTemplate': obj.requestMappingTemplate,
+    'responseMappingTemplate': obj.responseMappingTemplate,
+    'functionVersion': obj.functionVersion,
+    'syncConfig': toJson_AppSyncSyncConfig(obj.syncConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncLogConfig
@@ -1734,6 +3218,22 @@ export interface AppSyncLogConfig {
   readonly excludeVerboseContent?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncLogConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncLogConfig(obj: AppSyncLogConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fieldLogLevel': obj.fieldLogLevel,
+    'cloudWatchLogsRoleArn': obj.cloudWatchLogsRoleArn,
+    'excludeVerboseContent': obj.excludeVerboseContent,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncUserPoolConfig
@@ -1762,6 +3262,23 @@ export interface AppSyncUserPoolConfig {
 }
 
 /**
+ * Converts an object of type 'AppSyncUserPoolConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncUserPoolConfig(obj: AppSyncUserPoolConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'userPoolId': obj.userPoolId,
+    'awsRegion': obj.awsRegion,
+    'defaultAction': obj.defaultAction,
+    'appIdClientRegex': obj.appIdClientRegex,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncOpenIdConnectConfig
  */
 export interface AppSyncOpenIdConnectConfig {
@@ -1778,14 +3295,31 @@ export interface AppSyncOpenIdConnectConfig {
   /**
    * @schema AppSyncOpenIdConnectConfig#iatTTL
    */
-  readonly iatTTL?: number;
+  readonly iatTtl?: number;
 
   /**
    * @schema AppSyncOpenIdConnectConfig#authTTL
    */
-  readonly authTTL?: number;
+  readonly authTtl?: number;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncOpenIdConnectConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncOpenIdConnectConfig(obj: AppSyncOpenIdConnectConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'issuer': obj.issuer,
+    'clientId': obj.clientId,
+    'iatTTL': obj.iatTtl,
+    'authTTL': obj.authTtl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncAdditionalAuthenticationProvider
@@ -1799,14 +3333,73 @@ export interface AppSyncAdditionalAuthenticationProvider {
   /**
    * @schema AppSyncAdditionalAuthenticationProvider#openIDConnectConfig
    */
-  readonly openIDConnectConfig?: AppSyncOpenIdConnectConfig;
+  readonly openIdConnectConfig?: AppSyncOpenIdConnectConfig;
 
   /**
    * @schema AppSyncAdditionalAuthenticationProvider#userPoolConfig
    */
   readonly userPoolConfig?: AppSyncCognitoUserPoolConfig;
 
+  /**
+   * @schema AppSyncAdditionalAuthenticationProvider#lambdaAuthorizerConfig
+   */
+  readonly lambdaAuthorizerConfig?: AppSyncLambdaAuthorizerConfig;
+
 }
+
+/**
+ * Converts an object of type 'AppSyncAdditionalAuthenticationProvider' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncAdditionalAuthenticationProvider(obj: AppSyncAdditionalAuthenticationProvider | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'authenticationType': obj.authenticationType,
+    'openIDConnectConfig': toJson_AppSyncOpenIdConnectConfig(obj.openIdConnectConfig),
+    'userPoolConfig': toJson_AppSyncCognitoUserPoolConfig(obj.userPoolConfig),
+    'lambdaAuthorizerConfig': toJson_AppSyncLambdaAuthorizerConfig(obj.lambdaAuthorizerConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppSyncLambdaAuthorizerConfig
+ */
+export interface AppSyncLambdaAuthorizerConfig {
+  /**
+   * @schema AppSyncLambdaAuthorizerConfig#authorizerResultTtlInSeconds
+   */
+  readonly authorizerResultTtlInSeconds?: number;
+
+  /**
+   * @schema AppSyncLambdaAuthorizerConfig#authorizerUri
+   */
+  readonly authorizerUri: string;
+
+  /**
+   * @schema AppSyncLambdaAuthorizerConfig#identityValidationExpression
+   */
+  readonly identityValidationExpression?: string;
+
+}
+
+/**
+ * Converts an object of type 'AppSyncLambdaAuthorizerConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncLambdaAuthorizerConfig(obj: AppSyncLambdaAuthorizerConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'authorizerResultTtlInSeconds': obj.authorizerResultTtlInSeconds,
+    'authorizerUri': obj.authorizerUri,
+    'identityValidationExpression': obj.identityValidationExpression,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncGraphqlApi
@@ -1840,7 +3433,7 @@ export interface AppSyncGraphqlApi {
   /**
    * @schema AppSyncGraphqlApi#openIDConnectConfig
    */
-  readonly openIDConnectConfig?: AppSyncOpenIdConnectConfig;
+  readonly openIdConnectConfig?: AppSyncOpenIdConnectConfig;
 
   /**
    * @schema AppSyncGraphqlApi#arn
@@ -1872,7 +3465,38 @@ export interface AppSyncGraphqlApi {
    */
   readonly wafWebAclArn?: string;
 
+  /**
+   * @schema AppSyncGraphqlApi#lambdaAuthorizerConfig
+   */
+  readonly lambdaAuthorizerConfig?: AppSyncLambdaAuthorizerConfig;
+
 }
+
+/**
+ * Converts an object of type 'AppSyncGraphqlApi' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncGraphqlApi(obj: AppSyncGraphqlApi | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'apiId': obj.apiId,
+    'authenticationType': obj.authenticationType,
+    'logConfig': toJson_AppSyncLogConfig(obj.logConfig),
+    'userPoolConfig': toJson_AppSyncUserPoolConfig(obj.userPoolConfig),
+    'openIDConnectConfig': toJson_AppSyncOpenIdConnectConfig(obj.openIdConnectConfig),
+    'arn': obj.arn,
+    'uris': ((obj.uris) === undefined) ? undefined : (Object.entries(obj.uris).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'additionalAuthenticationProviders': obj.additionalAuthenticationProviders?.map(y => toJson_AppSyncAdditionalAuthenticationProvider(y)),
+    'xrayEnabled': obj.xrayEnabled,
+    'wafWebAclArn': obj.wafWebAclArn,
+    'lambdaAuthorizerConfig': toJson_AppSyncLambdaAuthorizerConfig(obj.lambdaAuthorizerConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncPipelineConfig
@@ -1886,25 +3510,18 @@ export interface AppSyncPipelineConfig {
 }
 
 /**
- * @schema AppSyncSyncConfig
+ * Converts an object of type 'AppSyncPipelineConfig' to JSON representation.
  */
-export interface AppSyncSyncConfig {
-  /**
-   * @schema AppSyncSyncConfig#conflictHandler
-   */
-  readonly conflictHandler?: string;
-
-  /**
-   * @schema AppSyncSyncConfig#conflictDetection
-   */
-  readonly conflictDetection?: string;
-
-  /**
-   * @schema AppSyncSyncConfig#lambdaConflictHandlerConfig
-   */
-  readonly lambdaConflictHandlerConfig?: AppSyncLambdaConflictHandlerConfig;
-
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncPipelineConfig(obj: AppSyncPipelineConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'functions': obj.functions?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
 }
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncCachingConfig
@@ -1921,6 +3538,21 @@ export interface AppSyncCachingConfig {
   readonly cachingKeys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'AppSyncCachingConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncCachingConfig(obj: AppSyncCachingConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ttl': obj.ttl,
+    'cachingKeys': obj.cachingKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncResolver
@@ -1979,6 +3611,29 @@ export interface AppSyncResolver {
 }
 
 /**
+ * Converts an object of type 'AppSyncResolver' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncResolver(obj: AppSyncResolver | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'typeName': obj.typeName,
+    'fieldName': obj.fieldName,
+    'dataSourceName': obj.dataSourceName,
+    'resolverArn': obj.resolverArn,
+    'requestMappingTemplate': obj.requestMappingTemplate,
+    'responseMappingTemplate': obj.responseMappingTemplate,
+    'kind': obj.kind,
+    'pipelineConfig': toJson_AppSyncPipelineConfig(obj.pipelineConfig),
+    'syncConfig': toJson_AppSyncSyncConfig(obj.syncConfig),
+    'cachingConfig': toJson_AppSyncCachingConfig(obj.cachingConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncType
  */
 export interface AppSyncType {
@@ -2010,13 +3665,31 @@ export interface AppSyncType {
 }
 
 /**
+ * Converts an object of type 'AppSyncType' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncType(obj: AppSyncType | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'description': obj.description,
+    'arn': obj.arn,
+    'definition': obj.definition,
+    'format': obj.format,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncDeltaSyncConfig
  */
 export interface AppSyncDeltaSyncConfig {
   /**
    * @schema AppSyncDeltaSyncConfig#baseTableTTL
    */
-  readonly baseTableTTL?: number;
+  readonly baseTableTtl?: number;
 
   /**
    * @schema AppSyncDeltaSyncConfig#deltaSyncTableName
@@ -2026,9 +3699,25 @@ export interface AppSyncDeltaSyncConfig {
   /**
    * @schema AppSyncDeltaSyncConfig#deltaSyncTableTTL
    */
-  readonly deltaSyncTableTTL?: number;
+  readonly deltaSyncTableTtl?: number;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncDeltaSyncConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncDeltaSyncConfig(obj: AppSyncDeltaSyncConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'baseTableTTL': obj.baseTableTtl,
+    'deltaSyncTableName': obj.deltaSyncTableName,
+    'deltaSyncTableTTL': obj.deltaSyncTableTtl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncAuthorizationConfig
@@ -2045,6 +3734,21 @@ export interface AppSyncAuthorizationConfig {
   readonly awsIamConfig?: AppSyncAwsIamConfig;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncAuthorizationConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncAuthorizationConfig(obj: AppSyncAuthorizationConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'authorizationType': obj.authorizationType,
+    'awsIamConfig': toJson_AppSyncAwsIamConfig(obj.awsIamConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncRdsHttpEndpointConfig
@@ -2078,6 +3782,49 @@ export interface AppSyncRdsHttpEndpointConfig {
 }
 
 /**
+ * Converts an object of type 'AppSyncRdsHttpEndpointConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncRdsHttpEndpointConfig(obj: AppSyncRdsHttpEndpointConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'awsRegion': obj.awsRegion,
+    'dbClusterIdentifier': obj.dbClusterIdentifier,
+    'databaseName': obj.databaseName,
+    'schema': obj.schema,
+    'awsSecretStoreArn': obj.awsSecretStoreArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema AppSyncLambdaConflictHandlerConfig
+ */
+export interface AppSyncLambdaConflictHandlerConfig {
+  /**
+   * @schema AppSyncLambdaConflictHandlerConfig#lambdaConflictHandlerArn
+   */
+  readonly lambdaConflictHandlerArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'AppSyncLambdaConflictHandlerConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncLambdaConflictHandlerConfig(obj: AppSyncLambdaConflictHandlerConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'lambdaConflictHandlerArn': obj.lambdaConflictHandlerArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AppSyncCognitoUserPoolConfig
  */
 export interface AppSyncCognitoUserPoolConfig {
@@ -2099,15 +3846,20 @@ export interface AppSyncCognitoUserPoolConfig {
 }
 
 /**
- * @schema AppSyncLambdaConflictHandlerConfig
+ * Converts an object of type 'AppSyncCognitoUserPoolConfig' to JSON representation.
  */
-export interface AppSyncLambdaConflictHandlerConfig {
-  /**
-   * @schema AppSyncLambdaConflictHandlerConfig#lambdaConflictHandlerArn
-   */
-  readonly lambdaConflictHandlerArn?: string;
-
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncCognitoUserPoolConfig(obj: AppSyncCognitoUserPoolConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'userPoolId': obj.userPoolId,
+    'awsRegion': obj.awsRegion,
+    'appIdClientRegex': obj.appIdClientRegex,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
 }
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AppSyncAwsIamConfig
@@ -2124,3 +3876,18 @@ export interface AppSyncAwsIamConfig {
   readonly signingServiceName?: string;
 
 }
+
+/**
+ * Converts an object of type 'AppSyncAwsIamConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AppSyncAwsIamConfig(obj: AppSyncAwsIamConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'signingRegion': obj.signingRegion,
+    'signingServiceName': obj.signingServiceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

@@ -15,9 +15,25 @@ export interface KinesisVideoMediaGetMediaInput {
   /**
    * @schema KinesisVideoMediaGetMediaInput#StartSelector
    */
-  readonly startSelector: KinesisVideoMediaStartSelector;
+  readonly startSelector?: KinesisVideoMediaStartSelector;
 
 }
+
+/**
+ * Converts an object of type 'KinesisVideoMediaGetMediaInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoMediaGetMediaInput(obj: KinesisVideoMediaGetMediaInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StreamName': obj.streamName,
+    'StreamARN': obj.streamArn,
+    'StartSelector': toJson_KinesisVideoMediaStartSelector(obj.startSelector),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema KinesisVideoMediaGetMediaOutput
@@ -36,13 +52,28 @@ export interface KinesisVideoMediaGetMediaOutput {
 }
 
 /**
+ * Converts an object of type 'KinesisVideoMediaGetMediaOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoMediaGetMediaOutput(obj: KinesisVideoMediaGetMediaOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContentType': obj.contentType,
+    'Payload': obj.payload,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema KinesisVideoMediaStartSelector
  */
 export interface KinesisVideoMediaStartSelector {
   /**
    * @schema KinesisVideoMediaStartSelector#StartSelectorType
    */
-  readonly startSelectorType: string;
+  readonly startSelectorType?: string;
 
   /**
    * @schema KinesisVideoMediaStartSelector#AfterFragmentNumber
@@ -60,3 +91,20 @@ export interface KinesisVideoMediaStartSelector {
   readonly continuationToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'KinesisVideoMediaStartSelector' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_KinesisVideoMediaStartSelector(obj: KinesisVideoMediaStartSelector | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StartSelectorType': obj.startSelectorType,
+    'AfterFragmentNumber': obj.afterFragmentNumber,
+    'StartTimestamp': obj.startTimestamp,
+    'ContinuationToken': obj.continuationToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

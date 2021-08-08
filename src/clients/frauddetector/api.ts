@@ -16,6 +16,43 @@ export class FraudDetectorClient extends cdk.Construct {
     return new FraudDetectorResponsesBatchGetVariable(this, this.__resources, input);
   }
 
+  public cancelBatchPredictionJob(input: shapes.FraudDetectorCancelBatchPredictionJobRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'cancelBatchPredictionJob',
+        service: 'FraudDetector',
+        physicalResourceId: cr.PhysicalResourceId.of('FraudDetector.CancelBatchPredictionJob'),
+        parameters: {
+          jobId: input.jobId,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'CancelBatchPredictionJob', props);
+  }
+
+  public createBatchPredictionJob(input: shapes.FraudDetectorCreateBatchPredictionJobRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBatchPredictionJob',
+        service: 'FraudDetector',
+        physicalResourceId: cr.PhysicalResourceId.of('FraudDetector.CreateBatchPredictionJob'),
+        parameters: {
+          jobId: input.jobId,
+          inputPath: input.inputPath,
+          outputPath: input.outputPath,
+          eventTypeName: input.eventTypeName,
+          detectorName: input.detectorName,
+          detectorVersion: input.detectorVersion,
+          iamRoleArn: input.iamRoleArn,
+          tags: input.tags,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'CreateBatchPredictionJob', props);
+  }
+
   public createDetectorVersion(input: shapes.FraudDetectorCreateDetectorVersionRequest): FraudDetectorResponsesCreateDetectorVersion {
     return new FraudDetectorResponsesCreateDetectorVersion(this, this.__resources, input);
   }
@@ -66,6 +103,21 @@ export class FraudDetectorClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'CreateVariable', props);
+  }
+
+  public deleteBatchPredictionJob(input: shapes.FraudDetectorDeleteBatchPredictionJobRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteBatchPredictionJob',
+        service: 'FraudDetector',
+        physicalResourceId: cr.PhysicalResourceId.of('FraudDetector.DeleteBatchPredictionJob'),
+        parameters: {
+          jobId: input.jobId,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteBatchPredictionJob', props);
   }
 
   public deleteDetector(input: shapes.FraudDetectorDeleteDetectorRequest): void {
@@ -263,6 +315,10 @@ export class FraudDetectorClient extends cdk.Construct {
 
   public describeModelVersions(input: shapes.FraudDetectorDescribeModelVersionsRequest): FraudDetectorResponsesDescribeModelVersions {
     return new FraudDetectorResponsesDescribeModelVersions(this, this.__resources, input);
+  }
+
+  public fetchBatchPredictionJobs(input: shapes.FraudDetectorGetBatchPredictionJobsRequest): FraudDetectorResponsesFetchBatchPredictionJobs {
+    return new FraudDetectorResponsesFetchBatchPredictionJobs(this, this.__resources, input);
   }
 
   public fetchDetectorVersion(input: shapes.FraudDetectorGetDetectorVersionRequest): FraudDetectorResponsesFetchDetectorVersion {
@@ -1109,6 +1165,51 @@ export class FraudDetectorResponsesDescribeModelVersions {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelVersions.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
+export class FraudDetectorResponsesFetchBatchPredictionJobs {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.FraudDetectorGetBatchPredictionJobsRequest) {
+  }
+
+  public get batchPredictions(): shapes.FraudDetectorBatchPrediction[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getBatchPredictionJobs',
+        service: 'FraudDetector',
+        physicalResourceId: cr.PhysicalResourceId.of('FraudDetector.GetBatchPredictionJobs.batchPredictions'),
+        outputPath: 'batchPredictions',
+        parameters: {
+          jobId: this.__input.jobId,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetBatchPredictionJobs.batchPredictions', props);
+    return resource.getResponseField('batchPredictions') as unknown as shapes.FraudDetectorBatchPrediction[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getBatchPredictionJobs',
+        service: 'FraudDetector',
+        physicalResourceId: cr.PhysicalResourceId.of('FraudDetector.GetBatchPredictionJobs.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          jobId: this.__input.jobId,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetBatchPredictionJobs.nextToken', props);
     return resource.getResponseField('nextToken') as unknown as string;
   }
 

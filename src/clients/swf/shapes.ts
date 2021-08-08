@@ -40,6 +40,26 @@ export interface SwfCountClosedWorkflowExecutionsInput {
 }
 
 /**
+ * Converts an object of type 'SwfCountClosedWorkflowExecutionsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfCountClosedWorkflowExecutionsInput(obj: SwfCountClosedWorkflowExecutionsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'startTimeFilter': toJson_SwfExecutionTimeFilter(obj.startTimeFilter),
+    'closeTimeFilter': toJson_SwfExecutionTimeFilter(obj.closeTimeFilter),
+    'executionFilter': toJson_SwfWorkflowExecutionFilter(obj.executionFilter),
+    'typeFilter': toJson_SwfWorkflowTypeFilter(obj.typeFilter),
+    'tagFilter': toJson_SwfTagFilter(obj.tagFilter),
+    'closeStatusFilter': toJson_SwfCloseStatusFilter(obj.closeStatusFilter),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfWorkflowExecutionCount
  */
 export interface SwfWorkflowExecutionCount {
@@ -54,6 +74,21 @@ export interface SwfWorkflowExecutionCount {
   readonly truncated?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'SwfWorkflowExecutionCount' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowExecutionCount(obj: SwfWorkflowExecutionCount | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'count': obj.count,
+    'truncated': obj.truncated,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfCountOpenWorkflowExecutionsInput
@@ -87,6 +122,24 @@ export interface SwfCountOpenWorkflowExecutionsInput {
 }
 
 /**
+ * Converts an object of type 'SwfCountOpenWorkflowExecutionsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfCountOpenWorkflowExecutionsInput(obj: SwfCountOpenWorkflowExecutionsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'startTimeFilter': toJson_SwfExecutionTimeFilter(obj.startTimeFilter),
+    'typeFilter': toJson_SwfWorkflowTypeFilter(obj.typeFilter),
+    'tagFilter': toJson_SwfTagFilter(obj.tagFilter),
+    'executionFilter': toJson_SwfWorkflowExecutionFilter(obj.executionFilter),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfCountPendingActivityTasksInput
  */
 export interface SwfCountPendingActivityTasksInput {
@@ -101,6 +154,21 @@ export interface SwfCountPendingActivityTasksInput {
   readonly taskList: SwfTaskList;
 
 }
+
+/**
+ * Converts an object of type 'SwfCountPendingActivityTasksInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfCountPendingActivityTasksInput(obj: SwfCountPendingActivityTasksInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'taskList': toJson_SwfTaskList(obj.taskList),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfPendingTaskCount
@@ -119,6 +187,21 @@ export interface SwfPendingTaskCount {
 }
 
 /**
+ * Converts an object of type 'SwfPendingTaskCount' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfPendingTaskCount(obj: SwfPendingTaskCount | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'count': obj.count,
+    'truncated': obj.truncated,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfCountPendingDecisionTasksInput
  */
 export interface SwfCountPendingDecisionTasksInput {
@@ -133,6 +216,21 @@ export interface SwfCountPendingDecisionTasksInput {
   readonly taskList: SwfTaskList;
 
 }
+
+/**
+ * Converts an object of type 'SwfCountPendingDecisionTasksInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfCountPendingDecisionTasksInput(obj: SwfCountPendingDecisionTasksInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'taskList': toJson_SwfTaskList(obj.taskList),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfDeprecateActivityTypeInput
@@ -151,6 +249,21 @@ export interface SwfDeprecateActivityTypeInput {
 }
 
 /**
+ * Converts an object of type 'SwfDeprecateActivityTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfDeprecateActivityTypeInput(obj: SwfDeprecateActivityTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'activityType': toJson_SwfActivityType(obj.activityType),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfDeprecateDomainInput
  */
 export interface SwfDeprecateDomainInput {
@@ -160,6 +273,20 @@ export interface SwfDeprecateDomainInput {
   readonly name: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfDeprecateDomainInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfDeprecateDomainInput(obj: SwfDeprecateDomainInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfDeprecateWorkflowTypeInput
@@ -178,6 +305,21 @@ export interface SwfDeprecateWorkflowTypeInput {
 }
 
 /**
+ * Converts an object of type 'SwfDeprecateWorkflowTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfDeprecateWorkflowTypeInput(obj: SwfDeprecateWorkflowTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'workflowType': toJson_SwfWorkflowType(obj.workflowType),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfDescribeActivityTypeInput
  */
 export interface SwfDescribeActivityTypeInput {
@@ -192,6 +334,21 @@ export interface SwfDescribeActivityTypeInput {
   readonly activityType: SwfActivityType;
 
 }
+
+/**
+ * Converts an object of type 'SwfDescribeActivityTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfDescribeActivityTypeInput(obj: SwfDescribeActivityTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'activityType': toJson_SwfActivityType(obj.activityType),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfActivityTypeDetail
@@ -210,6 +367,21 @@ export interface SwfActivityTypeDetail {
 }
 
 /**
+ * Converts an object of type 'SwfActivityTypeDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfActivityTypeDetail(obj: SwfActivityTypeDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'typeInfo': toJson_SwfActivityTypeInfo(obj.typeInfo),
+    'configuration': toJson_SwfActivityTypeConfiguration(obj.configuration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfDescribeDomainInput
  */
 export interface SwfDescribeDomainInput {
@@ -219,6 +391,20 @@ export interface SwfDescribeDomainInput {
   readonly name: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfDescribeDomainInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfDescribeDomainInput(obj: SwfDescribeDomainInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfDomainDetail
@@ -237,6 +423,21 @@ export interface SwfDomainDetail {
 }
 
 /**
+ * Converts an object of type 'SwfDomainDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfDomainDetail(obj: SwfDomainDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domainInfo': toJson_SwfDomainInfo(obj.domainInfo),
+    'configuration': toJson_SwfDomainConfiguration(obj.configuration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfDescribeWorkflowExecutionInput
  */
 export interface SwfDescribeWorkflowExecutionInput {
@@ -251,6 +452,21 @@ export interface SwfDescribeWorkflowExecutionInput {
   readonly execution: SwfWorkflowExecution;
 
 }
+
+/**
+ * Converts an object of type 'SwfDescribeWorkflowExecutionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfDescribeWorkflowExecutionInput(obj: SwfDescribeWorkflowExecutionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'execution': toJson_SwfWorkflowExecution(obj.execution),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfWorkflowExecutionDetail
@@ -284,6 +500,24 @@ export interface SwfWorkflowExecutionDetail {
 }
 
 /**
+ * Converts an object of type 'SwfWorkflowExecutionDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowExecutionDetail(obj: SwfWorkflowExecutionDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'executionInfo': toJson_SwfWorkflowExecutionInfo(obj.executionInfo),
+    'executionConfiguration': toJson_SwfWorkflowExecutionConfiguration(obj.executionConfiguration),
+    'openCounts': toJson_SwfWorkflowExecutionOpenCounts(obj.openCounts),
+    'latestActivityTaskTimestamp': obj.latestActivityTaskTimestamp,
+    'latestExecutionContext': obj.latestExecutionContext,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfDescribeWorkflowTypeInput
  */
 export interface SwfDescribeWorkflowTypeInput {
@@ -300,6 +534,21 @@ export interface SwfDescribeWorkflowTypeInput {
 }
 
 /**
+ * Converts an object of type 'SwfDescribeWorkflowTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfDescribeWorkflowTypeInput(obj: SwfDescribeWorkflowTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'workflowType': toJson_SwfWorkflowType(obj.workflowType),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfWorkflowTypeDetail
  */
 export interface SwfWorkflowTypeDetail {
@@ -314,6 +563,21 @@ export interface SwfWorkflowTypeDetail {
   readonly configuration: SwfWorkflowTypeConfiguration;
 
 }
+
+/**
+ * Converts an object of type 'SwfWorkflowTypeDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowTypeDetail(obj: SwfWorkflowTypeDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'typeInfo': toJson_SwfWorkflowTypeInfo(obj.typeInfo),
+    'configuration': toJson_SwfWorkflowTypeConfiguration(obj.configuration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfGetWorkflowExecutionHistoryInput
@@ -347,6 +611,24 @@ export interface SwfGetWorkflowExecutionHistoryInput {
 }
 
 /**
+ * Converts an object of type 'SwfGetWorkflowExecutionHistoryInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfGetWorkflowExecutionHistoryInput(obj: SwfGetWorkflowExecutionHistoryInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'execution': toJson_SwfWorkflowExecution(obj.execution),
+    'nextPageToken': obj.nextPageToken,
+    'maximumPageSize': obj.maximumPageSize,
+    'reverseOrder': obj.reverseOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfHistory
  */
 export interface SwfHistory {
@@ -361,6 +643,21 @@ export interface SwfHistory {
   readonly nextPageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfHistory' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfHistory(obj: SwfHistory | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'events': obj.events?.map(y => toJson_SwfHistoryEvent(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfListActivityTypesInput
@@ -399,6 +696,25 @@ export interface SwfListActivityTypesInput {
 }
 
 /**
+ * Converts an object of type 'SwfListActivityTypesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfListActivityTypesInput(obj: SwfListActivityTypesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'name': obj.name,
+    'registrationStatus': obj.registrationStatus,
+    'nextPageToken': obj.nextPageToken,
+    'maximumPageSize': obj.maximumPageSize,
+    'reverseOrder': obj.reverseOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfActivityTypeInfos
  */
 export interface SwfActivityTypeInfos {
@@ -413,6 +729,21 @@ export interface SwfActivityTypeInfos {
   readonly nextPageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfActivityTypeInfos' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfActivityTypeInfos(obj: SwfActivityTypeInfos | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'typeInfos': obj.typeInfos?.map(y => toJson_SwfActivityTypeInfo(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfListClosedWorkflowExecutionsInput
@@ -471,6 +802,29 @@ export interface SwfListClosedWorkflowExecutionsInput {
 }
 
 /**
+ * Converts an object of type 'SwfListClosedWorkflowExecutionsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfListClosedWorkflowExecutionsInput(obj: SwfListClosedWorkflowExecutionsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'startTimeFilter': toJson_SwfExecutionTimeFilter(obj.startTimeFilter),
+    'closeTimeFilter': toJson_SwfExecutionTimeFilter(obj.closeTimeFilter),
+    'executionFilter': toJson_SwfWorkflowExecutionFilter(obj.executionFilter),
+    'closeStatusFilter': toJson_SwfCloseStatusFilter(obj.closeStatusFilter),
+    'typeFilter': toJson_SwfWorkflowTypeFilter(obj.typeFilter),
+    'tagFilter': toJson_SwfTagFilter(obj.tagFilter),
+    'nextPageToken': obj.nextPageToken,
+    'maximumPageSize': obj.maximumPageSize,
+    'reverseOrder': obj.reverseOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfWorkflowExecutionInfos
  */
 export interface SwfWorkflowExecutionInfos {
@@ -485,6 +839,21 @@ export interface SwfWorkflowExecutionInfos {
   readonly nextPageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfWorkflowExecutionInfos' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowExecutionInfos(obj: SwfWorkflowExecutionInfos | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'executionInfos': obj.executionInfos?.map(y => toJson_SwfWorkflowExecutionInfo(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfListDomainsInput
@@ -513,6 +882,23 @@ export interface SwfListDomainsInput {
 }
 
 /**
+ * Converts an object of type 'SwfListDomainsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfListDomainsInput(obj: SwfListDomainsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextPageToken': obj.nextPageToken,
+    'registrationStatus': obj.registrationStatus,
+    'maximumPageSize': obj.maximumPageSize,
+    'reverseOrder': obj.reverseOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfDomainInfos
  */
 export interface SwfDomainInfos {
@@ -527,6 +913,21 @@ export interface SwfDomainInfos {
   readonly nextPageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfDomainInfos' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfDomainInfos(obj: SwfDomainInfos | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domainInfos': obj.domainInfos?.map(y => toJson_SwfDomainInfo(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfListOpenWorkflowExecutionsInput
@@ -575,6 +976,27 @@ export interface SwfListOpenWorkflowExecutionsInput {
 }
 
 /**
+ * Converts an object of type 'SwfListOpenWorkflowExecutionsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfListOpenWorkflowExecutionsInput(obj: SwfListOpenWorkflowExecutionsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'startTimeFilter': toJson_SwfExecutionTimeFilter(obj.startTimeFilter),
+    'typeFilter': toJson_SwfWorkflowTypeFilter(obj.typeFilter),
+    'tagFilter': toJson_SwfTagFilter(obj.tagFilter),
+    'nextPageToken': obj.nextPageToken,
+    'maximumPageSize': obj.maximumPageSize,
+    'reverseOrder': obj.reverseOrder,
+    'executionFilter': toJson_SwfWorkflowExecutionFilter(obj.executionFilter),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfListTagsForResourceInput
  */
 export interface SwfListTagsForResourceInput {
@@ -586,6 +1008,20 @@ export interface SwfListTagsForResourceInput {
 }
 
 /**
+ * Converts an object of type 'SwfListTagsForResourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfListTagsForResourceInput(obj: SwfListTagsForResourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfListTagsForResourceOutput
  */
 export interface SwfListTagsForResourceOutput {
@@ -595,6 +1031,20 @@ export interface SwfListTagsForResourceOutput {
   readonly tags?: SwfResourceTag[];
 
 }
+
+/**
+ * Converts an object of type 'SwfListTagsForResourceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfListTagsForResourceOutput(obj: SwfListTagsForResourceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': obj.tags?.map(y => toJson_SwfResourceTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfListWorkflowTypesInput
@@ -633,6 +1083,25 @@ export interface SwfListWorkflowTypesInput {
 }
 
 /**
+ * Converts an object of type 'SwfListWorkflowTypesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfListWorkflowTypesInput(obj: SwfListWorkflowTypesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'name': obj.name,
+    'registrationStatus': obj.registrationStatus,
+    'nextPageToken': obj.nextPageToken,
+    'maximumPageSize': obj.maximumPageSize,
+    'reverseOrder': obj.reverseOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfWorkflowTypeInfos
  */
 export interface SwfWorkflowTypeInfos {
@@ -647,6 +1116,21 @@ export interface SwfWorkflowTypeInfos {
   readonly nextPageToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfWorkflowTypeInfos' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowTypeInfos(obj: SwfWorkflowTypeInfos | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'typeInfos': obj.typeInfos?.map(y => toJson_SwfWorkflowTypeInfo(y)),
+    'nextPageToken': obj.nextPageToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfPollForActivityTaskInput
@@ -668,6 +1152,22 @@ export interface SwfPollForActivityTaskInput {
   readonly identity?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfPollForActivityTaskInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfPollForActivityTaskInput(obj: SwfPollForActivityTaskInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'taskList': toJson_SwfTaskList(obj.taskList),
+    'identity': obj.identity,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfActivityTask
@@ -706,6 +1206,25 @@ export interface SwfActivityTask {
 }
 
 /**
+ * Converts an object of type 'SwfActivityTask' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfActivityTask(obj: SwfActivityTask | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'taskToken': obj.taskToken,
+    'activityId': obj.activityId,
+    'startedEventId': obj.startedEventId,
+    'workflowExecution': toJson_SwfWorkflowExecution(obj.workflowExecution),
+    'activityType': toJson_SwfActivityType(obj.activityType),
+    'input': obj.input,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfPollForDecisionTaskInput
  */
 export interface SwfPollForDecisionTaskInput {
@@ -740,6 +1259,25 @@ export interface SwfPollForDecisionTaskInput {
   readonly reverseOrder?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'SwfPollForDecisionTaskInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfPollForDecisionTaskInput(obj: SwfPollForDecisionTaskInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'taskList': toJson_SwfTaskList(obj.taskList),
+    'identity': obj.identity,
+    'nextPageToken': obj.nextPageToken,
+    'maximumPageSize': obj.maximumPageSize,
+    'reverseOrder': obj.reverseOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfDecisionTask
@@ -783,6 +1321,26 @@ export interface SwfDecisionTask {
 }
 
 /**
+ * Converts an object of type 'SwfDecisionTask' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfDecisionTask(obj: SwfDecisionTask | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'taskToken': obj.taskToken,
+    'startedEventId': obj.startedEventId,
+    'workflowExecution': toJson_SwfWorkflowExecution(obj.workflowExecution),
+    'workflowType': toJson_SwfWorkflowType(obj.workflowType),
+    'events': obj.events?.map(y => toJson_SwfHistoryEvent(y)),
+    'nextPageToken': obj.nextPageToken,
+    'previousStartedEventId': obj.previousStartedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfRecordActivityTaskHeartbeatInput
  */
 export interface SwfRecordActivityTaskHeartbeatInput {
@@ -799,6 +1357,21 @@ export interface SwfRecordActivityTaskHeartbeatInput {
 }
 
 /**
+ * Converts an object of type 'SwfRecordActivityTaskHeartbeatInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfRecordActivityTaskHeartbeatInput(obj: SwfRecordActivityTaskHeartbeatInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'taskToken': obj.taskToken,
+    'details': obj.details,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfActivityTaskStatus
  */
 export interface SwfActivityTaskStatus {
@@ -808,6 +1381,20 @@ export interface SwfActivityTaskStatus {
   readonly cancelRequested: boolean;
 
 }
+
+/**
+ * Converts an object of type 'SwfActivityTaskStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfActivityTaskStatus(obj: SwfActivityTaskStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'cancelRequested': obj.cancelRequested,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfRegisterActivityTypeInput
@@ -866,6 +1453,29 @@ export interface SwfRegisterActivityTypeInput {
 }
 
 /**
+ * Converts an object of type 'SwfRegisterActivityTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfRegisterActivityTypeInput(obj: SwfRegisterActivityTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'name': obj.name,
+    'version': obj.version,
+    'description': obj.description,
+    'defaultTaskStartToCloseTimeout': obj.defaultTaskStartToCloseTimeout,
+    'defaultTaskHeartbeatTimeout': obj.defaultTaskHeartbeatTimeout,
+    'defaultTaskList': toJson_SwfTaskList(obj.defaultTaskList),
+    'defaultTaskPriority': obj.defaultTaskPriority,
+    'defaultTaskScheduleToStartTimeout': obj.defaultTaskScheduleToStartTimeout,
+    'defaultTaskScheduleToCloseTimeout': obj.defaultTaskScheduleToCloseTimeout,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfRegisterDomainInput
  */
 export interface SwfRegisterDomainInput {
@@ -890,6 +1500,23 @@ export interface SwfRegisterDomainInput {
   readonly tags?: SwfResourceTag[];
 
 }
+
+/**
+ * Converts an object of type 'SwfRegisterDomainInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfRegisterDomainInput(obj: SwfRegisterDomainInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'description': obj.description,
+    'workflowExecutionRetentionPeriodInDays': obj.workflowExecutionRetentionPeriodInDays,
+    'tags': obj.tags?.map(y => toJson_SwfResourceTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfRegisterWorkflowTypeInput
@@ -948,6 +1575,29 @@ export interface SwfRegisterWorkflowTypeInput {
 }
 
 /**
+ * Converts an object of type 'SwfRegisterWorkflowTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfRegisterWorkflowTypeInput(obj: SwfRegisterWorkflowTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'name': obj.name,
+    'version': obj.version,
+    'description': obj.description,
+    'defaultTaskStartToCloseTimeout': obj.defaultTaskStartToCloseTimeout,
+    'defaultExecutionStartToCloseTimeout': obj.defaultExecutionStartToCloseTimeout,
+    'defaultTaskList': toJson_SwfTaskList(obj.defaultTaskList),
+    'defaultTaskPriority': obj.defaultTaskPriority,
+    'defaultChildPolicy': obj.defaultChildPolicy,
+    'defaultLambdaRole': obj.defaultLambdaRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfRequestCancelWorkflowExecutionInput
  */
 export interface SwfRequestCancelWorkflowExecutionInput {
@@ -969,6 +1619,22 @@ export interface SwfRequestCancelWorkflowExecutionInput {
 }
 
 /**
+ * Converts an object of type 'SwfRequestCancelWorkflowExecutionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfRequestCancelWorkflowExecutionInput(obj: SwfRequestCancelWorkflowExecutionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'workflowId': obj.workflowId,
+    'runId': obj.runId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfRespondActivityTaskCanceledInput
  */
 export interface SwfRespondActivityTaskCanceledInput {
@@ -985,6 +1651,21 @@ export interface SwfRespondActivityTaskCanceledInput {
 }
 
 /**
+ * Converts an object of type 'SwfRespondActivityTaskCanceledInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfRespondActivityTaskCanceledInput(obj: SwfRespondActivityTaskCanceledInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'taskToken': obj.taskToken,
+    'details': obj.details,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfRespondActivityTaskCompletedInput
  */
 export interface SwfRespondActivityTaskCompletedInput {
@@ -999,6 +1680,21 @@ export interface SwfRespondActivityTaskCompletedInput {
   readonly result?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfRespondActivityTaskCompletedInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfRespondActivityTaskCompletedInput(obj: SwfRespondActivityTaskCompletedInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'taskToken': obj.taskToken,
+    'result': obj.result,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfRespondActivityTaskFailedInput
@@ -1022,6 +1718,22 @@ export interface SwfRespondActivityTaskFailedInput {
 }
 
 /**
+ * Converts an object of type 'SwfRespondActivityTaskFailedInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfRespondActivityTaskFailedInput(obj: SwfRespondActivityTaskFailedInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'taskToken': obj.taskToken,
+    'reason': obj.reason,
+    'details': obj.details,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfRespondDecisionTaskCompletedInput
  */
 export interface SwfRespondDecisionTaskCompletedInput {
@@ -1041,6 +1753,22 @@ export interface SwfRespondDecisionTaskCompletedInput {
   readonly executionContext?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfRespondDecisionTaskCompletedInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfRespondDecisionTaskCompletedInput(obj: SwfRespondDecisionTaskCompletedInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'taskToken': obj.taskToken,
+    'decisions': obj.decisions?.map(y => toJson_SwfDecision(y)),
+    'executionContext': obj.executionContext,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfSignalWorkflowExecutionInput
@@ -1072,6 +1800,24 @@ export interface SwfSignalWorkflowExecutionInput {
   readonly input?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfSignalWorkflowExecutionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfSignalWorkflowExecutionInput(obj: SwfSignalWorkflowExecutionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'workflowId': obj.workflowId,
+    'runId': obj.runId,
+    'signalName': obj.signalName,
+    'input': obj.input,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfStartWorkflowExecutionInput
@@ -1135,6 +1881,30 @@ export interface SwfStartWorkflowExecutionInput {
 }
 
 /**
+ * Converts an object of type 'SwfStartWorkflowExecutionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfStartWorkflowExecutionInput(obj: SwfStartWorkflowExecutionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'workflowId': obj.workflowId,
+    'workflowType': toJson_SwfWorkflowType(obj.workflowType),
+    'taskList': toJson_SwfTaskList(obj.taskList),
+    'taskPriority': obj.taskPriority,
+    'input': obj.input,
+    'executionStartToCloseTimeout': obj.executionStartToCloseTimeout,
+    'tagList': obj.tagList?.map(y => y),
+    'taskStartToCloseTimeout': obj.taskStartToCloseTimeout,
+    'childPolicy': obj.childPolicy,
+    'lambdaRole': obj.lambdaRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfRun
  */
 export interface SwfRun {
@@ -1144,6 +1914,20 @@ export interface SwfRun {
   readonly runId?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfRun' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfRun(obj: SwfRun | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'runId': obj.runId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfTagResourceInput
@@ -1160,6 +1944,21 @@ export interface SwfTagResourceInput {
   readonly tags: SwfResourceTag[];
 
 }
+
+/**
+ * Converts an object of type 'SwfTagResourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfTagResourceInput(obj: SwfTagResourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': obj.tags?.map(y => toJson_SwfResourceTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfTerminateWorkflowExecutionInput
@@ -1198,6 +1997,25 @@ export interface SwfTerminateWorkflowExecutionInput {
 }
 
 /**
+ * Converts an object of type 'SwfTerminateWorkflowExecutionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfTerminateWorkflowExecutionInput(obj: SwfTerminateWorkflowExecutionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'workflowId': obj.workflowId,
+    'runId': obj.runId,
+    'reason': obj.reason,
+    'details': obj.details,
+    'childPolicy': obj.childPolicy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfUndeprecateActivityTypeInput
  */
 export interface SwfUndeprecateActivityTypeInput {
@@ -1214,6 +2032,21 @@ export interface SwfUndeprecateActivityTypeInput {
 }
 
 /**
+ * Converts an object of type 'SwfUndeprecateActivityTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfUndeprecateActivityTypeInput(obj: SwfUndeprecateActivityTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'activityType': toJson_SwfActivityType(obj.activityType),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfUndeprecateDomainInput
  */
 export interface SwfUndeprecateDomainInput {
@@ -1223,6 +2056,20 @@ export interface SwfUndeprecateDomainInput {
   readonly name: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfUndeprecateDomainInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfUndeprecateDomainInput(obj: SwfUndeprecateDomainInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfUndeprecateWorkflowTypeInput
@@ -1241,6 +2088,21 @@ export interface SwfUndeprecateWorkflowTypeInput {
 }
 
 /**
+ * Converts an object of type 'SwfUndeprecateWorkflowTypeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfUndeprecateWorkflowTypeInput(obj: SwfUndeprecateWorkflowTypeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domain': obj.domain,
+    'workflowType': toJson_SwfWorkflowType(obj.workflowType),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfUntagResourceInput
  */
 export interface SwfUntagResourceInput {
@@ -1255,6 +2117,21 @@ export interface SwfUntagResourceInput {
   readonly tagKeys: string[];
 
 }
+
+/**
+ * Converts an object of type 'SwfUntagResourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfUntagResourceInput(obj: SwfUntagResourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfExecutionTimeFilter
@@ -1273,6 +2150,21 @@ export interface SwfExecutionTimeFilter {
 }
 
 /**
+ * Converts an object of type 'SwfExecutionTimeFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfExecutionTimeFilter(obj: SwfExecutionTimeFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'oldestDate': obj.oldestDate,
+    'latestDate': obj.latestDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfWorkflowExecutionFilter
  */
 export interface SwfWorkflowExecutionFilter {
@@ -1282,6 +2174,20 @@ export interface SwfWorkflowExecutionFilter {
   readonly workflowId: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfWorkflowExecutionFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowExecutionFilter(obj: SwfWorkflowExecutionFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowId': obj.workflowId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfWorkflowTypeFilter
@@ -1300,6 +2206,21 @@ export interface SwfWorkflowTypeFilter {
 }
 
 /**
+ * Converts an object of type 'SwfWorkflowTypeFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowTypeFilter(obj: SwfWorkflowTypeFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfTagFilter
  */
 export interface SwfTagFilter {
@@ -1309,6 +2230,20 @@ export interface SwfTagFilter {
   readonly tag: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfTagFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfTagFilter(obj: SwfTagFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tag': obj.tag,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfCloseStatusFilter
@@ -1322,6 +2257,20 @@ export interface SwfCloseStatusFilter {
 }
 
 /**
+ * Converts an object of type 'SwfCloseStatusFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfCloseStatusFilter(obj: SwfCloseStatusFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfTaskList
  */
 export interface SwfTaskList {
@@ -1331,6 +2280,20 @@ export interface SwfTaskList {
   readonly name: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfTaskList' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfTaskList(obj: SwfTaskList | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfActivityType
@@ -1349,6 +2312,21 @@ export interface SwfActivityType {
 }
 
 /**
+ * Converts an object of type 'SwfActivityType' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfActivityType(obj: SwfActivityType | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfWorkflowType
  */
 export interface SwfWorkflowType {
@@ -1363,6 +2341,21 @@ export interface SwfWorkflowType {
   readonly version: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfWorkflowType' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowType(obj: SwfWorkflowType | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfActivityTypeInfo
@@ -1394,6 +2387,24 @@ export interface SwfActivityTypeInfo {
   readonly deprecationDate?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfActivityTypeInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfActivityTypeInfo(obj: SwfActivityTypeInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'activityType': toJson_SwfActivityType(obj.activityType),
+    'status': obj.status,
+    'description': obj.description,
+    'creationDate': obj.creationDate,
+    'deprecationDate': obj.deprecationDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfActivityTypeConfiguration
@@ -1432,6 +2443,25 @@ export interface SwfActivityTypeConfiguration {
 }
 
 /**
+ * Converts an object of type 'SwfActivityTypeConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfActivityTypeConfiguration(obj: SwfActivityTypeConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'defaultTaskStartToCloseTimeout': obj.defaultTaskStartToCloseTimeout,
+    'defaultTaskHeartbeatTimeout': obj.defaultTaskHeartbeatTimeout,
+    'defaultTaskList': toJson_SwfTaskList(obj.defaultTaskList),
+    'defaultTaskPriority': obj.defaultTaskPriority,
+    'defaultTaskScheduleToStartTimeout': obj.defaultTaskScheduleToStartTimeout,
+    'defaultTaskScheduleToCloseTimeout': obj.defaultTaskScheduleToCloseTimeout,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfDomainInfo
  */
 export interface SwfDomainInfo {
@@ -1458,6 +2488,23 @@ export interface SwfDomainInfo {
 }
 
 /**
+ * Converts an object of type 'SwfDomainInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfDomainInfo(obj: SwfDomainInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'status': obj.status,
+    'description': obj.description,
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfDomainConfiguration
  */
 export interface SwfDomainConfiguration {
@@ -1467,6 +2514,20 @@ export interface SwfDomainConfiguration {
   readonly workflowExecutionRetentionPeriodInDays: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfDomainConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfDomainConfiguration(obj: SwfDomainConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowExecutionRetentionPeriodInDays': obj.workflowExecutionRetentionPeriodInDays,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfWorkflowExecution
@@ -1483,6 +2544,21 @@ export interface SwfWorkflowExecution {
   readonly runId: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfWorkflowExecution' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowExecution(obj: SwfWorkflowExecution | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowId': obj.workflowId,
+    'runId': obj.runId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfWorkflowExecutionInfo
@@ -1536,6 +2612,28 @@ export interface SwfWorkflowExecutionInfo {
 }
 
 /**
+ * Converts an object of type 'SwfWorkflowExecutionInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowExecutionInfo(obj: SwfWorkflowExecutionInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'execution': toJson_SwfWorkflowExecution(obj.execution),
+    'workflowType': toJson_SwfWorkflowType(obj.workflowType),
+    'startTimestamp': obj.startTimestamp,
+    'closeTimestamp': obj.closeTimestamp,
+    'executionStatus': obj.executionStatus,
+    'closeStatus': obj.closeStatus,
+    'parent': toJson_SwfWorkflowExecution(obj.parent),
+    'tagList': obj.tagList?.map(y => y),
+    'cancelRequested': obj.cancelRequested,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfWorkflowExecutionConfiguration
  */
 export interface SwfWorkflowExecutionConfiguration {
@@ -1572,6 +2670,25 @@ export interface SwfWorkflowExecutionConfiguration {
 }
 
 /**
+ * Converts an object of type 'SwfWorkflowExecutionConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowExecutionConfiguration(obj: SwfWorkflowExecutionConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'taskStartToCloseTimeout': obj.taskStartToCloseTimeout,
+    'executionStartToCloseTimeout': obj.executionStartToCloseTimeout,
+    'taskList': toJson_SwfTaskList(obj.taskList),
+    'taskPriority': obj.taskPriority,
+    'childPolicy': obj.childPolicy,
+    'lambdaRole': obj.lambdaRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfWorkflowExecutionOpenCounts
  */
 export interface SwfWorkflowExecutionOpenCounts {
@@ -1603,6 +2720,24 @@ export interface SwfWorkflowExecutionOpenCounts {
 }
 
 /**
+ * Converts an object of type 'SwfWorkflowExecutionOpenCounts' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowExecutionOpenCounts(obj: SwfWorkflowExecutionOpenCounts | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'openActivityTasks': obj.openActivityTasks,
+    'openDecisionTasks': obj.openDecisionTasks,
+    'openTimers': obj.openTimers,
+    'openChildWorkflowExecutions': obj.openChildWorkflowExecutions,
+    'openLambdaFunctions': obj.openLambdaFunctions,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfWorkflowTypeInfo
  */
 export interface SwfWorkflowTypeInfo {
@@ -1632,6 +2767,24 @@ export interface SwfWorkflowTypeInfo {
   readonly deprecationDate?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfWorkflowTypeInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowTypeInfo(obj: SwfWorkflowTypeInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowType': toJson_SwfWorkflowType(obj.workflowType),
+    'status': obj.status,
+    'description': obj.description,
+    'creationDate': obj.creationDate,
+    'deprecationDate': obj.deprecationDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfWorkflowTypeConfiguration
@@ -1668,6 +2821,25 @@ export interface SwfWorkflowTypeConfiguration {
   readonly defaultLambdaRole?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfWorkflowTypeConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowTypeConfiguration(obj: SwfWorkflowTypeConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'defaultTaskStartToCloseTimeout': obj.defaultTaskStartToCloseTimeout,
+    'defaultExecutionStartToCloseTimeout': obj.defaultExecutionStartToCloseTimeout,
+    'defaultTaskList': toJson_SwfTaskList(obj.defaultTaskList),
+    'defaultTaskPriority': obj.defaultTaskPriority,
+    'defaultChildPolicy': obj.defaultChildPolicy,
+    'defaultLambdaRole': obj.defaultLambdaRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfHistoryEvent
@@ -1961,6 +3133,76 @@ export interface SwfHistoryEvent {
 }
 
 /**
+ * Converts an object of type 'SwfHistoryEvent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfHistoryEvent(obj: SwfHistoryEvent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventTimestamp': obj.eventTimestamp,
+    'eventType': obj.eventType,
+    'eventId': obj.eventId,
+    'workflowExecutionStartedEventAttributes': toJson_SwfWorkflowExecutionStartedEventAttributes(obj.workflowExecutionStartedEventAttributes),
+    'workflowExecutionCompletedEventAttributes': toJson_SwfWorkflowExecutionCompletedEventAttributes(obj.workflowExecutionCompletedEventAttributes),
+    'completeWorkflowExecutionFailedEventAttributes': toJson_SwfCompleteWorkflowExecutionFailedEventAttributes(obj.completeWorkflowExecutionFailedEventAttributes),
+    'workflowExecutionFailedEventAttributes': toJson_SwfWorkflowExecutionFailedEventAttributes(obj.workflowExecutionFailedEventAttributes),
+    'failWorkflowExecutionFailedEventAttributes': toJson_SwfFailWorkflowExecutionFailedEventAttributes(obj.failWorkflowExecutionFailedEventAttributes),
+    'workflowExecutionTimedOutEventAttributes': toJson_SwfWorkflowExecutionTimedOutEventAttributes(obj.workflowExecutionTimedOutEventAttributes),
+    'workflowExecutionCanceledEventAttributes': toJson_SwfWorkflowExecutionCanceledEventAttributes(obj.workflowExecutionCanceledEventAttributes),
+    'cancelWorkflowExecutionFailedEventAttributes': toJson_SwfCancelWorkflowExecutionFailedEventAttributes(obj.cancelWorkflowExecutionFailedEventAttributes),
+    'workflowExecutionContinuedAsNewEventAttributes': toJson_SwfWorkflowExecutionContinuedAsNewEventAttributes(obj.workflowExecutionContinuedAsNewEventAttributes),
+    'continueAsNewWorkflowExecutionFailedEventAttributes': toJson_SwfContinueAsNewWorkflowExecutionFailedEventAttributes(obj.continueAsNewWorkflowExecutionFailedEventAttributes),
+    'workflowExecutionTerminatedEventAttributes': toJson_SwfWorkflowExecutionTerminatedEventAttributes(obj.workflowExecutionTerminatedEventAttributes),
+    'workflowExecutionCancelRequestedEventAttributes': toJson_SwfWorkflowExecutionCancelRequestedEventAttributes(obj.workflowExecutionCancelRequestedEventAttributes),
+    'decisionTaskScheduledEventAttributes': toJson_SwfDecisionTaskScheduledEventAttributes(obj.decisionTaskScheduledEventAttributes),
+    'decisionTaskStartedEventAttributes': toJson_SwfDecisionTaskStartedEventAttributes(obj.decisionTaskStartedEventAttributes),
+    'decisionTaskCompletedEventAttributes': toJson_SwfDecisionTaskCompletedEventAttributes(obj.decisionTaskCompletedEventAttributes),
+    'decisionTaskTimedOutEventAttributes': toJson_SwfDecisionTaskTimedOutEventAttributes(obj.decisionTaskTimedOutEventAttributes),
+    'activityTaskScheduledEventAttributes': toJson_SwfActivityTaskScheduledEventAttributes(obj.activityTaskScheduledEventAttributes),
+    'activityTaskStartedEventAttributes': toJson_SwfActivityTaskStartedEventAttributes(obj.activityTaskStartedEventAttributes),
+    'activityTaskCompletedEventAttributes': toJson_SwfActivityTaskCompletedEventAttributes(obj.activityTaskCompletedEventAttributes),
+    'activityTaskFailedEventAttributes': toJson_SwfActivityTaskFailedEventAttributes(obj.activityTaskFailedEventAttributes),
+    'activityTaskTimedOutEventAttributes': toJson_SwfActivityTaskTimedOutEventAttributes(obj.activityTaskTimedOutEventAttributes),
+    'activityTaskCanceledEventAttributes': toJson_SwfActivityTaskCanceledEventAttributes(obj.activityTaskCanceledEventAttributes),
+    'activityTaskCancelRequestedEventAttributes': toJson_SwfActivityTaskCancelRequestedEventAttributes(obj.activityTaskCancelRequestedEventAttributes),
+    'workflowExecutionSignaledEventAttributes': toJson_SwfWorkflowExecutionSignaledEventAttributes(obj.workflowExecutionSignaledEventAttributes),
+    'markerRecordedEventAttributes': toJson_SwfMarkerRecordedEventAttributes(obj.markerRecordedEventAttributes),
+    'recordMarkerFailedEventAttributes': toJson_SwfRecordMarkerFailedEventAttributes(obj.recordMarkerFailedEventAttributes),
+    'timerStartedEventAttributes': toJson_SwfTimerStartedEventAttributes(obj.timerStartedEventAttributes),
+    'timerFiredEventAttributes': toJson_SwfTimerFiredEventAttributes(obj.timerFiredEventAttributes),
+    'timerCanceledEventAttributes': toJson_SwfTimerCanceledEventAttributes(obj.timerCanceledEventAttributes),
+    'startChildWorkflowExecutionInitiatedEventAttributes': toJson_SwfStartChildWorkflowExecutionInitiatedEventAttributes(obj.startChildWorkflowExecutionInitiatedEventAttributes),
+    'childWorkflowExecutionStartedEventAttributes': toJson_SwfChildWorkflowExecutionStartedEventAttributes(obj.childWorkflowExecutionStartedEventAttributes),
+    'childWorkflowExecutionCompletedEventAttributes': toJson_SwfChildWorkflowExecutionCompletedEventAttributes(obj.childWorkflowExecutionCompletedEventAttributes),
+    'childWorkflowExecutionFailedEventAttributes': toJson_SwfChildWorkflowExecutionFailedEventAttributes(obj.childWorkflowExecutionFailedEventAttributes),
+    'childWorkflowExecutionTimedOutEventAttributes': toJson_SwfChildWorkflowExecutionTimedOutEventAttributes(obj.childWorkflowExecutionTimedOutEventAttributes),
+    'childWorkflowExecutionCanceledEventAttributes': toJson_SwfChildWorkflowExecutionCanceledEventAttributes(obj.childWorkflowExecutionCanceledEventAttributes),
+    'childWorkflowExecutionTerminatedEventAttributes': toJson_SwfChildWorkflowExecutionTerminatedEventAttributes(obj.childWorkflowExecutionTerminatedEventAttributes),
+    'signalExternalWorkflowExecutionInitiatedEventAttributes': toJson_SwfSignalExternalWorkflowExecutionInitiatedEventAttributes(obj.signalExternalWorkflowExecutionInitiatedEventAttributes),
+    'externalWorkflowExecutionSignaledEventAttributes': toJson_SwfExternalWorkflowExecutionSignaledEventAttributes(obj.externalWorkflowExecutionSignaledEventAttributes),
+    'signalExternalWorkflowExecutionFailedEventAttributes': toJson_SwfSignalExternalWorkflowExecutionFailedEventAttributes(obj.signalExternalWorkflowExecutionFailedEventAttributes),
+    'externalWorkflowExecutionCancelRequestedEventAttributes': toJson_SwfExternalWorkflowExecutionCancelRequestedEventAttributes(obj.externalWorkflowExecutionCancelRequestedEventAttributes),
+    'requestCancelExternalWorkflowExecutionInitiatedEventAttributes': toJson_SwfRequestCancelExternalWorkflowExecutionInitiatedEventAttributes(obj.requestCancelExternalWorkflowExecutionInitiatedEventAttributes),
+    'requestCancelExternalWorkflowExecutionFailedEventAttributes': toJson_SwfRequestCancelExternalWorkflowExecutionFailedEventAttributes(obj.requestCancelExternalWorkflowExecutionFailedEventAttributes),
+    'scheduleActivityTaskFailedEventAttributes': toJson_SwfScheduleActivityTaskFailedEventAttributes(obj.scheduleActivityTaskFailedEventAttributes),
+    'requestCancelActivityTaskFailedEventAttributes': toJson_SwfRequestCancelActivityTaskFailedEventAttributes(obj.requestCancelActivityTaskFailedEventAttributes),
+    'startTimerFailedEventAttributes': toJson_SwfStartTimerFailedEventAttributes(obj.startTimerFailedEventAttributes),
+    'cancelTimerFailedEventAttributes': toJson_SwfCancelTimerFailedEventAttributes(obj.cancelTimerFailedEventAttributes),
+    'startChildWorkflowExecutionFailedEventAttributes': toJson_SwfStartChildWorkflowExecutionFailedEventAttributes(obj.startChildWorkflowExecutionFailedEventAttributes),
+    'lambdaFunctionScheduledEventAttributes': toJson_SwfLambdaFunctionScheduledEventAttributes(obj.lambdaFunctionScheduledEventAttributes),
+    'lambdaFunctionStartedEventAttributes': toJson_SwfLambdaFunctionStartedEventAttributes(obj.lambdaFunctionStartedEventAttributes),
+    'lambdaFunctionCompletedEventAttributes': toJson_SwfLambdaFunctionCompletedEventAttributes(obj.lambdaFunctionCompletedEventAttributes),
+    'lambdaFunctionFailedEventAttributes': toJson_SwfLambdaFunctionFailedEventAttributes(obj.lambdaFunctionFailedEventAttributes),
+    'lambdaFunctionTimedOutEventAttributes': toJson_SwfLambdaFunctionTimedOutEventAttributes(obj.lambdaFunctionTimedOutEventAttributes),
+    'scheduleLambdaFunctionFailedEventAttributes': toJson_SwfScheduleLambdaFunctionFailedEventAttributes(obj.scheduleLambdaFunctionFailedEventAttributes),
+    'startLambdaFunctionFailedEventAttributes': toJson_SwfStartLambdaFunctionFailedEventAttributes(obj.startLambdaFunctionFailedEventAttributes),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfResourceTag
  */
 export interface SwfResourceTag {
@@ -1975,6 +3217,21 @@ export interface SwfResourceTag {
   readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfResourceTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfResourceTag(obj: SwfResourceTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfDecision
@@ -2053,6 +3310,33 @@ export interface SwfDecision {
 }
 
 /**
+ * Converts an object of type 'SwfDecision' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfDecision(obj: SwfDecision | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'decisionType': obj.decisionType,
+    'scheduleActivityTaskDecisionAttributes': toJson_SwfScheduleActivityTaskDecisionAttributes(obj.scheduleActivityTaskDecisionAttributes),
+    'requestCancelActivityTaskDecisionAttributes': toJson_SwfRequestCancelActivityTaskDecisionAttributes(obj.requestCancelActivityTaskDecisionAttributes),
+    'completeWorkflowExecutionDecisionAttributes': toJson_SwfCompleteWorkflowExecutionDecisionAttributes(obj.completeWorkflowExecutionDecisionAttributes),
+    'failWorkflowExecutionDecisionAttributes': toJson_SwfFailWorkflowExecutionDecisionAttributes(obj.failWorkflowExecutionDecisionAttributes),
+    'cancelWorkflowExecutionDecisionAttributes': toJson_SwfCancelWorkflowExecutionDecisionAttributes(obj.cancelWorkflowExecutionDecisionAttributes),
+    'continueAsNewWorkflowExecutionDecisionAttributes': toJson_SwfContinueAsNewWorkflowExecutionDecisionAttributes(obj.continueAsNewWorkflowExecutionDecisionAttributes),
+    'recordMarkerDecisionAttributes': toJson_SwfRecordMarkerDecisionAttributes(obj.recordMarkerDecisionAttributes),
+    'startTimerDecisionAttributes': toJson_SwfStartTimerDecisionAttributes(obj.startTimerDecisionAttributes),
+    'cancelTimerDecisionAttributes': toJson_SwfCancelTimerDecisionAttributes(obj.cancelTimerDecisionAttributes),
+    'signalExternalWorkflowExecutionDecisionAttributes': toJson_SwfSignalExternalWorkflowExecutionDecisionAttributes(obj.signalExternalWorkflowExecutionDecisionAttributes),
+    'requestCancelExternalWorkflowExecutionDecisionAttributes': toJson_SwfRequestCancelExternalWorkflowExecutionDecisionAttributes(obj.requestCancelExternalWorkflowExecutionDecisionAttributes),
+    'startChildWorkflowExecutionDecisionAttributes': toJson_SwfStartChildWorkflowExecutionDecisionAttributes(obj.startChildWorkflowExecutionDecisionAttributes),
+    'scheduleLambdaFunctionDecisionAttributes': toJson_SwfScheduleLambdaFunctionDecisionAttributes(obj.scheduleLambdaFunctionDecisionAttributes),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfWorkflowExecutionStartedEventAttributes
  */
 export interface SwfWorkflowExecutionStartedEventAttributes {
@@ -2119,6 +3403,31 @@ export interface SwfWorkflowExecutionStartedEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfWorkflowExecutionStartedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowExecutionStartedEventAttributes(obj: SwfWorkflowExecutionStartedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'input': obj.input,
+    'executionStartToCloseTimeout': obj.executionStartToCloseTimeout,
+    'taskStartToCloseTimeout': obj.taskStartToCloseTimeout,
+    'childPolicy': obj.childPolicy,
+    'taskList': toJson_SwfTaskList(obj.taskList),
+    'taskPriority': obj.taskPriority,
+    'workflowType': toJson_SwfWorkflowType(obj.workflowType),
+    'tagList': obj.tagList?.map(y => y),
+    'continuedExecutionRunId': obj.continuedExecutionRunId,
+    'parentWorkflowExecution': toJson_SwfWorkflowExecution(obj.parentWorkflowExecution),
+    'parentInitiatedEventId': obj.parentInitiatedEventId,
+    'lambdaRole': obj.lambdaRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfWorkflowExecutionCompletedEventAttributes
  */
 export interface SwfWorkflowExecutionCompletedEventAttributes {
@@ -2135,6 +3444,21 @@ export interface SwfWorkflowExecutionCompletedEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfWorkflowExecutionCompletedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowExecutionCompletedEventAttributes(obj: SwfWorkflowExecutionCompletedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'result': obj.result,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfCompleteWorkflowExecutionFailedEventAttributes
  */
 export interface SwfCompleteWorkflowExecutionFailedEventAttributes {
@@ -2149,6 +3473,21 @@ export interface SwfCompleteWorkflowExecutionFailedEventAttributes {
   readonly decisionTaskCompletedEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfCompleteWorkflowExecutionFailedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfCompleteWorkflowExecutionFailedEventAttributes(obj: SwfCompleteWorkflowExecutionFailedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'cause': obj.cause,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfWorkflowExecutionFailedEventAttributes
@@ -2172,6 +3511,22 @@ export interface SwfWorkflowExecutionFailedEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfWorkflowExecutionFailedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowExecutionFailedEventAttributes(obj: SwfWorkflowExecutionFailedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reason': obj.reason,
+    'details': obj.details,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfFailWorkflowExecutionFailedEventAttributes
  */
 export interface SwfFailWorkflowExecutionFailedEventAttributes {
@@ -2186,6 +3541,21 @@ export interface SwfFailWorkflowExecutionFailedEventAttributes {
   readonly decisionTaskCompletedEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfFailWorkflowExecutionFailedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfFailWorkflowExecutionFailedEventAttributes(obj: SwfFailWorkflowExecutionFailedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'cause': obj.cause,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfWorkflowExecutionTimedOutEventAttributes
@@ -2204,6 +3574,21 @@ export interface SwfWorkflowExecutionTimedOutEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfWorkflowExecutionTimedOutEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowExecutionTimedOutEventAttributes(obj: SwfWorkflowExecutionTimedOutEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'timeoutType': obj.timeoutType,
+    'childPolicy': obj.childPolicy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfWorkflowExecutionCanceledEventAttributes
  */
 export interface SwfWorkflowExecutionCanceledEventAttributes {
@@ -2220,6 +3605,21 @@ export interface SwfWorkflowExecutionCanceledEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfWorkflowExecutionCanceledEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowExecutionCanceledEventAttributes(obj: SwfWorkflowExecutionCanceledEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'details': obj.details,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfCancelWorkflowExecutionFailedEventAttributes
  */
 export interface SwfCancelWorkflowExecutionFailedEventAttributes {
@@ -2234,6 +3634,21 @@ export interface SwfCancelWorkflowExecutionFailedEventAttributes {
   readonly decisionTaskCompletedEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfCancelWorkflowExecutionFailedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfCancelWorkflowExecutionFailedEventAttributes(obj: SwfCancelWorkflowExecutionFailedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'cause': obj.cause,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfWorkflowExecutionContinuedAsNewEventAttributes
@@ -2297,6 +3712,30 @@ export interface SwfWorkflowExecutionContinuedAsNewEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfWorkflowExecutionContinuedAsNewEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowExecutionContinuedAsNewEventAttributes(obj: SwfWorkflowExecutionContinuedAsNewEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'input': obj.input,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+    'newExecutionRunId': obj.newExecutionRunId,
+    'executionStartToCloseTimeout': obj.executionStartToCloseTimeout,
+    'taskList': toJson_SwfTaskList(obj.taskList),
+    'taskPriority': obj.taskPriority,
+    'taskStartToCloseTimeout': obj.taskStartToCloseTimeout,
+    'childPolicy': obj.childPolicy,
+    'tagList': obj.tagList?.map(y => y),
+    'workflowType': toJson_SwfWorkflowType(obj.workflowType),
+    'lambdaRole': obj.lambdaRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfContinueAsNewWorkflowExecutionFailedEventAttributes
  */
 export interface SwfContinueAsNewWorkflowExecutionFailedEventAttributes {
@@ -2311,6 +3750,21 @@ export interface SwfContinueAsNewWorkflowExecutionFailedEventAttributes {
   readonly decisionTaskCompletedEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfContinueAsNewWorkflowExecutionFailedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfContinueAsNewWorkflowExecutionFailedEventAttributes(obj: SwfContinueAsNewWorkflowExecutionFailedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'cause': obj.cause,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfWorkflowExecutionTerminatedEventAttributes
@@ -2339,6 +3793,23 @@ export interface SwfWorkflowExecutionTerminatedEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfWorkflowExecutionTerminatedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowExecutionTerminatedEventAttributes(obj: SwfWorkflowExecutionTerminatedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reason': obj.reason,
+    'details': obj.details,
+    'childPolicy': obj.childPolicy,
+    'cause': obj.cause,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfWorkflowExecutionCancelRequestedEventAttributes
  */
 export interface SwfWorkflowExecutionCancelRequestedEventAttributes {
@@ -2358,6 +3829,22 @@ export interface SwfWorkflowExecutionCancelRequestedEventAttributes {
   readonly cause?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfWorkflowExecutionCancelRequestedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowExecutionCancelRequestedEventAttributes(obj: SwfWorkflowExecutionCancelRequestedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'externalWorkflowExecution': toJson_SwfWorkflowExecution(obj.externalWorkflowExecution),
+    'externalInitiatedEventId': obj.externalInitiatedEventId,
+    'cause': obj.cause,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfDecisionTaskScheduledEventAttributes
@@ -2381,6 +3868,22 @@ export interface SwfDecisionTaskScheduledEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfDecisionTaskScheduledEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfDecisionTaskScheduledEventAttributes(obj: SwfDecisionTaskScheduledEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'taskList': toJson_SwfTaskList(obj.taskList),
+    'taskPriority': obj.taskPriority,
+    'startToCloseTimeout': obj.startToCloseTimeout,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfDecisionTaskStartedEventAttributes
  */
 export interface SwfDecisionTaskStartedEventAttributes {
@@ -2395,6 +3898,21 @@ export interface SwfDecisionTaskStartedEventAttributes {
   readonly scheduledEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfDecisionTaskStartedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfDecisionTaskStartedEventAttributes(obj: SwfDecisionTaskStartedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'identity': obj.identity,
+    'scheduledEventId': obj.scheduledEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfDecisionTaskCompletedEventAttributes
@@ -2418,6 +3936,22 @@ export interface SwfDecisionTaskCompletedEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfDecisionTaskCompletedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfDecisionTaskCompletedEventAttributes(obj: SwfDecisionTaskCompletedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'executionContext': obj.executionContext,
+    'scheduledEventId': obj.scheduledEventId,
+    'startedEventId': obj.startedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfDecisionTaskTimedOutEventAttributes
  */
 export interface SwfDecisionTaskTimedOutEventAttributes {
@@ -2437,6 +3971,22 @@ export interface SwfDecisionTaskTimedOutEventAttributes {
   readonly startedEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfDecisionTaskTimedOutEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfDecisionTaskTimedOutEventAttributes(obj: SwfDecisionTaskTimedOutEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'timeoutType': obj.timeoutType,
+    'scheduledEventId': obj.scheduledEventId,
+    'startedEventId': obj.startedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfActivityTaskScheduledEventAttributes
@@ -2500,6 +4050,30 @@ export interface SwfActivityTaskScheduledEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfActivityTaskScheduledEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfActivityTaskScheduledEventAttributes(obj: SwfActivityTaskScheduledEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'activityType': toJson_SwfActivityType(obj.activityType),
+    'activityId': obj.activityId,
+    'input': obj.input,
+    'control': obj.control,
+    'scheduleToStartTimeout': obj.scheduleToStartTimeout,
+    'scheduleToCloseTimeout': obj.scheduleToCloseTimeout,
+    'startToCloseTimeout': obj.startToCloseTimeout,
+    'taskList': toJson_SwfTaskList(obj.taskList),
+    'taskPriority': obj.taskPriority,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+    'heartbeatTimeout': obj.heartbeatTimeout,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfActivityTaskStartedEventAttributes
  */
 export interface SwfActivityTaskStartedEventAttributes {
@@ -2514,6 +4088,21 @@ export interface SwfActivityTaskStartedEventAttributes {
   readonly scheduledEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfActivityTaskStartedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfActivityTaskStartedEventAttributes(obj: SwfActivityTaskStartedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'identity': obj.identity,
+    'scheduledEventId': obj.scheduledEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfActivityTaskCompletedEventAttributes
@@ -2535,6 +4124,22 @@ export interface SwfActivityTaskCompletedEventAttributes {
   readonly startedEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfActivityTaskCompletedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfActivityTaskCompletedEventAttributes(obj: SwfActivityTaskCompletedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'result': obj.result,
+    'scheduledEventId': obj.scheduledEventId,
+    'startedEventId': obj.startedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfActivityTaskFailedEventAttributes
@@ -2563,6 +4168,23 @@ export interface SwfActivityTaskFailedEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfActivityTaskFailedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfActivityTaskFailedEventAttributes(obj: SwfActivityTaskFailedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reason': obj.reason,
+    'details': obj.details,
+    'scheduledEventId': obj.scheduledEventId,
+    'startedEventId': obj.startedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfActivityTaskTimedOutEventAttributes
  */
 export interface SwfActivityTaskTimedOutEventAttributes {
@@ -2587,6 +4209,23 @@ export interface SwfActivityTaskTimedOutEventAttributes {
   readonly details?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfActivityTaskTimedOutEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfActivityTaskTimedOutEventAttributes(obj: SwfActivityTaskTimedOutEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'timeoutType': obj.timeoutType,
+    'scheduledEventId': obj.scheduledEventId,
+    'startedEventId': obj.startedEventId,
+    'details': obj.details,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfActivityTaskCanceledEventAttributes
@@ -2615,6 +4254,23 @@ export interface SwfActivityTaskCanceledEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfActivityTaskCanceledEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfActivityTaskCanceledEventAttributes(obj: SwfActivityTaskCanceledEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'details': obj.details,
+    'scheduledEventId': obj.scheduledEventId,
+    'startedEventId': obj.startedEventId,
+    'latestCancelRequestedEventId': obj.latestCancelRequestedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfActivityTaskCancelRequestedEventAttributes
  */
 export interface SwfActivityTaskCancelRequestedEventAttributes {
@@ -2629,6 +4285,21 @@ export interface SwfActivityTaskCancelRequestedEventAttributes {
   readonly activityId: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfActivityTaskCancelRequestedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfActivityTaskCancelRequestedEventAttributes(obj: SwfActivityTaskCancelRequestedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+    'activityId': obj.activityId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfWorkflowExecutionSignaledEventAttributes
@@ -2657,6 +4328,23 @@ export interface SwfWorkflowExecutionSignaledEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfWorkflowExecutionSignaledEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfWorkflowExecutionSignaledEventAttributes(obj: SwfWorkflowExecutionSignaledEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'signalName': obj.signalName,
+    'input': obj.input,
+    'externalWorkflowExecution': toJson_SwfWorkflowExecution(obj.externalWorkflowExecution),
+    'externalInitiatedEventId': obj.externalInitiatedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfMarkerRecordedEventAttributes
  */
 export interface SwfMarkerRecordedEventAttributes {
@@ -2678,6 +4366,22 @@ export interface SwfMarkerRecordedEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfMarkerRecordedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfMarkerRecordedEventAttributes(obj: SwfMarkerRecordedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'markerName': obj.markerName,
+    'details': obj.details,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfRecordMarkerFailedEventAttributes
  */
 export interface SwfRecordMarkerFailedEventAttributes {
@@ -2697,6 +4401,22 @@ export interface SwfRecordMarkerFailedEventAttributes {
   readonly decisionTaskCompletedEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfRecordMarkerFailedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfRecordMarkerFailedEventAttributes(obj: SwfRecordMarkerFailedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'markerName': obj.markerName,
+    'cause': obj.cause,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfTimerStartedEventAttributes
@@ -2725,6 +4445,23 @@ export interface SwfTimerStartedEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfTimerStartedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfTimerStartedEventAttributes(obj: SwfTimerStartedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'timerId': obj.timerId,
+    'control': obj.control,
+    'startToFireTimeout': obj.startToFireTimeout,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfTimerFiredEventAttributes
  */
 export interface SwfTimerFiredEventAttributes {
@@ -2739,6 +4476,21 @@ export interface SwfTimerFiredEventAttributes {
   readonly startedEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfTimerFiredEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfTimerFiredEventAttributes(obj: SwfTimerFiredEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'timerId': obj.timerId,
+    'startedEventId': obj.startedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfTimerCanceledEventAttributes
@@ -2760,6 +4512,22 @@ export interface SwfTimerCanceledEventAttributes {
   readonly decisionTaskCompletedEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfTimerCanceledEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfTimerCanceledEventAttributes(obj: SwfTimerCanceledEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'timerId': obj.timerId,
+    'startedEventId': obj.startedEventId,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfStartChildWorkflowExecutionInitiatedEventAttributes
@@ -2828,6 +4596,31 @@ export interface SwfStartChildWorkflowExecutionInitiatedEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfStartChildWorkflowExecutionInitiatedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfStartChildWorkflowExecutionInitiatedEventAttributes(obj: SwfStartChildWorkflowExecutionInitiatedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowId': obj.workflowId,
+    'workflowType': toJson_SwfWorkflowType(obj.workflowType),
+    'control': obj.control,
+    'input': obj.input,
+    'executionStartToCloseTimeout': obj.executionStartToCloseTimeout,
+    'taskList': toJson_SwfTaskList(obj.taskList),
+    'taskPriority': obj.taskPriority,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+    'childPolicy': obj.childPolicy,
+    'taskStartToCloseTimeout': obj.taskStartToCloseTimeout,
+    'tagList': obj.tagList?.map(y => y),
+    'lambdaRole': obj.lambdaRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfChildWorkflowExecutionStartedEventAttributes
  */
 export interface SwfChildWorkflowExecutionStartedEventAttributes {
@@ -2847,6 +4640,22 @@ export interface SwfChildWorkflowExecutionStartedEventAttributes {
   readonly initiatedEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfChildWorkflowExecutionStartedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfChildWorkflowExecutionStartedEventAttributes(obj: SwfChildWorkflowExecutionStartedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowExecution': toJson_SwfWorkflowExecution(obj.workflowExecution),
+    'workflowType': toJson_SwfWorkflowType(obj.workflowType),
+    'initiatedEventId': obj.initiatedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfChildWorkflowExecutionCompletedEventAttributes
@@ -2878,6 +4687,24 @@ export interface SwfChildWorkflowExecutionCompletedEventAttributes {
   readonly startedEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfChildWorkflowExecutionCompletedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfChildWorkflowExecutionCompletedEventAttributes(obj: SwfChildWorkflowExecutionCompletedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowExecution': toJson_SwfWorkflowExecution(obj.workflowExecution),
+    'workflowType': toJson_SwfWorkflowType(obj.workflowType),
+    'result': obj.result,
+    'initiatedEventId': obj.initiatedEventId,
+    'startedEventId': obj.startedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfChildWorkflowExecutionFailedEventAttributes
@@ -2916,6 +4743,25 @@ export interface SwfChildWorkflowExecutionFailedEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfChildWorkflowExecutionFailedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfChildWorkflowExecutionFailedEventAttributes(obj: SwfChildWorkflowExecutionFailedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowExecution': toJson_SwfWorkflowExecution(obj.workflowExecution),
+    'workflowType': toJson_SwfWorkflowType(obj.workflowType),
+    'reason': obj.reason,
+    'details': obj.details,
+    'initiatedEventId': obj.initiatedEventId,
+    'startedEventId': obj.startedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfChildWorkflowExecutionTimedOutEventAttributes
  */
 export interface SwfChildWorkflowExecutionTimedOutEventAttributes {
@@ -2945,6 +4791,24 @@ export interface SwfChildWorkflowExecutionTimedOutEventAttributes {
   readonly startedEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfChildWorkflowExecutionTimedOutEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfChildWorkflowExecutionTimedOutEventAttributes(obj: SwfChildWorkflowExecutionTimedOutEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowExecution': toJson_SwfWorkflowExecution(obj.workflowExecution),
+    'workflowType': toJson_SwfWorkflowType(obj.workflowType),
+    'timeoutType': obj.timeoutType,
+    'initiatedEventId': obj.initiatedEventId,
+    'startedEventId': obj.startedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfChildWorkflowExecutionCanceledEventAttributes
@@ -2978,6 +4842,24 @@ export interface SwfChildWorkflowExecutionCanceledEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfChildWorkflowExecutionCanceledEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfChildWorkflowExecutionCanceledEventAttributes(obj: SwfChildWorkflowExecutionCanceledEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowExecution': toJson_SwfWorkflowExecution(obj.workflowExecution),
+    'workflowType': toJson_SwfWorkflowType(obj.workflowType),
+    'details': obj.details,
+    'initiatedEventId': obj.initiatedEventId,
+    'startedEventId': obj.startedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfChildWorkflowExecutionTerminatedEventAttributes
  */
 export interface SwfChildWorkflowExecutionTerminatedEventAttributes {
@@ -3002,6 +4884,23 @@ export interface SwfChildWorkflowExecutionTerminatedEventAttributes {
   readonly startedEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfChildWorkflowExecutionTerminatedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfChildWorkflowExecutionTerminatedEventAttributes(obj: SwfChildWorkflowExecutionTerminatedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowExecution': toJson_SwfWorkflowExecution(obj.workflowExecution),
+    'workflowType': toJson_SwfWorkflowType(obj.workflowType),
+    'initiatedEventId': obj.initiatedEventId,
+    'startedEventId': obj.startedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfSignalExternalWorkflowExecutionInitiatedEventAttributes
@@ -3040,6 +4939,25 @@ export interface SwfSignalExternalWorkflowExecutionInitiatedEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfSignalExternalWorkflowExecutionInitiatedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfSignalExternalWorkflowExecutionInitiatedEventAttributes(obj: SwfSignalExternalWorkflowExecutionInitiatedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowId': obj.workflowId,
+    'runId': obj.runId,
+    'signalName': obj.signalName,
+    'input': obj.input,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+    'control': obj.control,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfExternalWorkflowExecutionSignaledEventAttributes
  */
 export interface SwfExternalWorkflowExecutionSignaledEventAttributes {
@@ -3054,6 +4972,21 @@ export interface SwfExternalWorkflowExecutionSignaledEventAttributes {
   readonly initiatedEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfExternalWorkflowExecutionSignaledEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfExternalWorkflowExecutionSignaledEventAttributes(obj: SwfExternalWorkflowExecutionSignaledEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowExecution': toJson_SwfWorkflowExecution(obj.workflowExecution),
+    'initiatedEventId': obj.initiatedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfSignalExternalWorkflowExecutionFailedEventAttributes
@@ -3092,6 +5025,25 @@ export interface SwfSignalExternalWorkflowExecutionFailedEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfSignalExternalWorkflowExecutionFailedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfSignalExternalWorkflowExecutionFailedEventAttributes(obj: SwfSignalExternalWorkflowExecutionFailedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowId': obj.workflowId,
+    'runId': obj.runId,
+    'cause': obj.cause,
+    'initiatedEventId': obj.initiatedEventId,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+    'control': obj.control,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfExternalWorkflowExecutionCancelRequestedEventAttributes
  */
 export interface SwfExternalWorkflowExecutionCancelRequestedEventAttributes {
@@ -3106,6 +5058,21 @@ export interface SwfExternalWorkflowExecutionCancelRequestedEventAttributes {
   readonly initiatedEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfExternalWorkflowExecutionCancelRequestedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfExternalWorkflowExecutionCancelRequestedEventAttributes(obj: SwfExternalWorkflowExecutionCancelRequestedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowExecution': toJson_SwfWorkflowExecution(obj.workflowExecution),
+    'initiatedEventId': obj.initiatedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfRequestCancelExternalWorkflowExecutionInitiatedEventAttributes
@@ -3132,6 +5099,23 @@ export interface SwfRequestCancelExternalWorkflowExecutionInitiatedEventAttribut
   readonly control?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfRequestCancelExternalWorkflowExecutionInitiatedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfRequestCancelExternalWorkflowExecutionInitiatedEventAttributes(obj: SwfRequestCancelExternalWorkflowExecutionInitiatedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowId': obj.workflowId,
+    'runId': obj.runId,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+    'control': obj.control,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfRequestCancelExternalWorkflowExecutionFailedEventAttributes
@@ -3170,6 +5154,25 @@ export interface SwfRequestCancelExternalWorkflowExecutionFailedEventAttributes 
 }
 
 /**
+ * Converts an object of type 'SwfRequestCancelExternalWorkflowExecutionFailedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfRequestCancelExternalWorkflowExecutionFailedEventAttributes(obj: SwfRequestCancelExternalWorkflowExecutionFailedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowId': obj.workflowId,
+    'runId': obj.runId,
+    'cause': obj.cause,
+    'initiatedEventId': obj.initiatedEventId,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+    'control': obj.control,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfScheduleActivityTaskFailedEventAttributes
  */
 export interface SwfScheduleActivityTaskFailedEventAttributes {
@@ -3196,6 +5199,23 @@ export interface SwfScheduleActivityTaskFailedEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfScheduleActivityTaskFailedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfScheduleActivityTaskFailedEventAttributes(obj: SwfScheduleActivityTaskFailedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'activityType': toJson_SwfActivityType(obj.activityType),
+    'activityId': obj.activityId,
+    'cause': obj.cause,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfRequestCancelActivityTaskFailedEventAttributes
  */
 export interface SwfRequestCancelActivityTaskFailedEventAttributes {
@@ -3215,6 +5235,22 @@ export interface SwfRequestCancelActivityTaskFailedEventAttributes {
   readonly decisionTaskCompletedEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfRequestCancelActivityTaskFailedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfRequestCancelActivityTaskFailedEventAttributes(obj: SwfRequestCancelActivityTaskFailedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'activityId': obj.activityId,
+    'cause': obj.cause,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfStartTimerFailedEventAttributes
@@ -3238,6 +5274,22 @@ export interface SwfStartTimerFailedEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfStartTimerFailedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfStartTimerFailedEventAttributes(obj: SwfStartTimerFailedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'timerId': obj.timerId,
+    'cause': obj.cause,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfCancelTimerFailedEventAttributes
  */
 export interface SwfCancelTimerFailedEventAttributes {
@@ -3257,6 +5309,22 @@ export interface SwfCancelTimerFailedEventAttributes {
   readonly decisionTaskCompletedEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfCancelTimerFailedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfCancelTimerFailedEventAttributes(obj: SwfCancelTimerFailedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'timerId': obj.timerId,
+    'cause': obj.cause,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfStartChildWorkflowExecutionFailedEventAttributes
@@ -3295,6 +5363,25 @@ export interface SwfStartChildWorkflowExecutionFailedEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfStartChildWorkflowExecutionFailedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfStartChildWorkflowExecutionFailedEventAttributes(obj: SwfStartChildWorkflowExecutionFailedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowType': toJson_SwfWorkflowType(obj.workflowType),
+    'cause': obj.cause,
+    'workflowId': obj.workflowId,
+    'initiatedEventId': obj.initiatedEventId,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+    'control': obj.control,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfLambdaFunctionScheduledEventAttributes
  */
 export interface SwfLambdaFunctionScheduledEventAttributes {
@@ -3331,6 +5418,25 @@ export interface SwfLambdaFunctionScheduledEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfLambdaFunctionScheduledEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfLambdaFunctionScheduledEventAttributes(obj: SwfLambdaFunctionScheduledEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'name': obj.name,
+    'control': obj.control,
+    'input': obj.input,
+    'startToCloseTimeout': obj.startToCloseTimeout,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfLambdaFunctionStartedEventAttributes
  */
 export interface SwfLambdaFunctionStartedEventAttributes {
@@ -3340,6 +5446,20 @@ export interface SwfLambdaFunctionStartedEventAttributes {
   readonly scheduledEventId: number;
 
 }
+
+/**
+ * Converts an object of type 'SwfLambdaFunctionStartedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfLambdaFunctionStartedEventAttributes(obj: SwfLambdaFunctionStartedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'scheduledEventId': obj.scheduledEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfLambdaFunctionCompletedEventAttributes
@@ -3361,6 +5481,22 @@ export interface SwfLambdaFunctionCompletedEventAttributes {
   readonly result?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfLambdaFunctionCompletedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfLambdaFunctionCompletedEventAttributes(obj: SwfLambdaFunctionCompletedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'scheduledEventId': obj.scheduledEventId,
+    'startedEventId': obj.startedEventId,
+    'result': obj.result,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfLambdaFunctionFailedEventAttributes
@@ -3389,6 +5525,23 @@ export interface SwfLambdaFunctionFailedEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfLambdaFunctionFailedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfLambdaFunctionFailedEventAttributes(obj: SwfLambdaFunctionFailedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'scheduledEventId': obj.scheduledEventId,
+    'startedEventId': obj.startedEventId,
+    'reason': obj.reason,
+    'details': obj.details,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfLambdaFunctionTimedOutEventAttributes
  */
 export interface SwfLambdaFunctionTimedOutEventAttributes {
@@ -3408,6 +5561,22 @@ export interface SwfLambdaFunctionTimedOutEventAttributes {
   readonly timeoutType?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfLambdaFunctionTimedOutEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfLambdaFunctionTimedOutEventAttributes(obj: SwfLambdaFunctionTimedOutEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'scheduledEventId': obj.scheduledEventId,
+    'startedEventId': obj.startedEventId,
+    'timeoutType': obj.timeoutType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfScheduleLambdaFunctionFailedEventAttributes
@@ -3436,6 +5605,23 @@ export interface SwfScheduleLambdaFunctionFailedEventAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfScheduleLambdaFunctionFailedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfScheduleLambdaFunctionFailedEventAttributes(obj: SwfScheduleLambdaFunctionFailedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'name': obj.name,
+    'cause': obj.cause,
+    'decisionTaskCompletedEventId': obj.decisionTaskCompletedEventId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfStartLambdaFunctionFailedEventAttributes
  */
 export interface SwfStartLambdaFunctionFailedEventAttributes {
@@ -3455,6 +5641,22 @@ export interface SwfStartLambdaFunctionFailedEventAttributes {
   readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfStartLambdaFunctionFailedEventAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfStartLambdaFunctionFailedEventAttributes(obj: SwfStartLambdaFunctionFailedEventAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'scheduledEventId': obj.scheduledEventId,
+    'cause': obj.cause,
+    'message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfScheduleActivityTaskDecisionAttributes
@@ -3513,6 +5715,29 @@ export interface SwfScheduleActivityTaskDecisionAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfScheduleActivityTaskDecisionAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfScheduleActivityTaskDecisionAttributes(obj: SwfScheduleActivityTaskDecisionAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'activityType': toJson_SwfActivityType(obj.activityType),
+    'activityId': obj.activityId,
+    'control': obj.control,
+    'input': obj.input,
+    'scheduleToCloseTimeout': obj.scheduleToCloseTimeout,
+    'taskList': toJson_SwfTaskList(obj.taskList),
+    'taskPriority': obj.taskPriority,
+    'scheduleToStartTimeout': obj.scheduleToStartTimeout,
+    'startToCloseTimeout': obj.startToCloseTimeout,
+    'heartbeatTimeout': obj.heartbeatTimeout,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfRequestCancelActivityTaskDecisionAttributes
  */
 export interface SwfRequestCancelActivityTaskDecisionAttributes {
@@ -3524,6 +5749,20 @@ export interface SwfRequestCancelActivityTaskDecisionAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfRequestCancelActivityTaskDecisionAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfRequestCancelActivityTaskDecisionAttributes(obj: SwfRequestCancelActivityTaskDecisionAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'activityId': obj.activityId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfCompleteWorkflowExecutionDecisionAttributes
  */
 export interface SwfCompleteWorkflowExecutionDecisionAttributes {
@@ -3533,6 +5772,20 @@ export interface SwfCompleteWorkflowExecutionDecisionAttributes {
   readonly result?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfCompleteWorkflowExecutionDecisionAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfCompleteWorkflowExecutionDecisionAttributes(obj: SwfCompleteWorkflowExecutionDecisionAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'result': obj.result,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfFailWorkflowExecutionDecisionAttributes
@@ -3551,6 +5804,21 @@ export interface SwfFailWorkflowExecutionDecisionAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfFailWorkflowExecutionDecisionAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfFailWorkflowExecutionDecisionAttributes(obj: SwfFailWorkflowExecutionDecisionAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reason': obj.reason,
+    'details': obj.details,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfCancelWorkflowExecutionDecisionAttributes
  */
 export interface SwfCancelWorkflowExecutionDecisionAttributes {
@@ -3560,6 +5828,20 @@ export interface SwfCancelWorkflowExecutionDecisionAttributes {
   readonly details?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfCancelWorkflowExecutionDecisionAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfCancelWorkflowExecutionDecisionAttributes(obj: SwfCancelWorkflowExecutionDecisionAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'details': obj.details,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfContinueAsNewWorkflowExecutionDecisionAttributes
@@ -3613,6 +5895,28 @@ export interface SwfContinueAsNewWorkflowExecutionDecisionAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfContinueAsNewWorkflowExecutionDecisionAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfContinueAsNewWorkflowExecutionDecisionAttributes(obj: SwfContinueAsNewWorkflowExecutionDecisionAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'input': obj.input,
+    'executionStartToCloseTimeout': obj.executionStartToCloseTimeout,
+    'taskList': toJson_SwfTaskList(obj.taskList),
+    'taskPriority': obj.taskPriority,
+    'taskStartToCloseTimeout': obj.taskStartToCloseTimeout,
+    'childPolicy': obj.childPolicy,
+    'tagList': obj.tagList?.map(y => y),
+    'workflowTypeVersion': obj.workflowTypeVersion,
+    'lambdaRole': obj.lambdaRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfRecordMarkerDecisionAttributes
  */
 export interface SwfRecordMarkerDecisionAttributes {
@@ -3627,6 +5931,21 @@ export interface SwfRecordMarkerDecisionAttributes {
   readonly details?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfRecordMarkerDecisionAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfRecordMarkerDecisionAttributes(obj: SwfRecordMarkerDecisionAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'markerName': obj.markerName,
+    'details': obj.details,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfStartTimerDecisionAttributes
@@ -3650,6 +5969,22 @@ export interface SwfStartTimerDecisionAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfStartTimerDecisionAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfStartTimerDecisionAttributes(obj: SwfStartTimerDecisionAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'timerId': obj.timerId,
+    'control': obj.control,
+    'startToFireTimeout': obj.startToFireTimeout,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfCancelTimerDecisionAttributes
  */
 export interface SwfCancelTimerDecisionAttributes {
@@ -3659,6 +5994,20 @@ export interface SwfCancelTimerDecisionAttributes {
   readonly timerId: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfCancelTimerDecisionAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfCancelTimerDecisionAttributes(obj: SwfCancelTimerDecisionAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'timerId': obj.timerId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfSignalExternalWorkflowExecutionDecisionAttributes
@@ -3692,6 +6041,24 @@ export interface SwfSignalExternalWorkflowExecutionDecisionAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfSignalExternalWorkflowExecutionDecisionAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfSignalExternalWorkflowExecutionDecisionAttributes(obj: SwfSignalExternalWorkflowExecutionDecisionAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowId': obj.workflowId,
+    'runId': obj.runId,
+    'signalName': obj.signalName,
+    'input': obj.input,
+    'control': obj.control,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfRequestCancelExternalWorkflowExecutionDecisionAttributes
  */
 export interface SwfRequestCancelExternalWorkflowExecutionDecisionAttributes {
@@ -3711,6 +6078,22 @@ export interface SwfRequestCancelExternalWorkflowExecutionDecisionAttributes {
   readonly control?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfRequestCancelExternalWorkflowExecutionDecisionAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfRequestCancelExternalWorkflowExecutionDecisionAttributes(obj: SwfRequestCancelExternalWorkflowExecutionDecisionAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowId': obj.workflowId,
+    'runId': obj.runId,
+    'control': obj.control,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SwfStartChildWorkflowExecutionDecisionAttributes
@@ -3774,6 +6157,30 @@ export interface SwfStartChildWorkflowExecutionDecisionAttributes {
 }
 
 /**
+ * Converts an object of type 'SwfStartChildWorkflowExecutionDecisionAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfStartChildWorkflowExecutionDecisionAttributes(obj: SwfStartChildWorkflowExecutionDecisionAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workflowType': toJson_SwfWorkflowType(obj.workflowType),
+    'workflowId': obj.workflowId,
+    'control': obj.control,
+    'input': obj.input,
+    'executionStartToCloseTimeout': obj.executionStartToCloseTimeout,
+    'taskList': toJson_SwfTaskList(obj.taskList),
+    'taskPriority': obj.taskPriority,
+    'taskStartToCloseTimeout': obj.taskStartToCloseTimeout,
+    'childPolicy': obj.childPolicy,
+    'tagList': obj.tagList?.map(y => y),
+    'lambdaRole': obj.lambdaRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SwfScheduleLambdaFunctionDecisionAttributes
  */
 export interface SwfScheduleLambdaFunctionDecisionAttributes {
@@ -3803,3 +6210,21 @@ export interface SwfScheduleLambdaFunctionDecisionAttributes {
   readonly startToCloseTimeout?: string;
 
 }
+
+/**
+ * Converts an object of type 'SwfScheduleLambdaFunctionDecisionAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SwfScheduleLambdaFunctionDecisionAttributes(obj: SwfScheduleLambdaFunctionDecisionAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'name': obj.name,
+    'control': obj.control,
+    'input': obj.input,
+    'startToCloseTimeout': obj.startToCloseTimeout,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

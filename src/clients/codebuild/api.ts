@@ -559,6 +559,7 @@ export class CodeBuildResponsesCreateProjectProject {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -600,6 +601,7 @@ export class CodeBuildResponsesCreateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -612,6 +614,7 @@ export class CodeBuildResponsesCreateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -663,6 +666,7 @@ export class CodeBuildResponsesCreateProjectProject {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -704,6 +708,7 @@ export class CodeBuildResponsesCreateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -716,6 +721,7 @@ export class CodeBuildResponsesCreateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -767,6 +773,7 @@ export class CodeBuildResponsesCreateProjectProject {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -808,6 +815,7 @@ export class CodeBuildResponsesCreateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -820,6 +828,7 @@ export class CodeBuildResponsesCreateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -875,6 +884,7 @@ export class CodeBuildResponsesCreateProjectProject {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -916,6 +926,7 @@ export class CodeBuildResponsesCreateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -928,6 +939,7 @@ export class CodeBuildResponsesCreateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -979,6 +991,7 @@ export class CodeBuildResponsesCreateProjectProject {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -1020,6 +1033,7 @@ export class CodeBuildResponsesCreateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -1032,6 +1046,7 @@ export class CodeBuildResponsesCreateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -1083,6 +1098,7 @@ export class CodeBuildResponsesCreateProjectProject {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -1124,6 +1140,7 @@ export class CodeBuildResponsesCreateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -1136,6 +1153,7 @@ export class CodeBuildResponsesCreateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -1191,6 +1209,7 @@ export class CodeBuildResponsesCreateProjectProject {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -1232,6 +1251,7 @@ export class CodeBuildResponsesCreateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -1244,6 +1264,7 @@ export class CodeBuildResponsesCreateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -1303,6 +1324,7 @@ export class CodeBuildResponsesCreateProjectProject {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -1344,6 +1366,7 @@ export class CodeBuildResponsesCreateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -1356,6 +1379,7 @@ export class CodeBuildResponsesCreateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -1407,6 +1431,7 @@ export class CodeBuildResponsesCreateProjectProject {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -1448,6 +1473,7 @@ export class CodeBuildResponsesCreateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -1460,6 +1486,7 @@ export class CodeBuildResponsesCreateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -1511,6 +1538,7 @@ export class CodeBuildResponsesCreateProjectProject {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -1552,6 +1580,7 @@ export class CodeBuildResponsesCreateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -1564,6 +1593,7 @@ export class CodeBuildResponsesCreateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -1615,6 +1645,7 @@ export class CodeBuildResponsesCreateProjectProject {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -1656,6 +1687,7 @@ export class CodeBuildResponsesCreateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -1668,6 +1700,7 @@ export class CodeBuildResponsesCreateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -1719,6 +1752,7 @@ export class CodeBuildResponsesCreateProjectProject {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -1760,6 +1794,7 @@ export class CodeBuildResponsesCreateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -1772,6 +1807,7 @@ export class CodeBuildResponsesCreateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -1823,6 +1859,7 @@ export class CodeBuildResponsesCreateProjectProject {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -1864,6 +1901,7 @@ export class CodeBuildResponsesCreateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -1876,6 +1914,7 @@ export class CodeBuildResponsesCreateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -1927,6 +1966,7 @@ export class CodeBuildResponsesCreateProjectProject {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -1968,6 +2008,7 @@ export class CodeBuildResponsesCreateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -1980,6 +2021,7 @@ export class CodeBuildResponsesCreateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -2047,6 +2089,7 @@ export class CodeBuildResponsesCreateProjectProject {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -2088,6 +2131,7 @@ export class CodeBuildResponsesCreateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -2100,6 +2144,7 @@ export class CodeBuildResponsesCreateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -2109,6 +2154,113 @@ export class CodeBuildResponsesCreateProjectProject {
 
   public get buildBatchConfig(): CodeBuildResponsesCreateProjectProjectBuildBatchConfig {
     return new CodeBuildResponsesCreateProjectProjectBuildBatchConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get concurrentBuildLimit(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createProject',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.CreateProject.project.concurrentBuildLimit'),
+        outputPath: 'project.concurrentBuildLimit',
+        parameters: {
+          name: this.__input.name,
+          description: this.__input.description,
+          source: {
+            type: this.__input.source.type,
+            location: this.__input.source.location,
+            gitCloneDepth: this.__input.source.gitCloneDepth,
+            gitSubmodulesConfig: {
+              fetchSubmodules: this.__input.source.gitSubmodulesConfig?.fetchSubmodules,
+            },
+            buildspec: this.__input.source.buildspec,
+            auth: {
+              type: this.__input.source.auth?.type,
+              resource: this.__input.source.auth?.resource,
+            },
+            reportBuildStatus: this.__input.source.reportBuildStatus,
+            buildStatusConfig: {
+              context: this.__input.source.buildStatusConfig?.context,
+              targetUrl: this.__input.source.buildStatusConfig?.targetUrl,
+            },
+            insecureSsl: this.__input.source.insecureSsl,
+            sourceIdentifier: this.__input.source.sourceIdentifier,
+          },
+          secondarySources: this.__input.secondarySources,
+          sourceVersion: this.__input.sourceVersion,
+          secondarySourceVersions: this.__input.secondarySourceVersions,
+          artifacts: {
+            type: this.__input.artifacts.type,
+            location: this.__input.artifacts.location,
+            path: this.__input.artifacts.path,
+            namespaceType: this.__input.artifacts.namespaceType,
+            name: this.__input.artifacts.name,
+            packaging: this.__input.artifacts.packaging,
+            overrideArtifactName: this.__input.artifacts.overrideArtifactName,
+            encryptionDisabled: this.__input.artifacts.encryptionDisabled,
+            artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
+          },
+          secondaryArtifacts: this.__input.secondaryArtifacts,
+          cache: {
+            type: this.__input.cache?.type,
+            location: this.__input.cache?.location,
+            modes: this.__input.cache?.modes,
+          },
+          environment: {
+            type: this.__input.environment.type,
+            image: this.__input.environment.image,
+            computeType: this.__input.environment.computeType,
+            environmentVariables: this.__input.environment.environmentVariables,
+            privilegedMode: this.__input.environment.privilegedMode,
+            certificate: this.__input.environment.certificate,
+            registryCredential: {
+              credential: this.__input.environment.registryCredential?.credential,
+              credentialProvider: this.__input.environment.registryCredential?.credentialProvider,
+            },
+            imagePullCredentialsType: this.__input.environment.imagePullCredentialsType,
+          },
+          serviceRole: this.__input.serviceRole,
+          timeoutInMinutes: this.__input.timeoutInMinutes,
+          queuedTimeoutInMinutes: this.__input.queuedTimeoutInMinutes,
+          encryptionKey: this.__input.encryptionKey,
+          tags: this.__input.tags,
+          vpcConfig: {
+            vpcId: this.__input.vpcConfig?.vpcId,
+            subnets: this.__input.vpcConfig?.subnets,
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          badgeEnabled: this.__input.badgeEnabled,
+          logsConfig: {
+            cloudWatchLogs: {
+              status: this.__input.logsConfig?.cloudWatchLogs?.status,
+              groupName: this.__input.logsConfig?.cloudWatchLogs?.groupName,
+              streamName: this.__input.logsConfig?.cloudWatchLogs?.streamName,
+            },
+            s3Logs: {
+              status: this.__input.logsConfig?.s3Logs?.status,
+              location: this.__input.logsConfig?.s3Logs?.location,
+              encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
+            },
+          },
+          fileSystemLocations: this.__input.fileSystemLocations,
+          buildBatchConfig: {
+            serviceRole: this.__input.buildBatchConfig?.serviceRole,
+            combineArtifacts: this.__input.buildBatchConfig?.combineArtifacts,
+            restrictions: {
+              maximumBuildsAllowed: this.__input.buildBatchConfig?.restrictions?.maximumBuildsAllowed,
+              computeTypesAllowed: this.__input.buildBatchConfig?.restrictions?.computeTypesAllowed,
+            },
+            timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
+          },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateProject.project.concurrentBuildLimit', props);
+    return resource.getResponseField('project.concurrentBuildLimit') as unknown as number;
   }
 
 }
@@ -2162,6 +2314,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -2203,6 +2356,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -2215,6 +2369,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -2266,6 +2421,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -2307,6 +2463,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -2319,6 +2476,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -2370,6 +2528,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -2411,6 +2570,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -2423,6 +2583,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -2478,6 +2639,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -2519,6 +2681,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -2531,6 +2694,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -2586,6 +2750,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -2627,6 +2792,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -2639,6 +2805,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -2694,6 +2861,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -2735,6 +2903,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -2747,6 +2916,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -2798,6 +2968,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -2839,6 +3010,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -2851,6 +3023,7 @@ export class CodeBuildResponsesCreateProjectProjectSource {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -2909,6 +3082,7 @@ export class CodeBuildResponsesCreateProjectProjectSourceGitSubmodulesConfig {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -2950,6 +3124,7 @@ export class CodeBuildResponsesCreateProjectProjectSourceGitSubmodulesConfig {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -2962,6 +3137,7 @@ export class CodeBuildResponsesCreateProjectProjectSourceGitSubmodulesConfig {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -3020,6 +3196,7 @@ export class CodeBuildResponsesCreateProjectProjectSourceAuth {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -3061,6 +3238,7 @@ export class CodeBuildResponsesCreateProjectProjectSourceAuth {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -3073,6 +3251,7 @@ export class CodeBuildResponsesCreateProjectProjectSourceAuth {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -3124,6 +3303,7 @@ export class CodeBuildResponsesCreateProjectProjectSourceAuth {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -3165,6 +3345,7 @@ export class CodeBuildResponsesCreateProjectProjectSourceAuth {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -3177,6 +3358,7 @@ export class CodeBuildResponsesCreateProjectProjectSourceAuth {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -3235,6 +3417,7 @@ export class CodeBuildResponsesCreateProjectProjectSourceBuildStatusConfig {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -3276,6 +3459,7 @@ export class CodeBuildResponsesCreateProjectProjectSourceBuildStatusConfig {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -3288,6 +3472,7 @@ export class CodeBuildResponsesCreateProjectProjectSourceBuildStatusConfig {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -3339,6 +3524,7 @@ export class CodeBuildResponsesCreateProjectProjectSourceBuildStatusConfig {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -3380,6 +3566,7 @@ export class CodeBuildResponsesCreateProjectProjectSourceBuildStatusConfig {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -3392,6 +3579,7 @@ export class CodeBuildResponsesCreateProjectProjectSourceBuildStatusConfig {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -3450,6 +3638,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -3491,6 +3680,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -3503,6 +3693,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -3554,6 +3745,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -3595,6 +3787,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -3607,6 +3800,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -3658,6 +3852,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -3699,6 +3894,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -3711,6 +3907,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -3762,6 +3959,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -3803,6 +4001,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -3815,6 +4014,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -3866,6 +4066,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -3907,6 +4108,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -3919,6 +4121,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -3970,6 +4173,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -4011,6 +4215,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -4023,6 +4228,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -4074,6 +4280,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -4115,6 +4322,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -4127,6 +4335,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -4178,6 +4387,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -4219,6 +4429,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -4231,6 +4442,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -4282,6 +4494,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -4323,6 +4536,7 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -4335,11 +4549,119 @@ export class CodeBuildResponsesCreateProjectProjectArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateProject.project.artifacts.artifactIdentifier', props);
     return resource.getResponseField('project.artifacts.artifactIdentifier') as unknown as string;
+  }
+
+  public get bucketOwnerAccess(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createProject',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.CreateProject.project.artifacts.bucketOwnerAccess'),
+        outputPath: 'project.artifacts.bucketOwnerAccess',
+        parameters: {
+          name: this.__input.name,
+          description: this.__input.description,
+          source: {
+            type: this.__input.source.type,
+            location: this.__input.source.location,
+            gitCloneDepth: this.__input.source.gitCloneDepth,
+            gitSubmodulesConfig: {
+              fetchSubmodules: this.__input.source.gitSubmodulesConfig?.fetchSubmodules,
+            },
+            buildspec: this.__input.source.buildspec,
+            auth: {
+              type: this.__input.source.auth?.type,
+              resource: this.__input.source.auth?.resource,
+            },
+            reportBuildStatus: this.__input.source.reportBuildStatus,
+            buildStatusConfig: {
+              context: this.__input.source.buildStatusConfig?.context,
+              targetUrl: this.__input.source.buildStatusConfig?.targetUrl,
+            },
+            insecureSsl: this.__input.source.insecureSsl,
+            sourceIdentifier: this.__input.source.sourceIdentifier,
+          },
+          secondarySources: this.__input.secondarySources,
+          sourceVersion: this.__input.sourceVersion,
+          secondarySourceVersions: this.__input.secondarySourceVersions,
+          artifacts: {
+            type: this.__input.artifacts.type,
+            location: this.__input.artifacts.location,
+            path: this.__input.artifacts.path,
+            namespaceType: this.__input.artifacts.namespaceType,
+            name: this.__input.artifacts.name,
+            packaging: this.__input.artifacts.packaging,
+            overrideArtifactName: this.__input.artifacts.overrideArtifactName,
+            encryptionDisabled: this.__input.artifacts.encryptionDisabled,
+            artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
+          },
+          secondaryArtifacts: this.__input.secondaryArtifacts,
+          cache: {
+            type: this.__input.cache?.type,
+            location: this.__input.cache?.location,
+            modes: this.__input.cache?.modes,
+          },
+          environment: {
+            type: this.__input.environment.type,
+            image: this.__input.environment.image,
+            computeType: this.__input.environment.computeType,
+            environmentVariables: this.__input.environment.environmentVariables,
+            privilegedMode: this.__input.environment.privilegedMode,
+            certificate: this.__input.environment.certificate,
+            registryCredential: {
+              credential: this.__input.environment.registryCredential?.credential,
+              credentialProvider: this.__input.environment.registryCredential?.credentialProvider,
+            },
+            imagePullCredentialsType: this.__input.environment.imagePullCredentialsType,
+          },
+          serviceRole: this.__input.serviceRole,
+          timeoutInMinutes: this.__input.timeoutInMinutes,
+          queuedTimeoutInMinutes: this.__input.queuedTimeoutInMinutes,
+          encryptionKey: this.__input.encryptionKey,
+          tags: this.__input.tags,
+          vpcConfig: {
+            vpcId: this.__input.vpcConfig?.vpcId,
+            subnets: this.__input.vpcConfig?.subnets,
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          badgeEnabled: this.__input.badgeEnabled,
+          logsConfig: {
+            cloudWatchLogs: {
+              status: this.__input.logsConfig?.cloudWatchLogs?.status,
+              groupName: this.__input.logsConfig?.cloudWatchLogs?.groupName,
+              streamName: this.__input.logsConfig?.cloudWatchLogs?.streamName,
+            },
+            s3Logs: {
+              status: this.__input.logsConfig?.s3Logs?.status,
+              location: this.__input.logsConfig?.s3Logs?.location,
+              encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
+            },
+          },
+          fileSystemLocations: this.__input.fileSystemLocations,
+          buildBatchConfig: {
+            serviceRole: this.__input.buildBatchConfig?.serviceRole,
+            combineArtifacts: this.__input.buildBatchConfig?.combineArtifacts,
+            restrictions: {
+              maximumBuildsAllowed: this.__input.buildBatchConfig?.restrictions?.maximumBuildsAllowed,
+              computeTypesAllowed: this.__input.buildBatchConfig?.restrictions?.computeTypesAllowed,
+            },
+            timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
+          },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateProject.project.artifacts.bucketOwnerAccess', props);
+    return resource.getResponseField('project.artifacts.bucketOwnerAccess') as unknown as string;
   }
 
 }
@@ -4393,6 +4715,7 @@ export class CodeBuildResponsesCreateProjectProjectCache {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -4434,6 +4757,7 @@ export class CodeBuildResponsesCreateProjectProjectCache {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -4446,6 +4770,7 @@ export class CodeBuildResponsesCreateProjectProjectCache {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -4497,6 +4822,7 @@ export class CodeBuildResponsesCreateProjectProjectCache {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -4538,6 +4864,7 @@ export class CodeBuildResponsesCreateProjectProjectCache {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -4550,6 +4877,7 @@ export class CodeBuildResponsesCreateProjectProjectCache {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -4601,6 +4929,7 @@ export class CodeBuildResponsesCreateProjectProjectCache {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -4642,6 +4971,7 @@ export class CodeBuildResponsesCreateProjectProjectCache {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -4654,6 +4984,7 @@ export class CodeBuildResponsesCreateProjectProjectCache {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -4712,6 +5043,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -4753,6 +5085,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -4765,6 +5098,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -4816,6 +5150,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -4857,6 +5192,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -4869,6 +5205,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -4920,6 +5257,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -4961,6 +5299,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -4973,6 +5312,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -5024,6 +5364,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -5065,6 +5406,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -5077,6 +5419,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -5128,6 +5471,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -5169,6 +5513,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -5181,6 +5526,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -5232,6 +5578,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -5273,6 +5620,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -5285,6 +5633,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -5340,6 +5689,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -5381,6 +5731,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -5393,6 +5744,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -5451,6 +5803,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironmentRegistryCredential
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -5492,6 +5845,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironmentRegistryCredential
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -5504,6 +5858,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironmentRegistryCredential
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -5555,6 +5910,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironmentRegistryCredential
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -5596,6 +5952,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironmentRegistryCredential
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -5608,6 +5965,7 @@ export class CodeBuildResponsesCreateProjectProjectEnvironmentRegistryCredential
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -5666,6 +6024,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -5707,6 +6066,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -5719,6 +6079,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -5770,6 +6131,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -5811,6 +6173,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -5823,6 +6186,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -5874,6 +6238,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -5915,6 +6280,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -5927,6 +6293,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -5978,6 +6345,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -6019,6 +6387,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -6031,6 +6400,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -6082,6 +6452,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -6123,6 +6494,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -6135,6 +6507,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -6186,6 +6559,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -6227,6 +6601,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -6239,6 +6614,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -6290,6 +6666,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -6331,6 +6708,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -6343,6 +6721,7 @@ export class CodeBuildResponsesCreateProjectProjectWebhook {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -6401,6 +6780,7 @@ export class CodeBuildResponsesCreateProjectProjectVpcConfig {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -6442,6 +6822,7 @@ export class CodeBuildResponsesCreateProjectProjectVpcConfig {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -6454,6 +6835,7 @@ export class CodeBuildResponsesCreateProjectProjectVpcConfig {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -6505,6 +6887,7 @@ export class CodeBuildResponsesCreateProjectProjectVpcConfig {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -6546,6 +6929,7 @@ export class CodeBuildResponsesCreateProjectProjectVpcConfig {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -6558,6 +6942,7 @@ export class CodeBuildResponsesCreateProjectProjectVpcConfig {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -6609,6 +6994,7 @@ export class CodeBuildResponsesCreateProjectProjectVpcConfig {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -6650,6 +7036,7 @@ export class CodeBuildResponsesCreateProjectProjectVpcConfig {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -6662,6 +7049,7 @@ export class CodeBuildResponsesCreateProjectProjectVpcConfig {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -6720,6 +7108,7 @@ export class CodeBuildResponsesCreateProjectProjectBadge {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -6761,6 +7150,7 @@ export class CodeBuildResponsesCreateProjectProjectBadge {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -6773,6 +7163,7 @@ export class CodeBuildResponsesCreateProjectProjectBadge {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -6824,6 +7215,7 @@ export class CodeBuildResponsesCreateProjectProjectBadge {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -6865,6 +7257,7 @@ export class CodeBuildResponsesCreateProjectProjectBadge {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -6877,6 +7270,7 @@ export class CodeBuildResponsesCreateProjectProjectBadge {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -6950,6 +7344,7 @@ export class CodeBuildResponsesCreateProjectProjectLogsConfigCloudWatchLogs {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -6991,6 +7386,7 @@ export class CodeBuildResponsesCreateProjectProjectLogsConfigCloudWatchLogs {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -7003,6 +7399,7 @@ export class CodeBuildResponsesCreateProjectProjectLogsConfigCloudWatchLogs {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -7054,6 +7451,7 @@ export class CodeBuildResponsesCreateProjectProjectLogsConfigCloudWatchLogs {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -7095,6 +7493,7 @@ export class CodeBuildResponsesCreateProjectProjectLogsConfigCloudWatchLogs {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -7107,6 +7506,7 @@ export class CodeBuildResponsesCreateProjectProjectLogsConfigCloudWatchLogs {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -7158,6 +7558,7 @@ export class CodeBuildResponsesCreateProjectProjectLogsConfigCloudWatchLogs {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -7199,6 +7600,7 @@ export class CodeBuildResponsesCreateProjectProjectLogsConfigCloudWatchLogs {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -7211,6 +7613,7 @@ export class CodeBuildResponsesCreateProjectProjectLogsConfigCloudWatchLogs {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -7269,6 +7672,7 @@ export class CodeBuildResponsesCreateProjectProjectLogsConfigS3Logs {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -7310,6 +7714,7 @@ export class CodeBuildResponsesCreateProjectProjectLogsConfigS3Logs {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -7322,6 +7727,7 @@ export class CodeBuildResponsesCreateProjectProjectLogsConfigS3Logs {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -7373,6 +7779,7 @@ export class CodeBuildResponsesCreateProjectProjectLogsConfigS3Logs {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -7414,6 +7821,7 @@ export class CodeBuildResponsesCreateProjectProjectLogsConfigS3Logs {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -7426,6 +7834,7 @@ export class CodeBuildResponsesCreateProjectProjectLogsConfigS3Logs {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -7477,6 +7886,7 @@ export class CodeBuildResponsesCreateProjectProjectLogsConfigS3Logs {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -7518,6 +7928,7 @@ export class CodeBuildResponsesCreateProjectProjectLogsConfigS3Logs {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -7530,11 +7941,119 @@ export class CodeBuildResponsesCreateProjectProjectLogsConfigS3Logs {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateProject.project.logsConfig.s3Logs.encryptionDisabled', props);
     return resource.getResponseField('project.logsConfig.s3Logs.encryptionDisabled') as unknown as boolean;
+  }
+
+  public get bucketOwnerAccess(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createProject',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.CreateProject.project.logsConfig.s3Logs.bucketOwnerAccess'),
+        outputPath: 'project.logsConfig.s3Logs.bucketOwnerAccess',
+        parameters: {
+          name: this.__input.name,
+          description: this.__input.description,
+          source: {
+            type: this.__input.source.type,
+            location: this.__input.source.location,
+            gitCloneDepth: this.__input.source.gitCloneDepth,
+            gitSubmodulesConfig: {
+              fetchSubmodules: this.__input.source.gitSubmodulesConfig?.fetchSubmodules,
+            },
+            buildspec: this.__input.source.buildspec,
+            auth: {
+              type: this.__input.source.auth?.type,
+              resource: this.__input.source.auth?.resource,
+            },
+            reportBuildStatus: this.__input.source.reportBuildStatus,
+            buildStatusConfig: {
+              context: this.__input.source.buildStatusConfig?.context,
+              targetUrl: this.__input.source.buildStatusConfig?.targetUrl,
+            },
+            insecureSsl: this.__input.source.insecureSsl,
+            sourceIdentifier: this.__input.source.sourceIdentifier,
+          },
+          secondarySources: this.__input.secondarySources,
+          sourceVersion: this.__input.sourceVersion,
+          secondarySourceVersions: this.__input.secondarySourceVersions,
+          artifacts: {
+            type: this.__input.artifacts.type,
+            location: this.__input.artifacts.location,
+            path: this.__input.artifacts.path,
+            namespaceType: this.__input.artifacts.namespaceType,
+            name: this.__input.artifacts.name,
+            packaging: this.__input.artifacts.packaging,
+            overrideArtifactName: this.__input.artifacts.overrideArtifactName,
+            encryptionDisabled: this.__input.artifacts.encryptionDisabled,
+            artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
+          },
+          secondaryArtifacts: this.__input.secondaryArtifacts,
+          cache: {
+            type: this.__input.cache?.type,
+            location: this.__input.cache?.location,
+            modes: this.__input.cache?.modes,
+          },
+          environment: {
+            type: this.__input.environment.type,
+            image: this.__input.environment.image,
+            computeType: this.__input.environment.computeType,
+            environmentVariables: this.__input.environment.environmentVariables,
+            privilegedMode: this.__input.environment.privilegedMode,
+            certificate: this.__input.environment.certificate,
+            registryCredential: {
+              credential: this.__input.environment.registryCredential?.credential,
+              credentialProvider: this.__input.environment.registryCredential?.credentialProvider,
+            },
+            imagePullCredentialsType: this.__input.environment.imagePullCredentialsType,
+          },
+          serviceRole: this.__input.serviceRole,
+          timeoutInMinutes: this.__input.timeoutInMinutes,
+          queuedTimeoutInMinutes: this.__input.queuedTimeoutInMinutes,
+          encryptionKey: this.__input.encryptionKey,
+          tags: this.__input.tags,
+          vpcConfig: {
+            vpcId: this.__input.vpcConfig?.vpcId,
+            subnets: this.__input.vpcConfig?.subnets,
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          badgeEnabled: this.__input.badgeEnabled,
+          logsConfig: {
+            cloudWatchLogs: {
+              status: this.__input.logsConfig?.cloudWatchLogs?.status,
+              groupName: this.__input.logsConfig?.cloudWatchLogs?.groupName,
+              streamName: this.__input.logsConfig?.cloudWatchLogs?.streamName,
+            },
+            s3Logs: {
+              status: this.__input.logsConfig?.s3Logs?.status,
+              location: this.__input.logsConfig?.s3Logs?.location,
+              encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
+            },
+          },
+          fileSystemLocations: this.__input.fileSystemLocations,
+          buildBatchConfig: {
+            serviceRole: this.__input.buildBatchConfig?.serviceRole,
+            combineArtifacts: this.__input.buildBatchConfig?.combineArtifacts,
+            restrictions: {
+              maximumBuildsAllowed: this.__input.buildBatchConfig?.restrictions?.maximumBuildsAllowed,
+              computeTypesAllowed: this.__input.buildBatchConfig?.restrictions?.computeTypesAllowed,
+            },
+            timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
+          },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateProject.project.logsConfig.s3Logs.bucketOwnerAccess', props);
+    return resource.getResponseField('project.logsConfig.s3Logs.bucketOwnerAccess') as unknown as string;
   }
 
 }
@@ -7588,6 +8107,7 @@ export class CodeBuildResponsesCreateProjectProjectBuildBatchConfig {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -7629,6 +8149,7 @@ export class CodeBuildResponsesCreateProjectProjectBuildBatchConfig {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -7641,6 +8162,7 @@ export class CodeBuildResponsesCreateProjectProjectBuildBatchConfig {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -7692,6 +8214,7 @@ export class CodeBuildResponsesCreateProjectProjectBuildBatchConfig {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -7733,6 +8256,7 @@ export class CodeBuildResponsesCreateProjectProjectBuildBatchConfig {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -7745,6 +8269,7 @@ export class CodeBuildResponsesCreateProjectProjectBuildBatchConfig {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -7800,6 +8325,7 @@ export class CodeBuildResponsesCreateProjectProjectBuildBatchConfig {
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -7841,6 +8367,7 @@ export class CodeBuildResponsesCreateProjectProjectBuildBatchConfig {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -7853,6 +8380,7 @@ export class CodeBuildResponsesCreateProjectProjectBuildBatchConfig {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -7911,6 +8439,7 @@ export class CodeBuildResponsesCreateProjectProjectBuildBatchConfigRestrictions 
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -7952,6 +8481,7 @@ export class CodeBuildResponsesCreateProjectProjectBuildBatchConfigRestrictions 
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -7964,6 +8494,7 @@ export class CodeBuildResponsesCreateProjectProjectBuildBatchConfigRestrictions 
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -8015,6 +8546,7 @@ export class CodeBuildResponsesCreateProjectProjectBuildBatchConfigRestrictions 
             overrideArtifactName: this.__input.artifacts.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -8056,6 +8588,7 @@ export class CodeBuildResponsesCreateProjectProjectBuildBatchConfigRestrictions 
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -8068,6 +8601,7 @@ export class CodeBuildResponsesCreateProjectProjectBuildBatchConfigRestrictions 
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -8108,6 +8642,7 @@ export class CodeBuildResponsesCreateReportGroupReportGroup {
             exportConfigType: this.__input.exportConfig.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig.s3Destination?.bucketOwner,
               path: this.__input.exportConfig.s3Destination?.path,
               packaging: this.__input.exportConfig.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig.s3Destination?.encryptionKey,
@@ -8137,6 +8672,7 @@ export class CodeBuildResponsesCreateReportGroupReportGroup {
             exportConfigType: this.__input.exportConfig.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig.s3Destination?.bucketOwner,
               path: this.__input.exportConfig.s3Destination?.path,
               packaging: this.__input.exportConfig.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig.s3Destination?.encryptionKey,
@@ -8166,6 +8702,7 @@ export class CodeBuildResponsesCreateReportGroupReportGroup {
             exportConfigType: this.__input.exportConfig.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig.s3Destination?.bucketOwner,
               path: this.__input.exportConfig.s3Destination?.path,
               packaging: this.__input.exportConfig.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig.s3Destination?.encryptionKey,
@@ -8199,6 +8736,7 @@ export class CodeBuildResponsesCreateReportGroupReportGroup {
             exportConfigType: this.__input.exportConfig.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig.s3Destination?.bucketOwner,
               path: this.__input.exportConfig.s3Destination?.path,
               packaging: this.__input.exportConfig.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig.s3Destination?.encryptionKey,
@@ -8228,6 +8766,7 @@ export class CodeBuildResponsesCreateReportGroupReportGroup {
             exportConfigType: this.__input.exportConfig.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig.s3Destination?.bucketOwner,
               path: this.__input.exportConfig.s3Destination?.path,
               packaging: this.__input.exportConfig.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig.s3Destination?.encryptionKey,
@@ -8257,6 +8796,7 @@ export class CodeBuildResponsesCreateReportGroupReportGroup {
             exportConfigType: this.__input.exportConfig.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig.s3Destination?.bucketOwner,
               path: this.__input.exportConfig.s3Destination?.path,
               packaging: this.__input.exportConfig.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig.s3Destination?.encryptionKey,
@@ -8286,6 +8826,7 @@ export class CodeBuildResponsesCreateReportGroupReportGroup {
             exportConfigType: this.__input.exportConfig.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig.s3Destination?.bucketOwner,
               path: this.__input.exportConfig.s3Destination?.path,
               packaging: this.__input.exportConfig.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig.s3Destination?.encryptionKey,
@@ -8322,6 +8863,7 @@ export class CodeBuildResponsesCreateReportGroupReportGroupExportConfig {
             exportConfigType: this.__input.exportConfig.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig.s3Destination?.bucketOwner,
               path: this.__input.exportConfig.s3Destination?.path,
               packaging: this.__input.exportConfig.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig.s3Destination?.encryptionKey,
@@ -8362,6 +8904,7 @@ export class CodeBuildResponsesCreateReportGroupReportGroupExportConfigS3Destina
             exportConfigType: this.__input.exportConfig.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig.s3Destination?.bucketOwner,
               path: this.__input.exportConfig.s3Destination?.path,
               packaging: this.__input.exportConfig.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig.s3Destination?.encryptionKey,
@@ -8374,6 +8917,36 @@ export class CodeBuildResponsesCreateReportGroupReportGroupExportConfigS3Destina
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateReportGroup.reportGroup.exportConfig.s3Destination.bucket', props);
     return resource.getResponseField('reportGroup.exportConfig.s3Destination.bucket') as unknown as string;
+  }
+
+  public get bucketOwner(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createReportGroup',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.CreateReportGroup.reportGroup.exportConfig.s3Destination.bucketOwner'),
+        outputPath: 'reportGroup.exportConfig.s3Destination.bucketOwner',
+        parameters: {
+          name: this.__input.name,
+          type: this.__input.type,
+          exportConfig: {
+            exportConfigType: this.__input.exportConfig.exportConfigType,
+            s3Destination: {
+              bucket: this.__input.exportConfig.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig.s3Destination?.bucketOwner,
+              path: this.__input.exportConfig.s3Destination?.path,
+              packaging: this.__input.exportConfig.s3Destination?.packaging,
+              encryptionKey: this.__input.exportConfig.s3Destination?.encryptionKey,
+              encryptionDisabled: this.__input.exportConfig.s3Destination?.encryptionDisabled,
+            },
+          },
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateReportGroup.reportGroup.exportConfig.s3Destination.bucketOwner', props);
+    return resource.getResponseField('reportGroup.exportConfig.s3Destination.bucketOwner') as unknown as string;
   }
 
   public get path(): string {
@@ -8391,6 +8964,7 @@ export class CodeBuildResponsesCreateReportGroupReportGroupExportConfigS3Destina
             exportConfigType: this.__input.exportConfig.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig.s3Destination?.bucketOwner,
               path: this.__input.exportConfig.s3Destination?.path,
               packaging: this.__input.exportConfig.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig.s3Destination?.encryptionKey,
@@ -8420,6 +8994,7 @@ export class CodeBuildResponsesCreateReportGroupReportGroupExportConfigS3Destina
             exportConfigType: this.__input.exportConfig.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig.s3Destination?.bucketOwner,
               path: this.__input.exportConfig.s3Destination?.path,
               packaging: this.__input.exportConfig.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig.s3Destination?.encryptionKey,
@@ -8449,6 +9024,7 @@ export class CodeBuildResponsesCreateReportGroupReportGroupExportConfigS3Destina
             exportConfigType: this.__input.exportConfig.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig.s3Destination?.bucketOwner,
               path: this.__input.exportConfig.s3Destination?.path,
               packaging: this.__input.exportConfig.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig.s3Destination?.encryptionKey,
@@ -8478,6 +9054,7 @@ export class CodeBuildResponsesCreateReportGroupReportGroupExportConfigS3Destina
             exportConfigType: this.__input.exportConfig.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig.s3Destination?.bucketOwner,
               path: this.__input.exportConfig.s3Destination?.path,
               packaging: this.__input.exportConfig.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig.s3Destination?.encryptionKey,
@@ -10390,6 +10967,24 @@ export class CodeBuildResponsesRetryBuildBuild2Artifacts {
     return resource.getResponseField('build.artifacts.artifactIdentifier') as unknown as string;
   }
 
+  public get bucketOwnerAccess(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'retryBuild',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.RetryBuild.build.artifacts.bucketOwnerAccess'),
+        outputPath: 'build.artifacts.bucketOwnerAccess',
+        parameters: {
+          id: this.__input.id,
+          idempotencyToken: this.__input.idempotencyToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RetryBuild.build.artifacts.bucketOwnerAccess', props);
+    return resource.getResponseField('build.artifacts.bucketOwnerAccess') as unknown as string;
+  }
+
 }
 
 export class CodeBuildResponsesRetryBuildBuild2Cache {
@@ -10874,6 +11469,24 @@ export class CodeBuildResponsesRetryBuildBuild2LogsS3Logs {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RetryBuild.build.logs.s3Logs.encryptionDisabled', props);
     return resource.getResponseField('build.logs.s3Logs.encryptionDisabled') as unknown as boolean;
+  }
+
+  public get bucketOwnerAccess(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'retryBuild',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.RetryBuild.build.logs.s3Logs.bucketOwnerAccess'),
+        outputPath: 'build.logs.s3Logs.bucketOwnerAccess',
+        parameters: {
+          id: this.__input.id,
+          idempotencyToken: this.__input.idempotencyToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RetryBuild.build.logs.s3Logs.bucketOwnerAccess', props);
+    return resource.getResponseField('build.logs.s3Logs.bucketOwnerAccess') as unknown as string;
   }
 
 }
@@ -11487,6 +12100,25 @@ export class CodeBuildResponsesRetryBuildBatchBuildBatch {
     return resource.getResponseField('buildBatch.buildGroups') as unknown as shapes.CodeBuildBuildGroup[];
   }
 
+  public get debugSessionEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'retryBuildBatch',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.RetryBuildBatch.buildBatch.debugSessionEnabled'),
+        outputPath: 'buildBatch.debugSessionEnabled',
+        parameters: {
+          id: this.__input.id,
+          idempotencyToken: this.__input.idempotencyToken,
+          retryType: this.__input.retryType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RetryBuildBatch.buildBatch.debugSessionEnabled', props);
+    return resource.getResponseField('buildBatch.debugSessionEnabled') as unknown as boolean;
+  }
+
 }
 
 export class CodeBuildResponsesRetryBuildBatchBuildBatchSource {
@@ -11874,6 +12506,25 @@ export class CodeBuildResponsesRetryBuildBatchBuildBatchArtifacts {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RetryBuildBatch.buildBatch.artifacts.artifactIdentifier', props);
     return resource.getResponseField('buildBatch.artifacts.artifactIdentifier') as unknown as string;
+  }
+
+  public get bucketOwnerAccess(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'retryBuildBatch',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.RetryBuildBatch.buildBatch.artifacts.bucketOwnerAccess'),
+        outputPath: 'buildBatch.artifacts.bucketOwnerAccess',
+        parameters: {
+          id: this.__input.id,
+          idempotencyToken: this.__input.idempotencyToken,
+          retryType: this.__input.retryType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RetryBuildBatch.buildBatch.artifacts.bucketOwnerAccess', props);
+    return resource.getResponseField('buildBatch.artifacts.bucketOwnerAccess') as unknown as string;
   }
 
 }
@@ -12272,6 +12923,25 @@ export class CodeBuildResponsesRetryBuildBatchBuildBatchLogConfigS3Logs {
     return resource.getResponseField('buildBatch.logConfig.s3Logs.encryptionDisabled') as unknown as boolean;
   }
 
+  public get bucketOwnerAccess(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'retryBuildBatch',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.RetryBuildBatch.buildBatch.logConfig.s3Logs.bucketOwnerAccess'),
+        outputPath: 'buildBatch.logConfig.s3Logs.bucketOwnerAccess',
+        parameters: {
+          id: this.__input.id,
+          idempotencyToken: this.__input.idempotencyToken,
+          retryType: this.__input.retryType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RetryBuildBatch.buildBatch.logConfig.s3Logs.bucketOwnerAccess', props);
+    return resource.getResponseField('buildBatch.logConfig.s3Logs.bucketOwnerAccess') as unknown as string;
+  }
+
 }
 
 export class CodeBuildResponsesRetryBuildBatchBuildBatchVpcConfig {
@@ -12490,6 +13160,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -12535,6 +13206,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -12573,6 +13245,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -12618,6 +13291,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -12656,6 +13330,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -12701,6 +13376,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -12739,6 +13415,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -12784,6 +13461,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -12822,6 +13500,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -12867,6 +13546,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -12905,6 +13585,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -12950,6 +13631,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -12988,6 +13670,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -13033,6 +13716,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -13071,6 +13755,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -13116,6 +13801,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -13154,6 +13840,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -13199,6 +13886,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -13237,6 +13925,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -13282,6 +13971,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -13320,6 +14010,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -13365,6 +14056,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -13407,6 +14099,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -13452,6 +14145,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -13490,6 +14184,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -13535,6 +14230,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -13577,6 +14273,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -13622,6 +14319,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -13668,6 +14366,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -13713,6 +14412,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -13755,6 +14455,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -13800,6 +14501,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -13838,6 +14540,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -13883,6 +14586,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -13921,6 +14625,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -13966,6 +14671,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -14004,6 +14710,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -14049,6 +14756,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -14095,6 +14803,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -14140,6 +14849,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -14178,6 +14888,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -14223,6 +14934,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -14261,6 +14973,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -14306,6 +15019,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -14344,6 +15058,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -14389,6 +15104,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -14431,6 +15147,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -14476,6 +15193,7 @@ export class CodeBuildResponsesStartBuildBuild2 {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -14521,6 +15239,7 @@ export class CodeBuildResponsesStartBuildBuild2Source {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -14566,6 +15285,7 @@ export class CodeBuildResponsesStartBuildBuild2Source {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -14604,6 +15324,7 @@ export class CodeBuildResponsesStartBuildBuild2Source {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -14649,6 +15370,7 @@ export class CodeBuildResponsesStartBuildBuild2Source {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -14687,6 +15409,7 @@ export class CodeBuildResponsesStartBuildBuild2Source {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -14732,6 +15455,7 @@ export class CodeBuildResponsesStartBuildBuild2Source {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -14774,6 +15498,7 @@ export class CodeBuildResponsesStartBuildBuild2Source {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -14819,6 +15544,7 @@ export class CodeBuildResponsesStartBuildBuild2Source {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -14861,6 +15587,7 @@ export class CodeBuildResponsesStartBuildBuild2Source {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -14906,6 +15633,7 @@ export class CodeBuildResponsesStartBuildBuild2Source {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -14948,6 +15676,7 @@ export class CodeBuildResponsesStartBuildBuild2Source {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -14993,6 +15722,7 @@ export class CodeBuildResponsesStartBuildBuild2Source {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -15031,6 +15761,7 @@ export class CodeBuildResponsesStartBuildBuild2Source {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -15076,6 +15807,7 @@ export class CodeBuildResponsesStartBuildBuild2Source {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -15121,6 +15853,7 @@ export class CodeBuildResponsesStartBuildBuild2SourceGitSubmodulesConfig {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -15166,6 +15899,7 @@ export class CodeBuildResponsesStartBuildBuild2SourceGitSubmodulesConfig {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -15211,6 +15945,7 @@ export class CodeBuildResponsesStartBuildBuild2SourceAuth {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -15256,6 +15991,7 @@ export class CodeBuildResponsesStartBuildBuild2SourceAuth {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -15294,6 +16030,7 @@ export class CodeBuildResponsesStartBuildBuild2SourceAuth {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -15339,6 +16076,7 @@ export class CodeBuildResponsesStartBuildBuild2SourceAuth {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -15384,6 +16122,7 @@ export class CodeBuildResponsesStartBuildBuild2SourceBuildStatusConfig {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -15429,6 +16168,7 @@ export class CodeBuildResponsesStartBuildBuild2SourceBuildStatusConfig {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -15467,6 +16207,7 @@ export class CodeBuildResponsesStartBuildBuild2SourceBuildStatusConfig {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -15512,6 +16253,7 @@ export class CodeBuildResponsesStartBuildBuild2SourceBuildStatusConfig {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -15557,6 +16299,7 @@ export class CodeBuildResponsesStartBuildBuild2Artifacts {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -15602,6 +16345,7 @@ export class CodeBuildResponsesStartBuildBuild2Artifacts {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -15640,6 +16384,7 @@ export class CodeBuildResponsesStartBuildBuild2Artifacts {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -15685,6 +16430,7 @@ export class CodeBuildResponsesStartBuildBuild2Artifacts {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -15723,6 +16469,7 @@ export class CodeBuildResponsesStartBuildBuild2Artifacts {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -15768,6 +16515,7 @@ export class CodeBuildResponsesStartBuildBuild2Artifacts {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -15806,6 +16554,7 @@ export class CodeBuildResponsesStartBuildBuild2Artifacts {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -15851,6 +16600,7 @@ export class CodeBuildResponsesStartBuildBuild2Artifacts {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -15889,6 +16639,7 @@ export class CodeBuildResponsesStartBuildBuild2Artifacts {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -15934,6 +16685,7 @@ export class CodeBuildResponsesStartBuildBuild2Artifacts {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -15972,6 +16724,7 @@ export class CodeBuildResponsesStartBuildBuild2Artifacts {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -16017,6 +16770,7 @@ export class CodeBuildResponsesStartBuildBuild2Artifacts {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -16030,6 +16784,91 @@ export class CodeBuildResponsesStartBuildBuild2Artifacts {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'StartBuild.build.artifacts.artifactIdentifier', props);
     return resource.getResponseField('build.artifacts.artifactIdentifier') as unknown as string;
+  }
+
+  public get bucketOwnerAccess(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startBuild',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.StartBuild.build.artifacts.bucketOwnerAccess'),
+        outputPath: 'build.artifacts.bucketOwnerAccess',
+        parameters: {
+          projectName: this.__input.projectName,
+          secondarySourcesOverride: this.__input.secondarySourcesOverride,
+          secondarySourcesVersionOverride: this.__input.secondarySourcesVersionOverride,
+          sourceVersion: this.__input.sourceVersion,
+          artifactsOverride: {
+            type: this.__input.artifactsOverride?.type,
+            location: this.__input.artifactsOverride?.location,
+            path: this.__input.artifactsOverride?.path,
+            namespaceType: this.__input.artifactsOverride?.namespaceType,
+            name: this.__input.artifactsOverride?.name,
+            packaging: this.__input.artifactsOverride?.packaging,
+            overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
+            encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
+            artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
+          },
+          secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
+          environmentVariablesOverride: this.__input.environmentVariablesOverride,
+          sourceTypeOverride: this.__input.sourceTypeOverride,
+          sourceLocationOverride: this.__input.sourceLocationOverride,
+          sourceAuthOverride: {
+            type: this.__input.sourceAuthOverride?.type,
+            resource: this.__input.sourceAuthOverride?.resource,
+          },
+          gitCloneDepthOverride: this.__input.gitCloneDepthOverride,
+          gitSubmodulesConfigOverride: {
+            fetchSubmodules: this.__input.gitSubmodulesConfigOverride?.fetchSubmodules,
+          },
+          buildspecOverride: this.__input.buildspecOverride,
+          insecureSslOverride: this.__input.insecureSslOverride,
+          reportBuildStatusOverride: this.__input.reportBuildStatusOverride,
+          buildStatusConfigOverride: {
+            context: this.__input.buildStatusConfigOverride?.context,
+            targetUrl: this.__input.buildStatusConfigOverride?.targetUrl,
+          },
+          environmentTypeOverride: this.__input.environmentTypeOverride,
+          imageOverride: this.__input.imageOverride,
+          computeTypeOverride: this.__input.computeTypeOverride,
+          certificateOverride: this.__input.certificateOverride,
+          cacheOverride: {
+            type: this.__input.cacheOverride?.type,
+            location: this.__input.cacheOverride?.location,
+            modes: this.__input.cacheOverride?.modes,
+          },
+          serviceRoleOverride: this.__input.serviceRoleOverride,
+          privilegedModeOverride: this.__input.privilegedModeOverride,
+          timeoutInMinutesOverride: this.__input.timeoutInMinutesOverride,
+          queuedTimeoutInMinutesOverride: this.__input.queuedTimeoutInMinutesOverride,
+          encryptionKeyOverride: this.__input.encryptionKeyOverride,
+          idempotencyToken: this.__input.idempotencyToken,
+          logsConfigOverride: {
+            cloudWatchLogs: {
+              status: this.__input.logsConfigOverride?.cloudWatchLogs?.status,
+              groupName: this.__input.logsConfigOverride?.cloudWatchLogs?.groupName,
+              streamName: this.__input.logsConfigOverride?.cloudWatchLogs?.streamName,
+            },
+            s3Logs: {
+              status: this.__input.logsConfigOverride?.s3Logs?.status,
+              location: this.__input.logsConfigOverride?.s3Logs?.location,
+              encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
+            },
+          },
+          registryCredentialOverride: {
+            credential: this.__input.registryCredentialOverride?.credential,
+            credentialProvider: this.__input.registryCredentialOverride?.credentialProvider,
+          },
+          imagePullCredentialsTypeOverride: this.__input.imagePullCredentialsTypeOverride,
+          debugSessionEnabled: this.__input.debugSessionEnabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartBuild.build.artifacts.bucketOwnerAccess', props);
+    return resource.getResponseField('build.artifacts.bucketOwnerAccess') as unknown as string;
   }
 
 }
@@ -16062,6 +16901,7 @@ export class CodeBuildResponsesStartBuildBuild2Cache {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -16107,6 +16947,7 @@ export class CodeBuildResponsesStartBuildBuild2Cache {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -16145,6 +16986,7 @@ export class CodeBuildResponsesStartBuildBuild2Cache {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -16190,6 +17032,7 @@ export class CodeBuildResponsesStartBuildBuild2Cache {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -16228,6 +17071,7 @@ export class CodeBuildResponsesStartBuildBuild2Cache {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -16273,6 +17117,7 @@ export class CodeBuildResponsesStartBuildBuild2Cache {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -16318,6 +17163,7 @@ export class CodeBuildResponsesStartBuildBuild2Environment {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -16363,6 +17209,7 @@ export class CodeBuildResponsesStartBuildBuild2Environment {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -16401,6 +17248,7 @@ export class CodeBuildResponsesStartBuildBuild2Environment {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -16446,6 +17294,7 @@ export class CodeBuildResponsesStartBuildBuild2Environment {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -16484,6 +17333,7 @@ export class CodeBuildResponsesStartBuildBuild2Environment {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -16529,6 +17379,7 @@ export class CodeBuildResponsesStartBuildBuild2Environment {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -16567,6 +17418,7 @@ export class CodeBuildResponsesStartBuildBuild2Environment {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -16612,6 +17464,7 @@ export class CodeBuildResponsesStartBuildBuild2Environment {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -16650,6 +17503,7 @@ export class CodeBuildResponsesStartBuildBuild2Environment {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -16695,6 +17549,7 @@ export class CodeBuildResponsesStartBuildBuild2Environment {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -16733,6 +17588,7 @@ export class CodeBuildResponsesStartBuildBuild2Environment {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -16778,6 +17634,7 @@ export class CodeBuildResponsesStartBuildBuild2Environment {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -16820,6 +17677,7 @@ export class CodeBuildResponsesStartBuildBuild2Environment {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -16865,6 +17723,7 @@ export class CodeBuildResponsesStartBuildBuild2Environment {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -16910,6 +17769,7 @@ export class CodeBuildResponsesStartBuildBuild2EnvironmentRegistryCredential {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -16955,6 +17815,7 @@ export class CodeBuildResponsesStartBuildBuild2EnvironmentRegistryCredential {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -16993,6 +17854,7 @@ export class CodeBuildResponsesStartBuildBuild2EnvironmentRegistryCredential {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -17038,6 +17900,7 @@ export class CodeBuildResponsesStartBuildBuild2EnvironmentRegistryCredential {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -17083,6 +17946,7 @@ export class CodeBuildResponsesStartBuildBuild2Logs {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -17128,6 +17992,7 @@ export class CodeBuildResponsesStartBuildBuild2Logs {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -17166,6 +18031,7 @@ export class CodeBuildResponsesStartBuildBuild2Logs {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -17211,6 +18077,7 @@ export class CodeBuildResponsesStartBuildBuild2Logs {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -17249,6 +18116,7 @@ export class CodeBuildResponsesStartBuildBuild2Logs {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -17294,6 +18162,7 @@ export class CodeBuildResponsesStartBuildBuild2Logs {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -17332,6 +18201,7 @@ export class CodeBuildResponsesStartBuildBuild2Logs {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -17377,6 +18247,7 @@ export class CodeBuildResponsesStartBuildBuild2Logs {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -17415,6 +18286,7 @@ export class CodeBuildResponsesStartBuildBuild2Logs {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -17460,6 +18332,7 @@ export class CodeBuildResponsesStartBuildBuild2Logs {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -17498,6 +18371,7 @@ export class CodeBuildResponsesStartBuildBuild2Logs {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -17543,6 +18417,7 @@ export class CodeBuildResponsesStartBuildBuild2Logs {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -17596,6 +18471,7 @@ export class CodeBuildResponsesStartBuildBuild2LogsCloudWatchLogs {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -17641,6 +18517,7 @@ export class CodeBuildResponsesStartBuildBuild2LogsCloudWatchLogs {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -17679,6 +18556,7 @@ export class CodeBuildResponsesStartBuildBuild2LogsCloudWatchLogs {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -17724,6 +18602,7 @@ export class CodeBuildResponsesStartBuildBuild2LogsCloudWatchLogs {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -17762,6 +18641,7 @@ export class CodeBuildResponsesStartBuildBuild2LogsCloudWatchLogs {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -17807,6 +18687,7 @@ export class CodeBuildResponsesStartBuildBuild2LogsCloudWatchLogs {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -17852,6 +18733,7 @@ export class CodeBuildResponsesStartBuildBuild2LogsS3Logs {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -17897,6 +18779,7 @@ export class CodeBuildResponsesStartBuildBuild2LogsS3Logs {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -17935,6 +18818,7 @@ export class CodeBuildResponsesStartBuildBuild2LogsS3Logs {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -17980,6 +18864,7 @@ export class CodeBuildResponsesStartBuildBuild2LogsS3Logs {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -18018,6 +18903,7 @@ export class CodeBuildResponsesStartBuildBuild2LogsS3Logs {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -18063,6 +18949,7 @@ export class CodeBuildResponsesStartBuildBuild2LogsS3Logs {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -18076,6 +18963,91 @@ export class CodeBuildResponsesStartBuildBuild2LogsS3Logs {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'StartBuild.build.logs.s3Logs.encryptionDisabled', props);
     return resource.getResponseField('build.logs.s3Logs.encryptionDisabled') as unknown as boolean;
+  }
+
+  public get bucketOwnerAccess(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startBuild',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.StartBuild.build.logs.s3Logs.bucketOwnerAccess'),
+        outputPath: 'build.logs.s3Logs.bucketOwnerAccess',
+        parameters: {
+          projectName: this.__input.projectName,
+          secondarySourcesOverride: this.__input.secondarySourcesOverride,
+          secondarySourcesVersionOverride: this.__input.secondarySourcesVersionOverride,
+          sourceVersion: this.__input.sourceVersion,
+          artifactsOverride: {
+            type: this.__input.artifactsOverride?.type,
+            location: this.__input.artifactsOverride?.location,
+            path: this.__input.artifactsOverride?.path,
+            namespaceType: this.__input.artifactsOverride?.namespaceType,
+            name: this.__input.artifactsOverride?.name,
+            packaging: this.__input.artifactsOverride?.packaging,
+            overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
+            encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
+            artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
+          },
+          secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
+          environmentVariablesOverride: this.__input.environmentVariablesOverride,
+          sourceTypeOverride: this.__input.sourceTypeOverride,
+          sourceLocationOverride: this.__input.sourceLocationOverride,
+          sourceAuthOverride: {
+            type: this.__input.sourceAuthOverride?.type,
+            resource: this.__input.sourceAuthOverride?.resource,
+          },
+          gitCloneDepthOverride: this.__input.gitCloneDepthOverride,
+          gitSubmodulesConfigOverride: {
+            fetchSubmodules: this.__input.gitSubmodulesConfigOverride?.fetchSubmodules,
+          },
+          buildspecOverride: this.__input.buildspecOverride,
+          insecureSslOverride: this.__input.insecureSslOverride,
+          reportBuildStatusOverride: this.__input.reportBuildStatusOverride,
+          buildStatusConfigOverride: {
+            context: this.__input.buildStatusConfigOverride?.context,
+            targetUrl: this.__input.buildStatusConfigOverride?.targetUrl,
+          },
+          environmentTypeOverride: this.__input.environmentTypeOverride,
+          imageOverride: this.__input.imageOverride,
+          computeTypeOverride: this.__input.computeTypeOverride,
+          certificateOverride: this.__input.certificateOverride,
+          cacheOverride: {
+            type: this.__input.cacheOverride?.type,
+            location: this.__input.cacheOverride?.location,
+            modes: this.__input.cacheOverride?.modes,
+          },
+          serviceRoleOverride: this.__input.serviceRoleOverride,
+          privilegedModeOverride: this.__input.privilegedModeOverride,
+          timeoutInMinutesOverride: this.__input.timeoutInMinutesOverride,
+          queuedTimeoutInMinutesOverride: this.__input.queuedTimeoutInMinutesOverride,
+          encryptionKeyOverride: this.__input.encryptionKeyOverride,
+          idempotencyToken: this.__input.idempotencyToken,
+          logsConfigOverride: {
+            cloudWatchLogs: {
+              status: this.__input.logsConfigOverride?.cloudWatchLogs?.status,
+              groupName: this.__input.logsConfigOverride?.cloudWatchLogs?.groupName,
+              streamName: this.__input.logsConfigOverride?.cloudWatchLogs?.streamName,
+            },
+            s3Logs: {
+              status: this.__input.logsConfigOverride?.s3Logs?.status,
+              location: this.__input.logsConfigOverride?.s3Logs?.location,
+              encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
+            },
+          },
+          registryCredentialOverride: {
+            credential: this.__input.registryCredentialOverride?.credential,
+            credentialProvider: this.__input.registryCredentialOverride?.credentialProvider,
+          },
+          imagePullCredentialsTypeOverride: this.__input.imagePullCredentialsTypeOverride,
+          debugSessionEnabled: this.__input.debugSessionEnabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartBuild.build.logs.s3Logs.bucketOwnerAccess', props);
+    return resource.getResponseField('build.logs.s3Logs.bucketOwnerAccess') as unknown as string;
   }
 
 }
@@ -18108,6 +19080,7 @@ export class CodeBuildResponsesStartBuildBuild2VpcConfig {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -18153,6 +19126,7 @@ export class CodeBuildResponsesStartBuildBuild2VpcConfig {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -18191,6 +19165,7 @@ export class CodeBuildResponsesStartBuildBuild2VpcConfig {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -18236,6 +19211,7 @@ export class CodeBuildResponsesStartBuildBuild2VpcConfig {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -18274,6 +19250,7 @@ export class CodeBuildResponsesStartBuildBuild2VpcConfig {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -18319,6 +19296,7 @@ export class CodeBuildResponsesStartBuildBuild2VpcConfig {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -18364,6 +19342,7 @@ export class CodeBuildResponsesStartBuildBuild2NetworkInterface {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -18409,6 +19388,7 @@ export class CodeBuildResponsesStartBuildBuild2NetworkInterface {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -18447,6 +19427,7 @@ export class CodeBuildResponsesStartBuildBuild2NetworkInterface {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -18492,6 +19473,7 @@ export class CodeBuildResponsesStartBuildBuild2NetworkInterface {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -18537,6 +19519,7 @@ export class CodeBuildResponsesStartBuildBuild2DebugSession {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -18582,6 +19565,7 @@ export class CodeBuildResponsesStartBuildBuild2DebugSession {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -18620,6 +19604,7 @@ export class CodeBuildResponsesStartBuildBuild2DebugSession {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -18665,6 +19650,7 @@ export class CodeBuildResponsesStartBuildBuild2DebugSession {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -18721,6 +19707,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -18762,6 +19749,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -18778,6 +19766,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -18808,6 +19797,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -18849,6 +19839,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -18865,6 +19856,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -18895,6 +19887,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -18936,6 +19929,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -18952,6 +19946,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -18982,6 +19977,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -19023,6 +20019,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -19039,6 +20036,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -19069,6 +20067,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -19110,6 +20109,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -19126,6 +20126,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -19156,6 +20157,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -19197,6 +20199,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -19213,6 +20216,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -19243,6 +20247,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -19284,6 +20289,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -19300,6 +20306,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -19330,6 +20337,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -19371,6 +20379,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -19387,6 +20396,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -19417,6 +20427,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -19458,6 +20469,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -19474,6 +20486,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -19504,6 +20517,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -19545,6 +20559,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -19561,6 +20576,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -19595,6 +20611,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -19636,6 +20653,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -19652,6 +20670,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -19682,6 +20701,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -19723,6 +20743,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -19739,6 +20760,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -19773,6 +20795,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -19814,6 +20837,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -19830,6 +20854,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -19868,6 +20893,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -19909,6 +20935,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -19925,6 +20952,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -19959,6 +20987,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -20000,6 +21029,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -20016,6 +21046,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -20046,6 +21077,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -20087,6 +21119,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -20103,6 +21136,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -20133,6 +21167,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -20174,6 +21209,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -20190,6 +21226,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -20220,6 +21257,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -20261,6 +21299,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -20277,6 +21316,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -20311,6 +21351,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -20352,6 +21393,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -20368,6 +21410,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -20398,6 +21441,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -20439,6 +21483,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -20455,6 +21500,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -20485,6 +21531,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -20526,6 +21573,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -20542,6 +21590,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -20576,6 +21625,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -20617,6 +21667,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -20633,11 +21684,102 @@ export class CodeBuildResponsesStartBuildBatchBuildBatch {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'StartBuildBatch.buildBatch.buildGroups', props);
     return resource.getResponseField('buildBatch.buildGroups') as unknown as shapes.CodeBuildBuildGroup[];
+  }
+
+  public get debugSessionEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startBuildBatch',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.StartBuildBatch.buildBatch.debugSessionEnabled'),
+        outputPath: 'buildBatch.debugSessionEnabled',
+        parameters: {
+          projectName: this.__input.projectName,
+          secondarySourcesOverride: this.__input.secondarySourcesOverride,
+          secondarySourcesVersionOverride: this.__input.secondarySourcesVersionOverride,
+          sourceVersion: this.__input.sourceVersion,
+          artifactsOverride: {
+            type: this.__input.artifactsOverride?.type,
+            location: this.__input.artifactsOverride?.location,
+            path: this.__input.artifactsOverride?.path,
+            namespaceType: this.__input.artifactsOverride?.namespaceType,
+            name: this.__input.artifactsOverride?.name,
+            packaging: this.__input.artifactsOverride?.packaging,
+            overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
+            encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
+            artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
+          },
+          secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
+          environmentVariablesOverride: this.__input.environmentVariablesOverride,
+          sourceTypeOverride: this.__input.sourceTypeOverride,
+          sourceLocationOverride: this.__input.sourceLocationOverride,
+          sourceAuthOverride: {
+            type: this.__input.sourceAuthOverride?.type,
+            resource: this.__input.sourceAuthOverride?.resource,
+          },
+          gitCloneDepthOverride: this.__input.gitCloneDepthOverride,
+          gitSubmodulesConfigOverride: {
+            fetchSubmodules: this.__input.gitSubmodulesConfigOverride?.fetchSubmodules,
+          },
+          buildspecOverride: this.__input.buildspecOverride,
+          insecureSslOverride: this.__input.insecureSslOverride,
+          reportBuildBatchStatusOverride: this.__input.reportBuildBatchStatusOverride,
+          environmentTypeOverride: this.__input.environmentTypeOverride,
+          imageOverride: this.__input.imageOverride,
+          computeTypeOverride: this.__input.computeTypeOverride,
+          certificateOverride: this.__input.certificateOverride,
+          cacheOverride: {
+            type: this.__input.cacheOverride?.type,
+            location: this.__input.cacheOverride?.location,
+            modes: this.__input.cacheOverride?.modes,
+          },
+          serviceRoleOverride: this.__input.serviceRoleOverride,
+          privilegedModeOverride: this.__input.privilegedModeOverride,
+          buildTimeoutInMinutesOverride: this.__input.buildTimeoutInMinutesOverride,
+          queuedTimeoutInMinutesOverride: this.__input.queuedTimeoutInMinutesOverride,
+          encryptionKeyOverride: this.__input.encryptionKeyOverride,
+          idempotencyToken: this.__input.idempotencyToken,
+          logsConfigOverride: {
+            cloudWatchLogs: {
+              status: this.__input.logsConfigOverride?.cloudWatchLogs?.status,
+              groupName: this.__input.logsConfigOverride?.cloudWatchLogs?.groupName,
+              streamName: this.__input.logsConfigOverride?.cloudWatchLogs?.streamName,
+            },
+            s3Logs: {
+              status: this.__input.logsConfigOverride?.s3Logs?.status,
+              location: this.__input.logsConfigOverride?.s3Logs?.location,
+              encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
+            },
+          },
+          registryCredentialOverride: {
+            credential: this.__input.registryCredentialOverride?.credential,
+            credentialProvider: this.__input.registryCredentialOverride?.credentialProvider,
+          },
+          imagePullCredentialsTypeOverride: this.__input.imagePullCredentialsTypeOverride,
+          buildBatchConfigOverride: {
+            serviceRole: this.__input.buildBatchConfigOverride?.serviceRole,
+            combineArtifacts: this.__input.buildBatchConfigOverride?.combineArtifacts,
+            restrictions: {
+              maximumBuildsAllowed: this.__input.buildBatchConfigOverride?.restrictions?.maximumBuildsAllowed,
+              computeTypesAllowed: this.__input.buildBatchConfigOverride?.restrictions?.computeTypesAllowed,
+            },
+            timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
+          },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartBuildBatch.buildBatch.debugSessionEnabled', props);
+    return resource.getResponseField('buildBatch.debugSessionEnabled') as unknown as boolean;
   }
 
 }
@@ -20670,6 +21812,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -20711,6 +21854,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -20727,6 +21871,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -20757,6 +21902,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -20798,6 +21944,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -20814,6 +21961,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -20844,6 +21992,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -20885,6 +22034,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -20901,6 +22051,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -20935,6 +22086,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -20976,6 +22128,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -20992,6 +22145,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -21026,6 +22180,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -21067,6 +22222,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -21083,6 +22239,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -21117,6 +22274,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -21158,6 +22316,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -21174,6 +22333,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -21204,6 +22364,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -21245,6 +22406,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -21261,6 +22423,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSource {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -21298,6 +22461,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSourceGitSubmodulesConfi
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -21339,6 +22503,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSourceGitSubmodulesConfi
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -21355,6 +22520,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSourceGitSubmodulesConfi
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -21392,6 +22558,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSourceAuth {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -21433,6 +22600,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSourceAuth {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -21449,6 +22617,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSourceAuth {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -21479,6 +22648,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSourceAuth {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -21520,6 +22690,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSourceAuth {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -21536,6 +22707,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSourceAuth {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -21573,6 +22745,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSourceBuildStatusConfig 
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -21614,6 +22787,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSourceBuildStatusConfig 
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -21630,6 +22804,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSourceBuildStatusConfig 
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -21660,6 +22835,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSourceBuildStatusConfig 
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -21701,6 +22877,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSourceBuildStatusConfig 
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -21717,6 +22894,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchSourceBuildStatusConfig 
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -21754,6 +22932,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchArtifacts {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -21795,6 +22974,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchArtifacts {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -21811,6 +22991,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -21841,6 +23022,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchArtifacts {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -21882,6 +23064,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchArtifacts {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -21898,6 +23081,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -21928,6 +23112,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchArtifacts {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -21969,6 +23154,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchArtifacts {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -21985,6 +23171,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -22015,6 +23202,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchArtifacts {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -22056,6 +23244,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchArtifacts {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -22072,6 +23261,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -22102,6 +23292,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchArtifacts {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -22143,6 +23334,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchArtifacts {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -22159,6 +23351,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -22189,6 +23382,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchArtifacts {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -22230,6 +23424,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchArtifacts {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -22246,11 +23441,102 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'StartBuildBatch.buildBatch.artifacts.artifactIdentifier', props);
     return resource.getResponseField('buildBatch.artifacts.artifactIdentifier') as unknown as string;
+  }
+
+  public get bucketOwnerAccess(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startBuildBatch',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.StartBuildBatch.buildBatch.artifacts.bucketOwnerAccess'),
+        outputPath: 'buildBatch.artifacts.bucketOwnerAccess',
+        parameters: {
+          projectName: this.__input.projectName,
+          secondarySourcesOverride: this.__input.secondarySourcesOverride,
+          secondarySourcesVersionOverride: this.__input.secondarySourcesVersionOverride,
+          sourceVersion: this.__input.sourceVersion,
+          artifactsOverride: {
+            type: this.__input.artifactsOverride?.type,
+            location: this.__input.artifactsOverride?.location,
+            path: this.__input.artifactsOverride?.path,
+            namespaceType: this.__input.artifactsOverride?.namespaceType,
+            name: this.__input.artifactsOverride?.name,
+            packaging: this.__input.artifactsOverride?.packaging,
+            overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
+            encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
+            artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
+          },
+          secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
+          environmentVariablesOverride: this.__input.environmentVariablesOverride,
+          sourceTypeOverride: this.__input.sourceTypeOverride,
+          sourceLocationOverride: this.__input.sourceLocationOverride,
+          sourceAuthOverride: {
+            type: this.__input.sourceAuthOverride?.type,
+            resource: this.__input.sourceAuthOverride?.resource,
+          },
+          gitCloneDepthOverride: this.__input.gitCloneDepthOverride,
+          gitSubmodulesConfigOverride: {
+            fetchSubmodules: this.__input.gitSubmodulesConfigOverride?.fetchSubmodules,
+          },
+          buildspecOverride: this.__input.buildspecOverride,
+          insecureSslOverride: this.__input.insecureSslOverride,
+          reportBuildBatchStatusOverride: this.__input.reportBuildBatchStatusOverride,
+          environmentTypeOverride: this.__input.environmentTypeOverride,
+          imageOverride: this.__input.imageOverride,
+          computeTypeOverride: this.__input.computeTypeOverride,
+          certificateOverride: this.__input.certificateOverride,
+          cacheOverride: {
+            type: this.__input.cacheOverride?.type,
+            location: this.__input.cacheOverride?.location,
+            modes: this.__input.cacheOverride?.modes,
+          },
+          serviceRoleOverride: this.__input.serviceRoleOverride,
+          privilegedModeOverride: this.__input.privilegedModeOverride,
+          buildTimeoutInMinutesOverride: this.__input.buildTimeoutInMinutesOverride,
+          queuedTimeoutInMinutesOverride: this.__input.queuedTimeoutInMinutesOverride,
+          encryptionKeyOverride: this.__input.encryptionKeyOverride,
+          idempotencyToken: this.__input.idempotencyToken,
+          logsConfigOverride: {
+            cloudWatchLogs: {
+              status: this.__input.logsConfigOverride?.cloudWatchLogs?.status,
+              groupName: this.__input.logsConfigOverride?.cloudWatchLogs?.groupName,
+              streamName: this.__input.logsConfigOverride?.cloudWatchLogs?.streamName,
+            },
+            s3Logs: {
+              status: this.__input.logsConfigOverride?.s3Logs?.status,
+              location: this.__input.logsConfigOverride?.s3Logs?.location,
+              encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
+            },
+          },
+          registryCredentialOverride: {
+            credential: this.__input.registryCredentialOverride?.credential,
+            credentialProvider: this.__input.registryCredentialOverride?.credentialProvider,
+          },
+          imagePullCredentialsTypeOverride: this.__input.imagePullCredentialsTypeOverride,
+          buildBatchConfigOverride: {
+            serviceRole: this.__input.buildBatchConfigOverride?.serviceRole,
+            combineArtifacts: this.__input.buildBatchConfigOverride?.combineArtifacts,
+            restrictions: {
+              maximumBuildsAllowed: this.__input.buildBatchConfigOverride?.restrictions?.maximumBuildsAllowed,
+              computeTypesAllowed: this.__input.buildBatchConfigOverride?.restrictions?.computeTypesAllowed,
+            },
+            timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
+          },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartBuildBatch.buildBatch.artifacts.bucketOwnerAccess', props);
+    return resource.getResponseField('buildBatch.artifacts.bucketOwnerAccess') as unknown as string;
   }
 
 }
@@ -22283,6 +23569,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchCache {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -22324,6 +23611,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchCache {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -22340,6 +23628,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchCache {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -22370,6 +23659,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchCache {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -22411,6 +23701,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchCache {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -22427,6 +23718,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchCache {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -22457,6 +23749,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchCache {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -22498,6 +23791,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchCache {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -22514,6 +23808,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchCache {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -22551,6 +23846,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -22592,6 +23888,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -22608,6 +23905,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -22638,6 +23936,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -22679,6 +23978,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -22695,6 +23995,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -22725,6 +24026,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -22766,6 +24068,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -22782,6 +24085,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -22812,6 +24116,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -22853,6 +24158,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -22869,6 +24175,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -22899,6 +24206,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -22940,6 +24248,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -22956,6 +24265,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -22986,6 +24296,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -23027,6 +24338,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -23043,6 +24355,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -23077,6 +24390,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -23118,6 +24432,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -23134,6 +24449,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -23171,6 +24487,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironmentRegistryCrede
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -23212,6 +24529,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironmentRegistryCrede
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -23228,6 +24546,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironmentRegistryCrede
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -23258,6 +24577,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironmentRegistryCrede
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -23299,6 +24619,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironmentRegistryCrede
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -23315,6 +24636,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchEnvironmentRegistryCrede
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -23367,6 +24689,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchLogConfigCloudWatchLogs 
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -23408,6 +24731,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchLogConfigCloudWatchLogs 
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -23424,6 +24748,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchLogConfigCloudWatchLogs 
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -23454,6 +24779,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchLogConfigCloudWatchLogs 
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -23495,6 +24821,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchLogConfigCloudWatchLogs 
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -23511,6 +24838,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchLogConfigCloudWatchLogs 
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -23541,6 +24869,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchLogConfigCloudWatchLogs 
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -23582,6 +24911,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchLogConfigCloudWatchLogs 
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -23598,6 +24928,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchLogConfigCloudWatchLogs 
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -23635,6 +24966,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchLogConfigS3Logs {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -23676,6 +25008,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchLogConfigS3Logs {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -23692,6 +25025,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchLogConfigS3Logs {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -23722,6 +25056,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchLogConfigS3Logs {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -23763,6 +25098,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchLogConfigS3Logs {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -23779,6 +25115,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchLogConfigS3Logs {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -23809,6 +25146,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchLogConfigS3Logs {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -23850,6 +25188,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchLogConfigS3Logs {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -23866,11 +25205,102 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchLogConfigS3Logs {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'StartBuildBatch.buildBatch.logConfig.s3Logs.encryptionDisabled', props);
     return resource.getResponseField('buildBatch.logConfig.s3Logs.encryptionDisabled') as unknown as boolean;
+  }
+
+  public get bucketOwnerAccess(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startBuildBatch',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.StartBuildBatch.buildBatch.logConfig.s3Logs.bucketOwnerAccess'),
+        outputPath: 'buildBatch.logConfig.s3Logs.bucketOwnerAccess',
+        parameters: {
+          projectName: this.__input.projectName,
+          secondarySourcesOverride: this.__input.secondarySourcesOverride,
+          secondarySourcesVersionOverride: this.__input.secondarySourcesVersionOverride,
+          sourceVersion: this.__input.sourceVersion,
+          artifactsOverride: {
+            type: this.__input.artifactsOverride?.type,
+            location: this.__input.artifactsOverride?.location,
+            path: this.__input.artifactsOverride?.path,
+            namespaceType: this.__input.artifactsOverride?.namespaceType,
+            name: this.__input.artifactsOverride?.name,
+            packaging: this.__input.artifactsOverride?.packaging,
+            overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
+            encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
+            artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
+          },
+          secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
+          environmentVariablesOverride: this.__input.environmentVariablesOverride,
+          sourceTypeOverride: this.__input.sourceTypeOverride,
+          sourceLocationOverride: this.__input.sourceLocationOverride,
+          sourceAuthOverride: {
+            type: this.__input.sourceAuthOverride?.type,
+            resource: this.__input.sourceAuthOverride?.resource,
+          },
+          gitCloneDepthOverride: this.__input.gitCloneDepthOverride,
+          gitSubmodulesConfigOverride: {
+            fetchSubmodules: this.__input.gitSubmodulesConfigOverride?.fetchSubmodules,
+          },
+          buildspecOverride: this.__input.buildspecOverride,
+          insecureSslOverride: this.__input.insecureSslOverride,
+          reportBuildBatchStatusOverride: this.__input.reportBuildBatchStatusOverride,
+          environmentTypeOverride: this.__input.environmentTypeOverride,
+          imageOverride: this.__input.imageOverride,
+          computeTypeOverride: this.__input.computeTypeOverride,
+          certificateOverride: this.__input.certificateOverride,
+          cacheOverride: {
+            type: this.__input.cacheOverride?.type,
+            location: this.__input.cacheOverride?.location,
+            modes: this.__input.cacheOverride?.modes,
+          },
+          serviceRoleOverride: this.__input.serviceRoleOverride,
+          privilegedModeOverride: this.__input.privilegedModeOverride,
+          buildTimeoutInMinutesOverride: this.__input.buildTimeoutInMinutesOverride,
+          queuedTimeoutInMinutesOverride: this.__input.queuedTimeoutInMinutesOverride,
+          encryptionKeyOverride: this.__input.encryptionKeyOverride,
+          idempotencyToken: this.__input.idempotencyToken,
+          logsConfigOverride: {
+            cloudWatchLogs: {
+              status: this.__input.logsConfigOverride?.cloudWatchLogs?.status,
+              groupName: this.__input.logsConfigOverride?.cloudWatchLogs?.groupName,
+              streamName: this.__input.logsConfigOverride?.cloudWatchLogs?.streamName,
+            },
+            s3Logs: {
+              status: this.__input.logsConfigOverride?.s3Logs?.status,
+              location: this.__input.logsConfigOverride?.s3Logs?.location,
+              encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
+            },
+          },
+          registryCredentialOverride: {
+            credential: this.__input.registryCredentialOverride?.credential,
+            credentialProvider: this.__input.registryCredentialOverride?.credentialProvider,
+          },
+          imagePullCredentialsTypeOverride: this.__input.imagePullCredentialsTypeOverride,
+          buildBatchConfigOverride: {
+            serviceRole: this.__input.buildBatchConfigOverride?.serviceRole,
+            combineArtifacts: this.__input.buildBatchConfigOverride?.combineArtifacts,
+            restrictions: {
+              maximumBuildsAllowed: this.__input.buildBatchConfigOverride?.restrictions?.maximumBuildsAllowed,
+              computeTypesAllowed: this.__input.buildBatchConfigOverride?.restrictions?.computeTypesAllowed,
+            },
+            timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
+          },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartBuildBatch.buildBatch.logConfig.s3Logs.bucketOwnerAccess', props);
+    return resource.getResponseField('buildBatch.logConfig.s3Logs.bucketOwnerAccess') as unknown as string;
   }
 
 }
@@ -23903,6 +25333,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchVpcConfig {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -23944,6 +25375,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchVpcConfig {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -23960,6 +25392,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchVpcConfig {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -23990,6 +25423,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchVpcConfig {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -24031,6 +25465,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchVpcConfig {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -24047,6 +25482,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchVpcConfig {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -24077,6 +25513,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchVpcConfig {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -24118,6 +25555,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchVpcConfig {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -24134,6 +25572,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchVpcConfig {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -24171,6 +25610,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchBuildBatchConfig {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -24212,6 +25652,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchBuildBatchConfig {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -24228,6 +25669,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchBuildBatchConfig {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -24258,6 +25700,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchBuildBatchConfig {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -24299,6 +25742,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchBuildBatchConfig {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -24315,6 +25759,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchBuildBatchConfig {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -24349,6 +25794,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchBuildBatchConfig {
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -24390,6 +25836,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchBuildBatchConfig {
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -24406,6 +25853,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchBuildBatchConfig {
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -24443,6 +25891,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchBuildBatchConfigRestrict
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -24484,6 +25933,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchBuildBatchConfigRestrict
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -24500,6 +25950,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchBuildBatchConfigRestrict
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -24530,6 +25981,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchBuildBatchConfigRestrict
             overrideArtifactName: this.__input.artifactsOverride?.overrideArtifactName,
             encryptionDisabled: this.__input.artifactsOverride?.encryptionDisabled,
             artifactIdentifier: this.__input.artifactsOverride?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifactsOverride?.bucketOwnerAccess,
           },
           secondaryArtifactsOverride: this.__input.secondaryArtifactsOverride,
           environmentVariablesOverride: this.__input.environmentVariablesOverride,
@@ -24571,6 +26023,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchBuildBatchConfigRestrict
               status: this.__input.logsConfigOverride?.s3Logs?.status,
               location: this.__input.logsConfigOverride?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfigOverride?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfigOverride?.s3Logs?.bucketOwnerAccess,
             },
           },
           registryCredentialOverride: {
@@ -24587,6 +26040,7 @@ export class CodeBuildResponsesStartBuildBatchBuildBatchBuildBatchConfigRestrict
             },
             timeoutInMins: this.__input.buildBatchConfigOverride?.timeoutInMins,
           },
+          debugSessionEnabled: this.__input.debugSessionEnabled,
         },
       },
     };
@@ -25405,6 +26859,23 @@ export class CodeBuildResponsesStopBuildBuild2Artifacts {
     return resource.getResponseField('build.artifacts.artifactIdentifier') as unknown as string;
   }
 
+  public get bucketOwnerAccess(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopBuild',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.StopBuild.build.artifacts.bucketOwnerAccess'),
+        outputPath: 'build.artifacts.bucketOwnerAccess',
+        parameters: {
+          id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopBuild.build.artifacts.bucketOwnerAccess', props);
+    return resource.getResponseField('build.artifacts.bucketOwnerAccess') as unknown as string;
+  }
+
 }
 
 export class CodeBuildResponsesStopBuildBuild2Cache {
@@ -25865,6 +27336,23 @@ export class CodeBuildResponsesStopBuildBuild2LogsS3Logs {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'StopBuild.build.logs.s3Logs.encryptionDisabled', props);
     return resource.getResponseField('build.logs.s3Logs.encryptionDisabled') as unknown as boolean;
+  }
+
+  public get bucketOwnerAccess(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopBuild',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.StopBuild.build.logs.s3Logs.bucketOwnerAccess'),
+        outputPath: 'build.logs.s3Logs.bucketOwnerAccess',
+        parameters: {
+          id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopBuild.build.logs.s3Logs.bucketOwnerAccess', props);
+    return resource.getResponseField('build.logs.s3Logs.bucketOwnerAccess') as unknown as string;
   }
 
 }
@@ -26427,6 +27915,23 @@ export class CodeBuildResponsesStopBuildBatchBuildBatch {
     return resource.getResponseField('buildBatch.buildGroups') as unknown as shapes.CodeBuildBuildGroup[];
   }
 
+  public get debugSessionEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopBuildBatch',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.StopBuildBatch.buildBatch.debugSessionEnabled'),
+        outputPath: 'buildBatch.debugSessionEnabled',
+        parameters: {
+          id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopBuildBatch.buildBatch.debugSessionEnabled', props);
+    return resource.getResponseField('buildBatch.debugSessionEnabled') as unknown as boolean;
+  }
+
 }
 
 export class CodeBuildResponsesStopBuildBatchBuildBatchSource {
@@ -26778,6 +28283,23 @@ export class CodeBuildResponsesStopBuildBatchBuildBatchArtifacts {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'StopBuildBatch.buildBatch.artifacts.artifactIdentifier', props);
     return resource.getResponseField('buildBatch.artifacts.artifactIdentifier') as unknown as string;
+  }
+
+  public get bucketOwnerAccess(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopBuildBatch',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.StopBuildBatch.buildBatch.artifacts.bucketOwnerAccess'),
+        outputPath: 'buildBatch.artifacts.bucketOwnerAccess',
+        parameters: {
+          id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopBuildBatch.buildBatch.artifacts.bucketOwnerAccess', props);
+    return resource.getResponseField('buildBatch.artifacts.bucketOwnerAccess') as unknown as string;
   }
 
 }
@@ -27140,6 +28662,23 @@ export class CodeBuildResponsesStopBuildBatchBuildBatchLogConfigS3Logs {
     return resource.getResponseField('buildBatch.logConfig.s3Logs.encryptionDisabled') as unknown as boolean;
   }
 
+  public get bucketOwnerAccess(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopBuildBatch',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.StopBuildBatch.buildBatch.logConfig.s3Logs.bucketOwnerAccess'),
+        outputPath: 'buildBatch.logConfig.s3Logs.bucketOwnerAccess',
+        parameters: {
+          id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopBuildBatch.buildBatch.logConfig.s3Logs.bucketOwnerAccess', props);
+    return resource.getResponseField('buildBatch.logConfig.s3Logs.bucketOwnerAccess') as unknown as string;
+  }
+
 }
 
 export class CodeBuildResponsesStopBuildBatchBuildBatchVpcConfig {
@@ -27363,6 +28902,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -27404,6 +28944,7 @@ export class CodeBuildResponsesUpdateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -27416,6 +28957,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -27467,6 +29009,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -27508,6 +29051,7 @@ export class CodeBuildResponsesUpdateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -27520,6 +29064,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -27571,6 +29116,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -27612,6 +29158,7 @@ export class CodeBuildResponsesUpdateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -27624,6 +29171,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -27679,6 +29227,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -27720,6 +29269,7 @@ export class CodeBuildResponsesUpdateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -27732,6 +29282,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -27783,6 +29334,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -27824,6 +29376,7 @@ export class CodeBuildResponsesUpdateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -27836,6 +29389,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -27887,6 +29441,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -27928,6 +29483,7 @@ export class CodeBuildResponsesUpdateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -27940,6 +29496,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -27995,6 +29552,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -28036,6 +29594,7 @@ export class CodeBuildResponsesUpdateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -28048,6 +29607,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -28107,6 +29667,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -28148,6 +29709,7 @@ export class CodeBuildResponsesUpdateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -28160,6 +29722,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -28211,6 +29774,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -28252,6 +29816,7 @@ export class CodeBuildResponsesUpdateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -28264,6 +29829,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -28315,6 +29881,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -28356,6 +29923,7 @@ export class CodeBuildResponsesUpdateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -28368,6 +29936,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -28419,6 +29988,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -28460,6 +30030,7 @@ export class CodeBuildResponsesUpdateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -28472,6 +30043,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -28523,6 +30095,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -28564,6 +30137,7 @@ export class CodeBuildResponsesUpdateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -28576,6 +30150,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -28627,6 +30202,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -28668,6 +30244,7 @@ export class CodeBuildResponsesUpdateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -28680,6 +30257,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -28731,6 +30309,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -28772,6 +30351,7 @@ export class CodeBuildResponsesUpdateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -28784,6 +30364,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -28851,6 +30432,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -28892,6 +30474,7 @@ export class CodeBuildResponsesUpdateProjectProject {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -28904,6 +30487,7 @@ export class CodeBuildResponsesUpdateProjectProject {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -28913,6 +30497,113 @@ export class CodeBuildResponsesUpdateProjectProject {
 
   public get buildBatchConfig(): CodeBuildResponsesUpdateProjectProjectBuildBatchConfig {
     return new CodeBuildResponsesUpdateProjectProjectBuildBatchConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get concurrentBuildLimit(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateProject',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.UpdateProject.project.concurrentBuildLimit'),
+        outputPath: 'project.concurrentBuildLimit',
+        parameters: {
+          name: this.__input.name,
+          description: this.__input.description,
+          source: {
+            type: this.__input.source?.type,
+            location: this.__input.source?.location,
+            gitCloneDepth: this.__input.source?.gitCloneDepth,
+            gitSubmodulesConfig: {
+              fetchSubmodules: this.__input.source?.gitSubmodulesConfig?.fetchSubmodules,
+            },
+            buildspec: this.__input.source?.buildspec,
+            auth: {
+              type: this.__input.source?.auth?.type,
+              resource: this.__input.source?.auth?.resource,
+            },
+            reportBuildStatus: this.__input.source?.reportBuildStatus,
+            buildStatusConfig: {
+              context: this.__input.source?.buildStatusConfig?.context,
+              targetUrl: this.__input.source?.buildStatusConfig?.targetUrl,
+            },
+            insecureSsl: this.__input.source?.insecureSsl,
+            sourceIdentifier: this.__input.source?.sourceIdentifier,
+          },
+          secondarySources: this.__input.secondarySources,
+          sourceVersion: this.__input.sourceVersion,
+          secondarySourceVersions: this.__input.secondarySourceVersions,
+          artifacts: {
+            type: this.__input.artifacts?.type,
+            location: this.__input.artifacts?.location,
+            path: this.__input.artifacts?.path,
+            namespaceType: this.__input.artifacts?.namespaceType,
+            name: this.__input.artifacts?.name,
+            packaging: this.__input.artifacts?.packaging,
+            overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
+            encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
+            artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
+          },
+          secondaryArtifacts: this.__input.secondaryArtifacts,
+          cache: {
+            type: this.__input.cache?.type,
+            location: this.__input.cache?.location,
+            modes: this.__input.cache?.modes,
+          },
+          environment: {
+            type: this.__input.environment?.type,
+            image: this.__input.environment?.image,
+            computeType: this.__input.environment?.computeType,
+            environmentVariables: this.__input.environment?.environmentVariables,
+            privilegedMode: this.__input.environment?.privilegedMode,
+            certificate: this.__input.environment?.certificate,
+            registryCredential: {
+              credential: this.__input.environment?.registryCredential?.credential,
+              credentialProvider: this.__input.environment?.registryCredential?.credentialProvider,
+            },
+            imagePullCredentialsType: this.__input.environment?.imagePullCredentialsType,
+          },
+          serviceRole: this.__input.serviceRole,
+          timeoutInMinutes: this.__input.timeoutInMinutes,
+          queuedTimeoutInMinutes: this.__input.queuedTimeoutInMinutes,
+          encryptionKey: this.__input.encryptionKey,
+          tags: this.__input.tags,
+          vpcConfig: {
+            vpcId: this.__input.vpcConfig?.vpcId,
+            subnets: this.__input.vpcConfig?.subnets,
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          badgeEnabled: this.__input.badgeEnabled,
+          logsConfig: {
+            cloudWatchLogs: {
+              status: this.__input.logsConfig?.cloudWatchLogs?.status,
+              groupName: this.__input.logsConfig?.cloudWatchLogs?.groupName,
+              streamName: this.__input.logsConfig?.cloudWatchLogs?.streamName,
+            },
+            s3Logs: {
+              status: this.__input.logsConfig?.s3Logs?.status,
+              location: this.__input.logsConfig?.s3Logs?.location,
+              encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
+            },
+          },
+          fileSystemLocations: this.__input.fileSystemLocations,
+          buildBatchConfig: {
+            serviceRole: this.__input.buildBatchConfig?.serviceRole,
+            combineArtifacts: this.__input.buildBatchConfig?.combineArtifacts,
+            restrictions: {
+              maximumBuildsAllowed: this.__input.buildBatchConfig?.restrictions?.maximumBuildsAllowed,
+              computeTypesAllowed: this.__input.buildBatchConfig?.restrictions?.computeTypesAllowed,
+            },
+            timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
+          },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateProject.project.concurrentBuildLimit', props);
+    return resource.getResponseField('project.concurrentBuildLimit') as unknown as number;
   }
 
 }
@@ -28966,6 +30657,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -29007,6 +30699,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -29019,6 +30712,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -29070,6 +30764,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -29111,6 +30806,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -29123,6 +30819,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -29174,6 +30871,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -29215,6 +30913,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -29227,6 +30926,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -29282,6 +30982,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -29323,6 +31024,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -29335,6 +31037,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -29390,6 +31093,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -29431,6 +31135,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -29443,6 +31148,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -29498,6 +31204,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -29539,6 +31246,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -29551,6 +31259,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -29602,6 +31311,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -29643,6 +31353,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -29655,6 +31366,7 @@ export class CodeBuildResponsesUpdateProjectProjectSource {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -29713,6 +31425,7 @@ export class CodeBuildResponsesUpdateProjectProjectSourceGitSubmodulesConfig {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -29754,6 +31467,7 @@ export class CodeBuildResponsesUpdateProjectProjectSourceGitSubmodulesConfig {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -29766,6 +31480,7 @@ export class CodeBuildResponsesUpdateProjectProjectSourceGitSubmodulesConfig {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -29824,6 +31539,7 @@ export class CodeBuildResponsesUpdateProjectProjectSourceAuth {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -29865,6 +31581,7 @@ export class CodeBuildResponsesUpdateProjectProjectSourceAuth {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -29877,6 +31594,7 @@ export class CodeBuildResponsesUpdateProjectProjectSourceAuth {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -29928,6 +31646,7 @@ export class CodeBuildResponsesUpdateProjectProjectSourceAuth {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -29969,6 +31688,7 @@ export class CodeBuildResponsesUpdateProjectProjectSourceAuth {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -29981,6 +31701,7 @@ export class CodeBuildResponsesUpdateProjectProjectSourceAuth {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -30039,6 +31760,7 @@ export class CodeBuildResponsesUpdateProjectProjectSourceBuildStatusConfig {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -30080,6 +31802,7 @@ export class CodeBuildResponsesUpdateProjectProjectSourceBuildStatusConfig {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -30092,6 +31815,7 @@ export class CodeBuildResponsesUpdateProjectProjectSourceBuildStatusConfig {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -30143,6 +31867,7 @@ export class CodeBuildResponsesUpdateProjectProjectSourceBuildStatusConfig {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -30184,6 +31909,7 @@ export class CodeBuildResponsesUpdateProjectProjectSourceBuildStatusConfig {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -30196,6 +31922,7 @@ export class CodeBuildResponsesUpdateProjectProjectSourceBuildStatusConfig {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -30254,6 +31981,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -30295,6 +32023,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -30307,6 +32036,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -30358,6 +32088,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -30399,6 +32130,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -30411,6 +32143,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -30462,6 +32195,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -30503,6 +32237,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -30515,6 +32250,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -30566,6 +32302,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -30607,6 +32344,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -30619,6 +32357,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -30670,6 +32409,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -30711,6 +32451,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -30723,6 +32464,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -30774,6 +32516,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -30815,6 +32558,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -30827,6 +32571,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -30878,6 +32623,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -30919,6 +32665,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -30931,6 +32678,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -30982,6 +32730,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -31023,6 +32772,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -31035,6 +32785,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -31086,6 +32837,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -31127,6 +32879,7 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -31139,11 +32892,119 @@ export class CodeBuildResponsesUpdateProjectProjectArtifacts {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateProject.project.artifacts.artifactIdentifier', props);
     return resource.getResponseField('project.artifacts.artifactIdentifier') as unknown as string;
+  }
+
+  public get bucketOwnerAccess(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateProject',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.UpdateProject.project.artifacts.bucketOwnerAccess'),
+        outputPath: 'project.artifacts.bucketOwnerAccess',
+        parameters: {
+          name: this.__input.name,
+          description: this.__input.description,
+          source: {
+            type: this.__input.source?.type,
+            location: this.__input.source?.location,
+            gitCloneDepth: this.__input.source?.gitCloneDepth,
+            gitSubmodulesConfig: {
+              fetchSubmodules: this.__input.source?.gitSubmodulesConfig?.fetchSubmodules,
+            },
+            buildspec: this.__input.source?.buildspec,
+            auth: {
+              type: this.__input.source?.auth?.type,
+              resource: this.__input.source?.auth?.resource,
+            },
+            reportBuildStatus: this.__input.source?.reportBuildStatus,
+            buildStatusConfig: {
+              context: this.__input.source?.buildStatusConfig?.context,
+              targetUrl: this.__input.source?.buildStatusConfig?.targetUrl,
+            },
+            insecureSsl: this.__input.source?.insecureSsl,
+            sourceIdentifier: this.__input.source?.sourceIdentifier,
+          },
+          secondarySources: this.__input.secondarySources,
+          sourceVersion: this.__input.sourceVersion,
+          secondarySourceVersions: this.__input.secondarySourceVersions,
+          artifacts: {
+            type: this.__input.artifacts?.type,
+            location: this.__input.artifacts?.location,
+            path: this.__input.artifacts?.path,
+            namespaceType: this.__input.artifacts?.namespaceType,
+            name: this.__input.artifacts?.name,
+            packaging: this.__input.artifacts?.packaging,
+            overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
+            encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
+            artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
+          },
+          secondaryArtifacts: this.__input.secondaryArtifacts,
+          cache: {
+            type: this.__input.cache?.type,
+            location: this.__input.cache?.location,
+            modes: this.__input.cache?.modes,
+          },
+          environment: {
+            type: this.__input.environment?.type,
+            image: this.__input.environment?.image,
+            computeType: this.__input.environment?.computeType,
+            environmentVariables: this.__input.environment?.environmentVariables,
+            privilegedMode: this.__input.environment?.privilegedMode,
+            certificate: this.__input.environment?.certificate,
+            registryCredential: {
+              credential: this.__input.environment?.registryCredential?.credential,
+              credentialProvider: this.__input.environment?.registryCredential?.credentialProvider,
+            },
+            imagePullCredentialsType: this.__input.environment?.imagePullCredentialsType,
+          },
+          serviceRole: this.__input.serviceRole,
+          timeoutInMinutes: this.__input.timeoutInMinutes,
+          queuedTimeoutInMinutes: this.__input.queuedTimeoutInMinutes,
+          encryptionKey: this.__input.encryptionKey,
+          tags: this.__input.tags,
+          vpcConfig: {
+            vpcId: this.__input.vpcConfig?.vpcId,
+            subnets: this.__input.vpcConfig?.subnets,
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          badgeEnabled: this.__input.badgeEnabled,
+          logsConfig: {
+            cloudWatchLogs: {
+              status: this.__input.logsConfig?.cloudWatchLogs?.status,
+              groupName: this.__input.logsConfig?.cloudWatchLogs?.groupName,
+              streamName: this.__input.logsConfig?.cloudWatchLogs?.streamName,
+            },
+            s3Logs: {
+              status: this.__input.logsConfig?.s3Logs?.status,
+              location: this.__input.logsConfig?.s3Logs?.location,
+              encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
+            },
+          },
+          fileSystemLocations: this.__input.fileSystemLocations,
+          buildBatchConfig: {
+            serviceRole: this.__input.buildBatchConfig?.serviceRole,
+            combineArtifacts: this.__input.buildBatchConfig?.combineArtifacts,
+            restrictions: {
+              maximumBuildsAllowed: this.__input.buildBatchConfig?.restrictions?.maximumBuildsAllowed,
+              computeTypesAllowed: this.__input.buildBatchConfig?.restrictions?.computeTypesAllowed,
+            },
+            timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
+          },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateProject.project.artifacts.bucketOwnerAccess', props);
+    return resource.getResponseField('project.artifacts.bucketOwnerAccess') as unknown as string;
   }
 
 }
@@ -31197,6 +33058,7 @@ export class CodeBuildResponsesUpdateProjectProjectCache {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -31238,6 +33100,7 @@ export class CodeBuildResponsesUpdateProjectProjectCache {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -31250,6 +33113,7 @@ export class CodeBuildResponsesUpdateProjectProjectCache {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -31301,6 +33165,7 @@ export class CodeBuildResponsesUpdateProjectProjectCache {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -31342,6 +33207,7 @@ export class CodeBuildResponsesUpdateProjectProjectCache {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -31354,6 +33220,7 @@ export class CodeBuildResponsesUpdateProjectProjectCache {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -31405,6 +33272,7 @@ export class CodeBuildResponsesUpdateProjectProjectCache {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -31446,6 +33314,7 @@ export class CodeBuildResponsesUpdateProjectProjectCache {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -31458,6 +33327,7 @@ export class CodeBuildResponsesUpdateProjectProjectCache {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -31516,6 +33386,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -31557,6 +33428,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -31569,6 +33441,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -31620,6 +33493,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -31661,6 +33535,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -31673,6 +33548,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -31724,6 +33600,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -31765,6 +33642,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -31777,6 +33655,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -31828,6 +33707,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -31869,6 +33749,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -31881,6 +33762,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -31932,6 +33814,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -31973,6 +33856,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -31985,6 +33869,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -32036,6 +33921,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -32077,6 +33963,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -32089,6 +33976,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -32144,6 +34032,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -32185,6 +34074,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -32197,6 +34087,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironment {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -32255,6 +34146,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironmentRegistryCredential
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -32296,6 +34188,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironmentRegistryCredential
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -32308,6 +34201,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironmentRegistryCredential
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -32359,6 +34253,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironmentRegistryCredential
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -32400,6 +34295,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironmentRegistryCredential
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -32412,6 +34308,7 @@ export class CodeBuildResponsesUpdateProjectProjectEnvironmentRegistryCredential
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -32470,6 +34367,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -32511,6 +34409,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -32523,6 +34422,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -32574,6 +34474,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -32615,6 +34516,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -32627,6 +34529,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -32678,6 +34581,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -32719,6 +34623,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -32731,6 +34636,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -32782,6 +34688,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -32823,6 +34730,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -32835,6 +34743,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -32886,6 +34795,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -32927,6 +34837,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -32939,6 +34850,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -32990,6 +34902,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -33031,6 +34944,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -33043,6 +34957,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -33094,6 +35009,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -33135,6 +35051,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -33147,6 +35064,7 @@ export class CodeBuildResponsesUpdateProjectProjectWebhook {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -33205,6 +35123,7 @@ export class CodeBuildResponsesUpdateProjectProjectVpcConfig {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -33246,6 +35165,7 @@ export class CodeBuildResponsesUpdateProjectProjectVpcConfig {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -33258,6 +35178,7 @@ export class CodeBuildResponsesUpdateProjectProjectVpcConfig {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -33309,6 +35230,7 @@ export class CodeBuildResponsesUpdateProjectProjectVpcConfig {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -33350,6 +35272,7 @@ export class CodeBuildResponsesUpdateProjectProjectVpcConfig {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -33362,6 +35285,7 @@ export class CodeBuildResponsesUpdateProjectProjectVpcConfig {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -33413,6 +35337,7 @@ export class CodeBuildResponsesUpdateProjectProjectVpcConfig {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -33454,6 +35379,7 @@ export class CodeBuildResponsesUpdateProjectProjectVpcConfig {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -33466,6 +35392,7 @@ export class CodeBuildResponsesUpdateProjectProjectVpcConfig {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -33524,6 +35451,7 @@ export class CodeBuildResponsesUpdateProjectProjectBadge {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -33565,6 +35493,7 @@ export class CodeBuildResponsesUpdateProjectProjectBadge {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -33577,6 +35506,7 @@ export class CodeBuildResponsesUpdateProjectProjectBadge {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -33628,6 +35558,7 @@ export class CodeBuildResponsesUpdateProjectProjectBadge {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -33669,6 +35600,7 @@ export class CodeBuildResponsesUpdateProjectProjectBadge {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -33681,6 +35613,7 @@ export class CodeBuildResponsesUpdateProjectProjectBadge {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -33754,6 +35687,7 @@ export class CodeBuildResponsesUpdateProjectProjectLogsConfigCloudWatchLogs {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -33795,6 +35729,7 @@ export class CodeBuildResponsesUpdateProjectProjectLogsConfigCloudWatchLogs {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -33807,6 +35742,7 @@ export class CodeBuildResponsesUpdateProjectProjectLogsConfigCloudWatchLogs {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -33858,6 +35794,7 @@ export class CodeBuildResponsesUpdateProjectProjectLogsConfigCloudWatchLogs {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -33899,6 +35836,7 @@ export class CodeBuildResponsesUpdateProjectProjectLogsConfigCloudWatchLogs {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -33911,6 +35849,7 @@ export class CodeBuildResponsesUpdateProjectProjectLogsConfigCloudWatchLogs {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -33962,6 +35901,7 @@ export class CodeBuildResponsesUpdateProjectProjectLogsConfigCloudWatchLogs {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -34003,6 +35943,7 @@ export class CodeBuildResponsesUpdateProjectProjectLogsConfigCloudWatchLogs {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -34015,6 +35956,7 @@ export class CodeBuildResponsesUpdateProjectProjectLogsConfigCloudWatchLogs {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -34073,6 +36015,7 @@ export class CodeBuildResponsesUpdateProjectProjectLogsConfigS3Logs {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -34114,6 +36057,7 @@ export class CodeBuildResponsesUpdateProjectProjectLogsConfigS3Logs {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -34126,6 +36070,7 @@ export class CodeBuildResponsesUpdateProjectProjectLogsConfigS3Logs {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -34177,6 +36122,7 @@ export class CodeBuildResponsesUpdateProjectProjectLogsConfigS3Logs {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -34218,6 +36164,7 @@ export class CodeBuildResponsesUpdateProjectProjectLogsConfigS3Logs {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -34230,6 +36177,7 @@ export class CodeBuildResponsesUpdateProjectProjectLogsConfigS3Logs {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -34281,6 +36229,7 @@ export class CodeBuildResponsesUpdateProjectProjectLogsConfigS3Logs {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -34322,6 +36271,7 @@ export class CodeBuildResponsesUpdateProjectProjectLogsConfigS3Logs {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -34334,11 +36284,119 @@ export class CodeBuildResponsesUpdateProjectProjectLogsConfigS3Logs {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateProject.project.logsConfig.s3Logs.encryptionDisabled', props);
     return resource.getResponseField('project.logsConfig.s3Logs.encryptionDisabled') as unknown as boolean;
+  }
+
+  public get bucketOwnerAccess(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateProject',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.UpdateProject.project.logsConfig.s3Logs.bucketOwnerAccess'),
+        outputPath: 'project.logsConfig.s3Logs.bucketOwnerAccess',
+        parameters: {
+          name: this.__input.name,
+          description: this.__input.description,
+          source: {
+            type: this.__input.source?.type,
+            location: this.__input.source?.location,
+            gitCloneDepth: this.__input.source?.gitCloneDepth,
+            gitSubmodulesConfig: {
+              fetchSubmodules: this.__input.source?.gitSubmodulesConfig?.fetchSubmodules,
+            },
+            buildspec: this.__input.source?.buildspec,
+            auth: {
+              type: this.__input.source?.auth?.type,
+              resource: this.__input.source?.auth?.resource,
+            },
+            reportBuildStatus: this.__input.source?.reportBuildStatus,
+            buildStatusConfig: {
+              context: this.__input.source?.buildStatusConfig?.context,
+              targetUrl: this.__input.source?.buildStatusConfig?.targetUrl,
+            },
+            insecureSsl: this.__input.source?.insecureSsl,
+            sourceIdentifier: this.__input.source?.sourceIdentifier,
+          },
+          secondarySources: this.__input.secondarySources,
+          sourceVersion: this.__input.sourceVersion,
+          secondarySourceVersions: this.__input.secondarySourceVersions,
+          artifacts: {
+            type: this.__input.artifacts?.type,
+            location: this.__input.artifacts?.location,
+            path: this.__input.artifacts?.path,
+            namespaceType: this.__input.artifacts?.namespaceType,
+            name: this.__input.artifacts?.name,
+            packaging: this.__input.artifacts?.packaging,
+            overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
+            encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
+            artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
+          },
+          secondaryArtifacts: this.__input.secondaryArtifacts,
+          cache: {
+            type: this.__input.cache?.type,
+            location: this.__input.cache?.location,
+            modes: this.__input.cache?.modes,
+          },
+          environment: {
+            type: this.__input.environment?.type,
+            image: this.__input.environment?.image,
+            computeType: this.__input.environment?.computeType,
+            environmentVariables: this.__input.environment?.environmentVariables,
+            privilegedMode: this.__input.environment?.privilegedMode,
+            certificate: this.__input.environment?.certificate,
+            registryCredential: {
+              credential: this.__input.environment?.registryCredential?.credential,
+              credentialProvider: this.__input.environment?.registryCredential?.credentialProvider,
+            },
+            imagePullCredentialsType: this.__input.environment?.imagePullCredentialsType,
+          },
+          serviceRole: this.__input.serviceRole,
+          timeoutInMinutes: this.__input.timeoutInMinutes,
+          queuedTimeoutInMinutes: this.__input.queuedTimeoutInMinutes,
+          encryptionKey: this.__input.encryptionKey,
+          tags: this.__input.tags,
+          vpcConfig: {
+            vpcId: this.__input.vpcConfig?.vpcId,
+            subnets: this.__input.vpcConfig?.subnets,
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+          },
+          badgeEnabled: this.__input.badgeEnabled,
+          logsConfig: {
+            cloudWatchLogs: {
+              status: this.__input.logsConfig?.cloudWatchLogs?.status,
+              groupName: this.__input.logsConfig?.cloudWatchLogs?.groupName,
+              streamName: this.__input.logsConfig?.cloudWatchLogs?.streamName,
+            },
+            s3Logs: {
+              status: this.__input.logsConfig?.s3Logs?.status,
+              location: this.__input.logsConfig?.s3Logs?.location,
+              encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
+            },
+          },
+          fileSystemLocations: this.__input.fileSystemLocations,
+          buildBatchConfig: {
+            serviceRole: this.__input.buildBatchConfig?.serviceRole,
+            combineArtifacts: this.__input.buildBatchConfig?.combineArtifacts,
+            restrictions: {
+              maximumBuildsAllowed: this.__input.buildBatchConfig?.restrictions?.maximumBuildsAllowed,
+              computeTypesAllowed: this.__input.buildBatchConfig?.restrictions?.computeTypesAllowed,
+            },
+            timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
+          },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateProject.project.logsConfig.s3Logs.bucketOwnerAccess', props);
+    return resource.getResponseField('project.logsConfig.s3Logs.bucketOwnerAccess') as unknown as string;
   }
 
 }
@@ -34392,6 +36450,7 @@ export class CodeBuildResponsesUpdateProjectProjectBuildBatchConfig {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -34433,6 +36492,7 @@ export class CodeBuildResponsesUpdateProjectProjectBuildBatchConfig {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -34445,6 +36505,7 @@ export class CodeBuildResponsesUpdateProjectProjectBuildBatchConfig {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -34496,6 +36557,7 @@ export class CodeBuildResponsesUpdateProjectProjectBuildBatchConfig {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -34537,6 +36599,7 @@ export class CodeBuildResponsesUpdateProjectProjectBuildBatchConfig {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -34549,6 +36612,7 @@ export class CodeBuildResponsesUpdateProjectProjectBuildBatchConfig {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -34604,6 +36668,7 @@ export class CodeBuildResponsesUpdateProjectProjectBuildBatchConfig {
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -34645,6 +36710,7 @@ export class CodeBuildResponsesUpdateProjectProjectBuildBatchConfig {
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -34657,6 +36723,7 @@ export class CodeBuildResponsesUpdateProjectProjectBuildBatchConfig {
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -34715,6 +36782,7 @@ export class CodeBuildResponsesUpdateProjectProjectBuildBatchConfigRestrictions 
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -34756,6 +36824,7 @@ export class CodeBuildResponsesUpdateProjectProjectBuildBatchConfigRestrictions 
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -34768,6 +36837,7 @@ export class CodeBuildResponsesUpdateProjectProjectBuildBatchConfigRestrictions 
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -34819,6 +36889,7 @@ export class CodeBuildResponsesUpdateProjectProjectBuildBatchConfigRestrictions 
             overrideArtifactName: this.__input.artifacts?.overrideArtifactName,
             encryptionDisabled: this.__input.artifacts?.encryptionDisabled,
             artifactIdentifier: this.__input.artifacts?.artifactIdentifier,
+            bucketOwnerAccess: this.__input.artifacts?.bucketOwnerAccess,
           },
           secondaryArtifacts: this.__input.secondaryArtifacts,
           cache: {
@@ -34860,6 +36931,7 @@ export class CodeBuildResponsesUpdateProjectProjectBuildBatchConfigRestrictions 
               status: this.__input.logsConfig?.s3Logs?.status,
               location: this.__input.logsConfig?.s3Logs?.location,
               encryptionDisabled: this.__input.logsConfig?.s3Logs?.encryptionDisabled,
+              bucketOwnerAccess: this.__input.logsConfig?.s3Logs?.bucketOwnerAccess,
             },
           },
           fileSystemLocations: this.__input.fileSystemLocations,
@@ -34872,6 +36944,7 @@ export class CodeBuildResponsesUpdateProjectProjectBuildBatchConfigRestrictions 
             },
             timeoutInMins: this.__input.buildBatchConfig?.timeoutInMins,
           },
+          concurrentBuildLimit: this.__input.concurrentBuildLimit,
         },
       },
     };
@@ -34911,6 +36984,7 @@ export class CodeBuildResponsesUpdateReportGroupReportGroup {
             exportConfigType: this.__input.exportConfig?.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig?.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig?.s3Destination?.bucketOwner,
               path: this.__input.exportConfig?.s3Destination?.path,
               packaging: this.__input.exportConfig?.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig?.s3Destination?.encryptionKey,
@@ -34939,6 +37013,7 @@ export class CodeBuildResponsesUpdateReportGroupReportGroup {
             exportConfigType: this.__input.exportConfig?.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig?.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig?.s3Destination?.bucketOwner,
               path: this.__input.exportConfig?.s3Destination?.path,
               packaging: this.__input.exportConfig?.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig?.s3Destination?.encryptionKey,
@@ -34967,6 +37042,7 @@ export class CodeBuildResponsesUpdateReportGroupReportGroup {
             exportConfigType: this.__input.exportConfig?.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig?.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig?.s3Destination?.bucketOwner,
               path: this.__input.exportConfig?.s3Destination?.path,
               packaging: this.__input.exportConfig?.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig?.s3Destination?.encryptionKey,
@@ -34999,6 +37075,7 @@ export class CodeBuildResponsesUpdateReportGroupReportGroup {
             exportConfigType: this.__input.exportConfig?.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig?.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig?.s3Destination?.bucketOwner,
               path: this.__input.exportConfig?.s3Destination?.path,
               packaging: this.__input.exportConfig?.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig?.s3Destination?.encryptionKey,
@@ -35027,6 +37104,7 @@ export class CodeBuildResponsesUpdateReportGroupReportGroup {
             exportConfigType: this.__input.exportConfig?.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig?.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig?.s3Destination?.bucketOwner,
               path: this.__input.exportConfig?.s3Destination?.path,
               packaging: this.__input.exportConfig?.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig?.s3Destination?.encryptionKey,
@@ -35055,6 +37133,7 @@ export class CodeBuildResponsesUpdateReportGroupReportGroup {
             exportConfigType: this.__input.exportConfig?.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig?.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig?.s3Destination?.bucketOwner,
               path: this.__input.exportConfig?.s3Destination?.path,
               packaging: this.__input.exportConfig?.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig?.s3Destination?.encryptionKey,
@@ -35083,6 +37162,7 @@ export class CodeBuildResponsesUpdateReportGroupReportGroup {
             exportConfigType: this.__input.exportConfig?.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig?.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig?.s3Destination?.bucketOwner,
               path: this.__input.exportConfig?.s3Destination?.path,
               packaging: this.__input.exportConfig?.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig?.s3Destination?.encryptionKey,
@@ -35118,6 +37198,7 @@ export class CodeBuildResponsesUpdateReportGroupReportGroupExportConfig {
             exportConfigType: this.__input.exportConfig?.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig?.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig?.s3Destination?.bucketOwner,
               path: this.__input.exportConfig?.s3Destination?.path,
               packaging: this.__input.exportConfig?.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig?.s3Destination?.encryptionKey,
@@ -35157,6 +37238,7 @@ export class CodeBuildResponsesUpdateReportGroupReportGroupExportConfigS3Destina
             exportConfigType: this.__input.exportConfig?.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig?.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig?.s3Destination?.bucketOwner,
               path: this.__input.exportConfig?.s3Destination?.path,
               packaging: this.__input.exportConfig?.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig?.s3Destination?.encryptionKey,
@@ -35169,6 +37251,35 @@ export class CodeBuildResponsesUpdateReportGroupReportGroupExportConfigS3Destina
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateReportGroup.reportGroup.exportConfig.s3Destination.bucket', props);
     return resource.getResponseField('reportGroup.exportConfig.s3Destination.bucket') as unknown as string;
+  }
+
+  public get bucketOwner(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateReportGroup',
+        service: 'CodeBuild',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeBuild.UpdateReportGroup.reportGroup.exportConfig.s3Destination.bucketOwner'),
+        outputPath: 'reportGroup.exportConfig.s3Destination.bucketOwner',
+        parameters: {
+          arn: this.__input.arn,
+          exportConfig: {
+            exportConfigType: this.__input.exportConfig?.exportConfigType,
+            s3Destination: {
+              bucket: this.__input.exportConfig?.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig?.s3Destination?.bucketOwner,
+              path: this.__input.exportConfig?.s3Destination?.path,
+              packaging: this.__input.exportConfig?.s3Destination?.packaging,
+              encryptionKey: this.__input.exportConfig?.s3Destination?.encryptionKey,
+              encryptionDisabled: this.__input.exportConfig?.s3Destination?.encryptionDisabled,
+            },
+          },
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateReportGroup.reportGroup.exportConfig.s3Destination.bucketOwner', props);
+    return resource.getResponseField('reportGroup.exportConfig.s3Destination.bucketOwner') as unknown as string;
   }
 
   public get path(): string {
@@ -35185,6 +37296,7 @@ export class CodeBuildResponsesUpdateReportGroupReportGroupExportConfigS3Destina
             exportConfigType: this.__input.exportConfig?.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig?.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig?.s3Destination?.bucketOwner,
               path: this.__input.exportConfig?.s3Destination?.path,
               packaging: this.__input.exportConfig?.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig?.s3Destination?.encryptionKey,
@@ -35213,6 +37325,7 @@ export class CodeBuildResponsesUpdateReportGroupReportGroupExportConfigS3Destina
             exportConfigType: this.__input.exportConfig?.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig?.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig?.s3Destination?.bucketOwner,
               path: this.__input.exportConfig?.s3Destination?.path,
               packaging: this.__input.exportConfig?.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig?.s3Destination?.encryptionKey,
@@ -35241,6 +37354,7 @@ export class CodeBuildResponsesUpdateReportGroupReportGroupExportConfigS3Destina
             exportConfigType: this.__input.exportConfig?.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig?.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig?.s3Destination?.bucketOwner,
               path: this.__input.exportConfig?.s3Destination?.path,
               packaging: this.__input.exportConfig?.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig?.s3Destination?.encryptionKey,
@@ -35269,6 +37383,7 @@ export class CodeBuildResponsesUpdateReportGroupReportGroupExportConfigS3Destina
             exportConfigType: this.__input.exportConfig?.exportConfigType,
             s3Destination: {
               bucket: this.__input.exportConfig?.s3Destination?.bucket,
+              bucketOwner: this.__input.exportConfig?.s3Destination?.bucketOwner,
               path: this.__input.exportConfig?.s3Destination?.path,
               packaging: this.__input.exportConfig?.s3Destination?.packaging,
               encryptionKey: this.__input.exportConfig?.s3Destination?.encryptionKey,

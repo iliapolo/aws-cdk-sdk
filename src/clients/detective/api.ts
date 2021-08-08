@@ -23,8 +23,8 @@ export class DetectiveClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'AcceptInvitation', props);
   }
 
-  public createGraph(): DetectiveResponsesCreateGraph {
-    return new DetectiveResponsesCreateGraph(this, this.__resources);
+  public createGraph(input: shapes.DetectiveCreateGraphRequest): DetectiveResponsesCreateGraph {
+    return new DetectiveResponsesCreateGraph(this, this.__resources, input);
   }
 
   public createMembers(input: shapes.DetectiveCreateMembersRequest): DetectiveResponsesCreateMembers {
@@ -81,6 +81,10 @@ export class DetectiveClient extends cdk.Construct {
     return new DetectiveResponsesListMembers(this, this.__resources, input);
   }
 
+  public listTagsForResource(input: shapes.DetectiveListTagsForResourceRequest): DetectiveResponsesListTagsForResource {
+    return new DetectiveResponsesListTagsForResource(this, this.__resources, input);
+  }
+
   public rejectInvitation(input: shapes.DetectiveRejectInvitationRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -112,11 +116,43 @@ export class DetectiveClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'StartMonitoringMember', props);
   }
 
+  public tagResource(input: shapes.DetectiveTagResourceRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'tagResource',
+        service: 'Detective',
+        physicalResourceId: cr.PhysicalResourceId.of('Detective.TagResource'),
+        parameters: {
+          ResourceArn: input.resourceArn,
+          Tags: input.tags,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'TagResource', props);
+  }
+
+  public untagResource(input: shapes.DetectiveUntagResourceRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'untagResource',
+        service: 'Detective',
+        physicalResourceId: cr.PhysicalResourceId.of('Detective.UntagResource'),
+        parameters: {
+          ResourceArn: input.resourceArn,
+          TagKeys: input.tagKeys,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UntagResource', props);
+  }
+
 }
 
 export class DetectiveResponsesCreateGraph {
 
-  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DetectiveCreateGraphRequest) {
   }
 
   public get graphArn(): string {
@@ -127,6 +163,9 @@ export class DetectiveResponsesCreateGraph {
         service: 'Detective',
         physicalResourceId: cr.PhysicalResourceId.of('Detective.CreateGraph.GraphArn'),
         outputPath: 'GraphArn',
+        parameters: {
+          Tags: this.__input.tags,
+        },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateGraph.GraphArn', props);
@@ -151,6 +190,7 @@ export class DetectiveResponsesCreateMembers {
         parameters: {
           GraphArn: this.__input.graphArn,
           Message: this.__input.message,
+          DisableEmailNotification: this.__input.disableEmailNotification,
           Accounts: this.__input.accounts,
         },
       },
@@ -170,6 +210,7 @@ export class DetectiveResponsesCreateMembers {
         parameters: {
           GraphArn: this.__input.graphArn,
           Message: this.__input.message,
+          DisableEmailNotification: this.__input.disableEmailNotification,
           Accounts: this.__input.accounts,
         },
       },
@@ -393,6 +434,30 @@ export class DetectiveResponsesListMembers {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListMembers.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class DetectiveResponsesListTagsForResource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DetectiveListTagsForResourceRequest) {
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listTagsForResource',
+        service: 'Detective',
+        physicalResourceId: cr.PhysicalResourceId.of('Detective.ListTagsForResource.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          ResourceArn: this.__input.resourceArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListTagsForResource.Tags', props);
+    return resource.getResponseField('Tags') as unknown as Record<string, string>;
   }
 
 }

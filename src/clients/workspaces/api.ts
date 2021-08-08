@@ -72,6 +72,10 @@ export class WorkSpacesClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'CreateTags', props);
   }
 
+  public createWorkspaceBundle(input: shapes.WorkSpacesCreateWorkspaceBundleRequest): WorkSpacesResponsesCreateWorkspaceBundle {
+    return new WorkSpacesResponsesCreateWorkspaceBundle(this, this.__resources, input);
+  }
+
   public createWorkspaces(input: shapes.WorkSpacesCreateWorkspacesRequest): WorkSpacesResponsesCreateWorkspaces {
     return new WorkSpacesResponsesCreateWorkspaces(this, this.__resources, input);
   }
@@ -120,6 +124,21 @@ export class WorkSpacesClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'DeleteTags', props);
+  }
+
+  public deleteWorkspaceBundle(input: shapes.WorkSpacesDeleteWorkspaceBundleRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteWorkspaceBundle',
+        service: 'WorkSpaces',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkSpaces.DeleteWorkspaceBundle'),
+        parameters: {
+          BundleId: input.bundleId,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteWorkspaceBundle', props);
   }
 
   public deleteWorkspaceImage(input: shapes.WorkSpacesDeleteWorkspaceImageRequest): void {
@@ -324,6 +343,7 @@ export class WorkSpacesClient extends cdk.Construct {
             DeviceTypeAndroid: input.workspaceAccessProperties.deviceTypeAndroid,
             DeviceTypeChromeOs: input.workspaceAccessProperties.deviceTypeChromeOs,
             DeviceTypeZeroClient: input.workspaceAccessProperties.deviceTypeZeroClient,
+            DeviceTypeLinux: input.workspaceAccessProperties.deviceTypeLinux,
           },
         },
       },
@@ -498,6 +518,22 @@ export class WorkSpacesClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'UpdateRulesOfIpGroup', props);
   }
 
+  public updateWorkspaceBundle(input: shapes.WorkSpacesUpdateWorkspaceBundleRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateWorkspaceBundle',
+        service: 'WorkSpaces',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkSpaces.UpdateWorkspaceBundle'),
+        parameters: {
+          BundleId: input.bundleId,
+          ImageId: input.imageId,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateWorkspaceBundle', props);
+  }
+
   public updateWorkspaceImagePermission(input: shapes.WorkSpacesUpdateWorkspaceImagePermissionRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -618,6 +654,347 @@ export class WorkSpacesResponsesCreateIpGroup {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateIpGroup.GroupId', props);
     return resource.getResponseField('GroupId') as unknown as string;
+  }
+
+}
+
+export class WorkSpacesResponsesCreateWorkspaceBundle {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.WorkSpacesCreateWorkspaceBundleRequest) {
+  }
+
+  public get workspaceBundle(): WorkSpacesResponsesCreateWorkspaceBundleWorkspaceBundle {
+    return new WorkSpacesResponsesCreateWorkspaceBundleWorkspaceBundle(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class WorkSpacesResponsesCreateWorkspaceBundleWorkspaceBundle {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.WorkSpacesCreateWorkspaceBundleRequest) {
+  }
+
+  public get bundleId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createWorkspaceBundle',
+        service: 'WorkSpaces',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkSpaces.CreateWorkspaceBundle.WorkspaceBundle.BundleId'),
+        outputPath: 'WorkspaceBundle.BundleId',
+        parameters: {
+          BundleName: this.__input.bundleName,
+          BundleDescription: this.__input.bundleDescription,
+          ImageId: this.__input.imageId,
+          ComputeType: {
+            Name: this.__input.computeType.name,
+          },
+          UserStorage: {
+            Capacity: this.__input.userStorage.capacity,
+          },
+          RootStorage: {
+            Capacity: this.__input.rootStorage?.capacity,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateWorkspaceBundle.WorkspaceBundle.BundleId', props);
+    return resource.getResponseField('WorkspaceBundle.BundleId') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createWorkspaceBundle',
+        service: 'WorkSpaces',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkSpaces.CreateWorkspaceBundle.WorkspaceBundle.Name'),
+        outputPath: 'WorkspaceBundle.Name',
+        parameters: {
+          BundleName: this.__input.bundleName,
+          BundleDescription: this.__input.bundleDescription,
+          ImageId: this.__input.imageId,
+          ComputeType: {
+            Name: this.__input.computeType.name,
+          },
+          UserStorage: {
+            Capacity: this.__input.userStorage.capacity,
+          },
+          RootStorage: {
+            Capacity: this.__input.rootStorage?.capacity,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateWorkspaceBundle.WorkspaceBundle.Name', props);
+    return resource.getResponseField('WorkspaceBundle.Name') as unknown as string;
+  }
+
+  public get owner(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createWorkspaceBundle',
+        service: 'WorkSpaces',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkSpaces.CreateWorkspaceBundle.WorkspaceBundle.Owner'),
+        outputPath: 'WorkspaceBundle.Owner',
+        parameters: {
+          BundleName: this.__input.bundleName,
+          BundleDescription: this.__input.bundleDescription,
+          ImageId: this.__input.imageId,
+          ComputeType: {
+            Name: this.__input.computeType.name,
+          },
+          UserStorage: {
+            Capacity: this.__input.userStorage.capacity,
+          },
+          RootStorage: {
+            Capacity: this.__input.rootStorage?.capacity,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateWorkspaceBundle.WorkspaceBundle.Owner', props);
+    return resource.getResponseField('WorkspaceBundle.Owner') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createWorkspaceBundle',
+        service: 'WorkSpaces',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkSpaces.CreateWorkspaceBundle.WorkspaceBundle.Description'),
+        outputPath: 'WorkspaceBundle.Description',
+        parameters: {
+          BundleName: this.__input.bundleName,
+          BundleDescription: this.__input.bundleDescription,
+          ImageId: this.__input.imageId,
+          ComputeType: {
+            Name: this.__input.computeType.name,
+          },
+          UserStorage: {
+            Capacity: this.__input.userStorage.capacity,
+          },
+          RootStorage: {
+            Capacity: this.__input.rootStorage?.capacity,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateWorkspaceBundle.WorkspaceBundle.Description', props);
+    return resource.getResponseField('WorkspaceBundle.Description') as unknown as string;
+  }
+
+  public get imageId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createWorkspaceBundle',
+        service: 'WorkSpaces',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkSpaces.CreateWorkspaceBundle.WorkspaceBundle.ImageId'),
+        outputPath: 'WorkspaceBundle.ImageId',
+        parameters: {
+          BundleName: this.__input.bundleName,
+          BundleDescription: this.__input.bundleDescription,
+          ImageId: this.__input.imageId,
+          ComputeType: {
+            Name: this.__input.computeType.name,
+          },
+          UserStorage: {
+            Capacity: this.__input.userStorage.capacity,
+          },
+          RootStorage: {
+            Capacity: this.__input.rootStorage?.capacity,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateWorkspaceBundle.WorkspaceBundle.ImageId', props);
+    return resource.getResponseField('WorkspaceBundle.ImageId') as unknown as string;
+  }
+
+  public get rootStorage(): WorkSpacesResponsesCreateWorkspaceBundleWorkspaceBundleRootStorage {
+    return new WorkSpacesResponsesCreateWorkspaceBundleWorkspaceBundleRootStorage(this.__scope, this.__resources, this.__input);
+  }
+
+  public get userStorage(): WorkSpacesResponsesCreateWorkspaceBundleWorkspaceBundleUserStorage {
+    return new WorkSpacesResponsesCreateWorkspaceBundleWorkspaceBundleUserStorage(this.__scope, this.__resources, this.__input);
+  }
+
+  public get computeType(): WorkSpacesResponsesCreateWorkspaceBundleWorkspaceBundleComputeType {
+    return new WorkSpacesResponsesCreateWorkspaceBundleWorkspaceBundleComputeType(this.__scope, this.__resources, this.__input);
+  }
+
+  public get lastUpdatedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createWorkspaceBundle',
+        service: 'WorkSpaces',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkSpaces.CreateWorkspaceBundle.WorkspaceBundle.LastUpdatedTime'),
+        outputPath: 'WorkspaceBundle.LastUpdatedTime',
+        parameters: {
+          BundleName: this.__input.bundleName,
+          BundleDescription: this.__input.bundleDescription,
+          ImageId: this.__input.imageId,
+          ComputeType: {
+            Name: this.__input.computeType.name,
+          },
+          UserStorage: {
+            Capacity: this.__input.userStorage.capacity,
+          },
+          RootStorage: {
+            Capacity: this.__input.rootStorage?.capacity,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateWorkspaceBundle.WorkspaceBundle.LastUpdatedTime', props);
+    return resource.getResponseField('WorkspaceBundle.LastUpdatedTime') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createWorkspaceBundle',
+        service: 'WorkSpaces',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkSpaces.CreateWorkspaceBundle.WorkspaceBundle.CreationTime'),
+        outputPath: 'WorkspaceBundle.CreationTime',
+        parameters: {
+          BundleName: this.__input.bundleName,
+          BundleDescription: this.__input.bundleDescription,
+          ImageId: this.__input.imageId,
+          ComputeType: {
+            Name: this.__input.computeType.name,
+          },
+          UserStorage: {
+            Capacity: this.__input.userStorage.capacity,
+          },
+          RootStorage: {
+            Capacity: this.__input.rootStorage?.capacity,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateWorkspaceBundle.WorkspaceBundle.CreationTime', props);
+    return resource.getResponseField('WorkspaceBundle.CreationTime') as unknown as string;
+  }
+
+}
+
+export class WorkSpacesResponsesCreateWorkspaceBundleWorkspaceBundleRootStorage {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.WorkSpacesCreateWorkspaceBundleRequest) {
+  }
+
+  public get capacity(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createWorkspaceBundle',
+        service: 'WorkSpaces',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkSpaces.CreateWorkspaceBundle.WorkspaceBundle.RootStorage.Capacity'),
+        outputPath: 'WorkspaceBundle.RootStorage.Capacity',
+        parameters: {
+          BundleName: this.__input.bundleName,
+          BundleDescription: this.__input.bundleDescription,
+          ImageId: this.__input.imageId,
+          ComputeType: {
+            Name: this.__input.computeType.name,
+          },
+          UserStorage: {
+            Capacity: this.__input.userStorage.capacity,
+          },
+          RootStorage: {
+            Capacity: this.__input.rootStorage?.capacity,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateWorkspaceBundle.WorkspaceBundle.RootStorage.Capacity', props);
+    return resource.getResponseField('WorkspaceBundle.RootStorage.Capacity') as unknown as string;
+  }
+
+}
+
+export class WorkSpacesResponsesCreateWorkspaceBundleWorkspaceBundleUserStorage {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.WorkSpacesCreateWorkspaceBundleRequest) {
+  }
+
+  public get capacity(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createWorkspaceBundle',
+        service: 'WorkSpaces',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkSpaces.CreateWorkspaceBundle.WorkspaceBundle.UserStorage.Capacity'),
+        outputPath: 'WorkspaceBundle.UserStorage.Capacity',
+        parameters: {
+          BundleName: this.__input.bundleName,
+          BundleDescription: this.__input.bundleDescription,
+          ImageId: this.__input.imageId,
+          ComputeType: {
+            Name: this.__input.computeType.name,
+          },
+          UserStorage: {
+            Capacity: this.__input.userStorage.capacity,
+          },
+          RootStorage: {
+            Capacity: this.__input.rootStorage?.capacity,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateWorkspaceBundle.WorkspaceBundle.UserStorage.Capacity', props);
+    return resource.getResponseField('WorkspaceBundle.UserStorage.Capacity') as unknown as string;
+  }
+
+}
+
+export class WorkSpacesResponsesCreateWorkspaceBundleWorkspaceBundleComputeType {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.WorkSpacesCreateWorkspaceBundleRequest) {
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createWorkspaceBundle',
+        service: 'WorkSpaces',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkSpaces.CreateWorkspaceBundle.WorkspaceBundle.ComputeType.Name'),
+        outputPath: 'WorkspaceBundle.ComputeType.Name',
+        parameters: {
+          BundleName: this.__input.bundleName,
+          BundleDescription: this.__input.bundleDescription,
+          ImageId: this.__input.imageId,
+          ComputeType: {
+            Name: this.__input.computeType.name,
+          },
+          UserStorage: {
+            Capacity: this.__input.userStorage.capacity,
+          },
+          RootStorage: {
+            Capacity: this.__input.rootStorage?.capacity,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateWorkspaceBundle.WorkspaceBundle.ComputeType.Name', props);
+    return resource.getResponseField('WorkspaceBundle.ComputeType.Name') as unknown as string;
   }
 
 }

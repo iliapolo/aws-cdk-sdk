@@ -16,6 +16,10 @@ export class FSxClient extends cdk.Construct {
     return new FSxResponsesCancelDataRepositoryTask(this, this.__resources, input);
   }
 
+  public copyBackup(input: shapes.FSxCopyBackupRequest): FSxResponsesCopyBackup {
+    return new FSxResponsesCopyBackup(this, this.__resources, input);
+  }
+
   public createBackup(input: shapes.FSxCreateBackupRequest): FSxResponsesCreateBackup {
     return new FSxResponsesCreateBackup(this, this.__resources, input);
   }
@@ -165,6 +169,1586 @@ export class FSxResponsesCancelDataRepositoryTask {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CancelDataRepositoryTask.TaskId', props);
     return resource.getResponseField('TaskId') as unknown as string;
+  }
+
+}
+
+export class FSxResponsesCopyBackup {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.FSxCopyBackupRequest) {
+  }
+
+  public get backup(): FSxResponsesCopyBackupBackup {
+    return new FSxResponsesCopyBackupBackup(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class FSxResponsesCopyBackupBackup {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.FSxCopyBackupRequest) {
+  }
+
+  public get backupId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.BackupId'),
+        outputPath: 'Backup.BackupId',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.BackupId', props);
+    return resource.getResponseField('Backup.BackupId') as unknown as string;
+  }
+
+  public get lifecycle(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.Lifecycle'),
+        outputPath: 'Backup.Lifecycle',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.Lifecycle', props);
+    return resource.getResponseField('Backup.Lifecycle') as unknown as string;
+  }
+
+  public get failureDetails(): FSxResponsesCopyBackupBackupFailureDetails {
+    return new FSxResponsesCopyBackupBackupFailureDetails(this.__scope, this.__resources, this.__input);
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.Type'),
+        outputPath: 'Backup.Type',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.Type', props);
+    return resource.getResponseField('Backup.Type') as unknown as string;
+  }
+
+  public get progressPercent(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.ProgressPercent'),
+        outputPath: 'Backup.ProgressPercent',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.ProgressPercent', props);
+    return resource.getResponseField('Backup.ProgressPercent') as unknown as number;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.CreationTime'),
+        outputPath: 'Backup.CreationTime',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.CreationTime', props);
+    return resource.getResponseField('Backup.CreationTime') as unknown as string;
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.KmsKeyId'),
+        outputPath: 'Backup.KmsKeyId',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.KmsKeyId', props);
+    return resource.getResponseField('Backup.KmsKeyId') as unknown as string;
+  }
+
+  public get resourceArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.ResourceARN'),
+        outputPath: 'Backup.ResourceARN',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.ResourceARN', props);
+    return resource.getResponseField('Backup.ResourceARN') as unknown as string;
+  }
+
+  public get tags(): shapes.FSxTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.Tags'),
+        outputPath: 'Backup.Tags',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.Tags', props);
+    return resource.getResponseField('Backup.Tags') as unknown as shapes.FSxTag[];
+  }
+
+  public get fileSystem(): FSxResponsesCopyBackupBackupFileSystem {
+    return new FSxResponsesCopyBackupBackupFileSystem(this.__scope, this.__resources, this.__input);
+  }
+
+  public get directoryInformation(): FSxResponsesCopyBackupBackupDirectoryInformation {
+    return new FSxResponsesCopyBackupBackupDirectoryInformation(this.__scope, this.__resources, this.__input);
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.OwnerId'),
+        outputPath: 'Backup.OwnerId',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.OwnerId', props);
+    return resource.getResponseField('Backup.OwnerId') as unknown as string;
+  }
+
+  public get sourceBackupId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.SourceBackupId'),
+        outputPath: 'Backup.SourceBackupId',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.SourceBackupId', props);
+    return resource.getResponseField('Backup.SourceBackupId') as unknown as string;
+  }
+
+  public get sourceBackupRegion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.SourceBackupRegion'),
+        outputPath: 'Backup.SourceBackupRegion',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.SourceBackupRegion', props);
+    return resource.getResponseField('Backup.SourceBackupRegion') as unknown as string;
+  }
+
+}
+
+export class FSxResponsesCopyBackupBackupFailureDetails {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.FSxCopyBackupRequest) {
+  }
+
+  public get message(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FailureDetails.Message'),
+        outputPath: 'Backup.FailureDetails.Message',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FailureDetails.Message', props);
+    return resource.getResponseField('Backup.FailureDetails.Message') as unknown as string;
+  }
+
+}
+
+export class FSxResponsesCopyBackupBackupFileSystem {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.FSxCopyBackupRequest) {
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.OwnerId'),
+        outputPath: 'Backup.FileSystem.OwnerId',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.OwnerId', props);
+    return resource.getResponseField('Backup.FileSystem.OwnerId') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.CreationTime'),
+        outputPath: 'Backup.FileSystem.CreationTime',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.CreationTime', props);
+    return resource.getResponseField('Backup.FileSystem.CreationTime') as unknown as string;
+  }
+
+  public get fileSystemId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.FileSystemId'),
+        outputPath: 'Backup.FileSystem.FileSystemId',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.FileSystemId', props);
+    return resource.getResponseField('Backup.FileSystem.FileSystemId') as unknown as string;
+  }
+
+  public get fileSystemType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.FileSystemType'),
+        outputPath: 'Backup.FileSystem.FileSystemType',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.FileSystemType', props);
+    return resource.getResponseField('Backup.FileSystem.FileSystemType') as unknown as string;
+  }
+
+  public get lifecycle(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.Lifecycle'),
+        outputPath: 'Backup.FileSystem.Lifecycle',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.Lifecycle', props);
+    return resource.getResponseField('Backup.FileSystem.Lifecycle') as unknown as string;
+  }
+
+  public get failureDetails(): FSxResponsesCopyBackupBackupFileSystemFailureDetails {
+    return new FSxResponsesCopyBackupBackupFileSystemFailureDetails(this.__scope, this.__resources, this.__input);
+  }
+
+  public get storageCapacity(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.StorageCapacity'),
+        outputPath: 'Backup.FileSystem.StorageCapacity',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.StorageCapacity', props);
+    return resource.getResponseField('Backup.FileSystem.StorageCapacity') as unknown as number;
+  }
+
+  public get storageType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.StorageType'),
+        outputPath: 'Backup.FileSystem.StorageType',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.StorageType', props);
+    return resource.getResponseField('Backup.FileSystem.StorageType') as unknown as string;
+  }
+
+  public get vpcId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.VpcId'),
+        outputPath: 'Backup.FileSystem.VpcId',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.VpcId', props);
+    return resource.getResponseField('Backup.FileSystem.VpcId') as unknown as string;
+  }
+
+  public get subnetIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.SubnetIds'),
+        outputPath: 'Backup.FileSystem.SubnetIds',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.SubnetIds', props);
+    return resource.getResponseField('Backup.FileSystem.SubnetIds') as unknown as string[];
+  }
+
+  public get networkInterfaceIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.NetworkInterfaceIds'),
+        outputPath: 'Backup.FileSystem.NetworkInterfaceIds',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.NetworkInterfaceIds', props);
+    return resource.getResponseField('Backup.FileSystem.NetworkInterfaceIds') as unknown as string[];
+  }
+
+  public get dnsName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.DNSName'),
+        outputPath: 'Backup.FileSystem.DNSName',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.DNSName', props);
+    return resource.getResponseField('Backup.FileSystem.DNSName') as unknown as string;
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.KmsKeyId'),
+        outputPath: 'Backup.FileSystem.KmsKeyId',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.KmsKeyId', props);
+    return resource.getResponseField('Backup.FileSystem.KmsKeyId') as unknown as string;
+  }
+
+  public get resourceArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.ResourceARN'),
+        outputPath: 'Backup.FileSystem.ResourceARN',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.ResourceARN', props);
+    return resource.getResponseField('Backup.FileSystem.ResourceARN') as unknown as string;
+  }
+
+  public get tags(): shapes.FSxTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.Tags'),
+        outputPath: 'Backup.FileSystem.Tags',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.Tags', props);
+    return resource.getResponseField('Backup.FileSystem.Tags') as unknown as shapes.FSxTag[];
+  }
+
+  public get windowsConfiguration(): FSxResponsesCopyBackupBackupFileSystemWindowsConfiguration {
+    return new FSxResponsesCopyBackupBackupFileSystemWindowsConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get lustreConfiguration(): FSxResponsesCopyBackupBackupFileSystemLustreConfiguration {
+    return new FSxResponsesCopyBackupBackupFileSystemLustreConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get administrativeActions(): shapes.FSxAdministrativeAction[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.AdministrativeActions'),
+        outputPath: 'Backup.FileSystem.AdministrativeActions',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.AdministrativeActions', props);
+    return resource.getResponseField('Backup.FileSystem.AdministrativeActions') as unknown as shapes.FSxAdministrativeAction[];
+  }
+
+}
+
+export class FSxResponsesCopyBackupBackupFileSystemFailureDetails {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.FSxCopyBackupRequest) {
+  }
+
+  public get message(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.FailureDetails.Message'),
+        outputPath: 'Backup.FileSystem.FailureDetails.Message',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.FailureDetails.Message', props);
+    return resource.getResponseField('Backup.FileSystem.FailureDetails.Message') as unknown as string;
+  }
+
+}
+
+export class FSxResponsesCopyBackupBackupFileSystemWindowsConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.FSxCopyBackupRequest) {
+  }
+
+  public get activeDirectoryId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.ActiveDirectoryId'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.ActiveDirectoryId',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.ActiveDirectoryId', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.ActiveDirectoryId') as unknown as string;
+  }
+
+  public get selfManagedActiveDirectoryConfiguration(): FSxResponsesCopyBackupBackupFileSystemWindowsConfigurationSelfManagedActiveDirectoryConfiguration {
+    return new FSxResponsesCopyBackupBackupFileSystemWindowsConfigurationSelfManagedActiveDirectoryConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get deploymentType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.DeploymentType'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.DeploymentType',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.DeploymentType', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.DeploymentType') as unknown as string;
+  }
+
+  public get remoteAdministrationEndpoint(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.RemoteAdministrationEndpoint'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.RemoteAdministrationEndpoint',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.RemoteAdministrationEndpoint', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.RemoteAdministrationEndpoint') as unknown as string;
+  }
+
+  public get preferredSubnetId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.PreferredSubnetId'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.PreferredSubnetId',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.PreferredSubnetId', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.PreferredSubnetId') as unknown as string;
+  }
+
+  public get preferredFileServerIp(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.PreferredFileServerIp'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.PreferredFileServerIp',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.PreferredFileServerIp', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.PreferredFileServerIp') as unknown as string;
+  }
+
+  public get throughputCapacity(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.ThroughputCapacity'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.ThroughputCapacity',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.ThroughputCapacity', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.ThroughputCapacity') as unknown as number;
+  }
+
+  public get maintenanceOperationsInProgress(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.MaintenanceOperationsInProgress'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.MaintenanceOperationsInProgress',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.MaintenanceOperationsInProgress', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.MaintenanceOperationsInProgress') as unknown as string[];
+  }
+
+  public get weeklyMaintenanceStartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.WeeklyMaintenanceStartTime'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.WeeklyMaintenanceStartTime',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.WeeklyMaintenanceStartTime', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.WeeklyMaintenanceStartTime') as unknown as string;
+  }
+
+  public get dailyAutomaticBackupStartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.DailyAutomaticBackupStartTime'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.DailyAutomaticBackupStartTime',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.DailyAutomaticBackupStartTime', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.DailyAutomaticBackupStartTime') as unknown as string;
+  }
+
+  public get automaticBackupRetentionDays(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.AutomaticBackupRetentionDays'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.AutomaticBackupRetentionDays',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.AutomaticBackupRetentionDays', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.AutomaticBackupRetentionDays') as unknown as number;
+  }
+
+  public get copyTagsToBackups(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.CopyTagsToBackups'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.CopyTagsToBackups',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.CopyTagsToBackups', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.CopyTagsToBackups') as unknown as boolean;
+  }
+
+  public get aliases(): shapes.FSxAlias[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.Aliases'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.Aliases',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.Aliases', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.Aliases') as unknown as shapes.FSxAlias[];
+  }
+
+  public get auditLogConfiguration(): FSxResponsesCopyBackupBackupFileSystemWindowsConfigurationAuditLogConfiguration {
+    return new FSxResponsesCopyBackupBackupFileSystemWindowsConfigurationAuditLogConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class FSxResponsesCopyBackupBackupFileSystemWindowsConfigurationSelfManagedActiveDirectoryConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.FSxCopyBackupRequest) {
+  }
+
+  public get domainName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.DomainName'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.DomainName',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.DomainName', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.DomainName') as unknown as string;
+  }
+
+  public get organizationalUnitDistinguishedName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.OrganizationalUnitDistinguishedName'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.OrganizationalUnitDistinguishedName',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.OrganizationalUnitDistinguishedName', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.OrganizationalUnitDistinguishedName') as unknown as string;
+  }
+
+  public get fileSystemAdministratorsGroup(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.FileSystemAdministratorsGroup'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.FileSystemAdministratorsGroup',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.FileSystemAdministratorsGroup', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.FileSystemAdministratorsGroup') as unknown as string;
+  }
+
+  public get userName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.UserName'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.UserName',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.UserName', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.UserName') as unknown as string;
+  }
+
+  public get dnsIps(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.DnsIps'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.DnsIps',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.DnsIps', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.DnsIps') as unknown as string[];
+  }
+
+}
+
+export class FSxResponsesCopyBackupBackupFileSystemWindowsConfigurationAuditLogConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.FSxCopyBackupRequest) {
+  }
+
+  public get fileAccessAuditLogLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel') as unknown as string;
+  }
+
+  public get fileShareAccessAuditLogLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel') as unknown as string;
+  }
+
+  public get auditLogDestination(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination') as unknown as string;
+  }
+
+}
+
+export class FSxResponsesCopyBackupBackupFileSystemLustreConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.FSxCopyBackupRequest) {
+  }
+
+  public get weeklyMaintenanceStartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.LustreConfiguration.WeeklyMaintenanceStartTime'),
+        outputPath: 'Backup.FileSystem.LustreConfiguration.WeeklyMaintenanceStartTime',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.LustreConfiguration.WeeklyMaintenanceStartTime', props);
+    return resource.getResponseField('Backup.FileSystem.LustreConfiguration.WeeklyMaintenanceStartTime') as unknown as string;
+  }
+
+  public get dataRepositoryConfiguration(): FSxResponsesCopyBackupBackupFileSystemLustreConfigurationDataRepositoryConfiguration {
+    return new FSxResponsesCopyBackupBackupFileSystemLustreConfigurationDataRepositoryConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get deploymentType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.LustreConfiguration.DeploymentType'),
+        outputPath: 'Backup.FileSystem.LustreConfiguration.DeploymentType',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.LustreConfiguration.DeploymentType', props);
+    return resource.getResponseField('Backup.FileSystem.LustreConfiguration.DeploymentType') as unknown as string;
+  }
+
+  public get perUnitStorageThroughput(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.LustreConfiguration.PerUnitStorageThroughput'),
+        outputPath: 'Backup.FileSystem.LustreConfiguration.PerUnitStorageThroughput',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.LustreConfiguration.PerUnitStorageThroughput', props);
+    return resource.getResponseField('Backup.FileSystem.LustreConfiguration.PerUnitStorageThroughput') as unknown as number;
+  }
+
+  public get mountName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.LustreConfiguration.MountName'),
+        outputPath: 'Backup.FileSystem.LustreConfiguration.MountName',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.LustreConfiguration.MountName', props);
+    return resource.getResponseField('Backup.FileSystem.LustreConfiguration.MountName') as unknown as string;
+  }
+
+  public get dailyAutomaticBackupStartTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.LustreConfiguration.DailyAutomaticBackupStartTime'),
+        outputPath: 'Backup.FileSystem.LustreConfiguration.DailyAutomaticBackupStartTime',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.LustreConfiguration.DailyAutomaticBackupStartTime', props);
+    return resource.getResponseField('Backup.FileSystem.LustreConfiguration.DailyAutomaticBackupStartTime') as unknown as string;
+  }
+
+  public get automaticBackupRetentionDays(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.LustreConfiguration.AutomaticBackupRetentionDays'),
+        outputPath: 'Backup.FileSystem.LustreConfiguration.AutomaticBackupRetentionDays',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.LustreConfiguration.AutomaticBackupRetentionDays', props);
+    return resource.getResponseField('Backup.FileSystem.LustreConfiguration.AutomaticBackupRetentionDays') as unknown as number;
+  }
+
+  public get copyTagsToBackups(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.LustreConfiguration.CopyTagsToBackups'),
+        outputPath: 'Backup.FileSystem.LustreConfiguration.CopyTagsToBackups',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.LustreConfiguration.CopyTagsToBackups', props);
+    return resource.getResponseField('Backup.FileSystem.LustreConfiguration.CopyTagsToBackups') as unknown as boolean;
+  }
+
+  public get driveCacheType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.LustreConfiguration.DriveCacheType'),
+        outputPath: 'Backup.FileSystem.LustreConfiguration.DriveCacheType',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.LustreConfiguration.DriveCacheType', props);
+    return resource.getResponseField('Backup.FileSystem.LustreConfiguration.DriveCacheType') as unknown as string;
+  }
+
+  public get dataCompressionType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.LustreConfiguration.DataCompressionType'),
+        outputPath: 'Backup.FileSystem.LustreConfiguration.DataCompressionType',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.LustreConfiguration.DataCompressionType', props);
+    return resource.getResponseField('Backup.FileSystem.LustreConfiguration.DataCompressionType') as unknown as string;
+  }
+
+}
+
+export class FSxResponsesCopyBackupBackupFileSystemLustreConfigurationDataRepositoryConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.FSxCopyBackupRequest) {
+  }
+
+  public get lifecycle(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.Lifecycle'),
+        outputPath: 'Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.Lifecycle',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.Lifecycle', props);
+    return resource.getResponseField('Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.Lifecycle') as unknown as string;
+  }
+
+  public get importPath(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.ImportPath'),
+        outputPath: 'Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.ImportPath',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.ImportPath', props);
+    return resource.getResponseField('Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.ImportPath') as unknown as string;
+  }
+
+  public get exportPath(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.ExportPath'),
+        outputPath: 'Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.ExportPath',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.ExportPath', props);
+    return resource.getResponseField('Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.ExportPath') as unknown as string;
+  }
+
+  public get importedFileChunkSize(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.ImportedFileChunkSize'),
+        outputPath: 'Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.ImportedFileChunkSize',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.ImportedFileChunkSize', props);
+    return resource.getResponseField('Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.ImportedFileChunkSize') as unknown as number;
+  }
+
+  public get autoImportPolicy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.AutoImportPolicy'),
+        outputPath: 'Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.AutoImportPolicy',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.AutoImportPolicy', props);
+    return resource.getResponseField('Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.AutoImportPolicy') as unknown as string;
+  }
+
+  public get failureDetails(): FSxResponsesCopyBackupBackupFileSystemLustreConfigurationDataRepositoryConfigurationFailureDetails {
+    return new FSxResponsesCopyBackupBackupFileSystemLustreConfigurationDataRepositoryConfigurationFailureDetails(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class FSxResponsesCopyBackupBackupFileSystemLustreConfigurationDataRepositoryConfigurationFailureDetails {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.FSxCopyBackupRequest) {
+  }
+
+  public get message(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.FailureDetails.Message'),
+        outputPath: 'Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.FailureDetails.Message',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.FailureDetails.Message', props);
+    return resource.getResponseField('Backup.FileSystem.LustreConfiguration.DataRepositoryConfiguration.FailureDetails.Message') as unknown as string;
+  }
+
+}
+
+export class FSxResponsesCopyBackupBackupDirectoryInformation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.FSxCopyBackupRequest) {
+  }
+
+  public get domainName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.DirectoryInformation.DomainName'),
+        outputPath: 'Backup.DirectoryInformation.DomainName',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.DirectoryInformation.DomainName', props);
+    return resource.getResponseField('Backup.DirectoryInformation.DomainName') as unknown as string;
+  }
+
+  public get activeDirectoryId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.DirectoryInformation.ActiveDirectoryId'),
+        outputPath: 'Backup.DirectoryInformation.ActiveDirectoryId',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.DirectoryInformation.ActiveDirectoryId', props);
+    return resource.getResponseField('Backup.DirectoryInformation.ActiveDirectoryId') as unknown as string;
+  }
+
+  public get resourceArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CopyBackup.Backup.DirectoryInformation.ResourceARN'),
+        outputPath: 'Backup.DirectoryInformation.ResourceARN',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          SourceBackupId: this.__input.sourceBackupId,
+          SourceRegion: this.__input.sourceRegion,
+          KmsKeyId: this.__input.kmsKeyId,
+          CopyTags: this.__input.copyTags,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyBackup.Backup.DirectoryInformation.ResourceARN', props);
+    return resource.getResponseField('Backup.DirectoryInformation.ResourceARN') as unknown as string;
   }
 
 }
@@ -347,6 +1931,63 @@ export class FSxResponsesCreateBackupBackup {
 
   public get directoryInformation(): FSxResponsesCreateBackupBackupDirectoryInformation {
     return new FSxResponsesCreateBackupBackupDirectoryInformation(this.__scope, this.__resources, this.__input);
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CreateBackup.Backup.OwnerId'),
+        outputPath: 'Backup.OwnerId',
+        parameters: {
+          FileSystemId: this.__input.fileSystemId,
+          ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBackup.Backup.OwnerId', props);
+    return resource.getResponseField('Backup.OwnerId') as unknown as string;
+  }
+
+  public get sourceBackupId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CreateBackup.Backup.SourceBackupId'),
+        outputPath: 'Backup.SourceBackupId',
+        parameters: {
+          FileSystemId: this.__input.fileSystemId,
+          ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBackup.Backup.SourceBackupId', props);
+    return resource.getResponseField('Backup.SourceBackupId') as unknown as string;
+  }
+
+  public get sourceBackupRegion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CreateBackup.Backup.SourceBackupRegion'),
+        outputPath: 'Backup.SourceBackupRegion',
+        parameters: {
+          FileSystemId: this.__input.fileSystemId,
+          ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBackup.Backup.SourceBackupRegion', props);
+    return resource.getResponseField('Backup.SourceBackupRegion') as unknown as string;
   }
 
 }
@@ -944,6 +2585,10 @@ export class FSxResponsesCreateBackupBackupFileSystemWindowsConfiguration {
     return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.Aliases') as unknown as shapes.FSxAlias[];
   }
 
+  public get auditLogConfiguration(): FSxResponsesCreateBackupBackupFileSystemWindowsConfigurationAuditLogConfiguration {
+    return new FSxResponsesCreateBackupBackupFileSystemWindowsConfigurationAuditLogConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class FSxResponsesCreateBackupBackupFileSystemWindowsConfigurationSelfManagedActiveDirectoryConfiguration {
@@ -1044,6 +2689,70 @@ export class FSxResponsesCreateBackupBackupFileSystemWindowsConfigurationSelfMan
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateBackup.Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.DnsIps', props);
     return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.DnsIps') as unknown as string[];
+  }
+
+}
+
+export class FSxResponsesCreateBackupBackupFileSystemWindowsConfigurationAuditLogConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.FSxCreateBackupRequest) {
+  }
+
+  public get fileAccessAuditLogLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CreateBackup.Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel',
+        parameters: {
+          FileSystemId: this.__input.fileSystemId,
+          ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBackup.Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel') as unknown as string;
+  }
+
+  public get fileShareAccessAuditLogLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CreateBackup.Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel',
+        parameters: {
+          FileSystemId: this.__input.fileSystemId,
+          ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBackup.Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel') as unknown as string;
+  }
+
+  public get auditLogDestination(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CreateBackup.Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination'),
+        outputPath: 'Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination',
+        parameters: {
+          FileSystemId: this.__input.fileSystemId,
+          ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBackup.Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination', props);
+    return resource.getResponseField('Backup.FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination') as unknown as string;
   }
 
 }
@@ -1207,6 +2916,25 @@ export class FSxResponsesCreateBackupBackupFileSystemLustreConfiguration {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateBackup.Backup.FileSystem.LustreConfiguration.DriveCacheType', props);
     return resource.getResponseField('Backup.FileSystem.LustreConfiguration.DriveCacheType') as unknown as string;
+  }
+
+  public get dataCompressionType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CreateBackup.Backup.FileSystem.LustreConfiguration.DataCompressionType'),
+        outputPath: 'Backup.FileSystem.LustreConfiguration.DataCompressionType',
+        parameters: {
+          FileSystemId: this.__input.fileSystemId,
+          ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBackup.Backup.FileSystem.LustreConfiguration.DataCompressionType', props);
+    return resource.getResponseField('Backup.FileSystem.LustreConfiguration.DataCompressionType') as unknown as string;
   }
 
 }
@@ -1384,6 +3112,25 @@ export class FSxResponsesCreateBackupBackupDirectoryInformation {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateBackup.Backup.DirectoryInformation.ActiveDirectoryId', props);
     return resource.getResponseField('Backup.DirectoryInformation.ActiveDirectoryId') as unknown as string;
+  }
+
+  public get resourceArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CreateBackup.Backup.DirectoryInformation.ResourceARN'),
+        outputPath: 'Backup.DirectoryInformation.ResourceARN',
+        parameters: {
+          FileSystemId: this.__input.fileSystemId,
+          ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBackup.Backup.DirectoryInformation.ResourceARN', props);
+    return resource.getResponseField('Backup.DirectoryInformation.ResourceARN') as unknown as string;
   }
 
 }
@@ -2003,6 +3750,11 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -2016,6 +3768,7 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -2059,6 +3812,11 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -2072,6 +3830,7 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -2115,6 +3874,11 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -2128,6 +3892,7 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -2171,6 +3936,11 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -2184,6 +3954,7 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -2227,6 +3998,11 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -2240,6 +4016,7 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -2287,6 +4064,11 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -2300,6 +4082,7 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -2343,6 +4126,11 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -2356,6 +4144,7 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -2399,6 +4188,11 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -2412,6 +4206,7 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -2455,6 +4250,11 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -2468,6 +4268,7 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -2511,6 +4312,11 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -2524,6 +4330,7 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -2567,6 +4374,11 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -2580,6 +4392,7 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -2623,6 +4436,11 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -2636,6 +4454,7 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -2679,6 +4498,11 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -2692,6 +4516,7 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -2735,6 +4560,11 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -2748,6 +4578,7 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -2799,6 +4630,11 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -2812,6 +4648,7 @@ export class FSxResponsesCreateFileSystemFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -2862,6 +4699,11 @@ export class FSxResponsesCreateFileSystemFileSystemFailureDetails {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -2875,6 +4717,7 @@ export class FSxResponsesCreateFileSystemFileSystemFailureDetails {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -2925,6 +4768,11 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -2938,6 +4786,7 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -2985,6 +4834,11 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -2998,6 +4852,7 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -3041,6 +4896,11 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -3054,6 +4914,7 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -3097,6 +4958,11 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -3110,6 +4976,7 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -3153,6 +5020,11 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -3166,6 +5038,7 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -3209,6 +5082,11 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -3222,6 +5100,7 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -3265,6 +5144,11 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -3278,6 +5162,7 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -3321,6 +5206,11 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -3334,6 +5224,7 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -3377,6 +5268,11 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -3390,6 +5286,7 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -3433,6 +5330,11 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -3446,6 +5348,7 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -3489,6 +5392,11 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -3502,6 +5410,7 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -3545,6 +5454,11 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -3558,12 +5472,17 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateFileSystem.FileSystem.WindowsConfiguration.Aliases', props);
     return resource.getResponseField('FileSystem.WindowsConfiguration.Aliases') as unknown as shapes.FSxAlias[];
+  }
+
+  public get auditLogConfiguration(): FSxResponsesCreateFileSystemFileSystemWindowsConfigurationAuditLogConfiguration {
+    return new FSxResponsesCreateFileSystemFileSystemWindowsConfigurationAuditLogConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -3608,6 +5527,11 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfigurationSelfManag
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -3621,6 +5545,7 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfigurationSelfManag
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -3664,6 +5589,11 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfigurationSelfManag
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -3677,6 +5607,7 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfigurationSelfManag
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -3720,6 +5651,11 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfigurationSelfManag
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -3733,6 +5669,7 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfigurationSelfManag
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -3776,6 +5713,11 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfigurationSelfManag
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -3789,6 +5731,7 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfigurationSelfManag
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -3832,6 +5775,11 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfigurationSelfManag
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -3845,12 +5793,206 @@ export class FSxResponsesCreateFileSystemFileSystemWindowsConfigurationSelfManag
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateFileSystem.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.DnsIps', props);
     return resource.getResponseField('FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.DnsIps') as unknown as string[];
+  }
+
+}
+
+export class FSxResponsesCreateFileSystemFileSystemWindowsConfigurationAuditLogConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.FSxCreateFileSystemRequest) {
+  }
+
+  public get fileAccessAuditLogLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFileSystem',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CreateFileSystem.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel'),
+        outputPath: 'FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          FileSystemType: this.__input.fileSystemType,
+          StorageCapacity: this.__input.storageCapacity,
+          StorageType: this.__input.storageType,
+          SubnetIds: this.__input.subnetIds,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          WindowsConfiguration: {
+            ActiveDirectoryId: this.__input.windowsConfiguration?.activeDirectoryId,
+            SelfManagedActiveDirectoryConfiguration: {
+              DomainName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.domainName,
+              OrganizationalUnitDistinguishedName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.organizationalUnitDistinguishedName,
+              FileSystemAdministratorsGroup: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.fileSystemAdministratorsGroup,
+              UserName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.userName,
+              Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
+              DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
+            },
+            DeploymentType: this.__input.windowsConfiguration?.deploymentType,
+            PreferredSubnetId: this.__input.windowsConfiguration?.preferredSubnetId,
+            ThroughputCapacity: this.__input.windowsConfiguration?.throughputCapacity,
+            WeeklyMaintenanceStartTime: this.__input.windowsConfiguration?.weeklyMaintenanceStartTime,
+            DailyAutomaticBackupStartTime: this.__input.windowsConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
+            CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
+            Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
+          },
+          LustreConfiguration: {
+            WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
+            ImportPath: this.__input.lustreConfiguration?.importPath,
+            ExportPath: this.__input.lustreConfiguration?.exportPath,
+            ImportedFileChunkSize: this.__input.lustreConfiguration?.importedFileChunkSize,
+            DeploymentType: this.__input.lustreConfiguration?.deploymentType,
+            AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            PerUnitStorageThroughput: this.__input.lustreConfiguration?.perUnitStorageThroughput,
+            DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
+            CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
+            DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFileSystem.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel', props);
+    return resource.getResponseField('FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel') as unknown as string;
+  }
+
+  public get fileShareAccessAuditLogLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFileSystem',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CreateFileSystem.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel'),
+        outputPath: 'FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          FileSystemType: this.__input.fileSystemType,
+          StorageCapacity: this.__input.storageCapacity,
+          StorageType: this.__input.storageType,
+          SubnetIds: this.__input.subnetIds,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          WindowsConfiguration: {
+            ActiveDirectoryId: this.__input.windowsConfiguration?.activeDirectoryId,
+            SelfManagedActiveDirectoryConfiguration: {
+              DomainName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.domainName,
+              OrganizationalUnitDistinguishedName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.organizationalUnitDistinguishedName,
+              FileSystemAdministratorsGroup: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.fileSystemAdministratorsGroup,
+              UserName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.userName,
+              Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
+              DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
+            },
+            DeploymentType: this.__input.windowsConfiguration?.deploymentType,
+            PreferredSubnetId: this.__input.windowsConfiguration?.preferredSubnetId,
+            ThroughputCapacity: this.__input.windowsConfiguration?.throughputCapacity,
+            WeeklyMaintenanceStartTime: this.__input.windowsConfiguration?.weeklyMaintenanceStartTime,
+            DailyAutomaticBackupStartTime: this.__input.windowsConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
+            CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
+            Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
+          },
+          LustreConfiguration: {
+            WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
+            ImportPath: this.__input.lustreConfiguration?.importPath,
+            ExportPath: this.__input.lustreConfiguration?.exportPath,
+            ImportedFileChunkSize: this.__input.lustreConfiguration?.importedFileChunkSize,
+            DeploymentType: this.__input.lustreConfiguration?.deploymentType,
+            AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            PerUnitStorageThroughput: this.__input.lustreConfiguration?.perUnitStorageThroughput,
+            DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
+            CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
+            DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFileSystem.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel', props);
+    return resource.getResponseField('FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel') as unknown as string;
+  }
+
+  public get auditLogDestination(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFileSystem',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CreateFileSystem.FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination'),
+        outputPath: 'FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          FileSystemType: this.__input.fileSystemType,
+          StorageCapacity: this.__input.storageCapacity,
+          StorageType: this.__input.storageType,
+          SubnetIds: this.__input.subnetIds,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          WindowsConfiguration: {
+            ActiveDirectoryId: this.__input.windowsConfiguration?.activeDirectoryId,
+            SelfManagedActiveDirectoryConfiguration: {
+              DomainName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.domainName,
+              OrganizationalUnitDistinguishedName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.organizationalUnitDistinguishedName,
+              FileSystemAdministratorsGroup: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.fileSystemAdministratorsGroup,
+              UserName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.userName,
+              Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
+              DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
+            },
+            DeploymentType: this.__input.windowsConfiguration?.deploymentType,
+            PreferredSubnetId: this.__input.windowsConfiguration?.preferredSubnetId,
+            ThroughputCapacity: this.__input.windowsConfiguration?.throughputCapacity,
+            WeeklyMaintenanceStartTime: this.__input.windowsConfiguration?.weeklyMaintenanceStartTime,
+            DailyAutomaticBackupStartTime: this.__input.windowsConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
+            CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
+            Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
+          },
+          LustreConfiguration: {
+            WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
+            ImportPath: this.__input.lustreConfiguration?.importPath,
+            ExportPath: this.__input.lustreConfiguration?.exportPath,
+            ImportedFileChunkSize: this.__input.lustreConfiguration?.importedFileChunkSize,
+            DeploymentType: this.__input.lustreConfiguration?.deploymentType,
+            AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            PerUnitStorageThroughput: this.__input.lustreConfiguration?.perUnitStorageThroughput,
+            DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
+            CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
+            DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFileSystem.FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination', props);
+    return resource.getResponseField('FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination') as unknown as string;
   }
 
 }
@@ -3895,6 +6037,11 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -3908,6 +6055,7 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -3955,6 +6103,11 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -3968,6 +6121,7 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -4011,6 +6165,11 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -4024,6 +6183,7 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -4067,6 +6227,11 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -4080,6 +6245,7 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -4123,6 +6289,11 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -4136,6 +6307,7 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -4179,6 +6351,11 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -4192,6 +6369,7 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -4235,6 +6413,11 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -4248,6 +6431,7 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -4291,6 +6475,11 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfiguration {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -4304,12 +6493,75 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfiguration {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateFileSystem.FileSystem.LustreConfiguration.DriveCacheType', props);
     return resource.getResponseField('FileSystem.LustreConfiguration.DriveCacheType') as unknown as string;
+  }
+
+  public get dataCompressionType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFileSystem',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CreateFileSystem.FileSystem.LustreConfiguration.DataCompressionType'),
+        outputPath: 'FileSystem.LustreConfiguration.DataCompressionType',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          FileSystemType: this.__input.fileSystemType,
+          StorageCapacity: this.__input.storageCapacity,
+          StorageType: this.__input.storageType,
+          SubnetIds: this.__input.subnetIds,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          WindowsConfiguration: {
+            ActiveDirectoryId: this.__input.windowsConfiguration?.activeDirectoryId,
+            SelfManagedActiveDirectoryConfiguration: {
+              DomainName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.domainName,
+              OrganizationalUnitDistinguishedName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.organizationalUnitDistinguishedName,
+              FileSystemAdministratorsGroup: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.fileSystemAdministratorsGroup,
+              UserName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.userName,
+              Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
+              DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
+            },
+            DeploymentType: this.__input.windowsConfiguration?.deploymentType,
+            PreferredSubnetId: this.__input.windowsConfiguration?.preferredSubnetId,
+            ThroughputCapacity: this.__input.windowsConfiguration?.throughputCapacity,
+            WeeklyMaintenanceStartTime: this.__input.windowsConfiguration?.weeklyMaintenanceStartTime,
+            DailyAutomaticBackupStartTime: this.__input.windowsConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
+            CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
+            Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
+          },
+          LustreConfiguration: {
+            WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
+            ImportPath: this.__input.lustreConfiguration?.importPath,
+            ExportPath: this.__input.lustreConfiguration?.exportPath,
+            ImportedFileChunkSize: this.__input.lustreConfiguration?.importedFileChunkSize,
+            DeploymentType: this.__input.lustreConfiguration?.deploymentType,
+            AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            PerUnitStorageThroughput: this.__input.lustreConfiguration?.perUnitStorageThroughput,
+            DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
+            CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
+            DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFileSystem.FileSystem.LustreConfiguration.DataCompressionType', props);
+    return resource.getResponseField('FileSystem.LustreConfiguration.DataCompressionType') as unknown as string;
   }
 
 }
@@ -4354,6 +6606,11 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfigurationDataReposi
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -4367,6 +6624,7 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfigurationDataReposi
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -4410,6 +6668,11 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfigurationDataReposi
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -4423,6 +6686,7 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfigurationDataReposi
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -4466,6 +6730,11 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfigurationDataReposi
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -4479,6 +6748,7 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfigurationDataReposi
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -4522,6 +6792,11 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfigurationDataReposi
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -4535,6 +6810,7 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfigurationDataReposi
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -4578,6 +6854,11 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfigurationDataReposi
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -4591,6 +6872,7 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfigurationDataReposi
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -4645,6 +6927,11 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfigurationDataReposi
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -4658,6 +6945,7 @@ export class FSxResponsesCreateFileSystemFileSystemLustreConfigurationDataReposi
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -4716,6 +7004,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -4729,8 +7022,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -4770,6 +7065,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -4783,8 +7083,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -4824,6 +7126,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -4837,8 +7144,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -4878,6 +7187,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -4891,8 +7205,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -4932,6 +7248,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -4945,8 +7266,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -4990,6 +7313,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -5003,8 +7331,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -5044,6 +7374,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -5057,8 +7392,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -5098,6 +7435,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -5111,8 +7453,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -5152,6 +7496,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -5165,8 +7514,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -5206,6 +7557,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -5219,8 +7575,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -5260,6 +7618,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -5273,8 +7636,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -5314,6 +7679,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -5327,8 +7697,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -5368,6 +7740,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -5381,8 +7758,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -5422,6 +7801,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -5435,8 +7819,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -5484,6 +7870,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -5497,8 +7888,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystem {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -5545,6 +7938,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemFailureDetails {
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -5558,8 +7956,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemFailureDetails {
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -5606,6 +8006,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -5619,8 +8024,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -5664,6 +8071,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -5677,8 +8089,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -5718,6 +8132,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -5731,8 +8150,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -5772,6 +8193,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -5785,8 +8211,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -5826,6 +8254,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -5839,8 +8272,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -5880,6 +8315,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -5893,8 +8333,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -5934,6 +8376,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -5947,8 +8394,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -5988,6 +8437,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6001,8 +8455,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -6042,6 +8498,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6055,8 +8516,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -6096,6 +8559,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6109,8 +8577,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -6150,6 +8620,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6163,8 +8638,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -6204,6 +8681,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6217,13 +8699,19 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateFileSystemFromBackup.FileSystem.WindowsConfiguration.Aliases', props);
     return resource.getResponseField('FileSystem.WindowsConfiguration.Aliases') as unknown as shapes.FSxAlias[];
+  }
+
+  public get auditLogConfiguration(): FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfigurationAuditLogConfiguration {
+    return new FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfigurationAuditLogConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -6265,6 +8753,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6278,8 +8771,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -6319,6 +8814,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6332,8 +8832,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -6373,6 +8875,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6386,8 +8893,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -6427,6 +8936,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6440,8 +8954,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -6481,6 +8997,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6494,13 +9015,205 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfiguratio
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateFileSystemFromBackup.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.DnsIps', props);
     return resource.getResponseField('FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.DnsIps') as unknown as string[];
+  }
+
+}
+
+export class FSxResponsesCreateFileSystemFromBackupFileSystemWindowsConfigurationAuditLogConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.FSxCreateFileSystemFromBackupRequest) {
+  }
+
+  public get fileAccessAuditLogLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFileSystemFromBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CreateFileSystemFromBackup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel'),
+        outputPath: 'FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ClientRequestToken: this.__input.clientRequestToken,
+          SubnetIds: this.__input.subnetIds,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          Tags: this.__input.tags,
+          WindowsConfiguration: {
+            ActiveDirectoryId: this.__input.windowsConfiguration?.activeDirectoryId,
+            SelfManagedActiveDirectoryConfiguration: {
+              DomainName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.domainName,
+              OrganizationalUnitDistinguishedName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.organizationalUnitDistinguishedName,
+              FileSystemAdministratorsGroup: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.fileSystemAdministratorsGroup,
+              UserName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.userName,
+              Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
+              DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
+            },
+            DeploymentType: this.__input.windowsConfiguration?.deploymentType,
+            PreferredSubnetId: this.__input.windowsConfiguration?.preferredSubnetId,
+            ThroughputCapacity: this.__input.windowsConfiguration?.throughputCapacity,
+            WeeklyMaintenanceStartTime: this.__input.windowsConfiguration?.weeklyMaintenanceStartTime,
+            DailyAutomaticBackupStartTime: this.__input.windowsConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
+            CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
+            Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
+          },
+          LustreConfiguration: {
+            WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
+            ImportPath: this.__input.lustreConfiguration?.importPath,
+            ExportPath: this.__input.lustreConfiguration?.exportPath,
+            ImportedFileChunkSize: this.__input.lustreConfiguration?.importedFileChunkSize,
+            DeploymentType: this.__input.lustreConfiguration?.deploymentType,
+            AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            PerUnitStorageThroughput: this.__input.lustreConfiguration?.perUnitStorageThroughput,
+            DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
+            CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
+            DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
+          },
+          StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFileSystemFromBackup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel', props);
+    return resource.getResponseField('FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel') as unknown as string;
+  }
+
+  public get fileShareAccessAuditLogLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFileSystemFromBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CreateFileSystemFromBackup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel'),
+        outputPath: 'FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ClientRequestToken: this.__input.clientRequestToken,
+          SubnetIds: this.__input.subnetIds,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          Tags: this.__input.tags,
+          WindowsConfiguration: {
+            ActiveDirectoryId: this.__input.windowsConfiguration?.activeDirectoryId,
+            SelfManagedActiveDirectoryConfiguration: {
+              DomainName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.domainName,
+              OrganizationalUnitDistinguishedName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.organizationalUnitDistinguishedName,
+              FileSystemAdministratorsGroup: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.fileSystemAdministratorsGroup,
+              UserName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.userName,
+              Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
+              DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
+            },
+            DeploymentType: this.__input.windowsConfiguration?.deploymentType,
+            PreferredSubnetId: this.__input.windowsConfiguration?.preferredSubnetId,
+            ThroughputCapacity: this.__input.windowsConfiguration?.throughputCapacity,
+            WeeklyMaintenanceStartTime: this.__input.windowsConfiguration?.weeklyMaintenanceStartTime,
+            DailyAutomaticBackupStartTime: this.__input.windowsConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
+            CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
+            Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
+          },
+          LustreConfiguration: {
+            WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
+            ImportPath: this.__input.lustreConfiguration?.importPath,
+            ExportPath: this.__input.lustreConfiguration?.exportPath,
+            ImportedFileChunkSize: this.__input.lustreConfiguration?.importedFileChunkSize,
+            DeploymentType: this.__input.lustreConfiguration?.deploymentType,
+            AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            PerUnitStorageThroughput: this.__input.lustreConfiguration?.perUnitStorageThroughput,
+            DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
+            CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
+            DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
+          },
+          StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFileSystemFromBackup.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel', props);
+    return resource.getResponseField('FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel') as unknown as string;
+  }
+
+  public get auditLogDestination(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFileSystemFromBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CreateFileSystemFromBackup.FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination'),
+        outputPath: 'FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ClientRequestToken: this.__input.clientRequestToken,
+          SubnetIds: this.__input.subnetIds,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          Tags: this.__input.tags,
+          WindowsConfiguration: {
+            ActiveDirectoryId: this.__input.windowsConfiguration?.activeDirectoryId,
+            SelfManagedActiveDirectoryConfiguration: {
+              DomainName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.domainName,
+              OrganizationalUnitDistinguishedName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.organizationalUnitDistinguishedName,
+              FileSystemAdministratorsGroup: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.fileSystemAdministratorsGroup,
+              UserName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.userName,
+              Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
+              DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
+            },
+            DeploymentType: this.__input.windowsConfiguration?.deploymentType,
+            PreferredSubnetId: this.__input.windowsConfiguration?.preferredSubnetId,
+            ThroughputCapacity: this.__input.windowsConfiguration?.throughputCapacity,
+            WeeklyMaintenanceStartTime: this.__input.windowsConfiguration?.weeklyMaintenanceStartTime,
+            DailyAutomaticBackupStartTime: this.__input.windowsConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
+            CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
+            Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
+          },
+          LustreConfiguration: {
+            WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
+            ImportPath: this.__input.lustreConfiguration?.importPath,
+            ExportPath: this.__input.lustreConfiguration?.exportPath,
+            ImportedFileChunkSize: this.__input.lustreConfiguration?.importedFileChunkSize,
+            DeploymentType: this.__input.lustreConfiguration?.deploymentType,
+            AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            PerUnitStorageThroughput: this.__input.lustreConfiguration?.perUnitStorageThroughput,
+            DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
+            CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
+            DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
+          },
+          StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFileSystemFromBackup.FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination', props);
+    return resource.getResponseField('FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination') as unknown as string;
   }
 
 }
@@ -6542,6 +9255,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6555,8 +9273,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -6600,6 +9320,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6613,8 +9338,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -6654,6 +9381,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6667,8 +9399,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -6708,6 +9442,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6721,8 +9460,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -6762,6 +9503,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6775,8 +9521,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -6816,6 +9564,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6829,8 +9582,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -6870,6 +9625,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6883,8 +9643,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -6924,6 +9686,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6937,13 +9704,76 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateFileSystemFromBackup.FileSystem.LustreConfiguration.DriveCacheType', props);
     return resource.getResponseField('FileSystem.LustreConfiguration.DriveCacheType') as unknown as string;
+  }
+
+  public get dataCompressionType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFileSystemFromBackup',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.CreateFileSystemFromBackup.FileSystem.LustreConfiguration.DataCompressionType'),
+        outputPath: 'FileSystem.LustreConfiguration.DataCompressionType',
+        parameters: {
+          BackupId: this.__input.backupId,
+          ClientRequestToken: this.__input.clientRequestToken,
+          SubnetIds: this.__input.subnetIds,
+          SecurityGroupIds: this.__input.securityGroupIds,
+          Tags: this.__input.tags,
+          WindowsConfiguration: {
+            ActiveDirectoryId: this.__input.windowsConfiguration?.activeDirectoryId,
+            SelfManagedActiveDirectoryConfiguration: {
+              DomainName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.domainName,
+              OrganizationalUnitDistinguishedName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.organizationalUnitDistinguishedName,
+              FileSystemAdministratorsGroup: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.fileSystemAdministratorsGroup,
+              UserName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.userName,
+              Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
+              DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
+            },
+            DeploymentType: this.__input.windowsConfiguration?.deploymentType,
+            PreferredSubnetId: this.__input.windowsConfiguration?.preferredSubnetId,
+            ThroughputCapacity: this.__input.windowsConfiguration?.throughputCapacity,
+            WeeklyMaintenanceStartTime: this.__input.windowsConfiguration?.weeklyMaintenanceStartTime,
+            DailyAutomaticBackupStartTime: this.__input.windowsConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
+            CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
+            Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
+          },
+          LustreConfiguration: {
+            WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
+            ImportPath: this.__input.lustreConfiguration?.importPath,
+            ExportPath: this.__input.lustreConfiguration?.exportPath,
+            ImportedFileChunkSize: this.__input.lustreConfiguration?.importedFileChunkSize,
+            DeploymentType: this.__input.lustreConfiguration?.deploymentType,
+            AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            PerUnitStorageThroughput: this.__input.lustreConfiguration?.perUnitStorageThroughput,
+            DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
+            CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
+            DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
+          },
+          StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFileSystemFromBackup.FileSystem.LustreConfiguration.DataCompressionType', props);
+    return resource.getResponseField('FileSystem.LustreConfiguration.DataCompressionType') as unknown as string;
   }
 
 }
@@ -6985,6 +9815,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -6998,8 +9833,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -7039,6 +9876,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -7052,8 +9894,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -7093,6 +9937,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -7106,8 +9955,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -7147,6 +9998,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -7160,8 +10016,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -7201,6 +10059,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -7214,8 +10077,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -7266,6 +10131,11 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.windowsConfiguration?.copyTagsToBackups,
             Aliases: this.__input.windowsConfiguration?.aliases,
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
@@ -7279,8 +10149,10 @@ export class FSxResponsesCreateFileSystemFromBackupFileSystemLustreConfiguration
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             CopyTagsToBackups: this.__input.lustreConfiguration?.copyTagsToBackups,
             DriveCacheType: this.__input.lustreConfiguration?.driveCacheType,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
           StorageType: this.__input.storageType,
+          KmsKeyId: this.__input.kmsKeyId,
         },
       },
     };
@@ -7813,12 +10685,18 @@ export class FSxResponsesUpdateFileSystemFileSystem {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -7849,12 +10727,18 @@ export class FSxResponsesUpdateFileSystemFileSystem {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -7885,12 +10769,18 @@ export class FSxResponsesUpdateFileSystemFileSystem {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -7921,12 +10811,18 @@ export class FSxResponsesUpdateFileSystemFileSystem {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -7957,12 +10853,18 @@ export class FSxResponsesUpdateFileSystemFileSystem {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -7997,12 +10899,18 @@ export class FSxResponsesUpdateFileSystemFileSystem {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8033,12 +10941,18 @@ export class FSxResponsesUpdateFileSystemFileSystem {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8069,12 +10983,18 @@ export class FSxResponsesUpdateFileSystemFileSystem {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8105,12 +11025,18 @@ export class FSxResponsesUpdateFileSystemFileSystem {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8141,12 +11067,18 @@ export class FSxResponsesUpdateFileSystemFileSystem {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8177,12 +11109,18 @@ export class FSxResponsesUpdateFileSystemFileSystem {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8213,12 +11151,18 @@ export class FSxResponsesUpdateFileSystemFileSystem {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8249,12 +11193,18 @@ export class FSxResponsesUpdateFileSystemFileSystem {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8285,12 +11235,18 @@ export class FSxResponsesUpdateFileSystemFileSystem {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8329,12 +11285,18 @@ export class FSxResponsesUpdateFileSystemFileSystem {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8372,12 +11334,18 @@ export class FSxResponsesUpdateFileSystemFileSystemFailureDetails {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8415,12 +11383,18 @@ export class FSxResponsesUpdateFileSystemFileSystemWindowsConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8455,12 +11429,18 @@ export class FSxResponsesUpdateFileSystemFileSystemWindowsConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8491,12 +11471,18 @@ export class FSxResponsesUpdateFileSystemFileSystemWindowsConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8527,12 +11513,18 @@ export class FSxResponsesUpdateFileSystemFileSystemWindowsConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8563,12 +11555,18 @@ export class FSxResponsesUpdateFileSystemFileSystemWindowsConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8599,12 +11597,18 @@ export class FSxResponsesUpdateFileSystemFileSystemWindowsConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8635,12 +11639,18 @@ export class FSxResponsesUpdateFileSystemFileSystemWindowsConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8671,12 +11681,18 @@ export class FSxResponsesUpdateFileSystemFileSystemWindowsConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8707,12 +11723,18 @@ export class FSxResponsesUpdateFileSystemFileSystemWindowsConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8743,12 +11765,18 @@ export class FSxResponsesUpdateFileSystemFileSystemWindowsConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8779,12 +11807,18 @@ export class FSxResponsesUpdateFileSystemFileSystemWindowsConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8815,18 +11849,28 @@ export class FSxResponsesUpdateFileSystemFileSystemWindowsConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFileSystem.FileSystem.WindowsConfiguration.Aliases', props);
     return resource.getResponseField('FileSystem.WindowsConfiguration.Aliases') as unknown as shapes.FSxAlias[];
+  }
+
+  public get auditLogConfiguration(): FSxResponsesUpdateFileSystemFileSystemWindowsConfigurationAuditLogConfiguration {
+    return new FSxResponsesUpdateFileSystemFileSystemWindowsConfigurationAuditLogConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -8858,12 +11902,18 @@ export class FSxResponsesUpdateFileSystemFileSystemWindowsConfigurationSelfManag
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8894,12 +11944,18 @@ export class FSxResponsesUpdateFileSystemFileSystemWindowsConfigurationSelfManag
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8930,12 +11986,18 @@ export class FSxResponsesUpdateFileSystemFileSystemWindowsConfigurationSelfManag
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -8966,12 +12028,18 @@ export class FSxResponsesUpdateFileSystemFileSystemWindowsConfigurationSelfManag
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -9002,18 +12070,157 @@ export class FSxResponsesUpdateFileSystemFileSystemWindowsConfigurationSelfManag
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFileSystem.FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.DnsIps', props);
     return resource.getResponseField('FileSystem.WindowsConfiguration.SelfManagedActiveDirectoryConfiguration.DnsIps') as unknown as string[];
+  }
+
+}
+
+export class FSxResponsesUpdateFileSystemFileSystemWindowsConfigurationAuditLogConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.FSxUpdateFileSystemRequest) {
+  }
+
+  public get fileAccessAuditLogLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFileSystem',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.UpdateFileSystem.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel'),
+        outputPath: 'FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel',
+        parameters: {
+          FileSystemId: this.__input.fileSystemId,
+          ClientRequestToken: this.__input.clientRequestToken,
+          StorageCapacity: this.__input.storageCapacity,
+          WindowsConfiguration: {
+            WeeklyMaintenanceStartTime: this.__input.windowsConfiguration?.weeklyMaintenanceStartTime,
+            DailyAutomaticBackupStartTime: this.__input.windowsConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
+            ThroughputCapacity: this.__input.windowsConfiguration?.throughputCapacity,
+            SelfManagedActiveDirectoryConfiguration: {
+              UserName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.userName,
+              Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
+              DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
+            },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
+          },
+          LustreConfiguration: {
+            WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
+            DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
+            AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFileSystem.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel', props);
+    return resource.getResponseField('FileSystem.WindowsConfiguration.AuditLogConfiguration.FileAccessAuditLogLevel') as unknown as string;
+  }
+
+  public get fileShareAccessAuditLogLevel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFileSystem',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.UpdateFileSystem.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel'),
+        outputPath: 'FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel',
+        parameters: {
+          FileSystemId: this.__input.fileSystemId,
+          ClientRequestToken: this.__input.clientRequestToken,
+          StorageCapacity: this.__input.storageCapacity,
+          WindowsConfiguration: {
+            WeeklyMaintenanceStartTime: this.__input.windowsConfiguration?.weeklyMaintenanceStartTime,
+            DailyAutomaticBackupStartTime: this.__input.windowsConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
+            ThroughputCapacity: this.__input.windowsConfiguration?.throughputCapacity,
+            SelfManagedActiveDirectoryConfiguration: {
+              UserName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.userName,
+              Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
+              DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
+            },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
+          },
+          LustreConfiguration: {
+            WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
+            DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
+            AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFileSystem.FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel', props);
+    return resource.getResponseField('FileSystem.WindowsConfiguration.AuditLogConfiguration.FileShareAccessAuditLogLevel') as unknown as string;
+  }
+
+  public get auditLogDestination(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFileSystem',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.UpdateFileSystem.FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination'),
+        outputPath: 'FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination',
+        parameters: {
+          FileSystemId: this.__input.fileSystemId,
+          ClientRequestToken: this.__input.clientRequestToken,
+          StorageCapacity: this.__input.storageCapacity,
+          WindowsConfiguration: {
+            WeeklyMaintenanceStartTime: this.__input.windowsConfiguration?.weeklyMaintenanceStartTime,
+            DailyAutomaticBackupStartTime: this.__input.windowsConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
+            ThroughputCapacity: this.__input.windowsConfiguration?.throughputCapacity,
+            SelfManagedActiveDirectoryConfiguration: {
+              UserName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.userName,
+              Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
+              DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
+            },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
+          },
+          LustreConfiguration: {
+            WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
+            DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
+            AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFileSystem.FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination', props);
+    return resource.getResponseField('FileSystem.WindowsConfiguration.AuditLogConfiguration.AuditLogDestination') as unknown as string;
   }
 
 }
@@ -9045,12 +12252,18 @@ export class FSxResponsesUpdateFileSystemFileSystemLustreConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -9085,12 +12298,18 @@ export class FSxResponsesUpdateFileSystemFileSystemLustreConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -9121,12 +12340,18 @@ export class FSxResponsesUpdateFileSystemFileSystemLustreConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -9157,12 +12382,18 @@ export class FSxResponsesUpdateFileSystemFileSystemLustreConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -9193,12 +12424,18 @@ export class FSxResponsesUpdateFileSystemFileSystemLustreConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -9229,12 +12466,18 @@ export class FSxResponsesUpdateFileSystemFileSystemLustreConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -9265,12 +12508,18 @@ export class FSxResponsesUpdateFileSystemFileSystemLustreConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -9301,18 +12550,66 @@ export class FSxResponsesUpdateFileSystemFileSystemLustreConfiguration {
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFileSystem.FileSystem.LustreConfiguration.DriveCacheType', props);
     return resource.getResponseField('FileSystem.LustreConfiguration.DriveCacheType') as unknown as string;
+  }
+
+  public get dataCompressionType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFileSystem',
+        service: 'FSx',
+        physicalResourceId: cr.PhysicalResourceId.of('FSx.UpdateFileSystem.FileSystem.LustreConfiguration.DataCompressionType'),
+        outputPath: 'FileSystem.LustreConfiguration.DataCompressionType',
+        parameters: {
+          FileSystemId: this.__input.fileSystemId,
+          ClientRequestToken: this.__input.clientRequestToken,
+          StorageCapacity: this.__input.storageCapacity,
+          WindowsConfiguration: {
+            WeeklyMaintenanceStartTime: this.__input.windowsConfiguration?.weeklyMaintenanceStartTime,
+            DailyAutomaticBackupStartTime: this.__input.windowsConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.windowsConfiguration?.automaticBackupRetentionDays,
+            ThroughputCapacity: this.__input.windowsConfiguration?.throughputCapacity,
+            SelfManagedActiveDirectoryConfiguration: {
+              UserName: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.userName,
+              Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
+              DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
+            },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
+          },
+          LustreConfiguration: {
+            WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
+            DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
+            AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
+            AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFileSystem.FileSystem.LustreConfiguration.DataCompressionType', props);
+    return resource.getResponseField('FileSystem.LustreConfiguration.DataCompressionType') as unknown as string;
   }
 
 }
@@ -9344,12 +12641,18 @@ export class FSxResponsesUpdateFileSystemFileSystemLustreConfigurationDataReposi
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -9380,12 +12683,18 @@ export class FSxResponsesUpdateFileSystemFileSystemLustreConfigurationDataReposi
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -9416,12 +12725,18 @@ export class FSxResponsesUpdateFileSystemFileSystemLustreConfigurationDataReposi
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -9452,12 +12767,18 @@ export class FSxResponsesUpdateFileSystemFileSystemLustreConfigurationDataReposi
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -9488,12 +12809,18 @@ export class FSxResponsesUpdateFileSystemFileSystemLustreConfigurationDataReposi
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },
@@ -9535,12 +12862,18 @@ export class FSxResponsesUpdateFileSystemFileSystemLustreConfigurationDataReposi
               Password: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.password,
               DnsIps: this.__input.windowsConfiguration?.selfManagedActiveDirectoryConfiguration?.dnsIps,
             },
+            AuditLogConfiguration: {
+              FileAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileAccessAuditLogLevel,
+              FileShareAccessAuditLogLevel: this.__input.windowsConfiguration?.auditLogConfiguration?.fileShareAccessAuditLogLevel,
+              AuditLogDestination: this.__input.windowsConfiguration?.auditLogConfiguration?.auditLogDestination,
+            },
           },
           LustreConfiguration: {
             WeeklyMaintenanceStartTime: this.__input.lustreConfiguration?.weeklyMaintenanceStartTime,
             DailyAutomaticBackupStartTime: this.__input.lustreConfiguration?.dailyAutomaticBackupStartTime,
             AutomaticBackupRetentionDays: this.__input.lustreConfiguration?.automaticBackupRetentionDays,
             AutoImportPolicy: this.__input.lustreConfiguration?.autoImportPolicy,
+            DataCompressionType: this.__input.lustreConfiguration?.dataCompressionType,
           },
         },
       },

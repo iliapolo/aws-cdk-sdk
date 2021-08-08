@@ -15,6 +15,21 @@ export interface IoTAnalyticsBatchPutMessageRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsBatchPutMessageRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsBatchPutMessageRequest(obj: IoTAnalyticsBatchPutMessageRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'channelName': obj.channelName,
+    'messages': obj.messages?.map(y => toJson_IoTAnalyticsMessage(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsBatchPutMessageResponse
  */
 export interface IoTAnalyticsBatchPutMessageResponse {
@@ -24,6 +39,20 @@ export interface IoTAnalyticsBatchPutMessageResponse {
   readonly batchPutMessageErrorEntries?: IoTAnalyticsBatchPutMessageErrorEntry[];
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsBatchPutMessageResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsBatchPutMessageResponse(obj: IoTAnalyticsBatchPutMessageResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'batchPutMessageErrorEntries': obj.batchPutMessageErrorEntries?.map(y => toJson_IoTAnalyticsBatchPutMessageErrorEntry(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsCancelPipelineReprocessingRequest
@@ -42,10 +71,38 @@ export interface IoTAnalyticsCancelPipelineReprocessingRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsCancelPipelineReprocessingRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsCancelPipelineReprocessingRequest(obj: IoTAnalyticsCancelPipelineReprocessingRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+    'reprocessingId': obj.reprocessingId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsCancelPipelineReprocessingResponse
  */
 export interface IoTAnalyticsCancelPipelineReprocessingResponse {
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsCancelPipelineReprocessingResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsCancelPipelineReprocessingResponse(obj: IoTAnalyticsCancelPipelineReprocessingResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsCreateChannelRequest
@@ -74,6 +131,23 @@ export interface IoTAnalyticsCreateChannelRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsCreateChannelRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsCreateChannelRequest(obj: IoTAnalyticsCreateChannelRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'channelName': obj.channelName,
+    'channelStorage': toJson_IoTAnalyticsChannelStorage(obj.channelStorage),
+    'retentionPeriod': toJson_IoTAnalyticsRetentionPeriod(obj.retentionPeriod),
+    'tags': obj.tags?.map(y => toJson_IoTAnalyticsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsCreateChannelResponse
  */
 export interface IoTAnalyticsCreateChannelResponse {
@@ -93,6 +167,22 @@ export interface IoTAnalyticsCreateChannelResponse {
   readonly retentionPeriod?: IoTAnalyticsRetentionPeriod;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsCreateChannelResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsCreateChannelResponse(obj: IoTAnalyticsCreateChannelResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'channelName': obj.channelName,
+    'channelArn': obj.channelArn,
+    'retentionPeriod': toJson_IoTAnalyticsRetentionPeriod(obj.retentionPeriod),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsCreateDatasetRequest
@@ -141,6 +231,27 @@ export interface IoTAnalyticsCreateDatasetRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsCreateDatasetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsCreateDatasetRequest(obj: IoTAnalyticsCreateDatasetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetName': obj.datasetName,
+    'actions': obj.actions?.map(y => toJson_IoTAnalyticsDatasetAction(y)),
+    'triggers': obj.triggers?.map(y => toJson_IoTAnalyticsDatasetTrigger(y)),
+    'contentDeliveryRules': obj.contentDeliveryRules?.map(y => toJson_IoTAnalyticsDatasetContentDeliveryRule(y)),
+    'retentionPeriod': toJson_IoTAnalyticsRetentionPeriod(obj.retentionPeriod),
+    'versioningConfiguration': toJson_IoTAnalyticsVersioningConfiguration(obj.versioningConfiguration),
+    'tags': obj.tags?.map(y => toJson_IoTAnalyticsTag(y)),
+    'lateDataRules': obj.lateDataRules?.map(y => toJson_IoTAnalyticsLateDataRule(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsCreateDatasetResponse
  */
 export interface IoTAnalyticsCreateDatasetResponse {
@@ -162,6 +273,22 @@ export interface IoTAnalyticsCreateDatasetResponse {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsCreateDatasetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsCreateDatasetResponse(obj: IoTAnalyticsCreateDatasetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetName': obj.datasetName,
+    'datasetArn': obj.datasetArn,
+    'retentionPeriod': toJson_IoTAnalyticsRetentionPeriod(obj.retentionPeriod),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsCreateDatasetContentRequest
  */
 export interface IoTAnalyticsCreateDatasetContentRequest {
@@ -178,6 +305,21 @@ export interface IoTAnalyticsCreateDatasetContentRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsCreateDatasetContentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsCreateDatasetContentRequest(obj: IoTAnalyticsCreateDatasetContentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetName': obj.datasetName,
+    'versionId': obj.versionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsCreateDatasetContentResponse
  */
 export interface IoTAnalyticsCreateDatasetContentResponse {
@@ -187,6 +329,20 @@ export interface IoTAnalyticsCreateDatasetContentResponse {
   readonly versionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsCreateDatasetContentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsCreateDatasetContentResponse(obj: IoTAnalyticsCreateDatasetContentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'versionId': obj.versionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsCreateDatastoreRequest
@@ -212,7 +368,36 @@ export interface IoTAnalyticsCreateDatastoreRequest {
    */
   readonly tags?: IoTAnalyticsTag[];
 
+  /**
+   * @schema IoTAnalyticsCreateDatastoreRequest#fileFormatConfiguration
+   */
+  readonly fileFormatConfiguration?: IoTAnalyticsFileFormatConfiguration;
+
+  /**
+   * @schema IoTAnalyticsCreateDatastoreRequest#datastorePartitions
+   */
+  readonly datastorePartitions?: IoTAnalyticsDatastorePartitions;
+
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsCreateDatastoreRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsCreateDatastoreRequest(obj: IoTAnalyticsCreateDatastoreRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datastoreName': obj.datastoreName,
+    'datastoreStorage': toJson_IoTAnalyticsDatastoreStorage(obj.datastoreStorage),
+    'retentionPeriod': toJson_IoTAnalyticsRetentionPeriod(obj.retentionPeriod),
+    'tags': obj.tags?.map(y => toJson_IoTAnalyticsTag(y)),
+    'fileFormatConfiguration': toJson_IoTAnalyticsFileFormatConfiguration(obj.fileFormatConfiguration),
+    'datastorePartitions': toJson_IoTAnalyticsDatastorePartitions(obj.datastorePartitions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsCreateDatastoreResponse
@@ -236,6 +421,22 @@ export interface IoTAnalyticsCreateDatastoreResponse {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsCreateDatastoreResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsCreateDatastoreResponse(obj: IoTAnalyticsCreateDatastoreResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datastoreName': obj.datastoreName,
+    'datastoreArn': obj.datastoreArn,
+    'retentionPeriod': toJson_IoTAnalyticsRetentionPeriod(obj.retentionPeriod),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsCreatePipelineRequest
  */
 export interface IoTAnalyticsCreatePipelineRequest {
@@ -257,6 +458,22 @@ export interface IoTAnalyticsCreatePipelineRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsCreatePipelineRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsCreatePipelineRequest(obj: IoTAnalyticsCreatePipelineRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+    'pipelineActivities': obj.pipelineActivities?.map(y => toJson_IoTAnalyticsPipelineActivity(y)),
+    'tags': obj.tags?.map(y => toJson_IoTAnalyticsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsCreatePipelineResponse
  */
 export interface IoTAnalyticsCreatePipelineResponse {
@@ -273,6 +490,21 @@ export interface IoTAnalyticsCreatePipelineResponse {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsCreatePipelineResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsCreatePipelineResponse(obj: IoTAnalyticsCreatePipelineResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+    'pipelineArn': obj.pipelineArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDeleteChannelRequest
  */
 export interface IoTAnalyticsDeleteChannelRequest {
@@ -284,6 +516,20 @@ export interface IoTAnalyticsDeleteChannelRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDeleteChannelRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDeleteChannelRequest(obj: IoTAnalyticsDeleteChannelRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'channelName': obj.channelName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDeleteDatasetRequest
  */
 export interface IoTAnalyticsDeleteDatasetRequest {
@@ -293,6 +539,20 @@ export interface IoTAnalyticsDeleteDatasetRequest {
   readonly datasetName: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsDeleteDatasetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDeleteDatasetRequest(obj: IoTAnalyticsDeleteDatasetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetName': obj.datasetName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsDeleteDatasetContentRequest
@@ -311,6 +571,21 @@ export interface IoTAnalyticsDeleteDatasetContentRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDeleteDatasetContentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDeleteDatasetContentRequest(obj: IoTAnalyticsDeleteDatasetContentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetName': obj.datasetName,
+    'versionId': obj.versionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDeleteDatastoreRequest
  */
 export interface IoTAnalyticsDeleteDatastoreRequest {
@@ -322,6 +597,20 @@ export interface IoTAnalyticsDeleteDatastoreRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDeleteDatastoreRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDeleteDatastoreRequest(obj: IoTAnalyticsDeleteDatastoreRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datastoreName': obj.datastoreName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDeletePipelineRequest
  */
 export interface IoTAnalyticsDeletePipelineRequest {
@@ -331,6 +620,20 @@ export interface IoTAnalyticsDeletePipelineRequest {
   readonly pipelineName: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsDeletePipelineRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDeletePipelineRequest(obj: IoTAnalyticsDeletePipelineRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsDescribeChannelRequest
@@ -349,6 +652,21 @@ export interface IoTAnalyticsDescribeChannelRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDescribeChannelRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDescribeChannelRequest(obj: IoTAnalyticsDescribeChannelRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'channelName': obj.channelName,
+    'includeStatistics': obj.includeStatistics,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDescribeChannelResponse
  */
 export interface IoTAnalyticsDescribeChannelResponse {
@@ -365,6 +683,21 @@ export interface IoTAnalyticsDescribeChannelResponse {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDescribeChannelResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDescribeChannelResponse(obj: IoTAnalyticsDescribeChannelResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'channel': toJson_IoTAnalyticsChannel(obj.channel),
+    'statistics': toJson_IoTAnalyticsChannelStatistics(obj.statistics),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDescribeDatasetRequest
  */
 export interface IoTAnalyticsDescribeDatasetRequest {
@@ -376,6 +709,20 @@ export interface IoTAnalyticsDescribeDatasetRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDescribeDatasetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDescribeDatasetRequest(obj: IoTAnalyticsDescribeDatasetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetName': obj.datasetName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDescribeDatasetResponse
  */
 export interface IoTAnalyticsDescribeDatasetResponse {
@@ -385,6 +732,20 @@ export interface IoTAnalyticsDescribeDatasetResponse {
   readonly dataset?: IoTAnalyticsDataset;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsDescribeDatasetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDescribeDatasetResponse(obj: IoTAnalyticsDescribeDatasetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dataset': toJson_IoTAnalyticsDataset(obj.dataset),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsDescribeDatastoreRequest
@@ -403,6 +764,21 @@ export interface IoTAnalyticsDescribeDatastoreRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDescribeDatastoreRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDescribeDatastoreRequest(obj: IoTAnalyticsDescribeDatastoreRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datastoreName': obj.datastoreName,
+    'includeStatistics': obj.includeStatistics,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDescribeDatastoreResponse
  */
 export interface IoTAnalyticsDescribeDatastoreResponse {
@@ -419,10 +795,38 @@ export interface IoTAnalyticsDescribeDatastoreResponse {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDescribeDatastoreResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDescribeDatastoreResponse(obj: IoTAnalyticsDescribeDatastoreResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datastore': toJson_IoTAnalyticsDatastore(obj.datastore),
+    'statistics': toJson_IoTAnalyticsDatastoreStatistics(obj.statistics),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDescribeLoggingOptionsRequest
  */
 export interface IoTAnalyticsDescribeLoggingOptionsRequest {
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsDescribeLoggingOptionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDescribeLoggingOptionsRequest(obj: IoTAnalyticsDescribeLoggingOptionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsDescribeLoggingOptionsResponse
@@ -436,6 +840,20 @@ export interface IoTAnalyticsDescribeLoggingOptionsResponse {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDescribeLoggingOptionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDescribeLoggingOptionsResponse(obj: IoTAnalyticsDescribeLoggingOptionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loggingOptions': toJson_IoTAnalyticsLoggingOptions(obj.loggingOptions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDescribePipelineRequest
  */
 export interface IoTAnalyticsDescribePipelineRequest {
@@ -447,6 +865,20 @@ export interface IoTAnalyticsDescribePipelineRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDescribePipelineRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDescribePipelineRequest(obj: IoTAnalyticsDescribePipelineRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDescribePipelineResponse
  */
 export interface IoTAnalyticsDescribePipelineResponse {
@@ -456,6 +888,20 @@ export interface IoTAnalyticsDescribePipelineResponse {
   readonly pipeline?: IoTAnalyticsPipeline;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsDescribePipelineResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDescribePipelineResponse(obj: IoTAnalyticsDescribePipelineResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipeline': toJson_IoTAnalyticsPipeline(obj.pipeline),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsGetDatasetContentRequest
@@ -472,6 +918,21 @@ export interface IoTAnalyticsGetDatasetContentRequest {
   readonly versionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsGetDatasetContentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsGetDatasetContentRequest(obj: IoTAnalyticsGetDatasetContentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetName': obj.datasetName,
+    'versionId': obj.versionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsGetDatasetContentResponse
@@ -495,6 +956,22 @@ export interface IoTAnalyticsGetDatasetContentResponse {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsGetDatasetContentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsGetDatasetContentResponse(obj: IoTAnalyticsGetDatasetContentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'entries': obj.entries?.map(y => toJson_IoTAnalyticsDatasetEntry(y)),
+    'timestamp': obj.timestamp,
+    'status': toJson_IoTAnalyticsDatasetContentStatus(obj.status),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsListChannelsRequest
  */
 export interface IoTAnalyticsListChannelsRequest {
@@ -511,6 +988,21 @@ export interface IoTAnalyticsListChannelsRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsListChannelsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsListChannelsRequest(obj: IoTAnalyticsListChannelsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsListChannelsResponse
  */
 export interface IoTAnalyticsListChannelsResponse {
@@ -525,6 +1017,21 @@ export interface IoTAnalyticsListChannelsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsListChannelsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsListChannelsResponse(obj: IoTAnalyticsListChannelsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'channelSummaries': obj.channelSummaries?.map(y => toJson_IoTAnalyticsChannelSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsListDatasetContentsRequest
@@ -558,6 +1065,24 @@ export interface IoTAnalyticsListDatasetContentsRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsListDatasetContentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsListDatasetContentsRequest(obj: IoTAnalyticsListDatasetContentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetName': obj.datasetName,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'scheduledOnOrAfter': obj.scheduledOnOrAfter,
+    'scheduledBefore': obj.scheduledBefore,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsListDatasetContentsResponse
  */
 export interface IoTAnalyticsListDatasetContentsResponse {
@@ -572,6 +1097,21 @@ export interface IoTAnalyticsListDatasetContentsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsListDatasetContentsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsListDatasetContentsResponse(obj: IoTAnalyticsListDatasetContentsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetContentSummaries': obj.datasetContentSummaries?.map(y => toJson_IoTAnalyticsDatasetContentSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsListDatasetsRequest
@@ -590,6 +1130,21 @@ export interface IoTAnalyticsListDatasetsRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsListDatasetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsListDatasetsRequest(obj: IoTAnalyticsListDatasetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsListDatasetsResponse
  */
 export interface IoTAnalyticsListDatasetsResponse {
@@ -604,6 +1159,21 @@ export interface IoTAnalyticsListDatasetsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsListDatasetsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsListDatasetsResponse(obj: IoTAnalyticsListDatasetsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetSummaries': obj.datasetSummaries?.map(y => toJson_IoTAnalyticsDatasetSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsListDatastoresRequest
@@ -622,6 +1192,21 @@ export interface IoTAnalyticsListDatastoresRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsListDatastoresRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsListDatastoresRequest(obj: IoTAnalyticsListDatastoresRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsListDatastoresResponse
  */
 export interface IoTAnalyticsListDatastoresResponse {
@@ -636,6 +1221,21 @@ export interface IoTAnalyticsListDatastoresResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsListDatastoresResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsListDatastoresResponse(obj: IoTAnalyticsListDatastoresResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datastoreSummaries': obj.datastoreSummaries?.map(y => toJson_IoTAnalyticsDatastoreSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsListPipelinesRequest
@@ -654,6 +1254,21 @@ export interface IoTAnalyticsListPipelinesRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsListPipelinesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsListPipelinesRequest(obj: IoTAnalyticsListPipelinesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsListPipelinesResponse
  */
 export interface IoTAnalyticsListPipelinesResponse {
@@ -670,6 +1285,21 @@ export interface IoTAnalyticsListPipelinesResponse {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsListPipelinesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsListPipelinesResponse(obj: IoTAnalyticsListPipelinesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineSummaries': obj.pipelineSummaries?.map(y => toJson_IoTAnalyticsPipelineSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsListTagsForResourceRequest
  */
 export interface IoTAnalyticsListTagsForResourceRequest {
@@ -679,6 +1309,20 @@ export interface IoTAnalyticsListTagsForResourceRequest {
   readonly resourceArn: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsListTagsForResourceRequest(obj: IoTAnalyticsListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsListTagsForResourceResponse
@@ -692,6 +1336,20 @@ export interface IoTAnalyticsListTagsForResourceResponse {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsListTagsForResourceResponse(obj: IoTAnalyticsListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': obj.tags?.map(y => toJson_IoTAnalyticsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsPutLoggingOptionsRequest
  */
 export interface IoTAnalyticsPutLoggingOptionsRequest {
@@ -701,6 +1359,20 @@ export interface IoTAnalyticsPutLoggingOptionsRequest {
   readonly loggingOptions: IoTAnalyticsLoggingOptions;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsPutLoggingOptionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsPutLoggingOptionsRequest(obj: IoTAnalyticsPutLoggingOptionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'loggingOptions': toJson_IoTAnalyticsLoggingOptions(obj.loggingOptions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsRunPipelineActivityRequest
@@ -719,6 +1391,21 @@ export interface IoTAnalyticsRunPipelineActivityRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsRunPipelineActivityRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsRunPipelineActivityRequest(obj: IoTAnalyticsRunPipelineActivityRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineActivity': toJson_IoTAnalyticsPipelineActivity(obj.pipelineActivity),
+    'payloads': obj.payloads?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsRunPipelineActivityResponse
  */
 export interface IoTAnalyticsRunPipelineActivityResponse {
@@ -733,6 +1420,21 @@ export interface IoTAnalyticsRunPipelineActivityResponse {
   readonly logResult?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsRunPipelineActivityResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsRunPipelineActivityResponse(obj: IoTAnalyticsRunPipelineActivityResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'payloads': obj.payloads?.map(y => y),
+    'logResult': obj.logResult,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsSampleChannelDataRequest
@@ -761,6 +1463,23 @@ export interface IoTAnalyticsSampleChannelDataRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsSampleChannelDataRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsSampleChannelDataRequest(obj: IoTAnalyticsSampleChannelDataRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'channelName': obj.channelName,
+    'maxMessages': obj.maxMessages,
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsSampleChannelDataResponse
  */
 export interface IoTAnalyticsSampleChannelDataResponse {
@@ -770,6 +1489,20 @@ export interface IoTAnalyticsSampleChannelDataResponse {
   readonly payloads?: any[];
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsSampleChannelDataResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsSampleChannelDataResponse(obj: IoTAnalyticsSampleChannelDataResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'payloads': obj.payloads?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsStartPipelineReprocessingRequest
@@ -790,7 +1523,29 @@ export interface IoTAnalyticsStartPipelineReprocessingRequest {
    */
   readonly endTime?: string;
 
+  /**
+   * @schema IoTAnalyticsStartPipelineReprocessingRequest#channelMessages
+   */
+  readonly channelMessages?: IoTAnalyticsChannelMessages;
+
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsStartPipelineReprocessingRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsStartPipelineReprocessingRequest(obj: IoTAnalyticsStartPipelineReprocessingRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+    'channelMessages': toJson_IoTAnalyticsChannelMessages(obj.channelMessages),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsStartPipelineReprocessingResponse
@@ -802,6 +1557,20 @@ export interface IoTAnalyticsStartPipelineReprocessingResponse {
   readonly reprocessingId?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsStartPipelineReprocessingResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsStartPipelineReprocessingResponse(obj: IoTAnalyticsStartPipelineReprocessingResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reprocessingId': obj.reprocessingId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsTagResourceRequest
@@ -820,10 +1589,38 @@ export interface IoTAnalyticsTagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsTagResourceRequest(obj: IoTAnalyticsTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': obj.tags?.map(y => toJson_IoTAnalyticsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsTagResourceResponse
  */
 export interface IoTAnalyticsTagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsTagResourceResponse(obj: IoTAnalyticsTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsUntagResourceRequest
@@ -842,10 +1639,38 @@ export interface IoTAnalyticsUntagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsUntagResourceRequest(obj: IoTAnalyticsUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsUntagResourceResponse
  */
 export interface IoTAnalyticsUntagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsUntagResourceResponse(obj: IoTAnalyticsUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsUpdateChannelRequest
@@ -867,6 +1692,22 @@ export interface IoTAnalyticsUpdateChannelRequest {
   readonly retentionPeriod?: IoTAnalyticsRetentionPeriod;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsUpdateChannelRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsUpdateChannelRequest(obj: IoTAnalyticsUpdateChannelRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'channelName': obj.channelName,
+    'channelStorage': toJson_IoTAnalyticsChannelStorage(obj.channelStorage),
+    'retentionPeriod': toJson_IoTAnalyticsRetentionPeriod(obj.retentionPeriod),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsUpdateDatasetRequest
@@ -910,6 +1751,26 @@ export interface IoTAnalyticsUpdateDatasetRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsUpdateDatasetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsUpdateDatasetRequest(obj: IoTAnalyticsUpdateDatasetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetName': obj.datasetName,
+    'actions': obj.actions?.map(y => toJson_IoTAnalyticsDatasetAction(y)),
+    'triggers': obj.triggers?.map(y => toJson_IoTAnalyticsDatasetTrigger(y)),
+    'contentDeliveryRules': obj.contentDeliveryRules?.map(y => toJson_IoTAnalyticsDatasetContentDeliveryRule(y)),
+    'retentionPeriod': toJson_IoTAnalyticsRetentionPeriod(obj.retentionPeriod),
+    'versioningConfiguration': toJson_IoTAnalyticsVersioningConfiguration(obj.versioningConfiguration),
+    'lateDataRules': obj.lateDataRules?.map(y => toJson_IoTAnalyticsLateDataRule(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsUpdateDatastoreRequest
  */
 export interface IoTAnalyticsUpdateDatastoreRequest {
@@ -928,7 +1789,29 @@ export interface IoTAnalyticsUpdateDatastoreRequest {
    */
   readonly datastoreStorage?: IoTAnalyticsDatastoreStorage;
 
+  /**
+   * @schema IoTAnalyticsUpdateDatastoreRequest#fileFormatConfiguration
+   */
+  readonly fileFormatConfiguration?: IoTAnalyticsFileFormatConfiguration;
+
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsUpdateDatastoreRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsUpdateDatastoreRequest(obj: IoTAnalyticsUpdateDatastoreRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datastoreName': obj.datastoreName,
+    'retentionPeriod': toJson_IoTAnalyticsRetentionPeriod(obj.retentionPeriod),
+    'datastoreStorage': toJson_IoTAnalyticsDatastoreStorage(obj.datastoreStorage),
+    'fileFormatConfiguration': toJson_IoTAnalyticsFileFormatConfiguration(obj.fileFormatConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsUpdatePipelineRequest
@@ -947,6 +1830,21 @@ export interface IoTAnalyticsUpdatePipelineRequest {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsUpdatePipelineRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsUpdatePipelineRequest(obj: IoTAnalyticsUpdatePipelineRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+    'pipelineActivities': obj.pipelineActivities?.map(y => toJson_IoTAnalyticsPipelineActivity(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsMessage
  */
 export interface IoTAnalyticsMessage {
@@ -961,6 +1859,21 @@ export interface IoTAnalyticsMessage {
   readonly payload: any;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsMessage(obj: IoTAnalyticsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'messageId': obj.messageId,
+    'payload': obj.payload,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsBatchPutMessageErrorEntry
@@ -984,6 +1897,22 @@ export interface IoTAnalyticsBatchPutMessageErrorEntry {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsBatchPutMessageErrorEntry' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsBatchPutMessageErrorEntry(obj: IoTAnalyticsBatchPutMessageErrorEntry | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'messageId': obj.messageId,
+    'errorCode': obj.errorCode,
+    'errorMessage': obj.errorMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsChannelStorage
  */
 export interface IoTAnalyticsChannelStorage {
@@ -998,6 +1927,21 @@ export interface IoTAnalyticsChannelStorage {
   readonly customerManagedS3?: IoTAnalyticsCustomerManagedChannelS3Storage;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsChannelStorage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsChannelStorage(obj: IoTAnalyticsChannelStorage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'serviceManagedS3': toJson_IoTAnalyticsServiceManagedChannelS3Storage(obj.serviceManagedS3),
+    'customerManagedS3': toJson_IoTAnalyticsCustomerManagedChannelS3Storage(obj.customerManagedS3),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsRetentionPeriod
@@ -1016,6 +1960,21 @@ export interface IoTAnalyticsRetentionPeriod {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsRetentionPeriod' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsRetentionPeriod(obj: IoTAnalyticsRetentionPeriod | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'unlimited': obj.unlimited,
+    'numberOfDays': obj.numberOfDays,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsTag
  */
 export interface IoTAnalyticsTag {
@@ -1030,6 +1989,21 @@ export interface IoTAnalyticsTag {
   readonly value: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsTag(obj: IoTAnalyticsTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsDatasetAction
@@ -1053,6 +2027,22 @@ export interface IoTAnalyticsDatasetAction {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDatasetAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatasetAction(obj: IoTAnalyticsDatasetAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'actionName': obj.actionName,
+    'queryAction': toJson_IoTAnalyticsSqlQueryDatasetAction(obj.queryAction),
+    'containerAction': toJson_IoTAnalyticsContainerDatasetAction(obj.containerAction),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDatasetTrigger
  */
 export interface IoTAnalyticsDatasetTrigger {
@@ -1067,6 +2057,21 @@ export interface IoTAnalyticsDatasetTrigger {
   readonly dataset?: IoTAnalyticsTriggeringDataset;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsDatasetTrigger' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatasetTrigger(obj: IoTAnalyticsDatasetTrigger | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'schedule': toJson_IoTAnalyticsSchedule(obj.schedule),
+    'dataset': toJson_IoTAnalyticsTriggeringDataset(obj.dataset),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsDatasetContentDeliveryRule
@@ -1085,6 +2090,21 @@ export interface IoTAnalyticsDatasetContentDeliveryRule {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDatasetContentDeliveryRule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatasetContentDeliveryRule(obj: IoTAnalyticsDatasetContentDeliveryRule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'entryName': obj.entryName,
+    'destination': toJson_IoTAnalyticsDatasetContentDeliveryDestination(obj.destination),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsVersioningConfiguration
  */
 export interface IoTAnalyticsVersioningConfiguration {
@@ -1099,6 +2119,21 @@ export interface IoTAnalyticsVersioningConfiguration {
   readonly maxVersions?: number;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsVersioningConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsVersioningConfiguration(obj: IoTAnalyticsVersioningConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'unlimited': obj.unlimited,
+    'maxVersions': obj.maxVersions,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsLateDataRule
@@ -1117,6 +2152,21 @@ export interface IoTAnalyticsLateDataRule {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsLateDataRule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsLateDataRule(obj: IoTAnalyticsLateDataRule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ruleName': obj.ruleName,
+    'ruleConfiguration': toJson_IoTAnalyticsLateDataRuleConfiguration(obj.ruleConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDatastoreStorage
  */
 export interface IoTAnalyticsDatastoreStorage {
@@ -1130,7 +2180,84 @@ export interface IoTAnalyticsDatastoreStorage {
    */
   readonly customerManagedS3?: IoTAnalyticsCustomerManagedDatastoreS3Storage;
 
+  /**
+   * @schema IoTAnalyticsDatastoreStorage#iotSiteWiseMultiLayerStorage
+   */
+  readonly iotSiteWiseMultiLayerStorage?: IoTAnalyticsDatastoreIotSiteWiseMultiLayerStorage;
+
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsDatastoreStorage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatastoreStorage(obj: IoTAnalyticsDatastoreStorage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'serviceManagedS3': toJson_IoTAnalyticsServiceManagedDatastoreS3Storage(obj.serviceManagedS3),
+    'customerManagedS3': toJson_IoTAnalyticsCustomerManagedDatastoreS3Storage(obj.customerManagedS3),
+    'iotSiteWiseMultiLayerStorage': toJson_IoTAnalyticsDatastoreIotSiteWiseMultiLayerStorage(obj.iotSiteWiseMultiLayerStorage),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTAnalyticsFileFormatConfiguration
+ */
+export interface IoTAnalyticsFileFormatConfiguration {
+  /**
+   * @schema IoTAnalyticsFileFormatConfiguration#jsonConfiguration
+   */
+  readonly jsonConfiguration?: IoTAnalyticsJsonConfiguration;
+
+  /**
+   * @schema IoTAnalyticsFileFormatConfiguration#parquetConfiguration
+   */
+  readonly parquetConfiguration?: IoTAnalyticsParquetConfiguration;
+
+}
+
+/**
+ * Converts an object of type 'IoTAnalyticsFileFormatConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsFileFormatConfiguration(obj: IoTAnalyticsFileFormatConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jsonConfiguration': toJson_IoTAnalyticsJsonConfiguration(obj.jsonConfiguration),
+    'parquetConfiguration': toJson_IoTAnalyticsParquetConfiguration(obj.parquetConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTAnalyticsDatastorePartitions
+ */
+export interface IoTAnalyticsDatastorePartitions {
+  /**
+   * @schema IoTAnalyticsDatastorePartitions#partitions
+   */
+  readonly partitions?: IoTAnalyticsDatastorePartition[];
+
+}
+
+/**
+ * Converts an object of type 'IoTAnalyticsDatastorePartitions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatastorePartitions(obj: IoTAnalyticsDatastorePartitions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'partitions': obj.partitions?.map(y => toJson_IoTAnalyticsDatastorePartition(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsPipelineActivity
@@ -1189,6 +2316,29 @@ export interface IoTAnalyticsPipelineActivity {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsPipelineActivity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsPipelineActivity(obj: IoTAnalyticsPipelineActivity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'channel': toJson_IoTAnalyticsChannelActivity(obj.channel),
+    'lambda': toJson_IoTAnalyticsLambdaActivity(obj.lambda),
+    'datastore': toJson_IoTAnalyticsDatastoreActivity(obj.datastore),
+    'addAttributes': toJson_IoTAnalyticsAddAttributesActivity(obj.addAttributes),
+    'removeAttributes': toJson_IoTAnalyticsRemoveAttributesActivity(obj.removeAttributes),
+    'selectAttributes': toJson_IoTAnalyticsSelectAttributesActivity(obj.selectAttributes),
+    'filter': toJson_IoTAnalyticsFilterActivity(obj.filter),
+    'math': toJson_IoTAnalyticsMathActivity(obj.math),
+    'deviceRegistryEnrich': toJson_IoTAnalyticsDeviceRegistryEnrichActivity(obj.deviceRegistryEnrich),
+    'deviceShadowEnrich': toJson_IoTAnalyticsDeviceShadowEnrichActivity(obj.deviceShadowEnrich),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsChannel
  */
 export interface IoTAnalyticsChannel {
@@ -1235,6 +2385,27 @@ export interface IoTAnalyticsChannel {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsChannel' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsChannel(obj: IoTAnalyticsChannel | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'storage': toJson_IoTAnalyticsChannelStorage(obj.storage),
+    'arn': obj.arn,
+    'status': obj.status,
+    'retentionPeriod': toJson_IoTAnalyticsRetentionPeriod(obj.retentionPeriod),
+    'creationTime': obj.creationTime,
+    'lastUpdateTime': obj.lastUpdateTime,
+    'lastMessageArrivalTime': obj.lastMessageArrivalTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsChannelStatistics
  */
 export interface IoTAnalyticsChannelStatistics {
@@ -1244,6 +2415,20 @@ export interface IoTAnalyticsChannelStatistics {
   readonly size?: IoTAnalyticsEstimatedResourceSize;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsChannelStatistics' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsChannelStatistics(obj: IoTAnalyticsChannelStatistics | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'size': toJson_IoTAnalyticsEstimatedResourceSize(obj.size),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsDataset
@@ -1307,6 +2492,30 @@ export interface IoTAnalyticsDataset {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDataset' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDataset(obj: IoTAnalyticsDataset | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'actions': obj.actions?.map(y => toJson_IoTAnalyticsDatasetAction(y)),
+    'triggers': obj.triggers?.map(y => toJson_IoTAnalyticsDatasetTrigger(y)),
+    'contentDeliveryRules': obj.contentDeliveryRules?.map(y => toJson_IoTAnalyticsDatasetContentDeliveryRule(y)),
+    'status': obj.status,
+    'creationTime': obj.creationTime,
+    'lastUpdateTime': obj.lastUpdateTime,
+    'retentionPeriod': toJson_IoTAnalyticsRetentionPeriod(obj.retentionPeriod),
+    'versioningConfiguration': toJson_IoTAnalyticsVersioningConfiguration(obj.versioningConfiguration),
+    'lateDataRules': obj.lateDataRules?.map(y => toJson_IoTAnalyticsLateDataRule(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDatastore
  */
 export interface IoTAnalyticsDatastore {
@@ -1350,7 +2559,40 @@ export interface IoTAnalyticsDatastore {
    */
   readonly lastMessageArrivalTime?: string;
 
+  /**
+   * @schema IoTAnalyticsDatastore#fileFormatConfiguration
+   */
+  readonly fileFormatConfiguration?: IoTAnalyticsFileFormatConfiguration;
+
+  /**
+   * @schema IoTAnalyticsDatastore#datastorePartitions
+   */
+  readonly datastorePartitions?: IoTAnalyticsDatastorePartitions;
+
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsDatastore' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatastore(obj: IoTAnalyticsDatastore | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'storage': toJson_IoTAnalyticsDatastoreStorage(obj.storage),
+    'arn': obj.arn,
+    'status': obj.status,
+    'retentionPeriod': toJson_IoTAnalyticsRetentionPeriod(obj.retentionPeriod),
+    'creationTime': obj.creationTime,
+    'lastUpdateTime': obj.lastUpdateTime,
+    'lastMessageArrivalTime': obj.lastMessageArrivalTime,
+    'fileFormatConfiguration': toJson_IoTAnalyticsFileFormatConfiguration(obj.fileFormatConfiguration),
+    'datastorePartitions': toJson_IoTAnalyticsDatastorePartitions(obj.datastorePartitions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsDatastoreStatistics
@@ -1362,6 +2604,20 @@ export interface IoTAnalyticsDatastoreStatistics {
   readonly size?: IoTAnalyticsEstimatedResourceSize;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsDatastoreStatistics' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatastoreStatistics(obj: IoTAnalyticsDatastoreStatistics | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'size': toJson_IoTAnalyticsEstimatedResourceSize(obj.size),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsLoggingOptions
@@ -1383,6 +2639,22 @@ export interface IoTAnalyticsLoggingOptions {
   readonly enabled: boolean;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsLoggingOptions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsLoggingOptions(obj: IoTAnalyticsLoggingOptions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'roleArn': obj.roleArn,
+    'level': obj.level,
+    'enabled': obj.enabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsPipeline
@@ -1421,6 +2693,25 @@ export interface IoTAnalyticsPipeline {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsPipeline' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsPipeline(obj: IoTAnalyticsPipeline | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'activities': obj.activities?.map(y => toJson_IoTAnalyticsPipelineActivity(y)),
+    'reprocessingSummaries': obj.reprocessingSummaries?.map(y => toJson_IoTAnalyticsReprocessingSummary(y)),
+    'creationTime': obj.creationTime,
+    'lastUpdateTime': obj.lastUpdateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDatasetEntry
  */
 export interface IoTAnalyticsDatasetEntry {
@@ -1432,9 +2723,24 @@ export interface IoTAnalyticsDatasetEntry {
   /**
    * @schema IoTAnalyticsDatasetEntry#dataURI
    */
-  readonly dataURI?: string;
+  readonly dataUri?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsDatasetEntry' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatasetEntry(obj: IoTAnalyticsDatasetEntry | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'entryName': obj.entryName,
+    'dataURI': obj.dataUri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsDatasetContentStatus
@@ -1451,6 +2757,21 @@ export interface IoTAnalyticsDatasetContentStatus {
   readonly reason?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsDatasetContentStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatasetContentStatus(obj: IoTAnalyticsDatasetContentStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'state': obj.state,
+    'reason': obj.reason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsChannelSummary
@@ -1489,6 +2810,25 @@ export interface IoTAnalyticsChannelSummary {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsChannelSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsChannelSummary(obj: IoTAnalyticsChannelSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'channelName': obj.channelName,
+    'channelStorage': toJson_IoTAnalyticsChannelStorageSummary(obj.channelStorage),
+    'status': obj.status,
+    'creationTime': obj.creationTime,
+    'lastUpdateTime': obj.lastUpdateTime,
+    'lastMessageArrivalTime': obj.lastMessageArrivalTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDatasetContentSummary
  */
 export interface IoTAnalyticsDatasetContentSummary {
@@ -1518,6 +2858,24 @@ export interface IoTAnalyticsDatasetContentSummary {
   readonly completionTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsDatasetContentSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatasetContentSummary(obj: IoTAnalyticsDatasetContentSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'version': obj.version,
+    'status': toJson_IoTAnalyticsDatasetContentStatus(obj.status),
+    'creationTime': obj.creationTime,
+    'scheduleTime': obj.scheduleTime,
+    'completionTime': obj.completionTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsDatasetSummary
@@ -1556,6 +2914,25 @@ export interface IoTAnalyticsDatasetSummary {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDatasetSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatasetSummary(obj: IoTAnalyticsDatasetSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetName': obj.datasetName,
+    'status': obj.status,
+    'creationTime': obj.creationTime,
+    'lastUpdateTime': obj.lastUpdateTime,
+    'triggers': obj.triggers?.map(y => toJson_IoTAnalyticsDatasetTrigger(y)),
+    'actions': obj.actions?.map(y => toJson_IoTAnalyticsDatasetActionSummary(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDatastoreSummary
  */
 export interface IoTAnalyticsDatastoreSummary {
@@ -1589,7 +2966,38 @@ export interface IoTAnalyticsDatastoreSummary {
    */
   readonly lastMessageArrivalTime?: string;
 
+  /**
+   * @schema IoTAnalyticsDatastoreSummary#fileFormatType
+   */
+  readonly fileFormatType?: string;
+
+  /**
+   * @schema IoTAnalyticsDatastoreSummary#datastorePartitions
+   */
+  readonly datastorePartitions?: IoTAnalyticsDatastorePartitions;
+
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsDatastoreSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatastoreSummary(obj: IoTAnalyticsDatastoreSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datastoreName': obj.datastoreName,
+    'datastoreStorage': toJson_IoTAnalyticsDatastoreStorageSummary(obj.datastoreStorage),
+    'status': obj.status,
+    'creationTime': obj.creationTime,
+    'lastUpdateTime': obj.lastUpdateTime,
+    'lastMessageArrivalTime': obj.lastMessageArrivalTime,
+    'fileFormatType': obj.fileFormatType,
+    'datastorePartitions': toJson_IoTAnalyticsDatastorePartitions(obj.datastorePartitions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsPipelineSummary
@@ -1618,10 +3026,65 @@ export interface IoTAnalyticsPipelineSummary {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsPipelineSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsPipelineSummary(obj: IoTAnalyticsPipelineSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineName': obj.pipelineName,
+    'reprocessingSummaries': obj.reprocessingSummaries?.map(y => toJson_IoTAnalyticsReprocessingSummary(y)),
+    'creationTime': obj.creationTime,
+    'lastUpdateTime': obj.lastUpdateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTAnalyticsChannelMessages
+ */
+export interface IoTAnalyticsChannelMessages {
+  /**
+   * @schema IoTAnalyticsChannelMessages#s3Paths
+   */
+  readonly s3Paths?: string[];
+
+}
+
+/**
+ * Converts an object of type 'IoTAnalyticsChannelMessages' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsChannelMessages(obj: IoTAnalyticsChannelMessages | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    's3Paths': obj.s3Paths?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsServiceManagedChannelS3Storage
  */
 export interface IoTAnalyticsServiceManagedChannelS3Storage {
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsServiceManagedChannelS3Storage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsServiceManagedChannelS3Storage(obj: IoTAnalyticsServiceManagedChannelS3Storage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsCustomerManagedChannelS3Storage
@@ -1645,6 +3108,22 @@ export interface IoTAnalyticsCustomerManagedChannelS3Storage {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsCustomerManagedChannelS3Storage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsCustomerManagedChannelS3Storage(obj: IoTAnalyticsCustomerManagedChannelS3Storage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucket': obj.bucket,
+    'keyPrefix': obj.keyPrefix,
+    'roleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsSqlQueryDatasetAction
  */
 export interface IoTAnalyticsSqlQueryDatasetAction {
@@ -1659,6 +3138,21 @@ export interface IoTAnalyticsSqlQueryDatasetAction {
   readonly filters?: IoTAnalyticsQueryFilter[];
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsSqlQueryDatasetAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsSqlQueryDatasetAction(obj: IoTAnalyticsSqlQueryDatasetAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sqlQuery': obj.sqlQuery,
+    'filters': obj.filters?.map(y => toJson_IoTAnalyticsQueryFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsContainerDatasetAction
@@ -1687,6 +3181,23 @@ export interface IoTAnalyticsContainerDatasetAction {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsContainerDatasetAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsContainerDatasetAction(obj: IoTAnalyticsContainerDatasetAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'image': obj.image,
+    'executionRoleArn': obj.executionRoleArn,
+    'resourceConfiguration': toJson_IoTAnalyticsResourceConfiguration(obj.resourceConfiguration),
+    'variables': obj.variables?.map(y => toJson_IoTAnalyticsVariable(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsSchedule
  */
 export interface IoTAnalyticsSchedule {
@@ -1698,6 +3209,20 @@ export interface IoTAnalyticsSchedule {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsSchedule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsSchedule(obj: IoTAnalyticsSchedule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'expression': obj.expression,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsTriggeringDataset
  */
 export interface IoTAnalyticsTriggeringDataset {
@@ -1707,6 +3232,20 @@ export interface IoTAnalyticsTriggeringDataset {
   readonly name: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsTriggeringDataset' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsTriggeringDataset(obj: IoTAnalyticsTriggeringDataset | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsDatasetContentDeliveryDestination
@@ -1725,6 +3264,21 @@ export interface IoTAnalyticsDatasetContentDeliveryDestination {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDatasetContentDeliveryDestination' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatasetContentDeliveryDestination(obj: IoTAnalyticsDatasetContentDeliveryDestination | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'iotEventsDestinationConfiguration': toJson_IoTAnalyticsIotEventsDestinationConfiguration(obj.iotEventsDestinationConfiguration),
+    's3DestinationConfiguration': toJson_IoTAnalyticsS3DestinationConfiguration(obj.s3DestinationConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsLateDataRuleConfiguration
  */
 export interface IoTAnalyticsLateDataRuleConfiguration {
@@ -1736,10 +3290,37 @@ export interface IoTAnalyticsLateDataRuleConfiguration {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsLateDataRuleConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsLateDataRuleConfiguration(obj: IoTAnalyticsLateDataRuleConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deltaTimeSessionWindowConfiguration': toJson_IoTAnalyticsDeltaTimeSessionWindowConfiguration(obj.deltaTimeSessionWindowConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsServiceManagedDatastoreS3Storage
  */
 export interface IoTAnalyticsServiceManagedDatastoreS3Storage {
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsServiceManagedDatastoreS3Storage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsServiceManagedDatastoreS3Storage(obj: IoTAnalyticsServiceManagedDatastoreS3Storage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsCustomerManagedDatastoreS3Storage
@@ -1763,6 +3344,122 @@ export interface IoTAnalyticsCustomerManagedDatastoreS3Storage {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsCustomerManagedDatastoreS3Storage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsCustomerManagedDatastoreS3Storage(obj: IoTAnalyticsCustomerManagedDatastoreS3Storage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucket': obj.bucket,
+    'keyPrefix': obj.keyPrefix,
+    'roleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTAnalyticsDatastoreIotSiteWiseMultiLayerStorage
+ */
+export interface IoTAnalyticsDatastoreIotSiteWiseMultiLayerStorage {
+  /**
+   * @schema IoTAnalyticsDatastoreIotSiteWiseMultiLayerStorage#customerManagedS3Storage
+   */
+  readonly customerManagedS3Storage: IoTAnalyticsIotSiteWiseCustomerManagedDatastoreS3Storage;
+
+}
+
+/**
+ * Converts an object of type 'IoTAnalyticsDatastoreIotSiteWiseMultiLayerStorage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatastoreIotSiteWiseMultiLayerStorage(obj: IoTAnalyticsDatastoreIotSiteWiseMultiLayerStorage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'customerManagedS3Storage': toJson_IoTAnalyticsIotSiteWiseCustomerManagedDatastoreS3Storage(obj.customerManagedS3Storage),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTAnalyticsJsonConfiguration
+ */
+export interface IoTAnalyticsJsonConfiguration {
+}
+
+/**
+ * Converts an object of type 'IoTAnalyticsJsonConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsJsonConfiguration(obj: IoTAnalyticsJsonConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTAnalyticsParquetConfiguration
+ */
+export interface IoTAnalyticsParquetConfiguration {
+  /**
+   * @schema IoTAnalyticsParquetConfiguration#schemaDefinition
+   */
+  readonly schemaDefinition?: IoTAnalyticsSchemaDefinition;
+
+}
+
+/**
+ * Converts an object of type 'IoTAnalyticsParquetConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsParquetConfiguration(obj: IoTAnalyticsParquetConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'schemaDefinition': toJson_IoTAnalyticsSchemaDefinition(obj.schemaDefinition),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTAnalyticsDatastorePartition
+ */
+export interface IoTAnalyticsDatastorePartition {
+  /**
+   * @schema IoTAnalyticsDatastorePartition#attributePartition
+   */
+  readonly attributePartition?: IoTAnalyticsPartition;
+
+  /**
+   * @schema IoTAnalyticsDatastorePartition#timestampPartition
+   */
+  readonly timestampPartition?: IoTAnalyticsTimestampPartition;
+
+}
+
+/**
+ * Converts an object of type 'IoTAnalyticsDatastorePartition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatastorePartition(obj: IoTAnalyticsDatastorePartition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'attributePartition': toJson_IoTAnalyticsPartition(obj.attributePartition),
+    'timestampPartition': toJson_IoTAnalyticsTimestampPartition(obj.timestampPartition),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsChannelActivity
  */
 export interface IoTAnalyticsChannelActivity {
@@ -1782,6 +3479,22 @@ export interface IoTAnalyticsChannelActivity {
   readonly next?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsChannelActivity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsChannelActivity(obj: IoTAnalyticsChannelActivity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'channelName': obj.channelName,
+    'next': obj.next,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsLambdaActivity
@@ -1810,6 +3523,23 @@ export interface IoTAnalyticsLambdaActivity {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsLambdaActivity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsLambdaActivity(obj: IoTAnalyticsLambdaActivity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'lambdaName': obj.lambdaName,
+    'batchSize': obj.batchSize,
+    'next': obj.next,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDatastoreActivity
  */
 export interface IoTAnalyticsDatastoreActivity {
@@ -1824,6 +3554,21 @@ export interface IoTAnalyticsDatastoreActivity {
   readonly datastoreName: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsDatastoreActivity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatastoreActivity(obj: IoTAnalyticsDatastoreActivity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'datastoreName': obj.datastoreName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsAddAttributesActivity
@@ -1847,6 +3592,22 @@ export interface IoTAnalyticsAddAttributesActivity {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsAddAttributesActivity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsAddAttributesActivity(obj: IoTAnalyticsAddAttributesActivity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'attributes': ((obj.attributes) === undefined) ? undefined : (Object.entries(obj.attributes).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'next': obj.next,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsRemoveAttributesActivity
  */
 export interface IoTAnalyticsRemoveAttributesActivity {
@@ -1866,6 +3627,22 @@ export interface IoTAnalyticsRemoveAttributesActivity {
   readonly next?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsRemoveAttributesActivity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsRemoveAttributesActivity(obj: IoTAnalyticsRemoveAttributesActivity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'attributes': obj.attributes?.map(y => y),
+    'next': obj.next,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsSelectAttributesActivity
@@ -1889,6 +3666,22 @@ export interface IoTAnalyticsSelectAttributesActivity {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsSelectAttributesActivity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsSelectAttributesActivity(obj: IoTAnalyticsSelectAttributesActivity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'attributes': obj.attributes?.map(y => y),
+    'next': obj.next,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsFilterActivity
  */
 export interface IoTAnalyticsFilterActivity {
@@ -1908,6 +3701,22 @@ export interface IoTAnalyticsFilterActivity {
   readonly next?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsFilterActivity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsFilterActivity(obj: IoTAnalyticsFilterActivity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'filter': obj.filter,
+    'next': obj.next,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsMathActivity
@@ -1934,6 +3743,23 @@ export interface IoTAnalyticsMathActivity {
   readonly next?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsMathActivity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsMathActivity(obj: IoTAnalyticsMathActivity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'attribute': obj.attribute,
+    'math': obj.math,
+    'next': obj.next,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsDeviceRegistryEnrichActivity
@@ -1967,6 +3793,24 @@ export interface IoTAnalyticsDeviceRegistryEnrichActivity {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDeviceRegistryEnrichActivity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDeviceRegistryEnrichActivity(obj: IoTAnalyticsDeviceRegistryEnrichActivity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'attribute': obj.attribute,
+    'thingName': obj.thingName,
+    'roleArn': obj.roleArn,
+    'next': obj.next,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDeviceShadowEnrichActivity
  */
 export interface IoTAnalyticsDeviceShadowEnrichActivity {
@@ -1998,6 +3842,24 @@ export interface IoTAnalyticsDeviceShadowEnrichActivity {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDeviceShadowEnrichActivity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDeviceShadowEnrichActivity(obj: IoTAnalyticsDeviceShadowEnrichActivity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'attribute': obj.attribute,
+    'thingName': obj.thingName,
+    'roleArn': obj.roleArn,
+    'next': obj.next,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsEstimatedResourceSize
  */
 export interface IoTAnalyticsEstimatedResourceSize {
@@ -2012,6 +3874,21 @@ export interface IoTAnalyticsEstimatedResourceSize {
   readonly estimatedOn?: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsEstimatedResourceSize' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsEstimatedResourceSize(obj: IoTAnalyticsEstimatedResourceSize | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'estimatedSizeInBytes': obj.estimatedSizeInBytes,
+    'estimatedOn': obj.estimatedOn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsReprocessingSummary
@@ -2035,6 +3912,22 @@ export interface IoTAnalyticsReprocessingSummary {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsReprocessingSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsReprocessingSummary(obj: IoTAnalyticsReprocessingSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'status': obj.status,
+    'creationTime': obj.creationTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsChannelStorageSummary
  */
 export interface IoTAnalyticsChannelStorageSummary {
@@ -2049,6 +3942,21 @@ export interface IoTAnalyticsChannelStorageSummary {
   readonly customerManagedS3?: IoTAnalyticsCustomerManagedChannelS3StorageSummary;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsChannelStorageSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsChannelStorageSummary(obj: IoTAnalyticsChannelStorageSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'serviceManagedS3': toJson_IoTAnalyticsServiceManagedChannelS3StorageSummary(obj.serviceManagedS3),
+    'customerManagedS3': toJson_IoTAnalyticsCustomerManagedChannelS3StorageSummary(obj.customerManagedS3),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsDatasetActionSummary
@@ -2067,6 +3975,21 @@ export interface IoTAnalyticsDatasetActionSummary {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDatasetActionSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatasetActionSummary(obj: IoTAnalyticsDatasetActionSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'actionName': obj.actionName,
+    'actionType': obj.actionType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDatastoreStorageSummary
  */
 export interface IoTAnalyticsDatastoreStorageSummary {
@@ -2080,7 +4003,28 @@ export interface IoTAnalyticsDatastoreStorageSummary {
    */
   readonly customerManagedS3?: IoTAnalyticsCustomerManagedDatastoreS3StorageSummary;
 
+  /**
+   * @schema IoTAnalyticsDatastoreStorageSummary#iotSiteWiseMultiLayerStorage
+   */
+  readonly iotSiteWiseMultiLayerStorage?: IoTAnalyticsDatastoreIotSiteWiseMultiLayerStorageSummary;
+
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsDatastoreStorageSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatastoreStorageSummary(obj: IoTAnalyticsDatastoreStorageSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'serviceManagedS3': toJson_IoTAnalyticsServiceManagedDatastoreS3StorageSummary(obj.serviceManagedS3),
+    'customerManagedS3': toJson_IoTAnalyticsCustomerManagedDatastoreS3StorageSummary(obj.customerManagedS3),
+    'iotSiteWiseMultiLayerStorage': toJson_IoTAnalyticsDatastoreIotSiteWiseMultiLayerStorageSummary(obj.iotSiteWiseMultiLayerStorage),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsQueryFilter
@@ -2094,6 +4038,20 @@ export interface IoTAnalyticsQueryFilter {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsQueryFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsQueryFilter(obj: IoTAnalyticsQueryFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deltaTime': toJson_IoTAnalyticsDeltaTime(obj.deltaTime),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsResourceConfiguration
  */
 export interface IoTAnalyticsResourceConfiguration {
@@ -2105,9 +4063,24 @@ export interface IoTAnalyticsResourceConfiguration {
   /**
    * @schema IoTAnalyticsResourceConfiguration#volumeSizeInGB
    */
-  readonly volumeSizeInGB?: number;
+  readonly volumeSizeInGb?: number;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsResourceConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsResourceConfiguration(obj: IoTAnalyticsResourceConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'computeType': obj.computeType,
+    'volumeSizeInGB': obj.volumeSizeInGb,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsVariable
@@ -2141,6 +4114,24 @@ export interface IoTAnalyticsVariable {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsVariable' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsVariable(obj: IoTAnalyticsVariable | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'stringValue': obj.stringValue,
+    'doubleValue': obj.doubleValue,
+    'datasetContentVersionValue': toJson_IoTAnalyticsDatasetContentVersionValue(obj.datasetContentVersionValue),
+    'outputFileUriValue': toJson_IoTAnalyticsOutputFileUriValue(obj.outputFileUriValue),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsIotEventsDestinationConfiguration
  */
 export interface IoTAnalyticsIotEventsDestinationConfiguration {
@@ -2155,6 +4146,21 @@ export interface IoTAnalyticsIotEventsDestinationConfiguration {
   readonly roleArn: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsIotEventsDestinationConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsIotEventsDestinationConfiguration(obj: IoTAnalyticsIotEventsDestinationConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'inputName': obj.inputName,
+    'roleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsS3DestinationConfiguration
@@ -2183,6 +4189,23 @@ export interface IoTAnalyticsS3DestinationConfiguration {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsS3DestinationConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsS3DestinationConfiguration(obj: IoTAnalyticsS3DestinationConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucket': obj.bucket,
+    'key': obj.key,
+    'glueConfiguration': toJson_IoTAnalyticsGlueConfiguration(obj.glueConfiguration),
+    'roleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDeltaTimeSessionWindowConfiguration
  */
 export interface IoTAnalyticsDeltaTimeSessionWindowConfiguration {
@@ -2194,10 +4217,149 @@ export interface IoTAnalyticsDeltaTimeSessionWindowConfiguration {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDeltaTimeSessionWindowConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDeltaTimeSessionWindowConfiguration(obj: IoTAnalyticsDeltaTimeSessionWindowConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'timeoutInMinutes': obj.timeoutInMinutes,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTAnalyticsIotSiteWiseCustomerManagedDatastoreS3Storage
+ */
+export interface IoTAnalyticsIotSiteWiseCustomerManagedDatastoreS3Storage {
+  /**
+   * @schema IoTAnalyticsIotSiteWiseCustomerManagedDatastoreS3Storage#bucket
+   */
+  readonly bucket: string;
+
+  /**
+   * @schema IoTAnalyticsIotSiteWiseCustomerManagedDatastoreS3Storage#keyPrefix
+   */
+  readonly keyPrefix?: string;
+
+}
+
+/**
+ * Converts an object of type 'IoTAnalyticsIotSiteWiseCustomerManagedDatastoreS3Storage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsIotSiteWiseCustomerManagedDatastoreS3Storage(obj: IoTAnalyticsIotSiteWiseCustomerManagedDatastoreS3Storage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucket': obj.bucket,
+    'keyPrefix': obj.keyPrefix,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTAnalyticsSchemaDefinition
+ */
+export interface IoTAnalyticsSchemaDefinition {
+  /**
+   * @schema IoTAnalyticsSchemaDefinition#columns
+   */
+  readonly columns?: IoTAnalyticsColumn[];
+
+}
+
+/**
+ * Converts an object of type 'IoTAnalyticsSchemaDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsSchemaDefinition(obj: IoTAnalyticsSchemaDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'columns': obj.columns?.map(y => toJson_IoTAnalyticsColumn(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTAnalyticsPartition
+ */
+export interface IoTAnalyticsPartition {
+  /**
+   * @schema IoTAnalyticsPartition#attributeName
+   */
+  readonly attributeName: string;
+
+}
+
+/**
+ * Converts an object of type 'IoTAnalyticsPartition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsPartition(obj: IoTAnalyticsPartition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'attributeName': obj.attributeName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTAnalyticsTimestampPartition
+ */
+export interface IoTAnalyticsTimestampPartition {
+  /**
+   * @schema IoTAnalyticsTimestampPartition#attributeName
+   */
+  readonly attributeName: string;
+
+  /**
+   * @schema IoTAnalyticsTimestampPartition#timestampFormat
+   */
+  readonly timestampFormat?: string;
+
+}
+
+/**
+ * Converts an object of type 'IoTAnalyticsTimestampPartition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsTimestampPartition(obj: IoTAnalyticsTimestampPartition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'attributeName': obj.attributeName,
+    'timestampFormat': obj.timestampFormat,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsServiceManagedChannelS3StorageSummary
  */
 export interface IoTAnalyticsServiceManagedChannelS3StorageSummary {
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsServiceManagedChannelS3StorageSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsServiceManagedChannelS3StorageSummary(obj: IoTAnalyticsServiceManagedChannelS3StorageSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsCustomerManagedChannelS3StorageSummary
@@ -2221,10 +4383,39 @@ export interface IoTAnalyticsCustomerManagedChannelS3StorageSummary {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsCustomerManagedChannelS3StorageSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsCustomerManagedChannelS3StorageSummary(obj: IoTAnalyticsCustomerManagedChannelS3StorageSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucket': obj.bucket,
+    'keyPrefix': obj.keyPrefix,
+    'roleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsServiceManagedDatastoreS3StorageSummary
  */
 export interface IoTAnalyticsServiceManagedDatastoreS3StorageSummary {
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsServiceManagedDatastoreS3StorageSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsServiceManagedDatastoreS3StorageSummary(obj: IoTAnalyticsServiceManagedDatastoreS3StorageSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsCustomerManagedDatastoreS3StorageSummary
@@ -2248,6 +4439,47 @@ export interface IoTAnalyticsCustomerManagedDatastoreS3StorageSummary {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsCustomerManagedDatastoreS3StorageSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsCustomerManagedDatastoreS3StorageSummary(obj: IoTAnalyticsCustomerManagedDatastoreS3StorageSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucket': obj.bucket,
+    'keyPrefix': obj.keyPrefix,
+    'roleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTAnalyticsDatastoreIotSiteWiseMultiLayerStorageSummary
+ */
+export interface IoTAnalyticsDatastoreIotSiteWiseMultiLayerStorageSummary {
+  /**
+   * @schema IoTAnalyticsDatastoreIotSiteWiseMultiLayerStorageSummary#customerManagedS3Storage
+   */
+  readonly customerManagedS3Storage?: IoTAnalyticsIotSiteWiseCustomerManagedDatastoreS3StorageSummary;
+
+}
+
+/**
+ * Converts an object of type 'IoTAnalyticsDatastoreIotSiteWiseMultiLayerStorageSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatastoreIotSiteWiseMultiLayerStorageSummary(obj: IoTAnalyticsDatastoreIotSiteWiseMultiLayerStorageSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'customerManagedS3Storage': toJson_IoTAnalyticsIotSiteWiseCustomerManagedDatastoreS3StorageSummary(obj.customerManagedS3Storage),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDeltaTime
  */
 export interface IoTAnalyticsDeltaTime {
@@ -2264,6 +4496,21 @@ export interface IoTAnalyticsDeltaTime {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDeltaTime' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDeltaTime(obj: IoTAnalyticsDeltaTime | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'offsetSeconds': obj.offsetSeconds,
+    'timeExpression': obj.timeExpression,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsDatasetContentVersionValue
  */
 export interface IoTAnalyticsDatasetContentVersionValue {
@@ -2275,6 +4522,20 @@ export interface IoTAnalyticsDatasetContentVersionValue {
 }
 
 /**
+ * Converts an object of type 'IoTAnalyticsDatasetContentVersionValue' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsDatasetContentVersionValue(obj: IoTAnalyticsDatasetContentVersionValue | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetName': obj.datasetName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IoTAnalyticsOutputFileUriValue
  */
 export interface IoTAnalyticsOutputFileUriValue {
@@ -2284,6 +4545,20 @@ export interface IoTAnalyticsOutputFileUriValue {
   readonly fileName: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsOutputFileUriValue' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsOutputFileUriValue(obj: IoTAnalyticsOutputFileUriValue | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fileName': obj.fileName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IoTAnalyticsGlueConfiguration
@@ -2300,3 +4575,80 @@ export interface IoTAnalyticsGlueConfiguration {
   readonly databaseName: string;
 
 }
+
+/**
+ * Converts an object of type 'IoTAnalyticsGlueConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsGlueConfiguration(obj: IoTAnalyticsGlueConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tableName': obj.tableName,
+    'databaseName': obj.databaseName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTAnalyticsColumn
+ */
+export interface IoTAnalyticsColumn {
+  /**
+   * @schema IoTAnalyticsColumn#name
+   */
+  readonly name: string;
+
+  /**
+   * @schema IoTAnalyticsColumn#type
+   */
+  readonly type: string;
+
+}
+
+/**
+ * Converts an object of type 'IoTAnalyticsColumn' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsColumn(obj: IoTAnalyticsColumn | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema IoTAnalyticsIotSiteWiseCustomerManagedDatastoreS3StorageSummary
+ */
+export interface IoTAnalyticsIotSiteWiseCustomerManagedDatastoreS3StorageSummary {
+  /**
+   * @schema IoTAnalyticsIotSiteWiseCustomerManagedDatastoreS3StorageSummary#bucket
+   */
+  readonly bucket?: string;
+
+  /**
+   * @schema IoTAnalyticsIotSiteWiseCustomerManagedDatastoreS3StorageSummary#keyPrefix
+   */
+  readonly keyPrefix?: string;
+
+}
+
+/**
+ * Converts an object of type 'IoTAnalyticsIotSiteWiseCustomerManagedDatastoreS3StorageSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IoTAnalyticsIotSiteWiseCustomerManagedDatastoreS3StorageSummary(obj: IoTAnalyticsIotSiteWiseCustomerManagedDatastoreS3StorageSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucket': obj.bucket,
+    'keyPrefix': obj.keyPrefix,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

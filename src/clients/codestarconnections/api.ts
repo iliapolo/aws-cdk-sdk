@@ -192,11 +192,38 @@ export class CodeStarconnectionsResponsesCreateHost {
             SecurityGroupIds: this.__input.vpcConfiguration?.securityGroupIds,
             TlsCertificate: this.__input.vpcConfiguration?.tlsCertificate,
           },
+          Tags: this.__input.tags,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateHost.HostArn', props);
     return resource.getResponseField('HostArn') as unknown as string;
+  }
+
+  public get tags(): shapes.CodeStarconnectionsTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createHost',
+        service: 'CodeStarconnections',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeStarconnections.CreateHost.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          Name: this.__input.name,
+          ProviderType: this.__input.providerType,
+          ProviderEndpoint: this.__input.providerEndpoint,
+          VpcConfiguration: {
+            VpcId: this.__input.vpcConfiguration?.vpcId,
+            SubnetIds: this.__input.vpcConfiguration?.subnetIds,
+            SecurityGroupIds: this.__input.vpcConfiguration?.securityGroupIds,
+            TlsCertificate: this.__input.vpcConfiguration?.tlsCertificate,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateHost.Tags', props);
+    return resource.getResponseField('Tags') as unknown as shapes.CodeStarconnectionsTag[];
   }
 
 }

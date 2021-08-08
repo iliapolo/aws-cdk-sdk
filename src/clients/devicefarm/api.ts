@@ -2688,6 +2688,11 @@ export class DeviceFarmResponsesCreateTestGridProjectTestGridProject {
         parameters: {
           name: this.__input.name,
           description: this.__input.description,
+          vpcConfig: {
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+            subnetIds: this.__input.vpcConfig?.subnetIds,
+            vpcId: this.__input.vpcConfig?.vpcId,
+          },
         },
       },
     };
@@ -2706,6 +2711,11 @@ export class DeviceFarmResponsesCreateTestGridProjectTestGridProject {
         parameters: {
           name: this.__input.name,
           description: this.__input.description,
+          vpcConfig: {
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+            subnetIds: this.__input.vpcConfig?.subnetIds,
+            vpcId: this.__input.vpcConfig?.vpcId,
+          },
         },
       },
     };
@@ -2724,11 +2734,20 @@ export class DeviceFarmResponsesCreateTestGridProjectTestGridProject {
         parameters: {
           name: this.__input.name,
           description: this.__input.description,
+          vpcConfig: {
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+            subnetIds: this.__input.vpcConfig?.subnetIds,
+            vpcId: this.__input.vpcConfig?.vpcId,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateTestGridProject.testGridProject.description', props);
     return resource.getResponseField('testGridProject.description') as unknown as string;
+  }
+
+  public get vpcConfig(): DeviceFarmResponsesCreateTestGridProjectTestGridProjectVpcConfig {
+    return new DeviceFarmResponsesCreateTestGridProjectTestGridProjectVpcConfig(this.__scope, this.__resources, this.__input);
   }
 
   public get created(): string {
@@ -2742,11 +2761,92 @@ export class DeviceFarmResponsesCreateTestGridProjectTestGridProject {
         parameters: {
           name: this.__input.name,
           description: this.__input.description,
+          vpcConfig: {
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+            subnetIds: this.__input.vpcConfig?.subnetIds,
+            vpcId: this.__input.vpcConfig?.vpcId,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateTestGridProject.testGridProject.created', props);
     return resource.getResponseField('testGridProject.created') as unknown as string;
+  }
+
+}
+
+export class DeviceFarmResponsesCreateTestGridProjectTestGridProjectVpcConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DeviceFarmCreateTestGridProjectRequest) {
+  }
+
+  public get securityGroupIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTestGridProject',
+        service: 'DeviceFarm',
+        physicalResourceId: cr.PhysicalResourceId.of('DeviceFarm.CreateTestGridProject.testGridProject.vpcConfig.securityGroupIds'),
+        outputPath: 'testGridProject.vpcConfig.securityGroupIds',
+        parameters: {
+          name: this.__input.name,
+          description: this.__input.description,
+          vpcConfig: {
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+            subnetIds: this.__input.vpcConfig?.subnetIds,
+            vpcId: this.__input.vpcConfig?.vpcId,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTestGridProject.testGridProject.vpcConfig.securityGroupIds', props);
+    return resource.getResponseField('testGridProject.vpcConfig.securityGroupIds') as unknown as string[];
+  }
+
+  public get subnetIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTestGridProject',
+        service: 'DeviceFarm',
+        physicalResourceId: cr.PhysicalResourceId.of('DeviceFarm.CreateTestGridProject.testGridProject.vpcConfig.subnetIds'),
+        outputPath: 'testGridProject.vpcConfig.subnetIds',
+        parameters: {
+          name: this.__input.name,
+          description: this.__input.description,
+          vpcConfig: {
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+            subnetIds: this.__input.vpcConfig?.subnetIds,
+            vpcId: this.__input.vpcConfig?.vpcId,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTestGridProject.testGridProject.vpcConfig.subnetIds', props);
+    return resource.getResponseField('testGridProject.vpcConfig.subnetIds') as unknown as string[];
+  }
+
+  public get vpcId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTestGridProject',
+        service: 'DeviceFarm',
+        physicalResourceId: cr.PhysicalResourceId.of('DeviceFarm.CreateTestGridProject.testGridProject.vpcConfig.vpcId'),
+        outputPath: 'testGridProject.vpcConfig.vpcId',
+        parameters: {
+          name: this.__input.name,
+          description: this.__input.description,
+          vpcConfig: {
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+            subnetIds: this.__input.vpcConfig?.subnetIds,
+            vpcId: this.__input.vpcConfig?.vpcId,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTestGridProject.testGridProject.vpcConfig.vpcId', props);
+    return resource.getResponseField('testGridProject.vpcConfig.vpcId') as unknown as string;
   }
 
 }
@@ -8251,6 +8351,10 @@ export class DeviceFarmResponsesFetchTestGridProjectTestGridProject {
     return resource.getResponseField('testGridProject.description') as unknown as string;
   }
 
+  public get vpcConfig(): DeviceFarmResponsesFetchTestGridProjectTestGridProjectVpcConfig {
+    return new DeviceFarmResponsesFetchTestGridProjectTestGridProjectVpcConfig(this.__scope, this.__resources, this.__input);
+  }
+
   public get created(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -8266,6 +8370,64 @@ export class DeviceFarmResponsesFetchTestGridProjectTestGridProject {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetTestGridProject.testGridProject.created', props);
     return resource.getResponseField('testGridProject.created') as unknown as string;
+  }
+
+}
+
+export class DeviceFarmResponsesFetchTestGridProjectTestGridProjectVpcConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DeviceFarmGetTestGridProjectRequest) {
+  }
+
+  public get securityGroupIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getTestGridProject',
+        service: 'DeviceFarm',
+        physicalResourceId: cr.PhysicalResourceId.of('DeviceFarm.GetTestGridProject.testGridProject.vpcConfig.securityGroupIds'),
+        outputPath: 'testGridProject.vpcConfig.securityGroupIds',
+        parameters: {
+          projectArn: this.__input.projectArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetTestGridProject.testGridProject.vpcConfig.securityGroupIds', props);
+    return resource.getResponseField('testGridProject.vpcConfig.securityGroupIds') as unknown as string[];
+  }
+
+  public get subnetIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getTestGridProject',
+        service: 'DeviceFarm',
+        physicalResourceId: cr.PhysicalResourceId.of('DeviceFarm.GetTestGridProject.testGridProject.vpcConfig.subnetIds'),
+        outputPath: 'testGridProject.vpcConfig.subnetIds',
+        parameters: {
+          projectArn: this.__input.projectArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetTestGridProject.testGridProject.vpcConfig.subnetIds', props);
+    return resource.getResponseField('testGridProject.vpcConfig.subnetIds') as unknown as string[];
+  }
+
+  public get vpcId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getTestGridProject',
+        service: 'DeviceFarm',
+        physicalResourceId: cr.PhysicalResourceId.of('DeviceFarm.GetTestGridProject.testGridProject.vpcConfig.vpcId'),
+        outputPath: 'testGridProject.vpcConfig.vpcId',
+        parameters: {
+          projectArn: this.__input.projectArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetTestGridProject.testGridProject.vpcConfig.vpcId', props);
+    return resource.getResponseField('testGridProject.vpcConfig.vpcId') as unknown as string;
   }
 
 }
@@ -17936,6 +18098,11 @@ export class DeviceFarmResponsesUpdateTestGridProjectTestGridProject {
           projectArn: this.__input.projectArn,
           name: this.__input.name,
           description: this.__input.description,
+          vpcConfig: {
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+            subnetIds: this.__input.vpcConfig?.subnetIds,
+            vpcId: this.__input.vpcConfig?.vpcId,
+          },
         },
       },
     };
@@ -17955,6 +18122,11 @@ export class DeviceFarmResponsesUpdateTestGridProjectTestGridProject {
           projectArn: this.__input.projectArn,
           name: this.__input.name,
           description: this.__input.description,
+          vpcConfig: {
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+            subnetIds: this.__input.vpcConfig?.subnetIds,
+            vpcId: this.__input.vpcConfig?.vpcId,
+          },
         },
       },
     };
@@ -17974,11 +18146,20 @@ export class DeviceFarmResponsesUpdateTestGridProjectTestGridProject {
           projectArn: this.__input.projectArn,
           name: this.__input.name,
           description: this.__input.description,
+          vpcConfig: {
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+            subnetIds: this.__input.vpcConfig?.subnetIds,
+            vpcId: this.__input.vpcConfig?.vpcId,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateTestGridProject.testGridProject.description', props);
     return resource.getResponseField('testGridProject.description') as unknown as string;
+  }
+
+  public get vpcConfig(): DeviceFarmResponsesUpdateTestGridProjectTestGridProjectVpcConfig {
+    return new DeviceFarmResponsesUpdateTestGridProjectTestGridProjectVpcConfig(this.__scope, this.__resources, this.__input);
   }
 
   public get created(): string {
@@ -17993,11 +18174,95 @@ export class DeviceFarmResponsesUpdateTestGridProjectTestGridProject {
           projectArn: this.__input.projectArn,
           name: this.__input.name,
           description: this.__input.description,
+          vpcConfig: {
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+            subnetIds: this.__input.vpcConfig?.subnetIds,
+            vpcId: this.__input.vpcConfig?.vpcId,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateTestGridProject.testGridProject.created', props);
     return resource.getResponseField('testGridProject.created') as unknown as string;
+  }
+
+}
+
+export class DeviceFarmResponsesUpdateTestGridProjectTestGridProjectVpcConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DeviceFarmUpdateTestGridProjectRequest) {
+  }
+
+  public get securityGroupIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateTestGridProject',
+        service: 'DeviceFarm',
+        physicalResourceId: cr.PhysicalResourceId.of('DeviceFarm.UpdateTestGridProject.testGridProject.vpcConfig.securityGroupIds'),
+        outputPath: 'testGridProject.vpcConfig.securityGroupIds',
+        parameters: {
+          projectArn: this.__input.projectArn,
+          name: this.__input.name,
+          description: this.__input.description,
+          vpcConfig: {
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+            subnetIds: this.__input.vpcConfig?.subnetIds,
+            vpcId: this.__input.vpcConfig?.vpcId,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateTestGridProject.testGridProject.vpcConfig.securityGroupIds', props);
+    return resource.getResponseField('testGridProject.vpcConfig.securityGroupIds') as unknown as string[];
+  }
+
+  public get subnetIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateTestGridProject',
+        service: 'DeviceFarm',
+        physicalResourceId: cr.PhysicalResourceId.of('DeviceFarm.UpdateTestGridProject.testGridProject.vpcConfig.subnetIds'),
+        outputPath: 'testGridProject.vpcConfig.subnetIds',
+        parameters: {
+          projectArn: this.__input.projectArn,
+          name: this.__input.name,
+          description: this.__input.description,
+          vpcConfig: {
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+            subnetIds: this.__input.vpcConfig?.subnetIds,
+            vpcId: this.__input.vpcConfig?.vpcId,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateTestGridProject.testGridProject.vpcConfig.subnetIds', props);
+    return resource.getResponseField('testGridProject.vpcConfig.subnetIds') as unknown as string[];
+  }
+
+  public get vpcId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateTestGridProject',
+        service: 'DeviceFarm',
+        physicalResourceId: cr.PhysicalResourceId.of('DeviceFarm.UpdateTestGridProject.testGridProject.vpcConfig.vpcId'),
+        outputPath: 'testGridProject.vpcConfig.vpcId',
+        parameters: {
+          projectArn: this.__input.projectArn,
+          name: this.__input.name,
+          description: this.__input.description,
+          vpcConfig: {
+            securityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+            subnetIds: this.__input.vpcConfig?.subnetIds,
+            vpcId: this.__input.vpcConfig?.vpcId,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateTestGridProject.testGridProject.vpcConfig.vpcId', props);
+    return resource.getResponseField('testGridProject.vpcConfig.vpcId') as unknown as string;
   }
 
 }

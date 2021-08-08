@@ -8,12 +8,32 @@ export class TransferClient extends cdk.Construct {
     super(scope, id);
   }
 
+  public createAccess(input: shapes.TransferCreateAccessRequest): TransferResponsesCreateAccess {
+    return new TransferResponsesCreateAccess(this, this.__resources, input);
+  }
+
   public createServer(input: shapes.TransferCreateServerRequest): TransferResponsesCreateServer {
     return new TransferResponsesCreateServer(this, this.__resources, input);
   }
 
   public createUser(input: shapes.TransferCreateUserRequest): TransferResponsesCreateUser {
     return new TransferResponsesCreateUser(this, this.__resources, input);
+  }
+
+  public deleteAccess(input: shapes.TransferDeleteAccessRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAccess',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.DeleteAccess'),
+        parameters: {
+          ServerId: input.serverId,
+          ExternalId: input.externalId,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteAccess', props);
   }
 
   public deleteServer(input: shapes.TransferDeleteServerRequest): void {
@@ -64,6 +84,10 @@ export class TransferClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeleteUser', props);
   }
 
+  public describeAccess(input: shapes.TransferDescribeAccessRequest): TransferResponsesDescribeAccess {
+    return new TransferResponsesDescribeAccess(this, this.__resources, input);
+  }
+
   public describeSecurityPolicy(input: shapes.TransferDescribeSecurityPolicyRequest): TransferResponsesDescribeSecurityPolicy {
     return new TransferResponsesDescribeSecurityPolicy(this, this.__resources, input);
   }
@@ -78,6 +102,10 @@ export class TransferClient extends cdk.Construct {
 
   public importSshPublicKey(input: shapes.TransferImportSshPublicKeyRequest): TransferResponsesImportSshPublicKey {
     return new TransferResponsesImportSshPublicKey(this, this.__resources, input);
+  }
+
+  public listAccesses(input: shapes.TransferListAccessesRequest): TransferResponsesListAccesses {
+    return new TransferResponsesListAccesses(this, this.__resources, input);
   }
 
   public listSecurityPolicies(input: shapes.TransferListSecurityPoliciesRequest): TransferResponsesListSecurityPolicies {
@@ -162,12 +190,79 @@ export class TransferClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'UntagResource', props);
   }
 
+  public updateAccess(input: shapes.TransferUpdateAccessRequest): TransferResponsesUpdateAccess {
+    return new TransferResponsesUpdateAccess(this, this.__resources, input);
+  }
+
   public updateServer(input: shapes.TransferUpdateServerRequest): TransferResponsesUpdateServer {
     return new TransferResponsesUpdateServer(this, this.__resources, input);
   }
 
   public updateUser(input: shapes.TransferUpdateUserRequest): TransferResponsesUpdateUser {
     return new TransferResponsesUpdateUser(this, this.__resources, input);
+  }
+
+}
+
+export class TransferResponsesCreateAccess {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.TransferCreateAccessRequest) {
+  }
+
+  public get serverId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAccess',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.CreateAccess.ServerId'),
+        outputPath: 'ServerId',
+        parameters: {
+          HomeDirectory: this.__input.homeDirectory,
+          HomeDirectoryType: this.__input.homeDirectoryType,
+          HomeDirectoryMappings: this.__input.homeDirectoryMappings,
+          Policy: this.__input.policy,
+          PosixProfile: {
+            Uid: this.__input.posixProfile?.uid,
+            Gid: this.__input.posixProfile?.gid,
+            SecondaryGids: this.__input.posixProfile?.secondaryGids,
+          },
+          Role: this.__input.role,
+          ServerId: this.__input.serverId,
+          ExternalId: this.__input.externalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAccess.ServerId', props);
+    return resource.getResponseField('ServerId') as unknown as string;
+  }
+
+  public get externalId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAccess',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.CreateAccess.ExternalId'),
+        outputPath: 'ExternalId',
+        parameters: {
+          HomeDirectory: this.__input.homeDirectory,
+          HomeDirectoryType: this.__input.homeDirectoryType,
+          HomeDirectoryMappings: this.__input.homeDirectoryMappings,
+          Policy: this.__input.policy,
+          PosixProfile: {
+            Uid: this.__input.posixProfile?.uid,
+            Gid: this.__input.posixProfile?.gid,
+            SecondaryGids: this.__input.posixProfile?.secondaryGids,
+          },
+          Role: this.__input.role,
+          ServerId: this.__input.serverId,
+          ExternalId: this.__input.externalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAccess.ExternalId', props);
+    return resource.getResponseField('ExternalId') as unknown as string;
   }
 
 }
@@ -187,6 +282,7 @@ export class TransferResponsesCreateServer {
         outputPath: 'ServerId',
         parameters: {
           Certificate: this.__input.certificate,
+          Domain: this.__input.domain,
           EndpointDetails: {
             AddressAllocationIds: this.__input.endpointDetails?.addressAllocationIds,
             SubnetIds: this.__input.endpointDetails?.subnetIds,
@@ -199,6 +295,7 @@ export class TransferResponsesCreateServer {
           IdentityProviderDetails: {
             Url: this.__input.identityProviderDetails?.url,
             InvocationRole: this.__input.identityProviderDetails?.invocationRole,
+            DirectoryId: this.__input.identityProviderDetails?.directoryId,
           },
           IdentityProviderType: this.__input.identityProviderType,
           LoggingRole: this.__input.loggingRole,
@@ -232,6 +329,11 @@ export class TransferResponsesCreateUser {
           HomeDirectoryType: this.__input.homeDirectoryType,
           HomeDirectoryMappings: this.__input.homeDirectoryMappings,
           Policy: this.__input.policy,
+          PosixProfile: {
+            Uid: this.__input.posixProfile?.uid,
+            Gid: this.__input.posixProfile?.gid,
+            SecondaryGids: this.__input.posixProfile?.secondaryGids,
+          },
           Role: this.__input.role,
           ServerId: this.__input.serverId,
           SshPublicKeyBody: this.__input.sshPublicKeyBody,
@@ -257,6 +359,11 @@ export class TransferResponsesCreateUser {
           HomeDirectoryType: this.__input.homeDirectoryType,
           HomeDirectoryMappings: this.__input.homeDirectoryMappings,
           Policy: this.__input.policy,
+          PosixProfile: {
+            Uid: this.__input.posixProfile?.uid,
+            Gid: this.__input.posixProfile?.gid,
+            SecondaryGids: this.__input.posixProfile?.secondaryGids,
+          },
           Role: this.__input.role,
           ServerId: this.__input.serverId,
           SshPublicKeyBody: this.__input.sshPublicKeyBody,
@@ -267,6 +374,215 @@ export class TransferResponsesCreateUser {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateUser.UserName', props);
     return resource.getResponseField('UserName') as unknown as string;
+  }
+
+}
+
+export class TransferResponsesDescribeAccess {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.TransferDescribeAccessRequest) {
+  }
+
+  public get serverId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAccess',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.DescribeAccess.ServerId'),
+        outputPath: 'ServerId',
+        parameters: {
+          ServerId: this.__input.serverId,
+          ExternalId: this.__input.externalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAccess.ServerId', props);
+    return resource.getResponseField('ServerId') as unknown as string;
+  }
+
+  public get access(): TransferResponsesDescribeAccessAccess {
+    return new TransferResponsesDescribeAccessAccess(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class TransferResponsesDescribeAccessAccess {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.TransferDescribeAccessRequest) {
+  }
+
+  public get homeDirectory(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAccess',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.DescribeAccess.Access.HomeDirectory'),
+        outputPath: 'Access.HomeDirectory',
+        parameters: {
+          ServerId: this.__input.serverId,
+          ExternalId: this.__input.externalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAccess.Access.HomeDirectory', props);
+    return resource.getResponseField('Access.HomeDirectory') as unknown as string;
+  }
+
+  public get homeDirectoryMappings(): shapes.TransferHomeDirectoryMapEntry[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAccess',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.DescribeAccess.Access.HomeDirectoryMappings'),
+        outputPath: 'Access.HomeDirectoryMappings',
+        parameters: {
+          ServerId: this.__input.serverId,
+          ExternalId: this.__input.externalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAccess.Access.HomeDirectoryMappings', props);
+    return resource.getResponseField('Access.HomeDirectoryMappings') as unknown as shapes.TransferHomeDirectoryMapEntry[];
+  }
+
+  public get homeDirectoryType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAccess',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.DescribeAccess.Access.HomeDirectoryType'),
+        outputPath: 'Access.HomeDirectoryType',
+        parameters: {
+          ServerId: this.__input.serverId,
+          ExternalId: this.__input.externalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAccess.Access.HomeDirectoryType', props);
+    return resource.getResponseField('Access.HomeDirectoryType') as unknown as string;
+  }
+
+  public get policy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAccess',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.DescribeAccess.Access.Policy'),
+        outputPath: 'Access.Policy',
+        parameters: {
+          ServerId: this.__input.serverId,
+          ExternalId: this.__input.externalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAccess.Access.Policy', props);
+    return resource.getResponseField('Access.Policy') as unknown as string;
+  }
+
+  public get posixProfile(): TransferResponsesDescribeAccessAccessPosixProfile {
+    return new TransferResponsesDescribeAccessAccessPosixProfile(this.__scope, this.__resources, this.__input);
+  }
+
+  public get role(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAccess',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.DescribeAccess.Access.Role'),
+        outputPath: 'Access.Role',
+        parameters: {
+          ServerId: this.__input.serverId,
+          ExternalId: this.__input.externalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAccess.Access.Role', props);
+    return resource.getResponseField('Access.Role') as unknown as string;
+  }
+
+  public get externalId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAccess',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.DescribeAccess.Access.ExternalId'),
+        outputPath: 'Access.ExternalId',
+        parameters: {
+          ServerId: this.__input.serverId,
+          ExternalId: this.__input.externalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAccess.Access.ExternalId', props);
+    return resource.getResponseField('Access.ExternalId') as unknown as string;
+  }
+
+}
+
+export class TransferResponsesDescribeAccessAccessPosixProfile {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.TransferDescribeAccessRequest) {
+  }
+
+  public get uid(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAccess',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.DescribeAccess.Access.PosixProfile.Uid'),
+        outputPath: 'Access.PosixProfile.Uid',
+        parameters: {
+          ServerId: this.__input.serverId,
+          ExternalId: this.__input.externalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAccess.Access.PosixProfile.Uid', props);
+    return resource.getResponseField('Access.PosixProfile.Uid') as unknown as number;
+  }
+
+  public get gid(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAccess',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.DescribeAccess.Access.PosixProfile.Gid'),
+        outputPath: 'Access.PosixProfile.Gid',
+        parameters: {
+          ServerId: this.__input.serverId,
+          ExternalId: this.__input.externalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAccess.Access.PosixProfile.Gid', props);
+    return resource.getResponseField('Access.PosixProfile.Gid') as unknown as number;
+  }
+
+  public get secondaryGids(): number[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAccess',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.DescribeAccess.Access.PosixProfile.SecondaryGids'),
+        outputPath: 'Access.PosixProfile.SecondaryGids',
+        parameters: {
+          ServerId: this.__input.serverId,
+          ExternalId: this.__input.externalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAccess.Access.PosixProfile.SecondaryGids', props);
+    return resource.getResponseField('Access.PosixProfile.SecondaryGids') as unknown as number[];
   }
 
 }
@@ -439,6 +755,27 @@ export class TransferResponsesDescribeServerServer {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeServer.Server.Certificate', props);
     return resource.getResponseField('Server.Certificate') as unknown as string;
+  }
+
+  public get protocolDetails(): TransferResponsesDescribeServerServerProtocolDetails {
+    return new TransferResponsesDescribeServerServerProtocolDetails(this.__scope, this.__resources, this.__input);
+  }
+
+  public get domain(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeServer',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.DescribeServer.Server.Domain'),
+        outputPath: 'Server.Domain',
+        parameters: {
+          ServerId: this.__input.serverId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeServer.Server.Domain', props);
+    return resource.getResponseField('Server.Domain') as unknown as string;
   }
 
   public get endpointDetails(): TransferResponsesDescribeServerServerEndpointDetails {
@@ -621,6 +958,30 @@ export class TransferResponsesDescribeServerServer {
 
 }
 
+export class TransferResponsesDescribeServerServerProtocolDetails {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.TransferDescribeServerRequest) {
+  }
+
+  public get passiveIp(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeServer',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.DescribeServer.Server.ProtocolDetails.PassiveIp'),
+        outputPath: 'Server.ProtocolDetails.PassiveIp',
+        parameters: {
+          ServerId: this.__input.serverId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeServer.Server.ProtocolDetails.PassiveIp', props);
+    return resource.getResponseField('Server.ProtocolDetails.PassiveIp') as unknown as string;
+  }
+
+}
+
 export class TransferResponsesDescribeServerServerEndpointDetails {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.TransferDescribeServerRequest) {
@@ -752,6 +1113,23 @@ export class TransferResponsesDescribeServerServerIdentityProviderDetails {
     return resource.getResponseField('Server.IdentityProviderDetails.InvocationRole') as unknown as string;
   }
 
+  public get directoryId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeServer',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.DescribeServer.Server.IdentityProviderDetails.DirectoryId'),
+        outputPath: 'Server.IdentityProviderDetails.DirectoryId',
+        parameters: {
+          ServerId: this.__input.serverId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeServer.Server.IdentityProviderDetails.DirectoryId', props);
+    return resource.getResponseField('Server.IdentityProviderDetails.DirectoryId') as unknown as string;
+  }
+
 }
 
 export class TransferResponsesDescribeUser {
@@ -878,6 +1256,10 @@ export class TransferResponsesDescribeUserUser {
     return resource.getResponseField('User.Policy') as unknown as string;
   }
 
+  public get posixProfile(): TransferResponsesDescribeUserUserPosixProfile {
+    return new TransferResponsesDescribeUserUserPosixProfile(this.__scope, this.__resources, this.__input);
+  }
+
   public get role(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -952,6 +1334,67 @@ export class TransferResponsesDescribeUserUser {
 
 }
 
+export class TransferResponsesDescribeUserUserPosixProfile {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.TransferDescribeUserRequest) {
+  }
+
+  public get uid(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeUser',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.DescribeUser.User.PosixProfile.Uid'),
+        outputPath: 'User.PosixProfile.Uid',
+        parameters: {
+          ServerId: this.__input.serverId,
+          UserName: this.__input.userName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeUser.User.PosixProfile.Uid', props);
+    return resource.getResponseField('User.PosixProfile.Uid') as unknown as number;
+  }
+
+  public get gid(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeUser',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.DescribeUser.User.PosixProfile.Gid'),
+        outputPath: 'User.PosixProfile.Gid',
+        parameters: {
+          ServerId: this.__input.serverId,
+          UserName: this.__input.userName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeUser.User.PosixProfile.Gid', props);
+    return resource.getResponseField('User.PosixProfile.Gid') as unknown as number;
+  }
+
+  public get secondaryGids(): number[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeUser',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.DescribeUser.User.PosixProfile.SecondaryGids'),
+        outputPath: 'User.PosixProfile.SecondaryGids',
+        parameters: {
+          ServerId: this.__input.serverId,
+          UserName: this.__input.userName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeUser.User.PosixProfile.SecondaryGids', props);
+    return resource.getResponseField('User.PosixProfile.SecondaryGids') as unknown as number[];
+  }
+
+}
+
 export class TransferResponsesImportSshPublicKey {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.TransferImportSshPublicKeyRequest) {
@@ -1012,6 +1455,70 @@ export class TransferResponsesImportSshPublicKey {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ImportSshPublicKey.UserName', props);
     return resource.getResponseField('UserName') as unknown as string;
+  }
+
+}
+
+export class TransferResponsesListAccesses {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.TransferListAccessesRequest) {
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAccesses',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.ListAccesses.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+          ServerId: this.__input.serverId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAccesses.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+  public get serverId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAccesses',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.ListAccesses.ServerId'),
+        outputPath: 'ServerId',
+        parameters: {
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+          ServerId: this.__input.serverId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAccesses.ServerId', props);
+    return resource.getResponseField('ServerId') as unknown as string;
+  }
+
+  public get accesses(): shapes.TransferListedAccess[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAccesses',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.ListAccesses.Accesses'),
+        outputPath: 'Accesses',
+        parameters: {
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+          ServerId: this.__input.serverId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAccesses.Accesses', props);
+    return resource.getResponseField('Accesses') as unknown as shapes.TransferListedAccess[];
   }
 
 }
@@ -1321,6 +1828,69 @@ export class TransferResponsesTestIdentityProvider {
 
 }
 
+export class TransferResponsesUpdateAccess {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.TransferUpdateAccessRequest) {
+  }
+
+  public get serverId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAccess',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.UpdateAccess.ServerId'),
+        outputPath: 'ServerId',
+        parameters: {
+          HomeDirectory: this.__input.homeDirectory,
+          HomeDirectoryType: this.__input.homeDirectoryType,
+          HomeDirectoryMappings: this.__input.homeDirectoryMappings,
+          Policy: this.__input.policy,
+          PosixProfile: {
+            Uid: this.__input.posixProfile?.uid,
+            Gid: this.__input.posixProfile?.gid,
+            SecondaryGids: this.__input.posixProfile?.secondaryGids,
+          },
+          Role: this.__input.role,
+          ServerId: this.__input.serverId,
+          ExternalId: this.__input.externalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAccess.ServerId', props);
+    return resource.getResponseField('ServerId') as unknown as string;
+  }
+
+  public get externalId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAccess',
+        service: 'Transfer',
+        physicalResourceId: cr.PhysicalResourceId.of('Transfer.UpdateAccess.ExternalId'),
+        outputPath: 'ExternalId',
+        parameters: {
+          HomeDirectory: this.__input.homeDirectory,
+          HomeDirectoryType: this.__input.homeDirectoryType,
+          HomeDirectoryMappings: this.__input.homeDirectoryMappings,
+          Policy: this.__input.policy,
+          PosixProfile: {
+            Uid: this.__input.posixProfile?.uid,
+            Gid: this.__input.posixProfile?.gid,
+            SecondaryGids: this.__input.posixProfile?.secondaryGids,
+          },
+          Role: this.__input.role,
+          ServerId: this.__input.serverId,
+          ExternalId: this.__input.externalId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAccess.ExternalId', props);
+    return resource.getResponseField('ExternalId') as unknown as string;
+  }
+
+}
+
 export class TransferResponsesUpdateServer {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.TransferUpdateServerRequest) {
@@ -1336,6 +1906,9 @@ export class TransferResponsesUpdateServer {
         outputPath: 'ServerId',
         parameters: {
           Certificate: this.__input.certificate,
+          ProtocolDetails: {
+            PassiveIp: this.__input.protocolDetails?.passiveIp,
+          },
           EndpointDetails: {
             AddressAllocationIds: this.__input.endpointDetails?.addressAllocationIds,
             SubnetIds: this.__input.endpointDetails?.subnetIds,
@@ -1348,6 +1921,7 @@ export class TransferResponsesUpdateServer {
           IdentityProviderDetails: {
             Url: this.__input.identityProviderDetails?.url,
             InvocationRole: this.__input.identityProviderDetails?.invocationRole,
+            DirectoryId: this.__input.identityProviderDetails?.directoryId,
           },
           LoggingRole: this.__input.loggingRole,
           Protocols: this.__input.protocols,
@@ -1380,6 +1954,11 @@ export class TransferResponsesUpdateUser {
           HomeDirectoryType: this.__input.homeDirectoryType,
           HomeDirectoryMappings: this.__input.homeDirectoryMappings,
           Policy: this.__input.policy,
+          PosixProfile: {
+            Uid: this.__input.posixProfile?.uid,
+            Gid: this.__input.posixProfile?.gid,
+            SecondaryGids: this.__input.posixProfile?.secondaryGids,
+          },
           Role: this.__input.role,
           ServerId: this.__input.serverId,
           UserName: this.__input.userName,
@@ -1403,6 +1982,11 @@ export class TransferResponsesUpdateUser {
           HomeDirectoryType: this.__input.homeDirectoryType,
           HomeDirectoryMappings: this.__input.homeDirectoryMappings,
           Policy: this.__input.policy,
+          PosixProfile: {
+            Uid: this.__input.posixProfile?.uid,
+            Gid: this.__input.posixProfile?.gid,
+            SecondaryGids: this.__input.posixProfile?.secondaryGids,
+          },
           Role: this.__input.role,
           ServerId: this.__input.serverId,
           UserName: this.__input.userName,

@@ -8,12 +8,20 @@ export class SageMakerClient extends cdk.Construct {
     super(scope, id);
   }
 
+  public addAssociation(input: shapes.SageMakerAddAssociationRequest): SageMakerResponsesAddAssociation {
+    return new SageMakerResponsesAddAssociation(this, this.__resources, input);
+  }
+
   public addTags(input: shapes.SageMakerAddTagsInput): SageMakerResponsesAddTags {
     return new SageMakerResponsesAddTags(this, this.__resources, input);
   }
 
   public associateTrialComponent(input: shapes.SageMakerAssociateTrialComponentRequest): SageMakerResponsesAssociateTrialComponent {
     return new SageMakerResponsesAssociateTrialComponent(this, this.__resources, input);
+  }
+
+  public createAction(input: shapes.SageMakerCreateActionRequest): SageMakerResponsesCreateAction {
+    return new SageMakerResponsesCreateAction(this, this.__resources, input);
   }
 
   public createAlgorithm(input: shapes.SageMakerCreateAlgorithmInput): SageMakerResponsesCreateAlgorithm {
@@ -28,6 +36,10 @@ export class SageMakerClient extends cdk.Construct {
     return new SageMakerResponsesCreateAppImageConfig(this, this.__resources, input);
   }
 
+  public createArtifact(input: shapes.SageMakerCreateArtifactRequest): SageMakerResponsesCreateArtifact {
+    return new SageMakerResponsesCreateArtifact(this, this.__resources, input);
+  }
+
   public createAutoMlJob(input: shapes.SageMakerCreateAutoMlJobRequest): SageMakerResponsesCreateAutoMlJob {
     return new SageMakerResponsesCreateAutoMlJob(this, this.__resources, input);
   }
@@ -40,8 +52,68 @@ export class SageMakerClient extends cdk.Construct {
     return new SageMakerResponsesCreateCompilationJob(this, this.__resources, input);
   }
 
+  public createContext(input: shapes.SageMakerCreateContextRequest): SageMakerResponsesCreateContext {
+    return new SageMakerResponsesCreateContext(this, this.__resources, input);
+  }
+
+  public createDataQualityJobDefinition(input: shapes.SageMakerCreateDataQualityJobDefinitionRequest): SageMakerResponsesCreateDataQualityJobDefinition {
+    return new SageMakerResponsesCreateDataQualityJobDefinition(this, this.__resources, input);
+  }
+
+  public createDeviceFleet(input: shapes.SageMakerCreateDeviceFleetRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDeviceFleet',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.CreateDeviceFleet'),
+        parameters: {
+          DeviceFleetName: input.deviceFleetName,
+          RoleArn: input.roleArn,
+          Description: input.description,
+          OutputConfig: {
+            S3OutputLocation: input.outputConfig.s3OutputLocation,
+            KmsKeyId: input.outputConfig.kmsKeyId,
+            PresetDeploymentType: input.outputConfig.presetDeploymentType,
+            PresetDeploymentConfig: input.outputConfig.presetDeploymentConfig,
+          },
+          Tags: input.tags,
+          EnableIotRoleAlias: input.enableIotRoleAlias,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'CreateDeviceFleet', props);
+  }
+
   public createDomain(input: shapes.SageMakerCreateDomainRequest): SageMakerResponsesCreateDomain {
     return new SageMakerResponsesCreateDomain(this, this.__resources, input);
+  }
+
+  public createEdgePackagingJob(input: shapes.SageMakerCreateEdgePackagingJobRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.CreateEdgePackagingJob'),
+        parameters: {
+          EdgePackagingJobName: input.edgePackagingJobName,
+          CompilationJobName: input.compilationJobName,
+          ModelName: input.modelName,
+          ModelVersion: input.modelVersion,
+          RoleArn: input.roleArn,
+          OutputConfig: {
+            S3OutputLocation: input.outputConfig.s3OutputLocation,
+            KmsKeyId: input.outputConfig.kmsKeyId,
+            PresetDeploymentType: input.outputConfig.presetDeploymentType,
+            PresetDeploymentConfig: input.outputConfig.presetDeploymentConfig,
+          },
+          ResourceKey: input.resourceKey,
+          Tags: input.tags,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'CreateEdgePackagingJob', props);
   }
 
   public createEndpoint(input: shapes.SageMakerCreateEndpointInput): SageMakerResponsesCreateEndpoint {
@@ -54,6 +126,10 @@ export class SageMakerClient extends cdk.Construct {
 
   public createExperiment(input: shapes.SageMakerCreateExperimentRequest): SageMakerResponsesCreateExperiment {
     return new SageMakerResponsesCreateExperiment(this, this.__resources, input);
+  }
+
+  public createFeatureGroup(input: shapes.SageMakerCreateFeatureGroupRequest): SageMakerResponsesCreateFeatureGroup {
+    return new SageMakerResponsesCreateFeatureGroup(this, this.__resources, input);
   }
 
   public createFlowDefinition(input: shapes.SageMakerCreateFlowDefinitionRequest): SageMakerResponsesCreateFlowDefinition {
@@ -84,8 +160,24 @@ export class SageMakerClient extends cdk.Construct {
     return new SageMakerResponsesCreateModel(this, this.__resources, input);
   }
 
+  public createModelBiasJobDefinition(input: shapes.SageMakerCreateModelBiasJobDefinitionRequest): SageMakerResponsesCreateModelBiasJobDefinition {
+    return new SageMakerResponsesCreateModelBiasJobDefinition(this, this.__resources, input);
+  }
+
+  public createModelExplainabilityJobDefinition(input: shapes.SageMakerCreateModelExplainabilityJobDefinitionRequest): SageMakerResponsesCreateModelExplainabilityJobDefinition {
+    return new SageMakerResponsesCreateModelExplainabilityJobDefinition(this, this.__resources, input);
+  }
+
   public createModelPackage(input: shapes.SageMakerCreateModelPackageInput): SageMakerResponsesCreateModelPackage {
     return new SageMakerResponsesCreateModelPackage(this, this.__resources, input);
+  }
+
+  public createModelPackageGroup(input: shapes.SageMakerCreateModelPackageGroupInput): SageMakerResponsesCreateModelPackageGroup {
+    return new SageMakerResponsesCreateModelPackageGroup(this, this.__resources, input);
+  }
+
+  public createModelQualityJobDefinition(input: shapes.SageMakerCreateModelQualityJobDefinitionRequest): SageMakerResponsesCreateModelQualityJobDefinition {
+    return new SageMakerResponsesCreateModelQualityJobDefinition(this, this.__resources, input);
   }
 
   public createMonitoringSchedule(input: shapes.SageMakerCreateMonitoringScheduleRequest): SageMakerResponsesCreateMonitoringSchedule {
@@ -100,6 +192,10 @@ export class SageMakerClient extends cdk.Construct {
     return new SageMakerResponsesCreateNotebookInstanceLifecycleConfig(this, this.__resources, input);
   }
 
+  public createPipeline(input: shapes.SageMakerCreatePipelineRequest): SageMakerResponsesCreatePipeline {
+    return new SageMakerResponsesCreatePipeline(this, this.__resources, input);
+  }
+
   public createPresignedDomainUrl(input: shapes.SageMakerCreatePresignedDomainUrlRequest): SageMakerResponsesCreatePresignedDomainUrl {
     return new SageMakerResponsesCreatePresignedDomainUrl(this, this.__resources, input);
   }
@@ -110,6 +206,10 @@ export class SageMakerClient extends cdk.Construct {
 
   public createProcessingJob(input: shapes.SageMakerCreateProcessingJobRequest): SageMakerResponsesCreateProcessingJob {
     return new SageMakerResponsesCreateProcessingJob(this, this.__resources, input);
+  }
+
+  public createProject(input: shapes.SageMakerCreateProjectInput): SageMakerResponsesCreateProject {
+    return new SageMakerResponsesCreateProject(this, this.__resources, input);
   }
 
   public createTrainingJob(input: shapes.SageMakerCreateTrainingJobRequest): SageMakerResponsesCreateTrainingJob {
@@ -138,6 +238,10 @@ export class SageMakerClient extends cdk.Construct {
 
   public createWorkteam(input: shapes.SageMakerCreateWorkteamRequest): SageMakerResponsesCreateWorkteam {
     return new SageMakerResponsesCreateWorkteam(this, this.__resources, input);
+  }
+
+  public deleteAction(input: shapes.SageMakerDeleteActionRequest): SageMakerResponsesDeleteAction {
+    return new SageMakerResponsesDeleteAction(this, this.__resources, input);
   }
 
   public deleteAlgorithm(input: shapes.SageMakerDeleteAlgorithmInput): void {
@@ -188,6 +292,14 @@ export class SageMakerClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeleteAppImageConfig', props);
   }
 
+  public deleteArtifact(input: shapes.SageMakerDeleteArtifactRequest): SageMakerResponsesDeleteArtifact {
+    return new SageMakerResponsesDeleteArtifact(this, this.__resources, input);
+  }
+
+  public deleteAssociation(input: shapes.SageMakerDeleteAssociationRequest): SageMakerResponsesDeleteAssociation {
+    return new SageMakerResponsesDeleteAssociation(this, this.__resources, input);
+  }
+
   public deleteCodeRepository(input: shapes.SageMakerDeleteCodeRepositoryInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -201,6 +313,40 @@ export class SageMakerClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'DeleteCodeRepository', props);
+  }
+
+  public deleteContext(input: shapes.SageMakerDeleteContextRequest): SageMakerResponsesDeleteContext {
+    return new SageMakerResponsesDeleteContext(this, this.__resources, input);
+  }
+
+  public deleteDataQualityJobDefinition(input: shapes.SageMakerDeleteDataQualityJobDefinitionRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DeleteDataQualityJobDefinition'),
+        parameters: {
+          JobDefinitionName: input.jobDefinitionName,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteDataQualityJobDefinition', props);
+  }
+
+  public deleteDeviceFleet(input: shapes.SageMakerDeleteDeviceFleetRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteDeviceFleet',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DeleteDeviceFleet'),
+        parameters: {
+          DeviceFleetName: input.deviceFleetName,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteDeviceFleet', props);
   }
 
   public deleteDomain(input: shapes.SageMakerDeleteDomainRequest): void {
@@ -253,6 +399,21 @@ export class SageMakerClient extends cdk.Construct {
 
   public deleteExperiment(input: shapes.SageMakerDeleteExperimentRequest): SageMakerResponsesDeleteExperiment {
     return new SageMakerResponsesDeleteExperiment(this, this.__resources, input);
+  }
+
+  public deleteFeatureGroup(input: shapes.SageMakerDeleteFeatureGroupRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DeleteFeatureGroup'),
+        parameters: {
+          FeatureGroupName: input.featureGroupName,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteFeatureGroup', props);
   }
 
   public deleteFlowDefinition(input: shapes.SageMakerDeleteFlowDefinitionRequest): void {
@@ -331,6 +492,36 @@ export class SageMakerClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeleteModel', props);
   }
 
+  public deleteModelBiasJobDefinition(input: shapes.SageMakerDeleteModelBiasJobDefinitionRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DeleteModelBiasJobDefinition'),
+        parameters: {
+          JobDefinitionName: input.jobDefinitionName,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteModelBiasJobDefinition', props);
+  }
+
+  public deleteModelExplainabilityJobDefinition(input: shapes.SageMakerDeleteModelExplainabilityJobDefinitionRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DeleteModelExplainabilityJobDefinition'),
+        parameters: {
+          JobDefinitionName: input.jobDefinitionName,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteModelExplainabilityJobDefinition', props);
+  }
+
   public deleteModelPackage(input: shapes.SageMakerDeleteModelPackageInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -344,6 +535,51 @@ export class SageMakerClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'DeleteModelPackage', props);
+  }
+
+  public deleteModelPackageGroup(input: shapes.SageMakerDeleteModelPackageGroupInput): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteModelPackageGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DeleteModelPackageGroup'),
+        parameters: {
+          ModelPackageGroupName: input.modelPackageGroupName,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteModelPackageGroup', props);
+  }
+
+  public deleteModelPackageGroupPolicy(input: shapes.SageMakerDeleteModelPackageGroupPolicyInput): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteModelPackageGroupPolicy',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DeleteModelPackageGroupPolicy'),
+        parameters: {
+          ModelPackageGroupName: input.modelPackageGroupName,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteModelPackageGroupPolicy', props);
+  }
+
+  public deleteModelQualityJobDefinition(input: shapes.SageMakerDeleteModelQualityJobDefinitionRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DeleteModelQualityJobDefinition'),
+        parameters: {
+          JobDefinitionName: input.jobDefinitionName,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteModelQualityJobDefinition', props);
   }
 
   public deleteMonitoringSchedule(input: shapes.SageMakerDeleteMonitoringScheduleRequest): void {
@@ -389,6 +625,25 @@ export class SageMakerClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'DeleteNotebookInstanceLifecycleConfig', props);
+  }
+
+  public deletePipeline(input: shapes.SageMakerDeletePipelineRequest): SageMakerResponsesDeletePipeline {
+    return new SageMakerResponsesDeletePipeline(this, this.__resources, input);
+  }
+
+  public deleteProject(input: shapes.SageMakerDeleteProjectInput): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteProject',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DeleteProject'),
+        parameters: {
+          ProjectName: input.projectName,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteProject', props);
   }
 
   public deleteTags(input: shapes.SageMakerDeleteTagsInput): void {
@@ -450,6 +705,26 @@ export class SageMakerClient extends cdk.Construct {
     return new SageMakerResponsesDeleteWorkteam(this, this.__resources, input);
   }
 
+  public deregisterDevices(input: shapes.SageMakerDeregisterDevicesRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deregisterDevices',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DeregisterDevices'),
+        parameters: {
+          DeviceFleetName: input.deviceFleetName,
+          DeviceNames: input.deviceNames,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeregisterDevices', props);
+  }
+
+  public describeAction(input: shapes.SageMakerDescribeActionRequest): SageMakerResponsesDescribeAction {
+    return new SageMakerResponsesDescribeAction(this, this.__resources, input);
+  }
+
   public describeAlgorithm(input: shapes.SageMakerDescribeAlgorithmInput): SageMakerResponsesDescribeAlgorithm {
     return new SageMakerResponsesDescribeAlgorithm(this, this.__resources, input);
   }
@@ -460,6 +735,10 @@ export class SageMakerClient extends cdk.Construct {
 
   public describeAppImageConfig(input: shapes.SageMakerDescribeAppImageConfigRequest): SageMakerResponsesDescribeAppImageConfig {
     return new SageMakerResponsesDescribeAppImageConfig(this, this.__resources, input);
+  }
+
+  public describeArtifact(input: shapes.SageMakerDescribeArtifactRequest): SageMakerResponsesDescribeArtifact {
+    return new SageMakerResponsesDescribeArtifact(this, this.__resources, input);
   }
 
   public describeAutoMlJob(input: shapes.SageMakerDescribeAutoMlJobRequest): SageMakerResponsesDescribeAutoMlJob {
@@ -474,8 +753,28 @@ export class SageMakerClient extends cdk.Construct {
     return new SageMakerResponsesDescribeCompilationJob(this, this.__resources, input);
   }
 
+  public describeContext(input: shapes.SageMakerDescribeContextRequest): SageMakerResponsesDescribeContext {
+    return new SageMakerResponsesDescribeContext(this, this.__resources, input);
+  }
+
+  public describeDataQualityJobDefinition(input: shapes.SageMakerDescribeDataQualityJobDefinitionRequest): SageMakerResponsesDescribeDataQualityJobDefinition {
+    return new SageMakerResponsesDescribeDataQualityJobDefinition(this, this.__resources, input);
+  }
+
+  public describeDevice(input: shapes.SageMakerDescribeDeviceRequest): SageMakerResponsesDescribeDevice {
+    return new SageMakerResponsesDescribeDevice(this, this.__resources, input);
+  }
+
+  public describeDeviceFleet(input: shapes.SageMakerDescribeDeviceFleetRequest): SageMakerResponsesDescribeDeviceFleet {
+    return new SageMakerResponsesDescribeDeviceFleet(this, this.__resources, input);
+  }
+
   public describeDomain(input: shapes.SageMakerDescribeDomainRequest): SageMakerResponsesDescribeDomain {
     return new SageMakerResponsesDescribeDomain(this, this.__resources, input);
+  }
+
+  public describeEdgePackagingJob(input: shapes.SageMakerDescribeEdgePackagingJobRequest): SageMakerResponsesDescribeEdgePackagingJob {
+    return new SageMakerResponsesDescribeEdgePackagingJob(this, this.__resources, input);
   }
 
   public describeEndpoint(input: shapes.SageMakerDescribeEndpointInput): SageMakerResponsesDescribeEndpoint {
@@ -488,6 +787,10 @@ export class SageMakerClient extends cdk.Construct {
 
   public describeExperiment(input: shapes.SageMakerDescribeExperimentRequest): SageMakerResponsesDescribeExperiment {
     return new SageMakerResponsesDescribeExperiment(this, this.__resources, input);
+  }
+
+  public describeFeatureGroup(input: shapes.SageMakerDescribeFeatureGroupRequest): SageMakerResponsesDescribeFeatureGroup {
+    return new SageMakerResponsesDescribeFeatureGroup(this, this.__resources, input);
   }
 
   public describeFlowDefinition(input: shapes.SageMakerDescribeFlowDefinitionRequest): SageMakerResponsesDescribeFlowDefinition {
@@ -518,8 +821,24 @@ export class SageMakerClient extends cdk.Construct {
     return new SageMakerResponsesDescribeModel(this, this.__resources, input);
   }
 
+  public describeModelBiasJobDefinition(input: shapes.SageMakerDescribeModelBiasJobDefinitionRequest): SageMakerResponsesDescribeModelBiasJobDefinition {
+    return new SageMakerResponsesDescribeModelBiasJobDefinition(this, this.__resources, input);
+  }
+
+  public describeModelExplainabilityJobDefinition(input: shapes.SageMakerDescribeModelExplainabilityJobDefinitionRequest): SageMakerResponsesDescribeModelExplainabilityJobDefinition {
+    return new SageMakerResponsesDescribeModelExplainabilityJobDefinition(this, this.__resources, input);
+  }
+
   public describeModelPackage(input: shapes.SageMakerDescribeModelPackageInput): SageMakerResponsesDescribeModelPackage {
     return new SageMakerResponsesDescribeModelPackage(this, this.__resources, input);
+  }
+
+  public describeModelPackageGroup(input: shapes.SageMakerDescribeModelPackageGroupInput): SageMakerResponsesDescribeModelPackageGroup {
+    return new SageMakerResponsesDescribeModelPackageGroup(this, this.__resources, input);
+  }
+
+  public describeModelQualityJobDefinition(input: shapes.SageMakerDescribeModelQualityJobDefinitionRequest): SageMakerResponsesDescribeModelQualityJobDefinition {
+    return new SageMakerResponsesDescribeModelQualityJobDefinition(this, this.__resources, input);
   }
 
   public describeMonitoringSchedule(input: shapes.SageMakerDescribeMonitoringScheduleRequest): SageMakerResponsesDescribeMonitoringSchedule {
@@ -534,8 +853,24 @@ export class SageMakerClient extends cdk.Construct {
     return new SageMakerResponsesDescribeNotebookInstanceLifecycleConfig(this, this.__resources, input);
   }
 
+  public describePipeline(input: shapes.SageMakerDescribePipelineRequest): SageMakerResponsesDescribePipeline {
+    return new SageMakerResponsesDescribePipeline(this, this.__resources, input);
+  }
+
+  public describePipelineDefinitionForExecution(input: shapes.SageMakerDescribePipelineDefinitionForExecutionRequest): SageMakerResponsesDescribePipelineDefinitionForExecution {
+    return new SageMakerResponsesDescribePipelineDefinitionForExecution(this, this.__resources, input);
+  }
+
+  public describePipelineExecution(input: shapes.SageMakerDescribePipelineExecutionRequest): SageMakerResponsesDescribePipelineExecution {
+    return new SageMakerResponsesDescribePipelineExecution(this, this.__resources, input);
+  }
+
   public describeProcessingJob(input: shapes.SageMakerDescribeProcessingJobRequest): SageMakerResponsesDescribeProcessingJob {
     return new SageMakerResponsesDescribeProcessingJob(this, this.__resources, input);
+  }
+
+  public describeProject(input: shapes.SageMakerDescribeProjectInput): SageMakerResponsesDescribeProject {
+    return new SageMakerResponsesDescribeProject(this, this.__resources, input);
   }
 
   public describeSubscribedWorkteam(input: shapes.SageMakerDescribeSubscribedWorkteamRequest): SageMakerResponsesDescribeSubscribedWorkteam {
@@ -570,12 +905,56 @@ export class SageMakerClient extends cdk.Construct {
     return new SageMakerResponsesDescribeWorkteam(this, this.__resources, input);
   }
 
+  public disableSagemakerServicecatalogPortfolio(): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disableSagemakerServicecatalogPortfolio',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DisableSagemakerServicecatalogPortfolio'),
+        parameters: {
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DisableSagemakerServicecatalogPortfolio', props);
+  }
+
   public disassociateTrialComponent(input: shapes.SageMakerDisassociateTrialComponentRequest): SageMakerResponsesDisassociateTrialComponent {
     return new SageMakerResponsesDisassociateTrialComponent(this, this.__resources, input);
   }
 
+  public enableSagemakerServicecatalogPortfolio(): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'enableSagemakerServicecatalogPortfolio',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.EnableSagemakerServicecatalogPortfolio'),
+        parameters: {
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'EnableSagemakerServicecatalogPortfolio', props);
+  }
+
+  public fetchDeviceFleetReport(input: shapes.SageMakerGetDeviceFleetReportRequest): SageMakerResponsesFetchDeviceFleetReport {
+    return new SageMakerResponsesFetchDeviceFleetReport(this, this.__resources, input);
+  }
+
+  public fetchModelPackageGroupPolicy(input: shapes.SageMakerGetModelPackageGroupPolicyInput): SageMakerResponsesFetchModelPackageGroupPolicy {
+    return new SageMakerResponsesFetchModelPackageGroupPolicy(this, this.__resources, input);
+  }
+
+  public fetchSagemakerServicecatalogPortfolioStatus(): SageMakerResponsesFetchSagemakerServicecatalogPortfolioStatus {
+    return new SageMakerResponsesFetchSagemakerServicecatalogPortfolioStatus(this, this.__resources);
+  }
+
   public fetchSearchSuggestions(input: shapes.SageMakerGetSearchSuggestionsRequest): SageMakerResponsesFetchSearchSuggestions {
     return new SageMakerResponsesFetchSearchSuggestions(this, this.__resources, input);
+  }
+
+  public listActions(input: shapes.SageMakerListActionsRequest): SageMakerResponsesListActions {
+    return new SageMakerResponsesListActions(this, this.__resources, input);
   }
 
   public listAlgorithms(input: shapes.SageMakerListAlgorithmsInput): SageMakerResponsesListAlgorithms {
@@ -588,6 +967,14 @@ export class SageMakerClient extends cdk.Construct {
 
   public listApps(input: shapes.SageMakerListAppsRequest): SageMakerResponsesListApps {
     return new SageMakerResponsesListApps(this, this.__resources, input);
+  }
+
+  public listArtifacts(input: shapes.SageMakerListArtifactsRequest): SageMakerResponsesListArtifacts {
+    return new SageMakerResponsesListArtifacts(this, this.__resources, input);
+  }
+
+  public listAssociations(input: shapes.SageMakerListAssociationsRequest): SageMakerResponsesListAssociations {
+    return new SageMakerResponsesListAssociations(this, this.__resources, input);
   }
 
   public listAutoMlJobs(input: shapes.SageMakerListAutoMlJobsRequest): SageMakerResponsesListAutoMlJobs {
@@ -606,8 +993,28 @@ export class SageMakerClient extends cdk.Construct {
     return new SageMakerResponsesListCompilationJobs(this, this.__resources, input);
   }
 
+  public listContexts(input: shapes.SageMakerListContextsRequest): SageMakerResponsesListContexts {
+    return new SageMakerResponsesListContexts(this, this.__resources, input);
+  }
+
+  public listDataQualityJobDefinitions(input: shapes.SageMakerListDataQualityJobDefinitionsRequest): SageMakerResponsesListDataQualityJobDefinitions {
+    return new SageMakerResponsesListDataQualityJobDefinitions(this, this.__resources, input);
+  }
+
+  public listDeviceFleets(input: shapes.SageMakerListDeviceFleetsRequest): SageMakerResponsesListDeviceFleets {
+    return new SageMakerResponsesListDeviceFleets(this, this.__resources, input);
+  }
+
+  public listDevices(input: shapes.SageMakerListDevicesRequest): SageMakerResponsesListDevices {
+    return new SageMakerResponsesListDevices(this, this.__resources, input);
+  }
+
   public listDomains(input: shapes.SageMakerListDomainsRequest): SageMakerResponsesListDomains {
     return new SageMakerResponsesListDomains(this, this.__resources, input);
+  }
+
+  public listEdgePackagingJobs(input: shapes.SageMakerListEdgePackagingJobsRequest): SageMakerResponsesListEdgePackagingJobs {
+    return new SageMakerResponsesListEdgePackagingJobs(this, this.__resources, input);
   }
 
   public listEndpointConfigs(input: shapes.SageMakerListEndpointConfigsInput): SageMakerResponsesListEndpointConfigs {
@@ -620,6 +1027,10 @@ export class SageMakerClient extends cdk.Construct {
 
   public listExperiments(input: shapes.SageMakerListExperimentsRequest): SageMakerResponsesListExperiments {
     return new SageMakerResponsesListExperiments(this, this.__resources, input);
+  }
+
+  public listFeatureGroups(input: shapes.SageMakerListFeatureGroupsRequest): SageMakerResponsesListFeatureGroups {
+    return new SageMakerResponsesListFeatureGroups(this, this.__resources, input);
   }
 
   public listFlowDefinitions(input: shapes.SageMakerListFlowDefinitionsRequest): SageMakerResponsesListFlowDefinitions {
@@ -650,8 +1061,24 @@ export class SageMakerClient extends cdk.Construct {
     return new SageMakerResponsesListLabelingJobsForWorkteam(this, this.__resources, input);
   }
 
+  public listModelBiasJobDefinitions(input: shapes.SageMakerListModelBiasJobDefinitionsRequest): SageMakerResponsesListModelBiasJobDefinitions {
+    return new SageMakerResponsesListModelBiasJobDefinitions(this, this.__resources, input);
+  }
+
+  public listModelExplainabilityJobDefinitions(input: shapes.SageMakerListModelExplainabilityJobDefinitionsRequest): SageMakerResponsesListModelExplainabilityJobDefinitions {
+    return new SageMakerResponsesListModelExplainabilityJobDefinitions(this, this.__resources, input);
+  }
+
+  public listModelPackageGroups(input: shapes.SageMakerListModelPackageGroupsInput): SageMakerResponsesListModelPackageGroups {
+    return new SageMakerResponsesListModelPackageGroups(this, this.__resources, input);
+  }
+
   public listModelPackages(input: shapes.SageMakerListModelPackagesInput): SageMakerResponsesListModelPackages {
     return new SageMakerResponsesListModelPackages(this, this.__resources, input);
+  }
+
+  public listModelQualityJobDefinitions(input: shapes.SageMakerListModelQualityJobDefinitionsRequest): SageMakerResponsesListModelQualityJobDefinitions {
+    return new SageMakerResponsesListModelQualityJobDefinitions(this, this.__resources, input);
   }
 
   public listModels(input: shapes.SageMakerListModelsInput): SageMakerResponsesListModels {
@@ -674,8 +1101,28 @@ export class SageMakerClient extends cdk.Construct {
     return new SageMakerResponsesListNotebookInstances(this, this.__resources, input);
   }
 
+  public listPipelineExecutionSteps(input: shapes.SageMakerListPipelineExecutionStepsRequest): SageMakerResponsesListPipelineExecutionSteps {
+    return new SageMakerResponsesListPipelineExecutionSteps(this, this.__resources, input);
+  }
+
+  public listPipelineExecutions(input: shapes.SageMakerListPipelineExecutionsRequest): SageMakerResponsesListPipelineExecutions {
+    return new SageMakerResponsesListPipelineExecutions(this, this.__resources, input);
+  }
+
+  public listPipelineParametersForExecution(input: shapes.SageMakerListPipelineParametersForExecutionRequest): SageMakerResponsesListPipelineParametersForExecution {
+    return new SageMakerResponsesListPipelineParametersForExecution(this, this.__resources, input);
+  }
+
+  public listPipelines(input: shapes.SageMakerListPipelinesRequest): SageMakerResponsesListPipelines {
+    return new SageMakerResponsesListPipelines(this, this.__resources, input);
+  }
+
   public listProcessingJobs(input: shapes.SageMakerListProcessingJobsRequest): SageMakerResponsesListProcessingJobs {
     return new SageMakerResponsesListProcessingJobs(this, this.__resources, input);
+  }
+
+  public listProjects(input: shapes.SageMakerListProjectsInput): SageMakerResponsesListProjects {
+    return new SageMakerResponsesListProjects(this, this.__resources, input);
   }
 
   public listSubscribedWorkteams(input: shapes.SageMakerListSubscribedWorkteamsRequest): SageMakerResponsesListSubscribedWorkteams {
@@ -718,12 +1165,41 @@ export class SageMakerClient extends cdk.Construct {
     return new SageMakerResponsesListWorkteams(this, this.__resources, input);
   }
 
+  public putModelPackageGroupPolicy(input: shapes.SageMakerPutModelPackageGroupPolicyInput): SageMakerResponsesPutModelPackageGroupPolicy {
+    return new SageMakerResponsesPutModelPackageGroupPolicy(this, this.__resources, input);
+  }
+
+  public registerDevices(input: shapes.SageMakerRegisterDevicesRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'registerDevices',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.RegisterDevices'),
+        parameters: {
+          DeviceFleetName: input.deviceFleetName,
+          Devices: input.devices,
+          Tags: input.tags,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'RegisterDevices', props);
+  }
+
   public renderUiTemplate(input: shapes.SageMakerRenderUiTemplateRequest): SageMakerResponsesRenderUiTemplate {
     return new SageMakerResponsesRenderUiTemplate(this, this.__resources, input);
   }
 
   public search(input: shapes.SageMakerSearchRequest): SageMakerResponsesSearch {
     return new SageMakerResponsesSearch(this, this.__resources, input);
+  }
+
+  public sendPipelineExecutionStepFailure(input: shapes.SageMakerSendPipelineExecutionStepFailureRequest): SageMakerResponsesSendPipelineExecutionStepFailure {
+    return new SageMakerResponsesSendPipelineExecutionStepFailure(this, this.__resources, input);
+  }
+
+  public sendPipelineExecutionStepSuccess(input: shapes.SageMakerSendPipelineExecutionStepSuccessRequest): SageMakerResponsesSendPipelineExecutionStepSuccess {
+    return new SageMakerResponsesSendPipelineExecutionStepSuccess(this, this.__resources, input);
   }
 
   public startMonitoringSchedule(input: shapes.SageMakerStartMonitoringScheduleRequest): void {
@@ -756,6 +1232,10 @@ export class SageMakerClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'StartNotebookInstance', props);
   }
 
+  public startPipelineExecution(input: shapes.SageMakerStartPipelineExecutionRequest): SageMakerResponsesStartPipelineExecution {
+    return new SageMakerResponsesStartPipelineExecution(this, this.__resources, input);
+  }
+
   public stopAutoMlJob(input: shapes.SageMakerStopAutoMlJobRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -784,6 +1264,21 @@ export class SageMakerClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'StopCompilationJob', props);
+  }
+
+  public stopEdgePackagingJob(input: shapes.SageMakerStopEdgePackagingJobRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.StopEdgePackagingJob'),
+        parameters: {
+          EdgePackagingJobName: input.edgePackagingJobName,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'StopEdgePackagingJob', props);
   }
 
   public stopHyperParameterTuningJob(input: shapes.SageMakerStopHyperParameterTuningJobRequest): void {
@@ -846,6 +1341,10 @@ export class SageMakerClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'StopNotebookInstance', props);
   }
 
+  public stopPipelineExecution(input: shapes.SageMakerStopPipelineExecutionRequest): SageMakerResponsesStopPipelineExecution {
+    return new SageMakerResponsesStopPipelineExecution(this, this.__resources, input);
+  }
+
   public stopProcessingJob(input: shapes.SageMakerStopProcessingJobRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -891,12 +1390,64 @@ export class SageMakerClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'StopTransformJob', props);
   }
 
+  public updateAction(input: shapes.SageMakerUpdateActionRequest): SageMakerResponsesUpdateAction {
+    return new SageMakerResponsesUpdateAction(this, this.__resources, input);
+  }
+
   public updateAppImageConfig(input: shapes.SageMakerUpdateAppImageConfigRequest): SageMakerResponsesUpdateAppImageConfig {
     return new SageMakerResponsesUpdateAppImageConfig(this, this.__resources, input);
   }
 
+  public updateArtifact(input: shapes.SageMakerUpdateArtifactRequest): SageMakerResponsesUpdateArtifact {
+    return new SageMakerResponsesUpdateArtifact(this, this.__resources, input);
+  }
+
   public updateCodeRepository(input: shapes.SageMakerUpdateCodeRepositoryInput): SageMakerResponsesUpdateCodeRepository {
     return new SageMakerResponsesUpdateCodeRepository(this, this.__resources, input);
+  }
+
+  public updateContext(input: shapes.SageMakerUpdateContextRequest): SageMakerResponsesUpdateContext {
+    return new SageMakerResponsesUpdateContext(this, this.__resources, input);
+  }
+
+  public updateDeviceFleet(input: shapes.SageMakerUpdateDeviceFleetRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateDeviceFleet',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.UpdateDeviceFleet'),
+        parameters: {
+          DeviceFleetName: input.deviceFleetName,
+          RoleArn: input.roleArn,
+          Description: input.description,
+          OutputConfig: {
+            S3OutputLocation: input.outputConfig.s3OutputLocation,
+            KmsKeyId: input.outputConfig.kmsKeyId,
+            PresetDeploymentType: input.outputConfig.presetDeploymentType,
+            PresetDeploymentConfig: input.outputConfig.presetDeploymentConfig,
+          },
+          EnableIotRoleAlias: input.enableIotRoleAlias,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateDeviceFleet', props);
+  }
+
+  public updateDevices(input: shapes.SageMakerUpdateDevicesRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateDevices',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.UpdateDevices'),
+        parameters: {
+          DeviceFleetName: input.deviceFleetName,
+          Devices: input.devices,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateDevices', props);
   }
 
   public updateDomain(input: shapes.SageMakerUpdateDomainRequest): SageMakerResponsesUpdateDomain {
@@ -917,6 +1468,10 @@ export class SageMakerClient extends cdk.Construct {
 
   public updateImage(input: shapes.SageMakerUpdateImageRequest): SageMakerResponsesUpdateImage {
     return new SageMakerResponsesUpdateImage(this, this.__resources, input);
+  }
+
+  public updateModelPackage(input: shapes.SageMakerUpdateModelPackageInput): SageMakerResponsesUpdateModelPackage {
+    return new SageMakerResponsesUpdateModelPackage(this, this.__resources, input);
   }
 
   public updateMonitoringSchedule(input: shapes.SageMakerUpdateMonitoringScheduleRequest): SageMakerResponsesUpdateMonitoringSchedule {
@@ -967,6 +1522,18 @@ export class SageMakerClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'UpdateNotebookInstanceLifecycleConfig', props);
   }
 
+  public updatePipeline(input: shapes.SageMakerUpdatePipelineRequest): SageMakerResponsesUpdatePipeline {
+    return new SageMakerResponsesUpdatePipeline(this, this.__resources, input);
+  }
+
+  public updatePipelineExecution(input: shapes.SageMakerUpdatePipelineExecutionRequest): SageMakerResponsesUpdatePipelineExecution {
+    return new SageMakerResponsesUpdatePipelineExecution(this, this.__resources, input);
+  }
+
+  public updateTrainingJob(input: shapes.SageMakerUpdateTrainingJobRequest): SageMakerResponsesUpdateTrainingJob {
+    return new SageMakerResponsesUpdateTrainingJob(this, this.__resources, input);
+  }
+
   public updateTrial(input: shapes.SageMakerUpdateTrialRequest): SageMakerResponsesUpdateTrial {
     return new SageMakerResponsesUpdateTrial(this, this.__resources, input);
   }
@@ -985,6 +1552,51 @@ export class SageMakerClient extends cdk.Construct {
 
   public updateWorkteam(input: shapes.SageMakerUpdateWorkteamRequest): SageMakerResponsesUpdateWorkteam {
     return new SageMakerResponsesUpdateWorkteam(this, this.__resources, input);
+  }
+
+}
+
+export class SageMakerResponsesAddAssociation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerAddAssociationRequest) {
+  }
+
+  public get sourceArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addAssociation',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.AddAssociation.SourceArn'),
+        outputPath: 'SourceArn',
+        parameters: {
+          SourceArn: this.__input.sourceArn,
+          DestinationArn: this.__input.destinationArn,
+          AssociationType: this.__input.associationType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddAssociation.SourceArn', props);
+    return resource.getResponseField('SourceArn') as unknown as string;
+  }
+
+  public get destinationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addAssociation',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.AddAssociation.DestinationArn'),
+        outputPath: 'DestinationArn',
+        parameters: {
+          SourceArn: this.__input.sourceArn,
+          DestinationArn: this.__input.destinationArn,
+          AssociationType: this.__input.associationType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddAssociation.DestinationArn', props);
+    return resource.getResponseField('DestinationArn') as unknown as string;
   }
 
 }
@@ -1057,6 +1669,46 @@ export class SageMakerResponsesAssociateTrialComponent {
 
 }
 
+export class SageMakerResponsesCreateAction {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerCreateActionRequest) {
+  }
+
+  public get actionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.CreateAction.ActionArn'),
+        outputPath: 'ActionArn',
+        parameters: {
+          ActionName: this.__input.actionName,
+          Source: {
+            SourceUri: this.__input.source.sourceUri,
+            SourceType: this.__input.source.sourceType,
+            SourceId: this.__input.source.sourceId,
+          },
+          ActionType: this.__input.actionType,
+          Description: this.__input.description,
+          Status: this.__input.status,
+          Properties: this.__input.properties,
+          MetadataProperties: {
+            CommitId: this.__input.metadataProperties?.commitId,
+            Repository: this.__input.metadataProperties?.repository,
+            GeneratedBy: this.__input.metadataProperties?.generatedBy,
+            ProjectId: this.__input.metadataProperties?.projectId,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAction.ActionArn', props);
+    return resource.getResponseField('ActionArn') as unknown as string;
+  }
+
+}
+
 export class SageMakerResponsesCreateAlgorithm {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerCreateAlgorithmInput) {
@@ -1095,6 +1747,7 @@ export class SageMakerResponsesCreateAlgorithm {
             ValidationProfiles: this.__input.validationSpecification?.validationProfiles,
           },
           CertifyForMarketplace: this.__input.certifyForMarketplace,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1170,6 +1823,43 @@ export class SageMakerResponsesCreateAppImageConfig {
 
 }
 
+export class SageMakerResponsesCreateArtifact {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerCreateArtifactRequest) {
+  }
+
+  public get artifactArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.CreateArtifact.ArtifactArn'),
+        outputPath: 'ArtifactArn',
+        parameters: {
+          ArtifactName: this.__input.artifactName,
+          Source: {
+            SourceUri: this.__input.source.sourceUri,
+            SourceTypes: this.__input.source.sourceTypes,
+          },
+          ArtifactType: this.__input.artifactType,
+          Properties: this.__input.properties,
+          MetadataProperties: {
+            CommitId: this.__input.metadataProperties?.commitId,
+            Repository: this.__input.metadataProperties?.repository,
+            GeneratedBy: this.__input.metadataProperties?.generatedBy,
+            ProjectId: this.__input.metadataProperties?.projectId,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateArtifact.ArtifactArn', props);
+    return resource.getResponseField('ArtifactArn') as unknown as string;
+  }
+
+}
+
 export class SageMakerResponsesCreateAutoMlJob {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerCreateAutoMlJobRequest) {
@@ -1212,6 +1902,10 @@ export class SageMakerResponsesCreateAutoMlJob {
           RoleArn: this.__input.roleArn,
           GenerateCandidateDefinitionsOnly: this.__input.generateCandidateDefinitionsOnly,
           Tags: this.__input.tags,
+          ModelDeployConfig: {
+            AutoGenerateEndpointName: this.__input.modelDeployConfig?.autoGenerateEndpointName,
+            EndpointName: this.__input.modelDeployConfig?.endpointName,
+          },
         },
       },
     };
@@ -1241,6 +1935,7 @@ export class SageMakerResponsesCreateCodeRepository {
             Branch: this.__input.gitConfig.branch,
             SecretArn: this.__input.gitConfig.secretArn,
           },
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1270,6 +1965,7 @@ export class SageMakerResponsesCreateCompilationJob {
             S3Uri: this.__input.inputConfig.s3Uri,
             DataInputConfig: this.__input.inputConfig.dataInputConfig,
             Framework: this.__input.inputConfig.framework,
+            FrameworkVersion: this.__input.inputConfig.frameworkVersion,
           },
           OutputConfig: {
             S3OutputLocation: this.__input.outputConfig.s3OutputLocation,
@@ -1280,6 +1976,11 @@ export class SageMakerResponsesCreateCompilationJob {
               Accelerator: this.__input.outputConfig.targetPlatform?.accelerator,
             },
             CompilerOptions: this.__input.outputConfig.compilerOptions,
+            KmsKeyId: this.__input.outputConfig.kmsKeyId,
+          },
+          VpcConfig: {
+            SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
+            Subnets: this.__input.vpcConfig?.subnets,
           },
           StoppingCondition: {
             MaxRuntimeInSeconds: this.__input.stoppingCondition.maxRuntimeInSeconds,
@@ -1291,6 +1992,119 @@ export class SageMakerResponsesCreateCompilationJob {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateCompilationJob.CompilationJobArn', props);
     return resource.getResponseField('CompilationJobArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesCreateContext {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerCreateContextRequest) {
+  }
+
+  public get contextArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.CreateContext.ContextArn'),
+        outputPath: 'ContextArn',
+        parameters: {
+          ContextName: this.__input.contextName,
+          Source: {
+            SourceUri: this.__input.source.sourceUri,
+            SourceType: this.__input.source.sourceType,
+            SourceId: this.__input.source.sourceId,
+          },
+          ContextType: this.__input.contextType,
+          Description: this.__input.description,
+          Properties: this.__input.properties,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateContext.ContextArn', props);
+    return resource.getResponseField('ContextArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesCreateDataQualityJobDefinition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerCreateDataQualityJobDefinitionRequest) {
+  }
+
+  public get jobDefinitionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.CreateDataQualityJobDefinition.JobDefinitionArn'),
+        outputPath: 'JobDefinitionArn',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+          DataQualityBaselineConfig: {
+            BaseliningJobName: this.__input.dataQualityBaselineConfig?.baseliningJobName,
+            ConstraintsResource: {
+              S3Uri: this.__input.dataQualityBaselineConfig?.constraintsResource?.s3Uri,
+            },
+            StatisticsResource: {
+              S3Uri: this.__input.dataQualityBaselineConfig?.statisticsResource?.s3Uri,
+            },
+          },
+          DataQualityAppSpecification: {
+            ImageUri: this.__input.dataQualityAppSpecification.imageUri,
+            ContainerEntrypoint: this.__input.dataQualityAppSpecification.containerEntrypoint,
+            ContainerArguments: this.__input.dataQualityAppSpecification.containerArguments,
+            RecordPreprocessorSourceUri: this.__input.dataQualityAppSpecification.recordPreprocessorSourceUri,
+            PostAnalyticsProcessorSourceUri: this.__input.dataQualityAppSpecification.postAnalyticsProcessorSourceUri,
+            Environment: this.__input.dataQualityAppSpecification.environment,
+          },
+          DataQualityJobInput: {
+            EndpointInput: {
+              EndpointName: this.__input.dataQualityJobInput.endpointInput.endpointName,
+              LocalPath: this.__input.dataQualityJobInput.endpointInput.localPath,
+              S3InputMode: this.__input.dataQualityJobInput.endpointInput.s3InputMode,
+              S3DataDistributionType: this.__input.dataQualityJobInput.endpointInput.s3DataDistributionType,
+              FeaturesAttribute: this.__input.dataQualityJobInput.endpointInput.featuresAttribute,
+              InferenceAttribute: this.__input.dataQualityJobInput.endpointInput.inferenceAttribute,
+              ProbabilityAttribute: this.__input.dataQualityJobInput.endpointInput.probabilityAttribute,
+              ProbabilityThresholdAttribute: this.__input.dataQualityJobInput.endpointInput.probabilityThresholdAttribute,
+              StartTimeOffset: this.__input.dataQualityJobInput.endpointInput.startTimeOffset,
+              EndTimeOffset: this.__input.dataQualityJobInput.endpointInput.endTimeOffset,
+            },
+          },
+          DataQualityJobOutputConfig: {
+            MonitoringOutputs: this.__input.dataQualityJobOutputConfig.monitoringOutputs,
+            KmsKeyId: this.__input.dataQualityJobOutputConfig.kmsKeyId,
+          },
+          JobResources: {
+            ClusterConfig: {
+              InstanceCount: this.__input.jobResources.clusterConfig.instanceCount,
+              InstanceType: this.__input.jobResources.clusterConfig.instanceType,
+              VolumeSizeInGB: this.__input.jobResources.clusterConfig.volumeSizeInGb,
+              VolumeKmsKeyId: this.__input.jobResources.clusterConfig.volumeKmsKeyId,
+            },
+          },
+          NetworkConfig: {
+            EnableInterContainerTrafficEncryption: this.__input.networkConfig?.enableInterContainerTrafficEncryption,
+            EnableNetworkIsolation: this.__input.networkConfig?.enableNetworkIsolation,
+            VpcConfig: {
+              SecurityGroupIds: this.__input.networkConfig?.vpcConfig?.securityGroupIds,
+              Subnets: this.__input.networkConfig?.vpcConfig?.subnets,
+            },
+          },
+          RoleArn: this.__input.roleArn,
+          StoppingCondition: {
+            MaxRuntimeInSeconds: this.__input.stoppingCondition?.maxRuntimeInSeconds,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDataQualityJobDefinition.JobDefinitionArn', props);
+    return resource.getResponseField('JobDefinitionArn') as unknown as string;
   }
 
 }
@@ -1503,6 +2317,55 @@ export class SageMakerResponsesCreateExperiment {
 
 }
 
+export class SageMakerResponsesCreateFeatureGroup {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerCreateFeatureGroupRequest) {
+  }
+
+  public get featureGroupArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.CreateFeatureGroup.FeatureGroupArn'),
+        outputPath: 'FeatureGroupArn',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          RecordIdentifierFeatureName: this.__input.recordIdentifierFeatureName,
+          EventTimeFeatureName: this.__input.eventTimeFeatureName,
+          FeatureDefinitions: this.__input.featureDefinitions,
+          OnlineStoreConfig: {
+            SecurityConfig: {
+              KmsKeyId: this.__input.onlineStoreConfig?.securityConfig?.kmsKeyId,
+            },
+            EnableOnlineStore: this.__input.onlineStoreConfig?.enableOnlineStore,
+          },
+          OfflineStoreConfig: {
+            S3StorageConfig: {
+              S3Uri: this.__input.offlineStoreConfig?.s3StorageConfig.s3Uri,
+              KmsKeyId: this.__input.offlineStoreConfig?.s3StorageConfig.kmsKeyId,
+              ResolvedOutputS3Uri: this.__input.offlineStoreConfig?.s3StorageConfig.resolvedOutputS3Uri,
+            },
+            DisableGlueTableCreation: this.__input.offlineStoreConfig?.disableGlueTableCreation,
+            DataCatalogConfig: {
+              TableName: this.__input.offlineStoreConfig?.dataCatalogConfig?.tableName,
+              Catalog: this.__input.offlineStoreConfig?.dataCatalogConfig?.catalog,
+              Database: this.__input.offlineStoreConfig?.dataCatalogConfig?.database,
+            },
+          },
+          RoleArn: this.__input.roleArn,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFeatureGroup.FeatureGroupArn', props);
+    return resource.getResponseField('FeatureGroupArn') as unknown as string;
+  }
+
+}
+
 export class SageMakerResponsesCreateFlowDefinition {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerCreateFlowDefinitionRequest) {
@@ -1665,6 +2528,9 @@ export class SageMakerResponsesCreateHyperParameterTuningJob {
             CheckpointConfig: {
               S3Uri: this.__input.trainingJobDefinition?.checkpointConfig?.s3Uri,
               LocalPath: this.__input.trainingJobDefinition?.checkpointConfig?.localPath,
+            },
+            RetryStrategy: {
+              MaximumRetryAttempts: this.__input.trainingJobDefinition?.retryStrategy?.maximumRetryAttempts,
             },
           },
           TrainingJobDefinitions: this.__input.trainingJobDefinitions,
@@ -1838,13 +2704,22 @@ export class SageMakerResponsesCreateModel {
             Image: this.__input.primaryContainer?.image,
             ImageConfig: {
               RepositoryAccessMode: this.__input.primaryContainer?.imageConfig?.repositoryAccessMode,
+              RepositoryAuthConfig: {
+                RepositoryCredentialsProviderArn: this.__input.primaryContainer?.imageConfig?.repositoryAuthConfig?.repositoryCredentialsProviderArn,
+              },
             },
             Mode: this.__input.primaryContainer?.mode,
             ModelDataUrl: this.__input.primaryContainer?.modelDataUrl,
             Environment: this.__input.primaryContainer?.environment,
             ModelPackageName: this.__input.primaryContainer?.modelPackageName,
+            MultiModelConfig: {
+              ModelCacheSetting: this.__input.primaryContainer?.multiModelConfig?.modelCacheSetting,
+            },
           },
           Containers: this.__input.containers,
+          InferenceExecutionConfig: {
+            Mode: this.__input.inferenceExecutionConfig?.mode,
+          },
           ExecutionRoleArn: this.__input.executionRoleArn,
           Tags: this.__input.tags,
           VpcConfig: {
@@ -1857,6 +2732,157 @@ export class SageMakerResponsesCreateModel {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateModel.ModelArn', props);
     return resource.getResponseField('ModelArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesCreateModelBiasJobDefinition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerCreateModelBiasJobDefinitionRequest) {
+  }
+
+  public get jobDefinitionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.CreateModelBiasJobDefinition.JobDefinitionArn'),
+        outputPath: 'JobDefinitionArn',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+          ModelBiasBaselineConfig: {
+            BaseliningJobName: this.__input.modelBiasBaselineConfig?.baseliningJobName,
+            ConstraintsResource: {
+              S3Uri: this.__input.modelBiasBaselineConfig?.constraintsResource?.s3Uri,
+            },
+          },
+          ModelBiasAppSpecification: {
+            ImageUri: this.__input.modelBiasAppSpecification.imageUri,
+            ConfigUri: this.__input.modelBiasAppSpecification.configUri,
+            Environment: this.__input.modelBiasAppSpecification.environment,
+          },
+          ModelBiasJobInput: {
+            EndpointInput: {
+              EndpointName: this.__input.modelBiasJobInput.endpointInput.endpointName,
+              LocalPath: this.__input.modelBiasJobInput.endpointInput.localPath,
+              S3InputMode: this.__input.modelBiasJobInput.endpointInput.s3InputMode,
+              S3DataDistributionType: this.__input.modelBiasJobInput.endpointInput.s3DataDistributionType,
+              FeaturesAttribute: this.__input.modelBiasJobInput.endpointInput.featuresAttribute,
+              InferenceAttribute: this.__input.modelBiasJobInput.endpointInput.inferenceAttribute,
+              ProbabilityAttribute: this.__input.modelBiasJobInput.endpointInput.probabilityAttribute,
+              ProbabilityThresholdAttribute: this.__input.modelBiasJobInput.endpointInput.probabilityThresholdAttribute,
+              StartTimeOffset: this.__input.modelBiasJobInput.endpointInput.startTimeOffset,
+              EndTimeOffset: this.__input.modelBiasJobInput.endpointInput.endTimeOffset,
+            },
+            GroundTruthS3Input: {
+              S3Uri: this.__input.modelBiasJobInput.groundTruthS3Input.s3Uri,
+            },
+          },
+          ModelBiasJobOutputConfig: {
+            MonitoringOutputs: this.__input.modelBiasJobOutputConfig.monitoringOutputs,
+            KmsKeyId: this.__input.modelBiasJobOutputConfig.kmsKeyId,
+          },
+          JobResources: {
+            ClusterConfig: {
+              InstanceCount: this.__input.jobResources.clusterConfig.instanceCount,
+              InstanceType: this.__input.jobResources.clusterConfig.instanceType,
+              VolumeSizeInGB: this.__input.jobResources.clusterConfig.volumeSizeInGb,
+              VolumeKmsKeyId: this.__input.jobResources.clusterConfig.volumeKmsKeyId,
+            },
+          },
+          NetworkConfig: {
+            EnableInterContainerTrafficEncryption: this.__input.networkConfig?.enableInterContainerTrafficEncryption,
+            EnableNetworkIsolation: this.__input.networkConfig?.enableNetworkIsolation,
+            VpcConfig: {
+              SecurityGroupIds: this.__input.networkConfig?.vpcConfig?.securityGroupIds,
+              Subnets: this.__input.networkConfig?.vpcConfig?.subnets,
+            },
+          },
+          RoleArn: this.__input.roleArn,
+          StoppingCondition: {
+            MaxRuntimeInSeconds: this.__input.stoppingCondition?.maxRuntimeInSeconds,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateModelBiasJobDefinition.JobDefinitionArn', props);
+    return resource.getResponseField('JobDefinitionArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesCreateModelExplainabilityJobDefinition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerCreateModelExplainabilityJobDefinitionRequest) {
+  }
+
+  public get jobDefinitionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.CreateModelExplainabilityJobDefinition.JobDefinitionArn'),
+        outputPath: 'JobDefinitionArn',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+          ModelExplainabilityBaselineConfig: {
+            BaseliningJobName: this.__input.modelExplainabilityBaselineConfig?.baseliningJobName,
+            ConstraintsResource: {
+              S3Uri: this.__input.modelExplainabilityBaselineConfig?.constraintsResource?.s3Uri,
+            },
+          },
+          ModelExplainabilityAppSpecification: {
+            ImageUri: this.__input.modelExplainabilityAppSpecification.imageUri,
+            ConfigUri: this.__input.modelExplainabilityAppSpecification.configUri,
+            Environment: this.__input.modelExplainabilityAppSpecification.environment,
+          },
+          ModelExplainabilityJobInput: {
+            EndpointInput: {
+              EndpointName: this.__input.modelExplainabilityJobInput.endpointInput.endpointName,
+              LocalPath: this.__input.modelExplainabilityJobInput.endpointInput.localPath,
+              S3InputMode: this.__input.modelExplainabilityJobInput.endpointInput.s3InputMode,
+              S3DataDistributionType: this.__input.modelExplainabilityJobInput.endpointInput.s3DataDistributionType,
+              FeaturesAttribute: this.__input.modelExplainabilityJobInput.endpointInput.featuresAttribute,
+              InferenceAttribute: this.__input.modelExplainabilityJobInput.endpointInput.inferenceAttribute,
+              ProbabilityAttribute: this.__input.modelExplainabilityJobInput.endpointInput.probabilityAttribute,
+              ProbabilityThresholdAttribute: this.__input.modelExplainabilityJobInput.endpointInput.probabilityThresholdAttribute,
+              StartTimeOffset: this.__input.modelExplainabilityJobInput.endpointInput.startTimeOffset,
+              EndTimeOffset: this.__input.modelExplainabilityJobInput.endpointInput.endTimeOffset,
+            },
+          },
+          ModelExplainabilityJobOutputConfig: {
+            MonitoringOutputs: this.__input.modelExplainabilityJobOutputConfig.monitoringOutputs,
+            KmsKeyId: this.__input.modelExplainabilityJobOutputConfig.kmsKeyId,
+          },
+          JobResources: {
+            ClusterConfig: {
+              InstanceCount: this.__input.jobResources.clusterConfig.instanceCount,
+              InstanceType: this.__input.jobResources.clusterConfig.instanceType,
+              VolumeSizeInGB: this.__input.jobResources.clusterConfig.volumeSizeInGb,
+              VolumeKmsKeyId: this.__input.jobResources.clusterConfig.volumeKmsKeyId,
+            },
+          },
+          NetworkConfig: {
+            EnableInterContainerTrafficEncryption: this.__input.networkConfig?.enableInterContainerTrafficEncryption,
+            EnableNetworkIsolation: this.__input.networkConfig?.enableNetworkIsolation,
+            VpcConfig: {
+              SecurityGroupIds: this.__input.networkConfig?.vpcConfig?.securityGroupIds,
+              Subnets: this.__input.networkConfig?.vpcConfig?.subnets,
+            },
+          },
+          RoleArn: this.__input.roleArn,
+          StoppingCondition: {
+            MaxRuntimeInSeconds: this.__input.stoppingCondition?.maxRuntimeInSeconds,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateModelExplainabilityJobDefinition.JobDefinitionArn', props);
+    return resource.getResponseField('JobDefinitionArn') as unknown as string;
   }
 
 }
@@ -1876,6 +2902,7 @@ export class SageMakerResponsesCreateModelPackage {
         outputPath: 'ModelPackageArn',
         parameters: {
           ModelPackageName: this.__input.modelPackageName,
+          ModelPackageGroupName: this.__input.modelPackageGroupName,
           ModelPackageDescription: this.__input.modelPackageDescription,
           InferenceSpecification: {
             Containers: this.__input.inferenceSpecification?.containers,
@@ -1892,11 +2919,167 @@ export class SageMakerResponsesCreateModelPackage {
             SourceAlgorithms: this.__input.sourceAlgorithmSpecification?.sourceAlgorithms,
           },
           CertifyForMarketplace: this.__input.certifyForMarketplace,
+          Tags: this.__input.tags,
+          ModelApprovalStatus: this.__input.modelApprovalStatus,
+          MetadataProperties: {
+            CommitId: this.__input.metadataProperties?.commitId,
+            Repository: this.__input.metadataProperties?.repository,
+            GeneratedBy: this.__input.metadataProperties?.generatedBy,
+            ProjectId: this.__input.metadataProperties?.projectId,
+          },
+          ModelMetrics: {
+            ModelQuality: {
+              Statistics: {
+                ContentType: this.__input.modelMetrics?.modelQuality?.statistics?.contentType,
+                ContentDigest: this.__input.modelMetrics?.modelQuality?.statistics?.contentDigest,
+                S3Uri: this.__input.modelMetrics?.modelQuality?.statistics?.s3Uri,
+              },
+              Constraints: {
+                ContentType: this.__input.modelMetrics?.modelQuality?.constraints?.contentType,
+                ContentDigest: this.__input.modelMetrics?.modelQuality?.constraints?.contentDigest,
+                S3Uri: this.__input.modelMetrics?.modelQuality?.constraints?.s3Uri,
+              },
+            },
+            ModelDataQuality: {
+              Statistics: {
+                ContentType: this.__input.modelMetrics?.modelDataQuality?.statistics?.contentType,
+                ContentDigest: this.__input.modelMetrics?.modelDataQuality?.statistics?.contentDigest,
+                S3Uri: this.__input.modelMetrics?.modelDataQuality?.statistics?.s3Uri,
+              },
+              Constraints: {
+                ContentType: this.__input.modelMetrics?.modelDataQuality?.constraints?.contentType,
+                ContentDigest: this.__input.modelMetrics?.modelDataQuality?.constraints?.contentDigest,
+                S3Uri: this.__input.modelMetrics?.modelDataQuality?.constraints?.s3Uri,
+              },
+            },
+            Bias: {
+              Report: {
+                ContentType: this.__input.modelMetrics?.bias?.report?.contentType,
+                ContentDigest: this.__input.modelMetrics?.bias?.report?.contentDigest,
+                S3Uri: this.__input.modelMetrics?.bias?.report?.s3Uri,
+              },
+            },
+            Explainability: {
+              Report: {
+                ContentType: this.__input.modelMetrics?.explainability?.report?.contentType,
+                ContentDigest: this.__input.modelMetrics?.explainability?.report?.contentDigest,
+                S3Uri: this.__input.modelMetrics?.explainability?.report?.s3Uri,
+              },
+            },
+          },
+          ClientToken: this.__input.clientToken,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateModelPackage.ModelPackageArn', props);
     return resource.getResponseField('ModelPackageArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesCreateModelPackageGroup {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerCreateModelPackageGroupInput) {
+  }
+
+  public get modelPackageGroupArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createModelPackageGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.CreateModelPackageGroup.ModelPackageGroupArn'),
+        outputPath: 'ModelPackageGroupArn',
+        parameters: {
+          ModelPackageGroupName: this.__input.modelPackageGroupName,
+          ModelPackageGroupDescription: this.__input.modelPackageGroupDescription,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateModelPackageGroup.ModelPackageGroupArn', props);
+    return resource.getResponseField('ModelPackageGroupArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesCreateModelQualityJobDefinition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerCreateModelQualityJobDefinitionRequest) {
+  }
+
+  public get jobDefinitionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.CreateModelQualityJobDefinition.JobDefinitionArn'),
+        outputPath: 'JobDefinitionArn',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+          ModelQualityBaselineConfig: {
+            BaseliningJobName: this.__input.modelQualityBaselineConfig?.baseliningJobName,
+            ConstraintsResource: {
+              S3Uri: this.__input.modelQualityBaselineConfig?.constraintsResource?.s3Uri,
+            },
+          },
+          ModelQualityAppSpecification: {
+            ImageUri: this.__input.modelQualityAppSpecification.imageUri,
+            ContainerEntrypoint: this.__input.modelQualityAppSpecification.containerEntrypoint,
+            ContainerArguments: this.__input.modelQualityAppSpecification.containerArguments,
+            RecordPreprocessorSourceUri: this.__input.modelQualityAppSpecification.recordPreprocessorSourceUri,
+            PostAnalyticsProcessorSourceUri: this.__input.modelQualityAppSpecification.postAnalyticsProcessorSourceUri,
+            ProblemType: this.__input.modelQualityAppSpecification.problemType,
+            Environment: this.__input.modelQualityAppSpecification.environment,
+          },
+          ModelQualityJobInput: {
+            EndpointInput: {
+              EndpointName: this.__input.modelQualityJobInput.endpointInput.endpointName,
+              LocalPath: this.__input.modelQualityJobInput.endpointInput.localPath,
+              S3InputMode: this.__input.modelQualityJobInput.endpointInput.s3InputMode,
+              S3DataDistributionType: this.__input.modelQualityJobInput.endpointInput.s3DataDistributionType,
+              FeaturesAttribute: this.__input.modelQualityJobInput.endpointInput.featuresAttribute,
+              InferenceAttribute: this.__input.modelQualityJobInput.endpointInput.inferenceAttribute,
+              ProbabilityAttribute: this.__input.modelQualityJobInput.endpointInput.probabilityAttribute,
+              ProbabilityThresholdAttribute: this.__input.modelQualityJobInput.endpointInput.probabilityThresholdAttribute,
+              StartTimeOffset: this.__input.modelQualityJobInput.endpointInput.startTimeOffset,
+              EndTimeOffset: this.__input.modelQualityJobInput.endpointInput.endTimeOffset,
+            },
+            GroundTruthS3Input: {
+              S3Uri: this.__input.modelQualityJobInput.groundTruthS3Input.s3Uri,
+            },
+          },
+          ModelQualityJobOutputConfig: {
+            MonitoringOutputs: this.__input.modelQualityJobOutputConfig.monitoringOutputs,
+            KmsKeyId: this.__input.modelQualityJobOutputConfig.kmsKeyId,
+          },
+          JobResources: {
+            ClusterConfig: {
+              InstanceCount: this.__input.jobResources.clusterConfig.instanceCount,
+              InstanceType: this.__input.jobResources.clusterConfig.instanceType,
+              VolumeSizeInGB: this.__input.jobResources.clusterConfig.volumeSizeInGb,
+              VolumeKmsKeyId: this.__input.jobResources.clusterConfig.volumeKmsKeyId,
+            },
+          },
+          NetworkConfig: {
+            EnableInterContainerTrafficEncryption: this.__input.networkConfig?.enableInterContainerTrafficEncryption,
+            EnableNetworkIsolation: this.__input.networkConfig?.enableNetworkIsolation,
+            VpcConfig: {
+              SecurityGroupIds: this.__input.networkConfig?.vpcConfig?.securityGroupIds,
+              Subnets: this.__input.networkConfig?.vpcConfig?.subnets,
+            },
+          },
+          RoleArn: this.__input.roleArn,
+          StoppingCondition: {
+            MaxRuntimeInSeconds: this.__input.stoppingCondition?.maxRuntimeInSeconds,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateModelQualityJobDefinition.JobDefinitionArn', props);
+    return resource.getResponseField('JobDefinitionArn') as unknown as string;
   }
 
 }
@@ -1922,47 +3105,50 @@ export class SageMakerResponsesCreateMonitoringSchedule {
             },
             MonitoringJobDefinition: {
               BaselineConfig: {
+                BaseliningJobName: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.baselineConfig?.baseliningJobName,
                 ConstraintsResource: {
-                  S3Uri: this.__input.monitoringScheduleConfig.monitoringJobDefinition.baselineConfig?.constraintsResource?.s3Uri,
+                  S3Uri: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.baselineConfig?.constraintsResource?.s3Uri,
                 },
                 StatisticsResource: {
-                  S3Uri: this.__input.monitoringScheduleConfig.monitoringJobDefinition.baselineConfig?.statisticsResource?.s3Uri,
+                  S3Uri: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.baselineConfig?.statisticsResource?.s3Uri,
                 },
               },
-              MonitoringInputs: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringInputs,
+              MonitoringInputs: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringInputs,
               MonitoringOutputConfig: {
-                MonitoringOutputs: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringOutputConfig.monitoringOutputs,
-                KmsKeyId: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringOutputConfig.kmsKeyId,
+                MonitoringOutputs: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringOutputConfig.monitoringOutputs,
+                KmsKeyId: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringOutputConfig.kmsKeyId,
               },
               MonitoringResources: {
                 ClusterConfig: {
-                  InstanceCount: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringResources.clusterConfig.instanceCount,
-                  InstanceType: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringResources.clusterConfig.instanceType,
-                  VolumeSizeInGB: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringResources.clusterConfig.volumeSizeInGb,
-                  VolumeKmsKeyId: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringResources.clusterConfig.volumeKmsKeyId,
+                  InstanceCount: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringResources.clusterConfig.instanceCount,
+                  InstanceType: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringResources.clusterConfig.instanceType,
+                  VolumeSizeInGB: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringResources.clusterConfig.volumeSizeInGb,
+                  VolumeKmsKeyId: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringResources.clusterConfig.volumeKmsKeyId,
                 },
               },
               MonitoringAppSpecification: {
-                ImageUri: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringAppSpecification.imageUri,
-                ContainerEntrypoint: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringAppSpecification.containerEntrypoint,
-                ContainerArguments: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringAppSpecification.containerArguments,
-                RecordPreprocessorSourceUri: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringAppSpecification.recordPreprocessorSourceUri,
-                PostAnalyticsProcessorSourceUri: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringAppSpecification.postAnalyticsProcessorSourceUri,
+                ImageUri: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringAppSpecification.imageUri,
+                ContainerEntrypoint: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringAppSpecification.containerEntrypoint,
+                ContainerArguments: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringAppSpecification.containerArguments,
+                RecordPreprocessorSourceUri: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringAppSpecification.recordPreprocessorSourceUri,
+                PostAnalyticsProcessorSourceUri: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringAppSpecification.postAnalyticsProcessorSourceUri,
               },
               StoppingCondition: {
-                MaxRuntimeInSeconds: this.__input.monitoringScheduleConfig.monitoringJobDefinition.stoppingCondition?.maxRuntimeInSeconds,
+                MaxRuntimeInSeconds: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.stoppingCondition?.maxRuntimeInSeconds,
               },
-              Environment: this.__input.monitoringScheduleConfig.monitoringJobDefinition.environment,
+              Environment: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.environment,
               NetworkConfig: {
-                EnableInterContainerTrafficEncryption: this.__input.monitoringScheduleConfig.monitoringJobDefinition.networkConfig?.enableInterContainerTrafficEncryption,
-                EnableNetworkIsolation: this.__input.monitoringScheduleConfig.monitoringJobDefinition.networkConfig?.enableNetworkIsolation,
+                EnableInterContainerTrafficEncryption: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.networkConfig?.enableInterContainerTrafficEncryption,
+                EnableNetworkIsolation: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.networkConfig?.enableNetworkIsolation,
                 VpcConfig: {
-                  SecurityGroupIds: this.__input.monitoringScheduleConfig.monitoringJobDefinition.networkConfig?.vpcConfig?.securityGroupIds,
-                  Subnets: this.__input.monitoringScheduleConfig.monitoringJobDefinition.networkConfig?.vpcConfig?.subnets,
+                  SecurityGroupIds: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.networkConfig?.vpcConfig?.securityGroupIds,
+                  Subnets: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.networkConfig?.vpcConfig?.subnets,
                 },
               },
-              RoleArn: this.__input.monitoringScheduleConfig.monitoringJobDefinition.roleArn,
+              RoleArn: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.roleArn,
             },
+            MonitoringJobDefinitionName: this.__input.monitoringScheduleConfig.monitoringJobDefinitionName,
+            MonitoringType: this.__input.monitoringScheduleConfig.monitoringType,
           },
           Tags: this.__input.tags,
         },
@@ -2037,6 +3223,36 @@ export class SageMakerResponsesCreateNotebookInstanceLifecycleConfig {
 
 }
 
+export class SageMakerResponsesCreatePipeline {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerCreatePipelineRequest) {
+  }
+
+  public get pipelineArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.CreatePipeline.PipelineArn'),
+        outputPath: 'PipelineArn',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+          PipelineDisplayName: this.__input.pipelineDisplayName,
+          PipelineDefinition: this.__input.pipelineDefinition,
+          PipelineDescription: this.__input.pipelineDescription,
+          ClientRequestToken: this.__input.clientRequestToken,
+          RoleArn: this.__input.roleArn,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePipeline.PipelineArn', props);
+    return resource.getResponseField('PipelineArn') as unknown as string;
+  }
+
+}
+
 export class SageMakerResponsesCreatePresignedDomainUrl {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerCreatePresignedDomainUrlRequest) {
@@ -2054,6 +3270,7 @@ export class SageMakerResponsesCreatePresignedDomainUrl {
           DomainId: this.__input.domainId,
           UserProfileName: this.__input.userProfileName,
           SessionExpirationDurationInSeconds: this.__input.sessionExpirationDurationInSeconds,
+          ExpiresInSeconds: this.__input.expiresInSeconds,
         },
       },
     };
@@ -2149,6 +3366,63 @@ export class SageMakerResponsesCreateProcessingJob {
 
 }
 
+export class SageMakerResponsesCreateProject {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerCreateProjectInput) {
+  }
+
+  public get projectArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createProject',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.CreateProject.ProjectArn'),
+        outputPath: 'ProjectArn',
+        parameters: {
+          ProjectName: this.__input.projectName,
+          ProjectDescription: this.__input.projectDescription,
+          ServiceCatalogProvisioningDetails: {
+            ProductId: this.__input.serviceCatalogProvisioningDetails.productId,
+            ProvisioningArtifactId: this.__input.serviceCatalogProvisioningDetails.provisioningArtifactId,
+            PathId: this.__input.serviceCatalogProvisioningDetails.pathId,
+            ProvisioningParameters: this.__input.serviceCatalogProvisioningDetails.provisioningParameters,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateProject.ProjectArn', props);
+    return resource.getResponseField('ProjectArn') as unknown as string;
+  }
+
+  public get projectId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createProject',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.CreateProject.ProjectId'),
+        outputPath: 'ProjectId',
+        parameters: {
+          ProjectName: this.__input.projectName,
+          ProjectDescription: this.__input.projectDescription,
+          ServiceCatalogProvisioningDetails: {
+            ProductId: this.__input.serviceCatalogProvisioningDetails.productId,
+            ProvisioningArtifactId: this.__input.serviceCatalogProvisioningDetails.provisioningArtifactId,
+            PathId: this.__input.serviceCatalogProvisioningDetails.pathId,
+            ProvisioningParameters: this.__input.serviceCatalogProvisioningDetails.provisioningParameters,
+          },
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateProject.ProjectId', props);
+    return resource.getResponseField('ProjectId') as unknown as string;
+  }
+
+}
+
 export class SageMakerResponsesCreateTrainingJob {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerCreateTrainingJobRequest) {
@@ -2215,6 +3489,16 @@ export class SageMakerResponsesCreateTrainingJob {
             ExperimentName: this.__input.experimentConfig?.experimentName,
             TrialName: this.__input.experimentConfig?.trialName,
             TrialComponentDisplayName: this.__input.experimentConfig?.trialComponentDisplayName,
+          },
+          ProfilerConfig: {
+            S3OutputPath: this.__input.profilerConfig?.s3OutputPath,
+            ProfilingIntervalInMilliseconds: this.__input.profilerConfig?.profilingIntervalInMilliseconds,
+            ProfilingParameters: this.__input.profilerConfig?.profilingParameters,
+          },
+          ProfilerRuleConfigurations: this.__input.profilerRuleConfigurations,
+          Environment: this.__input.environment,
+          RetryStrategy: {
+            MaximumRetryAttempts: this.__input.retryStrategy?.maximumRetryAttempts,
           },
         },
       },
@@ -2308,6 +3592,12 @@ export class SageMakerResponsesCreateTrial {
           TrialName: this.__input.trialName,
           DisplayName: this.__input.displayName,
           ExperimentName: this.__input.experimentName,
+          MetadataProperties: {
+            CommitId: this.__input.metadataProperties?.commitId,
+            Repository: this.__input.metadataProperties?.repository,
+            GeneratedBy: this.__input.metadataProperties?.generatedBy,
+            ProjectId: this.__input.metadataProperties?.projectId,
+          },
           Tags: this.__input.tags,
         },
       },
@@ -2343,6 +3633,12 @@ export class SageMakerResponsesCreateTrialComponent {
           Parameters: this.__input.parameters,
           InputArtifacts: this.__input.inputArtifacts,
           OutputArtifacts: this.__input.outputArtifacts,
+          MetadataProperties: {
+            CommitId: this.__input.metadataProperties?.commitId,
+            Repository: this.__input.metadataProperties?.repository,
+            GeneratedBy: this.__input.metadataProperties?.generatedBy,
+            ProjectId: this.__input.metadataProperties?.projectId,
+          },
           Tags: this.__input.tags,
         },
       },
@@ -2485,6 +3781,125 @@ export class SageMakerResponsesCreateWorkteam {
 
 }
 
+export class SageMakerResponsesDeleteAction {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDeleteActionRequest) {
+  }
+
+  public get actionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DeleteAction.ActionArn'),
+        outputPath: 'ActionArn',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteAction.ActionArn', props);
+    return resource.getResponseField('ActionArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDeleteArtifact {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDeleteArtifactRequest) {
+  }
+
+  public get artifactArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DeleteArtifact.ArtifactArn'),
+        outputPath: 'ArtifactArn',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+          Source: {
+            SourceUri: this.__input.source?.sourceUri,
+            SourceTypes: this.__input.source?.sourceTypes,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteArtifact.ArtifactArn', props);
+    return resource.getResponseField('ArtifactArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDeleteAssociation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDeleteAssociationRequest) {
+  }
+
+  public get sourceArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAssociation',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DeleteAssociation.SourceArn'),
+        outputPath: 'SourceArn',
+        parameters: {
+          SourceArn: this.__input.sourceArn,
+          DestinationArn: this.__input.destinationArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteAssociation.SourceArn', props);
+    return resource.getResponseField('SourceArn') as unknown as string;
+  }
+
+  public get destinationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAssociation',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DeleteAssociation.DestinationArn'),
+        outputPath: 'DestinationArn',
+        parameters: {
+          SourceArn: this.__input.sourceArn,
+          DestinationArn: this.__input.destinationArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteAssociation.DestinationArn', props);
+    return resource.getResponseField('DestinationArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDeleteContext {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDeleteContextRequest) {
+  }
+
+  public get contextArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DeleteContext.ContextArn'),
+        outputPath: 'ContextArn',
+        parameters: {
+          ContextName: this.__input.contextName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteContext.ContextArn', props);
+    return resource.getResponseField('ContextArn') as unknown as string;
+  }
+
+}
+
 export class SageMakerResponsesDeleteExperiment {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDeleteExperimentRequest) {
@@ -2505,6 +3920,31 @@ export class SageMakerResponsesDeleteExperiment {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteExperiment.ExperimentArn', props);
     return resource.getResponseField('ExperimentArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDeletePipeline {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDeletePipelineRequest) {
+  }
+
+  public get pipelineArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deletePipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DeletePipeline.PipelineArn'),
+        outputPath: 'PipelineArn',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeletePipeline.PipelineArn', props);
+    return resource.getResponseField('PipelineArn') as unknown as string;
   }
 
 }
@@ -2577,6 +4017,414 @@ export class SageMakerResponsesDeleteWorkteam {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteWorkteam.Success', props);
     return resource.getResponseField('Success') as unknown as boolean;
+  }
+
+}
+
+export class SageMakerResponsesDescribeAction {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeActionRequest) {
+  }
+
+  public get actionName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.ActionName'),
+        outputPath: 'ActionName',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.ActionName', props);
+    return resource.getResponseField('ActionName') as unknown as string;
+  }
+
+  public get actionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.ActionArn'),
+        outputPath: 'ActionArn',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.ActionArn', props);
+    return resource.getResponseField('ActionArn') as unknown as string;
+  }
+
+  public get source(): SageMakerResponsesDescribeActionSource {
+    return new SageMakerResponsesDescribeActionSource(this.__scope, this.__resources, this.__input);
+  }
+
+  public get actionType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.ActionType'),
+        outputPath: 'ActionType',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.ActionType', props);
+    return resource.getResponseField('ActionType') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.Description'),
+        outputPath: 'Description',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.Description', props);
+    return resource.getResponseField('Description') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.Status'),
+        outputPath: 'Status',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.Status', props);
+    return resource.getResponseField('Status') as unknown as string;
+  }
+
+  public get properties(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.Properties'),
+        outputPath: 'Properties',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.Properties', props);
+    return resource.getResponseField('Properties') as unknown as Record<string, string>;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get createdBy(): SageMakerResponsesDescribeActionCreatedBy {
+    return new SageMakerResponsesDescribeActionCreatedBy(this.__scope, this.__resources, this.__input);
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.LastModifiedTime'),
+        outputPath: 'LastModifiedTime',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.LastModifiedTime', props);
+    return resource.getResponseField('LastModifiedTime') as unknown as string;
+  }
+
+  public get lastModifiedBy(): SageMakerResponsesDescribeActionLastModifiedBy {
+    return new SageMakerResponsesDescribeActionLastModifiedBy(this.__scope, this.__resources, this.__input);
+  }
+
+  public get metadataProperties(): SageMakerResponsesDescribeActionMetadataProperties {
+    return new SageMakerResponsesDescribeActionMetadataProperties(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeActionSource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeActionRequest) {
+  }
+
+  public get sourceUri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.Source.SourceUri'),
+        outputPath: 'Source.SourceUri',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.Source.SourceUri', props);
+    return resource.getResponseField('Source.SourceUri') as unknown as string;
+  }
+
+  public get sourceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.Source.SourceType'),
+        outputPath: 'Source.SourceType',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.Source.SourceType', props);
+    return resource.getResponseField('Source.SourceType') as unknown as string;
+  }
+
+  public get sourceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.Source.SourceId'),
+        outputPath: 'Source.SourceId',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.Source.SourceId', props);
+    return resource.getResponseField('Source.SourceId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeActionCreatedBy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeActionRequest) {
+  }
+
+  public get userProfileArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.CreatedBy.UserProfileArn'),
+        outputPath: 'CreatedBy.UserProfileArn',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.CreatedBy.UserProfileArn', props);
+    return resource.getResponseField('CreatedBy.UserProfileArn') as unknown as string;
+  }
+
+  public get userProfileName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.CreatedBy.UserProfileName'),
+        outputPath: 'CreatedBy.UserProfileName',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.CreatedBy.UserProfileName', props);
+    return resource.getResponseField('CreatedBy.UserProfileName') as unknown as string;
+  }
+
+  public get domainId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.CreatedBy.DomainId'),
+        outputPath: 'CreatedBy.DomainId',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.CreatedBy.DomainId', props);
+    return resource.getResponseField('CreatedBy.DomainId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeActionLastModifiedBy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeActionRequest) {
+  }
+
+  public get userProfileArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.LastModifiedBy.UserProfileArn'),
+        outputPath: 'LastModifiedBy.UserProfileArn',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.LastModifiedBy.UserProfileArn', props);
+    return resource.getResponseField('LastModifiedBy.UserProfileArn') as unknown as string;
+  }
+
+  public get userProfileName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.LastModifiedBy.UserProfileName'),
+        outputPath: 'LastModifiedBy.UserProfileName',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.LastModifiedBy.UserProfileName', props);
+    return resource.getResponseField('LastModifiedBy.UserProfileName') as unknown as string;
+  }
+
+  public get domainId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.LastModifiedBy.DomainId'),
+        outputPath: 'LastModifiedBy.DomainId',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.LastModifiedBy.DomainId', props);
+    return resource.getResponseField('LastModifiedBy.DomainId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeActionMetadataProperties {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeActionRequest) {
+  }
+
+  public get commitId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.MetadataProperties.CommitId'),
+        outputPath: 'MetadataProperties.CommitId',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.MetadataProperties.CommitId', props);
+    return resource.getResponseField('MetadataProperties.CommitId') as unknown as string;
+  }
+
+  public get repository(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.MetadataProperties.Repository'),
+        outputPath: 'MetadataProperties.Repository',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.MetadataProperties.Repository', props);
+    return resource.getResponseField('MetadataProperties.Repository') as unknown as string;
+  }
+
+  public get generatedBy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.MetadataProperties.GeneratedBy'),
+        outputPath: 'MetadataProperties.GeneratedBy',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.MetadataProperties.GeneratedBy', props);
+    return resource.getResponseField('MetadataProperties.GeneratedBy') as unknown as string;
+  }
+
+  public get projectId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAction.MetadataProperties.ProjectId'),
+        outputPath: 'MetadataProperties.ProjectId',
+        parameters: {
+          ActionName: this.__input.actionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAction.MetadataProperties.ProjectId', props);
+    return resource.getResponseField('MetadataProperties.ProjectId') as unknown as string;
   }
 
 }
@@ -3483,6 +5331,363 @@ export class SageMakerResponsesDescribeAppImageConfigKernelGatewayImageConfigFil
 
 }
 
+export class SageMakerResponsesDescribeArtifact {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeArtifactRequest) {
+  }
+
+  public get artifactName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeArtifact.ArtifactName'),
+        outputPath: 'ArtifactName',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArtifact.ArtifactName', props);
+    return resource.getResponseField('ArtifactName') as unknown as string;
+  }
+
+  public get artifactArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeArtifact.ArtifactArn'),
+        outputPath: 'ArtifactArn',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArtifact.ArtifactArn', props);
+    return resource.getResponseField('ArtifactArn') as unknown as string;
+  }
+
+  public get source(): SageMakerResponsesDescribeArtifactSource {
+    return new SageMakerResponsesDescribeArtifactSource(this.__scope, this.__resources, this.__input);
+  }
+
+  public get artifactType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeArtifact.ArtifactType'),
+        outputPath: 'ArtifactType',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArtifact.ArtifactType', props);
+    return resource.getResponseField('ArtifactType') as unknown as string;
+  }
+
+  public get properties(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeArtifact.Properties'),
+        outputPath: 'Properties',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArtifact.Properties', props);
+    return resource.getResponseField('Properties') as unknown as Record<string, string>;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeArtifact.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArtifact.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get createdBy(): SageMakerResponsesDescribeArtifactCreatedBy {
+    return new SageMakerResponsesDescribeArtifactCreatedBy(this.__scope, this.__resources, this.__input);
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeArtifact.LastModifiedTime'),
+        outputPath: 'LastModifiedTime',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArtifact.LastModifiedTime', props);
+    return resource.getResponseField('LastModifiedTime') as unknown as string;
+  }
+
+  public get lastModifiedBy(): SageMakerResponsesDescribeArtifactLastModifiedBy {
+    return new SageMakerResponsesDescribeArtifactLastModifiedBy(this.__scope, this.__resources, this.__input);
+  }
+
+  public get metadataProperties(): SageMakerResponsesDescribeArtifactMetadataProperties {
+    return new SageMakerResponsesDescribeArtifactMetadataProperties(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeArtifactSource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeArtifactRequest) {
+  }
+
+  public get sourceUri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeArtifact.Source.SourceUri'),
+        outputPath: 'Source.SourceUri',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArtifact.Source.SourceUri', props);
+    return resource.getResponseField('Source.SourceUri') as unknown as string;
+  }
+
+  public get sourceTypes(): shapes.SageMakerArtifactSourceType[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeArtifact.Source.SourceTypes'),
+        outputPath: 'Source.SourceTypes',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArtifact.Source.SourceTypes', props);
+    return resource.getResponseField('Source.SourceTypes') as unknown as shapes.SageMakerArtifactSourceType[];
+  }
+
+}
+
+export class SageMakerResponsesDescribeArtifactCreatedBy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeArtifactRequest) {
+  }
+
+  public get userProfileArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeArtifact.CreatedBy.UserProfileArn'),
+        outputPath: 'CreatedBy.UserProfileArn',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArtifact.CreatedBy.UserProfileArn', props);
+    return resource.getResponseField('CreatedBy.UserProfileArn') as unknown as string;
+  }
+
+  public get userProfileName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeArtifact.CreatedBy.UserProfileName'),
+        outputPath: 'CreatedBy.UserProfileName',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArtifact.CreatedBy.UserProfileName', props);
+    return resource.getResponseField('CreatedBy.UserProfileName') as unknown as string;
+  }
+
+  public get domainId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeArtifact.CreatedBy.DomainId'),
+        outputPath: 'CreatedBy.DomainId',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArtifact.CreatedBy.DomainId', props);
+    return resource.getResponseField('CreatedBy.DomainId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeArtifactLastModifiedBy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeArtifactRequest) {
+  }
+
+  public get userProfileArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeArtifact.LastModifiedBy.UserProfileArn'),
+        outputPath: 'LastModifiedBy.UserProfileArn',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArtifact.LastModifiedBy.UserProfileArn', props);
+    return resource.getResponseField('LastModifiedBy.UserProfileArn') as unknown as string;
+  }
+
+  public get userProfileName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeArtifact.LastModifiedBy.UserProfileName'),
+        outputPath: 'LastModifiedBy.UserProfileName',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArtifact.LastModifiedBy.UserProfileName', props);
+    return resource.getResponseField('LastModifiedBy.UserProfileName') as unknown as string;
+  }
+
+  public get domainId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeArtifact.LastModifiedBy.DomainId'),
+        outputPath: 'LastModifiedBy.DomainId',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArtifact.LastModifiedBy.DomainId', props);
+    return resource.getResponseField('LastModifiedBy.DomainId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeArtifactMetadataProperties {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeArtifactRequest) {
+  }
+
+  public get commitId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeArtifact.MetadataProperties.CommitId'),
+        outputPath: 'MetadataProperties.CommitId',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArtifact.MetadataProperties.CommitId', props);
+    return resource.getResponseField('MetadataProperties.CommitId') as unknown as string;
+  }
+
+  public get repository(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeArtifact.MetadataProperties.Repository'),
+        outputPath: 'MetadataProperties.Repository',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArtifact.MetadataProperties.Repository', props);
+    return resource.getResponseField('MetadataProperties.Repository') as unknown as string;
+  }
+
+  public get generatedBy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeArtifact.MetadataProperties.GeneratedBy'),
+        outputPath: 'MetadataProperties.GeneratedBy',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArtifact.MetadataProperties.GeneratedBy', props);
+    return resource.getResponseField('MetadataProperties.GeneratedBy') as unknown as string;
+  }
+
+  public get projectId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeArtifact.MetadataProperties.ProjectId'),
+        outputPath: 'MetadataProperties.ProjectId',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArtifact.MetadataProperties.ProjectId', props);
+    return resource.getResponseField('MetadataProperties.ProjectId') as unknown as string;
+  }
+
+}
+
 export class SageMakerResponsesDescribeAutoMlJob {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeAutoMlJobRequest) {
@@ -3653,6 +5858,23 @@ export class SageMakerResponsesDescribeAutoMlJob {
     return resource.getResponseField('FailureReason') as unknown as string;
   }
 
+  public get partialFailureReasons(): shapes.SageMakerAutoMlPartialFailureReason[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAutoMlJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAutoMLJob.PartialFailureReasons'),
+        outputPath: 'PartialFailureReasons',
+        parameters: {
+          AutoMLJobName: this.__input.autoMlJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAutoMLJob.PartialFailureReasons', props);
+    return resource.getResponseField('PartialFailureReasons') as unknown as shapes.SageMakerAutoMlPartialFailureReason[];
+  }
+
   public get bestCandidate(): SageMakerResponsesDescribeAutoMlJobBestCandidate {
     return new SageMakerResponsesDescribeAutoMlJobBestCandidate(this.__scope, this.__resources, this.__input);
   }
@@ -3714,6 +5936,14 @@ export class SageMakerResponsesDescribeAutoMlJob {
 
   public get resolvedAttributes(): SageMakerResponsesDescribeAutoMlJobResolvedAttributes {
     return new SageMakerResponsesDescribeAutoMlJobResolvedAttributes(this.__scope, this.__resources, this.__input);
+  }
+
+  public get modelDeployConfig(): SageMakerResponsesDescribeAutoMlJobModelDeployConfig {
+    return new SageMakerResponsesDescribeAutoMlJobModelDeployConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get modelDeployResult(): SageMakerResponsesDescribeAutoMlJobModelDeployResult {
+    return new SageMakerResponsesDescribeAutoMlJobModelDeployResult(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -4104,6 +6334,10 @@ export class SageMakerResponsesDescribeAutoMlJobBestCandidate {
     return resource.getResponseField('BestCandidate.FailureReason') as unknown as string;
   }
 
+  public get candidateProperties(): SageMakerResponsesDescribeAutoMlJobBestCandidateCandidateProperties {
+    return new SageMakerResponsesDescribeAutoMlJobBestCandidateCandidateProperties(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class SageMakerResponsesDescribeAutoMlJobBestCandidateFinalAutoMlJobObjectiveMetric {
@@ -4160,6 +6394,41 @@ export class SageMakerResponsesDescribeAutoMlJobBestCandidateFinalAutoMlJobObjec
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAutoMLJob.BestCandidate.FinalAutoMLJobObjectiveMetric.Value', props);
     return resource.getResponseField('BestCandidate.FinalAutoMLJobObjectiveMetric.Value') as unknown as number;
+  }
+
+}
+
+export class SageMakerResponsesDescribeAutoMlJobBestCandidateCandidateProperties {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeAutoMlJobRequest) {
+  }
+
+  public get candidateArtifactLocations(): SageMakerResponsesDescribeAutoMlJobBestCandidateCandidatePropertiesCandidateArtifactLocations {
+    return new SageMakerResponsesDescribeAutoMlJobBestCandidateCandidatePropertiesCandidateArtifactLocations(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeAutoMlJobBestCandidateCandidatePropertiesCandidateArtifactLocations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeAutoMlJobRequest) {
+  }
+
+  public get explainability(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAutoMlJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAutoMLJob.BestCandidate.CandidateProperties.CandidateArtifactLocations.Explainability'),
+        outputPath: 'BestCandidate.CandidateProperties.CandidateArtifactLocations.Explainability',
+        parameters: {
+          AutoMLJobName: this.__input.autoMlJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAutoMLJob.BestCandidate.CandidateProperties.CandidateArtifactLocations.Explainability', props);
+    return resource.getResponseField('BestCandidate.CandidateProperties.CandidateArtifactLocations.Explainability') as unknown as string;
   }
 
 }
@@ -4315,6 +6584,71 @@ export class SageMakerResponsesDescribeAutoMlJobResolvedAttributesCompletionCrit
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAutoMLJob.ResolvedAttributes.CompletionCriteria.MaxAutoMLJobRuntimeInSeconds', props);
     return resource.getResponseField('ResolvedAttributes.CompletionCriteria.MaxAutoMLJobRuntimeInSeconds') as unknown as number;
+  }
+
+}
+
+export class SageMakerResponsesDescribeAutoMlJobModelDeployConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeAutoMlJobRequest) {
+  }
+
+  public get autoGenerateEndpointName(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAutoMlJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAutoMLJob.ModelDeployConfig.AutoGenerateEndpointName'),
+        outputPath: 'ModelDeployConfig.AutoGenerateEndpointName',
+        parameters: {
+          AutoMLJobName: this.__input.autoMlJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAutoMLJob.ModelDeployConfig.AutoGenerateEndpointName', props);
+    return resource.getResponseField('ModelDeployConfig.AutoGenerateEndpointName') as unknown as boolean;
+  }
+
+  public get endpointName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAutoMlJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAutoMLJob.ModelDeployConfig.EndpointName'),
+        outputPath: 'ModelDeployConfig.EndpointName',
+        parameters: {
+          AutoMLJobName: this.__input.autoMlJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAutoMLJob.ModelDeployConfig.EndpointName', props);
+    return resource.getResponseField('ModelDeployConfig.EndpointName') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeAutoMlJobModelDeployResult {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeAutoMlJobRequest) {
+  }
+
+  public get endpointName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAutoMlJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeAutoMLJob.ModelDeployResult.EndpointName'),
+        outputPath: 'ModelDeployResult.EndpointName',
+        parameters: {
+          AutoMLJobName: this.__input.autoMlJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAutoMLJob.ModelDeployResult.EndpointName', props);
+    return resource.getResponseField('ModelDeployResult.EndpointName') as unknown as string;
   }
 
 }
@@ -4550,6 +6884,23 @@ export class SageMakerResponsesDescribeCompilationJob {
     return new SageMakerResponsesDescribeCompilationJobStoppingCondition(this.__scope, this.__resources, this.__input);
   }
 
+  public get inferenceImage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCompilationJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeCompilationJob.InferenceImage'),
+        outputPath: 'InferenceImage',
+        parameters: {
+          CompilationJobName: this.__input.compilationJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCompilationJob.InferenceImage', props);
+    return resource.getResponseField('InferenceImage') as unknown as string;
+  }
+
   public get creationTime(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -4605,6 +6956,10 @@ export class SageMakerResponsesDescribeCompilationJob {
     return new SageMakerResponsesDescribeCompilationJobModelArtifacts(this.__scope, this.__resources, this.__input);
   }
 
+  public get modelDigests(): SageMakerResponsesDescribeCompilationJobModelDigests {
+    return new SageMakerResponsesDescribeCompilationJobModelDigests(this.__scope, this.__resources, this.__input);
+  }
+
   public get roleArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -4628,6 +6983,10 @@ export class SageMakerResponsesDescribeCompilationJob {
 
   public get outputConfig(): SageMakerResponsesDescribeCompilationJobOutputConfig {
     return new SageMakerResponsesDescribeCompilationJobOutputConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get vpcConfig(): SageMakerResponsesDescribeCompilationJobVpcConfig {
+    return new SageMakerResponsesDescribeCompilationJobVpcConfig(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -4697,6 +7056,30 @@ export class SageMakerResponsesDescribeCompilationJobModelArtifacts {
 
 }
 
+export class SageMakerResponsesDescribeCompilationJobModelDigests {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeCompilationJobRequest) {
+  }
+
+  public get artifactDigest(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCompilationJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeCompilationJob.ModelDigests.ArtifactDigest'),
+        outputPath: 'ModelDigests.ArtifactDigest',
+        parameters: {
+          CompilationJobName: this.__input.compilationJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCompilationJob.ModelDigests.ArtifactDigest', props);
+    return resource.getResponseField('ModelDigests.ArtifactDigest') as unknown as string;
+  }
+
+}
+
 export class SageMakerResponsesDescribeCompilationJobInputConfig {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeCompilationJobRequest) {
@@ -4751,6 +7134,23 @@ export class SageMakerResponsesDescribeCompilationJobInputConfig {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCompilationJob.InputConfig.Framework', props);
     return resource.getResponseField('InputConfig.Framework') as unknown as string;
+  }
+
+  public get frameworkVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCompilationJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeCompilationJob.InputConfig.FrameworkVersion'),
+        outputPath: 'InputConfig.FrameworkVersion',
+        parameters: {
+          CompilationJobName: this.__input.compilationJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCompilationJob.InputConfig.FrameworkVersion', props);
+    return resource.getResponseField('InputConfig.FrameworkVersion') as unknown as string;
   }
 
 }
@@ -4815,6 +7215,23 @@ export class SageMakerResponsesDescribeCompilationJobOutputConfig {
     return resource.getResponseField('OutputConfig.CompilerOptions') as unknown as string;
   }
 
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCompilationJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeCompilationJob.OutputConfig.KmsKeyId'),
+        outputPath: 'OutputConfig.KmsKeyId',
+        parameters: {
+          CompilationJobName: this.__input.compilationJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCompilationJob.OutputConfig.KmsKeyId', props);
+    return resource.getResponseField('OutputConfig.KmsKeyId') as unknown as string;
+  }
+
 }
 
 export class SageMakerResponsesDescribeCompilationJobOutputConfigTargetPlatform {
@@ -4871,6 +7288,1478 @@ export class SageMakerResponsesDescribeCompilationJobOutputConfigTargetPlatform 
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCompilationJob.OutputConfig.TargetPlatform.Accelerator', props);
     return resource.getResponseField('OutputConfig.TargetPlatform.Accelerator') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeCompilationJobVpcConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeCompilationJobRequest) {
+  }
+
+  public get securityGroupIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCompilationJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeCompilationJob.VpcConfig.SecurityGroupIds'),
+        outputPath: 'VpcConfig.SecurityGroupIds',
+        parameters: {
+          CompilationJobName: this.__input.compilationJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCompilationJob.VpcConfig.SecurityGroupIds', props);
+    return resource.getResponseField('VpcConfig.SecurityGroupIds') as unknown as string[];
+  }
+
+  public get subnets(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCompilationJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeCompilationJob.VpcConfig.Subnets'),
+        outputPath: 'VpcConfig.Subnets',
+        parameters: {
+          CompilationJobName: this.__input.compilationJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCompilationJob.VpcConfig.Subnets', props);
+    return resource.getResponseField('VpcConfig.Subnets') as unknown as string[];
+  }
+
+}
+
+export class SageMakerResponsesDescribeContext {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeContextRequest) {
+  }
+
+  public get contextName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeContext.ContextName'),
+        outputPath: 'ContextName',
+        parameters: {
+          ContextName: this.__input.contextName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeContext.ContextName', props);
+    return resource.getResponseField('ContextName') as unknown as string;
+  }
+
+  public get contextArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeContext.ContextArn'),
+        outputPath: 'ContextArn',
+        parameters: {
+          ContextName: this.__input.contextName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeContext.ContextArn', props);
+    return resource.getResponseField('ContextArn') as unknown as string;
+  }
+
+  public get source(): SageMakerResponsesDescribeContextSource {
+    return new SageMakerResponsesDescribeContextSource(this.__scope, this.__resources, this.__input);
+  }
+
+  public get contextType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeContext.ContextType'),
+        outputPath: 'ContextType',
+        parameters: {
+          ContextName: this.__input.contextName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeContext.ContextType', props);
+    return resource.getResponseField('ContextType') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeContext.Description'),
+        outputPath: 'Description',
+        parameters: {
+          ContextName: this.__input.contextName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeContext.Description', props);
+    return resource.getResponseField('Description') as unknown as string;
+  }
+
+  public get properties(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeContext.Properties'),
+        outputPath: 'Properties',
+        parameters: {
+          ContextName: this.__input.contextName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeContext.Properties', props);
+    return resource.getResponseField('Properties') as unknown as Record<string, string>;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeContext.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          ContextName: this.__input.contextName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeContext.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get createdBy(): SageMakerResponsesDescribeContextCreatedBy {
+    return new SageMakerResponsesDescribeContextCreatedBy(this.__scope, this.__resources, this.__input);
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeContext.LastModifiedTime'),
+        outputPath: 'LastModifiedTime',
+        parameters: {
+          ContextName: this.__input.contextName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeContext.LastModifiedTime', props);
+    return resource.getResponseField('LastModifiedTime') as unknown as string;
+  }
+
+  public get lastModifiedBy(): SageMakerResponsesDescribeContextLastModifiedBy {
+    return new SageMakerResponsesDescribeContextLastModifiedBy(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeContextSource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeContextRequest) {
+  }
+
+  public get sourceUri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeContext.Source.SourceUri'),
+        outputPath: 'Source.SourceUri',
+        parameters: {
+          ContextName: this.__input.contextName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeContext.Source.SourceUri', props);
+    return resource.getResponseField('Source.SourceUri') as unknown as string;
+  }
+
+  public get sourceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeContext.Source.SourceType'),
+        outputPath: 'Source.SourceType',
+        parameters: {
+          ContextName: this.__input.contextName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeContext.Source.SourceType', props);
+    return resource.getResponseField('Source.SourceType') as unknown as string;
+  }
+
+  public get sourceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeContext.Source.SourceId'),
+        outputPath: 'Source.SourceId',
+        parameters: {
+          ContextName: this.__input.contextName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeContext.Source.SourceId', props);
+    return resource.getResponseField('Source.SourceId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeContextCreatedBy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeContextRequest) {
+  }
+
+  public get userProfileArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeContext.CreatedBy.UserProfileArn'),
+        outputPath: 'CreatedBy.UserProfileArn',
+        parameters: {
+          ContextName: this.__input.contextName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeContext.CreatedBy.UserProfileArn', props);
+    return resource.getResponseField('CreatedBy.UserProfileArn') as unknown as string;
+  }
+
+  public get userProfileName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeContext.CreatedBy.UserProfileName'),
+        outputPath: 'CreatedBy.UserProfileName',
+        parameters: {
+          ContextName: this.__input.contextName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeContext.CreatedBy.UserProfileName', props);
+    return resource.getResponseField('CreatedBy.UserProfileName') as unknown as string;
+  }
+
+  public get domainId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeContext.CreatedBy.DomainId'),
+        outputPath: 'CreatedBy.DomainId',
+        parameters: {
+          ContextName: this.__input.contextName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeContext.CreatedBy.DomainId', props);
+    return resource.getResponseField('CreatedBy.DomainId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeContextLastModifiedBy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeContextRequest) {
+  }
+
+  public get userProfileArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeContext.LastModifiedBy.UserProfileArn'),
+        outputPath: 'LastModifiedBy.UserProfileArn',
+        parameters: {
+          ContextName: this.__input.contextName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeContext.LastModifiedBy.UserProfileArn', props);
+    return resource.getResponseField('LastModifiedBy.UserProfileArn') as unknown as string;
+  }
+
+  public get userProfileName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeContext.LastModifiedBy.UserProfileName'),
+        outputPath: 'LastModifiedBy.UserProfileName',
+        parameters: {
+          ContextName: this.__input.contextName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeContext.LastModifiedBy.UserProfileName', props);
+    return resource.getResponseField('LastModifiedBy.UserProfileName') as unknown as string;
+  }
+
+  public get domainId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeContext.LastModifiedBy.DomainId'),
+        outputPath: 'LastModifiedBy.DomainId',
+        parameters: {
+          ContextName: this.__input.contextName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeContext.LastModifiedBy.DomainId', props);
+    return resource.getResponseField('LastModifiedBy.DomainId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeDataQualityJobDefinition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeDataQualityJobDefinitionRequest) {
+  }
+
+  public get jobDefinitionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.JobDefinitionArn'),
+        outputPath: 'JobDefinitionArn',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.JobDefinitionArn', props);
+    return resource.getResponseField('JobDefinitionArn') as unknown as string;
+  }
+
+  public get jobDefinitionName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.JobDefinitionName'),
+        outputPath: 'JobDefinitionName',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.JobDefinitionName', props);
+    return resource.getResponseField('JobDefinitionName') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get dataQualityBaselineConfig(): SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityBaselineConfig {
+    return new SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityBaselineConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get dataQualityAppSpecification(): SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityAppSpecification {
+    return new SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityAppSpecification(this.__scope, this.__resources, this.__input);
+  }
+
+  public get dataQualityJobInput(): SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityJobInput {
+    return new SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityJobInput(this.__scope, this.__resources, this.__input);
+  }
+
+  public get dataQualityJobOutputConfig(): SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityJobOutputConfig {
+    return new SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityJobOutputConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get jobResources(): SageMakerResponsesDescribeDataQualityJobDefinitionJobResources {
+    return new SageMakerResponsesDescribeDataQualityJobDefinitionJobResources(this.__scope, this.__resources, this.__input);
+  }
+
+  public get networkConfig(): SageMakerResponsesDescribeDataQualityJobDefinitionNetworkConfig {
+    return new SageMakerResponsesDescribeDataQualityJobDefinitionNetworkConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get roleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.RoleArn'),
+        outputPath: 'RoleArn',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.RoleArn', props);
+    return resource.getResponseField('RoleArn') as unknown as string;
+  }
+
+  public get stoppingCondition(): SageMakerResponsesDescribeDataQualityJobDefinitionStoppingCondition {
+    return new SageMakerResponsesDescribeDataQualityJobDefinitionStoppingCondition(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityBaselineConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeDataQualityJobDefinitionRequest) {
+  }
+
+  public get baseliningJobName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityBaselineConfig.BaseliningJobName'),
+        outputPath: 'DataQualityBaselineConfig.BaseliningJobName',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityBaselineConfig.BaseliningJobName', props);
+    return resource.getResponseField('DataQualityBaselineConfig.BaseliningJobName') as unknown as string;
+  }
+
+  public get constraintsResource(): SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource {
+    return new SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource(this.__scope, this.__resources, this.__input);
+  }
+
+  public get statisticsResource(): SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource {
+    return new SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeDataQualityJobDefinitionRequest) {
+  }
+
+  public get s3Uri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityBaselineConfig.ConstraintsResource.S3Uri'),
+        outputPath: 'DataQualityBaselineConfig.ConstraintsResource.S3Uri',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityBaselineConfig.ConstraintsResource.S3Uri', props);
+    return resource.getResponseField('DataQualityBaselineConfig.ConstraintsResource.S3Uri') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeDataQualityJobDefinitionRequest) {
+  }
+
+  public get s3Uri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityBaselineConfig.StatisticsResource.S3Uri'),
+        outputPath: 'DataQualityBaselineConfig.StatisticsResource.S3Uri',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityBaselineConfig.StatisticsResource.S3Uri', props);
+    return resource.getResponseField('DataQualityBaselineConfig.StatisticsResource.S3Uri') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityAppSpecification {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeDataQualityJobDefinitionRequest) {
+  }
+
+  public get imageUri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityAppSpecification.ImageUri'),
+        outputPath: 'DataQualityAppSpecification.ImageUri',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityAppSpecification.ImageUri', props);
+    return resource.getResponseField('DataQualityAppSpecification.ImageUri') as unknown as string;
+  }
+
+  public get containerEntrypoint(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityAppSpecification.ContainerEntrypoint'),
+        outputPath: 'DataQualityAppSpecification.ContainerEntrypoint',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityAppSpecification.ContainerEntrypoint', props);
+    return resource.getResponseField('DataQualityAppSpecification.ContainerEntrypoint') as unknown as string[];
+  }
+
+  public get containerArguments(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityAppSpecification.ContainerArguments'),
+        outputPath: 'DataQualityAppSpecification.ContainerArguments',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityAppSpecification.ContainerArguments', props);
+    return resource.getResponseField('DataQualityAppSpecification.ContainerArguments') as unknown as string[];
+  }
+
+  public get recordPreprocessorSourceUri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityAppSpecification.RecordPreprocessorSourceUri'),
+        outputPath: 'DataQualityAppSpecification.RecordPreprocessorSourceUri',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityAppSpecification.RecordPreprocessorSourceUri', props);
+    return resource.getResponseField('DataQualityAppSpecification.RecordPreprocessorSourceUri') as unknown as string;
+  }
+
+  public get postAnalyticsProcessorSourceUri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityAppSpecification.PostAnalyticsProcessorSourceUri'),
+        outputPath: 'DataQualityAppSpecification.PostAnalyticsProcessorSourceUri',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityAppSpecification.PostAnalyticsProcessorSourceUri', props);
+    return resource.getResponseField('DataQualityAppSpecification.PostAnalyticsProcessorSourceUri') as unknown as string;
+  }
+
+  public get environment(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityAppSpecification.Environment'),
+        outputPath: 'DataQualityAppSpecification.Environment',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityAppSpecification.Environment', props);
+    return resource.getResponseField('DataQualityAppSpecification.Environment') as unknown as Record<string, string>;
+  }
+
+}
+
+export class SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityJobInput {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeDataQualityJobDefinitionRequest) {
+  }
+
+  public get endpointInput(): SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityJobInputEndpointInput {
+    return new SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityJobInputEndpointInput(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityJobInputEndpointInput {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeDataQualityJobDefinitionRequest) {
+  }
+
+  public get endpointName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.EndpointName'),
+        outputPath: 'DataQualityJobInput.EndpointInput.EndpointName',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.EndpointName', props);
+    return resource.getResponseField('DataQualityJobInput.EndpointInput.EndpointName') as unknown as string;
+  }
+
+  public get localPath(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.LocalPath'),
+        outputPath: 'DataQualityJobInput.EndpointInput.LocalPath',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.LocalPath', props);
+    return resource.getResponseField('DataQualityJobInput.EndpointInput.LocalPath') as unknown as string;
+  }
+
+  public get s3InputMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.S3InputMode'),
+        outputPath: 'DataQualityJobInput.EndpointInput.S3InputMode',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.S3InputMode', props);
+    return resource.getResponseField('DataQualityJobInput.EndpointInput.S3InputMode') as unknown as string;
+  }
+
+  public get s3DataDistributionType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.S3DataDistributionType'),
+        outputPath: 'DataQualityJobInput.EndpointInput.S3DataDistributionType',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.S3DataDistributionType', props);
+    return resource.getResponseField('DataQualityJobInput.EndpointInput.S3DataDistributionType') as unknown as string;
+  }
+
+  public get featuresAttribute(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.FeaturesAttribute'),
+        outputPath: 'DataQualityJobInput.EndpointInput.FeaturesAttribute',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.FeaturesAttribute', props);
+    return resource.getResponseField('DataQualityJobInput.EndpointInput.FeaturesAttribute') as unknown as string;
+  }
+
+  public get inferenceAttribute(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.InferenceAttribute'),
+        outputPath: 'DataQualityJobInput.EndpointInput.InferenceAttribute',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.InferenceAttribute', props);
+    return resource.getResponseField('DataQualityJobInput.EndpointInput.InferenceAttribute') as unknown as string;
+  }
+
+  public get probabilityAttribute(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.ProbabilityAttribute'),
+        outputPath: 'DataQualityJobInput.EndpointInput.ProbabilityAttribute',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.ProbabilityAttribute', props);
+    return resource.getResponseField('DataQualityJobInput.EndpointInput.ProbabilityAttribute') as unknown as string;
+  }
+
+  public get probabilityThresholdAttribute(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.ProbabilityThresholdAttribute'),
+        outputPath: 'DataQualityJobInput.EndpointInput.ProbabilityThresholdAttribute',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.ProbabilityThresholdAttribute', props);
+    return resource.getResponseField('DataQualityJobInput.EndpointInput.ProbabilityThresholdAttribute') as unknown as number;
+  }
+
+  public get startTimeOffset(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.StartTimeOffset'),
+        outputPath: 'DataQualityJobInput.EndpointInput.StartTimeOffset',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.StartTimeOffset', props);
+    return resource.getResponseField('DataQualityJobInput.EndpointInput.StartTimeOffset') as unknown as string;
+  }
+
+  public get endTimeOffset(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.EndTimeOffset'),
+        outputPath: 'DataQualityJobInput.EndpointInput.EndTimeOffset',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityJobInput.EndpointInput.EndTimeOffset', props);
+    return resource.getResponseField('DataQualityJobInput.EndpointInput.EndTimeOffset') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeDataQualityJobDefinitionDataQualityJobOutputConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeDataQualityJobDefinitionRequest) {
+  }
+
+  public get monitoringOutputs(): shapes.SageMakerMonitoringOutput[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityJobOutputConfig.MonitoringOutputs'),
+        outputPath: 'DataQualityJobOutputConfig.MonitoringOutputs',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityJobOutputConfig.MonitoringOutputs', props);
+    return resource.getResponseField('DataQualityJobOutputConfig.MonitoringOutputs') as unknown as shapes.SageMakerMonitoringOutput[];
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.DataQualityJobOutputConfig.KmsKeyId'),
+        outputPath: 'DataQualityJobOutputConfig.KmsKeyId',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.DataQualityJobOutputConfig.KmsKeyId', props);
+    return resource.getResponseField('DataQualityJobOutputConfig.KmsKeyId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeDataQualityJobDefinitionJobResources {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeDataQualityJobDefinitionRequest) {
+  }
+
+  public get clusterConfig(): SageMakerResponsesDescribeDataQualityJobDefinitionJobResourcesClusterConfig {
+    return new SageMakerResponsesDescribeDataQualityJobDefinitionJobResourcesClusterConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeDataQualityJobDefinitionJobResourcesClusterConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeDataQualityJobDefinitionRequest) {
+  }
+
+  public get instanceCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.JobResources.ClusterConfig.InstanceCount'),
+        outputPath: 'JobResources.ClusterConfig.InstanceCount',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.JobResources.ClusterConfig.InstanceCount', props);
+    return resource.getResponseField('JobResources.ClusterConfig.InstanceCount') as unknown as number;
+  }
+
+  public get instanceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.JobResources.ClusterConfig.InstanceType'),
+        outputPath: 'JobResources.ClusterConfig.InstanceType',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.JobResources.ClusterConfig.InstanceType', props);
+    return resource.getResponseField('JobResources.ClusterConfig.InstanceType') as unknown as string;
+  }
+
+  public get volumeSizeInGb(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.JobResources.ClusterConfig.VolumeSizeInGB'),
+        outputPath: 'JobResources.ClusterConfig.VolumeSizeInGB',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.JobResources.ClusterConfig.VolumeSizeInGB', props);
+    return resource.getResponseField('JobResources.ClusterConfig.VolumeSizeInGB') as unknown as number;
+  }
+
+  public get volumeKmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.JobResources.ClusterConfig.VolumeKmsKeyId'),
+        outputPath: 'JobResources.ClusterConfig.VolumeKmsKeyId',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.JobResources.ClusterConfig.VolumeKmsKeyId', props);
+    return resource.getResponseField('JobResources.ClusterConfig.VolumeKmsKeyId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeDataQualityJobDefinitionNetworkConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeDataQualityJobDefinitionRequest) {
+  }
+
+  public get enableInterContainerTrafficEncryption(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.NetworkConfig.EnableInterContainerTrafficEncryption'),
+        outputPath: 'NetworkConfig.EnableInterContainerTrafficEncryption',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.NetworkConfig.EnableInterContainerTrafficEncryption', props);
+    return resource.getResponseField('NetworkConfig.EnableInterContainerTrafficEncryption') as unknown as boolean;
+  }
+
+  public get enableNetworkIsolation(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.NetworkConfig.EnableNetworkIsolation'),
+        outputPath: 'NetworkConfig.EnableNetworkIsolation',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.NetworkConfig.EnableNetworkIsolation', props);
+    return resource.getResponseField('NetworkConfig.EnableNetworkIsolation') as unknown as boolean;
+  }
+
+  public get vpcConfig(): SageMakerResponsesDescribeDataQualityJobDefinitionNetworkConfigVpcConfig {
+    return new SageMakerResponsesDescribeDataQualityJobDefinitionNetworkConfigVpcConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeDataQualityJobDefinitionNetworkConfigVpcConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeDataQualityJobDefinitionRequest) {
+  }
+
+  public get securityGroupIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.NetworkConfig.VpcConfig.SecurityGroupIds'),
+        outputPath: 'NetworkConfig.VpcConfig.SecurityGroupIds',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.NetworkConfig.VpcConfig.SecurityGroupIds', props);
+    return resource.getResponseField('NetworkConfig.VpcConfig.SecurityGroupIds') as unknown as string[];
+  }
+
+  public get subnets(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.NetworkConfig.VpcConfig.Subnets'),
+        outputPath: 'NetworkConfig.VpcConfig.Subnets',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.NetworkConfig.VpcConfig.Subnets', props);
+    return resource.getResponseField('NetworkConfig.VpcConfig.Subnets') as unknown as string[];
+  }
+
+}
+
+export class SageMakerResponsesDescribeDataQualityJobDefinitionStoppingCondition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeDataQualityJobDefinitionRequest) {
+  }
+
+  public get maxRuntimeInSeconds(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDataQualityJobDefinition.StoppingCondition.MaxRuntimeInSeconds'),
+        outputPath: 'StoppingCondition.MaxRuntimeInSeconds',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataQualityJobDefinition.StoppingCondition.MaxRuntimeInSeconds', props);
+    return resource.getResponseField('StoppingCondition.MaxRuntimeInSeconds') as unknown as number;
+  }
+
+}
+
+export class SageMakerResponsesDescribeDevice {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeDeviceRequest) {
+  }
+
+  public get deviceArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDevice',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDevice.DeviceArn'),
+        outputPath: 'DeviceArn',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          DeviceName: this.__input.deviceName,
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDevice.DeviceArn', props);
+    return resource.getResponseField('DeviceArn') as unknown as string;
+  }
+
+  public get deviceName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDevice',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDevice.DeviceName'),
+        outputPath: 'DeviceName',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          DeviceName: this.__input.deviceName,
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDevice.DeviceName', props);
+    return resource.getResponseField('DeviceName') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDevice',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDevice.Description'),
+        outputPath: 'Description',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          DeviceName: this.__input.deviceName,
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDevice.Description', props);
+    return resource.getResponseField('Description') as unknown as string;
+  }
+
+  public get deviceFleetName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDevice',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDevice.DeviceFleetName'),
+        outputPath: 'DeviceFleetName',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          DeviceName: this.__input.deviceName,
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDevice.DeviceFleetName', props);
+    return resource.getResponseField('DeviceFleetName') as unknown as string;
+  }
+
+  public get iotThingName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDevice',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDevice.IotThingName'),
+        outputPath: 'IotThingName',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          DeviceName: this.__input.deviceName,
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDevice.IotThingName', props);
+    return resource.getResponseField('IotThingName') as unknown as string;
+  }
+
+  public get registrationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDevice',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDevice.RegistrationTime'),
+        outputPath: 'RegistrationTime',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          DeviceName: this.__input.deviceName,
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDevice.RegistrationTime', props);
+    return resource.getResponseField('RegistrationTime') as unknown as string;
+  }
+
+  public get latestHeartbeat(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDevice',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDevice.LatestHeartbeat'),
+        outputPath: 'LatestHeartbeat',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          DeviceName: this.__input.deviceName,
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDevice.LatestHeartbeat', props);
+    return resource.getResponseField('LatestHeartbeat') as unknown as string;
+  }
+
+  public get models(): shapes.SageMakerEdgeModel[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDevice',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDevice.Models'),
+        outputPath: 'Models',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          DeviceName: this.__input.deviceName,
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDevice.Models', props);
+    return resource.getResponseField('Models') as unknown as shapes.SageMakerEdgeModel[];
+  }
+
+  public get maxModels(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDevice',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDevice.MaxModels'),
+        outputPath: 'MaxModels',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          DeviceName: this.__input.deviceName,
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDevice.MaxModels', props);
+    return resource.getResponseField('MaxModels') as unknown as number;
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDevice',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDevice.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          DeviceName: this.__input.deviceName,
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDevice.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeDeviceFleet {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeDeviceFleetRequest) {
+  }
+
+  public get deviceFleetName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDeviceFleet',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDeviceFleet.DeviceFleetName'),
+        outputPath: 'DeviceFleetName',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDeviceFleet.DeviceFleetName', props);
+    return resource.getResponseField('DeviceFleetName') as unknown as string;
+  }
+
+  public get deviceFleetArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDeviceFleet',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDeviceFleet.DeviceFleetArn'),
+        outputPath: 'DeviceFleetArn',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDeviceFleet.DeviceFleetArn', props);
+    return resource.getResponseField('DeviceFleetArn') as unknown as string;
+  }
+
+  public get outputConfig(): SageMakerResponsesDescribeDeviceFleetOutputConfig {
+    return new SageMakerResponsesDescribeDeviceFleetOutputConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDeviceFleet',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDeviceFleet.Description'),
+        outputPath: 'Description',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDeviceFleet.Description', props);
+    return resource.getResponseField('Description') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDeviceFleet',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDeviceFleet.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDeviceFleet.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDeviceFleet',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDeviceFleet.LastModifiedTime'),
+        outputPath: 'LastModifiedTime',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDeviceFleet.LastModifiedTime', props);
+    return resource.getResponseField('LastModifiedTime') as unknown as string;
+  }
+
+  public get roleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDeviceFleet',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDeviceFleet.RoleArn'),
+        outputPath: 'RoleArn',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDeviceFleet.RoleArn', props);
+    return resource.getResponseField('RoleArn') as unknown as string;
+  }
+
+  public get iotRoleAlias(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDeviceFleet',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDeviceFleet.IotRoleAlias'),
+        outputPath: 'IotRoleAlias',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDeviceFleet.IotRoleAlias', props);
+    return resource.getResponseField('IotRoleAlias') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeDeviceFleetOutputConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeDeviceFleetRequest) {
+  }
+
+  public get s3OutputLocation(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDeviceFleet',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDeviceFleet.OutputConfig.S3OutputLocation'),
+        outputPath: 'OutputConfig.S3OutputLocation',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDeviceFleet.OutputConfig.S3OutputLocation', props);
+    return resource.getResponseField('OutputConfig.S3OutputLocation') as unknown as string;
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDeviceFleet',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDeviceFleet.OutputConfig.KmsKeyId'),
+        outputPath: 'OutputConfig.KmsKeyId',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDeviceFleet.OutputConfig.KmsKeyId', props);
+    return resource.getResponseField('OutputConfig.KmsKeyId') as unknown as string;
+  }
+
+  public get presetDeploymentType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDeviceFleet',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDeviceFleet.OutputConfig.PresetDeploymentType'),
+        outputPath: 'OutputConfig.PresetDeploymentType',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDeviceFleet.OutputConfig.PresetDeploymentType', props);
+    return resource.getResponseField('OutputConfig.PresetDeploymentType') as unknown as string;
+  }
+
+  public get presetDeploymentConfig(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDeviceFleet',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeDeviceFleet.OutputConfig.PresetDeploymentConfig'),
+        outputPath: 'OutputConfig.PresetDeploymentConfig',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDeviceFleet.OutputConfig.PresetDeploymentConfig', props);
+    return resource.getResponseField('OutputConfig.PresetDeploymentConfig') as unknown as string;
   }
 
 }
@@ -5497,6 +9386,392 @@ export class SageMakerResponsesDescribeDomainDefaultUserSettingsTensorBoardAppSe
 
 }
 
+export class SageMakerResponsesDescribeEdgePackagingJob {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeEdgePackagingJobRequest) {
+  }
+
+  public get edgePackagingJobArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.EdgePackagingJobArn'),
+        outputPath: 'EdgePackagingJobArn',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.EdgePackagingJobArn', props);
+    return resource.getResponseField('EdgePackagingJobArn') as unknown as string;
+  }
+
+  public get edgePackagingJobName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.EdgePackagingJobName'),
+        outputPath: 'EdgePackagingJobName',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.EdgePackagingJobName', props);
+    return resource.getResponseField('EdgePackagingJobName') as unknown as string;
+  }
+
+  public get compilationJobName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.CompilationJobName'),
+        outputPath: 'CompilationJobName',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.CompilationJobName', props);
+    return resource.getResponseField('CompilationJobName') as unknown as string;
+  }
+
+  public get modelName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.ModelName'),
+        outputPath: 'ModelName',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.ModelName', props);
+    return resource.getResponseField('ModelName') as unknown as string;
+  }
+
+  public get modelVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.ModelVersion'),
+        outputPath: 'ModelVersion',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.ModelVersion', props);
+    return resource.getResponseField('ModelVersion') as unknown as string;
+  }
+
+  public get roleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.RoleArn'),
+        outputPath: 'RoleArn',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.RoleArn', props);
+    return resource.getResponseField('RoleArn') as unknown as string;
+  }
+
+  public get outputConfig(): SageMakerResponsesDescribeEdgePackagingJobOutputConfig {
+    return new SageMakerResponsesDescribeEdgePackagingJobOutputConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get resourceKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.ResourceKey'),
+        outputPath: 'ResourceKey',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.ResourceKey', props);
+    return resource.getResponseField('ResourceKey') as unknown as string;
+  }
+
+  public get edgePackagingJobStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.EdgePackagingJobStatus'),
+        outputPath: 'EdgePackagingJobStatus',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.EdgePackagingJobStatus', props);
+    return resource.getResponseField('EdgePackagingJobStatus') as unknown as string;
+  }
+
+  public get edgePackagingJobStatusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.EdgePackagingJobStatusMessage'),
+        outputPath: 'EdgePackagingJobStatusMessage',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.EdgePackagingJobStatusMessage', props);
+    return resource.getResponseField('EdgePackagingJobStatusMessage') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.LastModifiedTime'),
+        outputPath: 'LastModifiedTime',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.LastModifiedTime', props);
+    return resource.getResponseField('LastModifiedTime') as unknown as string;
+  }
+
+  public get modelArtifact(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.ModelArtifact'),
+        outputPath: 'ModelArtifact',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.ModelArtifact', props);
+    return resource.getResponseField('ModelArtifact') as unknown as string;
+  }
+
+  public get modelSignature(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.ModelSignature'),
+        outputPath: 'ModelSignature',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.ModelSignature', props);
+    return resource.getResponseField('ModelSignature') as unknown as string;
+  }
+
+  public get presetDeploymentOutput(): SageMakerResponsesDescribeEdgePackagingJobPresetDeploymentOutput {
+    return new SageMakerResponsesDescribeEdgePackagingJobPresetDeploymentOutput(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeEdgePackagingJobOutputConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeEdgePackagingJobRequest) {
+  }
+
+  public get s3OutputLocation(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.OutputConfig.S3OutputLocation'),
+        outputPath: 'OutputConfig.S3OutputLocation',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.OutputConfig.S3OutputLocation', props);
+    return resource.getResponseField('OutputConfig.S3OutputLocation') as unknown as string;
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.OutputConfig.KmsKeyId'),
+        outputPath: 'OutputConfig.KmsKeyId',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.OutputConfig.KmsKeyId', props);
+    return resource.getResponseField('OutputConfig.KmsKeyId') as unknown as string;
+  }
+
+  public get presetDeploymentType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.OutputConfig.PresetDeploymentType'),
+        outputPath: 'OutputConfig.PresetDeploymentType',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.OutputConfig.PresetDeploymentType', props);
+    return resource.getResponseField('OutputConfig.PresetDeploymentType') as unknown as string;
+  }
+
+  public get presetDeploymentConfig(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.OutputConfig.PresetDeploymentConfig'),
+        outputPath: 'OutputConfig.PresetDeploymentConfig',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.OutputConfig.PresetDeploymentConfig', props);
+    return resource.getResponseField('OutputConfig.PresetDeploymentConfig') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeEdgePackagingJobPresetDeploymentOutput {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeEdgePackagingJobRequest) {
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.PresetDeploymentOutput.Type'),
+        outputPath: 'PresetDeploymentOutput.Type',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.PresetDeploymentOutput.Type', props);
+    return resource.getResponseField('PresetDeploymentOutput.Type') as unknown as string;
+  }
+
+  public get artifact(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.PresetDeploymentOutput.Artifact'),
+        outputPath: 'PresetDeploymentOutput.Artifact',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.PresetDeploymentOutput.Artifact', props);
+    return resource.getResponseField('PresetDeploymentOutput.Artifact') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.PresetDeploymentOutput.Status'),
+        outputPath: 'PresetDeploymentOutput.Status',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.PresetDeploymentOutput.Status', props);
+    return resource.getResponseField('PresetDeploymentOutput.Status') as unknown as string;
+  }
+
+  public get statusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEdgePackagingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEdgePackagingJob.PresetDeploymentOutput.StatusMessage'),
+        outputPath: 'PresetDeploymentOutput.StatusMessage',
+        parameters: {
+          EdgePackagingJobName: this.__input.edgePackagingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEdgePackagingJob.PresetDeploymentOutput.StatusMessage', props);
+    return resource.getResponseField('PresetDeploymentOutput.StatusMessage') as unknown as string;
+  }
+
+}
+
 export class SageMakerResponsesDescribeEndpoint {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeEndpointInput) {
@@ -5642,6 +9917,10 @@ export class SageMakerResponsesDescribeEndpoint {
     return resource.getResponseField('LastModifiedTime') as unknown as string;
   }
 
+  public get lastDeploymentConfig(): SageMakerResponsesDescribeEndpointLastDeploymentConfig {
+    return new SageMakerResponsesDescribeEndpointLastDeploymentConfig(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class SageMakerResponsesDescribeEndpointDataCaptureConfig {
@@ -5732,6 +10011,176 @@ export class SageMakerResponsesDescribeEndpointDataCaptureConfig {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEndpoint.DataCaptureConfig.KmsKeyId', props);
     return resource.getResponseField('DataCaptureConfig.KmsKeyId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeEndpointLastDeploymentConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeEndpointInput) {
+  }
+
+  public get blueGreenUpdatePolicy(): SageMakerResponsesDescribeEndpointLastDeploymentConfigBlueGreenUpdatePolicy {
+    return new SageMakerResponsesDescribeEndpointLastDeploymentConfigBlueGreenUpdatePolicy(this.__scope, this.__resources, this.__input);
+  }
+
+  public get autoRollbackConfiguration(): SageMakerResponsesDescribeEndpointLastDeploymentConfigAutoRollbackConfiguration {
+    return new SageMakerResponsesDescribeEndpointLastDeploymentConfigAutoRollbackConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeEndpointLastDeploymentConfigBlueGreenUpdatePolicy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeEndpointInput) {
+  }
+
+  public get trafficRoutingConfiguration(): SageMakerResponsesDescribeEndpointLastDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration {
+    return new SageMakerResponsesDescribeEndpointLastDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get terminationWaitInSeconds(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEndpoint',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEndpoint.LastDeploymentConfig.BlueGreenUpdatePolicy.TerminationWaitInSeconds'),
+        outputPath: 'LastDeploymentConfig.BlueGreenUpdatePolicy.TerminationWaitInSeconds',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEndpoint.LastDeploymentConfig.BlueGreenUpdatePolicy.TerminationWaitInSeconds', props);
+    return resource.getResponseField('LastDeploymentConfig.BlueGreenUpdatePolicy.TerminationWaitInSeconds') as unknown as number;
+  }
+
+  public get maximumExecutionTimeoutInSeconds(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEndpoint',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEndpoint.LastDeploymentConfig.BlueGreenUpdatePolicy.MaximumExecutionTimeoutInSeconds'),
+        outputPath: 'LastDeploymentConfig.BlueGreenUpdatePolicy.MaximumExecutionTimeoutInSeconds',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEndpoint.LastDeploymentConfig.BlueGreenUpdatePolicy.MaximumExecutionTimeoutInSeconds', props);
+    return resource.getResponseField('LastDeploymentConfig.BlueGreenUpdatePolicy.MaximumExecutionTimeoutInSeconds') as unknown as number;
+  }
+
+}
+
+export class SageMakerResponsesDescribeEndpointLastDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeEndpointInput) {
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEndpoint',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEndpoint.LastDeploymentConfig.BlueGreenUpdatePolicy.TrafficRoutingConfiguration.Type'),
+        outputPath: 'LastDeploymentConfig.BlueGreenUpdatePolicy.TrafficRoutingConfiguration.Type',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEndpoint.LastDeploymentConfig.BlueGreenUpdatePolicy.TrafficRoutingConfiguration.Type', props);
+    return resource.getResponseField('LastDeploymentConfig.BlueGreenUpdatePolicy.TrafficRoutingConfiguration.Type') as unknown as string;
+  }
+
+  public get waitIntervalInSeconds(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEndpoint',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEndpoint.LastDeploymentConfig.BlueGreenUpdatePolicy.TrafficRoutingConfiguration.WaitIntervalInSeconds'),
+        outputPath: 'LastDeploymentConfig.BlueGreenUpdatePolicy.TrafficRoutingConfiguration.WaitIntervalInSeconds',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEndpoint.LastDeploymentConfig.BlueGreenUpdatePolicy.TrafficRoutingConfiguration.WaitIntervalInSeconds', props);
+    return resource.getResponseField('LastDeploymentConfig.BlueGreenUpdatePolicy.TrafficRoutingConfiguration.WaitIntervalInSeconds') as unknown as number;
+  }
+
+  public get canarySize(): SageMakerResponsesDescribeEndpointLastDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize {
+    return new SageMakerResponsesDescribeEndpointLastDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeEndpointLastDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeEndpointInput) {
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEndpoint',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEndpoint.LastDeploymentConfig.BlueGreenUpdatePolicy.TrafficRoutingConfiguration.CanarySize.Type'),
+        outputPath: 'LastDeploymentConfig.BlueGreenUpdatePolicy.TrafficRoutingConfiguration.CanarySize.Type',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEndpoint.LastDeploymentConfig.BlueGreenUpdatePolicy.TrafficRoutingConfiguration.CanarySize.Type', props);
+    return resource.getResponseField('LastDeploymentConfig.BlueGreenUpdatePolicy.TrafficRoutingConfiguration.CanarySize.Type') as unknown as string;
+  }
+
+  public get value(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEndpoint',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEndpoint.LastDeploymentConfig.BlueGreenUpdatePolicy.TrafficRoutingConfiguration.CanarySize.Value'),
+        outputPath: 'LastDeploymentConfig.BlueGreenUpdatePolicy.TrafficRoutingConfiguration.CanarySize.Value',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEndpoint.LastDeploymentConfig.BlueGreenUpdatePolicy.TrafficRoutingConfiguration.CanarySize.Value', props);
+    return resource.getResponseField('LastDeploymentConfig.BlueGreenUpdatePolicy.TrafficRoutingConfiguration.CanarySize.Value') as unknown as number;
+  }
+
+}
+
+export class SageMakerResponsesDescribeEndpointLastDeploymentConfigAutoRollbackConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeEndpointInput) {
+  }
+
+  public get alarms(): shapes.SageMakerAlarm[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEndpoint',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeEndpoint.LastDeploymentConfig.AutoRollbackConfiguration.Alarms'),
+        outputPath: 'LastDeploymentConfig.AutoRollbackConfiguration.Alarms',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEndpoint.LastDeploymentConfig.AutoRollbackConfiguration.Alarms', props);
+    return resource.getResponseField('LastDeploymentConfig.AutoRollbackConfiguration.Alarms') as unknown as shapes.SageMakerAlarm[];
   }
 
 }
@@ -6243,6 +10692,475 @@ export class SageMakerResponsesDescribeExperimentLastModifiedBy {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeExperiment.LastModifiedBy.DomainId', props);
     return resource.getResponseField('LastModifiedBy.DomainId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeFeatureGroup {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeFeatureGroupRequest) {
+  }
+
+  public get featureGroupArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.FeatureGroupArn'),
+        outputPath: 'FeatureGroupArn',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.FeatureGroupArn', props);
+    return resource.getResponseField('FeatureGroupArn') as unknown as string;
+  }
+
+  public get featureGroupName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.FeatureGroupName'),
+        outputPath: 'FeatureGroupName',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.FeatureGroupName', props);
+    return resource.getResponseField('FeatureGroupName') as unknown as string;
+  }
+
+  public get recordIdentifierFeatureName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.RecordIdentifierFeatureName'),
+        outputPath: 'RecordIdentifierFeatureName',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.RecordIdentifierFeatureName', props);
+    return resource.getResponseField('RecordIdentifierFeatureName') as unknown as string;
+  }
+
+  public get eventTimeFeatureName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.EventTimeFeatureName'),
+        outputPath: 'EventTimeFeatureName',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.EventTimeFeatureName', props);
+    return resource.getResponseField('EventTimeFeatureName') as unknown as string;
+  }
+
+  public get featureDefinitions(): shapes.SageMakerFeatureDefinition[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.FeatureDefinitions'),
+        outputPath: 'FeatureDefinitions',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.FeatureDefinitions', props);
+    return resource.getResponseField('FeatureDefinitions') as unknown as shapes.SageMakerFeatureDefinition[];
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get onlineStoreConfig(): SageMakerResponsesDescribeFeatureGroupOnlineStoreConfig {
+    return new SageMakerResponsesDescribeFeatureGroupOnlineStoreConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get offlineStoreConfig(): SageMakerResponsesDescribeFeatureGroupOfflineStoreConfig {
+    return new SageMakerResponsesDescribeFeatureGroupOfflineStoreConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get roleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.RoleArn'),
+        outputPath: 'RoleArn',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.RoleArn', props);
+    return resource.getResponseField('RoleArn') as unknown as string;
+  }
+
+  public get featureGroupStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.FeatureGroupStatus'),
+        outputPath: 'FeatureGroupStatus',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.FeatureGroupStatus', props);
+    return resource.getResponseField('FeatureGroupStatus') as unknown as string;
+  }
+
+  public get offlineStoreStatus(): SageMakerResponsesDescribeFeatureGroupOfflineStoreStatus {
+    return new SageMakerResponsesDescribeFeatureGroupOfflineStoreStatus(this.__scope, this.__resources, this.__input);
+  }
+
+  public get failureReason(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.FailureReason'),
+        outputPath: 'FailureReason',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.FailureReason', props);
+    return resource.getResponseField('FailureReason') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.Description'),
+        outputPath: 'Description',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.Description', props);
+    return resource.getResponseField('Description') as unknown as string;
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeFeatureGroupOnlineStoreConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeFeatureGroupRequest) {
+  }
+
+  public get securityConfig(): SageMakerResponsesDescribeFeatureGroupOnlineStoreConfigSecurityConfig {
+    return new SageMakerResponsesDescribeFeatureGroupOnlineStoreConfigSecurityConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get enableOnlineStore(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.OnlineStoreConfig.EnableOnlineStore'),
+        outputPath: 'OnlineStoreConfig.EnableOnlineStore',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.OnlineStoreConfig.EnableOnlineStore', props);
+    return resource.getResponseField('OnlineStoreConfig.EnableOnlineStore') as unknown as boolean;
+  }
+
+}
+
+export class SageMakerResponsesDescribeFeatureGroupOnlineStoreConfigSecurityConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeFeatureGroupRequest) {
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.OnlineStoreConfig.SecurityConfig.KmsKeyId'),
+        outputPath: 'OnlineStoreConfig.SecurityConfig.KmsKeyId',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.OnlineStoreConfig.SecurityConfig.KmsKeyId', props);
+    return resource.getResponseField('OnlineStoreConfig.SecurityConfig.KmsKeyId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeFeatureGroupOfflineStoreConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeFeatureGroupRequest) {
+  }
+
+  public get s3StorageConfig(): SageMakerResponsesDescribeFeatureGroupOfflineStoreConfigS3StorageConfig {
+    return new SageMakerResponsesDescribeFeatureGroupOfflineStoreConfigS3StorageConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get disableGlueTableCreation(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.OfflineStoreConfig.DisableGlueTableCreation'),
+        outputPath: 'OfflineStoreConfig.DisableGlueTableCreation',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.OfflineStoreConfig.DisableGlueTableCreation', props);
+    return resource.getResponseField('OfflineStoreConfig.DisableGlueTableCreation') as unknown as boolean;
+  }
+
+  public get dataCatalogConfig(): SageMakerResponsesDescribeFeatureGroupOfflineStoreConfigDataCatalogConfig {
+    return new SageMakerResponsesDescribeFeatureGroupOfflineStoreConfigDataCatalogConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeFeatureGroupOfflineStoreConfigS3StorageConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeFeatureGroupRequest) {
+  }
+
+  public get s3Uri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.OfflineStoreConfig.S3StorageConfig.S3Uri'),
+        outputPath: 'OfflineStoreConfig.S3StorageConfig.S3Uri',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.OfflineStoreConfig.S3StorageConfig.S3Uri', props);
+    return resource.getResponseField('OfflineStoreConfig.S3StorageConfig.S3Uri') as unknown as string;
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.OfflineStoreConfig.S3StorageConfig.KmsKeyId'),
+        outputPath: 'OfflineStoreConfig.S3StorageConfig.KmsKeyId',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.OfflineStoreConfig.S3StorageConfig.KmsKeyId', props);
+    return resource.getResponseField('OfflineStoreConfig.S3StorageConfig.KmsKeyId') as unknown as string;
+  }
+
+  public get resolvedOutputS3Uri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.OfflineStoreConfig.S3StorageConfig.ResolvedOutputS3Uri'),
+        outputPath: 'OfflineStoreConfig.S3StorageConfig.ResolvedOutputS3Uri',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.OfflineStoreConfig.S3StorageConfig.ResolvedOutputS3Uri', props);
+    return resource.getResponseField('OfflineStoreConfig.S3StorageConfig.ResolvedOutputS3Uri') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeFeatureGroupOfflineStoreConfigDataCatalogConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeFeatureGroupRequest) {
+  }
+
+  public get tableName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.OfflineStoreConfig.DataCatalogConfig.TableName'),
+        outputPath: 'OfflineStoreConfig.DataCatalogConfig.TableName',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.OfflineStoreConfig.DataCatalogConfig.TableName', props);
+    return resource.getResponseField('OfflineStoreConfig.DataCatalogConfig.TableName') as unknown as string;
+  }
+
+  public get catalog(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.OfflineStoreConfig.DataCatalogConfig.Catalog'),
+        outputPath: 'OfflineStoreConfig.DataCatalogConfig.Catalog',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.OfflineStoreConfig.DataCatalogConfig.Catalog', props);
+    return resource.getResponseField('OfflineStoreConfig.DataCatalogConfig.Catalog') as unknown as string;
+  }
+
+  public get database(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.OfflineStoreConfig.DataCatalogConfig.Database'),
+        outputPath: 'OfflineStoreConfig.DataCatalogConfig.Database',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.OfflineStoreConfig.DataCatalogConfig.Database', props);
+    return resource.getResponseField('OfflineStoreConfig.DataCatalogConfig.Database') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeFeatureGroupOfflineStoreStatus {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeFeatureGroupRequest) {
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.OfflineStoreStatus.Status'),
+        outputPath: 'OfflineStoreStatus.Status',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.OfflineStoreStatus.Status', props);
+    return resource.getResponseField('OfflineStoreStatus.Status') as unknown as string;
+  }
+
+  public get blockedReason(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFeatureGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeFeatureGroup.OfflineStoreStatus.BlockedReason'),
+        outputPath: 'OfflineStoreStatus.BlockedReason',
+        parameters: {
+          FeatureGroupName: this.__input.featureGroupName,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFeatureGroup.OfflineStoreStatus.BlockedReason', props);
+    return resource.getResponseField('OfflineStoreStatus.BlockedReason') as unknown as string;
   }
 
 }
@@ -7356,6 +12274,10 @@ export class SageMakerResponsesDescribeHyperParameterTuningJobTrainingJobDefinit
     return new SageMakerResponsesDescribeHyperParameterTuningJobTrainingJobDefinitionCheckpointConfig(this.__scope, this.__resources, this.__input);
   }
 
+  public get retryStrategy(): SageMakerResponsesDescribeHyperParameterTuningJobTrainingJobDefinitionRetryStrategy {
+    return new SageMakerResponsesDescribeHyperParameterTuningJobTrainingJobDefinitionRetryStrategy(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class SageMakerResponsesDescribeHyperParameterTuningJobTrainingJobDefinitionTuningObjective {
@@ -7767,6 +12689,30 @@ export class SageMakerResponsesDescribeHyperParameterTuningJobTrainingJobDefinit
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeHyperParameterTuningJob.TrainingJobDefinition.CheckpointConfig.LocalPath', props);
     return resource.getResponseField('TrainingJobDefinition.CheckpointConfig.LocalPath') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeHyperParameterTuningJobTrainingJobDefinitionRetryStrategy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeHyperParameterTuningJobRequest) {
+  }
+
+  public get maximumRetryAttempts(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeHyperParameterTuningJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeHyperParameterTuningJob.TrainingJobDefinition.RetryStrategy.MaximumRetryAttempts'),
+        outputPath: 'TrainingJobDefinition.RetryStrategy.MaximumRetryAttempts',
+        parameters: {
+          HyperParameterTuningJobName: this.__input.hyperParameterTuningJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeHyperParameterTuningJob.TrainingJobDefinition.RetryStrategy.MaximumRetryAttempts', props);
+    return resource.getResponseField('TrainingJobDefinition.RetryStrategy.MaximumRetryAttempts') as unknown as number;
   }
 
 }
@@ -9777,6 +14723,10 @@ export class SageMakerResponsesDescribeModel {
     return resource.getResponseField('Containers') as unknown as shapes.SageMakerContainerDefinition[];
   }
 
+  public get inferenceExecutionConfig(): SageMakerResponsesDescribeModelInferenceExecutionConfig {
+    return new SageMakerResponsesDescribeModelInferenceExecutionConfig(this.__scope, this.__resources, this.__input);
+  }
+
   public get executionRoleArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -9962,6 +14912,10 @@ export class SageMakerResponsesDescribeModelPrimaryContainer {
     return resource.getResponseField('PrimaryContainer.ModelPackageName') as unknown as string;
   }
 
+  public get multiModelConfig(): SageMakerResponsesDescribeModelPrimaryContainerMultiModelConfig {
+    return new SageMakerResponsesDescribeModelPrimaryContainerMultiModelConfig(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class SageMakerResponsesDescribeModelPrimaryContainerImageConfig {
@@ -9984,6 +14938,82 @@ export class SageMakerResponsesDescribeModelPrimaryContainerImageConfig {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModel.PrimaryContainer.ImageConfig.RepositoryAccessMode', props);
     return resource.getResponseField('PrimaryContainer.ImageConfig.RepositoryAccessMode') as unknown as string;
+  }
+
+  public get repositoryAuthConfig(): SageMakerResponsesDescribeModelPrimaryContainerImageConfigRepositoryAuthConfig {
+    return new SageMakerResponsesDescribeModelPrimaryContainerImageConfigRepositoryAuthConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelPrimaryContainerImageConfigRepositoryAuthConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelInput) {
+  }
+
+  public get repositoryCredentialsProviderArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModel',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModel.PrimaryContainer.ImageConfig.RepositoryAuthConfig.RepositoryCredentialsProviderArn'),
+        outputPath: 'PrimaryContainer.ImageConfig.RepositoryAuthConfig.RepositoryCredentialsProviderArn',
+        parameters: {
+          ModelName: this.__input.modelName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModel.PrimaryContainer.ImageConfig.RepositoryAuthConfig.RepositoryCredentialsProviderArn', props);
+    return resource.getResponseField('PrimaryContainer.ImageConfig.RepositoryAuthConfig.RepositoryCredentialsProviderArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelPrimaryContainerMultiModelConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelInput) {
+  }
+
+  public get modelCacheSetting(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModel',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModel.PrimaryContainer.MultiModelConfig.ModelCacheSetting'),
+        outputPath: 'PrimaryContainer.MultiModelConfig.ModelCacheSetting',
+        parameters: {
+          ModelName: this.__input.modelName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModel.PrimaryContainer.MultiModelConfig.ModelCacheSetting', props);
+    return resource.getResponseField('PrimaryContainer.MultiModelConfig.ModelCacheSetting') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelInferenceExecutionConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelInput) {
+  }
+
+  public get mode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModel',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModel.InferenceExecutionConfig.Mode'),
+        outputPath: 'InferenceExecutionConfig.Mode',
+        parameters: {
+          ModelName: this.__input.modelName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModel.InferenceExecutionConfig.Mode', props);
+    return resource.getResponseField('InferenceExecutionConfig.Mode') as unknown as string;
   }
 
 }
@@ -10029,6 +15059,1310 @@ export class SageMakerResponsesDescribeModelVpcConfig {
 
 }
 
+export class SageMakerResponsesDescribeModelBiasJobDefinition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelBiasJobDefinitionRequest) {
+  }
+
+  public get jobDefinitionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.JobDefinitionArn'),
+        outputPath: 'JobDefinitionArn',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.JobDefinitionArn', props);
+    return resource.getResponseField('JobDefinitionArn') as unknown as string;
+  }
+
+  public get jobDefinitionName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.JobDefinitionName'),
+        outputPath: 'JobDefinitionName',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.JobDefinitionName', props);
+    return resource.getResponseField('JobDefinitionName') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get modelBiasBaselineConfig(): SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasBaselineConfig {
+    return new SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasBaselineConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get modelBiasAppSpecification(): SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasAppSpecification {
+    return new SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasAppSpecification(this.__scope, this.__resources, this.__input);
+  }
+
+  public get modelBiasJobInput(): SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasJobInput {
+    return new SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasJobInput(this.__scope, this.__resources, this.__input);
+  }
+
+  public get modelBiasJobOutputConfig(): SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasJobOutputConfig {
+    return new SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasJobOutputConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get jobResources(): SageMakerResponsesDescribeModelBiasJobDefinitionJobResources {
+    return new SageMakerResponsesDescribeModelBiasJobDefinitionJobResources(this.__scope, this.__resources, this.__input);
+  }
+
+  public get networkConfig(): SageMakerResponsesDescribeModelBiasJobDefinitionNetworkConfig {
+    return new SageMakerResponsesDescribeModelBiasJobDefinitionNetworkConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get roleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.RoleArn'),
+        outputPath: 'RoleArn',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.RoleArn', props);
+    return resource.getResponseField('RoleArn') as unknown as string;
+  }
+
+  public get stoppingCondition(): SageMakerResponsesDescribeModelBiasJobDefinitionStoppingCondition {
+    return new SageMakerResponsesDescribeModelBiasJobDefinitionStoppingCondition(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasBaselineConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelBiasJobDefinitionRequest) {
+  }
+
+  public get baseliningJobName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.ModelBiasBaselineConfig.BaseliningJobName'),
+        outputPath: 'ModelBiasBaselineConfig.BaseliningJobName',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.ModelBiasBaselineConfig.BaseliningJobName', props);
+    return resource.getResponseField('ModelBiasBaselineConfig.BaseliningJobName') as unknown as string;
+  }
+
+  public get constraintsResource(): SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasBaselineConfigConstraintsResource {
+    return new SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasBaselineConfigConstraintsResource(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasBaselineConfigConstraintsResource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelBiasJobDefinitionRequest) {
+  }
+
+  public get s3Uri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.ModelBiasBaselineConfig.ConstraintsResource.S3Uri'),
+        outputPath: 'ModelBiasBaselineConfig.ConstraintsResource.S3Uri',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.ModelBiasBaselineConfig.ConstraintsResource.S3Uri', props);
+    return resource.getResponseField('ModelBiasBaselineConfig.ConstraintsResource.S3Uri') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasAppSpecification {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelBiasJobDefinitionRequest) {
+  }
+
+  public get imageUri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.ModelBiasAppSpecification.ImageUri'),
+        outputPath: 'ModelBiasAppSpecification.ImageUri',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.ModelBiasAppSpecification.ImageUri', props);
+    return resource.getResponseField('ModelBiasAppSpecification.ImageUri') as unknown as string;
+  }
+
+  public get configUri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.ModelBiasAppSpecification.ConfigUri'),
+        outputPath: 'ModelBiasAppSpecification.ConfigUri',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.ModelBiasAppSpecification.ConfigUri', props);
+    return resource.getResponseField('ModelBiasAppSpecification.ConfigUri') as unknown as string;
+  }
+
+  public get environment(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.ModelBiasAppSpecification.Environment'),
+        outputPath: 'ModelBiasAppSpecification.Environment',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.ModelBiasAppSpecification.Environment', props);
+    return resource.getResponseField('ModelBiasAppSpecification.Environment') as unknown as Record<string, string>;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasJobInput {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelBiasJobDefinitionRequest) {
+  }
+
+  public get endpointInput(): SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasJobInputEndpointInput {
+    return new SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasJobInputEndpointInput(this.__scope, this.__resources, this.__input);
+  }
+
+  public get groundTruthS3Input(): SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasJobInputGroundTruthS3Input {
+    return new SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasJobInputGroundTruthS3Input(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasJobInputEndpointInput {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelBiasJobDefinitionRequest) {
+  }
+
+  public get endpointName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.EndpointName'),
+        outputPath: 'ModelBiasJobInput.EndpointInput.EndpointName',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.EndpointName', props);
+    return resource.getResponseField('ModelBiasJobInput.EndpointInput.EndpointName') as unknown as string;
+  }
+
+  public get localPath(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.LocalPath'),
+        outputPath: 'ModelBiasJobInput.EndpointInput.LocalPath',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.LocalPath', props);
+    return resource.getResponseField('ModelBiasJobInput.EndpointInput.LocalPath') as unknown as string;
+  }
+
+  public get s3InputMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.S3InputMode'),
+        outputPath: 'ModelBiasJobInput.EndpointInput.S3InputMode',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.S3InputMode', props);
+    return resource.getResponseField('ModelBiasJobInput.EndpointInput.S3InputMode') as unknown as string;
+  }
+
+  public get s3DataDistributionType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.S3DataDistributionType'),
+        outputPath: 'ModelBiasJobInput.EndpointInput.S3DataDistributionType',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.S3DataDistributionType', props);
+    return resource.getResponseField('ModelBiasJobInput.EndpointInput.S3DataDistributionType') as unknown as string;
+  }
+
+  public get featuresAttribute(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.FeaturesAttribute'),
+        outputPath: 'ModelBiasJobInput.EndpointInput.FeaturesAttribute',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.FeaturesAttribute', props);
+    return resource.getResponseField('ModelBiasJobInput.EndpointInput.FeaturesAttribute') as unknown as string;
+  }
+
+  public get inferenceAttribute(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.InferenceAttribute'),
+        outputPath: 'ModelBiasJobInput.EndpointInput.InferenceAttribute',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.InferenceAttribute', props);
+    return resource.getResponseField('ModelBiasJobInput.EndpointInput.InferenceAttribute') as unknown as string;
+  }
+
+  public get probabilityAttribute(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.ProbabilityAttribute'),
+        outputPath: 'ModelBiasJobInput.EndpointInput.ProbabilityAttribute',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.ProbabilityAttribute', props);
+    return resource.getResponseField('ModelBiasJobInput.EndpointInput.ProbabilityAttribute') as unknown as string;
+  }
+
+  public get probabilityThresholdAttribute(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.ProbabilityThresholdAttribute'),
+        outputPath: 'ModelBiasJobInput.EndpointInput.ProbabilityThresholdAttribute',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.ProbabilityThresholdAttribute', props);
+    return resource.getResponseField('ModelBiasJobInput.EndpointInput.ProbabilityThresholdAttribute') as unknown as number;
+  }
+
+  public get startTimeOffset(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.StartTimeOffset'),
+        outputPath: 'ModelBiasJobInput.EndpointInput.StartTimeOffset',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.StartTimeOffset', props);
+    return resource.getResponseField('ModelBiasJobInput.EndpointInput.StartTimeOffset') as unknown as string;
+  }
+
+  public get endTimeOffset(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.EndTimeOffset'),
+        outputPath: 'ModelBiasJobInput.EndpointInput.EndTimeOffset',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.ModelBiasJobInput.EndpointInput.EndTimeOffset', props);
+    return resource.getResponseField('ModelBiasJobInput.EndpointInput.EndTimeOffset') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasJobInputGroundTruthS3Input {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelBiasJobDefinitionRequest) {
+  }
+
+  public get s3Uri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.ModelBiasJobInput.GroundTruthS3Input.S3Uri'),
+        outputPath: 'ModelBiasJobInput.GroundTruthS3Input.S3Uri',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.ModelBiasJobInput.GroundTruthS3Input.S3Uri', props);
+    return resource.getResponseField('ModelBiasJobInput.GroundTruthS3Input.S3Uri') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelBiasJobDefinitionModelBiasJobOutputConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelBiasJobDefinitionRequest) {
+  }
+
+  public get monitoringOutputs(): shapes.SageMakerMonitoringOutput[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.ModelBiasJobOutputConfig.MonitoringOutputs'),
+        outputPath: 'ModelBiasJobOutputConfig.MonitoringOutputs',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.ModelBiasJobOutputConfig.MonitoringOutputs', props);
+    return resource.getResponseField('ModelBiasJobOutputConfig.MonitoringOutputs') as unknown as shapes.SageMakerMonitoringOutput[];
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.ModelBiasJobOutputConfig.KmsKeyId'),
+        outputPath: 'ModelBiasJobOutputConfig.KmsKeyId',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.ModelBiasJobOutputConfig.KmsKeyId', props);
+    return resource.getResponseField('ModelBiasJobOutputConfig.KmsKeyId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelBiasJobDefinitionJobResources {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelBiasJobDefinitionRequest) {
+  }
+
+  public get clusterConfig(): SageMakerResponsesDescribeModelBiasJobDefinitionJobResourcesClusterConfig {
+    return new SageMakerResponsesDescribeModelBiasJobDefinitionJobResourcesClusterConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelBiasJobDefinitionJobResourcesClusterConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelBiasJobDefinitionRequest) {
+  }
+
+  public get instanceCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.JobResources.ClusterConfig.InstanceCount'),
+        outputPath: 'JobResources.ClusterConfig.InstanceCount',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.JobResources.ClusterConfig.InstanceCount', props);
+    return resource.getResponseField('JobResources.ClusterConfig.InstanceCount') as unknown as number;
+  }
+
+  public get instanceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.JobResources.ClusterConfig.InstanceType'),
+        outputPath: 'JobResources.ClusterConfig.InstanceType',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.JobResources.ClusterConfig.InstanceType', props);
+    return resource.getResponseField('JobResources.ClusterConfig.InstanceType') as unknown as string;
+  }
+
+  public get volumeSizeInGb(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.JobResources.ClusterConfig.VolumeSizeInGB'),
+        outputPath: 'JobResources.ClusterConfig.VolumeSizeInGB',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.JobResources.ClusterConfig.VolumeSizeInGB', props);
+    return resource.getResponseField('JobResources.ClusterConfig.VolumeSizeInGB') as unknown as number;
+  }
+
+  public get volumeKmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.JobResources.ClusterConfig.VolumeKmsKeyId'),
+        outputPath: 'JobResources.ClusterConfig.VolumeKmsKeyId',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.JobResources.ClusterConfig.VolumeKmsKeyId', props);
+    return resource.getResponseField('JobResources.ClusterConfig.VolumeKmsKeyId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelBiasJobDefinitionNetworkConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelBiasJobDefinitionRequest) {
+  }
+
+  public get enableInterContainerTrafficEncryption(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.NetworkConfig.EnableInterContainerTrafficEncryption'),
+        outputPath: 'NetworkConfig.EnableInterContainerTrafficEncryption',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.NetworkConfig.EnableInterContainerTrafficEncryption', props);
+    return resource.getResponseField('NetworkConfig.EnableInterContainerTrafficEncryption') as unknown as boolean;
+  }
+
+  public get enableNetworkIsolation(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.NetworkConfig.EnableNetworkIsolation'),
+        outputPath: 'NetworkConfig.EnableNetworkIsolation',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.NetworkConfig.EnableNetworkIsolation', props);
+    return resource.getResponseField('NetworkConfig.EnableNetworkIsolation') as unknown as boolean;
+  }
+
+  public get vpcConfig(): SageMakerResponsesDescribeModelBiasJobDefinitionNetworkConfigVpcConfig {
+    return new SageMakerResponsesDescribeModelBiasJobDefinitionNetworkConfigVpcConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelBiasJobDefinitionNetworkConfigVpcConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelBiasJobDefinitionRequest) {
+  }
+
+  public get securityGroupIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.NetworkConfig.VpcConfig.SecurityGroupIds'),
+        outputPath: 'NetworkConfig.VpcConfig.SecurityGroupIds',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.NetworkConfig.VpcConfig.SecurityGroupIds', props);
+    return resource.getResponseField('NetworkConfig.VpcConfig.SecurityGroupIds') as unknown as string[];
+  }
+
+  public get subnets(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.NetworkConfig.VpcConfig.Subnets'),
+        outputPath: 'NetworkConfig.VpcConfig.Subnets',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.NetworkConfig.VpcConfig.Subnets', props);
+    return resource.getResponseField('NetworkConfig.VpcConfig.Subnets') as unknown as string[];
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelBiasJobDefinitionStoppingCondition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelBiasJobDefinitionRequest) {
+  }
+
+  public get maxRuntimeInSeconds(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelBiasJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelBiasJobDefinition.StoppingCondition.MaxRuntimeInSeconds'),
+        outputPath: 'StoppingCondition.MaxRuntimeInSeconds',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelBiasJobDefinition.StoppingCondition.MaxRuntimeInSeconds', props);
+    return resource.getResponseField('StoppingCondition.MaxRuntimeInSeconds') as unknown as number;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelExplainabilityJobDefinition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelExplainabilityJobDefinitionRequest) {
+  }
+
+  public get jobDefinitionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.JobDefinitionArn'),
+        outputPath: 'JobDefinitionArn',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.JobDefinitionArn', props);
+    return resource.getResponseField('JobDefinitionArn') as unknown as string;
+  }
+
+  public get jobDefinitionName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.JobDefinitionName'),
+        outputPath: 'JobDefinitionName',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.JobDefinitionName', props);
+    return resource.getResponseField('JobDefinitionName') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get modelExplainabilityBaselineConfig(): SageMakerResponsesDescribeModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig {
+    return new SageMakerResponsesDescribeModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get modelExplainabilityAppSpecification(): SageMakerResponsesDescribeModelExplainabilityJobDefinitionModelExplainabilityAppSpecification {
+    return new SageMakerResponsesDescribeModelExplainabilityJobDefinitionModelExplainabilityAppSpecification(this.__scope, this.__resources, this.__input);
+  }
+
+  public get modelExplainabilityJobInput(): SageMakerResponsesDescribeModelExplainabilityJobDefinitionModelExplainabilityJobInput {
+    return new SageMakerResponsesDescribeModelExplainabilityJobDefinitionModelExplainabilityJobInput(this.__scope, this.__resources, this.__input);
+  }
+
+  public get modelExplainabilityJobOutputConfig(): SageMakerResponsesDescribeModelExplainabilityJobDefinitionModelExplainabilityJobOutputConfig {
+    return new SageMakerResponsesDescribeModelExplainabilityJobDefinitionModelExplainabilityJobOutputConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get jobResources(): SageMakerResponsesDescribeModelExplainabilityJobDefinitionJobResources {
+    return new SageMakerResponsesDescribeModelExplainabilityJobDefinitionJobResources(this.__scope, this.__resources, this.__input);
+  }
+
+  public get networkConfig(): SageMakerResponsesDescribeModelExplainabilityJobDefinitionNetworkConfig {
+    return new SageMakerResponsesDescribeModelExplainabilityJobDefinitionNetworkConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get roleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.RoleArn'),
+        outputPath: 'RoleArn',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.RoleArn', props);
+    return resource.getResponseField('RoleArn') as unknown as string;
+  }
+
+  public get stoppingCondition(): SageMakerResponsesDescribeModelExplainabilityJobDefinitionStoppingCondition {
+    return new SageMakerResponsesDescribeModelExplainabilityJobDefinitionStoppingCondition(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelExplainabilityJobDefinitionRequest) {
+  }
+
+  public get baseliningJobName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfig.BaseliningJobName'),
+        outputPath: 'ModelExplainabilityBaselineConfig.BaseliningJobName',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfig.BaseliningJobName', props);
+    return resource.getResponseField('ModelExplainabilityBaselineConfig.BaseliningJobName') as unknown as string;
+  }
+
+  public get constraintsResource(): SageMakerResponsesDescribeModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigConstraintsResource {
+    return new SageMakerResponsesDescribeModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigConstraintsResource(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigConstraintsResource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelExplainabilityJobDefinitionRequest) {
+  }
+
+  public get s3Uri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfig.ConstraintsResource.S3Uri'),
+        outputPath: 'ModelExplainabilityBaselineConfig.ConstraintsResource.S3Uri',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfig.ConstraintsResource.S3Uri', props);
+    return resource.getResponseField('ModelExplainabilityBaselineConfig.ConstraintsResource.S3Uri') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelExplainabilityJobDefinitionModelExplainabilityAppSpecification {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelExplainabilityJobDefinitionRequest) {
+  }
+
+  public get imageUri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.ModelExplainabilityAppSpecification.ImageUri'),
+        outputPath: 'ModelExplainabilityAppSpecification.ImageUri',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.ModelExplainabilityAppSpecification.ImageUri', props);
+    return resource.getResponseField('ModelExplainabilityAppSpecification.ImageUri') as unknown as string;
+  }
+
+  public get configUri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.ModelExplainabilityAppSpecification.ConfigUri'),
+        outputPath: 'ModelExplainabilityAppSpecification.ConfigUri',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.ModelExplainabilityAppSpecification.ConfigUri', props);
+    return resource.getResponseField('ModelExplainabilityAppSpecification.ConfigUri') as unknown as string;
+  }
+
+  public get environment(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.ModelExplainabilityAppSpecification.Environment'),
+        outputPath: 'ModelExplainabilityAppSpecification.Environment',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.ModelExplainabilityAppSpecification.Environment', props);
+    return resource.getResponseField('ModelExplainabilityAppSpecification.Environment') as unknown as Record<string, string>;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelExplainabilityJobDefinitionModelExplainabilityJobInput {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelExplainabilityJobDefinitionRequest) {
+  }
+
+  public get endpointInput(): SageMakerResponsesDescribeModelExplainabilityJobDefinitionModelExplainabilityJobInputEndpointInput {
+    return new SageMakerResponsesDescribeModelExplainabilityJobDefinitionModelExplainabilityJobInputEndpointInput(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelExplainabilityJobDefinitionModelExplainabilityJobInputEndpointInput {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelExplainabilityJobDefinitionRequest) {
+  }
+
+  public get endpointName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.EndpointName'),
+        outputPath: 'ModelExplainabilityJobInput.EndpointInput.EndpointName',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.EndpointName', props);
+    return resource.getResponseField('ModelExplainabilityJobInput.EndpointInput.EndpointName') as unknown as string;
+  }
+
+  public get localPath(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.LocalPath'),
+        outputPath: 'ModelExplainabilityJobInput.EndpointInput.LocalPath',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.LocalPath', props);
+    return resource.getResponseField('ModelExplainabilityJobInput.EndpointInput.LocalPath') as unknown as string;
+  }
+
+  public get s3InputMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.S3InputMode'),
+        outputPath: 'ModelExplainabilityJobInput.EndpointInput.S3InputMode',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.S3InputMode', props);
+    return resource.getResponseField('ModelExplainabilityJobInput.EndpointInput.S3InputMode') as unknown as string;
+  }
+
+  public get s3DataDistributionType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.S3DataDistributionType'),
+        outputPath: 'ModelExplainabilityJobInput.EndpointInput.S3DataDistributionType',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.S3DataDistributionType', props);
+    return resource.getResponseField('ModelExplainabilityJobInput.EndpointInput.S3DataDistributionType') as unknown as string;
+  }
+
+  public get featuresAttribute(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.FeaturesAttribute'),
+        outputPath: 'ModelExplainabilityJobInput.EndpointInput.FeaturesAttribute',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.FeaturesAttribute', props);
+    return resource.getResponseField('ModelExplainabilityJobInput.EndpointInput.FeaturesAttribute') as unknown as string;
+  }
+
+  public get inferenceAttribute(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.InferenceAttribute'),
+        outputPath: 'ModelExplainabilityJobInput.EndpointInput.InferenceAttribute',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.InferenceAttribute', props);
+    return resource.getResponseField('ModelExplainabilityJobInput.EndpointInput.InferenceAttribute') as unknown as string;
+  }
+
+  public get probabilityAttribute(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.ProbabilityAttribute'),
+        outputPath: 'ModelExplainabilityJobInput.EndpointInput.ProbabilityAttribute',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.ProbabilityAttribute', props);
+    return resource.getResponseField('ModelExplainabilityJobInput.EndpointInput.ProbabilityAttribute') as unknown as string;
+  }
+
+  public get probabilityThresholdAttribute(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.ProbabilityThresholdAttribute'),
+        outputPath: 'ModelExplainabilityJobInput.EndpointInput.ProbabilityThresholdAttribute',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.ProbabilityThresholdAttribute', props);
+    return resource.getResponseField('ModelExplainabilityJobInput.EndpointInput.ProbabilityThresholdAttribute') as unknown as number;
+  }
+
+  public get startTimeOffset(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.StartTimeOffset'),
+        outputPath: 'ModelExplainabilityJobInput.EndpointInput.StartTimeOffset',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.StartTimeOffset', props);
+    return resource.getResponseField('ModelExplainabilityJobInput.EndpointInput.StartTimeOffset') as unknown as string;
+  }
+
+  public get endTimeOffset(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.EndTimeOffset'),
+        outputPath: 'ModelExplainabilityJobInput.EndpointInput.EndTimeOffset',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobInput.EndpointInput.EndTimeOffset', props);
+    return resource.getResponseField('ModelExplainabilityJobInput.EndpointInput.EndTimeOffset') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelExplainabilityJobDefinitionModelExplainabilityJobOutputConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelExplainabilityJobDefinitionRequest) {
+  }
+
+  public get monitoringOutputs(): shapes.SageMakerMonitoringOutput[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobOutputConfig.MonitoringOutputs'),
+        outputPath: 'ModelExplainabilityJobOutputConfig.MonitoringOutputs',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobOutputConfig.MonitoringOutputs', props);
+    return resource.getResponseField('ModelExplainabilityJobOutputConfig.MonitoringOutputs') as unknown as shapes.SageMakerMonitoringOutput[];
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobOutputConfig.KmsKeyId'),
+        outputPath: 'ModelExplainabilityJobOutputConfig.KmsKeyId',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.ModelExplainabilityJobOutputConfig.KmsKeyId', props);
+    return resource.getResponseField('ModelExplainabilityJobOutputConfig.KmsKeyId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelExplainabilityJobDefinitionJobResources {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelExplainabilityJobDefinitionRequest) {
+  }
+
+  public get clusterConfig(): SageMakerResponsesDescribeModelExplainabilityJobDefinitionJobResourcesClusterConfig {
+    return new SageMakerResponsesDescribeModelExplainabilityJobDefinitionJobResourcesClusterConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelExplainabilityJobDefinitionJobResourcesClusterConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelExplainabilityJobDefinitionRequest) {
+  }
+
+  public get instanceCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.JobResources.ClusterConfig.InstanceCount'),
+        outputPath: 'JobResources.ClusterConfig.InstanceCount',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.JobResources.ClusterConfig.InstanceCount', props);
+    return resource.getResponseField('JobResources.ClusterConfig.InstanceCount') as unknown as number;
+  }
+
+  public get instanceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.JobResources.ClusterConfig.InstanceType'),
+        outputPath: 'JobResources.ClusterConfig.InstanceType',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.JobResources.ClusterConfig.InstanceType', props);
+    return resource.getResponseField('JobResources.ClusterConfig.InstanceType') as unknown as string;
+  }
+
+  public get volumeSizeInGb(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.JobResources.ClusterConfig.VolumeSizeInGB'),
+        outputPath: 'JobResources.ClusterConfig.VolumeSizeInGB',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.JobResources.ClusterConfig.VolumeSizeInGB', props);
+    return resource.getResponseField('JobResources.ClusterConfig.VolumeSizeInGB') as unknown as number;
+  }
+
+  public get volumeKmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.JobResources.ClusterConfig.VolumeKmsKeyId'),
+        outputPath: 'JobResources.ClusterConfig.VolumeKmsKeyId',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.JobResources.ClusterConfig.VolumeKmsKeyId', props);
+    return resource.getResponseField('JobResources.ClusterConfig.VolumeKmsKeyId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelExplainabilityJobDefinitionNetworkConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelExplainabilityJobDefinitionRequest) {
+  }
+
+  public get enableInterContainerTrafficEncryption(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.NetworkConfig.EnableInterContainerTrafficEncryption'),
+        outputPath: 'NetworkConfig.EnableInterContainerTrafficEncryption',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.NetworkConfig.EnableInterContainerTrafficEncryption', props);
+    return resource.getResponseField('NetworkConfig.EnableInterContainerTrafficEncryption') as unknown as boolean;
+  }
+
+  public get enableNetworkIsolation(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.NetworkConfig.EnableNetworkIsolation'),
+        outputPath: 'NetworkConfig.EnableNetworkIsolation',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.NetworkConfig.EnableNetworkIsolation', props);
+    return resource.getResponseField('NetworkConfig.EnableNetworkIsolation') as unknown as boolean;
+  }
+
+  public get vpcConfig(): SageMakerResponsesDescribeModelExplainabilityJobDefinitionNetworkConfigVpcConfig {
+    return new SageMakerResponsesDescribeModelExplainabilityJobDefinitionNetworkConfigVpcConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelExplainabilityJobDefinitionNetworkConfigVpcConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelExplainabilityJobDefinitionRequest) {
+  }
+
+  public get securityGroupIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.NetworkConfig.VpcConfig.SecurityGroupIds'),
+        outputPath: 'NetworkConfig.VpcConfig.SecurityGroupIds',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.NetworkConfig.VpcConfig.SecurityGroupIds', props);
+    return resource.getResponseField('NetworkConfig.VpcConfig.SecurityGroupIds') as unknown as string[];
+  }
+
+  public get subnets(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.NetworkConfig.VpcConfig.Subnets'),
+        outputPath: 'NetworkConfig.VpcConfig.Subnets',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.NetworkConfig.VpcConfig.Subnets', props);
+    return resource.getResponseField('NetworkConfig.VpcConfig.Subnets') as unknown as string[];
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelExplainabilityJobDefinitionStoppingCondition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelExplainabilityJobDefinitionRequest) {
+  }
+
+  public get maxRuntimeInSeconds(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelExplainabilityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelExplainabilityJobDefinition.StoppingCondition.MaxRuntimeInSeconds'),
+        outputPath: 'StoppingCondition.MaxRuntimeInSeconds',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelExplainabilityJobDefinition.StoppingCondition.MaxRuntimeInSeconds', props);
+    return resource.getResponseField('StoppingCondition.MaxRuntimeInSeconds') as unknown as number;
+  }
+
+}
+
 export class SageMakerResponsesDescribeModelPackage {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelPackageInput) {
@@ -10049,6 +16383,40 @@ export class SageMakerResponsesDescribeModelPackage {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelPackageName', props);
     return resource.getResponseField('ModelPackageName') as unknown as string;
+  }
+
+  public get modelPackageGroupName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelPackageGroupName'),
+        outputPath: 'ModelPackageGroupName',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelPackageGroupName', props);
+    return resource.getResponseField('ModelPackageGroupName') as unknown as string;
+  }
+
+  public get modelPackageVersion(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelPackageVersion'),
+        outputPath: 'ModelPackageVersion',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelPackageVersion', props);
+    return resource.getResponseField('ModelPackageVersion') as unknown as number;
   }
 
   public get modelPackageArn(): string {
@@ -10150,6 +16518,73 @@ export class SageMakerResponsesDescribeModelPackage {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.CertifyForMarketplace', props);
     return resource.getResponseField('CertifyForMarketplace') as unknown as boolean;
+  }
+
+  public get modelApprovalStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelApprovalStatus'),
+        outputPath: 'ModelApprovalStatus',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelApprovalStatus', props);
+    return resource.getResponseField('ModelApprovalStatus') as unknown as string;
+  }
+
+  public get createdBy(): SageMakerResponsesDescribeModelPackageCreatedBy {
+    return new SageMakerResponsesDescribeModelPackageCreatedBy(this.__scope, this.__resources, this.__input);
+  }
+
+  public get metadataProperties(): SageMakerResponsesDescribeModelPackageMetadataProperties {
+    return new SageMakerResponsesDescribeModelPackageMetadataProperties(this.__scope, this.__resources, this.__input);
+  }
+
+  public get modelMetrics(): SageMakerResponsesDescribeModelPackageModelMetrics {
+    return new SageMakerResponsesDescribeModelPackageModelMetrics(this.__scope, this.__resources, this.__input);
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.LastModifiedTime'),
+        outputPath: 'LastModifiedTime',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.LastModifiedTime', props);
+    return resource.getResponseField('LastModifiedTime') as unknown as string;
+  }
+
+  public get lastModifiedBy(): SageMakerResponsesDescribeModelPackageLastModifiedBy {
+    return new SageMakerResponsesDescribeModelPackageLastModifiedBy(this.__scope, this.__resources, this.__input);
+  }
+
+  public get approvalDescription(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ApprovalDescription'),
+        outputPath: 'ApprovalDescription',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ApprovalDescription', props);
+    return resource.getResponseField('ApprovalDescription') as unknown as string;
   }
 
 }
@@ -10352,6 +16787,1508 @@ export class SageMakerResponsesDescribeModelPackageModelPackageStatusDetails {
 
 }
 
+export class SageMakerResponsesDescribeModelPackageCreatedBy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelPackageInput) {
+  }
+
+  public get userProfileArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.CreatedBy.UserProfileArn'),
+        outputPath: 'CreatedBy.UserProfileArn',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.CreatedBy.UserProfileArn', props);
+    return resource.getResponseField('CreatedBy.UserProfileArn') as unknown as string;
+  }
+
+  public get userProfileName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.CreatedBy.UserProfileName'),
+        outputPath: 'CreatedBy.UserProfileName',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.CreatedBy.UserProfileName', props);
+    return resource.getResponseField('CreatedBy.UserProfileName') as unknown as string;
+  }
+
+  public get domainId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.CreatedBy.DomainId'),
+        outputPath: 'CreatedBy.DomainId',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.CreatedBy.DomainId', props);
+    return resource.getResponseField('CreatedBy.DomainId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelPackageMetadataProperties {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelPackageInput) {
+  }
+
+  public get commitId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.MetadataProperties.CommitId'),
+        outputPath: 'MetadataProperties.CommitId',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.MetadataProperties.CommitId', props);
+    return resource.getResponseField('MetadataProperties.CommitId') as unknown as string;
+  }
+
+  public get repository(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.MetadataProperties.Repository'),
+        outputPath: 'MetadataProperties.Repository',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.MetadataProperties.Repository', props);
+    return resource.getResponseField('MetadataProperties.Repository') as unknown as string;
+  }
+
+  public get generatedBy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.MetadataProperties.GeneratedBy'),
+        outputPath: 'MetadataProperties.GeneratedBy',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.MetadataProperties.GeneratedBy', props);
+    return resource.getResponseField('MetadataProperties.GeneratedBy') as unknown as string;
+  }
+
+  public get projectId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.MetadataProperties.ProjectId'),
+        outputPath: 'MetadataProperties.ProjectId',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.MetadataProperties.ProjectId', props);
+    return resource.getResponseField('MetadataProperties.ProjectId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelPackageModelMetrics {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelPackageInput) {
+  }
+
+  public get modelQuality(): SageMakerResponsesDescribeModelPackageModelMetricsModelQuality {
+    return new SageMakerResponsesDescribeModelPackageModelMetricsModelQuality(this.__scope, this.__resources, this.__input);
+  }
+
+  public get modelDataQuality(): SageMakerResponsesDescribeModelPackageModelMetricsModelDataQuality {
+    return new SageMakerResponsesDescribeModelPackageModelMetricsModelDataQuality(this.__scope, this.__resources, this.__input);
+  }
+
+  public get bias(): SageMakerResponsesDescribeModelPackageModelMetricsBias {
+    return new SageMakerResponsesDescribeModelPackageModelMetricsBias(this.__scope, this.__resources, this.__input);
+  }
+
+  public get explainability(): SageMakerResponsesDescribeModelPackageModelMetricsExplainability {
+    return new SageMakerResponsesDescribeModelPackageModelMetricsExplainability(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelPackageModelMetricsModelQuality {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelPackageInput) {
+  }
+
+  public get statistics(): SageMakerResponsesDescribeModelPackageModelMetricsModelQualityStatistics {
+    return new SageMakerResponsesDescribeModelPackageModelMetricsModelQualityStatistics(this.__scope, this.__resources, this.__input);
+  }
+
+  public get constraints(): SageMakerResponsesDescribeModelPackageModelMetricsModelQualityConstraints {
+    return new SageMakerResponsesDescribeModelPackageModelMetricsModelQualityConstraints(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelPackageModelMetricsModelQualityStatistics {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelPackageInput) {
+  }
+
+  public get contentType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelMetrics.ModelQuality.Statistics.ContentType'),
+        outputPath: 'ModelMetrics.ModelQuality.Statistics.ContentType',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelMetrics.ModelQuality.Statistics.ContentType', props);
+    return resource.getResponseField('ModelMetrics.ModelQuality.Statistics.ContentType') as unknown as string;
+  }
+
+  public get contentDigest(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelMetrics.ModelQuality.Statistics.ContentDigest'),
+        outputPath: 'ModelMetrics.ModelQuality.Statistics.ContentDigest',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelMetrics.ModelQuality.Statistics.ContentDigest', props);
+    return resource.getResponseField('ModelMetrics.ModelQuality.Statistics.ContentDigest') as unknown as string;
+  }
+
+  public get s3Uri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelMetrics.ModelQuality.Statistics.S3Uri'),
+        outputPath: 'ModelMetrics.ModelQuality.Statistics.S3Uri',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelMetrics.ModelQuality.Statistics.S3Uri', props);
+    return resource.getResponseField('ModelMetrics.ModelQuality.Statistics.S3Uri') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelPackageModelMetricsModelQualityConstraints {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelPackageInput) {
+  }
+
+  public get contentType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelMetrics.ModelQuality.Constraints.ContentType'),
+        outputPath: 'ModelMetrics.ModelQuality.Constraints.ContentType',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelMetrics.ModelQuality.Constraints.ContentType', props);
+    return resource.getResponseField('ModelMetrics.ModelQuality.Constraints.ContentType') as unknown as string;
+  }
+
+  public get contentDigest(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelMetrics.ModelQuality.Constraints.ContentDigest'),
+        outputPath: 'ModelMetrics.ModelQuality.Constraints.ContentDigest',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelMetrics.ModelQuality.Constraints.ContentDigest', props);
+    return resource.getResponseField('ModelMetrics.ModelQuality.Constraints.ContentDigest') as unknown as string;
+  }
+
+  public get s3Uri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelMetrics.ModelQuality.Constraints.S3Uri'),
+        outputPath: 'ModelMetrics.ModelQuality.Constraints.S3Uri',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelMetrics.ModelQuality.Constraints.S3Uri', props);
+    return resource.getResponseField('ModelMetrics.ModelQuality.Constraints.S3Uri') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelPackageModelMetricsModelDataQuality {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelPackageInput) {
+  }
+
+  public get statistics(): SageMakerResponsesDescribeModelPackageModelMetricsModelDataQualityStatistics {
+    return new SageMakerResponsesDescribeModelPackageModelMetricsModelDataQualityStatistics(this.__scope, this.__resources, this.__input);
+  }
+
+  public get constraints(): SageMakerResponsesDescribeModelPackageModelMetricsModelDataQualityConstraints {
+    return new SageMakerResponsesDescribeModelPackageModelMetricsModelDataQualityConstraints(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelPackageModelMetricsModelDataQualityStatistics {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelPackageInput) {
+  }
+
+  public get contentType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelMetrics.ModelDataQuality.Statistics.ContentType'),
+        outputPath: 'ModelMetrics.ModelDataQuality.Statistics.ContentType',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelMetrics.ModelDataQuality.Statistics.ContentType', props);
+    return resource.getResponseField('ModelMetrics.ModelDataQuality.Statistics.ContentType') as unknown as string;
+  }
+
+  public get contentDigest(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelMetrics.ModelDataQuality.Statistics.ContentDigest'),
+        outputPath: 'ModelMetrics.ModelDataQuality.Statistics.ContentDigest',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelMetrics.ModelDataQuality.Statistics.ContentDigest', props);
+    return resource.getResponseField('ModelMetrics.ModelDataQuality.Statistics.ContentDigest') as unknown as string;
+  }
+
+  public get s3Uri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelMetrics.ModelDataQuality.Statistics.S3Uri'),
+        outputPath: 'ModelMetrics.ModelDataQuality.Statistics.S3Uri',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelMetrics.ModelDataQuality.Statistics.S3Uri', props);
+    return resource.getResponseField('ModelMetrics.ModelDataQuality.Statistics.S3Uri') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelPackageModelMetricsModelDataQualityConstraints {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelPackageInput) {
+  }
+
+  public get contentType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelMetrics.ModelDataQuality.Constraints.ContentType'),
+        outputPath: 'ModelMetrics.ModelDataQuality.Constraints.ContentType',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelMetrics.ModelDataQuality.Constraints.ContentType', props);
+    return resource.getResponseField('ModelMetrics.ModelDataQuality.Constraints.ContentType') as unknown as string;
+  }
+
+  public get contentDigest(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelMetrics.ModelDataQuality.Constraints.ContentDigest'),
+        outputPath: 'ModelMetrics.ModelDataQuality.Constraints.ContentDigest',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelMetrics.ModelDataQuality.Constraints.ContentDigest', props);
+    return resource.getResponseField('ModelMetrics.ModelDataQuality.Constraints.ContentDigest') as unknown as string;
+  }
+
+  public get s3Uri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelMetrics.ModelDataQuality.Constraints.S3Uri'),
+        outputPath: 'ModelMetrics.ModelDataQuality.Constraints.S3Uri',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelMetrics.ModelDataQuality.Constraints.S3Uri', props);
+    return resource.getResponseField('ModelMetrics.ModelDataQuality.Constraints.S3Uri') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelPackageModelMetricsBias {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelPackageInput) {
+  }
+
+  public get report(): SageMakerResponsesDescribeModelPackageModelMetricsBiasReport {
+    return new SageMakerResponsesDescribeModelPackageModelMetricsBiasReport(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelPackageModelMetricsBiasReport {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelPackageInput) {
+  }
+
+  public get contentType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelMetrics.Bias.Report.ContentType'),
+        outputPath: 'ModelMetrics.Bias.Report.ContentType',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelMetrics.Bias.Report.ContentType', props);
+    return resource.getResponseField('ModelMetrics.Bias.Report.ContentType') as unknown as string;
+  }
+
+  public get contentDigest(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelMetrics.Bias.Report.ContentDigest'),
+        outputPath: 'ModelMetrics.Bias.Report.ContentDigest',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelMetrics.Bias.Report.ContentDigest', props);
+    return resource.getResponseField('ModelMetrics.Bias.Report.ContentDigest') as unknown as string;
+  }
+
+  public get s3Uri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelMetrics.Bias.Report.S3Uri'),
+        outputPath: 'ModelMetrics.Bias.Report.S3Uri',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelMetrics.Bias.Report.S3Uri', props);
+    return resource.getResponseField('ModelMetrics.Bias.Report.S3Uri') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelPackageModelMetricsExplainability {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelPackageInput) {
+  }
+
+  public get report(): SageMakerResponsesDescribeModelPackageModelMetricsExplainabilityReport {
+    return new SageMakerResponsesDescribeModelPackageModelMetricsExplainabilityReport(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelPackageModelMetricsExplainabilityReport {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelPackageInput) {
+  }
+
+  public get contentType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelMetrics.Explainability.Report.ContentType'),
+        outputPath: 'ModelMetrics.Explainability.Report.ContentType',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelMetrics.Explainability.Report.ContentType', props);
+    return resource.getResponseField('ModelMetrics.Explainability.Report.ContentType') as unknown as string;
+  }
+
+  public get contentDigest(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelMetrics.Explainability.Report.ContentDigest'),
+        outputPath: 'ModelMetrics.Explainability.Report.ContentDigest',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelMetrics.Explainability.Report.ContentDigest', props);
+    return resource.getResponseField('ModelMetrics.Explainability.Report.ContentDigest') as unknown as string;
+  }
+
+  public get s3Uri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.ModelMetrics.Explainability.Report.S3Uri'),
+        outputPath: 'ModelMetrics.Explainability.Report.S3Uri',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.ModelMetrics.Explainability.Report.S3Uri', props);
+    return resource.getResponseField('ModelMetrics.Explainability.Report.S3Uri') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelPackageLastModifiedBy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelPackageInput) {
+  }
+
+  public get userProfileArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.LastModifiedBy.UserProfileArn'),
+        outputPath: 'LastModifiedBy.UserProfileArn',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.LastModifiedBy.UserProfileArn', props);
+    return resource.getResponseField('LastModifiedBy.UserProfileArn') as unknown as string;
+  }
+
+  public get userProfileName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.LastModifiedBy.UserProfileName'),
+        outputPath: 'LastModifiedBy.UserProfileName',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.LastModifiedBy.UserProfileName', props);
+    return resource.getResponseField('LastModifiedBy.UserProfileName') as unknown as string;
+  }
+
+  public get domainId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackage.LastModifiedBy.DomainId'),
+        outputPath: 'LastModifiedBy.DomainId',
+        parameters: {
+          ModelPackageName: this.__input.modelPackageName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackage.LastModifiedBy.DomainId', props);
+    return resource.getResponseField('LastModifiedBy.DomainId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelPackageGroup {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelPackageGroupInput) {
+  }
+
+  public get modelPackageGroupName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackageGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackageGroup.ModelPackageGroupName'),
+        outputPath: 'ModelPackageGroupName',
+        parameters: {
+          ModelPackageGroupName: this.__input.modelPackageGroupName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackageGroup.ModelPackageGroupName', props);
+    return resource.getResponseField('ModelPackageGroupName') as unknown as string;
+  }
+
+  public get modelPackageGroupArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackageGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackageGroup.ModelPackageGroupArn'),
+        outputPath: 'ModelPackageGroupArn',
+        parameters: {
+          ModelPackageGroupName: this.__input.modelPackageGroupName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackageGroup.ModelPackageGroupArn', props);
+    return resource.getResponseField('ModelPackageGroupArn') as unknown as string;
+  }
+
+  public get modelPackageGroupDescription(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackageGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackageGroup.ModelPackageGroupDescription'),
+        outputPath: 'ModelPackageGroupDescription',
+        parameters: {
+          ModelPackageGroupName: this.__input.modelPackageGroupName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackageGroup.ModelPackageGroupDescription', props);
+    return resource.getResponseField('ModelPackageGroupDescription') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackageGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackageGroup.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          ModelPackageGroupName: this.__input.modelPackageGroupName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackageGroup.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get createdBy(): SageMakerResponsesDescribeModelPackageGroupCreatedBy {
+    return new SageMakerResponsesDescribeModelPackageGroupCreatedBy(this.__scope, this.__resources, this.__input);
+  }
+
+  public get modelPackageGroupStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackageGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackageGroup.ModelPackageGroupStatus'),
+        outputPath: 'ModelPackageGroupStatus',
+        parameters: {
+          ModelPackageGroupName: this.__input.modelPackageGroupName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackageGroup.ModelPackageGroupStatus', props);
+    return resource.getResponseField('ModelPackageGroupStatus') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelPackageGroupCreatedBy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelPackageGroupInput) {
+  }
+
+  public get userProfileArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackageGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackageGroup.CreatedBy.UserProfileArn'),
+        outputPath: 'CreatedBy.UserProfileArn',
+        parameters: {
+          ModelPackageGroupName: this.__input.modelPackageGroupName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackageGroup.CreatedBy.UserProfileArn', props);
+    return resource.getResponseField('CreatedBy.UserProfileArn') as unknown as string;
+  }
+
+  public get userProfileName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackageGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackageGroup.CreatedBy.UserProfileName'),
+        outputPath: 'CreatedBy.UserProfileName',
+        parameters: {
+          ModelPackageGroupName: this.__input.modelPackageGroupName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackageGroup.CreatedBy.UserProfileName', props);
+    return resource.getResponseField('CreatedBy.UserProfileName') as unknown as string;
+  }
+
+  public get domainId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelPackageGroup',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelPackageGroup.CreatedBy.DomainId'),
+        outputPath: 'CreatedBy.DomainId',
+        parameters: {
+          ModelPackageGroupName: this.__input.modelPackageGroupName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelPackageGroup.CreatedBy.DomainId', props);
+    return resource.getResponseField('CreatedBy.DomainId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelQualityJobDefinition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelQualityJobDefinitionRequest) {
+  }
+
+  public get jobDefinitionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.JobDefinitionArn'),
+        outputPath: 'JobDefinitionArn',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.JobDefinitionArn', props);
+    return resource.getResponseField('JobDefinitionArn') as unknown as string;
+  }
+
+  public get jobDefinitionName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.JobDefinitionName'),
+        outputPath: 'JobDefinitionName',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.JobDefinitionName', props);
+    return resource.getResponseField('JobDefinitionName') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get modelQualityBaselineConfig(): SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityBaselineConfig {
+    return new SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityBaselineConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get modelQualityAppSpecification(): SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityAppSpecification {
+    return new SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityAppSpecification(this.__scope, this.__resources, this.__input);
+  }
+
+  public get modelQualityJobInput(): SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityJobInput {
+    return new SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityJobInput(this.__scope, this.__resources, this.__input);
+  }
+
+  public get modelQualityJobOutputConfig(): SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityJobOutputConfig {
+    return new SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityJobOutputConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get jobResources(): SageMakerResponsesDescribeModelQualityJobDefinitionJobResources {
+    return new SageMakerResponsesDescribeModelQualityJobDefinitionJobResources(this.__scope, this.__resources, this.__input);
+  }
+
+  public get networkConfig(): SageMakerResponsesDescribeModelQualityJobDefinitionNetworkConfig {
+    return new SageMakerResponsesDescribeModelQualityJobDefinitionNetworkConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get roleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.RoleArn'),
+        outputPath: 'RoleArn',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.RoleArn', props);
+    return resource.getResponseField('RoleArn') as unknown as string;
+  }
+
+  public get stoppingCondition(): SageMakerResponsesDescribeModelQualityJobDefinitionStoppingCondition {
+    return new SageMakerResponsesDescribeModelQualityJobDefinitionStoppingCondition(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityBaselineConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelQualityJobDefinitionRequest) {
+  }
+
+  public get baseliningJobName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityBaselineConfig.BaseliningJobName'),
+        outputPath: 'ModelQualityBaselineConfig.BaseliningJobName',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityBaselineConfig.BaseliningJobName', props);
+    return resource.getResponseField('ModelQualityBaselineConfig.BaseliningJobName') as unknown as string;
+  }
+
+  public get constraintsResource(): SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityBaselineConfigConstraintsResource {
+    return new SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityBaselineConfigConstraintsResource(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityBaselineConfigConstraintsResource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelQualityJobDefinitionRequest) {
+  }
+
+  public get s3Uri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityBaselineConfig.ConstraintsResource.S3Uri'),
+        outputPath: 'ModelQualityBaselineConfig.ConstraintsResource.S3Uri',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityBaselineConfig.ConstraintsResource.S3Uri', props);
+    return resource.getResponseField('ModelQualityBaselineConfig.ConstraintsResource.S3Uri') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityAppSpecification {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelQualityJobDefinitionRequest) {
+  }
+
+  public get imageUri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityAppSpecification.ImageUri'),
+        outputPath: 'ModelQualityAppSpecification.ImageUri',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityAppSpecification.ImageUri', props);
+    return resource.getResponseField('ModelQualityAppSpecification.ImageUri') as unknown as string;
+  }
+
+  public get containerEntrypoint(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityAppSpecification.ContainerEntrypoint'),
+        outputPath: 'ModelQualityAppSpecification.ContainerEntrypoint',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityAppSpecification.ContainerEntrypoint', props);
+    return resource.getResponseField('ModelQualityAppSpecification.ContainerEntrypoint') as unknown as string[];
+  }
+
+  public get containerArguments(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityAppSpecification.ContainerArguments'),
+        outputPath: 'ModelQualityAppSpecification.ContainerArguments',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityAppSpecification.ContainerArguments', props);
+    return resource.getResponseField('ModelQualityAppSpecification.ContainerArguments') as unknown as string[];
+  }
+
+  public get recordPreprocessorSourceUri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityAppSpecification.RecordPreprocessorSourceUri'),
+        outputPath: 'ModelQualityAppSpecification.RecordPreprocessorSourceUri',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityAppSpecification.RecordPreprocessorSourceUri', props);
+    return resource.getResponseField('ModelQualityAppSpecification.RecordPreprocessorSourceUri') as unknown as string;
+  }
+
+  public get postAnalyticsProcessorSourceUri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityAppSpecification.PostAnalyticsProcessorSourceUri'),
+        outputPath: 'ModelQualityAppSpecification.PostAnalyticsProcessorSourceUri',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityAppSpecification.PostAnalyticsProcessorSourceUri', props);
+    return resource.getResponseField('ModelQualityAppSpecification.PostAnalyticsProcessorSourceUri') as unknown as string;
+  }
+
+  public get problemType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityAppSpecification.ProblemType'),
+        outputPath: 'ModelQualityAppSpecification.ProblemType',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityAppSpecification.ProblemType', props);
+    return resource.getResponseField('ModelQualityAppSpecification.ProblemType') as unknown as string;
+  }
+
+  public get environment(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityAppSpecification.Environment'),
+        outputPath: 'ModelQualityAppSpecification.Environment',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityAppSpecification.Environment', props);
+    return resource.getResponseField('ModelQualityAppSpecification.Environment') as unknown as Record<string, string>;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityJobInput {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelQualityJobDefinitionRequest) {
+  }
+
+  public get endpointInput(): SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityJobInputEndpointInput {
+    return new SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityJobInputEndpointInput(this.__scope, this.__resources, this.__input);
+  }
+
+  public get groundTruthS3Input(): SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityJobInputGroundTruthS3Input {
+    return new SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityJobInputGroundTruthS3Input(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityJobInputEndpointInput {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelQualityJobDefinitionRequest) {
+  }
+
+  public get endpointName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.EndpointName'),
+        outputPath: 'ModelQualityJobInput.EndpointInput.EndpointName',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.EndpointName', props);
+    return resource.getResponseField('ModelQualityJobInput.EndpointInput.EndpointName') as unknown as string;
+  }
+
+  public get localPath(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.LocalPath'),
+        outputPath: 'ModelQualityJobInput.EndpointInput.LocalPath',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.LocalPath', props);
+    return resource.getResponseField('ModelQualityJobInput.EndpointInput.LocalPath') as unknown as string;
+  }
+
+  public get s3InputMode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.S3InputMode'),
+        outputPath: 'ModelQualityJobInput.EndpointInput.S3InputMode',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.S3InputMode', props);
+    return resource.getResponseField('ModelQualityJobInput.EndpointInput.S3InputMode') as unknown as string;
+  }
+
+  public get s3DataDistributionType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.S3DataDistributionType'),
+        outputPath: 'ModelQualityJobInput.EndpointInput.S3DataDistributionType',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.S3DataDistributionType', props);
+    return resource.getResponseField('ModelQualityJobInput.EndpointInput.S3DataDistributionType') as unknown as string;
+  }
+
+  public get featuresAttribute(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.FeaturesAttribute'),
+        outputPath: 'ModelQualityJobInput.EndpointInput.FeaturesAttribute',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.FeaturesAttribute', props);
+    return resource.getResponseField('ModelQualityJobInput.EndpointInput.FeaturesAttribute') as unknown as string;
+  }
+
+  public get inferenceAttribute(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.InferenceAttribute'),
+        outputPath: 'ModelQualityJobInput.EndpointInput.InferenceAttribute',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.InferenceAttribute', props);
+    return resource.getResponseField('ModelQualityJobInput.EndpointInput.InferenceAttribute') as unknown as string;
+  }
+
+  public get probabilityAttribute(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.ProbabilityAttribute'),
+        outputPath: 'ModelQualityJobInput.EndpointInput.ProbabilityAttribute',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.ProbabilityAttribute', props);
+    return resource.getResponseField('ModelQualityJobInput.EndpointInput.ProbabilityAttribute') as unknown as string;
+  }
+
+  public get probabilityThresholdAttribute(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.ProbabilityThresholdAttribute'),
+        outputPath: 'ModelQualityJobInput.EndpointInput.ProbabilityThresholdAttribute',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.ProbabilityThresholdAttribute', props);
+    return resource.getResponseField('ModelQualityJobInput.EndpointInput.ProbabilityThresholdAttribute') as unknown as number;
+  }
+
+  public get startTimeOffset(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.StartTimeOffset'),
+        outputPath: 'ModelQualityJobInput.EndpointInput.StartTimeOffset',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.StartTimeOffset', props);
+    return resource.getResponseField('ModelQualityJobInput.EndpointInput.StartTimeOffset') as unknown as string;
+  }
+
+  public get endTimeOffset(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.EndTimeOffset'),
+        outputPath: 'ModelQualityJobInput.EndpointInput.EndTimeOffset',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityJobInput.EndpointInput.EndTimeOffset', props);
+    return resource.getResponseField('ModelQualityJobInput.EndpointInput.EndTimeOffset') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityJobInputGroundTruthS3Input {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelQualityJobDefinitionRequest) {
+  }
+
+  public get s3Uri(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityJobInput.GroundTruthS3Input.S3Uri'),
+        outputPath: 'ModelQualityJobInput.GroundTruthS3Input.S3Uri',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityJobInput.GroundTruthS3Input.S3Uri', props);
+    return resource.getResponseField('ModelQualityJobInput.GroundTruthS3Input.S3Uri') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelQualityJobDefinitionModelQualityJobOutputConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelQualityJobDefinitionRequest) {
+  }
+
+  public get monitoringOutputs(): shapes.SageMakerMonitoringOutput[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityJobOutputConfig.MonitoringOutputs'),
+        outputPath: 'ModelQualityJobOutputConfig.MonitoringOutputs',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityJobOutputConfig.MonitoringOutputs', props);
+    return resource.getResponseField('ModelQualityJobOutputConfig.MonitoringOutputs') as unknown as shapes.SageMakerMonitoringOutput[];
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.ModelQualityJobOutputConfig.KmsKeyId'),
+        outputPath: 'ModelQualityJobOutputConfig.KmsKeyId',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.ModelQualityJobOutputConfig.KmsKeyId', props);
+    return resource.getResponseField('ModelQualityJobOutputConfig.KmsKeyId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelQualityJobDefinitionJobResources {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelQualityJobDefinitionRequest) {
+  }
+
+  public get clusterConfig(): SageMakerResponsesDescribeModelQualityJobDefinitionJobResourcesClusterConfig {
+    return new SageMakerResponsesDescribeModelQualityJobDefinitionJobResourcesClusterConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelQualityJobDefinitionJobResourcesClusterConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelQualityJobDefinitionRequest) {
+  }
+
+  public get instanceCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.JobResources.ClusterConfig.InstanceCount'),
+        outputPath: 'JobResources.ClusterConfig.InstanceCount',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.JobResources.ClusterConfig.InstanceCount', props);
+    return resource.getResponseField('JobResources.ClusterConfig.InstanceCount') as unknown as number;
+  }
+
+  public get instanceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.JobResources.ClusterConfig.InstanceType'),
+        outputPath: 'JobResources.ClusterConfig.InstanceType',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.JobResources.ClusterConfig.InstanceType', props);
+    return resource.getResponseField('JobResources.ClusterConfig.InstanceType') as unknown as string;
+  }
+
+  public get volumeSizeInGb(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.JobResources.ClusterConfig.VolumeSizeInGB'),
+        outputPath: 'JobResources.ClusterConfig.VolumeSizeInGB',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.JobResources.ClusterConfig.VolumeSizeInGB', props);
+    return resource.getResponseField('JobResources.ClusterConfig.VolumeSizeInGB') as unknown as number;
+  }
+
+  public get volumeKmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.JobResources.ClusterConfig.VolumeKmsKeyId'),
+        outputPath: 'JobResources.ClusterConfig.VolumeKmsKeyId',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.JobResources.ClusterConfig.VolumeKmsKeyId', props);
+    return resource.getResponseField('JobResources.ClusterConfig.VolumeKmsKeyId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelQualityJobDefinitionNetworkConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelQualityJobDefinitionRequest) {
+  }
+
+  public get enableInterContainerTrafficEncryption(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.NetworkConfig.EnableInterContainerTrafficEncryption'),
+        outputPath: 'NetworkConfig.EnableInterContainerTrafficEncryption',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.NetworkConfig.EnableInterContainerTrafficEncryption', props);
+    return resource.getResponseField('NetworkConfig.EnableInterContainerTrafficEncryption') as unknown as boolean;
+  }
+
+  public get enableNetworkIsolation(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.NetworkConfig.EnableNetworkIsolation'),
+        outputPath: 'NetworkConfig.EnableNetworkIsolation',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.NetworkConfig.EnableNetworkIsolation', props);
+    return resource.getResponseField('NetworkConfig.EnableNetworkIsolation') as unknown as boolean;
+  }
+
+  public get vpcConfig(): SageMakerResponsesDescribeModelQualityJobDefinitionNetworkConfigVpcConfig {
+    return new SageMakerResponsesDescribeModelQualityJobDefinitionNetworkConfigVpcConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelQualityJobDefinitionNetworkConfigVpcConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelQualityJobDefinitionRequest) {
+  }
+
+  public get securityGroupIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.NetworkConfig.VpcConfig.SecurityGroupIds'),
+        outputPath: 'NetworkConfig.VpcConfig.SecurityGroupIds',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.NetworkConfig.VpcConfig.SecurityGroupIds', props);
+    return resource.getResponseField('NetworkConfig.VpcConfig.SecurityGroupIds') as unknown as string[];
+  }
+
+  public get subnets(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.NetworkConfig.VpcConfig.Subnets'),
+        outputPath: 'NetworkConfig.VpcConfig.Subnets',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.NetworkConfig.VpcConfig.Subnets', props);
+    return resource.getResponseField('NetworkConfig.VpcConfig.Subnets') as unknown as string[];
+  }
+
+}
+
+export class SageMakerResponsesDescribeModelQualityJobDefinitionStoppingCondition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeModelQualityJobDefinitionRequest) {
+  }
+
+  public get maxRuntimeInSeconds(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeModelQualityJobDefinition',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeModelQualityJobDefinition.StoppingCondition.MaxRuntimeInSeconds'),
+        outputPath: 'StoppingCondition.MaxRuntimeInSeconds',
+        parameters: {
+          JobDefinitionName: this.__input.jobDefinitionName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeModelQualityJobDefinition.StoppingCondition.MaxRuntimeInSeconds', props);
+    return resource.getResponseField('StoppingCondition.MaxRuntimeInSeconds') as unknown as number;
+  }
+
+}
+
 export class SageMakerResponsesDescribeMonitoringSchedule {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeMonitoringScheduleRequest) {
@@ -10406,6 +18343,23 @@ export class SageMakerResponsesDescribeMonitoringSchedule {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeMonitoringSchedule.MonitoringScheduleStatus', props);
     return resource.getResponseField('MonitoringScheduleStatus') as unknown as string;
+  }
+
+  public get monitoringType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeMonitoringSchedule',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeMonitoringSchedule.MonitoringType'),
+        outputPath: 'MonitoringType',
+        parameters: {
+          MonitoringScheduleName: this.__input.monitoringScheduleName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeMonitoringSchedule.MonitoringType', props);
+    return resource.getResponseField('MonitoringType') as unknown as string;
   }
 
   public get failureReason(): string {
@@ -10497,6 +18451,40 @@ export class SageMakerResponsesDescribeMonitoringScheduleMonitoringScheduleConfi
 
   public get monitoringJobDefinition(): SageMakerResponsesDescribeMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition {
     return new SageMakerResponsesDescribeMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition(this.__scope, this.__resources, this.__input);
+  }
+
+  public get monitoringJobDefinitionName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeMonitoringSchedule',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeMonitoringSchedule.MonitoringScheduleConfig.MonitoringJobDefinitionName'),
+        outputPath: 'MonitoringScheduleConfig.MonitoringJobDefinitionName',
+        parameters: {
+          MonitoringScheduleName: this.__input.monitoringScheduleName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeMonitoringSchedule.MonitoringScheduleConfig.MonitoringJobDefinitionName', props);
+    return resource.getResponseField('MonitoringScheduleConfig.MonitoringJobDefinitionName') as unknown as string;
+  }
+
+  public get monitoringType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeMonitoringSchedule',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeMonitoringSchedule.MonitoringScheduleConfig.MonitoringType'),
+        outputPath: 'MonitoringScheduleConfig.MonitoringType',
+        parameters: {
+          MonitoringScheduleName: this.__input.monitoringScheduleName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeMonitoringSchedule.MonitoringScheduleConfig.MonitoringType', props);
+    return resource.getResponseField('MonitoringScheduleConfig.MonitoringType') as unknown as string;
   }
 
 }
@@ -10610,6 +18598,23 @@ export class SageMakerResponsesDescribeMonitoringScheduleMonitoringScheduleConfi
 export class SageMakerResponsesDescribeMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConfig {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeMonitoringScheduleRequest) {
+  }
+
+  public get baseliningJobName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeMonitoringSchedule',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeMonitoringSchedule.MonitoringScheduleConfig.MonitoringJobDefinition.BaselineConfig.BaseliningJobName'),
+        outputPath: 'MonitoringScheduleConfig.MonitoringJobDefinition.BaselineConfig.BaseliningJobName',
+        parameters: {
+          MonitoringScheduleName: this.__input.monitoringScheduleName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeMonitoringSchedule.MonitoringScheduleConfig.MonitoringJobDefinition.BaselineConfig.BaseliningJobName', props);
+    return resource.getResponseField('MonitoringScheduleConfig.MonitoringJobDefinition.BaselineConfig.BaseliningJobName') as unknown as string;
   }
 
   public get constraintsResource(): SageMakerResponsesDescribeMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConfigConstraintsResource {
@@ -11140,6 +19145,40 @@ export class SageMakerResponsesDescribeMonitoringScheduleLastMonitoringExecution
     return resource.getResponseField('LastMonitoringExecutionSummary.FailureReason') as unknown as string;
   }
 
+  public get monitoringJobDefinitionName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeMonitoringSchedule',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeMonitoringSchedule.LastMonitoringExecutionSummary.MonitoringJobDefinitionName'),
+        outputPath: 'LastMonitoringExecutionSummary.MonitoringJobDefinitionName',
+        parameters: {
+          MonitoringScheduleName: this.__input.monitoringScheduleName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeMonitoringSchedule.LastMonitoringExecutionSummary.MonitoringJobDefinitionName', props);
+    return resource.getResponseField('LastMonitoringExecutionSummary.MonitoringJobDefinitionName') as unknown as string;
+  }
+
+  public get monitoringType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeMonitoringSchedule',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeMonitoringSchedule.LastMonitoringExecutionSummary.MonitoringType'),
+        outputPath: 'LastMonitoringExecutionSummary.MonitoringType',
+        parameters: {
+          MonitoringScheduleName: this.__input.monitoringScheduleName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeMonitoringSchedule.LastMonitoringExecutionSummary.MonitoringType', props);
+    return resource.getResponseField('LastMonitoringExecutionSummary.MonitoringType') as unknown as string;
+  }
+
 }
 
 export class SageMakerResponsesDescribeNotebookInstance {
@@ -11594,6 +19633,660 @@ export class SageMakerResponsesDescribeNotebookInstanceLifecycleConfig {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeNotebookInstanceLifecycleConfig.CreationTime', props);
     return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribePipeline {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribePipelineRequest) {
+  }
+
+  public get pipelineArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipeline.PipelineArn'),
+        outputPath: 'PipelineArn',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipeline.PipelineArn', props);
+    return resource.getResponseField('PipelineArn') as unknown as string;
+  }
+
+  public get pipelineName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipeline.PipelineName'),
+        outputPath: 'PipelineName',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipeline.PipelineName', props);
+    return resource.getResponseField('PipelineName') as unknown as string;
+  }
+
+  public get pipelineDisplayName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipeline.PipelineDisplayName'),
+        outputPath: 'PipelineDisplayName',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipeline.PipelineDisplayName', props);
+    return resource.getResponseField('PipelineDisplayName') as unknown as string;
+  }
+
+  public get pipelineDefinition(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipeline.PipelineDefinition'),
+        outputPath: 'PipelineDefinition',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipeline.PipelineDefinition', props);
+    return resource.getResponseField('PipelineDefinition') as unknown as string;
+  }
+
+  public get pipelineDescription(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipeline.PipelineDescription'),
+        outputPath: 'PipelineDescription',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipeline.PipelineDescription', props);
+    return resource.getResponseField('PipelineDescription') as unknown as string;
+  }
+
+  public get roleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipeline.RoleArn'),
+        outputPath: 'RoleArn',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipeline.RoleArn', props);
+    return resource.getResponseField('RoleArn') as unknown as string;
+  }
+
+  public get pipelineStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipeline.PipelineStatus'),
+        outputPath: 'PipelineStatus',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipeline.PipelineStatus', props);
+    return resource.getResponseField('PipelineStatus') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipeline.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipeline.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipeline.LastModifiedTime'),
+        outputPath: 'LastModifiedTime',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipeline.LastModifiedTime', props);
+    return resource.getResponseField('LastModifiedTime') as unknown as string;
+  }
+
+  public get lastRunTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipeline.LastRunTime'),
+        outputPath: 'LastRunTime',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipeline.LastRunTime', props);
+    return resource.getResponseField('LastRunTime') as unknown as string;
+  }
+
+  public get createdBy(): SageMakerResponsesDescribePipelineCreatedBy {
+    return new SageMakerResponsesDescribePipelineCreatedBy(this.__scope, this.__resources, this.__input);
+  }
+
+  public get lastModifiedBy(): SageMakerResponsesDescribePipelineLastModifiedBy {
+    return new SageMakerResponsesDescribePipelineLastModifiedBy(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribePipelineCreatedBy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribePipelineRequest) {
+  }
+
+  public get userProfileArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipeline.CreatedBy.UserProfileArn'),
+        outputPath: 'CreatedBy.UserProfileArn',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipeline.CreatedBy.UserProfileArn', props);
+    return resource.getResponseField('CreatedBy.UserProfileArn') as unknown as string;
+  }
+
+  public get userProfileName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipeline.CreatedBy.UserProfileName'),
+        outputPath: 'CreatedBy.UserProfileName',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipeline.CreatedBy.UserProfileName', props);
+    return resource.getResponseField('CreatedBy.UserProfileName') as unknown as string;
+  }
+
+  public get domainId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipeline.CreatedBy.DomainId'),
+        outputPath: 'CreatedBy.DomainId',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipeline.CreatedBy.DomainId', props);
+    return resource.getResponseField('CreatedBy.DomainId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribePipelineLastModifiedBy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribePipelineRequest) {
+  }
+
+  public get userProfileArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipeline.LastModifiedBy.UserProfileArn'),
+        outputPath: 'LastModifiedBy.UserProfileArn',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipeline.LastModifiedBy.UserProfileArn', props);
+    return resource.getResponseField('LastModifiedBy.UserProfileArn') as unknown as string;
+  }
+
+  public get userProfileName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipeline.LastModifiedBy.UserProfileName'),
+        outputPath: 'LastModifiedBy.UserProfileName',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipeline.LastModifiedBy.UserProfileName', props);
+    return resource.getResponseField('LastModifiedBy.UserProfileName') as unknown as string;
+  }
+
+  public get domainId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipeline.LastModifiedBy.DomainId'),
+        outputPath: 'LastModifiedBy.DomainId',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipeline.LastModifiedBy.DomainId', props);
+    return resource.getResponseField('LastModifiedBy.DomainId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribePipelineDefinitionForExecution {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribePipelineDefinitionForExecutionRequest) {
+  }
+
+  public get pipelineDefinition(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipelineDefinitionForExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipelineDefinitionForExecution.PipelineDefinition'),
+        outputPath: 'PipelineDefinition',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipelineDefinitionForExecution.PipelineDefinition', props);
+    return resource.getResponseField('PipelineDefinition') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipelineDefinitionForExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipelineDefinitionForExecution.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipelineDefinitionForExecution.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribePipelineExecution {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribePipelineExecutionRequest) {
+  }
+
+  public get pipelineArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipelineExecution.PipelineArn'),
+        outputPath: 'PipelineArn',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipelineExecution.PipelineArn', props);
+    return resource.getResponseField('PipelineArn') as unknown as string;
+  }
+
+  public get pipelineExecutionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipelineExecution.PipelineExecutionArn'),
+        outputPath: 'PipelineExecutionArn',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipelineExecution.PipelineExecutionArn', props);
+    return resource.getResponseField('PipelineExecutionArn') as unknown as string;
+  }
+
+  public get pipelineExecutionDisplayName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipelineExecution.PipelineExecutionDisplayName'),
+        outputPath: 'PipelineExecutionDisplayName',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipelineExecution.PipelineExecutionDisplayName', props);
+    return resource.getResponseField('PipelineExecutionDisplayName') as unknown as string;
+  }
+
+  public get pipelineExecutionStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipelineExecution.PipelineExecutionStatus'),
+        outputPath: 'PipelineExecutionStatus',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipelineExecution.PipelineExecutionStatus', props);
+    return resource.getResponseField('PipelineExecutionStatus') as unknown as string;
+  }
+
+  public get pipelineExecutionDescription(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipelineExecution.PipelineExecutionDescription'),
+        outputPath: 'PipelineExecutionDescription',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipelineExecution.PipelineExecutionDescription', props);
+    return resource.getResponseField('PipelineExecutionDescription') as unknown as string;
+  }
+
+  public get pipelineExperimentConfig(): SageMakerResponsesDescribePipelineExecutionPipelineExperimentConfig {
+    return new SageMakerResponsesDescribePipelineExecutionPipelineExperimentConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get failureReason(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipelineExecution.FailureReason'),
+        outputPath: 'FailureReason',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipelineExecution.FailureReason', props);
+    return resource.getResponseField('FailureReason') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipelineExecution.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipelineExecution.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipelineExecution.LastModifiedTime'),
+        outputPath: 'LastModifiedTime',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipelineExecution.LastModifiedTime', props);
+    return resource.getResponseField('LastModifiedTime') as unknown as string;
+  }
+
+  public get createdBy(): SageMakerResponsesDescribePipelineExecutionCreatedBy {
+    return new SageMakerResponsesDescribePipelineExecutionCreatedBy(this.__scope, this.__resources, this.__input);
+  }
+
+  public get lastModifiedBy(): SageMakerResponsesDescribePipelineExecutionLastModifiedBy {
+    return new SageMakerResponsesDescribePipelineExecutionLastModifiedBy(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class SageMakerResponsesDescribePipelineExecutionPipelineExperimentConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribePipelineExecutionRequest) {
+  }
+
+  public get experimentName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipelineExecution.PipelineExperimentConfig.ExperimentName'),
+        outputPath: 'PipelineExperimentConfig.ExperimentName',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipelineExecution.PipelineExperimentConfig.ExperimentName', props);
+    return resource.getResponseField('PipelineExperimentConfig.ExperimentName') as unknown as string;
+  }
+
+  public get trialName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipelineExecution.PipelineExperimentConfig.TrialName'),
+        outputPath: 'PipelineExperimentConfig.TrialName',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipelineExecution.PipelineExperimentConfig.TrialName', props);
+    return resource.getResponseField('PipelineExperimentConfig.TrialName') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribePipelineExecutionCreatedBy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribePipelineExecutionRequest) {
+  }
+
+  public get userProfileArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipelineExecution.CreatedBy.UserProfileArn'),
+        outputPath: 'CreatedBy.UserProfileArn',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipelineExecution.CreatedBy.UserProfileArn', props);
+    return resource.getResponseField('CreatedBy.UserProfileArn') as unknown as string;
+  }
+
+  public get userProfileName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipelineExecution.CreatedBy.UserProfileName'),
+        outputPath: 'CreatedBy.UserProfileName',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipelineExecution.CreatedBy.UserProfileName', props);
+    return resource.getResponseField('CreatedBy.UserProfileName') as unknown as string;
+  }
+
+  public get domainId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipelineExecution.CreatedBy.DomainId'),
+        outputPath: 'CreatedBy.DomainId',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipelineExecution.CreatedBy.DomainId', props);
+    return resource.getResponseField('CreatedBy.DomainId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribePipelineExecutionLastModifiedBy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribePipelineExecutionRequest) {
+  }
+
+  public get userProfileArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipelineExecution.LastModifiedBy.UserProfileArn'),
+        outputPath: 'LastModifiedBy.UserProfileArn',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipelineExecution.LastModifiedBy.UserProfileArn', props);
+    return resource.getResponseField('LastModifiedBy.UserProfileArn') as unknown as string;
+  }
+
+  public get userProfileName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipelineExecution.LastModifiedBy.UserProfileName'),
+        outputPath: 'LastModifiedBy.UserProfileName',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipelineExecution.LastModifiedBy.UserProfileName', props);
+    return resource.getResponseField('LastModifiedBy.UserProfileName') as unknown as string;
+  }
+
+  public get domainId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribePipelineExecution.LastModifiedBy.DomainId'),
+        outputPath: 'LastModifiedBy.DomainId',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePipelineExecution.LastModifiedBy.DomainId', props);
+    return resource.getResponseField('LastModifiedBy.DomainId') as unknown as string;
   }
 
 }
@@ -12237,6 +20930,301 @@ export class SageMakerResponsesDescribeProcessingJobExperimentConfig {
 
 }
 
+export class SageMakerResponsesDescribeProject {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeProjectInput) {
+  }
+
+  public get projectArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeProject',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeProject.ProjectArn'),
+        outputPath: 'ProjectArn',
+        parameters: {
+          ProjectName: this.__input.projectName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProject.ProjectArn', props);
+    return resource.getResponseField('ProjectArn') as unknown as string;
+  }
+
+  public get projectName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeProject',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeProject.ProjectName'),
+        outputPath: 'ProjectName',
+        parameters: {
+          ProjectName: this.__input.projectName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProject.ProjectName', props);
+    return resource.getResponseField('ProjectName') as unknown as string;
+  }
+
+  public get projectId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeProject',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeProject.ProjectId'),
+        outputPath: 'ProjectId',
+        parameters: {
+          ProjectName: this.__input.projectName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProject.ProjectId', props);
+    return resource.getResponseField('ProjectId') as unknown as string;
+  }
+
+  public get projectDescription(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeProject',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeProject.ProjectDescription'),
+        outputPath: 'ProjectDescription',
+        parameters: {
+          ProjectName: this.__input.projectName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProject.ProjectDescription', props);
+    return resource.getResponseField('ProjectDescription') as unknown as string;
+  }
+
+  public get serviceCatalogProvisioningDetails(): SageMakerResponsesDescribeProjectServiceCatalogProvisioningDetails {
+    return new SageMakerResponsesDescribeProjectServiceCatalogProvisioningDetails(this.__scope, this.__resources, this.__input);
+  }
+
+  public get serviceCatalogProvisionedProductDetails(): SageMakerResponsesDescribeProjectServiceCatalogProvisionedProductDetails {
+    return new SageMakerResponsesDescribeProjectServiceCatalogProvisionedProductDetails(this.__scope, this.__resources, this.__input);
+  }
+
+  public get projectStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeProject',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeProject.ProjectStatus'),
+        outputPath: 'ProjectStatus',
+        parameters: {
+          ProjectName: this.__input.projectName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProject.ProjectStatus', props);
+    return resource.getResponseField('ProjectStatus') as unknown as string;
+  }
+
+  public get createdBy(): SageMakerResponsesDescribeProjectCreatedBy {
+    return new SageMakerResponsesDescribeProjectCreatedBy(this.__scope, this.__resources, this.__input);
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeProject',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeProject.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          ProjectName: this.__input.projectName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProject.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeProjectServiceCatalogProvisioningDetails {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeProjectInput) {
+  }
+
+  public get productId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeProject',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeProject.ServiceCatalogProvisioningDetails.ProductId'),
+        outputPath: 'ServiceCatalogProvisioningDetails.ProductId',
+        parameters: {
+          ProjectName: this.__input.projectName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProject.ServiceCatalogProvisioningDetails.ProductId', props);
+    return resource.getResponseField('ServiceCatalogProvisioningDetails.ProductId') as unknown as string;
+  }
+
+  public get provisioningArtifactId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeProject',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeProject.ServiceCatalogProvisioningDetails.ProvisioningArtifactId'),
+        outputPath: 'ServiceCatalogProvisioningDetails.ProvisioningArtifactId',
+        parameters: {
+          ProjectName: this.__input.projectName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProject.ServiceCatalogProvisioningDetails.ProvisioningArtifactId', props);
+    return resource.getResponseField('ServiceCatalogProvisioningDetails.ProvisioningArtifactId') as unknown as string;
+  }
+
+  public get pathId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeProject',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeProject.ServiceCatalogProvisioningDetails.PathId'),
+        outputPath: 'ServiceCatalogProvisioningDetails.PathId',
+        parameters: {
+          ProjectName: this.__input.projectName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProject.ServiceCatalogProvisioningDetails.PathId', props);
+    return resource.getResponseField('ServiceCatalogProvisioningDetails.PathId') as unknown as string;
+  }
+
+  public get provisioningParameters(): shapes.SageMakerProvisioningParameter[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeProject',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeProject.ServiceCatalogProvisioningDetails.ProvisioningParameters'),
+        outputPath: 'ServiceCatalogProvisioningDetails.ProvisioningParameters',
+        parameters: {
+          ProjectName: this.__input.projectName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProject.ServiceCatalogProvisioningDetails.ProvisioningParameters', props);
+    return resource.getResponseField('ServiceCatalogProvisioningDetails.ProvisioningParameters') as unknown as shapes.SageMakerProvisioningParameter[];
+  }
+
+}
+
+export class SageMakerResponsesDescribeProjectServiceCatalogProvisionedProductDetails {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeProjectInput) {
+  }
+
+  public get provisionedProductId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeProject',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeProject.ServiceCatalogProvisionedProductDetails.ProvisionedProductId'),
+        outputPath: 'ServiceCatalogProvisionedProductDetails.ProvisionedProductId',
+        parameters: {
+          ProjectName: this.__input.projectName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProject.ServiceCatalogProvisionedProductDetails.ProvisionedProductId', props);
+    return resource.getResponseField('ServiceCatalogProvisionedProductDetails.ProvisionedProductId') as unknown as string;
+  }
+
+  public get provisionedProductStatusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeProject',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeProject.ServiceCatalogProvisionedProductDetails.ProvisionedProductStatusMessage'),
+        outputPath: 'ServiceCatalogProvisionedProductDetails.ProvisionedProductStatusMessage',
+        parameters: {
+          ProjectName: this.__input.projectName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProject.ServiceCatalogProvisionedProductDetails.ProvisionedProductStatusMessage', props);
+    return resource.getResponseField('ServiceCatalogProvisionedProductDetails.ProvisionedProductStatusMessage') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeProjectCreatedBy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeProjectInput) {
+  }
+
+  public get userProfileArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeProject',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeProject.CreatedBy.UserProfileArn'),
+        outputPath: 'CreatedBy.UserProfileArn',
+        parameters: {
+          ProjectName: this.__input.projectName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProject.CreatedBy.UserProfileArn', props);
+    return resource.getResponseField('CreatedBy.UserProfileArn') as unknown as string;
+  }
+
+  public get userProfileName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeProject',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeProject.CreatedBy.UserProfileName'),
+        outputPath: 'CreatedBy.UserProfileName',
+        parameters: {
+          ProjectName: this.__input.projectName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProject.CreatedBy.UserProfileName', props);
+    return resource.getResponseField('CreatedBy.UserProfileName') as unknown as string;
+  }
+
+  public get domainId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeProject',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeProject.CreatedBy.DomainId'),
+        outputPath: 'CreatedBy.DomainId',
+        parameters: {
+          ProjectName: this.__input.projectName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProject.CreatedBy.DomainId', props);
+    return resource.getResponseField('CreatedBy.DomainId') as unknown as string;
+  }
+
+}
+
 export class SageMakerResponsesDescribeSubscribedWorkteam {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeSubscribedWorkteamRequest) {
@@ -12793,6 +21781,82 @@ export class SageMakerResponsesDescribeTrainingJob {
     return resource.getResponseField('DebugRuleEvaluationStatuses') as unknown as shapes.SageMakerDebugRuleEvaluationStatus[];
   }
 
+  public get profilerConfig(): SageMakerResponsesDescribeTrainingJobProfilerConfig {
+    return new SageMakerResponsesDescribeTrainingJobProfilerConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get profilerRuleConfigurations(): shapes.SageMakerProfilerRuleConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTrainingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeTrainingJob.ProfilerRuleConfigurations'),
+        outputPath: 'ProfilerRuleConfigurations',
+        parameters: {
+          TrainingJobName: this.__input.trainingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrainingJob.ProfilerRuleConfigurations', props);
+    return resource.getResponseField('ProfilerRuleConfigurations') as unknown as shapes.SageMakerProfilerRuleConfiguration[];
+  }
+
+  public get profilerRuleEvaluationStatuses(): shapes.SageMakerProfilerRuleEvaluationStatus[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTrainingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeTrainingJob.ProfilerRuleEvaluationStatuses'),
+        outputPath: 'ProfilerRuleEvaluationStatuses',
+        parameters: {
+          TrainingJobName: this.__input.trainingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrainingJob.ProfilerRuleEvaluationStatuses', props);
+    return resource.getResponseField('ProfilerRuleEvaluationStatuses') as unknown as shapes.SageMakerProfilerRuleEvaluationStatus[];
+  }
+
+  public get profilingStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTrainingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeTrainingJob.ProfilingStatus'),
+        outputPath: 'ProfilingStatus',
+        parameters: {
+          TrainingJobName: this.__input.trainingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrainingJob.ProfilingStatus', props);
+    return resource.getResponseField('ProfilingStatus') as unknown as string;
+  }
+
+  public get retryStrategy(): SageMakerResponsesDescribeTrainingJobRetryStrategy {
+    return new SageMakerResponsesDescribeTrainingJobRetryStrategy(this.__scope, this.__resources, this.__input);
+  }
+
+  public get environment(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTrainingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeTrainingJob.Environment'),
+        outputPath: 'Environment',
+        parameters: {
+          TrainingJobName: this.__input.trainingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrainingJob.Environment', props);
+    return resource.getResponseField('Environment') as unknown as Record<string, string>;
+  }
+
 }
 
 export class SageMakerResponsesDescribeTrainingJobModelArtifacts {
@@ -13320,6 +22384,88 @@ export class SageMakerResponsesDescribeTrainingJobTensorBoardOutputConfig {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrainingJob.TensorBoardOutputConfig.S3OutputPath', props);
     return resource.getResponseField('TensorBoardOutputConfig.S3OutputPath') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeTrainingJobProfilerConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeTrainingJobRequest) {
+  }
+
+  public get s3OutputPath(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTrainingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeTrainingJob.ProfilerConfig.S3OutputPath'),
+        outputPath: 'ProfilerConfig.S3OutputPath',
+        parameters: {
+          TrainingJobName: this.__input.trainingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrainingJob.ProfilerConfig.S3OutputPath', props);
+    return resource.getResponseField('ProfilerConfig.S3OutputPath') as unknown as string;
+  }
+
+  public get profilingIntervalInMilliseconds(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTrainingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeTrainingJob.ProfilerConfig.ProfilingIntervalInMilliseconds'),
+        outputPath: 'ProfilerConfig.ProfilingIntervalInMilliseconds',
+        parameters: {
+          TrainingJobName: this.__input.trainingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrainingJob.ProfilerConfig.ProfilingIntervalInMilliseconds', props);
+    return resource.getResponseField('ProfilerConfig.ProfilingIntervalInMilliseconds') as unknown as number;
+  }
+
+  public get profilingParameters(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTrainingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeTrainingJob.ProfilerConfig.ProfilingParameters'),
+        outputPath: 'ProfilerConfig.ProfilingParameters',
+        parameters: {
+          TrainingJobName: this.__input.trainingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrainingJob.ProfilerConfig.ProfilingParameters', props);
+    return resource.getResponseField('ProfilerConfig.ProfilingParameters') as unknown as Record<string, string>;
+  }
+
+}
+
+export class SageMakerResponsesDescribeTrainingJobRetryStrategy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeTrainingJobRequest) {
+  }
+
+  public get maximumRetryAttempts(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTrainingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeTrainingJob.RetryStrategy.MaximumRetryAttempts'),
+        outputPath: 'RetryStrategy.MaximumRetryAttempts',
+        parameters: {
+          TrainingJobName: this.__input.trainingJobName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrainingJob.RetryStrategy.MaximumRetryAttempts', props);
+    return resource.getResponseField('RetryStrategy.MaximumRetryAttempts') as unknown as number;
   }
 
 }
@@ -14116,6 +23262,10 @@ export class SageMakerResponsesDescribeTrial {
     return new SageMakerResponsesDescribeTrialLastModifiedBy(this.__scope, this.__resources, this.__input);
   }
 
+  public get metadataProperties(): SageMakerResponsesDescribeTrialMetadataProperties {
+    return new SageMakerResponsesDescribeTrialMetadataProperties(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class SageMakerResponsesDescribeTrialSource {
@@ -14271,6 +23421,81 @@ export class SageMakerResponsesDescribeTrialLastModifiedBy {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrial.LastModifiedBy.DomainId', props);
     return resource.getResponseField('LastModifiedBy.DomainId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeTrialMetadataProperties {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeTrialRequest) {
+  }
+
+  public get commitId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTrial',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeTrial.MetadataProperties.CommitId'),
+        outputPath: 'MetadataProperties.CommitId',
+        parameters: {
+          TrialName: this.__input.trialName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrial.MetadataProperties.CommitId', props);
+    return resource.getResponseField('MetadataProperties.CommitId') as unknown as string;
+  }
+
+  public get repository(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTrial',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeTrial.MetadataProperties.Repository'),
+        outputPath: 'MetadataProperties.Repository',
+        parameters: {
+          TrialName: this.__input.trialName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrial.MetadataProperties.Repository', props);
+    return resource.getResponseField('MetadataProperties.Repository') as unknown as string;
+  }
+
+  public get generatedBy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTrial',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeTrial.MetadataProperties.GeneratedBy'),
+        outputPath: 'MetadataProperties.GeneratedBy',
+        parameters: {
+          TrialName: this.__input.trialName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrial.MetadataProperties.GeneratedBy', props);
+    return resource.getResponseField('MetadataProperties.GeneratedBy') as unknown as string;
+  }
+
+  public get projectId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTrial',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeTrial.MetadataProperties.ProjectId'),
+        outputPath: 'MetadataProperties.ProjectId',
+        parameters: {
+          TrialName: this.__input.trialName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrial.MetadataProperties.ProjectId', props);
+    return resource.getResponseField('MetadataProperties.ProjectId') as unknown as string;
   }
 
 }
@@ -14464,6 +23689,10 @@ export class SageMakerResponsesDescribeTrialComponent {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrialComponent.OutputArtifacts', props);
     return resource.getResponseField('OutputArtifacts') as unknown as Record<string, shapes.SageMakerTrialComponentArtifact>;
+  }
+
+  public get metadataProperties(): SageMakerResponsesDescribeTrialComponentMetadataProperties {
+    return new SageMakerResponsesDescribeTrialComponentMetadataProperties(this.__scope, this.__resources, this.__input);
   }
 
   public get metrics(): shapes.SageMakerTrialComponentMetricSummary[] {
@@ -14679,6 +23908,81 @@ export class SageMakerResponsesDescribeTrialComponentLastModifiedBy {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrialComponent.LastModifiedBy.DomainId', props);
     return resource.getResponseField('LastModifiedBy.DomainId') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesDescribeTrialComponentMetadataProperties {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerDescribeTrialComponentRequest) {
+  }
+
+  public get commitId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTrialComponent',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeTrialComponent.MetadataProperties.CommitId'),
+        outputPath: 'MetadataProperties.CommitId',
+        parameters: {
+          TrialComponentName: this.__input.trialComponentName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrialComponent.MetadataProperties.CommitId', props);
+    return resource.getResponseField('MetadataProperties.CommitId') as unknown as string;
+  }
+
+  public get repository(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTrialComponent',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeTrialComponent.MetadataProperties.Repository'),
+        outputPath: 'MetadataProperties.Repository',
+        parameters: {
+          TrialComponentName: this.__input.trialComponentName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrialComponent.MetadataProperties.Repository', props);
+    return resource.getResponseField('MetadataProperties.Repository') as unknown as string;
+  }
+
+  public get generatedBy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTrialComponent',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeTrialComponent.MetadataProperties.GeneratedBy'),
+        outputPath: 'MetadataProperties.GeneratedBy',
+        parameters: {
+          TrialComponentName: this.__input.trialComponentName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrialComponent.MetadataProperties.GeneratedBy', props);
+    return resource.getResponseField('MetadataProperties.GeneratedBy') as unknown as string;
+  }
+
+  public get projectId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTrialComponent',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.DescribeTrialComponent.MetadataProperties.ProjectId'),
+        outputPath: 'MetadataProperties.ProjectId',
+        parameters: {
+          TrialComponentName: this.__input.trialComponentName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrialComponent.MetadataProperties.ProjectId', props);
+    return resource.getResponseField('MetadataProperties.ProjectId') as unknown as string;
   }
 
 }
@@ -15776,6 +25080,286 @@ export class SageMakerResponsesDisassociateTrialComponent {
 
 }
 
+export class SageMakerResponsesFetchDeviceFleetReport {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerGetDeviceFleetReportRequest) {
+  }
+
+  public get deviceFleetArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDeviceFleetReport',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.GetDeviceFleetReport.DeviceFleetArn'),
+        outputPath: 'DeviceFleetArn',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDeviceFleetReport.DeviceFleetArn', props);
+    return resource.getResponseField('DeviceFleetArn') as unknown as string;
+  }
+
+  public get deviceFleetName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDeviceFleetReport',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.GetDeviceFleetReport.DeviceFleetName'),
+        outputPath: 'DeviceFleetName',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDeviceFleetReport.DeviceFleetName', props);
+    return resource.getResponseField('DeviceFleetName') as unknown as string;
+  }
+
+  public get outputConfig(): SageMakerResponsesFetchDeviceFleetReportOutputConfig {
+    return new SageMakerResponsesFetchDeviceFleetReportOutputConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDeviceFleetReport',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.GetDeviceFleetReport.Description'),
+        outputPath: 'Description',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDeviceFleetReport.Description', props);
+    return resource.getResponseField('Description') as unknown as string;
+  }
+
+  public get reportGenerated(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDeviceFleetReport',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.GetDeviceFleetReport.ReportGenerated'),
+        outputPath: 'ReportGenerated',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDeviceFleetReport.ReportGenerated', props);
+    return resource.getResponseField('ReportGenerated') as unknown as string;
+  }
+
+  public get deviceStats(): SageMakerResponsesFetchDeviceFleetReportDeviceStats {
+    return new SageMakerResponsesFetchDeviceFleetReportDeviceStats(this.__scope, this.__resources, this.__input);
+  }
+
+  public get agentVersions(): shapes.SageMakerAgentVersion[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDeviceFleetReport',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.GetDeviceFleetReport.AgentVersions'),
+        outputPath: 'AgentVersions',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDeviceFleetReport.AgentVersions', props);
+    return resource.getResponseField('AgentVersions') as unknown as shapes.SageMakerAgentVersion[];
+  }
+
+  public get modelStats(): shapes.SageMakerEdgeModelStat[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDeviceFleetReport',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.GetDeviceFleetReport.ModelStats'),
+        outputPath: 'ModelStats',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDeviceFleetReport.ModelStats', props);
+    return resource.getResponseField('ModelStats') as unknown as shapes.SageMakerEdgeModelStat[];
+  }
+
+}
+
+export class SageMakerResponsesFetchDeviceFleetReportOutputConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerGetDeviceFleetReportRequest) {
+  }
+
+  public get s3OutputLocation(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDeviceFleetReport',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.GetDeviceFleetReport.OutputConfig.S3OutputLocation'),
+        outputPath: 'OutputConfig.S3OutputLocation',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDeviceFleetReport.OutputConfig.S3OutputLocation', props);
+    return resource.getResponseField('OutputConfig.S3OutputLocation') as unknown as string;
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDeviceFleetReport',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.GetDeviceFleetReport.OutputConfig.KmsKeyId'),
+        outputPath: 'OutputConfig.KmsKeyId',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDeviceFleetReport.OutputConfig.KmsKeyId', props);
+    return resource.getResponseField('OutputConfig.KmsKeyId') as unknown as string;
+  }
+
+  public get presetDeploymentType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDeviceFleetReport',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.GetDeviceFleetReport.OutputConfig.PresetDeploymentType'),
+        outputPath: 'OutputConfig.PresetDeploymentType',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDeviceFleetReport.OutputConfig.PresetDeploymentType', props);
+    return resource.getResponseField('OutputConfig.PresetDeploymentType') as unknown as string;
+  }
+
+  public get presetDeploymentConfig(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDeviceFleetReport',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.GetDeviceFleetReport.OutputConfig.PresetDeploymentConfig'),
+        outputPath: 'OutputConfig.PresetDeploymentConfig',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDeviceFleetReport.OutputConfig.PresetDeploymentConfig', props);
+    return resource.getResponseField('OutputConfig.PresetDeploymentConfig') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesFetchDeviceFleetReportDeviceStats {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerGetDeviceFleetReportRequest) {
+  }
+
+  public get connectedDeviceCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDeviceFleetReport',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.GetDeviceFleetReport.DeviceStats.ConnectedDeviceCount'),
+        outputPath: 'DeviceStats.ConnectedDeviceCount',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDeviceFleetReport.DeviceStats.ConnectedDeviceCount', props);
+    return resource.getResponseField('DeviceStats.ConnectedDeviceCount') as unknown as number;
+  }
+
+  public get registeredDeviceCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDeviceFleetReport',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.GetDeviceFleetReport.DeviceStats.RegisteredDeviceCount'),
+        outputPath: 'DeviceStats.RegisteredDeviceCount',
+        parameters: {
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDeviceFleetReport.DeviceStats.RegisteredDeviceCount', props);
+    return resource.getResponseField('DeviceStats.RegisteredDeviceCount') as unknown as number;
+  }
+
+}
+
+export class SageMakerResponsesFetchModelPackageGroupPolicy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerGetModelPackageGroupPolicyInput) {
+  }
+
+  public get resourcePolicy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getModelPackageGroupPolicy',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.GetModelPackageGroupPolicy.ResourcePolicy'),
+        outputPath: 'ResourcePolicy',
+        parameters: {
+          ModelPackageGroupName: this.__input.modelPackageGroupName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetModelPackageGroupPolicy.ResourcePolicy', props);
+    return resource.getResponseField('ResourcePolicy') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesFetchSagemakerServicecatalogPortfolioStatus {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getSagemakerServicecatalogPortfolioStatus',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.GetSagemakerServicecatalogPortfolioStatus.Status'),
+        outputPath: 'Status',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetSagemakerServicecatalogPortfolioStatus.Status', props);
+    return resource.getResponseField('Status') as unknown as string;
+  }
+
+}
+
 export class SageMakerResponsesFetchSearchSuggestions {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerGetSearchSuggestionsRequest) {
@@ -15801,6 +25385,61 @@ export class SageMakerResponsesFetchSearchSuggestions {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetSearchSuggestions.PropertyNameSuggestions', props);
     return resource.getResponseField('PropertyNameSuggestions') as unknown as shapes.SageMakerPropertyNameSuggestion[];
+  }
+
+}
+
+export class SageMakerResponsesListActions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListActionsRequest) {
+  }
+
+  public get actionSummaries(): shapes.SageMakerActionSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listActions',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListActions.ActionSummaries'),
+        outputPath: 'ActionSummaries',
+        parameters: {
+          SourceUri: this.__input.sourceUri,
+          ActionType: this.__input.actionType,
+          CreatedAfter: this.__input.createdAfter,
+          CreatedBefore: this.__input.createdBefore,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListActions.ActionSummaries', props);
+    return resource.getResponseField('ActionSummaries') as unknown as shapes.SageMakerActionSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listActions',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListActions.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          SourceUri: this.__input.sourceUri,
+          ActionType: this.__input.actionType,
+          CreatedAfter: this.__input.createdAfter,
+          CreatedBefore: this.__input.createdBefore,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListActions.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
 
 }
@@ -15961,6 +25600,122 @@ export class SageMakerResponsesListApps {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListApps.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesListArtifacts {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListArtifactsRequest) {
+  }
+
+  public get artifactSummaries(): shapes.SageMakerArtifactSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listArtifacts',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListArtifacts.ArtifactSummaries'),
+        outputPath: 'ArtifactSummaries',
+        parameters: {
+          SourceUri: this.__input.sourceUri,
+          ArtifactType: this.__input.artifactType,
+          CreatedAfter: this.__input.createdAfter,
+          CreatedBefore: this.__input.createdBefore,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListArtifacts.ArtifactSummaries', props);
+    return resource.getResponseField('ArtifactSummaries') as unknown as shapes.SageMakerArtifactSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listArtifacts',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListArtifacts.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          SourceUri: this.__input.sourceUri,
+          ArtifactType: this.__input.artifactType,
+          CreatedAfter: this.__input.createdAfter,
+          CreatedBefore: this.__input.createdBefore,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListArtifacts.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesListAssociations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListAssociationsRequest) {
+  }
+
+  public get associationSummaries(): shapes.SageMakerAssociationSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAssociations',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListAssociations.AssociationSummaries'),
+        outputPath: 'AssociationSummaries',
+        parameters: {
+          SourceArn: this.__input.sourceArn,
+          DestinationArn: this.__input.destinationArn,
+          SourceType: this.__input.sourceType,
+          DestinationType: this.__input.destinationType,
+          AssociationType: this.__input.associationType,
+          CreatedAfter: this.__input.createdAfter,
+          CreatedBefore: this.__input.createdBefore,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAssociations.AssociationSummaries', props);
+    return resource.getResponseField('AssociationSummaries') as unknown as shapes.SageMakerAssociationSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAssociations',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListAssociations.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          SourceArn: this.__input.sourceArn,
+          DestinationArn: this.__input.destinationArn,
+          SourceType: this.__input.sourceType,
+          DestinationType: this.__input.destinationType,
+          AssociationType: this.__input.associationType,
+          CreatedAfter: this.__input.createdAfter,
+          CreatedBefore: this.__input.createdBefore,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAssociations.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
 
@@ -16194,6 +25949,222 @@ export class SageMakerResponsesListCompilationJobs {
 
 }
 
+export class SageMakerResponsesListContexts {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListContextsRequest) {
+  }
+
+  public get contextSummaries(): shapes.SageMakerContextSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listContexts',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListContexts.ContextSummaries'),
+        outputPath: 'ContextSummaries',
+        parameters: {
+          SourceUri: this.__input.sourceUri,
+          ContextType: this.__input.contextType,
+          CreatedAfter: this.__input.createdAfter,
+          CreatedBefore: this.__input.createdBefore,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListContexts.ContextSummaries', props);
+    return resource.getResponseField('ContextSummaries') as unknown as shapes.SageMakerContextSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listContexts',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListContexts.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          SourceUri: this.__input.sourceUri,
+          ContextType: this.__input.contextType,
+          CreatedAfter: this.__input.createdAfter,
+          CreatedBefore: this.__input.createdBefore,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListContexts.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesListDataQualityJobDefinitions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListDataQualityJobDefinitionsRequest) {
+  }
+
+  public get jobDefinitionSummaries(): shapes.SageMakerMonitoringJobDefinitionSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listDataQualityJobDefinitions',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListDataQualityJobDefinitions.JobDefinitionSummaries'),
+        outputPath: 'JobDefinitionSummaries',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          NameContains: this.__input.nameContains,
+          CreationTimeBefore: this.__input.creationTimeBefore,
+          CreationTimeAfter: this.__input.creationTimeAfter,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListDataQualityJobDefinitions.JobDefinitionSummaries', props);
+    return resource.getResponseField('JobDefinitionSummaries') as unknown as shapes.SageMakerMonitoringJobDefinitionSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listDataQualityJobDefinitions',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListDataQualityJobDefinitions.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          NameContains: this.__input.nameContains,
+          CreationTimeBefore: this.__input.creationTimeBefore,
+          CreationTimeAfter: this.__input.creationTimeAfter,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListDataQualityJobDefinitions.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesListDeviceFleets {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListDeviceFleetsRequest) {
+  }
+
+  public get deviceFleetSummaries(): shapes.SageMakerDeviceFleetSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listDeviceFleets',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListDeviceFleets.DeviceFleetSummaries'),
+        outputPath: 'DeviceFleetSummaries',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          CreationTimeAfter: this.__input.creationTimeAfter,
+          CreationTimeBefore: this.__input.creationTimeBefore,
+          LastModifiedTimeAfter: this.__input.lastModifiedTimeAfter,
+          LastModifiedTimeBefore: this.__input.lastModifiedTimeBefore,
+          NameContains: this.__input.nameContains,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListDeviceFleets.DeviceFleetSummaries', props);
+    return resource.getResponseField('DeviceFleetSummaries') as unknown as shapes.SageMakerDeviceFleetSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listDeviceFleets',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListDeviceFleets.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          CreationTimeAfter: this.__input.creationTimeAfter,
+          CreationTimeBefore: this.__input.creationTimeBefore,
+          LastModifiedTimeAfter: this.__input.lastModifiedTimeAfter,
+          LastModifiedTimeBefore: this.__input.lastModifiedTimeBefore,
+          NameContains: this.__input.nameContains,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListDeviceFleets.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesListDevices {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListDevicesRequest) {
+  }
+
+  public get deviceSummaries(): shapes.SageMakerDeviceSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listDevices',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListDevices.DeviceSummaries'),
+        outputPath: 'DeviceSummaries',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          LatestHeartbeatAfter: this.__input.latestHeartbeatAfter,
+          ModelName: this.__input.modelName,
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListDevices.DeviceSummaries', props);
+    return resource.getResponseField('DeviceSummaries') as unknown as shapes.SageMakerDeviceSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listDevices',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListDevices.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          LatestHeartbeatAfter: this.__input.latestHeartbeatAfter,
+          ModelName: this.__input.modelName,
+          DeviceFleetName: this.__input.deviceFleetName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListDevices.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
 export class SageMakerResponsesListDomains {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListDomainsRequest) {
@@ -16232,6 +26203,67 @@ export class SageMakerResponsesListDomains {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListDomains.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesListEdgePackagingJobs {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListEdgePackagingJobsRequest) {
+  }
+
+  public get edgePackagingJobSummaries(): shapes.SageMakerEdgePackagingJobSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listEdgePackagingJobs',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListEdgePackagingJobs.EdgePackagingJobSummaries'),
+        outputPath: 'EdgePackagingJobSummaries',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          CreationTimeAfter: this.__input.creationTimeAfter,
+          CreationTimeBefore: this.__input.creationTimeBefore,
+          LastModifiedTimeAfter: this.__input.lastModifiedTimeAfter,
+          LastModifiedTimeBefore: this.__input.lastModifiedTimeBefore,
+          NameContains: this.__input.nameContains,
+          ModelNameContains: this.__input.modelNameContains,
+          StatusEquals: this.__input.statusEquals,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListEdgePackagingJobs.EdgePackagingJobSummaries', props);
+    return resource.getResponseField('EdgePackagingJobSummaries') as unknown as shapes.SageMakerEdgePackagingJobSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listEdgePackagingJobs',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListEdgePackagingJobs.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          CreationTimeAfter: this.__input.creationTimeAfter,
+          CreationTimeBefore: this.__input.creationTimeBefore,
+          LastModifiedTimeAfter: this.__input.lastModifiedTimeAfter,
+          LastModifiedTimeBefore: this.__input.lastModifiedTimeBefore,
+          NameContains: this.__input.nameContains,
+          ModelNameContains: this.__input.modelNameContains,
+          StatusEquals: this.__input.statusEquals,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListEdgePackagingJobs.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
 
@@ -16395,6 +26427,63 @@ export class SageMakerResponsesListExperiments {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListExperiments.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesListFeatureGroups {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListFeatureGroupsRequest) {
+  }
+
+  public get featureGroupSummaries(): shapes.SageMakerFeatureGroupSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFeatureGroups',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListFeatureGroups.FeatureGroupSummaries'),
+        outputPath: 'FeatureGroupSummaries',
+        parameters: {
+          NameContains: this.__input.nameContains,
+          FeatureGroupStatusEquals: this.__input.featureGroupStatusEquals,
+          OfflineStoreStatusEquals: this.__input.offlineStoreStatusEquals,
+          CreationTimeAfter: this.__input.creationTimeAfter,
+          CreationTimeBefore: this.__input.creationTimeBefore,
+          SortOrder: this.__input.sortOrder,
+          SortBy: this.__input.sortBy,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFeatureGroups.FeatureGroupSummaries', props);
+    return resource.getResponseField('FeatureGroupSummaries') as unknown as shapes.SageMakerFeatureGroupSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFeatureGroups',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListFeatureGroups.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          NameContains: this.__input.nameContains,
+          FeatureGroupStatusEquals: this.__input.featureGroupStatusEquals,
+          OfflineStoreStatusEquals: this.__input.offlineStoreStatusEquals,
+          CreationTimeAfter: this.__input.creationTimeAfter,
+          CreationTimeBefore: this.__input.creationTimeBefore,
+          SortOrder: this.__input.sortOrder,
+          SortBy: this.__input.sortBy,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFeatureGroups.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
 
@@ -16785,6 +26874,169 @@ export class SageMakerResponsesListLabelingJobsForWorkteam {
 
 }
 
+export class SageMakerResponsesListModelBiasJobDefinitions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListModelBiasJobDefinitionsRequest) {
+  }
+
+  public get jobDefinitionSummaries(): shapes.SageMakerMonitoringJobDefinitionSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listModelBiasJobDefinitions',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListModelBiasJobDefinitions.JobDefinitionSummaries'),
+        outputPath: 'JobDefinitionSummaries',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          NameContains: this.__input.nameContains,
+          CreationTimeBefore: this.__input.creationTimeBefore,
+          CreationTimeAfter: this.__input.creationTimeAfter,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListModelBiasJobDefinitions.JobDefinitionSummaries', props);
+    return resource.getResponseField('JobDefinitionSummaries') as unknown as shapes.SageMakerMonitoringJobDefinitionSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listModelBiasJobDefinitions',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListModelBiasJobDefinitions.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          NameContains: this.__input.nameContains,
+          CreationTimeBefore: this.__input.creationTimeBefore,
+          CreationTimeAfter: this.__input.creationTimeAfter,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListModelBiasJobDefinitions.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesListModelExplainabilityJobDefinitions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListModelExplainabilityJobDefinitionsRequest) {
+  }
+
+  public get jobDefinitionSummaries(): shapes.SageMakerMonitoringJobDefinitionSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listModelExplainabilityJobDefinitions',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListModelExplainabilityJobDefinitions.JobDefinitionSummaries'),
+        outputPath: 'JobDefinitionSummaries',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          NameContains: this.__input.nameContains,
+          CreationTimeBefore: this.__input.creationTimeBefore,
+          CreationTimeAfter: this.__input.creationTimeAfter,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListModelExplainabilityJobDefinitions.JobDefinitionSummaries', props);
+    return resource.getResponseField('JobDefinitionSummaries') as unknown as shapes.SageMakerMonitoringJobDefinitionSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listModelExplainabilityJobDefinitions',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListModelExplainabilityJobDefinitions.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          NameContains: this.__input.nameContains,
+          CreationTimeBefore: this.__input.creationTimeBefore,
+          CreationTimeAfter: this.__input.creationTimeAfter,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListModelExplainabilityJobDefinitions.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesListModelPackageGroups {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListModelPackageGroupsInput) {
+  }
+
+  public get modelPackageGroupSummaryList(): shapes.SageMakerModelPackageGroupSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listModelPackageGroups',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListModelPackageGroups.ModelPackageGroupSummaryList'),
+        outputPath: 'ModelPackageGroupSummaryList',
+        parameters: {
+          CreationTimeAfter: this.__input.creationTimeAfter,
+          CreationTimeBefore: this.__input.creationTimeBefore,
+          MaxResults: this.__input.maxResults,
+          NameContains: this.__input.nameContains,
+          NextToken: this.__input.nextToken,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListModelPackageGroups.ModelPackageGroupSummaryList', props);
+    return resource.getResponseField('ModelPackageGroupSummaryList') as unknown as shapes.SageMakerModelPackageGroupSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listModelPackageGroups',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListModelPackageGroups.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          CreationTimeAfter: this.__input.creationTimeAfter,
+          CreationTimeBefore: this.__input.creationTimeBefore,
+          MaxResults: this.__input.maxResults,
+          NameContains: this.__input.nameContains,
+          NextToken: this.__input.nextToken,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListModelPackageGroups.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
 export class SageMakerResponsesListModelPackages {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListModelPackagesInput) {
@@ -16803,6 +27055,9 @@ export class SageMakerResponsesListModelPackages {
           CreationTimeBefore: this.__input.creationTimeBefore,
           MaxResults: this.__input.maxResults,
           NameContains: this.__input.nameContains,
+          ModelApprovalStatus: this.__input.modelApprovalStatus,
+          ModelPackageGroupName: this.__input.modelPackageGroupName,
+          ModelPackageType: this.__input.modelPackageType,
           NextToken: this.__input.nextToken,
           SortBy: this.__input.sortBy,
           SortOrder: this.__input.sortOrder,
@@ -16826,6 +27081,9 @@ export class SageMakerResponsesListModelPackages {
           CreationTimeBefore: this.__input.creationTimeBefore,
           MaxResults: this.__input.maxResults,
           NameContains: this.__input.nameContains,
+          ModelApprovalStatus: this.__input.modelApprovalStatus,
+          ModelPackageGroupName: this.__input.modelPackageGroupName,
+          ModelPackageType: this.__input.modelPackageType,
           NextToken: this.__input.nextToken,
           SortBy: this.__input.sortBy,
           SortOrder: this.__input.sortOrder,
@@ -16833,6 +27091,61 @@ export class SageMakerResponsesListModelPackages {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListModelPackages.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesListModelQualityJobDefinitions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListModelQualityJobDefinitionsRequest) {
+  }
+
+  public get jobDefinitionSummaries(): shapes.SageMakerMonitoringJobDefinitionSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listModelQualityJobDefinitions',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListModelQualityJobDefinitions.JobDefinitionSummaries'),
+        outputPath: 'JobDefinitionSummaries',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          NameContains: this.__input.nameContains,
+          CreationTimeBefore: this.__input.creationTimeBefore,
+          CreationTimeAfter: this.__input.creationTimeAfter,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListModelQualityJobDefinitions.JobDefinitionSummaries', props);
+    return resource.getResponseField('JobDefinitionSummaries') as unknown as shapes.SageMakerMonitoringJobDefinitionSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listModelQualityJobDefinitions',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListModelQualityJobDefinitions.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          NameContains: this.__input.nameContains,
+          CreationTimeBefore: this.__input.creationTimeBefore,
+          CreationTimeAfter: this.__input.creationTimeAfter,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListModelQualityJobDefinitions.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
 
@@ -16918,6 +27231,8 @@ export class SageMakerResponsesListMonitoringExecutions {
           LastModifiedTimeBefore: this.__input.lastModifiedTimeBefore,
           LastModifiedTimeAfter: this.__input.lastModifiedTimeAfter,
           StatusEquals: this.__input.statusEquals,
+          MonitoringJobDefinitionName: this.__input.monitoringJobDefinitionName,
+          MonitoringTypeEquals: this.__input.monitoringTypeEquals,
         },
       },
     };
@@ -16947,6 +27262,8 @@ export class SageMakerResponsesListMonitoringExecutions {
           LastModifiedTimeBefore: this.__input.lastModifiedTimeBefore,
           LastModifiedTimeAfter: this.__input.lastModifiedTimeAfter,
           StatusEquals: this.__input.statusEquals,
+          MonitoringJobDefinitionName: this.__input.monitoringJobDefinitionName,
+          MonitoringTypeEquals: this.__input.monitoringTypeEquals,
         },
       },
     };
@@ -16981,6 +27298,8 @@ export class SageMakerResponsesListMonitoringSchedules {
           LastModifiedTimeBefore: this.__input.lastModifiedTimeBefore,
           LastModifiedTimeAfter: this.__input.lastModifiedTimeAfter,
           StatusEquals: this.__input.statusEquals,
+          MonitoringJobDefinitionName: this.__input.monitoringJobDefinitionName,
+          MonitoringTypeEquals: this.__input.monitoringTypeEquals,
         },
       },
     };
@@ -17008,6 +27327,8 @@ export class SageMakerResponsesListMonitoringSchedules {
           LastModifiedTimeBefore: this.__input.lastModifiedTimeBefore,
           LastModifiedTimeAfter: this.__input.lastModifiedTimeAfter,
           StatusEquals: this.__input.statusEquals,
+          MonitoringJobDefinitionName: this.__input.monitoringJobDefinitionName,
+          MonitoringTypeEquals: this.__input.monitoringTypeEquals,
         },
       },
     };
@@ -17139,6 +27460,204 @@ export class SageMakerResponsesListNotebookInstances {
 
 }
 
+export class SageMakerResponsesListPipelineExecutionSteps {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListPipelineExecutionStepsRequest) {
+  }
+
+  public get pipelineExecutionSteps(): shapes.SageMakerPipelineExecutionStep[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listPipelineExecutionSteps',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListPipelineExecutionSteps.PipelineExecutionSteps'),
+        outputPath: 'PipelineExecutionSteps',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          SortOrder: this.__input.sortOrder,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListPipelineExecutionSteps.PipelineExecutionSteps', props);
+    return resource.getResponseField('PipelineExecutionSteps') as unknown as shapes.SageMakerPipelineExecutionStep[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listPipelineExecutionSteps',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListPipelineExecutionSteps.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          SortOrder: this.__input.sortOrder,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListPipelineExecutionSteps.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesListPipelineExecutions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListPipelineExecutionsRequest) {
+  }
+
+  public get pipelineExecutionSummaries(): shapes.SageMakerPipelineExecutionSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listPipelineExecutions',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListPipelineExecutions.PipelineExecutionSummaries'),
+        outputPath: 'PipelineExecutionSummaries',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+          CreatedAfter: this.__input.createdAfter,
+          CreatedBefore: this.__input.createdBefore,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListPipelineExecutions.PipelineExecutionSummaries', props);
+    return resource.getResponseField('PipelineExecutionSummaries') as unknown as shapes.SageMakerPipelineExecutionSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listPipelineExecutions',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListPipelineExecutions.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+          CreatedAfter: this.__input.createdAfter,
+          CreatedBefore: this.__input.createdBefore,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListPipelineExecutions.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesListPipelineParametersForExecution {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListPipelineParametersForExecutionRequest) {
+  }
+
+  public get pipelineParameters(): shapes.SageMakerParameter[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listPipelineParametersForExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListPipelineParametersForExecution.PipelineParameters'),
+        outputPath: 'PipelineParameters',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListPipelineParametersForExecution.PipelineParameters', props);
+    return resource.getResponseField('PipelineParameters') as unknown as shapes.SageMakerParameter[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listPipelineParametersForExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListPipelineParametersForExecution.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListPipelineParametersForExecution.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesListPipelines {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListPipelinesRequest) {
+  }
+
+  public get pipelineSummaries(): shapes.SageMakerPipelineSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listPipelines',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListPipelines.PipelineSummaries'),
+        outputPath: 'PipelineSummaries',
+        parameters: {
+          PipelineNamePrefix: this.__input.pipelineNamePrefix,
+          CreatedAfter: this.__input.createdAfter,
+          CreatedBefore: this.__input.createdBefore,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListPipelines.PipelineSummaries', props);
+    return resource.getResponseField('PipelineSummaries') as unknown as shapes.SageMakerPipelineSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listPipelines',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListPipelines.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          PipelineNamePrefix: this.__input.pipelineNamePrefix,
+          CreatedAfter: this.__input.createdAfter,
+          CreatedBefore: this.__input.createdBefore,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListPipelines.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
 export class SageMakerResponsesListProcessingJobs {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListProcessingJobsRequest) {
@@ -17193,6 +27712,59 @@ export class SageMakerResponsesListProcessingJobs {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListProcessingJobs.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesListProjects {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerListProjectsInput) {
+  }
+
+  public get projectSummaryList(): shapes.SageMakerProjectSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listProjects',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListProjects.ProjectSummaryList'),
+        outputPath: 'ProjectSummaryList',
+        parameters: {
+          CreationTimeAfter: this.__input.creationTimeAfter,
+          CreationTimeBefore: this.__input.creationTimeBefore,
+          MaxResults: this.__input.maxResults,
+          NameContains: this.__input.nameContains,
+          NextToken: this.__input.nextToken,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListProjects.ProjectSummaryList', props);
+    return resource.getResponseField('ProjectSummaryList') as unknown as shapes.SageMakerProjectSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listProjects',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.ListProjects.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          CreationTimeAfter: this.__input.creationTimeAfter,
+          CreationTimeBefore: this.__input.creationTimeBefore,
+          MaxResults: this.__input.maxResults,
+          NameContains: this.__input.nameContains,
+          NextToken: this.__input.nextToken,
+          SortBy: this.__input.sortBy,
+          SortOrder: this.__input.sortOrder,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListProjects.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
 
@@ -17718,6 +28290,31 @@ export class SageMakerResponsesListWorkteams {
 
 }
 
+export class SageMakerResponsesPutModelPackageGroupPolicy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerPutModelPackageGroupPolicyInput) {
+  }
+
+  public get modelPackageGroupArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putModelPackageGroupPolicy',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.PutModelPackageGroupPolicy.ModelPackageGroupArn'),
+        outputPath: 'ModelPackageGroupArn',
+        parameters: {
+          ModelPackageGroupName: this.__input.modelPackageGroupName,
+          ResourcePolicy: this.__input.resourcePolicy,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutModelPackageGroupPolicy.ModelPackageGroupArn', props);
+    return resource.getResponseField('ModelPackageGroupArn') as unknown as string;
+  }
+
+}
+
 export class SageMakerResponsesRenderUiTemplate {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerRenderUiTemplateRequest) {
@@ -17834,6 +28431,139 @@ export class SageMakerResponsesSearch {
 
 }
 
+export class SageMakerResponsesSendPipelineExecutionStepFailure {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerSendPipelineExecutionStepFailureRequest) {
+  }
+
+  public get pipelineExecutionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'sendPipelineExecutionStepFailure',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.SendPipelineExecutionStepFailure.PipelineExecutionArn'),
+        outputPath: 'PipelineExecutionArn',
+        parameters: {
+          CallbackToken: this.__input.callbackToken,
+          FailureReason: this.__input.failureReason,
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SendPipelineExecutionStepFailure.PipelineExecutionArn', props);
+    return resource.getResponseField('PipelineExecutionArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesSendPipelineExecutionStepSuccess {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerSendPipelineExecutionStepSuccessRequest) {
+  }
+
+  public get pipelineExecutionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'sendPipelineExecutionStepSuccess',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.SendPipelineExecutionStepSuccess.PipelineExecutionArn'),
+        outputPath: 'PipelineExecutionArn',
+        parameters: {
+          CallbackToken: this.__input.callbackToken,
+          OutputParameters: this.__input.outputParameters,
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SendPipelineExecutionStepSuccess.PipelineExecutionArn', props);
+    return resource.getResponseField('PipelineExecutionArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesStartPipelineExecution {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerStartPipelineExecutionRequest) {
+  }
+
+  public get pipelineExecutionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startPipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.StartPipelineExecution.PipelineExecutionArn'),
+        outputPath: 'PipelineExecutionArn',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+          PipelineExecutionDisplayName: this.__input.pipelineExecutionDisplayName,
+          PipelineParameters: this.__input.pipelineParameters,
+          PipelineExecutionDescription: this.__input.pipelineExecutionDescription,
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartPipelineExecution.PipelineExecutionArn', props);
+    return resource.getResponseField('PipelineExecutionArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesStopPipelineExecution {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerStopPipelineExecutionRequest) {
+  }
+
+  public get pipelineExecutionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopPipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.StopPipelineExecution.PipelineExecutionArn'),
+        outputPath: 'PipelineExecutionArn',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StopPipelineExecution.PipelineExecutionArn', props);
+    return resource.getResponseField('PipelineExecutionArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesUpdateAction {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerUpdateActionRequest) {
+  }
+
+  public get actionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAction',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.UpdateAction.ActionArn'),
+        outputPath: 'ActionArn',
+        parameters: {
+          ActionName: this.__input.actionName,
+          Description: this.__input.description,
+          Status: this.__input.status,
+          Properties: this.__input.properties,
+          PropertiesToRemove: this.__input.propertiesToRemove,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAction.ActionArn', props);
+    return resource.getResponseField('ActionArn') as unknown as string;
+  }
+
+}
+
 export class SageMakerResponsesUpdateAppImageConfig {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerUpdateAppImageConfigRequest) {
@@ -17866,6 +28596,33 @@ export class SageMakerResponsesUpdateAppImageConfig {
 
 }
 
+export class SageMakerResponsesUpdateArtifact {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerUpdateArtifactRequest) {
+  }
+
+  public get artifactArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateArtifact',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.UpdateArtifact.ArtifactArn'),
+        outputPath: 'ArtifactArn',
+        parameters: {
+          ArtifactArn: this.__input.artifactArn,
+          ArtifactName: this.__input.artifactName,
+          Properties: this.__input.properties,
+          PropertiesToRemove: this.__input.propertiesToRemove,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateArtifact.ArtifactArn', props);
+    return resource.getResponseField('ArtifactArn') as unknown as string;
+  }
+
+}
+
 export class SageMakerResponsesUpdateCodeRepository {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerUpdateCodeRepositoryInput) {
@@ -17889,6 +28646,33 @@ export class SageMakerResponsesUpdateCodeRepository {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateCodeRepository.CodeRepositoryArn', props);
     return resource.getResponseField('CodeRepositoryArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesUpdateContext {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerUpdateContextRequest) {
+  }
+
+  public get contextArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateContext',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.UpdateContext.ContextArn'),
+        outputPath: 'ContextArn',
+        parameters: {
+          ContextName: this.__input.contextName,
+          Description: this.__input.description,
+          Properties: this.__input.properties,
+          PropertiesToRemove: this.__input.propertiesToRemove,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateContext.ContextArn', props);
+    return resource.getResponseField('ContextArn') as unknown as string;
   }
 
 }
@@ -17966,6 +28750,23 @@ export class SageMakerResponsesUpdateEndpoint {
           EndpointConfigName: this.__input.endpointConfigName,
           RetainAllVariantProperties: this.__input.retainAllVariantProperties,
           ExcludeRetainedVariantProperties: this.__input.excludeRetainedVariantProperties,
+          DeploymentConfig: {
+            BlueGreenUpdatePolicy: {
+              TrafficRoutingConfiguration: {
+                Type: this.__input.deploymentConfig?.blueGreenUpdatePolicy.trafficRoutingConfiguration.type,
+                WaitIntervalInSeconds: this.__input.deploymentConfig?.blueGreenUpdatePolicy.trafficRoutingConfiguration.waitIntervalInSeconds,
+                CanarySize: {
+                  Type: this.__input.deploymentConfig?.blueGreenUpdatePolicy.trafficRoutingConfiguration.canarySize?.type,
+                  Value: this.__input.deploymentConfig?.blueGreenUpdatePolicy.trafficRoutingConfiguration.canarySize?.value,
+                },
+              },
+              TerminationWaitInSeconds: this.__input.deploymentConfig?.blueGreenUpdatePolicy.terminationWaitInSeconds,
+              MaximumExecutionTimeoutInSeconds: this.__input.deploymentConfig?.blueGreenUpdatePolicy.maximumExecutionTimeoutInSeconds,
+            },
+            AutoRollbackConfiguration: {
+              Alarms: this.__input.deploymentConfig?.autoRollbackConfiguration?.alarms,
+            },
+          },
         },
       },
     };
@@ -18054,6 +28855,32 @@ export class SageMakerResponsesUpdateImage {
 
 }
 
+export class SageMakerResponsesUpdateModelPackage {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerUpdateModelPackageInput) {
+  }
+
+  public get modelPackageArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateModelPackage',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.UpdateModelPackage.ModelPackageArn'),
+        outputPath: 'ModelPackageArn',
+        parameters: {
+          ModelPackageArn: this.__input.modelPackageArn,
+          ModelApprovalStatus: this.__input.modelApprovalStatus,
+          ApprovalDescription: this.__input.approvalDescription,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateModelPackage.ModelPackageArn', props);
+    return resource.getResponseField('ModelPackageArn') as unknown as string;
+  }
+
+}
+
 export class SageMakerResponsesUpdateMonitoringSchedule {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerUpdateMonitoringScheduleRequest) {
@@ -18075,53 +28902,141 @@ export class SageMakerResponsesUpdateMonitoringSchedule {
             },
             MonitoringJobDefinition: {
               BaselineConfig: {
+                BaseliningJobName: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.baselineConfig?.baseliningJobName,
                 ConstraintsResource: {
-                  S3Uri: this.__input.monitoringScheduleConfig.monitoringJobDefinition.baselineConfig?.constraintsResource?.s3Uri,
+                  S3Uri: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.baselineConfig?.constraintsResource?.s3Uri,
                 },
                 StatisticsResource: {
-                  S3Uri: this.__input.monitoringScheduleConfig.monitoringJobDefinition.baselineConfig?.statisticsResource?.s3Uri,
+                  S3Uri: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.baselineConfig?.statisticsResource?.s3Uri,
                 },
               },
-              MonitoringInputs: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringInputs,
+              MonitoringInputs: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringInputs,
               MonitoringOutputConfig: {
-                MonitoringOutputs: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringOutputConfig.monitoringOutputs,
-                KmsKeyId: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringOutputConfig.kmsKeyId,
+                MonitoringOutputs: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringOutputConfig.monitoringOutputs,
+                KmsKeyId: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringOutputConfig.kmsKeyId,
               },
               MonitoringResources: {
                 ClusterConfig: {
-                  InstanceCount: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringResources.clusterConfig.instanceCount,
-                  InstanceType: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringResources.clusterConfig.instanceType,
-                  VolumeSizeInGB: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringResources.clusterConfig.volumeSizeInGb,
-                  VolumeKmsKeyId: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringResources.clusterConfig.volumeKmsKeyId,
+                  InstanceCount: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringResources.clusterConfig.instanceCount,
+                  InstanceType: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringResources.clusterConfig.instanceType,
+                  VolumeSizeInGB: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringResources.clusterConfig.volumeSizeInGb,
+                  VolumeKmsKeyId: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringResources.clusterConfig.volumeKmsKeyId,
                 },
               },
               MonitoringAppSpecification: {
-                ImageUri: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringAppSpecification.imageUri,
-                ContainerEntrypoint: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringAppSpecification.containerEntrypoint,
-                ContainerArguments: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringAppSpecification.containerArguments,
-                RecordPreprocessorSourceUri: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringAppSpecification.recordPreprocessorSourceUri,
-                PostAnalyticsProcessorSourceUri: this.__input.monitoringScheduleConfig.monitoringJobDefinition.monitoringAppSpecification.postAnalyticsProcessorSourceUri,
+                ImageUri: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringAppSpecification.imageUri,
+                ContainerEntrypoint: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringAppSpecification.containerEntrypoint,
+                ContainerArguments: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringAppSpecification.containerArguments,
+                RecordPreprocessorSourceUri: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringAppSpecification.recordPreprocessorSourceUri,
+                PostAnalyticsProcessorSourceUri: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.monitoringAppSpecification.postAnalyticsProcessorSourceUri,
               },
               StoppingCondition: {
-                MaxRuntimeInSeconds: this.__input.monitoringScheduleConfig.monitoringJobDefinition.stoppingCondition?.maxRuntimeInSeconds,
+                MaxRuntimeInSeconds: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.stoppingCondition?.maxRuntimeInSeconds,
               },
-              Environment: this.__input.monitoringScheduleConfig.monitoringJobDefinition.environment,
+              Environment: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.environment,
               NetworkConfig: {
-                EnableInterContainerTrafficEncryption: this.__input.monitoringScheduleConfig.monitoringJobDefinition.networkConfig?.enableInterContainerTrafficEncryption,
-                EnableNetworkIsolation: this.__input.monitoringScheduleConfig.monitoringJobDefinition.networkConfig?.enableNetworkIsolation,
+                EnableInterContainerTrafficEncryption: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.networkConfig?.enableInterContainerTrafficEncryption,
+                EnableNetworkIsolation: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.networkConfig?.enableNetworkIsolation,
                 VpcConfig: {
-                  SecurityGroupIds: this.__input.monitoringScheduleConfig.monitoringJobDefinition.networkConfig?.vpcConfig?.securityGroupIds,
-                  Subnets: this.__input.monitoringScheduleConfig.monitoringJobDefinition.networkConfig?.vpcConfig?.subnets,
+                  SecurityGroupIds: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.networkConfig?.vpcConfig?.securityGroupIds,
+                  Subnets: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.networkConfig?.vpcConfig?.subnets,
                 },
               },
-              RoleArn: this.__input.monitoringScheduleConfig.monitoringJobDefinition.roleArn,
+              RoleArn: this.__input.monitoringScheduleConfig.monitoringJobDefinition?.roleArn,
             },
+            MonitoringJobDefinitionName: this.__input.monitoringScheduleConfig.monitoringJobDefinitionName,
+            MonitoringType: this.__input.monitoringScheduleConfig.monitoringType,
           },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateMonitoringSchedule.MonitoringScheduleArn', props);
     return resource.getResponseField('MonitoringScheduleArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesUpdatePipeline {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerUpdatePipelineRequest) {
+  }
+
+  public get pipelineArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updatePipeline',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.UpdatePipeline.PipelineArn'),
+        outputPath: 'PipelineArn',
+        parameters: {
+          PipelineName: this.__input.pipelineName,
+          PipelineDisplayName: this.__input.pipelineDisplayName,
+          PipelineDefinition: this.__input.pipelineDefinition,
+          PipelineDescription: this.__input.pipelineDescription,
+          RoleArn: this.__input.roleArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdatePipeline.PipelineArn', props);
+    return resource.getResponseField('PipelineArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesUpdatePipelineExecution {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerUpdatePipelineExecutionRequest) {
+  }
+
+  public get pipelineExecutionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updatePipelineExecution',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.UpdatePipelineExecution.PipelineExecutionArn'),
+        outputPath: 'PipelineExecutionArn',
+        parameters: {
+          PipelineExecutionArn: this.__input.pipelineExecutionArn,
+          PipelineExecutionDescription: this.__input.pipelineExecutionDescription,
+          PipelineExecutionDisplayName: this.__input.pipelineExecutionDisplayName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdatePipelineExecution.PipelineExecutionArn', props);
+    return resource.getResponseField('PipelineExecutionArn') as unknown as string;
+  }
+
+}
+
+export class SageMakerResponsesUpdateTrainingJob {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SageMakerUpdateTrainingJobRequest) {
+  }
+
+  public get trainingJobArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateTrainingJob',
+        service: 'SageMaker',
+        physicalResourceId: cr.PhysicalResourceId.of('SageMaker.UpdateTrainingJob.TrainingJobArn'),
+        outputPath: 'TrainingJobArn',
+        parameters: {
+          TrainingJobName: this.__input.trainingJobName,
+          ProfilerConfig: {
+            S3OutputPath: this.__input.profilerConfig?.s3OutputPath,
+            ProfilingIntervalInMilliseconds: this.__input.profilerConfig?.profilingIntervalInMilliseconds,
+            ProfilingParameters: this.__input.profilerConfig?.profilingParameters,
+            DisableProfiler: this.__input.profilerConfig?.disableProfiler,
+          },
+          ProfilerRuleConfigurations: this.__input.profilerRuleConfigurations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateTrainingJob.TrainingJobArn', props);
+    return resource.getResponseField('TrainingJobArn') as unknown as string;
   }
 
 }

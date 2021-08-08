@@ -64,6 +64,46 @@ export class ServiceCatalogAppRegistryClient extends cdk.Construct {
     return new ServiceCatalogAppRegistryResponsesListAttributeGroups(this, this.__resources, input);
   }
 
+  public listTagsForResource(input: shapes.ServiceCatalogAppRegistryListTagsForResourceRequest): ServiceCatalogAppRegistryResponsesListTagsForResource {
+    return new ServiceCatalogAppRegistryResponsesListTagsForResource(this, this.__resources, input);
+  }
+
+  public syncResource(input: shapes.ServiceCatalogAppRegistrySyncResourceRequest): ServiceCatalogAppRegistryResponsesSyncResource {
+    return new ServiceCatalogAppRegistryResponsesSyncResource(this, this.__resources, input);
+  }
+
+  public tagResource(input: shapes.ServiceCatalogAppRegistryTagResourceRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'tagResource',
+        service: 'ServiceCatalogAppRegistry',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceCatalogAppRegistry.TagResource'),
+        parameters: {
+          resourceArn: input.resourceArn,
+          tags: input.tags,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'TagResource', props);
+  }
+
+  public untagResource(input: shapes.ServiceCatalogAppRegistryUntagResourceRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'untagResource',
+        service: 'ServiceCatalogAppRegistry',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceCatalogAppRegistry.UntagResource'),
+        parameters: {
+          resourceArn: input.resourceArn,
+          tagKeys: input.tagKeys,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UntagResource', props);
+  }
+
   public updateApplication(input: shapes.ServiceCatalogAppRegistryUpdateApplicationRequest): ServiceCatalogAppRegistryResponsesUpdateApplication {
     return new ServiceCatalogAppRegistryResponsesUpdateApplication(this, this.__resources, input);
   }
@@ -1271,6 +1311,91 @@ export class ServiceCatalogAppRegistryResponsesListAttributeGroups {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListAttributeGroups.nextToken', props);
     return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
+export class ServiceCatalogAppRegistryResponsesListTagsForResource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ServiceCatalogAppRegistryListTagsForResourceRequest) {
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listTagsForResource',
+        service: 'ServiceCatalogAppRegistry',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceCatalogAppRegistry.ListTagsForResource.tags'),
+        outputPath: 'tags',
+        parameters: {
+          resourceArn: this.__input.resourceArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListTagsForResource.tags', props);
+    return resource.getResponseField('tags') as unknown as Record<string, string>;
+  }
+
+}
+
+export class ServiceCatalogAppRegistryResponsesSyncResource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ServiceCatalogAppRegistrySyncResourceRequest) {
+  }
+
+  public get applicationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'syncResource',
+        service: 'ServiceCatalogAppRegistry',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceCatalogAppRegistry.SyncResource.applicationArn'),
+        outputPath: 'applicationArn',
+        parameters: {
+          resourceType: this.__input.resourceType,
+          resource: this.__input.resource,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SyncResource.applicationArn', props);
+    return resource.getResponseField('applicationArn') as unknown as string;
+  }
+
+  public get resourceArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'syncResource',
+        service: 'ServiceCatalogAppRegistry',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceCatalogAppRegistry.SyncResource.resourceArn'),
+        outputPath: 'resourceArn',
+        parameters: {
+          resourceType: this.__input.resourceType,
+          resource: this.__input.resource,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SyncResource.resourceArn', props);
+    return resource.getResponseField('resourceArn') as unknown as string;
+  }
+
+  public get actionTaken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'syncResource',
+        service: 'ServiceCatalogAppRegistry',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceCatalogAppRegistry.SyncResource.actionTaken'),
+        outputPath: 'actionTaken',
+        parameters: {
+          resourceType: this.__input.resourceType,
+          resource: this.__input.resource,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SyncResource.actionTaken', props);
+    return resource.getResponseField('actionTaken') as unknown as string;
   }
 
 }

@@ -5,27 +5,27 @@ export interface SyntheticsCreateCanaryRequest {
   /**
    * @schema SyntheticsCreateCanaryRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema SyntheticsCreateCanaryRequest#Code
    */
-  readonly code: SyntheticsCanaryCodeInput;
+  readonly code?: SyntheticsCanaryCodeInput;
 
   /**
    * @schema SyntheticsCreateCanaryRequest#ArtifactS3Location
    */
-  readonly artifactS3Location: string;
+  readonly artifactS3Location?: string;
 
   /**
    * @schema SyntheticsCreateCanaryRequest#ExecutionRoleArn
    */
-  readonly executionRoleArn: string;
+  readonly executionRoleArn?: string;
 
   /**
    * @schema SyntheticsCreateCanaryRequest#Schedule
    */
-  readonly schedule: SyntheticsCanaryScheduleInput;
+  readonly schedule?: SyntheticsCanaryScheduleInput;
 
   /**
    * @schema SyntheticsCreateCanaryRequest#RunConfig
@@ -45,7 +45,7 @@ export interface SyntheticsCreateCanaryRequest {
   /**
    * @schema SyntheticsCreateCanaryRequest#RuntimeVersion
    */
-  readonly runtimeVersion: string;
+  readonly runtimeVersion?: string;
 
   /**
    * @schema SyntheticsCreateCanaryRequest#VpcConfig
@@ -60,6 +60,30 @@ export interface SyntheticsCreateCanaryRequest {
 }
 
 /**
+ * Converts an object of type 'SyntheticsCreateCanaryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsCreateCanaryRequest(obj: SyntheticsCreateCanaryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Code': toJson_SyntheticsCanaryCodeInput(obj.code),
+    'ArtifactS3Location': obj.artifactS3Location,
+    'ExecutionRoleArn': obj.executionRoleArn,
+    'Schedule': toJson_SyntheticsCanaryScheduleInput(obj.schedule),
+    'RunConfig': toJson_SyntheticsCanaryRunConfigInput(obj.runConfig),
+    'SuccessRetentionPeriodInDays': obj.successRetentionPeriodInDays,
+    'FailureRetentionPeriodInDays': obj.failureRetentionPeriodInDays,
+    'RuntimeVersion': obj.runtimeVersion,
+    'VpcConfig': toJson_SyntheticsVpcConfigInput(obj.vpcConfig),
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsCreateCanaryResponse
  */
 export interface SyntheticsCreateCanaryResponse {
@@ -71,21 +95,62 @@ export interface SyntheticsCreateCanaryResponse {
 }
 
 /**
+ * Converts an object of type 'SyntheticsCreateCanaryResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsCreateCanaryResponse(obj: SyntheticsCreateCanaryResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Canary': toJson_SyntheticsCanary(obj.canary),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsDeleteCanaryRequest
  */
 export interface SyntheticsDeleteCanaryRequest {
   /**
    * @schema SyntheticsDeleteCanaryRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsDeleteCanaryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsDeleteCanaryRequest(obj: SyntheticsDeleteCanaryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsDeleteCanaryResponse
  */
 export interface SyntheticsDeleteCanaryResponse {
 }
+
+/**
+ * Converts an object of type 'SyntheticsDeleteCanaryResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsDeleteCanaryResponse(obj: SyntheticsDeleteCanaryResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsDescribeCanariesRequest
@@ -104,6 +169,21 @@ export interface SyntheticsDescribeCanariesRequest {
 }
 
 /**
+ * Converts an object of type 'SyntheticsDescribeCanariesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsDescribeCanariesRequest(obj: SyntheticsDescribeCanariesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsDescribeCanariesResponse
  */
 export interface SyntheticsDescribeCanariesResponse {
@@ -118,6 +198,21 @@ export interface SyntheticsDescribeCanariesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsDescribeCanariesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsDescribeCanariesResponse(obj: SyntheticsDescribeCanariesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Canaries': obj.canaries?.map(y => toJson_SyntheticsCanary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsDescribeCanariesLastRunRequest
@@ -136,6 +231,21 @@ export interface SyntheticsDescribeCanariesLastRunRequest {
 }
 
 /**
+ * Converts an object of type 'SyntheticsDescribeCanariesLastRunRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsDescribeCanariesLastRunRequest(obj: SyntheticsDescribeCanariesLastRunRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsDescribeCanariesLastRunResponse
  */
 export interface SyntheticsDescribeCanariesLastRunResponse {
@@ -150,6 +260,21 @@ export interface SyntheticsDescribeCanariesLastRunResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsDescribeCanariesLastRunResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsDescribeCanariesLastRunResponse(obj: SyntheticsDescribeCanariesLastRunResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CanariesLastRun': obj.canariesLastRun?.map(y => toJson_SyntheticsCanaryLastRun(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsDescribeRuntimeVersionsRequest
@@ -168,6 +293,21 @@ export interface SyntheticsDescribeRuntimeVersionsRequest {
 }
 
 /**
+ * Converts an object of type 'SyntheticsDescribeRuntimeVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsDescribeRuntimeVersionsRequest(obj: SyntheticsDescribeRuntimeVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsDescribeRuntimeVersionsResponse
  */
 export interface SyntheticsDescribeRuntimeVersionsResponse {
@@ -184,15 +324,44 @@ export interface SyntheticsDescribeRuntimeVersionsResponse {
 }
 
 /**
+ * Converts an object of type 'SyntheticsDescribeRuntimeVersionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsDescribeRuntimeVersionsResponse(obj: SyntheticsDescribeRuntimeVersionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RuntimeVersions': obj.runtimeVersions?.map(y => toJson_SyntheticsRuntimeVersion(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsGetCanaryRequest
  */
 export interface SyntheticsGetCanaryRequest {
   /**
    * @schema SyntheticsGetCanaryRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsGetCanaryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsGetCanaryRequest(obj: SyntheticsGetCanaryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsGetCanaryResponse
@@ -206,13 +375,27 @@ export interface SyntheticsGetCanaryResponse {
 }
 
 /**
+ * Converts an object of type 'SyntheticsGetCanaryResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsGetCanaryResponse(obj: SyntheticsGetCanaryResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Canary': toJson_SyntheticsCanary(obj.canary),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsGetCanaryRunsRequest
  */
 export interface SyntheticsGetCanaryRunsRequest {
   /**
    * @schema SyntheticsGetCanaryRunsRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema SyntheticsGetCanaryRunsRequest#NextToken
@@ -225,6 +408,22 @@ export interface SyntheticsGetCanaryRunsRequest {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsGetCanaryRunsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsGetCanaryRunsRequest(obj: SyntheticsGetCanaryRunsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsGetCanaryRunsResponse
@@ -243,15 +442,44 @@ export interface SyntheticsGetCanaryRunsResponse {
 }
 
 /**
+ * Converts an object of type 'SyntheticsGetCanaryRunsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsGetCanaryRunsResponse(obj: SyntheticsGetCanaryRunsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CanaryRuns': obj.canaryRuns?.map(y => toJson_SyntheticsCanaryRun(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsListTagsForResourceRequest
  */
 export interface SyntheticsListTagsForResourceRequest {
   /**
    * @schema SyntheticsListTagsForResourceRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsListTagsForResourceRequest(obj: SyntheticsListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsListTagsForResourceResponse
@@ -265,15 +493,43 @@ export interface SyntheticsListTagsForResourceResponse {
 }
 
 /**
+ * Converts an object of type 'SyntheticsListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsListTagsForResourceResponse(obj: SyntheticsListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsStartCanaryRequest
  */
 export interface SyntheticsStartCanaryRequest {
   /**
    * @schema SyntheticsStartCanaryRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsStartCanaryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsStartCanaryRequest(obj: SyntheticsStartCanaryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsStartCanaryResponse
@@ -282,15 +538,42 @@ export interface SyntheticsStartCanaryResponse {
 }
 
 /**
+ * Converts an object of type 'SyntheticsStartCanaryResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsStartCanaryResponse(obj: SyntheticsStartCanaryResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsStopCanaryRequest
  */
 export interface SyntheticsStopCanaryRequest {
   /**
    * @schema SyntheticsStopCanaryRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsStopCanaryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsStopCanaryRequest(obj: SyntheticsStopCanaryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsStopCanaryResponse
@@ -299,20 +582,48 @@ export interface SyntheticsStopCanaryResponse {
 }
 
 /**
+ * Converts an object of type 'SyntheticsStopCanaryResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsStopCanaryResponse(obj: SyntheticsStopCanaryResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsTagResourceRequest
  */
 export interface SyntheticsTagResourceRequest {
   /**
    * @schema SyntheticsTagResourceRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema SyntheticsTagResourceRequest#Tags
    */
-  readonly tags: { [key: string]: string };
+  readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsTagResourceRequest(obj: SyntheticsTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsTagResourceResponse
@@ -321,20 +632,48 @@ export interface SyntheticsTagResourceResponse {
 }
 
 /**
+ * Converts an object of type 'SyntheticsTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsTagResourceResponse(obj: SyntheticsTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsUntagResourceRequest
  */
 export interface SyntheticsUntagResourceRequest {
   /**
    * @schema SyntheticsUntagResourceRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema SyntheticsUntagResourceRequest#TagKeys
    */
-  readonly tagKeys: string[];
+  readonly tagKeys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsUntagResourceRequest(obj: SyntheticsUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsUntagResourceResponse
@@ -343,13 +682,26 @@ export interface SyntheticsUntagResourceResponse {
 }
 
 /**
+ * Converts an object of type 'SyntheticsUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsUntagResourceResponse(obj: SyntheticsUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsUpdateCanaryRequest
  */
 export interface SyntheticsUpdateCanaryRequest {
   /**
    * @schema SyntheticsUpdateCanaryRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema SyntheticsUpdateCanaryRequest#Code
@@ -391,13 +743,54 @@ export interface SyntheticsUpdateCanaryRequest {
    */
   readonly vpcConfig?: SyntheticsVpcConfigInput;
 
+  /**
+   * @schema SyntheticsUpdateCanaryRequest#VisualReference
+   */
+  readonly visualReference?: SyntheticsVisualReferenceInput;
+
 }
+
+/**
+ * Converts an object of type 'SyntheticsUpdateCanaryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsUpdateCanaryRequest(obj: SyntheticsUpdateCanaryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Code': toJson_SyntheticsCanaryCodeInput(obj.code),
+    'ExecutionRoleArn': obj.executionRoleArn,
+    'RuntimeVersion': obj.runtimeVersion,
+    'Schedule': toJson_SyntheticsCanaryScheduleInput(obj.schedule),
+    'RunConfig': toJson_SyntheticsCanaryRunConfigInput(obj.runConfig),
+    'SuccessRetentionPeriodInDays': obj.successRetentionPeriodInDays,
+    'FailureRetentionPeriodInDays': obj.failureRetentionPeriodInDays,
+    'VpcConfig': toJson_SyntheticsVpcConfigInput(obj.vpcConfig),
+    'VisualReference': toJson_SyntheticsVisualReferenceInput(obj.visualReference),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsUpdateCanaryResponse
  */
 export interface SyntheticsUpdateCanaryResponse {
 }
+
+/**
+ * Converts an object of type 'SyntheticsUpdateCanaryResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsUpdateCanaryResponse(obj: SyntheticsUpdateCanaryResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsCanaryCodeInput
@@ -426,9 +819,27 @@ export interface SyntheticsCanaryCodeInput {
   /**
    * @schema SyntheticsCanaryCodeInput#Handler
    */
-  readonly handler: string;
+  readonly handler?: string;
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsCanaryCodeInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsCanaryCodeInput(obj: SyntheticsCanaryCodeInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3Bucket': obj.s3Bucket,
+    'S3Key': obj.s3Key,
+    'S3Version': obj.s3Version,
+    'ZipFile': obj.zipFile,
+    'Handler': obj.handler,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsCanaryScheduleInput
@@ -437,7 +848,7 @@ export interface SyntheticsCanaryScheduleInput {
   /**
    * @schema SyntheticsCanaryScheduleInput#Expression
    */
-  readonly expression: string;
+  readonly expression?: string;
 
   /**
    * @schema SyntheticsCanaryScheduleInput#DurationInSeconds
@@ -445,6 +856,21 @@ export interface SyntheticsCanaryScheduleInput {
   readonly durationInSeconds?: number;
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsCanaryScheduleInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsCanaryScheduleInput(obj: SyntheticsCanaryScheduleInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Expression': obj.expression,
+    'DurationInSeconds': obj.durationInSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsCanaryRunConfigInput
@@ -473,6 +899,23 @@ export interface SyntheticsCanaryRunConfigInput {
 }
 
 /**
+ * Converts an object of type 'SyntheticsCanaryRunConfigInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsCanaryRunConfigInput(obj: SyntheticsCanaryRunConfigInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TimeoutInSeconds': obj.timeoutInSeconds,
+    'MemoryInMB': obj.memoryInMb,
+    'ActiveTracing': obj.activeTracing,
+    'EnvironmentVariables': ((obj.environmentVariables) === undefined) ? undefined : (Object.entries(obj.environmentVariables).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsVpcConfigInput
  */
 export interface SyntheticsVpcConfigInput {
@@ -487,6 +930,21 @@ export interface SyntheticsVpcConfigInput {
   readonly securityGroupIds?: string[];
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsVpcConfigInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsVpcConfigInput(obj: SyntheticsVpcConfigInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubnetIds': obj.subnetIds?.map(y => y),
+    'SecurityGroupIds': obj.securityGroupIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsCanary
@@ -563,11 +1021,45 @@ export interface SyntheticsCanary {
   readonly vpcConfig?: SyntheticsVpcConfigOutput;
 
   /**
+   * @schema SyntheticsCanary#VisualReference
+   */
+  readonly visualReference?: SyntheticsVisualReferenceOutput;
+
+  /**
    * @schema SyntheticsCanary#Tags
    */
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsCanary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsCanary(obj: SyntheticsCanary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+    'Name': obj.name,
+    'Code': toJson_SyntheticsCanaryCodeOutput(obj.code),
+    'ExecutionRoleArn': obj.executionRoleArn,
+    'Schedule': toJson_SyntheticsCanaryScheduleOutput(obj.schedule),
+    'RunConfig': toJson_SyntheticsCanaryRunConfigOutput(obj.runConfig),
+    'SuccessRetentionPeriodInDays': obj.successRetentionPeriodInDays,
+    'FailureRetentionPeriodInDays': obj.failureRetentionPeriodInDays,
+    'Status': toJson_SyntheticsCanaryStatus(obj.status),
+    'Timeline': toJson_SyntheticsCanaryTimeline(obj.timeline),
+    'ArtifactS3Location': obj.artifactS3Location,
+    'EngineArn': obj.engineArn,
+    'RuntimeVersion': obj.runtimeVersion,
+    'VpcConfig': toJson_SyntheticsVpcConfigOutput(obj.vpcConfig),
+    'VisualReference': toJson_SyntheticsVisualReferenceOutput(obj.visualReference),
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsCanaryLastRun
@@ -584,6 +1076,21 @@ export interface SyntheticsCanaryLastRun {
   readonly lastRun?: SyntheticsCanaryRun;
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsCanaryLastRun' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsCanaryLastRun(obj: SyntheticsCanaryLastRun | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CanaryName': obj.canaryName,
+    'LastRun': toJson_SyntheticsCanaryRun(obj.lastRun),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsRuntimeVersion
@@ -610,6 +1117,23 @@ export interface SyntheticsRuntimeVersion {
   readonly deprecationDate?: string;
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsRuntimeVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsRuntimeVersion(obj: SyntheticsRuntimeVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VersionName': obj.versionName,
+    'Description': obj.description,
+    'ReleaseDate': obj.releaseDate,
+    'DeprecationDate': obj.deprecationDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsCanaryRun
@@ -643,6 +1167,55 @@ export interface SyntheticsCanaryRun {
 }
 
 /**
+ * Converts an object of type 'SyntheticsCanaryRun' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsCanaryRun(obj: SyntheticsCanaryRun | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+    'Name': obj.name,
+    'Status': toJson_SyntheticsCanaryRunStatus(obj.status),
+    'Timeline': toJson_SyntheticsCanaryRunTimeline(obj.timeline),
+    'ArtifactS3Location': obj.artifactS3Location,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SyntheticsVisualReferenceInput
+ */
+export interface SyntheticsVisualReferenceInput {
+  /**
+   * @schema SyntheticsVisualReferenceInput#BaseScreenshots
+   */
+  readonly baseScreenshots?: SyntheticsBaseScreenshot[];
+
+  /**
+   * @schema SyntheticsVisualReferenceInput#BaseCanaryRunId
+   */
+  readonly baseCanaryRunId?: string;
+
+}
+
+/**
+ * Converts an object of type 'SyntheticsVisualReferenceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsVisualReferenceInput(obj: SyntheticsVisualReferenceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BaseScreenshots': obj.baseScreenshots?.map(y => toJson_SyntheticsBaseScreenshot(y)),
+    'BaseCanaryRunId': obj.baseCanaryRunId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsCanaryCodeOutput
  */
 export interface SyntheticsCanaryCodeOutput {
@@ -659,6 +1232,21 @@ export interface SyntheticsCanaryCodeOutput {
 }
 
 /**
+ * Converts an object of type 'SyntheticsCanaryCodeOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsCanaryCodeOutput(obj: SyntheticsCanaryCodeOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceLocationArn': obj.sourceLocationArn,
+    'Handler': obj.handler,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsCanaryScheduleOutput
  */
 export interface SyntheticsCanaryScheduleOutput {
@@ -673,6 +1261,21 @@ export interface SyntheticsCanaryScheduleOutput {
   readonly durationInSeconds?: number;
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsCanaryScheduleOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsCanaryScheduleOutput(obj: SyntheticsCanaryScheduleOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Expression': obj.expression,
+    'DurationInSeconds': obj.durationInSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsCanaryRunConfigOutput
@@ -696,6 +1299,22 @@ export interface SyntheticsCanaryRunConfigOutput {
 }
 
 /**
+ * Converts an object of type 'SyntheticsCanaryRunConfigOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsCanaryRunConfigOutput(obj: SyntheticsCanaryRunConfigOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TimeoutInSeconds': obj.timeoutInSeconds,
+    'MemoryInMB': obj.memoryInMb,
+    'ActiveTracing': obj.activeTracing,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsCanaryStatus
  */
 export interface SyntheticsCanaryStatus {
@@ -715,6 +1334,22 @@ export interface SyntheticsCanaryStatus {
   readonly stateReasonCode?: string;
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsCanaryStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsCanaryStatus(obj: SyntheticsCanaryStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'State': obj.state,
+    'StateReason': obj.stateReason,
+    'StateReasonCode': obj.stateReasonCode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsCanaryTimeline
@@ -743,6 +1378,23 @@ export interface SyntheticsCanaryTimeline {
 }
 
 /**
+ * Converts an object of type 'SyntheticsCanaryTimeline' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsCanaryTimeline(obj: SyntheticsCanaryTimeline | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Created': obj.created,
+    'LastModified': obj.lastModified,
+    'LastStarted': obj.lastStarted,
+    'LastStopped': obj.lastStopped,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsVpcConfigOutput
  */
 export interface SyntheticsVpcConfigOutput {
@@ -762,6 +1414,53 @@ export interface SyntheticsVpcConfigOutput {
   readonly securityGroupIds?: string[];
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsVpcConfigOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsVpcConfigOutput(obj: SyntheticsVpcConfigOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VpcId': obj.vpcId,
+    'SubnetIds': obj.subnetIds?.map(y => y),
+    'SecurityGroupIds': obj.securityGroupIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SyntheticsVisualReferenceOutput
+ */
+export interface SyntheticsVisualReferenceOutput {
+  /**
+   * @schema SyntheticsVisualReferenceOutput#BaseScreenshots
+   */
+  readonly baseScreenshots?: SyntheticsBaseScreenshot[];
+
+  /**
+   * @schema SyntheticsVisualReferenceOutput#BaseCanaryRunId
+   */
+  readonly baseCanaryRunId?: string;
+
+}
+
+/**
+ * Converts an object of type 'SyntheticsVisualReferenceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsVisualReferenceOutput(obj: SyntheticsVisualReferenceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BaseScreenshots': obj.baseScreenshots?.map(y => toJson_SyntheticsBaseScreenshot(y)),
+    'BaseCanaryRunId': obj.baseCanaryRunId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SyntheticsCanaryRunStatus
@@ -785,6 +1484,22 @@ export interface SyntheticsCanaryRunStatus {
 }
 
 /**
+ * Converts an object of type 'SyntheticsCanaryRunStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsCanaryRunStatus(obj: SyntheticsCanaryRunStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'State': obj.state,
+    'StateReason': obj.stateReason,
+    'StateReasonCode': obj.stateReasonCode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SyntheticsCanaryRunTimeline
  */
 export interface SyntheticsCanaryRunTimeline {
@@ -799,3 +1514,49 @@ export interface SyntheticsCanaryRunTimeline {
   readonly completed?: string;
 
 }
+
+/**
+ * Converts an object of type 'SyntheticsCanaryRunTimeline' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsCanaryRunTimeline(obj: SyntheticsCanaryRunTimeline | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Started': obj.started,
+    'Completed': obj.completed,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SyntheticsBaseScreenshot
+ */
+export interface SyntheticsBaseScreenshot {
+  /**
+   * @schema SyntheticsBaseScreenshot#ScreenshotName
+   */
+  readonly screenshotName?: string;
+
+  /**
+   * @schema SyntheticsBaseScreenshot#IgnoreCoordinates
+   */
+  readonly ignoreCoordinates?: string[];
+
+}
+
+/**
+ * Converts an object of type 'SyntheticsBaseScreenshot' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SyntheticsBaseScreenshot(obj: SyntheticsBaseScreenshot | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ScreenshotName': obj.screenshotName,
+    'IgnoreCoordinates': obj.ignoreCoordinates?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

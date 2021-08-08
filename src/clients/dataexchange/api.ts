@@ -447,6 +447,14 @@ export class DataExchangeResponsesCreateJob {
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
             },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
+            },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
               DataSetId: this.__input.details.importAssetFromSignedUrl?.dataSetId,
@@ -490,6 +498,14 @@ export class DataExchangeResponsesCreateJob {
                 Type: this.__input.details.exportAssetsToS3?.encryption?.type,
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
+            },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
             },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
@@ -539,6 +555,14 @@ export class DataExchangeResponsesCreateJob {
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
             },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
+            },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
               DataSetId: this.__input.details.importAssetFromSignedUrl?.dataSetId,
@@ -582,6 +606,14 @@ export class DataExchangeResponsesCreateJob {
                 Type: this.__input.details.exportAssetsToS3?.encryption?.type,
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
+            },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
             },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
@@ -627,6 +659,14 @@ export class DataExchangeResponsesCreateJob {
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
             },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
+            },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
               DataSetId: this.__input.details.importAssetFromSignedUrl?.dataSetId,
@@ -670,6 +710,14 @@ export class DataExchangeResponsesCreateJob {
                 Type: this.__input.details.exportAssetsToS3?.encryption?.type,
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
+            },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
             },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
@@ -715,6 +763,14 @@ export class DataExchangeResponsesCreateJob {
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
             },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
+            },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
               DataSetId: this.__input.details.importAssetFromSignedUrl?.dataSetId,
@@ -748,6 +804,10 @@ export class DataExchangeResponsesCreateJobDetails {
 
   public get exportAssetsToS3(): DataExchangeResponsesCreateJobDetailsExportAssetsToS3 {
     return new DataExchangeResponsesCreateJobDetailsExportAssetsToS3(this.__scope, this.__resources, this.__input);
+  }
+
+  public get exportRevisionsToS3(): DataExchangeResponsesCreateJobDetailsExportRevisionsToS3 {
+    return new DataExchangeResponsesCreateJobDetailsExportRevisionsToS3(this.__scope, this.__resources, this.__input);
   }
 
   public get importAssetFromSignedUrl(): DataExchangeResponsesCreateJobDetailsImportAssetFromSignedUrl {
@@ -788,6 +848,14 @@ export class DataExchangeResponsesCreateJobDetailsExportAssetToSignedUrl {
                 Type: this.__input.details.exportAssetsToS3?.encryption?.type,
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
+            },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
             },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
@@ -833,6 +901,14 @@ export class DataExchangeResponsesCreateJobDetailsExportAssetToSignedUrl {
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
             },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
+            },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
               DataSetId: this.__input.details.importAssetFromSignedUrl?.dataSetId,
@@ -876,6 +952,14 @@ export class DataExchangeResponsesCreateJobDetailsExportAssetToSignedUrl {
                 Type: this.__input.details.exportAssetsToS3?.encryption?.type,
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
+            },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
             },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
@@ -921,6 +1005,14 @@ export class DataExchangeResponsesCreateJobDetailsExportAssetToSignedUrl {
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
             },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
+            },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
               DataSetId: this.__input.details.importAssetFromSignedUrl?.dataSetId,
@@ -964,6 +1056,14 @@ export class DataExchangeResponsesCreateJobDetailsExportAssetToSignedUrl {
                 Type: this.__input.details.exportAssetsToS3?.encryption?.type,
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
+            },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
             },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
@@ -1016,6 +1116,14 @@ export class DataExchangeResponsesCreateJobDetailsExportAssetsToS3 {
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
             },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
+            },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
               DataSetId: this.__input.details.importAssetFromSignedUrl?.dataSetId,
@@ -1059,6 +1167,14 @@ export class DataExchangeResponsesCreateJobDetailsExportAssetsToS3 {
                 Type: this.__input.details.exportAssetsToS3?.encryption?.type,
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
+            },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
             },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
@@ -1107,6 +1223,14 @@ export class DataExchangeResponsesCreateJobDetailsExportAssetsToS3 {
                 Type: this.__input.details.exportAssetsToS3?.encryption?.type,
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
+            },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
             },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
@@ -1159,6 +1283,14 @@ export class DataExchangeResponsesCreateJobDetailsExportAssetsToS3Encryption {
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
             },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
+            },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
               DataSetId: this.__input.details.importAssetFromSignedUrl?.dataSetId,
@@ -1203,6 +1335,14 @@ export class DataExchangeResponsesCreateJobDetailsExportAssetsToS3Encryption {
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
             },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
+            },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
               DataSetId: this.__input.details.importAssetFromSignedUrl?.dataSetId,
@@ -1221,6 +1361,232 @@ export class DataExchangeResponsesCreateJobDetailsExportAssetsToS3Encryption {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateJob.Details.ExportAssetsToS3.Encryption.Type', props);
     return resource.getResponseField('Details.ExportAssetsToS3.Encryption.Type') as unknown as string;
+  }
+
+}
+
+export class DataExchangeResponsesCreateJobDetailsExportRevisionsToS3 {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DataExchangeCreateJobRequest) {
+  }
+
+  public get dataSetId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createJob',
+        service: 'DataExchange',
+        physicalResourceId: cr.PhysicalResourceId.of('DataExchange.CreateJob.Details.ExportRevisionsToS3.DataSetId'),
+        outputPath: 'Details.ExportRevisionsToS3.DataSetId',
+        parameters: {
+          Details: {
+            ExportAssetToSignedUrl: {
+              AssetId: this.__input.details.exportAssetToSignedUrl?.assetId,
+              DataSetId: this.__input.details.exportAssetToSignedUrl?.dataSetId,
+              RevisionId: this.__input.details.exportAssetToSignedUrl?.revisionId,
+            },
+            ExportAssetsToS3: {
+              AssetDestinations: this.__input.details.exportAssetsToS3?.assetDestinations,
+              DataSetId: this.__input.details.exportAssetsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportAssetsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportAssetsToS3?.encryption?.type,
+              },
+              RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
+            },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
+            },
+            ImportAssetFromSignedUrl: {
+              AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
+              DataSetId: this.__input.details.importAssetFromSignedUrl?.dataSetId,
+              Md5Hash: this.__input.details.importAssetFromSignedUrl?.md5Hash,
+              RevisionId: this.__input.details.importAssetFromSignedUrl?.revisionId,
+            },
+            ImportAssetsFromS3: {
+              AssetSources: this.__input.details.importAssetsFromS3?.assetSources,
+              DataSetId: this.__input.details.importAssetsFromS3?.dataSetId,
+              RevisionId: this.__input.details.importAssetsFromS3?.revisionId,
+            },
+          },
+          Type: this.__input.type,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateJob.Details.ExportRevisionsToS3.DataSetId', props);
+    return resource.getResponseField('Details.ExportRevisionsToS3.DataSetId') as unknown as string;
+  }
+
+  public get encryption(): DataExchangeResponsesCreateJobDetailsExportRevisionsToS3Encryption {
+    return new DataExchangeResponsesCreateJobDetailsExportRevisionsToS3Encryption(this.__scope, this.__resources, this.__input);
+  }
+
+  public get revisionDestinations(): shapes.DataExchangeRevisionDestinationEntry[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createJob',
+        service: 'DataExchange',
+        physicalResourceId: cr.PhysicalResourceId.of('DataExchange.CreateJob.Details.ExportRevisionsToS3.RevisionDestinations'),
+        outputPath: 'Details.ExportRevisionsToS3.RevisionDestinations',
+        parameters: {
+          Details: {
+            ExportAssetToSignedUrl: {
+              AssetId: this.__input.details.exportAssetToSignedUrl?.assetId,
+              DataSetId: this.__input.details.exportAssetToSignedUrl?.dataSetId,
+              RevisionId: this.__input.details.exportAssetToSignedUrl?.revisionId,
+            },
+            ExportAssetsToS3: {
+              AssetDestinations: this.__input.details.exportAssetsToS3?.assetDestinations,
+              DataSetId: this.__input.details.exportAssetsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportAssetsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportAssetsToS3?.encryption?.type,
+              },
+              RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
+            },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
+            },
+            ImportAssetFromSignedUrl: {
+              AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
+              DataSetId: this.__input.details.importAssetFromSignedUrl?.dataSetId,
+              Md5Hash: this.__input.details.importAssetFromSignedUrl?.md5Hash,
+              RevisionId: this.__input.details.importAssetFromSignedUrl?.revisionId,
+            },
+            ImportAssetsFromS3: {
+              AssetSources: this.__input.details.importAssetsFromS3?.assetSources,
+              DataSetId: this.__input.details.importAssetsFromS3?.dataSetId,
+              RevisionId: this.__input.details.importAssetsFromS3?.revisionId,
+            },
+          },
+          Type: this.__input.type,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateJob.Details.ExportRevisionsToS3.RevisionDestinations', props);
+    return resource.getResponseField('Details.ExportRevisionsToS3.RevisionDestinations') as unknown as shapes.DataExchangeRevisionDestinationEntry[];
+  }
+
+}
+
+export class DataExchangeResponsesCreateJobDetailsExportRevisionsToS3Encryption {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DataExchangeCreateJobRequest) {
+  }
+
+  public get kmsKeyArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createJob',
+        service: 'DataExchange',
+        physicalResourceId: cr.PhysicalResourceId.of('DataExchange.CreateJob.Details.ExportRevisionsToS3.Encryption.KmsKeyArn'),
+        outputPath: 'Details.ExportRevisionsToS3.Encryption.KmsKeyArn',
+        parameters: {
+          Details: {
+            ExportAssetToSignedUrl: {
+              AssetId: this.__input.details.exportAssetToSignedUrl?.assetId,
+              DataSetId: this.__input.details.exportAssetToSignedUrl?.dataSetId,
+              RevisionId: this.__input.details.exportAssetToSignedUrl?.revisionId,
+            },
+            ExportAssetsToS3: {
+              AssetDestinations: this.__input.details.exportAssetsToS3?.assetDestinations,
+              DataSetId: this.__input.details.exportAssetsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportAssetsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportAssetsToS3?.encryption?.type,
+              },
+              RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
+            },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
+            },
+            ImportAssetFromSignedUrl: {
+              AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
+              DataSetId: this.__input.details.importAssetFromSignedUrl?.dataSetId,
+              Md5Hash: this.__input.details.importAssetFromSignedUrl?.md5Hash,
+              RevisionId: this.__input.details.importAssetFromSignedUrl?.revisionId,
+            },
+            ImportAssetsFromS3: {
+              AssetSources: this.__input.details.importAssetsFromS3?.assetSources,
+              DataSetId: this.__input.details.importAssetsFromS3?.dataSetId,
+              RevisionId: this.__input.details.importAssetsFromS3?.revisionId,
+            },
+          },
+          Type: this.__input.type,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateJob.Details.ExportRevisionsToS3.Encryption.KmsKeyArn', props);
+    return resource.getResponseField('Details.ExportRevisionsToS3.Encryption.KmsKeyArn') as unknown as string;
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createJob',
+        service: 'DataExchange',
+        physicalResourceId: cr.PhysicalResourceId.of('DataExchange.CreateJob.Details.ExportRevisionsToS3.Encryption.Type'),
+        outputPath: 'Details.ExportRevisionsToS3.Encryption.Type',
+        parameters: {
+          Details: {
+            ExportAssetToSignedUrl: {
+              AssetId: this.__input.details.exportAssetToSignedUrl?.assetId,
+              DataSetId: this.__input.details.exportAssetToSignedUrl?.dataSetId,
+              RevisionId: this.__input.details.exportAssetToSignedUrl?.revisionId,
+            },
+            ExportAssetsToS3: {
+              AssetDestinations: this.__input.details.exportAssetsToS3?.assetDestinations,
+              DataSetId: this.__input.details.exportAssetsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportAssetsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportAssetsToS3?.encryption?.type,
+              },
+              RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
+            },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
+            },
+            ImportAssetFromSignedUrl: {
+              AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
+              DataSetId: this.__input.details.importAssetFromSignedUrl?.dataSetId,
+              Md5Hash: this.__input.details.importAssetFromSignedUrl?.md5Hash,
+              RevisionId: this.__input.details.importAssetFromSignedUrl?.revisionId,
+            },
+            ImportAssetsFromS3: {
+              AssetSources: this.__input.details.importAssetsFromS3?.assetSources,
+              DataSetId: this.__input.details.importAssetsFromS3?.dataSetId,
+              RevisionId: this.__input.details.importAssetsFromS3?.revisionId,
+            },
+          },
+          Type: this.__input.type,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateJob.Details.ExportRevisionsToS3.Encryption.Type', props);
+    return resource.getResponseField('Details.ExportRevisionsToS3.Encryption.Type') as unknown as string;
   }
 
 }
@@ -1253,6 +1619,14 @@ export class DataExchangeResponsesCreateJobDetailsImportAssetFromSignedUrl {
                 Type: this.__input.details.exportAssetsToS3?.encryption?.type,
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
+            },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
             },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
@@ -1298,6 +1672,14 @@ export class DataExchangeResponsesCreateJobDetailsImportAssetFromSignedUrl {
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
             },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
+            },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
               DataSetId: this.__input.details.importAssetFromSignedUrl?.dataSetId,
@@ -1341,6 +1723,14 @@ export class DataExchangeResponsesCreateJobDetailsImportAssetFromSignedUrl {
                 Type: this.__input.details.exportAssetsToS3?.encryption?.type,
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
+            },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
             },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
@@ -1386,6 +1776,14 @@ export class DataExchangeResponsesCreateJobDetailsImportAssetFromSignedUrl {
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
             },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
+            },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
               DataSetId: this.__input.details.importAssetFromSignedUrl?.dataSetId,
@@ -1430,6 +1828,14 @@ export class DataExchangeResponsesCreateJobDetailsImportAssetFromSignedUrl {
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
             },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
+            },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
               DataSetId: this.__input.details.importAssetFromSignedUrl?.dataSetId,
@@ -1473,6 +1879,14 @@ export class DataExchangeResponsesCreateJobDetailsImportAssetFromSignedUrl {
                 Type: this.__input.details.exportAssetsToS3?.encryption?.type,
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
+            },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
             },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
@@ -1525,6 +1939,14 @@ export class DataExchangeResponsesCreateJobDetailsImportAssetsFromS3 {
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
             },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
+            },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
               DataSetId: this.__input.details.importAssetFromSignedUrl?.dataSetId,
@@ -1569,6 +1991,14 @@ export class DataExchangeResponsesCreateJobDetailsImportAssetsFromS3 {
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
             },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
+            },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
               DataSetId: this.__input.details.importAssetFromSignedUrl?.dataSetId,
@@ -1612,6 +2042,14 @@ export class DataExchangeResponsesCreateJobDetailsImportAssetsFromS3 {
                 Type: this.__input.details.exportAssetsToS3?.encryption?.type,
               },
               RevisionId: this.__input.details.exportAssetsToS3?.revisionId,
+            },
+            ExportRevisionsToS3: {
+              DataSetId: this.__input.details.exportRevisionsToS3?.dataSetId,
+              Encryption: {
+                KmsKeyArn: this.__input.details.exportRevisionsToS3?.encryption?.kmsKeyArn,
+                Type: this.__input.details.exportRevisionsToS3?.encryption?.type,
+              },
+              RevisionDestinations: this.__input.details.exportRevisionsToS3?.revisionDestinations,
             },
             ImportAssetFromSignedUrl: {
               AssetName: this.__input.details.importAssetFromSignedUrl?.assetName,
@@ -2380,6 +2818,10 @@ export class DataExchangeResponsesFetchJobDetails {
     return new DataExchangeResponsesFetchJobDetailsExportAssetsToS3(this.__scope, this.__resources, this.__input);
   }
 
+  public get exportRevisionsToS3(): DataExchangeResponsesFetchJobDetailsExportRevisionsToS3 {
+    return new DataExchangeResponsesFetchJobDetailsExportRevisionsToS3(this.__scope, this.__resources, this.__input);
+  }
+
   public get importAssetFromSignedUrl(): DataExchangeResponsesFetchJobDetailsImportAssetFromSignedUrl {
     return new DataExchangeResponsesFetchJobDetailsImportAssetFromSignedUrl(this.__scope, this.__resources, this.__input);
   }
@@ -2581,6 +3023,92 @@ export class DataExchangeResponsesFetchJobDetailsExportAssetsToS3Encryption {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetJob.Details.ExportAssetsToS3.Encryption.Type', props);
     return resource.getResponseField('Details.ExportAssetsToS3.Encryption.Type') as unknown as string;
+  }
+
+}
+
+export class DataExchangeResponsesFetchJobDetailsExportRevisionsToS3 {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DataExchangeGetJobRequest) {
+  }
+
+  public get dataSetId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getJob',
+        service: 'DataExchange',
+        physicalResourceId: cr.PhysicalResourceId.of('DataExchange.GetJob.Details.ExportRevisionsToS3.DataSetId'),
+        outputPath: 'Details.ExportRevisionsToS3.DataSetId',
+        parameters: {
+          JobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetJob.Details.ExportRevisionsToS3.DataSetId', props);
+    return resource.getResponseField('Details.ExportRevisionsToS3.DataSetId') as unknown as string;
+  }
+
+  public get encryption(): DataExchangeResponsesFetchJobDetailsExportRevisionsToS3Encryption {
+    return new DataExchangeResponsesFetchJobDetailsExportRevisionsToS3Encryption(this.__scope, this.__resources, this.__input);
+  }
+
+  public get revisionDestinations(): shapes.DataExchangeRevisionDestinationEntry[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getJob',
+        service: 'DataExchange',
+        physicalResourceId: cr.PhysicalResourceId.of('DataExchange.GetJob.Details.ExportRevisionsToS3.RevisionDestinations'),
+        outputPath: 'Details.ExportRevisionsToS3.RevisionDestinations',
+        parameters: {
+          JobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetJob.Details.ExportRevisionsToS3.RevisionDestinations', props);
+    return resource.getResponseField('Details.ExportRevisionsToS3.RevisionDestinations') as unknown as shapes.DataExchangeRevisionDestinationEntry[];
+  }
+
+}
+
+export class DataExchangeResponsesFetchJobDetailsExportRevisionsToS3Encryption {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DataExchangeGetJobRequest) {
+  }
+
+  public get kmsKeyArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getJob',
+        service: 'DataExchange',
+        physicalResourceId: cr.PhysicalResourceId.of('DataExchange.GetJob.Details.ExportRevisionsToS3.Encryption.KmsKeyArn'),
+        outputPath: 'Details.ExportRevisionsToS3.Encryption.KmsKeyArn',
+        parameters: {
+          JobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetJob.Details.ExportRevisionsToS3.Encryption.KmsKeyArn', props);
+    return resource.getResponseField('Details.ExportRevisionsToS3.Encryption.KmsKeyArn') as unknown as string;
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getJob',
+        service: 'DataExchange',
+        physicalResourceId: cr.PhysicalResourceId.of('DataExchange.GetJob.Details.ExportRevisionsToS3.Encryption.Type'),
+        outputPath: 'Details.ExportRevisionsToS3.Encryption.Type',
+        parameters: {
+          JobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetJob.Details.ExportRevisionsToS3.Encryption.Type', props);
+    return resource.getResponseField('Details.ExportRevisionsToS3.Encryption.Type') as unknown as string;
   }
 
 }

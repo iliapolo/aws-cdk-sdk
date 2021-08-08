@@ -619,6 +619,7 @@ export class WAFV2ResponsesCreateRuleGroupSummary {
             MetricName: this.__input.visibilityConfig.metricName,
           },
           Tags: this.__input.tags,
+          CustomResponseBodies: this.__input.customResponseBodies,
         },
       },
     };
@@ -646,6 +647,7 @@ export class WAFV2ResponsesCreateRuleGroupSummary {
             MetricName: this.__input.visibilityConfig.metricName,
           },
           Tags: this.__input.tags,
+          CustomResponseBodies: this.__input.customResponseBodies,
         },
       },
     };
@@ -673,6 +675,7 @@ export class WAFV2ResponsesCreateRuleGroupSummary {
             MetricName: this.__input.visibilityConfig.metricName,
           },
           Tags: this.__input.tags,
+          CustomResponseBodies: this.__input.customResponseBodies,
         },
       },
     };
@@ -700,6 +703,7 @@ export class WAFV2ResponsesCreateRuleGroupSummary {
             MetricName: this.__input.visibilityConfig.metricName,
           },
           Tags: this.__input.tags,
+          CustomResponseBodies: this.__input.customResponseBodies,
         },
       },
     };
@@ -727,6 +731,7 @@ export class WAFV2ResponsesCreateRuleGroupSummary {
             MetricName: this.__input.visibilityConfig.metricName,
           },
           Tags: this.__input.tags,
+          CustomResponseBodies: this.__input.customResponseBodies,
         },
       },
     };
@@ -765,8 +770,16 @@ export class WAFV2ResponsesCreateWebAclSummary {
           Scope: this.__input.scope,
           DefaultAction: {
             Block: {
+              CustomResponse: {
+                ResponseCode: this.__input.defaultAction.block?.customResponse?.responseCode,
+                CustomResponseBodyKey: this.__input.defaultAction.block?.customResponse?.customResponseBodyKey,
+                ResponseHeaders: this.__input.defaultAction.block?.customResponse?.responseHeaders,
+              },
             },
             Allow: {
+              CustomRequestHandling: {
+                InsertHeaders: this.__input.defaultAction.allow?.customRequestHandling?.insertHeaders,
+              },
             },
           },
           Description: this.__input.description,
@@ -777,6 +790,7 @@ export class WAFV2ResponsesCreateWebAclSummary {
             MetricName: this.__input.visibilityConfig.metricName,
           },
           Tags: this.__input.tags,
+          CustomResponseBodies: this.__input.customResponseBodies,
         },
       },
     };
@@ -797,8 +811,16 @@ export class WAFV2ResponsesCreateWebAclSummary {
           Scope: this.__input.scope,
           DefaultAction: {
             Block: {
+              CustomResponse: {
+                ResponseCode: this.__input.defaultAction.block?.customResponse?.responseCode,
+                CustomResponseBodyKey: this.__input.defaultAction.block?.customResponse?.customResponseBodyKey,
+                ResponseHeaders: this.__input.defaultAction.block?.customResponse?.responseHeaders,
+              },
             },
             Allow: {
+              CustomRequestHandling: {
+                InsertHeaders: this.__input.defaultAction.allow?.customRequestHandling?.insertHeaders,
+              },
             },
           },
           Description: this.__input.description,
@@ -809,6 +831,7 @@ export class WAFV2ResponsesCreateWebAclSummary {
             MetricName: this.__input.visibilityConfig.metricName,
           },
           Tags: this.__input.tags,
+          CustomResponseBodies: this.__input.customResponseBodies,
         },
       },
     };
@@ -829,8 +852,16 @@ export class WAFV2ResponsesCreateWebAclSummary {
           Scope: this.__input.scope,
           DefaultAction: {
             Block: {
+              CustomResponse: {
+                ResponseCode: this.__input.defaultAction.block?.customResponse?.responseCode,
+                CustomResponseBodyKey: this.__input.defaultAction.block?.customResponse?.customResponseBodyKey,
+                ResponseHeaders: this.__input.defaultAction.block?.customResponse?.responseHeaders,
+              },
             },
             Allow: {
+              CustomRequestHandling: {
+                InsertHeaders: this.__input.defaultAction.allow?.customRequestHandling?.insertHeaders,
+              },
             },
           },
           Description: this.__input.description,
@@ -841,6 +872,7 @@ export class WAFV2ResponsesCreateWebAclSummary {
             MetricName: this.__input.visibilityConfig.metricName,
           },
           Tags: this.__input.tags,
+          CustomResponseBodies: this.__input.customResponseBodies,
         },
       },
     };
@@ -861,8 +893,16 @@ export class WAFV2ResponsesCreateWebAclSummary {
           Scope: this.__input.scope,
           DefaultAction: {
             Block: {
+              CustomResponse: {
+                ResponseCode: this.__input.defaultAction.block?.customResponse?.responseCode,
+                CustomResponseBodyKey: this.__input.defaultAction.block?.customResponse?.customResponseBodyKey,
+                ResponseHeaders: this.__input.defaultAction.block?.customResponse?.responseHeaders,
+              },
             },
             Allow: {
+              CustomRequestHandling: {
+                InsertHeaders: this.__input.defaultAction.allow?.customRequestHandling?.insertHeaders,
+              },
             },
           },
           Description: this.__input.description,
@@ -873,6 +913,7 @@ export class WAFV2ResponsesCreateWebAclSummary {
             MetricName: this.__input.visibilityConfig.metricName,
           },
           Tags: this.__input.tags,
+          CustomResponseBodies: this.__input.customResponseBodies,
         },
       },
     };
@@ -893,8 +934,16 @@ export class WAFV2ResponsesCreateWebAclSummary {
           Scope: this.__input.scope,
           DefaultAction: {
             Block: {
+              CustomResponse: {
+                ResponseCode: this.__input.defaultAction.block?.customResponse?.responseCode,
+                CustomResponseBodyKey: this.__input.defaultAction.block?.customResponse?.customResponseBodyKey,
+                ResponseHeaders: this.__input.defaultAction.block?.customResponse?.responseHeaders,
+              },
             },
             Allow: {
+              CustomRequestHandling: {
+                InsertHeaders: this.__input.defaultAction.allow?.customRequestHandling?.insertHeaders,
+              },
             },
           },
           Description: this.__input.description,
@@ -905,6 +954,7 @@ export class WAFV2ResponsesCreateWebAclSummary {
             MetricName: this.__input.visibilityConfig.metricName,
           },
           Tags: this.__input.tags,
+          CustomResponseBodies: this.__input.customResponseBodies,
         },
       },
     };
@@ -980,6 +1030,63 @@ export class WAFV2ResponsesDescribeManagedRuleGroup {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeManagedRuleGroup.Rules', props);
     return resource.getResponseField('Rules') as unknown as shapes.Wafv2RuleSummary[];
+  }
+
+  public get labelNamespace(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeManagedRuleGroup',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.DescribeManagedRuleGroup.LabelNamespace'),
+        outputPath: 'LabelNamespace',
+        parameters: {
+          VendorName: this.__input.vendorName,
+          Name: this.__input.name,
+          Scope: this.__input.scope,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeManagedRuleGroup.LabelNamespace', props);
+    return resource.getResponseField('LabelNamespace') as unknown as string;
+  }
+
+  public get availableLabels(): shapes.Wafv2LabelSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeManagedRuleGroup',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.DescribeManagedRuleGroup.AvailableLabels'),
+        outputPath: 'AvailableLabels',
+        parameters: {
+          VendorName: this.__input.vendorName,
+          Name: this.__input.name,
+          Scope: this.__input.scope,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeManagedRuleGroup.AvailableLabels', props);
+    return resource.getResponseField('AvailableLabels') as unknown as shapes.Wafv2LabelSummary[];
+  }
+
+  public get consumedLabels(): shapes.Wafv2LabelSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeManagedRuleGroup',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.DescribeManagedRuleGroup.ConsumedLabels'),
+        outputPath: 'ConsumedLabels',
+        parameters: {
+          VendorName: this.__input.vendorName,
+          Name: this.__input.name,
+          Scope: this.__input.scope,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeManagedRuleGroup.ConsumedLabels', props);
+    return resource.getResponseField('ConsumedLabels') as unknown as shapes.Wafv2LabelSummary[];
   }
 
 }
@@ -1217,6 +1324,51 @@ export class WAFV2ResponsesFetchLoggingConfigurationLoggingConfiguration {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetLoggingConfiguration.LoggingConfiguration.ManagedByFirewallManager', props);
     return resource.getResponseField('LoggingConfiguration.ManagedByFirewallManager') as unknown as boolean;
+  }
+
+  public get loggingFilter(): WAFV2ResponsesFetchLoggingConfigurationLoggingConfigurationLoggingFilter {
+    return new WAFV2ResponsesFetchLoggingConfigurationLoggingConfigurationLoggingFilter(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class WAFV2ResponsesFetchLoggingConfigurationLoggingConfigurationLoggingFilter {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Wafv2GetLoggingConfigurationRequest) {
+  }
+
+  public get filters(): shapes.Wafv2Filter[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getLoggingConfiguration',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetLoggingConfiguration.LoggingConfiguration.LoggingFilter.Filters'),
+        outputPath: 'LoggingConfiguration.LoggingFilter.Filters',
+        parameters: {
+          ResourceArn: this.__input.resourceArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetLoggingConfiguration.LoggingConfiguration.LoggingFilter.Filters', props);
+    return resource.getResponseField('LoggingConfiguration.LoggingFilter.Filters') as unknown as shapes.Wafv2Filter[];
+  }
+
+  public get defaultBehavior(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getLoggingConfiguration',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetLoggingConfiguration.LoggingConfiguration.LoggingFilter.DefaultBehavior'),
+        outputPath: 'LoggingConfiguration.LoggingFilter.DefaultBehavior',
+        parameters: {
+          ResourceArn: this.__input.resourceArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetLoggingConfiguration.LoggingConfiguration.LoggingFilter.DefaultBehavior', props);
+    return resource.getResponseField('LoggingConfiguration.LoggingFilter.DefaultBehavior') as unknown as string;
   }
 
 }
@@ -1507,6 +1659,7 @@ export class WAFV2ResponsesFetchRuleGroup {
           Name: this.__input.name,
           Scope: this.__input.scope,
           Id: this.__input.id,
+          ARN: this.__input.arn,
         },
       },
     };
@@ -1533,6 +1686,7 @@ export class WAFV2ResponsesFetchRuleGroupRuleGroup {
           Name: this.__input.name,
           Scope: this.__input.scope,
           Id: this.__input.id,
+          ARN: this.__input.arn,
         },
       },
     };
@@ -1552,6 +1706,7 @@ export class WAFV2ResponsesFetchRuleGroupRuleGroup {
           Name: this.__input.name,
           Scope: this.__input.scope,
           Id: this.__input.id,
+          ARN: this.__input.arn,
         },
       },
     };
@@ -1571,6 +1726,7 @@ export class WAFV2ResponsesFetchRuleGroupRuleGroup {
           Name: this.__input.name,
           Scope: this.__input.scope,
           Id: this.__input.id,
+          ARN: this.__input.arn,
         },
       },
     };
@@ -1590,6 +1746,7 @@ export class WAFV2ResponsesFetchRuleGroupRuleGroup {
           Name: this.__input.name,
           Scope: this.__input.scope,
           Id: this.__input.id,
+          ARN: this.__input.arn,
         },
       },
     };
@@ -1609,6 +1766,7 @@ export class WAFV2ResponsesFetchRuleGroupRuleGroup {
           Name: this.__input.name,
           Scope: this.__input.scope,
           Id: this.__input.id,
+          ARN: this.__input.arn,
         },
       },
     };
@@ -1628,6 +1786,7 @@ export class WAFV2ResponsesFetchRuleGroupRuleGroup {
           Name: this.__input.name,
           Scope: this.__input.scope,
           Id: this.__input.id,
+          ARN: this.__input.arn,
         },
       },
     };
@@ -1637,6 +1796,86 @@ export class WAFV2ResponsesFetchRuleGroupRuleGroup {
 
   public get visibilityConfig(): WAFV2ResponsesFetchRuleGroupRuleGroupVisibilityConfig {
     return new WAFV2ResponsesFetchRuleGroupRuleGroupVisibilityConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get labelNamespace(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getRuleGroup',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetRuleGroup.RuleGroup.LabelNamespace'),
+        outputPath: 'RuleGroup.LabelNamespace',
+        parameters: {
+          Name: this.__input.name,
+          Scope: this.__input.scope,
+          Id: this.__input.id,
+          ARN: this.__input.arn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetRuleGroup.RuleGroup.LabelNamespace', props);
+    return resource.getResponseField('RuleGroup.LabelNamespace') as unknown as string;
+  }
+
+  public get customResponseBodies(): Record<string, shapes.Wafv2CustomResponseBody> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getRuleGroup',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetRuleGroup.RuleGroup.CustomResponseBodies'),
+        outputPath: 'RuleGroup.CustomResponseBodies',
+        parameters: {
+          Name: this.__input.name,
+          Scope: this.__input.scope,
+          Id: this.__input.id,
+          ARN: this.__input.arn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetRuleGroup.RuleGroup.CustomResponseBodies', props);
+    return resource.getResponseField('RuleGroup.CustomResponseBodies') as unknown as Record<string, shapes.Wafv2CustomResponseBody>;
+  }
+
+  public get availableLabels(): shapes.Wafv2LabelSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getRuleGroup',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetRuleGroup.RuleGroup.AvailableLabels'),
+        outputPath: 'RuleGroup.AvailableLabels',
+        parameters: {
+          Name: this.__input.name,
+          Scope: this.__input.scope,
+          Id: this.__input.id,
+          ARN: this.__input.arn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetRuleGroup.RuleGroup.AvailableLabels', props);
+    return resource.getResponseField('RuleGroup.AvailableLabels') as unknown as shapes.Wafv2LabelSummary[];
+  }
+
+  public get consumedLabels(): shapes.Wafv2LabelSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getRuleGroup',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetRuleGroup.RuleGroup.ConsumedLabels'),
+        outputPath: 'RuleGroup.ConsumedLabels',
+        parameters: {
+          Name: this.__input.name,
+          Scope: this.__input.scope,
+          Id: this.__input.id,
+          ARN: this.__input.arn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetRuleGroup.RuleGroup.ConsumedLabels', props);
+    return resource.getResponseField('RuleGroup.ConsumedLabels') as unknown as shapes.Wafv2LabelSummary[];
   }
 
 }
@@ -1658,6 +1897,7 @@ export class WAFV2ResponsesFetchRuleGroupRuleGroupVisibilityConfig {
           Name: this.__input.name,
           Scope: this.__input.scope,
           Id: this.__input.id,
+          ARN: this.__input.arn,
         },
       },
     };
@@ -1677,6 +1917,7 @@ export class WAFV2ResponsesFetchRuleGroupRuleGroupVisibilityConfig {
           Name: this.__input.name,
           Scope: this.__input.scope,
           Id: this.__input.id,
+          ARN: this.__input.arn,
         },
       },
     };
@@ -1696,6 +1937,7 @@ export class WAFV2ResponsesFetchRuleGroupRuleGroupVisibilityConfig {
           Name: this.__input.name,
           Scope: this.__input.scope,
           Id: this.__input.id,
+          ARN: this.__input.arn,
         },
       },
     };
@@ -2033,6 +2275,44 @@ export class WAFV2ResponsesFetchWebAclWebAcl {
     return resource.getResponseField('WebACL.ManagedByFirewallManager') as unknown as boolean;
   }
 
+  public get labelNamespace(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getWebAcl',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetWebACL.WebACL.LabelNamespace'),
+        outputPath: 'WebACL.LabelNamespace',
+        parameters: {
+          Name: this.__input.name,
+          Scope: this.__input.scope,
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetWebACL.WebACL.LabelNamespace', props);
+    return resource.getResponseField('WebACL.LabelNamespace') as unknown as string;
+  }
+
+  public get customResponseBodies(): Record<string, shapes.Wafv2CustomResponseBody> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getWebAcl',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetWebACL.WebACL.CustomResponseBodies'),
+        outputPath: 'WebACL.CustomResponseBodies',
+        parameters: {
+          Name: this.__input.name,
+          Scope: this.__input.scope,
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetWebACL.WebACL.CustomResponseBodies', props);
+    return resource.getResponseField('WebACL.CustomResponseBodies') as unknown as Record<string, shapes.Wafv2CustomResponseBody>;
+  }
+
 }
 
 export class WAFV2ResponsesFetchWebAclWebAclDefaultAction {
@@ -2040,33 +2320,40 @@ export class WAFV2ResponsesFetchWebAclWebAclDefaultAction {
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Wafv2GetWebAclRequest) {
   }
 
-  public get block(): any {
-    const props: cr.AwsCustomResourceProps = {
-      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
-      onUpdate: {
-        action: 'getWebAcl',
-        service: 'WAFV2',
-        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetWebACL.WebACL.DefaultAction.Block'),
-        outputPath: 'WebACL.DefaultAction.Block',
-        parameters: {
-          Name: this.__input.name,
-          Scope: this.__input.scope,
-          Id: this.__input.id,
-        },
-      },
-    };
-    const resource = new cr.AwsCustomResource(this.__scope, 'GetWebACL.WebACL.DefaultAction.Block', props);
-    return resource.getResponseField('WebACL.DefaultAction.Block') as unknown as any;
+  public get block(): WAFV2ResponsesFetchWebAclWebAclDefaultActionBlock {
+    return new WAFV2ResponsesFetchWebAclWebAclDefaultActionBlock(this.__scope, this.__resources, this.__input);
   }
 
-  public get allow(): any {
+  public get allow(): WAFV2ResponsesFetchWebAclWebAclDefaultActionAllow {
+    return new WAFV2ResponsesFetchWebAclWebAclDefaultActionAllow(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class WAFV2ResponsesFetchWebAclWebAclDefaultActionBlock {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Wafv2GetWebAclRequest) {
+  }
+
+  public get customResponse(): WAFV2ResponsesFetchWebAclWebAclDefaultActionBlockCustomResponse {
+    return new WAFV2ResponsesFetchWebAclWebAclDefaultActionBlockCustomResponse(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class WAFV2ResponsesFetchWebAclWebAclDefaultActionBlockCustomResponse {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Wafv2GetWebAclRequest) {
+  }
+
+  public get responseCode(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
         action: 'getWebAcl',
         service: 'WAFV2',
-        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetWebACL.WebACL.DefaultAction.Allow'),
-        outputPath: 'WebACL.DefaultAction.Allow',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetWebACL.WebACL.DefaultAction.Block.CustomResponse.ResponseCode'),
+        outputPath: 'WebACL.DefaultAction.Block.CustomResponse.ResponseCode',
         parameters: {
           Name: this.__input.name,
           Scope: this.__input.scope,
@@ -2074,8 +2361,83 @@ export class WAFV2ResponsesFetchWebAclWebAclDefaultAction {
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this.__scope, 'GetWebACL.WebACL.DefaultAction.Allow', props);
-    return resource.getResponseField('WebACL.DefaultAction.Allow') as unknown as any;
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetWebACL.WebACL.DefaultAction.Block.CustomResponse.ResponseCode', props);
+    return resource.getResponseField('WebACL.DefaultAction.Block.CustomResponse.ResponseCode') as unknown as number;
+  }
+
+  public get customResponseBodyKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getWebAcl',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetWebACL.WebACL.DefaultAction.Block.CustomResponse.CustomResponseBodyKey'),
+        outputPath: 'WebACL.DefaultAction.Block.CustomResponse.CustomResponseBodyKey',
+        parameters: {
+          Name: this.__input.name,
+          Scope: this.__input.scope,
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetWebACL.WebACL.DefaultAction.Block.CustomResponse.CustomResponseBodyKey', props);
+    return resource.getResponseField('WebACL.DefaultAction.Block.CustomResponse.CustomResponseBodyKey') as unknown as string;
+  }
+
+  public get responseHeaders(): shapes.Wafv2CustomHttpHeader[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getWebAcl',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetWebACL.WebACL.DefaultAction.Block.CustomResponse.ResponseHeaders'),
+        outputPath: 'WebACL.DefaultAction.Block.CustomResponse.ResponseHeaders',
+        parameters: {
+          Name: this.__input.name,
+          Scope: this.__input.scope,
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetWebACL.WebACL.DefaultAction.Block.CustomResponse.ResponseHeaders', props);
+    return resource.getResponseField('WebACL.DefaultAction.Block.CustomResponse.ResponseHeaders') as unknown as shapes.Wafv2CustomHttpHeader[];
+  }
+
+}
+
+export class WAFV2ResponsesFetchWebAclWebAclDefaultActionAllow {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Wafv2GetWebAclRequest) {
+  }
+
+  public get customRequestHandling(): WAFV2ResponsesFetchWebAclWebAclDefaultActionAllowCustomRequestHandling {
+    return new WAFV2ResponsesFetchWebAclWebAclDefaultActionAllowCustomRequestHandling(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class WAFV2ResponsesFetchWebAclWebAclDefaultActionAllowCustomRequestHandling {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Wafv2GetWebAclRequest) {
+  }
+
+  public get insertHeaders(): shapes.Wafv2CustomHttpHeader[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getWebAcl',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetWebACL.WebACL.DefaultAction.Allow.CustomRequestHandling.InsertHeaders'),
+        outputPath: 'WebACL.DefaultAction.Allow.CustomRequestHandling.InsertHeaders',
+        parameters: {
+          Name: this.__input.name,
+          Scope: this.__input.scope,
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetWebACL.WebACL.DefaultAction.Allow.CustomRequestHandling.InsertHeaders', props);
+    return resource.getResponseField('WebACL.DefaultAction.Allow.CustomRequestHandling.InsertHeaders') as unknown as shapes.Wafv2CustomHttpHeader[];
   }
 
 }
@@ -2321,6 +2683,40 @@ export class WAFV2ResponsesFetchWebAclForResourceWebAcl {
     return resource.getResponseField('WebACL.ManagedByFirewallManager') as unknown as boolean;
   }
 
+  public get labelNamespace(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getWebAclForResource',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetWebACLForResource.WebACL.LabelNamespace'),
+        outputPath: 'WebACL.LabelNamespace',
+        parameters: {
+          ResourceArn: this.__input.resourceArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetWebACLForResource.WebACL.LabelNamespace', props);
+    return resource.getResponseField('WebACL.LabelNamespace') as unknown as string;
+  }
+
+  public get customResponseBodies(): Record<string, shapes.Wafv2CustomResponseBody> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getWebAclForResource',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetWebACLForResource.WebACL.CustomResponseBodies'),
+        outputPath: 'WebACL.CustomResponseBodies',
+        parameters: {
+          ResourceArn: this.__input.resourceArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetWebACLForResource.WebACL.CustomResponseBodies', props);
+    return resource.getResponseField('WebACL.CustomResponseBodies') as unknown as Record<string, shapes.Wafv2CustomResponseBody>;
+  }
+
 }
 
 export class WAFV2ResponsesFetchWebAclForResourceWebAclDefaultAction {
@@ -2328,38 +2724,116 @@ export class WAFV2ResponsesFetchWebAclForResourceWebAclDefaultAction {
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Wafv2GetWebAclForResourceRequest) {
   }
 
-  public get block(): any {
-    const props: cr.AwsCustomResourceProps = {
-      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
-      onUpdate: {
-        action: 'getWebAclForResource',
-        service: 'WAFV2',
-        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetWebACLForResource.WebACL.DefaultAction.Block'),
-        outputPath: 'WebACL.DefaultAction.Block',
-        parameters: {
-          ResourceArn: this.__input.resourceArn,
-        },
-      },
-    };
-    const resource = new cr.AwsCustomResource(this.__scope, 'GetWebACLForResource.WebACL.DefaultAction.Block', props);
-    return resource.getResponseField('WebACL.DefaultAction.Block') as unknown as any;
+  public get block(): WAFV2ResponsesFetchWebAclForResourceWebAclDefaultActionBlock {
+    return new WAFV2ResponsesFetchWebAclForResourceWebAclDefaultActionBlock(this.__scope, this.__resources, this.__input);
   }
 
-  public get allow(): any {
+  public get allow(): WAFV2ResponsesFetchWebAclForResourceWebAclDefaultActionAllow {
+    return new WAFV2ResponsesFetchWebAclForResourceWebAclDefaultActionAllow(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class WAFV2ResponsesFetchWebAclForResourceWebAclDefaultActionBlock {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Wafv2GetWebAclForResourceRequest) {
+  }
+
+  public get customResponse(): WAFV2ResponsesFetchWebAclForResourceWebAclDefaultActionBlockCustomResponse {
+    return new WAFV2ResponsesFetchWebAclForResourceWebAclDefaultActionBlockCustomResponse(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class WAFV2ResponsesFetchWebAclForResourceWebAclDefaultActionBlockCustomResponse {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Wafv2GetWebAclForResourceRequest) {
+  }
+
+  public get responseCode(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
         action: 'getWebAclForResource',
         service: 'WAFV2',
-        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetWebACLForResource.WebACL.DefaultAction.Allow'),
-        outputPath: 'WebACL.DefaultAction.Allow',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetWebACLForResource.WebACL.DefaultAction.Block.CustomResponse.ResponseCode'),
+        outputPath: 'WebACL.DefaultAction.Block.CustomResponse.ResponseCode',
         parameters: {
           ResourceArn: this.__input.resourceArn,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this.__scope, 'GetWebACLForResource.WebACL.DefaultAction.Allow', props);
-    return resource.getResponseField('WebACL.DefaultAction.Allow') as unknown as any;
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetWebACLForResource.WebACL.DefaultAction.Block.CustomResponse.ResponseCode', props);
+    return resource.getResponseField('WebACL.DefaultAction.Block.CustomResponse.ResponseCode') as unknown as number;
+  }
+
+  public get customResponseBodyKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getWebAclForResource',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetWebACLForResource.WebACL.DefaultAction.Block.CustomResponse.CustomResponseBodyKey'),
+        outputPath: 'WebACL.DefaultAction.Block.CustomResponse.CustomResponseBodyKey',
+        parameters: {
+          ResourceArn: this.__input.resourceArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetWebACLForResource.WebACL.DefaultAction.Block.CustomResponse.CustomResponseBodyKey', props);
+    return resource.getResponseField('WebACL.DefaultAction.Block.CustomResponse.CustomResponseBodyKey') as unknown as string;
+  }
+
+  public get responseHeaders(): shapes.Wafv2CustomHttpHeader[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getWebAclForResource',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetWebACLForResource.WebACL.DefaultAction.Block.CustomResponse.ResponseHeaders'),
+        outputPath: 'WebACL.DefaultAction.Block.CustomResponse.ResponseHeaders',
+        parameters: {
+          ResourceArn: this.__input.resourceArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetWebACLForResource.WebACL.DefaultAction.Block.CustomResponse.ResponseHeaders', props);
+    return resource.getResponseField('WebACL.DefaultAction.Block.CustomResponse.ResponseHeaders') as unknown as shapes.Wafv2CustomHttpHeader[];
+  }
+
+}
+
+export class WAFV2ResponsesFetchWebAclForResourceWebAclDefaultActionAllow {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Wafv2GetWebAclForResourceRequest) {
+  }
+
+  public get customRequestHandling(): WAFV2ResponsesFetchWebAclForResourceWebAclDefaultActionAllowCustomRequestHandling {
+    return new WAFV2ResponsesFetchWebAclForResourceWebAclDefaultActionAllowCustomRequestHandling(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class WAFV2ResponsesFetchWebAclForResourceWebAclDefaultActionAllowCustomRequestHandling {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Wafv2GetWebAclForResourceRequest) {
+  }
+
+  public get insertHeaders(): shapes.Wafv2CustomHttpHeader[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getWebAclForResource',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.GetWebACLForResource.WebACL.DefaultAction.Allow.CustomRequestHandling.InsertHeaders'),
+        outputPath: 'WebACL.DefaultAction.Allow.CustomRequestHandling.InsertHeaders',
+        parameters: {
+          ResourceArn: this.__input.resourceArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetWebACLForResource.WebACL.DefaultAction.Allow.CustomRequestHandling.InsertHeaders', props);
+    return resource.getResponseField('WebACL.DefaultAction.Allow.CustomRequestHandling.InsertHeaders') as unknown as shapes.Wafv2CustomHttpHeader[];
   }
 
 }
@@ -2822,6 +3296,10 @@ export class WAFV2ResponsesPutLoggingConfigurationLoggingConfiguration {
             LogDestinationConfigs: this.__input.loggingConfiguration.logDestinationConfigs,
             RedactedFields: this.__input.loggingConfiguration.redactedFields,
             ManagedByFirewallManager: this.__input.loggingConfiguration.managedByFirewallManager,
+            LoggingFilter: {
+              Filters: this.__input.loggingConfiguration.loggingFilter?.filters,
+              DefaultBehavior: this.__input.loggingConfiguration.loggingFilter?.defaultBehavior,
+            },
           },
         },
       },
@@ -2844,6 +3322,10 @@ export class WAFV2ResponsesPutLoggingConfigurationLoggingConfiguration {
             LogDestinationConfigs: this.__input.loggingConfiguration.logDestinationConfigs,
             RedactedFields: this.__input.loggingConfiguration.redactedFields,
             ManagedByFirewallManager: this.__input.loggingConfiguration.managedByFirewallManager,
+            LoggingFilter: {
+              Filters: this.__input.loggingConfiguration.loggingFilter?.filters,
+              DefaultBehavior: this.__input.loggingConfiguration.loggingFilter?.defaultBehavior,
+            },
           },
         },
       },
@@ -2866,6 +3348,10 @@ export class WAFV2ResponsesPutLoggingConfigurationLoggingConfiguration {
             LogDestinationConfigs: this.__input.loggingConfiguration.logDestinationConfigs,
             RedactedFields: this.__input.loggingConfiguration.redactedFields,
             ManagedByFirewallManager: this.__input.loggingConfiguration.managedByFirewallManager,
+            LoggingFilter: {
+              Filters: this.__input.loggingConfiguration.loggingFilter?.filters,
+              DefaultBehavior: this.__input.loggingConfiguration.loggingFilter?.defaultBehavior,
+            },
           },
         },
       },
@@ -2888,12 +3374,79 @@ export class WAFV2ResponsesPutLoggingConfigurationLoggingConfiguration {
             LogDestinationConfigs: this.__input.loggingConfiguration.logDestinationConfigs,
             RedactedFields: this.__input.loggingConfiguration.redactedFields,
             ManagedByFirewallManager: this.__input.loggingConfiguration.managedByFirewallManager,
+            LoggingFilter: {
+              Filters: this.__input.loggingConfiguration.loggingFilter?.filters,
+              DefaultBehavior: this.__input.loggingConfiguration.loggingFilter?.defaultBehavior,
+            },
           },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'PutLoggingConfiguration.LoggingConfiguration.ManagedByFirewallManager', props);
     return resource.getResponseField('LoggingConfiguration.ManagedByFirewallManager') as unknown as boolean;
+  }
+
+  public get loggingFilter(): WAFV2ResponsesPutLoggingConfigurationLoggingConfigurationLoggingFilter {
+    return new WAFV2ResponsesPutLoggingConfigurationLoggingConfigurationLoggingFilter(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class WAFV2ResponsesPutLoggingConfigurationLoggingConfigurationLoggingFilter {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Wafv2PutLoggingConfigurationRequest) {
+  }
+
+  public get filters(): shapes.Wafv2Filter[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putLoggingConfiguration',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.PutLoggingConfiguration.LoggingConfiguration.LoggingFilter.Filters'),
+        outputPath: 'LoggingConfiguration.LoggingFilter.Filters',
+        parameters: {
+          LoggingConfiguration: {
+            ResourceArn: this.__input.loggingConfiguration.resourceArn,
+            LogDestinationConfigs: this.__input.loggingConfiguration.logDestinationConfigs,
+            RedactedFields: this.__input.loggingConfiguration.redactedFields,
+            ManagedByFirewallManager: this.__input.loggingConfiguration.managedByFirewallManager,
+            LoggingFilter: {
+              Filters: this.__input.loggingConfiguration.loggingFilter?.filters,
+              DefaultBehavior: this.__input.loggingConfiguration.loggingFilter?.defaultBehavior,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutLoggingConfiguration.LoggingConfiguration.LoggingFilter.Filters', props);
+    return resource.getResponseField('LoggingConfiguration.LoggingFilter.Filters') as unknown as shapes.Wafv2Filter[];
+  }
+
+  public get defaultBehavior(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putLoggingConfiguration',
+        service: 'WAFV2',
+        physicalResourceId: cr.PhysicalResourceId.of('WAFV2.PutLoggingConfiguration.LoggingConfiguration.LoggingFilter.DefaultBehavior'),
+        outputPath: 'LoggingConfiguration.LoggingFilter.DefaultBehavior',
+        parameters: {
+          LoggingConfiguration: {
+            ResourceArn: this.__input.loggingConfiguration.resourceArn,
+            LogDestinationConfigs: this.__input.loggingConfiguration.logDestinationConfigs,
+            RedactedFields: this.__input.loggingConfiguration.redactedFields,
+            ManagedByFirewallManager: this.__input.loggingConfiguration.managedByFirewallManager,
+            LoggingFilter: {
+              Filters: this.__input.loggingConfiguration.loggingFilter?.filters,
+              DefaultBehavior: this.__input.loggingConfiguration.loggingFilter?.defaultBehavior,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutLoggingConfiguration.LoggingConfiguration.LoggingFilter.DefaultBehavior', props);
+    return resource.getResponseField('LoggingConfiguration.LoggingFilter.DefaultBehavior') as unknown as string;
   }
 
 }
@@ -2981,6 +3534,7 @@ export class WAFV2ResponsesUpdateRuleGroup {
             MetricName: this.__input.visibilityConfig.metricName,
           },
           LockToken: this.__input.lockToken,
+          CustomResponseBodies: this.__input.customResponseBodies,
         },
       },
     };
@@ -3009,8 +3563,16 @@ export class WAFV2ResponsesUpdateWebAcl {
           Id: this.__input.id,
           DefaultAction: {
             Block: {
+              CustomResponse: {
+                ResponseCode: this.__input.defaultAction.block?.customResponse?.responseCode,
+                CustomResponseBodyKey: this.__input.defaultAction.block?.customResponse?.customResponseBodyKey,
+                ResponseHeaders: this.__input.defaultAction.block?.customResponse?.responseHeaders,
+              },
             },
             Allow: {
+              CustomRequestHandling: {
+                InsertHeaders: this.__input.defaultAction.allow?.customRequestHandling?.insertHeaders,
+              },
             },
           },
           Description: this.__input.description,
@@ -3021,6 +3583,7 @@ export class WAFV2ResponsesUpdateWebAcl {
             MetricName: this.__input.visibilityConfig.metricName,
           },
           LockToken: this.__input.lockToken,
+          CustomResponseBodies: this.__input.customResponseBodies,
         },
       },
     };

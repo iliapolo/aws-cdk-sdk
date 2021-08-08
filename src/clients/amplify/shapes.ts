@@ -100,6 +100,38 @@ export interface AmplifyCreateAppRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyCreateAppRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyCreateAppRequest(obj: AmplifyCreateAppRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'description': obj.description,
+    'repository': obj.repository,
+    'platform': obj.platform,
+    'iamServiceRoleArn': obj.iamServiceRoleArn,
+    'oauthToken': obj.oauthToken,
+    'accessToken': obj.accessToken,
+    'environmentVariables': ((obj.environmentVariables) === undefined) ? undefined : (Object.entries(obj.environmentVariables).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'enableBranchAutoBuild': obj.enableBranchAutoBuild,
+    'enableBranchAutoDeletion': obj.enableBranchAutoDeletion,
+    'enableBasicAuth': obj.enableBasicAuth,
+    'basicAuthCredentials': obj.basicAuthCredentials,
+    'customRules': obj.customRules?.map(y => toJson_AmplifyCustomRule(y)),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'buildSpec': obj.buildSpec,
+    'customHeaders': obj.customHeaders,
+    'enableAutoBranchCreation': obj.enableAutoBranchCreation,
+    'autoBranchCreationPatterns': obj.autoBranchCreationPatterns?.map(y => y),
+    'autoBranchCreationConfig': toJson_AmplifyAutoBranchCreationConfig(obj.autoBranchCreationConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyCreateAppResult
  */
 export interface AmplifyCreateAppResult {
@@ -109,6 +141,20 @@ export interface AmplifyCreateAppResult {
   readonly app: AmplifyApp;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyCreateAppResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyCreateAppResult(obj: AmplifyCreateAppResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'app': toJson_AmplifyApp(obj.app),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyCreateBackendEnvironmentRequest
@@ -137,6 +183,23 @@ export interface AmplifyCreateBackendEnvironmentRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyCreateBackendEnvironmentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyCreateBackendEnvironmentRequest(obj: AmplifyCreateBackendEnvironmentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'environmentName': obj.environmentName,
+    'stackName': obj.stackName,
+    'deploymentArtifacts': obj.deploymentArtifacts,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyCreateBackendEnvironmentResult
  */
 export interface AmplifyCreateBackendEnvironmentResult {
@@ -146,6 +209,20 @@ export interface AmplifyCreateBackendEnvironmentResult {
   readonly backendEnvironment: AmplifyBackendEnvironment;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyCreateBackendEnvironmentResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyCreateBackendEnvironmentResult(obj: AmplifyCreateBackendEnvironmentResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'backendEnvironment': toJson_AmplifyBackendEnvironment(obj.backendEnvironment),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyCreateBranchRequest
@@ -244,6 +321,37 @@ export interface AmplifyCreateBranchRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyCreateBranchRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyCreateBranchRequest(obj: AmplifyCreateBranchRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'branchName': obj.branchName,
+    'description': obj.description,
+    'stage': obj.stage,
+    'framework': obj.framework,
+    'enableNotification': obj.enableNotification,
+    'enableAutoBuild': obj.enableAutoBuild,
+    'environmentVariables': ((obj.environmentVariables) === undefined) ? undefined : (Object.entries(obj.environmentVariables).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'basicAuthCredentials': obj.basicAuthCredentials,
+    'enableBasicAuth': obj.enableBasicAuth,
+    'enablePerformanceMode': obj.enablePerformanceMode,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'buildSpec': obj.buildSpec,
+    'ttl': obj.ttl,
+    'displayName': obj.displayName,
+    'enablePullRequestPreview': obj.enablePullRequestPreview,
+    'pullRequestEnvironmentName': obj.pullRequestEnvironmentName,
+    'backendEnvironmentArn': obj.backendEnvironmentArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyCreateBranchResult
  */
 export interface AmplifyCreateBranchResult {
@@ -253,6 +361,20 @@ export interface AmplifyCreateBranchResult {
   readonly branch: AmplifyBranch;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyCreateBranchResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyCreateBranchResult(obj: AmplifyCreateBranchResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'branch': toJson_AmplifyBranch(obj.branch),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyCreateDeploymentRequest
@@ -276,6 +398,22 @@ export interface AmplifyCreateDeploymentRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyCreateDeploymentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyCreateDeploymentRequest(obj: AmplifyCreateDeploymentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'branchName': obj.branchName,
+    'fileMap': ((obj.fileMap) === undefined) ? undefined : (Object.entries(obj.fileMap).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyCreateDeploymentResult
  */
 export interface AmplifyCreateDeploymentResult {
@@ -295,6 +433,22 @@ export interface AmplifyCreateDeploymentResult {
   readonly zipUploadUrl: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyCreateDeploymentResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyCreateDeploymentResult(obj: AmplifyCreateDeploymentResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobId': obj.jobId,
+    'fileUploadUrls': ((obj.fileUploadUrls) === undefined) ? undefined : (Object.entries(obj.fileUploadUrls).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'zipUploadUrl': obj.zipUploadUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyCreateDomainAssociationRequest
@@ -328,9 +482,28 @@ export interface AmplifyCreateDomainAssociationRequest {
   /**
    * @schema AmplifyCreateDomainAssociationRequest#autoSubDomainIAMRole
    */
-  readonly autoSubDomainIAMRole?: string;
+  readonly autoSubDomainIamRole?: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyCreateDomainAssociationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyCreateDomainAssociationRequest(obj: AmplifyCreateDomainAssociationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'domainName': obj.domainName,
+    'enableAutoSubDomain': obj.enableAutoSubDomain,
+    'subDomainSettings': obj.subDomainSettings?.map(y => toJson_AmplifySubDomainSetting(y)),
+    'autoSubDomainCreationPatterns': obj.autoSubDomainCreationPatterns?.map(y => y),
+    'autoSubDomainIAMRole': obj.autoSubDomainIamRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyCreateDomainAssociationResult
@@ -342,6 +515,20 @@ export interface AmplifyCreateDomainAssociationResult {
   readonly domainAssociation: AmplifyDomainAssociation;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyCreateDomainAssociationResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyCreateDomainAssociationResult(obj: AmplifyCreateDomainAssociationResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domainAssociation': toJson_AmplifyDomainAssociation(obj.domainAssociation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyCreateWebhookRequest
@@ -365,6 +552,22 @@ export interface AmplifyCreateWebhookRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyCreateWebhookRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyCreateWebhookRequest(obj: AmplifyCreateWebhookRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'branchName': obj.branchName,
+    'description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyCreateWebhookResult
  */
 export interface AmplifyCreateWebhookResult {
@@ -374,6 +577,20 @@ export interface AmplifyCreateWebhookResult {
   readonly webhook: AmplifyWebhook;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyCreateWebhookResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyCreateWebhookResult(obj: AmplifyCreateWebhookResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'webhook': toJson_AmplifyWebhook(obj.webhook),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyDeleteAppRequest
@@ -387,6 +604,20 @@ export interface AmplifyDeleteAppRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyDeleteAppRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyDeleteAppRequest(obj: AmplifyDeleteAppRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyDeleteAppResult
  */
 export interface AmplifyDeleteAppResult {
@@ -396,6 +627,20 @@ export interface AmplifyDeleteAppResult {
   readonly app: AmplifyApp;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyDeleteAppResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyDeleteAppResult(obj: AmplifyDeleteAppResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'app': toJson_AmplifyApp(obj.app),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyDeleteBackendEnvironmentRequest
@@ -414,6 +659,21 @@ export interface AmplifyDeleteBackendEnvironmentRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyDeleteBackendEnvironmentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyDeleteBackendEnvironmentRequest(obj: AmplifyDeleteBackendEnvironmentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'environmentName': obj.environmentName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyDeleteBackendEnvironmentResult
  */
 export interface AmplifyDeleteBackendEnvironmentResult {
@@ -423,6 +683,20 @@ export interface AmplifyDeleteBackendEnvironmentResult {
   readonly backendEnvironment: AmplifyBackendEnvironment;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyDeleteBackendEnvironmentResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyDeleteBackendEnvironmentResult(obj: AmplifyDeleteBackendEnvironmentResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'backendEnvironment': toJson_AmplifyBackendEnvironment(obj.backendEnvironment),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyDeleteBranchRequest
@@ -441,6 +715,21 @@ export interface AmplifyDeleteBranchRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyDeleteBranchRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyDeleteBranchRequest(obj: AmplifyDeleteBranchRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'branchName': obj.branchName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyDeleteBranchResult
  */
 export interface AmplifyDeleteBranchResult {
@@ -450,6 +739,20 @@ export interface AmplifyDeleteBranchResult {
   readonly branch: AmplifyBranch;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyDeleteBranchResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyDeleteBranchResult(obj: AmplifyDeleteBranchResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'branch': toJson_AmplifyBranch(obj.branch),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyDeleteDomainAssociationRequest
@@ -468,6 +771,21 @@ export interface AmplifyDeleteDomainAssociationRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyDeleteDomainAssociationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyDeleteDomainAssociationRequest(obj: AmplifyDeleteDomainAssociationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'domainName': obj.domainName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyDeleteDomainAssociationResult
  */
 export interface AmplifyDeleteDomainAssociationResult {
@@ -477,6 +795,20 @@ export interface AmplifyDeleteDomainAssociationResult {
   readonly domainAssociation: AmplifyDomainAssociation;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyDeleteDomainAssociationResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyDeleteDomainAssociationResult(obj: AmplifyDeleteDomainAssociationResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domainAssociation': toJson_AmplifyDomainAssociation(obj.domainAssociation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyDeleteJobRequest
@@ -500,6 +832,22 @@ export interface AmplifyDeleteJobRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyDeleteJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyDeleteJobRequest(obj: AmplifyDeleteJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'branchName': obj.branchName,
+    'jobId': obj.jobId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyDeleteJobResult
  */
 export interface AmplifyDeleteJobResult {
@@ -509,6 +857,20 @@ export interface AmplifyDeleteJobResult {
   readonly jobSummary: AmplifyJobSummary;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyDeleteJobResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyDeleteJobResult(obj: AmplifyDeleteJobResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobSummary': toJson_AmplifyJobSummary(obj.jobSummary),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyDeleteWebhookRequest
@@ -522,6 +884,20 @@ export interface AmplifyDeleteWebhookRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyDeleteWebhookRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyDeleteWebhookRequest(obj: AmplifyDeleteWebhookRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'webhookId': obj.webhookId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyDeleteWebhookResult
  */
 export interface AmplifyDeleteWebhookResult {
@@ -531,6 +907,20 @@ export interface AmplifyDeleteWebhookResult {
   readonly webhook: AmplifyWebhook;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyDeleteWebhookResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyDeleteWebhookResult(obj: AmplifyDeleteWebhookResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'webhook': toJson_AmplifyWebhook(obj.webhook),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyGenerateAccessLogsRequest
@@ -559,6 +949,23 @@ export interface AmplifyGenerateAccessLogsRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyGenerateAccessLogsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyGenerateAccessLogsRequest(obj: AmplifyGenerateAccessLogsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+    'domainName': obj.domainName,
+    'appId': obj.appId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyGenerateAccessLogsResult
  */
 export interface AmplifyGenerateAccessLogsResult {
@@ -568,6 +975,20 @@ export interface AmplifyGenerateAccessLogsResult {
   readonly logUrl?: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyGenerateAccessLogsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyGenerateAccessLogsResult(obj: AmplifyGenerateAccessLogsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'logUrl': obj.logUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyGetAppRequest
@@ -581,6 +1002,20 @@ export interface AmplifyGetAppRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyGetAppRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyGetAppRequest(obj: AmplifyGetAppRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyGetAppResult
  */
 export interface AmplifyGetAppResult {
@@ -592,6 +1027,20 @@ export interface AmplifyGetAppResult {
 }
 
 /**
+ * Converts an object of type 'AmplifyGetAppResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyGetAppResult(obj: AmplifyGetAppResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'app': toJson_AmplifyApp(obj.app),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyGetArtifactUrlRequest
  */
 export interface AmplifyGetArtifactUrlRequest {
@@ -601,6 +1050,20 @@ export interface AmplifyGetArtifactUrlRequest {
   readonly artifactId: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyGetArtifactUrlRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyGetArtifactUrlRequest(obj: AmplifyGetArtifactUrlRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'artifactId': obj.artifactId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyGetArtifactUrlResult
@@ -619,6 +1082,21 @@ export interface AmplifyGetArtifactUrlResult {
 }
 
 /**
+ * Converts an object of type 'AmplifyGetArtifactUrlResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyGetArtifactUrlResult(obj: AmplifyGetArtifactUrlResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'artifactId': obj.artifactId,
+    'artifactUrl': obj.artifactUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyGetBackendEnvironmentRequest
  */
 export interface AmplifyGetBackendEnvironmentRequest {
@@ -635,6 +1113,21 @@ export interface AmplifyGetBackendEnvironmentRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyGetBackendEnvironmentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyGetBackendEnvironmentRequest(obj: AmplifyGetBackendEnvironmentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'environmentName': obj.environmentName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyGetBackendEnvironmentResult
  */
 export interface AmplifyGetBackendEnvironmentResult {
@@ -644,6 +1137,20 @@ export interface AmplifyGetBackendEnvironmentResult {
   readonly backendEnvironment: AmplifyBackendEnvironment;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyGetBackendEnvironmentResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyGetBackendEnvironmentResult(obj: AmplifyGetBackendEnvironmentResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'backendEnvironment': toJson_AmplifyBackendEnvironment(obj.backendEnvironment),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyGetBranchRequest
@@ -662,6 +1169,21 @@ export interface AmplifyGetBranchRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyGetBranchRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyGetBranchRequest(obj: AmplifyGetBranchRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'branchName': obj.branchName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyGetBranchResult
  */
 export interface AmplifyGetBranchResult {
@@ -671,6 +1193,20 @@ export interface AmplifyGetBranchResult {
   readonly branch: AmplifyBranch;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyGetBranchResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyGetBranchResult(obj: AmplifyGetBranchResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'branch': toJson_AmplifyBranch(obj.branch),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyGetDomainAssociationRequest
@@ -689,6 +1225,21 @@ export interface AmplifyGetDomainAssociationRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyGetDomainAssociationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyGetDomainAssociationRequest(obj: AmplifyGetDomainAssociationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'domainName': obj.domainName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyGetDomainAssociationResult
  */
 export interface AmplifyGetDomainAssociationResult {
@@ -698,6 +1249,20 @@ export interface AmplifyGetDomainAssociationResult {
   readonly domainAssociation: AmplifyDomainAssociation;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyGetDomainAssociationResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyGetDomainAssociationResult(obj: AmplifyGetDomainAssociationResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domainAssociation': toJson_AmplifyDomainAssociation(obj.domainAssociation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyGetJobRequest
@@ -721,6 +1286,22 @@ export interface AmplifyGetJobRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyGetJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyGetJobRequest(obj: AmplifyGetJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'branchName': obj.branchName,
+    'jobId': obj.jobId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyGetJobResult
  */
 export interface AmplifyGetJobResult {
@@ -730,6 +1311,20 @@ export interface AmplifyGetJobResult {
   readonly job: AmplifyJob;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyGetJobResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyGetJobResult(obj: AmplifyGetJobResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'job': toJson_AmplifyJob(obj.job),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyGetWebhookRequest
@@ -743,6 +1338,20 @@ export interface AmplifyGetWebhookRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyGetWebhookRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyGetWebhookRequest(obj: AmplifyGetWebhookRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'webhookId': obj.webhookId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyGetWebhookResult
  */
 export interface AmplifyGetWebhookResult {
@@ -752,6 +1361,20 @@ export interface AmplifyGetWebhookResult {
   readonly webhook: AmplifyWebhook;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyGetWebhookResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyGetWebhookResult(obj: AmplifyGetWebhookResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'webhook': toJson_AmplifyWebhook(obj.webhook),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyListAppsRequest
@@ -770,6 +1393,21 @@ export interface AmplifyListAppsRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyListAppsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyListAppsRequest(obj: AmplifyListAppsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyListAppsResult
  */
 export interface AmplifyListAppsResult {
@@ -784,6 +1422,21 @@ export interface AmplifyListAppsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyListAppsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyListAppsResult(obj: AmplifyListAppsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'apps': obj.apps?.map(y => toJson_AmplifyApp(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyListArtifactsRequest
@@ -817,6 +1470,24 @@ export interface AmplifyListArtifactsRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyListArtifactsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyListArtifactsRequest(obj: AmplifyListArtifactsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'branchName': obj.branchName,
+    'jobId': obj.jobId,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyListArtifactsResult
  */
 export interface AmplifyListArtifactsResult {
@@ -831,6 +1502,21 @@ export interface AmplifyListArtifactsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyListArtifactsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyListArtifactsResult(obj: AmplifyListArtifactsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'artifacts': obj.artifacts?.map(y => toJson_AmplifyArtifact(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyListBackendEnvironmentsRequest
@@ -859,6 +1545,23 @@ export interface AmplifyListBackendEnvironmentsRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyListBackendEnvironmentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyListBackendEnvironmentsRequest(obj: AmplifyListBackendEnvironmentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'environmentName': obj.environmentName,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyListBackendEnvironmentsResult
  */
 export interface AmplifyListBackendEnvironmentsResult {
@@ -873,6 +1576,21 @@ export interface AmplifyListBackendEnvironmentsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyListBackendEnvironmentsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyListBackendEnvironmentsResult(obj: AmplifyListBackendEnvironmentsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'backendEnvironments': obj.backendEnvironments?.map(y => toJson_AmplifyBackendEnvironment(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyListBranchesRequest
@@ -896,6 +1614,22 @@ export interface AmplifyListBranchesRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyListBranchesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyListBranchesRequest(obj: AmplifyListBranchesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyListBranchesResult
  */
 export interface AmplifyListBranchesResult {
@@ -910,6 +1644,21 @@ export interface AmplifyListBranchesResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyListBranchesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyListBranchesResult(obj: AmplifyListBranchesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'branches': obj.branches?.map(y => toJson_AmplifyBranch(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyListDomainAssociationsRequest
@@ -933,6 +1682,22 @@ export interface AmplifyListDomainAssociationsRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyListDomainAssociationsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyListDomainAssociationsRequest(obj: AmplifyListDomainAssociationsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyListDomainAssociationsResult
  */
 export interface AmplifyListDomainAssociationsResult {
@@ -947,6 +1712,21 @@ export interface AmplifyListDomainAssociationsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyListDomainAssociationsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyListDomainAssociationsResult(obj: AmplifyListDomainAssociationsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domainAssociations': obj.domainAssociations?.map(y => toJson_AmplifyDomainAssociation(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyListJobsRequest
@@ -975,6 +1755,23 @@ export interface AmplifyListJobsRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyListJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyListJobsRequest(obj: AmplifyListJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'branchName': obj.branchName,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyListJobsResult
  */
 export interface AmplifyListJobsResult {
@@ -991,6 +1788,21 @@ export interface AmplifyListJobsResult {
 }
 
 /**
+ * Converts an object of type 'AmplifyListJobsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyListJobsResult(obj: AmplifyListJobsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobSummaries': obj.jobSummaries?.map(y => toJson_AmplifyJobSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyListTagsForResourceRequest
  */
 export interface AmplifyListTagsForResourceRequest {
@@ -1002,6 +1814,20 @@ export interface AmplifyListTagsForResourceRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyListTagsForResourceRequest(obj: AmplifyListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyListTagsForResourceResponse
  */
 export interface AmplifyListTagsForResourceResponse {
@@ -1011,6 +1837,20 @@ export interface AmplifyListTagsForResourceResponse {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'AmplifyListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyListTagsForResourceResponse(obj: AmplifyListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyListWebhooksRequest
@@ -1034,6 +1874,22 @@ export interface AmplifyListWebhooksRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyListWebhooksRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyListWebhooksRequest(obj: AmplifyListWebhooksRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyListWebhooksResult
  */
 export interface AmplifyListWebhooksResult {
@@ -1048,6 +1904,21 @@ export interface AmplifyListWebhooksResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyListWebhooksResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyListWebhooksResult(obj: AmplifyListWebhooksResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'webhooks': obj.webhooks?.map(y => toJson_AmplifyWebhook(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyStartDeploymentRequest
@@ -1076,6 +1947,23 @@ export interface AmplifyStartDeploymentRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyStartDeploymentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyStartDeploymentRequest(obj: AmplifyStartDeploymentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'branchName': obj.branchName,
+    'jobId': obj.jobId,
+    'sourceUrl': obj.sourceUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyStartDeploymentResult
  */
 export interface AmplifyStartDeploymentResult {
@@ -1085,6 +1973,20 @@ export interface AmplifyStartDeploymentResult {
   readonly jobSummary: AmplifyJobSummary;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyStartDeploymentResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyStartDeploymentResult(obj: AmplifyStartDeploymentResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobSummary': toJson_AmplifyJobSummary(obj.jobSummary),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyStartJobRequest
@@ -1133,6 +2035,27 @@ export interface AmplifyStartJobRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyStartJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyStartJobRequest(obj: AmplifyStartJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'branchName': obj.branchName,
+    'jobId': obj.jobId,
+    'jobType': obj.jobType,
+    'jobReason': obj.jobReason,
+    'commitId': obj.commitId,
+    'commitMessage': obj.commitMessage,
+    'commitTime': obj.commitTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyStartJobResult
  */
 export interface AmplifyStartJobResult {
@@ -1142,6 +2065,20 @@ export interface AmplifyStartJobResult {
   readonly jobSummary: AmplifyJobSummary;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyStartJobResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyStartJobResult(obj: AmplifyStartJobResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobSummary': toJson_AmplifyJobSummary(obj.jobSummary),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyStopJobRequest
@@ -1165,6 +2102,22 @@ export interface AmplifyStopJobRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyStopJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyStopJobRequest(obj: AmplifyStopJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'branchName': obj.branchName,
+    'jobId': obj.jobId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyStopJobResult
  */
 export interface AmplifyStopJobResult {
@@ -1174,6 +2127,20 @@ export interface AmplifyStopJobResult {
   readonly jobSummary: AmplifyJobSummary;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyStopJobResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyStopJobResult(obj: AmplifyStopJobResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobSummary': toJson_AmplifyJobSummary(obj.jobSummary),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyTagResourceRequest
@@ -1192,10 +2159,38 @@ export interface AmplifyTagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyTagResourceRequest(obj: AmplifyTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyTagResourceResponse
  */
 export interface AmplifyTagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'AmplifyTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyTagResourceResponse(obj: AmplifyTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyUntagResourceRequest
@@ -1214,10 +2209,38 @@ export interface AmplifyUntagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyUntagResourceRequest(obj: AmplifyUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyUntagResourceResponse
  */
 export interface AmplifyUntagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'AmplifyUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyUntagResourceResponse(obj: AmplifyUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyUpdateAppRequest
@@ -1321,6 +2344,38 @@ export interface AmplifyUpdateAppRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyUpdateAppRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyUpdateAppRequest(obj: AmplifyUpdateAppRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'name': obj.name,
+    'description': obj.description,
+    'platform': obj.platform,
+    'iamServiceRoleArn': obj.iamServiceRoleArn,
+    'environmentVariables': ((obj.environmentVariables) === undefined) ? undefined : (Object.entries(obj.environmentVariables).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'enableBranchAutoBuild': obj.enableBranchAutoBuild,
+    'enableBranchAutoDeletion': obj.enableBranchAutoDeletion,
+    'enableBasicAuth': obj.enableBasicAuth,
+    'basicAuthCredentials': obj.basicAuthCredentials,
+    'customRules': obj.customRules?.map(y => toJson_AmplifyCustomRule(y)),
+    'buildSpec': obj.buildSpec,
+    'customHeaders': obj.customHeaders,
+    'enableAutoBranchCreation': obj.enableAutoBranchCreation,
+    'autoBranchCreationPatterns': obj.autoBranchCreationPatterns?.map(y => y),
+    'autoBranchCreationConfig': toJson_AmplifyAutoBranchCreationConfig(obj.autoBranchCreationConfig),
+    'repository': obj.repository,
+    'oauthToken': obj.oauthToken,
+    'accessToken': obj.accessToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyUpdateAppResult
  */
 export interface AmplifyUpdateAppResult {
@@ -1330,6 +2385,20 @@ export interface AmplifyUpdateAppResult {
   readonly app: AmplifyApp;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyUpdateAppResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyUpdateAppResult(obj: AmplifyUpdateAppResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'app': toJson_AmplifyApp(obj.app),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyUpdateBranchRequest
@@ -1423,6 +2492,36 @@ export interface AmplifyUpdateBranchRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyUpdateBranchRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyUpdateBranchRequest(obj: AmplifyUpdateBranchRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'branchName': obj.branchName,
+    'description': obj.description,
+    'framework': obj.framework,
+    'stage': obj.stage,
+    'enableNotification': obj.enableNotification,
+    'enableAutoBuild': obj.enableAutoBuild,
+    'environmentVariables': ((obj.environmentVariables) === undefined) ? undefined : (Object.entries(obj.environmentVariables).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'basicAuthCredentials': obj.basicAuthCredentials,
+    'enableBasicAuth': obj.enableBasicAuth,
+    'enablePerformanceMode': obj.enablePerformanceMode,
+    'buildSpec': obj.buildSpec,
+    'ttl': obj.ttl,
+    'displayName': obj.displayName,
+    'enablePullRequestPreview': obj.enablePullRequestPreview,
+    'pullRequestEnvironmentName': obj.pullRequestEnvironmentName,
+    'backendEnvironmentArn': obj.backendEnvironmentArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyUpdateBranchResult
  */
 export interface AmplifyUpdateBranchResult {
@@ -1432,6 +2531,20 @@ export interface AmplifyUpdateBranchResult {
   readonly branch: AmplifyBranch;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyUpdateBranchResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyUpdateBranchResult(obj: AmplifyUpdateBranchResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'branch': toJson_AmplifyBranch(obj.branch),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyUpdateDomainAssociationRequest
@@ -1465,9 +2578,28 @@ export interface AmplifyUpdateDomainAssociationRequest {
   /**
    * @schema AmplifyUpdateDomainAssociationRequest#autoSubDomainIAMRole
    */
-  readonly autoSubDomainIAMRole?: string;
+  readonly autoSubDomainIamRole?: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyUpdateDomainAssociationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyUpdateDomainAssociationRequest(obj: AmplifyUpdateDomainAssociationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'domainName': obj.domainName,
+    'enableAutoSubDomain': obj.enableAutoSubDomain,
+    'subDomainSettings': obj.subDomainSettings?.map(y => toJson_AmplifySubDomainSetting(y)),
+    'autoSubDomainCreationPatterns': obj.autoSubDomainCreationPatterns?.map(y => y),
+    'autoSubDomainIAMRole': obj.autoSubDomainIamRole,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyUpdateDomainAssociationResult
@@ -1479,6 +2611,20 @@ export interface AmplifyUpdateDomainAssociationResult {
   readonly domainAssociation: AmplifyDomainAssociation;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyUpdateDomainAssociationResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyUpdateDomainAssociationResult(obj: AmplifyUpdateDomainAssociationResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domainAssociation': toJson_AmplifyDomainAssociation(obj.domainAssociation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyUpdateWebhookRequest
@@ -1502,6 +2648,22 @@ export interface AmplifyUpdateWebhookRequest {
 }
 
 /**
+ * Converts an object of type 'AmplifyUpdateWebhookRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyUpdateWebhookRequest(obj: AmplifyUpdateWebhookRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'webhookId': obj.webhookId,
+    'branchName': obj.branchName,
+    'description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyUpdateWebhookResult
  */
 export interface AmplifyUpdateWebhookResult {
@@ -1511,6 +2673,20 @@ export interface AmplifyUpdateWebhookResult {
   readonly webhook: AmplifyWebhook;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyUpdateWebhookResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyUpdateWebhookResult(obj: AmplifyUpdateWebhookResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'webhook': toJson_AmplifyWebhook(obj.webhook),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyCustomRule
@@ -1537,6 +2713,23 @@ export interface AmplifyCustomRule {
   readonly condition?: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyCustomRule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyCustomRule(obj: AmplifyCustomRule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'source': obj.source,
+    'target': obj.target,
+    'status': obj.status,
+    'condition': obj.condition,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyAutoBranchCreationConfig
@@ -1593,6 +2786,29 @@ export interface AmplifyAutoBranchCreationConfig {
   readonly pullRequestEnvironmentName?: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyAutoBranchCreationConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyAutoBranchCreationConfig(obj: AmplifyAutoBranchCreationConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'stage': obj.stage,
+    'framework': obj.framework,
+    'enableAutoBuild': obj.enableAutoBuild,
+    'environmentVariables': ((obj.environmentVariables) === undefined) ? undefined : (Object.entries(obj.environmentVariables).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'basicAuthCredentials': obj.basicAuthCredentials,
+    'enableBasicAuth': obj.enableBasicAuth,
+    'enablePerformanceMode': obj.enablePerformanceMode,
+    'buildSpec': obj.buildSpec,
+    'enablePullRequestPreview': obj.enablePullRequestPreview,
+    'pullRequestEnvironmentName': obj.pullRequestEnvironmentName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyApp
@@ -1716,6 +2932,42 @@ export interface AmplifyApp {
 }
 
 /**
+ * Converts an object of type 'AmplifyApp' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyApp(obj: AmplifyApp | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appId': obj.appId,
+    'appArn': obj.appArn,
+    'name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'description': obj.description,
+    'repository': obj.repository,
+    'platform': obj.platform,
+    'createTime': obj.createTime,
+    'updateTime': obj.updateTime,
+    'iamServiceRoleArn': obj.iamServiceRoleArn,
+    'environmentVariables': ((obj.environmentVariables) === undefined) ? undefined : (Object.entries(obj.environmentVariables).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'defaultDomain': obj.defaultDomain,
+    'enableBranchAutoBuild': obj.enableBranchAutoBuild,
+    'enableBranchAutoDeletion': obj.enableBranchAutoDeletion,
+    'enableBasicAuth': obj.enableBasicAuth,
+    'basicAuthCredentials': obj.basicAuthCredentials,
+    'customRules': obj.customRules?.map(y => toJson_AmplifyCustomRule(y)),
+    'productionBranch': toJson_AmplifyProductionBranch(obj.productionBranch),
+    'buildSpec': obj.buildSpec,
+    'customHeaders': obj.customHeaders,
+    'enableAutoBranchCreation': obj.enableAutoBranchCreation,
+    'autoBranchCreationPatterns': obj.autoBranchCreationPatterns?.map(y => y),
+    'autoBranchCreationConfig': toJson_AmplifyAutoBranchCreationConfig(obj.autoBranchCreationConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyBackendEnvironment
  */
 export interface AmplifyBackendEnvironment {
@@ -1750,6 +3002,25 @@ export interface AmplifyBackendEnvironment {
   readonly updateTime: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyBackendEnvironment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyBackendEnvironment(obj: AmplifyBackendEnvironment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'backendEnvironmentArn': obj.backendEnvironmentArn,
+    'environmentName': obj.environmentName,
+    'stackName': obj.stackName,
+    'deploymentArtifacts': obj.deploymentArtifacts,
+    'createTime': obj.createTime,
+    'updateTime': obj.updateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyBranch
@@ -1893,6 +3164,46 @@ export interface AmplifyBranch {
 }
 
 /**
+ * Converts an object of type 'AmplifyBranch' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyBranch(obj: AmplifyBranch | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'branchArn': obj.branchArn,
+    'branchName': obj.branchName,
+    'description': obj.description,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'stage': obj.stage,
+    'displayName': obj.displayName,
+    'enableNotification': obj.enableNotification,
+    'createTime': obj.createTime,
+    'updateTime': obj.updateTime,
+    'environmentVariables': ((obj.environmentVariables) === undefined) ? undefined : (Object.entries(obj.environmentVariables).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'enableAutoBuild': obj.enableAutoBuild,
+    'customDomains': obj.customDomains?.map(y => y),
+    'framework': obj.framework,
+    'activeJobId': obj.activeJobId,
+    'totalNumberOfJobs': obj.totalNumberOfJobs,
+    'enableBasicAuth': obj.enableBasicAuth,
+    'enablePerformanceMode': obj.enablePerformanceMode,
+    'thumbnailUrl': obj.thumbnailUrl,
+    'basicAuthCredentials': obj.basicAuthCredentials,
+    'buildSpec': obj.buildSpec,
+    'ttl': obj.ttl,
+    'associatedResources': obj.associatedResources?.map(y => y),
+    'enablePullRequestPreview': obj.enablePullRequestPreview,
+    'pullRequestEnvironmentName': obj.pullRequestEnvironmentName,
+    'destinationBranch': obj.destinationBranch,
+    'sourceBranch': obj.sourceBranch,
+    'backendEnvironmentArn': obj.backendEnvironmentArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifySubDomainSetting
  */
 export interface AmplifySubDomainSetting {
@@ -1907,6 +3218,21 @@ export interface AmplifySubDomainSetting {
   readonly branchName: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifySubDomainSetting' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifySubDomainSetting(obj: AmplifySubDomainSetting | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'prefix': obj.prefix,
+    'branchName': obj.branchName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyDomainAssociation
@@ -1935,7 +3261,7 @@ export interface AmplifyDomainAssociation {
   /**
    * @schema AmplifyDomainAssociation#autoSubDomainIAMRole
    */
-  readonly autoSubDomainIAMRole?: string;
+  readonly autoSubDomainIamRole?: string;
 
   /**
    * @schema AmplifyDomainAssociation#domainStatus
@@ -1950,7 +3276,7 @@ export interface AmplifyDomainAssociation {
   /**
    * @schema AmplifyDomainAssociation#certificateVerificationDNSRecord
    */
-  readonly certificateVerificationDNSRecord?: string;
+  readonly certificateVerificationDnsRecord?: string;
 
   /**
    * @schema AmplifyDomainAssociation#subDomains
@@ -1958,6 +3284,28 @@ export interface AmplifyDomainAssociation {
   readonly subDomains: AmplifySubDomain[];
 
 }
+
+/**
+ * Converts an object of type 'AmplifyDomainAssociation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyDomainAssociation(obj: AmplifyDomainAssociation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'domainAssociationArn': obj.domainAssociationArn,
+    'domainName': obj.domainName,
+    'enableAutoSubDomain': obj.enableAutoSubDomain,
+    'autoSubDomainCreationPatterns': obj.autoSubDomainCreationPatterns?.map(y => y),
+    'autoSubDomainIAMRole': obj.autoSubDomainIamRole,
+    'domainStatus': obj.domainStatus,
+    'statusReason': obj.statusReason,
+    'certificateVerificationDNSRecord': obj.certificateVerificationDnsRecord,
+    'subDomains': obj.subDomains?.map(y => toJson_AmplifySubDomain(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyWebhook
@@ -1999,6 +3347,26 @@ export interface AmplifyWebhook {
   readonly updateTime: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyWebhook' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyWebhook(obj: AmplifyWebhook | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'webhookArn': obj.webhookArn,
+    'webhookId': obj.webhookId,
+    'webhookUrl': obj.webhookUrl,
+    'branchName': obj.branchName,
+    'description': obj.description,
+    'createTime': obj.createTime,
+    'updateTime': obj.updateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyJobSummary
@@ -2052,6 +3420,28 @@ export interface AmplifyJobSummary {
 }
 
 /**
+ * Converts an object of type 'AmplifyJobSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyJobSummary(obj: AmplifyJobSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobArn': obj.jobArn,
+    'jobId': obj.jobId,
+    'commitId': obj.commitId,
+    'commitMessage': obj.commitMessage,
+    'commitTime': obj.commitTime,
+    'startTime': obj.startTime,
+    'status': obj.status,
+    'endTime': obj.endTime,
+    'jobType': obj.jobType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyJob
  */
 export interface AmplifyJob {
@@ -2068,6 +3458,21 @@ export interface AmplifyJob {
 }
 
 /**
+ * Converts an object of type 'AmplifyJob' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyJob(obj: AmplifyJob | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'summary': toJson_AmplifyJobSummary(obj.summary),
+    'steps': obj.steps?.map(y => toJson_AmplifyStep(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifyArtifact
  */
 export interface AmplifyArtifact {
@@ -2082,6 +3487,21 @@ export interface AmplifyArtifact {
   readonly artifactId: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyArtifact' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyArtifact(obj: AmplifyArtifact | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'artifactFileName': obj.artifactFileName,
+    'artifactId': obj.artifactId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyProductionBranch
@@ -2110,6 +3530,23 @@ export interface AmplifyProductionBranch {
 }
 
 /**
+ * Converts an object of type 'AmplifyProductionBranch' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyProductionBranch(obj: AmplifyProductionBranch | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'lastDeployTime': obj.lastDeployTime,
+    'status': obj.status,
+    'thumbnailUrl': obj.thumbnailUrl,
+    'branchName': obj.branchName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema AmplifySubDomain
  */
 export interface AmplifySubDomain {
@@ -2129,6 +3566,22 @@ export interface AmplifySubDomain {
   readonly dnsRecord: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifySubDomain' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifySubDomain(obj: AmplifySubDomain | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'subDomainSetting': toJson_AmplifySubDomainSetting(obj.subDomainSetting),
+    'verified': obj.verified,
+    'dnsRecord': obj.dnsRecord,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema AmplifyStep
@@ -2190,3 +3643,27 @@ export interface AmplifyStep {
   readonly context?: string;
 
 }
+
+/**
+ * Converts an object of type 'AmplifyStep' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_AmplifyStep(obj: AmplifyStep | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'stepName': obj.stepName,
+    'startTime': obj.startTime,
+    'status': obj.status,
+    'endTime': obj.endTime,
+    'logUrl': obj.logUrl,
+    'artifactsUrl': obj.artifactsUrl,
+    'testArtifactsUrl': obj.testArtifactsUrl,
+    'testConfigUrl': obj.testConfigUrl,
+    'screenshots': ((obj.screenshots) === undefined) ? undefined : (Object.entries(obj.screenshots).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'statusReason': obj.statusReason,
+    'context': obj.context,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

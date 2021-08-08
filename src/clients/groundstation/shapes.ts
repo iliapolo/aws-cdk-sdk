@@ -10,6 +10,20 @@ export interface GroundStationCancelContactRequest {
 }
 
 /**
+ * Converts an object of type 'GroundStationCancelContactRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationCancelContactRequest(obj: GroundStationCancelContactRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'contactId': obj.contactId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationContactIdResponse
  */
 export interface GroundStationContactIdResponse {
@@ -19,6 +33,20 @@ export interface GroundStationContactIdResponse {
   readonly contactId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationContactIdResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationContactIdResponse(obj: GroundStationContactIdResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'contactId': obj.contactId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationCreateConfigRequest
@@ -42,6 +70,22 @@ export interface GroundStationCreateConfigRequest {
 }
 
 /**
+ * Converts an object of type 'GroundStationCreateConfigRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationCreateConfigRequest(obj: GroundStationCreateConfigRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configData': toJson_GroundStationConfigTypeData(obj.configData),
+    'name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationConfigIdResponse
  */
 export interface GroundStationConfigIdResponse {
@@ -63,6 +107,22 @@ export interface GroundStationConfigIdResponse {
 }
 
 /**
+ * Converts an object of type 'GroundStationConfigIdResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationConfigIdResponse(obj: GroundStationConfigIdResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configArn': obj.configArn,
+    'configId': obj.configId,
+    'configType': obj.configType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationCreateDataflowEndpointGroupRequest
  */
 export interface GroundStationCreateDataflowEndpointGroupRequest {
@@ -79,6 +139,21 @@ export interface GroundStationCreateDataflowEndpointGroupRequest {
 }
 
 /**
+ * Converts an object of type 'GroundStationCreateDataflowEndpointGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationCreateDataflowEndpointGroupRequest(obj: GroundStationCreateDataflowEndpointGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'endpointDetails': obj.endpointDetails?.map(y => toJson_GroundStationEndpointDetails(y)),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationDataflowEndpointGroupIdResponse
  */
 export interface GroundStationDataflowEndpointGroupIdResponse {
@@ -88,6 +163,20 @@ export interface GroundStationDataflowEndpointGroupIdResponse {
   readonly dataflowEndpointGroupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationDataflowEndpointGroupIdResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationDataflowEndpointGroupIdResponse(obj: GroundStationDataflowEndpointGroupIdResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dataflowEndpointGroupId': obj.dataflowEndpointGroupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationCreateMissionProfileRequest
@@ -131,6 +220,26 @@ export interface GroundStationCreateMissionProfileRequest {
 }
 
 /**
+ * Converts an object of type 'GroundStationCreateMissionProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationCreateMissionProfileRequest(obj: GroundStationCreateMissionProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'contactPostPassDurationSeconds': obj.contactPostPassDurationSeconds,
+    'contactPrePassDurationSeconds': obj.contactPrePassDurationSeconds,
+    'dataflowEdges': obj.dataflowEdges?.map(y => y?.map(y => y)),
+    'minimumViableContactDurationSeconds': obj.minimumViableContactDurationSeconds,
+    'name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'trackingConfigArn': obj.trackingConfigArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationMissionProfileIdResponse
  */
 export interface GroundStationMissionProfileIdResponse {
@@ -140,6 +249,20 @@ export interface GroundStationMissionProfileIdResponse {
   readonly missionProfileId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationMissionProfileIdResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationMissionProfileIdResponse(obj: GroundStationMissionProfileIdResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'missionProfileId': obj.missionProfileId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationDeleteConfigRequest
@@ -158,6 +281,21 @@ export interface GroundStationDeleteConfigRequest {
 }
 
 /**
+ * Converts an object of type 'GroundStationDeleteConfigRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationDeleteConfigRequest(obj: GroundStationDeleteConfigRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configId': obj.configId,
+    'configType': obj.configType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationDeleteDataflowEndpointGroupRequest
  */
 export interface GroundStationDeleteDataflowEndpointGroupRequest {
@@ -167,6 +305,20 @@ export interface GroundStationDeleteDataflowEndpointGroupRequest {
   readonly dataflowEndpointGroupId: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationDeleteDataflowEndpointGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationDeleteDataflowEndpointGroupRequest(obj: GroundStationDeleteDataflowEndpointGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dataflowEndpointGroupId': obj.dataflowEndpointGroupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationDeleteMissionProfileRequest
@@ -180,6 +332,20 @@ export interface GroundStationDeleteMissionProfileRequest {
 }
 
 /**
+ * Converts an object of type 'GroundStationDeleteMissionProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationDeleteMissionProfileRequest(obj: GroundStationDeleteMissionProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'missionProfileId': obj.missionProfileId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationDescribeContactRequest
  */
 export interface GroundStationDescribeContactRequest {
@@ -189,6 +355,20 @@ export interface GroundStationDescribeContactRequest {
   readonly contactId: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationDescribeContactRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationDescribeContactRequest(obj: GroundStationDescribeContactRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'contactId': obj.contactId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationDescribeContactResponse
@@ -267,6 +447,33 @@ export interface GroundStationDescribeContactResponse {
 }
 
 /**
+ * Converts an object of type 'GroundStationDescribeContactResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationDescribeContactResponse(obj: GroundStationDescribeContactResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'contactId': obj.contactId,
+    'contactStatus': obj.contactStatus,
+    'dataflowList': obj.dataflowList?.map(y => toJson_GroundStationDataflowDetail(y)),
+    'endTime': obj.endTime,
+    'errorMessage': obj.errorMessage,
+    'groundStation': obj.groundStation,
+    'maximumElevation': toJson_GroundStationElevation(obj.maximumElevation),
+    'missionProfileArn': obj.missionProfileArn,
+    'postPassEndTime': obj.postPassEndTime,
+    'prePassStartTime': obj.prePassStartTime,
+    'region': obj.region,
+    'satelliteArn': obj.satelliteArn,
+    'startTime': obj.startTime,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationGetConfigRequest
  */
 export interface GroundStationGetConfigRequest {
@@ -281,6 +488,21 @@ export interface GroundStationGetConfigRequest {
   readonly configType: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationGetConfigRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationGetConfigRequest(obj: GroundStationGetConfigRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configId': obj.configId,
+    'configType': obj.configType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationGetConfigResponse
@@ -319,6 +541,25 @@ export interface GroundStationGetConfigResponse {
 }
 
 /**
+ * Converts an object of type 'GroundStationGetConfigResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationGetConfigResponse(obj: GroundStationGetConfigResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configArn': obj.configArn,
+    'configData': toJson_GroundStationConfigTypeData(obj.configData),
+    'configId': obj.configId,
+    'configType': obj.configType,
+    'name': obj.name,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationGetDataflowEndpointGroupRequest
  */
 export interface GroundStationGetDataflowEndpointGroupRequest {
@@ -328,6 +569,20 @@ export interface GroundStationGetDataflowEndpointGroupRequest {
   readonly dataflowEndpointGroupId: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationGetDataflowEndpointGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationGetDataflowEndpointGroupRequest(obj: GroundStationGetDataflowEndpointGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dataflowEndpointGroupId': obj.dataflowEndpointGroupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationGetDataflowEndpointGroupResponse
@@ -356,6 +611,23 @@ export interface GroundStationGetDataflowEndpointGroupResponse {
 }
 
 /**
+ * Converts an object of type 'GroundStationGetDataflowEndpointGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationGetDataflowEndpointGroupResponse(obj: GroundStationGetDataflowEndpointGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dataflowEndpointGroupArn': obj.dataflowEndpointGroupArn,
+    'dataflowEndpointGroupId': obj.dataflowEndpointGroupId,
+    'endpointsDetails': obj.endpointsDetails?.map(y => toJson_GroundStationEndpointDetails(y)),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationGetMinuteUsageRequest
  */
 export interface GroundStationGetMinuteUsageRequest {
@@ -370,6 +642,21 @@ export interface GroundStationGetMinuteUsageRequest {
   readonly year: number;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationGetMinuteUsageRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationGetMinuteUsageRequest(obj: GroundStationGetMinuteUsageRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'month': obj.month,
+    'year': obj.year,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationGetMinuteUsageResponse
@@ -403,6 +690,24 @@ export interface GroundStationGetMinuteUsageResponse {
 }
 
 /**
+ * Converts an object of type 'GroundStationGetMinuteUsageResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationGetMinuteUsageResponse(obj: GroundStationGetMinuteUsageResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'estimatedMinutesRemaining': obj.estimatedMinutesRemaining,
+    'isReservedMinutesCustomer': obj.isReservedMinutesCustomer,
+    'totalReservedMinuteAllocation': obj.totalReservedMinuteAllocation,
+    'totalScheduledMinutes': obj.totalScheduledMinutes,
+    'upcomingMinutesScheduled': obj.upcomingMinutesScheduled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationGetMissionProfileRequest
  */
 export interface GroundStationGetMissionProfileRequest {
@@ -412,6 +717,20 @@ export interface GroundStationGetMissionProfileRequest {
   readonly missionProfileId: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationGetMissionProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationGetMissionProfileRequest(obj: GroundStationGetMissionProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'missionProfileId': obj.missionProfileId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationGetMissionProfileResponse
@@ -470,6 +789,29 @@ export interface GroundStationGetMissionProfileResponse {
 }
 
 /**
+ * Converts an object of type 'GroundStationGetMissionProfileResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationGetMissionProfileResponse(obj: GroundStationGetMissionProfileResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'contactPostPassDurationSeconds': obj.contactPostPassDurationSeconds,
+    'contactPrePassDurationSeconds': obj.contactPrePassDurationSeconds,
+    'dataflowEdges': obj.dataflowEdges?.map(y => y?.map(y => y)),
+    'minimumViableContactDurationSeconds': obj.minimumViableContactDurationSeconds,
+    'missionProfileArn': obj.missionProfileArn,
+    'missionProfileId': obj.missionProfileId,
+    'name': obj.name,
+    'region': obj.region,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'trackingConfigArn': obj.trackingConfigArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationGetSatelliteRequest
  */
 export interface GroundStationGetSatelliteRequest {
@@ -479,6 +821,20 @@ export interface GroundStationGetSatelliteRequest {
   readonly satelliteId: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationGetSatelliteRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationGetSatelliteRequest(obj: GroundStationGetSatelliteRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'satelliteId': obj.satelliteId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationGetSatelliteResponse
@@ -492,7 +848,7 @@ export interface GroundStationGetSatelliteResponse {
   /**
    * @schema GroundStationGetSatelliteResponse#noradSatelliteID
    */
-  readonly noradSatelliteID?: number;
+  readonly noradSatelliteId?: number;
 
   /**
    * @schema GroundStationGetSatelliteResponse#satelliteArn
@@ -505,6 +861,23 @@ export interface GroundStationGetSatelliteResponse {
   readonly satelliteId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationGetSatelliteResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationGetSatelliteResponse(obj: GroundStationGetSatelliteResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'groundStations': obj.groundStations?.map(y => y),
+    'noradSatelliteID': obj.noradSatelliteId,
+    'satelliteArn': obj.satelliteArn,
+    'satelliteId': obj.satelliteId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationListConfigsRequest
@@ -523,6 +896,21 @@ export interface GroundStationListConfigsRequest {
 }
 
 /**
+ * Converts an object of type 'GroundStationListConfigsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationListConfigsRequest(obj: GroundStationListConfigsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationListConfigsResponse
  */
 export interface GroundStationListConfigsResponse {
@@ -537,6 +925,21 @@ export interface GroundStationListConfigsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationListConfigsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationListConfigsResponse(obj: GroundStationListConfigsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configList': obj.configList?.map(y => toJson_GroundStationConfigListItem(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationListContactsRequest
@@ -585,6 +988,27 @@ export interface GroundStationListContactsRequest {
 }
 
 /**
+ * Converts an object of type 'GroundStationListContactsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationListContactsRequest(obj: GroundStationListContactsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'endTime': obj.endTime,
+    'groundStation': obj.groundStation,
+    'maxResults': obj.maxResults,
+    'missionProfileArn': obj.missionProfileArn,
+    'nextToken': obj.nextToken,
+    'satelliteArn': obj.satelliteArn,
+    'startTime': obj.startTime,
+    'statusList': obj.statusList?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationListContactsResponse
  */
 export interface GroundStationListContactsResponse {
@@ -599,6 +1023,21 @@ export interface GroundStationListContactsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationListContactsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationListContactsResponse(obj: GroundStationListContactsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'contactList': obj.contactList?.map(y => toJson_GroundStationContactData(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationListDataflowEndpointGroupsRequest
@@ -617,6 +1056,21 @@ export interface GroundStationListDataflowEndpointGroupsRequest {
 }
 
 /**
+ * Converts an object of type 'GroundStationListDataflowEndpointGroupsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationListDataflowEndpointGroupsRequest(obj: GroundStationListDataflowEndpointGroupsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationListDataflowEndpointGroupsResponse
  */
 export interface GroundStationListDataflowEndpointGroupsResponse {
@@ -631,6 +1085,21 @@ export interface GroundStationListDataflowEndpointGroupsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationListDataflowEndpointGroupsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationListDataflowEndpointGroupsResponse(obj: GroundStationListDataflowEndpointGroupsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dataflowEndpointGroupList': obj.dataflowEndpointGroupList?.map(y => toJson_GroundStationDataflowEndpointListItem(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationListGroundStationsRequest
@@ -654,6 +1123,22 @@ export interface GroundStationListGroundStationsRequest {
 }
 
 /**
+ * Converts an object of type 'GroundStationListGroundStationsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationListGroundStationsRequest(obj: GroundStationListGroundStationsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+    'satelliteId': obj.satelliteId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationListGroundStationsResponse
  */
 export interface GroundStationListGroundStationsResponse {
@@ -668,6 +1153,21 @@ export interface GroundStationListGroundStationsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationListGroundStationsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationListGroundStationsResponse(obj: GroundStationListGroundStationsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'groundStationList': obj.groundStationList?.map(y => toJson_GroundStationGroundStationData(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationListMissionProfilesRequest
@@ -686,6 +1186,21 @@ export interface GroundStationListMissionProfilesRequest {
 }
 
 /**
+ * Converts an object of type 'GroundStationListMissionProfilesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationListMissionProfilesRequest(obj: GroundStationListMissionProfilesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationListMissionProfilesResponse
  */
 export interface GroundStationListMissionProfilesResponse {
@@ -700,6 +1215,21 @@ export interface GroundStationListMissionProfilesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationListMissionProfilesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationListMissionProfilesResponse(obj: GroundStationListMissionProfilesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'missionProfileList': obj.missionProfileList?.map(y => toJson_GroundStationMissionProfileListItem(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationListSatellitesRequest
@@ -718,6 +1248,21 @@ export interface GroundStationListSatellitesRequest {
 }
 
 /**
+ * Converts an object of type 'GroundStationListSatellitesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationListSatellitesRequest(obj: GroundStationListSatellitesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationListSatellitesResponse
  */
 export interface GroundStationListSatellitesResponse {
@@ -734,6 +1279,21 @@ export interface GroundStationListSatellitesResponse {
 }
 
 /**
+ * Converts an object of type 'GroundStationListSatellitesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationListSatellitesResponse(obj: GroundStationListSatellitesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'satellites': obj.satellites?.map(y => toJson_GroundStationSatelliteListItem(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationListTagsForResourceRequest
  */
 export interface GroundStationListTagsForResourceRequest {
@@ -745,6 +1305,20 @@ export interface GroundStationListTagsForResourceRequest {
 }
 
 /**
+ * Converts an object of type 'GroundStationListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationListTagsForResourceRequest(obj: GroundStationListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationListTagsForResourceResponse
  */
 export interface GroundStationListTagsForResourceResponse {
@@ -754,6 +1328,20 @@ export interface GroundStationListTagsForResourceResponse {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'GroundStationListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationListTagsForResourceResponse(obj: GroundStationListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationReserveContactRequest
@@ -792,6 +1380,25 @@ export interface GroundStationReserveContactRequest {
 }
 
 /**
+ * Converts an object of type 'GroundStationReserveContactRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationReserveContactRequest(obj: GroundStationReserveContactRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'endTime': obj.endTime,
+    'groundStation': obj.groundStation,
+    'missionProfileArn': obj.missionProfileArn,
+    'satelliteArn': obj.satelliteArn,
+    'startTime': obj.startTime,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationTagResourceRequest
  */
 export interface GroundStationTagResourceRequest {
@@ -808,10 +1415,38 @@ export interface GroundStationTagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'GroundStationTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationTagResourceRequest(obj: GroundStationTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationTagResourceResponse
  */
 export interface GroundStationTagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'GroundStationTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationTagResourceResponse(obj: GroundStationTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationUntagResourceRequest
@@ -830,10 +1465,38 @@ export interface GroundStationUntagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'GroundStationUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationUntagResourceRequest(obj: GroundStationUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationUntagResourceResponse
  */
 export interface GroundStationUntagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'GroundStationUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationUntagResourceResponse(obj: GroundStationUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationUpdateConfigRequest
@@ -860,6 +1523,23 @@ export interface GroundStationUpdateConfigRequest {
   readonly name: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationUpdateConfigRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationUpdateConfigRequest(obj: GroundStationUpdateConfigRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configData': toJson_GroundStationConfigTypeData(obj.configData),
+    'configId': obj.configId,
+    'configType': obj.configType,
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationUpdateMissionProfileRequest
@@ -903,6 +1583,26 @@ export interface GroundStationUpdateMissionProfileRequest {
 }
 
 /**
+ * Converts an object of type 'GroundStationUpdateMissionProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationUpdateMissionProfileRequest(obj: GroundStationUpdateMissionProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'contactPostPassDurationSeconds': obj.contactPostPassDurationSeconds,
+    'contactPrePassDurationSeconds': obj.contactPrePassDurationSeconds,
+    'dataflowEdges': obj.dataflowEdges?.map(y => y?.map(y => y)),
+    'minimumViableContactDurationSeconds': obj.minimumViableContactDurationSeconds,
+    'missionProfileId': obj.missionProfileId,
+    'name': obj.name,
+    'trackingConfigArn': obj.trackingConfigArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationConfigTypeData
  */
 export interface GroundStationConfigTypeData {
@@ -927,6 +1627,11 @@ export interface GroundStationConfigTypeData {
   readonly dataflowEndpointConfig?: GroundStationDataflowEndpointConfig;
 
   /**
+   * @schema GroundStationConfigTypeData#s3RecordingConfig
+   */
+  readonly s3RecordingConfig?: GroundStationS3RecordingConfig;
+
+  /**
    * @schema GroundStationConfigTypeData#trackingConfig
    */
   readonly trackingConfig?: GroundStationTrackingConfig;
@@ -937,6 +1642,26 @@ export interface GroundStationConfigTypeData {
   readonly uplinkEchoConfig?: GroundStationUplinkEchoConfig;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationConfigTypeData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationConfigTypeData(obj: GroundStationConfigTypeData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'antennaDownlinkConfig': toJson_GroundStationAntennaDownlinkConfig(obj.antennaDownlinkConfig),
+    'antennaDownlinkDemodDecodeConfig': toJson_GroundStationAntennaDownlinkDemodDecodeConfig(obj.antennaDownlinkDemodDecodeConfig),
+    'antennaUplinkConfig': toJson_GroundStationAntennaUplinkConfig(obj.antennaUplinkConfig),
+    'dataflowEndpointConfig': toJson_GroundStationDataflowEndpointConfig(obj.dataflowEndpointConfig),
+    's3RecordingConfig': toJson_GroundStationS3RecordingConfig(obj.s3RecordingConfig),
+    'trackingConfig': toJson_GroundStationTrackingConfig(obj.trackingConfig),
+    'uplinkEchoConfig': toJson_GroundStationUplinkEchoConfig(obj.uplinkEchoConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationEndpointDetails
@@ -953,6 +1678,21 @@ export interface GroundStationEndpointDetails {
   readonly securityDetails?: GroundStationSecurityDetails;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationEndpointDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationEndpointDetails(obj: GroundStationEndpointDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'endpoint': toJson_GroundStationDataflowEndpoint(obj.endpoint),
+    'securityDetails': toJson_GroundStationSecurityDetails(obj.securityDetails),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationDataflowDetail
@@ -976,6 +1716,22 @@ export interface GroundStationDataflowDetail {
 }
 
 /**
+ * Converts an object of type 'GroundStationDataflowDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationDataflowDetail(obj: GroundStationDataflowDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'destination': toJson_GroundStationDestination(obj.destination),
+    'errorMessage': obj.errorMessage,
+    'source': toJson_GroundStationSource(obj.source),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationElevation
  */
 export interface GroundStationElevation {
@@ -990,6 +1746,21 @@ export interface GroundStationElevation {
   readonly value: number;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationElevation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationElevation(obj: GroundStationElevation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'unit': obj.unit,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationConfigListItem
@@ -1016,6 +1787,23 @@ export interface GroundStationConfigListItem {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationConfigListItem' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationConfigListItem(obj: GroundStationConfigListItem | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configArn': obj.configArn,
+    'configId': obj.configId,
+    'configType': obj.configType,
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationContactData
@@ -1089,6 +1877,32 @@ export interface GroundStationContactData {
 }
 
 /**
+ * Converts an object of type 'GroundStationContactData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationContactData(obj: GroundStationContactData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'contactId': obj.contactId,
+    'contactStatus': obj.contactStatus,
+    'endTime': obj.endTime,
+    'errorMessage': obj.errorMessage,
+    'groundStation': obj.groundStation,
+    'maximumElevation': toJson_GroundStationElevation(obj.maximumElevation),
+    'missionProfileArn': obj.missionProfileArn,
+    'postPassEndTime': obj.postPassEndTime,
+    'prePassStartTime': obj.prePassStartTime,
+    'region': obj.region,
+    'satelliteArn': obj.satelliteArn,
+    'startTime': obj.startTime,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationDataflowEndpointListItem
  */
 export interface GroundStationDataflowEndpointListItem {
@@ -1103,6 +1917,21 @@ export interface GroundStationDataflowEndpointListItem {
   readonly dataflowEndpointGroupId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationDataflowEndpointListItem' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationDataflowEndpointListItem(obj: GroundStationDataflowEndpointListItem | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dataflowEndpointGroupArn': obj.dataflowEndpointGroupArn,
+    'dataflowEndpointGroupId': obj.dataflowEndpointGroupId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationGroundStationData
@@ -1124,6 +1953,22 @@ export interface GroundStationGroundStationData {
   readonly region?: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationGroundStationData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationGroundStationData(obj: GroundStationGroundStationData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'groundStationId': obj.groundStationId,
+    'groundStationName': obj.groundStationName,
+    'region': obj.region,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationMissionProfileListItem
@@ -1152,6 +1997,23 @@ export interface GroundStationMissionProfileListItem {
 }
 
 /**
+ * Converts an object of type 'GroundStationMissionProfileListItem' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationMissionProfileListItem(obj: GroundStationMissionProfileListItem | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'missionProfileArn': obj.missionProfileArn,
+    'missionProfileId': obj.missionProfileId,
+    'name': obj.name,
+    'region': obj.region,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationSatelliteListItem
  */
 export interface GroundStationSatelliteListItem {
@@ -1163,7 +2025,7 @@ export interface GroundStationSatelliteListItem {
   /**
    * @schema GroundStationSatelliteListItem#noradSatelliteID
    */
-  readonly noradSatelliteID?: number;
+  readonly noradSatelliteId?: number;
 
   /**
    * @schema GroundStationSatelliteListItem#satelliteArn
@@ -1178,6 +2040,23 @@ export interface GroundStationSatelliteListItem {
 }
 
 /**
+ * Converts an object of type 'GroundStationSatelliteListItem' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationSatelliteListItem(obj: GroundStationSatelliteListItem | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'groundStations': obj.groundStations?.map(y => y),
+    'noradSatelliteID': obj.noradSatelliteId,
+    'satelliteArn': obj.satelliteArn,
+    'satelliteId': obj.satelliteId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationAntennaDownlinkConfig
  */
 export interface GroundStationAntennaDownlinkConfig {
@@ -1187,6 +2066,20 @@ export interface GroundStationAntennaDownlinkConfig {
   readonly spectrumConfig: GroundStationSpectrumConfig;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationAntennaDownlinkConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationAntennaDownlinkConfig(obj: GroundStationAntennaDownlinkConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'spectrumConfig': toJson_GroundStationSpectrumConfig(obj.spectrumConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationAntennaDownlinkDemodDecodeConfig
@@ -1210,6 +2103,22 @@ export interface GroundStationAntennaDownlinkDemodDecodeConfig {
 }
 
 /**
+ * Converts an object of type 'GroundStationAntennaDownlinkDemodDecodeConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationAntennaDownlinkDemodDecodeConfig(obj: GroundStationAntennaDownlinkDemodDecodeConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'decodeConfig': toJson_GroundStationDecodeConfig(obj.decodeConfig),
+    'demodulationConfig': toJson_GroundStationDemodulationConfig(obj.demodulationConfig),
+    'spectrumConfig': toJson_GroundStationSpectrumConfig(obj.spectrumConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationAntennaUplinkConfig
  */
 export interface GroundStationAntennaUplinkConfig {
@@ -1231,6 +2140,22 @@ export interface GroundStationAntennaUplinkConfig {
 }
 
 /**
+ * Converts an object of type 'GroundStationAntennaUplinkConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationAntennaUplinkConfig(obj: GroundStationAntennaUplinkConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'spectrumConfig': toJson_GroundStationUplinkSpectrumConfig(obj.spectrumConfig),
+    'targetEirp': toJson_GroundStationEirp(obj.targetEirp),
+    'transmitDisabled': obj.transmitDisabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationDataflowEndpointConfig
  */
 export interface GroundStationDataflowEndpointConfig {
@@ -1247,6 +2172,58 @@ export interface GroundStationDataflowEndpointConfig {
 }
 
 /**
+ * Converts an object of type 'GroundStationDataflowEndpointConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationDataflowEndpointConfig(obj: GroundStationDataflowEndpointConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dataflowEndpointName': obj.dataflowEndpointName,
+    'dataflowEndpointRegion': obj.dataflowEndpointRegion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema GroundStationS3RecordingConfig
+ */
+export interface GroundStationS3RecordingConfig {
+  /**
+   * @schema GroundStationS3RecordingConfig#bucketArn
+   */
+  readonly bucketArn: string;
+
+  /**
+   * @schema GroundStationS3RecordingConfig#prefix
+   */
+  readonly prefix?: string;
+
+  /**
+   * @schema GroundStationS3RecordingConfig#roleArn
+   */
+  readonly roleArn: string;
+
+}
+
+/**
+ * Converts an object of type 'GroundStationS3RecordingConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationS3RecordingConfig(obj: GroundStationS3RecordingConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketArn': obj.bucketArn,
+    'prefix': obj.prefix,
+    'roleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationTrackingConfig
  */
 export interface GroundStationTrackingConfig {
@@ -1256,6 +2233,20 @@ export interface GroundStationTrackingConfig {
   readonly autotrack: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationTrackingConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationTrackingConfig(obj: GroundStationTrackingConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'autotrack': obj.autotrack,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationUplinkEchoConfig
@@ -1272,6 +2263,21 @@ export interface GroundStationUplinkEchoConfig {
   readonly enabled: boolean;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationUplinkEchoConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationUplinkEchoConfig(obj: GroundStationUplinkEchoConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'antennaUplinkConfigArn': obj.antennaUplinkConfigArn,
+    'enabled': obj.enabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationDataflowEndpoint
@@ -1300,6 +2306,23 @@ export interface GroundStationDataflowEndpoint {
 }
 
 /**
+ * Converts an object of type 'GroundStationDataflowEndpoint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationDataflowEndpoint(obj: GroundStationDataflowEndpoint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'address': toJson_GroundStationSocketAddress(obj.address),
+    'mtu': obj.mtu,
+    'name': obj.name,
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationSecurityDetails
  */
 export interface GroundStationSecurityDetails {
@@ -1319,6 +2342,22 @@ export interface GroundStationSecurityDetails {
   readonly subnetIds: string[];
 
 }
+
+/**
+ * Converts an object of type 'GroundStationSecurityDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationSecurityDetails(obj: GroundStationSecurityDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'roleArn': obj.roleArn,
+    'securityGroupIds': obj.securityGroupIds?.map(y => y),
+    'subnetIds': obj.subnetIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationDestination
@@ -1347,6 +2386,23 @@ export interface GroundStationDestination {
 }
 
 /**
+ * Converts an object of type 'GroundStationDestination' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationDestination(obj: GroundStationDestination | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configDetails': toJson_GroundStationConfigDetails(obj.configDetails),
+    'configId': obj.configId,
+    'configType': obj.configType,
+    'dataflowDestinationRegion': obj.dataflowDestinationRegion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationSource
  */
 export interface GroundStationSource {
@@ -1373,6 +2429,23 @@ export interface GroundStationSource {
 }
 
 /**
+ * Converts an object of type 'GroundStationSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationSource(obj: GroundStationSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configDetails': toJson_GroundStationConfigDetails(obj.configDetails),
+    'configId': obj.configId,
+    'configType': obj.configType,
+    'dataflowSourceRegion': obj.dataflowSourceRegion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationSpectrumConfig
  */
 export interface GroundStationSpectrumConfig {
@@ -1394,15 +2467,45 @@ export interface GroundStationSpectrumConfig {
 }
 
 /**
+ * Converts an object of type 'GroundStationSpectrumConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationSpectrumConfig(obj: GroundStationSpectrumConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bandwidth': toJson_GroundStationFrequencyBandwidth(obj.bandwidth),
+    'centerFrequency': toJson_GroundStationFrequency(obj.centerFrequency),
+    'polarization': obj.polarization,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationDecodeConfig
  */
 export interface GroundStationDecodeConfig {
   /**
    * @schema GroundStationDecodeConfig#unvalidatedJSON
    */
-  readonly unvalidatedJSON?: string;
+  readonly unvalidatedJson?: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationDecodeConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationDecodeConfig(obj: GroundStationDecodeConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'unvalidatedJSON': obj.unvalidatedJson,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationDemodulationConfig
@@ -1411,9 +2514,23 @@ export interface GroundStationDemodulationConfig {
   /**
    * @schema GroundStationDemodulationConfig#unvalidatedJSON
    */
-  readonly unvalidatedJSON?: string;
+  readonly unvalidatedJson?: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationDemodulationConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationDemodulationConfig(obj: GroundStationDemodulationConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'unvalidatedJSON': obj.unvalidatedJson,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationUplinkSpectrumConfig
@@ -1432,6 +2549,21 @@ export interface GroundStationUplinkSpectrumConfig {
 }
 
 /**
+ * Converts an object of type 'GroundStationUplinkSpectrumConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationUplinkSpectrumConfig(obj: GroundStationUplinkSpectrumConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'centerFrequency': toJson_GroundStationFrequency(obj.centerFrequency),
+    'polarization': obj.polarization,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationEirp
  */
 export interface GroundStationEirp {
@@ -1446,6 +2578,21 @@ export interface GroundStationEirp {
   readonly value: number;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationEirp' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationEirp(obj: GroundStationEirp | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'units': obj.units,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationSocketAddress
@@ -1464,6 +2611,21 @@ export interface GroundStationSocketAddress {
 }
 
 /**
+ * Converts an object of type 'GroundStationSocketAddress' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationSocketAddress(obj: GroundStationSocketAddress | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'port': obj.port,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationConfigDetails
  */
 export interface GroundStationConfigDetails {
@@ -1477,7 +2639,28 @@ export interface GroundStationConfigDetails {
    */
   readonly endpointDetails?: GroundStationEndpointDetails;
 
+  /**
+   * @schema GroundStationConfigDetails#s3RecordingDetails
+   */
+  readonly s3RecordingDetails?: GroundStationS3RecordingDetails;
+
 }
+
+/**
+ * Converts an object of type 'GroundStationConfigDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationConfigDetails(obj: GroundStationConfigDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'antennaDemodDecodeDetails': toJson_GroundStationAntennaDemodDecodeDetails(obj.antennaDemodDecodeDetails),
+    'endpointDetails': toJson_GroundStationEndpointDetails(obj.endpointDetails),
+    's3RecordingDetails': toJson_GroundStationS3RecordingDetails(obj.s3RecordingDetails),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GroundStationFrequencyBandwidth
@@ -1496,6 +2679,21 @@ export interface GroundStationFrequencyBandwidth {
 }
 
 /**
+ * Converts an object of type 'GroundStationFrequencyBandwidth' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationFrequencyBandwidth(obj: GroundStationFrequencyBandwidth | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'units': obj.units,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationFrequency
  */
 export interface GroundStationFrequency {
@@ -1512,6 +2710,21 @@ export interface GroundStationFrequency {
 }
 
 /**
+ * Converts an object of type 'GroundStationFrequency' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationFrequency(obj: GroundStationFrequency | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'units': obj.units,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GroundStationAntennaDemodDecodeDetails
  */
 export interface GroundStationAntennaDemodDecodeDetails {
@@ -1521,3 +2734,48 @@ export interface GroundStationAntennaDemodDecodeDetails {
   readonly outputNode?: string;
 
 }
+
+/**
+ * Converts an object of type 'GroundStationAntennaDemodDecodeDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationAntennaDemodDecodeDetails(obj: GroundStationAntennaDemodDecodeDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'outputNode': obj.outputNode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema GroundStationS3RecordingDetails
+ */
+export interface GroundStationS3RecordingDetails {
+  /**
+   * @schema GroundStationS3RecordingDetails#bucketArn
+   */
+  readonly bucketArn?: string;
+
+  /**
+   * @schema GroundStationS3RecordingDetails#keyTemplate
+   */
+  readonly keyTemplate?: string;
+
+}
+
+/**
+ * Converts an object of type 'GroundStationS3RecordingDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GroundStationS3RecordingDetails(obj: GroundStationS3RecordingDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketArn': obj.bucketArn,
+    'keyTemplate': obj.keyTemplate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

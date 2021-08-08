@@ -75,6 +75,33 @@ export interface CloudSearchDomainSearchRequest {
 }
 
 /**
+ * Converts an object of type 'CloudSearchDomainSearchRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudSearchDomainSearchRequest(obj: CloudSearchDomainSearchRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'cursor': obj.cursor,
+    'expr': obj.expr,
+    'facet': obj.facet,
+    'filterQuery': obj.filterQuery,
+    'highlight': obj.highlight,
+    'partial': obj.partial,
+    'query': obj.query,
+    'queryOptions': obj.queryOptions,
+    'queryParser': obj.queryParser,
+    'return': obj.return,
+    'size': obj.size,
+    'sort': obj.sort,
+    'start': obj.start,
+    'stats': obj.stats,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudSearchDomainSearchResponse
  */
 export interface CloudSearchDomainSearchResponse {
@@ -101,6 +128,23 @@ export interface CloudSearchDomainSearchResponse {
 }
 
 /**
+ * Converts an object of type 'CloudSearchDomainSearchResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudSearchDomainSearchResponse(obj: CloudSearchDomainSearchResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': toJson_CloudSearchDomainSearchStatus(obj.status),
+    'hits': toJson_CloudSearchDomainHits(obj.hits),
+    'facets': ((obj.facets) === undefined) ? undefined : (Object.entries(obj.facets).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_CloudSearchDomainBucketInfo(i[1]) }), {})),
+    'stats': ((obj.stats) === undefined) ? undefined : (Object.entries(obj.stats).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_CloudSearchDomainFieldStats(i[1]) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudSearchDomainSuggestRequest
  */
 export interface CloudSearchDomainSuggestRequest {
@@ -122,6 +166,22 @@ export interface CloudSearchDomainSuggestRequest {
 }
 
 /**
+ * Converts an object of type 'CloudSearchDomainSuggestRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudSearchDomainSuggestRequest(obj: CloudSearchDomainSuggestRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'query': obj.query,
+    'suggester': obj.suggester,
+    'size': obj.size,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudSearchDomainSuggestResponse
  */
 export interface CloudSearchDomainSuggestResponse {
@@ -138,6 +198,21 @@ export interface CloudSearchDomainSuggestResponse {
 }
 
 /**
+ * Converts an object of type 'CloudSearchDomainSuggestResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudSearchDomainSuggestResponse(obj: CloudSearchDomainSuggestResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': toJson_CloudSearchDomainSuggestStatus(obj.status),
+    'suggest': toJson_CloudSearchDomainSuggestModel(obj.suggest),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudSearchDomainUploadDocumentsRequest
  */
 export interface CloudSearchDomainUploadDocumentsRequest {
@@ -152,6 +227,21 @@ export interface CloudSearchDomainUploadDocumentsRequest {
   readonly contentType: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudSearchDomainUploadDocumentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudSearchDomainUploadDocumentsRequest(obj: CloudSearchDomainUploadDocumentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'documents': obj.documents,
+    'contentType': obj.contentType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudSearchDomainUploadDocumentsResponse
@@ -180,6 +270,23 @@ export interface CloudSearchDomainUploadDocumentsResponse {
 }
 
 /**
+ * Converts an object of type 'CloudSearchDomainUploadDocumentsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudSearchDomainUploadDocumentsResponse(obj: CloudSearchDomainUploadDocumentsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+    'adds': obj.adds,
+    'deletes': obj.deletes,
+    'warnings': obj.warnings?.map(y => toJson_CloudSearchDomainDocumentServiceWarning(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudSearchDomainSearchStatus
  */
 export interface CloudSearchDomainSearchStatus {
@@ -194,6 +301,21 @@ export interface CloudSearchDomainSearchStatus {
   readonly rid?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudSearchDomainSearchStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudSearchDomainSearchStatus(obj: CloudSearchDomainSearchStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'timems': obj.timems,
+    'rid': obj.rid,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudSearchDomainHits
@@ -222,6 +344,23 @@ export interface CloudSearchDomainHits {
 }
 
 /**
+ * Converts an object of type 'CloudSearchDomainHits' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudSearchDomainHits(obj: CloudSearchDomainHits | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'found': obj.found,
+    'start': obj.start,
+    'cursor': obj.cursor,
+    'hit': obj.hit?.map(y => toJson_CloudSearchDomainHit(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudSearchDomainBucketInfo
  */
 export interface CloudSearchDomainBucketInfo {
@@ -231,6 +370,20 @@ export interface CloudSearchDomainBucketInfo {
   readonly buckets?: CloudSearchDomainBucket[];
 
 }
+
+/**
+ * Converts an object of type 'CloudSearchDomainBucketInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudSearchDomainBucketInfo(obj: CloudSearchDomainBucketInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'buckets': obj.buckets?.map(y => toJson_CloudSearchDomainBucket(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudSearchDomainFieldStats
@@ -279,6 +432,27 @@ export interface CloudSearchDomainFieldStats {
 }
 
 /**
+ * Converts an object of type 'CloudSearchDomainFieldStats' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudSearchDomainFieldStats(obj: CloudSearchDomainFieldStats | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'min': obj.min,
+    'max': obj.max,
+    'count': obj.count,
+    'missing': obj.missing,
+    'sum': obj.sum,
+    'sumOfSquares': obj.sumOfSquares,
+    'mean': obj.mean,
+    'stddev': obj.stddev,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudSearchDomainSuggestStatus
  */
 export interface CloudSearchDomainSuggestStatus {
@@ -293,6 +467,21 @@ export interface CloudSearchDomainSuggestStatus {
   readonly rid?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudSearchDomainSuggestStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudSearchDomainSuggestStatus(obj: CloudSearchDomainSuggestStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'timems': obj.timems,
+    'rid': obj.rid,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudSearchDomainSuggestModel
@@ -316,6 +505,22 @@ export interface CloudSearchDomainSuggestModel {
 }
 
 /**
+ * Converts an object of type 'CloudSearchDomainSuggestModel' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudSearchDomainSuggestModel(obj: CloudSearchDomainSuggestModel | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'query': obj.query,
+    'found': obj.found,
+    'suggestions': obj.suggestions?.map(y => toJson_CloudSearchDomainSuggestionMatch(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudSearchDomainDocumentServiceWarning
  */
 export interface CloudSearchDomainDocumentServiceWarning {
@@ -325,6 +530,20 @@ export interface CloudSearchDomainDocumentServiceWarning {
   readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudSearchDomainDocumentServiceWarning' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudSearchDomainDocumentServiceWarning(obj: CloudSearchDomainDocumentServiceWarning | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudSearchDomainHit
@@ -353,6 +572,23 @@ export interface CloudSearchDomainHit {
 }
 
 /**
+ * Converts an object of type 'CloudSearchDomainHit' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudSearchDomainHit(obj: CloudSearchDomainHit | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'fields': ((obj.fields) === undefined) ? undefined : (Object.entries(obj.fields).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.map(y => y) }), {})),
+    'exprs': ((obj.exprs) === undefined) ? undefined : (Object.entries(obj.exprs).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'highlights': ((obj.highlights) === undefined) ? undefined : (Object.entries(obj.highlights).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CloudSearchDomainBucket
  */
 export interface CloudSearchDomainBucket {
@@ -367,6 +603,21 @@ export interface CloudSearchDomainBucket {
   readonly count?: number;
 
 }
+
+/**
+ * Converts an object of type 'CloudSearchDomainBucket' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudSearchDomainBucket(obj: CloudSearchDomainBucket | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'value': obj.value,
+    'count': obj.count,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CloudSearchDomainSuggestionMatch
@@ -388,3 +639,19 @@ export interface CloudSearchDomainSuggestionMatch {
   readonly id?: string;
 
 }
+
+/**
+ * Converts an object of type 'CloudSearchDomainSuggestionMatch' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CloudSearchDomainSuggestionMatch(obj: CloudSearchDomainSuggestionMatch | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'suggestion': obj.suggestion,
+    'score': obj.score,
+    'id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

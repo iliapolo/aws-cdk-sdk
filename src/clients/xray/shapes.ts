@@ -5,7 +5,7 @@ export interface XRayBatchGetTracesRequest {
   /**
    * @schema XRayBatchGetTracesRequest#TraceIds
    */
-  readonly traceIds: string[];
+  readonly traceIds?: string[];
 
   /**
    * @schema XRayBatchGetTracesRequest#NextToken
@@ -13,6 +13,21 @@ export interface XRayBatchGetTracesRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayBatchGetTracesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayBatchGetTracesRequest(obj: XRayBatchGetTracesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TraceIds': obj.traceIds?.map(y => y),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayBatchGetTracesResult
@@ -36,13 +51,29 @@ export interface XRayBatchGetTracesResult {
 }
 
 /**
+ * Converts an object of type 'XRayBatchGetTracesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayBatchGetTracesResult(obj: XRayBatchGetTracesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Traces': obj.traces?.map(y => toJson_XRayTrace(y)),
+    'UnprocessedTraceIds': obj.unprocessedTraceIds?.map(y => y),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayCreateGroupRequest
  */
 export interface XRayCreateGroupRequest {
   /**
    * @schema XRayCreateGroupRequest#GroupName
    */
-  readonly groupName: string;
+  readonly groupName?: string;
 
   /**
    * @schema XRayCreateGroupRequest#FilterExpression
@@ -62,6 +93,23 @@ export interface XRayCreateGroupRequest {
 }
 
 /**
+ * Converts an object of type 'XRayCreateGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayCreateGroupRequest(obj: XRayCreateGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupName': obj.groupName,
+    'FilterExpression': obj.filterExpression,
+    'InsightsConfiguration': toJson_XRayInsightsConfiguration(obj.insightsConfiguration),
+    'Tags': obj.tags?.map(y => toJson_XRayTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayCreateGroupResult
  */
 export interface XRayCreateGroupResult {
@@ -73,13 +121,27 @@ export interface XRayCreateGroupResult {
 }
 
 /**
+ * Converts an object of type 'XRayCreateGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayCreateGroupResult(obj: XRayCreateGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Group': toJson_XRayGroup(obj.group),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayCreateSamplingRuleRequest
  */
 export interface XRayCreateSamplingRuleRequest {
   /**
    * @schema XRayCreateSamplingRuleRequest#SamplingRule
    */
-  readonly samplingRule: XRaySamplingRule;
+  readonly samplingRule?: XRaySamplingRule;
 
   /**
    * @schema XRayCreateSamplingRuleRequest#Tags
@@ -87,6 +149,21 @@ export interface XRayCreateSamplingRuleRequest {
   readonly tags?: XRayTag[];
 
 }
+
+/**
+ * Converts an object of type 'XRayCreateSamplingRuleRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayCreateSamplingRuleRequest(obj: XRayCreateSamplingRuleRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SamplingRule': toJson_XRaySamplingRule(obj.samplingRule),
+    'Tags': obj.tags?.map(y => toJson_XRayTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayCreateSamplingRuleResult
@@ -98,6 +175,20 @@ export interface XRayCreateSamplingRuleResult {
   readonly samplingRuleRecord?: XRaySamplingRuleRecord;
 
 }
+
+/**
+ * Converts an object of type 'XRayCreateSamplingRuleResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayCreateSamplingRuleResult(obj: XRayCreateSamplingRuleResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SamplingRuleRecord': toJson_XRaySamplingRuleRecord(obj.samplingRuleRecord),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayDeleteGroupRequest
@@ -116,10 +207,38 @@ export interface XRayDeleteGroupRequest {
 }
 
 /**
+ * Converts an object of type 'XRayDeleteGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayDeleteGroupRequest(obj: XRayDeleteGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupName': obj.groupName,
+    'GroupARN': obj.groupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayDeleteGroupResult
  */
 export interface XRayDeleteGroupResult {
 }
+
+/**
+ * Converts an object of type 'XRayDeleteGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayDeleteGroupResult(obj: XRayDeleteGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayDeleteSamplingRuleRequest
@@ -138,6 +257,21 @@ export interface XRayDeleteSamplingRuleRequest {
 }
 
 /**
+ * Converts an object of type 'XRayDeleteSamplingRuleRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayDeleteSamplingRuleRequest(obj: XRayDeleteSamplingRuleRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RuleName': obj.ruleName,
+    'RuleARN': obj.ruleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayDeleteSamplingRuleResult
  */
 export interface XRayDeleteSamplingRuleResult {
@@ -149,10 +283,37 @@ export interface XRayDeleteSamplingRuleResult {
 }
 
 /**
+ * Converts an object of type 'XRayDeleteSamplingRuleResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayDeleteSamplingRuleResult(obj: XRayDeleteSamplingRuleResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SamplingRuleRecord': toJson_XRaySamplingRuleRecord(obj.samplingRuleRecord),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayGetEncryptionConfigRequest
  */
 export interface XRayGetEncryptionConfigRequest {
 }
+
+/**
+ * Converts an object of type 'XRayGetEncryptionConfigRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetEncryptionConfigRequest(obj: XRayGetEncryptionConfigRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayGetEncryptionConfigResult
@@ -164,6 +325,20 @@ export interface XRayGetEncryptionConfigResult {
   readonly encryptionConfig?: XRayEncryptionConfig;
 
 }
+
+/**
+ * Converts an object of type 'XRayGetEncryptionConfigResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetEncryptionConfigResult(obj: XRayGetEncryptionConfigResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EncryptionConfig': toJson_XRayEncryptionConfig(obj.encryptionConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayGetGroupRequest
@@ -182,6 +357,21 @@ export interface XRayGetGroupRequest {
 }
 
 /**
+ * Converts an object of type 'XRayGetGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetGroupRequest(obj: XRayGetGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupName': obj.groupName,
+    'GroupARN': obj.groupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayGetGroupResult
  */
 export interface XRayGetGroupResult {
@@ -193,6 +383,20 @@ export interface XRayGetGroupResult {
 }
 
 /**
+ * Converts an object of type 'XRayGetGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetGroupResult(obj: XRayGetGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Group': toJson_XRayGroup(obj.group),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayGetGroupsRequest
  */
 export interface XRayGetGroupsRequest {
@@ -202,6 +406,20 @@ export interface XRayGetGroupsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayGetGroupsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetGroupsRequest(obj: XRayGetGroupsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayGetGroupsResult
@@ -220,15 +438,44 @@ export interface XRayGetGroupsResult {
 }
 
 /**
+ * Converts an object of type 'XRayGetGroupsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetGroupsResult(obj: XRayGetGroupsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Groups': obj.groups?.map(y => toJson_XRayGroupSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayGetInsightRequest
  */
 export interface XRayGetInsightRequest {
   /**
    * @schema XRayGetInsightRequest#InsightId
    */
-  readonly insightId: string;
+  readonly insightId?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayGetInsightRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetInsightRequest(obj: XRayGetInsightRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InsightId': obj.insightId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayGetInsightResult
@@ -242,13 +489,27 @@ export interface XRayGetInsightResult {
 }
 
 /**
+ * Converts an object of type 'XRayGetInsightResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetInsightResult(obj: XRayGetInsightResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Insight': toJson_XRayInsight(obj.insight),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayGetInsightEventsRequest
  */
 export interface XRayGetInsightEventsRequest {
   /**
    * @schema XRayGetInsightEventsRequest#InsightId
    */
-  readonly insightId: string;
+  readonly insightId?: string;
 
   /**
    * @schema XRayGetInsightEventsRequest#MaxResults
@@ -261,6 +522,22 @@ export interface XRayGetInsightEventsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayGetInsightEventsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetInsightEventsRequest(obj: XRayGetInsightEventsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InsightId': obj.insightId,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayGetInsightEventsResult
@@ -279,23 +556,38 @@ export interface XRayGetInsightEventsResult {
 }
 
 /**
+ * Converts an object of type 'XRayGetInsightEventsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetInsightEventsResult(obj: XRayGetInsightEventsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InsightEvents': obj.insightEvents?.map(y => toJson_XRayInsightEvent(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayGetInsightImpactGraphRequest
  */
 export interface XRayGetInsightImpactGraphRequest {
   /**
    * @schema XRayGetInsightImpactGraphRequest#InsightId
    */
-  readonly insightId: string;
+  readonly insightId?: string;
 
   /**
    * @schema XRayGetInsightImpactGraphRequest#StartTime
    */
-  readonly startTime: string;
+  readonly startTime?: string;
 
   /**
    * @schema XRayGetInsightImpactGraphRequest#EndTime
    */
-  readonly endTime: string;
+  readonly endTime?: string;
 
   /**
    * @schema XRayGetInsightImpactGraphRequest#NextToken
@@ -303,6 +595,23 @@ export interface XRayGetInsightImpactGraphRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayGetInsightImpactGraphRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetInsightImpactGraphRequest(obj: XRayGetInsightImpactGraphRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InsightId': obj.insightId,
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayGetInsightImpactGraphResult
@@ -346,6 +655,26 @@ export interface XRayGetInsightImpactGraphResult {
 }
 
 /**
+ * Converts an object of type 'XRayGetInsightImpactGraphResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetInsightImpactGraphResult(obj: XRayGetInsightImpactGraphResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InsightId': obj.insightId,
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'ServiceGraphStartTime': obj.serviceGraphStartTime,
+    'ServiceGraphEndTime': obj.serviceGraphEndTime,
+    'Services': obj.services?.map(y => toJson_XRayInsightImpactGraphService(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayGetInsightSummariesRequest
  */
 export interface XRayGetInsightSummariesRequest {
@@ -367,12 +696,12 @@ export interface XRayGetInsightSummariesRequest {
   /**
    * @schema XRayGetInsightSummariesRequest#StartTime
    */
-  readonly startTime: string;
+  readonly startTime?: string;
 
   /**
    * @schema XRayGetInsightSummariesRequest#EndTime
    */
-  readonly endTime: string;
+  readonly endTime?: string;
 
   /**
    * @schema XRayGetInsightSummariesRequest#MaxResults
@@ -385,6 +714,26 @@ export interface XRayGetInsightSummariesRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayGetInsightSummariesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetInsightSummariesRequest(obj: XRayGetInsightSummariesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'States': obj.states?.map(y => y),
+    'GroupARN': obj.groupArn,
+    'GroupName': obj.groupName,
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayGetInsightSummariesResult
@@ -403,6 +752,21 @@ export interface XRayGetInsightSummariesResult {
 }
 
 /**
+ * Converts an object of type 'XRayGetInsightSummariesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetInsightSummariesResult(obj: XRayGetInsightSummariesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InsightSummaries': obj.insightSummaries?.map(y => toJson_XRayInsightSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayGetSamplingRulesRequest
  */
 export interface XRayGetSamplingRulesRequest {
@@ -412,6 +776,20 @@ export interface XRayGetSamplingRulesRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayGetSamplingRulesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetSamplingRulesRequest(obj: XRayGetSamplingRulesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayGetSamplingRulesResult
@@ -430,6 +808,21 @@ export interface XRayGetSamplingRulesResult {
 }
 
 /**
+ * Converts an object of type 'XRayGetSamplingRulesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetSamplingRulesResult(obj: XRayGetSamplingRulesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SamplingRuleRecords': obj.samplingRuleRecords?.map(y => toJson_XRaySamplingRuleRecord(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayGetSamplingStatisticSummariesRequest
  */
 export interface XRayGetSamplingStatisticSummariesRequest {
@@ -439,6 +832,20 @@ export interface XRayGetSamplingStatisticSummariesRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayGetSamplingStatisticSummariesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetSamplingStatisticSummariesRequest(obj: XRayGetSamplingStatisticSummariesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayGetSamplingStatisticSummariesResult
@@ -457,15 +864,44 @@ export interface XRayGetSamplingStatisticSummariesResult {
 }
 
 /**
+ * Converts an object of type 'XRayGetSamplingStatisticSummariesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetSamplingStatisticSummariesResult(obj: XRayGetSamplingStatisticSummariesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SamplingStatisticSummaries': obj.samplingStatisticSummaries?.map(y => toJson_XRaySamplingStatisticSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayGetSamplingTargetsRequest
  */
 export interface XRayGetSamplingTargetsRequest {
   /**
    * @schema XRayGetSamplingTargetsRequest#SamplingStatisticsDocuments
    */
-  readonly samplingStatisticsDocuments: XRaySamplingStatisticsDocument[];
+  readonly samplingStatisticsDocuments?: XRaySamplingStatisticsDocument[];
 
 }
+
+/**
+ * Converts an object of type 'XRayGetSamplingTargetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetSamplingTargetsRequest(obj: XRayGetSamplingTargetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SamplingStatisticsDocuments': obj.samplingStatisticsDocuments?.map(y => toJson_XRaySamplingStatisticsDocument(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayGetSamplingTargetsResult
@@ -489,18 +925,34 @@ export interface XRayGetSamplingTargetsResult {
 }
 
 /**
+ * Converts an object of type 'XRayGetSamplingTargetsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetSamplingTargetsResult(obj: XRayGetSamplingTargetsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SamplingTargetDocuments': obj.samplingTargetDocuments?.map(y => toJson_XRaySamplingTargetDocument(y)),
+    'LastRuleModification': obj.lastRuleModification,
+    'UnprocessedStatistics': obj.unprocessedStatistics?.map(y => toJson_XRayUnprocessedStatistics(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayGetServiceGraphRequest
  */
 export interface XRayGetServiceGraphRequest {
   /**
    * @schema XRayGetServiceGraphRequest#StartTime
    */
-  readonly startTime: string;
+  readonly startTime?: string;
 
   /**
    * @schema XRayGetServiceGraphRequest#EndTime
    */
-  readonly endTime: string;
+  readonly endTime?: string;
 
   /**
    * @schema XRayGetServiceGraphRequest#GroupName
@@ -518,6 +970,24 @@ export interface XRayGetServiceGraphRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayGetServiceGraphRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetServiceGraphRequest(obj: XRayGetServiceGraphRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'GroupName': obj.groupName,
+    'GroupARN': obj.groupArn,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayGetServiceGraphResult
@@ -551,18 +1021,36 @@ export interface XRayGetServiceGraphResult {
 }
 
 /**
+ * Converts an object of type 'XRayGetServiceGraphResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetServiceGraphResult(obj: XRayGetServiceGraphResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'Services': obj.services?.map(y => toJson_XRayService(y)),
+    'ContainsOldGroupVersions': obj.containsOldGroupVersions,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayGetTimeSeriesServiceStatisticsRequest
  */
 export interface XRayGetTimeSeriesServiceStatisticsRequest {
   /**
    * @schema XRayGetTimeSeriesServiceStatisticsRequest#StartTime
    */
-  readonly startTime: string;
+  readonly startTime?: string;
 
   /**
    * @schema XRayGetTimeSeriesServiceStatisticsRequest#EndTime
    */
-  readonly endTime: string;
+  readonly endTime?: string;
 
   /**
    * @schema XRayGetTimeSeriesServiceStatisticsRequest#GroupName
@@ -597,6 +1085,27 @@ export interface XRayGetTimeSeriesServiceStatisticsRequest {
 }
 
 /**
+ * Converts an object of type 'XRayGetTimeSeriesServiceStatisticsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetTimeSeriesServiceStatisticsRequest(obj: XRayGetTimeSeriesServiceStatisticsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'GroupName': obj.groupName,
+    'GroupARN': obj.groupArn,
+    'EntitySelectorExpression': obj.entitySelectorExpression,
+    'Period': obj.period,
+    'ForecastStatistics': obj.forecastStatistics,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayGetTimeSeriesServiceStatisticsResult
  */
 export interface XRayGetTimeSeriesServiceStatisticsResult {
@@ -618,13 +1127,29 @@ export interface XRayGetTimeSeriesServiceStatisticsResult {
 }
 
 /**
+ * Converts an object of type 'XRayGetTimeSeriesServiceStatisticsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetTimeSeriesServiceStatisticsResult(obj: XRayGetTimeSeriesServiceStatisticsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TimeSeriesServiceStatistics': obj.timeSeriesServiceStatistics?.map(y => toJson_XRayTimeSeriesServiceStatistics(y)),
+    'ContainsOldGroupVersions': obj.containsOldGroupVersions,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayGetTraceGraphRequest
  */
 export interface XRayGetTraceGraphRequest {
   /**
    * @schema XRayGetTraceGraphRequest#TraceIds
    */
-  readonly traceIds: string[];
+  readonly traceIds?: string[];
 
   /**
    * @schema XRayGetTraceGraphRequest#NextToken
@@ -632,6 +1157,21 @@ export interface XRayGetTraceGraphRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayGetTraceGraphRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetTraceGraphRequest(obj: XRayGetTraceGraphRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TraceIds': obj.traceIds?.map(y => y),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayGetTraceGraphResult
@@ -650,18 +1190,33 @@ export interface XRayGetTraceGraphResult {
 }
 
 /**
+ * Converts an object of type 'XRayGetTraceGraphResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetTraceGraphResult(obj: XRayGetTraceGraphResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Services': obj.services?.map(y => toJson_XRayService(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayGetTraceSummariesRequest
  */
 export interface XRayGetTraceSummariesRequest {
   /**
    * @schema XRayGetTraceSummariesRequest#StartTime
    */
-  readonly startTime: string;
+  readonly startTime?: string;
 
   /**
    * @schema XRayGetTraceSummariesRequest#EndTime
    */
-  readonly endTime: string;
+  readonly endTime?: string;
 
   /**
    * @schema XRayGetTraceSummariesRequest#TimeRangeType
@@ -691,6 +1246,26 @@ export interface XRayGetTraceSummariesRequest {
 }
 
 /**
+ * Converts an object of type 'XRayGetTraceSummariesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetTraceSummariesRequest(obj: XRayGetTraceSummariesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'TimeRangeType': obj.timeRangeType,
+    'Sampling': obj.sampling,
+    'SamplingStrategy': toJson_XRaySamplingStrategy(obj.samplingStrategy),
+    'FilterExpression': obj.filterExpression,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayGetTraceSummariesResult
  */
 export interface XRayGetTraceSummariesResult {
@@ -717,13 +1292,30 @@ export interface XRayGetTraceSummariesResult {
 }
 
 /**
+ * Converts an object of type 'XRayGetTraceSummariesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGetTraceSummariesResult(obj: XRayGetTraceSummariesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TraceSummaries': obj.traceSummaries?.map(y => toJson_XRayTraceSummary(y)),
+    'ApproximateTime': obj.approximateTime,
+    'TracesProcessedCount': obj.tracesProcessedCount,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayListTagsForResourceRequest
  */
 export interface XRayListTagsForResourceRequest {
   /**
    * @schema XRayListTagsForResourceRequest#ResourceARN
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema XRayListTagsForResourceRequest#NextToken
@@ -731,6 +1323,21 @@ export interface XRayListTagsForResourceRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayListTagsForResourceRequest(obj: XRayListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceARN': obj.resourceArn,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayListTagsForResourceResponse
@@ -749,6 +1356,21 @@ export interface XRayListTagsForResourceResponse {
 }
 
 /**
+ * Converts an object of type 'XRayListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayListTagsForResourceResponse(obj: XRayListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Tags': obj.tags?.map(y => toJson_XRayTag(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayPutEncryptionConfigRequest
  */
 export interface XRayPutEncryptionConfigRequest {
@@ -760,9 +1382,24 @@ export interface XRayPutEncryptionConfigRequest {
   /**
    * @schema XRayPutEncryptionConfigRequest#Type
    */
-  readonly type: string;
+  readonly type?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayPutEncryptionConfigRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayPutEncryptionConfigRequest(obj: XRayPutEncryptionConfigRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'KeyId': obj.keyId,
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayPutEncryptionConfigResult
@@ -776,13 +1413,27 @@ export interface XRayPutEncryptionConfigResult {
 }
 
 /**
+ * Converts an object of type 'XRayPutEncryptionConfigResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayPutEncryptionConfigResult(obj: XRayPutEncryptionConfigResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EncryptionConfig': toJson_XRayEncryptionConfig(obj.encryptionConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayPutTelemetryRecordsRequest
  */
 export interface XRayPutTelemetryRecordsRequest {
   /**
    * @schema XRayPutTelemetryRecordsRequest#TelemetryRecords
    */
-  readonly telemetryRecords: XRayTelemetryRecord[];
+  readonly telemetryRecords?: XRayTelemetryRecord[];
 
   /**
    * @schema XRayPutTelemetryRecordsRequest#EC2InstanceId
@@ -802,10 +1453,40 @@ export interface XRayPutTelemetryRecordsRequest {
 }
 
 /**
+ * Converts an object of type 'XRayPutTelemetryRecordsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayPutTelemetryRecordsRequest(obj: XRayPutTelemetryRecordsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TelemetryRecords': obj.telemetryRecords?.map(y => toJson_XRayTelemetryRecord(y)),
+    'EC2InstanceId': obj.ec2InstanceId,
+    'Hostname': obj.hostname,
+    'ResourceARN': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayPutTelemetryRecordsResult
  */
 export interface XRayPutTelemetryRecordsResult {
 }
+
+/**
+ * Converts an object of type 'XRayPutTelemetryRecordsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayPutTelemetryRecordsResult(obj: XRayPutTelemetryRecordsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayPutTraceSegmentsRequest
@@ -814,9 +1495,23 @@ export interface XRayPutTraceSegmentsRequest {
   /**
    * @schema XRayPutTraceSegmentsRequest#TraceSegmentDocuments
    */
-  readonly traceSegmentDocuments: string[];
+  readonly traceSegmentDocuments?: string[];
 
 }
+
+/**
+ * Converts an object of type 'XRayPutTraceSegmentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayPutTraceSegmentsRequest(obj: XRayPutTraceSegmentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TraceSegmentDocuments': obj.traceSegmentDocuments?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayPutTraceSegmentsResult
@@ -830,20 +1525,49 @@ export interface XRayPutTraceSegmentsResult {
 }
 
 /**
+ * Converts an object of type 'XRayPutTraceSegmentsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayPutTraceSegmentsResult(obj: XRayPutTraceSegmentsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UnprocessedTraceSegments': obj.unprocessedTraceSegments?.map(y => toJson_XRayUnprocessedTraceSegment(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayTagResourceRequest
  */
 export interface XRayTagResourceRequest {
   /**
    * @schema XRayTagResourceRequest#ResourceARN
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema XRayTagResourceRequest#Tags
    */
-  readonly tags: XRayTag[];
+  readonly tags?: XRayTag[];
 
 }
+
+/**
+ * Converts an object of type 'XRayTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayTagResourceRequest(obj: XRayTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceARN': obj.resourceArn,
+    'Tags': obj.tags?.map(y => toJson_XRayTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayTagResourceResponse
@@ -852,26 +1576,67 @@ export interface XRayTagResourceResponse {
 }
 
 /**
+ * Converts an object of type 'XRayTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayTagResourceResponse(obj: XRayTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayUntagResourceRequest
  */
 export interface XRayUntagResourceRequest {
   /**
    * @schema XRayUntagResourceRequest#ResourceARN
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema XRayUntagResourceRequest#TagKeys
    */
-  readonly tagKeys: string[];
+  readonly tagKeys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'XRayUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayUntagResourceRequest(obj: XRayUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceARN': obj.resourceArn,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayUntagResourceResponse
  */
 export interface XRayUntagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'XRayUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayUntagResourceResponse(obj: XRayUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayUpdateGroupRequest
@@ -900,6 +1665,23 @@ export interface XRayUpdateGroupRequest {
 }
 
 /**
+ * Converts an object of type 'XRayUpdateGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayUpdateGroupRequest(obj: XRayUpdateGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupName': obj.groupName,
+    'GroupARN': obj.groupArn,
+    'FilterExpression': obj.filterExpression,
+    'InsightsConfiguration': toJson_XRayInsightsConfiguration(obj.insightsConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayUpdateGroupResult
  */
 export interface XRayUpdateGroupResult {
@@ -911,15 +1693,43 @@ export interface XRayUpdateGroupResult {
 }
 
 /**
+ * Converts an object of type 'XRayUpdateGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayUpdateGroupResult(obj: XRayUpdateGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Group': toJson_XRayGroup(obj.group),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayUpdateSamplingRuleRequest
  */
 export interface XRayUpdateSamplingRuleRequest {
   /**
    * @schema XRayUpdateSamplingRuleRequest#SamplingRuleUpdate
    */
-  readonly samplingRuleUpdate: XRaySamplingRuleUpdate;
+  readonly samplingRuleUpdate?: XRaySamplingRuleUpdate;
 
 }
+
+/**
+ * Converts an object of type 'XRayUpdateSamplingRuleRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayUpdateSamplingRuleRequest(obj: XRayUpdateSamplingRuleRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SamplingRuleUpdate': toJson_XRaySamplingRuleUpdate(obj.samplingRuleUpdate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayUpdateSamplingRuleResult
@@ -931,6 +1741,20 @@ export interface XRayUpdateSamplingRuleResult {
   readonly samplingRuleRecord?: XRaySamplingRuleRecord;
 
 }
+
+/**
+ * Converts an object of type 'XRayUpdateSamplingRuleResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayUpdateSamplingRuleResult(obj: XRayUpdateSamplingRuleResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SamplingRuleRecord': toJson_XRaySamplingRuleRecord(obj.samplingRuleRecord),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayTrace
@@ -959,6 +1783,23 @@ export interface XRayTrace {
 }
 
 /**
+ * Converts an object of type 'XRayTrace' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayTrace(obj: XRayTrace | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+    'Duration': obj.duration,
+    'LimitExceeded': obj.limitExceeded,
+    'Segments': obj.segments?.map(y => toJson_XRaySegment(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayInsightsConfiguration
  */
 export interface XRayInsightsConfiguration {
@@ -975,20 +1816,50 @@ export interface XRayInsightsConfiguration {
 }
 
 /**
+ * Converts an object of type 'XRayInsightsConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayInsightsConfiguration(obj: XRayInsightsConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InsightsEnabled': obj.insightsEnabled,
+    'NotificationsEnabled': obj.notificationsEnabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayTag
  */
 export interface XRayTag {
   /**
    * @schema XRayTag#Key
    */
-  readonly key: string;
+  readonly key?: string;
 
   /**
    * @schema XRayTag#Value
    */
-  readonly value: string;
+  readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayTag(obj: XRayTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayGroup
@@ -1017,6 +1888,23 @@ export interface XRayGroup {
 }
 
 /**
+ * Converts an object of type 'XRayGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGroup(obj: XRayGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupName': obj.groupName,
+    'GroupARN': obj.groupArn,
+    'FilterExpression': obj.filterExpression,
+    'InsightsConfiguration': toJson_XRayInsightsConfiguration(obj.insightsConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRaySamplingRule
  */
 export interface XRaySamplingRule {
@@ -1033,52 +1921,52 @@ export interface XRaySamplingRule {
   /**
    * @schema XRaySamplingRule#ResourceARN
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema XRaySamplingRule#Priority
    */
-  readonly priority: number;
+  readonly priority?: number;
 
   /**
    * @schema XRaySamplingRule#FixedRate
    */
-  readonly fixedRate: number;
+  readonly fixedRate?: number;
 
   /**
    * @schema XRaySamplingRule#ReservoirSize
    */
-  readonly reservoirSize: number;
+  readonly reservoirSize?: number;
 
   /**
    * @schema XRaySamplingRule#ServiceName
    */
-  readonly serviceName: string;
+  readonly serviceName?: string;
 
   /**
    * @schema XRaySamplingRule#ServiceType
    */
-  readonly serviceType: string;
+  readonly serviceType?: string;
 
   /**
    * @schema XRaySamplingRule#Host
    */
-  readonly host: string;
+  readonly host?: string;
 
   /**
    * @schema XRaySamplingRule#HTTPMethod
    */
-  readonly httpMethod: string;
+  readonly httpMethod?: string;
 
   /**
    * @schema XRaySamplingRule#URLPath
    */
-  readonly urlPath: string;
+  readonly urlPath?: string;
 
   /**
    * @schema XRaySamplingRule#Version
    */
-  readonly version: number;
+  readonly version?: number;
 
   /**
    * @schema XRaySamplingRule#Attributes
@@ -1086,6 +1974,32 @@ export interface XRaySamplingRule {
   readonly attributes?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'XRaySamplingRule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRaySamplingRule(obj: XRaySamplingRule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RuleName': obj.ruleName,
+    'RuleARN': obj.ruleArn,
+    'ResourceARN': obj.resourceArn,
+    'Priority': obj.priority,
+    'FixedRate': obj.fixedRate,
+    'ReservoirSize': obj.reservoirSize,
+    'ServiceName': obj.serviceName,
+    'ServiceType': obj.serviceType,
+    'Host': obj.host,
+    'HTTPMethod': obj.httpMethod,
+    'URLPath': obj.urlPath,
+    'Version': obj.version,
+    'Attributes': ((obj.attributes) === undefined) ? undefined : (Object.entries(obj.attributes).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRaySamplingRuleRecord
@@ -1109,6 +2023,22 @@ export interface XRaySamplingRuleRecord {
 }
 
 /**
+ * Converts an object of type 'XRaySamplingRuleRecord' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRaySamplingRuleRecord(obj: XRaySamplingRuleRecord | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SamplingRule': toJson_XRaySamplingRule(obj.samplingRule),
+    'CreatedAt': obj.createdAt,
+    'ModifiedAt': obj.modifiedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayEncryptionConfig
  */
 export interface XRayEncryptionConfig {
@@ -1128,6 +2058,22 @@ export interface XRayEncryptionConfig {
   readonly type?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayEncryptionConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayEncryptionConfig(obj: XRayEncryptionConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'KeyId': obj.keyId,
+    'Status': obj.status,
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayGroupSummary
@@ -1154,6 +2100,23 @@ export interface XRayGroupSummary {
   readonly insightsConfiguration?: XRayInsightsConfiguration;
 
 }
+
+/**
+ * Converts an object of type 'XRayGroupSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayGroupSummary(obj: XRayGroupSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'GroupName': obj.groupName,
+    'GroupARN': obj.groupArn,
+    'FilterExpression': obj.filterExpression,
+    'InsightsConfiguration': toJson_XRayInsightsConfiguration(obj.insightsConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayInsight
@@ -1222,6 +2185,31 @@ export interface XRayInsight {
 }
 
 /**
+ * Converts an object of type 'XRayInsight' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayInsight(obj: XRayInsight | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InsightId': obj.insightId,
+    'GroupARN': obj.groupArn,
+    'GroupName': obj.groupName,
+    'RootCauseServiceId': toJson_XRayServiceId(obj.rootCauseServiceId),
+    'Categories': obj.categories?.map(y => y),
+    'State': obj.state,
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'Summary': obj.summary,
+    'ClientRequestImpactStatistics': toJson_XRayRequestImpactStatistics(obj.clientRequestImpactStatistics),
+    'RootCauseServiceRequestImpactStatistics': toJson_XRayRequestImpactStatistics(obj.rootCauseServiceRequestImpactStatistics),
+    'TopAnomalousServices': obj.topAnomalousServices?.map(y => toJson_XRayAnomalousService(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayInsightEvent
  */
 export interface XRayInsightEvent {
@@ -1251,6 +2239,24 @@ export interface XRayInsightEvent {
   readonly topAnomalousServices?: XRayAnomalousService[];
 
 }
+
+/**
+ * Converts an object of type 'XRayInsightEvent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayInsightEvent(obj: XRayInsightEvent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Summary': obj.summary,
+    'EventTime': obj.eventTime,
+    'ClientRequestImpactStatistics': toJson_XRayRequestImpactStatistics(obj.clientRequestImpactStatistics),
+    'RootCauseServiceRequestImpactStatistics': toJson_XRayRequestImpactStatistics(obj.rootCauseServiceRequestImpactStatistics),
+    'TopAnomalousServices': obj.topAnomalousServices?.map(y => toJson_XRayAnomalousService(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayInsightImpactGraphService
@@ -1287,6 +2293,25 @@ export interface XRayInsightImpactGraphService {
   readonly edges?: XRayInsightImpactGraphEdge[];
 
 }
+
+/**
+ * Converts an object of type 'XRayInsightImpactGraphService' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayInsightImpactGraphService(obj: XRayInsightImpactGraphService | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReferenceId': obj.referenceId,
+    'Type': obj.type,
+    'Name': obj.name,
+    'Names': obj.names?.map(y => y),
+    'AccountId': obj.accountId,
+    'Edges': obj.edges?.map(y => toJson_XRayInsightImpactGraphEdge(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayInsightSummary
@@ -1360,6 +2385,32 @@ export interface XRayInsightSummary {
 }
 
 /**
+ * Converts an object of type 'XRayInsightSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayInsightSummary(obj: XRayInsightSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InsightId': obj.insightId,
+    'GroupARN': obj.groupArn,
+    'GroupName': obj.groupName,
+    'RootCauseServiceId': toJson_XRayServiceId(obj.rootCauseServiceId),
+    'Categories': obj.categories?.map(y => y),
+    'State': obj.state,
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'Summary': obj.summary,
+    'ClientRequestImpactStatistics': toJson_XRayRequestImpactStatistics(obj.clientRequestImpactStatistics),
+    'RootCauseServiceRequestImpactStatistics': toJson_XRayRequestImpactStatistics(obj.rootCauseServiceRequestImpactStatistics),
+    'TopAnomalousServices': obj.topAnomalousServices?.map(y => toJson_XRayAnomalousService(y)),
+    'LastUpdateTime': obj.lastUpdateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRaySamplingStatisticSummary
  */
 export interface XRaySamplingStatisticSummary {
@@ -1391,33 +2442,51 @@ export interface XRaySamplingStatisticSummary {
 }
 
 /**
+ * Converts an object of type 'XRaySamplingStatisticSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRaySamplingStatisticSummary(obj: XRaySamplingStatisticSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RuleName': obj.ruleName,
+    'Timestamp': obj.timestamp,
+    'RequestCount': obj.requestCount,
+    'BorrowCount': obj.borrowCount,
+    'SampledCount': obj.sampledCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRaySamplingStatisticsDocument
  */
 export interface XRaySamplingStatisticsDocument {
   /**
    * @schema XRaySamplingStatisticsDocument#RuleName
    */
-  readonly ruleName: string;
+  readonly ruleName?: string;
 
   /**
    * @schema XRaySamplingStatisticsDocument#ClientID
    */
-  readonly clientId: string;
+  readonly clientId?: string;
 
   /**
    * @schema XRaySamplingStatisticsDocument#Timestamp
    */
-  readonly timestamp: string;
+  readonly timestamp?: string;
 
   /**
    * @schema XRaySamplingStatisticsDocument#RequestCount
    */
-  readonly requestCount: number;
+  readonly requestCount?: number;
 
   /**
    * @schema XRaySamplingStatisticsDocument#SampledCount
    */
-  readonly sampledCount: number;
+  readonly sampledCount?: number;
 
   /**
    * @schema XRaySamplingStatisticsDocument#BorrowCount
@@ -1425,6 +2494,25 @@ export interface XRaySamplingStatisticsDocument {
   readonly borrowCount?: number;
 
 }
+
+/**
+ * Converts an object of type 'XRaySamplingStatisticsDocument' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRaySamplingStatisticsDocument(obj: XRaySamplingStatisticsDocument | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RuleName': obj.ruleName,
+    'ClientID': obj.clientId,
+    'Timestamp': obj.timestamp,
+    'RequestCount': obj.requestCount,
+    'SampledCount': obj.sampledCount,
+    'BorrowCount': obj.borrowCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRaySamplingTargetDocument
@@ -1458,6 +2546,24 @@ export interface XRaySamplingTargetDocument {
 }
 
 /**
+ * Converts an object of type 'XRaySamplingTargetDocument' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRaySamplingTargetDocument(obj: XRaySamplingTargetDocument | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RuleName': obj.ruleName,
+    'FixedRate': obj.fixedRate,
+    'ReservoirQuota': obj.reservoirQuota,
+    'ReservoirQuotaTTL': obj.reservoirQuotaTtl,
+    'Interval': obj.interval,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayUnprocessedStatistics
  */
 export interface XRayUnprocessedStatistics {
@@ -1477,6 +2583,22 @@ export interface XRayUnprocessedStatistics {
   readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayUnprocessedStatistics' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayUnprocessedStatistics(obj: XRayUnprocessedStatistics | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RuleName': obj.ruleName,
+    'ErrorCode': obj.errorCode,
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayService
@@ -1550,6 +2672,32 @@ export interface XRayService {
 }
 
 /**
+ * Converts an object of type 'XRayService' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayService(obj: XRayService | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReferenceId': obj.referenceId,
+    'Name': obj.name,
+    'Names': obj.names?.map(y => y),
+    'Root': obj.root,
+    'AccountId': obj.accountId,
+    'Type': obj.type,
+    'State': obj.state,
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'Edges': obj.edges?.map(y => toJson_XRayEdge(y)),
+    'SummaryStatistics': toJson_XRayServiceStatistics(obj.summaryStatistics),
+    'DurationHistogram': obj.durationHistogram?.map(y => toJson_XRayHistogramEntry(y)),
+    'ResponseTimeHistogram': obj.responseTimeHistogram?.map(y => toJson_XRayHistogramEntry(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayTimeSeriesServiceStatistics
  */
 export interface XRayTimeSeriesServiceStatistics {
@@ -1581,6 +2729,24 @@ export interface XRayTimeSeriesServiceStatistics {
 }
 
 /**
+ * Converts an object of type 'XRayTimeSeriesServiceStatistics' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayTimeSeriesServiceStatistics(obj: XRayTimeSeriesServiceStatistics | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Timestamp': obj.timestamp,
+    'EdgeSummaryStatistics': toJson_XRayEdgeStatistics(obj.edgeSummaryStatistics),
+    'ServiceSummaryStatistics': toJson_XRayServiceStatistics(obj.serviceSummaryStatistics),
+    'ServiceForecastStatistics': toJson_XRayForecastStatistics(obj.serviceForecastStatistics),
+    'ResponseTimeHistogram': obj.responseTimeHistogram?.map(y => toJson_XRayHistogramEntry(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRaySamplingStrategy
  */
 export interface XRaySamplingStrategy {
@@ -1595,6 +2761,21 @@ export interface XRaySamplingStrategy {
   readonly value?: number;
 
 }
+
+/**
+ * Converts an object of type 'XRaySamplingStrategy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRaySamplingStrategy(obj: XRaySamplingStrategy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayTraceSummary
@@ -1703,13 +2884,46 @@ export interface XRayTraceSummary {
 }
 
 /**
+ * Converts an object of type 'XRayTraceSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayTraceSummary(obj: XRayTraceSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+    'Duration': obj.duration,
+    'ResponseTime': obj.responseTime,
+    'HasFault': obj.hasFault,
+    'HasError': obj.hasError,
+    'HasThrottle': obj.hasThrottle,
+    'IsPartial': obj.isPartial,
+    'Http': toJson_XRayHttp(obj.http),
+    'Annotations': ((obj.annotations) === undefined) ? undefined : (Object.entries(obj.annotations).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.map(y => toJson_XRayValueWithServiceIds(y)) }), {})),
+    'Users': obj.users?.map(y => toJson_XRayTraceUser(y)),
+    'ServiceIds': obj.serviceIds?.map(y => toJson_XRayServiceId(y)),
+    'ResourceARNs': obj.resourceArNs?.map(y => toJson_XRayResourceArnDetail(y)),
+    'InstanceIds': obj.instanceIds?.map(y => toJson_XRayInstanceIdDetail(y)),
+    'AvailabilityZones': obj.availabilityZones?.map(y => toJson_XRayAvailabilityZoneDetail(y)),
+    'EntryPoint': toJson_XRayServiceId(obj.entryPoint),
+    'FaultRootCauses': obj.faultRootCauses?.map(y => toJson_XRayFaultRootCause(y)),
+    'ErrorRootCauses': obj.errorRootCauses?.map(y => toJson_XRayErrorRootCause(y)),
+    'ResponseTimeRootCauses': obj.responseTimeRootCauses?.map(y => toJson_XRayResponseTimeRootCause(y)),
+    'Revision': obj.revision,
+    'MatchedEventTime': obj.matchedEventTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayTelemetryRecord
  */
 export interface XRayTelemetryRecord {
   /**
    * @schema XRayTelemetryRecord#Timestamp
    */
-  readonly timestamp: string;
+  readonly timestamp?: string;
 
   /**
    * @schema XRayTelemetryRecord#SegmentsReceivedCount
@@ -1739,6 +2953,25 @@ export interface XRayTelemetryRecord {
 }
 
 /**
+ * Converts an object of type 'XRayTelemetryRecord' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayTelemetryRecord(obj: XRayTelemetryRecord | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Timestamp': obj.timestamp,
+    'SegmentsReceivedCount': obj.segmentsReceivedCount,
+    'SegmentsSentCount': obj.segmentsSentCount,
+    'SegmentsSpilloverCount': obj.segmentsSpilloverCount,
+    'SegmentsRejectedCount': obj.segmentsRejectedCount,
+    'BackendConnectionErrors': toJson_XRayBackendConnectionErrors(obj.backendConnectionErrors),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayUnprocessedTraceSegment
  */
 export interface XRayUnprocessedTraceSegment {
@@ -1758,6 +2991,22 @@ export interface XRayUnprocessedTraceSegment {
   readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayUnprocessedTraceSegment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayUnprocessedTraceSegment(obj: XRayUnprocessedTraceSegment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+    'ErrorCode': obj.errorCode,
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRaySamplingRuleUpdate
@@ -1826,6 +3075,31 @@ export interface XRaySamplingRuleUpdate {
 }
 
 /**
+ * Converts an object of type 'XRaySamplingRuleUpdate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRaySamplingRuleUpdate(obj: XRaySamplingRuleUpdate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RuleName': obj.ruleName,
+    'RuleARN': obj.ruleArn,
+    'ResourceARN': obj.resourceArn,
+    'Priority': obj.priority,
+    'FixedRate': obj.fixedRate,
+    'ReservoirSize': obj.reservoirSize,
+    'Host': obj.host,
+    'ServiceName': obj.serviceName,
+    'ServiceType': obj.serviceType,
+    'HTTPMethod': obj.httpMethod,
+    'URLPath': obj.urlPath,
+    'Attributes': ((obj.attributes) === undefined) ? undefined : (Object.entries(obj.attributes).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRaySegment
  */
 export interface XRaySegment {
@@ -1840,6 +3114,21 @@ export interface XRaySegment {
   readonly document?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRaySegment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRaySegment(obj: XRaySegment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+    'Document': obj.document,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayServiceId
@@ -1868,6 +3157,23 @@ export interface XRayServiceId {
 }
 
 /**
+ * Converts an object of type 'XRayServiceId' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayServiceId(obj: XRayServiceId | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Names': obj.names?.map(y => y),
+    'AccountId': obj.accountId,
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayRequestImpactStatistics
  */
 export interface XRayRequestImpactStatistics {
@@ -1889,6 +3195,22 @@ export interface XRayRequestImpactStatistics {
 }
 
 /**
+ * Converts an object of type 'XRayRequestImpactStatistics' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayRequestImpactStatistics(obj: XRayRequestImpactStatistics | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FaultCount': obj.faultCount,
+    'OkCount': obj.okCount,
+    'TotalCount': obj.totalCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayAnomalousService
  */
 export interface XRayAnomalousService {
@@ -1900,6 +3222,20 @@ export interface XRayAnomalousService {
 }
 
 /**
+ * Converts an object of type 'XRayAnomalousService' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayAnomalousService(obj: XRayAnomalousService | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ServiceId': toJson_XRayServiceId(obj.serviceId),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayInsightImpactGraphEdge
  */
 export interface XRayInsightImpactGraphEdge {
@@ -1909,6 +3245,20 @@ export interface XRayInsightImpactGraphEdge {
   readonly referenceId?: number;
 
 }
+
+/**
+ * Converts an object of type 'XRayInsightImpactGraphEdge' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayInsightImpactGraphEdge(obj: XRayInsightImpactGraphEdge | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReferenceId': obj.referenceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayEdge
@@ -1947,6 +3297,25 @@ export interface XRayEdge {
 }
 
 /**
+ * Converts an object of type 'XRayEdge' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayEdge(obj: XRayEdge | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReferenceId': obj.referenceId,
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'SummaryStatistics': toJson_XRayEdgeStatistics(obj.summaryStatistics),
+    'ResponseTimeHistogram': obj.responseTimeHistogram?.map(y => toJson_XRayHistogramEntry(y)),
+    'Aliases': obj.aliases?.map(y => toJson_XRayAlias(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayServiceStatistics
  */
 export interface XRayServiceStatistics {
@@ -1978,6 +3347,24 @@ export interface XRayServiceStatistics {
 }
 
 /**
+ * Converts an object of type 'XRayServiceStatistics' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayServiceStatistics(obj: XRayServiceStatistics | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OkCount': obj.okCount,
+    'ErrorStatistics': toJson_XRayErrorStatistics(obj.errorStatistics),
+    'FaultStatistics': toJson_XRayFaultStatistics(obj.faultStatistics),
+    'TotalCount': obj.totalCount,
+    'TotalResponseTime': obj.totalResponseTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayHistogramEntry
  */
 export interface XRayHistogramEntry {
@@ -1992,6 +3379,21 @@ export interface XRayHistogramEntry {
   readonly count?: number;
 
 }
+
+/**
+ * Converts an object of type 'XRayHistogramEntry' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayHistogramEntry(obj: XRayHistogramEntry | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Value': obj.value,
+    'Count': obj.count,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayEdgeStatistics
@@ -2025,6 +3427,24 @@ export interface XRayEdgeStatistics {
 }
 
 /**
+ * Converts an object of type 'XRayEdgeStatistics' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayEdgeStatistics(obj: XRayEdgeStatistics | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OkCount': obj.okCount,
+    'ErrorStatistics': toJson_XRayErrorStatistics(obj.errorStatistics),
+    'FaultStatistics': toJson_XRayFaultStatistics(obj.faultStatistics),
+    'TotalCount': obj.totalCount,
+    'TotalResponseTime': obj.totalResponseTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayForecastStatistics
  */
 export interface XRayForecastStatistics {
@@ -2039,6 +3459,21 @@ export interface XRayForecastStatistics {
   readonly faultCountLow?: number;
 
 }
+
+/**
+ * Converts an object of type 'XRayForecastStatistics' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayForecastStatistics(obj: XRayForecastStatistics | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FaultCountHigh': obj.faultCountHigh,
+    'FaultCountLow': obj.faultCountLow,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayHttp
@@ -2072,6 +3507,24 @@ export interface XRayHttp {
 }
 
 /**
+ * Converts an object of type 'XRayHttp' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayHttp(obj: XRayHttp | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HttpURL': obj.httpUrl,
+    'HttpStatus': obj.httpStatus,
+    'HttpMethod': obj.httpMethod,
+    'UserAgent': obj.userAgent,
+    'ClientIp': obj.clientIp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayValueWithServiceIds
  */
 export interface XRayValueWithServiceIds {
@@ -2086,6 +3539,21 @@ export interface XRayValueWithServiceIds {
   readonly serviceIds?: XRayServiceId[];
 
 }
+
+/**
+ * Converts an object of type 'XRayValueWithServiceIds' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayValueWithServiceIds(obj: XRayValueWithServiceIds | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AnnotationValue': toJson_XRayAnnotationValue(obj.annotationValue),
+    'ServiceIds': obj.serviceIds?.map(y => toJson_XRayServiceId(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayTraceUser
@@ -2104,6 +3572,21 @@ export interface XRayTraceUser {
 }
 
 /**
+ * Converts an object of type 'XRayTraceUser' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayTraceUser(obj: XRayTraceUser | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserName': obj.userName,
+    'ServiceIds': obj.serviceIds?.map(y => toJson_XRayServiceId(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayResourceArnDetail
  */
 export interface XRayResourceArnDetail {
@@ -2113,6 +3596,20 @@ export interface XRayResourceArnDetail {
   readonly arn?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayResourceArnDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayResourceArnDetail(obj: XRayResourceArnDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ARN': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayInstanceIdDetail
@@ -2126,6 +3623,20 @@ export interface XRayInstanceIdDetail {
 }
 
 /**
+ * Converts an object of type 'XRayInstanceIdDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayInstanceIdDetail(obj: XRayInstanceIdDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayAvailabilityZoneDetail
  */
 export interface XRayAvailabilityZoneDetail {
@@ -2135,6 +3646,20 @@ export interface XRayAvailabilityZoneDetail {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayAvailabilityZoneDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayAvailabilityZoneDetail(obj: XRayAvailabilityZoneDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayFaultRootCause
@@ -2153,6 +3678,21 @@ export interface XRayFaultRootCause {
 }
 
 /**
+ * Converts an object of type 'XRayFaultRootCause' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayFaultRootCause(obj: XRayFaultRootCause | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Services': obj.services?.map(y => toJson_XRayFaultRootCauseService(y)),
+    'ClientImpacting': obj.clientImpacting,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayErrorRootCause
  */
 export interface XRayErrorRootCause {
@@ -2169,6 +3709,21 @@ export interface XRayErrorRootCause {
 }
 
 /**
+ * Converts an object of type 'XRayErrorRootCause' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayErrorRootCause(obj: XRayErrorRootCause | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Services': obj.services?.map(y => toJson_XRayErrorRootCauseService(y)),
+    'ClientImpacting': obj.clientImpacting,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayResponseTimeRootCause
  */
 export interface XRayResponseTimeRootCause {
@@ -2183,6 +3738,21 @@ export interface XRayResponseTimeRootCause {
   readonly clientImpacting?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'XRayResponseTimeRootCause' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayResponseTimeRootCause(obj: XRayResponseTimeRootCause | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Services': obj.services?.map(y => toJson_XRayResponseTimeRootCauseService(y)),
+    'ClientImpacting': obj.clientImpacting,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayBackendConnectionErrors
@@ -2221,6 +3791,25 @@ export interface XRayBackendConnectionErrors {
 }
 
 /**
+ * Converts an object of type 'XRayBackendConnectionErrors' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayBackendConnectionErrors(obj: XRayBackendConnectionErrors | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TimeoutCount': obj.timeoutCount,
+    'ConnectionRefusedCount': obj.connectionRefusedCount,
+    'HTTPCode4XXCount': obj.httpCode4XxCount,
+    'HTTPCode5XXCount': obj.httpCode5XxCount,
+    'UnknownHostCount': obj.unknownHostCount,
+    'OtherCount': obj.otherCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayAlias
  */
 export interface XRayAlias {
@@ -2240,6 +3829,22 @@ export interface XRayAlias {
   readonly type?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayAlias' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayAlias(obj: XRayAlias | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Names': obj.names?.map(y => y),
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayErrorStatistics
@@ -2263,6 +3868,22 @@ export interface XRayErrorStatistics {
 }
 
 /**
+ * Converts an object of type 'XRayErrorStatistics' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayErrorStatistics(obj: XRayErrorStatistics | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ThrottleCount': obj.throttleCount,
+    'OtherCount': obj.otherCount,
+    'TotalCount': obj.totalCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayFaultStatistics
  */
 export interface XRayFaultStatistics {
@@ -2277,6 +3898,21 @@ export interface XRayFaultStatistics {
   readonly totalCount?: number;
 
 }
+
+/**
+ * Converts an object of type 'XRayFaultStatistics' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayFaultStatistics(obj: XRayFaultStatistics | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OtherCount': obj.otherCount,
+    'TotalCount': obj.totalCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayAnnotationValue
@@ -2298,6 +3934,22 @@ export interface XRayAnnotationValue {
   readonly stringValue?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayAnnotationValue' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayAnnotationValue(obj: XRayAnnotationValue | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NumberValue': obj.numberValue,
+    'BooleanValue': obj.booleanValue,
+    'StringValue': obj.stringValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayFaultRootCauseService
@@ -2336,6 +3988,25 @@ export interface XRayFaultRootCauseService {
 }
 
 /**
+ * Converts an object of type 'XRayFaultRootCauseService' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayFaultRootCauseService(obj: XRayFaultRootCauseService | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Names': obj.names?.map(y => y),
+    'Type': obj.type,
+    'AccountId': obj.accountId,
+    'EntityPath': obj.entityPath?.map(y => toJson_XRayFaultRootCauseEntity(y)),
+    'Inferred': obj.inferred,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayErrorRootCauseService
  */
 export interface XRayErrorRootCauseService {
@@ -2370,6 +4041,25 @@ export interface XRayErrorRootCauseService {
   readonly inferred?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'XRayErrorRootCauseService' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayErrorRootCauseService(obj: XRayErrorRootCauseService | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Names': obj.names?.map(y => y),
+    'Type': obj.type,
+    'AccountId': obj.accountId,
+    'EntityPath': obj.entityPath?.map(y => toJson_XRayErrorRootCauseEntity(y)),
+    'Inferred': obj.inferred,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayResponseTimeRootCauseService
@@ -2408,6 +4098,25 @@ export interface XRayResponseTimeRootCauseService {
 }
 
 /**
+ * Converts an object of type 'XRayResponseTimeRootCauseService' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayResponseTimeRootCauseService(obj: XRayResponseTimeRootCauseService | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Names': obj.names?.map(y => y),
+    'Type': obj.type,
+    'AccountId': obj.accountId,
+    'EntityPath': obj.entityPath?.map(y => toJson_XRayResponseTimeRootCauseEntity(y)),
+    'Inferred': obj.inferred,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayFaultRootCauseEntity
  */
 export interface XRayFaultRootCauseEntity {
@@ -2427,6 +4136,22 @@ export interface XRayFaultRootCauseEntity {
   readonly remote?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'XRayFaultRootCauseEntity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayFaultRootCauseEntity(obj: XRayFaultRootCauseEntity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Exceptions': obj.exceptions?.map(y => toJson_XRayRootCauseException(y)),
+    'Remote': obj.remote,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema XRayErrorRootCauseEntity
@@ -2450,6 +4175,22 @@ export interface XRayErrorRootCauseEntity {
 }
 
 /**
+ * Converts an object of type 'XRayErrorRootCauseEntity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayErrorRootCauseEntity(obj: XRayErrorRootCauseEntity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Exceptions': obj.exceptions?.map(y => toJson_XRayRootCauseException(y)),
+    'Remote': obj.remote,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayResponseTimeRootCauseEntity
  */
 export interface XRayResponseTimeRootCauseEntity {
@@ -2471,6 +4212,22 @@ export interface XRayResponseTimeRootCauseEntity {
 }
 
 /**
+ * Converts an object of type 'XRayResponseTimeRootCauseEntity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayResponseTimeRootCauseEntity(obj: XRayResponseTimeRootCauseEntity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Coverage': obj.coverage,
+    'Remote': obj.remote,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema XRayRootCauseException
  */
 export interface XRayRootCauseException {
@@ -2485,3 +4242,18 @@ export interface XRayRootCauseException {
   readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'XRayRootCauseException' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_XRayRootCauseException(obj: XRayRootCauseException | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

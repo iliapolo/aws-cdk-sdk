@@ -30,6 +30,24 @@ export interface CodeStarAssociateTeamMemberRequest {
 }
 
 /**
+ * Converts an object of type 'CodeStarAssociateTeamMemberRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarAssociateTeamMemberRequest(obj: CodeStarAssociateTeamMemberRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectId': obj.projectId,
+    'clientRequestToken': obj.clientRequestToken,
+    'userArn': obj.userArn,
+    'projectRole': obj.projectRole,
+    'remoteAccessAllowed': obj.remoteAccessAllowed,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarAssociateTeamMemberResult
  */
 export interface CodeStarAssociateTeamMemberResult {
@@ -39,6 +57,20 @@ export interface CodeStarAssociateTeamMemberResult {
   readonly clientRequestToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarAssociateTeamMemberResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarAssociateTeamMemberResult(obj: CodeStarAssociateTeamMemberResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarCreateProjectRequest
@@ -82,6 +114,26 @@ export interface CodeStarCreateProjectRequest {
 }
 
 /**
+ * Converts an object of type 'CodeStarCreateProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarCreateProjectRequest(obj: CodeStarCreateProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'id': obj.id,
+    'description': obj.description,
+    'clientRequestToken': obj.clientRequestToken,
+    'sourceCode': obj.sourceCode?.map(y => toJson_CodeStarCode(y)),
+    'toolchain': toJson_CodeStarToolchain(obj.toolchain),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarCreateProjectResult
  */
 export interface CodeStarCreateProjectResult {
@@ -108,6 +160,23 @@ export interface CodeStarCreateProjectResult {
 }
 
 /**
+ * Converts an object of type 'CodeStarCreateProjectResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarCreateProjectResult(obj: CodeStarCreateProjectResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'arn': obj.arn,
+    'clientRequestToken': obj.clientRequestToken,
+    'projectTemplateId': obj.projectTemplateId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarCreateUserProfileRequest
  */
 export interface CodeStarCreateUserProfileRequest {
@@ -132,6 +201,23 @@ export interface CodeStarCreateUserProfileRequest {
   readonly sshPublicKey?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarCreateUserProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarCreateUserProfileRequest(obj: CodeStarCreateUserProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'userArn': obj.userArn,
+    'displayName': obj.displayName,
+    'emailAddress': obj.emailAddress,
+    'sshPublicKey': obj.sshPublicKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarCreateUserProfileResult
@@ -170,6 +256,25 @@ export interface CodeStarCreateUserProfileResult {
 }
 
 /**
+ * Converts an object of type 'CodeStarCreateUserProfileResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarCreateUserProfileResult(obj: CodeStarCreateUserProfileResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'userArn': obj.userArn,
+    'displayName': obj.displayName,
+    'emailAddress': obj.emailAddress,
+    'sshPublicKey': obj.sshPublicKey,
+    'createdTimestamp': obj.createdTimestamp,
+    'lastModifiedTimestamp': obj.lastModifiedTimestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarDeleteProjectRequest
  */
 export interface CodeStarDeleteProjectRequest {
@@ -191,6 +296,22 @@ export interface CodeStarDeleteProjectRequest {
 }
 
 /**
+ * Converts an object of type 'CodeStarDeleteProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarDeleteProjectRequest(obj: CodeStarDeleteProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'clientRequestToken': obj.clientRequestToken,
+    'deleteStack': obj.deleteStack,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarDeleteProjectResult
  */
 export interface CodeStarDeleteProjectResult {
@@ -207,6 +328,21 @@ export interface CodeStarDeleteProjectResult {
 }
 
 /**
+ * Converts an object of type 'CodeStarDeleteProjectResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarDeleteProjectResult(obj: CodeStarDeleteProjectResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'stackId': obj.stackId,
+    'projectArn': obj.projectArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarDeleteUserProfileRequest
  */
 export interface CodeStarDeleteUserProfileRequest {
@@ -216,6 +352,20 @@ export interface CodeStarDeleteUserProfileRequest {
   readonly userArn: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarDeleteUserProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarDeleteUserProfileRequest(obj: CodeStarDeleteUserProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'userArn': obj.userArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarDeleteUserProfileResult
@@ -229,6 +379,20 @@ export interface CodeStarDeleteUserProfileResult {
 }
 
 /**
+ * Converts an object of type 'CodeStarDeleteUserProfileResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarDeleteUserProfileResult(obj: CodeStarDeleteUserProfileResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'userArn': obj.userArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarDescribeProjectRequest
  */
 export interface CodeStarDescribeProjectRequest {
@@ -238,6 +402,20 @@ export interface CodeStarDescribeProjectRequest {
   readonly id: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarDescribeProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarDescribeProjectRequest(obj: CodeStarDescribeProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarDescribeProjectResult
@@ -291,6 +469,28 @@ export interface CodeStarDescribeProjectResult {
 }
 
 /**
+ * Converts an object of type 'CodeStarDescribeProjectResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarDescribeProjectResult(obj: CodeStarDescribeProjectResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'id': obj.id,
+    'arn': obj.arn,
+    'description': obj.description,
+    'clientRequestToken': obj.clientRequestToken,
+    'createdTimeStamp': obj.createdTimeStamp,
+    'stackId': obj.stackId,
+    'projectTemplateId': obj.projectTemplateId,
+    'status': toJson_CodeStarProjectStatus(obj.status),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarDescribeUserProfileRequest
  */
 export interface CodeStarDescribeUserProfileRequest {
@@ -300,6 +500,20 @@ export interface CodeStarDescribeUserProfileRequest {
   readonly userArn: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarDescribeUserProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarDescribeUserProfileRequest(obj: CodeStarDescribeUserProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'userArn': obj.userArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarDescribeUserProfileResult
@@ -338,6 +552,25 @@ export interface CodeStarDescribeUserProfileResult {
 }
 
 /**
+ * Converts an object of type 'CodeStarDescribeUserProfileResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarDescribeUserProfileResult(obj: CodeStarDescribeUserProfileResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'userArn': obj.userArn,
+    'displayName': obj.displayName,
+    'emailAddress': obj.emailAddress,
+    'sshPublicKey': obj.sshPublicKey,
+    'createdTimestamp': obj.createdTimestamp,
+    'lastModifiedTimestamp': obj.lastModifiedTimestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarDisassociateTeamMemberRequest
  */
 export interface CodeStarDisassociateTeamMemberRequest {
@@ -354,10 +587,38 @@ export interface CodeStarDisassociateTeamMemberRequest {
 }
 
 /**
+ * Converts an object of type 'CodeStarDisassociateTeamMemberRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarDisassociateTeamMemberRequest(obj: CodeStarDisassociateTeamMemberRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectId': obj.projectId,
+    'userArn': obj.userArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarDisassociateTeamMemberResult
  */
 export interface CodeStarDisassociateTeamMemberResult {
 }
+
+/**
+ * Converts an object of type 'CodeStarDisassociateTeamMemberResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarDisassociateTeamMemberResult(obj: CodeStarDisassociateTeamMemberResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarListProjectsRequest
@@ -376,6 +637,21 @@ export interface CodeStarListProjectsRequest {
 }
 
 /**
+ * Converts an object of type 'CodeStarListProjectsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarListProjectsRequest(obj: CodeStarListProjectsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarListProjectsResult
  */
 export interface CodeStarListProjectsResult {
@@ -390,6 +666,21 @@ export interface CodeStarListProjectsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarListProjectsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarListProjectsResult(obj: CodeStarListProjectsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projects': obj.projects?.map(y => toJson_CodeStarProjectSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarListResourcesRequest
@@ -413,6 +704,22 @@ export interface CodeStarListResourcesRequest {
 }
 
 /**
+ * Converts an object of type 'CodeStarListResourcesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarListResourcesRequest(obj: CodeStarListResourcesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectId': obj.projectId,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarListResourcesResult
  */
 export interface CodeStarListResourcesResult {
@@ -427,6 +734,21 @@ export interface CodeStarListResourcesResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarListResourcesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarListResourcesResult(obj: CodeStarListResourcesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resources': obj.resources?.map(y => toJson_CodeStarResource(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarListTagsForProjectRequest
@@ -450,6 +772,22 @@ export interface CodeStarListTagsForProjectRequest {
 }
 
 /**
+ * Converts an object of type 'CodeStarListTagsForProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarListTagsForProjectRequest(obj: CodeStarListTagsForProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarListTagsForProjectResult
  */
 export interface CodeStarListTagsForProjectResult {
@@ -464,6 +802,21 @@ export interface CodeStarListTagsForProjectResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarListTagsForProjectResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarListTagsForProjectResult(obj: CodeStarListTagsForProjectResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarListTeamMembersRequest
@@ -487,6 +840,22 @@ export interface CodeStarListTeamMembersRequest {
 }
 
 /**
+ * Converts an object of type 'CodeStarListTeamMembersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarListTeamMembersRequest(obj: CodeStarListTeamMembersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectId': obj.projectId,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarListTeamMembersResult
  */
 export interface CodeStarListTeamMembersResult {
@@ -501,6 +870,21 @@ export interface CodeStarListTeamMembersResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarListTeamMembersResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarListTeamMembersResult(obj: CodeStarListTeamMembersResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'teamMembers': obj.teamMembers?.map(y => toJson_CodeStarTeamMember(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarListUserProfilesRequest
@@ -519,6 +903,21 @@ export interface CodeStarListUserProfilesRequest {
 }
 
 /**
+ * Converts an object of type 'CodeStarListUserProfilesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarListUserProfilesRequest(obj: CodeStarListUserProfilesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarListUserProfilesResult
  */
 export interface CodeStarListUserProfilesResult {
@@ -533,6 +932,21 @@ export interface CodeStarListUserProfilesResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarListUserProfilesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarListUserProfilesResult(obj: CodeStarListUserProfilesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'userProfiles': obj.userProfiles?.map(y => toJson_CodeStarUserProfileSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarTagProjectRequest
@@ -551,6 +965,21 @@ export interface CodeStarTagProjectRequest {
 }
 
 /**
+ * Converts an object of type 'CodeStarTagProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarTagProjectRequest(obj: CodeStarTagProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarTagProjectResult
  */
 export interface CodeStarTagProjectResult {
@@ -560,6 +989,20 @@ export interface CodeStarTagProjectResult {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'CodeStarTagProjectResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarTagProjectResult(obj: CodeStarTagProjectResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarUntagProjectRequest
@@ -578,10 +1021,38 @@ export interface CodeStarUntagProjectRequest {
 }
 
 /**
+ * Converts an object of type 'CodeStarUntagProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarUntagProjectRequest(obj: CodeStarUntagProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'tags': obj.tags?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarUntagProjectResult
  */
 export interface CodeStarUntagProjectResult {
 }
+
+/**
+ * Converts an object of type 'CodeStarUntagProjectResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarUntagProjectResult(obj: CodeStarUntagProjectResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarUpdateProjectRequest
@@ -605,10 +1076,39 @@ export interface CodeStarUpdateProjectRequest {
 }
 
 /**
+ * Converts an object of type 'CodeStarUpdateProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarUpdateProjectRequest(obj: CodeStarUpdateProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'name': obj.name,
+    'description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarUpdateProjectResult
  */
 export interface CodeStarUpdateProjectResult {
 }
+
+/**
+ * Converts an object of type 'CodeStarUpdateProjectResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarUpdateProjectResult(obj: CodeStarUpdateProjectResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarUpdateTeamMemberRequest
@@ -637,6 +1137,23 @@ export interface CodeStarUpdateTeamMemberRequest {
 }
 
 /**
+ * Converts an object of type 'CodeStarUpdateTeamMemberRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarUpdateTeamMemberRequest(obj: CodeStarUpdateTeamMemberRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectId': obj.projectId,
+    'userArn': obj.userArn,
+    'projectRole': obj.projectRole,
+    'remoteAccessAllowed': obj.remoteAccessAllowed,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarUpdateTeamMemberResult
  */
 export interface CodeStarUpdateTeamMemberResult {
@@ -656,6 +1173,22 @@ export interface CodeStarUpdateTeamMemberResult {
   readonly remoteAccessAllowed?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarUpdateTeamMemberResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarUpdateTeamMemberResult(obj: CodeStarUpdateTeamMemberResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'userArn': obj.userArn,
+    'projectRole': obj.projectRole,
+    'remoteAccessAllowed': obj.remoteAccessAllowed,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarUpdateUserProfileRequest
@@ -682,6 +1215,23 @@ export interface CodeStarUpdateUserProfileRequest {
   readonly sshPublicKey?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarUpdateUserProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarUpdateUserProfileRequest(obj: CodeStarUpdateUserProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'userArn': obj.userArn,
+    'displayName': obj.displayName,
+    'emailAddress': obj.emailAddress,
+    'sshPublicKey': obj.sshPublicKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarUpdateUserProfileResult
@@ -720,6 +1270,25 @@ export interface CodeStarUpdateUserProfileResult {
 }
 
 /**
+ * Converts an object of type 'CodeStarUpdateUserProfileResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarUpdateUserProfileResult(obj: CodeStarUpdateUserProfileResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'userArn': obj.userArn,
+    'displayName': obj.displayName,
+    'emailAddress': obj.emailAddress,
+    'sshPublicKey': obj.sshPublicKey,
+    'createdTimestamp': obj.createdTimestamp,
+    'lastModifiedTimestamp': obj.lastModifiedTimestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarCode
  */
 export interface CodeStarCode {
@@ -734,6 +1303,21 @@ export interface CodeStarCode {
   readonly destination: CodeStarCodeDestination;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarCode' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarCode(obj: CodeStarCode | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'source': toJson_CodeStarCodeSource(obj.source),
+    'destination': toJson_CodeStarCodeDestination(obj.destination),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarToolchain
@@ -757,6 +1341,22 @@ export interface CodeStarToolchain {
 }
 
 /**
+ * Converts an object of type 'CodeStarToolchain' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarToolchain(obj: CodeStarToolchain | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'source': toJson_CodeStarToolchainSource(obj.source),
+    'roleArn': obj.roleArn,
+    'stackParameters': ((obj.stackParameters) === undefined) ? undefined : (Object.entries(obj.stackParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarProjectStatus
  */
 export interface CodeStarProjectStatus {
@@ -771,6 +1371,21 @@ export interface CodeStarProjectStatus {
   readonly reason?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarProjectStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarProjectStatus(obj: CodeStarProjectStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'state': obj.state,
+    'reason': obj.reason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarProjectSummary
@@ -789,6 +1404,21 @@ export interface CodeStarProjectSummary {
 }
 
 /**
+ * Converts an object of type 'CodeStarProjectSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarProjectSummary(obj: CodeStarProjectSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectId': obj.projectId,
+    'projectArn': obj.projectArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarResource
  */
 export interface CodeStarResource {
@@ -798,6 +1428,20 @@ export interface CodeStarResource {
   readonly id: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarResource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarResource(obj: CodeStarResource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarTeamMember
@@ -819,6 +1463,22 @@ export interface CodeStarTeamMember {
   readonly remoteAccessAllowed?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarTeamMember' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarTeamMember(obj: CodeStarTeamMember | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'userArn': obj.userArn,
+    'projectRole': obj.projectRole,
+    'remoteAccessAllowed': obj.remoteAccessAllowed,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarUserProfileSummary
@@ -847,6 +1507,23 @@ export interface CodeStarUserProfileSummary {
 }
 
 /**
+ * Converts an object of type 'CodeStarUserProfileSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarUserProfileSummary(obj: CodeStarUserProfileSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'userArn': obj.userArn,
+    'displayName': obj.displayName,
+    'emailAddress': obj.emailAddress,
+    'sshPublicKey': obj.sshPublicKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarCodeSource
  */
 export interface CodeStarCodeSource {
@@ -856,6 +1533,20 @@ export interface CodeStarCodeSource {
   readonly s3: CodeStarS3Location;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarCodeSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarCodeSource(obj: CodeStarCodeSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    's3': toJson_CodeStarS3Location(obj.s3),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarCodeDestination
@@ -874,6 +1565,21 @@ export interface CodeStarCodeDestination {
 }
 
 /**
+ * Converts an object of type 'CodeStarCodeDestination' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarCodeDestination(obj: CodeStarCodeDestination | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'codeCommit': toJson_CodeStarCodeCommitCodeDestination(obj.codeCommit),
+    'gitHub': toJson_CodeStarGitHubCodeDestination(obj.gitHub),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarToolchainSource
  */
 export interface CodeStarToolchainSource {
@@ -883,6 +1589,20 @@ export interface CodeStarToolchainSource {
   readonly s3: CodeStarS3Location;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarToolchainSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarToolchainSource(obj: CodeStarToolchainSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    's3': toJson_CodeStarS3Location(obj.s3),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarS3Location
@@ -901,6 +1621,21 @@ export interface CodeStarS3Location {
 }
 
 /**
+ * Converts an object of type 'CodeStarS3Location' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarS3Location(obj: CodeStarS3Location | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucketName': obj.bucketName,
+    'bucketKey': obj.bucketKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeStarCodeCommitCodeDestination
  */
 export interface CodeStarCodeCommitCodeDestination {
@@ -910,6 +1645,20 @@ export interface CodeStarCodeCommitCodeDestination {
   readonly name: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarCodeCommitCodeDestination' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarCodeCommitCodeDestination(obj: CodeStarCodeCommitCodeDestination | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeStarGitHubCodeDestination
@@ -951,3 +1700,23 @@ export interface CodeStarGitHubCodeDestination {
   readonly token: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeStarGitHubCodeDestination' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeStarGitHubCodeDestination(obj: CodeStarGitHubCodeDestination | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'description': obj.description,
+    'type': obj.type,
+    'owner': obj.owner,
+    'privateRepository': obj.privateRepository,
+    'issuesEnabled': obj.issuesEnabled,
+    'token': obj.token,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

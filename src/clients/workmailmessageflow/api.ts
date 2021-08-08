@@ -12,6 +12,28 @@ export class WorkMailMessageFlowClient extends cdk.Construct {
     return new WorkMailMessageFlowResponsesFetchRawMessageContent(this, this.__resources, input);
   }
 
+  public putRawMessageContent(input: shapes.WorkMailMessageFlowPutRawMessageContentRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putRawMessageContent',
+        service: 'WorkMailMessageFlow',
+        physicalResourceId: cr.PhysicalResourceId.of('WorkMailMessageFlow.PutRawMessageContent'),
+        parameters: {
+          messageId: input.messageId,
+          content: {
+            s3Reference: {
+              bucket: input.content.s3Reference.bucket,
+              key: input.content.s3Reference.key,
+              objectVersion: input.content.s3Reference.objectVersion,
+            },
+          },
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'PutRawMessageContent', props);
+  }
+
 }
 
 export class WorkMailMessageFlowResponsesFetchRawMessageContent {

@@ -12,8 +12,24 @@ export class RedshiftClient extends cdk.Construct {
     return new RedshiftResponsesAcceptReservedNodeExchange(this, this.__resources, input);
   }
 
+  public addPartner(input: shapes.RedshiftPartnerIntegrationInputMessage): RedshiftResponsesAddPartner {
+    return new RedshiftResponsesAddPartner(this, this.__resources, input);
+  }
+
+  public associateDataShareConsumer(input: shapes.RedshiftAssociateDataShareConsumerMessage): RedshiftResponsesAssociateDataShareConsumer {
+    return new RedshiftResponsesAssociateDataShareConsumer(this, this.__resources, input);
+  }
+
   public authorizeClusterSecurityGroupIngress(input: shapes.RedshiftAuthorizeClusterSecurityGroupIngressMessage): RedshiftResponsesAuthorizeClusterSecurityGroupIngress {
     return new RedshiftResponsesAuthorizeClusterSecurityGroupIngress(this, this.__resources, input);
+  }
+
+  public authorizeDataShare(input: shapes.RedshiftAuthorizeDataShareMessage): RedshiftResponsesAuthorizeDataShare {
+    return new RedshiftResponsesAuthorizeDataShare(this, this.__resources, input);
+  }
+
+  public authorizeEndpointAccess(input: shapes.RedshiftAuthorizeEndpointAccessMessage): RedshiftResponsesAuthorizeEndpointAccess {
+    return new RedshiftResponsesAuthorizeEndpointAccess(this, this.__resources, input);
   }
 
   public authorizeSnapshotAccess(input: shapes.RedshiftAuthorizeSnapshotAccessMessage): RedshiftResponsesAuthorizeSnapshotAccess {
@@ -36,6 +52,10 @@ export class RedshiftClient extends cdk.Construct {
     return new RedshiftResponsesCopyClusterSnapshot(this, this.__resources, input);
   }
 
+  public createAuthenticationProfile(input: shapes.RedshiftCreateAuthenticationProfileMessage): RedshiftResponsesCreateAuthenticationProfile {
+    return new RedshiftResponsesCreateAuthenticationProfile(this, this.__resources, input);
+  }
+
   public createCluster(input: shapes.RedshiftCreateClusterMessage): RedshiftResponsesCreateCluster {
     return new RedshiftResponsesCreateCluster(this, this.__resources, input);
   }
@@ -54,6 +74,10 @@ export class RedshiftClient extends cdk.Construct {
 
   public createClusterSubnetGroup(input: shapes.RedshiftCreateClusterSubnetGroupMessage): RedshiftResponsesCreateClusterSubnetGroup {
     return new RedshiftResponsesCreateClusterSubnetGroup(this, this.__resources, input);
+  }
+
+  public createEndpointAccess(input: shapes.RedshiftCreateEndpointAccessMessage): RedshiftResponsesCreateEndpointAccess {
+    return new RedshiftResponsesCreateEndpointAccess(this, this.__resources, input);
   }
 
   public createEventSubscription(input: shapes.RedshiftCreateEventSubscriptionMessage): RedshiftResponsesCreateEventSubscription {
@@ -98,6 +122,14 @@ export class RedshiftClient extends cdk.Construct {
 
   public createUsageLimit(input: shapes.RedshiftCreateUsageLimitMessage): RedshiftResponsesCreateUsageLimit {
     return new RedshiftResponsesCreateUsageLimit(this, this.__resources, input);
+  }
+
+  public deauthorizeDataShare(input: shapes.RedshiftDeauthorizeDataShareMessage): RedshiftResponsesDeauthorizeDataShare {
+    return new RedshiftResponsesDeauthorizeDataShare(this, this.__resources, input);
+  }
+
+  public deleteAuthenticationProfile(input: shapes.RedshiftDeleteAuthenticationProfileMessage): RedshiftResponsesDeleteAuthenticationProfile {
+    return new RedshiftResponsesDeleteAuthenticationProfile(this, this.__resources, input);
   }
 
   public deleteCluster(input: shapes.RedshiftDeleteClusterMessage): RedshiftResponsesDeleteCluster {
@@ -153,6 +185,10 @@ export class RedshiftClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeleteClusterSubnetGroup', props);
   }
 
+  public deleteEndpointAccess(input: shapes.RedshiftDeleteEndpointAccessMessage): RedshiftResponsesDeleteEndpointAccess {
+    return new RedshiftResponsesDeleteEndpointAccess(this, this.__resources, input);
+  }
+
   public deleteEventSubscription(input: shapes.RedshiftDeleteEventSubscriptionMessage): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -196,6 +232,10 @@ export class RedshiftClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'DeleteHsmConfiguration', props);
+  }
+
+  public deletePartner(input: shapes.RedshiftPartnerIntegrationInputMessage): RedshiftResponsesDeletePartner {
+    return new RedshiftResponsesDeletePartner(this, this.__resources, input);
   }
 
   public deleteScheduledAction(input: shapes.RedshiftDeleteScheduledActionMessage): void {
@@ -278,6 +318,10 @@ export class RedshiftClient extends cdk.Construct {
     return new RedshiftResponsesDescribeAccountAttributes(this, this.__resources, input);
   }
 
+  public describeAuthenticationProfiles(input: shapes.RedshiftDescribeAuthenticationProfilesMessage): RedshiftResponsesDescribeAuthenticationProfiles {
+    return new RedshiftResponsesDescribeAuthenticationProfiles(this, this.__resources, input);
+  }
+
   public describeClusterDbRevisions(input: shapes.RedshiftDescribeClusterDbRevisionsMessage): RedshiftResponsesDescribeClusterDbRevisions {
     return new RedshiftResponsesDescribeClusterDbRevisions(this, this.__resources, input);
   }
@@ -314,8 +358,28 @@ export class RedshiftClient extends cdk.Construct {
     return new RedshiftResponsesDescribeClusters(this, this.__resources, input);
   }
 
+  public describeDataShares(input: shapes.RedshiftDescribeDataSharesMessage): RedshiftResponsesDescribeDataShares {
+    return new RedshiftResponsesDescribeDataShares(this, this.__resources, input);
+  }
+
+  public describeDataSharesForConsumer(input: shapes.RedshiftDescribeDataSharesForConsumerMessage): RedshiftResponsesDescribeDataSharesForConsumer {
+    return new RedshiftResponsesDescribeDataSharesForConsumer(this, this.__resources, input);
+  }
+
+  public describeDataSharesForProducer(input: shapes.RedshiftDescribeDataSharesForProducerMessage): RedshiftResponsesDescribeDataSharesForProducer {
+    return new RedshiftResponsesDescribeDataSharesForProducer(this, this.__resources, input);
+  }
+
   public describeDefaultClusterParameters(input: shapes.RedshiftDescribeDefaultClusterParametersMessage): RedshiftResponsesDescribeDefaultClusterParameters {
     return new RedshiftResponsesDescribeDefaultClusterParameters(this, this.__resources, input);
+  }
+
+  public describeEndpointAccess(input: shapes.RedshiftDescribeEndpointAccessMessage): RedshiftResponsesDescribeEndpointAccess {
+    return new RedshiftResponsesDescribeEndpointAccess(this, this.__resources, input);
+  }
+
+  public describeEndpointAuthorization(input: shapes.RedshiftDescribeEndpointAuthorizationMessage): RedshiftResponsesDescribeEndpointAuthorization {
+    return new RedshiftResponsesDescribeEndpointAuthorization(this, this.__resources, input);
   }
 
   public describeEventCategories(input: shapes.RedshiftDescribeEventCategoriesMessage): RedshiftResponsesDescribeEventCategories {
@@ -348,6 +412,10 @@ export class RedshiftClient extends cdk.Construct {
 
   public describeOrderableClusterOptions(input: shapes.RedshiftDescribeOrderableClusterOptionsMessage): RedshiftResponsesDescribeOrderableClusterOptions {
     return new RedshiftResponsesDescribeOrderableClusterOptions(this, this.__resources, input);
+  }
+
+  public describePartners(input: shapes.RedshiftDescribePartnersInputMessage): RedshiftResponsesDescribePartners {
+    return new RedshiftResponsesDescribePartners(this, this.__resources, input);
   }
 
   public describeReservedNodeOfferings(input: shapes.RedshiftDescribeReservedNodeOfferingsMessage): RedshiftResponsesDescribeReservedNodeOfferings {
@@ -398,6 +466,10 @@ export class RedshiftClient extends cdk.Construct {
     return new RedshiftResponsesDisableSnapshotCopy(this, this.__resources, input);
   }
 
+  public disassociateDataShareConsumer(input: shapes.RedshiftDisassociateDataShareConsumerMessage): RedshiftResponsesDisassociateDataShareConsumer {
+    return new RedshiftResponsesDisassociateDataShareConsumer(this, this.__resources, input);
+  }
+
   public enableLogging(input: shapes.RedshiftEnableLoggingMessage): RedshiftResponsesEnableLogging {
     return new RedshiftResponsesEnableLogging(this, this.__resources, input);
   }
@@ -412,6 +484,14 @@ export class RedshiftClient extends cdk.Construct {
 
   public fetchReservedNodeExchangeOfferings(input: shapes.RedshiftGetReservedNodeExchangeOfferingsInputMessage): RedshiftResponsesFetchReservedNodeExchangeOfferings {
     return new RedshiftResponsesFetchReservedNodeExchangeOfferings(this, this.__resources, input);
+  }
+
+  public modifyAquaConfiguration(input: shapes.RedshiftModifyAquaInputMessage): RedshiftResponsesModifyAquaConfiguration {
+    return new RedshiftResponsesModifyAquaConfiguration(this, this.__resources, input);
+  }
+
+  public modifyAuthenticationProfile(input: shapes.RedshiftModifyAuthenticationProfileMessage): RedshiftResponsesModifyAuthenticationProfile {
+    return new RedshiftResponsesModifyAuthenticationProfile(this, this.__resources, input);
   }
 
   public modifyCluster(input: shapes.RedshiftModifyClusterMessage): RedshiftResponsesModifyCluster {
@@ -459,6 +539,10 @@ export class RedshiftClient extends cdk.Construct {
     return new RedshiftResponsesModifyClusterSubnetGroup(this, this.__resources, input);
   }
 
+  public modifyEndpointAccess(input: shapes.RedshiftModifyEndpointAccessMessage): RedshiftResponsesModifyEndpointAccess {
+    return new RedshiftResponsesModifyEndpointAccess(this, this.__resources, input);
+  }
+
   public modifyEventSubscription(input: shapes.RedshiftModifyEventSubscriptionMessage): RedshiftResponsesModifyEventSubscription {
     return new RedshiftResponsesModifyEventSubscription(this, this.__resources, input);
   }
@@ -491,6 +575,10 @@ export class RedshiftClient extends cdk.Construct {
     return new RedshiftResponsesRebootCluster(this, this.__resources, input);
   }
 
+  public rejectDataShare(input: shapes.RedshiftRejectDataShareMessage): RedshiftResponsesRejectDataShare {
+    return new RedshiftResponsesRejectDataShare(this, this.__resources, input);
+  }
+
   public resetClusterParameterGroup(input: shapes.RedshiftResetClusterParameterGroupMessage): RedshiftResponsesResetClusterParameterGroup {
     return new RedshiftResponsesResetClusterParameterGroup(this, this.__resources, input);
   }
@@ -515,12 +603,20 @@ export class RedshiftClient extends cdk.Construct {
     return new RedshiftResponsesRevokeClusterSecurityGroupIngress(this, this.__resources, input);
   }
 
+  public revokeEndpointAccess(input: shapes.RedshiftRevokeEndpointAccessMessage): RedshiftResponsesRevokeEndpointAccess {
+    return new RedshiftResponsesRevokeEndpointAccess(this, this.__resources, input);
+  }
+
   public revokeSnapshotAccess(input: shapes.RedshiftRevokeSnapshotAccessMessage): RedshiftResponsesRevokeSnapshotAccess {
     return new RedshiftResponsesRevokeSnapshotAccess(this, this.__resources, input);
   }
 
   public rotateEncryptionKey(input: shapes.RedshiftRotateEncryptionKeyMessage): RedshiftResponsesRotateEncryptionKey {
     return new RedshiftResponsesRotateEncryptionKey(this, this.__resources, input);
+  }
+
+  public updatePartnerStatus(input: shapes.RedshiftUpdatePartnerStatusInputMessage): RedshiftResponsesUpdatePartnerStatus {
+    return new RedshiftResponsesUpdatePartnerStatus(this, this.__resources, input);
   }
 
 }
@@ -777,6 +873,136 @@ export class RedshiftResponsesAcceptReservedNodeExchangeExchangedReservedNode {
 
 }
 
+export class RedshiftResponsesAddPartner {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftPartnerIntegrationInputMessage) {
+  }
+
+  public get databaseName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addPartner',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AddPartner.DatabaseName'),
+        outputPath: 'DatabaseName',
+        parameters: {
+          AccountId: this.__input.accountId,
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          DatabaseName: this.__input.databaseName,
+          PartnerName: this.__input.partnerName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddPartner.DatabaseName', props);
+    return resource.getResponseField('DatabaseName') as unknown as string;
+  }
+
+  public get partnerName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addPartner',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AddPartner.PartnerName'),
+        outputPath: 'PartnerName',
+        parameters: {
+          AccountId: this.__input.accountId,
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          DatabaseName: this.__input.databaseName,
+          PartnerName: this.__input.partnerName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddPartner.PartnerName', props);
+    return resource.getResponseField('PartnerName') as unknown as string;
+  }
+
+}
+
+export class RedshiftResponsesAssociateDataShareConsumer {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftAssociateDataShareConsumerMessage) {
+  }
+
+  public get dataShareArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateDataShareConsumer',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AssociateDataShareConsumer.DataShareArn'),
+        outputPath: 'DataShareArn',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+          AssociateEntireAccount: this.__input.associateEntireAccount,
+          ConsumerArn: this.__input.consumerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateDataShareConsumer.DataShareArn', props);
+    return resource.getResponseField('DataShareArn') as unknown as string;
+  }
+
+  public get producerArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateDataShareConsumer',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AssociateDataShareConsumer.ProducerArn'),
+        outputPath: 'ProducerArn',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+          AssociateEntireAccount: this.__input.associateEntireAccount,
+          ConsumerArn: this.__input.consumerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateDataShareConsumer.ProducerArn', props);
+    return resource.getResponseField('ProducerArn') as unknown as string;
+  }
+
+  public get allowPubliclyAccessibleConsumers(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateDataShareConsumer',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AssociateDataShareConsumer.AllowPubliclyAccessibleConsumers'),
+        outputPath: 'AllowPubliclyAccessibleConsumers',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+          AssociateEntireAccount: this.__input.associateEntireAccount,
+          ConsumerArn: this.__input.consumerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateDataShareConsumer.AllowPubliclyAccessibleConsumers', props);
+    return resource.getResponseField('AllowPubliclyAccessibleConsumers') as unknown as boolean;
+  }
+
+  public get dataShareAssociations(): shapes.RedshiftDataShareAssociation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateDataShareConsumer',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AssociateDataShareConsumer.DataShareAssociations'),
+        outputPath: 'DataShareAssociations',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+          AssociateEntireAccount: this.__input.associateEntireAccount,
+          ConsumerArn: this.__input.consumerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateDataShareConsumer.DataShareAssociations', props);
+    return resource.getResponseField('DataShareAssociations') as unknown as shapes.RedshiftDataShareAssociation[];
+  }
+
+}
+
 export class RedshiftResponsesAuthorizeClusterSecurityGroupIngress {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftAuthorizeClusterSecurityGroupIngressMessage) {
@@ -891,6 +1117,263 @@ export class RedshiftResponsesAuthorizeClusterSecurityGroupIngressClusterSecurit
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeClusterSecurityGroupIngress.ClusterSecurityGroup.Tags', props);
     return resource.getResponseField('ClusterSecurityGroup.Tags') as unknown as shapes.RedshiftTag[];
+  }
+
+}
+
+export class RedshiftResponsesAuthorizeDataShare {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftAuthorizeDataShareMessage) {
+  }
+
+  public get dataShareArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'authorizeDataShare',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AuthorizeDataShare.DataShareArn'),
+        outputPath: 'DataShareArn',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+          ConsumerIdentifier: this.__input.consumerIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeDataShare.DataShareArn', props);
+    return resource.getResponseField('DataShareArn') as unknown as string;
+  }
+
+  public get producerArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'authorizeDataShare',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AuthorizeDataShare.ProducerArn'),
+        outputPath: 'ProducerArn',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+          ConsumerIdentifier: this.__input.consumerIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeDataShare.ProducerArn', props);
+    return resource.getResponseField('ProducerArn') as unknown as string;
+  }
+
+  public get allowPubliclyAccessibleConsumers(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'authorizeDataShare',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AuthorizeDataShare.AllowPubliclyAccessibleConsumers'),
+        outputPath: 'AllowPubliclyAccessibleConsumers',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+          ConsumerIdentifier: this.__input.consumerIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeDataShare.AllowPubliclyAccessibleConsumers', props);
+    return resource.getResponseField('AllowPubliclyAccessibleConsumers') as unknown as boolean;
+  }
+
+  public get dataShareAssociations(): shapes.RedshiftDataShareAssociation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'authorizeDataShare',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AuthorizeDataShare.DataShareAssociations'),
+        outputPath: 'DataShareAssociations',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+          ConsumerIdentifier: this.__input.consumerIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeDataShare.DataShareAssociations', props);
+    return resource.getResponseField('DataShareAssociations') as unknown as shapes.RedshiftDataShareAssociation[];
+  }
+
+}
+
+export class RedshiftResponsesAuthorizeEndpointAccess {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftAuthorizeEndpointAccessMessage) {
+  }
+
+  public get grantor(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'authorizeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AuthorizeEndpointAccess.Grantor'),
+        outputPath: 'Grantor',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          VpcIds: this.__input.vpcIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeEndpointAccess.Grantor', props);
+    return resource.getResponseField('Grantor') as unknown as string;
+  }
+
+  public get grantee(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'authorizeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AuthorizeEndpointAccess.Grantee'),
+        outputPath: 'Grantee',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          VpcIds: this.__input.vpcIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeEndpointAccess.Grantee', props);
+    return resource.getResponseField('Grantee') as unknown as string;
+  }
+
+  public get clusterIdentifier(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'authorizeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AuthorizeEndpointAccess.ClusterIdentifier'),
+        outputPath: 'ClusterIdentifier',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          VpcIds: this.__input.vpcIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeEndpointAccess.ClusterIdentifier', props);
+    return resource.getResponseField('ClusterIdentifier') as unknown as string;
+  }
+
+  public get authorizeTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'authorizeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AuthorizeEndpointAccess.AuthorizeTime'),
+        outputPath: 'AuthorizeTime',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          VpcIds: this.__input.vpcIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeEndpointAccess.AuthorizeTime', props);
+    return resource.getResponseField('AuthorizeTime') as unknown as string;
+  }
+
+  public get clusterStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'authorizeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AuthorizeEndpointAccess.ClusterStatus'),
+        outputPath: 'ClusterStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          VpcIds: this.__input.vpcIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeEndpointAccess.ClusterStatus', props);
+    return resource.getResponseField('ClusterStatus') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'authorizeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AuthorizeEndpointAccess.Status'),
+        outputPath: 'Status',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          VpcIds: this.__input.vpcIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeEndpointAccess.Status', props);
+    return resource.getResponseField('Status') as unknown as string;
+  }
+
+  public get allowedAllVpCs(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'authorizeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AuthorizeEndpointAccess.AllowedAllVPCs'),
+        outputPath: 'AllowedAllVPCs',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          VpcIds: this.__input.vpcIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeEndpointAccess.AllowedAllVPCs', props);
+    return resource.getResponseField('AllowedAllVPCs') as unknown as boolean;
+  }
+
+  public get allowedVpCs(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'authorizeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AuthorizeEndpointAccess.AllowedVPCs'),
+        outputPath: 'AllowedVPCs',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          VpcIds: this.__input.vpcIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeEndpointAccess.AllowedVPCs', props);
+    return resource.getResponseField('AllowedVPCs') as unknown as string[];
+  }
+
+  public get endpointCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'authorizeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AuthorizeEndpointAccess.EndpointCount'),
+        outputPath: 'EndpointCount',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          VpcIds: this.__input.vpcIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeEndpointAccess.EndpointCount', props);
+    return resource.getResponseField('EndpointCount') as unknown as number;
   }
 
 }
@@ -1080,6 +1563,25 @@ export class RedshiftResponsesAuthorizeSnapshotAccessSnapshot {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeSnapshotAccess.Snapshot.ClusterVersion', props);
     return resource.getResponseField('Snapshot.ClusterVersion') as unknown as string;
+  }
+
+  public get engineFullVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'authorizeSnapshotAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.AuthorizeSnapshotAccess.Snapshot.EngineFullVersion'),
+        outputPath: 'Snapshot.EngineFullVersion',
+        parameters: {
+          SnapshotIdentifier: this.__input.snapshotIdentifier,
+          SnapshotClusterIdentifier: this.__input.snapshotClusterIdentifier,
+          AccountWithRestoreAccess: this.__input.accountWithRestoreAccess,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeSnapshotAccess.Snapshot.EngineFullVersion', props);
+    return resource.getResponseField('Snapshot.EngineFullVersion') as unknown as string;
   }
 
   public get snapshotType(): string {
@@ -2101,6 +2603,26 @@ export class RedshiftResponsesCopyClusterSnapshotSnapshot {
     return resource.getResponseField('Snapshot.ClusterVersion') as unknown as string;
   }
 
+  public get engineFullVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyClusterSnapshot',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CopyClusterSnapshot.Snapshot.EngineFullVersion'),
+        outputPath: 'Snapshot.EngineFullVersion',
+        parameters: {
+          SourceSnapshotIdentifier: this.__input.sourceSnapshotIdentifier,
+          SourceSnapshotClusterIdentifier: this.__input.sourceSnapshotClusterIdentifier,
+          TargetSnapshotIdentifier: this.__input.targetSnapshotIdentifier,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyClusterSnapshot.Snapshot.EngineFullVersion', props);
+    return resource.getResponseField('Snapshot.EngineFullVersion') as unknown as string;
+  }
+
   public get snapshotType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -2583,6 +3105,49 @@ export class RedshiftResponsesCopyClusterSnapshotSnapshot {
 
 }
 
+export class RedshiftResponsesCreateAuthenticationProfile {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftCreateAuthenticationProfileMessage) {
+  }
+
+  public get authenticationProfileName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAuthenticationProfile',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateAuthenticationProfile.AuthenticationProfileName'),
+        outputPath: 'AuthenticationProfileName',
+        parameters: {
+          AuthenticationProfileName: this.__input.authenticationProfileName,
+          AuthenticationProfileContent: this.__input.authenticationProfileContent,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAuthenticationProfile.AuthenticationProfileName', props);
+    return resource.getResponseField('AuthenticationProfileName') as unknown as string;
+  }
+
+  public get authenticationProfileContent(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAuthenticationProfile',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateAuthenticationProfile.AuthenticationProfileContent'),
+        outputPath: 'AuthenticationProfileContent',
+        parameters: {
+          AuthenticationProfileName: this.__input.authenticationProfileName,
+          AuthenticationProfileContent: this.__input.authenticationProfileContent,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAuthenticationProfile.AuthenticationProfileContent', props);
+    return resource.getResponseField('AuthenticationProfileContent') as unknown as string;
+  }
+
+}
+
 export class RedshiftResponsesCreateCluster {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftCreateClusterMessage) {
@@ -2638,6 +3203,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -2684,6 +3251,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -2730,6 +3299,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -2776,6 +3347,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -2822,6 +3395,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -2868,6 +3443,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -2914,6 +3491,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -2964,6 +3543,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3010,6 +3591,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3056,6 +3639,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3102,6 +3687,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3148,6 +3735,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3194,6 +3783,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3240,6 +3831,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3286,6 +3879,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3332,6 +3927,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3378,6 +3975,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3428,6 +4027,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3474,6 +4075,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3520,6 +4123,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3566,6 +4171,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3612,6 +4219,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3674,6 +4283,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3720,6 +4331,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3770,6 +4383,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3816,6 +4431,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3862,6 +4479,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3908,6 +4527,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -3954,6 +4575,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4000,6 +4623,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4046,6 +4671,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4092,6 +4719,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4138,6 +4767,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4184,6 +4815,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4230,6 +4863,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4276,6 +4911,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4322,6 +4959,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4368,6 +5007,8 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4377,6 +5018,54 @@ export class RedshiftResponsesCreateClusterCluster {
 
   public get resizeInfo(): RedshiftResponsesCreateClusterClusterResizeInfo {
     return new RedshiftResponsesCreateClusterClusterResizeInfo(this.__scope, this.__resources, this.__input);
+  }
+
+  public get availabilityZoneRelocationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateCluster.Cluster.AvailabilityZoneRelocationStatus'),
+        outputPath: 'Cluster.AvailabilityZoneRelocationStatus',
+        parameters: {
+          DBName: this.__input.dbName,
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ClusterType: this.__input.clusterType,
+          NodeType: this.__input.nodeType,
+          MasterUsername: this.__input.masterUsername,
+          MasterUserPassword: this.__input.masterUserPassword,
+          ClusterSecurityGroups: this.__input.clusterSecurityGroups,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          ClusterSubnetGroupName: this.__input.clusterSubnetGroupName,
+          AvailabilityZone: this.__input.availabilityZone,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          ClusterParameterGroupName: this.__input.clusterParameterGroupName,
+          AutomatedSnapshotRetentionPeriod: this.__input.automatedSnapshotRetentionPeriod,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+          Port: this.__input.port,
+          ClusterVersion: this.__input.clusterVersion,
+          AllowVersionUpgrade: this.__input.allowVersionUpgrade,
+          NumberOfNodes: this.__input.numberOfNodes,
+          PubliclyAccessible: this.__input.publiclyAccessible,
+          Encrypted: this.__input.encrypted,
+          HsmClientCertificateIdentifier: this.__input.hsmClientCertificateIdentifier,
+          HsmConfigurationIdentifier: this.__input.hsmConfigurationIdentifier,
+          ElasticIp: this.__input.elasticIp,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          EnhancedVpcRouting: this.__input.enhancedVpcRouting,
+          AdditionalInfo: this.__input.additionalInfo,
+          IamRoles: this.__input.iamRoles,
+          MaintenanceTrackName: this.__input.maintenanceTrackName,
+          SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.Cluster.AvailabilityZoneRelocationStatus', props);
+    return resource.getResponseField('Cluster.AvailabilityZoneRelocationStatus') as unknown as string;
   }
 
   public get clusterNamespaceArn(): string {
@@ -4418,11 +5107,65 @@ export class RedshiftResponsesCreateClusterCluster {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.Cluster.ClusterNamespaceArn', props);
     return resource.getResponseField('Cluster.ClusterNamespaceArn') as unknown as string;
+  }
+
+  public get totalStorageCapacityInMegaBytes(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateCluster.Cluster.TotalStorageCapacityInMegaBytes'),
+        outputPath: 'Cluster.TotalStorageCapacityInMegaBytes',
+        parameters: {
+          DBName: this.__input.dbName,
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ClusterType: this.__input.clusterType,
+          NodeType: this.__input.nodeType,
+          MasterUsername: this.__input.masterUsername,
+          MasterUserPassword: this.__input.masterUserPassword,
+          ClusterSecurityGroups: this.__input.clusterSecurityGroups,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          ClusterSubnetGroupName: this.__input.clusterSubnetGroupName,
+          AvailabilityZone: this.__input.availabilityZone,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          ClusterParameterGroupName: this.__input.clusterParameterGroupName,
+          AutomatedSnapshotRetentionPeriod: this.__input.automatedSnapshotRetentionPeriod,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+          Port: this.__input.port,
+          ClusterVersion: this.__input.clusterVersion,
+          AllowVersionUpgrade: this.__input.allowVersionUpgrade,
+          NumberOfNodes: this.__input.numberOfNodes,
+          PubliclyAccessible: this.__input.publiclyAccessible,
+          Encrypted: this.__input.encrypted,
+          HsmClientCertificateIdentifier: this.__input.hsmClientCertificateIdentifier,
+          HsmConfigurationIdentifier: this.__input.hsmConfigurationIdentifier,
+          ElasticIp: this.__input.elasticIp,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          EnhancedVpcRouting: this.__input.enhancedVpcRouting,
+          AdditionalInfo: this.__input.additionalInfo,
+          IamRoles: this.__input.iamRoles,
+          MaintenanceTrackName: this.__input.maintenanceTrackName,
+          SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.Cluster.TotalStorageCapacityInMegaBytes', props);
+    return resource.getResponseField('Cluster.TotalStorageCapacityInMegaBytes') as unknown as number;
+  }
+
+  public get aquaConfiguration(): RedshiftResponsesCreateClusterClusterAquaConfiguration {
+    return new RedshiftResponsesCreateClusterClusterAquaConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -4471,6 +5214,8 @@ export class RedshiftResponsesCreateClusterClusterEndpoint {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4517,11 +5262,61 @@ export class RedshiftResponsesCreateClusterClusterEndpoint {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.Cluster.Endpoint.Port', props);
     return resource.getResponseField('Cluster.Endpoint.Port') as unknown as number;
+  }
+
+  public get vpcEndpoints(): shapes.RedshiftVpcEndpoint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateCluster.Cluster.Endpoint.VpcEndpoints'),
+        outputPath: 'Cluster.Endpoint.VpcEndpoints',
+        parameters: {
+          DBName: this.__input.dbName,
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ClusterType: this.__input.clusterType,
+          NodeType: this.__input.nodeType,
+          MasterUsername: this.__input.masterUsername,
+          MasterUserPassword: this.__input.masterUserPassword,
+          ClusterSecurityGroups: this.__input.clusterSecurityGroups,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          ClusterSubnetGroupName: this.__input.clusterSubnetGroupName,
+          AvailabilityZone: this.__input.availabilityZone,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          ClusterParameterGroupName: this.__input.clusterParameterGroupName,
+          AutomatedSnapshotRetentionPeriod: this.__input.automatedSnapshotRetentionPeriod,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+          Port: this.__input.port,
+          ClusterVersion: this.__input.clusterVersion,
+          AllowVersionUpgrade: this.__input.allowVersionUpgrade,
+          NumberOfNodes: this.__input.numberOfNodes,
+          PubliclyAccessible: this.__input.publiclyAccessible,
+          Encrypted: this.__input.encrypted,
+          HsmClientCertificateIdentifier: this.__input.hsmClientCertificateIdentifier,
+          HsmConfigurationIdentifier: this.__input.hsmConfigurationIdentifier,
+          ElasticIp: this.__input.elasticIp,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          EnhancedVpcRouting: this.__input.enhancedVpcRouting,
+          AdditionalInfo: this.__input.additionalInfo,
+          IamRoles: this.__input.iamRoles,
+          MaintenanceTrackName: this.__input.maintenanceTrackName,
+          SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.Cluster.Endpoint.VpcEndpoints', props);
+    return resource.getResponseField('Cluster.Endpoint.VpcEndpoints') as unknown as shapes.RedshiftVpcEndpoint[];
   }
 
 }
@@ -4570,6 +5365,8 @@ export class RedshiftResponsesCreateClusterClusterPendingModifiedValues {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4616,6 +5413,8 @@ export class RedshiftResponsesCreateClusterClusterPendingModifiedValues {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4662,6 +5461,8 @@ export class RedshiftResponsesCreateClusterClusterPendingModifiedValues {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4708,6 +5509,8 @@ export class RedshiftResponsesCreateClusterClusterPendingModifiedValues {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4754,6 +5557,8 @@ export class RedshiftResponsesCreateClusterClusterPendingModifiedValues {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4800,6 +5605,8 @@ export class RedshiftResponsesCreateClusterClusterPendingModifiedValues {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4846,6 +5653,8 @@ export class RedshiftResponsesCreateClusterClusterPendingModifiedValues {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4892,6 +5701,8 @@ export class RedshiftResponsesCreateClusterClusterPendingModifiedValues {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4938,6 +5749,8 @@ export class RedshiftResponsesCreateClusterClusterPendingModifiedValues {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -4984,6 +5797,8 @@ export class RedshiftResponsesCreateClusterClusterPendingModifiedValues {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5030,6 +5845,8 @@ export class RedshiftResponsesCreateClusterClusterPendingModifiedValues {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5083,6 +5900,8 @@ export class RedshiftResponsesCreateClusterClusterRestoreStatus {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5129,6 +5948,8 @@ export class RedshiftResponsesCreateClusterClusterRestoreStatus {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5175,6 +5996,8 @@ export class RedshiftResponsesCreateClusterClusterRestoreStatus {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5221,6 +6044,8 @@ export class RedshiftResponsesCreateClusterClusterRestoreStatus {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5267,6 +6092,8 @@ export class RedshiftResponsesCreateClusterClusterRestoreStatus {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5313,6 +6140,8 @@ export class RedshiftResponsesCreateClusterClusterRestoreStatus {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5366,6 +6195,8 @@ export class RedshiftResponsesCreateClusterClusterDataTransferProgress {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5412,6 +6243,8 @@ export class RedshiftResponsesCreateClusterClusterDataTransferProgress {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5458,6 +6291,8 @@ export class RedshiftResponsesCreateClusterClusterDataTransferProgress {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5504,6 +6339,8 @@ export class RedshiftResponsesCreateClusterClusterDataTransferProgress {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5550,6 +6387,8 @@ export class RedshiftResponsesCreateClusterClusterDataTransferProgress {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5596,6 +6435,8 @@ export class RedshiftResponsesCreateClusterClusterDataTransferProgress {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5649,6 +6490,8 @@ export class RedshiftResponsesCreateClusterClusterHsmStatus {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5695,6 +6538,8 @@ export class RedshiftResponsesCreateClusterClusterHsmStatus {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5741,6 +6586,8 @@ export class RedshiftResponsesCreateClusterClusterHsmStatus {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5794,6 +6641,8 @@ export class RedshiftResponsesCreateClusterClusterClusterSnapshotCopyStatus {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5840,6 +6689,8 @@ export class RedshiftResponsesCreateClusterClusterClusterSnapshotCopyStatus {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5886,6 +6737,8 @@ export class RedshiftResponsesCreateClusterClusterClusterSnapshotCopyStatus {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5932,6 +6785,8 @@ export class RedshiftResponsesCreateClusterClusterClusterSnapshotCopyStatus {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -5985,6 +6840,8 @@ export class RedshiftResponsesCreateClusterClusterElasticIpStatus {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -6031,6 +6888,8 @@ export class RedshiftResponsesCreateClusterClusterElasticIpStatus {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -6084,6 +6943,8 @@ export class RedshiftResponsesCreateClusterClusterResizeInfo {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -6130,11 +6991,116 @@ export class RedshiftResponsesCreateClusterClusterResizeInfo {
           IamRoles: this.__input.iamRoles,
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.Cluster.ResizeInfo.AllowCancelResize', props);
     return resource.getResponseField('Cluster.ResizeInfo.AllowCancelResize') as unknown as boolean;
+  }
+
+}
+
+export class RedshiftResponsesCreateClusterClusterAquaConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftCreateClusterMessage) {
+  }
+
+  public get aquaStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateCluster.Cluster.AquaConfiguration.AquaStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaStatus',
+        parameters: {
+          DBName: this.__input.dbName,
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ClusterType: this.__input.clusterType,
+          NodeType: this.__input.nodeType,
+          MasterUsername: this.__input.masterUsername,
+          MasterUserPassword: this.__input.masterUserPassword,
+          ClusterSecurityGroups: this.__input.clusterSecurityGroups,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          ClusterSubnetGroupName: this.__input.clusterSubnetGroupName,
+          AvailabilityZone: this.__input.availabilityZone,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          ClusterParameterGroupName: this.__input.clusterParameterGroupName,
+          AutomatedSnapshotRetentionPeriod: this.__input.automatedSnapshotRetentionPeriod,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+          Port: this.__input.port,
+          ClusterVersion: this.__input.clusterVersion,
+          AllowVersionUpgrade: this.__input.allowVersionUpgrade,
+          NumberOfNodes: this.__input.numberOfNodes,
+          PubliclyAccessible: this.__input.publiclyAccessible,
+          Encrypted: this.__input.encrypted,
+          HsmClientCertificateIdentifier: this.__input.hsmClientCertificateIdentifier,
+          HsmConfigurationIdentifier: this.__input.hsmConfigurationIdentifier,
+          ElasticIp: this.__input.elasticIp,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          EnhancedVpcRouting: this.__input.enhancedVpcRouting,
+          AdditionalInfo: this.__input.additionalInfo,
+          IamRoles: this.__input.iamRoles,
+          MaintenanceTrackName: this.__input.maintenanceTrackName,
+          SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.Cluster.AquaConfiguration.AquaStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaStatus') as unknown as string;
+  }
+
+  public get aquaConfigurationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateCluster.Cluster.AquaConfiguration.AquaConfigurationStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaConfigurationStatus',
+        parameters: {
+          DBName: this.__input.dbName,
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ClusterType: this.__input.clusterType,
+          NodeType: this.__input.nodeType,
+          MasterUsername: this.__input.masterUsername,
+          MasterUserPassword: this.__input.masterUserPassword,
+          ClusterSecurityGroups: this.__input.clusterSecurityGroups,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          ClusterSubnetGroupName: this.__input.clusterSubnetGroupName,
+          AvailabilityZone: this.__input.availabilityZone,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          ClusterParameterGroupName: this.__input.clusterParameterGroupName,
+          AutomatedSnapshotRetentionPeriod: this.__input.automatedSnapshotRetentionPeriod,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+          Port: this.__input.port,
+          ClusterVersion: this.__input.clusterVersion,
+          AllowVersionUpgrade: this.__input.allowVersionUpgrade,
+          NumberOfNodes: this.__input.numberOfNodes,
+          PubliclyAccessible: this.__input.publiclyAccessible,
+          Encrypted: this.__input.encrypted,
+          HsmClientCertificateIdentifier: this.__input.hsmClientCertificateIdentifier,
+          HsmConfigurationIdentifier: this.__input.hsmConfigurationIdentifier,
+          ElasticIp: this.__input.elasticIp,
+          Tags: this.__input.tags,
+          KmsKeyId: this.__input.kmsKeyId,
+          EnhancedVpcRouting: this.__input.enhancedVpcRouting,
+          AdditionalInfo: this.__input.additionalInfo,
+          IamRoles: this.__input.iamRoles,
+          MaintenanceTrackName: this.__input.maintenanceTrackName,
+          SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCluster.Cluster.AquaConfiguration.AquaConfigurationStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaConfigurationStatus') as unknown as string;
   }
 
 }
@@ -6544,6 +7510,26 @@ export class RedshiftResponsesCreateClusterSnapshotSnapshot {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateClusterSnapshot.Snapshot.ClusterVersion', props);
     return resource.getResponseField('Snapshot.ClusterVersion') as unknown as string;
+  }
+
+  public get engineFullVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createClusterSnapshot',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateClusterSnapshot.Snapshot.EngineFullVersion'),
+        outputPath: 'Snapshot.EngineFullVersion',
+        parameters: {
+          SnapshotIdentifier: this.__input.snapshotIdentifier,
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateClusterSnapshot.Snapshot.EngineFullVersion', props);
+    return resource.getResponseField('Snapshot.EngineFullVersion') as unknown as string;
   }
 
   public get snapshotType(): string {
@@ -7162,6 +8148,276 @@ export class RedshiftResponsesCreateClusterSubnetGroupClusterSubnetGroup {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateClusterSubnetGroup.ClusterSubnetGroup.Tags', props);
     return resource.getResponseField('ClusterSubnetGroup.Tags') as unknown as shapes.RedshiftTag[];
+  }
+
+}
+
+export class RedshiftResponsesCreateEndpointAccess {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftCreateEndpointAccessMessage) {
+  }
+
+  public get clusterIdentifier(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateEndpointAccess.ClusterIdentifier'),
+        outputPath: 'ClusterIdentifier',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ResourceOwner: this.__input.resourceOwner,
+          EndpointName: this.__input.endpointName,
+          SubnetGroupName: this.__input.subnetGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEndpointAccess.ClusterIdentifier', props);
+    return resource.getResponseField('ClusterIdentifier') as unknown as string;
+  }
+
+  public get resourceOwner(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateEndpointAccess.ResourceOwner'),
+        outputPath: 'ResourceOwner',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ResourceOwner: this.__input.resourceOwner,
+          EndpointName: this.__input.endpointName,
+          SubnetGroupName: this.__input.subnetGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEndpointAccess.ResourceOwner', props);
+    return resource.getResponseField('ResourceOwner') as unknown as string;
+  }
+
+  public get subnetGroupName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateEndpointAccess.SubnetGroupName'),
+        outputPath: 'SubnetGroupName',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ResourceOwner: this.__input.resourceOwner,
+          EndpointName: this.__input.endpointName,
+          SubnetGroupName: this.__input.subnetGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEndpointAccess.SubnetGroupName', props);
+    return resource.getResponseField('SubnetGroupName') as unknown as string;
+  }
+
+  public get endpointStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateEndpointAccess.EndpointStatus'),
+        outputPath: 'EndpointStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ResourceOwner: this.__input.resourceOwner,
+          EndpointName: this.__input.endpointName,
+          SubnetGroupName: this.__input.subnetGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEndpointAccess.EndpointStatus', props);
+    return resource.getResponseField('EndpointStatus') as unknown as string;
+  }
+
+  public get endpointName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateEndpointAccess.EndpointName'),
+        outputPath: 'EndpointName',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ResourceOwner: this.__input.resourceOwner,
+          EndpointName: this.__input.endpointName,
+          SubnetGroupName: this.__input.subnetGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEndpointAccess.EndpointName', props);
+    return resource.getResponseField('EndpointName') as unknown as string;
+  }
+
+  public get endpointCreateTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateEndpointAccess.EndpointCreateTime'),
+        outputPath: 'EndpointCreateTime',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ResourceOwner: this.__input.resourceOwner,
+          EndpointName: this.__input.endpointName,
+          SubnetGroupName: this.__input.subnetGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEndpointAccess.EndpointCreateTime', props);
+    return resource.getResponseField('EndpointCreateTime') as unknown as string;
+  }
+
+  public get port(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateEndpointAccess.Port'),
+        outputPath: 'Port',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ResourceOwner: this.__input.resourceOwner,
+          EndpointName: this.__input.endpointName,
+          SubnetGroupName: this.__input.subnetGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEndpointAccess.Port', props);
+    return resource.getResponseField('Port') as unknown as number;
+  }
+
+  public get address(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateEndpointAccess.Address'),
+        outputPath: 'Address',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ResourceOwner: this.__input.resourceOwner,
+          EndpointName: this.__input.endpointName,
+          SubnetGroupName: this.__input.subnetGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEndpointAccess.Address', props);
+    return resource.getResponseField('Address') as unknown as string;
+  }
+
+  public get vpcSecurityGroups(): shapes.RedshiftVpcSecurityGroupMembership[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateEndpointAccess.VpcSecurityGroups'),
+        outputPath: 'VpcSecurityGroups',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ResourceOwner: this.__input.resourceOwner,
+          EndpointName: this.__input.endpointName,
+          SubnetGroupName: this.__input.subnetGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEndpointAccess.VpcSecurityGroups', props);
+    return resource.getResponseField('VpcSecurityGroups') as unknown as shapes.RedshiftVpcSecurityGroupMembership[];
+  }
+
+  public get vpcEndpoint(): RedshiftResponsesCreateEndpointAccessVpcEndpoint {
+    return new RedshiftResponsesCreateEndpointAccessVpcEndpoint(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class RedshiftResponsesCreateEndpointAccessVpcEndpoint {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftCreateEndpointAccessMessage) {
+  }
+
+  public get vpcEndpointId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateEndpointAccess.VpcEndpoint.VpcEndpointId'),
+        outputPath: 'VpcEndpoint.VpcEndpointId',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ResourceOwner: this.__input.resourceOwner,
+          EndpointName: this.__input.endpointName,
+          SubnetGroupName: this.__input.subnetGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEndpointAccess.VpcEndpoint.VpcEndpointId', props);
+    return resource.getResponseField('VpcEndpoint.VpcEndpointId') as unknown as string;
+  }
+
+  public get vpcId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateEndpointAccess.VpcEndpoint.VpcId'),
+        outputPath: 'VpcEndpoint.VpcId',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ResourceOwner: this.__input.resourceOwner,
+          EndpointName: this.__input.endpointName,
+          SubnetGroupName: this.__input.subnetGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEndpointAccess.VpcEndpoint.VpcId', props);
+    return resource.getResponseField('VpcEndpoint.VpcId') as unknown as string;
+  }
+
+  public get networkInterfaces(): shapes.RedshiftNetworkInterface[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.CreateEndpointAccess.VpcEndpoint.NetworkInterfaces'),
+        outputPath: 'VpcEndpoint.NetworkInterfaces',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ResourceOwner: this.__input.resourceOwner,
+          EndpointName: this.__input.endpointName,
+          SubnetGroupName: this.__input.subnetGroupName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateEndpointAccess.VpcEndpoint.NetworkInterfaces', props);
+    return resource.getResponseField('VpcEndpoint.NetworkInterfaces') as unknown as shapes.RedshiftNetworkInterface[];
   }
 
 }
@@ -8701,6 +9957,109 @@ export class RedshiftResponsesCreateUsageLimit {
 
 }
 
+export class RedshiftResponsesDeauthorizeDataShare {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDeauthorizeDataShareMessage) {
+  }
+
+  public get dataShareArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deauthorizeDataShare',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeauthorizeDataShare.DataShareArn'),
+        outputPath: 'DataShareArn',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+          ConsumerIdentifier: this.__input.consumerIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeauthorizeDataShare.DataShareArn', props);
+    return resource.getResponseField('DataShareArn') as unknown as string;
+  }
+
+  public get producerArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deauthorizeDataShare',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeauthorizeDataShare.ProducerArn'),
+        outputPath: 'ProducerArn',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+          ConsumerIdentifier: this.__input.consumerIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeauthorizeDataShare.ProducerArn', props);
+    return resource.getResponseField('ProducerArn') as unknown as string;
+  }
+
+  public get allowPubliclyAccessibleConsumers(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deauthorizeDataShare',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeauthorizeDataShare.AllowPubliclyAccessibleConsumers'),
+        outputPath: 'AllowPubliclyAccessibleConsumers',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+          ConsumerIdentifier: this.__input.consumerIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeauthorizeDataShare.AllowPubliclyAccessibleConsumers', props);
+    return resource.getResponseField('AllowPubliclyAccessibleConsumers') as unknown as boolean;
+  }
+
+  public get dataShareAssociations(): shapes.RedshiftDataShareAssociation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deauthorizeDataShare',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeauthorizeDataShare.DataShareAssociations'),
+        outputPath: 'DataShareAssociations',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+          ConsumerIdentifier: this.__input.consumerIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeauthorizeDataShare.DataShareAssociations', props);
+    return resource.getResponseField('DataShareAssociations') as unknown as shapes.RedshiftDataShareAssociation[];
+  }
+
+}
+
+export class RedshiftResponsesDeleteAuthenticationProfile {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDeleteAuthenticationProfileMessage) {
+  }
+
+  public get authenticationProfileName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAuthenticationProfile',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteAuthenticationProfile.AuthenticationProfileName'),
+        outputPath: 'AuthenticationProfileName',
+        parameters: {
+          AuthenticationProfileName: this.__input.authenticationProfileName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteAuthenticationProfile.AuthenticationProfileName', props);
+    return resource.getResponseField('AuthenticationProfileName') as unknown as string;
+  }
+
+}
+
 export class RedshiftResponsesDeleteCluster {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDeleteClusterMessage) {
@@ -9509,6 +10868,26 @@ export class RedshiftResponsesDeleteClusterCluster {
     return new RedshiftResponsesDeleteClusterClusterResizeInfo(this.__scope, this.__resources, this.__input);
   }
 
+  public get availabilityZoneRelocationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteCluster.Cluster.AvailabilityZoneRelocationStatus'),
+        outputPath: 'Cluster.AvailabilityZoneRelocationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          SkipFinalClusterSnapshot: this.__input.skipFinalClusterSnapshot,
+          FinalClusterSnapshotIdentifier: this.__input.finalClusterSnapshotIdentifier,
+          FinalClusterSnapshotRetentionPeriod: this.__input.finalClusterSnapshotRetentionPeriod,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCluster.Cluster.AvailabilityZoneRelocationStatus', props);
+    return resource.getResponseField('Cluster.AvailabilityZoneRelocationStatus') as unknown as string;
+  }
+
   public get clusterNamespaceArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -9527,6 +10906,30 @@ export class RedshiftResponsesDeleteClusterCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCluster.Cluster.ClusterNamespaceArn', props);
     return resource.getResponseField('Cluster.ClusterNamespaceArn') as unknown as string;
+  }
+
+  public get totalStorageCapacityInMegaBytes(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteCluster.Cluster.TotalStorageCapacityInMegaBytes'),
+        outputPath: 'Cluster.TotalStorageCapacityInMegaBytes',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          SkipFinalClusterSnapshot: this.__input.skipFinalClusterSnapshot,
+          FinalClusterSnapshotIdentifier: this.__input.finalClusterSnapshotIdentifier,
+          FinalClusterSnapshotRetentionPeriod: this.__input.finalClusterSnapshotRetentionPeriod,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCluster.Cluster.TotalStorageCapacityInMegaBytes', props);
+    return resource.getResponseField('Cluster.TotalStorageCapacityInMegaBytes') as unknown as number;
+  }
+
+  public get aquaConfiguration(): RedshiftResponsesDeleteClusterClusterAquaConfiguration {
+    return new RedshiftResponsesDeleteClusterClusterAquaConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -9574,6 +10977,26 @@ export class RedshiftResponsesDeleteClusterClusterEndpoint {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCluster.Cluster.Endpoint.Port', props);
     return resource.getResponseField('Cluster.Endpoint.Port') as unknown as number;
+  }
+
+  public get vpcEndpoints(): shapes.RedshiftVpcEndpoint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteCluster.Cluster.Endpoint.VpcEndpoints'),
+        outputPath: 'Cluster.Endpoint.VpcEndpoints',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          SkipFinalClusterSnapshot: this.__input.skipFinalClusterSnapshot,
+          FinalClusterSnapshotIdentifier: this.__input.finalClusterSnapshotIdentifier,
+          FinalClusterSnapshotRetentionPeriod: this.__input.finalClusterSnapshotRetentionPeriod,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCluster.Cluster.Endpoint.VpcEndpoints', props);
+    return resource.getResponseField('Cluster.Endpoint.VpcEndpoints') as unknown as shapes.RedshiftVpcEndpoint[];
   }
 
 }
@@ -10307,6 +11730,53 @@ export class RedshiftResponsesDeleteClusterClusterResizeInfo {
 
 }
 
+export class RedshiftResponsesDeleteClusterClusterAquaConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDeleteClusterMessage) {
+  }
+
+  public get aquaStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteCluster.Cluster.AquaConfiguration.AquaStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          SkipFinalClusterSnapshot: this.__input.skipFinalClusterSnapshot,
+          FinalClusterSnapshotIdentifier: this.__input.finalClusterSnapshotIdentifier,
+          FinalClusterSnapshotRetentionPeriod: this.__input.finalClusterSnapshotRetentionPeriod,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCluster.Cluster.AquaConfiguration.AquaStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaStatus') as unknown as string;
+  }
+
+  public get aquaConfigurationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteCluster.Cluster.AquaConfiguration.AquaConfigurationStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaConfigurationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          SkipFinalClusterSnapshot: this.__input.skipFinalClusterSnapshot,
+          FinalClusterSnapshotIdentifier: this.__input.finalClusterSnapshotIdentifier,
+          FinalClusterSnapshotRetentionPeriod: this.__input.finalClusterSnapshotRetentionPeriod,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteCluster.Cluster.AquaConfiguration.AquaConfigurationStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaConfigurationStatus') as unknown as string;
+  }
+
+}
+
 export class RedshiftResponsesDeleteClusterSnapshot {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDeleteClusterSnapshotMessage) {
@@ -10483,6 +11953,24 @@ export class RedshiftResponsesDeleteClusterSnapshotSnapshot {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteClusterSnapshot.Snapshot.ClusterVersion', props);
     return resource.getResponseField('Snapshot.ClusterVersion') as unknown as string;
+  }
+
+  public get engineFullVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteClusterSnapshot',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteClusterSnapshot.Snapshot.EngineFullVersion'),
+        outputPath: 'Snapshot.EngineFullVersion',
+        parameters: {
+          SnapshotIdentifier: this.__input.snapshotIdentifier,
+          SnapshotClusterIdentifier: this.__input.snapshotClusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteClusterSnapshot.Snapshot.EngineFullVersion', props);
+    return resource.getResponseField('Snapshot.EngineFullVersion') as unknown as string;
   }
 
   public get snapshotType(): string {
@@ -10919,6 +12407,275 @@ export class RedshiftResponsesDeleteClusterSnapshotSnapshot {
 
 }
 
+export class RedshiftResponsesDeleteEndpointAccess {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDeleteEndpointAccessMessage) {
+  }
+
+  public get clusterIdentifier(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteEndpointAccess.ClusterIdentifier'),
+        outputPath: 'ClusterIdentifier',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEndpointAccess.ClusterIdentifier', props);
+    return resource.getResponseField('ClusterIdentifier') as unknown as string;
+  }
+
+  public get resourceOwner(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteEndpointAccess.ResourceOwner'),
+        outputPath: 'ResourceOwner',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEndpointAccess.ResourceOwner', props);
+    return resource.getResponseField('ResourceOwner') as unknown as string;
+  }
+
+  public get subnetGroupName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteEndpointAccess.SubnetGroupName'),
+        outputPath: 'SubnetGroupName',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEndpointAccess.SubnetGroupName', props);
+    return resource.getResponseField('SubnetGroupName') as unknown as string;
+  }
+
+  public get endpointStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteEndpointAccess.EndpointStatus'),
+        outputPath: 'EndpointStatus',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEndpointAccess.EndpointStatus', props);
+    return resource.getResponseField('EndpointStatus') as unknown as string;
+  }
+
+  public get endpointName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteEndpointAccess.EndpointName'),
+        outputPath: 'EndpointName',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEndpointAccess.EndpointName', props);
+    return resource.getResponseField('EndpointName') as unknown as string;
+  }
+
+  public get endpointCreateTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteEndpointAccess.EndpointCreateTime'),
+        outputPath: 'EndpointCreateTime',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEndpointAccess.EndpointCreateTime', props);
+    return resource.getResponseField('EndpointCreateTime') as unknown as string;
+  }
+
+  public get port(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteEndpointAccess.Port'),
+        outputPath: 'Port',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEndpointAccess.Port', props);
+    return resource.getResponseField('Port') as unknown as number;
+  }
+
+  public get address(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteEndpointAccess.Address'),
+        outputPath: 'Address',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEndpointAccess.Address', props);
+    return resource.getResponseField('Address') as unknown as string;
+  }
+
+  public get vpcSecurityGroups(): shapes.RedshiftVpcSecurityGroupMembership[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteEndpointAccess.VpcSecurityGroups'),
+        outputPath: 'VpcSecurityGroups',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEndpointAccess.VpcSecurityGroups', props);
+    return resource.getResponseField('VpcSecurityGroups') as unknown as shapes.RedshiftVpcSecurityGroupMembership[];
+  }
+
+  public get vpcEndpoint(): RedshiftResponsesDeleteEndpointAccessVpcEndpoint {
+    return new RedshiftResponsesDeleteEndpointAccessVpcEndpoint(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class RedshiftResponsesDeleteEndpointAccessVpcEndpoint {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDeleteEndpointAccessMessage) {
+  }
+
+  public get vpcEndpointId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteEndpointAccess.VpcEndpoint.VpcEndpointId'),
+        outputPath: 'VpcEndpoint.VpcEndpointId',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEndpointAccess.VpcEndpoint.VpcEndpointId', props);
+    return resource.getResponseField('VpcEndpoint.VpcEndpointId') as unknown as string;
+  }
+
+  public get vpcId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteEndpointAccess.VpcEndpoint.VpcId'),
+        outputPath: 'VpcEndpoint.VpcId',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEndpointAccess.VpcEndpoint.VpcId', props);
+    return resource.getResponseField('VpcEndpoint.VpcId') as unknown as string;
+  }
+
+  public get networkInterfaces(): shapes.RedshiftNetworkInterface[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeleteEndpointAccess.VpcEndpoint.NetworkInterfaces'),
+        outputPath: 'VpcEndpoint.NetworkInterfaces',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteEndpointAccess.VpcEndpoint.NetworkInterfaces', props);
+    return resource.getResponseField('VpcEndpoint.NetworkInterfaces') as unknown as shapes.RedshiftNetworkInterface[];
+  }
+
+}
+
+export class RedshiftResponsesDeletePartner {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftPartnerIntegrationInputMessage) {
+  }
+
+  public get databaseName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deletePartner',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeletePartner.DatabaseName'),
+        outputPath: 'DatabaseName',
+        parameters: {
+          AccountId: this.__input.accountId,
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          DatabaseName: this.__input.databaseName,
+          PartnerName: this.__input.partnerName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeletePartner.DatabaseName', props);
+    return resource.getResponseField('DatabaseName') as unknown as string;
+  }
+
+  public get partnerName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deletePartner',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DeletePartner.PartnerName'),
+        outputPath: 'PartnerName',
+        parameters: {
+          AccountId: this.__input.accountId,
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          DatabaseName: this.__input.databaseName,
+          PartnerName: this.__input.partnerName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeletePartner.PartnerName', props);
+    return resource.getResponseField('PartnerName') as unknown as string;
+  }
+
+}
+
 export class RedshiftResponsesDescribeAccountAttributes {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDescribeAccountAttributesMessage) {
@@ -10939,6 +12696,30 @@ export class RedshiftResponsesDescribeAccountAttributes {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAccountAttributes.AccountAttributes', props);
     return resource.getResponseField('AccountAttributes') as unknown as shapes.RedshiftAccountAttribute[];
+  }
+
+}
+
+export class RedshiftResponsesDescribeAuthenticationProfiles {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDescribeAuthenticationProfilesMessage) {
+  }
+
+  public get authenticationProfiles(): shapes.RedshiftAuthenticationProfile[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAuthenticationProfiles',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DescribeAuthenticationProfiles.AuthenticationProfiles'),
+        outputPath: 'AuthenticationProfiles',
+        parameters: {
+          AuthenticationProfileName: this.__input.authenticationProfileName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAuthenticationProfiles.AuthenticationProfiles', props);
+    return resource.getResponseField('AuthenticationProfiles') as unknown as shapes.RedshiftAuthenticationProfile[];
   }
 
 }
@@ -11386,6 +13167,145 @@ export class RedshiftResponsesDescribeClusters {
 
 }
 
+export class RedshiftResponsesDescribeDataShares {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDescribeDataSharesMessage) {
+  }
+
+  public get dataShares(): shapes.RedshiftDataShare[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataShares',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DescribeDataShares.DataShares'),
+        outputPath: 'DataShares',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+          MaxRecords: this.__input.maxRecords,
+          Marker: this.__input.marker,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataShares.DataShares', props);
+    return resource.getResponseField('DataShares') as unknown as shapes.RedshiftDataShare[];
+  }
+
+  public get marker(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataShares',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DescribeDataShares.Marker'),
+        outputPath: 'Marker',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+          MaxRecords: this.__input.maxRecords,
+          Marker: this.__input.marker,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataShares.Marker', props);
+    return resource.getResponseField('Marker') as unknown as string;
+  }
+
+}
+
+export class RedshiftResponsesDescribeDataSharesForConsumer {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDescribeDataSharesForConsumerMessage) {
+  }
+
+  public get dataShares(): shapes.RedshiftDataShare[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataSharesForConsumer',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DescribeDataSharesForConsumer.DataShares'),
+        outputPath: 'DataShares',
+        parameters: {
+          ConsumerArn: this.__input.consumerArn,
+          Status: this.__input.status,
+          MaxRecords: this.__input.maxRecords,
+          Marker: this.__input.marker,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataSharesForConsumer.DataShares', props);
+    return resource.getResponseField('DataShares') as unknown as shapes.RedshiftDataShare[];
+  }
+
+  public get marker(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataSharesForConsumer',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DescribeDataSharesForConsumer.Marker'),
+        outputPath: 'Marker',
+        parameters: {
+          ConsumerArn: this.__input.consumerArn,
+          Status: this.__input.status,
+          MaxRecords: this.__input.maxRecords,
+          Marker: this.__input.marker,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataSharesForConsumer.Marker', props);
+    return resource.getResponseField('Marker') as unknown as string;
+  }
+
+}
+
+export class RedshiftResponsesDescribeDataSharesForProducer {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDescribeDataSharesForProducerMessage) {
+  }
+
+  public get dataShares(): shapes.RedshiftDataShare[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataSharesForProducer',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DescribeDataSharesForProducer.DataShares'),
+        outputPath: 'DataShares',
+        parameters: {
+          ProducerArn: this.__input.producerArn,
+          Status: this.__input.status,
+          MaxRecords: this.__input.maxRecords,
+          Marker: this.__input.marker,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataSharesForProducer.DataShares', props);
+    return resource.getResponseField('DataShares') as unknown as shapes.RedshiftDataShare[];
+  }
+
+  public get marker(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataSharesForProducer',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DescribeDataSharesForProducer.Marker'),
+        outputPath: 'Marker',
+        parameters: {
+          ProducerArn: this.__input.producerArn,
+          Status: this.__input.status,
+          MaxRecords: this.__input.maxRecords,
+          Marker: this.__input.marker,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataSharesForProducer.Marker', props);
+    return resource.getResponseField('Marker') as unknown as string;
+  }
+
+}
+
 export class RedshiftResponsesDescribeDefaultClusterParameters {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDescribeDefaultClusterParametersMessage) {
@@ -11457,6 +13377,106 @@ export class RedshiftResponsesDescribeDefaultClusterParametersDefaultClusterPara
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDefaultClusterParameters.DefaultClusterParameters.Parameters', props);
     return resource.getResponseField('DefaultClusterParameters.Parameters') as unknown as shapes.RedshiftParameter[];
+  }
+
+}
+
+export class RedshiftResponsesDescribeEndpointAccess {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDescribeEndpointAccessMessage) {
+  }
+
+  public get endpointAccessList(): shapes.RedshiftEndpointAccess[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DescribeEndpointAccess.EndpointAccessList'),
+        outputPath: 'EndpointAccessList',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ResourceOwner: this.__input.resourceOwner,
+          EndpointName: this.__input.endpointName,
+          VpcId: this.__input.vpcId,
+          MaxRecords: this.__input.maxRecords,
+          Marker: this.__input.marker,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEndpointAccess.EndpointAccessList', props);
+    return resource.getResponseField('EndpointAccessList') as unknown as shapes.RedshiftEndpointAccess[];
+  }
+
+  public get marker(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DescribeEndpointAccess.Marker'),
+        outputPath: 'Marker',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ResourceOwner: this.__input.resourceOwner,
+          EndpointName: this.__input.endpointName,
+          VpcId: this.__input.vpcId,
+          MaxRecords: this.__input.maxRecords,
+          Marker: this.__input.marker,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEndpointAccess.Marker', props);
+    return resource.getResponseField('Marker') as unknown as string;
+  }
+
+}
+
+export class RedshiftResponsesDescribeEndpointAuthorization {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDescribeEndpointAuthorizationMessage) {
+  }
+
+  public get endpointAuthorizationList(): shapes.RedshiftEndpointAuthorization[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEndpointAuthorization',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DescribeEndpointAuthorization.EndpointAuthorizationList'),
+        outputPath: 'EndpointAuthorizationList',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          Grantee: this.__input.grantee,
+          MaxRecords: this.__input.maxRecords,
+          Marker: this.__input.marker,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEndpointAuthorization.EndpointAuthorizationList', props);
+    return resource.getResponseField('EndpointAuthorizationList') as unknown as shapes.RedshiftEndpointAuthorization[];
+  }
+
+  public get marker(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEndpointAuthorization',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DescribeEndpointAuthorization.Marker'),
+        outputPath: 'Marker',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          Grantee: this.__input.grantee,
+          MaxRecords: this.__input.maxRecords,
+          Marker: this.__input.marker,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEndpointAuthorization.Marker', props);
+    return resource.getResponseField('Marker') as unknown as string;
   }
 
 }
@@ -11890,6 +13910,33 @@ export class RedshiftResponsesDescribeOrderableClusterOptions {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeOrderableClusterOptions.Marker', props);
     return resource.getResponseField('Marker') as unknown as string;
+  }
+
+}
+
+export class RedshiftResponsesDescribePartners {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDescribePartnersInputMessage) {
+  }
+
+  public get partnerIntegrationInfoList(): shapes.RedshiftPartnerIntegrationInfo[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePartners',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DescribePartners.PartnerIntegrationInfoList'),
+        outputPath: 'PartnerIntegrationInfoList',
+        parameters: {
+          AccountId: this.__input.accountId,
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          DatabaseName: this.__input.databaseName,
+          PartnerName: this.__input.partnerName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePartners.PartnerIntegrationInfoList', props);
+    return resource.getResponseField('PartnerIntegrationInfoList') as unknown as shapes.RedshiftPartnerIntegrationInfo[];
   }
 
 }
@@ -13407,6 +15454,23 @@ export class RedshiftResponsesDisableSnapshotCopyCluster {
     return new RedshiftResponsesDisableSnapshotCopyClusterResizeInfo(this.__scope, this.__resources, this.__input);
   }
 
+  public get availabilityZoneRelocationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disableSnapshotCopy',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DisableSnapshotCopy.Cluster.AvailabilityZoneRelocationStatus'),
+        outputPath: 'Cluster.AvailabilityZoneRelocationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisableSnapshotCopy.Cluster.AvailabilityZoneRelocationStatus', props);
+    return resource.getResponseField('Cluster.AvailabilityZoneRelocationStatus') as unknown as string;
+  }
+
   public get clusterNamespaceArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -13422,6 +15486,27 @@ export class RedshiftResponsesDisableSnapshotCopyCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DisableSnapshotCopy.Cluster.ClusterNamespaceArn', props);
     return resource.getResponseField('Cluster.ClusterNamespaceArn') as unknown as string;
+  }
+
+  public get totalStorageCapacityInMegaBytes(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disableSnapshotCopy',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DisableSnapshotCopy.Cluster.TotalStorageCapacityInMegaBytes'),
+        outputPath: 'Cluster.TotalStorageCapacityInMegaBytes',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisableSnapshotCopy.Cluster.TotalStorageCapacityInMegaBytes', props);
+    return resource.getResponseField('Cluster.TotalStorageCapacityInMegaBytes') as unknown as number;
+  }
+
+  public get aquaConfiguration(): RedshiftResponsesDisableSnapshotCopyClusterAquaConfiguration {
+    return new RedshiftResponsesDisableSnapshotCopyClusterAquaConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -13463,6 +15548,23 @@ export class RedshiftResponsesDisableSnapshotCopyClusterEndpoint {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DisableSnapshotCopy.Cluster.Endpoint.Port', props);
     return resource.getResponseField('Cluster.Endpoint.Port') as unknown as number;
+  }
+
+  public get vpcEndpoints(): shapes.RedshiftVpcEndpoint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disableSnapshotCopy',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DisableSnapshotCopy.Cluster.Endpoint.VpcEndpoints'),
+        outputPath: 'Cluster.Endpoint.VpcEndpoints',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisableSnapshotCopy.Cluster.Endpoint.VpcEndpoints', props);
+    return resource.getResponseField('Cluster.Endpoint.VpcEndpoints') as unknown as shapes.RedshiftVpcEndpoint[];
   }
 
 }
@@ -14090,6 +16192,130 @@ export class RedshiftResponsesDisableSnapshotCopyClusterResizeInfo {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DisableSnapshotCopy.Cluster.ResizeInfo.AllowCancelResize', props);
     return resource.getResponseField('Cluster.ResizeInfo.AllowCancelResize') as unknown as boolean;
+  }
+
+}
+
+export class RedshiftResponsesDisableSnapshotCopyClusterAquaConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDisableSnapshotCopyMessage) {
+  }
+
+  public get aquaStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disableSnapshotCopy',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DisableSnapshotCopy.Cluster.AquaConfiguration.AquaStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisableSnapshotCopy.Cluster.AquaConfiguration.AquaStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaStatus') as unknown as string;
+  }
+
+  public get aquaConfigurationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disableSnapshotCopy',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DisableSnapshotCopy.Cluster.AquaConfiguration.AquaConfigurationStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaConfigurationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisableSnapshotCopy.Cluster.AquaConfiguration.AquaConfigurationStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaConfigurationStatus') as unknown as string;
+  }
+
+}
+
+export class RedshiftResponsesDisassociateDataShareConsumer {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftDisassociateDataShareConsumerMessage) {
+  }
+
+  public get dataShareArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateDataShareConsumer',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DisassociateDataShareConsumer.DataShareArn'),
+        outputPath: 'DataShareArn',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+          DisassociateEntireAccount: this.__input.disassociateEntireAccount,
+          ConsumerArn: this.__input.consumerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateDataShareConsumer.DataShareArn', props);
+    return resource.getResponseField('DataShareArn') as unknown as string;
+  }
+
+  public get producerArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateDataShareConsumer',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DisassociateDataShareConsumer.ProducerArn'),
+        outputPath: 'ProducerArn',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+          DisassociateEntireAccount: this.__input.disassociateEntireAccount,
+          ConsumerArn: this.__input.consumerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateDataShareConsumer.ProducerArn', props);
+    return resource.getResponseField('ProducerArn') as unknown as string;
+  }
+
+  public get allowPubliclyAccessibleConsumers(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateDataShareConsumer',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DisassociateDataShareConsumer.AllowPubliclyAccessibleConsumers'),
+        outputPath: 'AllowPubliclyAccessibleConsumers',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+          DisassociateEntireAccount: this.__input.disassociateEntireAccount,
+          ConsumerArn: this.__input.consumerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateDataShareConsumer.AllowPubliclyAccessibleConsumers', props);
+    return resource.getResponseField('AllowPubliclyAccessibleConsumers') as unknown as boolean;
+  }
+
+  public get dataShareAssociations(): shapes.RedshiftDataShareAssociation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateDataShareConsumer',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.DisassociateDataShareConsumer.DataShareAssociations'),
+        outputPath: 'DataShareAssociations',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+          DisassociateEntireAccount: this.__input.disassociateEntireAccount,
+          ConsumerArn: this.__input.consumerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateDataShareConsumer.DataShareAssociations', props);
+    return resource.getResponseField('DataShareAssociations') as unknown as shapes.RedshiftDataShareAssociation[];
   }
 
 }
@@ -15061,6 +17287,27 @@ export class RedshiftResponsesEnableSnapshotCopyCluster {
     return new RedshiftResponsesEnableSnapshotCopyClusterResizeInfo(this.__scope, this.__resources, this.__input);
   }
 
+  public get availabilityZoneRelocationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'enableSnapshotCopy',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.EnableSnapshotCopy.Cluster.AvailabilityZoneRelocationStatus'),
+        outputPath: 'Cluster.AvailabilityZoneRelocationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          DestinationRegion: this.__input.destinationRegion,
+          RetentionPeriod: this.__input.retentionPeriod,
+          SnapshotCopyGrantName: this.__input.snapshotCopyGrantName,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'EnableSnapshotCopy.Cluster.AvailabilityZoneRelocationStatus', props);
+    return resource.getResponseField('Cluster.AvailabilityZoneRelocationStatus') as unknown as string;
+  }
+
   public get clusterNamespaceArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -15080,6 +17327,31 @@ export class RedshiftResponsesEnableSnapshotCopyCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'EnableSnapshotCopy.Cluster.ClusterNamespaceArn', props);
     return resource.getResponseField('Cluster.ClusterNamespaceArn') as unknown as string;
+  }
+
+  public get totalStorageCapacityInMegaBytes(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'enableSnapshotCopy',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.EnableSnapshotCopy.Cluster.TotalStorageCapacityInMegaBytes'),
+        outputPath: 'Cluster.TotalStorageCapacityInMegaBytes',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          DestinationRegion: this.__input.destinationRegion,
+          RetentionPeriod: this.__input.retentionPeriod,
+          SnapshotCopyGrantName: this.__input.snapshotCopyGrantName,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'EnableSnapshotCopy.Cluster.TotalStorageCapacityInMegaBytes', props);
+    return resource.getResponseField('Cluster.TotalStorageCapacityInMegaBytes') as unknown as number;
+  }
+
+  public get aquaConfiguration(): RedshiftResponsesEnableSnapshotCopyClusterAquaConfiguration {
+    return new RedshiftResponsesEnableSnapshotCopyClusterAquaConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -15129,6 +17401,27 @@ export class RedshiftResponsesEnableSnapshotCopyClusterEndpoint {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'EnableSnapshotCopy.Cluster.Endpoint.Port', props);
     return resource.getResponseField('Cluster.Endpoint.Port') as unknown as number;
+  }
+
+  public get vpcEndpoints(): shapes.RedshiftVpcEndpoint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'enableSnapshotCopy',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.EnableSnapshotCopy.Cluster.Endpoint.VpcEndpoints'),
+        outputPath: 'Cluster.Endpoint.VpcEndpoints',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          DestinationRegion: this.__input.destinationRegion,
+          RetentionPeriod: this.__input.retentionPeriod,
+          SnapshotCopyGrantName: this.__input.snapshotCopyGrantName,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'EnableSnapshotCopy.Cluster.Endpoint.VpcEndpoints', props);
+    return resource.getResponseField('Cluster.Endpoint.VpcEndpoints') as unknown as shapes.RedshiftVpcEndpoint[];
   }
 
 }
@@ -15896,6 +18189,55 @@ export class RedshiftResponsesEnableSnapshotCopyClusterResizeInfo {
 
 }
 
+export class RedshiftResponsesEnableSnapshotCopyClusterAquaConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftEnableSnapshotCopyMessage) {
+  }
+
+  public get aquaStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'enableSnapshotCopy',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.EnableSnapshotCopy.Cluster.AquaConfiguration.AquaStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          DestinationRegion: this.__input.destinationRegion,
+          RetentionPeriod: this.__input.retentionPeriod,
+          SnapshotCopyGrantName: this.__input.snapshotCopyGrantName,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'EnableSnapshotCopy.Cluster.AquaConfiguration.AquaStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaStatus') as unknown as string;
+  }
+
+  public get aquaConfigurationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'enableSnapshotCopy',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.EnableSnapshotCopy.Cluster.AquaConfiguration.AquaConfigurationStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaConfigurationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          DestinationRegion: this.__input.destinationRegion,
+          RetentionPeriod: this.__input.retentionPeriod,
+          SnapshotCopyGrantName: this.__input.snapshotCopyGrantName,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'EnableSnapshotCopy.Cluster.AquaConfiguration.AquaConfigurationStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaConfigurationStatus') as unknown as string;
+  }
+
+}
+
 export class RedshiftResponsesFetchClusterCredentials {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftGetClusterCredentialsMessage) {
@@ -16014,6 +18356,103 @@ export class RedshiftResponsesFetchReservedNodeExchangeOfferings {
 
 }
 
+export class RedshiftResponsesModifyAquaConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftModifyAquaInputMessage) {
+  }
+
+  public get aquaConfiguration(): RedshiftResponsesModifyAquaConfigurationAquaConfiguration {
+    return new RedshiftResponsesModifyAquaConfigurationAquaConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class RedshiftResponsesModifyAquaConfigurationAquaConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftModifyAquaInputMessage) {
+  }
+
+  public get aquaStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyAquaConfiguration',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyAquaConfiguration.AquaConfiguration.AquaStatus'),
+        outputPath: 'AquaConfiguration.AquaStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyAquaConfiguration.AquaConfiguration.AquaStatus', props);
+    return resource.getResponseField('AquaConfiguration.AquaStatus') as unknown as string;
+  }
+
+  public get aquaConfigurationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyAquaConfiguration',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyAquaConfiguration.AquaConfiguration.AquaConfigurationStatus'),
+        outputPath: 'AquaConfiguration.AquaConfigurationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyAquaConfiguration.AquaConfiguration.AquaConfigurationStatus', props);
+    return resource.getResponseField('AquaConfiguration.AquaConfigurationStatus') as unknown as string;
+  }
+
+}
+
+export class RedshiftResponsesModifyAuthenticationProfile {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftModifyAuthenticationProfileMessage) {
+  }
+
+  public get authenticationProfileName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyAuthenticationProfile',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyAuthenticationProfile.AuthenticationProfileName'),
+        outputPath: 'AuthenticationProfileName',
+        parameters: {
+          AuthenticationProfileName: this.__input.authenticationProfileName,
+          AuthenticationProfileContent: this.__input.authenticationProfileContent,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyAuthenticationProfile.AuthenticationProfileName', props);
+    return resource.getResponseField('AuthenticationProfileName') as unknown as string;
+  }
+
+  public get authenticationProfileContent(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyAuthenticationProfile',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyAuthenticationProfile.AuthenticationProfileContent'),
+        outputPath: 'AuthenticationProfileContent',
+        parameters: {
+          AuthenticationProfileName: this.__input.authenticationProfileName,
+          AuthenticationProfileContent: this.__input.authenticationProfileContent,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyAuthenticationProfile.AuthenticationProfileContent', props);
+    return resource.getResponseField('AuthenticationProfileContent') as unknown as string;
+  }
+
+}
+
 export class RedshiftResponsesModifyCluster {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftModifyClusterMessage) {
@@ -16061,6 +18500,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16099,6 +18541,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16137,6 +18582,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16175,6 +18623,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16213,6 +18664,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16251,6 +18705,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16289,6 +18746,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16331,6 +18791,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16369,6 +18832,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16407,6 +18873,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16445,6 +18914,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16483,6 +18955,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16521,6 +18996,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16559,6 +19037,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16597,6 +19078,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16635,6 +19119,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16673,6 +19160,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16715,6 +19205,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16753,6 +19246,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16791,6 +19287,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16829,6 +19328,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16867,6 +19369,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16921,6 +19426,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -16959,6 +19467,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17001,6 +19512,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17039,6 +19553,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17077,6 +19594,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17115,6 +19635,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17153,6 +19676,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17191,6 +19717,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17229,6 +19758,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17267,6 +19799,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17305,6 +19840,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17343,6 +19881,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17381,6 +19922,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17419,6 +19963,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17457,6 +20004,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17495,6 +20045,9 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17504,6 +20057,47 @@ export class RedshiftResponsesModifyClusterCluster {
 
   public get resizeInfo(): RedshiftResponsesModifyClusterClusterResizeInfo {
     return new RedshiftResponsesModifyClusterClusterResizeInfo(this.__scope, this.__resources, this.__input);
+  }
+
+  public get availabilityZoneRelocationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyCluster.Cluster.AvailabilityZoneRelocationStatus'),
+        outputPath: 'Cluster.AvailabilityZoneRelocationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ClusterType: this.__input.clusterType,
+          NodeType: this.__input.nodeType,
+          NumberOfNodes: this.__input.numberOfNodes,
+          ClusterSecurityGroups: this.__input.clusterSecurityGroups,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          MasterUserPassword: this.__input.masterUserPassword,
+          ClusterParameterGroupName: this.__input.clusterParameterGroupName,
+          AutomatedSnapshotRetentionPeriod: this.__input.automatedSnapshotRetentionPeriod,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          ClusterVersion: this.__input.clusterVersion,
+          AllowVersionUpgrade: this.__input.allowVersionUpgrade,
+          HsmClientCertificateIdentifier: this.__input.hsmClientCertificateIdentifier,
+          HsmConfigurationIdentifier: this.__input.hsmConfigurationIdentifier,
+          NewClusterIdentifier: this.__input.newClusterIdentifier,
+          PubliclyAccessible: this.__input.publiclyAccessible,
+          ElasticIp: this.__input.elasticIp,
+          EnhancedVpcRouting: this.__input.enhancedVpcRouting,
+          MaintenanceTrackName: this.__input.maintenanceTrackName,
+          Encrypted: this.__input.encrypted,
+          KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyCluster.Cluster.AvailabilityZoneRelocationStatus', props);
+    return resource.getResponseField('Cluster.AvailabilityZoneRelocationStatus') as unknown as string;
   }
 
   public get clusterNamespaceArn(): string {
@@ -17537,11 +20131,59 @@ export class RedshiftResponsesModifyClusterCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyCluster.Cluster.ClusterNamespaceArn', props);
     return resource.getResponseField('Cluster.ClusterNamespaceArn') as unknown as string;
+  }
+
+  public get totalStorageCapacityInMegaBytes(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyCluster.Cluster.TotalStorageCapacityInMegaBytes'),
+        outputPath: 'Cluster.TotalStorageCapacityInMegaBytes',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ClusterType: this.__input.clusterType,
+          NodeType: this.__input.nodeType,
+          NumberOfNodes: this.__input.numberOfNodes,
+          ClusterSecurityGroups: this.__input.clusterSecurityGroups,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          MasterUserPassword: this.__input.masterUserPassword,
+          ClusterParameterGroupName: this.__input.clusterParameterGroupName,
+          AutomatedSnapshotRetentionPeriod: this.__input.automatedSnapshotRetentionPeriod,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          ClusterVersion: this.__input.clusterVersion,
+          AllowVersionUpgrade: this.__input.allowVersionUpgrade,
+          HsmClientCertificateIdentifier: this.__input.hsmClientCertificateIdentifier,
+          HsmConfigurationIdentifier: this.__input.hsmConfigurationIdentifier,
+          NewClusterIdentifier: this.__input.newClusterIdentifier,
+          PubliclyAccessible: this.__input.publiclyAccessible,
+          ElasticIp: this.__input.elasticIp,
+          EnhancedVpcRouting: this.__input.enhancedVpcRouting,
+          MaintenanceTrackName: this.__input.maintenanceTrackName,
+          Encrypted: this.__input.encrypted,
+          KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyCluster.Cluster.TotalStorageCapacityInMegaBytes', props);
+    return resource.getResponseField('Cluster.TotalStorageCapacityInMegaBytes') as unknown as number;
+  }
+
+  public get aquaConfiguration(): RedshiftResponsesModifyClusterClusterAquaConfiguration {
+    return new RedshiftResponsesModifyClusterClusterAquaConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -17582,6 +20224,9 @@ export class RedshiftResponsesModifyClusterClusterEndpoint {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17620,11 +20265,55 @@ export class RedshiftResponsesModifyClusterClusterEndpoint {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyCluster.Cluster.Endpoint.Port', props);
     return resource.getResponseField('Cluster.Endpoint.Port') as unknown as number;
+  }
+
+  public get vpcEndpoints(): shapes.RedshiftVpcEndpoint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyCluster.Cluster.Endpoint.VpcEndpoints'),
+        outputPath: 'Cluster.Endpoint.VpcEndpoints',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ClusterType: this.__input.clusterType,
+          NodeType: this.__input.nodeType,
+          NumberOfNodes: this.__input.numberOfNodes,
+          ClusterSecurityGroups: this.__input.clusterSecurityGroups,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          MasterUserPassword: this.__input.masterUserPassword,
+          ClusterParameterGroupName: this.__input.clusterParameterGroupName,
+          AutomatedSnapshotRetentionPeriod: this.__input.automatedSnapshotRetentionPeriod,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          ClusterVersion: this.__input.clusterVersion,
+          AllowVersionUpgrade: this.__input.allowVersionUpgrade,
+          HsmClientCertificateIdentifier: this.__input.hsmClientCertificateIdentifier,
+          HsmConfigurationIdentifier: this.__input.hsmConfigurationIdentifier,
+          NewClusterIdentifier: this.__input.newClusterIdentifier,
+          PubliclyAccessible: this.__input.publiclyAccessible,
+          ElasticIp: this.__input.elasticIp,
+          EnhancedVpcRouting: this.__input.enhancedVpcRouting,
+          MaintenanceTrackName: this.__input.maintenanceTrackName,
+          Encrypted: this.__input.encrypted,
+          KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyCluster.Cluster.Endpoint.VpcEndpoints', props);
+    return resource.getResponseField('Cluster.Endpoint.VpcEndpoints') as unknown as shapes.RedshiftVpcEndpoint[];
   }
 
 }
@@ -17665,6 +20354,9 @@ export class RedshiftResponsesModifyClusterClusterPendingModifiedValues {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17703,6 +20395,9 @@ export class RedshiftResponsesModifyClusterClusterPendingModifiedValues {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17741,6 +20436,9 @@ export class RedshiftResponsesModifyClusterClusterPendingModifiedValues {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17779,6 +20477,9 @@ export class RedshiftResponsesModifyClusterClusterPendingModifiedValues {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17817,6 +20518,9 @@ export class RedshiftResponsesModifyClusterClusterPendingModifiedValues {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17855,6 +20559,9 @@ export class RedshiftResponsesModifyClusterClusterPendingModifiedValues {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17893,6 +20600,9 @@ export class RedshiftResponsesModifyClusterClusterPendingModifiedValues {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17931,6 +20641,9 @@ export class RedshiftResponsesModifyClusterClusterPendingModifiedValues {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -17969,6 +20682,9 @@ export class RedshiftResponsesModifyClusterClusterPendingModifiedValues {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18007,6 +20723,9 @@ export class RedshiftResponsesModifyClusterClusterPendingModifiedValues {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18045,6 +20764,9 @@ export class RedshiftResponsesModifyClusterClusterPendingModifiedValues {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18090,6 +20812,9 @@ export class RedshiftResponsesModifyClusterClusterRestoreStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18128,6 +20853,9 @@ export class RedshiftResponsesModifyClusterClusterRestoreStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18166,6 +20894,9 @@ export class RedshiftResponsesModifyClusterClusterRestoreStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18204,6 +20935,9 @@ export class RedshiftResponsesModifyClusterClusterRestoreStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18242,6 +20976,9 @@ export class RedshiftResponsesModifyClusterClusterRestoreStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18280,6 +21017,9 @@ export class RedshiftResponsesModifyClusterClusterRestoreStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18325,6 +21065,9 @@ export class RedshiftResponsesModifyClusterClusterDataTransferProgress {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18363,6 +21106,9 @@ export class RedshiftResponsesModifyClusterClusterDataTransferProgress {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18401,6 +21147,9 @@ export class RedshiftResponsesModifyClusterClusterDataTransferProgress {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18439,6 +21188,9 @@ export class RedshiftResponsesModifyClusterClusterDataTransferProgress {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18477,6 +21229,9 @@ export class RedshiftResponsesModifyClusterClusterDataTransferProgress {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18515,6 +21270,9 @@ export class RedshiftResponsesModifyClusterClusterDataTransferProgress {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18560,6 +21318,9 @@ export class RedshiftResponsesModifyClusterClusterHsmStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18598,6 +21359,9 @@ export class RedshiftResponsesModifyClusterClusterHsmStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18636,6 +21400,9 @@ export class RedshiftResponsesModifyClusterClusterHsmStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18681,6 +21448,9 @@ export class RedshiftResponsesModifyClusterClusterClusterSnapshotCopyStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18719,6 +21489,9 @@ export class RedshiftResponsesModifyClusterClusterClusterSnapshotCopyStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18757,6 +21530,9 @@ export class RedshiftResponsesModifyClusterClusterClusterSnapshotCopyStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18795,6 +21571,9 @@ export class RedshiftResponsesModifyClusterClusterClusterSnapshotCopyStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18840,6 +21619,9 @@ export class RedshiftResponsesModifyClusterClusterElasticIpStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18878,6 +21660,9 @@ export class RedshiftResponsesModifyClusterClusterElasticIpStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18923,6 +21708,9 @@ export class RedshiftResponsesModifyClusterClusterResizeInfo {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
@@ -18961,11 +21749,103 @@ export class RedshiftResponsesModifyClusterClusterResizeInfo {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyCluster.Cluster.ResizeInfo.AllowCancelResize', props);
     return resource.getResponseField('Cluster.ResizeInfo.AllowCancelResize') as unknown as boolean;
+  }
+
+}
+
+export class RedshiftResponsesModifyClusterClusterAquaConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftModifyClusterMessage) {
+  }
+
+  public get aquaStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyCluster.Cluster.AquaConfiguration.AquaStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ClusterType: this.__input.clusterType,
+          NodeType: this.__input.nodeType,
+          NumberOfNodes: this.__input.numberOfNodes,
+          ClusterSecurityGroups: this.__input.clusterSecurityGroups,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          MasterUserPassword: this.__input.masterUserPassword,
+          ClusterParameterGroupName: this.__input.clusterParameterGroupName,
+          AutomatedSnapshotRetentionPeriod: this.__input.automatedSnapshotRetentionPeriod,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          ClusterVersion: this.__input.clusterVersion,
+          AllowVersionUpgrade: this.__input.allowVersionUpgrade,
+          HsmClientCertificateIdentifier: this.__input.hsmClientCertificateIdentifier,
+          HsmConfigurationIdentifier: this.__input.hsmConfigurationIdentifier,
+          NewClusterIdentifier: this.__input.newClusterIdentifier,
+          PubliclyAccessible: this.__input.publiclyAccessible,
+          ElasticIp: this.__input.elasticIp,
+          EnhancedVpcRouting: this.__input.enhancedVpcRouting,
+          MaintenanceTrackName: this.__input.maintenanceTrackName,
+          Encrypted: this.__input.encrypted,
+          KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyCluster.Cluster.AquaConfiguration.AquaStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaStatus') as unknown as string;
+  }
+
+  public get aquaConfigurationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyCluster.Cluster.AquaConfiguration.AquaConfigurationStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaConfigurationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ClusterType: this.__input.clusterType,
+          NodeType: this.__input.nodeType,
+          NumberOfNodes: this.__input.numberOfNodes,
+          ClusterSecurityGroups: this.__input.clusterSecurityGroups,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          MasterUserPassword: this.__input.masterUserPassword,
+          ClusterParameterGroupName: this.__input.clusterParameterGroupName,
+          AutomatedSnapshotRetentionPeriod: this.__input.automatedSnapshotRetentionPeriod,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          ClusterVersion: this.__input.clusterVersion,
+          AllowVersionUpgrade: this.__input.allowVersionUpgrade,
+          HsmClientCertificateIdentifier: this.__input.hsmClientCertificateIdentifier,
+          HsmConfigurationIdentifier: this.__input.hsmConfigurationIdentifier,
+          NewClusterIdentifier: this.__input.newClusterIdentifier,
+          PubliclyAccessible: this.__input.publiclyAccessible,
+          ElasticIp: this.__input.elasticIp,
+          EnhancedVpcRouting: this.__input.enhancedVpcRouting,
+          MaintenanceTrackName: this.__input.maintenanceTrackName,
+          Encrypted: this.__input.encrypted,
+          KmsKeyId: this.__input.kmsKeyId,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AvailabilityZone: this.__input.availabilityZone,
+          Port: this.__input.port,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyCluster.Cluster.AquaConfiguration.AquaConfigurationStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaConfigurationStatus') as unknown as string;
   }
 
 }
@@ -19702,6 +22582,24 @@ export class RedshiftResponsesModifyClusterDbRevisionCluster {
     return new RedshiftResponsesModifyClusterDbRevisionClusterResizeInfo(this.__scope, this.__resources, this.__input);
   }
 
+  public get availabilityZoneRelocationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyClusterDbRevision',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyClusterDbRevision.Cluster.AvailabilityZoneRelocationStatus'),
+        outputPath: 'Cluster.AvailabilityZoneRelocationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          RevisionTarget: this.__input.revisionTarget,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterDbRevision.Cluster.AvailabilityZoneRelocationStatus', props);
+    return resource.getResponseField('Cluster.AvailabilityZoneRelocationStatus') as unknown as string;
+  }
+
   public get clusterNamespaceArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -19718,6 +22616,28 @@ export class RedshiftResponsesModifyClusterDbRevisionCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterDbRevision.Cluster.ClusterNamespaceArn', props);
     return resource.getResponseField('Cluster.ClusterNamespaceArn') as unknown as string;
+  }
+
+  public get totalStorageCapacityInMegaBytes(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyClusterDbRevision',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyClusterDbRevision.Cluster.TotalStorageCapacityInMegaBytes'),
+        outputPath: 'Cluster.TotalStorageCapacityInMegaBytes',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          RevisionTarget: this.__input.revisionTarget,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterDbRevision.Cluster.TotalStorageCapacityInMegaBytes', props);
+    return resource.getResponseField('Cluster.TotalStorageCapacityInMegaBytes') as unknown as number;
+  }
+
+  public get aquaConfiguration(): RedshiftResponsesModifyClusterDbRevisionClusterAquaConfiguration {
+    return new RedshiftResponsesModifyClusterDbRevisionClusterAquaConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -19761,6 +22681,24 @@ export class RedshiftResponsesModifyClusterDbRevisionClusterEndpoint {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterDbRevision.Cluster.Endpoint.Port', props);
     return resource.getResponseField('Cluster.Endpoint.Port') as unknown as number;
+  }
+
+  public get vpcEndpoints(): shapes.RedshiftVpcEndpoint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyClusterDbRevision',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyClusterDbRevision.Cluster.Endpoint.VpcEndpoints'),
+        outputPath: 'Cluster.Endpoint.VpcEndpoints',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          RevisionTarget: this.__input.revisionTarget,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterDbRevision.Cluster.Endpoint.VpcEndpoints', props);
+    return resource.getResponseField('Cluster.Endpoint.VpcEndpoints') as unknown as shapes.RedshiftVpcEndpoint[];
   }
 
 }
@@ -20422,6 +23360,49 @@ export class RedshiftResponsesModifyClusterDbRevisionClusterResizeInfo {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterDbRevision.Cluster.ResizeInfo.AllowCancelResize', props);
     return resource.getResponseField('Cluster.ResizeInfo.AllowCancelResize') as unknown as boolean;
+  }
+
+}
+
+export class RedshiftResponsesModifyClusterDbRevisionClusterAquaConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftModifyClusterDbRevisionMessage) {
+  }
+
+  public get aquaStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyClusterDbRevision',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyClusterDbRevision.Cluster.AquaConfiguration.AquaStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          RevisionTarget: this.__input.revisionTarget,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterDbRevision.Cluster.AquaConfiguration.AquaStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaStatus') as unknown as string;
+  }
+
+  public get aquaConfigurationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyClusterDbRevision',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyClusterDbRevision.Cluster.AquaConfiguration.AquaConfigurationStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaConfigurationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          RevisionTarget: this.__input.revisionTarget,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterDbRevision.Cluster.AquaConfiguration.AquaConfigurationStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaConfigurationStatus') as unknown as string;
   }
 
 }
@@ -21196,6 +24177,25 @@ export class RedshiftResponsesModifyClusterIamRolesCluster {
     return new RedshiftResponsesModifyClusterIamRolesClusterResizeInfo(this.__scope, this.__resources, this.__input);
   }
 
+  public get availabilityZoneRelocationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyClusterIamRoles',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyClusterIamRoles.Cluster.AvailabilityZoneRelocationStatus'),
+        outputPath: 'Cluster.AvailabilityZoneRelocationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          AddIamRoles: this.__input.addIamRoles,
+          RemoveIamRoles: this.__input.removeIamRoles,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterIamRoles.Cluster.AvailabilityZoneRelocationStatus', props);
+    return resource.getResponseField('Cluster.AvailabilityZoneRelocationStatus') as unknown as string;
+  }
+
   public get clusterNamespaceArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -21213,6 +24213,29 @@ export class RedshiftResponsesModifyClusterIamRolesCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterIamRoles.Cluster.ClusterNamespaceArn', props);
     return resource.getResponseField('Cluster.ClusterNamespaceArn') as unknown as string;
+  }
+
+  public get totalStorageCapacityInMegaBytes(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyClusterIamRoles',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyClusterIamRoles.Cluster.TotalStorageCapacityInMegaBytes'),
+        outputPath: 'Cluster.TotalStorageCapacityInMegaBytes',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          AddIamRoles: this.__input.addIamRoles,
+          RemoveIamRoles: this.__input.removeIamRoles,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterIamRoles.Cluster.TotalStorageCapacityInMegaBytes', props);
+    return resource.getResponseField('Cluster.TotalStorageCapacityInMegaBytes') as unknown as number;
+  }
+
+  public get aquaConfiguration(): RedshiftResponsesModifyClusterIamRolesClusterAquaConfiguration {
+    return new RedshiftResponsesModifyClusterIamRolesClusterAquaConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -21258,6 +24281,25 @@ export class RedshiftResponsesModifyClusterIamRolesClusterEndpoint {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterIamRoles.Cluster.Endpoint.Port', props);
     return resource.getResponseField('Cluster.Endpoint.Port') as unknown as number;
+  }
+
+  public get vpcEndpoints(): shapes.RedshiftVpcEndpoint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyClusterIamRoles',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyClusterIamRoles.Cluster.Endpoint.VpcEndpoints'),
+        outputPath: 'Cluster.Endpoint.VpcEndpoints',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          AddIamRoles: this.__input.addIamRoles,
+          RemoveIamRoles: this.__input.removeIamRoles,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterIamRoles.Cluster.Endpoint.VpcEndpoints', props);
+    return resource.getResponseField('Cluster.Endpoint.VpcEndpoints') as unknown as shapes.RedshiftVpcEndpoint[];
   }
 
 }
@@ -21953,6 +24995,51 @@ export class RedshiftResponsesModifyClusterIamRolesClusterResizeInfo {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterIamRoles.Cluster.ResizeInfo.AllowCancelResize', props);
     return resource.getResponseField('Cluster.ResizeInfo.AllowCancelResize') as unknown as boolean;
+  }
+
+}
+
+export class RedshiftResponsesModifyClusterIamRolesClusterAquaConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftModifyClusterIamRolesMessage) {
+  }
+
+  public get aquaStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyClusterIamRoles',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyClusterIamRoles.Cluster.AquaConfiguration.AquaStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          AddIamRoles: this.__input.addIamRoles,
+          RemoveIamRoles: this.__input.removeIamRoles,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterIamRoles.Cluster.AquaConfiguration.AquaStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaStatus') as unknown as string;
+  }
+
+  public get aquaConfigurationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyClusterIamRoles',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyClusterIamRoles.Cluster.AquaConfiguration.AquaConfigurationStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaConfigurationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          AddIamRoles: this.__input.addIamRoles,
+          RemoveIamRoles: this.__input.removeIamRoles,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterIamRoles.Cluster.AquaConfiguration.AquaConfigurationStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaConfigurationStatus') as unknown as string;
   }
 
 }
@@ -22841,6 +25928,28 @@ export class RedshiftResponsesModifyClusterMaintenanceCluster {
     return new RedshiftResponsesModifyClusterMaintenanceClusterResizeInfo(this.__scope, this.__resources, this.__input);
   }
 
+  public get availabilityZoneRelocationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyClusterMaintenance',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyClusterMaintenance.Cluster.AvailabilityZoneRelocationStatus'),
+        outputPath: 'Cluster.AvailabilityZoneRelocationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          DeferMaintenance: this.__input.deferMaintenance,
+          DeferMaintenanceIdentifier: this.__input.deferMaintenanceIdentifier,
+          DeferMaintenanceStartTime: this.__input.deferMaintenanceStartTime,
+          DeferMaintenanceEndTime: this.__input.deferMaintenanceEndTime,
+          DeferMaintenanceDuration: this.__input.deferMaintenanceDuration,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterMaintenance.Cluster.AvailabilityZoneRelocationStatus', props);
+    return resource.getResponseField('Cluster.AvailabilityZoneRelocationStatus') as unknown as string;
+  }
+
   public get clusterNamespaceArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -22861,6 +25970,32 @@ export class RedshiftResponsesModifyClusterMaintenanceCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterMaintenance.Cluster.ClusterNamespaceArn', props);
     return resource.getResponseField('Cluster.ClusterNamespaceArn') as unknown as string;
+  }
+
+  public get totalStorageCapacityInMegaBytes(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyClusterMaintenance',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyClusterMaintenance.Cluster.TotalStorageCapacityInMegaBytes'),
+        outputPath: 'Cluster.TotalStorageCapacityInMegaBytes',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          DeferMaintenance: this.__input.deferMaintenance,
+          DeferMaintenanceIdentifier: this.__input.deferMaintenanceIdentifier,
+          DeferMaintenanceStartTime: this.__input.deferMaintenanceStartTime,
+          DeferMaintenanceEndTime: this.__input.deferMaintenanceEndTime,
+          DeferMaintenanceDuration: this.__input.deferMaintenanceDuration,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterMaintenance.Cluster.TotalStorageCapacityInMegaBytes', props);
+    return resource.getResponseField('Cluster.TotalStorageCapacityInMegaBytes') as unknown as number;
+  }
+
+  public get aquaConfiguration(): RedshiftResponsesModifyClusterMaintenanceClusterAquaConfiguration {
+    return new RedshiftResponsesModifyClusterMaintenanceClusterAquaConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -22912,6 +26047,28 @@ export class RedshiftResponsesModifyClusterMaintenanceClusterEndpoint {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterMaintenance.Cluster.Endpoint.Port', props);
     return resource.getResponseField('Cluster.Endpoint.Port') as unknown as number;
+  }
+
+  public get vpcEndpoints(): shapes.RedshiftVpcEndpoint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyClusterMaintenance',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyClusterMaintenance.Cluster.Endpoint.VpcEndpoints'),
+        outputPath: 'Cluster.Endpoint.VpcEndpoints',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          DeferMaintenance: this.__input.deferMaintenance,
+          DeferMaintenanceIdentifier: this.__input.deferMaintenanceIdentifier,
+          DeferMaintenanceStartTime: this.__input.deferMaintenanceStartTime,
+          DeferMaintenanceEndTime: this.__input.deferMaintenanceEndTime,
+          DeferMaintenanceDuration: this.__input.deferMaintenanceDuration,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterMaintenance.Cluster.Endpoint.VpcEndpoints', props);
+    return resource.getResponseField('Cluster.Endpoint.VpcEndpoints') as unknown as shapes.RedshiftVpcEndpoint[];
   }
 
 }
@@ -23713,6 +26870,57 @@ export class RedshiftResponsesModifyClusterMaintenanceClusterResizeInfo {
 
 }
 
+export class RedshiftResponsesModifyClusterMaintenanceClusterAquaConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftModifyClusterMaintenanceMessage) {
+  }
+
+  public get aquaStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyClusterMaintenance',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyClusterMaintenance.Cluster.AquaConfiguration.AquaStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          DeferMaintenance: this.__input.deferMaintenance,
+          DeferMaintenanceIdentifier: this.__input.deferMaintenanceIdentifier,
+          DeferMaintenanceStartTime: this.__input.deferMaintenanceStartTime,
+          DeferMaintenanceEndTime: this.__input.deferMaintenanceEndTime,
+          DeferMaintenanceDuration: this.__input.deferMaintenanceDuration,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterMaintenance.Cluster.AquaConfiguration.AquaStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaStatus') as unknown as string;
+  }
+
+  public get aquaConfigurationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyClusterMaintenance',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyClusterMaintenance.Cluster.AquaConfiguration.AquaConfigurationStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaConfigurationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          DeferMaintenance: this.__input.deferMaintenance,
+          DeferMaintenanceIdentifier: this.__input.deferMaintenanceIdentifier,
+          DeferMaintenanceStartTime: this.__input.deferMaintenanceStartTime,
+          DeferMaintenanceEndTime: this.__input.deferMaintenanceEndTime,
+          DeferMaintenanceDuration: this.__input.deferMaintenanceDuration,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterMaintenance.Cluster.AquaConfiguration.AquaConfigurationStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaConfigurationStatus') as unknown as string;
+  }
+
+}
+
 export class RedshiftResponsesModifyClusterParameterGroup {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftModifyClusterParameterGroupMessage) {
@@ -23941,6 +27149,25 @@ export class RedshiftResponsesModifyClusterSnapshotSnapshot {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterSnapshot.Snapshot.ClusterVersion', props);
     return resource.getResponseField('Snapshot.ClusterVersion') as unknown as string;
+  }
+
+  public get engineFullVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyClusterSnapshot',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyClusterSnapshot.Snapshot.EngineFullVersion'),
+        outputPath: 'Snapshot.EngineFullVersion',
+        parameters: {
+          SnapshotIdentifier: this.__input.snapshotIdentifier,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+          Force: this.__input.force,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterSnapshot.Snapshot.EngineFullVersion', props);
+    return resource.getResponseField('Snapshot.EngineFullVersion') as unknown as string;
   }
 
   public get snapshotType(): string {
@@ -24529,6 +27756,240 @@ export class RedshiftResponsesModifyClusterSubnetGroupClusterSubnetGroup {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyClusterSubnetGroup.ClusterSubnetGroup.Tags', props);
     return resource.getResponseField('ClusterSubnetGroup.Tags') as unknown as shapes.RedshiftTag[];
+  }
+
+}
+
+export class RedshiftResponsesModifyEndpointAccess {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftModifyEndpointAccessMessage) {
+  }
+
+  public get clusterIdentifier(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyEndpointAccess.ClusterIdentifier'),
+        outputPath: 'ClusterIdentifier',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEndpointAccess.ClusterIdentifier', props);
+    return resource.getResponseField('ClusterIdentifier') as unknown as string;
+  }
+
+  public get resourceOwner(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyEndpointAccess.ResourceOwner'),
+        outputPath: 'ResourceOwner',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEndpointAccess.ResourceOwner', props);
+    return resource.getResponseField('ResourceOwner') as unknown as string;
+  }
+
+  public get subnetGroupName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyEndpointAccess.SubnetGroupName'),
+        outputPath: 'SubnetGroupName',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEndpointAccess.SubnetGroupName', props);
+    return resource.getResponseField('SubnetGroupName') as unknown as string;
+  }
+
+  public get endpointStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyEndpointAccess.EndpointStatus'),
+        outputPath: 'EndpointStatus',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEndpointAccess.EndpointStatus', props);
+    return resource.getResponseField('EndpointStatus') as unknown as string;
+  }
+
+  public get endpointName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyEndpointAccess.EndpointName'),
+        outputPath: 'EndpointName',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEndpointAccess.EndpointName', props);
+    return resource.getResponseField('EndpointName') as unknown as string;
+  }
+
+  public get endpointCreateTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyEndpointAccess.EndpointCreateTime'),
+        outputPath: 'EndpointCreateTime',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEndpointAccess.EndpointCreateTime', props);
+    return resource.getResponseField('EndpointCreateTime') as unknown as string;
+  }
+
+  public get port(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyEndpointAccess.Port'),
+        outputPath: 'Port',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEndpointAccess.Port', props);
+    return resource.getResponseField('Port') as unknown as number;
+  }
+
+  public get address(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyEndpointAccess.Address'),
+        outputPath: 'Address',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEndpointAccess.Address', props);
+    return resource.getResponseField('Address') as unknown as string;
+  }
+
+  public get vpcSecurityGroups(): shapes.RedshiftVpcSecurityGroupMembership[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyEndpointAccess.VpcSecurityGroups'),
+        outputPath: 'VpcSecurityGroups',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEndpointAccess.VpcSecurityGroups', props);
+    return resource.getResponseField('VpcSecurityGroups') as unknown as shapes.RedshiftVpcSecurityGroupMembership[];
+  }
+
+  public get vpcEndpoint(): RedshiftResponsesModifyEndpointAccessVpcEndpoint {
+    return new RedshiftResponsesModifyEndpointAccessVpcEndpoint(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class RedshiftResponsesModifyEndpointAccessVpcEndpoint {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftModifyEndpointAccessMessage) {
+  }
+
+  public get vpcEndpointId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyEndpointAccess.VpcEndpoint.VpcEndpointId'),
+        outputPath: 'VpcEndpoint.VpcEndpointId',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEndpointAccess.VpcEndpoint.VpcEndpointId', props);
+    return resource.getResponseField('VpcEndpoint.VpcEndpointId') as unknown as string;
+  }
+
+  public get vpcId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyEndpointAccess.VpcEndpoint.VpcId'),
+        outputPath: 'VpcEndpoint.VpcId',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEndpointAccess.VpcEndpoint.VpcId', props);
+    return resource.getResponseField('VpcEndpoint.VpcId') as unknown as string;
+  }
+
+  public get networkInterfaces(): shapes.RedshiftNetworkInterface[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifyEndpointAccess.VpcEndpoint.NetworkInterfaces'),
+        outputPath: 'VpcEndpoint.NetworkInterfaces',
+        parameters: {
+          EndpointName: this.__input.endpointName,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyEndpointAccess.VpcEndpoint.NetworkInterfaces', props);
+    return resource.getResponseField('VpcEndpoint.NetworkInterfaces') as unknown as shapes.RedshiftNetworkInterface[];
   }
 
 }
@@ -26195,6 +29656,25 @@ export class RedshiftResponsesModifySnapshotCopyRetentionPeriodCluster {
     return new RedshiftResponsesModifySnapshotCopyRetentionPeriodClusterResizeInfo(this.__scope, this.__resources, this.__input);
   }
 
+  public get availabilityZoneRelocationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifySnapshotCopyRetentionPeriod',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifySnapshotCopyRetentionPeriod.Cluster.AvailabilityZoneRelocationStatus'),
+        outputPath: 'Cluster.AvailabilityZoneRelocationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          RetentionPeriod: this.__input.retentionPeriod,
+          Manual: this.__input.manual,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifySnapshotCopyRetentionPeriod.Cluster.AvailabilityZoneRelocationStatus', props);
+    return resource.getResponseField('Cluster.AvailabilityZoneRelocationStatus') as unknown as string;
+  }
+
   public get clusterNamespaceArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -26212,6 +29692,29 @@ export class RedshiftResponsesModifySnapshotCopyRetentionPeriodCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifySnapshotCopyRetentionPeriod.Cluster.ClusterNamespaceArn', props);
     return resource.getResponseField('Cluster.ClusterNamespaceArn') as unknown as string;
+  }
+
+  public get totalStorageCapacityInMegaBytes(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifySnapshotCopyRetentionPeriod',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifySnapshotCopyRetentionPeriod.Cluster.TotalStorageCapacityInMegaBytes'),
+        outputPath: 'Cluster.TotalStorageCapacityInMegaBytes',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          RetentionPeriod: this.__input.retentionPeriod,
+          Manual: this.__input.manual,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifySnapshotCopyRetentionPeriod.Cluster.TotalStorageCapacityInMegaBytes', props);
+    return resource.getResponseField('Cluster.TotalStorageCapacityInMegaBytes') as unknown as number;
+  }
+
+  public get aquaConfiguration(): RedshiftResponsesModifySnapshotCopyRetentionPeriodClusterAquaConfiguration {
+    return new RedshiftResponsesModifySnapshotCopyRetentionPeriodClusterAquaConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -26257,6 +29760,25 @@ export class RedshiftResponsesModifySnapshotCopyRetentionPeriodClusterEndpoint {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifySnapshotCopyRetentionPeriod.Cluster.Endpoint.Port', props);
     return resource.getResponseField('Cluster.Endpoint.Port') as unknown as number;
+  }
+
+  public get vpcEndpoints(): shapes.RedshiftVpcEndpoint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifySnapshotCopyRetentionPeriod',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifySnapshotCopyRetentionPeriod.Cluster.Endpoint.VpcEndpoints'),
+        outputPath: 'Cluster.Endpoint.VpcEndpoints',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          RetentionPeriod: this.__input.retentionPeriod,
+          Manual: this.__input.manual,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifySnapshotCopyRetentionPeriod.Cluster.Endpoint.VpcEndpoints', props);
+    return resource.getResponseField('Cluster.Endpoint.VpcEndpoints') as unknown as shapes.RedshiftVpcEndpoint[];
   }
 
 }
@@ -26952,6 +30474,51 @@ export class RedshiftResponsesModifySnapshotCopyRetentionPeriodClusterResizeInfo
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifySnapshotCopyRetentionPeriod.Cluster.ResizeInfo.AllowCancelResize', props);
     return resource.getResponseField('Cluster.ResizeInfo.AllowCancelResize') as unknown as boolean;
+  }
+
+}
+
+export class RedshiftResponsesModifySnapshotCopyRetentionPeriodClusterAquaConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftModifySnapshotCopyRetentionPeriodMessage) {
+  }
+
+  public get aquaStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifySnapshotCopyRetentionPeriod',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifySnapshotCopyRetentionPeriod.Cluster.AquaConfiguration.AquaStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          RetentionPeriod: this.__input.retentionPeriod,
+          Manual: this.__input.manual,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifySnapshotCopyRetentionPeriod.Cluster.AquaConfiguration.AquaStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaStatus') as unknown as string;
+  }
+
+  public get aquaConfigurationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifySnapshotCopyRetentionPeriod',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ModifySnapshotCopyRetentionPeriod.Cluster.AquaConfiguration.AquaConfigurationStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaConfigurationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          RetentionPeriod: this.__input.retentionPeriod,
+          Manual: this.__input.manual,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifySnapshotCopyRetentionPeriod.Cluster.AquaConfiguration.AquaConfigurationStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaConfigurationStatus') as unknown as string;
   }
 
 }
@@ -27942,6 +31509,23 @@ export class RedshiftResponsesPauseClusterCluster {
     return new RedshiftResponsesPauseClusterClusterResizeInfo(this.__scope, this.__resources, this.__input);
   }
 
+  public get availabilityZoneRelocationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'pauseCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.PauseCluster.Cluster.AvailabilityZoneRelocationStatus'),
+        outputPath: 'Cluster.AvailabilityZoneRelocationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PauseCluster.Cluster.AvailabilityZoneRelocationStatus', props);
+    return resource.getResponseField('Cluster.AvailabilityZoneRelocationStatus') as unknown as string;
+  }
+
   public get clusterNamespaceArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -27957,6 +31541,27 @@ export class RedshiftResponsesPauseClusterCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'PauseCluster.Cluster.ClusterNamespaceArn', props);
     return resource.getResponseField('Cluster.ClusterNamespaceArn') as unknown as string;
+  }
+
+  public get totalStorageCapacityInMegaBytes(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'pauseCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.PauseCluster.Cluster.TotalStorageCapacityInMegaBytes'),
+        outputPath: 'Cluster.TotalStorageCapacityInMegaBytes',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PauseCluster.Cluster.TotalStorageCapacityInMegaBytes', props);
+    return resource.getResponseField('Cluster.TotalStorageCapacityInMegaBytes') as unknown as number;
+  }
+
+  public get aquaConfiguration(): RedshiftResponsesPauseClusterClusterAquaConfiguration {
+    return new RedshiftResponsesPauseClusterClusterAquaConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -27998,6 +31603,23 @@ export class RedshiftResponsesPauseClusterClusterEndpoint {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'PauseCluster.Cluster.Endpoint.Port', props);
     return resource.getResponseField('Cluster.Endpoint.Port') as unknown as number;
+  }
+
+  public get vpcEndpoints(): shapes.RedshiftVpcEndpoint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'pauseCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.PauseCluster.Cluster.Endpoint.VpcEndpoints'),
+        outputPath: 'Cluster.Endpoint.VpcEndpoints',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PauseCluster.Cluster.Endpoint.VpcEndpoints', props);
+    return resource.getResponseField('Cluster.Endpoint.VpcEndpoints') as unknown as shapes.RedshiftVpcEndpoint[];
   }
 
 }
@@ -28625,6 +32247,47 @@ export class RedshiftResponsesPauseClusterClusterResizeInfo {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'PauseCluster.Cluster.ResizeInfo.AllowCancelResize', props);
     return resource.getResponseField('Cluster.ResizeInfo.AllowCancelResize') as unknown as boolean;
+  }
+
+}
+
+export class RedshiftResponsesPauseClusterClusterAquaConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftPauseClusterMessage) {
+  }
+
+  public get aquaStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'pauseCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.PauseCluster.Cluster.AquaConfiguration.AquaStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PauseCluster.Cluster.AquaConfiguration.AquaStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaStatus') as unknown as string;
+  }
+
+  public get aquaConfigurationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'pauseCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.PauseCluster.Cluster.AquaConfiguration.AquaConfigurationStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaConfigurationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PauseCluster.Cluster.AquaConfiguration.AquaConfigurationStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaConfigurationStatus') as unknown as string;
   }
 
 }
@@ -29575,6 +33238,23 @@ export class RedshiftResponsesRebootClusterCluster {
     return new RedshiftResponsesRebootClusterClusterResizeInfo(this.__scope, this.__resources, this.__input);
   }
 
+  public get availabilityZoneRelocationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rebootCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RebootCluster.Cluster.AvailabilityZoneRelocationStatus'),
+        outputPath: 'Cluster.AvailabilityZoneRelocationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RebootCluster.Cluster.AvailabilityZoneRelocationStatus', props);
+    return resource.getResponseField('Cluster.AvailabilityZoneRelocationStatus') as unknown as string;
+  }
+
   public get clusterNamespaceArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -29590,6 +33270,27 @@ export class RedshiftResponsesRebootClusterCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RebootCluster.Cluster.ClusterNamespaceArn', props);
     return resource.getResponseField('Cluster.ClusterNamespaceArn') as unknown as string;
+  }
+
+  public get totalStorageCapacityInMegaBytes(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rebootCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RebootCluster.Cluster.TotalStorageCapacityInMegaBytes'),
+        outputPath: 'Cluster.TotalStorageCapacityInMegaBytes',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RebootCluster.Cluster.TotalStorageCapacityInMegaBytes', props);
+    return resource.getResponseField('Cluster.TotalStorageCapacityInMegaBytes') as unknown as number;
+  }
+
+  public get aquaConfiguration(): RedshiftResponsesRebootClusterClusterAquaConfiguration {
+    return new RedshiftResponsesRebootClusterClusterAquaConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -29631,6 +33332,23 @@ export class RedshiftResponsesRebootClusterClusterEndpoint {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RebootCluster.Cluster.Endpoint.Port', props);
     return resource.getResponseField('Cluster.Endpoint.Port') as unknown as number;
+  }
+
+  public get vpcEndpoints(): shapes.RedshiftVpcEndpoint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rebootCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RebootCluster.Cluster.Endpoint.VpcEndpoints'),
+        outputPath: 'Cluster.Endpoint.VpcEndpoints',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RebootCluster.Cluster.Endpoint.VpcEndpoints', props);
+    return resource.getResponseField('Cluster.Endpoint.VpcEndpoints') as unknown as shapes.RedshiftVpcEndpoint[];
   }
 
 }
@@ -30258,6 +33976,122 @@ export class RedshiftResponsesRebootClusterClusterResizeInfo {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RebootCluster.Cluster.ResizeInfo.AllowCancelResize', props);
     return resource.getResponseField('Cluster.ResizeInfo.AllowCancelResize') as unknown as boolean;
+  }
+
+}
+
+export class RedshiftResponsesRebootClusterClusterAquaConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftRebootClusterMessage) {
+  }
+
+  public get aquaStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rebootCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RebootCluster.Cluster.AquaConfiguration.AquaStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RebootCluster.Cluster.AquaConfiguration.AquaStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaStatus') as unknown as string;
+  }
+
+  public get aquaConfigurationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rebootCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RebootCluster.Cluster.AquaConfiguration.AquaConfigurationStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaConfigurationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RebootCluster.Cluster.AquaConfiguration.AquaConfigurationStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaConfigurationStatus') as unknown as string;
+  }
+
+}
+
+export class RedshiftResponsesRejectDataShare {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftRejectDataShareMessage) {
+  }
+
+  public get dataShareArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rejectDataShare',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RejectDataShare.DataShareArn'),
+        outputPath: 'DataShareArn',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RejectDataShare.DataShareArn', props);
+    return resource.getResponseField('DataShareArn') as unknown as string;
+  }
+
+  public get producerArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rejectDataShare',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RejectDataShare.ProducerArn'),
+        outputPath: 'ProducerArn',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RejectDataShare.ProducerArn', props);
+    return resource.getResponseField('ProducerArn') as unknown as string;
+  }
+
+  public get allowPubliclyAccessibleConsumers(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rejectDataShare',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RejectDataShare.AllowPubliclyAccessibleConsumers'),
+        outputPath: 'AllowPubliclyAccessibleConsumers',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RejectDataShare.AllowPubliclyAccessibleConsumers', props);
+    return resource.getResponseField('AllowPubliclyAccessibleConsumers') as unknown as boolean;
+  }
+
+  public get dataShareAssociations(): shapes.RedshiftDataShareAssociation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rejectDataShare',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RejectDataShare.DataShareAssociations'),
+        outputPath: 'DataShareAssociations',
+        parameters: {
+          DataShareArn: this.__input.dataShareArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RejectDataShare.DataShareAssociations', props);
+    return resource.getResponseField('DataShareAssociations') as unknown as shapes.RedshiftDataShareAssociation[];
   }
 
 }
@@ -31153,6 +34987,27 @@ export class RedshiftResponsesResizeClusterCluster {
     return new RedshiftResponsesResizeClusterClusterResizeInfo(this.__scope, this.__resources, this.__input);
   }
 
+  public get availabilityZoneRelocationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'resizeCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ResizeCluster.Cluster.AvailabilityZoneRelocationStatus'),
+        outputPath: 'Cluster.AvailabilityZoneRelocationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ClusterType: this.__input.clusterType,
+          NodeType: this.__input.nodeType,
+          NumberOfNodes: this.__input.numberOfNodes,
+          Classic: this.__input.classic,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ResizeCluster.Cluster.AvailabilityZoneRelocationStatus', props);
+    return resource.getResponseField('Cluster.AvailabilityZoneRelocationStatus') as unknown as string;
+  }
+
   public get clusterNamespaceArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -31172,6 +35027,31 @@ export class RedshiftResponsesResizeClusterCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ResizeCluster.Cluster.ClusterNamespaceArn', props);
     return resource.getResponseField('Cluster.ClusterNamespaceArn') as unknown as string;
+  }
+
+  public get totalStorageCapacityInMegaBytes(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'resizeCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ResizeCluster.Cluster.TotalStorageCapacityInMegaBytes'),
+        outputPath: 'Cluster.TotalStorageCapacityInMegaBytes',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ClusterType: this.__input.clusterType,
+          NodeType: this.__input.nodeType,
+          NumberOfNodes: this.__input.numberOfNodes,
+          Classic: this.__input.classic,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ResizeCluster.Cluster.TotalStorageCapacityInMegaBytes', props);
+    return resource.getResponseField('Cluster.TotalStorageCapacityInMegaBytes') as unknown as number;
+  }
+
+  public get aquaConfiguration(): RedshiftResponsesResizeClusterClusterAquaConfiguration {
+    return new RedshiftResponsesResizeClusterClusterAquaConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -31221,6 +35101,27 @@ export class RedshiftResponsesResizeClusterClusterEndpoint {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ResizeCluster.Cluster.Endpoint.Port', props);
     return resource.getResponseField('Cluster.Endpoint.Port') as unknown as number;
+  }
+
+  public get vpcEndpoints(): shapes.RedshiftVpcEndpoint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'resizeCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ResizeCluster.Cluster.Endpoint.VpcEndpoints'),
+        outputPath: 'Cluster.Endpoint.VpcEndpoints',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ClusterType: this.__input.clusterType,
+          NodeType: this.__input.nodeType,
+          NumberOfNodes: this.__input.numberOfNodes,
+          Classic: this.__input.classic,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ResizeCluster.Cluster.Endpoint.VpcEndpoints', props);
+    return resource.getResponseField('Cluster.Endpoint.VpcEndpoints') as unknown as shapes.RedshiftVpcEndpoint[];
   }
 
 }
@@ -31988,6 +35889,55 @@ export class RedshiftResponsesResizeClusterClusterResizeInfo {
 
 }
 
+export class RedshiftResponsesResizeClusterClusterAquaConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftResizeClusterMessage) {
+  }
+
+  public get aquaStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'resizeCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ResizeCluster.Cluster.AquaConfiguration.AquaStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ClusterType: this.__input.clusterType,
+          NodeType: this.__input.nodeType,
+          NumberOfNodes: this.__input.numberOfNodes,
+          Classic: this.__input.classic,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ResizeCluster.Cluster.AquaConfiguration.AquaStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaStatus') as unknown as string;
+  }
+
+  public get aquaConfigurationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'resizeCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ResizeCluster.Cluster.AquaConfiguration.AquaConfigurationStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaConfigurationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          ClusterType: this.__input.clusterType,
+          NodeType: this.__input.nodeType,
+          NumberOfNodes: this.__input.numberOfNodes,
+          Classic: this.__input.classic,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ResizeCluster.Cluster.AquaConfiguration.AquaConfigurationStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaConfigurationStatus') as unknown as string;
+  }
+
+}
+
 export class RedshiftResponsesRestoreFromClusterSnapshot {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftRestoreFromClusterSnapshotMessage) {
@@ -32039,6 +35989,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32081,6 +36033,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32123,6 +36077,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32165,6 +36121,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32207,6 +36165,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32249,6 +36209,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32291,6 +36253,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32337,6 +36301,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32379,6 +36345,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32421,6 +36389,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32463,6 +36433,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32505,6 +36477,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32547,6 +36521,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32589,6 +36565,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32631,6 +36609,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32673,6 +36653,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32715,6 +36697,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32761,6 +36745,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32803,6 +36789,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32845,6 +36833,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32887,6 +36877,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32929,6 +36921,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -32987,6 +36981,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33029,6 +37025,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33075,6 +37073,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33117,6 +37117,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33159,6 +37161,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33201,6 +37205,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33243,6 +37249,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33285,6 +37293,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33327,6 +37337,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33369,6 +37381,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33411,6 +37425,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33453,6 +37469,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33495,6 +37513,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33537,6 +37557,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33579,6 +37601,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33621,6 +37645,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33630,6 +37656,50 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
 
   public get resizeInfo(): RedshiftResponsesRestoreFromClusterSnapshotClusterResizeInfo {
     return new RedshiftResponsesRestoreFromClusterSnapshotClusterResizeInfo(this.__scope, this.__resources, this.__input);
+  }
+
+  public get availabilityZoneRelocationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreFromClusterSnapshot',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RestoreFromClusterSnapshot.Cluster.AvailabilityZoneRelocationStatus'),
+        outputPath: 'Cluster.AvailabilityZoneRelocationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          SnapshotIdentifier: this.__input.snapshotIdentifier,
+          SnapshotClusterIdentifier: this.__input.snapshotClusterIdentifier,
+          Port: this.__input.port,
+          AvailabilityZone: this.__input.availabilityZone,
+          AllowVersionUpgrade: this.__input.allowVersionUpgrade,
+          ClusterSubnetGroupName: this.__input.clusterSubnetGroupName,
+          PubliclyAccessible: this.__input.publiclyAccessible,
+          OwnerAccount: this.__input.ownerAccount,
+          HsmClientCertificateIdentifier: this.__input.hsmClientCertificateIdentifier,
+          HsmConfigurationIdentifier: this.__input.hsmConfigurationIdentifier,
+          ElasticIp: this.__input.elasticIp,
+          ClusterParameterGroupName: this.__input.clusterParameterGroupName,
+          ClusterSecurityGroups: this.__input.clusterSecurityGroups,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          AutomatedSnapshotRetentionPeriod: this.__input.automatedSnapshotRetentionPeriod,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+          KmsKeyId: this.__input.kmsKeyId,
+          NodeType: this.__input.nodeType,
+          EnhancedVpcRouting: this.__input.enhancedVpcRouting,
+          AdditionalInfo: this.__input.additionalInfo,
+          IamRoles: this.__input.iamRoles,
+          MaintenanceTrackName: this.__input.maintenanceTrackName,
+          SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreFromClusterSnapshot.Cluster.AvailabilityZoneRelocationStatus', props);
+    return resource.getResponseField('Cluster.AvailabilityZoneRelocationStatus') as unknown as string;
   }
 
   public get clusterNamespaceArn(): string {
@@ -33667,11 +37737,61 @@ export class RedshiftResponsesRestoreFromClusterSnapshotCluster {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RestoreFromClusterSnapshot.Cluster.ClusterNamespaceArn', props);
     return resource.getResponseField('Cluster.ClusterNamespaceArn') as unknown as string;
+  }
+
+  public get totalStorageCapacityInMegaBytes(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreFromClusterSnapshot',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RestoreFromClusterSnapshot.Cluster.TotalStorageCapacityInMegaBytes'),
+        outputPath: 'Cluster.TotalStorageCapacityInMegaBytes',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          SnapshotIdentifier: this.__input.snapshotIdentifier,
+          SnapshotClusterIdentifier: this.__input.snapshotClusterIdentifier,
+          Port: this.__input.port,
+          AvailabilityZone: this.__input.availabilityZone,
+          AllowVersionUpgrade: this.__input.allowVersionUpgrade,
+          ClusterSubnetGroupName: this.__input.clusterSubnetGroupName,
+          PubliclyAccessible: this.__input.publiclyAccessible,
+          OwnerAccount: this.__input.ownerAccount,
+          HsmClientCertificateIdentifier: this.__input.hsmClientCertificateIdentifier,
+          HsmConfigurationIdentifier: this.__input.hsmConfigurationIdentifier,
+          ElasticIp: this.__input.elasticIp,
+          ClusterParameterGroupName: this.__input.clusterParameterGroupName,
+          ClusterSecurityGroups: this.__input.clusterSecurityGroups,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          AutomatedSnapshotRetentionPeriod: this.__input.automatedSnapshotRetentionPeriod,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+          KmsKeyId: this.__input.kmsKeyId,
+          NodeType: this.__input.nodeType,
+          EnhancedVpcRouting: this.__input.enhancedVpcRouting,
+          AdditionalInfo: this.__input.additionalInfo,
+          IamRoles: this.__input.iamRoles,
+          MaintenanceTrackName: this.__input.maintenanceTrackName,
+          SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreFromClusterSnapshot.Cluster.TotalStorageCapacityInMegaBytes', props);
+    return resource.getResponseField('Cluster.TotalStorageCapacityInMegaBytes') as unknown as number;
+  }
+
+  public get aquaConfiguration(): RedshiftResponsesRestoreFromClusterSnapshotClusterAquaConfiguration {
+    return new RedshiftResponsesRestoreFromClusterSnapshotClusterAquaConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -33716,6 +37836,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterEndpoint {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33758,11 +37880,57 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterEndpoint {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RestoreFromClusterSnapshot.Cluster.Endpoint.Port', props);
     return resource.getResponseField('Cluster.Endpoint.Port') as unknown as number;
+  }
+
+  public get vpcEndpoints(): shapes.RedshiftVpcEndpoint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreFromClusterSnapshot',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RestoreFromClusterSnapshot.Cluster.Endpoint.VpcEndpoints'),
+        outputPath: 'Cluster.Endpoint.VpcEndpoints',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          SnapshotIdentifier: this.__input.snapshotIdentifier,
+          SnapshotClusterIdentifier: this.__input.snapshotClusterIdentifier,
+          Port: this.__input.port,
+          AvailabilityZone: this.__input.availabilityZone,
+          AllowVersionUpgrade: this.__input.allowVersionUpgrade,
+          ClusterSubnetGroupName: this.__input.clusterSubnetGroupName,
+          PubliclyAccessible: this.__input.publiclyAccessible,
+          OwnerAccount: this.__input.ownerAccount,
+          HsmClientCertificateIdentifier: this.__input.hsmClientCertificateIdentifier,
+          HsmConfigurationIdentifier: this.__input.hsmConfigurationIdentifier,
+          ElasticIp: this.__input.elasticIp,
+          ClusterParameterGroupName: this.__input.clusterParameterGroupName,
+          ClusterSecurityGroups: this.__input.clusterSecurityGroups,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          AutomatedSnapshotRetentionPeriod: this.__input.automatedSnapshotRetentionPeriod,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+          KmsKeyId: this.__input.kmsKeyId,
+          NodeType: this.__input.nodeType,
+          EnhancedVpcRouting: this.__input.enhancedVpcRouting,
+          AdditionalInfo: this.__input.additionalInfo,
+          IamRoles: this.__input.iamRoles,
+          MaintenanceTrackName: this.__input.maintenanceTrackName,
+          SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreFromClusterSnapshot.Cluster.Endpoint.VpcEndpoints', props);
+    return resource.getResponseField('Cluster.Endpoint.VpcEndpoints') as unknown as shapes.RedshiftVpcEndpoint[];
   }
 
 }
@@ -33807,6 +37975,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterPendingModifiedVa
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33849,6 +38019,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterPendingModifiedVa
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33891,6 +38063,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterPendingModifiedVa
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33933,6 +38107,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterPendingModifiedVa
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -33975,6 +38151,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterPendingModifiedVa
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34017,6 +38195,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterPendingModifiedVa
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34059,6 +38239,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterPendingModifiedVa
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34101,6 +38283,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterPendingModifiedVa
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34143,6 +38327,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterPendingModifiedVa
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34185,6 +38371,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterPendingModifiedVa
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34227,6 +38415,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterPendingModifiedVa
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34276,6 +38466,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterRestoreStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34318,6 +38510,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterRestoreStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34360,6 +38554,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterRestoreStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34402,6 +38598,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterRestoreStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34444,6 +38642,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterRestoreStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34486,6 +38686,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterRestoreStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34535,6 +38737,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterDataTransferProgr
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34577,6 +38781,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterDataTransferProgr
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34619,6 +38825,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterDataTransferProgr
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34661,6 +38869,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterDataTransferProgr
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34703,6 +38913,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterDataTransferProgr
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34745,6 +38957,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterDataTransferProgr
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34794,6 +39008,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterHsmStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34836,6 +39052,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterHsmStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34878,6 +39096,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterHsmStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34927,6 +39147,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterClusterSnapshotCo
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -34969,6 +39191,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterClusterSnapshotCo
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -35011,6 +39235,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterClusterSnapshotCo
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -35053,6 +39279,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterClusterSnapshotCo
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -35102,6 +39330,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterElasticIpStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -35144,6 +39374,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterElasticIpStatus {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -35193,6 +39425,8 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterResizeInfo {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
@@ -35235,11 +39469,108 @@ export class RedshiftResponsesRestoreFromClusterSnapshotClusterResizeInfo {
           MaintenanceTrackName: this.__input.maintenanceTrackName,
           SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
           NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RestoreFromClusterSnapshot.Cluster.ResizeInfo.AllowCancelResize', props);
     return resource.getResponseField('Cluster.ResizeInfo.AllowCancelResize') as unknown as boolean;
+  }
+
+}
+
+export class RedshiftResponsesRestoreFromClusterSnapshotClusterAquaConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftRestoreFromClusterSnapshotMessage) {
+  }
+
+  public get aquaStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreFromClusterSnapshot',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RestoreFromClusterSnapshot.Cluster.AquaConfiguration.AquaStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          SnapshotIdentifier: this.__input.snapshotIdentifier,
+          SnapshotClusterIdentifier: this.__input.snapshotClusterIdentifier,
+          Port: this.__input.port,
+          AvailabilityZone: this.__input.availabilityZone,
+          AllowVersionUpgrade: this.__input.allowVersionUpgrade,
+          ClusterSubnetGroupName: this.__input.clusterSubnetGroupName,
+          PubliclyAccessible: this.__input.publiclyAccessible,
+          OwnerAccount: this.__input.ownerAccount,
+          HsmClientCertificateIdentifier: this.__input.hsmClientCertificateIdentifier,
+          HsmConfigurationIdentifier: this.__input.hsmConfigurationIdentifier,
+          ElasticIp: this.__input.elasticIp,
+          ClusterParameterGroupName: this.__input.clusterParameterGroupName,
+          ClusterSecurityGroups: this.__input.clusterSecurityGroups,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          AutomatedSnapshotRetentionPeriod: this.__input.automatedSnapshotRetentionPeriod,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+          KmsKeyId: this.__input.kmsKeyId,
+          NodeType: this.__input.nodeType,
+          EnhancedVpcRouting: this.__input.enhancedVpcRouting,
+          AdditionalInfo: this.__input.additionalInfo,
+          IamRoles: this.__input.iamRoles,
+          MaintenanceTrackName: this.__input.maintenanceTrackName,
+          SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreFromClusterSnapshot.Cluster.AquaConfiguration.AquaStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaStatus') as unknown as string;
+  }
+
+  public get aquaConfigurationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restoreFromClusterSnapshot',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RestoreFromClusterSnapshot.Cluster.AquaConfiguration.AquaConfigurationStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaConfigurationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          SnapshotIdentifier: this.__input.snapshotIdentifier,
+          SnapshotClusterIdentifier: this.__input.snapshotClusterIdentifier,
+          Port: this.__input.port,
+          AvailabilityZone: this.__input.availabilityZone,
+          AllowVersionUpgrade: this.__input.allowVersionUpgrade,
+          ClusterSubnetGroupName: this.__input.clusterSubnetGroupName,
+          PubliclyAccessible: this.__input.publiclyAccessible,
+          OwnerAccount: this.__input.ownerAccount,
+          HsmClientCertificateIdentifier: this.__input.hsmClientCertificateIdentifier,
+          HsmConfigurationIdentifier: this.__input.hsmConfigurationIdentifier,
+          ElasticIp: this.__input.elasticIp,
+          ClusterParameterGroupName: this.__input.clusterParameterGroupName,
+          ClusterSecurityGroups: this.__input.clusterSecurityGroups,
+          VpcSecurityGroupIds: this.__input.vpcSecurityGroupIds,
+          PreferredMaintenanceWindow: this.__input.preferredMaintenanceWindow,
+          AutomatedSnapshotRetentionPeriod: this.__input.automatedSnapshotRetentionPeriod,
+          ManualSnapshotRetentionPeriod: this.__input.manualSnapshotRetentionPeriod,
+          KmsKeyId: this.__input.kmsKeyId,
+          NodeType: this.__input.nodeType,
+          EnhancedVpcRouting: this.__input.enhancedVpcRouting,
+          AdditionalInfo: this.__input.additionalInfo,
+          IamRoles: this.__input.iamRoles,
+          MaintenanceTrackName: this.__input.maintenanceTrackName,
+          SnapshotScheduleIdentifier: this.__input.snapshotScheduleIdentifier,
+          NumberOfNodes: this.__input.numberOfNodes,
+          AvailabilityZoneRelocation: this.__input.availabilityZoneRelocation,
+          AquaConfigurationStatus: this.__input.aquaConfigurationStatus,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestoreFromClusterSnapshot.Cluster.AquaConfiguration.AquaConfigurationStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaConfigurationStatus') as unknown as string;
   }
 
 }
@@ -35277,6 +39608,7 @@ export class RedshiftResponsesRestoreTableFromClusterSnapshotTableRestoreStatus 
           TargetDatabaseName: this.__input.targetDatabaseName,
           TargetSchemaName: this.__input.targetSchemaName,
           NewTableName: this.__input.newTableName,
+          EnableCaseSensitiveIdentifier: this.__input.enableCaseSensitiveIdentifier,
         },
       },
     };
@@ -35301,6 +39633,7 @@ export class RedshiftResponsesRestoreTableFromClusterSnapshotTableRestoreStatus 
           TargetDatabaseName: this.__input.targetDatabaseName,
           TargetSchemaName: this.__input.targetSchemaName,
           NewTableName: this.__input.newTableName,
+          EnableCaseSensitiveIdentifier: this.__input.enableCaseSensitiveIdentifier,
         },
       },
     };
@@ -35325,6 +39658,7 @@ export class RedshiftResponsesRestoreTableFromClusterSnapshotTableRestoreStatus 
           TargetDatabaseName: this.__input.targetDatabaseName,
           TargetSchemaName: this.__input.targetSchemaName,
           NewTableName: this.__input.newTableName,
+          EnableCaseSensitiveIdentifier: this.__input.enableCaseSensitiveIdentifier,
         },
       },
     };
@@ -35349,6 +39683,7 @@ export class RedshiftResponsesRestoreTableFromClusterSnapshotTableRestoreStatus 
           TargetDatabaseName: this.__input.targetDatabaseName,
           TargetSchemaName: this.__input.targetSchemaName,
           NewTableName: this.__input.newTableName,
+          EnableCaseSensitiveIdentifier: this.__input.enableCaseSensitiveIdentifier,
         },
       },
     };
@@ -35373,6 +39708,7 @@ export class RedshiftResponsesRestoreTableFromClusterSnapshotTableRestoreStatus 
           TargetDatabaseName: this.__input.targetDatabaseName,
           TargetSchemaName: this.__input.targetSchemaName,
           NewTableName: this.__input.newTableName,
+          EnableCaseSensitiveIdentifier: this.__input.enableCaseSensitiveIdentifier,
         },
       },
     };
@@ -35397,6 +39733,7 @@ export class RedshiftResponsesRestoreTableFromClusterSnapshotTableRestoreStatus 
           TargetDatabaseName: this.__input.targetDatabaseName,
           TargetSchemaName: this.__input.targetSchemaName,
           NewTableName: this.__input.newTableName,
+          EnableCaseSensitiveIdentifier: this.__input.enableCaseSensitiveIdentifier,
         },
       },
     };
@@ -35421,6 +39758,7 @@ export class RedshiftResponsesRestoreTableFromClusterSnapshotTableRestoreStatus 
           TargetDatabaseName: this.__input.targetDatabaseName,
           TargetSchemaName: this.__input.targetSchemaName,
           NewTableName: this.__input.newTableName,
+          EnableCaseSensitiveIdentifier: this.__input.enableCaseSensitiveIdentifier,
         },
       },
     };
@@ -35445,6 +39783,7 @@ export class RedshiftResponsesRestoreTableFromClusterSnapshotTableRestoreStatus 
           TargetDatabaseName: this.__input.targetDatabaseName,
           TargetSchemaName: this.__input.targetSchemaName,
           NewTableName: this.__input.newTableName,
+          EnableCaseSensitiveIdentifier: this.__input.enableCaseSensitiveIdentifier,
         },
       },
     };
@@ -35469,6 +39808,7 @@ export class RedshiftResponsesRestoreTableFromClusterSnapshotTableRestoreStatus 
           TargetDatabaseName: this.__input.targetDatabaseName,
           TargetSchemaName: this.__input.targetSchemaName,
           NewTableName: this.__input.newTableName,
+          EnableCaseSensitiveIdentifier: this.__input.enableCaseSensitiveIdentifier,
         },
       },
     };
@@ -35493,6 +39833,7 @@ export class RedshiftResponsesRestoreTableFromClusterSnapshotTableRestoreStatus 
           TargetDatabaseName: this.__input.targetDatabaseName,
           TargetSchemaName: this.__input.targetSchemaName,
           NewTableName: this.__input.newTableName,
+          EnableCaseSensitiveIdentifier: this.__input.enableCaseSensitiveIdentifier,
         },
       },
     };
@@ -35517,6 +39858,7 @@ export class RedshiftResponsesRestoreTableFromClusterSnapshotTableRestoreStatus 
           TargetDatabaseName: this.__input.targetDatabaseName,
           TargetSchemaName: this.__input.targetSchemaName,
           NewTableName: this.__input.newTableName,
+          EnableCaseSensitiveIdentifier: this.__input.enableCaseSensitiveIdentifier,
         },
       },
     };
@@ -35541,6 +39883,7 @@ export class RedshiftResponsesRestoreTableFromClusterSnapshotTableRestoreStatus 
           TargetDatabaseName: this.__input.targetDatabaseName,
           TargetSchemaName: this.__input.targetSchemaName,
           NewTableName: this.__input.newTableName,
+          EnableCaseSensitiveIdentifier: this.__input.enableCaseSensitiveIdentifier,
         },
       },
     };
@@ -35565,6 +39908,7 @@ export class RedshiftResponsesRestoreTableFromClusterSnapshotTableRestoreStatus 
           TargetDatabaseName: this.__input.targetDatabaseName,
           TargetSchemaName: this.__input.targetSchemaName,
           NewTableName: this.__input.newTableName,
+          EnableCaseSensitiveIdentifier: this.__input.enableCaseSensitiveIdentifier,
         },
       },
     };
@@ -35589,6 +39933,7 @@ export class RedshiftResponsesRestoreTableFromClusterSnapshotTableRestoreStatus 
           TargetDatabaseName: this.__input.targetDatabaseName,
           TargetSchemaName: this.__input.targetSchemaName,
           NewTableName: this.__input.newTableName,
+          EnableCaseSensitiveIdentifier: this.__input.enableCaseSensitiveIdentifier,
         },
       },
     };
@@ -36292,6 +40637,23 @@ export class RedshiftResponsesResumeClusterCluster {
     return new RedshiftResponsesResumeClusterClusterResizeInfo(this.__scope, this.__resources, this.__input);
   }
 
+  public get availabilityZoneRelocationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'resumeCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ResumeCluster.Cluster.AvailabilityZoneRelocationStatus'),
+        outputPath: 'Cluster.AvailabilityZoneRelocationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ResumeCluster.Cluster.AvailabilityZoneRelocationStatus', props);
+    return resource.getResponseField('Cluster.AvailabilityZoneRelocationStatus') as unknown as string;
+  }
+
   public get clusterNamespaceArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -36307,6 +40669,27 @@ export class RedshiftResponsesResumeClusterCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ResumeCluster.Cluster.ClusterNamespaceArn', props);
     return resource.getResponseField('Cluster.ClusterNamespaceArn') as unknown as string;
+  }
+
+  public get totalStorageCapacityInMegaBytes(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'resumeCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ResumeCluster.Cluster.TotalStorageCapacityInMegaBytes'),
+        outputPath: 'Cluster.TotalStorageCapacityInMegaBytes',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ResumeCluster.Cluster.TotalStorageCapacityInMegaBytes', props);
+    return resource.getResponseField('Cluster.TotalStorageCapacityInMegaBytes') as unknown as number;
+  }
+
+  public get aquaConfiguration(): RedshiftResponsesResumeClusterClusterAquaConfiguration {
+    return new RedshiftResponsesResumeClusterClusterAquaConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -36348,6 +40731,23 @@ export class RedshiftResponsesResumeClusterClusterEndpoint {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ResumeCluster.Cluster.Endpoint.Port', props);
     return resource.getResponseField('Cluster.Endpoint.Port') as unknown as number;
+  }
+
+  public get vpcEndpoints(): shapes.RedshiftVpcEndpoint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'resumeCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ResumeCluster.Cluster.Endpoint.VpcEndpoints'),
+        outputPath: 'Cluster.Endpoint.VpcEndpoints',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ResumeCluster.Cluster.Endpoint.VpcEndpoints', props);
+    return resource.getResponseField('Cluster.Endpoint.VpcEndpoints') as unknown as shapes.RedshiftVpcEndpoint[];
   }
 
 }
@@ -36979,6 +41379,47 @@ export class RedshiftResponsesResumeClusterClusterResizeInfo {
 
 }
 
+export class RedshiftResponsesResumeClusterClusterAquaConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftResumeClusterMessage) {
+  }
+
+  public get aquaStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'resumeCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ResumeCluster.Cluster.AquaConfiguration.AquaStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ResumeCluster.Cluster.AquaConfiguration.AquaStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaStatus') as unknown as string;
+  }
+
+  public get aquaConfigurationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'resumeCluster',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.ResumeCluster.Cluster.AquaConfiguration.AquaConfigurationStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaConfigurationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ResumeCluster.Cluster.AquaConfiguration.AquaConfigurationStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaConfigurationStatus') as unknown as string;
+  }
+
+}
+
 export class RedshiftResponsesRevokeClusterSecurityGroupIngress {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftRevokeClusterSecurityGroupIngressMessage) {
@@ -37093,6 +41534,193 @@ export class RedshiftResponsesRevokeClusterSecurityGroupIngressClusterSecurityGr
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RevokeClusterSecurityGroupIngress.ClusterSecurityGroup.Tags', props);
     return resource.getResponseField('ClusterSecurityGroup.Tags') as unknown as shapes.RedshiftTag[];
+  }
+
+}
+
+export class RedshiftResponsesRevokeEndpointAccess {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftRevokeEndpointAccessMessage) {
+  }
+
+  public get grantor(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'revokeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RevokeEndpointAccess.Grantor'),
+        outputPath: 'Grantor',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          VpcIds: this.__input.vpcIds,
+          Force: this.__input.force,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RevokeEndpointAccess.Grantor', props);
+    return resource.getResponseField('Grantor') as unknown as string;
+  }
+
+  public get grantee(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'revokeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RevokeEndpointAccess.Grantee'),
+        outputPath: 'Grantee',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          VpcIds: this.__input.vpcIds,
+          Force: this.__input.force,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RevokeEndpointAccess.Grantee', props);
+    return resource.getResponseField('Grantee') as unknown as string;
+  }
+
+  public get clusterIdentifier(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'revokeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RevokeEndpointAccess.ClusterIdentifier'),
+        outputPath: 'ClusterIdentifier',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          VpcIds: this.__input.vpcIds,
+          Force: this.__input.force,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RevokeEndpointAccess.ClusterIdentifier', props);
+    return resource.getResponseField('ClusterIdentifier') as unknown as string;
+  }
+
+  public get authorizeTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'revokeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RevokeEndpointAccess.AuthorizeTime'),
+        outputPath: 'AuthorizeTime',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          VpcIds: this.__input.vpcIds,
+          Force: this.__input.force,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RevokeEndpointAccess.AuthorizeTime', props);
+    return resource.getResponseField('AuthorizeTime') as unknown as string;
+  }
+
+  public get clusterStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'revokeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RevokeEndpointAccess.ClusterStatus'),
+        outputPath: 'ClusterStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          VpcIds: this.__input.vpcIds,
+          Force: this.__input.force,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RevokeEndpointAccess.ClusterStatus', props);
+    return resource.getResponseField('ClusterStatus') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'revokeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RevokeEndpointAccess.Status'),
+        outputPath: 'Status',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          VpcIds: this.__input.vpcIds,
+          Force: this.__input.force,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RevokeEndpointAccess.Status', props);
+    return resource.getResponseField('Status') as unknown as string;
+  }
+
+  public get allowedAllVpCs(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'revokeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RevokeEndpointAccess.AllowedAllVPCs'),
+        outputPath: 'AllowedAllVPCs',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          VpcIds: this.__input.vpcIds,
+          Force: this.__input.force,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RevokeEndpointAccess.AllowedAllVPCs', props);
+    return resource.getResponseField('AllowedAllVPCs') as unknown as boolean;
+  }
+
+  public get allowedVpCs(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'revokeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RevokeEndpointAccess.AllowedVPCs'),
+        outputPath: 'AllowedVPCs',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          VpcIds: this.__input.vpcIds,
+          Force: this.__input.force,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RevokeEndpointAccess.AllowedVPCs', props);
+    return resource.getResponseField('AllowedVPCs') as unknown as string[];
+  }
+
+  public get endpointCount(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'revokeEndpointAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RevokeEndpointAccess.EndpointCount'),
+        outputPath: 'EndpointCount',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          Account: this.__input.account,
+          VpcIds: this.__input.vpcIds,
+          Force: this.__input.force,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RevokeEndpointAccess.EndpointCount', props);
+    return resource.getResponseField('EndpointCount') as unknown as number;
   }
 
 }
@@ -37282,6 +41910,25 @@ export class RedshiftResponsesRevokeSnapshotAccessSnapshot {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RevokeSnapshotAccess.Snapshot.ClusterVersion', props);
     return resource.getResponseField('Snapshot.ClusterVersion') as unknown as string;
+  }
+
+  public get engineFullVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'revokeSnapshotAccess',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RevokeSnapshotAccess.Snapshot.EngineFullVersion'),
+        outputPath: 'Snapshot.EngineFullVersion',
+        parameters: {
+          SnapshotIdentifier: this.__input.snapshotIdentifier,
+          SnapshotClusterIdentifier: this.__input.snapshotClusterIdentifier,
+          AccountWithRestoreAccess: this.__input.accountWithRestoreAccess,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RevokeSnapshotAccess.Snapshot.EngineFullVersion', props);
+    return resource.getResponseField('Snapshot.EngineFullVersion') as unknown as string;
   }
 
   public get snapshotType(): string {
@@ -38436,6 +43083,23 @@ export class RedshiftResponsesRotateEncryptionKeyCluster {
     return new RedshiftResponsesRotateEncryptionKeyClusterResizeInfo(this.__scope, this.__resources, this.__input);
   }
 
+  public get availabilityZoneRelocationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rotateEncryptionKey',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RotateEncryptionKey.Cluster.AvailabilityZoneRelocationStatus'),
+        outputPath: 'Cluster.AvailabilityZoneRelocationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RotateEncryptionKey.Cluster.AvailabilityZoneRelocationStatus', props);
+    return resource.getResponseField('Cluster.AvailabilityZoneRelocationStatus') as unknown as string;
+  }
+
   public get clusterNamespaceArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -38451,6 +43115,27 @@ export class RedshiftResponsesRotateEncryptionKeyCluster {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RotateEncryptionKey.Cluster.ClusterNamespaceArn', props);
     return resource.getResponseField('Cluster.ClusterNamespaceArn') as unknown as string;
+  }
+
+  public get totalStorageCapacityInMegaBytes(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rotateEncryptionKey',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RotateEncryptionKey.Cluster.TotalStorageCapacityInMegaBytes'),
+        outputPath: 'Cluster.TotalStorageCapacityInMegaBytes',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RotateEncryptionKey.Cluster.TotalStorageCapacityInMegaBytes', props);
+    return resource.getResponseField('Cluster.TotalStorageCapacityInMegaBytes') as unknown as number;
+  }
+
+  public get aquaConfiguration(): RedshiftResponsesRotateEncryptionKeyClusterAquaConfiguration {
+    return new RedshiftResponsesRotateEncryptionKeyClusterAquaConfiguration(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -38492,6 +43177,23 @@ export class RedshiftResponsesRotateEncryptionKeyClusterEndpoint {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RotateEncryptionKey.Cluster.Endpoint.Port', props);
     return resource.getResponseField('Cluster.Endpoint.Port') as unknown as number;
+  }
+
+  public get vpcEndpoints(): shapes.RedshiftVpcEndpoint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rotateEncryptionKey',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RotateEncryptionKey.Cluster.Endpoint.VpcEndpoints'),
+        outputPath: 'Cluster.Endpoint.VpcEndpoints',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RotateEncryptionKey.Cluster.Endpoint.VpcEndpoints', props);
+    return resource.getResponseField('Cluster.Endpoint.VpcEndpoints') as unknown as shapes.RedshiftVpcEndpoint[];
   }
 
 }
@@ -39119,6 +43821,98 @@ export class RedshiftResponsesRotateEncryptionKeyClusterResizeInfo {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RotateEncryptionKey.Cluster.ResizeInfo.AllowCancelResize', props);
     return resource.getResponseField('Cluster.ResizeInfo.AllowCancelResize') as unknown as boolean;
+  }
+
+}
+
+export class RedshiftResponsesRotateEncryptionKeyClusterAquaConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftRotateEncryptionKeyMessage) {
+  }
+
+  public get aquaStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rotateEncryptionKey',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RotateEncryptionKey.Cluster.AquaConfiguration.AquaStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RotateEncryptionKey.Cluster.AquaConfiguration.AquaStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaStatus') as unknown as string;
+  }
+
+  public get aquaConfigurationStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rotateEncryptionKey',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.RotateEncryptionKey.Cluster.AquaConfiguration.AquaConfigurationStatus'),
+        outputPath: 'Cluster.AquaConfiguration.AquaConfigurationStatus',
+        parameters: {
+          ClusterIdentifier: this.__input.clusterIdentifier,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RotateEncryptionKey.Cluster.AquaConfiguration.AquaConfigurationStatus', props);
+    return resource.getResponseField('Cluster.AquaConfiguration.AquaConfigurationStatus') as unknown as string;
+  }
+
+}
+
+export class RedshiftResponsesUpdatePartnerStatus {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.RedshiftUpdatePartnerStatusInputMessage) {
+  }
+
+  public get databaseName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updatePartnerStatus',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.UpdatePartnerStatus.DatabaseName'),
+        outputPath: 'DatabaseName',
+        parameters: {
+          AccountId: this.__input.accountId,
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          DatabaseName: this.__input.databaseName,
+          PartnerName: this.__input.partnerName,
+          Status: this.__input.status,
+          StatusMessage: this.__input.statusMessage,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdatePartnerStatus.DatabaseName', props);
+    return resource.getResponseField('DatabaseName') as unknown as string;
+  }
+
+  public get partnerName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updatePartnerStatus',
+        service: 'Redshift',
+        physicalResourceId: cr.PhysicalResourceId.of('Redshift.UpdatePartnerStatus.PartnerName'),
+        outputPath: 'PartnerName',
+        parameters: {
+          AccountId: this.__input.accountId,
+          ClusterIdentifier: this.__input.clusterIdentifier,
+          DatabaseName: this.__input.databaseName,
+          PartnerName: this.__input.partnerName,
+          Status: this.__input.status,
+          StatusMessage: this.__input.statusMessage,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdatePartnerStatus.PartnerName', props);
+    return resource.getResponseField('PartnerName') as unknown as string;
   }
 
 }

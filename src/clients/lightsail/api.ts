@@ -40,6 +40,14 @@ export class LightsailClient extends cdk.Construct {
     return new LightsailResponsesCopySnapshot(this, this.__resources, input);
   }
 
+  public createBucket(input: shapes.LightsailCreateBucketRequest): LightsailResponsesCreateBucket {
+    return new LightsailResponsesCreateBucket(this, this.__resources, input);
+  }
+
+  public createBucketAccessKey(input: shapes.LightsailCreateBucketAccessKeyRequest): LightsailResponsesCreateBucketAccessKey {
+    return new LightsailResponsesCreateBucketAccessKey(this, this.__resources, input);
+  }
+
   public createCertificate(input: shapes.LightsailCreateCertificateRequest): LightsailResponsesCreateCertificate {
     return new LightsailResponsesCreateCertificate(this, this.__resources, input);
   }
@@ -130,6 +138,14 @@ export class LightsailClient extends cdk.Construct {
 
   public deleteAutoSnapshot(input: shapes.LightsailDeleteAutoSnapshotRequest): LightsailResponsesDeleteAutoSnapshot {
     return new LightsailResponsesDeleteAutoSnapshot(this, this.__resources, input);
+  }
+
+  public deleteBucket(input: shapes.LightsailDeleteBucketRequest): LightsailResponsesDeleteBucket {
+    return new LightsailResponsesDeleteBucket(this, this.__resources, input);
+  }
+
+  public deleteBucketAccessKey(input: shapes.LightsailDeleteBucketAccessKeyRequest): LightsailResponsesDeleteBucketAccessKey {
+    return new LightsailResponsesDeleteBucketAccessKey(this, this.__resources, input);
   }
 
   public deleteCertificate(input: shapes.LightsailDeleteCertificateRequest): LightsailResponsesDeleteCertificate {
@@ -269,6 +285,22 @@ export class LightsailClient extends cdk.Construct {
 
   public fetchBlueprints(input: shapes.LightsailGetBlueprintsRequest): LightsailResponsesFetchBlueprints {
     return new LightsailResponsesFetchBlueprints(this, this.__resources, input);
+  }
+
+  public fetchBucketAccessKeys(input: shapes.LightsailGetBucketAccessKeysRequest): LightsailResponsesFetchBucketAccessKeys {
+    return new LightsailResponsesFetchBucketAccessKeys(this, this.__resources, input);
+  }
+
+  public fetchBucketBundles(input: shapes.LightsailGetBucketBundlesRequest): LightsailResponsesFetchBucketBundles {
+    return new LightsailResponsesFetchBucketBundles(this, this.__resources, input);
+  }
+
+  public fetchBucketMetricData(input: shapes.LightsailGetBucketMetricDataRequest): LightsailResponsesFetchBucketMetricData {
+    return new LightsailResponsesFetchBucketMetricData(this, this.__resources, input);
+  }
+
+  public fetchBuckets(input: shapes.LightsailGetBucketsRequest): LightsailResponsesFetchBuckets {
+    return new LightsailResponsesFetchBuckets(this, this.__resources, input);
   }
 
   public fetchBundles(input: shapes.LightsailGetBundlesRequest): LightsailResponsesFetchBundles {
@@ -535,6 +567,14 @@ export class LightsailClient extends cdk.Construct {
     return new LightsailResponsesSendContactMethodVerification(this, this.__resources, input);
   }
 
+  public putIpAddressType(input: shapes.LightsailSetIpAddressTypeRequest): LightsailResponsesPutIpAddressType {
+    return new LightsailResponsesPutIpAddressType(this, this.__resources, input);
+  }
+
+  public putResourceAccessForBucket(input: shapes.LightsailSetResourceAccessForBucketRequest): LightsailResponsesPutResourceAccessForBucket {
+    return new LightsailResponsesPutResourceAccessForBucket(this, this.__resources, input);
+  }
+
   public startInstance(input: shapes.LightsailStartInstanceRequest): LightsailResponsesStartInstance {
     return new LightsailResponsesStartInstance(this, this.__resources, input);
   }
@@ -565,6 +605,14 @@ export class LightsailClient extends cdk.Construct {
 
   public untagResource(input: shapes.LightsailUntagResourceRequest): LightsailResponsesUntagResource {
     return new LightsailResponsesUntagResource(this, this.__resources, input);
+  }
+
+  public updateBucket(input: shapes.LightsailUpdateBucketRequest): LightsailResponsesUpdateBucket {
+    return new LightsailResponsesUpdateBucket(this, this.__resources, input);
+  }
+
+  public updateBucketBundle(input: shapes.LightsailUpdateBucketBundleRequest): LightsailResponsesUpdateBucketBundle {
+    return new LightsailResponsesUpdateBucketBundle(this, this.__resources, input);
   }
 
   public updateContainerService(input: shapes.LightsailUpdateContainerServiceRequest): LightsailResponsesUpdateContainerService {
@@ -1015,6 +1063,7 @@ export class LightsailResponsesCloseInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -1039,6 +1088,7 @@ export class LightsailResponsesCloseInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -1063,6 +1113,7 @@ export class LightsailResponsesCloseInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -1087,6 +1138,7 @@ export class LightsailResponsesCloseInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -1115,6 +1167,7 @@ export class LightsailResponsesCloseInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -1139,6 +1192,7 @@ export class LightsailResponsesCloseInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -1163,6 +1217,7 @@ export class LightsailResponsesCloseInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -1187,6 +1242,7 @@ export class LightsailResponsesCloseInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -1211,6 +1267,7 @@ export class LightsailResponsesCloseInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -1235,6 +1292,7 @@ export class LightsailResponsesCloseInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -1259,6 +1317,7 @@ export class LightsailResponsesCloseInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -1290,6 +1349,7 @@ export class LightsailResponsesCloseInstancePublicPortsOperationLocation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -1314,6 +1374,7 @@ export class LightsailResponsesCloseInstancePublicPortsOperationLocation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -1351,6 +1412,602 @@ export class LightsailResponsesCopySnapshot {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CopySnapshot.operations', props);
     return resource.getResponseField('operations') as unknown as shapes.LightsailOperation[];
+  }
+
+}
+
+export class LightsailResponsesCreateBucket {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailCreateBucketRequest) {
+  }
+
+  public get bucket(): LightsailResponsesCreateBucketBucket {
+    return new LightsailResponsesCreateBucketBucket(this.__scope, this.__resources, this.__input);
+  }
+
+  public get operations(): shapes.LightsailOperation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.operations'),
+        outputPath: 'operations',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.operations', props);
+    return resource.getResponseField('operations') as unknown as shapes.LightsailOperation[];
+  }
+
+}
+
+export class LightsailResponsesCreateBucketBucket {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailCreateBucketRequest) {
+  }
+
+  public get resourceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.bucket.resourceType'),
+        outputPath: 'bucket.resourceType',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.bucket.resourceType', props);
+    return resource.getResponseField('bucket.resourceType') as unknown as string;
+  }
+
+  public get accessRules(): LightsailResponsesCreateBucketBucketAccessRules {
+    return new LightsailResponsesCreateBucketBucketAccessRules(this.__scope, this.__resources, this.__input);
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.bucket.arn'),
+        outputPath: 'bucket.arn',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.bucket.arn', props);
+    return resource.getResponseField('bucket.arn') as unknown as string;
+  }
+
+  public get bundleId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.bucket.bundleId'),
+        outputPath: 'bucket.bundleId',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.bucket.bundleId', props);
+    return resource.getResponseField('bucket.bundleId') as unknown as string;
+  }
+
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.bucket.createdAt'),
+        outputPath: 'bucket.createdAt',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.bucket.createdAt', props);
+    return resource.getResponseField('bucket.createdAt') as unknown as string;
+  }
+
+  public get url(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.bucket.url'),
+        outputPath: 'bucket.url',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.bucket.url', props);
+    return resource.getResponseField('bucket.url') as unknown as string;
+  }
+
+  public get location(): LightsailResponsesCreateBucketBucketLocation {
+    return new LightsailResponsesCreateBucketBucketLocation(this.__scope, this.__resources, this.__input);
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.bucket.name'),
+        outputPath: 'bucket.name',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.bucket.name', props);
+    return resource.getResponseField('bucket.name') as unknown as string;
+  }
+
+  public get supportCode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.bucket.supportCode'),
+        outputPath: 'bucket.supportCode',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.bucket.supportCode', props);
+    return resource.getResponseField('bucket.supportCode') as unknown as string;
+  }
+
+  public get tags(): shapes.LightsailTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.bucket.tags'),
+        outputPath: 'bucket.tags',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.bucket.tags', props);
+    return resource.getResponseField('bucket.tags') as unknown as shapes.LightsailTag[];
+  }
+
+  public get objectVersioning(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.bucket.objectVersioning'),
+        outputPath: 'bucket.objectVersioning',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.bucket.objectVersioning', props);
+    return resource.getResponseField('bucket.objectVersioning') as unknown as string;
+  }
+
+  public get ableToUpdateBundle(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.bucket.ableToUpdateBundle'),
+        outputPath: 'bucket.ableToUpdateBundle',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.bucket.ableToUpdateBundle', props);
+    return resource.getResponseField('bucket.ableToUpdateBundle') as unknown as boolean;
+  }
+
+  public get readonlyAccessAccounts(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.bucket.readonlyAccessAccounts'),
+        outputPath: 'bucket.readonlyAccessAccounts',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.bucket.readonlyAccessAccounts', props);
+    return resource.getResponseField('bucket.readonlyAccessAccounts') as unknown as string[];
+  }
+
+  public get resourcesReceivingAccess(): shapes.LightsailResourceReceivingAccess[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.bucket.resourcesReceivingAccess'),
+        outputPath: 'bucket.resourcesReceivingAccess',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.bucket.resourcesReceivingAccess', props);
+    return resource.getResponseField('bucket.resourcesReceivingAccess') as unknown as shapes.LightsailResourceReceivingAccess[];
+  }
+
+  public get state(): LightsailResponsesCreateBucketBucketState {
+    return new LightsailResponsesCreateBucketBucketState(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class LightsailResponsesCreateBucketBucketAccessRules {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailCreateBucketRequest) {
+  }
+
+  public get getObject(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.bucket.accessRules.getObject'),
+        outputPath: 'bucket.accessRules.getObject',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.bucket.accessRules.getObject', props);
+    return resource.getResponseField('bucket.accessRules.getObject') as unknown as string;
+  }
+
+  public get allowPublicOverrides(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.bucket.accessRules.allowPublicOverrides'),
+        outputPath: 'bucket.accessRules.allowPublicOverrides',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.bucket.accessRules.allowPublicOverrides', props);
+    return resource.getResponseField('bucket.accessRules.allowPublicOverrides') as unknown as boolean;
+  }
+
+}
+
+export class LightsailResponsesCreateBucketBucketLocation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailCreateBucketRequest) {
+  }
+
+  public get availabilityZone(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.bucket.location.availabilityZone'),
+        outputPath: 'bucket.location.availabilityZone',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.bucket.location.availabilityZone', props);
+    return resource.getResponseField('bucket.location.availabilityZone') as unknown as string;
+  }
+
+  public get regionName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.bucket.location.regionName'),
+        outputPath: 'bucket.location.regionName',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.bucket.location.regionName', props);
+    return resource.getResponseField('bucket.location.regionName') as unknown as string;
+  }
+
+}
+
+export class LightsailResponsesCreateBucketBucketState {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailCreateBucketRequest) {
+  }
+
+  public get code(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.bucket.state.code'),
+        outputPath: 'bucket.state.code',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.bucket.state.code', props);
+    return resource.getResponseField('bucket.state.code') as unknown as string;
+  }
+
+  public get message(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucket.bucket.state.message'),
+        outputPath: 'bucket.state.message',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+          tags: this.__input.tags,
+          enableObjectVersioning: this.__input.enableObjectVersioning,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucket.bucket.state.message', props);
+    return resource.getResponseField('bucket.state.message') as unknown as string;
+  }
+
+}
+
+export class LightsailResponsesCreateBucketAccessKey {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailCreateBucketAccessKeyRequest) {
+  }
+
+  public get accessKey(): LightsailResponsesCreateBucketAccessKeyAccessKey {
+    return new LightsailResponsesCreateBucketAccessKeyAccessKey(this.__scope, this.__resources, this.__input);
+  }
+
+  public get operations(): shapes.LightsailOperation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucketAccessKey',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucketAccessKey.operations'),
+        outputPath: 'operations',
+        parameters: {
+          bucketName: this.__input.bucketName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucketAccessKey.operations', props);
+    return resource.getResponseField('operations') as unknown as shapes.LightsailOperation[];
+  }
+
+}
+
+export class LightsailResponsesCreateBucketAccessKeyAccessKey {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailCreateBucketAccessKeyRequest) {
+  }
+
+  public get accessKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucketAccessKey',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucketAccessKey.accessKey.accessKeyId'),
+        outputPath: 'accessKey.accessKeyId',
+        parameters: {
+          bucketName: this.__input.bucketName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucketAccessKey.accessKey.accessKeyId', props);
+    return resource.getResponseField('accessKey.accessKeyId') as unknown as string;
+  }
+
+  public get secretAccessKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucketAccessKey',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucketAccessKey.accessKey.secretAccessKey'),
+        outputPath: 'accessKey.secretAccessKey',
+        parameters: {
+          bucketName: this.__input.bucketName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucketAccessKey.accessKey.secretAccessKey', props);
+    return resource.getResponseField('accessKey.secretAccessKey') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucketAccessKey',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucketAccessKey.accessKey.status'),
+        outputPath: 'accessKey.status',
+        parameters: {
+          bucketName: this.__input.bucketName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucketAccessKey.accessKey.status', props);
+    return resource.getResponseField('accessKey.status') as unknown as string;
+  }
+
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucketAccessKey',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucketAccessKey.accessKey.createdAt'),
+        outputPath: 'accessKey.createdAt',
+        parameters: {
+          bucketName: this.__input.bucketName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucketAccessKey.accessKey.createdAt', props);
+    return resource.getResponseField('accessKey.createdAt') as unknown as string;
+  }
+
+  public get lastUsed(): LightsailResponsesCreateBucketAccessKeyAccessKeyLastUsed {
+    return new LightsailResponsesCreateBucketAccessKeyAccessKeyLastUsed(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class LightsailResponsesCreateBucketAccessKeyAccessKeyLastUsed {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailCreateBucketAccessKeyRequest) {
+  }
+
+  public get lastUsedDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucketAccessKey',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucketAccessKey.accessKey.lastUsed.lastUsedDate'),
+        outputPath: 'accessKey.lastUsed.lastUsedDate',
+        parameters: {
+          bucketName: this.__input.bucketName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucketAccessKey.accessKey.lastUsed.lastUsedDate', props);
+    return resource.getResponseField('accessKey.lastUsed.lastUsedDate') as unknown as string;
+  }
+
+  public get region(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucketAccessKey',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucketAccessKey.accessKey.lastUsed.region'),
+        outputPath: 'accessKey.lastUsed.region',
+        parameters: {
+          bucketName: this.__input.bucketName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucketAccessKey.accessKey.lastUsed.region', props);
+    return resource.getResponseField('accessKey.lastUsed.region') as unknown as string;
+  }
+
+  public get serviceName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createBucketAccessKey',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateBucketAccessKey.accessKey.lastUsed.serviceName'),
+        outputPath: 'accessKey.lastUsed.serviceName',
+        parameters: {
+          bucketName: this.__input.bucketName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateBucketAccessKey.accessKey.lastUsed.serviceName', props);
+    return resource.getResponseField('accessKey.lastUsed.serviceName') as unknown as string;
   }
 
 }
@@ -2332,6 +2989,10 @@ export class LightsailResponsesCreateContainerServiceContainerService {
     return resource.getResponseField('containerService.state') as unknown as string;
   }
 
+  public get stateDetail(): LightsailResponsesCreateContainerServiceContainerServiceStateDetail {
+    return new LightsailResponsesCreateContainerServiceContainerServiceStateDetail(this.__scope, this.__resources, this.__input);
+  }
+
   public get scale(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -2633,6 +3294,85 @@ export class LightsailResponsesCreateContainerServiceContainerServiceLocation {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateContainerService.containerService.location.regionName', props);
     return resource.getResponseField('containerService.location.regionName') as unknown as string;
+  }
+
+}
+
+export class LightsailResponsesCreateContainerServiceContainerServiceStateDetail {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailCreateContainerServiceRequest) {
+  }
+
+  public get code(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createContainerService',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateContainerService.containerService.stateDetail.code'),
+        outputPath: 'containerService.stateDetail.code',
+        parameters: {
+          serviceName: this.__input.serviceName,
+          power: this.__input.power,
+          scale: this.__input.scale,
+          tags: this.__input.tags,
+          publicDomainNames: this.__input.publicDomainNames,
+          deployment: {
+            containers: this.__input.deployment?.containers,
+            publicEndpoint: {
+              containerName: this.__input.deployment?.publicEndpoint?.containerName,
+              containerPort: this.__input.deployment?.publicEndpoint?.containerPort,
+              healthCheck: {
+                healthyThreshold: this.__input.deployment?.publicEndpoint?.healthCheck?.healthyThreshold,
+                unhealthyThreshold: this.__input.deployment?.publicEndpoint?.healthCheck?.unhealthyThreshold,
+                timeoutSeconds: this.__input.deployment?.publicEndpoint?.healthCheck?.timeoutSeconds,
+                intervalSeconds: this.__input.deployment?.publicEndpoint?.healthCheck?.intervalSeconds,
+                path: this.__input.deployment?.publicEndpoint?.healthCheck?.path,
+                successCodes: this.__input.deployment?.publicEndpoint?.healthCheck?.successCodes,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateContainerService.containerService.stateDetail.code', props);
+    return resource.getResponseField('containerService.stateDetail.code') as unknown as string;
+  }
+
+  public get message(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createContainerService',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateContainerService.containerService.stateDetail.message'),
+        outputPath: 'containerService.stateDetail.message',
+        parameters: {
+          serviceName: this.__input.serviceName,
+          power: this.__input.power,
+          scale: this.__input.scale,
+          tags: this.__input.tags,
+          publicDomainNames: this.__input.publicDomainNames,
+          deployment: {
+            containers: this.__input.deployment?.containers,
+            publicEndpoint: {
+              containerName: this.__input.deployment?.publicEndpoint?.containerName,
+              containerPort: this.__input.deployment?.publicEndpoint?.containerPort,
+              healthCheck: {
+                healthyThreshold: this.__input.deployment?.publicEndpoint?.healthCheck?.healthyThreshold,
+                unhealthyThreshold: this.__input.deployment?.publicEndpoint?.healthCheck?.unhealthyThreshold,
+                timeoutSeconds: this.__input.deployment?.publicEndpoint?.healthCheck?.timeoutSeconds,
+                intervalSeconds: this.__input.deployment?.publicEndpoint?.healthCheck?.intervalSeconds,
+                path: this.__input.deployment?.publicEndpoint?.healthCheck?.path,
+                successCodes: this.__input.deployment?.publicEndpoint?.healthCheck?.successCodes,
+              },
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateContainerService.containerService.stateDetail.message', props);
+    return resource.getResponseField('containerService.stateDetail.message') as unknown as string;
   }
 
 }
@@ -3819,6 +4559,10 @@ export class LightsailResponsesCreateContainerServiceDeploymentContainerService 
     return resource.getResponseField('containerService.state') as unknown as string;
   }
 
+  public get stateDetail(): LightsailResponsesCreateContainerServiceDeploymentContainerServiceStateDetail {
+    return new LightsailResponsesCreateContainerServiceDeploymentContainerServiceStateDetail(this.__scope, this.__resources, this.__input);
+  }
+
   public get scale(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -4072,6 +4816,73 @@ export class LightsailResponsesCreateContainerServiceDeploymentContainerServiceL
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateContainerServiceDeployment.containerService.location.regionName', props);
     return resource.getResponseField('containerService.location.regionName') as unknown as string;
+  }
+
+}
+
+export class LightsailResponsesCreateContainerServiceDeploymentContainerServiceStateDetail {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailCreateContainerServiceDeploymentRequest) {
+  }
+
+  public get code(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createContainerServiceDeployment',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateContainerServiceDeployment.containerService.stateDetail.code'),
+        outputPath: 'containerService.stateDetail.code',
+        parameters: {
+          serviceName: this.__input.serviceName,
+          containers: this.__input.containers,
+          publicEndpoint: {
+            containerName: this.__input.publicEndpoint?.containerName,
+            containerPort: this.__input.publicEndpoint?.containerPort,
+            healthCheck: {
+              healthyThreshold: this.__input.publicEndpoint?.healthCheck?.healthyThreshold,
+              unhealthyThreshold: this.__input.publicEndpoint?.healthCheck?.unhealthyThreshold,
+              timeoutSeconds: this.__input.publicEndpoint?.healthCheck?.timeoutSeconds,
+              intervalSeconds: this.__input.publicEndpoint?.healthCheck?.intervalSeconds,
+              path: this.__input.publicEndpoint?.healthCheck?.path,
+              successCodes: this.__input.publicEndpoint?.healthCheck?.successCodes,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateContainerServiceDeployment.containerService.stateDetail.code', props);
+    return resource.getResponseField('containerService.stateDetail.code') as unknown as string;
+  }
+
+  public get message(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createContainerServiceDeployment',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateContainerServiceDeployment.containerService.stateDetail.message'),
+        outputPath: 'containerService.stateDetail.message',
+        parameters: {
+          serviceName: this.__input.serviceName,
+          containers: this.__input.containers,
+          publicEndpoint: {
+            containerName: this.__input.publicEndpoint?.containerName,
+            containerPort: this.__input.publicEndpoint?.containerPort,
+            healthCheck: {
+              healthyThreshold: this.__input.publicEndpoint?.healthCheck?.healthyThreshold,
+              unhealthyThreshold: this.__input.publicEndpoint?.healthCheck?.unhealthyThreshold,
+              timeoutSeconds: this.__input.publicEndpoint?.healthCheck?.timeoutSeconds,
+              intervalSeconds: this.__input.publicEndpoint?.healthCheck?.intervalSeconds,
+              path: this.__input.publicEndpoint?.healthCheck?.path,
+              successCodes: this.__input.publicEndpoint?.healthCheck?.successCodes,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateContainerServiceDeployment.containerService.stateDetail.message', props);
+    return resource.getResponseField('containerService.stateDetail.message') as unknown as string;
   }
 
 }
@@ -5082,6 +5893,7 @@ export class LightsailResponsesCreateDistributionDistribution {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -5129,6 +5941,7 @@ export class LightsailResponsesCreateDistributionDistribution {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -5176,6 +5989,7 @@ export class LightsailResponsesCreateDistributionDistribution {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -5223,6 +6037,7 @@ export class LightsailResponsesCreateDistributionDistribution {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -5274,6 +6089,7 @@ export class LightsailResponsesCreateDistributionDistribution {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -5321,6 +6137,7 @@ export class LightsailResponsesCreateDistributionDistribution {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -5368,6 +6185,7 @@ export class LightsailResponsesCreateDistributionDistribution {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -5415,6 +6233,7 @@ export class LightsailResponsesCreateDistributionDistribution {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -5462,6 +6281,7 @@ export class LightsailResponsesCreateDistributionDistribution {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -5509,6 +6329,7 @@ export class LightsailResponsesCreateDistributionDistribution {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -5556,6 +6377,7 @@ export class LightsailResponsesCreateDistributionDistribution {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -5607,6 +6429,7 @@ export class LightsailResponsesCreateDistributionDistribution {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -5662,6 +6485,7 @@ export class LightsailResponsesCreateDistributionDistribution {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -5709,12 +6533,61 @@ export class LightsailResponsesCreateDistributionDistribution {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateDistribution.distribution.ableToUpdateBundle', props);
     return resource.getResponseField('distribution.ableToUpdateBundle') as unknown as boolean;
+  }
+
+  public get ipAddressType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createDistribution',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.CreateDistribution.distribution.ipAddressType'),
+        outputPath: 'distribution.ipAddressType',
+        parameters: {
+          distributionName: this.__input.distributionName,
+          origin: {
+            name: this.__input.origin.name,
+            regionName: this.__input.origin.regionName,
+            protocolPolicy: this.__input.origin.protocolPolicy,
+          },
+          defaultCacheBehavior: {
+            behavior: this.__input.defaultCacheBehavior.behavior,
+          },
+          cacheBehaviorSettings: {
+            defaultTTL: this.__input.cacheBehaviorSettings?.defaultTTL,
+            minimumTTL: this.__input.cacheBehaviorSettings?.minimumTTL,
+            maximumTTL: this.__input.cacheBehaviorSettings?.maximumTTL,
+            allowedHTTPMethods: this.__input.cacheBehaviorSettings?.allowedHTTPMethods,
+            cachedHTTPMethods: this.__input.cacheBehaviorSettings?.cachedHTTPMethods,
+            forwardedCookies: {
+              option: this.__input.cacheBehaviorSettings?.forwardedCookies?.option,
+              cookiesAllowList: this.__input.cacheBehaviorSettings?.forwardedCookies?.cookiesAllowList,
+            },
+            forwardedHeaders: {
+              option: this.__input.cacheBehaviorSettings?.forwardedHeaders?.option,
+              headersAllowList: this.__input.cacheBehaviorSettings?.forwardedHeaders?.headersAllowList,
+            },
+            forwardedQueryStrings: {
+              option: this.__input.cacheBehaviorSettings?.forwardedQueryStrings?.option,
+              queryStringsAllowList: this.__input.cacheBehaviorSettings?.forwardedQueryStrings?.queryStringsAllowList,
+            },
+          },
+          cacheBehaviors: this.__input.cacheBehaviors,
+          bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateDistribution.distribution.ipAddressType', props);
+    return resource.getResponseField('distribution.ipAddressType') as unknown as string;
   }
 
   public get tags(): shapes.LightsailTag[] {
@@ -5756,6 +6629,7 @@ export class LightsailResponsesCreateDistributionDistribution {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -5810,6 +6684,7 @@ export class LightsailResponsesCreateDistributionDistributionLocation {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -5857,6 +6732,7 @@ export class LightsailResponsesCreateDistributionDistributionLocation {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -5911,6 +6787,7 @@ export class LightsailResponsesCreateDistributionDistributionOrigin {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -5958,6 +6835,7 @@ export class LightsailResponsesCreateDistributionDistributionOrigin {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6005,6 +6883,7 @@ export class LightsailResponsesCreateDistributionDistributionOrigin {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6052,6 +6931,7 @@ export class LightsailResponsesCreateDistributionDistributionOrigin {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6106,6 +6986,7 @@ export class LightsailResponsesCreateDistributionDistributionDefaultCacheBehavio
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6160,6 +7041,7 @@ export class LightsailResponsesCreateDistributionDistributionCacheBehaviorSettin
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6207,6 +7089,7 @@ export class LightsailResponsesCreateDistributionDistributionCacheBehaviorSettin
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6254,6 +7137,7 @@ export class LightsailResponsesCreateDistributionDistributionCacheBehaviorSettin
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6301,6 +7185,7 @@ export class LightsailResponsesCreateDistributionDistributionCacheBehaviorSettin
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6348,6 +7233,7 @@ export class LightsailResponsesCreateDistributionDistributionCacheBehaviorSettin
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6414,6 +7300,7 @@ export class LightsailResponsesCreateDistributionDistributionCacheBehaviorSettin
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6461,6 +7348,7 @@ export class LightsailResponsesCreateDistributionDistributionCacheBehaviorSettin
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6515,6 +7403,7 @@ export class LightsailResponsesCreateDistributionDistributionCacheBehaviorSettin
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6562,6 +7451,7 @@ export class LightsailResponsesCreateDistributionDistributionCacheBehaviorSettin
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6616,6 +7506,7 @@ export class LightsailResponsesCreateDistributionDistributionCacheBehaviorSettin
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6663,6 +7554,7 @@ export class LightsailResponsesCreateDistributionDistributionCacheBehaviorSettin
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6717,6 +7609,7 @@ export class LightsailResponsesCreateDistributionOperation {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6764,6 +7657,7 @@ export class LightsailResponsesCreateDistributionOperation {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6811,6 +7705,7 @@ export class LightsailResponsesCreateDistributionOperation {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6858,6 +7753,7 @@ export class LightsailResponsesCreateDistributionOperation {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6909,6 +7805,7 @@ export class LightsailResponsesCreateDistributionOperation {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -6956,6 +7853,7 @@ export class LightsailResponsesCreateDistributionOperation {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -7003,6 +7901,7 @@ export class LightsailResponsesCreateDistributionOperation {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -7050,6 +7949,7 @@ export class LightsailResponsesCreateDistributionOperation {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -7097,6 +7997,7 @@ export class LightsailResponsesCreateDistributionOperation {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -7144,6 +8045,7 @@ export class LightsailResponsesCreateDistributionOperation {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -7191,6 +8093,7 @@ export class LightsailResponsesCreateDistributionOperation {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -7245,6 +8148,7 @@ export class LightsailResponsesCreateDistributionOperationLocation {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -7292,6 +8196,7 @@ export class LightsailResponsesCreateDistributionOperationLocation {
           },
           cacheBehaviors: this.__input.cacheBehaviors,
           bundleId: this.__input.bundleId,
+          ipAddressType: this.__input.ipAddressType,
           tags: this.__input.tags,
         },
       },
@@ -7968,6 +8873,7 @@ export class LightsailResponsesCreateInstances {
           keyPairName: this.__input.keyPairName,
           tags: this.__input.tags,
           addOns: this.__input.addOns,
+          ipAddressType: this.__input.ipAddressType,
         },
       },
     };
@@ -8000,6 +8906,7 @@ export class LightsailResponsesCreateInstancesFromSnapshot {
           keyPairName: this.__input.keyPairName,
           tags: this.__input.tags,
           addOns: this.__input.addOns,
+          ipAddressType: this.__input.ipAddressType,
           sourceInstanceName: this.__input.sourceInstanceName,
           restoreDate: this.__input.restoreDate,
           useLatestRestorableAutoSnapshot: this.__input.useLatestRestorableAutoSnapshot,
@@ -8516,6 +9423,7 @@ export class LightsailResponsesCreateLoadBalancer {
           certificateDomainName: this.__input.certificateDomainName,
           certificateAlternativeNames: this.__input.certificateAlternativeNames,
           tags: this.__input.tags,
+          ipAddressType: this.__input.ipAddressType,
         },
       },
     };
@@ -8689,6 +9597,56 @@ export class LightsailResponsesDeleteAutoSnapshot {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteAutoSnapshot.operations', props);
+    return resource.getResponseField('operations') as unknown as shapes.LightsailOperation[];
+  }
+
+}
+
+export class LightsailResponsesDeleteBucket {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailDeleteBucketRequest) {
+  }
+
+  public get operations(): shapes.LightsailOperation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.DeleteBucket.operations'),
+        outputPath: 'operations',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          forceDelete: this.__input.forceDelete,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteBucket.operations', props);
+    return resource.getResponseField('operations') as unknown as shapes.LightsailOperation[];
+  }
+
+}
+
+export class LightsailResponsesDeleteBucketAccessKey {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailDeleteBucketAccessKeyRequest) {
+  }
+
+  public get operations(): shapes.LightsailOperation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteBucketAccessKey',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.DeleteBucketAccessKey.operations'),
+        outputPath: 'operations',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessKeyId: this.__input.accessKeyId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteBucketAccessKey.operations', props);
     return resource.getResponseField('operations') as unknown as shapes.LightsailOperation[];
   }
 
@@ -10696,6 +11654,152 @@ export class LightsailResponsesFetchBlueprints {
 
 }
 
+export class LightsailResponsesFetchBucketAccessKeys {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailGetBucketAccessKeysRequest) {
+  }
+
+  public get accessKeys(): shapes.LightsailAccessKey[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getBucketAccessKeys',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.GetBucketAccessKeys.accessKeys'),
+        outputPath: 'accessKeys',
+        parameters: {
+          bucketName: this.__input.bucketName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetBucketAccessKeys.accessKeys', props);
+    return resource.getResponseField('accessKeys') as unknown as shapes.LightsailAccessKey[];
+  }
+
+}
+
+export class LightsailResponsesFetchBucketBundles {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailGetBucketBundlesRequest) {
+  }
+
+  public get bundles(): shapes.LightsailBucketBundle[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getBucketBundles',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.GetBucketBundles.bundles'),
+        outputPath: 'bundles',
+        parameters: {
+          includeInactive: this.__input.includeInactive,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetBucketBundles.bundles', props);
+    return resource.getResponseField('bundles') as unknown as shapes.LightsailBucketBundle[];
+  }
+
+}
+
+export class LightsailResponsesFetchBucketMetricData {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailGetBucketMetricDataRequest) {
+  }
+
+  public get metricName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getBucketMetricData',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.GetBucketMetricData.metricName'),
+        outputPath: 'metricName',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          metricName: this.__input.metricName,
+          startTime: this.__input.startTime,
+          endTime: this.__input.endTime,
+          period: this.__input.period,
+          statistics: this.__input.statistics,
+          unit: this.__input.unit,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetBucketMetricData.metricName', props);
+    return resource.getResponseField('metricName') as unknown as string;
+  }
+
+  public get metricData(): shapes.LightsailMetricDatapoint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getBucketMetricData',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.GetBucketMetricData.metricData'),
+        outputPath: 'metricData',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          metricName: this.__input.metricName,
+          startTime: this.__input.startTime,
+          endTime: this.__input.endTime,
+          period: this.__input.period,
+          statistics: this.__input.statistics,
+          unit: this.__input.unit,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetBucketMetricData.metricData', props);
+    return resource.getResponseField('metricData') as unknown as shapes.LightsailMetricDatapoint[];
+  }
+
+}
+
+export class LightsailResponsesFetchBuckets {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailGetBucketsRequest) {
+  }
+
+  public get buckets(): shapes.LightsailBucket[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getBuckets',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.GetBuckets.buckets'),
+        outputPath: 'buckets',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          pageToken: this.__input.pageToken,
+          includeConnectedResources: this.__input.includeConnectedResources,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetBuckets.buckets', props);
+    return resource.getResponseField('buckets') as unknown as shapes.LightsailBucket[];
+  }
+
+  public get nextPageToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getBuckets',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.GetBuckets.nextPageToken'),
+        outputPath: 'nextPageToken',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          pageToken: this.__input.pageToken,
+          includeConnectedResources: this.__input.includeConnectedResources,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetBuckets.nextPageToken', props);
+    return resource.getResponseField('nextPageToken') as unknown as string;
+  }
+
+}
+
 export class LightsailResponsesFetchBundles {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailGetBundlesRequest) {
@@ -12433,21 +13537,38 @@ export class LightsailResponsesFetchInstanceInstance {
     return resource.getResponseField('instance.publicIpAddress') as unknown as string;
   }
 
-  public get ipv6Address(): string {
+  public get ipv6Addresses(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
         action: 'getInstance',
         service: 'Lightsail',
-        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.GetInstance.instance.ipv6Address'),
-        outputPath: 'instance.ipv6Address',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.GetInstance.instance.ipv6Addresses'),
+        outputPath: 'instance.ipv6Addresses',
         parameters: {
           instanceName: this.__input.instanceName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this.__scope, 'GetInstance.instance.ipv6Address', props);
-    return resource.getResponseField('instance.ipv6Address') as unknown as string;
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetInstance.instance.ipv6Addresses', props);
+    return resource.getResponseField('instance.ipv6Addresses') as unknown as string[];
+  }
+
+  public get ipAddressType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getInstance',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.GetInstance.instance.ipAddressType'),
+        outputPath: 'instance.ipAddressType',
+        parameters: {
+          instanceName: this.__input.instanceName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetInstance.instance.ipAddressType', props);
+    return resource.getResponseField('instance.ipAddressType') as unknown as string;
   }
 
   public get hardware(): LightsailResponsesFetchInstanceInstanceHardware {
@@ -13942,6 +15063,23 @@ export class LightsailResponsesFetchLoadBalancerLoadBalancer {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetLoadBalancer.loadBalancer.configurationOptions', props);
     return resource.getResponseField('loadBalancer.configurationOptions') as unknown as Record<string, string>;
+  }
+
+  public get ipAddressType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getLoadBalancer',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.GetLoadBalancer.loadBalancer.ipAddressType'),
+        outputPath: 'loadBalancer.ipAddressType',
+        parameters: {
+          loadBalancerName: this.__input.loadBalancerName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetLoadBalancer.loadBalancer.ipAddressType', props);
+    return resource.getResponseField('loadBalancer.ipAddressType') as unknown as string;
   }
 
 }
@@ -16390,6 +17528,7 @@ export class LightsailResponsesOpenInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -16414,6 +17553,7 @@ export class LightsailResponsesOpenInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -16438,6 +17578,7 @@ export class LightsailResponsesOpenInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -16462,6 +17603,7 @@ export class LightsailResponsesOpenInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -16490,6 +17632,7 @@ export class LightsailResponsesOpenInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -16514,6 +17657,7 @@ export class LightsailResponsesOpenInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -16538,6 +17682,7 @@ export class LightsailResponsesOpenInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -16562,6 +17707,7 @@ export class LightsailResponsesOpenInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -16586,6 +17732,7 @@ export class LightsailResponsesOpenInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -16610,6 +17757,7 @@ export class LightsailResponsesOpenInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -16634,6 +17782,7 @@ export class LightsailResponsesOpenInstancePublicPortsOperation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -16665,6 +17814,7 @@ export class LightsailResponsesOpenInstancePublicPortsOperationLocation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -16689,6 +17839,7 @@ export class LightsailResponsesOpenInstancePublicPortsOperationLocation {
             toPort: this.__input.portInfo.toPort,
             protocol: this.__input.portInfo.protocol,
             cidrs: this.__input.portInfo.cidrs,
+            ipv6Cidrs: this.__input.portInfo.ipv6Cidrs,
             cidrListAliases: this.__input.portInfo.cidrListAliases,
           },
           instanceName: this.__input.instanceName,
@@ -17690,6 +18841,58 @@ export class LightsailResponsesSendContactMethodVerification {
 
 }
 
+export class LightsailResponsesPutIpAddressType {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailSetIpAddressTypeRequest) {
+  }
+
+  public get operations(): shapes.LightsailOperation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'setIpAddressType',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.SetIpAddressType.operations'),
+        outputPath: 'operations',
+        parameters: {
+          resourceType: this.__input.resourceType,
+          resourceName: this.__input.resourceName,
+          ipAddressType: this.__input.ipAddressType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SetIpAddressType.operations', props);
+    return resource.getResponseField('operations') as unknown as shapes.LightsailOperation[];
+  }
+
+}
+
+export class LightsailResponsesPutResourceAccessForBucket {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailSetResourceAccessForBucketRequest) {
+  }
+
+  public get operations(): shapes.LightsailOperation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'setResourceAccessForBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.SetResourceAccessForBucket.operations'),
+        outputPath: 'operations',
+        parameters: {
+          resourceName: this.__input.resourceName,
+          bucketName: this.__input.bucketName,
+          access: this.__input.access,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SetResourceAccessForBucket.operations', props);
+    return resource.getResponseField('operations') as unknown as shapes.LightsailOperation[];
+  }
+
+}
+
 export class LightsailResponsesStartInstance {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailStartInstanceRequest) {
@@ -18102,6 +19305,519 @@ export class LightsailResponsesUntagResource {
 
 }
 
+export class LightsailResponsesUpdateBucket {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailUpdateBucketRequest) {
+  }
+
+  public get bucket(): LightsailResponsesUpdateBucketBucket {
+    return new LightsailResponsesUpdateBucketBucket(this.__scope, this.__resources, this.__input);
+  }
+
+  public get operations(): shapes.LightsailOperation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.operations'),
+        outputPath: 'operations',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.operations', props);
+    return resource.getResponseField('operations') as unknown as shapes.LightsailOperation[];
+  }
+
+}
+
+export class LightsailResponsesUpdateBucketBucket {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailUpdateBucketRequest) {
+  }
+
+  public get resourceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.bucket.resourceType'),
+        outputPath: 'bucket.resourceType',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.bucket.resourceType', props);
+    return resource.getResponseField('bucket.resourceType') as unknown as string;
+  }
+
+  public get accessRules(): LightsailResponsesUpdateBucketBucketAccessRules {
+    return new LightsailResponsesUpdateBucketBucketAccessRules(this.__scope, this.__resources, this.__input);
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.bucket.arn'),
+        outputPath: 'bucket.arn',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.bucket.arn', props);
+    return resource.getResponseField('bucket.arn') as unknown as string;
+  }
+
+  public get bundleId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.bucket.bundleId'),
+        outputPath: 'bucket.bundleId',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.bucket.bundleId', props);
+    return resource.getResponseField('bucket.bundleId') as unknown as string;
+  }
+
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.bucket.createdAt'),
+        outputPath: 'bucket.createdAt',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.bucket.createdAt', props);
+    return resource.getResponseField('bucket.createdAt') as unknown as string;
+  }
+
+  public get url(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.bucket.url'),
+        outputPath: 'bucket.url',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.bucket.url', props);
+    return resource.getResponseField('bucket.url') as unknown as string;
+  }
+
+  public get location(): LightsailResponsesUpdateBucketBucketLocation {
+    return new LightsailResponsesUpdateBucketBucketLocation(this.__scope, this.__resources, this.__input);
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.bucket.name'),
+        outputPath: 'bucket.name',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.bucket.name', props);
+    return resource.getResponseField('bucket.name') as unknown as string;
+  }
+
+  public get supportCode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.bucket.supportCode'),
+        outputPath: 'bucket.supportCode',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.bucket.supportCode', props);
+    return resource.getResponseField('bucket.supportCode') as unknown as string;
+  }
+
+  public get tags(): shapes.LightsailTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.bucket.tags'),
+        outputPath: 'bucket.tags',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.bucket.tags', props);
+    return resource.getResponseField('bucket.tags') as unknown as shapes.LightsailTag[];
+  }
+
+  public get objectVersioning(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.bucket.objectVersioning'),
+        outputPath: 'bucket.objectVersioning',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.bucket.objectVersioning', props);
+    return resource.getResponseField('bucket.objectVersioning') as unknown as string;
+  }
+
+  public get ableToUpdateBundle(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.bucket.ableToUpdateBundle'),
+        outputPath: 'bucket.ableToUpdateBundle',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.bucket.ableToUpdateBundle', props);
+    return resource.getResponseField('bucket.ableToUpdateBundle') as unknown as boolean;
+  }
+
+  public get readonlyAccessAccounts(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.bucket.readonlyAccessAccounts'),
+        outputPath: 'bucket.readonlyAccessAccounts',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.bucket.readonlyAccessAccounts', props);
+    return resource.getResponseField('bucket.readonlyAccessAccounts') as unknown as string[];
+  }
+
+  public get resourcesReceivingAccess(): shapes.LightsailResourceReceivingAccess[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.bucket.resourcesReceivingAccess'),
+        outputPath: 'bucket.resourcesReceivingAccess',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.bucket.resourcesReceivingAccess', props);
+    return resource.getResponseField('bucket.resourcesReceivingAccess') as unknown as shapes.LightsailResourceReceivingAccess[];
+  }
+
+  public get state(): LightsailResponsesUpdateBucketBucketState {
+    return new LightsailResponsesUpdateBucketBucketState(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class LightsailResponsesUpdateBucketBucketAccessRules {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailUpdateBucketRequest) {
+  }
+
+  public get getObject(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.bucket.accessRules.getObject'),
+        outputPath: 'bucket.accessRules.getObject',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.bucket.accessRules.getObject', props);
+    return resource.getResponseField('bucket.accessRules.getObject') as unknown as string;
+  }
+
+  public get allowPublicOverrides(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.bucket.accessRules.allowPublicOverrides'),
+        outputPath: 'bucket.accessRules.allowPublicOverrides',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.bucket.accessRules.allowPublicOverrides', props);
+    return resource.getResponseField('bucket.accessRules.allowPublicOverrides') as unknown as boolean;
+  }
+
+}
+
+export class LightsailResponsesUpdateBucketBucketLocation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailUpdateBucketRequest) {
+  }
+
+  public get availabilityZone(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.bucket.location.availabilityZone'),
+        outputPath: 'bucket.location.availabilityZone',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.bucket.location.availabilityZone', props);
+    return resource.getResponseField('bucket.location.availabilityZone') as unknown as string;
+  }
+
+  public get regionName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.bucket.location.regionName'),
+        outputPath: 'bucket.location.regionName',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.bucket.location.regionName', props);
+    return resource.getResponseField('bucket.location.regionName') as unknown as string;
+  }
+
+}
+
+export class LightsailResponsesUpdateBucketBucketState {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailUpdateBucketRequest) {
+  }
+
+  public get code(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.bucket.state.code'),
+        outputPath: 'bucket.state.code',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.bucket.state.code', props);
+    return resource.getResponseField('bucket.state.code') as unknown as string;
+  }
+
+  public get message(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucket',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucket.bucket.state.message'),
+        outputPath: 'bucket.state.message',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          accessRules: {
+            getObject: this.__input.accessRules?.getObject,
+            allowPublicOverrides: this.__input.accessRules?.allowPublicOverrides,
+          },
+          versioning: this.__input.versioning,
+          readonlyAccessAccounts: this.__input.readonlyAccessAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucket.bucket.state.message', props);
+    return resource.getResponseField('bucket.state.message') as unknown as string;
+  }
+
+}
+
+export class LightsailResponsesUpdateBucketBundle {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailUpdateBucketBundleRequest) {
+  }
+
+  public get operations(): shapes.LightsailOperation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBucketBundle',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateBucketBundle.operations'),
+        outputPath: 'operations',
+        parameters: {
+          bucketName: this.__input.bucketName,
+          bundleId: this.__input.bundleId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBucketBundle.operations', props);
+    return resource.getResponseField('operations') as unknown as shapes.LightsailOperation[];
+  }
+
+}
+
 export class LightsailResponsesUpdateContainerService {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailUpdateContainerServiceRequest) {
@@ -18290,6 +20006,10 @@ export class LightsailResponsesUpdateContainerServiceContainerService {
     return resource.getResponseField('containerService.state') as unknown as string;
   }
 
+  public get stateDetail(): LightsailResponsesUpdateContainerServiceContainerServiceStateDetail {
+    return new LightsailResponsesUpdateContainerServiceContainerServiceStateDetail(this.__scope, this.__resources, this.__input);
+  }
+
   public get scale(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -18471,6 +20191,55 @@ export class LightsailResponsesUpdateContainerServiceContainerServiceLocation {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateContainerService.containerService.location.regionName', props);
     return resource.getResponseField('containerService.location.regionName') as unknown as string;
+  }
+
+}
+
+export class LightsailResponsesUpdateContainerServiceContainerServiceStateDetail {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LightsailUpdateContainerServiceRequest) {
+  }
+
+  public get code(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateContainerService',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateContainerService.containerService.stateDetail.code'),
+        outputPath: 'containerService.stateDetail.code',
+        parameters: {
+          serviceName: this.__input.serviceName,
+          power: this.__input.power,
+          scale: this.__input.scale,
+          isDisabled: this.__input.isDisabled,
+          publicDomainNames: this.__input.publicDomainNames,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateContainerService.containerService.stateDetail.code', props);
+    return resource.getResponseField('containerService.stateDetail.code') as unknown as string;
+  }
+
+  public get message(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateContainerService',
+        service: 'Lightsail',
+        physicalResourceId: cr.PhysicalResourceId.of('Lightsail.UpdateContainerService.containerService.stateDetail.message'),
+        outputPath: 'containerService.stateDetail.message',
+        parameters: {
+          serviceName: this.__input.serviceName,
+          power: this.__input.power,
+          scale: this.__input.scale,
+          isDisabled: this.__input.isDisabled,
+          publicDomainNames: this.__input.publicDomainNames,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateContainerService.containerService.stateDetail.message', props);
+    return resource.getResponseField('containerService.stateDetail.message') as unknown as string;
   }
 
 }

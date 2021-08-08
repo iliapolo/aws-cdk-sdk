@@ -15,6 +15,21 @@ export interface ImagebuilderCancelImageCreationRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderCancelImageCreationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderCancelImageCreationRequest(obj: ImagebuilderCancelImageCreationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imageBuildVersionArn': obj.imageBuildVersionArn,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderCancelImageCreationResponse
  */
 export interface ImagebuilderCancelImageCreationResponse {
@@ -34,6 +49,22 @@ export interface ImagebuilderCancelImageCreationResponse {
   readonly imageBuildVersionArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderCancelImageCreationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderCancelImageCreationResponse(obj: ImagebuilderCancelImageCreationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'clientToken': obj.clientToken,
+    'imageBuildVersionArn': obj.imageBuildVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderCreateComponentRequest
@@ -97,6 +128,30 @@ export interface ImagebuilderCreateComponentRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderCreateComponentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderCreateComponentRequest(obj: ImagebuilderCreateComponentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'semanticVersion': obj.semanticVersion,
+    'description': obj.description,
+    'changeDescription': obj.changeDescription,
+    'platform': obj.platform,
+    'supportedOsVersions': obj.supportedOsVersions?.map(y => y),
+    'data': obj.data,
+    'uri': obj.uri,
+    'kmsKeyId': obj.kmsKeyId,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderCreateComponentResponse
  */
 export interface ImagebuilderCreateComponentResponse {
@@ -116,6 +171,174 @@ export interface ImagebuilderCreateComponentResponse {
   readonly componentBuildVersionArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderCreateComponentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderCreateComponentResponse(obj: ImagebuilderCreateComponentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'clientToken': obj.clientToken,
+    'componentBuildVersionArn': obj.componentBuildVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderCreateContainerRecipeRequest
+ */
+export interface ImagebuilderCreateContainerRecipeRequest {
+  /**
+   * @schema ImagebuilderCreateContainerRecipeRequest#containerType
+   */
+  readonly containerType: string;
+
+  /**
+   * @schema ImagebuilderCreateContainerRecipeRequest#name
+   */
+  readonly name: string;
+
+  /**
+   * @schema ImagebuilderCreateContainerRecipeRequest#description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema ImagebuilderCreateContainerRecipeRequest#semanticVersion
+   */
+  readonly semanticVersion: string;
+
+  /**
+   * @schema ImagebuilderCreateContainerRecipeRequest#components
+   */
+  readonly components: ImagebuilderComponentConfiguration[];
+
+  /**
+   * @schema ImagebuilderCreateContainerRecipeRequest#instanceConfiguration
+   */
+  readonly instanceConfiguration?: ImagebuilderInstanceConfiguration;
+
+  /**
+   * @schema ImagebuilderCreateContainerRecipeRequest#dockerfileTemplateData
+   */
+  readonly dockerfileTemplateData?: string;
+
+  /**
+   * @schema ImagebuilderCreateContainerRecipeRequest#dockerfileTemplateUri
+   */
+  readonly dockerfileTemplateUri?: string;
+
+  /**
+   * @schema ImagebuilderCreateContainerRecipeRequest#platformOverride
+   */
+  readonly platformOverride?: string;
+
+  /**
+   * @schema ImagebuilderCreateContainerRecipeRequest#imageOsVersionOverride
+   */
+  readonly imageOsVersionOverride?: string;
+
+  /**
+   * @schema ImagebuilderCreateContainerRecipeRequest#parentImage
+   */
+  readonly parentImage: string;
+
+  /**
+   * @schema ImagebuilderCreateContainerRecipeRequest#tags
+   */
+  readonly tags?: { [key: string]: string };
+
+  /**
+   * @schema ImagebuilderCreateContainerRecipeRequest#workingDirectory
+   */
+  readonly workingDirectory?: string;
+
+  /**
+   * @schema ImagebuilderCreateContainerRecipeRequest#targetRepository
+   */
+  readonly targetRepository: ImagebuilderTargetContainerRepository;
+
+  /**
+   * @schema ImagebuilderCreateContainerRecipeRequest#kmsKeyId
+   */
+  readonly kmsKeyId?: string;
+
+  /**
+   * @schema ImagebuilderCreateContainerRecipeRequest#clientToken
+   */
+  readonly clientToken: string;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderCreateContainerRecipeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderCreateContainerRecipeRequest(obj: ImagebuilderCreateContainerRecipeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'containerType': obj.containerType,
+    'name': obj.name,
+    'description': obj.description,
+    'semanticVersion': obj.semanticVersion,
+    'components': obj.components?.map(y => toJson_ImagebuilderComponentConfiguration(y)),
+    'instanceConfiguration': toJson_ImagebuilderInstanceConfiguration(obj.instanceConfiguration),
+    'dockerfileTemplateData': obj.dockerfileTemplateData,
+    'dockerfileTemplateUri': obj.dockerfileTemplateUri,
+    'platformOverride': obj.platformOverride,
+    'imageOsVersionOverride': obj.imageOsVersionOverride,
+    'parentImage': obj.parentImage,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'workingDirectory': obj.workingDirectory,
+    'targetRepository': toJson_ImagebuilderTargetContainerRepository(obj.targetRepository),
+    'kmsKeyId': obj.kmsKeyId,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderCreateContainerRecipeResponse
+ */
+export interface ImagebuilderCreateContainerRecipeResponse {
+  /**
+   * @schema ImagebuilderCreateContainerRecipeResponse#requestId
+   */
+  readonly requestId?: string;
+
+  /**
+   * @schema ImagebuilderCreateContainerRecipeResponse#clientToken
+   */
+  readonly clientToken?: string;
+
+  /**
+   * @schema ImagebuilderCreateContainerRecipeResponse#containerRecipeArn
+   */
+  readonly containerRecipeArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderCreateContainerRecipeResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderCreateContainerRecipeResponse(obj: ImagebuilderCreateContainerRecipeResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'clientToken': obj.clientToken,
+    'containerRecipeArn': obj.containerRecipeArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderCreateDistributionConfigurationRequest
@@ -149,6 +372,24 @@ export interface ImagebuilderCreateDistributionConfigurationRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderCreateDistributionConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderCreateDistributionConfigurationRequest(obj: ImagebuilderCreateDistributionConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'description': obj.description,
+    'distributions': obj.distributions?.map(y => toJson_ImagebuilderDistribution(y)),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderCreateDistributionConfigurationResponse
  */
 export interface ImagebuilderCreateDistributionConfigurationResponse {
@@ -170,13 +411,34 @@ export interface ImagebuilderCreateDistributionConfigurationResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderCreateDistributionConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderCreateDistributionConfigurationResponse(obj: ImagebuilderCreateDistributionConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'clientToken': obj.clientToken,
+    'distributionConfigurationArn': obj.distributionConfigurationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderCreateImageRequest
  */
 export interface ImagebuilderCreateImageRequest {
   /**
    * @schema ImagebuilderCreateImageRequest#imageRecipeArn
    */
-  readonly imageRecipeArn: string;
+  readonly imageRecipeArn?: string;
+
+  /**
+   * @schema ImagebuilderCreateImageRequest#containerRecipeArn
+   */
+  readonly containerRecipeArn?: string;
 
   /**
    * @schema ImagebuilderCreateImageRequest#distributionConfigurationArn
@@ -211,6 +473,27 @@ export interface ImagebuilderCreateImageRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderCreateImageRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderCreateImageRequest(obj: ImagebuilderCreateImageRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imageRecipeArn': obj.imageRecipeArn,
+    'containerRecipeArn': obj.containerRecipeArn,
+    'distributionConfigurationArn': obj.distributionConfigurationArn,
+    'infrastructureConfigurationArn': obj.infrastructureConfigurationArn,
+    'imageTestsConfiguration': toJson_ImagebuilderImageTestsConfiguration(obj.imageTestsConfiguration),
+    'enhancedImageMetadataEnabled': obj.enhancedImageMetadataEnabled,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderCreateImageResponse
  */
 export interface ImagebuilderCreateImageResponse {
@@ -232,6 +515,22 @@ export interface ImagebuilderCreateImageResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderCreateImageResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderCreateImageResponse(obj: ImagebuilderCreateImageResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'clientToken': obj.clientToken,
+    'imageBuildVersionArn': obj.imageBuildVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderCreateImagePipelineRequest
  */
 export interface ImagebuilderCreateImagePipelineRequest {
@@ -248,7 +547,12 @@ export interface ImagebuilderCreateImagePipelineRequest {
   /**
    * @schema ImagebuilderCreateImagePipelineRequest#imageRecipeArn
    */
-  readonly imageRecipeArn: string;
+  readonly imageRecipeArn?: string;
+
+  /**
+   * @schema ImagebuilderCreateImagePipelineRequest#containerRecipeArn
+   */
+  readonly containerRecipeArn?: string;
 
   /**
    * @schema ImagebuilderCreateImagePipelineRequest#infrastructureConfigurationArn
@@ -293,6 +597,31 @@ export interface ImagebuilderCreateImagePipelineRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderCreateImagePipelineRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderCreateImagePipelineRequest(obj: ImagebuilderCreateImagePipelineRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'description': obj.description,
+    'imageRecipeArn': obj.imageRecipeArn,
+    'containerRecipeArn': obj.containerRecipeArn,
+    'infrastructureConfigurationArn': obj.infrastructureConfigurationArn,
+    'distributionConfigurationArn': obj.distributionConfigurationArn,
+    'imageTestsConfiguration': toJson_ImagebuilderImageTestsConfiguration(obj.imageTestsConfiguration),
+    'enhancedImageMetadataEnabled': obj.enhancedImageMetadataEnabled,
+    'schedule': toJson_ImagebuilderSchedule(obj.schedule),
+    'status': obj.status,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderCreateImagePipelineResponse
  */
 export interface ImagebuilderCreateImagePipelineResponse {
@@ -312,6 +641,22 @@ export interface ImagebuilderCreateImagePipelineResponse {
   readonly imagePipelineArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderCreateImagePipelineResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderCreateImagePipelineResponse(obj: ImagebuilderCreateImagePipelineResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'clientToken': obj.clientToken,
+    'imagePipelineArn': obj.imagePipelineArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderCreateImageRecipeRequest
@@ -358,11 +703,39 @@ export interface ImagebuilderCreateImageRecipeRequest {
   readonly workingDirectory?: string;
 
   /**
+   * @schema ImagebuilderCreateImageRecipeRequest#additionalInstanceConfiguration
+   */
+  readonly additionalInstanceConfiguration?: ImagebuilderAdditionalInstanceConfiguration;
+
+  /**
    * @schema ImagebuilderCreateImageRecipeRequest#clientToken
    */
   readonly clientToken: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderCreateImageRecipeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderCreateImageRecipeRequest(obj: ImagebuilderCreateImageRecipeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'description': obj.description,
+    'semanticVersion': obj.semanticVersion,
+    'components': obj.components?.map(y => toJson_ImagebuilderComponentConfiguration(y)),
+    'parentImage': obj.parentImage,
+    'blockDeviceMappings': obj.blockDeviceMappings?.map(y => toJson_ImagebuilderInstanceBlockDeviceMapping(y)),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'workingDirectory': obj.workingDirectory,
+    'additionalInstanceConfiguration': toJson_ImagebuilderAdditionalInstanceConfiguration(obj.additionalInstanceConfiguration),
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderCreateImageRecipeResponse
@@ -384,6 +757,22 @@ export interface ImagebuilderCreateImageRecipeResponse {
   readonly imageRecipeArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderCreateImageRecipeResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderCreateImageRecipeResponse(obj: ImagebuilderCreateImageRecipeResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'clientToken': obj.clientToken,
+    'imageRecipeArn': obj.imageRecipeArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderCreateInfrastructureConfigurationRequest
@@ -457,6 +846,32 @@ export interface ImagebuilderCreateInfrastructureConfigurationRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderCreateInfrastructureConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderCreateInfrastructureConfigurationRequest(obj: ImagebuilderCreateInfrastructureConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'description': obj.description,
+    'instanceTypes': obj.instanceTypes?.map(y => y),
+    'instanceProfileName': obj.instanceProfileName,
+    'securityGroupIds': obj.securityGroupIds?.map(y => y),
+    'subnetId': obj.subnetId,
+    'logging': toJson_ImagebuilderLogging(obj.logging),
+    'keyPair': obj.keyPair,
+    'terminateInstanceOnFailure': obj.terminateInstanceOnFailure,
+    'snsTopicArn': obj.snsTopicArn,
+    'resourceTags': ((obj.resourceTags) === undefined) ? undefined : (Object.entries(obj.resourceTags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderCreateInfrastructureConfigurationResponse
  */
 export interface ImagebuilderCreateInfrastructureConfigurationResponse {
@@ -478,6 +893,22 @@ export interface ImagebuilderCreateInfrastructureConfigurationResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderCreateInfrastructureConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderCreateInfrastructureConfigurationResponse(obj: ImagebuilderCreateInfrastructureConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'clientToken': obj.clientToken,
+    'infrastructureConfigurationArn': obj.infrastructureConfigurationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderDeleteComponentRequest
  */
 export interface ImagebuilderDeleteComponentRequest {
@@ -487,6 +918,20 @@ export interface ImagebuilderDeleteComponentRequest {
   readonly componentBuildVersionArn: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderDeleteComponentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderDeleteComponentRequest(obj: ImagebuilderDeleteComponentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'componentBuildVersionArn': obj.componentBuildVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderDeleteComponentResponse
@@ -505,6 +950,77 @@ export interface ImagebuilderDeleteComponentResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderDeleteComponentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderDeleteComponentResponse(obj: ImagebuilderDeleteComponentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'componentBuildVersionArn': obj.componentBuildVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderDeleteContainerRecipeRequest
+ */
+export interface ImagebuilderDeleteContainerRecipeRequest {
+  /**
+   * @schema ImagebuilderDeleteContainerRecipeRequest#containerRecipeArn
+   */
+  readonly containerRecipeArn: string;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderDeleteContainerRecipeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderDeleteContainerRecipeRequest(obj: ImagebuilderDeleteContainerRecipeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'containerRecipeArn': obj.containerRecipeArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderDeleteContainerRecipeResponse
+ */
+export interface ImagebuilderDeleteContainerRecipeResponse {
+  /**
+   * @schema ImagebuilderDeleteContainerRecipeResponse#requestId
+   */
+  readonly requestId?: string;
+
+  /**
+   * @schema ImagebuilderDeleteContainerRecipeResponse#containerRecipeArn
+   */
+  readonly containerRecipeArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderDeleteContainerRecipeResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderDeleteContainerRecipeResponse(obj: ImagebuilderDeleteContainerRecipeResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'containerRecipeArn': obj.containerRecipeArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderDeleteDistributionConfigurationRequest
  */
 export interface ImagebuilderDeleteDistributionConfigurationRequest {
@@ -514,6 +1030,20 @@ export interface ImagebuilderDeleteDistributionConfigurationRequest {
   readonly distributionConfigurationArn: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderDeleteDistributionConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderDeleteDistributionConfigurationRequest(obj: ImagebuilderDeleteDistributionConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'distributionConfigurationArn': obj.distributionConfigurationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderDeleteDistributionConfigurationResponse
@@ -532,6 +1062,21 @@ export interface ImagebuilderDeleteDistributionConfigurationResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderDeleteDistributionConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderDeleteDistributionConfigurationResponse(obj: ImagebuilderDeleteDistributionConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'distributionConfigurationArn': obj.distributionConfigurationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderDeleteImageRequest
  */
 export interface ImagebuilderDeleteImageRequest {
@@ -541,6 +1086,20 @@ export interface ImagebuilderDeleteImageRequest {
   readonly imageBuildVersionArn: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderDeleteImageRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderDeleteImageRequest(obj: ImagebuilderDeleteImageRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imageBuildVersionArn': obj.imageBuildVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderDeleteImageResponse
@@ -559,6 +1118,21 @@ export interface ImagebuilderDeleteImageResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderDeleteImageResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderDeleteImageResponse(obj: ImagebuilderDeleteImageResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'imageBuildVersionArn': obj.imageBuildVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderDeleteImagePipelineRequest
  */
 export interface ImagebuilderDeleteImagePipelineRequest {
@@ -568,6 +1142,20 @@ export interface ImagebuilderDeleteImagePipelineRequest {
   readonly imagePipelineArn: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderDeleteImagePipelineRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderDeleteImagePipelineRequest(obj: ImagebuilderDeleteImagePipelineRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imagePipelineArn': obj.imagePipelineArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderDeleteImagePipelineResponse
@@ -586,6 +1174,21 @@ export interface ImagebuilderDeleteImagePipelineResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderDeleteImagePipelineResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderDeleteImagePipelineResponse(obj: ImagebuilderDeleteImagePipelineResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'imagePipelineArn': obj.imagePipelineArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderDeleteImageRecipeRequest
  */
 export interface ImagebuilderDeleteImageRecipeRequest {
@@ -595,6 +1198,20 @@ export interface ImagebuilderDeleteImageRecipeRequest {
   readonly imageRecipeArn: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderDeleteImageRecipeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderDeleteImageRecipeRequest(obj: ImagebuilderDeleteImageRecipeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imageRecipeArn': obj.imageRecipeArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderDeleteImageRecipeResponse
@@ -613,6 +1230,21 @@ export interface ImagebuilderDeleteImageRecipeResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderDeleteImageRecipeResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderDeleteImageRecipeResponse(obj: ImagebuilderDeleteImageRecipeResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'imageRecipeArn': obj.imageRecipeArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderDeleteInfrastructureConfigurationRequest
  */
 export interface ImagebuilderDeleteInfrastructureConfigurationRequest {
@@ -622,6 +1254,20 @@ export interface ImagebuilderDeleteInfrastructureConfigurationRequest {
   readonly infrastructureConfigurationArn: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderDeleteInfrastructureConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderDeleteInfrastructureConfigurationRequest(obj: ImagebuilderDeleteInfrastructureConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'infrastructureConfigurationArn': obj.infrastructureConfigurationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderDeleteInfrastructureConfigurationResponse
@@ -640,6 +1286,21 @@ export interface ImagebuilderDeleteInfrastructureConfigurationResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderDeleteInfrastructureConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderDeleteInfrastructureConfigurationResponse(obj: ImagebuilderDeleteInfrastructureConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'infrastructureConfigurationArn': obj.infrastructureConfigurationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderGetComponentRequest
  */
 export interface ImagebuilderGetComponentRequest {
@@ -649,6 +1310,20 @@ export interface ImagebuilderGetComponentRequest {
   readonly componentBuildVersionArn: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderGetComponentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetComponentRequest(obj: ImagebuilderGetComponentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'componentBuildVersionArn': obj.componentBuildVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderGetComponentResponse
@@ -667,6 +1342,21 @@ export interface ImagebuilderGetComponentResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderGetComponentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetComponentResponse(obj: ImagebuilderGetComponentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'component': toJson_ImagebuilderComponent(obj.component),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderGetComponentPolicyRequest
  */
 export interface ImagebuilderGetComponentPolicyRequest {
@@ -676,6 +1366,20 @@ export interface ImagebuilderGetComponentPolicyRequest {
   readonly componentArn: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderGetComponentPolicyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetComponentPolicyRequest(obj: ImagebuilderGetComponentPolicyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'componentArn': obj.componentArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderGetComponentPolicyResponse
@@ -694,6 +1398,133 @@ export interface ImagebuilderGetComponentPolicyResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderGetComponentPolicyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetComponentPolicyResponse(obj: ImagebuilderGetComponentPolicyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'policy': obj.policy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderGetContainerRecipeRequest
+ */
+export interface ImagebuilderGetContainerRecipeRequest {
+  /**
+   * @schema ImagebuilderGetContainerRecipeRequest#containerRecipeArn
+   */
+  readonly containerRecipeArn: string;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderGetContainerRecipeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetContainerRecipeRequest(obj: ImagebuilderGetContainerRecipeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'containerRecipeArn': obj.containerRecipeArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderGetContainerRecipeResponse
+ */
+export interface ImagebuilderGetContainerRecipeResponse {
+  /**
+   * @schema ImagebuilderGetContainerRecipeResponse#requestId
+   */
+  readonly requestId?: string;
+
+  /**
+   * @schema ImagebuilderGetContainerRecipeResponse#containerRecipe
+   */
+  readonly containerRecipe?: ImagebuilderContainerRecipe;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderGetContainerRecipeResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetContainerRecipeResponse(obj: ImagebuilderGetContainerRecipeResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'containerRecipe': toJson_ImagebuilderContainerRecipe(obj.containerRecipe),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderGetContainerRecipePolicyRequest
+ */
+export interface ImagebuilderGetContainerRecipePolicyRequest {
+  /**
+   * @schema ImagebuilderGetContainerRecipePolicyRequest#containerRecipeArn
+   */
+  readonly containerRecipeArn: string;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderGetContainerRecipePolicyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetContainerRecipePolicyRequest(obj: ImagebuilderGetContainerRecipePolicyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'containerRecipeArn': obj.containerRecipeArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderGetContainerRecipePolicyResponse
+ */
+export interface ImagebuilderGetContainerRecipePolicyResponse {
+  /**
+   * @schema ImagebuilderGetContainerRecipePolicyResponse#requestId
+   */
+  readonly requestId?: string;
+
+  /**
+   * @schema ImagebuilderGetContainerRecipePolicyResponse#policy
+   */
+  readonly policy?: string;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderGetContainerRecipePolicyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetContainerRecipePolicyResponse(obj: ImagebuilderGetContainerRecipePolicyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'policy': obj.policy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderGetDistributionConfigurationRequest
  */
 export interface ImagebuilderGetDistributionConfigurationRequest {
@@ -703,6 +1534,20 @@ export interface ImagebuilderGetDistributionConfigurationRequest {
   readonly distributionConfigurationArn: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderGetDistributionConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetDistributionConfigurationRequest(obj: ImagebuilderGetDistributionConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'distributionConfigurationArn': obj.distributionConfigurationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderGetDistributionConfigurationResponse
@@ -721,6 +1566,21 @@ export interface ImagebuilderGetDistributionConfigurationResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderGetDistributionConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetDistributionConfigurationResponse(obj: ImagebuilderGetDistributionConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'distributionConfiguration': toJson_ImagebuilderDistributionConfiguration(obj.distributionConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderGetImageRequest
  */
 export interface ImagebuilderGetImageRequest {
@@ -730,6 +1590,20 @@ export interface ImagebuilderGetImageRequest {
   readonly imageBuildVersionArn: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderGetImageRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetImageRequest(obj: ImagebuilderGetImageRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imageBuildVersionArn': obj.imageBuildVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderGetImageResponse
@@ -748,6 +1622,21 @@ export interface ImagebuilderGetImageResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderGetImageResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetImageResponse(obj: ImagebuilderGetImageResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'image': toJson_ImagebuilderImage(obj.image),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderGetImagePipelineRequest
  */
 export interface ImagebuilderGetImagePipelineRequest {
@@ -757,6 +1646,20 @@ export interface ImagebuilderGetImagePipelineRequest {
   readonly imagePipelineArn: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderGetImagePipelineRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetImagePipelineRequest(obj: ImagebuilderGetImagePipelineRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imagePipelineArn': obj.imagePipelineArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderGetImagePipelineResponse
@@ -775,6 +1678,21 @@ export interface ImagebuilderGetImagePipelineResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderGetImagePipelineResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetImagePipelineResponse(obj: ImagebuilderGetImagePipelineResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'imagePipeline': toJson_ImagebuilderImagePipeline(obj.imagePipeline),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderGetImagePolicyRequest
  */
 export interface ImagebuilderGetImagePolicyRequest {
@@ -784,6 +1702,20 @@ export interface ImagebuilderGetImagePolicyRequest {
   readonly imageArn: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderGetImagePolicyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetImagePolicyRequest(obj: ImagebuilderGetImagePolicyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imageArn': obj.imageArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderGetImagePolicyResponse
@@ -802,6 +1734,21 @@ export interface ImagebuilderGetImagePolicyResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderGetImagePolicyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetImagePolicyResponse(obj: ImagebuilderGetImagePolicyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'policy': obj.policy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderGetImageRecipeRequest
  */
 export interface ImagebuilderGetImageRecipeRequest {
@@ -811,6 +1758,20 @@ export interface ImagebuilderGetImageRecipeRequest {
   readonly imageRecipeArn: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderGetImageRecipeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetImageRecipeRequest(obj: ImagebuilderGetImageRecipeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imageRecipeArn': obj.imageRecipeArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderGetImageRecipeResponse
@@ -829,6 +1790,21 @@ export interface ImagebuilderGetImageRecipeResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderGetImageRecipeResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetImageRecipeResponse(obj: ImagebuilderGetImageRecipeResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'imageRecipe': toJson_ImagebuilderImageRecipe(obj.imageRecipe),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderGetImageRecipePolicyRequest
  */
 export interface ImagebuilderGetImageRecipePolicyRequest {
@@ -838,6 +1814,20 @@ export interface ImagebuilderGetImageRecipePolicyRequest {
   readonly imageRecipeArn: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderGetImageRecipePolicyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetImageRecipePolicyRequest(obj: ImagebuilderGetImageRecipePolicyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imageRecipeArn': obj.imageRecipeArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderGetImageRecipePolicyResponse
@@ -856,6 +1846,21 @@ export interface ImagebuilderGetImageRecipePolicyResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderGetImageRecipePolicyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetImageRecipePolicyResponse(obj: ImagebuilderGetImageRecipePolicyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'policy': obj.policy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderGetInfrastructureConfigurationRequest
  */
 export interface ImagebuilderGetInfrastructureConfigurationRequest {
@@ -865,6 +1870,20 @@ export interface ImagebuilderGetInfrastructureConfigurationRequest {
   readonly infrastructureConfigurationArn: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderGetInfrastructureConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetInfrastructureConfigurationRequest(obj: ImagebuilderGetInfrastructureConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'infrastructureConfigurationArn': obj.infrastructureConfigurationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderGetInfrastructureConfigurationResponse
@@ -881,6 +1900,21 @@ export interface ImagebuilderGetInfrastructureConfigurationResponse {
   readonly infrastructureConfiguration?: ImagebuilderInfrastructureConfiguration;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderGetInfrastructureConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderGetInfrastructureConfigurationResponse(obj: ImagebuilderGetInfrastructureConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'infrastructureConfiguration': toJson_ImagebuilderInfrastructureConfiguration(obj.infrastructureConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderImportComponentRequest
@@ -949,6 +1983,31 @@ export interface ImagebuilderImportComponentRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderImportComponentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderImportComponentRequest(obj: ImagebuilderImportComponentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'semanticVersion': obj.semanticVersion,
+    'description': obj.description,
+    'changeDescription': obj.changeDescription,
+    'type': obj.type,
+    'format': obj.format,
+    'platform': obj.platform,
+    'data': obj.data,
+    'uri': obj.uri,
+    'kmsKeyId': obj.kmsKeyId,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderImportComponentResponse
  */
 export interface ImagebuilderImportComponentResponse {
@@ -968,6 +2027,22 @@ export interface ImagebuilderImportComponentResponse {
   readonly componentBuildVersionArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderImportComponentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderImportComponentResponse(obj: ImagebuilderImportComponentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'clientToken': obj.clientToken,
+    'componentBuildVersionArn': obj.componentBuildVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderListComponentBuildVersionsRequest
@@ -991,6 +2066,22 @@ export interface ImagebuilderListComponentBuildVersionsRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderListComponentBuildVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListComponentBuildVersionsRequest(obj: ImagebuilderListComponentBuildVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'componentVersionArn': obj.componentVersionArn,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderListComponentBuildVersionsResponse
  */
 export interface ImagebuilderListComponentBuildVersionsResponse {
@@ -1012,6 +2103,22 @@ export interface ImagebuilderListComponentBuildVersionsResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderListComponentBuildVersionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListComponentBuildVersionsResponse(obj: ImagebuilderListComponentBuildVersionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'componentSummaryList': obj.componentSummaryList?.map(y => toJson_ImagebuilderComponentSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderListComponentsRequest
  */
 export interface ImagebuilderListComponentsRequest {
@@ -1026,6 +2133,11 @@ export interface ImagebuilderListComponentsRequest {
   readonly filters?: ImagebuilderFilter[];
 
   /**
+   * @schema ImagebuilderListComponentsRequest#byName
+   */
+  readonly byName?: boolean;
+
+  /**
    * @schema ImagebuilderListComponentsRequest#maxResults
    */
   readonly maxResults?: number;
@@ -1036,6 +2148,24 @@ export interface ImagebuilderListComponentsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderListComponentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListComponentsRequest(obj: ImagebuilderListComponentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'owner': obj.owner,
+    'filters': obj.filters?.map(y => toJson_ImagebuilderFilter(y)),
+    'byName': obj.byName,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderListComponentsResponse
@@ -1059,6 +2189,102 @@ export interface ImagebuilderListComponentsResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderListComponentsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListComponentsResponse(obj: ImagebuilderListComponentsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'componentVersionList': obj.componentVersionList?.map(y => toJson_ImagebuilderComponentVersion(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderListContainerRecipesRequest
+ */
+export interface ImagebuilderListContainerRecipesRequest {
+  /**
+   * @schema ImagebuilderListContainerRecipesRequest#owner
+   */
+  readonly owner?: string;
+
+  /**
+   * @schema ImagebuilderListContainerRecipesRequest#filters
+   */
+  readonly filters?: ImagebuilderFilter[];
+
+  /**
+   * @schema ImagebuilderListContainerRecipesRequest#maxResults
+   */
+  readonly maxResults?: number;
+
+  /**
+   * @schema ImagebuilderListContainerRecipesRequest#nextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderListContainerRecipesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListContainerRecipesRequest(obj: ImagebuilderListContainerRecipesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'owner': obj.owner,
+    'filters': obj.filters?.map(y => toJson_ImagebuilderFilter(y)),
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderListContainerRecipesResponse
+ */
+export interface ImagebuilderListContainerRecipesResponse {
+  /**
+   * @schema ImagebuilderListContainerRecipesResponse#requestId
+   */
+  readonly requestId?: string;
+
+  /**
+   * @schema ImagebuilderListContainerRecipesResponse#containerRecipeSummaryList
+   */
+  readonly containerRecipeSummaryList?: ImagebuilderContainerRecipeSummary[];
+
+  /**
+   * @schema ImagebuilderListContainerRecipesResponse#nextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderListContainerRecipesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListContainerRecipesResponse(obj: ImagebuilderListContainerRecipesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'containerRecipeSummaryList': obj.containerRecipeSummaryList?.map(y => toJson_ImagebuilderContainerRecipeSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderListDistributionConfigurationsRequest
  */
 export interface ImagebuilderListDistributionConfigurationsRequest {
@@ -1080,6 +2306,22 @@ export interface ImagebuilderListDistributionConfigurationsRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderListDistributionConfigurationsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListDistributionConfigurationsRequest(obj: ImagebuilderListDistributionConfigurationsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filters': obj.filters?.map(y => toJson_ImagebuilderFilter(y)),
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderListDistributionConfigurationsResponse
  */
 export interface ImagebuilderListDistributionConfigurationsResponse {
@@ -1099,6 +2341,22 @@ export interface ImagebuilderListDistributionConfigurationsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderListDistributionConfigurationsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListDistributionConfigurationsResponse(obj: ImagebuilderListDistributionConfigurationsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'distributionConfigurationSummaryList': obj.distributionConfigurationSummaryList?.map(y => toJson_ImagebuilderDistributionConfigurationSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderListImageBuildVersionsRequest
@@ -1127,6 +2385,23 @@ export interface ImagebuilderListImageBuildVersionsRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderListImageBuildVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListImageBuildVersionsRequest(obj: ImagebuilderListImageBuildVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imageVersionArn': obj.imageVersionArn,
+    'filters': obj.filters?.map(y => toJson_ImagebuilderFilter(y)),
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderListImageBuildVersionsResponse
  */
 export interface ImagebuilderListImageBuildVersionsResponse {
@@ -1146,6 +2421,96 @@ export interface ImagebuilderListImageBuildVersionsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderListImageBuildVersionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListImageBuildVersionsResponse(obj: ImagebuilderListImageBuildVersionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'imageSummaryList': obj.imageSummaryList?.map(y => toJson_ImagebuilderImageSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderListImagePackagesRequest
+ */
+export interface ImagebuilderListImagePackagesRequest {
+  /**
+   * @schema ImagebuilderListImagePackagesRequest#imageBuildVersionArn
+   */
+  readonly imageBuildVersionArn: string;
+
+  /**
+   * @schema ImagebuilderListImagePackagesRequest#maxResults
+   */
+  readonly maxResults?: number;
+
+  /**
+   * @schema ImagebuilderListImagePackagesRequest#nextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderListImagePackagesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListImagePackagesRequest(obj: ImagebuilderListImagePackagesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imageBuildVersionArn': obj.imageBuildVersionArn,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderListImagePackagesResponse
+ */
+export interface ImagebuilderListImagePackagesResponse {
+  /**
+   * @schema ImagebuilderListImagePackagesResponse#requestId
+   */
+  readonly requestId?: string;
+
+  /**
+   * @schema ImagebuilderListImagePackagesResponse#imagePackageList
+   */
+  readonly imagePackageList?: ImagebuilderImagePackage[];
+
+  /**
+   * @schema ImagebuilderListImagePackagesResponse#nextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderListImagePackagesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListImagePackagesResponse(obj: ImagebuilderListImagePackagesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'imagePackageList': obj.imagePackageList?.map(y => toJson_ImagebuilderImagePackage(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderListImagePipelineImagesRequest
@@ -1174,6 +2539,23 @@ export interface ImagebuilderListImagePipelineImagesRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderListImagePipelineImagesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListImagePipelineImagesRequest(obj: ImagebuilderListImagePipelineImagesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imagePipelineArn': obj.imagePipelineArn,
+    'filters': obj.filters?.map(y => toJson_ImagebuilderFilter(y)),
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderListImagePipelineImagesResponse
  */
 export interface ImagebuilderListImagePipelineImagesResponse {
@@ -1193,6 +2575,22 @@ export interface ImagebuilderListImagePipelineImagesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderListImagePipelineImagesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListImagePipelineImagesResponse(obj: ImagebuilderListImagePipelineImagesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'imageSummaryList': obj.imageSummaryList?.map(y => toJson_ImagebuilderImageSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderListImagePipelinesRequest
@@ -1216,6 +2614,22 @@ export interface ImagebuilderListImagePipelinesRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderListImagePipelinesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListImagePipelinesRequest(obj: ImagebuilderListImagePipelinesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filters': obj.filters?.map(y => toJson_ImagebuilderFilter(y)),
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderListImagePipelinesResponse
  */
 export interface ImagebuilderListImagePipelinesResponse {
@@ -1235,6 +2649,22 @@ export interface ImagebuilderListImagePipelinesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderListImagePipelinesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListImagePipelinesResponse(obj: ImagebuilderListImagePipelinesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'imagePipelineList': obj.imagePipelineList?.map(y => toJson_ImagebuilderImagePipeline(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderListImageRecipesRequest
@@ -1263,6 +2693,23 @@ export interface ImagebuilderListImageRecipesRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderListImageRecipesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListImageRecipesRequest(obj: ImagebuilderListImageRecipesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'owner': obj.owner,
+    'filters': obj.filters?.map(y => toJson_ImagebuilderFilter(y)),
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderListImageRecipesResponse
  */
 export interface ImagebuilderListImageRecipesResponse {
@@ -1284,6 +2731,22 @@ export interface ImagebuilderListImageRecipesResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderListImageRecipesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListImageRecipesResponse(obj: ImagebuilderListImageRecipesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'imageRecipeSummaryList': obj.imageRecipeSummaryList?.map(y => toJson_ImagebuilderImageRecipeSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderListImagesRequest
  */
 export interface ImagebuilderListImagesRequest {
@@ -1298,6 +2761,11 @@ export interface ImagebuilderListImagesRequest {
   readonly filters?: ImagebuilderFilter[];
 
   /**
+   * @schema ImagebuilderListImagesRequest#byName
+   */
+  readonly byName?: boolean;
+
+  /**
    * @schema ImagebuilderListImagesRequest#maxResults
    */
   readonly maxResults?: number;
@@ -1307,7 +2775,31 @@ export interface ImagebuilderListImagesRequest {
    */
   readonly nextToken?: string;
 
+  /**
+   * @schema ImagebuilderListImagesRequest#includeDeprecated
+   */
+  readonly includeDeprecated?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'ImagebuilderListImagesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListImagesRequest(obj: ImagebuilderListImagesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'owner': obj.owner,
+    'filters': obj.filters?.map(y => toJson_ImagebuilderFilter(y)),
+    'byName': obj.byName,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+    'includeDeprecated': obj.includeDeprecated,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderListImagesResponse
@@ -1331,6 +2823,22 @@ export interface ImagebuilderListImagesResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderListImagesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListImagesResponse(obj: ImagebuilderListImagesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'imageVersionList': obj.imageVersionList?.map(y => toJson_ImagebuilderImageVersion(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderListInfrastructureConfigurationsRequest
  */
 export interface ImagebuilderListInfrastructureConfigurationsRequest {
@@ -1350,6 +2858,22 @@ export interface ImagebuilderListInfrastructureConfigurationsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderListInfrastructureConfigurationsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListInfrastructureConfigurationsRequest(obj: ImagebuilderListInfrastructureConfigurationsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filters': obj.filters?.map(y => toJson_ImagebuilderFilter(y)),
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderListInfrastructureConfigurationsResponse
@@ -1373,6 +2897,22 @@ export interface ImagebuilderListInfrastructureConfigurationsResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderListInfrastructureConfigurationsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListInfrastructureConfigurationsResponse(obj: ImagebuilderListInfrastructureConfigurationsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'infrastructureConfigurationSummaryList': obj.infrastructureConfigurationSummaryList?.map(y => toJson_ImagebuilderInfrastructureConfigurationSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderListTagsForResourceRequest
  */
 export interface ImagebuilderListTagsForResourceRequest {
@@ -1384,6 +2924,20 @@ export interface ImagebuilderListTagsForResourceRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListTagsForResourceRequest(obj: ImagebuilderListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderListTagsForResourceResponse
  */
 export interface ImagebuilderListTagsForResourceResponse {
@@ -1393,6 +2947,20 @@ export interface ImagebuilderListTagsForResourceResponse {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderListTagsForResourceResponse(obj: ImagebuilderListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderPutComponentPolicyRequest
@@ -1411,6 +2979,21 @@ export interface ImagebuilderPutComponentPolicyRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderPutComponentPolicyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderPutComponentPolicyRequest(obj: ImagebuilderPutComponentPolicyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'componentArn': obj.componentArn,
+    'policy': obj.policy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderPutComponentPolicyResponse
  */
 export interface ImagebuilderPutComponentPolicyResponse {
@@ -1425,6 +3008,83 @@ export interface ImagebuilderPutComponentPolicyResponse {
   readonly componentArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderPutComponentPolicyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderPutComponentPolicyResponse(obj: ImagebuilderPutComponentPolicyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'componentArn': obj.componentArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderPutContainerRecipePolicyRequest
+ */
+export interface ImagebuilderPutContainerRecipePolicyRequest {
+  /**
+   * @schema ImagebuilderPutContainerRecipePolicyRequest#containerRecipeArn
+   */
+  readonly containerRecipeArn: string;
+
+  /**
+   * @schema ImagebuilderPutContainerRecipePolicyRequest#policy
+   */
+  readonly policy: string;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderPutContainerRecipePolicyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderPutContainerRecipePolicyRequest(obj: ImagebuilderPutContainerRecipePolicyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'containerRecipeArn': obj.containerRecipeArn,
+    'policy': obj.policy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderPutContainerRecipePolicyResponse
+ */
+export interface ImagebuilderPutContainerRecipePolicyResponse {
+  /**
+   * @schema ImagebuilderPutContainerRecipePolicyResponse#requestId
+   */
+  readonly requestId?: string;
+
+  /**
+   * @schema ImagebuilderPutContainerRecipePolicyResponse#containerRecipeArn
+   */
+  readonly containerRecipeArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderPutContainerRecipePolicyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderPutContainerRecipePolicyResponse(obj: ImagebuilderPutContainerRecipePolicyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'containerRecipeArn': obj.containerRecipeArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderPutImagePolicyRequest
@@ -1443,6 +3103,21 @@ export interface ImagebuilderPutImagePolicyRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderPutImagePolicyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderPutImagePolicyRequest(obj: ImagebuilderPutImagePolicyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imageArn': obj.imageArn,
+    'policy': obj.policy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderPutImagePolicyResponse
  */
 export interface ImagebuilderPutImagePolicyResponse {
@@ -1457,6 +3132,21 @@ export interface ImagebuilderPutImagePolicyResponse {
   readonly imageArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderPutImagePolicyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderPutImagePolicyResponse(obj: ImagebuilderPutImagePolicyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'imageArn': obj.imageArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderPutImageRecipePolicyRequest
@@ -1475,6 +3165,21 @@ export interface ImagebuilderPutImageRecipePolicyRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderPutImageRecipePolicyRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderPutImageRecipePolicyRequest(obj: ImagebuilderPutImageRecipePolicyRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imageRecipeArn': obj.imageRecipeArn,
+    'policy': obj.policy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderPutImageRecipePolicyResponse
  */
 export interface ImagebuilderPutImageRecipePolicyResponse {
@@ -1491,6 +3196,21 @@ export interface ImagebuilderPutImageRecipePolicyResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderPutImageRecipePolicyResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderPutImageRecipePolicyResponse(obj: ImagebuilderPutImageRecipePolicyResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'imageRecipeArn': obj.imageRecipeArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderStartImagePipelineExecutionRequest
  */
 export interface ImagebuilderStartImagePipelineExecutionRequest {
@@ -1505,6 +3225,21 @@ export interface ImagebuilderStartImagePipelineExecutionRequest {
   readonly clientToken: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderStartImagePipelineExecutionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderStartImagePipelineExecutionRequest(obj: ImagebuilderStartImagePipelineExecutionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imagePipelineArn': obj.imagePipelineArn,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderStartImagePipelineExecutionResponse
@@ -1528,6 +3263,22 @@ export interface ImagebuilderStartImagePipelineExecutionResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderStartImagePipelineExecutionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderStartImagePipelineExecutionResponse(obj: ImagebuilderStartImagePipelineExecutionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'clientToken': obj.clientToken,
+    'imageBuildVersionArn': obj.imageBuildVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderTagResourceRequest
  */
 export interface ImagebuilderTagResourceRequest {
@@ -1544,10 +3295,38 @@ export interface ImagebuilderTagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderTagResourceRequest(obj: ImagebuilderTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderTagResourceResponse
  */
 export interface ImagebuilderTagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'ImagebuilderTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderTagResourceResponse(obj: ImagebuilderTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderUntagResourceRequest
@@ -1566,10 +3345,38 @@ export interface ImagebuilderUntagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderUntagResourceRequest(obj: ImagebuilderUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderUntagResourceResponse
  */
 export interface ImagebuilderUntagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'ImagebuilderUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderUntagResourceResponse(obj: ImagebuilderUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderUpdateDistributionConfigurationRequest
@@ -1598,6 +3405,23 @@ export interface ImagebuilderUpdateDistributionConfigurationRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderUpdateDistributionConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderUpdateDistributionConfigurationRequest(obj: ImagebuilderUpdateDistributionConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'distributionConfigurationArn': obj.distributionConfigurationArn,
+    'description': obj.description,
+    'distributions': obj.distributions?.map(y => toJson_ImagebuilderDistribution(y)),
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderUpdateDistributionConfigurationResponse
  */
 export interface ImagebuilderUpdateDistributionConfigurationResponse {
@@ -1619,6 +3443,22 @@ export interface ImagebuilderUpdateDistributionConfigurationResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderUpdateDistributionConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderUpdateDistributionConfigurationResponse(obj: ImagebuilderUpdateDistributionConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'clientToken': obj.clientToken,
+    'distributionConfigurationArn': obj.distributionConfigurationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderUpdateImagePipelineRequest
  */
 export interface ImagebuilderUpdateImagePipelineRequest {
@@ -1635,7 +3475,12 @@ export interface ImagebuilderUpdateImagePipelineRequest {
   /**
    * @schema ImagebuilderUpdateImagePipelineRequest#imageRecipeArn
    */
-  readonly imageRecipeArn: string;
+  readonly imageRecipeArn?: string;
+
+  /**
+   * @schema ImagebuilderUpdateImagePipelineRequest#containerRecipeArn
+   */
+  readonly containerRecipeArn?: string;
 
   /**
    * @schema ImagebuilderUpdateImagePipelineRequest#infrastructureConfigurationArn
@@ -1675,6 +3520,30 @@ export interface ImagebuilderUpdateImagePipelineRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderUpdateImagePipelineRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderUpdateImagePipelineRequest(obj: ImagebuilderUpdateImagePipelineRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imagePipelineArn': obj.imagePipelineArn,
+    'description': obj.description,
+    'imageRecipeArn': obj.imageRecipeArn,
+    'containerRecipeArn': obj.containerRecipeArn,
+    'infrastructureConfigurationArn': obj.infrastructureConfigurationArn,
+    'distributionConfigurationArn': obj.distributionConfigurationArn,
+    'imageTestsConfiguration': toJson_ImagebuilderImageTestsConfiguration(obj.imageTestsConfiguration),
+    'enhancedImageMetadataEnabled': obj.enhancedImageMetadataEnabled,
+    'schedule': toJson_ImagebuilderSchedule(obj.schedule),
+    'status': obj.status,
+    'clientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderUpdateImagePipelineResponse
  */
 export interface ImagebuilderUpdateImagePipelineResponse {
@@ -1694,6 +3563,22 @@ export interface ImagebuilderUpdateImagePipelineResponse {
   readonly imagePipelineArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderUpdateImagePipelineResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderUpdateImagePipelineResponse(obj: ImagebuilderUpdateImagePipelineResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'clientToken': obj.clientToken,
+    'imagePipelineArn': obj.imagePipelineArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderUpdateInfrastructureConfigurationRequest
@@ -1762,6 +3647,31 @@ export interface ImagebuilderUpdateInfrastructureConfigurationRequest {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderUpdateInfrastructureConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderUpdateInfrastructureConfigurationRequest(obj: ImagebuilderUpdateInfrastructureConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'infrastructureConfigurationArn': obj.infrastructureConfigurationArn,
+    'description': obj.description,
+    'instanceTypes': obj.instanceTypes?.map(y => y),
+    'instanceProfileName': obj.instanceProfileName,
+    'securityGroupIds': obj.securityGroupIds?.map(y => y),
+    'subnetId': obj.subnetId,
+    'logging': toJson_ImagebuilderLogging(obj.logging),
+    'keyPair': obj.keyPair,
+    'terminateInstanceOnFailure': obj.terminateInstanceOnFailure,
+    'snsTopicArn': obj.snsTopicArn,
+    'clientToken': obj.clientToken,
+    'resourceTags': ((obj.resourceTags) === undefined) ? undefined : (Object.entries(obj.resourceTags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderUpdateInfrastructureConfigurationResponse
  */
 export interface ImagebuilderUpdateInfrastructureConfigurationResponse {
@@ -1783,6 +3693,115 @@ export interface ImagebuilderUpdateInfrastructureConfigurationResponse {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderUpdateInfrastructureConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderUpdateInfrastructureConfigurationResponse(obj: ImagebuilderUpdateInfrastructureConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'requestId': obj.requestId,
+    'clientToken': obj.clientToken,
+    'infrastructureConfigurationArn': obj.infrastructureConfigurationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderComponentConfiguration
+ */
+export interface ImagebuilderComponentConfiguration {
+  /**
+   * @schema ImagebuilderComponentConfiguration#componentArn
+   */
+  readonly componentArn: string;
+
+  /**
+   * @schema ImagebuilderComponentConfiguration#parameters
+   */
+  readonly parameters?: ImagebuilderComponentParameter[];
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderComponentConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderComponentConfiguration(obj: ImagebuilderComponentConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'componentArn': obj.componentArn,
+    'parameters': obj.parameters?.map(y => toJson_ImagebuilderComponentParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderInstanceConfiguration
+ */
+export interface ImagebuilderInstanceConfiguration {
+  /**
+   * @schema ImagebuilderInstanceConfiguration#image
+   */
+  readonly image?: string;
+
+  /**
+   * @schema ImagebuilderInstanceConfiguration#blockDeviceMappings
+   */
+  readonly blockDeviceMappings?: ImagebuilderInstanceBlockDeviceMapping[];
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderInstanceConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderInstanceConfiguration(obj: ImagebuilderInstanceConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'image': obj.image,
+    'blockDeviceMappings': obj.blockDeviceMappings?.map(y => toJson_ImagebuilderInstanceBlockDeviceMapping(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderTargetContainerRepository
+ */
+export interface ImagebuilderTargetContainerRepository {
+  /**
+   * @schema ImagebuilderTargetContainerRepository#service
+   */
+  readonly service: string;
+
+  /**
+   * @schema ImagebuilderTargetContainerRepository#repositoryName
+   */
+  readonly repositoryName: string;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderTargetContainerRepository' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderTargetContainerRepository(obj: ImagebuilderTargetContainerRepository | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'service': obj.service,
+    'repositoryName': obj.repositoryName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderDistribution
  */
 export interface ImagebuilderDistribution {
@@ -1797,11 +3816,39 @@ export interface ImagebuilderDistribution {
   readonly amiDistributionConfiguration?: ImagebuilderAmiDistributionConfiguration;
 
   /**
+   * @schema ImagebuilderDistribution#containerDistributionConfiguration
+   */
+  readonly containerDistributionConfiguration?: ImagebuilderContainerDistributionConfiguration;
+
+  /**
    * @schema ImagebuilderDistribution#licenseConfigurationArns
    */
   readonly licenseConfigurationArns?: string[];
 
+  /**
+   * @schema ImagebuilderDistribution#launchTemplateConfigurations
+   */
+  readonly launchTemplateConfigurations?: ImagebuilderLaunchTemplateConfiguration[];
+
 }
+
+/**
+ * Converts an object of type 'ImagebuilderDistribution' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderDistribution(obj: ImagebuilderDistribution | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'region': obj.region,
+    'amiDistributionConfiguration': toJson_ImagebuilderAmiDistributionConfiguration(obj.amiDistributionConfiguration),
+    'containerDistributionConfiguration': toJson_ImagebuilderContainerDistributionConfiguration(obj.containerDistributionConfiguration),
+    'licenseConfigurationArns': obj.licenseConfigurationArns?.map(y => y),
+    'launchTemplateConfigurations': obj.launchTemplateConfigurations?.map(y => toJson_ImagebuilderLaunchTemplateConfiguration(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderImageTestsConfiguration
@@ -1820,6 +3867,21 @@ export interface ImagebuilderImageTestsConfiguration {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderImageTestsConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderImageTestsConfiguration(obj: ImagebuilderImageTestsConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'imageTestsEnabled': obj.imageTestsEnabled,
+    'timeoutMinutes': obj.timeoutMinutes,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderSchedule
  */
 export interface ImagebuilderSchedule {
@@ -1829,6 +3891,11 @@ export interface ImagebuilderSchedule {
   readonly scheduleExpression?: string;
 
   /**
+   * @schema ImagebuilderSchedule#timezone
+   */
+  readonly timezone?: string;
+
+  /**
    * @schema ImagebuilderSchedule#pipelineExecutionStartCondition
    */
   readonly pipelineExecutionStartCondition?: string;
@@ -1836,15 +3903,20 @@ export interface ImagebuilderSchedule {
 }
 
 /**
- * @schema ImagebuilderComponentConfiguration
+ * Converts an object of type 'ImagebuilderSchedule' to JSON representation.
  */
-export interface ImagebuilderComponentConfiguration {
-  /**
-   * @schema ImagebuilderComponentConfiguration#componentArn
-   */
-  readonly componentArn: string;
-
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderSchedule(obj: ImagebuilderSchedule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'scheduleExpression': obj.scheduleExpression,
+    'timezone': obj.timezone,
+    'pipelineExecutionStartCondition': obj.pipelineExecutionStartCondition,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
 }
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderInstanceBlockDeviceMapping
@@ -1873,6 +3945,54 @@ export interface ImagebuilderInstanceBlockDeviceMapping {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderInstanceBlockDeviceMapping' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderInstanceBlockDeviceMapping(obj: ImagebuilderInstanceBlockDeviceMapping | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deviceName': obj.deviceName,
+    'ebs': toJson_ImagebuilderEbsInstanceBlockDeviceSpecification(obj.ebs),
+    'virtualName': obj.virtualName,
+    'noDevice': obj.noDevice,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderAdditionalInstanceConfiguration
+ */
+export interface ImagebuilderAdditionalInstanceConfiguration {
+  /**
+   * @schema ImagebuilderAdditionalInstanceConfiguration#systemsManagerAgent
+   */
+  readonly systemsManagerAgent?: ImagebuilderSystemsManagerAgent;
+
+  /**
+   * @schema ImagebuilderAdditionalInstanceConfiguration#userDataOverride
+   */
+  readonly userDataOverride?: string;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderAdditionalInstanceConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderAdditionalInstanceConfiguration(obj: ImagebuilderAdditionalInstanceConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'systemsManagerAgent': toJson_ImagebuilderSystemsManagerAgent(obj.systemsManagerAgent),
+    'userDataOverride': obj.userDataOverride,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderLogging
  */
 export interface ImagebuilderLogging {
@@ -1882,6 +4002,20 @@ export interface ImagebuilderLogging {
   readonly s3Logs?: ImagebuilderS3Logs;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderLogging' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderLogging(obj: ImagebuilderLogging | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    's3Logs': toJson_ImagebuilderS3Logs(obj.s3Logs),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderComponent
@@ -1928,6 +4062,11 @@ export interface ImagebuilderComponent {
   readonly supportedOsVersions?: string[];
 
   /**
+   * @schema ImagebuilderComponent#parameters
+   */
+  readonly parameters?: ImagebuilderComponentParameterDetail[];
+
+  /**
    * @schema ImagebuilderComponent#owner
    */
   readonly owner?: string;
@@ -1958,6 +4097,155 @@ export interface ImagebuilderComponent {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderComponent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderComponent(obj: ImagebuilderComponent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'version': obj.version,
+    'description': obj.description,
+    'changeDescription': obj.changeDescription,
+    'type': obj.type,
+    'platform': obj.platform,
+    'supportedOsVersions': obj.supportedOsVersions?.map(y => y),
+    'parameters': obj.parameters?.map(y => toJson_ImagebuilderComponentParameterDetail(y)),
+    'owner': obj.owner,
+    'data': obj.data,
+    'kmsKeyId': obj.kmsKeyId,
+    'encrypted': obj.encrypted,
+    'dateCreated': obj.dateCreated,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderContainerRecipe
+ */
+export interface ImagebuilderContainerRecipe {
+  /**
+   * @schema ImagebuilderContainerRecipe#arn
+   */
+  readonly arn?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipe#containerType
+   */
+  readonly containerType?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipe#name
+   */
+  readonly name?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipe#description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipe#platform
+   */
+  readonly platform?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipe#owner
+   */
+  readonly owner?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipe#version
+   */
+  readonly version?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipe#components
+   */
+  readonly components?: ImagebuilderComponentConfiguration[];
+
+  /**
+   * @schema ImagebuilderContainerRecipe#instanceConfiguration
+   */
+  readonly instanceConfiguration?: ImagebuilderInstanceConfiguration;
+
+  /**
+   * @schema ImagebuilderContainerRecipe#dockerfileTemplateData
+   */
+  readonly dockerfileTemplateData?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipe#kmsKeyId
+   */
+  readonly kmsKeyId?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipe#encrypted
+   */
+  readonly encrypted?: boolean;
+
+  /**
+   * @schema ImagebuilderContainerRecipe#parentImage
+   */
+  readonly parentImage?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipe#dateCreated
+   */
+  readonly dateCreated?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipe#tags
+   */
+  readonly tags?: { [key: string]: string };
+
+  /**
+   * @schema ImagebuilderContainerRecipe#workingDirectory
+   */
+  readonly workingDirectory?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipe#targetRepository
+   */
+  readonly targetRepository?: ImagebuilderTargetContainerRepository;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderContainerRecipe' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderContainerRecipe(obj: ImagebuilderContainerRecipe | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'containerType': obj.containerType,
+    'name': obj.name,
+    'description': obj.description,
+    'platform': obj.platform,
+    'owner': obj.owner,
+    'version': obj.version,
+    'components': obj.components?.map(y => toJson_ImagebuilderComponentConfiguration(y)),
+    'instanceConfiguration': toJson_ImagebuilderInstanceConfiguration(obj.instanceConfiguration),
+    'dockerfileTemplateData': obj.dockerfileTemplateData,
+    'kmsKeyId': obj.kmsKeyId,
+    'encrypted': obj.encrypted,
+    'parentImage': obj.parentImage,
+    'dateCreated': obj.dateCreated,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'workingDirectory': obj.workingDirectory,
+    'targetRepository': toJson_ImagebuilderTargetContainerRepository(obj.targetRepository),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderDistributionConfiguration
@@ -2006,6 +4294,27 @@ export interface ImagebuilderDistributionConfiguration {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderDistributionConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderDistributionConfiguration(obj: ImagebuilderDistributionConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'description': obj.description,
+    'distributions': obj.distributions?.map(y => toJson_ImagebuilderDistribution(y)),
+    'timeoutMinutes': obj.timeoutMinutes,
+    'dateCreated': obj.dateCreated,
+    'dateUpdated': obj.dateUpdated,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderImage
  */
 export interface ImagebuilderImage {
@@ -2013,6 +4322,11 @@ export interface ImagebuilderImage {
    * @schema ImagebuilderImage#arn
    */
   readonly arn?: string;
+
+  /**
+   * @schema ImagebuilderImage#type
+   */
+  readonly type?: string;
 
   /**
    * @schema ImagebuilderImage#name
@@ -2048,6 +4362,11 @@ export interface ImagebuilderImage {
    * @schema ImagebuilderImage#imageRecipe
    */
   readonly imageRecipe?: ImagebuilderImageRecipe;
+
+  /**
+   * @schema ImagebuilderImage#containerRecipe
+   */
+  readonly containerRecipe?: ImagebuilderContainerRecipe;
 
   /**
    * @schema ImagebuilderImage#sourcePipelineName
@@ -2092,6 +4411,37 @@ export interface ImagebuilderImage {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderImage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderImage(obj: ImagebuilderImage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'type': obj.type,
+    'name': obj.name,
+    'version': obj.version,
+    'platform': obj.platform,
+    'enhancedImageMetadataEnabled': obj.enhancedImageMetadataEnabled,
+    'osVersion': obj.osVersion,
+    'state': toJson_ImagebuilderImageState(obj.state),
+    'imageRecipe': toJson_ImagebuilderImageRecipe(obj.imageRecipe),
+    'containerRecipe': toJson_ImagebuilderContainerRecipe(obj.containerRecipe),
+    'sourcePipelineName': obj.sourcePipelineName,
+    'sourcePipelineArn': obj.sourcePipelineArn,
+    'infrastructureConfiguration': toJson_ImagebuilderInfrastructureConfiguration(obj.infrastructureConfiguration),
+    'distributionConfiguration': toJson_ImagebuilderDistributionConfiguration(obj.distributionConfiguration),
+    'imageTestsConfiguration': toJson_ImagebuilderImageTestsConfiguration(obj.imageTestsConfiguration),
+    'dateCreated': obj.dateCreated,
+    'outputResources': toJson_ImagebuilderOutputResources(obj.outputResources),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderImagePipeline
  */
 export interface ImagebuilderImagePipeline {
@@ -2124,6 +4474,11 @@ export interface ImagebuilderImagePipeline {
    * @schema ImagebuilderImagePipeline#imageRecipeArn
    */
   readonly imageRecipeArn?: string;
+
+  /**
+   * @schema ImagebuilderImagePipeline#containerRecipeArn
+   */
+  readonly containerRecipeArn?: string;
 
   /**
    * @schema ImagebuilderImagePipeline#infrastructureConfigurationArn
@@ -2178,6 +4533,36 @@ export interface ImagebuilderImagePipeline {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderImagePipeline' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderImagePipeline(obj: ImagebuilderImagePipeline | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'description': obj.description,
+    'platform': obj.platform,
+    'enhancedImageMetadataEnabled': obj.enhancedImageMetadataEnabled,
+    'imageRecipeArn': obj.imageRecipeArn,
+    'containerRecipeArn': obj.containerRecipeArn,
+    'infrastructureConfigurationArn': obj.infrastructureConfigurationArn,
+    'distributionConfigurationArn': obj.distributionConfigurationArn,
+    'imageTestsConfiguration': toJson_ImagebuilderImageTestsConfiguration(obj.imageTestsConfiguration),
+    'schedule': toJson_ImagebuilderSchedule(obj.schedule),
+    'status': obj.status,
+    'dateCreated': obj.dateCreated,
+    'dateUpdated': obj.dateUpdated,
+    'dateLastRun': obj.dateLastRun,
+    'dateNextRun': obj.dateNextRun,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderImageRecipe
  */
 export interface ImagebuilderImageRecipe {
@@ -2185,6 +4570,11 @@ export interface ImagebuilderImageRecipe {
    * @schema ImagebuilderImageRecipe#arn
    */
   readonly arn?: string;
+
+  /**
+   * @schema ImagebuilderImageRecipe#type
+   */
+  readonly type?: string;
 
   /**
    * @schema ImagebuilderImageRecipe#name
@@ -2241,7 +4631,39 @@ export interface ImagebuilderImageRecipe {
    */
   readonly workingDirectory?: string;
 
+  /**
+   * @schema ImagebuilderImageRecipe#additionalInstanceConfiguration
+   */
+  readonly additionalInstanceConfiguration?: ImagebuilderAdditionalInstanceConfiguration;
+
 }
+
+/**
+ * Converts an object of type 'ImagebuilderImageRecipe' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderImageRecipe(obj: ImagebuilderImageRecipe | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'type': obj.type,
+    'name': obj.name,
+    'description': obj.description,
+    'platform': obj.platform,
+    'owner': obj.owner,
+    'version': obj.version,
+    'components': obj.components?.map(y => toJson_ImagebuilderComponentConfiguration(y)),
+    'parentImage': obj.parentImage,
+    'blockDeviceMappings': obj.blockDeviceMappings?.map(y => toJson_ImagebuilderInstanceBlockDeviceMapping(y)),
+    'dateCreated': obj.dateCreated,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'workingDirectory': obj.workingDirectory,
+    'additionalInstanceConfiguration': toJson_ImagebuilderAdditionalInstanceConfiguration(obj.additionalInstanceConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderInfrastructureConfiguration
@@ -2325,6 +4747,34 @@ export interface ImagebuilderInfrastructureConfiguration {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderInfrastructureConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderInfrastructureConfiguration(obj: ImagebuilderInfrastructureConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'description': obj.description,
+    'instanceTypes': obj.instanceTypes?.map(y => y),
+    'instanceProfileName': obj.instanceProfileName,
+    'securityGroupIds': obj.securityGroupIds?.map(y => y),
+    'subnetId': obj.subnetId,
+    'logging': toJson_ImagebuilderLogging(obj.logging),
+    'keyPair': obj.keyPair,
+    'terminateInstanceOnFailure': obj.terminateInstanceOnFailure,
+    'snsTopicArn': obj.snsTopicArn,
+    'dateCreated': obj.dateCreated,
+    'dateUpdated': obj.dateUpdated,
+    'resourceTags': ((obj.resourceTags) === undefined) ? undefined : (Object.entries(obj.resourceTags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderComponentSummary
  */
 export interface ImagebuilderComponentSummary {
@@ -2386,6 +4836,30 @@ export interface ImagebuilderComponentSummary {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderComponentSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderComponentSummary(obj: ImagebuilderComponentSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'version': obj.version,
+    'platform': obj.platform,
+    'supportedOsVersions': obj.supportedOsVersions?.map(y => y),
+    'type': obj.type,
+    'owner': obj.owner,
+    'description': obj.description,
+    'changeDescription': obj.changeDescription,
+    'dateCreated': obj.dateCreated,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderFilter
  */
 export interface ImagebuilderFilter {
@@ -2400,6 +4874,21 @@ export interface ImagebuilderFilter {
   readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderFilter(obj: ImagebuilderFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderComponentVersion
@@ -2453,6 +4942,95 @@ export interface ImagebuilderComponentVersion {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderComponentVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderComponentVersion(obj: ImagebuilderComponentVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'version': obj.version,
+    'description': obj.description,
+    'platform': obj.platform,
+    'supportedOsVersions': obj.supportedOsVersions?.map(y => y),
+    'type': obj.type,
+    'owner': obj.owner,
+    'dateCreated': obj.dateCreated,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderContainerRecipeSummary
+ */
+export interface ImagebuilderContainerRecipeSummary {
+  /**
+   * @schema ImagebuilderContainerRecipeSummary#arn
+   */
+  readonly arn?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipeSummary#containerType
+   */
+  readonly containerType?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipeSummary#name
+   */
+  readonly name?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipeSummary#platform
+   */
+  readonly platform?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipeSummary#owner
+   */
+  readonly owner?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipeSummary#parentImage
+   */
+  readonly parentImage?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipeSummary#dateCreated
+   */
+  readonly dateCreated?: string;
+
+  /**
+   * @schema ImagebuilderContainerRecipeSummary#tags
+   */
+  readonly tags?: { [key: string]: string };
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderContainerRecipeSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderContainerRecipeSummary(obj: ImagebuilderContainerRecipeSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'containerType': obj.containerType,
+    'name': obj.name,
+    'platform': obj.platform,
+    'owner': obj.owner,
+    'parentImage': obj.parentImage,
+    'dateCreated': obj.dateCreated,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderDistributionConfigurationSummary
  */
 export interface ImagebuilderDistributionConfigurationSummary {
@@ -2486,7 +5064,32 @@ export interface ImagebuilderDistributionConfigurationSummary {
    */
   readonly tags?: { [key: string]: string };
 
+  /**
+   * @schema ImagebuilderDistributionConfigurationSummary#regions
+   */
+  readonly regions?: string[];
+
 }
+
+/**
+ * Converts an object of type 'ImagebuilderDistributionConfigurationSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderDistributionConfigurationSummary(obj: ImagebuilderDistributionConfigurationSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'description': obj.description,
+    'dateCreated': obj.dateCreated,
+    'dateUpdated': obj.dateUpdated,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'regions': obj.regions?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderImageSummary
@@ -2501,6 +5104,11 @@ export interface ImagebuilderImageSummary {
    * @schema ImagebuilderImageSummary#name
    */
   readonly name?: string;
+
+  /**
+   * @schema ImagebuilderImageSummary#type
+   */
+  readonly type?: string;
 
   /**
    * @schema ImagebuilderImageSummary#version
@@ -2545,6 +5153,61 @@ export interface ImagebuilderImageSummary {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderImageSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderImageSummary(obj: ImagebuilderImageSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'type': obj.type,
+    'version': obj.version,
+    'platform': obj.platform,
+    'osVersion': obj.osVersion,
+    'state': toJson_ImagebuilderImageState(obj.state),
+    'owner': obj.owner,
+    'dateCreated': obj.dateCreated,
+    'outputResources': toJson_ImagebuilderOutputResources(obj.outputResources),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderImagePackage
+ */
+export interface ImagebuilderImagePackage {
+  /**
+   * @schema ImagebuilderImagePackage#packageName
+   */
+  readonly packageName?: string;
+
+  /**
+   * @schema ImagebuilderImagePackage#packageVersion
+   */
+  readonly packageVersion?: string;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderImagePackage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderImagePackage(obj: ImagebuilderImagePackage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'packageName': obj.packageName,
+    'packageVersion': obj.packageVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderImageRecipeSummary
  */
 export interface ImagebuilderImageRecipeSummary {
@@ -2586,6 +5249,26 @@ export interface ImagebuilderImageRecipeSummary {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderImageRecipeSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderImageRecipeSummary(obj: ImagebuilderImageRecipeSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'platform': obj.platform,
+    'owner': obj.owner,
+    'parentImage': obj.parentImage,
+    'dateCreated': obj.dateCreated,
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderImageVersion
  */
 export interface ImagebuilderImageVersion {
@@ -2598,6 +5281,11 @@ export interface ImagebuilderImageVersion {
    * @schema ImagebuilderImageVersion#name
    */
   readonly name?: string;
+
+  /**
+   * @schema ImagebuilderImageVersion#type
+   */
+  readonly type?: string;
 
   /**
    * @schema ImagebuilderImageVersion#version
@@ -2625,6 +5313,27 @@ export interface ImagebuilderImageVersion {
   readonly dateCreated?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderImageVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderImageVersion(obj: ImagebuilderImageVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'type': obj.type,
+    'version': obj.version,
+    'platform': obj.platform,
+    'osVersion': obj.osVersion,
+    'owner': obj.owner,
+    'dateCreated': obj.dateCreated,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderInfrastructureConfigurationSummary
@@ -2665,7 +5374,70 @@ export interface ImagebuilderInfrastructureConfigurationSummary {
    */
   readonly tags?: { [key: string]: string };
 
+  /**
+   * @schema ImagebuilderInfrastructureConfigurationSummary#instanceTypes
+   */
+  readonly instanceTypes?: string[];
+
+  /**
+   * @schema ImagebuilderInfrastructureConfigurationSummary#instanceProfileName
+   */
+  readonly instanceProfileName?: string;
+
 }
+
+/**
+ * Converts an object of type 'ImagebuilderInfrastructureConfigurationSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderInfrastructureConfigurationSummary(obj: ImagebuilderInfrastructureConfigurationSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'description': obj.description,
+    'dateCreated': obj.dateCreated,
+    'dateUpdated': obj.dateUpdated,
+    'resourceTags': ((obj.resourceTags) === undefined) ? undefined : (Object.entries(obj.resourceTags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'instanceTypes': obj.instanceTypes?.map(y => y),
+    'instanceProfileName': obj.instanceProfileName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderComponentParameter
+ */
+export interface ImagebuilderComponentParameter {
+  /**
+   * @schema ImagebuilderComponentParameter#name
+   */
+  readonly name: string;
+
+  /**
+   * @schema ImagebuilderComponentParameter#value
+   */
+  readonly value: string[];
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderComponentParameter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderComponentParameter(obj: ImagebuilderComponentParameter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'value': obj.value?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderAmiDistributionConfiguration
@@ -2702,6 +5474,99 @@ export interface ImagebuilderAmiDistributionConfiguration {
   readonly launchPermission?: ImagebuilderLaunchPermissionConfiguration;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderAmiDistributionConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderAmiDistributionConfiguration(obj: ImagebuilderAmiDistributionConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'description': obj.description,
+    'targetAccountIds': obj.targetAccountIds?.map(y => y),
+    'amiTags': ((obj.amiTags) === undefined) ? undefined : (Object.entries(obj.amiTags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'kmsKeyId': obj.kmsKeyId,
+    'launchPermission': toJson_ImagebuilderLaunchPermissionConfiguration(obj.launchPermission),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderContainerDistributionConfiguration
+ */
+export interface ImagebuilderContainerDistributionConfiguration {
+  /**
+   * @schema ImagebuilderContainerDistributionConfiguration#description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema ImagebuilderContainerDistributionConfiguration#containerTags
+   */
+  readonly containerTags?: string[];
+
+  /**
+   * @schema ImagebuilderContainerDistributionConfiguration#targetRepository
+   */
+  readonly targetRepository: ImagebuilderTargetContainerRepository;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderContainerDistributionConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderContainerDistributionConfiguration(obj: ImagebuilderContainerDistributionConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'description': obj.description,
+    'containerTags': obj.containerTags?.map(y => y),
+    'targetRepository': toJson_ImagebuilderTargetContainerRepository(obj.targetRepository),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderLaunchTemplateConfiguration
+ */
+export interface ImagebuilderLaunchTemplateConfiguration {
+  /**
+   * @schema ImagebuilderLaunchTemplateConfiguration#launchTemplateId
+   */
+  readonly launchTemplateId: string;
+
+  /**
+   * @schema ImagebuilderLaunchTemplateConfiguration#accountId
+   */
+  readonly accountId?: string;
+
+  /**
+   * @schema ImagebuilderLaunchTemplateConfiguration#setDefaultVersion
+   */
+  readonly setDefaultVersion?: boolean;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderLaunchTemplateConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderLaunchTemplateConfiguration(obj: ImagebuilderLaunchTemplateConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'launchTemplateId': obj.launchTemplateId,
+    'accountId': obj.accountId,
+    'setDefaultVersion': obj.setDefaultVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderEbsInstanceBlockDeviceSpecification
@@ -2745,6 +5610,51 @@ export interface ImagebuilderEbsInstanceBlockDeviceSpecification {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderEbsInstanceBlockDeviceSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderEbsInstanceBlockDeviceSpecification(obj: ImagebuilderEbsInstanceBlockDeviceSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'encrypted': obj.encrypted,
+    'deleteOnTermination': obj.deleteOnTermination,
+    'iops': obj.iops,
+    'kmsKeyId': obj.kmsKeyId,
+    'snapshotId': obj.snapshotId,
+    'volumeSize': obj.volumeSize,
+    'volumeType': obj.volumeType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderSystemsManagerAgent
+ */
+export interface ImagebuilderSystemsManagerAgent {
+  /**
+   * @schema ImagebuilderSystemsManagerAgent#uninstallAfterBuild
+   */
+  readonly uninstallAfterBuild?: boolean;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderSystemsManagerAgent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderSystemsManagerAgent(obj: ImagebuilderSystemsManagerAgent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'uninstallAfterBuild': obj.uninstallAfterBuild,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderS3Logs
  */
 export interface ImagebuilderS3Logs {
@@ -2759,6 +5669,64 @@ export interface ImagebuilderS3Logs {
   readonly s3KeyPrefix?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderS3Logs' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderS3Logs(obj: ImagebuilderS3Logs | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    's3BucketName': obj.s3BucketName,
+    's3KeyPrefix': obj.s3KeyPrefix,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderComponentParameterDetail
+ */
+export interface ImagebuilderComponentParameterDetail {
+  /**
+   * @schema ImagebuilderComponentParameterDetail#name
+   */
+  readonly name: string;
+
+  /**
+   * @schema ImagebuilderComponentParameterDetail#type
+   */
+  readonly type: string;
+
+  /**
+   * @schema ImagebuilderComponentParameterDetail#defaultValue
+   */
+  readonly defaultValue?: string[];
+
+  /**
+   * @schema ImagebuilderComponentParameterDetail#description
+   */
+  readonly description?: string;
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderComponentParameterDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderComponentParameterDetail(obj: ImagebuilderComponentParameterDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'type': obj.type,
+    'defaultValue': obj.defaultValue?.map(y => y),
+    'description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderImageState
@@ -2777,6 +5745,21 @@ export interface ImagebuilderImageState {
 }
 
 /**
+ * Converts an object of type 'ImagebuilderImageState' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderImageState(obj: ImagebuilderImageState | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+    'reason': obj.reason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImagebuilderOutputResources
  */
 export interface ImagebuilderOutputResources {
@@ -2785,7 +5768,27 @@ export interface ImagebuilderOutputResources {
    */
   readonly amis?: ImagebuilderAmi[];
 
+  /**
+   * @schema ImagebuilderOutputResources#containers
+   */
+  readonly containers?: ImagebuilderContainer[];
+
 }
+
+/**
+ * Converts an object of type 'ImagebuilderOutputResources' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderOutputResources(obj: ImagebuilderOutputResources | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'amis': obj.amis?.map(y => toJson_ImagebuilderAmi(y)),
+    'containers': obj.containers?.map(y => toJson_ImagebuilderContainer(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderLaunchPermissionConfiguration
@@ -2802,6 +5805,21 @@ export interface ImagebuilderLaunchPermissionConfiguration {
   readonly userGroups?: string[];
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderLaunchPermissionConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderLaunchPermissionConfiguration(obj: ImagebuilderLaunchPermissionConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'userIds': obj.userIds?.map(y => y),
+    'userGroups': obj.userGroups?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImagebuilderAmi
@@ -2838,3 +5856,53 @@ export interface ImagebuilderAmi {
   readonly accountId?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImagebuilderAmi' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderAmi(obj: ImagebuilderAmi | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'region': obj.region,
+    'image': obj.image,
+    'name': obj.name,
+    'description': obj.description,
+    'state': toJson_ImagebuilderImageState(obj.state),
+    'accountId': obj.accountId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema ImagebuilderContainer
+ */
+export interface ImagebuilderContainer {
+  /**
+   * @schema ImagebuilderContainer#region
+   */
+  readonly region?: string;
+
+  /**
+   * @schema ImagebuilderContainer#imageUris
+   */
+  readonly imageUris?: string[];
+
+}
+
+/**
+ * Converts an object of type 'ImagebuilderContainer' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImagebuilderContainer(obj: ImagebuilderContainer | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'region': obj.region,
+    'imageUris': obj.imageUris?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

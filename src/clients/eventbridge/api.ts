@@ -27,8 +27,16 @@ export class EventBridgeClient extends cdk.Construct {
     return new EventBridgeResponsesCancelReplay(this, this.__resources, input);
   }
 
+  public createApiDestination(input: shapes.EventBridgeCreateApiDestinationRequest): EventBridgeResponsesCreateApiDestination {
+    return new EventBridgeResponsesCreateApiDestination(this, this.__resources, input);
+  }
+
   public createArchive(input: shapes.EventBridgeCreateArchiveRequest): EventBridgeResponsesCreateArchive {
     return new EventBridgeResponsesCreateArchive(this, this.__resources, input);
+  }
+
+  public createConnection(input: shapes.EventBridgeCreateConnectionRequest): EventBridgeResponsesCreateConnection {
+    return new EventBridgeResponsesCreateConnection(this, this.__resources, input);
   }
 
   public createEventBus(input: shapes.EventBridgeCreateEventBusRequest): EventBridgeResponsesCreateEventBus {
@@ -54,6 +62,25 @@ export class EventBridgeClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeactivateEventSource', props);
   }
 
+  public deauthorizeConnection(input: shapes.EventBridgeDeauthorizeConnectionRequest): EventBridgeResponsesDeauthorizeConnection {
+    return new EventBridgeResponsesDeauthorizeConnection(this, this.__resources, input);
+  }
+
+  public deleteApiDestination(input: shapes.EventBridgeDeleteApiDestinationRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DeleteApiDestination'),
+        parameters: {
+          Name: input.name,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteApiDestination', props);
+  }
+
   public deleteArchive(input: shapes.EventBridgeDeleteArchiveRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -67,6 +94,10 @@ export class EventBridgeClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'DeleteArchive', props);
+  }
+
+  public deleteConnection(input: shapes.EventBridgeDeleteConnectionRequest): EventBridgeResponsesDeleteConnection {
+    return new EventBridgeResponsesDeleteConnection(this, this.__resources, input);
   }
 
   public deleteEventBus(input: shapes.EventBridgeDeleteEventBusRequest): void {
@@ -117,8 +148,16 @@ export class EventBridgeClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeleteRule', props);
   }
 
+  public describeApiDestination(input: shapes.EventBridgeDescribeApiDestinationRequest): EventBridgeResponsesDescribeApiDestination {
+    return new EventBridgeResponsesDescribeApiDestination(this, this.__resources, input);
+  }
+
   public describeArchive(input: shapes.EventBridgeDescribeArchiveRequest): EventBridgeResponsesDescribeArchive {
     return new EventBridgeResponsesDescribeArchive(this, this.__resources, input);
+  }
+
+  public describeConnection(input: shapes.EventBridgeDescribeConnectionRequest): EventBridgeResponsesDescribeConnection {
+    return new EventBridgeResponsesDescribeConnection(this, this.__resources, input);
   }
 
   public describeEventBus(input: shapes.EventBridgeDescribeEventBusRequest): EventBridgeResponsesDescribeEventBus {
@@ -173,8 +212,16 @@ export class EventBridgeClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'EnableRule', props);
   }
 
+  public listApiDestinations(input: shapes.EventBridgeListApiDestinationsRequest): EventBridgeResponsesListApiDestinations {
+    return new EventBridgeResponsesListApiDestinations(this, this.__resources, input);
+  }
+
   public listArchives(input: shapes.EventBridgeListArchivesRequest): EventBridgeResponsesListArchives {
     return new EventBridgeResponsesListArchives(this, this.__resources, input);
+  }
+
+  public listConnections(input: shapes.EventBridgeListConnectionsRequest): EventBridgeResponsesListConnections {
+    return new EventBridgeResponsesListConnections(this, this.__resources, input);
   }
 
   public listEventBuses(input: shapes.EventBridgeListEventBusesRequest): EventBridgeResponsesListEventBuses {
@@ -314,8 +361,16 @@ export class EventBridgeClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'UntagResource', props);
   }
 
+  public updateApiDestination(input: shapes.EventBridgeUpdateApiDestinationRequest): EventBridgeResponsesUpdateApiDestination {
+    return new EventBridgeResponsesUpdateApiDestination(this, this.__resources, input);
+  }
+
   public updateArchive(input: shapes.EventBridgeUpdateArchiveRequest): EventBridgeResponsesUpdateArchive {
     return new EventBridgeResponsesUpdateArchive(this, this.__resources, input);
+  }
+
+  public updateConnection(input: shapes.EventBridgeUpdateConnectionRequest): EventBridgeResponsesUpdateConnection {
+    return new EventBridgeResponsesUpdateConnection(this, this.__resources, input);
   }
 
 }
@@ -374,6 +429,101 @@ export class EventBridgeResponsesCancelReplay {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CancelReplay.StateReason', props);
     return resource.getResponseField('StateReason') as unknown as string;
+  }
+
+}
+
+export class EventBridgeResponsesCreateApiDestination {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeCreateApiDestinationRequest) {
+  }
+
+  public get apiDestinationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.CreateApiDestination.ApiDestinationArn'),
+        outputPath: 'ApiDestinationArn',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          ConnectionArn: this.__input.connectionArn,
+          InvocationEndpoint: this.__input.invocationEndpoint,
+          HttpMethod: this.__input.httpMethod,
+          InvocationRateLimitPerSecond: this.__input.invocationRateLimitPerSecond,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateApiDestination.ApiDestinationArn', props);
+    return resource.getResponseField('ApiDestinationArn') as unknown as string;
+  }
+
+  public get apiDestinationState(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.CreateApiDestination.ApiDestinationState'),
+        outputPath: 'ApiDestinationState',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          ConnectionArn: this.__input.connectionArn,
+          InvocationEndpoint: this.__input.invocationEndpoint,
+          HttpMethod: this.__input.httpMethod,
+          InvocationRateLimitPerSecond: this.__input.invocationRateLimitPerSecond,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateApiDestination.ApiDestinationState', props);
+    return resource.getResponseField('ApiDestinationState') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.CreateApiDestination.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          ConnectionArn: this.__input.connectionArn,
+          InvocationEndpoint: this.__input.invocationEndpoint,
+          HttpMethod: this.__input.httpMethod,
+          InvocationRateLimitPerSecond: this.__input.invocationRateLimitPerSecond,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateApiDestination.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.CreateApiDestination.LastModifiedTime'),
+        outputPath: 'LastModifiedTime',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          ConnectionArn: this.__input.connectionArn,
+          InvocationEndpoint: this.__input.invocationEndpoint,
+          HttpMethod: this.__input.httpMethod,
+          InvocationRateLimitPerSecond: this.__input.invocationRateLimitPerSecond,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateApiDestination.LastModifiedTime', props);
+    return resource.getResponseField('LastModifiedTime') as unknown as string;
   }
 
 }
@@ -469,6 +619,201 @@ export class EventBridgeResponsesCreateArchive {
 
 }
 
+export class EventBridgeResponsesCreateConnection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeCreateConnectionRequest) {
+  }
+
+  public get connectionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.CreateConnection.ConnectionArn'),
+        outputPath: 'ConnectionArn',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          AuthorizationType: this.__input.authorizationType,
+          AuthParameters: {
+            BasicAuthParameters: {
+              Username: this.__input.authParameters.basicAuthParameters?.username,
+              Password: this.__input.authParameters.basicAuthParameters?.password,
+            },
+            OAuthParameters: {
+              ClientParameters: {
+                ClientID: this.__input.authParameters.oAuthParameters?.clientParameters.clientId,
+                ClientSecret: this.__input.authParameters.oAuthParameters?.clientParameters.clientSecret,
+              },
+              AuthorizationEndpoint: this.__input.authParameters.oAuthParameters?.authorizationEndpoint,
+              HttpMethod: this.__input.authParameters.oAuthParameters?.httpMethod,
+              OAuthHttpParameters: {
+                HeaderParameters: this.__input.authParameters.oAuthParameters?.oAuthHttpParameters?.headerParameters,
+                QueryStringParameters: this.__input.authParameters.oAuthParameters?.oAuthHttpParameters?.queryStringParameters,
+                BodyParameters: this.__input.authParameters.oAuthParameters?.oAuthHttpParameters?.bodyParameters,
+              },
+            },
+            ApiKeyAuthParameters: {
+              ApiKeyName: this.__input.authParameters.apiKeyAuthParameters?.apiKeyName,
+              ApiKeyValue: this.__input.authParameters.apiKeyAuthParameters?.apiKeyValue,
+            },
+            InvocationHttpParameters: {
+              HeaderParameters: this.__input.authParameters.invocationHttpParameters?.headerParameters,
+              QueryStringParameters: this.__input.authParameters.invocationHttpParameters?.queryStringParameters,
+              BodyParameters: this.__input.authParameters.invocationHttpParameters?.bodyParameters,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.ConnectionArn', props);
+    return resource.getResponseField('ConnectionArn') as unknown as string;
+  }
+
+  public get connectionState(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.CreateConnection.ConnectionState'),
+        outputPath: 'ConnectionState',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          AuthorizationType: this.__input.authorizationType,
+          AuthParameters: {
+            BasicAuthParameters: {
+              Username: this.__input.authParameters.basicAuthParameters?.username,
+              Password: this.__input.authParameters.basicAuthParameters?.password,
+            },
+            OAuthParameters: {
+              ClientParameters: {
+                ClientID: this.__input.authParameters.oAuthParameters?.clientParameters.clientId,
+                ClientSecret: this.__input.authParameters.oAuthParameters?.clientParameters.clientSecret,
+              },
+              AuthorizationEndpoint: this.__input.authParameters.oAuthParameters?.authorizationEndpoint,
+              HttpMethod: this.__input.authParameters.oAuthParameters?.httpMethod,
+              OAuthHttpParameters: {
+                HeaderParameters: this.__input.authParameters.oAuthParameters?.oAuthHttpParameters?.headerParameters,
+                QueryStringParameters: this.__input.authParameters.oAuthParameters?.oAuthHttpParameters?.queryStringParameters,
+                BodyParameters: this.__input.authParameters.oAuthParameters?.oAuthHttpParameters?.bodyParameters,
+              },
+            },
+            ApiKeyAuthParameters: {
+              ApiKeyName: this.__input.authParameters.apiKeyAuthParameters?.apiKeyName,
+              ApiKeyValue: this.__input.authParameters.apiKeyAuthParameters?.apiKeyValue,
+            },
+            InvocationHttpParameters: {
+              HeaderParameters: this.__input.authParameters.invocationHttpParameters?.headerParameters,
+              QueryStringParameters: this.__input.authParameters.invocationHttpParameters?.queryStringParameters,
+              BodyParameters: this.__input.authParameters.invocationHttpParameters?.bodyParameters,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.ConnectionState', props);
+    return resource.getResponseField('ConnectionState') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.CreateConnection.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          AuthorizationType: this.__input.authorizationType,
+          AuthParameters: {
+            BasicAuthParameters: {
+              Username: this.__input.authParameters.basicAuthParameters?.username,
+              Password: this.__input.authParameters.basicAuthParameters?.password,
+            },
+            OAuthParameters: {
+              ClientParameters: {
+                ClientID: this.__input.authParameters.oAuthParameters?.clientParameters.clientId,
+                ClientSecret: this.__input.authParameters.oAuthParameters?.clientParameters.clientSecret,
+              },
+              AuthorizationEndpoint: this.__input.authParameters.oAuthParameters?.authorizationEndpoint,
+              HttpMethod: this.__input.authParameters.oAuthParameters?.httpMethod,
+              OAuthHttpParameters: {
+                HeaderParameters: this.__input.authParameters.oAuthParameters?.oAuthHttpParameters?.headerParameters,
+                QueryStringParameters: this.__input.authParameters.oAuthParameters?.oAuthHttpParameters?.queryStringParameters,
+                BodyParameters: this.__input.authParameters.oAuthParameters?.oAuthHttpParameters?.bodyParameters,
+              },
+            },
+            ApiKeyAuthParameters: {
+              ApiKeyName: this.__input.authParameters.apiKeyAuthParameters?.apiKeyName,
+              ApiKeyValue: this.__input.authParameters.apiKeyAuthParameters?.apiKeyValue,
+            },
+            InvocationHttpParameters: {
+              HeaderParameters: this.__input.authParameters.invocationHttpParameters?.headerParameters,
+              QueryStringParameters: this.__input.authParameters.invocationHttpParameters?.queryStringParameters,
+              BodyParameters: this.__input.authParameters.invocationHttpParameters?.bodyParameters,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.CreateConnection.LastModifiedTime'),
+        outputPath: 'LastModifiedTime',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          AuthorizationType: this.__input.authorizationType,
+          AuthParameters: {
+            BasicAuthParameters: {
+              Username: this.__input.authParameters.basicAuthParameters?.username,
+              Password: this.__input.authParameters.basicAuthParameters?.password,
+            },
+            OAuthParameters: {
+              ClientParameters: {
+                ClientID: this.__input.authParameters.oAuthParameters?.clientParameters.clientId,
+                ClientSecret: this.__input.authParameters.oAuthParameters?.clientParameters.clientSecret,
+              },
+              AuthorizationEndpoint: this.__input.authParameters.oAuthParameters?.authorizationEndpoint,
+              HttpMethod: this.__input.authParameters.oAuthParameters?.httpMethod,
+              OAuthHttpParameters: {
+                HeaderParameters: this.__input.authParameters.oAuthParameters?.oAuthHttpParameters?.headerParameters,
+                QueryStringParameters: this.__input.authParameters.oAuthParameters?.oAuthHttpParameters?.queryStringParameters,
+                BodyParameters: this.__input.authParameters.oAuthParameters?.oAuthHttpParameters?.bodyParameters,
+              },
+            },
+            ApiKeyAuthParameters: {
+              ApiKeyName: this.__input.authParameters.apiKeyAuthParameters?.apiKeyName,
+              ApiKeyValue: this.__input.authParameters.apiKeyAuthParameters?.apiKeyValue,
+            },
+            InvocationHttpParameters: {
+              HeaderParameters: this.__input.authParameters.invocationHttpParameters?.headerParameters,
+              QueryStringParameters: this.__input.authParameters.invocationHttpParameters?.queryStringParameters,
+              BodyParameters: this.__input.authParameters.invocationHttpParameters?.bodyParameters,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateConnection.LastModifiedTime', props);
+    return resource.getResponseField('LastModifiedTime') as unknown as string;
+  }
+
+}
+
 export class EventBridgeResponsesCreateEventBus {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeCreateEventBusRequest) {
@@ -516,6 +861,367 @@ export class EventBridgeResponsesCreatePartnerEventSource {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreatePartnerEventSource.EventSourceArn', props);
     return resource.getResponseField('EventSourceArn') as unknown as string;
+  }
+
+}
+
+export class EventBridgeResponsesDeauthorizeConnection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeDeauthorizeConnectionRequest) {
+  }
+
+  public get connectionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deauthorizeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DeauthorizeConnection.ConnectionArn'),
+        outputPath: 'ConnectionArn',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeauthorizeConnection.ConnectionArn', props);
+    return resource.getResponseField('ConnectionArn') as unknown as string;
+  }
+
+  public get connectionState(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deauthorizeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DeauthorizeConnection.ConnectionState'),
+        outputPath: 'ConnectionState',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeauthorizeConnection.ConnectionState', props);
+    return resource.getResponseField('ConnectionState') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deauthorizeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DeauthorizeConnection.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeauthorizeConnection.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deauthorizeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DeauthorizeConnection.LastModifiedTime'),
+        outputPath: 'LastModifiedTime',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeauthorizeConnection.LastModifiedTime', props);
+    return resource.getResponseField('LastModifiedTime') as unknown as string;
+  }
+
+  public get lastAuthorizedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deauthorizeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DeauthorizeConnection.LastAuthorizedTime'),
+        outputPath: 'LastAuthorizedTime',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeauthorizeConnection.LastAuthorizedTime', props);
+    return resource.getResponseField('LastAuthorizedTime') as unknown as string;
+  }
+
+}
+
+export class EventBridgeResponsesDeleteConnection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeDeleteConnectionRequest) {
+  }
+
+  public get connectionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DeleteConnection.ConnectionArn'),
+        outputPath: 'ConnectionArn',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.ConnectionArn', props);
+    return resource.getResponseField('ConnectionArn') as unknown as string;
+  }
+
+  public get connectionState(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DeleteConnection.ConnectionState'),
+        outputPath: 'ConnectionState',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.ConnectionState', props);
+    return resource.getResponseField('ConnectionState') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DeleteConnection.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DeleteConnection.LastModifiedTime'),
+        outputPath: 'LastModifiedTime',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.LastModifiedTime', props);
+    return resource.getResponseField('LastModifiedTime') as unknown as string;
+  }
+
+  public get lastAuthorizedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DeleteConnection.LastAuthorizedTime'),
+        outputPath: 'LastAuthorizedTime',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteConnection.LastAuthorizedTime', props);
+    return resource.getResponseField('LastAuthorizedTime') as unknown as string;
+  }
+
+}
+
+export class EventBridgeResponsesDescribeApiDestination {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeDescribeApiDestinationRequest) {
+  }
+
+  public get apiDestinationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeApiDestination.ApiDestinationArn'),
+        outputPath: 'ApiDestinationArn',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApiDestination.ApiDestinationArn', props);
+    return resource.getResponseField('ApiDestinationArn') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeApiDestination.Name'),
+        outputPath: 'Name',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApiDestination.Name', props);
+    return resource.getResponseField('Name') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeApiDestination.Description'),
+        outputPath: 'Description',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApiDestination.Description', props);
+    return resource.getResponseField('Description') as unknown as string;
+  }
+
+  public get apiDestinationState(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeApiDestination.ApiDestinationState'),
+        outputPath: 'ApiDestinationState',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApiDestination.ApiDestinationState', props);
+    return resource.getResponseField('ApiDestinationState') as unknown as string;
+  }
+
+  public get connectionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeApiDestination.ConnectionArn'),
+        outputPath: 'ConnectionArn',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApiDestination.ConnectionArn', props);
+    return resource.getResponseField('ConnectionArn') as unknown as string;
+  }
+
+  public get invocationEndpoint(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeApiDestination.InvocationEndpoint'),
+        outputPath: 'InvocationEndpoint',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApiDestination.InvocationEndpoint', props);
+    return resource.getResponseField('InvocationEndpoint') as unknown as string;
+  }
+
+  public get httpMethod(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeApiDestination.HttpMethod'),
+        outputPath: 'HttpMethod',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApiDestination.HttpMethod', props);
+    return resource.getResponseField('HttpMethod') as unknown as string;
+  }
+
+  public get invocationRateLimitPerSecond(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeApiDestination.InvocationRateLimitPerSecond'),
+        outputPath: 'InvocationRateLimitPerSecond',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApiDestination.InvocationRateLimitPerSecond', props);
+    return resource.getResponseField('InvocationRateLimitPerSecond') as unknown as number;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeApiDestination.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApiDestination.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeApiDestination.LastModifiedTime'),
+        outputPath: 'LastModifiedTime',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeApiDestination.LastModifiedTime', props);
+    return resource.getResponseField('LastModifiedTime') as unknown as string;
   }
 
 }
@@ -710,6 +1416,447 @@ export class EventBridgeResponsesDescribeArchive {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeArchive.CreationTime', props);
     return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+}
+
+export class EventBridgeResponsesDescribeConnection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeDescribeConnectionRequest) {
+  }
+
+  public get connectionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.ConnectionArn'),
+        outputPath: 'ConnectionArn',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.ConnectionArn', props);
+    return resource.getResponseField('ConnectionArn') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.Name'),
+        outputPath: 'Name',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.Name', props);
+    return resource.getResponseField('Name') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.Description'),
+        outputPath: 'Description',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.Description', props);
+    return resource.getResponseField('Description') as unknown as string;
+  }
+
+  public get connectionState(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.ConnectionState'),
+        outputPath: 'ConnectionState',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.ConnectionState', props);
+    return resource.getResponseField('ConnectionState') as unknown as string;
+  }
+
+  public get stateReason(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.StateReason'),
+        outputPath: 'StateReason',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.StateReason', props);
+    return resource.getResponseField('StateReason') as unknown as string;
+  }
+
+  public get authorizationType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.AuthorizationType'),
+        outputPath: 'AuthorizationType',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.AuthorizationType', props);
+    return resource.getResponseField('AuthorizationType') as unknown as string;
+  }
+
+  public get secretArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.SecretArn'),
+        outputPath: 'SecretArn',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.SecretArn', props);
+    return resource.getResponseField('SecretArn') as unknown as string;
+  }
+
+  public get authParameters(): EventBridgeResponsesDescribeConnectionAuthParameters {
+    return new EventBridgeResponsesDescribeConnectionAuthParameters(this.__scope, this.__resources, this.__input);
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.LastModifiedTime'),
+        outputPath: 'LastModifiedTime',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.LastModifiedTime', props);
+    return resource.getResponseField('LastModifiedTime') as unknown as string;
+  }
+
+  public get lastAuthorizedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.LastAuthorizedTime'),
+        outputPath: 'LastAuthorizedTime',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.LastAuthorizedTime', props);
+    return resource.getResponseField('LastAuthorizedTime') as unknown as string;
+  }
+
+}
+
+export class EventBridgeResponsesDescribeConnectionAuthParameters {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeDescribeConnectionRequest) {
+  }
+
+  public get basicAuthParameters(): EventBridgeResponsesDescribeConnectionAuthParametersBasicAuthParameters {
+    return new EventBridgeResponsesDescribeConnectionAuthParametersBasicAuthParameters(this.__scope, this.__resources, this.__input);
+  }
+
+  public get oAuthParameters(): EventBridgeResponsesDescribeConnectionAuthParametersOAuthParameters {
+    return new EventBridgeResponsesDescribeConnectionAuthParametersOAuthParameters(this.__scope, this.__resources, this.__input);
+  }
+
+  public get apiKeyAuthParameters(): EventBridgeResponsesDescribeConnectionAuthParametersApiKeyAuthParameters {
+    return new EventBridgeResponsesDescribeConnectionAuthParametersApiKeyAuthParameters(this.__scope, this.__resources, this.__input);
+  }
+
+  public get invocationHttpParameters(): EventBridgeResponsesDescribeConnectionAuthParametersInvocationHttpParameters {
+    return new EventBridgeResponsesDescribeConnectionAuthParametersInvocationHttpParameters(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EventBridgeResponsesDescribeConnectionAuthParametersBasicAuthParameters {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeDescribeConnectionRequest) {
+  }
+
+  public get username(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.AuthParameters.BasicAuthParameters.Username'),
+        outputPath: 'AuthParameters.BasicAuthParameters.Username',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.AuthParameters.BasicAuthParameters.Username', props);
+    return resource.getResponseField('AuthParameters.BasicAuthParameters.Username') as unknown as string;
+  }
+
+}
+
+export class EventBridgeResponsesDescribeConnectionAuthParametersOAuthParameters {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeDescribeConnectionRequest) {
+  }
+
+  public get clientParameters(): EventBridgeResponsesDescribeConnectionAuthParametersOAuthParametersClientParameters {
+    return new EventBridgeResponsesDescribeConnectionAuthParametersOAuthParametersClientParameters(this.__scope, this.__resources, this.__input);
+  }
+
+  public get authorizationEndpoint(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.AuthParameters.OAuthParameters.AuthorizationEndpoint'),
+        outputPath: 'AuthParameters.OAuthParameters.AuthorizationEndpoint',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.AuthParameters.OAuthParameters.AuthorizationEndpoint', props);
+    return resource.getResponseField('AuthParameters.OAuthParameters.AuthorizationEndpoint') as unknown as string;
+  }
+
+  public get httpMethod(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.AuthParameters.OAuthParameters.HttpMethod'),
+        outputPath: 'AuthParameters.OAuthParameters.HttpMethod',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.AuthParameters.OAuthParameters.HttpMethod', props);
+    return resource.getResponseField('AuthParameters.OAuthParameters.HttpMethod') as unknown as string;
+  }
+
+  public get oAuthHttpParameters(): EventBridgeResponsesDescribeConnectionAuthParametersOAuthParametersOAuthHttpParameters {
+    return new EventBridgeResponsesDescribeConnectionAuthParametersOAuthParametersOAuthHttpParameters(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EventBridgeResponsesDescribeConnectionAuthParametersOAuthParametersClientParameters {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeDescribeConnectionRequest) {
+  }
+
+  public get clientId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.AuthParameters.OAuthParameters.ClientParameters.ClientID'),
+        outputPath: 'AuthParameters.OAuthParameters.ClientParameters.ClientID',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.AuthParameters.OAuthParameters.ClientParameters.ClientID', props);
+    return resource.getResponseField('AuthParameters.OAuthParameters.ClientParameters.ClientID') as unknown as string;
+  }
+
+}
+
+export class EventBridgeResponsesDescribeConnectionAuthParametersOAuthParametersOAuthHttpParameters {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeDescribeConnectionRequest) {
+  }
+
+  public get headerParameters(): shapes.EventBridgeConnectionHeaderParameter[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.AuthParameters.OAuthParameters.OAuthHttpParameters.HeaderParameters'),
+        outputPath: 'AuthParameters.OAuthParameters.OAuthHttpParameters.HeaderParameters',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.AuthParameters.OAuthParameters.OAuthHttpParameters.HeaderParameters', props);
+    return resource.getResponseField('AuthParameters.OAuthParameters.OAuthHttpParameters.HeaderParameters') as unknown as shapes.EventBridgeConnectionHeaderParameter[];
+  }
+
+  public get queryStringParameters(): shapes.EventBridgeConnectionQueryStringParameter[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.AuthParameters.OAuthParameters.OAuthHttpParameters.QueryStringParameters'),
+        outputPath: 'AuthParameters.OAuthParameters.OAuthHttpParameters.QueryStringParameters',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.AuthParameters.OAuthParameters.OAuthHttpParameters.QueryStringParameters', props);
+    return resource.getResponseField('AuthParameters.OAuthParameters.OAuthHttpParameters.QueryStringParameters') as unknown as shapes.EventBridgeConnectionQueryStringParameter[];
+  }
+
+  public get bodyParameters(): shapes.EventBridgeConnectionBodyParameter[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.AuthParameters.OAuthParameters.OAuthHttpParameters.BodyParameters'),
+        outputPath: 'AuthParameters.OAuthParameters.OAuthHttpParameters.BodyParameters',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.AuthParameters.OAuthParameters.OAuthHttpParameters.BodyParameters', props);
+    return resource.getResponseField('AuthParameters.OAuthParameters.OAuthHttpParameters.BodyParameters') as unknown as shapes.EventBridgeConnectionBodyParameter[];
+  }
+
+}
+
+export class EventBridgeResponsesDescribeConnectionAuthParametersApiKeyAuthParameters {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeDescribeConnectionRequest) {
+  }
+
+  public get apiKeyName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.AuthParameters.ApiKeyAuthParameters.ApiKeyName'),
+        outputPath: 'AuthParameters.ApiKeyAuthParameters.ApiKeyName',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.AuthParameters.ApiKeyAuthParameters.ApiKeyName', props);
+    return resource.getResponseField('AuthParameters.ApiKeyAuthParameters.ApiKeyName') as unknown as string;
+  }
+
+}
+
+export class EventBridgeResponsesDescribeConnectionAuthParametersInvocationHttpParameters {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeDescribeConnectionRequest) {
+  }
+
+  public get headerParameters(): shapes.EventBridgeConnectionHeaderParameter[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.AuthParameters.InvocationHttpParameters.HeaderParameters'),
+        outputPath: 'AuthParameters.InvocationHttpParameters.HeaderParameters',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.AuthParameters.InvocationHttpParameters.HeaderParameters', props);
+    return resource.getResponseField('AuthParameters.InvocationHttpParameters.HeaderParameters') as unknown as shapes.EventBridgeConnectionHeaderParameter[];
+  }
+
+  public get queryStringParameters(): shapes.EventBridgeConnectionQueryStringParameter[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.AuthParameters.InvocationHttpParameters.QueryStringParameters'),
+        outputPath: 'AuthParameters.InvocationHttpParameters.QueryStringParameters',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.AuthParameters.InvocationHttpParameters.QueryStringParameters', props);
+    return resource.getResponseField('AuthParameters.InvocationHttpParameters.QueryStringParameters') as unknown as shapes.EventBridgeConnectionQueryStringParameter[];
+  }
+
+  public get bodyParameters(): shapes.EventBridgeConnectionBodyParameter[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.DescribeConnection.AuthParameters.InvocationHttpParameters.BodyParameters'),
+        outputPath: 'AuthParameters.InvocationHttpParameters.BodyParameters',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeConnection.AuthParameters.InvocationHttpParameters.BodyParameters', props);
+    return resource.getResponseField('AuthParameters.InvocationHttpParameters.BodyParameters') as unknown as shapes.EventBridgeConnectionBodyParameter[];
   }
 
 }
@@ -1348,6 +2495,53 @@ export class EventBridgeResponsesDescribeRule {
 
 }
 
+export class EventBridgeResponsesListApiDestinations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeListApiDestinationsRequest) {
+  }
+
+  public get apiDestinations(): shapes.EventBridgeApiDestination[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listApiDestinations',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.ListApiDestinations.ApiDestinations'),
+        outputPath: 'ApiDestinations',
+        parameters: {
+          NamePrefix: this.__input.namePrefix,
+          ConnectionArn: this.__input.connectionArn,
+          NextToken: this.__input.nextToken,
+          Limit: this.__input.limit,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListApiDestinations.ApiDestinations', props);
+    return resource.getResponseField('ApiDestinations') as unknown as shapes.EventBridgeApiDestination[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listApiDestinations',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.ListApiDestinations.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          NamePrefix: this.__input.namePrefix,
+          ConnectionArn: this.__input.connectionArn,
+          NextToken: this.__input.nextToken,
+          Limit: this.__input.limit,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListApiDestinations.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
 export class EventBridgeResponsesListArchives {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeListArchivesRequest) {
@@ -1392,6 +2586,53 @@ export class EventBridgeResponsesListArchives {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListArchives.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class EventBridgeResponsesListConnections {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeListConnectionsRequest) {
+  }
+
+  public get connections(): shapes.EventBridgeConnection[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listConnections',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.ListConnections.Connections'),
+        outputPath: 'Connections',
+        parameters: {
+          NamePrefix: this.__input.namePrefix,
+          ConnectionState: this.__input.connectionState,
+          NextToken: this.__input.nextToken,
+          Limit: this.__input.limit,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListConnections.Connections', props);
+    return resource.getResponseField('Connections') as unknown as shapes.EventBridgeConnection[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listConnections',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.ListConnections.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          NamePrefix: this.__input.namePrefix,
+          ConnectionState: this.__input.connectionState,
+          NextToken: this.__input.nextToken,
+          Limit: this.__input.limit,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListConnections.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
 
@@ -2128,6 +3369,101 @@ export class EventBridgeResponsesTestEventPattern {
 
 }
 
+export class EventBridgeResponsesUpdateApiDestination {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeUpdateApiDestinationRequest) {
+  }
+
+  public get apiDestinationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.UpdateApiDestination.ApiDestinationArn'),
+        outputPath: 'ApiDestinationArn',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          ConnectionArn: this.__input.connectionArn,
+          InvocationEndpoint: this.__input.invocationEndpoint,
+          HttpMethod: this.__input.httpMethod,
+          InvocationRateLimitPerSecond: this.__input.invocationRateLimitPerSecond,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApiDestination.ApiDestinationArn', props);
+    return resource.getResponseField('ApiDestinationArn') as unknown as string;
+  }
+
+  public get apiDestinationState(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.UpdateApiDestination.ApiDestinationState'),
+        outputPath: 'ApiDestinationState',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          ConnectionArn: this.__input.connectionArn,
+          InvocationEndpoint: this.__input.invocationEndpoint,
+          HttpMethod: this.__input.httpMethod,
+          InvocationRateLimitPerSecond: this.__input.invocationRateLimitPerSecond,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApiDestination.ApiDestinationState', props);
+    return resource.getResponseField('ApiDestinationState') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.UpdateApiDestination.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          ConnectionArn: this.__input.connectionArn,
+          InvocationEndpoint: this.__input.invocationEndpoint,
+          HttpMethod: this.__input.httpMethod,
+          InvocationRateLimitPerSecond: this.__input.invocationRateLimitPerSecond,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApiDestination.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateApiDestination',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.UpdateApiDestination.LastModifiedTime'),
+        outputPath: 'LastModifiedTime',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          ConnectionArn: this.__input.connectionArn,
+          InvocationEndpoint: this.__input.invocationEndpoint,
+          HttpMethod: this.__input.httpMethod,
+          InvocationRateLimitPerSecond: this.__input.invocationRateLimitPerSecond,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateApiDestination.LastModifiedTime', props);
+    return resource.getResponseField('LastModifiedTime') as unknown as string;
+  }
+
+}
+
 export class EventBridgeResponsesUpdateArchive {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeUpdateArchiveRequest) {
@@ -2211,6 +3547,248 @@ export class EventBridgeResponsesUpdateArchive {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateArchive.CreationTime', props);
     return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+}
+
+export class EventBridgeResponsesUpdateConnection {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EventBridgeUpdateConnectionRequest) {
+  }
+
+  public get connectionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.UpdateConnection.ConnectionArn'),
+        outputPath: 'ConnectionArn',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          AuthorizationType: this.__input.authorizationType,
+          AuthParameters: {
+            BasicAuthParameters: {
+              Username: this.__input.authParameters?.basicAuthParameters?.username,
+              Password: this.__input.authParameters?.basicAuthParameters?.password,
+            },
+            OAuthParameters: {
+              ClientParameters: {
+                ClientID: this.__input.authParameters?.oAuthParameters?.clientParameters?.clientId,
+                ClientSecret: this.__input.authParameters?.oAuthParameters?.clientParameters?.clientSecret,
+              },
+              AuthorizationEndpoint: this.__input.authParameters?.oAuthParameters?.authorizationEndpoint,
+              HttpMethod: this.__input.authParameters?.oAuthParameters?.httpMethod,
+              OAuthHttpParameters: {
+                HeaderParameters: this.__input.authParameters?.oAuthParameters?.oAuthHttpParameters?.headerParameters,
+                QueryStringParameters: this.__input.authParameters?.oAuthParameters?.oAuthHttpParameters?.queryStringParameters,
+                BodyParameters: this.__input.authParameters?.oAuthParameters?.oAuthHttpParameters?.bodyParameters,
+              },
+            },
+            ApiKeyAuthParameters: {
+              ApiKeyName: this.__input.authParameters?.apiKeyAuthParameters?.apiKeyName,
+              ApiKeyValue: this.__input.authParameters?.apiKeyAuthParameters?.apiKeyValue,
+            },
+            InvocationHttpParameters: {
+              HeaderParameters: this.__input.authParameters?.invocationHttpParameters?.headerParameters,
+              QueryStringParameters: this.__input.authParameters?.invocationHttpParameters?.queryStringParameters,
+              BodyParameters: this.__input.authParameters?.invocationHttpParameters?.bodyParameters,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.ConnectionArn', props);
+    return resource.getResponseField('ConnectionArn') as unknown as string;
+  }
+
+  public get connectionState(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.UpdateConnection.ConnectionState'),
+        outputPath: 'ConnectionState',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          AuthorizationType: this.__input.authorizationType,
+          AuthParameters: {
+            BasicAuthParameters: {
+              Username: this.__input.authParameters?.basicAuthParameters?.username,
+              Password: this.__input.authParameters?.basicAuthParameters?.password,
+            },
+            OAuthParameters: {
+              ClientParameters: {
+                ClientID: this.__input.authParameters?.oAuthParameters?.clientParameters?.clientId,
+                ClientSecret: this.__input.authParameters?.oAuthParameters?.clientParameters?.clientSecret,
+              },
+              AuthorizationEndpoint: this.__input.authParameters?.oAuthParameters?.authorizationEndpoint,
+              HttpMethod: this.__input.authParameters?.oAuthParameters?.httpMethod,
+              OAuthHttpParameters: {
+                HeaderParameters: this.__input.authParameters?.oAuthParameters?.oAuthHttpParameters?.headerParameters,
+                QueryStringParameters: this.__input.authParameters?.oAuthParameters?.oAuthHttpParameters?.queryStringParameters,
+                BodyParameters: this.__input.authParameters?.oAuthParameters?.oAuthHttpParameters?.bodyParameters,
+              },
+            },
+            ApiKeyAuthParameters: {
+              ApiKeyName: this.__input.authParameters?.apiKeyAuthParameters?.apiKeyName,
+              ApiKeyValue: this.__input.authParameters?.apiKeyAuthParameters?.apiKeyValue,
+            },
+            InvocationHttpParameters: {
+              HeaderParameters: this.__input.authParameters?.invocationHttpParameters?.headerParameters,
+              QueryStringParameters: this.__input.authParameters?.invocationHttpParameters?.queryStringParameters,
+              BodyParameters: this.__input.authParameters?.invocationHttpParameters?.bodyParameters,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.ConnectionState', props);
+    return resource.getResponseField('ConnectionState') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.UpdateConnection.CreationTime'),
+        outputPath: 'CreationTime',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          AuthorizationType: this.__input.authorizationType,
+          AuthParameters: {
+            BasicAuthParameters: {
+              Username: this.__input.authParameters?.basicAuthParameters?.username,
+              Password: this.__input.authParameters?.basicAuthParameters?.password,
+            },
+            OAuthParameters: {
+              ClientParameters: {
+                ClientID: this.__input.authParameters?.oAuthParameters?.clientParameters?.clientId,
+                ClientSecret: this.__input.authParameters?.oAuthParameters?.clientParameters?.clientSecret,
+              },
+              AuthorizationEndpoint: this.__input.authParameters?.oAuthParameters?.authorizationEndpoint,
+              HttpMethod: this.__input.authParameters?.oAuthParameters?.httpMethod,
+              OAuthHttpParameters: {
+                HeaderParameters: this.__input.authParameters?.oAuthParameters?.oAuthHttpParameters?.headerParameters,
+                QueryStringParameters: this.__input.authParameters?.oAuthParameters?.oAuthHttpParameters?.queryStringParameters,
+                BodyParameters: this.__input.authParameters?.oAuthParameters?.oAuthHttpParameters?.bodyParameters,
+              },
+            },
+            ApiKeyAuthParameters: {
+              ApiKeyName: this.__input.authParameters?.apiKeyAuthParameters?.apiKeyName,
+              ApiKeyValue: this.__input.authParameters?.apiKeyAuthParameters?.apiKeyValue,
+            },
+            InvocationHttpParameters: {
+              HeaderParameters: this.__input.authParameters?.invocationHttpParameters?.headerParameters,
+              QueryStringParameters: this.__input.authParameters?.invocationHttpParameters?.queryStringParameters,
+              BodyParameters: this.__input.authParameters?.invocationHttpParameters?.bodyParameters,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.CreationTime', props);
+    return resource.getResponseField('CreationTime') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.UpdateConnection.LastModifiedTime'),
+        outputPath: 'LastModifiedTime',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          AuthorizationType: this.__input.authorizationType,
+          AuthParameters: {
+            BasicAuthParameters: {
+              Username: this.__input.authParameters?.basicAuthParameters?.username,
+              Password: this.__input.authParameters?.basicAuthParameters?.password,
+            },
+            OAuthParameters: {
+              ClientParameters: {
+                ClientID: this.__input.authParameters?.oAuthParameters?.clientParameters?.clientId,
+                ClientSecret: this.__input.authParameters?.oAuthParameters?.clientParameters?.clientSecret,
+              },
+              AuthorizationEndpoint: this.__input.authParameters?.oAuthParameters?.authorizationEndpoint,
+              HttpMethod: this.__input.authParameters?.oAuthParameters?.httpMethod,
+              OAuthHttpParameters: {
+                HeaderParameters: this.__input.authParameters?.oAuthParameters?.oAuthHttpParameters?.headerParameters,
+                QueryStringParameters: this.__input.authParameters?.oAuthParameters?.oAuthHttpParameters?.queryStringParameters,
+                BodyParameters: this.__input.authParameters?.oAuthParameters?.oAuthHttpParameters?.bodyParameters,
+              },
+            },
+            ApiKeyAuthParameters: {
+              ApiKeyName: this.__input.authParameters?.apiKeyAuthParameters?.apiKeyName,
+              ApiKeyValue: this.__input.authParameters?.apiKeyAuthParameters?.apiKeyValue,
+            },
+            InvocationHttpParameters: {
+              HeaderParameters: this.__input.authParameters?.invocationHttpParameters?.headerParameters,
+              QueryStringParameters: this.__input.authParameters?.invocationHttpParameters?.queryStringParameters,
+              BodyParameters: this.__input.authParameters?.invocationHttpParameters?.bodyParameters,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.LastModifiedTime', props);
+    return resource.getResponseField('LastModifiedTime') as unknown as string;
+  }
+
+  public get lastAuthorizedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateConnection',
+        service: 'EventBridge',
+        physicalResourceId: cr.PhysicalResourceId.of('EventBridge.UpdateConnection.LastAuthorizedTime'),
+        outputPath: 'LastAuthorizedTime',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          AuthorizationType: this.__input.authorizationType,
+          AuthParameters: {
+            BasicAuthParameters: {
+              Username: this.__input.authParameters?.basicAuthParameters?.username,
+              Password: this.__input.authParameters?.basicAuthParameters?.password,
+            },
+            OAuthParameters: {
+              ClientParameters: {
+                ClientID: this.__input.authParameters?.oAuthParameters?.clientParameters?.clientId,
+                ClientSecret: this.__input.authParameters?.oAuthParameters?.clientParameters?.clientSecret,
+              },
+              AuthorizationEndpoint: this.__input.authParameters?.oAuthParameters?.authorizationEndpoint,
+              HttpMethod: this.__input.authParameters?.oAuthParameters?.httpMethod,
+              OAuthHttpParameters: {
+                HeaderParameters: this.__input.authParameters?.oAuthParameters?.oAuthHttpParameters?.headerParameters,
+                QueryStringParameters: this.__input.authParameters?.oAuthParameters?.oAuthHttpParameters?.queryStringParameters,
+                BodyParameters: this.__input.authParameters?.oAuthParameters?.oAuthHttpParameters?.bodyParameters,
+              },
+            },
+            ApiKeyAuthParameters: {
+              ApiKeyName: this.__input.authParameters?.apiKeyAuthParameters?.apiKeyName,
+              ApiKeyValue: this.__input.authParameters?.apiKeyAuthParameters?.apiKeyValue,
+            },
+            InvocationHttpParameters: {
+              HeaderParameters: this.__input.authParameters?.invocationHttpParameters?.headerParameters,
+              QueryStringParameters: this.__input.authParameters?.invocationHttpParameters?.queryStringParameters,
+              BodyParameters: this.__input.authParameters?.invocationHttpParameters?.bodyParameters,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateConnection.LastAuthorizedTime', props);
+    return resource.getResponseField('LastAuthorizedTime') as unknown as string;
   }
 
 }

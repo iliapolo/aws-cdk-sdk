@@ -20,6 +20,22 @@ export interface GlacierAbortMultipartUploadInput {
 }
 
 /**
+ * Converts an object of type 'GlacierAbortMultipartUploadInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierAbortMultipartUploadInput(obj: GlacierAbortMultipartUploadInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+    'uploadId': obj.uploadId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierAbortVaultLockInput
  */
 export interface GlacierAbortVaultLockInput {
@@ -34,6 +50,21 @@ export interface GlacierAbortVaultLockInput {
   readonly vaultName: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierAbortVaultLockInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierAbortVaultLockInput(obj: GlacierAbortVaultLockInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierAddTagsToVaultInput
@@ -55,6 +86,22 @@ export interface GlacierAddTagsToVaultInput {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'GlacierAddTagsToVaultInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierAddTagsToVaultInput(obj: GlacierAddTagsToVaultInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierCompleteMultipartUploadInput
@@ -88,6 +135,24 @@ export interface GlacierCompleteMultipartUploadInput {
 }
 
 /**
+ * Converts an object of type 'GlacierCompleteMultipartUploadInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierCompleteMultipartUploadInput(obj: GlacierCompleteMultipartUploadInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+    'uploadId': obj.uploadId,
+    'archiveSize': obj.archiveSize,
+    'checksum': obj.checksum,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierArchiveCreationOutput
  */
 export interface GlacierArchiveCreationOutput {
@@ -107,6 +172,22 @@ export interface GlacierArchiveCreationOutput {
   readonly archiveId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierArchiveCreationOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierArchiveCreationOutput(obj: GlacierArchiveCreationOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'location': obj.location,
+    'checksum': obj.checksum,
+    'archiveId': obj.archiveId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierCompleteVaultLockInput
@@ -130,6 +211,22 @@ export interface GlacierCompleteVaultLockInput {
 }
 
 /**
+ * Converts an object of type 'GlacierCompleteVaultLockInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierCompleteVaultLockInput(obj: GlacierCompleteVaultLockInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+    'lockId': obj.lockId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierCreateVaultInput
  */
 export interface GlacierCreateVaultInput {
@@ -146,6 +243,21 @@ export interface GlacierCreateVaultInput {
 }
 
 /**
+ * Converts an object of type 'GlacierCreateVaultInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierCreateVaultInput(obj: GlacierCreateVaultInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierCreateVaultOutput
  */
 export interface GlacierCreateVaultOutput {
@@ -155,6 +267,20 @@ export interface GlacierCreateVaultOutput {
   readonly location?: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierCreateVaultOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierCreateVaultOutput(obj: GlacierCreateVaultOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'location': obj.location,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierDeleteArchiveInput
@@ -178,6 +304,22 @@ export interface GlacierDeleteArchiveInput {
 }
 
 /**
+ * Converts an object of type 'GlacierDeleteArchiveInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierDeleteArchiveInput(obj: GlacierDeleteArchiveInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+    'archiveId': obj.archiveId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierDeleteVaultInput
  */
 export interface GlacierDeleteVaultInput {
@@ -192,6 +334,21 @@ export interface GlacierDeleteVaultInput {
   readonly vaultName: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierDeleteVaultInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierDeleteVaultInput(obj: GlacierDeleteVaultInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierDeleteVaultAccessPolicyInput
@@ -210,6 +367,21 @@ export interface GlacierDeleteVaultAccessPolicyInput {
 }
 
 /**
+ * Converts an object of type 'GlacierDeleteVaultAccessPolicyInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierDeleteVaultAccessPolicyInput(obj: GlacierDeleteVaultAccessPolicyInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierDeleteVaultNotificationsInput
  */
 export interface GlacierDeleteVaultNotificationsInput {
@@ -224,6 +396,21 @@ export interface GlacierDeleteVaultNotificationsInput {
   readonly vaultName: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierDeleteVaultNotificationsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierDeleteVaultNotificationsInput(obj: GlacierDeleteVaultNotificationsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierDescribeJobInput
@@ -245,6 +432,22 @@ export interface GlacierDescribeJobInput {
   readonly jobId: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierDescribeJobInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierDescribeJobInput(obj: GlacierDescribeJobInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+    'jobId': obj.jobId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierGlacierJobDescription
@@ -358,6 +561,40 @@ export interface GlacierGlacierJobDescription {
 }
 
 /**
+ * Converts an object of type 'GlacierGlacierJobDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierGlacierJobDescription(obj: GlacierGlacierJobDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobId': obj.jobId,
+    'JobDescription': obj.jobDescription,
+    'Action': obj.action,
+    'ArchiveId': obj.archiveId,
+    'VaultARN': obj.vaultArn,
+    'CreationDate': obj.creationDate,
+    'Completed': obj.completed,
+    'StatusCode': obj.statusCode,
+    'StatusMessage': obj.statusMessage,
+    'ArchiveSizeInBytes': obj.archiveSizeInBytes,
+    'InventorySizeInBytes': obj.inventorySizeInBytes,
+    'SNSTopic': obj.snsTopic,
+    'CompletionDate': obj.completionDate,
+    'SHA256TreeHash': obj.sha256TreeHash,
+    'ArchiveSHA256TreeHash': obj.archiveSha256TreeHash,
+    'RetrievalByteRange': obj.retrievalByteRange,
+    'Tier': obj.tier,
+    'InventoryRetrievalParameters': toJson_GlacierInventoryRetrievalJobDescription(obj.inventoryRetrievalParameters),
+    'JobOutputPath': obj.jobOutputPath,
+    'SelectParameters': toJson_GlacierSelectParameters(obj.selectParameters),
+    'OutputLocation': toJson_GlacierOutputLocation(obj.outputLocation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierDescribeVaultInput
  */
 export interface GlacierDescribeVaultInput {
@@ -372,6 +609,21 @@ export interface GlacierDescribeVaultInput {
   readonly vaultName: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierDescribeVaultInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierDescribeVaultInput(obj: GlacierDescribeVaultInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierDescribeVaultOutput
@@ -410,6 +662,25 @@ export interface GlacierDescribeVaultOutput {
 }
 
 /**
+ * Converts an object of type 'GlacierDescribeVaultOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierDescribeVaultOutput(obj: GlacierDescribeVaultOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VaultARN': obj.vaultArn,
+    'VaultName': obj.vaultName,
+    'CreationDate': obj.creationDate,
+    'LastInventoryDate': obj.lastInventoryDate,
+    'NumberOfArchives': obj.numberOfArchives,
+    'SizeInBytes': obj.sizeInBytes,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierGetDataRetrievalPolicyInput
  */
 export interface GlacierGetDataRetrievalPolicyInput {
@@ -421,6 +692,20 @@ export interface GlacierGetDataRetrievalPolicyInput {
 }
 
 /**
+ * Converts an object of type 'GlacierGetDataRetrievalPolicyInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierGetDataRetrievalPolicyInput(obj: GlacierGetDataRetrievalPolicyInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierGetDataRetrievalPolicyOutput
  */
 export interface GlacierGetDataRetrievalPolicyOutput {
@@ -430,6 +715,20 @@ export interface GlacierGetDataRetrievalPolicyOutput {
   readonly policy?: GlacierDataRetrievalPolicy;
 
 }
+
+/**
+ * Converts an object of type 'GlacierGetDataRetrievalPolicyOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierGetDataRetrievalPolicyOutput(obj: GlacierGetDataRetrievalPolicyOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Policy': toJson_GlacierDataRetrievalPolicy(obj.policy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierGetJobOutputInput
@@ -456,6 +755,23 @@ export interface GlacierGetJobOutputInput {
   readonly range?: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierGetJobOutputInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierGetJobOutputInput(obj: GlacierGetJobOutputInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+    'jobId': obj.jobId,
+    'range': obj.range,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierGetJobOutputOutput
@@ -499,6 +815,26 @@ export interface GlacierGetJobOutputOutput {
 }
 
 /**
+ * Converts an object of type 'GlacierGetJobOutputOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierGetJobOutputOutput(obj: GlacierGetJobOutputOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'body': obj.body,
+    'checksum': obj.checksum,
+    'status': obj.status,
+    'contentRange': obj.contentRange,
+    'acceptRanges': obj.acceptRanges,
+    'contentType': obj.contentType,
+    'archiveDescription': obj.archiveDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierGetVaultAccessPolicyInput
  */
 export interface GlacierGetVaultAccessPolicyInput {
@@ -515,6 +851,21 @@ export interface GlacierGetVaultAccessPolicyInput {
 }
 
 /**
+ * Converts an object of type 'GlacierGetVaultAccessPolicyInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierGetVaultAccessPolicyInput(obj: GlacierGetVaultAccessPolicyInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierGetVaultAccessPolicyOutput
  */
 export interface GlacierGetVaultAccessPolicyOutput {
@@ -524,6 +875,20 @@ export interface GlacierGetVaultAccessPolicyOutput {
   readonly policy?: GlacierVaultAccessPolicy;
 
 }
+
+/**
+ * Converts an object of type 'GlacierGetVaultAccessPolicyOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierGetVaultAccessPolicyOutput(obj: GlacierGetVaultAccessPolicyOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'policy': toJson_GlacierVaultAccessPolicy(obj.policy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierGetVaultLockInput
@@ -540,6 +905,21 @@ export interface GlacierGetVaultLockInput {
   readonly vaultName: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierGetVaultLockInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierGetVaultLockInput(obj: GlacierGetVaultLockInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierGetVaultLockOutput
@@ -568,6 +948,23 @@ export interface GlacierGetVaultLockOutput {
 }
 
 /**
+ * Converts an object of type 'GlacierGetVaultLockOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierGetVaultLockOutput(obj: GlacierGetVaultLockOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Policy': obj.policy,
+    'State': obj.state,
+    'ExpirationDate': obj.expirationDate,
+    'CreationDate': obj.creationDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierGetVaultNotificationsInput
  */
 export interface GlacierGetVaultNotificationsInput {
@@ -584,6 +981,21 @@ export interface GlacierGetVaultNotificationsInput {
 }
 
 /**
+ * Converts an object of type 'GlacierGetVaultNotificationsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierGetVaultNotificationsInput(obj: GlacierGetVaultNotificationsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierGetVaultNotificationsOutput
  */
 export interface GlacierGetVaultNotificationsOutput {
@@ -593,6 +1005,20 @@ export interface GlacierGetVaultNotificationsOutput {
   readonly vaultNotificationConfig?: GlacierVaultNotificationConfig;
 
 }
+
+/**
+ * Converts an object of type 'GlacierGetVaultNotificationsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierGetVaultNotificationsOutput(obj: GlacierGetVaultNotificationsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'vaultNotificationConfig': toJson_GlacierVaultNotificationConfig(obj.vaultNotificationConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierInitiateJobInput
@@ -616,6 +1042,22 @@ export interface GlacierInitiateJobInput {
 }
 
 /**
+ * Converts an object of type 'GlacierInitiateJobInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierInitiateJobInput(obj: GlacierInitiateJobInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+    'jobParameters': toJson_GlacierJobParameters(obj.jobParameters),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierInitiateJobOutput
  */
 export interface GlacierInitiateJobOutput {
@@ -635,6 +1077,22 @@ export interface GlacierInitiateJobOutput {
   readonly jobOutputPath?: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierInitiateJobOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierInitiateJobOutput(obj: GlacierInitiateJobOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'location': obj.location,
+    'jobId': obj.jobId,
+    'jobOutputPath': obj.jobOutputPath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierInitiateMultipartUploadInput
@@ -663,6 +1121,23 @@ export interface GlacierInitiateMultipartUploadInput {
 }
 
 /**
+ * Converts an object of type 'GlacierInitiateMultipartUploadInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierInitiateMultipartUploadInput(obj: GlacierInitiateMultipartUploadInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+    'archiveDescription': obj.archiveDescription,
+    'partSize': obj.partSize,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierInitiateMultipartUploadOutput
  */
 export interface GlacierInitiateMultipartUploadOutput {
@@ -677,6 +1152,21 @@ export interface GlacierInitiateMultipartUploadOutput {
   readonly uploadId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierInitiateMultipartUploadOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierInitiateMultipartUploadOutput(obj: GlacierInitiateMultipartUploadOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'location': obj.location,
+    'uploadId': obj.uploadId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierInitiateVaultLockInput
@@ -700,6 +1190,22 @@ export interface GlacierInitiateVaultLockInput {
 }
 
 /**
+ * Converts an object of type 'GlacierInitiateVaultLockInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierInitiateVaultLockInput(obj: GlacierInitiateVaultLockInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+    'policy': toJson_GlacierVaultLockPolicy(obj.policy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierInitiateVaultLockOutput
  */
 export interface GlacierInitiateVaultLockOutput {
@@ -709,6 +1215,20 @@ export interface GlacierInitiateVaultLockOutput {
   readonly lockId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierInitiateVaultLockOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierInitiateVaultLockOutput(obj: GlacierInitiateVaultLockOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'lockId': obj.lockId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierListJobsInput
@@ -747,6 +1267,25 @@ export interface GlacierListJobsInput {
 }
 
 /**
+ * Converts an object of type 'GlacierListJobsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierListJobsInput(obj: GlacierListJobsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+    'limit': obj.limit,
+    'marker': obj.marker,
+    'statuscode': obj.statuscode,
+    'completed': obj.completed,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierListJobsOutput
  */
 export interface GlacierListJobsOutput {
@@ -761,6 +1300,21 @@ export interface GlacierListJobsOutput {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierListJobsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierListJobsOutput(obj: GlacierListJobsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobList': obj.jobList?.map(y => toJson_GlacierGlacierJobDescription(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierListMultipartUploadsInput
@@ -789,6 +1343,23 @@ export interface GlacierListMultipartUploadsInput {
 }
 
 /**
+ * Converts an object of type 'GlacierListMultipartUploadsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierListMultipartUploadsInput(obj: GlacierListMultipartUploadsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+    'marker': obj.marker,
+    'limit': obj.limit,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierListMultipartUploadsOutput
  */
 export interface GlacierListMultipartUploadsOutput {
@@ -803,6 +1374,21 @@ export interface GlacierListMultipartUploadsOutput {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierListMultipartUploadsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierListMultipartUploadsOutput(obj: GlacierListMultipartUploadsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UploadsList': obj.uploadsList?.map(y => toJson_GlacierUploadListElement(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierListPartsInput
@@ -834,6 +1420,24 @@ export interface GlacierListPartsInput {
   readonly limit?: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierListPartsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierListPartsInput(obj: GlacierListPartsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+    'uploadId': obj.uploadId,
+    'marker': obj.marker,
+    'limit': obj.limit,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierListPartsOutput
@@ -877,6 +1481,26 @@ export interface GlacierListPartsOutput {
 }
 
 /**
+ * Converts an object of type 'GlacierListPartsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierListPartsOutput(obj: GlacierListPartsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MultipartUploadId': obj.multipartUploadId,
+    'VaultARN': obj.vaultArn,
+    'ArchiveDescription': obj.archiveDescription,
+    'PartSizeInBytes': obj.partSizeInBytes,
+    'CreationDate': obj.creationDate,
+    'Parts': obj.parts?.map(y => toJson_GlacierPartListElement(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierListProvisionedCapacityInput
  */
 export interface GlacierListProvisionedCapacityInput {
@@ -888,6 +1512,20 @@ export interface GlacierListProvisionedCapacityInput {
 }
 
 /**
+ * Converts an object of type 'GlacierListProvisionedCapacityInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierListProvisionedCapacityInput(obj: GlacierListProvisionedCapacityInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierListProvisionedCapacityOutput
  */
 export interface GlacierListProvisionedCapacityOutput {
@@ -897,6 +1535,20 @@ export interface GlacierListProvisionedCapacityOutput {
   readonly provisionedCapacityList?: GlacierProvisionedCapacityDescription[];
 
 }
+
+/**
+ * Converts an object of type 'GlacierListProvisionedCapacityOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierListProvisionedCapacityOutput(obj: GlacierListProvisionedCapacityOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProvisionedCapacityList': obj.provisionedCapacityList?.map(y => toJson_GlacierProvisionedCapacityDescription(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierListTagsForVaultInput
@@ -915,6 +1567,21 @@ export interface GlacierListTagsForVaultInput {
 }
 
 /**
+ * Converts an object of type 'GlacierListTagsForVaultInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierListTagsForVaultInput(obj: GlacierListTagsForVaultInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierListTagsForVaultOutput
  */
 export interface GlacierListTagsForVaultOutput {
@@ -924,6 +1591,20 @@ export interface GlacierListTagsForVaultOutput {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'GlacierListTagsForVaultOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierListTagsForVaultOutput(obj: GlacierListTagsForVaultOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierListVaultsInput
@@ -947,6 +1628,22 @@ export interface GlacierListVaultsInput {
 }
 
 /**
+ * Converts an object of type 'GlacierListVaultsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierListVaultsInput(obj: GlacierListVaultsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'marker': obj.marker,
+    'limit': obj.limit,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierListVaultsOutput
  */
 export interface GlacierListVaultsOutput {
@@ -963,6 +1660,21 @@ export interface GlacierListVaultsOutput {
 }
 
 /**
+ * Converts an object of type 'GlacierListVaultsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierListVaultsOutput(obj: GlacierListVaultsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VaultList': obj.vaultList?.map(y => toJson_GlacierDescribeVaultOutput(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierPurchaseProvisionedCapacityInput
  */
 export interface GlacierPurchaseProvisionedCapacityInput {
@@ -974,6 +1686,20 @@ export interface GlacierPurchaseProvisionedCapacityInput {
 }
 
 /**
+ * Converts an object of type 'GlacierPurchaseProvisionedCapacityInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierPurchaseProvisionedCapacityInput(obj: GlacierPurchaseProvisionedCapacityInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierPurchaseProvisionedCapacityOutput
  */
 export interface GlacierPurchaseProvisionedCapacityOutput {
@@ -983,6 +1709,20 @@ export interface GlacierPurchaseProvisionedCapacityOutput {
   readonly capacityId?: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierPurchaseProvisionedCapacityOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierPurchaseProvisionedCapacityOutput(obj: GlacierPurchaseProvisionedCapacityOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'capacityId': obj.capacityId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierRemoveTagsFromVaultInput
@@ -1006,6 +1746,22 @@ export interface GlacierRemoveTagsFromVaultInput {
 }
 
 /**
+ * Converts an object of type 'GlacierRemoveTagsFromVaultInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierRemoveTagsFromVaultInput(obj: GlacierRemoveTagsFromVaultInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierSetDataRetrievalPolicyInput
  */
 export interface GlacierSetDataRetrievalPolicyInput {
@@ -1020,6 +1776,21 @@ export interface GlacierSetDataRetrievalPolicyInput {
   readonly policy?: GlacierDataRetrievalPolicy;
 
 }
+
+/**
+ * Converts an object of type 'GlacierSetDataRetrievalPolicyInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierSetDataRetrievalPolicyInput(obj: GlacierSetDataRetrievalPolicyInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'Policy': toJson_GlacierDataRetrievalPolicy(obj.policy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierSetVaultAccessPolicyInput
@@ -1043,6 +1814,22 @@ export interface GlacierSetVaultAccessPolicyInput {
 }
 
 /**
+ * Converts an object of type 'GlacierSetVaultAccessPolicyInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierSetVaultAccessPolicyInput(obj: GlacierSetVaultAccessPolicyInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+    'policy': toJson_GlacierVaultAccessPolicy(obj.policy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierSetVaultNotificationsInput
  */
 export interface GlacierSetVaultNotificationsInput {
@@ -1062,6 +1849,22 @@ export interface GlacierSetVaultNotificationsInput {
   readonly vaultNotificationConfig?: GlacierVaultNotificationConfig;
 
 }
+
+/**
+ * Converts an object of type 'GlacierSetVaultNotificationsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierSetVaultNotificationsInput(obj: GlacierSetVaultNotificationsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+    'vaultNotificationConfig': toJson_GlacierVaultNotificationConfig(obj.vaultNotificationConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierUploadArchiveInput
@@ -1093,6 +1896,24 @@ export interface GlacierUploadArchiveInput {
   readonly body?: any;
 
 }
+
+/**
+ * Converts an object of type 'GlacierUploadArchiveInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierUploadArchiveInput(obj: GlacierUploadArchiveInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'vaultName': obj.vaultName,
+    'accountId': obj.accountId,
+    'archiveDescription': obj.archiveDescription,
+    'checksum': obj.checksum,
+    'body': obj.body,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierUploadMultipartPartInput
@@ -1131,6 +1952,25 @@ export interface GlacierUploadMultipartPartInput {
 }
 
 /**
+ * Converts an object of type 'GlacierUploadMultipartPartInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierUploadMultipartPartInput(obj: GlacierUploadMultipartPartInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'vaultName': obj.vaultName,
+    'uploadId': obj.uploadId,
+    'checksum': obj.checksum,
+    'range': obj.range,
+    'body': obj.body,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierUploadMultipartPartOutput
  */
 export interface GlacierUploadMultipartPartOutput {
@@ -1140,6 +1980,20 @@ export interface GlacierUploadMultipartPartOutput {
   readonly checksum?: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierUploadMultipartPartOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierUploadMultipartPartOutput(obj: GlacierUploadMultipartPartOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'checksum': obj.checksum,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierInventoryRetrievalJobDescription
@@ -1173,6 +2027,24 @@ export interface GlacierInventoryRetrievalJobDescription {
 }
 
 /**
+ * Converts an object of type 'GlacierInventoryRetrievalJobDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierInventoryRetrievalJobDescription(obj: GlacierInventoryRetrievalJobDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Format': obj.format,
+    'StartDate': obj.startDate,
+    'EndDate': obj.endDate,
+    'Limit': obj.limit,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierSelectParameters
  */
 export interface GlacierSelectParameters {
@@ -1199,6 +2071,23 @@ export interface GlacierSelectParameters {
 }
 
 /**
+ * Converts an object of type 'GlacierSelectParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierSelectParameters(obj: GlacierSelectParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InputSerialization': toJson_GlacierInputSerialization(obj.inputSerialization),
+    'ExpressionType': obj.expressionType,
+    'Expression': obj.expression,
+    'OutputSerialization': toJson_GlacierOutputSerialization(obj.outputSerialization),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierOutputLocation
  */
 export interface GlacierOutputLocation {
@@ -1208,6 +2097,20 @@ export interface GlacierOutputLocation {
   readonly s3?: GlacierS3Location;
 
 }
+
+/**
+ * Converts an object of type 'GlacierOutputLocation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierOutputLocation(obj: GlacierOutputLocation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3': toJson_GlacierS3Location(obj.s3),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierDataRetrievalPolicy
@@ -1221,6 +2124,20 @@ export interface GlacierDataRetrievalPolicy {
 }
 
 /**
+ * Converts an object of type 'GlacierDataRetrievalPolicy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierDataRetrievalPolicy(obj: GlacierDataRetrievalPolicy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Rules': obj.rules?.map(y => toJson_GlacierDataRetrievalRule(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierVaultAccessPolicy
  */
 export interface GlacierVaultAccessPolicy {
@@ -1230,6 +2147,20 @@ export interface GlacierVaultAccessPolicy {
   readonly policy?: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierVaultAccessPolicy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierVaultAccessPolicy(obj: GlacierVaultAccessPolicy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Policy': obj.policy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierVaultNotificationConfig
@@ -1246,6 +2177,21 @@ export interface GlacierVaultNotificationConfig {
   readonly events?: string[];
 
 }
+
+/**
+ * Converts an object of type 'GlacierVaultNotificationConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierVaultNotificationConfig(obj: GlacierVaultNotificationConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SNSTopic': obj.snsTopic,
+    'Events': obj.events?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierJobParameters
@@ -1304,6 +2250,29 @@ export interface GlacierJobParameters {
 }
 
 /**
+ * Converts an object of type 'GlacierJobParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierJobParameters(obj: GlacierJobParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Format': obj.format,
+    'Type': obj.type,
+    'ArchiveId': obj.archiveId,
+    'Description': obj.description,
+    'SNSTopic': obj.snsTopic,
+    'RetrievalByteRange': obj.retrievalByteRange,
+    'Tier': obj.tier,
+    'InventoryRetrievalParameters': toJson_GlacierInventoryRetrievalJobInput(obj.inventoryRetrievalParameters),
+    'SelectParameters': toJson_GlacierSelectParameters(obj.selectParameters),
+    'OutputLocation': toJson_GlacierOutputLocation(obj.outputLocation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierVaultLockPolicy
  */
 export interface GlacierVaultLockPolicy {
@@ -1313,6 +2282,20 @@ export interface GlacierVaultLockPolicy {
   readonly policy?: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierVaultLockPolicy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierVaultLockPolicy(obj: GlacierVaultLockPolicy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Policy': obj.policy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierUploadListElement
@@ -1346,6 +2329,24 @@ export interface GlacierUploadListElement {
 }
 
 /**
+ * Converts an object of type 'GlacierUploadListElement' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierUploadListElement(obj: GlacierUploadListElement | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MultipartUploadId': obj.multipartUploadId,
+    'VaultARN': obj.vaultArn,
+    'ArchiveDescription': obj.archiveDescription,
+    'PartSizeInBytes': obj.partSizeInBytes,
+    'CreationDate': obj.creationDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierPartListElement
  */
 export interface GlacierPartListElement {
@@ -1360,6 +2361,21 @@ export interface GlacierPartListElement {
   readonly sha256TreeHash?: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierPartListElement' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierPartListElement(obj: GlacierPartListElement | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RangeInBytes': obj.rangeInBytes,
+    'SHA256TreeHash': obj.sha256TreeHash,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierProvisionedCapacityDescription
@@ -1383,6 +2399,22 @@ export interface GlacierProvisionedCapacityDescription {
 }
 
 /**
+ * Converts an object of type 'GlacierProvisionedCapacityDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierProvisionedCapacityDescription(obj: GlacierProvisionedCapacityDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CapacityId': obj.capacityId,
+    'StartDate': obj.startDate,
+    'ExpirationDate': obj.expirationDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierInputSerialization
  */
 export interface GlacierInputSerialization {
@@ -1394,6 +2426,20 @@ export interface GlacierInputSerialization {
 }
 
 /**
+ * Converts an object of type 'GlacierInputSerialization' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierInputSerialization(obj: GlacierInputSerialization | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'csv': toJson_GlacierCsvInput(obj.csv),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierOutputSerialization
  */
 export interface GlacierOutputSerialization {
@@ -1403,6 +2449,20 @@ export interface GlacierOutputSerialization {
   readonly csv?: GlacierCsvOutput;
 
 }
+
+/**
+ * Converts an object of type 'GlacierOutputSerialization' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierOutputSerialization(obj: GlacierOutputSerialization | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'csv': toJson_GlacierCsvOutput(obj.csv),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierS3Location
@@ -1451,6 +2511,27 @@ export interface GlacierS3Location {
 }
 
 /**
+ * Converts an object of type 'GlacierS3Location' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierS3Location(obj: GlacierS3Location | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BucketName': obj.bucketName,
+    'Prefix': obj.prefix,
+    'Encryption': toJson_GlacierEncryption(obj.encryption),
+    'CannedACL': obj.cannedAcl,
+    'AccessControlList': obj.accessControlList?.map(y => toJson_GlacierGrant(y)),
+    'Tagging': ((obj.tagging) === undefined) ? undefined : (Object.entries(obj.tagging).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'UserMetadata': ((obj.userMetadata) === undefined) ? undefined : (Object.entries(obj.userMetadata).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'StorageClass': obj.storageClass,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierDataRetrievalRule
  */
 export interface GlacierDataRetrievalRule {
@@ -1465,6 +2546,21 @@ export interface GlacierDataRetrievalRule {
   readonly bytesPerHour?: number;
 
 }
+
+/**
+ * Converts an object of type 'GlacierDataRetrievalRule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierDataRetrievalRule(obj: GlacierDataRetrievalRule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Strategy': obj.strategy,
+    'BytesPerHour': obj.bytesPerHour,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierInventoryRetrievalJobInput
@@ -1491,6 +2587,23 @@ export interface GlacierInventoryRetrievalJobInput {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierInventoryRetrievalJobInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierInventoryRetrievalJobInput(obj: GlacierInventoryRetrievalJobInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StartDate': obj.startDate,
+    'EndDate': obj.endDate,
+    'Limit': obj.limit,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema GlacierCsvInput
@@ -1529,6 +2642,25 @@ export interface GlacierCsvInput {
 }
 
 /**
+ * Converts an object of type 'GlacierCsvInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierCsvInput(obj: GlacierCsvInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FileHeaderInfo': obj.fileHeaderInfo,
+    'Comments': obj.comments,
+    'QuoteEscapeCharacter': obj.quoteEscapeCharacter,
+    'RecordDelimiter': obj.recordDelimiter,
+    'FieldDelimiter': obj.fieldDelimiter,
+    'QuoteCharacter': obj.quoteCharacter,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierCsvOutput
  */
 export interface GlacierCsvOutput {
@@ -1560,6 +2692,24 @@ export interface GlacierCsvOutput {
 }
 
 /**
+ * Converts an object of type 'GlacierCsvOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierCsvOutput(obj: GlacierCsvOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'QuoteFields': obj.quoteFields,
+    'QuoteEscapeCharacter': obj.quoteEscapeCharacter,
+    'RecordDelimiter': obj.recordDelimiter,
+    'FieldDelimiter': obj.fieldDelimiter,
+    'QuoteCharacter': obj.quoteCharacter,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierEncryption
  */
 export interface GlacierEncryption {
@@ -1581,6 +2731,22 @@ export interface GlacierEncryption {
 }
 
 /**
+ * Converts an object of type 'GlacierEncryption' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierEncryption(obj: GlacierEncryption | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EncryptionType': obj.encryptionType,
+    'KMSKeyId': obj.kmsKeyId,
+    'KMSContext': obj.kmsContext,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierGrant
  */
 export interface GlacierGrant {
@@ -1597,13 +2763,28 @@ export interface GlacierGrant {
 }
 
 /**
+ * Converts an object of type 'GlacierGrant' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierGrant(obj: GlacierGrant | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Grantee': toJson_GlacierGrantee(obj.grantee),
+    'Permission': obj.permission,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema GlacierGrantee
  */
 export interface GlacierGrantee {
   /**
    * @schema GlacierGrantee#Type
    */
-  readonly type: string;
+  readonly type?: string;
 
   /**
    * @schema GlacierGrantee#DisplayName
@@ -1626,3 +2807,21 @@ export interface GlacierGrantee {
   readonly emailAddress?: string;
 
 }
+
+/**
+ * Converts an object of type 'GlacierGrantee' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_GlacierGrantee(obj: GlacierGrantee | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'DisplayName': obj.displayName,
+    'URI': obj.uri,
+    'ID': obj.id,
+    'EmailAddress': obj.emailAddress,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

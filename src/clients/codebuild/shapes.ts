@@ -10,6 +10,20 @@ export interface CodeBuildBatchDeleteBuildsInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildBatchDeleteBuildsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBatchDeleteBuildsInput(obj: CodeBuildBatchDeleteBuildsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ids': obj.ids?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildBatchDeleteBuildsOutput
  */
 export interface CodeBuildBatchDeleteBuildsOutput {
@@ -26,6 +40,21 @@ export interface CodeBuildBatchDeleteBuildsOutput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildBatchDeleteBuildsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBatchDeleteBuildsOutput(obj: CodeBuildBatchDeleteBuildsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'buildsDeleted': obj.buildsDeleted?.map(y => y),
+    'buildsNotDeleted': obj.buildsNotDeleted?.map(y => toJson_CodeBuildBuildNotDeleted(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildBatchGetBuildBatchesInput
  */
 export interface CodeBuildBatchGetBuildBatchesInput {
@@ -35,6 +64,20 @@ export interface CodeBuildBatchGetBuildBatchesInput {
   readonly ids: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildBatchGetBuildBatchesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBatchGetBuildBatchesInput(obj: CodeBuildBatchGetBuildBatchesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ids': obj.ids?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildBatchGetBuildBatchesOutput
@@ -53,6 +96,21 @@ export interface CodeBuildBatchGetBuildBatchesOutput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildBatchGetBuildBatchesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBatchGetBuildBatchesOutput(obj: CodeBuildBatchGetBuildBatchesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'buildBatches': obj.buildBatches?.map(y => toJson_CodeBuildBuildBatch(y)),
+    'buildBatchesNotFound': obj.buildBatchesNotFound?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildBatchGetBuildsInput
  */
 export interface CodeBuildBatchGetBuildsInput {
@@ -62,6 +120,20 @@ export interface CodeBuildBatchGetBuildsInput {
   readonly ids: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildBatchGetBuildsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBatchGetBuildsInput(obj: CodeBuildBatchGetBuildsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ids': obj.ids?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildBatchGetBuildsOutput
@@ -80,6 +152,21 @@ export interface CodeBuildBatchGetBuildsOutput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildBatchGetBuildsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBatchGetBuildsOutput(obj: CodeBuildBatchGetBuildsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'builds': obj.builds?.map(y => toJson_CodeBuildBuild(y)),
+    'buildsNotFound': obj.buildsNotFound?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildBatchGetProjectsInput
  */
 export interface CodeBuildBatchGetProjectsInput {
@@ -89,6 +176,20 @@ export interface CodeBuildBatchGetProjectsInput {
   readonly names: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildBatchGetProjectsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBatchGetProjectsInput(obj: CodeBuildBatchGetProjectsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'names': obj.names?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildBatchGetProjectsOutput
@@ -107,6 +208,21 @@ export interface CodeBuildBatchGetProjectsOutput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildBatchGetProjectsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBatchGetProjectsOutput(obj: CodeBuildBatchGetProjectsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projects': obj.projects?.map(y => toJson_CodeBuildProject(y)),
+    'projectsNotFound': obj.projectsNotFound?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildBatchGetReportGroupsInput
  */
 export interface CodeBuildBatchGetReportGroupsInput {
@@ -116,6 +232,20 @@ export interface CodeBuildBatchGetReportGroupsInput {
   readonly reportGroupArns: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildBatchGetReportGroupsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBatchGetReportGroupsInput(obj: CodeBuildBatchGetReportGroupsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reportGroupArns': obj.reportGroupArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildBatchGetReportGroupsOutput
@@ -134,6 +264,21 @@ export interface CodeBuildBatchGetReportGroupsOutput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildBatchGetReportGroupsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBatchGetReportGroupsOutput(obj: CodeBuildBatchGetReportGroupsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reportGroups': obj.reportGroups?.map(y => toJson_CodeBuildReportGroup(y)),
+    'reportGroupsNotFound': obj.reportGroupsNotFound?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildBatchGetReportsInput
  */
 export interface CodeBuildBatchGetReportsInput {
@@ -143,6 +288,20 @@ export interface CodeBuildBatchGetReportsInput {
   readonly reportArns: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildBatchGetReportsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBatchGetReportsInput(obj: CodeBuildBatchGetReportsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reportArns': obj.reportArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildBatchGetReportsOutput
@@ -159,6 +318,21 @@ export interface CodeBuildBatchGetReportsOutput {
   readonly reportsNotFound?: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildBatchGetReportsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBatchGetReportsOutput(obj: CodeBuildBatchGetReportsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reports': obj.reports?.map(y => toJson_CodeBuildReport(y)),
+    'reportsNotFound': obj.reportsNotFound?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildCreateProjectInput
@@ -264,7 +438,46 @@ export interface CodeBuildCreateProjectInput {
    */
   readonly buildBatchConfig?: CodeBuildProjectBuildBatchConfig;
 
+  /**
+   * @schema CodeBuildCreateProjectInput#concurrentBuildLimit
+   */
+  readonly concurrentBuildLimit?: number;
+
 }
+
+/**
+ * Converts an object of type 'CodeBuildCreateProjectInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildCreateProjectInput(obj: CodeBuildCreateProjectInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'description': obj.description,
+    'source': toJson_CodeBuildProjectSource(obj.source),
+    'secondarySources': obj.secondarySources?.map(y => toJson_CodeBuildProjectSource(y)),
+    'sourceVersion': obj.sourceVersion,
+    'secondarySourceVersions': obj.secondarySourceVersions?.map(y => toJson_CodeBuildProjectSourceVersion(y)),
+    'artifacts': toJson_CodeBuildProjectArtifacts(obj.artifacts),
+    'secondaryArtifacts': obj.secondaryArtifacts?.map(y => toJson_CodeBuildProjectArtifacts(y)),
+    'cache': toJson_CodeBuildProjectCache(obj.cache),
+    'environment': toJson_CodeBuildProjectEnvironment(obj.environment),
+    'serviceRole': obj.serviceRole,
+    'timeoutInMinutes': obj.timeoutInMinutes,
+    'queuedTimeoutInMinutes': obj.queuedTimeoutInMinutes,
+    'encryptionKey': obj.encryptionKey,
+    'tags': obj.tags?.map(y => toJson_CodeBuildTag(y)),
+    'vpcConfig': toJson_CodeBuildVpcConfig(obj.vpcConfig),
+    'badgeEnabled': obj.badgeEnabled,
+    'logsConfig': toJson_CodeBuildLogsConfig(obj.logsConfig),
+    'fileSystemLocations': obj.fileSystemLocations?.map(y => toJson_CodeBuildProjectFileSystemLocation(y)),
+    'buildBatchConfig': toJson_CodeBuildProjectBuildBatchConfig(obj.buildBatchConfig),
+    'concurrentBuildLimit': obj.concurrentBuildLimit,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildCreateProjectOutput
@@ -276,6 +489,20 @@ export interface CodeBuildCreateProjectOutput {
   readonly project?: CodeBuildProject;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildCreateProjectOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildCreateProjectOutput(obj: CodeBuildCreateProjectOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'project': toJson_CodeBuildProject(obj.project),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildCreateReportGroupInput
@@ -304,6 +531,23 @@ export interface CodeBuildCreateReportGroupInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildCreateReportGroupInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildCreateReportGroupInput(obj: CodeBuildCreateReportGroupInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'type': obj.type,
+    'exportConfig': toJson_CodeBuildReportExportConfig(obj.exportConfig),
+    'tags': obj.tags?.map(y => toJson_CodeBuildTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildCreateReportGroupOutput
  */
 export interface CodeBuildCreateReportGroupOutput {
@@ -313,6 +557,20 @@ export interface CodeBuildCreateReportGroupOutput {
   readonly reportGroup?: CodeBuildReportGroup;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildCreateReportGroupOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildCreateReportGroupOutput(obj: CodeBuildCreateReportGroupOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reportGroup': toJson_CodeBuildReportGroup(obj.reportGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildCreateWebhookInput
@@ -341,6 +599,23 @@ export interface CodeBuildCreateWebhookInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildCreateWebhookInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildCreateWebhookInput(obj: CodeBuildCreateWebhookInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectName': obj.projectName,
+    'branchFilter': obj.branchFilter,
+    'filterGroups': obj.filterGroups?.map(y => y?.map(y => toJson_CodeBuildWebhookFilter(y))),
+    'buildType': obj.buildType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildCreateWebhookOutput
  */
 export interface CodeBuildCreateWebhookOutput {
@@ -352,6 +627,20 @@ export interface CodeBuildCreateWebhookOutput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildCreateWebhookOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildCreateWebhookOutput(obj: CodeBuildCreateWebhookOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'webhook': toJson_CodeBuildWebhook(obj.webhook),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildDeleteBuildBatchInput
  */
 export interface CodeBuildDeleteBuildBatchInput {
@@ -361,6 +650,20 @@ export interface CodeBuildDeleteBuildBatchInput {
   readonly id: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildDeleteBuildBatchInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDeleteBuildBatchInput(obj: CodeBuildDeleteBuildBatchInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildDeleteBuildBatchOutput
@@ -384,6 +687,22 @@ export interface CodeBuildDeleteBuildBatchOutput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildDeleteBuildBatchOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDeleteBuildBatchOutput(obj: CodeBuildDeleteBuildBatchOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'statusCode': obj.statusCode,
+    'buildsDeleted': obj.buildsDeleted?.map(y => y),
+    'buildsNotDeleted': obj.buildsNotDeleted?.map(y => toJson_CodeBuildBuildNotDeleted(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildDeleteProjectInput
  */
 export interface CodeBuildDeleteProjectInput {
@@ -395,10 +714,37 @@ export interface CodeBuildDeleteProjectInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildDeleteProjectInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDeleteProjectInput(obj: CodeBuildDeleteProjectInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildDeleteProjectOutput
  */
 export interface CodeBuildDeleteProjectOutput {
 }
+
+/**
+ * Converts an object of type 'CodeBuildDeleteProjectOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDeleteProjectOutput(obj: CodeBuildDeleteProjectOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildDeleteReportInput
@@ -412,10 +758,37 @@ export interface CodeBuildDeleteReportInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildDeleteReportInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDeleteReportInput(obj: CodeBuildDeleteReportInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildDeleteReportOutput
  */
 export interface CodeBuildDeleteReportOutput {
 }
+
+/**
+ * Converts an object of type 'CodeBuildDeleteReportOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDeleteReportOutput(obj: CodeBuildDeleteReportOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildDeleteReportGroupInput
@@ -434,10 +807,38 @@ export interface CodeBuildDeleteReportGroupInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildDeleteReportGroupInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDeleteReportGroupInput(obj: CodeBuildDeleteReportGroupInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'deleteReports': obj.deleteReports,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildDeleteReportGroupOutput
  */
 export interface CodeBuildDeleteReportGroupOutput {
 }
+
+/**
+ * Converts an object of type 'CodeBuildDeleteReportGroupOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDeleteReportGroupOutput(obj: CodeBuildDeleteReportGroupOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildDeleteResourcePolicyInput
@@ -451,10 +852,37 @@ export interface CodeBuildDeleteResourcePolicyInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildDeleteResourcePolicyInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDeleteResourcePolicyInput(obj: CodeBuildDeleteResourcePolicyInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildDeleteResourcePolicyOutput
  */
 export interface CodeBuildDeleteResourcePolicyOutput {
 }
+
+/**
+ * Converts an object of type 'CodeBuildDeleteResourcePolicyOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDeleteResourcePolicyOutput(obj: CodeBuildDeleteResourcePolicyOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildDeleteSourceCredentialsInput
@@ -468,6 +896,20 @@ export interface CodeBuildDeleteSourceCredentialsInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildDeleteSourceCredentialsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDeleteSourceCredentialsInput(obj: CodeBuildDeleteSourceCredentialsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildDeleteSourceCredentialsOutput
  */
 export interface CodeBuildDeleteSourceCredentialsOutput {
@@ -477,6 +919,20 @@ export interface CodeBuildDeleteSourceCredentialsOutput {
   readonly arn?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildDeleteSourceCredentialsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDeleteSourceCredentialsOutput(obj: CodeBuildDeleteSourceCredentialsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildDeleteWebhookInput
@@ -490,10 +946,37 @@ export interface CodeBuildDeleteWebhookInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildDeleteWebhookInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDeleteWebhookInput(obj: CodeBuildDeleteWebhookInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectName': obj.projectName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildDeleteWebhookOutput
  */
 export interface CodeBuildDeleteWebhookOutput {
 }
+
+/**
+ * Converts an object of type 'CodeBuildDeleteWebhookOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDeleteWebhookOutput(obj: CodeBuildDeleteWebhookOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildDescribeCodeCoveragesInput
@@ -537,6 +1020,26 @@ export interface CodeBuildDescribeCodeCoveragesInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildDescribeCodeCoveragesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDescribeCodeCoveragesInput(obj: CodeBuildDescribeCodeCoveragesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reportArn': obj.reportArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'sortOrder': obj.sortOrder,
+    'sortBy': obj.sortBy,
+    'minLineCoveragePercentage': obj.minLineCoveragePercentage,
+    'maxLineCoveragePercentage': obj.maxLineCoveragePercentage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildDescribeCodeCoveragesOutput
  */
 export interface CodeBuildDescribeCodeCoveragesOutput {
@@ -551,6 +1054,21 @@ export interface CodeBuildDescribeCodeCoveragesOutput {
   readonly codeCoverages?: CodeBuildCodeCoverage[];
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildDescribeCodeCoveragesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDescribeCodeCoveragesOutput(obj: CodeBuildDescribeCodeCoveragesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'codeCoverages': obj.codeCoverages?.map(y => toJson_CodeBuildCodeCoverage(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildDescribeTestCasesInput
@@ -579,6 +1097,23 @@ export interface CodeBuildDescribeTestCasesInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildDescribeTestCasesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDescribeTestCasesInput(obj: CodeBuildDescribeTestCasesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reportArn': obj.reportArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'filter': toJson_CodeBuildTestCaseFilter(obj.filter),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildDescribeTestCasesOutput
  */
 export interface CodeBuildDescribeTestCasesOutput {
@@ -593,6 +1128,21 @@ export interface CodeBuildDescribeTestCasesOutput {
   readonly testCases?: CodeBuildTestCase[];
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildDescribeTestCasesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDescribeTestCasesOutput(obj: CodeBuildDescribeTestCasesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'testCases': obj.testCases?.map(y => toJson_CodeBuildTestCase(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildGetReportGroupTrendInput
@@ -616,6 +1166,22 @@ export interface CodeBuildGetReportGroupTrendInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildGetReportGroupTrendInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildGetReportGroupTrendInput(obj: CodeBuildGetReportGroupTrendInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reportGroupArn': obj.reportGroupArn,
+    'numOfReports': obj.numOfReports,
+    'trendField': obj.trendField,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildGetReportGroupTrendOutput
  */
 export interface CodeBuildGetReportGroupTrendOutput {
@@ -632,6 +1198,21 @@ export interface CodeBuildGetReportGroupTrendOutput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildGetReportGroupTrendOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildGetReportGroupTrendOutput(obj: CodeBuildGetReportGroupTrendOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'stats': toJson_CodeBuildReportGroupTrendStats(obj.stats),
+    'rawData': obj.rawData?.map(y => toJson_CodeBuildReportWithRawData(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildGetResourcePolicyInput
  */
 export interface CodeBuildGetResourcePolicyInput {
@@ -643,6 +1224,20 @@ export interface CodeBuildGetResourcePolicyInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildGetResourcePolicyInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildGetResourcePolicyInput(obj: CodeBuildGetResourcePolicyInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildGetResourcePolicyOutput
  */
 export interface CodeBuildGetResourcePolicyOutput {
@@ -652,6 +1247,20 @@ export interface CodeBuildGetResourcePolicyOutput {
   readonly policy?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildGetResourcePolicyOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildGetResourcePolicyOutput(obj: CodeBuildGetResourcePolicyOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'policy': obj.policy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildImportSourceCredentialsInput
@@ -685,6 +1294,24 @@ export interface CodeBuildImportSourceCredentialsInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildImportSourceCredentialsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildImportSourceCredentialsInput(obj: CodeBuildImportSourceCredentialsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'username': obj.username,
+    'token': obj.token,
+    'serverType': obj.serverType,
+    'authType': obj.authType,
+    'shouldOverwrite': obj.shouldOverwrite,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildImportSourceCredentialsOutput
  */
 export interface CodeBuildImportSourceCredentialsOutput {
@@ -694,6 +1321,20 @@ export interface CodeBuildImportSourceCredentialsOutput {
   readonly arn?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildImportSourceCredentialsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildImportSourceCredentialsOutput(obj: CodeBuildImportSourceCredentialsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildInvalidateProjectCacheInput
@@ -707,10 +1348,37 @@ export interface CodeBuildInvalidateProjectCacheInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildInvalidateProjectCacheInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildInvalidateProjectCacheInput(obj: CodeBuildInvalidateProjectCacheInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectName': obj.projectName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildInvalidateProjectCacheOutput
  */
 export interface CodeBuildInvalidateProjectCacheOutput {
 }
+
+/**
+ * Converts an object of type 'CodeBuildInvalidateProjectCacheOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildInvalidateProjectCacheOutput(obj: CodeBuildInvalidateProjectCacheOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildListBuildBatchesInput
@@ -739,6 +1407,23 @@ export interface CodeBuildListBuildBatchesInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildListBuildBatchesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListBuildBatchesInput(obj: CodeBuildListBuildBatchesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filter': toJson_CodeBuildBuildBatchFilter(obj.filter),
+    'maxResults': obj.maxResults,
+    'sortOrder': obj.sortOrder,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildListBuildBatchesOutput
  */
 export interface CodeBuildListBuildBatchesOutput {
@@ -753,6 +1438,21 @@ export interface CodeBuildListBuildBatchesOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildListBuildBatchesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListBuildBatchesOutput(obj: CodeBuildListBuildBatchesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ids': obj.ids?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildListBuildBatchesForProjectInput
@@ -786,6 +1486,24 @@ export interface CodeBuildListBuildBatchesForProjectInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildListBuildBatchesForProjectInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListBuildBatchesForProjectInput(obj: CodeBuildListBuildBatchesForProjectInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectName': obj.projectName,
+    'filter': toJson_CodeBuildBuildBatchFilter(obj.filter),
+    'maxResults': obj.maxResults,
+    'sortOrder': obj.sortOrder,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildListBuildBatchesForProjectOutput
  */
 export interface CodeBuildListBuildBatchesForProjectOutput {
@@ -800,6 +1518,21 @@ export interface CodeBuildListBuildBatchesForProjectOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildListBuildBatchesForProjectOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListBuildBatchesForProjectOutput(obj: CodeBuildListBuildBatchesForProjectOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ids': obj.ids?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildListBuildsInput
@@ -818,6 +1551,21 @@ export interface CodeBuildListBuildsInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildListBuildsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListBuildsInput(obj: CodeBuildListBuildsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sortOrder': obj.sortOrder,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildListBuildsOutput
  */
 export interface CodeBuildListBuildsOutput {
@@ -832,6 +1580,21 @@ export interface CodeBuildListBuildsOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildListBuildsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListBuildsOutput(obj: CodeBuildListBuildsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ids': obj.ids?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildListBuildsForProjectInput
@@ -855,6 +1618,22 @@ export interface CodeBuildListBuildsForProjectInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildListBuildsForProjectInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListBuildsForProjectInput(obj: CodeBuildListBuildsForProjectInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectName': obj.projectName,
+    'sortOrder': obj.sortOrder,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildListBuildsForProjectOutput
  */
 export interface CodeBuildListBuildsForProjectOutput {
@@ -871,10 +1650,38 @@ export interface CodeBuildListBuildsForProjectOutput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildListBuildsForProjectOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListBuildsForProjectOutput(obj: CodeBuildListBuildsForProjectOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ids': obj.ids?.map(y => y),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildListCuratedEnvironmentImagesInput
  */
 export interface CodeBuildListCuratedEnvironmentImagesInput {
 }
+
+/**
+ * Converts an object of type 'CodeBuildListCuratedEnvironmentImagesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListCuratedEnvironmentImagesInput(obj: CodeBuildListCuratedEnvironmentImagesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildListCuratedEnvironmentImagesOutput
@@ -886,6 +1693,20 @@ export interface CodeBuildListCuratedEnvironmentImagesOutput {
   readonly platforms?: CodeBuildEnvironmentPlatform[];
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildListCuratedEnvironmentImagesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListCuratedEnvironmentImagesOutput(obj: CodeBuildListCuratedEnvironmentImagesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'platforms': obj.platforms?.map(y => toJson_CodeBuildEnvironmentPlatform(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildListProjectsInput
@@ -909,6 +1730,22 @@ export interface CodeBuildListProjectsInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildListProjectsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListProjectsInput(obj: CodeBuildListProjectsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sortBy': obj.sortBy,
+    'sortOrder': obj.sortOrder,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildListProjectsOutput
  */
 export interface CodeBuildListProjectsOutput {
@@ -923,6 +1760,21 @@ export interface CodeBuildListProjectsOutput {
   readonly projects?: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildListProjectsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListProjectsOutput(obj: CodeBuildListProjectsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'projects': obj.projects?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildListReportGroupsInput
@@ -951,6 +1803,23 @@ export interface CodeBuildListReportGroupsInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildListReportGroupsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListReportGroupsInput(obj: CodeBuildListReportGroupsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sortOrder': obj.sortOrder,
+    'sortBy': obj.sortBy,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildListReportGroupsOutput
  */
 export interface CodeBuildListReportGroupsOutput {
@@ -965,6 +1834,21 @@ export interface CodeBuildListReportGroupsOutput {
   readonly reportGroups?: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildListReportGroupsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListReportGroupsOutput(obj: CodeBuildListReportGroupsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'reportGroups': obj.reportGroups?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildListReportsInput
@@ -993,6 +1877,23 @@ export interface CodeBuildListReportsInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildListReportsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListReportsInput(obj: CodeBuildListReportsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sortOrder': obj.sortOrder,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'filter': toJson_CodeBuildReportFilter(obj.filter),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildListReportsOutput
  */
 export interface CodeBuildListReportsOutput {
@@ -1007,6 +1908,21 @@ export interface CodeBuildListReportsOutput {
   readonly reports?: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildListReportsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListReportsOutput(obj: CodeBuildListReportsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'reports': obj.reports?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildListReportsForReportGroupInput
@@ -1040,6 +1956,24 @@ export interface CodeBuildListReportsForReportGroupInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildListReportsForReportGroupInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListReportsForReportGroupInput(obj: CodeBuildListReportsForReportGroupInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reportGroupArn': obj.reportGroupArn,
+    'nextToken': obj.nextToken,
+    'sortOrder': obj.sortOrder,
+    'maxResults': obj.maxResults,
+    'filter': toJson_CodeBuildReportFilter(obj.filter),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildListReportsForReportGroupOutput
  */
 export interface CodeBuildListReportsForReportGroupOutput {
@@ -1054,6 +1988,21 @@ export interface CodeBuildListReportsForReportGroupOutput {
   readonly reports?: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildListReportsForReportGroupOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListReportsForReportGroupOutput(obj: CodeBuildListReportsForReportGroupOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'reports': obj.reports?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildListSharedProjectsInput
@@ -1082,6 +2031,23 @@ export interface CodeBuildListSharedProjectsInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildListSharedProjectsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListSharedProjectsInput(obj: CodeBuildListSharedProjectsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sortBy': obj.sortBy,
+    'sortOrder': obj.sortOrder,
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildListSharedProjectsOutput
  */
 export interface CodeBuildListSharedProjectsOutput {
@@ -1096,6 +2062,21 @@ export interface CodeBuildListSharedProjectsOutput {
   readonly projects?: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildListSharedProjectsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListSharedProjectsOutput(obj: CodeBuildListSharedProjectsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'projects': obj.projects?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildListSharedReportGroupsInput
@@ -1124,6 +2105,23 @@ export interface CodeBuildListSharedReportGroupsInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildListSharedReportGroupsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListSharedReportGroupsInput(obj: CodeBuildListSharedReportGroupsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sortOrder': obj.sortOrder,
+    'sortBy': obj.sortBy,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildListSharedReportGroupsOutput
  */
 export interface CodeBuildListSharedReportGroupsOutput {
@@ -1140,10 +2138,38 @@ export interface CodeBuildListSharedReportGroupsOutput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildListSharedReportGroupsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListSharedReportGroupsOutput(obj: CodeBuildListSharedReportGroupsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'reportGroups': obj.reportGroups?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildListSourceCredentialsInput
  */
 export interface CodeBuildListSourceCredentialsInput {
 }
+
+/**
+ * Converts an object of type 'CodeBuildListSourceCredentialsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListSourceCredentialsInput(obj: CodeBuildListSourceCredentialsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildListSourceCredentialsOutput
@@ -1155,6 +2181,20 @@ export interface CodeBuildListSourceCredentialsOutput {
   readonly sourceCredentialsInfos?: CodeBuildSourceCredentialsInfo[];
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildListSourceCredentialsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildListSourceCredentialsOutput(obj: CodeBuildListSourceCredentialsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sourceCredentialsInfos': obj.sourceCredentialsInfos?.map(y => toJson_CodeBuildSourceCredentialsInfo(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildPutResourcePolicyInput
@@ -1173,6 +2213,21 @@ export interface CodeBuildPutResourcePolicyInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildPutResourcePolicyInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildPutResourcePolicyInput(obj: CodeBuildPutResourcePolicyInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'policy': obj.policy,
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildPutResourcePolicyOutput
  */
 export interface CodeBuildPutResourcePolicyOutput {
@@ -1182,6 +2237,20 @@ export interface CodeBuildPutResourcePolicyOutput {
   readonly resourceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildPutResourcePolicyOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildPutResourcePolicyOutput(obj: CodeBuildPutResourcePolicyOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'resourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildRetryBuildInput
@@ -1200,6 +2269,21 @@ export interface CodeBuildRetryBuildInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildRetryBuildInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildRetryBuildInput(obj: CodeBuildRetryBuildInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'idempotencyToken': obj.idempotencyToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildRetryBuildOutput
  */
 export interface CodeBuildRetryBuildOutput {
@@ -1209,6 +2293,20 @@ export interface CodeBuildRetryBuildOutput {
   readonly build2?: CodeBuildBuild;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildRetryBuildOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildRetryBuildOutput(obj: CodeBuildRetryBuildOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Build2': toJson_CodeBuildBuild(obj.build2),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildRetryBuildBatchInput
@@ -1232,6 +2330,22 @@ export interface CodeBuildRetryBuildBatchInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildRetryBuildBatchInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildRetryBuildBatchInput(obj: CodeBuildRetryBuildBatchInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'idempotencyToken': obj.idempotencyToken,
+    'retryType': obj.retryType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildRetryBuildBatchOutput
  */
 export interface CodeBuildRetryBuildBatchOutput {
@@ -1241,6 +2355,20 @@ export interface CodeBuildRetryBuildBatchOutput {
   readonly buildBatch?: CodeBuildBuildBatch;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildRetryBuildBatchOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildRetryBuildBatchOutput(obj: CodeBuildRetryBuildBatchOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'buildBatch': toJson_CodeBuildBuildBatch(obj.buildBatch),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildStartBuildInput
@@ -1404,6 +2532,50 @@ export interface CodeBuildStartBuildInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildStartBuildInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildStartBuildInput(obj: CodeBuildStartBuildInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectName': obj.projectName,
+    'secondarySourcesOverride': obj.secondarySourcesOverride?.map(y => toJson_CodeBuildProjectSource(y)),
+    'secondarySourcesVersionOverride': obj.secondarySourcesVersionOverride?.map(y => toJson_CodeBuildProjectSourceVersion(y)),
+    'sourceVersion': obj.sourceVersion,
+    'artifactsOverride': toJson_CodeBuildProjectArtifacts(obj.artifactsOverride),
+    'secondaryArtifactsOverride': obj.secondaryArtifactsOverride?.map(y => toJson_CodeBuildProjectArtifacts(y)),
+    'environmentVariablesOverride': obj.environmentVariablesOverride?.map(y => toJson_CodeBuildEnvironmentVariable(y)),
+    'sourceTypeOverride': obj.sourceTypeOverride,
+    'sourceLocationOverride': obj.sourceLocationOverride,
+    'sourceAuthOverride': toJson_CodeBuildSourceAuth(obj.sourceAuthOverride),
+    'gitCloneDepthOverride': obj.gitCloneDepthOverride,
+    'gitSubmodulesConfigOverride': toJson_CodeBuildGitSubmodulesConfig(obj.gitSubmodulesConfigOverride),
+    'buildspecOverride': obj.buildspecOverride,
+    'insecureSslOverride': obj.insecureSslOverride,
+    'reportBuildStatusOverride': obj.reportBuildStatusOverride,
+    'buildStatusConfigOverride': toJson_CodeBuildBuildStatusConfig(obj.buildStatusConfigOverride),
+    'environmentTypeOverride': obj.environmentTypeOverride,
+    'imageOverride': obj.imageOverride,
+    'computeTypeOverride': obj.computeTypeOverride,
+    'certificateOverride': obj.certificateOverride,
+    'cacheOverride': toJson_CodeBuildProjectCache(obj.cacheOverride),
+    'serviceRoleOverride': obj.serviceRoleOverride,
+    'privilegedModeOverride': obj.privilegedModeOverride,
+    'timeoutInMinutesOverride': obj.timeoutInMinutesOverride,
+    'queuedTimeoutInMinutesOverride': obj.queuedTimeoutInMinutesOverride,
+    'encryptionKeyOverride': obj.encryptionKeyOverride,
+    'idempotencyToken': obj.idempotencyToken,
+    'logsConfigOverride': toJson_CodeBuildLogsConfig(obj.logsConfigOverride),
+    'registryCredentialOverride': toJson_CodeBuildRegistryCredential(obj.registryCredentialOverride),
+    'imagePullCredentialsTypeOverride': obj.imagePullCredentialsTypeOverride,
+    'debugSessionEnabled': obj.debugSessionEnabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildStartBuildOutput
  */
 export interface CodeBuildStartBuildOutput {
@@ -1413,6 +2585,20 @@ export interface CodeBuildStartBuildOutput {
   readonly build2?: CodeBuildBuild;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildStartBuildOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildStartBuildOutput(obj: CodeBuildStartBuildOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Build2': toJson_CodeBuildBuild(obj.build2),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildStartBuildBatchInput
@@ -1568,7 +2754,56 @@ export interface CodeBuildStartBuildBatchInput {
    */
   readonly buildBatchConfigOverride?: CodeBuildProjectBuildBatchConfig;
 
+  /**
+   * @schema CodeBuildStartBuildBatchInput#debugSessionEnabled
+   */
+  readonly debugSessionEnabled?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'CodeBuildStartBuildBatchInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildStartBuildBatchInput(obj: CodeBuildStartBuildBatchInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectName': obj.projectName,
+    'secondarySourcesOverride': obj.secondarySourcesOverride?.map(y => toJson_CodeBuildProjectSource(y)),
+    'secondarySourcesVersionOverride': obj.secondarySourcesVersionOverride?.map(y => toJson_CodeBuildProjectSourceVersion(y)),
+    'sourceVersion': obj.sourceVersion,
+    'artifactsOverride': toJson_CodeBuildProjectArtifacts(obj.artifactsOverride),
+    'secondaryArtifactsOverride': obj.secondaryArtifactsOverride?.map(y => toJson_CodeBuildProjectArtifacts(y)),
+    'environmentVariablesOverride': obj.environmentVariablesOverride?.map(y => toJson_CodeBuildEnvironmentVariable(y)),
+    'sourceTypeOverride': obj.sourceTypeOverride,
+    'sourceLocationOverride': obj.sourceLocationOverride,
+    'sourceAuthOverride': toJson_CodeBuildSourceAuth(obj.sourceAuthOverride),
+    'gitCloneDepthOverride': obj.gitCloneDepthOverride,
+    'gitSubmodulesConfigOverride': toJson_CodeBuildGitSubmodulesConfig(obj.gitSubmodulesConfigOverride),
+    'buildspecOverride': obj.buildspecOverride,
+    'insecureSslOverride': obj.insecureSslOverride,
+    'reportBuildBatchStatusOverride': obj.reportBuildBatchStatusOverride,
+    'environmentTypeOverride': obj.environmentTypeOverride,
+    'imageOverride': obj.imageOverride,
+    'computeTypeOverride': obj.computeTypeOverride,
+    'certificateOverride': obj.certificateOverride,
+    'cacheOverride': toJson_CodeBuildProjectCache(obj.cacheOverride),
+    'serviceRoleOverride': obj.serviceRoleOverride,
+    'privilegedModeOverride': obj.privilegedModeOverride,
+    'buildTimeoutInMinutesOverride': obj.buildTimeoutInMinutesOverride,
+    'queuedTimeoutInMinutesOverride': obj.queuedTimeoutInMinutesOverride,
+    'encryptionKeyOverride': obj.encryptionKeyOverride,
+    'idempotencyToken': obj.idempotencyToken,
+    'logsConfigOverride': toJson_CodeBuildLogsConfig(obj.logsConfigOverride),
+    'registryCredentialOverride': toJson_CodeBuildRegistryCredential(obj.registryCredentialOverride),
+    'imagePullCredentialsTypeOverride': obj.imagePullCredentialsTypeOverride,
+    'buildBatchConfigOverride': toJson_CodeBuildProjectBuildBatchConfig(obj.buildBatchConfigOverride),
+    'debugSessionEnabled': obj.debugSessionEnabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildStartBuildBatchOutput
@@ -1582,6 +2817,20 @@ export interface CodeBuildStartBuildBatchOutput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildStartBuildBatchOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildStartBuildBatchOutput(obj: CodeBuildStartBuildBatchOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'buildBatch': toJson_CodeBuildBuildBatch(obj.buildBatch),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildStopBuildInput
  */
 export interface CodeBuildStopBuildInput {
@@ -1591,6 +2840,20 @@ export interface CodeBuildStopBuildInput {
   readonly id: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildStopBuildInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildStopBuildInput(obj: CodeBuildStopBuildInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildStopBuildOutput
@@ -1604,6 +2867,20 @@ export interface CodeBuildStopBuildOutput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildStopBuildOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildStopBuildOutput(obj: CodeBuildStopBuildOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Build2': toJson_CodeBuildBuild(obj.build2),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildStopBuildBatchInput
  */
 export interface CodeBuildStopBuildBatchInput {
@@ -1615,6 +2892,20 @@ export interface CodeBuildStopBuildBatchInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildStopBuildBatchInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildStopBuildBatchInput(obj: CodeBuildStopBuildBatchInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildStopBuildBatchOutput
  */
 export interface CodeBuildStopBuildBatchOutput {
@@ -1624,6 +2915,20 @@ export interface CodeBuildStopBuildBatchOutput {
   readonly buildBatch?: CodeBuildBuildBatch;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildStopBuildBatchOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildStopBuildBatchOutput(obj: CodeBuildStopBuildBatchOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'buildBatch': toJson_CodeBuildBuildBatch(obj.buildBatch),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildUpdateProjectInput
@@ -1729,7 +3034,46 @@ export interface CodeBuildUpdateProjectInput {
    */
   readonly buildBatchConfig?: CodeBuildProjectBuildBatchConfig;
 
+  /**
+   * @schema CodeBuildUpdateProjectInput#concurrentBuildLimit
+   */
+  readonly concurrentBuildLimit?: number;
+
 }
+
+/**
+ * Converts an object of type 'CodeBuildUpdateProjectInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildUpdateProjectInput(obj: CodeBuildUpdateProjectInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'description': obj.description,
+    'source': toJson_CodeBuildProjectSource(obj.source),
+    'secondarySources': obj.secondarySources?.map(y => toJson_CodeBuildProjectSource(y)),
+    'sourceVersion': obj.sourceVersion,
+    'secondarySourceVersions': obj.secondarySourceVersions?.map(y => toJson_CodeBuildProjectSourceVersion(y)),
+    'artifacts': toJson_CodeBuildProjectArtifacts(obj.artifacts),
+    'secondaryArtifacts': obj.secondaryArtifacts?.map(y => toJson_CodeBuildProjectArtifacts(y)),
+    'cache': toJson_CodeBuildProjectCache(obj.cache),
+    'environment': toJson_CodeBuildProjectEnvironment(obj.environment),
+    'serviceRole': obj.serviceRole,
+    'timeoutInMinutes': obj.timeoutInMinutes,
+    'queuedTimeoutInMinutes': obj.queuedTimeoutInMinutes,
+    'encryptionKey': obj.encryptionKey,
+    'tags': obj.tags?.map(y => toJson_CodeBuildTag(y)),
+    'vpcConfig': toJson_CodeBuildVpcConfig(obj.vpcConfig),
+    'badgeEnabled': obj.badgeEnabled,
+    'logsConfig': toJson_CodeBuildLogsConfig(obj.logsConfig),
+    'fileSystemLocations': obj.fileSystemLocations?.map(y => toJson_CodeBuildProjectFileSystemLocation(y)),
+    'buildBatchConfig': toJson_CodeBuildProjectBuildBatchConfig(obj.buildBatchConfig),
+    'concurrentBuildLimit': obj.concurrentBuildLimit,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildUpdateProjectOutput
@@ -1741,6 +3085,20 @@ export interface CodeBuildUpdateProjectOutput {
   readonly project?: CodeBuildProject;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildUpdateProjectOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildUpdateProjectOutput(obj: CodeBuildUpdateProjectOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'project': toJson_CodeBuildProject(obj.project),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildUpdateReportGroupInput
@@ -1764,6 +3122,22 @@ export interface CodeBuildUpdateReportGroupInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildUpdateReportGroupInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildUpdateReportGroupInput(obj: CodeBuildUpdateReportGroupInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'exportConfig': toJson_CodeBuildReportExportConfig(obj.exportConfig),
+    'tags': obj.tags?.map(y => toJson_CodeBuildTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildUpdateReportGroupOutput
  */
 export interface CodeBuildUpdateReportGroupOutput {
@@ -1773,6 +3147,20 @@ export interface CodeBuildUpdateReportGroupOutput {
   readonly reportGroup?: CodeBuildReportGroup;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildUpdateReportGroupOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildUpdateReportGroupOutput(obj: CodeBuildUpdateReportGroupOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reportGroup': toJson_CodeBuildReportGroup(obj.reportGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildUpdateWebhookInput
@@ -1806,6 +3194,24 @@ export interface CodeBuildUpdateWebhookInput {
 }
 
 /**
+ * Converts an object of type 'CodeBuildUpdateWebhookInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildUpdateWebhookInput(obj: CodeBuildUpdateWebhookInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectName': obj.projectName,
+    'branchFilter': obj.branchFilter,
+    'rotateSecret': obj.rotateSecret,
+    'filterGroups': obj.filterGroups?.map(y => y?.map(y => toJson_CodeBuildWebhookFilter(y))),
+    'buildType': obj.buildType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildUpdateWebhookOutput
  */
 export interface CodeBuildUpdateWebhookOutput {
@@ -1815,6 +3221,20 @@ export interface CodeBuildUpdateWebhookOutput {
   readonly webhook?: CodeBuildWebhook;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildUpdateWebhookOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildUpdateWebhookOutput(obj: CodeBuildUpdateWebhookOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'webhook': toJson_CodeBuildWebhook(obj.webhook),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildBuildNotDeleted
@@ -1831,6 +3251,21 @@ export interface CodeBuildBuildNotDeleted {
   readonly statusCode?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildBuildNotDeleted' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBuildNotDeleted(obj: CodeBuildBuildNotDeleted | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'statusCode': obj.statusCode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildBuildBatch
@@ -1981,7 +3416,55 @@ export interface CodeBuildBuildBatch {
    */
   readonly buildGroups?: CodeBuildBuildGroup[];
 
+  /**
+   * @schema CodeBuildBuildBatch#debugSessionEnabled
+   */
+  readonly debugSessionEnabled?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'CodeBuildBuildBatch' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBuildBatch(obj: CodeBuildBuildBatch | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'arn': obj.arn,
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+    'currentPhase': obj.currentPhase,
+    'buildBatchStatus': obj.buildBatchStatus,
+    'sourceVersion': obj.sourceVersion,
+    'resolvedSourceVersion': obj.resolvedSourceVersion,
+    'projectName': obj.projectName,
+    'phases': obj.phases?.map(y => toJson_CodeBuildBuildBatchPhase(y)),
+    'source': toJson_CodeBuildProjectSource(obj.source),
+    'secondarySources': obj.secondarySources?.map(y => toJson_CodeBuildProjectSource(y)),
+    'secondarySourceVersions': obj.secondarySourceVersions?.map(y => toJson_CodeBuildProjectSourceVersion(y)),
+    'artifacts': toJson_CodeBuildBuildArtifacts(obj.artifacts),
+    'secondaryArtifacts': obj.secondaryArtifacts?.map(y => toJson_CodeBuildBuildArtifacts(y)),
+    'cache': toJson_CodeBuildProjectCache(obj.cache),
+    'environment': toJson_CodeBuildProjectEnvironment(obj.environment),
+    'serviceRole': obj.serviceRole,
+    'logConfig': toJson_CodeBuildLogsConfig(obj.logConfig),
+    'buildTimeoutInMinutes': obj.buildTimeoutInMinutes,
+    'queuedTimeoutInMinutes': obj.queuedTimeoutInMinutes,
+    'complete': obj.complete,
+    'initiator': obj.initiator,
+    'vpcConfig': toJson_CodeBuildVpcConfig(obj.vpcConfig),
+    'encryptionKey': obj.encryptionKey,
+    'buildBatchNumber': obj.buildBatchNumber,
+    'fileSystemLocations': obj.fileSystemLocations?.map(y => toJson_CodeBuildProjectFileSystemLocation(y)),
+    'buildBatchConfig': toJson_CodeBuildProjectBuildBatchConfig(obj.buildBatchConfig),
+    'buildGroups': obj.buildGroups?.map(y => toJson_CodeBuildBuildGroup(y)),
+    'debugSessionEnabled': obj.debugSessionEnabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildBuild
@@ -2150,6 +3633,51 @@ export interface CodeBuildBuild {
 }
 
 /**
+ * Converts an object of type 'CodeBuildBuild' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBuild(obj: CodeBuildBuild | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'arn': obj.arn,
+    'buildNumber': obj.buildNumber,
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+    'currentPhase': obj.currentPhase,
+    'buildStatus': obj.buildStatus,
+    'sourceVersion': obj.sourceVersion,
+    'resolvedSourceVersion': obj.resolvedSourceVersion,
+    'projectName': obj.projectName,
+    'phases': obj.phases?.map(y => toJson_CodeBuildBuildPhase(y)),
+    'source': toJson_CodeBuildProjectSource(obj.source),
+    'secondarySources': obj.secondarySources?.map(y => toJson_CodeBuildProjectSource(y)),
+    'secondarySourceVersions': obj.secondarySourceVersions?.map(y => toJson_CodeBuildProjectSourceVersion(y)),
+    'artifacts': toJson_CodeBuildBuildArtifacts(obj.artifacts),
+    'secondaryArtifacts': obj.secondaryArtifacts?.map(y => toJson_CodeBuildBuildArtifacts(y)),
+    'cache': toJson_CodeBuildProjectCache(obj.cache),
+    'environment': toJson_CodeBuildProjectEnvironment(obj.environment),
+    'serviceRole': obj.serviceRole,
+    'logs': toJson_CodeBuildLogsLocation(obj.logs),
+    'timeoutInMinutes': obj.timeoutInMinutes,
+    'queuedTimeoutInMinutes': obj.queuedTimeoutInMinutes,
+    'buildComplete': obj.buildComplete,
+    'initiator': obj.initiator,
+    'vpcConfig': toJson_CodeBuildVpcConfig(obj.vpcConfig),
+    'networkInterface': toJson_CodeBuildNetworkInterface(obj.networkInterface),
+    'encryptionKey': obj.encryptionKey,
+    'exportedEnvironmentVariables': obj.exportedEnvironmentVariables?.map(y => toJson_CodeBuildExportedEnvironmentVariable(y)),
+    'reportArns': obj.reportArns?.map(y => y),
+    'fileSystemLocations': obj.fileSystemLocations?.map(y => toJson_CodeBuildProjectFileSystemLocation(y)),
+    'debugSession': toJson_CodeBuildDebugSession(obj.debugSession),
+    'buildBatchArn': obj.buildBatchArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildProject
  */
 export interface CodeBuildProject {
@@ -2273,7 +3801,50 @@ export interface CodeBuildProject {
    */
   readonly buildBatchConfig?: CodeBuildProjectBuildBatchConfig;
 
+  /**
+   * @schema CodeBuildProject#concurrentBuildLimit
+   */
+  readonly concurrentBuildLimit?: number;
+
 }
+
+/**
+ * Converts an object of type 'CodeBuildProject' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildProject(obj: CodeBuildProject | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'arn': obj.arn,
+    'description': obj.description,
+    'source': toJson_CodeBuildProjectSource(obj.source),
+    'secondarySources': obj.secondarySources?.map(y => toJson_CodeBuildProjectSource(y)),
+    'sourceVersion': obj.sourceVersion,
+    'secondarySourceVersions': obj.secondarySourceVersions?.map(y => toJson_CodeBuildProjectSourceVersion(y)),
+    'artifacts': toJson_CodeBuildProjectArtifacts(obj.artifacts),
+    'secondaryArtifacts': obj.secondaryArtifacts?.map(y => toJson_CodeBuildProjectArtifacts(y)),
+    'cache': toJson_CodeBuildProjectCache(obj.cache),
+    'environment': toJson_CodeBuildProjectEnvironment(obj.environment),
+    'serviceRole': obj.serviceRole,
+    'timeoutInMinutes': obj.timeoutInMinutes,
+    'queuedTimeoutInMinutes': obj.queuedTimeoutInMinutes,
+    'encryptionKey': obj.encryptionKey,
+    'tags': obj.tags?.map(y => toJson_CodeBuildTag(y)),
+    'created': obj.created,
+    'lastModified': obj.lastModified,
+    'webhook': toJson_CodeBuildWebhook(obj.webhook),
+    'vpcConfig': toJson_CodeBuildVpcConfig(obj.vpcConfig),
+    'badge': toJson_CodeBuildProjectBadge(obj.badge),
+    'logsConfig': toJson_CodeBuildLogsConfig(obj.logsConfig),
+    'fileSystemLocations': obj.fileSystemLocations?.map(y => toJson_CodeBuildProjectFileSystemLocation(y)),
+    'buildBatchConfig': toJson_CodeBuildProjectBuildBatchConfig(obj.buildBatchConfig),
+    'concurrentBuildLimit': obj.concurrentBuildLimit,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildReportGroup
@@ -2320,6 +3891,27 @@ export interface CodeBuildReportGroup {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildReportGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildReportGroup(obj: CodeBuildReportGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'type': obj.type,
+    'exportConfig': toJson_CodeBuildReportExportConfig(obj.exportConfig),
+    'created': obj.created,
+    'lastModified': obj.lastModified,
+    'tags': obj.tags?.map(y => toJson_CodeBuildTag(y)),
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildReport
@@ -2388,6 +3980,31 @@ export interface CodeBuildReport {
 }
 
 /**
+ * Converts an object of type 'CodeBuildReport' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildReport(obj: CodeBuildReport | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'type': obj.type,
+    'name': obj.name,
+    'reportGroupArn': obj.reportGroupArn,
+    'executionId': obj.executionId,
+    'status': obj.status,
+    'created': obj.created,
+    'expired': obj.expired,
+    'exportConfig': toJson_CodeBuildReportExportConfig(obj.exportConfig),
+    'truncated': obj.truncated,
+    'testSummary': toJson_CodeBuildTestReportSummary(obj.testSummary),
+    'codeCoverageSummary': toJson_CodeBuildCodeCoverageReportSummary(obj.codeCoverageSummary),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildProjectSource
  */
 export interface CodeBuildProjectSource {
@@ -2444,6 +4061,29 @@ export interface CodeBuildProjectSource {
 }
 
 /**
+ * Converts an object of type 'CodeBuildProjectSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildProjectSource(obj: CodeBuildProjectSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+    'location': obj.location,
+    'gitCloneDepth': obj.gitCloneDepth,
+    'gitSubmodulesConfig': toJson_CodeBuildGitSubmodulesConfig(obj.gitSubmodulesConfig),
+    'buildspec': obj.buildspec,
+    'auth': toJson_CodeBuildSourceAuth(obj.auth),
+    'reportBuildStatus': obj.reportBuildStatus,
+    'buildStatusConfig': toJson_CodeBuildBuildStatusConfig(obj.buildStatusConfig),
+    'insecureSsl': obj.insecureSsl,
+    'sourceIdentifier': obj.sourceIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildProjectSourceVersion
  */
 export interface CodeBuildProjectSourceVersion {
@@ -2458,6 +4098,21 @@ export interface CodeBuildProjectSourceVersion {
   readonly sourceVersion: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildProjectSourceVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildProjectSourceVersion(obj: CodeBuildProjectSourceVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sourceIdentifier': obj.sourceIdentifier,
+    'sourceVersion': obj.sourceVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildProjectArtifacts
@@ -2508,7 +4163,35 @@ export interface CodeBuildProjectArtifacts {
    */
   readonly artifactIdentifier?: string;
 
+  /**
+   * @schema CodeBuildProjectArtifacts#bucketOwnerAccess
+   */
+  readonly bucketOwnerAccess?: string;
+
 }
+
+/**
+ * Converts an object of type 'CodeBuildProjectArtifacts' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildProjectArtifacts(obj: CodeBuildProjectArtifacts | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+    'location': obj.location,
+    'path': obj.path,
+    'namespaceType': obj.namespaceType,
+    'name': obj.name,
+    'packaging': obj.packaging,
+    'overrideArtifactName': obj.overrideArtifactName,
+    'encryptionDisabled': obj.encryptionDisabled,
+    'artifactIdentifier': obj.artifactIdentifier,
+    'bucketOwnerAccess': obj.bucketOwnerAccess,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildProjectCache
@@ -2530,6 +4213,22 @@ export interface CodeBuildProjectCache {
   readonly modes?: string[];
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildProjectCache' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildProjectCache(obj: CodeBuildProjectCache | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+    'location': obj.location,
+    'modes': obj.modes?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildProjectEnvironment
@@ -2578,6 +4277,27 @@ export interface CodeBuildProjectEnvironment {
 }
 
 /**
+ * Converts an object of type 'CodeBuildProjectEnvironment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildProjectEnvironment(obj: CodeBuildProjectEnvironment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+    'image': obj.image,
+    'computeType': obj.computeType,
+    'environmentVariables': obj.environmentVariables?.map(y => toJson_CodeBuildEnvironmentVariable(y)),
+    'privilegedMode': obj.privilegedMode,
+    'certificate': obj.certificate,
+    'registryCredential': toJson_CodeBuildRegistryCredential(obj.registryCredential),
+    'imagePullCredentialsType': obj.imagePullCredentialsType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildTag
  */
 export interface CodeBuildTag {
@@ -2592,6 +4312,21 @@ export interface CodeBuildTag {
   readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildTag(obj: CodeBuildTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildVpcConfig
@@ -2615,6 +4350,22 @@ export interface CodeBuildVpcConfig {
 }
 
 /**
+ * Converts an object of type 'CodeBuildVpcConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildVpcConfig(obj: CodeBuildVpcConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'vpcId': obj.vpcId,
+    'subnets': obj.subnets?.map(y => y),
+    'securityGroupIds': obj.securityGroupIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildLogsConfig
  */
 export interface CodeBuildLogsConfig {
@@ -2629,6 +4380,21 @@ export interface CodeBuildLogsConfig {
   readonly s3Logs?: CodeBuildS3LogsConfig;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildLogsConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildLogsConfig(obj: CodeBuildLogsConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'cloudWatchLogs': toJson_CodeBuildCloudWatchLogsConfig(obj.cloudWatchLogs),
+    's3Logs': toJson_CodeBuildS3LogsConfig(obj.s3Logs),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildProjectFileSystemLocation
@@ -2662,6 +4428,24 @@ export interface CodeBuildProjectFileSystemLocation {
 }
 
 /**
+ * Converts an object of type 'CodeBuildProjectFileSystemLocation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildProjectFileSystemLocation(obj: CodeBuildProjectFileSystemLocation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+    'location': obj.location,
+    'mountPoint': obj.mountPoint,
+    'identifier': obj.identifier,
+    'mountOptions': obj.mountOptions,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildProjectBuildBatchConfig
  */
 export interface CodeBuildProjectBuildBatchConfig {
@@ -2688,6 +4472,23 @@ export interface CodeBuildProjectBuildBatchConfig {
 }
 
 /**
+ * Converts an object of type 'CodeBuildProjectBuildBatchConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildProjectBuildBatchConfig(obj: CodeBuildProjectBuildBatchConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'serviceRole': obj.serviceRole,
+    'combineArtifacts': obj.combineArtifacts,
+    'restrictions': toJson_CodeBuildBatchRestrictions(obj.restrictions),
+    'timeoutInMins': obj.timeoutInMins,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildReportExportConfig
  */
 export interface CodeBuildReportExportConfig {
@@ -2702,6 +4503,21 @@ export interface CodeBuildReportExportConfig {
   readonly s3Destination?: CodeBuildS3ReportExportConfig;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildReportExportConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildReportExportConfig(obj: CodeBuildReportExportConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exportConfigType': obj.exportConfigType,
+    's3Destination': toJson_CodeBuildS3ReportExportConfig(obj.s3Destination),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildWebhookFilter
@@ -2723,6 +4539,22 @@ export interface CodeBuildWebhookFilter {
   readonly excludeMatchedPattern?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildWebhookFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildWebhookFilter(obj: CodeBuildWebhookFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+    'pattern': obj.pattern,
+    'excludeMatchedPattern': obj.excludeMatchedPattern,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildWebhook
@@ -2766,6 +4598,26 @@ export interface CodeBuildWebhook {
 }
 
 /**
+ * Converts an object of type 'CodeBuildWebhook' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildWebhook(obj: CodeBuildWebhook | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'url': obj.url,
+    'payloadUrl': obj.payloadUrl,
+    'secret': obj.secret,
+    'branchFilter': obj.branchFilter,
+    'filterGroups': obj.filterGroups?.map(y => y?.map(y => toJson_CodeBuildWebhookFilter(y))),
+    'buildType': obj.buildType,
+    'lastModifiedSecret': obj.lastModifiedSecret,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildCodeCoverage
  */
 export interface CodeBuildCodeCoverage {
@@ -2777,7 +4629,7 @@ export interface CodeBuildCodeCoverage {
   /**
    * @schema CodeBuildCodeCoverage#reportARN
    */
-  readonly reportARN?: string;
+  readonly reportArn?: string;
 
   /**
    * @schema CodeBuildCodeCoverage#filePath
@@ -2822,6 +4674,29 @@ export interface CodeBuildCodeCoverage {
 }
 
 /**
+ * Converts an object of type 'CodeBuildCodeCoverage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildCodeCoverage(obj: CodeBuildCodeCoverage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'reportARN': obj.reportArn,
+    'filePath': obj.filePath,
+    'lineCoveragePercentage': obj.lineCoveragePercentage,
+    'linesCovered': obj.linesCovered,
+    'linesMissed': obj.linesMissed,
+    'branchCoveragePercentage': obj.branchCoveragePercentage,
+    'branchesCovered': obj.branchesCovered,
+    'branchesMissed': obj.branchesMissed,
+    'expired': obj.expired,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildTestCaseFilter
  */
 export interface CodeBuildTestCaseFilter {
@@ -2836,6 +4711,21 @@ export interface CodeBuildTestCaseFilter {
   readonly keyword?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildTestCaseFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildTestCaseFilter(obj: CodeBuildTestCaseFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+    'keyword': obj.keyword,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildTestCase
@@ -2884,6 +4774,27 @@ export interface CodeBuildTestCase {
 }
 
 /**
+ * Converts an object of type 'CodeBuildTestCase' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildTestCase(obj: CodeBuildTestCase | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reportArn': obj.reportArn,
+    'testRawDataPath': obj.testRawDataPath,
+    'prefix': obj.prefix,
+    'name': obj.name,
+    'status': obj.status,
+    'durationInNanoSeconds': obj.durationInNanoSeconds,
+    'message': obj.message,
+    'expired': obj.expired,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildReportGroupTrendStats
  */
 export interface CodeBuildReportGroupTrendStats {
@@ -2905,6 +4816,22 @@ export interface CodeBuildReportGroupTrendStats {
 }
 
 /**
+ * Converts an object of type 'CodeBuildReportGroupTrendStats' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildReportGroupTrendStats(obj: CodeBuildReportGroupTrendStats | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'average': obj.average,
+    'max': obj.max,
+    'min': obj.min,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildReportWithRawData
  */
 export interface CodeBuildReportWithRawData {
@@ -2921,6 +4848,21 @@ export interface CodeBuildReportWithRawData {
 }
 
 /**
+ * Converts an object of type 'CodeBuildReportWithRawData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildReportWithRawData(obj: CodeBuildReportWithRawData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'reportArn': obj.reportArn,
+    'data': obj.data,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildBuildBatchFilter
  */
 export interface CodeBuildBuildBatchFilter {
@@ -2930,6 +4872,20 @@ export interface CodeBuildBuildBatchFilter {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildBuildBatchFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBuildBatchFilter(obj: CodeBuildBuildBatchFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildEnvironmentPlatform
@@ -2948,6 +4904,21 @@ export interface CodeBuildEnvironmentPlatform {
 }
 
 /**
+ * Converts an object of type 'CodeBuildEnvironmentPlatform' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildEnvironmentPlatform(obj: CodeBuildEnvironmentPlatform | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'platform': obj.platform,
+    'languages': obj.languages?.map(y => toJson_CodeBuildEnvironmentLanguage(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildReportFilter
  */
 export interface CodeBuildReportFilter {
@@ -2957,6 +4928,20 @@ export interface CodeBuildReportFilter {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildReportFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildReportFilter(obj: CodeBuildReportFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildSourceCredentialsInfo
@@ -2980,6 +4965,22 @@ export interface CodeBuildSourceCredentialsInfo {
 }
 
 /**
+ * Converts an object of type 'CodeBuildSourceCredentialsInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildSourceCredentialsInfo(obj: CodeBuildSourceCredentialsInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'serverType': obj.serverType,
+    'authType': obj.authType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildEnvironmentVariable
  */
 export interface CodeBuildEnvironmentVariable {
@@ -3001,6 +5002,22 @@ export interface CodeBuildEnvironmentVariable {
 }
 
 /**
+ * Converts an object of type 'CodeBuildEnvironmentVariable' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildEnvironmentVariable(obj: CodeBuildEnvironmentVariable | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'value': obj.value,
+    'type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildSourceAuth
  */
 export interface CodeBuildSourceAuth {
@@ -3017,6 +5034,21 @@ export interface CodeBuildSourceAuth {
 }
 
 /**
+ * Converts an object of type 'CodeBuildSourceAuth' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildSourceAuth(obj: CodeBuildSourceAuth | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+    'resource': obj.resource,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildGitSubmodulesConfig
  */
 export interface CodeBuildGitSubmodulesConfig {
@@ -3026,6 +5058,20 @@ export interface CodeBuildGitSubmodulesConfig {
   readonly fetchSubmodules: boolean;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildGitSubmodulesConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildGitSubmodulesConfig(obj: CodeBuildGitSubmodulesConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fetchSubmodules': obj.fetchSubmodules,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildBuildStatusConfig
@@ -3044,6 +5090,21 @@ export interface CodeBuildBuildStatusConfig {
 }
 
 /**
+ * Converts an object of type 'CodeBuildBuildStatusConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBuildStatusConfig(obj: CodeBuildBuildStatusConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'context': obj.context,
+    'targetUrl': obj.targetUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildRegistryCredential
  */
 export interface CodeBuildRegistryCredential {
@@ -3058,6 +5119,21 @@ export interface CodeBuildRegistryCredential {
   readonly credentialProvider: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildRegistryCredential' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildRegistryCredential(obj: CodeBuildRegistryCredential | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'credential': obj.credential,
+    'credentialProvider': obj.credentialProvider,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildBuildBatchPhase
@@ -3096,6 +5172,25 @@ export interface CodeBuildBuildBatchPhase {
 }
 
 /**
+ * Converts an object of type 'CodeBuildBuildBatchPhase' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBuildBatchPhase(obj: CodeBuildBuildBatchPhase | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'phaseType': obj.phaseType,
+    'phaseStatus': obj.phaseStatus,
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+    'durationInSeconds': obj.durationInSeconds,
+    'contexts': obj.contexts?.map(y => toJson_CodeBuildPhaseContext(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildBuildArtifacts
  */
 export interface CodeBuildBuildArtifacts {
@@ -3107,12 +5202,12 @@ export interface CodeBuildBuildArtifacts {
   /**
    * @schema CodeBuildBuildArtifacts#sha256sum
    */
-  readonly sha256sum?: string;
+  readonly sha256Sum?: string;
 
   /**
    * @schema CodeBuildBuildArtifacts#md5sum
    */
-  readonly md5sum?: string;
+  readonly md5Sum?: string;
 
   /**
    * @schema CodeBuildBuildArtifacts#overrideArtifactName
@@ -3129,7 +5224,32 @@ export interface CodeBuildBuildArtifacts {
    */
   readonly artifactIdentifier?: string;
 
+  /**
+   * @schema CodeBuildBuildArtifacts#bucketOwnerAccess
+   */
+  readonly bucketOwnerAccess?: string;
+
 }
+
+/**
+ * Converts an object of type 'CodeBuildBuildArtifacts' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBuildArtifacts(obj: CodeBuildBuildArtifacts | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'location': obj.location,
+    'sha256sum': obj.sha256Sum,
+    'md5sum': obj.md5Sum,
+    'overrideArtifactName': obj.overrideArtifactName,
+    'encryptionDisabled': obj.encryptionDisabled,
+    'artifactIdentifier': obj.artifactIdentifier,
+    'bucketOwnerAccess': obj.bucketOwnerAccess,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildBuildGroup
@@ -3161,6 +5281,24 @@ export interface CodeBuildBuildGroup {
   readonly priorBuildSummaryList?: CodeBuildBuildSummary[];
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildBuildGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBuildGroup(obj: CodeBuildBuildGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'identifier': obj.identifier,
+    'dependsOn': obj.dependsOn?.map(y => y),
+    'ignoreFailure': obj.ignoreFailure,
+    'currentBuildSummary': toJson_CodeBuildBuildSummary(obj.currentBuildSummary),
+    'priorBuildSummaryList': obj.priorBuildSummaryList?.map(y => toJson_CodeBuildBuildSummary(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildBuildPhase
@@ -3197,6 +5335,25 @@ export interface CodeBuildBuildPhase {
   readonly contexts?: CodeBuildPhaseContext[];
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildBuildPhase' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBuildPhase(obj: CodeBuildBuildPhase | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'phaseType': obj.phaseType,
+    'phaseStatus': obj.phaseStatus,
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+    'durationInSeconds': obj.durationInSeconds,
+    'contexts': obj.contexts?.map(y => toJson_CodeBuildPhaseContext(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildLogsLocation
@@ -3245,6 +5402,27 @@ export interface CodeBuildLogsLocation {
 }
 
 /**
+ * Converts an object of type 'CodeBuildLogsLocation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildLogsLocation(obj: CodeBuildLogsLocation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'groupName': obj.groupName,
+    'streamName': obj.streamName,
+    'deepLink': obj.deepLink,
+    's3DeepLink': obj.s3DeepLink,
+    'cloudWatchLogsArn': obj.cloudWatchLogsArn,
+    's3LogsArn': obj.s3LogsArn,
+    'cloudWatchLogs': toJson_CodeBuildCloudWatchLogsConfig(obj.cloudWatchLogs),
+    's3Logs': toJson_CodeBuildS3LogsConfig(obj.s3Logs),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildNetworkInterface
  */
 export interface CodeBuildNetworkInterface {
@@ -3259,6 +5437,21 @@ export interface CodeBuildNetworkInterface {
   readonly networkInterfaceId?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildNetworkInterface' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildNetworkInterface(obj: CodeBuildNetworkInterface | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'subnetId': obj.subnetId,
+    'networkInterfaceId': obj.networkInterfaceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildExportedEnvironmentVariable
@@ -3277,6 +5470,21 @@ export interface CodeBuildExportedEnvironmentVariable {
 }
 
 /**
+ * Converts an object of type 'CodeBuildExportedEnvironmentVariable' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildExportedEnvironmentVariable(obj: CodeBuildExportedEnvironmentVariable | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildDebugSession
  */
 export interface CodeBuildDebugSession {
@@ -3293,6 +5501,21 @@ export interface CodeBuildDebugSession {
 }
 
 /**
+ * Converts an object of type 'CodeBuildDebugSession' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildDebugSession(obj: CodeBuildDebugSession | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sessionEnabled': obj.sessionEnabled,
+    'sessionTarget': obj.sessionTarget,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildProjectBadge
  */
 export interface CodeBuildProjectBadge {
@@ -3307,6 +5530,21 @@ export interface CodeBuildProjectBadge {
   readonly badgeRequestUrl?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildProjectBadge' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildProjectBadge(obj: CodeBuildProjectBadge | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'badgeEnabled': obj.badgeEnabled,
+    'badgeRequestUrl': obj.badgeRequestUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildTestReportSummary
@@ -3328,6 +5566,22 @@ export interface CodeBuildTestReportSummary {
   readonly durationInNanoSeconds: number;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildTestReportSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildTestReportSummary(obj: CodeBuildTestReportSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'total': obj.total,
+    'statusCounts': ((obj.statusCounts) === undefined) ? undefined : (Object.entries(obj.statusCounts).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'durationInNanoSeconds': obj.durationInNanoSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildCodeCoverageReportSummary
@@ -3366,6 +5620,25 @@ export interface CodeBuildCodeCoverageReportSummary {
 }
 
 /**
+ * Converts an object of type 'CodeBuildCodeCoverageReportSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildCodeCoverageReportSummary(obj: CodeBuildCodeCoverageReportSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'lineCoveragePercentage': obj.lineCoveragePercentage,
+    'linesCovered': obj.linesCovered,
+    'linesMissed': obj.linesMissed,
+    'branchCoveragePercentage': obj.branchCoveragePercentage,
+    'branchesCovered': obj.branchesCovered,
+    'branchesMissed': obj.branchesMissed,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildCloudWatchLogsConfig
  */
 export interface CodeBuildCloudWatchLogsConfig {
@@ -3387,6 +5660,22 @@ export interface CodeBuildCloudWatchLogsConfig {
 }
 
 /**
+ * Converts an object of type 'CodeBuildCloudWatchLogsConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildCloudWatchLogsConfig(obj: CodeBuildCloudWatchLogsConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+    'groupName': obj.groupName,
+    'streamName': obj.streamName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildS3LogsConfig
  */
 export interface CodeBuildS3LogsConfig {
@@ -3405,7 +5694,29 @@ export interface CodeBuildS3LogsConfig {
    */
   readonly encryptionDisabled?: boolean;
 
+  /**
+   * @schema CodeBuildS3LogsConfig#bucketOwnerAccess
+   */
+  readonly bucketOwnerAccess?: string;
+
 }
+
+/**
+ * Converts an object of type 'CodeBuildS3LogsConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildS3LogsConfig(obj: CodeBuildS3LogsConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'status': obj.status,
+    'location': obj.location,
+    'encryptionDisabled': obj.encryptionDisabled,
+    'bucketOwnerAccess': obj.bucketOwnerAccess,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildBatchRestrictions
@@ -3424,6 +5735,21 @@ export interface CodeBuildBatchRestrictions {
 }
 
 /**
+ * Converts an object of type 'CodeBuildBatchRestrictions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBatchRestrictions(obj: CodeBuildBatchRestrictions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maximumBuildsAllowed': obj.maximumBuildsAllowed,
+    'computeTypesAllowed': obj.computeTypesAllowed?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildS3ReportExportConfig
  */
 export interface CodeBuildS3ReportExportConfig {
@@ -3431,6 +5757,11 @@ export interface CodeBuildS3ReportExportConfig {
    * @schema CodeBuildS3ReportExportConfig#bucket
    */
   readonly bucket?: string;
+
+  /**
+   * @schema CodeBuildS3ReportExportConfig#bucketOwner
+   */
+  readonly bucketOwner?: string;
 
   /**
    * @schema CodeBuildS3ReportExportConfig#path
@@ -3455,6 +5786,25 @@ export interface CodeBuildS3ReportExportConfig {
 }
 
 /**
+ * Converts an object of type 'CodeBuildS3ReportExportConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildS3ReportExportConfig(obj: CodeBuildS3ReportExportConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bucket': obj.bucket,
+    'bucketOwner': obj.bucketOwner,
+    'path': obj.path,
+    'packaging': obj.packaging,
+    'encryptionKey': obj.encryptionKey,
+    'encryptionDisabled': obj.encryptionDisabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildEnvironmentLanguage
  */
 export interface CodeBuildEnvironmentLanguage {
@@ -3471,6 +5821,21 @@ export interface CodeBuildEnvironmentLanguage {
 }
 
 /**
+ * Converts an object of type 'CodeBuildEnvironmentLanguage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildEnvironmentLanguage(obj: CodeBuildEnvironmentLanguage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'language': obj.language,
+    'images': obj.images?.map(y => toJson_CodeBuildEnvironmentImage(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildPhaseContext
  */
 export interface CodeBuildPhaseContext {
@@ -3485,6 +5850,21 @@ export interface CodeBuildPhaseContext {
   readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildPhaseContext' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildPhaseContext(obj: CodeBuildPhaseContext | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'statusCode': obj.statusCode,
+    'message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema CodeBuildBuildSummary
@@ -3518,6 +5898,24 @@ export interface CodeBuildBuildSummary {
 }
 
 /**
+ * Converts an object of type 'CodeBuildBuildSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildBuildSummary(obj: CodeBuildBuildSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'requestedOn': obj.requestedOn,
+    'buildStatus': obj.buildStatus,
+    'primaryArtifact': toJson_CodeBuildResolvedArtifact(obj.primaryArtifact),
+    'secondaryArtifacts': obj.secondaryArtifacts?.map(y => toJson_CodeBuildResolvedArtifact(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildEnvironmentImage
  */
 export interface CodeBuildEnvironmentImage {
@@ -3539,6 +5937,22 @@ export interface CodeBuildEnvironmentImage {
 }
 
 /**
+ * Converts an object of type 'CodeBuildEnvironmentImage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildEnvironmentImage(obj: CodeBuildEnvironmentImage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'description': obj.description,
+    'versions': obj.versions?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema CodeBuildResolvedArtifact
  */
 export interface CodeBuildResolvedArtifact {
@@ -3558,3 +5972,19 @@ export interface CodeBuildResolvedArtifact {
   readonly identifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'CodeBuildResolvedArtifact' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CodeBuildResolvedArtifact(obj: CodeBuildResolvedArtifact | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+    'location': obj.location,
+    'identifier': obj.identifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

@@ -97,12 +97,48 @@ export class ServiceQuotasClient extends cdk.Construct {
     return new ServiceQuotasResponsesListServices(this, this.__resources, input);
   }
 
+  public listTagsForResource(input: shapes.ServiceQuotasListTagsForResourceRequest): ServiceQuotasResponsesListTagsForResource {
+    return new ServiceQuotasResponsesListTagsForResource(this, this.__resources, input);
+  }
+
   public putServiceQuotaIncreaseRequestIntoTemplate(input: shapes.ServiceQuotasPutServiceQuotaIncreaseRequestIntoTemplateRequest): ServiceQuotasResponsesPutServiceQuotaIncreaseRequestIntoTemplate {
     return new ServiceQuotasResponsesPutServiceQuotaIncreaseRequestIntoTemplate(this, this.__resources, input);
   }
 
   public requestServiceQuotaIncrease(input: shapes.ServiceQuotasRequestServiceQuotaIncreaseRequest): ServiceQuotasResponsesRequestServiceQuotaIncrease {
     return new ServiceQuotasResponsesRequestServiceQuotaIncrease(this, this.__resources, input);
+  }
+
+  public tagResource(input: shapes.ServiceQuotasTagResourceRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'tagResource',
+        service: 'ServiceQuotas',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceQuotas.TagResource'),
+        parameters: {
+          ResourceARN: input.resourceArn,
+          Tags: input.tags,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'TagResource', props);
+  }
+
+  public untagResource(input: shapes.ServiceQuotasUntagResourceRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'untagResource',
+        service: 'ServiceQuotas',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceQuotas.UntagResource'),
+        parameters: {
+          ResourceARN: input.resourceArn,
+          TagKeys: input.tagKeys,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UntagResource', props);
   }
 
 }
@@ -1542,6 +1578,30 @@ export class ServiceQuotasResponsesListServices {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListServices.Services', props);
     return resource.getResponseField('Services') as unknown as shapes.ServiceQuotasServiceInfo[];
+  }
+
+}
+
+export class ServiceQuotasResponsesListTagsForResource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ServiceQuotasListTagsForResourceRequest) {
+  }
+
+  public get tags(): shapes.ServiceQuotasTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listTagsForResource',
+        service: 'ServiceQuotas',
+        physicalResourceId: cr.PhysicalResourceId.of('ServiceQuotas.ListTagsForResource.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          ResourceARN: this.__input.resourceArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListTagsForResource.Tags', props);
+    return resource.getResponseField('Tags') as unknown as shapes.ServiceQuotasTag[];
   }
 
 }

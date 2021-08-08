@@ -5,19 +5,35 @@ export interface MachineLearningAddTagsInput {
   /**
    * @schema MachineLearningAddTagsInput#Tags
    */
-  readonly tags: MachineLearningTag[];
+  readonly tags?: MachineLearningTag[];
 
   /**
    * @schema MachineLearningAddTagsInput#ResourceId
    */
-  readonly resourceId: string;
+  readonly resourceId?: string;
 
   /**
    * @schema MachineLearningAddTagsInput#ResourceType
    */
-  readonly resourceType: string;
+  readonly resourceType?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningAddTagsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningAddTagsInput(obj: MachineLearningAddTagsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Tags': obj.tags?.map(y => toJson_MachineLearningTag(y)),
+    'ResourceId': obj.resourceId,
+    'ResourceType': obj.resourceType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningAddTagsOutput
@@ -36,13 +52,28 @@ export interface MachineLearningAddTagsOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningAddTagsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningAddTagsOutput(obj: MachineLearningAddTagsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceId': obj.resourceId,
+    'ResourceType': obj.resourceType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningCreateBatchPredictionInput
  */
 export interface MachineLearningCreateBatchPredictionInput {
   /**
    * @schema MachineLearningCreateBatchPredictionInput#BatchPredictionId
    */
-  readonly batchPredictionId: string;
+  readonly batchPredictionId?: string;
 
   /**
    * @schema MachineLearningCreateBatchPredictionInput#BatchPredictionName
@@ -52,19 +83,37 @@ export interface MachineLearningCreateBatchPredictionInput {
   /**
    * @schema MachineLearningCreateBatchPredictionInput#MLModelId
    */
-  readonly mlModelId: string;
+  readonly mlModelId?: string;
 
   /**
    * @schema MachineLearningCreateBatchPredictionInput#BatchPredictionDataSourceId
    */
-  readonly batchPredictionDataSourceId: string;
+  readonly batchPredictionDataSourceId?: string;
 
   /**
    * @schema MachineLearningCreateBatchPredictionInput#OutputUri
    */
-  readonly outputUri: string;
+  readonly outputUri?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningCreateBatchPredictionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningCreateBatchPredictionInput(obj: MachineLearningCreateBatchPredictionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BatchPredictionId': obj.batchPredictionId,
+    'BatchPredictionName': obj.batchPredictionName,
+    'MLModelId': obj.mlModelId,
+    'BatchPredictionDataSourceId': obj.batchPredictionDataSourceId,
+    'OutputUri': obj.outputUri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningCreateBatchPredictionOutput
@@ -78,13 +127,27 @@ export interface MachineLearningCreateBatchPredictionOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningCreateBatchPredictionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningCreateBatchPredictionOutput(obj: MachineLearningCreateBatchPredictionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BatchPredictionId': obj.batchPredictionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningCreateDataSourceFromRdsInput
  */
 export interface MachineLearningCreateDataSourceFromRdsInput {
   /**
    * @schema MachineLearningCreateDataSourceFromRdsInput#DataSourceId
    */
-  readonly dataSourceId: string;
+  readonly dataSourceId?: string;
 
   /**
    * @schema MachineLearningCreateDataSourceFromRdsInput#DataSourceName
@@ -94,12 +157,12 @@ export interface MachineLearningCreateDataSourceFromRdsInput {
   /**
    * @schema MachineLearningCreateDataSourceFromRdsInput#RDSData
    */
-  readonly rdsData: MachineLearningRdsDataSpec;
+  readonly rdsData?: MachineLearningRdsDataSpec;
 
   /**
    * @schema MachineLearningCreateDataSourceFromRdsInput#RoleARN
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema MachineLearningCreateDataSourceFromRdsInput#ComputeStatistics
@@ -107,6 +170,24 @@ export interface MachineLearningCreateDataSourceFromRdsInput {
   readonly computeStatistics?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningCreateDataSourceFromRdsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningCreateDataSourceFromRdsInput(obj: MachineLearningCreateDataSourceFromRdsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSourceId': obj.dataSourceId,
+    'DataSourceName': obj.dataSourceName,
+    'RDSData': toJson_MachineLearningRdsDataSpec(obj.rdsData),
+    'RoleARN': obj.roleArn,
+    'ComputeStatistics': obj.computeStatistics,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningCreateDataSourceFromRdsOutput
@@ -120,13 +201,27 @@ export interface MachineLearningCreateDataSourceFromRdsOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningCreateDataSourceFromRdsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningCreateDataSourceFromRdsOutput(obj: MachineLearningCreateDataSourceFromRdsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSourceId': obj.dataSourceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningCreateDataSourceFromRedshiftInput
  */
 export interface MachineLearningCreateDataSourceFromRedshiftInput {
   /**
    * @schema MachineLearningCreateDataSourceFromRedshiftInput#DataSourceId
    */
-  readonly dataSourceId: string;
+  readonly dataSourceId?: string;
 
   /**
    * @schema MachineLearningCreateDataSourceFromRedshiftInput#DataSourceName
@@ -136,12 +231,12 @@ export interface MachineLearningCreateDataSourceFromRedshiftInput {
   /**
    * @schema MachineLearningCreateDataSourceFromRedshiftInput#DataSpec
    */
-  readonly dataSpec: MachineLearningRedshiftDataSpec;
+  readonly dataSpec?: MachineLearningRedshiftDataSpec;
 
   /**
    * @schema MachineLearningCreateDataSourceFromRedshiftInput#RoleARN
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema MachineLearningCreateDataSourceFromRedshiftInput#ComputeStatistics
@@ -149,6 +244,24 @@ export interface MachineLearningCreateDataSourceFromRedshiftInput {
   readonly computeStatistics?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningCreateDataSourceFromRedshiftInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningCreateDataSourceFromRedshiftInput(obj: MachineLearningCreateDataSourceFromRedshiftInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSourceId': obj.dataSourceId,
+    'DataSourceName': obj.dataSourceName,
+    'DataSpec': toJson_MachineLearningRedshiftDataSpec(obj.dataSpec),
+    'RoleARN': obj.roleArn,
+    'ComputeStatistics': obj.computeStatistics,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningCreateDataSourceFromRedshiftOutput
@@ -162,13 +275,27 @@ export interface MachineLearningCreateDataSourceFromRedshiftOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningCreateDataSourceFromRedshiftOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningCreateDataSourceFromRedshiftOutput(obj: MachineLearningCreateDataSourceFromRedshiftOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSourceId': obj.dataSourceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningCreateDataSourceFromS3Input
  */
 export interface MachineLearningCreateDataSourceFromS3Input {
   /**
    * @schema MachineLearningCreateDataSourceFromS3Input#DataSourceId
    */
-  readonly dataSourceId: string;
+  readonly dataSourceId?: string;
 
   /**
    * @schema MachineLearningCreateDataSourceFromS3Input#DataSourceName
@@ -178,7 +305,7 @@ export interface MachineLearningCreateDataSourceFromS3Input {
   /**
    * @schema MachineLearningCreateDataSourceFromS3Input#DataSpec
    */
-  readonly dataSpec: MachineLearningS3DataSpec;
+  readonly dataSpec?: MachineLearningS3DataSpec;
 
   /**
    * @schema MachineLearningCreateDataSourceFromS3Input#ComputeStatistics
@@ -186,6 +313,23 @@ export interface MachineLearningCreateDataSourceFromS3Input {
   readonly computeStatistics?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningCreateDataSourceFromS3Input' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningCreateDataSourceFromS3Input(obj: MachineLearningCreateDataSourceFromS3Input | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSourceId': obj.dataSourceId,
+    'DataSourceName': obj.dataSourceName,
+    'DataSpec': toJson_MachineLearningS3DataSpec(obj.dataSpec),
+    'ComputeStatistics': obj.computeStatistics,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningCreateDataSourceFromS3Output
@@ -199,13 +343,27 @@ export interface MachineLearningCreateDataSourceFromS3Output {
 }
 
 /**
+ * Converts an object of type 'MachineLearningCreateDataSourceFromS3Output' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningCreateDataSourceFromS3Output(obj: MachineLearningCreateDataSourceFromS3Output | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSourceId': obj.dataSourceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningCreateEvaluationInput
  */
 export interface MachineLearningCreateEvaluationInput {
   /**
    * @schema MachineLearningCreateEvaluationInput#EvaluationId
    */
-  readonly evaluationId: string;
+  readonly evaluationId?: string;
 
   /**
    * @schema MachineLearningCreateEvaluationInput#EvaluationName
@@ -215,14 +373,31 @@ export interface MachineLearningCreateEvaluationInput {
   /**
    * @schema MachineLearningCreateEvaluationInput#MLModelId
    */
-  readonly mlModelId: string;
+  readonly mlModelId?: string;
 
   /**
    * @schema MachineLearningCreateEvaluationInput#EvaluationDataSourceId
    */
-  readonly evaluationDataSourceId: string;
+  readonly evaluationDataSourceId?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningCreateEvaluationInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningCreateEvaluationInput(obj: MachineLearningCreateEvaluationInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EvaluationId': obj.evaluationId,
+    'EvaluationName': obj.evaluationName,
+    'MLModelId': obj.mlModelId,
+    'EvaluationDataSourceId': obj.evaluationDataSourceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningCreateEvaluationOutput
@@ -236,13 +411,27 @@ export interface MachineLearningCreateEvaluationOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningCreateEvaluationOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningCreateEvaluationOutput(obj: MachineLearningCreateEvaluationOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EvaluationId': obj.evaluationId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningCreateMlModelInput
  */
 export interface MachineLearningCreateMlModelInput {
   /**
    * @schema MachineLearningCreateMlModelInput#MLModelId
    */
-  readonly mlModelId: string;
+  readonly mlModelId?: string;
 
   /**
    * @schema MachineLearningCreateMlModelInput#MLModelName
@@ -252,7 +441,7 @@ export interface MachineLearningCreateMlModelInput {
   /**
    * @schema MachineLearningCreateMlModelInput#MLModelType
    */
-  readonly mlModelType: string;
+  readonly mlModelType?: string;
 
   /**
    * @schema MachineLearningCreateMlModelInput#Parameters
@@ -262,7 +451,7 @@ export interface MachineLearningCreateMlModelInput {
   /**
    * @schema MachineLearningCreateMlModelInput#TrainingDataSourceId
    */
-  readonly trainingDataSourceId: string;
+  readonly trainingDataSourceId?: string;
 
   /**
    * @schema MachineLearningCreateMlModelInput#Recipe
@@ -277,6 +466,26 @@ export interface MachineLearningCreateMlModelInput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningCreateMlModelInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningCreateMlModelInput(obj: MachineLearningCreateMlModelInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MLModelId': obj.mlModelId,
+    'MLModelName': obj.mlModelName,
+    'MLModelType': obj.mlModelType,
+    'Parameters': ((obj.parameters) === undefined) ? undefined : (Object.entries(obj.parameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'TrainingDataSourceId': obj.trainingDataSourceId,
+    'Recipe': obj.recipe,
+    'RecipeUri': obj.recipeUri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningCreateMlModelOutput
  */
 export interface MachineLearningCreateMlModelOutput {
@@ -288,15 +497,43 @@ export interface MachineLearningCreateMlModelOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningCreateMlModelOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningCreateMlModelOutput(obj: MachineLearningCreateMlModelOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MLModelId': obj.mlModelId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningCreateRealtimeEndpointInput
  */
 export interface MachineLearningCreateRealtimeEndpointInput {
   /**
    * @schema MachineLearningCreateRealtimeEndpointInput#MLModelId
    */
-  readonly mlModelId: string;
+  readonly mlModelId?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningCreateRealtimeEndpointInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningCreateRealtimeEndpointInput(obj: MachineLearningCreateRealtimeEndpointInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MLModelId': obj.mlModelId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningCreateRealtimeEndpointOutput
@@ -315,15 +552,44 @@ export interface MachineLearningCreateRealtimeEndpointOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningCreateRealtimeEndpointOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningCreateRealtimeEndpointOutput(obj: MachineLearningCreateRealtimeEndpointOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MLModelId': obj.mlModelId,
+    'RealtimeEndpointInfo': toJson_MachineLearningRealtimeEndpointInfo(obj.realtimeEndpointInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningDeleteBatchPredictionInput
  */
 export interface MachineLearningDeleteBatchPredictionInput {
   /**
    * @schema MachineLearningDeleteBatchPredictionInput#BatchPredictionId
    */
-  readonly batchPredictionId: string;
+  readonly batchPredictionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningDeleteBatchPredictionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDeleteBatchPredictionInput(obj: MachineLearningDeleteBatchPredictionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BatchPredictionId': obj.batchPredictionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningDeleteBatchPredictionOutput
@@ -337,15 +603,43 @@ export interface MachineLearningDeleteBatchPredictionOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningDeleteBatchPredictionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDeleteBatchPredictionOutput(obj: MachineLearningDeleteBatchPredictionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BatchPredictionId': obj.batchPredictionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningDeleteDataSourceInput
  */
 export interface MachineLearningDeleteDataSourceInput {
   /**
    * @schema MachineLearningDeleteDataSourceInput#DataSourceId
    */
-  readonly dataSourceId: string;
+  readonly dataSourceId?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningDeleteDataSourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDeleteDataSourceInput(obj: MachineLearningDeleteDataSourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSourceId': obj.dataSourceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningDeleteDataSourceOutput
@@ -359,15 +653,43 @@ export interface MachineLearningDeleteDataSourceOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningDeleteDataSourceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDeleteDataSourceOutput(obj: MachineLearningDeleteDataSourceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSourceId': obj.dataSourceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningDeleteEvaluationInput
  */
 export interface MachineLearningDeleteEvaluationInput {
   /**
    * @schema MachineLearningDeleteEvaluationInput#EvaluationId
    */
-  readonly evaluationId: string;
+  readonly evaluationId?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningDeleteEvaluationInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDeleteEvaluationInput(obj: MachineLearningDeleteEvaluationInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EvaluationId': obj.evaluationId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningDeleteEvaluationOutput
@@ -381,15 +703,43 @@ export interface MachineLearningDeleteEvaluationOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningDeleteEvaluationOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDeleteEvaluationOutput(obj: MachineLearningDeleteEvaluationOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EvaluationId': obj.evaluationId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningDeleteMlModelInput
  */
 export interface MachineLearningDeleteMlModelInput {
   /**
    * @schema MachineLearningDeleteMlModelInput#MLModelId
    */
-  readonly mlModelId: string;
+  readonly mlModelId?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningDeleteMlModelInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDeleteMlModelInput(obj: MachineLearningDeleteMlModelInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MLModelId': obj.mlModelId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningDeleteMlModelOutput
@@ -403,15 +753,43 @@ export interface MachineLearningDeleteMlModelOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningDeleteMlModelOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDeleteMlModelOutput(obj: MachineLearningDeleteMlModelOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MLModelId': obj.mlModelId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningDeleteRealtimeEndpointInput
  */
 export interface MachineLearningDeleteRealtimeEndpointInput {
   /**
    * @schema MachineLearningDeleteRealtimeEndpointInput#MLModelId
    */
-  readonly mlModelId: string;
+  readonly mlModelId?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningDeleteRealtimeEndpointInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDeleteRealtimeEndpointInput(obj: MachineLearningDeleteRealtimeEndpointInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MLModelId': obj.mlModelId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningDeleteRealtimeEndpointOutput
@@ -430,25 +808,56 @@ export interface MachineLearningDeleteRealtimeEndpointOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningDeleteRealtimeEndpointOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDeleteRealtimeEndpointOutput(obj: MachineLearningDeleteRealtimeEndpointOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MLModelId': obj.mlModelId,
+    'RealtimeEndpointInfo': toJson_MachineLearningRealtimeEndpointInfo(obj.realtimeEndpointInfo),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningDeleteTagsInput
  */
 export interface MachineLearningDeleteTagsInput {
   /**
    * @schema MachineLearningDeleteTagsInput#TagKeys
    */
-  readonly tagKeys: string[];
+  readonly tagKeys?: string[];
 
   /**
    * @schema MachineLearningDeleteTagsInput#ResourceId
    */
-  readonly resourceId: string;
+  readonly resourceId?: string;
 
   /**
    * @schema MachineLearningDeleteTagsInput#ResourceType
    */
-  readonly resourceType: string;
+  readonly resourceType?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningDeleteTagsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDeleteTagsInput(obj: MachineLearningDeleteTagsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TagKeys': obj.tagKeys?.map(y => y),
+    'ResourceId': obj.resourceId,
+    'ResourceType': obj.resourceType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningDeleteTagsOutput
@@ -465,6 +874,21 @@ export interface MachineLearningDeleteTagsOutput {
   readonly resourceType?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningDeleteTagsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDeleteTagsOutput(obj: MachineLearningDeleteTagsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceId': obj.resourceId,
+    'ResourceType': obj.resourceType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningDescribeBatchPredictionsInput
@@ -528,6 +952,30 @@ export interface MachineLearningDescribeBatchPredictionsInput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningDescribeBatchPredictionsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDescribeBatchPredictionsInput(obj: MachineLearningDescribeBatchPredictionsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FilterVariable': obj.filterVariable,
+    'EQ': obj.eq,
+    'GT': obj.gt,
+    'LT': obj.lt,
+    'GE': obj.ge,
+    'LE': obj.le,
+    'NE': obj.ne,
+    'Prefix': obj.prefix,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'Limit': obj.limit,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningDescribeBatchPredictionsOutput
  */
 export interface MachineLearningDescribeBatchPredictionsOutput {
@@ -542,6 +990,21 @@ export interface MachineLearningDescribeBatchPredictionsOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningDescribeBatchPredictionsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDescribeBatchPredictionsOutput(obj: MachineLearningDescribeBatchPredictionsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Results': obj.results?.map(y => toJson_MachineLearningBatchPrediction(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningDescribeDataSourcesInput
@@ -605,6 +1068,30 @@ export interface MachineLearningDescribeDataSourcesInput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningDescribeDataSourcesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDescribeDataSourcesInput(obj: MachineLearningDescribeDataSourcesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FilterVariable': obj.filterVariable,
+    'EQ': obj.eq,
+    'GT': obj.gt,
+    'LT': obj.lt,
+    'GE': obj.ge,
+    'LE': obj.le,
+    'NE': obj.ne,
+    'Prefix': obj.prefix,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'Limit': obj.limit,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningDescribeDataSourcesOutput
  */
 export interface MachineLearningDescribeDataSourcesOutput {
@@ -619,6 +1106,21 @@ export interface MachineLearningDescribeDataSourcesOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningDescribeDataSourcesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDescribeDataSourcesOutput(obj: MachineLearningDescribeDataSourcesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Results': obj.results?.map(y => toJson_MachineLearningDataSource(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningDescribeEvaluationsInput
@@ -682,6 +1184,30 @@ export interface MachineLearningDescribeEvaluationsInput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningDescribeEvaluationsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDescribeEvaluationsInput(obj: MachineLearningDescribeEvaluationsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FilterVariable': obj.filterVariable,
+    'EQ': obj.eq,
+    'GT': obj.gt,
+    'LT': obj.lt,
+    'GE': obj.ge,
+    'LE': obj.le,
+    'NE': obj.ne,
+    'Prefix': obj.prefix,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'Limit': obj.limit,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningDescribeEvaluationsOutput
  */
 export interface MachineLearningDescribeEvaluationsOutput {
@@ -696,6 +1222,21 @@ export interface MachineLearningDescribeEvaluationsOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningDescribeEvaluationsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDescribeEvaluationsOutput(obj: MachineLearningDescribeEvaluationsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Results': obj.results?.map(y => toJson_MachineLearningEvaluation(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningDescribeMlModelsInput
@@ -759,6 +1300,30 @@ export interface MachineLearningDescribeMlModelsInput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningDescribeMlModelsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDescribeMlModelsInput(obj: MachineLearningDescribeMlModelsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FilterVariable': obj.filterVariable,
+    'EQ': obj.eq,
+    'GT': obj.gt,
+    'LT': obj.lt,
+    'GE': obj.ge,
+    'LE': obj.le,
+    'NE': obj.ne,
+    'Prefix': obj.prefix,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'Limit': obj.limit,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningDescribeMlModelsOutput
  */
 export interface MachineLearningDescribeMlModelsOutput {
@@ -775,20 +1340,50 @@ export interface MachineLearningDescribeMlModelsOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningDescribeMlModelsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDescribeMlModelsOutput(obj: MachineLearningDescribeMlModelsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Results': obj.results?.map(y => toJson_MachineLearningMlModel(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningDescribeTagsInput
  */
 export interface MachineLearningDescribeTagsInput {
   /**
    * @schema MachineLearningDescribeTagsInput#ResourceId
    */
-  readonly resourceId: string;
+  readonly resourceId?: string;
 
   /**
    * @schema MachineLearningDescribeTagsInput#ResourceType
    */
-  readonly resourceType: string;
+  readonly resourceType?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningDescribeTagsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDescribeTagsInput(obj: MachineLearningDescribeTagsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceId': obj.resourceId,
+    'ResourceType': obj.resourceType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningDescribeTagsOutput
@@ -812,15 +1407,45 @@ export interface MachineLearningDescribeTagsOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningDescribeTagsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDescribeTagsOutput(obj: MachineLearningDescribeTagsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceId': obj.resourceId,
+    'ResourceType': obj.resourceType,
+    'Tags': obj.tags?.map(y => toJson_MachineLearningTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningGetBatchPredictionInput
  */
 export interface MachineLearningGetBatchPredictionInput {
   /**
    * @schema MachineLearningGetBatchPredictionInput#BatchPredictionId
    */
-  readonly batchPredictionId: string;
+  readonly batchPredictionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningGetBatchPredictionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningGetBatchPredictionInput(obj: MachineLearningGetBatchPredictionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BatchPredictionId': obj.batchPredictionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningGetBatchPredictionOutput
@@ -914,13 +1539,43 @@ export interface MachineLearningGetBatchPredictionOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningGetBatchPredictionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningGetBatchPredictionOutput(obj: MachineLearningGetBatchPredictionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BatchPredictionId': obj.batchPredictionId,
+    'MLModelId': obj.mlModelId,
+    'BatchPredictionDataSourceId': obj.batchPredictionDataSourceId,
+    'InputDataLocationS3': obj.inputDataLocationS3,
+    'CreatedByIamUser': obj.createdByIamUser,
+    'CreatedAt': obj.createdAt,
+    'LastUpdatedAt': obj.lastUpdatedAt,
+    'Name': obj.name,
+    'Status': obj.status,
+    'OutputUri': obj.outputUri,
+    'LogUri': obj.logUri,
+    'Message': obj.message,
+    'ComputeTime': obj.computeTime,
+    'FinishedAt': obj.finishedAt,
+    'StartedAt': obj.startedAt,
+    'TotalRecordCount': obj.totalRecordCount,
+    'InvalidRecordCount': obj.invalidRecordCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningGetDataSourceInput
  */
 export interface MachineLearningGetDataSourceInput {
   /**
    * @schema MachineLearningGetDataSourceInput#DataSourceId
    */
-  readonly dataSourceId: string;
+  readonly dataSourceId?: string;
 
   /**
    * @schema MachineLearningGetDataSourceInput#Verbose
@@ -928,6 +1583,21 @@ export interface MachineLearningGetDataSourceInput {
   readonly verbose?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningGetDataSourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningGetDataSourceInput(obj: MachineLearningGetDataSourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSourceId': obj.dataSourceId,
+    'Verbose': obj.verbose,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningGetDataSourceOutput
@@ -1036,15 +1706,62 @@ export interface MachineLearningGetDataSourceOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningGetDataSourceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningGetDataSourceOutput(obj: MachineLearningGetDataSourceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSourceId': obj.dataSourceId,
+    'DataLocationS3': obj.dataLocationS3,
+    'DataRearrangement': obj.dataRearrangement,
+    'CreatedByIamUser': obj.createdByIamUser,
+    'CreatedAt': obj.createdAt,
+    'LastUpdatedAt': obj.lastUpdatedAt,
+    'DataSizeInBytes': obj.dataSizeInBytes,
+    'NumberOfFiles': obj.numberOfFiles,
+    'Name': obj.name,
+    'Status': obj.status,
+    'LogUri': obj.logUri,
+    'Message': obj.message,
+    'RedshiftMetadata': toJson_MachineLearningRedshiftMetadata(obj.redshiftMetadata),
+    'RDSMetadata': toJson_MachineLearningRdsMetadata(obj.rdsMetadata),
+    'RoleARN': obj.roleArn,
+    'ComputeStatistics': obj.computeStatistics,
+    'ComputeTime': obj.computeTime,
+    'FinishedAt': obj.finishedAt,
+    'StartedAt': obj.startedAt,
+    'DataSourceSchema': obj.dataSourceSchema,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningGetEvaluationInput
  */
 export interface MachineLearningGetEvaluationInput {
   /**
    * @schema MachineLearningGetEvaluationInput#EvaluationId
    */
-  readonly evaluationId: string;
+  readonly evaluationId?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningGetEvaluationInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningGetEvaluationInput(obj: MachineLearningGetEvaluationInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EvaluationId': obj.evaluationId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningGetEvaluationOutput
@@ -1128,13 +1845,41 @@ export interface MachineLearningGetEvaluationOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningGetEvaluationOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningGetEvaluationOutput(obj: MachineLearningGetEvaluationOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EvaluationId': obj.evaluationId,
+    'MLModelId': obj.mlModelId,
+    'EvaluationDataSourceId': obj.evaluationDataSourceId,
+    'InputDataLocationS3': obj.inputDataLocationS3,
+    'CreatedByIamUser': obj.createdByIamUser,
+    'CreatedAt': obj.createdAt,
+    'LastUpdatedAt': obj.lastUpdatedAt,
+    'Name': obj.name,
+    'Status': obj.status,
+    'PerformanceMetrics': toJson_MachineLearningPerformanceMetrics(obj.performanceMetrics),
+    'LogUri': obj.logUri,
+    'Message': obj.message,
+    'ComputeTime': obj.computeTime,
+    'FinishedAt': obj.finishedAt,
+    'StartedAt': obj.startedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningGetMlModelInput
  */
 export interface MachineLearningGetMlModelInput {
   /**
    * @schema MachineLearningGetMlModelInput#MLModelId
    */
-  readonly mlModelId: string;
+  readonly mlModelId?: string;
 
   /**
    * @schema MachineLearningGetMlModelInput#Verbose
@@ -1142,6 +1887,21 @@ export interface MachineLearningGetMlModelInput {
   readonly verbose?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningGetMlModelInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningGetMlModelInput(obj: MachineLearningGetMlModelInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MLModelId': obj.mlModelId,
+    'Verbose': obj.verbose,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningGetMlModelOutput
@@ -1255,25 +2015,75 @@ export interface MachineLearningGetMlModelOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningGetMlModelOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningGetMlModelOutput(obj: MachineLearningGetMlModelOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MLModelId': obj.mlModelId,
+    'TrainingDataSourceId': obj.trainingDataSourceId,
+    'CreatedByIamUser': obj.createdByIamUser,
+    'CreatedAt': obj.createdAt,
+    'LastUpdatedAt': obj.lastUpdatedAt,
+    'Name': obj.name,
+    'Status': obj.status,
+    'SizeInBytes': obj.sizeInBytes,
+    'EndpointInfo': toJson_MachineLearningRealtimeEndpointInfo(obj.endpointInfo),
+    'TrainingParameters': ((obj.trainingParameters) === undefined) ? undefined : (Object.entries(obj.trainingParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'InputDataLocationS3': obj.inputDataLocationS3,
+    'MLModelType': obj.mlModelType,
+    'ScoreThreshold': obj.scoreThreshold,
+    'ScoreThresholdLastUpdatedAt': obj.scoreThresholdLastUpdatedAt,
+    'LogUri': obj.logUri,
+    'Message': obj.message,
+    'ComputeTime': obj.computeTime,
+    'FinishedAt': obj.finishedAt,
+    'StartedAt': obj.startedAt,
+    'Recipe': obj.recipe,
+    'Schema': obj.schema,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningPredictInput
  */
 export interface MachineLearningPredictInput {
   /**
    * @schema MachineLearningPredictInput#MLModelId
    */
-  readonly mlModelId: string;
+  readonly mlModelId?: string;
 
   /**
    * @schema MachineLearningPredictInput#Record
    */
-  readonly record: { [key: string]: string };
+  readonly record?: { [key: string]: string };
 
   /**
    * @schema MachineLearningPredictInput#PredictEndpoint
    */
-  readonly predictEndpoint: string;
+  readonly predictEndpoint?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningPredictInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningPredictInput(obj: MachineLearningPredictInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MLModelId': obj.mlModelId,
+    'Record': ((obj.record) === undefined) ? undefined : (Object.entries(obj.record).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'PredictEndpoint': obj.predictEndpoint,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningPredictOutput
@@ -1287,20 +2097,49 @@ export interface MachineLearningPredictOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningPredictOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningPredictOutput(obj: MachineLearningPredictOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Prediction': toJson_MachineLearningPrediction(obj.prediction),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningUpdateBatchPredictionInput
  */
 export interface MachineLearningUpdateBatchPredictionInput {
   /**
    * @schema MachineLearningUpdateBatchPredictionInput#BatchPredictionId
    */
-  readonly batchPredictionId: string;
+  readonly batchPredictionId?: string;
 
   /**
    * @schema MachineLearningUpdateBatchPredictionInput#BatchPredictionName
    */
-  readonly batchPredictionName: string;
+  readonly batchPredictionName?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningUpdateBatchPredictionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningUpdateBatchPredictionInput(obj: MachineLearningUpdateBatchPredictionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BatchPredictionId': obj.batchPredictionId,
+    'BatchPredictionName': obj.batchPredictionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningUpdateBatchPredictionOutput
@@ -1314,20 +2153,49 @@ export interface MachineLearningUpdateBatchPredictionOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningUpdateBatchPredictionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningUpdateBatchPredictionOutput(obj: MachineLearningUpdateBatchPredictionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BatchPredictionId': obj.batchPredictionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningUpdateDataSourceInput
  */
 export interface MachineLearningUpdateDataSourceInput {
   /**
    * @schema MachineLearningUpdateDataSourceInput#DataSourceId
    */
-  readonly dataSourceId: string;
+  readonly dataSourceId?: string;
 
   /**
    * @schema MachineLearningUpdateDataSourceInput#DataSourceName
    */
-  readonly dataSourceName: string;
+  readonly dataSourceName?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningUpdateDataSourceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningUpdateDataSourceInput(obj: MachineLearningUpdateDataSourceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSourceId': obj.dataSourceId,
+    'DataSourceName': obj.dataSourceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningUpdateDataSourceOutput
@@ -1341,20 +2209,49 @@ export interface MachineLearningUpdateDataSourceOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningUpdateDataSourceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningUpdateDataSourceOutput(obj: MachineLearningUpdateDataSourceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSourceId': obj.dataSourceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningUpdateEvaluationInput
  */
 export interface MachineLearningUpdateEvaluationInput {
   /**
    * @schema MachineLearningUpdateEvaluationInput#EvaluationId
    */
-  readonly evaluationId: string;
+  readonly evaluationId?: string;
 
   /**
    * @schema MachineLearningUpdateEvaluationInput#EvaluationName
    */
-  readonly evaluationName: string;
+  readonly evaluationName?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningUpdateEvaluationInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningUpdateEvaluationInput(obj: MachineLearningUpdateEvaluationInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EvaluationId': obj.evaluationId,
+    'EvaluationName': obj.evaluationName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningUpdateEvaluationOutput
@@ -1368,13 +2265,27 @@ export interface MachineLearningUpdateEvaluationOutput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningUpdateEvaluationOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningUpdateEvaluationOutput(obj: MachineLearningUpdateEvaluationOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EvaluationId': obj.evaluationId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningUpdateMlModelInput
  */
 export interface MachineLearningUpdateMlModelInput {
   /**
    * @schema MachineLearningUpdateMlModelInput#MLModelId
    */
-  readonly mlModelId: string;
+  readonly mlModelId?: string;
 
   /**
    * @schema MachineLearningUpdateMlModelInput#MLModelName
@@ -1389,6 +2300,22 @@ export interface MachineLearningUpdateMlModelInput {
 }
 
 /**
+ * Converts an object of type 'MachineLearningUpdateMlModelInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningUpdateMlModelInput(obj: MachineLearningUpdateMlModelInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MLModelId': obj.mlModelId,
+    'MLModelName': obj.mlModelName,
+    'ScoreThreshold': obj.scoreThreshold,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningUpdateMlModelOutput
  */
 export interface MachineLearningUpdateMlModelOutput {
@@ -1398,6 +2325,20 @@ export interface MachineLearningUpdateMlModelOutput {
   readonly mlModelId?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningUpdateMlModelOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningUpdateMlModelOutput(obj: MachineLearningUpdateMlModelOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MLModelId': obj.mlModelId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningTag
@@ -1416,28 +2357,43 @@ export interface MachineLearningTag {
 }
 
 /**
+ * Converts an object of type 'MachineLearningTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningTag(obj: MachineLearningTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningRdsDataSpec
  */
 export interface MachineLearningRdsDataSpec {
   /**
    * @schema MachineLearningRdsDataSpec#DatabaseInformation
    */
-  readonly databaseInformation: MachineLearningRdsDatabase;
+  readonly databaseInformation?: MachineLearningRdsDatabase;
 
   /**
    * @schema MachineLearningRdsDataSpec#SelectSqlQuery
    */
-  readonly selectSqlQuery: string;
+  readonly selectSqlQuery?: string;
 
   /**
    * @schema MachineLearningRdsDataSpec#DatabaseCredentials
    */
-  readonly databaseCredentials: MachineLearningRdsDatabaseCredentials;
+  readonly databaseCredentials?: MachineLearningRdsDatabaseCredentials;
 
   /**
    * @schema MachineLearningRdsDataSpec#S3StagingLocation
    */
-  readonly s3StagingLocation: string;
+  readonly s3StagingLocation?: string;
 
   /**
    * @schema MachineLearningRdsDataSpec#DataRearrangement
@@ -1457,24 +2413,48 @@ export interface MachineLearningRdsDataSpec {
   /**
    * @schema MachineLearningRdsDataSpec#ResourceRole
    */
-  readonly resourceRole: string;
+  readonly resourceRole?: string;
 
   /**
    * @schema MachineLearningRdsDataSpec#ServiceRole
    */
-  readonly serviceRole: string;
+  readonly serviceRole?: string;
 
   /**
    * @schema MachineLearningRdsDataSpec#SubnetId
    */
-  readonly subnetId: string;
+  readonly subnetId?: string;
 
   /**
    * @schema MachineLearningRdsDataSpec#SecurityGroupIds
    */
-  readonly securityGroupIds: string[];
+  readonly securityGroupIds?: string[];
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningRdsDataSpec' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningRdsDataSpec(obj: MachineLearningRdsDataSpec | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DatabaseInformation': toJson_MachineLearningRdsDatabase(obj.databaseInformation),
+    'SelectSqlQuery': obj.selectSqlQuery,
+    'DatabaseCredentials': toJson_MachineLearningRdsDatabaseCredentials(obj.databaseCredentials),
+    'S3StagingLocation': obj.s3StagingLocation,
+    'DataRearrangement': obj.dataRearrangement,
+    'DataSchema': obj.dataSchema,
+    'DataSchemaUri': obj.dataSchemaUri,
+    'ResourceRole': obj.resourceRole,
+    'ServiceRole': obj.serviceRole,
+    'SubnetId': obj.subnetId,
+    'SecurityGroupIds': obj.securityGroupIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningRedshiftDataSpec
@@ -1483,22 +2463,22 @@ export interface MachineLearningRedshiftDataSpec {
   /**
    * @schema MachineLearningRedshiftDataSpec#DatabaseInformation
    */
-  readonly databaseInformation: MachineLearningRedshiftDatabase;
+  readonly databaseInformation?: MachineLearningRedshiftDatabase;
 
   /**
    * @schema MachineLearningRedshiftDataSpec#SelectSqlQuery
    */
-  readonly selectSqlQuery: string;
+  readonly selectSqlQuery?: string;
 
   /**
    * @schema MachineLearningRedshiftDataSpec#DatabaseCredentials
    */
-  readonly databaseCredentials: MachineLearningRedshiftDatabaseCredentials;
+  readonly databaseCredentials?: MachineLearningRedshiftDatabaseCredentials;
 
   /**
    * @schema MachineLearningRedshiftDataSpec#S3StagingLocation
    */
-  readonly s3StagingLocation: string;
+  readonly s3StagingLocation?: string;
 
   /**
    * @schema MachineLearningRedshiftDataSpec#DataRearrangement
@@ -1518,13 +2498,33 @@ export interface MachineLearningRedshiftDataSpec {
 }
 
 /**
+ * Converts an object of type 'MachineLearningRedshiftDataSpec' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningRedshiftDataSpec(obj: MachineLearningRedshiftDataSpec | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DatabaseInformation': toJson_MachineLearningRedshiftDatabase(obj.databaseInformation),
+    'SelectSqlQuery': obj.selectSqlQuery,
+    'DatabaseCredentials': toJson_MachineLearningRedshiftDatabaseCredentials(obj.databaseCredentials),
+    'S3StagingLocation': obj.s3StagingLocation,
+    'DataRearrangement': obj.dataRearrangement,
+    'DataSchema': obj.dataSchema,
+    'DataSchemaUri': obj.dataSchemaUri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningS3DataSpec
  */
 export interface MachineLearningS3DataSpec {
   /**
    * @schema MachineLearningS3DataSpec#DataLocationS3
    */
-  readonly dataLocationS3: string;
+  readonly dataLocationS3?: string;
 
   /**
    * @schema MachineLearningS3DataSpec#DataRearrangement
@@ -1542,6 +2542,23 @@ export interface MachineLearningS3DataSpec {
   readonly dataSchemaLocationS3?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningS3DataSpec' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningS3DataSpec(obj: MachineLearningS3DataSpec | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataLocationS3': obj.dataLocationS3,
+    'DataRearrangement': obj.dataRearrangement,
+    'DataSchema': obj.dataSchema,
+    'DataSchemaLocationS3': obj.dataSchemaLocationS3,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningRealtimeEndpointInfo
@@ -1568,6 +2585,23 @@ export interface MachineLearningRealtimeEndpointInfo {
   readonly endpointStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningRealtimeEndpointInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningRealtimeEndpointInfo(obj: MachineLearningRealtimeEndpointInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PeakRequestsPerSecond': obj.peakRequestsPerSecond,
+    'CreatedAt': obj.createdAt,
+    'EndpointUrl': obj.endpointUrl,
+    'EndpointStatus': obj.endpointStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningBatchPrediction
@@ -1654,6 +2688,35 @@ export interface MachineLearningBatchPrediction {
   readonly invalidRecordCount?: number;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningBatchPrediction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningBatchPrediction(obj: MachineLearningBatchPrediction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BatchPredictionId': obj.batchPredictionId,
+    'MLModelId': obj.mlModelId,
+    'BatchPredictionDataSourceId': obj.batchPredictionDataSourceId,
+    'InputDataLocationS3': obj.inputDataLocationS3,
+    'CreatedByIamUser': obj.createdByIamUser,
+    'CreatedAt': obj.createdAt,
+    'LastUpdatedAt': obj.lastUpdatedAt,
+    'Name': obj.name,
+    'Status': obj.status,
+    'OutputUri': obj.outputUri,
+    'Message': obj.message,
+    'ComputeTime': obj.computeTime,
+    'FinishedAt': obj.finishedAt,
+    'StartedAt': obj.startedAt,
+    'TotalRecordCount': obj.totalRecordCount,
+    'InvalidRecordCount': obj.invalidRecordCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningDataSource
@@ -1752,6 +2815,37 @@ export interface MachineLearningDataSource {
 }
 
 /**
+ * Converts an object of type 'MachineLearningDataSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningDataSource(obj: MachineLearningDataSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSourceId': obj.dataSourceId,
+    'DataLocationS3': obj.dataLocationS3,
+    'DataRearrangement': obj.dataRearrangement,
+    'CreatedByIamUser': obj.createdByIamUser,
+    'CreatedAt': obj.createdAt,
+    'LastUpdatedAt': obj.lastUpdatedAt,
+    'DataSizeInBytes': obj.dataSizeInBytes,
+    'NumberOfFiles': obj.numberOfFiles,
+    'Name': obj.name,
+    'Status': obj.status,
+    'Message': obj.message,
+    'RedshiftMetadata': toJson_MachineLearningRedshiftMetadata(obj.redshiftMetadata),
+    'RDSMetadata': toJson_MachineLearningRdsMetadata(obj.rdsMetadata),
+    'RoleARN': obj.roleArn,
+    'ComputeStatistics': obj.computeStatistics,
+    'ComputeTime': obj.computeTime,
+    'FinishedAt': obj.finishedAt,
+    'StartedAt': obj.startedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningEvaluation
  */
 export interface MachineLearningEvaluation {
@@ -1826,6 +2920,33 @@ export interface MachineLearningEvaluation {
   readonly startedAt?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningEvaluation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningEvaluation(obj: MachineLearningEvaluation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EvaluationId': obj.evaluationId,
+    'MLModelId': obj.mlModelId,
+    'EvaluationDataSourceId': obj.evaluationDataSourceId,
+    'InputDataLocationS3': obj.inputDataLocationS3,
+    'CreatedByIamUser': obj.createdByIamUser,
+    'CreatedAt': obj.createdAt,
+    'LastUpdatedAt': obj.lastUpdatedAt,
+    'Name': obj.name,
+    'Status': obj.status,
+    'PerformanceMetrics': toJson_MachineLearningPerformanceMetrics(obj.performanceMetrics),
+    'Message': obj.message,
+    'ComputeTime': obj.computeTime,
+    'FinishedAt': obj.finishedAt,
+    'StartedAt': obj.startedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningMlModel
@@ -1929,6 +3050,38 @@ export interface MachineLearningMlModel {
 }
 
 /**
+ * Converts an object of type 'MachineLearningMlModel' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningMlModel(obj: MachineLearningMlModel | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MLModelId': obj.mlModelId,
+    'TrainingDataSourceId': obj.trainingDataSourceId,
+    'CreatedByIamUser': obj.createdByIamUser,
+    'CreatedAt': obj.createdAt,
+    'LastUpdatedAt': obj.lastUpdatedAt,
+    'Name': obj.name,
+    'Status': obj.status,
+    'SizeInBytes': obj.sizeInBytes,
+    'EndpointInfo': toJson_MachineLearningRealtimeEndpointInfo(obj.endpointInfo),
+    'TrainingParameters': ((obj.trainingParameters) === undefined) ? undefined : (Object.entries(obj.trainingParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'InputDataLocationS3': obj.inputDataLocationS3,
+    'Algorithm': obj.algorithm,
+    'MLModelType': obj.mlModelType,
+    'ScoreThreshold': obj.scoreThreshold,
+    'ScoreThresholdLastUpdatedAt': obj.scoreThresholdLastUpdatedAt,
+    'Message': obj.message,
+    'ComputeTime': obj.computeTime,
+    'FinishedAt': obj.finishedAt,
+    'StartedAt': obj.startedAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningRedshiftMetadata
  */
 export interface MachineLearningRedshiftMetadata {
@@ -1948,6 +3101,22 @@ export interface MachineLearningRedshiftMetadata {
   readonly selectSqlQuery?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningRedshiftMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningRedshiftMetadata(obj: MachineLearningRedshiftMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RedshiftDatabase': toJson_MachineLearningRedshiftDatabase(obj.redshiftDatabase),
+    'DatabaseUserName': obj.databaseUserName,
+    'SelectSqlQuery': obj.selectSqlQuery,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningRdsMetadata
@@ -1986,6 +3155,25 @@ export interface MachineLearningRdsMetadata {
 }
 
 /**
+ * Converts an object of type 'MachineLearningRdsMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningRdsMetadata(obj: MachineLearningRdsMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Database': toJson_MachineLearningRdsDatabase(obj.database),
+    'DatabaseUserName': obj.databaseUserName,
+    'SelectSqlQuery': obj.selectSqlQuery,
+    'ResourceRole': obj.resourceRole,
+    'ServiceRole': obj.serviceRole,
+    'DataPipelineId': obj.dataPipelineId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningPerformanceMetrics
  */
 export interface MachineLearningPerformanceMetrics {
@@ -1995,6 +3183,20 @@ export interface MachineLearningPerformanceMetrics {
   readonly properties?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningPerformanceMetrics' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningPerformanceMetrics(obj: MachineLearningPerformanceMetrics | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Properties': ((obj.properties) === undefined) ? undefined : (Object.entries(obj.properties).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningPrediction
@@ -2023,20 +3225,52 @@ export interface MachineLearningPrediction {
 }
 
 /**
+ * Converts an object of type 'MachineLearningPrediction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningPrediction(obj: MachineLearningPrediction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'predictedLabel': obj.predictedLabel,
+    'predictedValue': obj.predictedValue,
+    'predictedScores': ((obj.predictedScores) === undefined) ? undefined : (Object.entries(obj.predictedScores).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'details': ((obj.details) === undefined) ? undefined : (Object.entries(obj.details).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MachineLearningRdsDatabase
  */
 export interface MachineLearningRdsDatabase {
   /**
    * @schema MachineLearningRdsDatabase#InstanceIdentifier
    */
-  readonly instanceIdentifier: string;
+  readonly instanceIdentifier?: string;
 
   /**
    * @schema MachineLearningRdsDatabase#DatabaseName
    */
-  readonly databaseName: string;
+  readonly databaseName?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningRdsDatabase' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningRdsDatabase(obj: MachineLearningRdsDatabase | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceIdentifier': obj.instanceIdentifier,
+    'DatabaseName': obj.databaseName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningRdsDatabaseCredentials
@@ -2045,14 +3279,29 @@ export interface MachineLearningRdsDatabaseCredentials {
   /**
    * @schema MachineLearningRdsDatabaseCredentials#Username
    */
-  readonly username: string;
+  readonly username?: string;
 
   /**
    * @schema MachineLearningRdsDatabaseCredentials#Password
    */
-  readonly password: string;
+  readonly password?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningRdsDatabaseCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningRdsDatabaseCredentials(obj: MachineLearningRdsDatabaseCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Username': obj.username,
+    'Password': obj.password,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningRedshiftDatabase
@@ -2061,14 +3310,29 @@ export interface MachineLearningRedshiftDatabase {
   /**
    * @schema MachineLearningRedshiftDatabase#DatabaseName
    */
-  readonly databaseName: string;
+  readonly databaseName?: string;
 
   /**
    * @schema MachineLearningRedshiftDatabase#ClusterIdentifier
    */
-  readonly clusterIdentifier: string;
+  readonly clusterIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningRedshiftDatabase' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningRedshiftDatabase(obj: MachineLearningRedshiftDatabase | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DatabaseName': obj.databaseName,
+    'ClusterIdentifier': obj.clusterIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MachineLearningRedshiftDatabaseCredentials
@@ -2077,11 +3341,26 @@ export interface MachineLearningRedshiftDatabaseCredentials {
   /**
    * @schema MachineLearningRedshiftDatabaseCredentials#Username
    */
-  readonly username: string;
+  readonly username?: string;
 
   /**
    * @schema MachineLearningRedshiftDatabaseCredentials#Password
    */
-  readonly password: string;
+  readonly password?: string;
 
 }
+
+/**
+ * Converts an object of type 'MachineLearningRedshiftDatabaseCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MachineLearningRedshiftDatabaseCredentials(obj: MachineLearningRedshiftDatabaseCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Username': obj.username,
+    'Password': obj.password,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

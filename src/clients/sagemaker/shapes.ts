@@ -1,18 +1,101 @@
 /**
+ * @schema SageMakerAddAssociationRequest
+ */
+export interface SageMakerAddAssociationRequest {
+  /**
+   * @schema SageMakerAddAssociationRequest#SourceArn
+   */
+  readonly sourceArn?: string;
+
+  /**
+   * @schema SageMakerAddAssociationRequest#DestinationArn
+   */
+  readonly destinationArn?: string;
+
+  /**
+   * @schema SageMakerAddAssociationRequest#AssociationType
+   */
+  readonly associationType?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerAddAssociationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAddAssociationRequest(obj: SageMakerAddAssociationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceArn': obj.sourceArn,
+    'DestinationArn': obj.destinationArn,
+    'AssociationType': obj.associationType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerAddAssociationResponse
+ */
+export interface SageMakerAddAssociationResponse {
+  /**
+   * @schema SageMakerAddAssociationResponse#SourceArn
+   */
+  readonly sourceArn?: string;
+
+  /**
+   * @schema SageMakerAddAssociationResponse#DestinationArn
+   */
+  readonly destinationArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerAddAssociationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAddAssociationResponse(obj: SageMakerAddAssociationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceArn': obj.sourceArn,
+    'DestinationArn': obj.destinationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerAddTagsInput
  */
 export interface SageMakerAddTagsInput {
   /**
    * @schema SageMakerAddTagsInput#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema SageMakerAddTagsInput#Tags
    */
-  readonly tags: SageMakerTag[];
+  readonly tags?: SageMakerTag[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerAddTagsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAddTagsInput(obj: SageMakerAddTagsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerAddTagsOutput
@@ -26,20 +109,49 @@ export interface SageMakerAddTagsOutput {
 }
 
 /**
+ * Converts an object of type 'SageMakerAddTagsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAddTagsOutput(obj: SageMakerAddTagsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerAssociateTrialComponentRequest
  */
 export interface SageMakerAssociateTrialComponentRequest {
   /**
    * @schema SageMakerAssociateTrialComponentRequest#TrialComponentName
    */
-  readonly trialComponentName: string;
+  readonly trialComponentName?: string;
 
   /**
    * @schema SageMakerAssociateTrialComponentRequest#TrialName
    */
-  readonly trialName: string;
+  readonly trialName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerAssociateTrialComponentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAssociateTrialComponentRequest(obj: SageMakerAssociateTrialComponentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialComponentName': obj.trialComponentName,
+    'TrialName': obj.trialName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerAssociateTrialComponentResponse
@@ -58,13 +170,120 @@ export interface SageMakerAssociateTrialComponentResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerAssociateTrialComponentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAssociateTrialComponentResponse(obj: SageMakerAssociateTrialComponentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialComponentArn': obj.trialComponentArn,
+    'TrialArn': obj.trialArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateActionRequest
+ */
+export interface SageMakerCreateActionRequest {
+  /**
+   * @schema SageMakerCreateActionRequest#ActionName
+   */
+  readonly actionName?: string;
+
+  /**
+   * @schema SageMakerCreateActionRequest#Source
+   */
+  readonly source?: SageMakerActionSource;
+
+  /**
+   * @schema SageMakerCreateActionRequest#ActionType
+   */
+  readonly actionType?: string;
+
+  /**
+   * @schema SageMakerCreateActionRequest#Description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema SageMakerCreateActionRequest#Status
+   */
+  readonly status?: string;
+
+  /**
+   * @schema SageMakerCreateActionRequest#Properties
+   */
+  readonly properties?: { [key: string]: string };
+
+  /**
+   * @schema SageMakerCreateActionRequest#MetadataProperties
+   */
+  readonly metadataProperties?: SageMakerMetadataProperties;
+
+  /**
+   * @schema SageMakerCreateActionRequest#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateActionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateActionRequest(obj: SageMakerCreateActionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ActionName': obj.actionName,
+    'Source': toJson_SageMakerActionSource(obj.source),
+    'ActionType': obj.actionType,
+    'Description': obj.description,
+    'Status': obj.status,
+    'Properties': ((obj.properties) === undefined) ? undefined : (Object.entries(obj.properties).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'MetadataProperties': toJson_SageMakerMetadataProperties(obj.metadataProperties),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateActionResponse
+ */
+export interface SageMakerCreateActionResponse {
+  /**
+   * @schema SageMakerCreateActionResponse#ActionArn
+   */
+  readonly actionArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateActionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateActionResponse(obj: SageMakerCreateActionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ActionArn': obj.actionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateAlgorithmInput
  */
 export interface SageMakerCreateAlgorithmInput {
   /**
    * @schema SageMakerCreateAlgorithmInput#AlgorithmName
    */
-  readonly algorithmName: string;
+  readonly algorithmName?: string;
 
   /**
    * @schema SageMakerCreateAlgorithmInput#AlgorithmDescription
@@ -74,7 +293,7 @@ export interface SageMakerCreateAlgorithmInput {
   /**
    * @schema SageMakerCreateAlgorithmInput#TrainingSpecification
    */
-  readonly trainingSpecification: SageMakerTrainingSpecification;
+  readonly trainingSpecification?: SageMakerTrainingSpecification;
 
   /**
    * @schema SageMakerCreateAlgorithmInput#InferenceSpecification
@@ -91,7 +310,32 @@ export interface SageMakerCreateAlgorithmInput {
    */
   readonly certifyForMarketplace?: boolean;
 
+  /**
+   * @schema SageMakerCreateAlgorithmInput#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateAlgorithmInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateAlgorithmInput(obj: SageMakerCreateAlgorithmInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AlgorithmName': obj.algorithmName,
+    'AlgorithmDescription': obj.algorithmDescription,
+    'TrainingSpecification': toJson_SageMakerTrainingSpecification(obj.trainingSpecification),
+    'InferenceSpecification': toJson_SageMakerInferenceSpecification(obj.inferenceSpecification),
+    'ValidationSpecification': toJson_SageMakerAlgorithmValidationSpecification(obj.validationSpecification),
+    'CertifyForMarketplace': obj.certifyForMarketplace,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateAlgorithmOutput
@@ -100,9 +344,23 @@ export interface SageMakerCreateAlgorithmOutput {
   /**
    * @schema SageMakerCreateAlgorithmOutput#AlgorithmArn
    */
-  readonly algorithmArn: string;
+  readonly algorithmArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateAlgorithmOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateAlgorithmOutput(obj: SageMakerCreateAlgorithmOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AlgorithmArn': obj.algorithmArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateAppRequest
@@ -111,22 +369,22 @@ export interface SageMakerCreateAppRequest {
   /**
    * @schema SageMakerCreateAppRequest#DomainId
    */
-  readonly domainId: string;
+  readonly domainId?: string;
 
   /**
    * @schema SageMakerCreateAppRequest#UserProfileName
    */
-  readonly userProfileName: string;
+  readonly userProfileName?: string;
 
   /**
    * @schema SageMakerCreateAppRequest#AppType
    */
-  readonly appType: string;
+  readonly appType?: string;
 
   /**
    * @schema SageMakerCreateAppRequest#AppName
    */
-  readonly appName: string;
+  readonly appName?: string;
 
   /**
    * @schema SageMakerCreateAppRequest#Tags
@@ -141,6 +399,25 @@ export interface SageMakerCreateAppRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateAppRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateAppRequest(obj: SageMakerCreateAppRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainId': obj.domainId,
+    'UserProfileName': obj.userProfileName,
+    'AppType': obj.appType,
+    'AppName': obj.appName,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+    'ResourceSpec': toJson_SageMakerResourceSpec(obj.resourceSpec),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateAppResponse
  */
 export interface SageMakerCreateAppResponse {
@@ -152,13 +429,27 @@ export interface SageMakerCreateAppResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateAppResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateAppResponse(obj: SageMakerCreateAppResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AppArn': obj.appArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateAppImageConfigRequest
  */
 export interface SageMakerCreateAppImageConfigRequest {
   /**
    * @schema SageMakerCreateAppImageConfigRequest#AppImageConfigName
    */
-  readonly appImageConfigName: string;
+  readonly appImageConfigName?: string;
 
   /**
    * @schema SageMakerCreateAppImageConfigRequest#Tags
@@ -173,6 +464,22 @@ export interface SageMakerCreateAppImageConfigRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateAppImageConfigRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateAppImageConfigRequest(obj: SageMakerCreateAppImageConfigRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AppImageConfigName': obj.appImageConfigName,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+    'KernelGatewayImageConfig': toJson_SageMakerKernelGatewayImageConfig(obj.kernelGatewayImageConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateAppImageConfigResponse
  */
 export interface SageMakerCreateAppImageConfigResponse {
@@ -184,23 +491,117 @@ export interface SageMakerCreateAppImageConfigResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateAppImageConfigResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateAppImageConfigResponse(obj: SageMakerCreateAppImageConfigResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AppImageConfigArn': obj.appImageConfigArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateArtifactRequest
+ */
+export interface SageMakerCreateArtifactRequest {
+  /**
+   * @schema SageMakerCreateArtifactRequest#ArtifactName
+   */
+  readonly artifactName?: string;
+
+  /**
+   * @schema SageMakerCreateArtifactRequest#Source
+   */
+  readonly source?: SageMakerArtifactSource;
+
+  /**
+   * @schema SageMakerCreateArtifactRequest#ArtifactType
+   */
+  readonly artifactType?: string;
+
+  /**
+   * @schema SageMakerCreateArtifactRequest#Properties
+   */
+  readonly properties?: { [key: string]: string };
+
+  /**
+   * @schema SageMakerCreateArtifactRequest#MetadataProperties
+   */
+  readonly metadataProperties?: SageMakerMetadataProperties;
+
+  /**
+   * @schema SageMakerCreateArtifactRequest#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateArtifactRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateArtifactRequest(obj: SageMakerCreateArtifactRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ArtifactName': obj.artifactName,
+    'Source': toJson_SageMakerArtifactSource(obj.source),
+    'ArtifactType': obj.artifactType,
+    'Properties': ((obj.properties) === undefined) ? undefined : (Object.entries(obj.properties).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'MetadataProperties': toJson_SageMakerMetadataProperties(obj.metadataProperties),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateArtifactResponse
+ */
+export interface SageMakerCreateArtifactResponse {
+  /**
+   * @schema SageMakerCreateArtifactResponse#ArtifactArn
+   */
+  readonly artifactArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateArtifactResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateArtifactResponse(obj: SageMakerCreateArtifactResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ArtifactArn': obj.artifactArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateAutoMlJobRequest
  */
 export interface SageMakerCreateAutoMlJobRequest {
   /**
    * @schema SageMakerCreateAutoMlJobRequest#AutoMLJobName
    */
-  readonly autoMlJobName: string;
+  readonly autoMlJobName?: string;
 
   /**
    * @schema SageMakerCreateAutoMlJobRequest#InputDataConfig
    */
-  readonly inputDataConfig: SageMakerAutoMlChannel[];
+  readonly inputDataConfig?: SageMakerAutoMlChannel[];
 
   /**
    * @schema SageMakerCreateAutoMlJobRequest#OutputDataConfig
    */
-  readonly outputDataConfig: SageMakerAutoMlOutputDataConfig;
+  readonly outputDataConfig?: SageMakerAutoMlOutputDataConfig;
 
   /**
    * @schema SageMakerCreateAutoMlJobRequest#ProblemType
@@ -220,7 +621,7 @@ export interface SageMakerCreateAutoMlJobRequest {
   /**
    * @schema SageMakerCreateAutoMlJobRequest#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema SageMakerCreateAutoMlJobRequest#GenerateCandidateDefinitionsOnly
@@ -232,7 +633,35 @@ export interface SageMakerCreateAutoMlJobRequest {
    */
   readonly tags?: SageMakerTag[];
 
+  /**
+   * @schema SageMakerCreateAutoMlJobRequest#ModelDeployConfig
+   */
+  readonly modelDeployConfig?: SageMakerModelDeployConfig;
+
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateAutoMlJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateAutoMlJobRequest(obj: SageMakerCreateAutoMlJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AutoMLJobName': obj.autoMlJobName,
+    'InputDataConfig': obj.inputDataConfig?.map(y => toJson_SageMakerAutoMlChannel(y)),
+    'OutputDataConfig': toJson_SageMakerAutoMlOutputDataConfig(obj.outputDataConfig),
+    'ProblemType': obj.problemType,
+    'AutoMLJobObjective': toJson_SageMakerAutoMlJobObjective(obj.autoMlJobObjective),
+    'AutoMLJobConfig': toJson_SageMakerAutoMlJobConfig(obj.autoMlJobConfig),
+    'RoleArn': obj.roleArn,
+    'GenerateCandidateDefinitionsOnly': obj.generateCandidateDefinitionsOnly,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+    'ModelDeployConfig': toJson_SageMakerModelDeployConfig(obj.modelDeployConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateAutoMlJobResponse
@@ -241,9 +670,23 @@ export interface SageMakerCreateAutoMlJobResponse {
   /**
    * @schema SageMakerCreateAutoMlJobResponse#AutoMLJobArn
    */
-  readonly autoMlJobArn: string;
+  readonly autoMlJobArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateAutoMlJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateAutoMlJobResponse(obj: SageMakerCreateAutoMlJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AutoMLJobArn': obj.autoMlJobArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateCodeRepositoryInput
@@ -252,14 +695,35 @@ export interface SageMakerCreateCodeRepositoryInput {
   /**
    * @schema SageMakerCreateCodeRepositoryInput#CodeRepositoryName
    */
-  readonly codeRepositoryName: string;
+  readonly codeRepositoryName?: string;
 
   /**
    * @schema SageMakerCreateCodeRepositoryInput#GitConfig
    */
-  readonly gitConfig: SageMakerGitConfig;
+  readonly gitConfig?: SageMakerGitConfig;
+
+  /**
+   * @schema SageMakerCreateCodeRepositoryInput#Tags
+   */
+  readonly tags?: SageMakerTag[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateCodeRepositoryInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateCodeRepositoryInput(obj: SageMakerCreateCodeRepositoryInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CodeRepositoryName': obj.codeRepositoryName,
+    'GitConfig': toJson_SageMakerGitConfig(obj.gitConfig),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateCodeRepositoryOutput
@@ -268,9 +732,23 @@ export interface SageMakerCreateCodeRepositoryOutput {
   /**
    * @schema SageMakerCreateCodeRepositoryOutput#CodeRepositoryArn
    */
-  readonly codeRepositoryArn: string;
+  readonly codeRepositoryArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateCodeRepositoryOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateCodeRepositoryOutput(obj: SageMakerCreateCodeRepositoryOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CodeRepositoryArn': obj.codeRepositoryArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateCompilationJobRequest
@@ -279,27 +757,32 @@ export interface SageMakerCreateCompilationJobRequest {
   /**
    * @schema SageMakerCreateCompilationJobRequest#CompilationJobName
    */
-  readonly compilationJobName: string;
+  readonly compilationJobName?: string;
 
   /**
    * @schema SageMakerCreateCompilationJobRequest#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema SageMakerCreateCompilationJobRequest#InputConfig
    */
-  readonly inputConfig: SageMakerInputConfig;
+  readonly inputConfig?: SageMakerInputConfig;
 
   /**
    * @schema SageMakerCreateCompilationJobRequest#OutputConfig
    */
-  readonly outputConfig: SageMakerOutputConfig;
+  readonly outputConfig?: SageMakerOutputConfig;
+
+  /**
+   * @schema SageMakerCreateCompilationJobRequest#VpcConfig
+   */
+  readonly vpcConfig?: SageMakerNeoVpcConfig;
 
   /**
    * @schema SageMakerCreateCompilationJobRequest#StoppingCondition
    */
-  readonly stoppingCondition: SageMakerStoppingCondition;
+  readonly stoppingCondition?: SageMakerStoppingCondition;
 
   /**
    * @schema SageMakerCreateCompilationJobRequest#Tags
@@ -309,15 +792,288 @@ export interface SageMakerCreateCompilationJobRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateCompilationJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateCompilationJobRequest(obj: SageMakerCreateCompilationJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CompilationJobName': obj.compilationJobName,
+    'RoleArn': obj.roleArn,
+    'InputConfig': toJson_SageMakerInputConfig(obj.inputConfig),
+    'OutputConfig': toJson_SageMakerOutputConfig(obj.outputConfig),
+    'VpcConfig': toJson_SageMakerNeoVpcConfig(obj.vpcConfig),
+    'StoppingCondition': toJson_SageMakerStoppingCondition(obj.stoppingCondition),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateCompilationJobResponse
  */
 export interface SageMakerCreateCompilationJobResponse {
   /**
    * @schema SageMakerCreateCompilationJobResponse#CompilationJobArn
    */
-  readonly compilationJobArn: string;
+  readonly compilationJobArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateCompilationJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateCompilationJobResponse(obj: SageMakerCreateCompilationJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CompilationJobArn': obj.compilationJobArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateContextRequest
+ */
+export interface SageMakerCreateContextRequest {
+  /**
+   * @schema SageMakerCreateContextRequest#ContextName
+   */
+  readonly contextName?: string;
+
+  /**
+   * @schema SageMakerCreateContextRequest#Source
+   */
+  readonly source?: SageMakerContextSource;
+
+  /**
+   * @schema SageMakerCreateContextRequest#ContextType
+   */
+  readonly contextType?: string;
+
+  /**
+   * @schema SageMakerCreateContextRequest#Description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema SageMakerCreateContextRequest#Properties
+   */
+  readonly properties?: { [key: string]: string };
+
+  /**
+   * @schema SageMakerCreateContextRequest#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateContextRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateContextRequest(obj: SageMakerCreateContextRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContextName': obj.contextName,
+    'Source': toJson_SageMakerContextSource(obj.source),
+    'ContextType': obj.contextType,
+    'Description': obj.description,
+    'Properties': ((obj.properties) === undefined) ? undefined : (Object.entries(obj.properties).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateContextResponse
+ */
+export interface SageMakerCreateContextResponse {
+  /**
+   * @schema SageMakerCreateContextResponse#ContextArn
+   */
+  readonly contextArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateContextResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateContextResponse(obj: SageMakerCreateContextResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContextArn': obj.contextArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateDataQualityJobDefinitionRequest
+ */
+export interface SageMakerCreateDataQualityJobDefinitionRequest {
+  /**
+   * @schema SageMakerCreateDataQualityJobDefinitionRequest#JobDefinitionName
+   */
+  readonly jobDefinitionName?: string;
+
+  /**
+   * @schema SageMakerCreateDataQualityJobDefinitionRequest#DataQualityBaselineConfig
+   */
+  readonly dataQualityBaselineConfig?: SageMakerDataQualityBaselineConfig;
+
+  /**
+   * @schema SageMakerCreateDataQualityJobDefinitionRequest#DataQualityAppSpecification
+   */
+  readonly dataQualityAppSpecification?: SageMakerDataQualityAppSpecification;
+
+  /**
+   * @schema SageMakerCreateDataQualityJobDefinitionRequest#DataQualityJobInput
+   */
+  readonly dataQualityJobInput?: SageMakerDataQualityJobInput;
+
+  /**
+   * @schema SageMakerCreateDataQualityJobDefinitionRequest#DataQualityJobOutputConfig
+   */
+  readonly dataQualityJobOutputConfig?: SageMakerMonitoringOutputConfig;
+
+  /**
+   * @schema SageMakerCreateDataQualityJobDefinitionRequest#JobResources
+   */
+  readonly jobResources?: SageMakerMonitoringResources;
+
+  /**
+   * @schema SageMakerCreateDataQualityJobDefinitionRequest#NetworkConfig
+   */
+  readonly networkConfig?: SageMakerMonitoringNetworkConfig;
+
+  /**
+   * @schema SageMakerCreateDataQualityJobDefinitionRequest#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerCreateDataQualityJobDefinitionRequest#StoppingCondition
+   */
+  readonly stoppingCondition?: SageMakerMonitoringStoppingCondition;
+
+  /**
+   * @schema SageMakerCreateDataQualityJobDefinitionRequest#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateDataQualityJobDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateDataQualityJobDefinitionRequest(obj: SageMakerCreateDataQualityJobDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionName': obj.jobDefinitionName,
+    'DataQualityBaselineConfig': toJson_SageMakerDataQualityBaselineConfig(obj.dataQualityBaselineConfig),
+    'DataQualityAppSpecification': toJson_SageMakerDataQualityAppSpecification(obj.dataQualityAppSpecification),
+    'DataQualityJobInput': toJson_SageMakerDataQualityJobInput(obj.dataQualityJobInput),
+    'DataQualityJobOutputConfig': toJson_SageMakerMonitoringOutputConfig(obj.dataQualityJobOutputConfig),
+    'JobResources': toJson_SageMakerMonitoringResources(obj.jobResources),
+    'NetworkConfig': toJson_SageMakerMonitoringNetworkConfig(obj.networkConfig),
+    'RoleArn': obj.roleArn,
+    'StoppingCondition': toJson_SageMakerMonitoringStoppingCondition(obj.stoppingCondition),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateDataQualityJobDefinitionResponse
+ */
+export interface SageMakerCreateDataQualityJobDefinitionResponse {
+  /**
+   * @schema SageMakerCreateDataQualityJobDefinitionResponse#JobDefinitionArn
+   */
+  readonly jobDefinitionArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateDataQualityJobDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateDataQualityJobDefinitionResponse(obj: SageMakerCreateDataQualityJobDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionArn': obj.jobDefinitionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateDeviceFleetRequest
+ */
+export interface SageMakerCreateDeviceFleetRequest {
+  /**
+   * @schema SageMakerCreateDeviceFleetRequest#DeviceFleetName
+   */
+  readonly deviceFleetName?: string;
+
+  /**
+   * @schema SageMakerCreateDeviceFleetRequest#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerCreateDeviceFleetRequest#Description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema SageMakerCreateDeviceFleetRequest#OutputConfig
+   */
+  readonly outputConfig?: SageMakerEdgeOutputConfig;
+
+  /**
+   * @schema SageMakerCreateDeviceFleetRequest#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+  /**
+   * @schema SageMakerCreateDeviceFleetRequest#EnableIotRoleAlias
+   */
+  readonly enableIotRoleAlias?: boolean;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateDeviceFleetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateDeviceFleetRequest(obj: SageMakerCreateDeviceFleetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceFleetName': obj.deviceFleetName,
+    'RoleArn': obj.roleArn,
+    'Description': obj.description,
+    'OutputConfig': toJson_SageMakerEdgeOutputConfig(obj.outputConfig),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+    'EnableIotRoleAlias': obj.enableIotRoleAlias,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateDomainRequest
@@ -326,27 +1082,27 @@ export interface SageMakerCreateDomainRequest {
   /**
    * @schema SageMakerCreateDomainRequest#DomainName
    */
-  readonly domainName: string;
+  readonly domainName?: string;
 
   /**
    * @schema SageMakerCreateDomainRequest#AuthMode
    */
-  readonly authMode: string;
+  readonly authMode?: string;
 
   /**
    * @schema SageMakerCreateDomainRequest#DefaultUserSettings
    */
-  readonly defaultUserSettings: SageMakerUserSettings;
+  readonly defaultUserSettings?: SageMakerUserSettings;
 
   /**
    * @schema SageMakerCreateDomainRequest#SubnetIds
    */
-  readonly subnetIds: string[];
+  readonly subnetIds?: string[];
 
   /**
    * @schema SageMakerCreateDomainRequest#VpcId
    */
-  readonly vpcId: string;
+  readonly vpcId?: string;
 
   /**
    * @schema SageMakerCreateDomainRequest#Tags
@@ -371,6 +1127,28 @@ export interface SageMakerCreateDomainRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateDomainRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateDomainRequest(obj: SageMakerCreateDomainRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainName': obj.domainName,
+    'AuthMode': obj.authMode,
+    'DefaultUserSettings': toJson_SageMakerUserSettings(obj.defaultUserSettings),
+    'SubnetIds': obj.subnetIds?.map(y => y),
+    'VpcId': obj.vpcId,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+    'AppNetworkAccessType': obj.appNetworkAccessType,
+    'HomeEfsFileSystemKmsKeyId': obj.homeEfsFileSystemKmsKeyId,
+    'KmsKeyId': obj.kmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateDomainResponse
  */
 export interface SageMakerCreateDomainResponse {
@@ -387,18 +1165,100 @@ export interface SageMakerCreateDomainResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateDomainResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateDomainResponse(obj: SageMakerCreateDomainResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainArn': obj.domainArn,
+    'Url': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateEdgePackagingJobRequest
+ */
+export interface SageMakerCreateEdgePackagingJobRequest {
+  /**
+   * @schema SageMakerCreateEdgePackagingJobRequest#EdgePackagingJobName
+   */
+  readonly edgePackagingJobName?: string;
+
+  /**
+   * @schema SageMakerCreateEdgePackagingJobRequest#CompilationJobName
+   */
+  readonly compilationJobName?: string;
+
+  /**
+   * @schema SageMakerCreateEdgePackagingJobRequest#ModelName
+   */
+  readonly modelName?: string;
+
+  /**
+   * @schema SageMakerCreateEdgePackagingJobRequest#ModelVersion
+   */
+  readonly modelVersion?: string;
+
+  /**
+   * @schema SageMakerCreateEdgePackagingJobRequest#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerCreateEdgePackagingJobRequest#OutputConfig
+   */
+  readonly outputConfig?: SageMakerEdgeOutputConfig;
+
+  /**
+   * @schema SageMakerCreateEdgePackagingJobRequest#ResourceKey
+   */
+  readonly resourceKey?: string;
+
+  /**
+   * @schema SageMakerCreateEdgePackagingJobRequest#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateEdgePackagingJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateEdgePackagingJobRequest(obj: SageMakerCreateEdgePackagingJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EdgePackagingJobName': obj.edgePackagingJobName,
+    'CompilationJobName': obj.compilationJobName,
+    'ModelName': obj.modelName,
+    'ModelVersion': obj.modelVersion,
+    'RoleArn': obj.roleArn,
+    'OutputConfig': toJson_SageMakerEdgeOutputConfig(obj.outputConfig),
+    'ResourceKey': obj.resourceKey,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateEndpointInput
  */
 export interface SageMakerCreateEndpointInput {
   /**
    * @schema SageMakerCreateEndpointInput#EndpointName
    */
-  readonly endpointName: string;
+  readonly endpointName?: string;
 
   /**
    * @schema SageMakerCreateEndpointInput#EndpointConfigName
    */
-  readonly endpointConfigName: string;
+  readonly endpointConfigName?: string;
 
   /**
    * @schema SageMakerCreateEndpointInput#Tags
@@ -408,15 +1268,45 @@ export interface SageMakerCreateEndpointInput {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateEndpointInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateEndpointInput(obj: SageMakerCreateEndpointInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointName': obj.endpointName,
+    'EndpointConfigName': obj.endpointConfigName,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateEndpointOutput
  */
 export interface SageMakerCreateEndpointOutput {
   /**
    * @schema SageMakerCreateEndpointOutput#EndpointArn
    */
-  readonly endpointArn: string;
+  readonly endpointArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateEndpointOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateEndpointOutput(obj: SageMakerCreateEndpointOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointArn': obj.endpointArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateEndpointConfigInput
@@ -425,12 +1315,12 @@ export interface SageMakerCreateEndpointConfigInput {
   /**
    * @schema SageMakerCreateEndpointConfigInput#EndpointConfigName
    */
-  readonly endpointConfigName: string;
+  readonly endpointConfigName?: string;
 
   /**
    * @schema SageMakerCreateEndpointConfigInput#ProductionVariants
    */
-  readonly productionVariants: SageMakerProductionVariant[];
+  readonly productionVariants?: SageMakerProductionVariant[];
 
   /**
    * @schema SageMakerCreateEndpointConfigInput#DataCaptureConfig
@@ -450,15 +1340,47 @@ export interface SageMakerCreateEndpointConfigInput {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateEndpointConfigInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateEndpointConfigInput(obj: SageMakerCreateEndpointConfigInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointConfigName': obj.endpointConfigName,
+    'ProductionVariants': obj.productionVariants?.map(y => toJson_SageMakerProductionVariant(y)),
+    'DataCaptureConfig': toJson_SageMakerDataCaptureConfig(obj.dataCaptureConfig),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+    'KmsKeyId': obj.kmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateEndpointConfigOutput
  */
 export interface SageMakerCreateEndpointConfigOutput {
   /**
    * @schema SageMakerCreateEndpointConfigOutput#EndpointConfigArn
    */
-  readonly endpointConfigArn: string;
+  readonly endpointConfigArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateEndpointConfigOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateEndpointConfigOutput(obj: SageMakerCreateEndpointConfigOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointConfigArn': obj.endpointConfigArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateExperimentRequest
@@ -467,7 +1389,7 @@ export interface SageMakerCreateExperimentRequest {
   /**
    * @schema SageMakerCreateExperimentRequest#ExperimentName
    */
-  readonly experimentName: string;
+  readonly experimentName?: string;
 
   /**
    * @schema SageMakerCreateExperimentRequest#DisplayName
@@ -487,6 +1409,23 @@ export interface SageMakerCreateExperimentRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateExperimentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateExperimentRequest(obj: SageMakerCreateExperimentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExperimentName': obj.experimentName,
+    'DisplayName': obj.displayName,
+    'Description': obj.description,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateExperimentResponse
  */
 export interface SageMakerCreateExperimentResponse {
@@ -498,13 +1437,125 @@ export interface SageMakerCreateExperimentResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateExperimentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateExperimentResponse(obj: SageMakerCreateExperimentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExperimentArn': obj.experimentArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateFeatureGroupRequest
+ */
+export interface SageMakerCreateFeatureGroupRequest {
+  /**
+   * @schema SageMakerCreateFeatureGroupRequest#FeatureGroupName
+   */
+  readonly featureGroupName?: string;
+
+  /**
+   * @schema SageMakerCreateFeatureGroupRequest#RecordIdentifierFeatureName
+   */
+  readonly recordIdentifierFeatureName?: string;
+
+  /**
+   * @schema SageMakerCreateFeatureGroupRequest#EventTimeFeatureName
+   */
+  readonly eventTimeFeatureName?: string;
+
+  /**
+   * @schema SageMakerCreateFeatureGroupRequest#FeatureDefinitions
+   */
+  readonly featureDefinitions?: SageMakerFeatureDefinition[];
+
+  /**
+   * @schema SageMakerCreateFeatureGroupRequest#OnlineStoreConfig
+   */
+  readonly onlineStoreConfig?: SageMakerOnlineStoreConfig;
+
+  /**
+   * @schema SageMakerCreateFeatureGroupRequest#OfflineStoreConfig
+   */
+  readonly offlineStoreConfig?: SageMakerOfflineStoreConfig;
+
+  /**
+   * @schema SageMakerCreateFeatureGroupRequest#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerCreateFeatureGroupRequest#Description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema SageMakerCreateFeatureGroupRequest#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateFeatureGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateFeatureGroupRequest(obj: SageMakerCreateFeatureGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FeatureGroupName': obj.featureGroupName,
+    'RecordIdentifierFeatureName': obj.recordIdentifierFeatureName,
+    'EventTimeFeatureName': obj.eventTimeFeatureName,
+    'FeatureDefinitions': obj.featureDefinitions?.map(y => toJson_SageMakerFeatureDefinition(y)),
+    'OnlineStoreConfig': toJson_SageMakerOnlineStoreConfig(obj.onlineStoreConfig),
+    'OfflineStoreConfig': toJson_SageMakerOfflineStoreConfig(obj.offlineStoreConfig),
+    'RoleArn': obj.roleArn,
+    'Description': obj.description,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateFeatureGroupResponse
+ */
+export interface SageMakerCreateFeatureGroupResponse {
+  /**
+   * @schema SageMakerCreateFeatureGroupResponse#FeatureGroupArn
+   */
+  readonly featureGroupArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateFeatureGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateFeatureGroupResponse(obj: SageMakerCreateFeatureGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FeatureGroupArn': obj.featureGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateFlowDefinitionRequest
  */
 export interface SageMakerCreateFlowDefinitionRequest {
   /**
    * @schema SageMakerCreateFlowDefinitionRequest#FlowDefinitionName
    */
-  readonly flowDefinitionName: string;
+  readonly flowDefinitionName?: string;
 
   /**
    * @schema SageMakerCreateFlowDefinitionRequest#HumanLoopRequestSource
@@ -519,17 +1570,17 @@ export interface SageMakerCreateFlowDefinitionRequest {
   /**
    * @schema SageMakerCreateFlowDefinitionRequest#HumanLoopConfig
    */
-  readonly humanLoopConfig: SageMakerHumanLoopConfig;
+  readonly humanLoopConfig?: SageMakerHumanLoopConfig;
 
   /**
    * @schema SageMakerCreateFlowDefinitionRequest#OutputConfig
    */
-  readonly outputConfig: SageMakerFlowDefinitionOutputConfig;
+  readonly outputConfig?: SageMakerFlowDefinitionOutputConfig;
 
   /**
    * @schema SageMakerCreateFlowDefinitionRequest#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema SageMakerCreateFlowDefinitionRequest#Tags
@@ -539,15 +1590,49 @@ export interface SageMakerCreateFlowDefinitionRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateFlowDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateFlowDefinitionRequest(obj: SageMakerCreateFlowDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FlowDefinitionName': obj.flowDefinitionName,
+    'HumanLoopRequestSource': toJson_SageMakerHumanLoopRequestSource(obj.humanLoopRequestSource),
+    'HumanLoopActivationConfig': toJson_SageMakerHumanLoopActivationConfig(obj.humanLoopActivationConfig),
+    'HumanLoopConfig': toJson_SageMakerHumanLoopConfig(obj.humanLoopConfig),
+    'OutputConfig': toJson_SageMakerFlowDefinitionOutputConfig(obj.outputConfig),
+    'RoleArn': obj.roleArn,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateFlowDefinitionResponse
  */
 export interface SageMakerCreateFlowDefinitionResponse {
   /**
    * @schema SageMakerCreateFlowDefinitionResponse#FlowDefinitionArn
    */
-  readonly flowDefinitionArn: string;
+  readonly flowDefinitionArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateFlowDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateFlowDefinitionResponse(obj: SageMakerCreateFlowDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FlowDefinitionArn': obj.flowDefinitionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateHumanTaskUiRequest
@@ -556,12 +1641,12 @@ export interface SageMakerCreateHumanTaskUiRequest {
   /**
    * @schema SageMakerCreateHumanTaskUiRequest#HumanTaskUiName
    */
-  readonly humanTaskUiName: string;
+  readonly humanTaskUiName?: string;
 
   /**
    * @schema SageMakerCreateHumanTaskUiRequest#UiTemplate
    */
-  readonly uiTemplate: SageMakerUiTemplate;
+  readonly uiTemplate?: SageMakerUiTemplate;
 
   /**
    * @schema SageMakerCreateHumanTaskUiRequest#Tags
@@ -571,15 +1656,45 @@ export interface SageMakerCreateHumanTaskUiRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateHumanTaskUiRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateHumanTaskUiRequest(obj: SageMakerCreateHumanTaskUiRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HumanTaskUiName': obj.humanTaskUiName,
+    'UiTemplate': toJson_SageMakerUiTemplate(obj.uiTemplate),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateHumanTaskUiResponse
  */
 export interface SageMakerCreateHumanTaskUiResponse {
   /**
    * @schema SageMakerCreateHumanTaskUiResponse#HumanTaskUiArn
    */
-  readonly humanTaskUiArn: string;
+  readonly humanTaskUiArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateHumanTaskUiResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateHumanTaskUiResponse(obj: SageMakerCreateHumanTaskUiResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HumanTaskUiArn': obj.humanTaskUiArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateHyperParameterTuningJobRequest
@@ -588,12 +1703,12 @@ export interface SageMakerCreateHyperParameterTuningJobRequest {
   /**
    * @schema SageMakerCreateHyperParameterTuningJobRequest#HyperParameterTuningJobName
    */
-  readonly hyperParameterTuningJobName: string;
+  readonly hyperParameterTuningJobName?: string;
 
   /**
    * @schema SageMakerCreateHyperParameterTuningJobRequest#HyperParameterTuningJobConfig
    */
-  readonly hyperParameterTuningJobConfig: SageMakerHyperParameterTuningJobConfig;
+  readonly hyperParameterTuningJobConfig?: SageMakerHyperParameterTuningJobConfig;
 
   /**
    * @schema SageMakerCreateHyperParameterTuningJobRequest#TrainingJobDefinition
@@ -618,15 +1733,48 @@ export interface SageMakerCreateHyperParameterTuningJobRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateHyperParameterTuningJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateHyperParameterTuningJobRequest(obj: SageMakerCreateHyperParameterTuningJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HyperParameterTuningJobName': obj.hyperParameterTuningJobName,
+    'HyperParameterTuningJobConfig': toJson_SageMakerHyperParameterTuningJobConfig(obj.hyperParameterTuningJobConfig),
+    'TrainingJobDefinition': toJson_SageMakerHyperParameterTrainingJobDefinition(obj.trainingJobDefinition),
+    'TrainingJobDefinitions': obj.trainingJobDefinitions?.map(y => toJson_SageMakerHyperParameterTrainingJobDefinition(y)),
+    'WarmStartConfig': toJson_SageMakerHyperParameterTuningJobWarmStartConfig(obj.warmStartConfig),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateHyperParameterTuningJobResponse
  */
 export interface SageMakerCreateHyperParameterTuningJobResponse {
   /**
    * @schema SageMakerCreateHyperParameterTuningJobResponse#HyperParameterTuningJobArn
    */
-  readonly hyperParameterTuningJobArn: string;
+  readonly hyperParameterTuningJobArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateHyperParameterTuningJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateHyperParameterTuningJobResponse(obj: SageMakerCreateHyperParameterTuningJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HyperParameterTuningJobArn': obj.hyperParameterTuningJobArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateImageRequest
@@ -645,12 +1793,12 @@ export interface SageMakerCreateImageRequest {
   /**
    * @schema SageMakerCreateImageRequest#ImageName
    */
-  readonly imageName: string;
+  readonly imageName?: string;
 
   /**
    * @schema SageMakerCreateImageRequest#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema SageMakerCreateImageRequest#Tags
@@ -658,6 +1806,24 @@ export interface SageMakerCreateImageRequest {
   readonly tags?: SageMakerTag[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateImageRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateImageRequest(obj: SageMakerCreateImageRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Description': obj.description,
+    'DisplayName': obj.displayName,
+    'ImageName': obj.imageName,
+    'RoleArn': obj.roleArn,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateImageResponse
@@ -671,25 +1837,55 @@ export interface SageMakerCreateImageResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateImageResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateImageResponse(obj: SageMakerCreateImageResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ImageArn': obj.imageArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateImageVersionRequest
  */
 export interface SageMakerCreateImageVersionRequest {
   /**
    * @schema SageMakerCreateImageVersionRequest#BaseImage
    */
-  readonly baseImage: string;
+  readonly baseImage?: string;
 
   /**
    * @schema SageMakerCreateImageVersionRequest#ClientToken
    */
-  readonly clientToken: string;
+  readonly clientToken?: string;
 
   /**
    * @schema SageMakerCreateImageVersionRequest#ImageName
    */
-  readonly imageName: string;
+  readonly imageName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateImageVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateImageVersionRequest(obj: SageMakerCreateImageVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BaseImage': obj.baseImage,
+    'ClientToken': obj.clientToken,
+    'ImageName': obj.imageName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateImageVersionResponse
@@ -703,33 +1899,47 @@ export interface SageMakerCreateImageVersionResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateImageVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateImageVersionResponse(obj: SageMakerCreateImageVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ImageVersionArn': obj.imageVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateLabelingJobRequest
  */
 export interface SageMakerCreateLabelingJobRequest {
   /**
    * @schema SageMakerCreateLabelingJobRequest#LabelingJobName
    */
-  readonly labelingJobName: string;
+  readonly labelingJobName?: string;
 
   /**
    * @schema SageMakerCreateLabelingJobRequest#LabelAttributeName
    */
-  readonly labelAttributeName: string;
+  readonly labelAttributeName?: string;
 
   /**
    * @schema SageMakerCreateLabelingJobRequest#InputConfig
    */
-  readonly inputConfig: SageMakerLabelingJobInputConfig;
+  readonly inputConfig?: SageMakerLabelingJobInputConfig;
 
   /**
    * @schema SageMakerCreateLabelingJobRequest#OutputConfig
    */
-  readonly outputConfig: SageMakerLabelingJobOutputConfig;
+  readonly outputConfig?: SageMakerLabelingJobOutputConfig;
 
   /**
    * @schema SageMakerCreateLabelingJobRequest#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema SageMakerCreateLabelingJobRequest#LabelCategoryConfigS3Uri
@@ -749,7 +1959,7 @@ export interface SageMakerCreateLabelingJobRequest {
   /**
    * @schema SageMakerCreateLabelingJobRequest#HumanTaskConfig
    */
-  readonly humanTaskConfig: SageMakerHumanTaskConfig;
+  readonly humanTaskConfig?: SageMakerHumanTaskConfig;
 
   /**
    * @schema SageMakerCreateLabelingJobRequest#Tags
@@ -759,15 +1969,52 @@ export interface SageMakerCreateLabelingJobRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateLabelingJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateLabelingJobRequest(obj: SageMakerCreateLabelingJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LabelingJobName': obj.labelingJobName,
+    'LabelAttributeName': obj.labelAttributeName,
+    'InputConfig': toJson_SageMakerLabelingJobInputConfig(obj.inputConfig),
+    'OutputConfig': toJson_SageMakerLabelingJobOutputConfig(obj.outputConfig),
+    'RoleArn': obj.roleArn,
+    'LabelCategoryConfigS3Uri': obj.labelCategoryConfigS3Uri,
+    'StoppingConditions': toJson_SageMakerLabelingJobStoppingConditions(obj.stoppingConditions),
+    'LabelingJobAlgorithmsConfig': toJson_SageMakerLabelingJobAlgorithmsConfig(obj.labelingJobAlgorithmsConfig),
+    'HumanTaskConfig': toJson_SageMakerHumanTaskConfig(obj.humanTaskConfig),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateLabelingJobResponse
  */
 export interface SageMakerCreateLabelingJobResponse {
   /**
    * @schema SageMakerCreateLabelingJobResponse#LabelingJobArn
    */
-  readonly labelingJobArn: string;
+  readonly labelingJobArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateLabelingJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateLabelingJobResponse(obj: SageMakerCreateLabelingJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LabelingJobArn': obj.labelingJobArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateModelInput
@@ -776,7 +2023,7 @@ export interface SageMakerCreateModelInput {
   /**
    * @schema SageMakerCreateModelInput#ModelName
    */
-  readonly modelName: string;
+  readonly modelName?: string;
 
   /**
    * @schema SageMakerCreateModelInput#PrimaryContainer
@@ -789,9 +2036,14 @@ export interface SageMakerCreateModelInput {
   readonly containers?: SageMakerContainerDefinition[];
 
   /**
+   * @schema SageMakerCreateModelInput#InferenceExecutionConfig
+   */
+  readonly inferenceExecutionConfig?: SageMakerInferenceExecutionConfig;
+
+  /**
    * @schema SageMakerCreateModelInput#ExecutionRoleArn
    */
-  readonly executionRoleArn: string;
+  readonly executionRoleArn?: string;
 
   /**
    * @schema SageMakerCreateModelInput#Tags
@@ -811,15 +2063,258 @@ export interface SageMakerCreateModelInput {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateModelInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateModelInput(obj: SageMakerCreateModelInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelName': obj.modelName,
+    'PrimaryContainer': toJson_SageMakerContainerDefinition(obj.primaryContainer),
+    'Containers': obj.containers?.map(y => toJson_SageMakerContainerDefinition(y)),
+    'InferenceExecutionConfig': toJson_SageMakerInferenceExecutionConfig(obj.inferenceExecutionConfig),
+    'ExecutionRoleArn': obj.executionRoleArn,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+    'VpcConfig': toJson_SageMakerVpcConfig(obj.vpcConfig),
+    'EnableNetworkIsolation': obj.enableNetworkIsolation,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateModelOutput
  */
 export interface SageMakerCreateModelOutput {
   /**
    * @schema SageMakerCreateModelOutput#ModelArn
    */
-  readonly modelArn: string;
+  readonly modelArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateModelOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateModelOutput(obj: SageMakerCreateModelOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelArn': obj.modelArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateModelBiasJobDefinitionRequest
+ */
+export interface SageMakerCreateModelBiasJobDefinitionRequest {
+  /**
+   * @schema SageMakerCreateModelBiasJobDefinitionRequest#JobDefinitionName
+   */
+  readonly jobDefinitionName?: string;
+
+  /**
+   * @schema SageMakerCreateModelBiasJobDefinitionRequest#ModelBiasBaselineConfig
+   */
+  readonly modelBiasBaselineConfig?: SageMakerModelBiasBaselineConfig;
+
+  /**
+   * @schema SageMakerCreateModelBiasJobDefinitionRequest#ModelBiasAppSpecification
+   */
+  readonly modelBiasAppSpecification?: SageMakerModelBiasAppSpecification;
+
+  /**
+   * @schema SageMakerCreateModelBiasJobDefinitionRequest#ModelBiasJobInput
+   */
+  readonly modelBiasJobInput?: SageMakerModelBiasJobInput;
+
+  /**
+   * @schema SageMakerCreateModelBiasJobDefinitionRequest#ModelBiasJobOutputConfig
+   */
+  readonly modelBiasJobOutputConfig?: SageMakerMonitoringOutputConfig;
+
+  /**
+   * @schema SageMakerCreateModelBiasJobDefinitionRequest#JobResources
+   */
+  readonly jobResources?: SageMakerMonitoringResources;
+
+  /**
+   * @schema SageMakerCreateModelBiasJobDefinitionRequest#NetworkConfig
+   */
+  readonly networkConfig?: SageMakerMonitoringNetworkConfig;
+
+  /**
+   * @schema SageMakerCreateModelBiasJobDefinitionRequest#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerCreateModelBiasJobDefinitionRequest#StoppingCondition
+   */
+  readonly stoppingCondition?: SageMakerMonitoringStoppingCondition;
+
+  /**
+   * @schema SageMakerCreateModelBiasJobDefinitionRequest#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateModelBiasJobDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateModelBiasJobDefinitionRequest(obj: SageMakerCreateModelBiasJobDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionName': obj.jobDefinitionName,
+    'ModelBiasBaselineConfig': toJson_SageMakerModelBiasBaselineConfig(obj.modelBiasBaselineConfig),
+    'ModelBiasAppSpecification': toJson_SageMakerModelBiasAppSpecification(obj.modelBiasAppSpecification),
+    'ModelBiasJobInput': toJson_SageMakerModelBiasJobInput(obj.modelBiasJobInput),
+    'ModelBiasJobOutputConfig': toJson_SageMakerMonitoringOutputConfig(obj.modelBiasJobOutputConfig),
+    'JobResources': toJson_SageMakerMonitoringResources(obj.jobResources),
+    'NetworkConfig': toJson_SageMakerMonitoringNetworkConfig(obj.networkConfig),
+    'RoleArn': obj.roleArn,
+    'StoppingCondition': toJson_SageMakerMonitoringStoppingCondition(obj.stoppingCondition),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateModelBiasJobDefinitionResponse
+ */
+export interface SageMakerCreateModelBiasJobDefinitionResponse {
+  /**
+   * @schema SageMakerCreateModelBiasJobDefinitionResponse#JobDefinitionArn
+   */
+  readonly jobDefinitionArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateModelBiasJobDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateModelBiasJobDefinitionResponse(obj: SageMakerCreateModelBiasJobDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionArn': obj.jobDefinitionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateModelExplainabilityJobDefinitionRequest
+ */
+export interface SageMakerCreateModelExplainabilityJobDefinitionRequest {
+  /**
+   * @schema SageMakerCreateModelExplainabilityJobDefinitionRequest#JobDefinitionName
+   */
+  readonly jobDefinitionName?: string;
+
+  /**
+   * @schema SageMakerCreateModelExplainabilityJobDefinitionRequest#ModelExplainabilityBaselineConfig
+   */
+  readonly modelExplainabilityBaselineConfig?: SageMakerModelExplainabilityBaselineConfig;
+
+  /**
+   * @schema SageMakerCreateModelExplainabilityJobDefinitionRequest#ModelExplainabilityAppSpecification
+   */
+  readonly modelExplainabilityAppSpecification?: SageMakerModelExplainabilityAppSpecification;
+
+  /**
+   * @schema SageMakerCreateModelExplainabilityJobDefinitionRequest#ModelExplainabilityJobInput
+   */
+  readonly modelExplainabilityJobInput?: SageMakerModelExplainabilityJobInput;
+
+  /**
+   * @schema SageMakerCreateModelExplainabilityJobDefinitionRequest#ModelExplainabilityJobOutputConfig
+   */
+  readonly modelExplainabilityJobOutputConfig?: SageMakerMonitoringOutputConfig;
+
+  /**
+   * @schema SageMakerCreateModelExplainabilityJobDefinitionRequest#JobResources
+   */
+  readonly jobResources?: SageMakerMonitoringResources;
+
+  /**
+   * @schema SageMakerCreateModelExplainabilityJobDefinitionRequest#NetworkConfig
+   */
+  readonly networkConfig?: SageMakerMonitoringNetworkConfig;
+
+  /**
+   * @schema SageMakerCreateModelExplainabilityJobDefinitionRequest#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerCreateModelExplainabilityJobDefinitionRequest#StoppingCondition
+   */
+  readonly stoppingCondition?: SageMakerMonitoringStoppingCondition;
+
+  /**
+   * @schema SageMakerCreateModelExplainabilityJobDefinitionRequest#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateModelExplainabilityJobDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateModelExplainabilityJobDefinitionRequest(obj: SageMakerCreateModelExplainabilityJobDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionName': obj.jobDefinitionName,
+    'ModelExplainabilityBaselineConfig': toJson_SageMakerModelExplainabilityBaselineConfig(obj.modelExplainabilityBaselineConfig),
+    'ModelExplainabilityAppSpecification': toJson_SageMakerModelExplainabilityAppSpecification(obj.modelExplainabilityAppSpecification),
+    'ModelExplainabilityJobInput': toJson_SageMakerModelExplainabilityJobInput(obj.modelExplainabilityJobInput),
+    'ModelExplainabilityJobOutputConfig': toJson_SageMakerMonitoringOutputConfig(obj.modelExplainabilityJobOutputConfig),
+    'JobResources': toJson_SageMakerMonitoringResources(obj.jobResources),
+    'NetworkConfig': toJson_SageMakerMonitoringNetworkConfig(obj.networkConfig),
+    'RoleArn': obj.roleArn,
+    'StoppingCondition': toJson_SageMakerMonitoringStoppingCondition(obj.stoppingCondition),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateModelExplainabilityJobDefinitionResponse
+ */
+export interface SageMakerCreateModelExplainabilityJobDefinitionResponse {
+  /**
+   * @schema SageMakerCreateModelExplainabilityJobDefinitionResponse#JobDefinitionArn
+   */
+  readonly jobDefinitionArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateModelExplainabilityJobDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateModelExplainabilityJobDefinitionResponse(obj: SageMakerCreateModelExplainabilityJobDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionArn': obj.jobDefinitionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateModelPackageInput
@@ -829,6 +2324,11 @@ export interface SageMakerCreateModelPackageInput {
    * @schema SageMakerCreateModelPackageInput#ModelPackageName
    */
   readonly modelPackageName?: string;
+
+  /**
+   * @schema SageMakerCreateModelPackageInput#ModelPackageGroupName
+   */
+  readonly modelPackageGroupName?: string;
 
   /**
    * @schema SageMakerCreateModelPackageInput#ModelPackageDescription
@@ -855,7 +2355,57 @@ export interface SageMakerCreateModelPackageInput {
    */
   readonly certifyForMarketplace?: boolean;
 
+  /**
+   * @schema SageMakerCreateModelPackageInput#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+  /**
+   * @schema SageMakerCreateModelPackageInput#ModelApprovalStatus
+   */
+  readonly modelApprovalStatus?: string;
+
+  /**
+   * @schema SageMakerCreateModelPackageInput#MetadataProperties
+   */
+  readonly metadataProperties?: SageMakerMetadataProperties;
+
+  /**
+   * @schema SageMakerCreateModelPackageInput#ModelMetrics
+   */
+  readonly modelMetrics?: SageMakerModelMetrics;
+
+  /**
+   * @schema SageMakerCreateModelPackageInput#ClientToken
+   */
+  readonly clientToken?: string;
+
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateModelPackageInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateModelPackageInput(obj: SageMakerCreateModelPackageInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageName': obj.modelPackageName,
+    'ModelPackageGroupName': obj.modelPackageGroupName,
+    'ModelPackageDescription': obj.modelPackageDescription,
+    'InferenceSpecification': toJson_SageMakerInferenceSpecification(obj.inferenceSpecification),
+    'ValidationSpecification': toJson_SageMakerModelPackageValidationSpecification(obj.validationSpecification),
+    'SourceAlgorithmSpecification': toJson_SageMakerSourceAlgorithmSpecification(obj.sourceAlgorithmSpecification),
+    'CertifyForMarketplace': obj.certifyForMarketplace,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+    'ModelApprovalStatus': obj.modelApprovalStatus,
+    'MetadataProperties': toJson_SageMakerMetadataProperties(obj.metadataProperties),
+    'ModelMetrics': toJson_SageMakerModelMetrics(obj.modelMetrics),
+    'ClientToken': obj.clientToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateModelPackageOutput
@@ -864,9 +2414,189 @@ export interface SageMakerCreateModelPackageOutput {
   /**
    * @schema SageMakerCreateModelPackageOutput#ModelPackageArn
    */
-  readonly modelPackageArn: string;
+  readonly modelPackageArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateModelPackageOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateModelPackageOutput(obj: SageMakerCreateModelPackageOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageArn': obj.modelPackageArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateModelPackageGroupInput
+ */
+export interface SageMakerCreateModelPackageGroupInput {
+  /**
+   * @schema SageMakerCreateModelPackageGroupInput#ModelPackageGroupName
+   */
+  readonly modelPackageGroupName?: string;
+
+  /**
+   * @schema SageMakerCreateModelPackageGroupInput#ModelPackageGroupDescription
+   */
+  readonly modelPackageGroupDescription?: string;
+
+  /**
+   * @schema SageMakerCreateModelPackageGroupInput#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateModelPackageGroupInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateModelPackageGroupInput(obj: SageMakerCreateModelPackageGroupInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageGroupName': obj.modelPackageGroupName,
+    'ModelPackageGroupDescription': obj.modelPackageGroupDescription,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateModelPackageGroupOutput
+ */
+export interface SageMakerCreateModelPackageGroupOutput {
+  /**
+   * @schema SageMakerCreateModelPackageGroupOutput#ModelPackageGroupArn
+   */
+  readonly modelPackageGroupArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateModelPackageGroupOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateModelPackageGroupOutput(obj: SageMakerCreateModelPackageGroupOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageGroupArn': obj.modelPackageGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateModelQualityJobDefinitionRequest
+ */
+export interface SageMakerCreateModelQualityJobDefinitionRequest {
+  /**
+   * @schema SageMakerCreateModelQualityJobDefinitionRequest#JobDefinitionName
+   */
+  readonly jobDefinitionName?: string;
+
+  /**
+   * @schema SageMakerCreateModelQualityJobDefinitionRequest#ModelQualityBaselineConfig
+   */
+  readonly modelQualityBaselineConfig?: SageMakerModelQualityBaselineConfig;
+
+  /**
+   * @schema SageMakerCreateModelQualityJobDefinitionRequest#ModelQualityAppSpecification
+   */
+  readonly modelQualityAppSpecification?: SageMakerModelQualityAppSpecification;
+
+  /**
+   * @schema SageMakerCreateModelQualityJobDefinitionRequest#ModelQualityJobInput
+   */
+  readonly modelQualityJobInput?: SageMakerModelQualityJobInput;
+
+  /**
+   * @schema SageMakerCreateModelQualityJobDefinitionRequest#ModelQualityJobOutputConfig
+   */
+  readonly modelQualityJobOutputConfig?: SageMakerMonitoringOutputConfig;
+
+  /**
+   * @schema SageMakerCreateModelQualityJobDefinitionRequest#JobResources
+   */
+  readonly jobResources?: SageMakerMonitoringResources;
+
+  /**
+   * @schema SageMakerCreateModelQualityJobDefinitionRequest#NetworkConfig
+   */
+  readonly networkConfig?: SageMakerMonitoringNetworkConfig;
+
+  /**
+   * @schema SageMakerCreateModelQualityJobDefinitionRequest#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerCreateModelQualityJobDefinitionRequest#StoppingCondition
+   */
+  readonly stoppingCondition?: SageMakerMonitoringStoppingCondition;
+
+  /**
+   * @schema SageMakerCreateModelQualityJobDefinitionRequest#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateModelQualityJobDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateModelQualityJobDefinitionRequest(obj: SageMakerCreateModelQualityJobDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionName': obj.jobDefinitionName,
+    'ModelQualityBaselineConfig': toJson_SageMakerModelQualityBaselineConfig(obj.modelQualityBaselineConfig),
+    'ModelQualityAppSpecification': toJson_SageMakerModelQualityAppSpecification(obj.modelQualityAppSpecification),
+    'ModelQualityJobInput': toJson_SageMakerModelQualityJobInput(obj.modelQualityJobInput),
+    'ModelQualityJobOutputConfig': toJson_SageMakerMonitoringOutputConfig(obj.modelQualityJobOutputConfig),
+    'JobResources': toJson_SageMakerMonitoringResources(obj.jobResources),
+    'NetworkConfig': toJson_SageMakerMonitoringNetworkConfig(obj.networkConfig),
+    'RoleArn': obj.roleArn,
+    'StoppingCondition': toJson_SageMakerMonitoringStoppingCondition(obj.stoppingCondition),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateModelQualityJobDefinitionResponse
+ */
+export interface SageMakerCreateModelQualityJobDefinitionResponse {
+  /**
+   * @schema SageMakerCreateModelQualityJobDefinitionResponse#JobDefinitionArn
+   */
+  readonly jobDefinitionArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateModelQualityJobDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateModelQualityJobDefinitionResponse(obj: SageMakerCreateModelQualityJobDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionArn': obj.jobDefinitionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateMonitoringScheduleRequest
@@ -875,12 +2605,12 @@ export interface SageMakerCreateMonitoringScheduleRequest {
   /**
    * @schema SageMakerCreateMonitoringScheduleRequest#MonitoringScheduleName
    */
-  readonly monitoringScheduleName: string;
+  readonly monitoringScheduleName?: string;
 
   /**
    * @schema SageMakerCreateMonitoringScheduleRequest#MonitoringScheduleConfig
    */
-  readonly monitoringScheduleConfig: SageMakerMonitoringScheduleConfig;
+  readonly monitoringScheduleConfig?: SageMakerMonitoringScheduleConfig;
 
   /**
    * @schema SageMakerCreateMonitoringScheduleRequest#Tags
@@ -890,15 +2620,45 @@ export interface SageMakerCreateMonitoringScheduleRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateMonitoringScheduleRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateMonitoringScheduleRequest(obj: SageMakerCreateMonitoringScheduleRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MonitoringScheduleName': obj.monitoringScheduleName,
+    'MonitoringScheduleConfig': toJson_SageMakerMonitoringScheduleConfig(obj.monitoringScheduleConfig),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateMonitoringScheduleResponse
  */
 export interface SageMakerCreateMonitoringScheduleResponse {
   /**
    * @schema SageMakerCreateMonitoringScheduleResponse#MonitoringScheduleArn
    */
-  readonly monitoringScheduleArn: string;
+  readonly monitoringScheduleArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateMonitoringScheduleResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateMonitoringScheduleResponse(obj: SageMakerCreateMonitoringScheduleResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MonitoringScheduleArn': obj.monitoringScheduleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateNotebookInstanceInput
@@ -907,12 +2667,12 @@ export interface SageMakerCreateNotebookInstanceInput {
   /**
    * @schema SageMakerCreateNotebookInstanceInput#NotebookInstanceName
    */
-  readonly notebookInstanceName: string;
+  readonly notebookInstanceName?: string;
 
   /**
    * @schema SageMakerCreateNotebookInstanceInput#InstanceType
    */
-  readonly instanceType: string;
+  readonly instanceType?: string;
 
   /**
    * @schema SageMakerCreateNotebookInstanceInput#SubnetId
@@ -927,7 +2687,7 @@ export interface SageMakerCreateNotebookInstanceInput {
   /**
    * @schema SageMakerCreateNotebookInstanceInput#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema SageMakerCreateNotebookInstanceInput#KmsKeyId
@@ -977,6 +2737,33 @@ export interface SageMakerCreateNotebookInstanceInput {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateNotebookInstanceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateNotebookInstanceInput(obj: SageMakerCreateNotebookInstanceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotebookInstanceName': obj.notebookInstanceName,
+    'InstanceType': obj.instanceType,
+    'SubnetId': obj.subnetId,
+    'SecurityGroupIds': obj.securityGroupIds?.map(y => y),
+    'RoleArn': obj.roleArn,
+    'KmsKeyId': obj.kmsKeyId,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+    'LifecycleConfigName': obj.lifecycleConfigName,
+    'DirectInternetAccess': obj.directInternetAccess,
+    'VolumeSizeInGB': obj.volumeSizeInGb,
+    'AcceleratorTypes': obj.acceleratorTypes?.map(y => y),
+    'DefaultCodeRepository': obj.defaultCodeRepository,
+    'AdditionalCodeRepositories': obj.additionalCodeRepositories?.map(y => y),
+    'RootAccess': obj.rootAccess,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateNotebookInstanceOutput
  */
 export interface SageMakerCreateNotebookInstanceOutput {
@@ -988,13 +2775,27 @@ export interface SageMakerCreateNotebookInstanceOutput {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateNotebookInstanceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateNotebookInstanceOutput(obj: SageMakerCreateNotebookInstanceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotebookInstanceArn': obj.notebookInstanceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateNotebookInstanceLifecycleConfigInput
  */
 export interface SageMakerCreateNotebookInstanceLifecycleConfigInput {
   /**
    * @schema SageMakerCreateNotebookInstanceLifecycleConfigInput#NotebookInstanceLifecycleConfigName
    */
-  readonly notebookInstanceLifecycleConfigName: string;
+  readonly notebookInstanceLifecycleConfigName?: string;
 
   /**
    * @schema SageMakerCreateNotebookInstanceLifecycleConfigInput#OnCreate
@@ -1009,6 +2810,22 @@ export interface SageMakerCreateNotebookInstanceLifecycleConfigInput {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateNotebookInstanceLifecycleConfigInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateNotebookInstanceLifecycleConfigInput(obj: SageMakerCreateNotebookInstanceLifecycleConfigInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotebookInstanceLifecycleConfigName': obj.notebookInstanceLifecycleConfigName,
+    'OnCreate': obj.onCreate?.map(y => toJson_SageMakerNotebookInstanceLifecycleHook(y)),
+    'OnStart': obj.onStart?.map(y => toJson_SageMakerNotebookInstanceLifecycleHook(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateNotebookInstanceLifecycleConfigOutput
  */
 export interface SageMakerCreateNotebookInstanceLifecycleConfigOutput {
@@ -1020,25 +2837,147 @@ export interface SageMakerCreateNotebookInstanceLifecycleConfigOutput {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateNotebookInstanceLifecycleConfigOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateNotebookInstanceLifecycleConfigOutput(obj: SageMakerCreateNotebookInstanceLifecycleConfigOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotebookInstanceLifecycleConfigArn': obj.notebookInstanceLifecycleConfigArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreatePipelineRequest
+ */
+export interface SageMakerCreatePipelineRequest {
+  /**
+   * @schema SageMakerCreatePipelineRequest#PipelineName
+   */
+  readonly pipelineName?: string;
+
+  /**
+   * @schema SageMakerCreatePipelineRequest#PipelineDisplayName
+   */
+  readonly pipelineDisplayName?: string;
+
+  /**
+   * @schema SageMakerCreatePipelineRequest#PipelineDefinition
+   */
+  readonly pipelineDefinition?: string;
+
+  /**
+   * @schema SageMakerCreatePipelineRequest#PipelineDescription
+   */
+  readonly pipelineDescription?: string;
+
+  /**
+   * @schema SageMakerCreatePipelineRequest#ClientRequestToken
+   */
+  readonly clientRequestToken?: string;
+
+  /**
+   * @schema SageMakerCreatePipelineRequest#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerCreatePipelineRequest#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreatePipelineRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreatePipelineRequest(obj: SageMakerCreatePipelineRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineName': obj.pipelineName,
+    'PipelineDisplayName': obj.pipelineDisplayName,
+    'PipelineDefinition': obj.pipelineDefinition,
+    'PipelineDescription': obj.pipelineDescription,
+    'ClientRequestToken': obj.clientRequestToken,
+    'RoleArn': obj.roleArn,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreatePipelineResponse
+ */
+export interface SageMakerCreatePipelineResponse {
+  /**
+   * @schema SageMakerCreatePipelineResponse#PipelineArn
+   */
+  readonly pipelineArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreatePipelineResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreatePipelineResponse(obj: SageMakerCreatePipelineResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineArn': obj.pipelineArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreatePresignedDomainUrlRequest
  */
 export interface SageMakerCreatePresignedDomainUrlRequest {
   /**
    * @schema SageMakerCreatePresignedDomainUrlRequest#DomainId
    */
-  readonly domainId: string;
+  readonly domainId?: string;
 
   /**
    * @schema SageMakerCreatePresignedDomainUrlRequest#UserProfileName
    */
-  readonly userProfileName: string;
+  readonly userProfileName?: string;
 
   /**
    * @schema SageMakerCreatePresignedDomainUrlRequest#SessionExpirationDurationInSeconds
    */
   readonly sessionExpirationDurationInSeconds?: number;
 
+  /**
+   * @schema SageMakerCreatePresignedDomainUrlRequest#ExpiresInSeconds
+   */
+  readonly expiresInSeconds?: number;
+
 }
+
+/**
+ * Converts an object of type 'SageMakerCreatePresignedDomainUrlRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreatePresignedDomainUrlRequest(obj: SageMakerCreatePresignedDomainUrlRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainId': obj.domainId,
+    'UserProfileName': obj.userProfileName,
+    'SessionExpirationDurationInSeconds': obj.sessionExpirationDurationInSeconds,
+    'ExpiresInSeconds': obj.expiresInSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreatePresignedDomainUrlResponse
@@ -1052,13 +2991,27 @@ export interface SageMakerCreatePresignedDomainUrlResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreatePresignedDomainUrlResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreatePresignedDomainUrlResponse(obj: SageMakerCreatePresignedDomainUrlResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AuthorizedUrl': obj.authorizedUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreatePresignedNotebookInstanceUrlInput
  */
 export interface SageMakerCreatePresignedNotebookInstanceUrlInput {
   /**
    * @schema SageMakerCreatePresignedNotebookInstanceUrlInput#NotebookInstanceName
    */
-  readonly notebookInstanceName: string;
+  readonly notebookInstanceName?: string;
 
   /**
    * @schema SageMakerCreatePresignedNotebookInstanceUrlInput#SessionExpirationDurationInSeconds
@@ -1066,6 +3019,21 @@ export interface SageMakerCreatePresignedNotebookInstanceUrlInput {
   readonly sessionExpirationDurationInSeconds?: number;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreatePresignedNotebookInstanceUrlInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreatePresignedNotebookInstanceUrlInput(obj: SageMakerCreatePresignedNotebookInstanceUrlInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotebookInstanceName': obj.notebookInstanceName,
+    'SessionExpirationDurationInSeconds': obj.sessionExpirationDurationInSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreatePresignedNotebookInstanceUrlOutput
@@ -1077,6 +3045,20 @@ export interface SageMakerCreatePresignedNotebookInstanceUrlOutput {
   readonly authorizedUrl?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreatePresignedNotebookInstanceUrlOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreatePresignedNotebookInstanceUrlOutput(obj: SageMakerCreatePresignedNotebookInstanceUrlOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AuthorizedUrl': obj.authorizedUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateProcessingJobRequest
@@ -1095,12 +3077,12 @@ export interface SageMakerCreateProcessingJobRequest {
   /**
    * @schema SageMakerCreateProcessingJobRequest#ProcessingJobName
    */
-  readonly processingJobName: string;
+  readonly processingJobName?: string;
 
   /**
    * @schema SageMakerCreateProcessingJobRequest#ProcessingResources
    */
-  readonly processingResources: SageMakerProcessingResources;
+  readonly processingResources?: SageMakerProcessingResources;
 
   /**
    * @schema SageMakerCreateProcessingJobRequest#StoppingCondition
@@ -1110,7 +3092,7 @@ export interface SageMakerCreateProcessingJobRequest {
   /**
    * @schema SageMakerCreateProcessingJobRequest#AppSpecification
    */
-  readonly appSpecification: SageMakerAppSpecification;
+  readonly appSpecification?: SageMakerAppSpecification;
 
   /**
    * @schema SageMakerCreateProcessingJobRequest#Environment
@@ -1125,7 +3107,7 @@ export interface SageMakerCreateProcessingJobRequest {
   /**
    * @schema SageMakerCreateProcessingJobRequest#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema SageMakerCreateProcessingJobRequest#Tags
@@ -1140,15 +3122,127 @@ export interface SageMakerCreateProcessingJobRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateProcessingJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateProcessingJobRequest(obj: SageMakerCreateProcessingJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProcessingInputs': obj.processingInputs?.map(y => toJson_SageMakerProcessingInput(y)),
+    'ProcessingOutputConfig': toJson_SageMakerProcessingOutputConfig(obj.processingOutputConfig),
+    'ProcessingJobName': obj.processingJobName,
+    'ProcessingResources': toJson_SageMakerProcessingResources(obj.processingResources),
+    'StoppingCondition': toJson_SageMakerProcessingStoppingCondition(obj.stoppingCondition),
+    'AppSpecification': toJson_SageMakerAppSpecification(obj.appSpecification),
+    'Environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'NetworkConfig': toJson_SageMakerNetworkConfig(obj.networkConfig),
+    'RoleArn': obj.roleArn,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+    'ExperimentConfig': toJson_SageMakerExperimentConfig(obj.experimentConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateProcessingJobResponse
  */
 export interface SageMakerCreateProcessingJobResponse {
   /**
    * @schema SageMakerCreateProcessingJobResponse#ProcessingJobArn
    */
-  readonly processingJobArn: string;
+  readonly processingJobArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateProcessingJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateProcessingJobResponse(obj: SageMakerCreateProcessingJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProcessingJobArn': obj.processingJobArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateProjectInput
+ */
+export interface SageMakerCreateProjectInput {
+  /**
+   * @schema SageMakerCreateProjectInput#ProjectName
+   */
+  readonly projectName?: string;
+
+  /**
+   * @schema SageMakerCreateProjectInput#ProjectDescription
+   */
+  readonly projectDescription?: string;
+
+  /**
+   * @schema SageMakerCreateProjectInput#ServiceCatalogProvisioningDetails
+   */
+  readonly serviceCatalogProvisioningDetails?: SageMakerServiceCatalogProvisioningDetails;
+
+  /**
+   * @schema SageMakerCreateProjectInput#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateProjectInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateProjectInput(obj: SageMakerCreateProjectInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProjectName': obj.projectName,
+    'ProjectDescription': obj.projectDescription,
+    'ServiceCatalogProvisioningDetails': toJson_SageMakerServiceCatalogProvisioningDetails(obj.serviceCatalogProvisioningDetails),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCreateProjectOutput
+ */
+export interface SageMakerCreateProjectOutput {
+  /**
+   * @schema SageMakerCreateProjectOutput#ProjectArn
+   */
+  readonly projectArn?: string;
+
+  /**
+   * @schema SageMakerCreateProjectOutput#ProjectId
+   */
+  readonly projectId?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCreateProjectOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateProjectOutput(obj: SageMakerCreateProjectOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProjectArn': obj.projectArn,
+    'ProjectId': obj.projectId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateTrainingJobRequest
@@ -1157,7 +3251,7 @@ export interface SageMakerCreateTrainingJobRequest {
   /**
    * @schema SageMakerCreateTrainingJobRequest#TrainingJobName
    */
-  readonly trainingJobName: string;
+  readonly trainingJobName?: string;
 
   /**
    * @schema SageMakerCreateTrainingJobRequest#HyperParameters
@@ -1167,12 +3261,12 @@ export interface SageMakerCreateTrainingJobRequest {
   /**
    * @schema SageMakerCreateTrainingJobRequest#AlgorithmSpecification
    */
-  readonly algorithmSpecification: SageMakerAlgorithmSpecification;
+  readonly algorithmSpecification?: SageMakerAlgorithmSpecification;
 
   /**
    * @schema SageMakerCreateTrainingJobRequest#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema SageMakerCreateTrainingJobRequest#InputDataConfig
@@ -1182,12 +3276,12 @@ export interface SageMakerCreateTrainingJobRequest {
   /**
    * @schema SageMakerCreateTrainingJobRequest#OutputDataConfig
    */
-  readonly outputDataConfig: SageMakerOutputDataConfig;
+  readonly outputDataConfig?: SageMakerOutputDataConfig;
 
   /**
    * @schema SageMakerCreateTrainingJobRequest#ResourceConfig
    */
-  readonly resourceConfig: SageMakerResourceConfig;
+  readonly resourceConfig?: SageMakerResourceConfig;
 
   /**
    * @schema SageMakerCreateTrainingJobRequest#VpcConfig
@@ -1197,7 +3291,7 @@ export interface SageMakerCreateTrainingJobRequest {
   /**
    * @schema SageMakerCreateTrainingJobRequest#StoppingCondition
    */
-  readonly stoppingCondition: SageMakerStoppingCondition;
+  readonly stoppingCondition?: SageMakerStoppingCondition;
 
   /**
    * @schema SageMakerCreateTrainingJobRequest#Tags
@@ -1244,7 +3338,62 @@ export interface SageMakerCreateTrainingJobRequest {
    */
   readonly experimentConfig?: SageMakerExperimentConfig;
 
+  /**
+   * @schema SageMakerCreateTrainingJobRequest#ProfilerConfig
+   */
+  readonly profilerConfig?: SageMakerProfilerConfig;
+
+  /**
+   * @schema SageMakerCreateTrainingJobRequest#ProfilerRuleConfigurations
+   */
+  readonly profilerRuleConfigurations?: SageMakerProfilerRuleConfiguration[];
+
+  /**
+   * @schema SageMakerCreateTrainingJobRequest#Environment
+   */
+  readonly environment?: { [key: string]: string };
+
+  /**
+   * @schema SageMakerCreateTrainingJobRequest#RetryStrategy
+   */
+  readonly retryStrategy?: SageMakerRetryStrategy;
+
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateTrainingJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateTrainingJobRequest(obj: SageMakerCreateTrainingJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrainingJobName': obj.trainingJobName,
+    'HyperParameters': ((obj.hyperParameters) === undefined) ? undefined : (Object.entries(obj.hyperParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'AlgorithmSpecification': toJson_SageMakerAlgorithmSpecification(obj.algorithmSpecification),
+    'RoleArn': obj.roleArn,
+    'InputDataConfig': obj.inputDataConfig?.map(y => toJson_SageMakerChannel(y)),
+    'OutputDataConfig': toJson_SageMakerOutputDataConfig(obj.outputDataConfig),
+    'ResourceConfig': toJson_SageMakerResourceConfig(obj.resourceConfig),
+    'VpcConfig': toJson_SageMakerVpcConfig(obj.vpcConfig),
+    'StoppingCondition': toJson_SageMakerStoppingCondition(obj.stoppingCondition),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+    'EnableNetworkIsolation': obj.enableNetworkIsolation,
+    'EnableInterContainerTrafficEncryption': obj.enableInterContainerTrafficEncryption,
+    'EnableManagedSpotTraining': obj.enableManagedSpotTraining,
+    'CheckpointConfig': toJson_SageMakerCheckpointConfig(obj.checkpointConfig),
+    'DebugHookConfig': toJson_SageMakerDebugHookConfig(obj.debugHookConfig),
+    'DebugRuleConfigurations': obj.debugRuleConfigurations?.map(y => toJson_SageMakerDebugRuleConfiguration(y)),
+    'TensorBoardOutputConfig': toJson_SageMakerTensorBoardOutputConfig(obj.tensorBoardOutputConfig),
+    'ExperimentConfig': toJson_SageMakerExperimentConfig(obj.experimentConfig),
+    'ProfilerConfig': toJson_SageMakerProfilerConfig(obj.profilerConfig),
+    'ProfilerRuleConfigurations': obj.profilerRuleConfigurations?.map(y => toJson_SageMakerProfilerRuleConfiguration(y)),
+    'Environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'RetryStrategy': toJson_SageMakerRetryStrategy(obj.retryStrategy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateTrainingJobResponse
@@ -1253,9 +3402,23 @@ export interface SageMakerCreateTrainingJobResponse {
   /**
    * @schema SageMakerCreateTrainingJobResponse#TrainingJobArn
    */
-  readonly trainingJobArn: string;
+  readonly trainingJobArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateTrainingJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateTrainingJobResponse(obj: SageMakerCreateTrainingJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrainingJobArn': obj.trainingJobArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateTransformJobRequest
@@ -1264,12 +3427,12 @@ export interface SageMakerCreateTransformJobRequest {
   /**
    * @schema SageMakerCreateTransformJobRequest#TransformJobName
    */
-  readonly transformJobName: string;
+  readonly transformJobName?: string;
 
   /**
    * @schema SageMakerCreateTransformJobRequest#ModelName
    */
-  readonly modelName: string;
+  readonly modelName?: string;
 
   /**
    * @schema SageMakerCreateTransformJobRequest#MaxConcurrentTransforms
@@ -1299,17 +3462,17 @@ export interface SageMakerCreateTransformJobRequest {
   /**
    * @schema SageMakerCreateTransformJobRequest#TransformInput
    */
-  readonly transformInput: SageMakerTransformInput;
+  readonly transformInput?: SageMakerTransformInput;
 
   /**
    * @schema SageMakerCreateTransformJobRequest#TransformOutput
    */
-  readonly transformOutput: SageMakerTransformOutput;
+  readonly transformOutput?: SageMakerTransformOutput;
 
   /**
    * @schema SageMakerCreateTransformJobRequest#TransformResources
    */
-  readonly transformResources: SageMakerTransformResources;
+  readonly transformResources?: SageMakerTransformResources;
 
   /**
    * @schema SageMakerCreateTransformJobRequest#DataProcessing
@@ -1329,15 +3492,55 @@ export interface SageMakerCreateTransformJobRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateTransformJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateTransformJobRequest(obj: SageMakerCreateTransformJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TransformJobName': obj.transformJobName,
+    'ModelName': obj.modelName,
+    'MaxConcurrentTransforms': obj.maxConcurrentTransforms,
+    'ModelClientConfig': toJson_SageMakerModelClientConfig(obj.modelClientConfig),
+    'MaxPayloadInMB': obj.maxPayloadInMb,
+    'BatchStrategy': obj.batchStrategy,
+    'Environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'TransformInput': toJson_SageMakerTransformInput(obj.transformInput),
+    'TransformOutput': toJson_SageMakerTransformOutput(obj.transformOutput),
+    'TransformResources': toJson_SageMakerTransformResources(obj.transformResources),
+    'DataProcessing': toJson_SageMakerDataProcessing(obj.dataProcessing),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+    'ExperimentConfig': toJson_SageMakerExperimentConfig(obj.experimentConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateTransformJobResponse
  */
 export interface SageMakerCreateTransformJobResponse {
   /**
    * @schema SageMakerCreateTransformJobResponse#TransformJobArn
    */
-  readonly transformJobArn: string;
+  readonly transformJobArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateTransformJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateTransformJobResponse(obj: SageMakerCreateTransformJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TransformJobArn': obj.transformJobArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateTrialRequest
@@ -1346,7 +3549,7 @@ export interface SageMakerCreateTrialRequest {
   /**
    * @schema SageMakerCreateTrialRequest#TrialName
    */
-  readonly trialName: string;
+  readonly trialName?: string;
 
   /**
    * @schema SageMakerCreateTrialRequest#DisplayName
@@ -1356,7 +3559,12 @@ export interface SageMakerCreateTrialRequest {
   /**
    * @schema SageMakerCreateTrialRequest#ExperimentName
    */
-  readonly experimentName: string;
+  readonly experimentName?: string;
+
+  /**
+   * @schema SageMakerCreateTrialRequest#MetadataProperties
+   */
+  readonly metadataProperties?: SageMakerMetadataProperties;
 
   /**
    * @schema SageMakerCreateTrialRequest#Tags
@@ -1364,6 +3572,24 @@ export interface SageMakerCreateTrialRequest {
   readonly tags?: SageMakerTag[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateTrialRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateTrialRequest(obj: SageMakerCreateTrialRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialName': obj.trialName,
+    'DisplayName': obj.displayName,
+    'ExperimentName': obj.experimentName,
+    'MetadataProperties': toJson_SageMakerMetadataProperties(obj.metadataProperties),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateTrialResponse
@@ -1377,13 +3603,27 @@ export interface SageMakerCreateTrialResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateTrialResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateTrialResponse(obj: SageMakerCreateTrialResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialArn': obj.trialArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateTrialComponentRequest
  */
 export interface SageMakerCreateTrialComponentRequest {
   /**
    * @schema SageMakerCreateTrialComponentRequest#TrialComponentName
    */
-  readonly trialComponentName: string;
+  readonly trialComponentName?: string;
 
   /**
    * @schema SageMakerCreateTrialComponentRequest#DisplayName
@@ -1421,11 +3661,39 @@ export interface SageMakerCreateTrialComponentRequest {
   readonly outputArtifacts?: { [key: string]: SageMakerTrialComponentArtifact };
 
   /**
+   * @schema SageMakerCreateTrialComponentRequest#MetadataProperties
+   */
+  readonly metadataProperties?: SageMakerMetadataProperties;
+
+  /**
    * @schema SageMakerCreateTrialComponentRequest#Tags
    */
   readonly tags?: SageMakerTag[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateTrialComponentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateTrialComponentRequest(obj: SageMakerCreateTrialComponentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialComponentName': obj.trialComponentName,
+    'DisplayName': obj.displayName,
+    'Status': toJson_SageMakerTrialComponentStatus(obj.status),
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'Parameters': ((obj.parameters) === undefined) ? undefined : (Object.entries(obj.parameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_SageMakerTrialComponentParameterValue(i[1]) }), {})),
+    'InputArtifacts': ((obj.inputArtifacts) === undefined) ? undefined : (Object.entries(obj.inputArtifacts).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_SageMakerTrialComponentArtifact(i[1]) }), {})),
+    'OutputArtifacts': ((obj.outputArtifacts) === undefined) ? undefined : (Object.entries(obj.outputArtifacts).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_SageMakerTrialComponentArtifact(i[1]) }), {})),
+    'MetadataProperties': toJson_SageMakerMetadataProperties(obj.metadataProperties),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateTrialComponentResponse
@@ -1439,18 +3707,32 @@ export interface SageMakerCreateTrialComponentResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateTrialComponentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateTrialComponentResponse(obj: SageMakerCreateTrialComponentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialComponentArn': obj.trialComponentArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateUserProfileRequest
  */
 export interface SageMakerCreateUserProfileRequest {
   /**
    * @schema SageMakerCreateUserProfileRequest#DomainId
    */
-  readonly domainId: string;
+  readonly domainId?: string;
 
   /**
    * @schema SageMakerCreateUserProfileRequest#UserProfileName
    */
-  readonly userProfileName: string;
+  readonly userProfileName?: string;
 
   /**
    * @schema SageMakerCreateUserProfileRequest#SingleSignOnUserIdentifier
@@ -1475,6 +3757,25 @@ export interface SageMakerCreateUserProfileRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateUserProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateUserProfileRequest(obj: SageMakerCreateUserProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainId': obj.domainId,
+    'UserProfileName': obj.userProfileName,
+    'SingleSignOnUserIdentifier': obj.singleSignOnUserIdentifier,
+    'SingleSignOnUserValue': obj.singleSignOnUserValue,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+    'UserSettings': toJson_SageMakerUserSettings(obj.userSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateUserProfileResponse
  */
 export interface SageMakerCreateUserProfileResponse {
@@ -1484,6 +3785,20 @@ export interface SageMakerCreateUserProfileResponse {
   readonly userProfileArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateUserProfileResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateUserProfileResponse(obj: SageMakerCreateUserProfileResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserProfileArn': obj.userProfileArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateWorkforceRequest
@@ -1507,7 +3822,7 @@ export interface SageMakerCreateWorkforceRequest {
   /**
    * @schema SageMakerCreateWorkforceRequest#WorkforceName
    */
-  readonly workforceName: string;
+  readonly workforceName?: string;
 
   /**
    * @schema SageMakerCreateWorkforceRequest#Tags
@@ -1517,15 +3832,47 @@ export interface SageMakerCreateWorkforceRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateWorkforceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateWorkforceRequest(obj: SageMakerCreateWorkforceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CognitoConfig': toJson_SageMakerCognitoConfig(obj.cognitoConfig),
+    'OidcConfig': toJson_SageMakerOidcConfig(obj.oidcConfig),
+    'SourceIpConfig': toJson_SageMakerSourceIpConfig(obj.sourceIpConfig),
+    'WorkforceName': obj.workforceName,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateWorkforceResponse
  */
 export interface SageMakerCreateWorkforceResponse {
   /**
    * @schema SageMakerCreateWorkforceResponse#WorkforceArn
    */
-  readonly workforceArn: string;
+  readonly workforceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCreateWorkforceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateWorkforceResponse(obj: SageMakerCreateWorkforceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WorkforceArn': obj.workforceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCreateWorkteamRequest
@@ -1534,7 +3881,7 @@ export interface SageMakerCreateWorkteamRequest {
   /**
    * @schema SageMakerCreateWorkteamRequest#WorkteamName
    */
-  readonly workteamName: string;
+  readonly workteamName?: string;
 
   /**
    * @schema SageMakerCreateWorkteamRequest#WorkforceName
@@ -1544,12 +3891,12 @@ export interface SageMakerCreateWorkteamRequest {
   /**
    * @schema SageMakerCreateWorkteamRequest#MemberDefinitions
    */
-  readonly memberDefinitions: SageMakerMemberDefinition[];
+  readonly memberDefinitions?: SageMakerMemberDefinition[];
 
   /**
    * @schema SageMakerCreateWorkteamRequest#Description
    */
-  readonly description: string;
+  readonly description?: string;
 
   /**
    * @schema SageMakerCreateWorkteamRequest#NotificationConfiguration
@@ -1564,6 +3911,25 @@ export interface SageMakerCreateWorkteamRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateWorkteamRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateWorkteamRequest(obj: SageMakerCreateWorkteamRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WorkteamName': obj.workteamName,
+    'WorkforceName': obj.workforceName,
+    'MemberDefinitions': obj.memberDefinitions?.map(y => toJson_SageMakerMemberDefinition(y)),
+    'Description': obj.description,
+    'NotificationConfiguration': toJson_SageMakerNotificationConfiguration(obj.notificationConfiguration),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCreateWorkteamResponse
  */
 export interface SageMakerCreateWorkteamResponse {
@@ -1575,15 +3941,93 @@ export interface SageMakerCreateWorkteamResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerCreateWorkteamResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCreateWorkteamResponse(obj: SageMakerCreateWorkteamResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WorkteamArn': obj.workteamArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeleteActionRequest
+ */
+export interface SageMakerDeleteActionRequest {
+  /**
+   * @schema SageMakerDeleteActionRequest#ActionName
+   */
+  readonly actionName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeleteActionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteActionRequest(obj: SageMakerDeleteActionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ActionName': obj.actionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeleteActionResponse
+ */
+export interface SageMakerDeleteActionResponse {
+  /**
+   * @schema SageMakerDeleteActionResponse#ActionArn
+   */
+  readonly actionArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeleteActionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteActionResponse(obj: SageMakerDeleteActionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ActionArn': obj.actionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDeleteAlgorithmInput
  */
 export interface SageMakerDeleteAlgorithmInput {
   /**
    * @schema SageMakerDeleteAlgorithmInput#AlgorithmName
    */
-  readonly algorithmName: string;
+  readonly algorithmName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteAlgorithmInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteAlgorithmInput(obj: SageMakerDeleteAlgorithmInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AlgorithmName': obj.algorithmName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteAppRequest
@@ -1592,24 +4036,41 @@ export interface SageMakerDeleteAppRequest {
   /**
    * @schema SageMakerDeleteAppRequest#DomainId
    */
-  readonly domainId: string;
+  readonly domainId?: string;
 
   /**
    * @schema SageMakerDeleteAppRequest#UserProfileName
    */
-  readonly userProfileName: string;
+  readonly userProfileName?: string;
 
   /**
    * @schema SageMakerDeleteAppRequest#AppType
    */
-  readonly appType: string;
+  readonly appType?: string;
 
   /**
    * @schema SageMakerDeleteAppRequest#AppName
    */
-  readonly appName: string;
+  readonly appName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteAppRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteAppRequest(obj: SageMakerDeleteAppRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainId': obj.domainId,
+    'UserProfileName': obj.userProfileName,
+    'AppType': obj.appType,
+    'AppName': obj.appName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteAppImageConfigRequest
@@ -1618,9 +4079,141 @@ export interface SageMakerDeleteAppImageConfigRequest {
   /**
    * @schema SageMakerDeleteAppImageConfigRequest#AppImageConfigName
    */
-  readonly appImageConfigName: string;
+  readonly appImageConfigName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteAppImageConfigRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteAppImageConfigRequest(obj: SageMakerDeleteAppImageConfigRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AppImageConfigName': obj.appImageConfigName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeleteArtifactRequest
+ */
+export interface SageMakerDeleteArtifactRequest {
+  /**
+   * @schema SageMakerDeleteArtifactRequest#ArtifactArn
+   */
+  readonly artifactArn?: string;
+
+  /**
+   * @schema SageMakerDeleteArtifactRequest#Source
+   */
+  readonly source?: SageMakerArtifactSource;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeleteArtifactRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteArtifactRequest(obj: SageMakerDeleteArtifactRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ArtifactArn': obj.artifactArn,
+    'Source': toJson_SageMakerArtifactSource(obj.source),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeleteArtifactResponse
+ */
+export interface SageMakerDeleteArtifactResponse {
+  /**
+   * @schema SageMakerDeleteArtifactResponse#ArtifactArn
+   */
+  readonly artifactArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeleteArtifactResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteArtifactResponse(obj: SageMakerDeleteArtifactResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ArtifactArn': obj.artifactArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeleteAssociationRequest
+ */
+export interface SageMakerDeleteAssociationRequest {
+  /**
+   * @schema SageMakerDeleteAssociationRequest#SourceArn
+   */
+  readonly sourceArn?: string;
+
+  /**
+   * @schema SageMakerDeleteAssociationRequest#DestinationArn
+   */
+  readonly destinationArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeleteAssociationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteAssociationRequest(obj: SageMakerDeleteAssociationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceArn': obj.sourceArn,
+    'DestinationArn': obj.destinationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeleteAssociationResponse
+ */
+export interface SageMakerDeleteAssociationResponse {
+  /**
+   * @schema SageMakerDeleteAssociationResponse#SourceArn
+   */
+  readonly sourceArn?: string;
+
+  /**
+   * @schema SageMakerDeleteAssociationResponse#DestinationArn
+   */
+  readonly destinationArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeleteAssociationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteAssociationResponse(obj: SageMakerDeleteAssociationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceArn': obj.sourceArn,
+    'DestinationArn': obj.destinationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteCodeRepositoryInput
@@ -1629,9 +4222,123 @@ export interface SageMakerDeleteCodeRepositoryInput {
   /**
    * @schema SageMakerDeleteCodeRepositoryInput#CodeRepositoryName
    */
-  readonly codeRepositoryName: string;
+  readonly codeRepositoryName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteCodeRepositoryInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteCodeRepositoryInput(obj: SageMakerDeleteCodeRepositoryInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CodeRepositoryName': obj.codeRepositoryName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeleteContextRequest
+ */
+export interface SageMakerDeleteContextRequest {
+  /**
+   * @schema SageMakerDeleteContextRequest#ContextName
+   */
+  readonly contextName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeleteContextRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteContextRequest(obj: SageMakerDeleteContextRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContextName': obj.contextName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeleteContextResponse
+ */
+export interface SageMakerDeleteContextResponse {
+  /**
+   * @schema SageMakerDeleteContextResponse#ContextArn
+   */
+  readonly contextArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeleteContextResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteContextResponse(obj: SageMakerDeleteContextResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContextArn': obj.contextArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeleteDataQualityJobDefinitionRequest
+ */
+export interface SageMakerDeleteDataQualityJobDefinitionRequest {
+  /**
+   * @schema SageMakerDeleteDataQualityJobDefinitionRequest#JobDefinitionName
+   */
+  readonly jobDefinitionName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeleteDataQualityJobDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteDataQualityJobDefinitionRequest(obj: SageMakerDeleteDataQualityJobDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionName': obj.jobDefinitionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeleteDeviceFleetRequest
+ */
+export interface SageMakerDeleteDeviceFleetRequest {
+  /**
+   * @schema SageMakerDeleteDeviceFleetRequest#DeviceFleetName
+   */
+  readonly deviceFleetName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeleteDeviceFleetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteDeviceFleetRequest(obj: SageMakerDeleteDeviceFleetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceFleetName': obj.deviceFleetName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteDomainRequest
@@ -1640,7 +4347,7 @@ export interface SageMakerDeleteDomainRequest {
   /**
    * @schema SageMakerDeleteDomainRequest#DomainId
    */
-  readonly domainId: string;
+  readonly domainId?: string;
 
   /**
    * @schema SageMakerDeleteDomainRequest#RetentionPolicy
@@ -1650,15 +4357,44 @@ export interface SageMakerDeleteDomainRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerDeleteDomainRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteDomainRequest(obj: SageMakerDeleteDomainRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainId': obj.domainId,
+    'RetentionPolicy': toJson_SageMakerRetentionPolicy(obj.retentionPolicy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDeleteEndpointInput
  */
 export interface SageMakerDeleteEndpointInput {
   /**
    * @schema SageMakerDeleteEndpointInput#EndpointName
    */
-  readonly endpointName: string;
+  readonly endpointName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteEndpointInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteEndpointInput(obj: SageMakerDeleteEndpointInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointName': obj.endpointName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteEndpointConfigInput
@@ -1667,9 +4403,23 @@ export interface SageMakerDeleteEndpointConfigInput {
   /**
    * @schema SageMakerDeleteEndpointConfigInput#EndpointConfigName
    */
-  readonly endpointConfigName: string;
+  readonly endpointConfigName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteEndpointConfigInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteEndpointConfigInput(obj: SageMakerDeleteEndpointConfigInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointConfigName': obj.endpointConfigName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteExperimentRequest
@@ -1678,9 +4428,23 @@ export interface SageMakerDeleteExperimentRequest {
   /**
    * @schema SageMakerDeleteExperimentRequest#ExperimentName
    */
-  readonly experimentName: string;
+  readonly experimentName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteExperimentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteExperimentRequest(obj: SageMakerDeleteExperimentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExperimentName': obj.experimentName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteExperimentResponse
@@ -1694,15 +4458,68 @@ export interface SageMakerDeleteExperimentResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDeleteExperimentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteExperimentResponse(obj: SageMakerDeleteExperimentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExperimentArn': obj.experimentArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeleteFeatureGroupRequest
+ */
+export interface SageMakerDeleteFeatureGroupRequest {
+  /**
+   * @schema SageMakerDeleteFeatureGroupRequest#FeatureGroupName
+   */
+  readonly featureGroupName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeleteFeatureGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteFeatureGroupRequest(obj: SageMakerDeleteFeatureGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FeatureGroupName': obj.featureGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDeleteFlowDefinitionRequest
  */
 export interface SageMakerDeleteFlowDefinitionRequest {
   /**
    * @schema SageMakerDeleteFlowDefinitionRequest#FlowDefinitionName
    */
-  readonly flowDefinitionName: string;
+  readonly flowDefinitionName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteFlowDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteFlowDefinitionRequest(obj: SageMakerDeleteFlowDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FlowDefinitionName': obj.flowDefinitionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteFlowDefinitionResponse
@@ -1711,15 +4528,42 @@ export interface SageMakerDeleteFlowDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDeleteFlowDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteFlowDefinitionResponse(obj: SageMakerDeleteFlowDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDeleteHumanTaskUiRequest
  */
 export interface SageMakerDeleteHumanTaskUiRequest {
   /**
    * @schema SageMakerDeleteHumanTaskUiRequest#HumanTaskUiName
    */
-  readonly humanTaskUiName: string;
+  readonly humanTaskUiName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteHumanTaskUiRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteHumanTaskUiRequest(obj: SageMakerDeleteHumanTaskUiRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HumanTaskUiName': obj.humanTaskUiName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteHumanTaskUiResponse
@@ -1728,15 +4572,42 @@ export interface SageMakerDeleteHumanTaskUiResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDeleteHumanTaskUiResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteHumanTaskUiResponse(obj: SageMakerDeleteHumanTaskUiResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDeleteImageRequest
  */
 export interface SageMakerDeleteImageRequest {
   /**
    * @schema SageMakerDeleteImageRequest#ImageName
    */
-  readonly imageName: string;
+  readonly imageName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteImageRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteImageRequest(obj: SageMakerDeleteImageRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ImageName': obj.imageName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteImageResponse
@@ -1745,20 +4616,48 @@ export interface SageMakerDeleteImageResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDeleteImageResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteImageResponse(obj: SageMakerDeleteImageResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDeleteImageVersionRequest
  */
 export interface SageMakerDeleteImageVersionRequest {
   /**
    * @schema SageMakerDeleteImageVersionRequest#ImageName
    */
-  readonly imageName: string;
+  readonly imageName?: string;
 
   /**
    * @schema SageMakerDeleteImageVersionRequest#Version
    */
-  readonly version: number;
+  readonly version?: number;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteImageVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteImageVersionRequest(obj: SageMakerDeleteImageVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ImageName': obj.imageName,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteImageVersionResponse
@@ -1767,15 +4666,92 @@ export interface SageMakerDeleteImageVersionResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDeleteImageVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteImageVersionResponse(obj: SageMakerDeleteImageVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDeleteModelInput
  */
 export interface SageMakerDeleteModelInput {
   /**
    * @schema SageMakerDeleteModelInput#ModelName
    */
-  readonly modelName: string;
+  readonly modelName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteModelInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteModelInput(obj: SageMakerDeleteModelInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelName': obj.modelName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeleteModelBiasJobDefinitionRequest
+ */
+export interface SageMakerDeleteModelBiasJobDefinitionRequest {
+  /**
+   * @schema SageMakerDeleteModelBiasJobDefinitionRequest#JobDefinitionName
+   */
+  readonly jobDefinitionName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeleteModelBiasJobDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteModelBiasJobDefinitionRequest(obj: SageMakerDeleteModelBiasJobDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionName': obj.jobDefinitionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeleteModelExplainabilityJobDefinitionRequest
+ */
+export interface SageMakerDeleteModelExplainabilityJobDefinitionRequest {
+  /**
+   * @schema SageMakerDeleteModelExplainabilityJobDefinitionRequest#JobDefinitionName
+   */
+  readonly jobDefinitionName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeleteModelExplainabilityJobDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteModelExplainabilityJobDefinitionRequest(obj: SageMakerDeleteModelExplainabilityJobDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionName': obj.jobDefinitionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteModelPackageInput
@@ -1784,9 +4760,98 @@ export interface SageMakerDeleteModelPackageInput {
   /**
    * @schema SageMakerDeleteModelPackageInput#ModelPackageName
    */
-  readonly modelPackageName: string;
+  readonly modelPackageName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteModelPackageInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteModelPackageInput(obj: SageMakerDeleteModelPackageInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageName': obj.modelPackageName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeleteModelPackageGroupInput
+ */
+export interface SageMakerDeleteModelPackageGroupInput {
+  /**
+   * @schema SageMakerDeleteModelPackageGroupInput#ModelPackageGroupName
+   */
+  readonly modelPackageGroupName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeleteModelPackageGroupInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteModelPackageGroupInput(obj: SageMakerDeleteModelPackageGroupInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageGroupName': obj.modelPackageGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeleteModelPackageGroupPolicyInput
+ */
+export interface SageMakerDeleteModelPackageGroupPolicyInput {
+  /**
+   * @schema SageMakerDeleteModelPackageGroupPolicyInput#ModelPackageGroupName
+   */
+  readonly modelPackageGroupName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeleteModelPackageGroupPolicyInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteModelPackageGroupPolicyInput(obj: SageMakerDeleteModelPackageGroupPolicyInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageGroupName': obj.modelPackageGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeleteModelQualityJobDefinitionRequest
+ */
+export interface SageMakerDeleteModelQualityJobDefinitionRequest {
+  /**
+   * @schema SageMakerDeleteModelQualityJobDefinitionRequest#JobDefinitionName
+   */
+  readonly jobDefinitionName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeleteModelQualityJobDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteModelQualityJobDefinitionRequest(obj: SageMakerDeleteModelQualityJobDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionName': obj.jobDefinitionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteMonitoringScheduleRequest
@@ -1795,9 +4860,23 @@ export interface SageMakerDeleteMonitoringScheduleRequest {
   /**
    * @schema SageMakerDeleteMonitoringScheduleRequest#MonitoringScheduleName
    */
-  readonly monitoringScheduleName: string;
+  readonly monitoringScheduleName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteMonitoringScheduleRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteMonitoringScheduleRequest(obj: SageMakerDeleteMonitoringScheduleRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MonitoringScheduleName': obj.monitoringScheduleName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteNotebookInstanceInput
@@ -1806,9 +4885,23 @@ export interface SageMakerDeleteNotebookInstanceInput {
   /**
    * @schema SageMakerDeleteNotebookInstanceInput#NotebookInstanceName
    */
-  readonly notebookInstanceName: string;
+  readonly notebookInstanceName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteNotebookInstanceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteNotebookInstanceInput(obj: SageMakerDeleteNotebookInstanceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotebookInstanceName': obj.notebookInstanceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteNotebookInstanceLifecycleConfigInput
@@ -1817,9 +4910,104 @@ export interface SageMakerDeleteNotebookInstanceLifecycleConfigInput {
   /**
    * @schema SageMakerDeleteNotebookInstanceLifecycleConfigInput#NotebookInstanceLifecycleConfigName
    */
-  readonly notebookInstanceLifecycleConfigName: string;
+  readonly notebookInstanceLifecycleConfigName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteNotebookInstanceLifecycleConfigInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteNotebookInstanceLifecycleConfigInput(obj: SageMakerDeleteNotebookInstanceLifecycleConfigInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotebookInstanceLifecycleConfigName': obj.notebookInstanceLifecycleConfigName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeletePipelineRequest
+ */
+export interface SageMakerDeletePipelineRequest {
+  /**
+   * @schema SageMakerDeletePipelineRequest#PipelineName
+   */
+  readonly pipelineName?: string;
+
+  /**
+   * @schema SageMakerDeletePipelineRequest#ClientRequestToken
+   */
+  readonly clientRequestToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeletePipelineRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeletePipelineRequest(obj: SageMakerDeletePipelineRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineName': obj.pipelineName,
+    'ClientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeletePipelineResponse
+ */
+export interface SageMakerDeletePipelineResponse {
+  /**
+   * @schema SageMakerDeletePipelineResponse#PipelineArn
+   */
+  readonly pipelineArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeletePipelineResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeletePipelineResponse(obj: SageMakerDeletePipelineResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineArn': obj.pipelineArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeleteProjectInput
+ */
+export interface SageMakerDeleteProjectInput {
+  /**
+   * @schema SageMakerDeleteProjectInput#ProjectName
+   */
+  readonly projectName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeleteProjectInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteProjectInput(obj: SageMakerDeleteProjectInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProjectName': obj.projectName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteTagsInput
@@ -1828,14 +5016,29 @@ export interface SageMakerDeleteTagsInput {
   /**
    * @schema SageMakerDeleteTagsInput#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema SageMakerDeleteTagsInput#TagKeys
    */
-  readonly tagKeys: string[];
+  readonly tagKeys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteTagsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteTagsInput(obj: SageMakerDeleteTagsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteTagsOutput
@@ -1844,15 +5047,42 @@ export interface SageMakerDeleteTagsOutput {
 }
 
 /**
+ * Converts an object of type 'SageMakerDeleteTagsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteTagsOutput(obj: SageMakerDeleteTagsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDeleteTrialRequest
  */
 export interface SageMakerDeleteTrialRequest {
   /**
    * @schema SageMakerDeleteTrialRequest#TrialName
    */
-  readonly trialName: string;
+  readonly trialName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteTrialRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteTrialRequest(obj: SageMakerDeleteTrialRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialName': obj.trialName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteTrialResponse
@@ -1866,15 +5096,43 @@ export interface SageMakerDeleteTrialResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDeleteTrialResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteTrialResponse(obj: SageMakerDeleteTrialResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialArn': obj.trialArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDeleteTrialComponentRequest
  */
 export interface SageMakerDeleteTrialComponentRequest {
   /**
    * @schema SageMakerDeleteTrialComponentRequest#TrialComponentName
    */
-  readonly trialComponentName: string;
+  readonly trialComponentName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteTrialComponentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteTrialComponentRequest(obj: SageMakerDeleteTrialComponentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialComponentName': obj.trialComponentName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteTrialComponentResponse
@@ -1888,20 +5146,49 @@ export interface SageMakerDeleteTrialComponentResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDeleteTrialComponentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteTrialComponentResponse(obj: SageMakerDeleteTrialComponentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialComponentArn': obj.trialComponentArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDeleteUserProfileRequest
  */
 export interface SageMakerDeleteUserProfileRequest {
   /**
    * @schema SageMakerDeleteUserProfileRequest#DomainId
    */
-  readonly domainId: string;
+  readonly domainId?: string;
 
   /**
    * @schema SageMakerDeleteUserProfileRequest#UserProfileName
    */
-  readonly userProfileName: string;
+  readonly userProfileName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteUserProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteUserProfileRequest(obj: SageMakerDeleteUserProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainId': obj.domainId,
+    'UserProfileName': obj.userProfileName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteWorkforceRequest
@@ -1910,9 +5197,23 @@ export interface SageMakerDeleteWorkforceRequest {
   /**
    * @schema SageMakerDeleteWorkforceRequest#WorkforceName
    */
-  readonly workforceName: string;
+  readonly workforceName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteWorkforceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteWorkforceRequest(obj: SageMakerDeleteWorkforceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WorkforceName': obj.workforceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteWorkforceResponse
@@ -1921,15 +5222,42 @@ export interface SageMakerDeleteWorkforceResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDeleteWorkforceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteWorkforceResponse(obj: SageMakerDeleteWorkforceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDeleteWorkteamRequest
  */
 export interface SageMakerDeleteWorkteamRequest {
   /**
    * @schema SageMakerDeleteWorkteamRequest#WorkteamName
    */
-  readonly workteamName: string;
+  readonly workteamName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteWorkteamRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteWorkteamRequest(obj: SageMakerDeleteWorkteamRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WorkteamName': obj.workteamName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeleteWorkteamResponse
@@ -1938,9 +5266,170 @@ export interface SageMakerDeleteWorkteamResponse {
   /**
    * @schema SageMakerDeleteWorkteamResponse#Success
    */
-  readonly success: boolean;
+  readonly success?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDeleteWorkteamResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeleteWorkteamResponse(obj: SageMakerDeleteWorkteamResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Success': obj.success,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeregisterDevicesRequest
+ */
+export interface SageMakerDeregisterDevicesRequest {
+  /**
+   * @schema SageMakerDeregisterDevicesRequest#DeviceFleetName
+   */
+  readonly deviceFleetName?: string;
+
+  /**
+   * @schema SageMakerDeregisterDevicesRequest#DeviceNames
+   */
+  readonly deviceNames?: string[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeregisterDevicesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeregisterDevicesRequest(obj: SageMakerDeregisterDevicesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceFleetName': obj.deviceFleetName,
+    'DeviceNames': obj.deviceNames?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeActionRequest
+ */
+export interface SageMakerDescribeActionRequest {
+  /**
+   * @schema SageMakerDescribeActionRequest#ActionName
+   */
+  readonly actionName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeActionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeActionRequest(obj: SageMakerDescribeActionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ActionName': obj.actionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeActionResponse
+ */
+export interface SageMakerDescribeActionResponse {
+  /**
+   * @schema SageMakerDescribeActionResponse#ActionName
+   */
+  readonly actionName?: string;
+
+  /**
+   * @schema SageMakerDescribeActionResponse#ActionArn
+   */
+  readonly actionArn?: string;
+
+  /**
+   * @schema SageMakerDescribeActionResponse#Source
+   */
+  readonly source?: SageMakerActionSource;
+
+  /**
+   * @schema SageMakerDescribeActionResponse#ActionType
+   */
+  readonly actionType?: string;
+
+  /**
+   * @schema SageMakerDescribeActionResponse#Description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema SageMakerDescribeActionResponse#Status
+   */
+  readonly status?: string;
+
+  /**
+   * @schema SageMakerDescribeActionResponse#Properties
+   */
+  readonly properties?: { [key: string]: string };
+
+  /**
+   * @schema SageMakerDescribeActionResponse#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerDescribeActionResponse#CreatedBy
+   */
+  readonly createdBy?: SageMakerUserContext;
+
+  /**
+   * @schema SageMakerDescribeActionResponse#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+  /**
+   * @schema SageMakerDescribeActionResponse#LastModifiedBy
+   */
+  readonly lastModifiedBy?: SageMakerUserContext;
+
+  /**
+   * @schema SageMakerDescribeActionResponse#MetadataProperties
+   */
+  readonly metadataProperties?: SageMakerMetadataProperties;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeActionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeActionResponse(obj: SageMakerDescribeActionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ActionName': obj.actionName,
+    'ActionArn': obj.actionArn,
+    'Source': toJson_SageMakerActionSource(obj.source),
+    'ActionType': obj.actionType,
+    'Description': obj.description,
+    'Status': obj.status,
+    'Properties': ((obj.properties) === undefined) ? undefined : (Object.entries(obj.properties).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'CreationTime': obj.creationTime,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'LastModifiedTime': obj.lastModifiedTime,
+    'LastModifiedBy': toJson_SageMakerUserContext(obj.lastModifiedBy),
+    'MetadataProperties': toJson_SageMakerMetadataProperties(obj.metadataProperties),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeAlgorithmInput
@@ -1949,9 +5438,23 @@ export interface SageMakerDescribeAlgorithmInput {
   /**
    * @schema SageMakerDescribeAlgorithmInput#AlgorithmName
    */
-  readonly algorithmName: string;
+  readonly algorithmName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeAlgorithmInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeAlgorithmInput(obj: SageMakerDescribeAlgorithmInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AlgorithmName': obj.algorithmName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeAlgorithmOutput
@@ -1960,12 +5463,12 @@ export interface SageMakerDescribeAlgorithmOutput {
   /**
    * @schema SageMakerDescribeAlgorithmOutput#AlgorithmName
    */
-  readonly algorithmName: string;
+  readonly algorithmName?: string;
 
   /**
    * @schema SageMakerDescribeAlgorithmOutput#AlgorithmArn
    */
-  readonly algorithmArn: string;
+  readonly algorithmArn?: string;
 
   /**
    * @schema SageMakerDescribeAlgorithmOutput#AlgorithmDescription
@@ -1975,12 +5478,12 @@ export interface SageMakerDescribeAlgorithmOutput {
   /**
    * @schema SageMakerDescribeAlgorithmOutput#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerDescribeAlgorithmOutput#TrainingSpecification
    */
-  readonly trainingSpecification: SageMakerTrainingSpecification;
+  readonly trainingSpecification?: SageMakerTrainingSpecification;
 
   /**
    * @schema SageMakerDescribeAlgorithmOutput#InferenceSpecification
@@ -1995,12 +5498,12 @@ export interface SageMakerDescribeAlgorithmOutput {
   /**
    * @schema SageMakerDescribeAlgorithmOutput#AlgorithmStatus
    */
-  readonly algorithmStatus: string;
+  readonly algorithmStatus?: string;
 
   /**
    * @schema SageMakerDescribeAlgorithmOutput#AlgorithmStatusDetails
    */
-  readonly algorithmStatusDetails: SageMakerAlgorithmStatusDetails;
+  readonly algorithmStatusDetails?: SageMakerAlgorithmStatusDetails;
 
   /**
    * @schema SageMakerDescribeAlgorithmOutput#ProductId
@@ -2015,30 +5518,71 @@ export interface SageMakerDescribeAlgorithmOutput {
 }
 
 /**
+ * Converts an object of type 'SageMakerDescribeAlgorithmOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeAlgorithmOutput(obj: SageMakerDescribeAlgorithmOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AlgorithmName': obj.algorithmName,
+    'AlgorithmArn': obj.algorithmArn,
+    'AlgorithmDescription': obj.algorithmDescription,
+    'CreationTime': obj.creationTime,
+    'TrainingSpecification': toJson_SageMakerTrainingSpecification(obj.trainingSpecification),
+    'InferenceSpecification': toJson_SageMakerInferenceSpecification(obj.inferenceSpecification),
+    'ValidationSpecification': toJson_SageMakerAlgorithmValidationSpecification(obj.validationSpecification),
+    'AlgorithmStatus': obj.algorithmStatus,
+    'AlgorithmStatusDetails': toJson_SageMakerAlgorithmStatusDetails(obj.algorithmStatusDetails),
+    'ProductId': obj.productId,
+    'CertifyForMarketplace': obj.certifyForMarketplace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDescribeAppRequest
  */
 export interface SageMakerDescribeAppRequest {
   /**
    * @schema SageMakerDescribeAppRequest#DomainId
    */
-  readonly domainId: string;
+  readonly domainId?: string;
 
   /**
    * @schema SageMakerDescribeAppRequest#UserProfileName
    */
-  readonly userProfileName: string;
+  readonly userProfileName?: string;
 
   /**
    * @schema SageMakerDescribeAppRequest#AppType
    */
-  readonly appType: string;
+  readonly appType?: string;
 
   /**
    * @schema SageMakerDescribeAppRequest#AppName
    */
-  readonly appName: string;
+  readonly appName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeAppRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeAppRequest(obj: SageMakerDescribeAppRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainId': obj.domainId,
+    'UserProfileName': obj.userProfileName,
+    'AppType': obj.appType,
+    'AppName': obj.appName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeAppResponse
@@ -2102,15 +5646,53 @@ export interface SageMakerDescribeAppResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDescribeAppResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeAppResponse(obj: SageMakerDescribeAppResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AppArn': obj.appArn,
+    'AppType': obj.appType,
+    'AppName': obj.appName,
+    'DomainId': obj.domainId,
+    'UserProfileName': obj.userProfileName,
+    'Status': obj.status,
+    'LastHealthCheckTimestamp': obj.lastHealthCheckTimestamp,
+    'LastUserActivityTimestamp': obj.lastUserActivityTimestamp,
+    'CreationTime': obj.creationTime,
+    'FailureReason': obj.failureReason,
+    'ResourceSpec': toJson_SageMakerResourceSpec(obj.resourceSpec),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDescribeAppImageConfigRequest
  */
 export interface SageMakerDescribeAppImageConfigRequest {
   /**
    * @schema SageMakerDescribeAppImageConfigRequest#AppImageConfigName
    */
-  readonly appImageConfigName: string;
+  readonly appImageConfigName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeAppImageConfigRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeAppImageConfigRequest(obj: SageMakerDescribeAppImageConfigRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AppImageConfigName': obj.appImageConfigName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeAppImageConfigResponse
@@ -2144,15 +5726,151 @@ export interface SageMakerDescribeAppImageConfigResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDescribeAppImageConfigResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeAppImageConfigResponse(obj: SageMakerDescribeAppImageConfigResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AppImageConfigArn': obj.appImageConfigArn,
+    'AppImageConfigName': obj.appImageConfigName,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'KernelGatewayImageConfig': toJson_SageMakerKernelGatewayImageConfig(obj.kernelGatewayImageConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeArtifactRequest
+ */
+export interface SageMakerDescribeArtifactRequest {
+  /**
+   * @schema SageMakerDescribeArtifactRequest#ArtifactArn
+   */
+  readonly artifactArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeArtifactRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeArtifactRequest(obj: SageMakerDescribeArtifactRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ArtifactArn': obj.artifactArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeArtifactResponse
+ */
+export interface SageMakerDescribeArtifactResponse {
+  /**
+   * @schema SageMakerDescribeArtifactResponse#ArtifactName
+   */
+  readonly artifactName?: string;
+
+  /**
+   * @schema SageMakerDescribeArtifactResponse#ArtifactArn
+   */
+  readonly artifactArn?: string;
+
+  /**
+   * @schema SageMakerDescribeArtifactResponse#Source
+   */
+  readonly source?: SageMakerArtifactSource;
+
+  /**
+   * @schema SageMakerDescribeArtifactResponse#ArtifactType
+   */
+  readonly artifactType?: string;
+
+  /**
+   * @schema SageMakerDescribeArtifactResponse#Properties
+   */
+  readonly properties?: { [key: string]: string };
+
+  /**
+   * @schema SageMakerDescribeArtifactResponse#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerDescribeArtifactResponse#CreatedBy
+   */
+  readonly createdBy?: SageMakerUserContext;
+
+  /**
+   * @schema SageMakerDescribeArtifactResponse#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+  /**
+   * @schema SageMakerDescribeArtifactResponse#LastModifiedBy
+   */
+  readonly lastModifiedBy?: SageMakerUserContext;
+
+  /**
+   * @schema SageMakerDescribeArtifactResponse#MetadataProperties
+   */
+  readonly metadataProperties?: SageMakerMetadataProperties;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeArtifactResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeArtifactResponse(obj: SageMakerDescribeArtifactResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ArtifactName': obj.artifactName,
+    'ArtifactArn': obj.artifactArn,
+    'Source': toJson_SageMakerArtifactSource(obj.source),
+    'ArtifactType': obj.artifactType,
+    'Properties': ((obj.properties) === undefined) ? undefined : (Object.entries(obj.properties).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'CreationTime': obj.creationTime,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'LastModifiedTime': obj.lastModifiedTime,
+    'LastModifiedBy': toJson_SageMakerUserContext(obj.lastModifiedBy),
+    'MetadataProperties': toJson_SageMakerMetadataProperties(obj.metadataProperties),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDescribeAutoMlJobRequest
  */
 export interface SageMakerDescribeAutoMlJobRequest {
   /**
    * @schema SageMakerDescribeAutoMlJobRequest#AutoMLJobName
    */
-  readonly autoMlJobName: string;
+  readonly autoMlJobName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeAutoMlJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeAutoMlJobRequest(obj: SageMakerDescribeAutoMlJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AutoMLJobName': obj.autoMlJobName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeAutoMlJobResponse
@@ -2161,27 +5879,27 @@ export interface SageMakerDescribeAutoMlJobResponse {
   /**
    * @schema SageMakerDescribeAutoMlJobResponse#AutoMLJobName
    */
-  readonly autoMlJobName: string;
+  readonly autoMlJobName?: string;
 
   /**
    * @schema SageMakerDescribeAutoMlJobResponse#AutoMLJobArn
    */
-  readonly autoMlJobArn: string;
+  readonly autoMlJobArn?: string;
 
   /**
    * @schema SageMakerDescribeAutoMlJobResponse#InputDataConfig
    */
-  readonly inputDataConfig: SageMakerAutoMlChannel[];
+  readonly inputDataConfig?: SageMakerAutoMlChannel[];
 
   /**
    * @schema SageMakerDescribeAutoMlJobResponse#OutputDataConfig
    */
-  readonly outputDataConfig: SageMakerAutoMlOutputDataConfig;
+  readonly outputDataConfig?: SageMakerAutoMlOutputDataConfig;
 
   /**
    * @schema SageMakerDescribeAutoMlJobResponse#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema SageMakerDescribeAutoMlJobResponse#AutoMLJobObjective
@@ -2201,7 +5919,7 @@ export interface SageMakerDescribeAutoMlJobResponse {
   /**
    * @schema SageMakerDescribeAutoMlJobResponse#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerDescribeAutoMlJobResponse#EndTime
@@ -2211,12 +5929,17 @@ export interface SageMakerDescribeAutoMlJobResponse {
   /**
    * @schema SageMakerDescribeAutoMlJobResponse#LastModifiedTime
    */
-  readonly lastModifiedTime: string;
+  readonly lastModifiedTime?: string;
 
   /**
    * @schema SageMakerDescribeAutoMlJobResponse#FailureReason
    */
   readonly failureReason?: string;
+
+  /**
+   * @schema SageMakerDescribeAutoMlJobResponse#PartialFailureReasons
+   */
+  readonly partialFailureReasons?: SageMakerAutoMlPartialFailureReason[];
 
   /**
    * @schema SageMakerDescribeAutoMlJobResponse#BestCandidate
@@ -2226,12 +5949,12 @@ export interface SageMakerDescribeAutoMlJobResponse {
   /**
    * @schema SageMakerDescribeAutoMlJobResponse#AutoMLJobStatus
    */
-  readonly autoMlJobStatus: string;
+  readonly autoMlJobStatus?: string;
 
   /**
    * @schema SageMakerDescribeAutoMlJobResponse#AutoMLJobSecondaryStatus
    */
-  readonly autoMlJobSecondaryStatus: string;
+  readonly autoMlJobSecondaryStatus?: string;
 
   /**
    * @schema SageMakerDescribeAutoMlJobResponse#GenerateCandidateDefinitionsOnly
@@ -2248,7 +5971,51 @@ export interface SageMakerDescribeAutoMlJobResponse {
    */
   readonly resolvedAttributes?: SageMakerResolvedAttributes;
 
+  /**
+   * @schema SageMakerDescribeAutoMlJobResponse#ModelDeployConfig
+   */
+  readonly modelDeployConfig?: SageMakerModelDeployConfig;
+
+  /**
+   * @schema SageMakerDescribeAutoMlJobResponse#ModelDeployResult
+   */
+  readonly modelDeployResult?: SageMakerModelDeployResult;
+
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeAutoMlJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeAutoMlJobResponse(obj: SageMakerDescribeAutoMlJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AutoMLJobName': obj.autoMlJobName,
+    'AutoMLJobArn': obj.autoMlJobArn,
+    'InputDataConfig': obj.inputDataConfig?.map(y => toJson_SageMakerAutoMlChannel(y)),
+    'OutputDataConfig': toJson_SageMakerAutoMlOutputDataConfig(obj.outputDataConfig),
+    'RoleArn': obj.roleArn,
+    'AutoMLJobObjective': toJson_SageMakerAutoMlJobObjective(obj.autoMlJobObjective),
+    'ProblemType': obj.problemType,
+    'AutoMLJobConfig': toJson_SageMakerAutoMlJobConfig(obj.autoMlJobConfig),
+    'CreationTime': obj.creationTime,
+    'EndTime': obj.endTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'FailureReason': obj.failureReason,
+    'PartialFailureReasons': obj.partialFailureReasons?.map(y => toJson_SageMakerAutoMlPartialFailureReason(y)),
+    'BestCandidate': toJson_SageMakerAutoMlCandidate(obj.bestCandidate),
+    'AutoMLJobStatus': obj.autoMlJobStatus,
+    'AutoMLJobSecondaryStatus': obj.autoMlJobSecondaryStatus,
+    'GenerateCandidateDefinitionsOnly': obj.generateCandidateDefinitionsOnly,
+    'AutoMLJobArtifacts': toJson_SageMakerAutoMlJobArtifacts(obj.autoMlJobArtifacts),
+    'ResolvedAttributes': toJson_SageMakerResolvedAttributes(obj.resolvedAttributes),
+    'ModelDeployConfig': toJson_SageMakerModelDeployConfig(obj.modelDeployConfig),
+    'ModelDeployResult': toJson_SageMakerModelDeployResult(obj.modelDeployResult),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeCodeRepositoryInput
@@ -2257,9 +6024,23 @@ export interface SageMakerDescribeCodeRepositoryInput {
   /**
    * @schema SageMakerDescribeCodeRepositoryInput#CodeRepositoryName
    */
-  readonly codeRepositoryName: string;
+  readonly codeRepositoryName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeCodeRepositoryInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeCodeRepositoryInput(obj: SageMakerDescribeCodeRepositoryInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CodeRepositoryName': obj.codeRepositoryName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeCodeRepositoryOutput
@@ -2268,22 +6049,22 @@ export interface SageMakerDescribeCodeRepositoryOutput {
   /**
    * @schema SageMakerDescribeCodeRepositoryOutput#CodeRepositoryName
    */
-  readonly codeRepositoryName: string;
+  readonly codeRepositoryName?: string;
 
   /**
    * @schema SageMakerDescribeCodeRepositoryOutput#CodeRepositoryArn
    */
-  readonly codeRepositoryArn: string;
+  readonly codeRepositoryArn?: string;
 
   /**
    * @schema SageMakerDescribeCodeRepositoryOutput#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerDescribeCodeRepositoryOutput#LastModifiedTime
    */
-  readonly lastModifiedTime: string;
+  readonly lastModifiedTime?: string;
 
   /**
    * @schema SageMakerDescribeCodeRepositoryOutput#GitConfig
@@ -2293,15 +6074,47 @@ export interface SageMakerDescribeCodeRepositoryOutput {
 }
 
 /**
+ * Converts an object of type 'SageMakerDescribeCodeRepositoryOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeCodeRepositoryOutput(obj: SageMakerDescribeCodeRepositoryOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CodeRepositoryName': obj.codeRepositoryName,
+    'CodeRepositoryArn': obj.codeRepositoryArn,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'GitConfig': toJson_SageMakerGitConfig(obj.gitConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDescribeCompilationJobRequest
  */
 export interface SageMakerDescribeCompilationJobRequest {
   /**
    * @schema SageMakerDescribeCompilationJobRequest#CompilationJobName
    */
-  readonly compilationJobName: string;
+  readonly compilationJobName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeCompilationJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeCompilationJobRequest(obj: SageMakerDescribeCompilationJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CompilationJobName': obj.compilationJobName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeCompilationJobResponse
@@ -2310,17 +6123,17 @@ export interface SageMakerDescribeCompilationJobResponse {
   /**
    * @schema SageMakerDescribeCompilationJobResponse#CompilationJobName
    */
-  readonly compilationJobName: string;
+  readonly compilationJobName?: string;
 
   /**
    * @schema SageMakerDescribeCompilationJobResponse#CompilationJobArn
    */
-  readonly compilationJobArn: string;
+  readonly compilationJobArn?: string;
 
   /**
    * @schema SageMakerDescribeCompilationJobResponse#CompilationJobStatus
    */
-  readonly compilationJobStatus: string;
+  readonly compilationJobStatus?: string;
 
   /**
    * @schema SageMakerDescribeCompilationJobResponse#CompilationStartTime
@@ -2335,44 +6148,510 @@ export interface SageMakerDescribeCompilationJobResponse {
   /**
    * @schema SageMakerDescribeCompilationJobResponse#StoppingCondition
    */
-  readonly stoppingCondition: SageMakerStoppingCondition;
+  readonly stoppingCondition?: SageMakerStoppingCondition;
+
+  /**
+   * @schema SageMakerDescribeCompilationJobResponse#InferenceImage
+   */
+  readonly inferenceImage?: string;
 
   /**
    * @schema SageMakerDescribeCompilationJobResponse#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerDescribeCompilationJobResponse#LastModifiedTime
    */
-  readonly lastModifiedTime: string;
+  readonly lastModifiedTime?: string;
 
   /**
    * @schema SageMakerDescribeCompilationJobResponse#FailureReason
    */
-  readonly failureReason: string;
+  readonly failureReason?: string;
 
   /**
    * @schema SageMakerDescribeCompilationJobResponse#ModelArtifacts
    */
-  readonly modelArtifacts: SageMakerModelArtifacts;
+  readonly modelArtifacts?: SageMakerModelArtifacts;
+
+  /**
+   * @schema SageMakerDescribeCompilationJobResponse#ModelDigests
+   */
+  readonly modelDigests?: SageMakerModelDigests;
 
   /**
    * @schema SageMakerDescribeCompilationJobResponse#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema SageMakerDescribeCompilationJobResponse#InputConfig
    */
-  readonly inputConfig: SageMakerInputConfig;
+  readonly inputConfig?: SageMakerInputConfig;
 
   /**
    * @schema SageMakerDescribeCompilationJobResponse#OutputConfig
    */
-  readonly outputConfig: SageMakerOutputConfig;
+  readonly outputConfig?: SageMakerOutputConfig;
+
+  /**
+   * @schema SageMakerDescribeCompilationJobResponse#VpcConfig
+   */
+  readonly vpcConfig?: SageMakerNeoVpcConfig;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeCompilationJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeCompilationJobResponse(obj: SageMakerDescribeCompilationJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CompilationJobName': obj.compilationJobName,
+    'CompilationJobArn': obj.compilationJobArn,
+    'CompilationJobStatus': obj.compilationJobStatus,
+    'CompilationStartTime': obj.compilationStartTime,
+    'CompilationEndTime': obj.compilationEndTime,
+    'StoppingCondition': toJson_SageMakerStoppingCondition(obj.stoppingCondition),
+    'InferenceImage': obj.inferenceImage,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'FailureReason': obj.failureReason,
+    'ModelArtifacts': toJson_SageMakerModelArtifacts(obj.modelArtifacts),
+    'ModelDigests': toJson_SageMakerModelDigests(obj.modelDigests),
+    'RoleArn': obj.roleArn,
+    'InputConfig': toJson_SageMakerInputConfig(obj.inputConfig),
+    'OutputConfig': toJson_SageMakerOutputConfig(obj.outputConfig),
+    'VpcConfig': toJson_SageMakerNeoVpcConfig(obj.vpcConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeContextRequest
+ */
+export interface SageMakerDescribeContextRequest {
+  /**
+   * @schema SageMakerDescribeContextRequest#ContextName
+   */
+  readonly contextName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeContextRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeContextRequest(obj: SageMakerDescribeContextRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContextName': obj.contextName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeContextResponse
+ */
+export interface SageMakerDescribeContextResponse {
+  /**
+   * @schema SageMakerDescribeContextResponse#ContextName
+   */
+  readonly contextName?: string;
+
+  /**
+   * @schema SageMakerDescribeContextResponse#ContextArn
+   */
+  readonly contextArn?: string;
+
+  /**
+   * @schema SageMakerDescribeContextResponse#Source
+   */
+  readonly source?: SageMakerContextSource;
+
+  /**
+   * @schema SageMakerDescribeContextResponse#ContextType
+   */
+  readonly contextType?: string;
+
+  /**
+   * @schema SageMakerDescribeContextResponse#Description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema SageMakerDescribeContextResponse#Properties
+   */
+  readonly properties?: { [key: string]: string };
+
+  /**
+   * @schema SageMakerDescribeContextResponse#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerDescribeContextResponse#CreatedBy
+   */
+  readonly createdBy?: SageMakerUserContext;
+
+  /**
+   * @schema SageMakerDescribeContextResponse#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+  /**
+   * @schema SageMakerDescribeContextResponse#LastModifiedBy
+   */
+  readonly lastModifiedBy?: SageMakerUserContext;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeContextResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeContextResponse(obj: SageMakerDescribeContextResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContextName': obj.contextName,
+    'ContextArn': obj.contextArn,
+    'Source': toJson_SageMakerContextSource(obj.source),
+    'ContextType': obj.contextType,
+    'Description': obj.description,
+    'Properties': ((obj.properties) === undefined) ? undefined : (Object.entries(obj.properties).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'CreationTime': obj.creationTime,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'LastModifiedTime': obj.lastModifiedTime,
+    'LastModifiedBy': toJson_SageMakerUserContext(obj.lastModifiedBy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeDataQualityJobDefinitionRequest
+ */
+export interface SageMakerDescribeDataQualityJobDefinitionRequest {
+  /**
+   * @schema SageMakerDescribeDataQualityJobDefinitionRequest#JobDefinitionName
+   */
+  readonly jobDefinitionName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeDataQualityJobDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeDataQualityJobDefinitionRequest(obj: SageMakerDescribeDataQualityJobDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionName': obj.jobDefinitionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeDataQualityJobDefinitionResponse
+ */
+export interface SageMakerDescribeDataQualityJobDefinitionResponse {
+  /**
+   * @schema SageMakerDescribeDataQualityJobDefinitionResponse#JobDefinitionArn
+   */
+  readonly jobDefinitionArn?: string;
+
+  /**
+   * @schema SageMakerDescribeDataQualityJobDefinitionResponse#JobDefinitionName
+   */
+  readonly jobDefinitionName?: string;
+
+  /**
+   * @schema SageMakerDescribeDataQualityJobDefinitionResponse#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerDescribeDataQualityJobDefinitionResponse#DataQualityBaselineConfig
+   */
+  readonly dataQualityBaselineConfig?: SageMakerDataQualityBaselineConfig;
+
+  /**
+   * @schema SageMakerDescribeDataQualityJobDefinitionResponse#DataQualityAppSpecification
+   */
+  readonly dataQualityAppSpecification?: SageMakerDataQualityAppSpecification;
+
+  /**
+   * @schema SageMakerDescribeDataQualityJobDefinitionResponse#DataQualityJobInput
+   */
+  readonly dataQualityJobInput?: SageMakerDataQualityJobInput;
+
+  /**
+   * @schema SageMakerDescribeDataQualityJobDefinitionResponse#DataQualityJobOutputConfig
+   */
+  readonly dataQualityJobOutputConfig?: SageMakerMonitoringOutputConfig;
+
+  /**
+   * @schema SageMakerDescribeDataQualityJobDefinitionResponse#JobResources
+   */
+  readonly jobResources?: SageMakerMonitoringResources;
+
+  /**
+   * @schema SageMakerDescribeDataQualityJobDefinitionResponse#NetworkConfig
+   */
+  readonly networkConfig?: SageMakerMonitoringNetworkConfig;
+
+  /**
+   * @schema SageMakerDescribeDataQualityJobDefinitionResponse#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerDescribeDataQualityJobDefinitionResponse#StoppingCondition
+   */
+  readonly stoppingCondition?: SageMakerMonitoringStoppingCondition;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeDataQualityJobDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeDataQualityJobDefinitionResponse(obj: SageMakerDescribeDataQualityJobDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionArn': obj.jobDefinitionArn,
+    'JobDefinitionName': obj.jobDefinitionName,
+    'CreationTime': obj.creationTime,
+    'DataQualityBaselineConfig': toJson_SageMakerDataQualityBaselineConfig(obj.dataQualityBaselineConfig),
+    'DataQualityAppSpecification': toJson_SageMakerDataQualityAppSpecification(obj.dataQualityAppSpecification),
+    'DataQualityJobInput': toJson_SageMakerDataQualityJobInput(obj.dataQualityJobInput),
+    'DataQualityJobOutputConfig': toJson_SageMakerMonitoringOutputConfig(obj.dataQualityJobOutputConfig),
+    'JobResources': toJson_SageMakerMonitoringResources(obj.jobResources),
+    'NetworkConfig': toJson_SageMakerMonitoringNetworkConfig(obj.networkConfig),
+    'RoleArn': obj.roleArn,
+    'StoppingCondition': toJson_SageMakerMonitoringStoppingCondition(obj.stoppingCondition),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeDeviceRequest
+ */
+export interface SageMakerDescribeDeviceRequest {
+  /**
+   * @schema SageMakerDescribeDeviceRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema SageMakerDescribeDeviceRequest#DeviceName
+   */
+  readonly deviceName?: string;
+
+  /**
+   * @schema SageMakerDescribeDeviceRequest#DeviceFleetName
+   */
+  readonly deviceFleetName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeDeviceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeDeviceRequest(obj: SageMakerDescribeDeviceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'DeviceName': obj.deviceName,
+    'DeviceFleetName': obj.deviceFleetName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeDeviceResponse
+ */
+export interface SageMakerDescribeDeviceResponse {
+  /**
+   * @schema SageMakerDescribeDeviceResponse#DeviceArn
+   */
+  readonly deviceArn?: string;
+
+  /**
+   * @schema SageMakerDescribeDeviceResponse#DeviceName
+   */
+  readonly deviceName?: string;
+
+  /**
+   * @schema SageMakerDescribeDeviceResponse#Description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema SageMakerDescribeDeviceResponse#DeviceFleetName
+   */
+  readonly deviceFleetName?: string;
+
+  /**
+   * @schema SageMakerDescribeDeviceResponse#IotThingName
+   */
+  readonly iotThingName?: string;
+
+  /**
+   * @schema SageMakerDescribeDeviceResponse#RegistrationTime
+   */
+  readonly registrationTime?: string;
+
+  /**
+   * @schema SageMakerDescribeDeviceResponse#LatestHeartbeat
+   */
+  readonly latestHeartbeat?: string;
+
+  /**
+   * @schema SageMakerDescribeDeviceResponse#Models
+   */
+  readonly models?: SageMakerEdgeModel[];
+
+  /**
+   * @schema SageMakerDescribeDeviceResponse#MaxModels
+   */
+  readonly maxModels?: number;
+
+  /**
+   * @schema SageMakerDescribeDeviceResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeDeviceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeDeviceResponse(obj: SageMakerDescribeDeviceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceArn': obj.deviceArn,
+    'DeviceName': obj.deviceName,
+    'Description': obj.description,
+    'DeviceFleetName': obj.deviceFleetName,
+    'IotThingName': obj.iotThingName,
+    'RegistrationTime': obj.registrationTime,
+    'LatestHeartbeat': obj.latestHeartbeat,
+    'Models': obj.models?.map(y => toJson_SageMakerEdgeModel(y)),
+    'MaxModels': obj.maxModels,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeDeviceFleetRequest
+ */
+export interface SageMakerDescribeDeviceFleetRequest {
+  /**
+   * @schema SageMakerDescribeDeviceFleetRequest#DeviceFleetName
+   */
+  readonly deviceFleetName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeDeviceFleetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeDeviceFleetRequest(obj: SageMakerDescribeDeviceFleetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceFleetName': obj.deviceFleetName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeDeviceFleetResponse
+ */
+export interface SageMakerDescribeDeviceFleetResponse {
+  /**
+   * @schema SageMakerDescribeDeviceFleetResponse#DeviceFleetName
+   */
+  readonly deviceFleetName?: string;
+
+  /**
+   * @schema SageMakerDescribeDeviceFleetResponse#DeviceFleetArn
+   */
+  readonly deviceFleetArn?: string;
+
+  /**
+   * @schema SageMakerDescribeDeviceFleetResponse#OutputConfig
+   */
+  readonly outputConfig?: SageMakerEdgeOutputConfig;
+
+  /**
+   * @schema SageMakerDescribeDeviceFleetResponse#Description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema SageMakerDescribeDeviceFleetResponse#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerDescribeDeviceFleetResponse#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+  /**
+   * @schema SageMakerDescribeDeviceFleetResponse#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerDescribeDeviceFleetResponse#IotRoleAlias
+   */
+  readonly iotRoleAlias?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeDeviceFleetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeDeviceFleetResponse(obj: SageMakerDescribeDeviceFleetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceFleetName': obj.deviceFleetName,
+    'DeviceFleetArn': obj.deviceFleetArn,
+    'OutputConfig': toJson_SageMakerEdgeOutputConfig(obj.outputConfig),
+    'Description': obj.description,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'RoleArn': obj.roleArn,
+    'IotRoleAlias': obj.iotRoleAlias,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeDomainRequest
@@ -2381,9 +6660,23 @@ export interface SageMakerDescribeDomainRequest {
   /**
    * @schema SageMakerDescribeDomainRequest#DomainId
    */
-  readonly domainId: string;
+  readonly domainId?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeDomainRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeDomainRequest(obj: SageMakerDescribeDomainRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainId': obj.domainId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeDomainResponse
@@ -2477,15 +6770,193 @@ export interface SageMakerDescribeDomainResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDescribeDomainResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeDomainResponse(obj: SageMakerDescribeDomainResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainArn': obj.domainArn,
+    'DomainId': obj.domainId,
+    'DomainName': obj.domainName,
+    'HomeEfsFileSystemId': obj.homeEfsFileSystemId,
+    'SingleSignOnManagedApplicationInstanceId': obj.singleSignOnManagedApplicationInstanceId,
+    'Status': obj.status,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'FailureReason': obj.failureReason,
+    'AuthMode': obj.authMode,
+    'DefaultUserSettings': toJson_SageMakerUserSettings(obj.defaultUserSettings),
+    'AppNetworkAccessType': obj.appNetworkAccessType,
+    'HomeEfsFileSystemKmsKeyId': obj.homeEfsFileSystemKmsKeyId,
+    'SubnetIds': obj.subnetIds?.map(y => y),
+    'Url': obj.url,
+    'VpcId': obj.vpcId,
+    'KmsKeyId': obj.kmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeEdgePackagingJobRequest
+ */
+export interface SageMakerDescribeEdgePackagingJobRequest {
+  /**
+   * @schema SageMakerDescribeEdgePackagingJobRequest#EdgePackagingJobName
+   */
+  readonly edgePackagingJobName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeEdgePackagingJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeEdgePackagingJobRequest(obj: SageMakerDescribeEdgePackagingJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EdgePackagingJobName': obj.edgePackagingJobName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeEdgePackagingJobResponse
+ */
+export interface SageMakerDescribeEdgePackagingJobResponse {
+  /**
+   * @schema SageMakerDescribeEdgePackagingJobResponse#EdgePackagingJobArn
+   */
+  readonly edgePackagingJobArn?: string;
+
+  /**
+   * @schema SageMakerDescribeEdgePackagingJobResponse#EdgePackagingJobName
+   */
+  readonly edgePackagingJobName?: string;
+
+  /**
+   * @schema SageMakerDescribeEdgePackagingJobResponse#CompilationJobName
+   */
+  readonly compilationJobName?: string;
+
+  /**
+   * @schema SageMakerDescribeEdgePackagingJobResponse#ModelName
+   */
+  readonly modelName?: string;
+
+  /**
+   * @schema SageMakerDescribeEdgePackagingJobResponse#ModelVersion
+   */
+  readonly modelVersion?: string;
+
+  /**
+   * @schema SageMakerDescribeEdgePackagingJobResponse#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerDescribeEdgePackagingJobResponse#OutputConfig
+   */
+  readonly outputConfig?: SageMakerEdgeOutputConfig;
+
+  /**
+   * @schema SageMakerDescribeEdgePackagingJobResponse#ResourceKey
+   */
+  readonly resourceKey?: string;
+
+  /**
+   * @schema SageMakerDescribeEdgePackagingJobResponse#EdgePackagingJobStatus
+   */
+  readonly edgePackagingJobStatus?: string;
+
+  /**
+   * @schema SageMakerDescribeEdgePackagingJobResponse#EdgePackagingJobStatusMessage
+   */
+  readonly edgePackagingJobStatusMessage?: string;
+
+  /**
+   * @schema SageMakerDescribeEdgePackagingJobResponse#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerDescribeEdgePackagingJobResponse#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+  /**
+   * @schema SageMakerDescribeEdgePackagingJobResponse#ModelArtifact
+   */
+  readonly modelArtifact?: string;
+
+  /**
+   * @schema SageMakerDescribeEdgePackagingJobResponse#ModelSignature
+   */
+  readonly modelSignature?: string;
+
+  /**
+   * @schema SageMakerDescribeEdgePackagingJobResponse#PresetDeploymentOutput
+   */
+  readonly presetDeploymentOutput?: SageMakerEdgePresetDeploymentOutput;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeEdgePackagingJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeEdgePackagingJobResponse(obj: SageMakerDescribeEdgePackagingJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EdgePackagingJobArn': obj.edgePackagingJobArn,
+    'EdgePackagingJobName': obj.edgePackagingJobName,
+    'CompilationJobName': obj.compilationJobName,
+    'ModelName': obj.modelName,
+    'ModelVersion': obj.modelVersion,
+    'RoleArn': obj.roleArn,
+    'OutputConfig': toJson_SageMakerEdgeOutputConfig(obj.outputConfig),
+    'ResourceKey': obj.resourceKey,
+    'EdgePackagingJobStatus': obj.edgePackagingJobStatus,
+    'EdgePackagingJobStatusMessage': obj.edgePackagingJobStatusMessage,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'ModelArtifact': obj.modelArtifact,
+    'ModelSignature': obj.modelSignature,
+    'PresetDeploymentOutput': toJson_SageMakerEdgePresetDeploymentOutput(obj.presetDeploymentOutput),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDescribeEndpointInput
  */
 export interface SageMakerDescribeEndpointInput {
   /**
    * @schema SageMakerDescribeEndpointInput#EndpointName
    */
-  readonly endpointName: string;
+  readonly endpointName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeEndpointInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeEndpointInput(obj: SageMakerDescribeEndpointInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointName': obj.endpointName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeEndpointOutput
@@ -2494,17 +6965,17 @@ export interface SageMakerDescribeEndpointOutput {
   /**
    * @schema SageMakerDescribeEndpointOutput#EndpointName
    */
-  readonly endpointName: string;
+  readonly endpointName?: string;
 
   /**
    * @schema SageMakerDescribeEndpointOutput#EndpointArn
    */
-  readonly endpointArn: string;
+  readonly endpointArn?: string;
 
   /**
    * @schema SageMakerDescribeEndpointOutput#EndpointConfigName
    */
-  readonly endpointConfigName: string;
+  readonly endpointConfigName?: string;
 
   /**
    * @schema SageMakerDescribeEndpointOutput#ProductionVariants
@@ -2519,7 +6990,7 @@ export interface SageMakerDescribeEndpointOutput {
   /**
    * @schema SageMakerDescribeEndpointOutput#EndpointStatus
    */
-  readonly endpointStatus: string;
+  readonly endpointStatus?: string;
 
   /**
    * @schema SageMakerDescribeEndpointOutput#FailureReason
@@ -2529,14 +7000,42 @@ export interface SageMakerDescribeEndpointOutput {
   /**
    * @schema SageMakerDescribeEndpointOutput#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerDescribeEndpointOutput#LastModifiedTime
    */
-  readonly lastModifiedTime: string;
+  readonly lastModifiedTime?: string;
+
+  /**
+   * @schema SageMakerDescribeEndpointOutput#LastDeploymentConfig
+   */
+  readonly lastDeploymentConfig?: SageMakerDeploymentConfig;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeEndpointOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeEndpointOutput(obj: SageMakerDescribeEndpointOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointName': obj.endpointName,
+    'EndpointArn': obj.endpointArn,
+    'EndpointConfigName': obj.endpointConfigName,
+    'ProductionVariants': obj.productionVariants?.map(y => toJson_SageMakerProductionVariantSummary(y)),
+    'DataCaptureConfig': toJson_SageMakerDataCaptureConfigSummary(obj.dataCaptureConfig),
+    'EndpointStatus': obj.endpointStatus,
+    'FailureReason': obj.failureReason,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'LastDeploymentConfig': toJson_SageMakerDeploymentConfig(obj.lastDeploymentConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeEndpointConfigInput
@@ -2545,9 +7044,23 @@ export interface SageMakerDescribeEndpointConfigInput {
   /**
    * @schema SageMakerDescribeEndpointConfigInput#EndpointConfigName
    */
-  readonly endpointConfigName: string;
+  readonly endpointConfigName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeEndpointConfigInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeEndpointConfigInput(obj: SageMakerDescribeEndpointConfigInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointConfigName': obj.endpointConfigName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeEndpointConfigOutput
@@ -2556,17 +7069,17 @@ export interface SageMakerDescribeEndpointConfigOutput {
   /**
    * @schema SageMakerDescribeEndpointConfigOutput#EndpointConfigName
    */
-  readonly endpointConfigName: string;
+  readonly endpointConfigName?: string;
 
   /**
    * @schema SageMakerDescribeEndpointConfigOutput#EndpointConfigArn
    */
-  readonly endpointConfigArn: string;
+  readonly endpointConfigArn?: string;
 
   /**
    * @schema SageMakerDescribeEndpointConfigOutput#ProductionVariants
    */
-  readonly productionVariants: SageMakerProductionVariant[];
+  readonly productionVariants?: SageMakerProductionVariant[];
 
   /**
    * @schema SageMakerDescribeEndpointConfigOutput#DataCaptureConfig
@@ -2581,9 +7094,28 @@ export interface SageMakerDescribeEndpointConfigOutput {
   /**
    * @schema SageMakerDescribeEndpointConfigOutput#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeEndpointConfigOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeEndpointConfigOutput(obj: SageMakerDescribeEndpointConfigOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointConfigName': obj.endpointConfigName,
+    'EndpointConfigArn': obj.endpointConfigArn,
+    'ProductionVariants': obj.productionVariants?.map(y => toJson_SageMakerProductionVariant(y)),
+    'DataCaptureConfig': toJson_SageMakerDataCaptureConfig(obj.dataCaptureConfig),
+    'KmsKeyId': obj.kmsKeyId,
+    'CreationTime': obj.creationTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeExperimentRequest
@@ -2592,9 +7124,23 @@ export interface SageMakerDescribeExperimentRequest {
   /**
    * @schema SageMakerDescribeExperimentRequest#ExperimentName
    */
-  readonly experimentName: string;
+  readonly experimentName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeExperimentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeExperimentRequest(obj: SageMakerDescribeExperimentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExperimentName': obj.experimentName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeExperimentResponse
@@ -2648,15 +7194,185 @@ export interface SageMakerDescribeExperimentResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDescribeExperimentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeExperimentResponse(obj: SageMakerDescribeExperimentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExperimentName': obj.experimentName,
+    'ExperimentArn': obj.experimentArn,
+    'DisplayName': obj.displayName,
+    'Source': toJson_SageMakerExperimentSource(obj.source),
+    'Description': obj.description,
+    'CreationTime': obj.creationTime,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'LastModifiedTime': obj.lastModifiedTime,
+    'LastModifiedBy': toJson_SageMakerUserContext(obj.lastModifiedBy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeFeatureGroupRequest
+ */
+export interface SageMakerDescribeFeatureGroupRequest {
+  /**
+   * @schema SageMakerDescribeFeatureGroupRequest#FeatureGroupName
+   */
+  readonly featureGroupName?: string;
+
+  /**
+   * @schema SageMakerDescribeFeatureGroupRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeFeatureGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeFeatureGroupRequest(obj: SageMakerDescribeFeatureGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FeatureGroupName': obj.featureGroupName,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeFeatureGroupResponse
+ */
+export interface SageMakerDescribeFeatureGroupResponse {
+  /**
+   * @schema SageMakerDescribeFeatureGroupResponse#FeatureGroupArn
+   */
+  readonly featureGroupArn?: string;
+
+  /**
+   * @schema SageMakerDescribeFeatureGroupResponse#FeatureGroupName
+   */
+  readonly featureGroupName?: string;
+
+  /**
+   * @schema SageMakerDescribeFeatureGroupResponse#RecordIdentifierFeatureName
+   */
+  readonly recordIdentifierFeatureName?: string;
+
+  /**
+   * @schema SageMakerDescribeFeatureGroupResponse#EventTimeFeatureName
+   */
+  readonly eventTimeFeatureName?: string;
+
+  /**
+   * @schema SageMakerDescribeFeatureGroupResponse#FeatureDefinitions
+   */
+  readonly featureDefinitions?: SageMakerFeatureDefinition[];
+
+  /**
+   * @schema SageMakerDescribeFeatureGroupResponse#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerDescribeFeatureGroupResponse#OnlineStoreConfig
+   */
+  readonly onlineStoreConfig?: SageMakerOnlineStoreConfig;
+
+  /**
+   * @schema SageMakerDescribeFeatureGroupResponse#OfflineStoreConfig
+   */
+  readonly offlineStoreConfig?: SageMakerOfflineStoreConfig;
+
+  /**
+   * @schema SageMakerDescribeFeatureGroupResponse#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerDescribeFeatureGroupResponse#FeatureGroupStatus
+   */
+  readonly featureGroupStatus?: string;
+
+  /**
+   * @schema SageMakerDescribeFeatureGroupResponse#OfflineStoreStatus
+   */
+  readonly offlineStoreStatus?: SageMakerOfflineStoreStatus;
+
+  /**
+   * @schema SageMakerDescribeFeatureGroupResponse#FailureReason
+   */
+  readonly failureReason?: string;
+
+  /**
+   * @schema SageMakerDescribeFeatureGroupResponse#Description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema SageMakerDescribeFeatureGroupResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeFeatureGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeFeatureGroupResponse(obj: SageMakerDescribeFeatureGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FeatureGroupArn': obj.featureGroupArn,
+    'FeatureGroupName': obj.featureGroupName,
+    'RecordIdentifierFeatureName': obj.recordIdentifierFeatureName,
+    'EventTimeFeatureName': obj.eventTimeFeatureName,
+    'FeatureDefinitions': obj.featureDefinitions?.map(y => toJson_SageMakerFeatureDefinition(y)),
+    'CreationTime': obj.creationTime,
+    'OnlineStoreConfig': toJson_SageMakerOnlineStoreConfig(obj.onlineStoreConfig),
+    'OfflineStoreConfig': toJson_SageMakerOfflineStoreConfig(obj.offlineStoreConfig),
+    'RoleArn': obj.roleArn,
+    'FeatureGroupStatus': obj.featureGroupStatus,
+    'OfflineStoreStatus': toJson_SageMakerOfflineStoreStatus(obj.offlineStoreStatus),
+    'FailureReason': obj.failureReason,
+    'Description': obj.description,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDescribeFlowDefinitionRequest
  */
 export interface SageMakerDescribeFlowDefinitionRequest {
   /**
    * @schema SageMakerDescribeFlowDefinitionRequest#FlowDefinitionName
    */
-  readonly flowDefinitionName: string;
+  readonly flowDefinitionName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeFlowDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeFlowDefinitionRequest(obj: SageMakerDescribeFlowDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FlowDefinitionName': obj.flowDefinitionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeFlowDefinitionResponse
@@ -2665,22 +7381,22 @@ export interface SageMakerDescribeFlowDefinitionResponse {
   /**
    * @schema SageMakerDescribeFlowDefinitionResponse#FlowDefinitionArn
    */
-  readonly flowDefinitionArn: string;
+  readonly flowDefinitionArn?: string;
 
   /**
    * @schema SageMakerDescribeFlowDefinitionResponse#FlowDefinitionName
    */
-  readonly flowDefinitionName: string;
+  readonly flowDefinitionName?: string;
 
   /**
    * @schema SageMakerDescribeFlowDefinitionResponse#FlowDefinitionStatus
    */
-  readonly flowDefinitionStatus: string;
+  readonly flowDefinitionStatus?: string;
 
   /**
    * @schema SageMakerDescribeFlowDefinitionResponse#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerDescribeFlowDefinitionResponse#HumanLoopRequestSource
@@ -2695,17 +7411,17 @@ export interface SageMakerDescribeFlowDefinitionResponse {
   /**
    * @schema SageMakerDescribeFlowDefinitionResponse#HumanLoopConfig
    */
-  readonly humanLoopConfig: SageMakerHumanLoopConfig;
+  readonly humanLoopConfig?: SageMakerHumanLoopConfig;
 
   /**
    * @schema SageMakerDescribeFlowDefinitionResponse#OutputConfig
    */
-  readonly outputConfig: SageMakerFlowDefinitionOutputConfig;
+  readonly outputConfig?: SageMakerFlowDefinitionOutputConfig;
 
   /**
    * @schema SageMakerDescribeFlowDefinitionResponse#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema SageMakerDescribeFlowDefinitionResponse#FailureReason
@@ -2715,15 +7431,52 @@ export interface SageMakerDescribeFlowDefinitionResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDescribeFlowDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeFlowDefinitionResponse(obj: SageMakerDescribeFlowDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FlowDefinitionArn': obj.flowDefinitionArn,
+    'FlowDefinitionName': obj.flowDefinitionName,
+    'FlowDefinitionStatus': obj.flowDefinitionStatus,
+    'CreationTime': obj.creationTime,
+    'HumanLoopRequestSource': toJson_SageMakerHumanLoopRequestSource(obj.humanLoopRequestSource),
+    'HumanLoopActivationConfig': toJson_SageMakerHumanLoopActivationConfig(obj.humanLoopActivationConfig),
+    'HumanLoopConfig': toJson_SageMakerHumanLoopConfig(obj.humanLoopConfig),
+    'OutputConfig': toJson_SageMakerFlowDefinitionOutputConfig(obj.outputConfig),
+    'RoleArn': obj.roleArn,
+    'FailureReason': obj.failureReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDescribeHumanTaskUiRequest
  */
 export interface SageMakerDescribeHumanTaskUiRequest {
   /**
    * @schema SageMakerDescribeHumanTaskUiRequest#HumanTaskUiName
    */
-  readonly humanTaskUiName: string;
+  readonly humanTaskUiName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeHumanTaskUiRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeHumanTaskUiRequest(obj: SageMakerDescribeHumanTaskUiRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HumanTaskUiName': obj.humanTaskUiName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeHumanTaskUiResponse
@@ -2732,12 +7485,12 @@ export interface SageMakerDescribeHumanTaskUiResponse {
   /**
    * @schema SageMakerDescribeHumanTaskUiResponse#HumanTaskUiArn
    */
-  readonly humanTaskUiArn: string;
+  readonly humanTaskUiArn?: string;
 
   /**
    * @schema SageMakerDescribeHumanTaskUiResponse#HumanTaskUiName
    */
-  readonly humanTaskUiName: string;
+  readonly humanTaskUiName?: string;
 
   /**
    * @schema SageMakerDescribeHumanTaskUiResponse#HumanTaskUiStatus
@@ -2747,14 +7500,32 @@ export interface SageMakerDescribeHumanTaskUiResponse {
   /**
    * @schema SageMakerDescribeHumanTaskUiResponse#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerDescribeHumanTaskUiResponse#UiTemplate
    */
-  readonly uiTemplate: SageMakerUiTemplateInfo;
+  readonly uiTemplate?: SageMakerUiTemplateInfo;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeHumanTaskUiResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeHumanTaskUiResponse(obj: SageMakerDescribeHumanTaskUiResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HumanTaskUiArn': obj.humanTaskUiArn,
+    'HumanTaskUiName': obj.humanTaskUiName,
+    'HumanTaskUiStatus': obj.humanTaskUiStatus,
+    'CreationTime': obj.creationTime,
+    'UiTemplate': toJson_SageMakerUiTemplateInfo(obj.uiTemplate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeHyperParameterTuningJobRequest
@@ -2763,9 +7534,23 @@ export interface SageMakerDescribeHyperParameterTuningJobRequest {
   /**
    * @schema SageMakerDescribeHyperParameterTuningJobRequest#HyperParameterTuningJobName
    */
-  readonly hyperParameterTuningJobName: string;
+  readonly hyperParameterTuningJobName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeHyperParameterTuningJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeHyperParameterTuningJobRequest(obj: SageMakerDescribeHyperParameterTuningJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HyperParameterTuningJobName': obj.hyperParameterTuningJobName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeHyperParameterTuningJobResponse
@@ -2774,17 +7559,17 @@ export interface SageMakerDescribeHyperParameterTuningJobResponse {
   /**
    * @schema SageMakerDescribeHyperParameterTuningJobResponse#HyperParameterTuningJobName
    */
-  readonly hyperParameterTuningJobName: string;
+  readonly hyperParameterTuningJobName?: string;
 
   /**
    * @schema SageMakerDescribeHyperParameterTuningJobResponse#HyperParameterTuningJobArn
    */
-  readonly hyperParameterTuningJobArn: string;
+  readonly hyperParameterTuningJobArn?: string;
 
   /**
    * @schema SageMakerDescribeHyperParameterTuningJobResponse#HyperParameterTuningJobConfig
    */
-  readonly hyperParameterTuningJobConfig: SageMakerHyperParameterTuningJobConfig;
+  readonly hyperParameterTuningJobConfig?: SageMakerHyperParameterTuningJobConfig;
 
   /**
    * @schema SageMakerDescribeHyperParameterTuningJobResponse#TrainingJobDefinition
@@ -2799,12 +7584,12 @@ export interface SageMakerDescribeHyperParameterTuningJobResponse {
   /**
    * @schema SageMakerDescribeHyperParameterTuningJobResponse#HyperParameterTuningJobStatus
    */
-  readonly hyperParameterTuningJobStatus: string;
+  readonly hyperParameterTuningJobStatus?: string;
 
   /**
    * @schema SageMakerDescribeHyperParameterTuningJobResponse#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerDescribeHyperParameterTuningJobResponse#HyperParameterTuningEndTime
@@ -2819,12 +7604,12 @@ export interface SageMakerDescribeHyperParameterTuningJobResponse {
   /**
    * @schema SageMakerDescribeHyperParameterTuningJobResponse#TrainingJobStatusCounters
    */
-  readonly trainingJobStatusCounters: SageMakerTrainingJobStatusCounters;
+  readonly trainingJobStatusCounters?: SageMakerTrainingJobStatusCounters;
 
   /**
    * @schema SageMakerDescribeHyperParameterTuningJobResponse#ObjectiveStatusCounters
    */
-  readonly objectiveStatusCounters: SageMakerObjectiveStatusCounters;
+  readonly objectiveStatusCounters?: SageMakerObjectiveStatusCounters;
 
   /**
    * @schema SageMakerDescribeHyperParameterTuningJobResponse#BestTrainingJob
@@ -2849,15 +7634,57 @@ export interface SageMakerDescribeHyperParameterTuningJobResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDescribeHyperParameterTuningJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeHyperParameterTuningJobResponse(obj: SageMakerDescribeHyperParameterTuningJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HyperParameterTuningJobName': obj.hyperParameterTuningJobName,
+    'HyperParameterTuningJobArn': obj.hyperParameterTuningJobArn,
+    'HyperParameterTuningJobConfig': toJson_SageMakerHyperParameterTuningJobConfig(obj.hyperParameterTuningJobConfig),
+    'TrainingJobDefinition': toJson_SageMakerHyperParameterTrainingJobDefinition(obj.trainingJobDefinition),
+    'TrainingJobDefinitions': obj.trainingJobDefinitions?.map(y => toJson_SageMakerHyperParameterTrainingJobDefinition(y)),
+    'HyperParameterTuningJobStatus': obj.hyperParameterTuningJobStatus,
+    'CreationTime': obj.creationTime,
+    'HyperParameterTuningEndTime': obj.hyperParameterTuningEndTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'TrainingJobStatusCounters': toJson_SageMakerTrainingJobStatusCounters(obj.trainingJobStatusCounters),
+    'ObjectiveStatusCounters': toJson_SageMakerObjectiveStatusCounters(obj.objectiveStatusCounters),
+    'BestTrainingJob': toJson_SageMakerHyperParameterTrainingJobSummary(obj.bestTrainingJob),
+    'OverallBestTrainingJob': toJson_SageMakerHyperParameterTrainingJobSummary(obj.overallBestTrainingJob),
+    'WarmStartConfig': toJson_SageMakerHyperParameterTuningJobWarmStartConfig(obj.warmStartConfig),
+    'FailureReason': obj.failureReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDescribeImageRequest
  */
 export interface SageMakerDescribeImageRequest {
   /**
    * @schema SageMakerDescribeImageRequest#ImageName
    */
-  readonly imageName: string;
+  readonly imageName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeImageRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeImageRequest(obj: SageMakerDescribeImageRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ImageName': obj.imageName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeImageResponse
@@ -2911,13 +7738,35 @@ export interface SageMakerDescribeImageResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDescribeImageResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeImageResponse(obj: SageMakerDescribeImageResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreationTime': obj.creationTime,
+    'Description': obj.description,
+    'DisplayName': obj.displayName,
+    'FailureReason': obj.failureReason,
+    'ImageArn': obj.imageArn,
+    'ImageName': obj.imageName,
+    'ImageStatus': obj.imageStatus,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'RoleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDescribeImageVersionRequest
  */
 export interface SageMakerDescribeImageVersionRequest {
   /**
    * @schema SageMakerDescribeImageVersionRequest#ImageName
    */
-  readonly imageName: string;
+  readonly imageName?: string;
 
   /**
    * @schema SageMakerDescribeImageVersionRequest#Version
@@ -2925,6 +7774,21 @@ export interface SageMakerDescribeImageVersionRequest {
   readonly version?: number;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeImageVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeImageVersionRequest(obj: SageMakerDescribeImageVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ImageName': obj.imageName,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeImageVersionResponse
@@ -2978,15 +7842,51 @@ export interface SageMakerDescribeImageVersionResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDescribeImageVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeImageVersionResponse(obj: SageMakerDescribeImageVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BaseImage': obj.baseImage,
+    'ContainerImage': obj.containerImage,
+    'CreationTime': obj.creationTime,
+    'FailureReason': obj.failureReason,
+    'ImageArn': obj.imageArn,
+    'ImageVersionArn': obj.imageVersionArn,
+    'ImageVersionStatus': obj.imageVersionStatus,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDescribeLabelingJobRequest
  */
 export interface SageMakerDescribeLabelingJobRequest {
   /**
    * @schema SageMakerDescribeLabelingJobRequest#LabelingJobName
    */
-  readonly labelingJobName: string;
+  readonly labelingJobName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeLabelingJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeLabelingJobRequest(obj: SageMakerDescribeLabelingJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LabelingJobName': obj.labelingJobName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeLabelingJobResponse
@@ -2995,12 +7895,12 @@ export interface SageMakerDescribeLabelingJobResponse {
   /**
    * @schema SageMakerDescribeLabelingJobResponse#LabelingJobStatus
    */
-  readonly labelingJobStatus: string;
+  readonly labelingJobStatus?: string;
 
   /**
    * @schema SageMakerDescribeLabelingJobResponse#LabelCounters
    */
-  readonly labelCounters: SageMakerLabelCounters;
+  readonly labelCounters?: SageMakerLabelCounters;
 
   /**
    * @schema SageMakerDescribeLabelingJobResponse#FailureReason
@@ -3010,27 +7910,27 @@ export interface SageMakerDescribeLabelingJobResponse {
   /**
    * @schema SageMakerDescribeLabelingJobResponse#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerDescribeLabelingJobResponse#LastModifiedTime
    */
-  readonly lastModifiedTime: string;
+  readonly lastModifiedTime?: string;
 
   /**
    * @schema SageMakerDescribeLabelingJobResponse#JobReferenceCode
    */
-  readonly jobReferenceCode: string;
+  readonly jobReferenceCode?: string;
 
   /**
    * @schema SageMakerDescribeLabelingJobResponse#LabelingJobName
    */
-  readonly labelingJobName: string;
+  readonly labelingJobName?: string;
 
   /**
    * @schema SageMakerDescribeLabelingJobResponse#LabelingJobArn
    */
-  readonly labelingJobArn: string;
+  readonly labelingJobArn?: string;
 
   /**
    * @schema SageMakerDescribeLabelingJobResponse#LabelAttributeName
@@ -3040,17 +7940,17 @@ export interface SageMakerDescribeLabelingJobResponse {
   /**
    * @schema SageMakerDescribeLabelingJobResponse#InputConfig
    */
-  readonly inputConfig: SageMakerLabelingJobInputConfig;
+  readonly inputConfig?: SageMakerLabelingJobInputConfig;
 
   /**
    * @schema SageMakerDescribeLabelingJobResponse#OutputConfig
    */
-  readonly outputConfig: SageMakerLabelingJobOutputConfig;
+  readonly outputConfig?: SageMakerLabelingJobOutputConfig;
 
   /**
    * @schema SageMakerDescribeLabelingJobResponse#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema SageMakerDescribeLabelingJobResponse#LabelCategoryConfigS3Uri
@@ -3070,7 +7970,7 @@ export interface SageMakerDescribeLabelingJobResponse {
   /**
    * @schema SageMakerDescribeLabelingJobResponse#HumanTaskConfig
    */
-  readonly humanTaskConfig: SageMakerHumanTaskConfig;
+  readonly humanTaskConfig?: SageMakerHumanTaskConfig;
 
   /**
    * @schema SageMakerDescribeLabelingJobResponse#Tags
@@ -3085,15 +7985,60 @@ export interface SageMakerDescribeLabelingJobResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDescribeLabelingJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeLabelingJobResponse(obj: SageMakerDescribeLabelingJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LabelingJobStatus': obj.labelingJobStatus,
+    'LabelCounters': toJson_SageMakerLabelCounters(obj.labelCounters),
+    'FailureReason': obj.failureReason,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'JobReferenceCode': obj.jobReferenceCode,
+    'LabelingJobName': obj.labelingJobName,
+    'LabelingJobArn': obj.labelingJobArn,
+    'LabelAttributeName': obj.labelAttributeName,
+    'InputConfig': toJson_SageMakerLabelingJobInputConfig(obj.inputConfig),
+    'OutputConfig': toJson_SageMakerLabelingJobOutputConfig(obj.outputConfig),
+    'RoleArn': obj.roleArn,
+    'LabelCategoryConfigS3Uri': obj.labelCategoryConfigS3Uri,
+    'StoppingConditions': toJson_SageMakerLabelingJobStoppingConditions(obj.stoppingConditions),
+    'LabelingJobAlgorithmsConfig': toJson_SageMakerLabelingJobAlgorithmsConfig(obj.labelingJobAlgorithmsConfig),
+    'HumanTaskConfig': toJson_SageMakerHumanTaskConfig(obj.humanTaskConfig),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+    'LabelingJobOutput': toJson_SageMakerLabelingJobOutput(obj.labelingJobOutput),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDescribeModelInput
  */
 export interface SageMakerDescribeModelInput {
   /**
    * @schema SageMakerDescribeModelInput#ModelName
    */
-  readonly modelName: string;
+  readonly modelName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeModelInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeModelInput(obj: SageMakerDescribeModelInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelName': obj.modelName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeModelOutput
@@ -3102,7 +8047,7 @@ export interface SageMakerDescribeModelOutput {
   /**
    * @schema SageMakerDescribeModelOutput#ModelName
    */
-  readonly modelName: string;
+  readonly modelName?: string;
 
   /**
    * @schema SageMakerDescribeModelOutput#PrimaryContainer
@@ -3115,9 +8060,14 @@ export interface SageMakerDescribeModelOutput {
   readonly containers?: SageMakerContainerDefinition[];
 
   /**
+   * @schema SageMakerDescribeModelOutput#InferenceExecutionConfig
+   */
+  readonly inferenceExecutionConfig?: SageMakerInferenceExecutionConfig;
+
+  /**
    * @schema SageMakerDescribeModelOutput#ExecutionRoleArn
    */
-  readonly executionRoleArn: string;
+  readonly executionRoleArn?: string;
 
   /**
    * @schema SageMakerDescribeModelOutput#VpcConfig
@@ -3127,12 +8077,12 @@ export interface SageMakerDescribeModelOutput {
   /**
    * @schema SageMakerDescribeModelOutput#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerDescribeModelOutput#ModelArn
    */
-  readonly modelArn: string;
+  readonly modelArn?: string;
 
   /**
    * @schema SageMakerDescribeModelOutput#EnableNetworkIsolation
@@ -3142,15 +8092,271 @@ export interface SageMakerDescribeModelOutput {
 }
 
 /**
+ * Converts an object of type 'SageMakerDescribeModelOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeModelOutput(obj: SageMakerDescribeModelOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelName': obj.modelName,
+    'PrimaryContainer': toJson_SageMakerContainerDefinition(obj.primaryContainer),
+    'Containers': obj.containers?.map(y => toJson_SageMakerContainerDefinition(y)),
+    'InferenceExecutionConfig': toJson_SageMakerInferenceExecutionConfig(obj.inferenceExecutionConfig),
+    'ExecutionRoleArn': obj.executionRoleArn,
+    'VpcConfig': toJson_SageMakerVpcConfig(obj.vpcConfig),
+    'CreationTime': obj.creationTime,
+    'ModelArn': obj.modelArn,
+    'EnableNetworkIsolation': obj.enableNetworkIsolation,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeModelBiasJobDefinitionRequest
+ */
+export interface SageMakerDescribeModelBiasJobDefinitionRequest {
+  /**
+   * @schema SageMakerDescribeModelBiasJobDefinitionRequest#JobDefinitionName
+   */
+  readonly jobDefinitionName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeModelBiasJobDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeModelBiasJobDefinitionRequest(obj: SageMakerDescribeModelBiasJobDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionName': obj.jobDefinitionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeModelBiasJobDefinitionResponse
+ */
+export interface SageMakerDescribeModelBiasJobDefinitionResponse {
+  /**
+   * @schema SageMakerDescribeModelBiasJobDefinitionResponse#JobDefinitionArn
+   */
+  readonly jobDefinitionArn?: string;
+
+  /**
+   * @schema SageMakerDescribeModelBiasJobDefinitionResponse#JobDefinitionName
+   */
+  readonly jobDefinitionName?: string;
+
+  /**
+   * @schema SageMakerDescribeModelBiasJobDefinitionResponse#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerDescribeModelBiasJobDefinitionResponse#ModelBiasBaselineConfig
+   */
+  readonly modelBiasBaselineConfig?: SageMakerModelBiasBaselineConfig;
+
+  /**
+   * @schema SageMakerDescribeModelBiasJobDefinitionResponse#ModelBiasAppSpecification
+   */
+  readonly modelBiasAppSpecification?: SageMakerModelBiasAppSpecification;
+
+  /**
+   * @schema SageMakerDescribeModelBiasJobDefinitionResponse#ModelBiasJobInput
+   */
+  readonly modelBiasJobInput?: SageMakerModelBiasJobInput;
+
+  /**
+   * @schema SageMakerDescribeModelBiasJobDefinitionResponse#ModelBiasJobOutputConfig
+   */
+  readonly modelBiasJobOutputConfig?: SageMakerMonitoringOutputConfig;
+
+  /**
+   * @schema SageMakerDescribeModelBiasJobDefinitionResponse#JobResources
+   */
+  readonly jobResources?: SageMakerMonitoringResources;
+
+  /**
+   * @schema SageMakerDescribeModelBiasJobDefinitionResponse#NetworkConfig
+   */
+  readonly networkConfig?: SageMakerMonitoringNetworkConfig;
+
+  /**
+   * @schema SageMakerDescribeModelBiasJobDefinitionResponse#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerDescribeModelBiasJobDefinitionResponse#StoppingCondition
+   */
+  readonly stoppingCondition?: SageMakerMonitoringStoppingCondition;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeModelBiasJobDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeModelBiasJobDefinitionResponse(obj: SageMakerDescribeModelBiasJobDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionArn': obj.jobDefinitionArn,
+    'JobDefinitionName': obj.jobDefinitionName,
+    'CreationTime': obj.creationTime,
+    'ModelBiasBaselineConfig': toJson_SageMakerModelBiasBaselineConfig(obj.modelBiasBaselineConfig),
+    'ModelBiasAppSpecification': toJson_SageMakerModelBiasAppSpecification(obj.modelBiasAppSpecification),
+    'ModelBiasJobInput': toJson_SageMakerModelBiasJobInput(obj.modelBiasJobInput),
+    'ModelBiasJobOutputConfig': toJson_SageMakerMonitoringOutputConfig(obj.modelBiasJobOutputConfig),
+    'JobResources': toJson_SageMakerMonitoringResources(obj.jobResources),
+    'NetworkConfig': toJson_SageMakerMonitoringNetworkConfig(obj.networkConfig),
+    'RoleArn': obj.roleArn,
+    'StoppingCondition': toJson_SageMakerMonitoringStoppingCondition(obj.stoppingCondition),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeModelExplainabilityJobDefinitionRequest
+ */
+export interface SageMakerDescribeModelExplainabilityJobDefinitionRequest {
+  /**
+   * @schema SageMakerDescribeModelExplainabilityJobDefinitionRequest#JobDefinitionName
+   */
+  readonly jobDefinitionName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeModelExplainabilityJobDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeModelExplainabilityJobDefinitionRequest(obj: SageMakerDescribeModelExplainabilityJobDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionName': obj.jobDefinitionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeModelExplainabilityJobDefinitionResponse
+ */
+export interface SageMakerDescribeModelExplainabilityJobDefinitionResponse {
+  /**
+   * @schema SageMakerDescribeModelExplainabilityJobDefinitionResponse#JobDefinitionArn
+   */
+  readonly jobDefinitionArn?: string;
+
+  /**
+   * @schema SageMakerDescribeModelExplainabilityJobDefinitionResponse#JobDefinitionName
+   */
+  readonly jobDefinitionName?: string;
+
+  /**
+   * @schema SageMakerDescribeModelExplainabilityJobDefinitionResponse#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerDescribeModelExplainabilityJobDefinitionResponse#ModelExplainabilityBaselineConfig
+   */
+  readonly modelExplainabilityBaselineConfig?: SageMakerModelExplainabilityBaselineConfig;
+
+  /**
+   * @schema SageMakerDescribeModelExplainabilityJobDefinitionResponse#ModelExplainabilityAppSpecification
+   */
+  readonly modelExplainabilityAppSpecification?: SageMakerModelExplainabilityAppSpecification;
+
+  /**
+   * @schema SageMakerDescribeModelExplainabilityJobDefinitionResponse#ModelExplainabilityJobInput
+   */
+  readonly modelExplainabilityJobInput?: SageMakerModelExplainabilityJobInput;
+
+  /**
+   * @schema SageMakerDescribeModelExplainabilityJobDefinitionResponse#ModelExplainabilityJobOutputConfig
+   */
+  readonly modelExplainabilityJobOutputConfig?: SageMakerMonitoringOutputConfig;
+
+  /**
+   * @schema SageMakerDescribeModelExplainabilityJobDefinitionResponse#JobResources
+   */
+  readonly jobResources?: SageMakerMonitoringResources;
+
+  /**
+   * @schema SageMakerDescribeModelExplainabilityJobDefinitionResponse#NetworkConfig
+   */
+  readonly networkConfig?: SageMakerMonitoringNetworkConfig;
+
+  /**
+   * @schema SageMakerDescribeModelExplainabilityJobDefinitionResponse#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerDescribeModelExplainabilityJobDefinitionResponse#StoppingCondition
+   */
+  readonly stoppingCondition?: SageMakerMonitoringStoppingCondition;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeModelExplainabilityJobDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeModelExplainabilityJobDefinitionResponse(obj: SageMakerDescribeModelExplainabilityJobDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionArn': obj.jobDefinitionArn,
+    'JobDefinitionName': obj.jobDefinitionName,
+    'CreationTime': obj.creationTime,
+    'ModelExplainabilityBaselineConfig': toJson_SageMakerModelExplainabilityBaselineConfig(obj.modelExplainabilityBaselineConfig),
+    'ModelExplainabilityAppSpecification': toJson_SageMakerModelExplainabilityAppSpecification(obj.modelExplainabilityAppSpecification),
+    'ModelExplainabilityJobInput': toJson_SageMakerModelExplainabilityJobInput(obj.modelExplainabilityJobInput),
+    'ModelExplainabilityJobOutputConfig': toJson_SageMakerMonitoringOutputConfig(obj.modelExplainabilityJobOutputConfig),
+    'JobResources': toJson_SageMakerMonitoringResources(obj.jobResources),
+    'NetworkConfig': toJson_SageMakerMonitoringNetworkConfig(obj.networkConfig),
+    'RoleArn': obj.roleArn,
+    'StoppingCondition': toJson_SageMakerMonitoringStoppingCondition(obj.stoppingCondition),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDescribeModelPackageInput
  */
 export interface SageMakerDescribeModelPackageInput {
   /**
    * @schema SageMakerDescribeModelPackageInput#ModelPackageName
    */
-  readonly modelPackageName: string;
+  readonly modelPackageName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeModelPackageInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeModelPackageInput(obj: SageMakerDescribeModelPackageInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageName': obj.modelPackageName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeModelPackageOutput
@@ -3159,12 +8365,22 @@ export interface SageMakerDescribeModelPackageOutput {
   /**
    * @schema SageMakerDescribeModelPackageOutput#ModelPackageName
    */
-  readonly modelPackageName: string;
+  readonly modelPackageName?: string;
+
+  /**
+   * @schema SageMakerDescribeModelPackageOutput#ModelPackageGroupName
+   */
+  readonly modelPackageGroupName?: string;
+
+  /**
+   * @schema SageMakerDescribeModelPackageOutput#ModelPackageVersion
+   */
+  readonly modelPackageVersion?: number;
 
   /**
    * @schema SageMakerDescribeModelPackageOutput#ModelPackageArn
    */
-  readonly modelPackageArn: string;
+  readonly modelPackageArn?: string;
 
   /**
    * @schema SageMakerDescribeModelPackageOutput#ModelPackageDescription
@@ -3174,7 +8390,7 @@ export interface SageMakerDescribeModelPackageOutput {
   /**
    * @schema SageMakerDescribeModelPackageOutput#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerDescribeModelPackageOutput#InferenceSpecification
@@ -3194,19 +8410,276 @@ export interface SageMakerDescribeModelPackageOutput {
   /**
    * @schema SageMakerDescribeModelPackageOutput#ModelPackageStatus
    */
-  readonly modelPackageStatus: string;
+  readonly modelPackageStatus?: string;
 
   /**
    * @schema SageMakerDescribeModelPackageOutput#ModelPackageStatusDetails
    */
-  readonly modelPackageStatusDetails: SageMakerModelPackageStatusDetails;
+  readonly modelPackageStatusDetails?: SageMakerModelPackageStatusDetails;
 
   /**
    * @schema SageMakerDescribeModelPackageOutput#CertifyForMarketplace
    */
   readonly certifyForMarketplace?: boolean;
 
+  /**
+   * @schema SageMakerDescribeModelPackageOutput#ModelApprovalStatus
+   */
+  readonly modelApprovalStatus?: string;
+
+  /**
+   * @schema SageMakerDescribeModelPackageOutput#CreatedBy
+   */
+  readonly createdBy?: SageMakerUserContext;
+
+  /**
+   * @schema SageMakerDescribeModelPackageOutput#MetadataProperties
+   */
+  readonly metadataProperties?: SageMakerMetadataProperties;
+
+  /**
+   * @schema SageMakerDescribeModelPackageOutput#ModelMetrics
+   */
+  readonly modelMetrics?: SageMakerModelMetrics;
+
+  /**
+   * @schema SageMakerDescribeModelPackageOutput#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+  /**
+   * @schema SageMakerDescribeModelPackageOutput#LastModifiedBy
+   */
+  readonly lastModifiedBy?: SageMakerUserContext;
+
+  /**
+   * @schema SageMakerDescribeModelPackageOutput#ApprovalDescription
+   */
+  readonly approvalDescription?: string;
+
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeModelPackageOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeModelPackageOutput(obj: SageMakerDescribeModelPackageOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageName': obj.modelPackageName,
+    'ModelPackageGroupName': obj.modelPackageGroupName,
+    'ModelPackageVersion': obj.modelPackageVersion,
+    'ModelPackageArn': obj.modelPackageArn,
+    'ModelPackageDescription': obj.modelPackageDescription,
+    'CreationTime': obj.creationTime,
+    'InferenceSpecification': toJson_SageMakerInferenceSpecification(obj.inferenceSpecification),
+    'SourceAlgorithmSpecification': toJson_SageMakerSourceAlgorithmSpecification(obj.sourceAlgorithmSpecification),
+    'ValidationSpecification': toJson_SageMakerModelPackageValidationSpecification(obj.validationSpecification),
+    'ModelPackageStatus': obj.modelPackageStatus,
+    'ModelPackageStatusDetails': toJson_SageMakerModelPackageStatusDetails(obj.modelPackageStatusDetails),
+    'CertifyForMarketplace': obj.certifyForMarketplace,
+    'ModelApprovalStatus': obj.modelApprovalStatus,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'MetadataProperties': toJson_SageMakerMetadataProperties(obj.metadataProperties),
+    'ModelMetrics': toJson_SageMakerModelMetrics(obj.modelMetrics),
+    'LastModifiedTime': obj.lastModifiedTime,
+    'LastModifiedBy': toJson_SageMakerUserContext(obj.lastModifiedBy),
+    'ApprovalDescription': obj.approvalDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeModelPackageGroupInput
+ */
+export interface SageMakerDescribeModelPackageGroupInput {
+  /**
+   * @schema SageMakerDescribeModelPackageGroupInput#ModelPackageGroupName
+   */
+  readonly modelPackageGroupName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeModelPackageGroupInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeModelPackageGroupInput(obj: SageMakerDescribeModelPackageGroupInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageGroupName': obj.modelPackageGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeModelPackageGroupOutput
+ */
+export interface SageMakerDescribeModelPackageGroupOutput {
+  /**
+   * @schema SageMakerDescribeModelPackageGroupOutput#ModelPackageGroupName
+   */
+  readonly modelPackageGroupName?: string;
+
+  /**
+   * @schema SageMakerDescribeModelPackageGroupOutput#ModelPackageGroupArn
+   */
+  readonly modelPackageGroupArn?: string;
+
+  /**
+   * @schema SageMakerDescribeModelPackageGroupOutput#ModelPackageGroupDescription
+   */
+  readonly modelPackageGroupDescription?: string;
+
+  /**
+   * @schema SageMakerDescribeModelPackageGroupOutput#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerDescribeModelPackageGroupOutput#CreatedBy
+   */
+  readonly createdBy?: SageMakerUserContext;
+
+  /**
+   * @schema SageMakerDescribeModelPackageGroupOutput#ModelPackageGroupStatus
+   */
+  readonly modelPackageGroupStatus?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeModelPackageGroupOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeModelPackageGroupOutput(obj: SageMakerDescribeModelPackageGroupOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageGroupName': obj.modelPackageGroupName,
+    'ModelPackageGroupArn': obj.modelPackageGroupArn,
+    'ModelPackageGroupDescription': obj.modelPackageGroupDescription,
+    'CreationTime': obj.creationTime,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'ModelPackageGroupStatus': obj.modelPackageGroupStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeModelQualityJobDefinitionRequest
+ */
+export interface SageMakerDescribeModelQualityJobDefinitionRequest {
+  /**
+   * @schema SageMakerDescribeModelQualityJobDefinitionRequest#JobDefinitionName
+   */
+  readonly jobDefinitionName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeModelQualityJobDefinitionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeModelQualityJobDefinitionRequest(obj: SageMakerDescribeModelQualityJobDefinitionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionName': obj.jobDefinitionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeModelQualityJobDefinitionResponse
+ */
+export interface SageMakerDescribeModelQualityJobDefinitionResponse {
+  /**
+   * @schema SageMakerDescribeModelQualityJobDefinitionResponse#JobDefinitionArn
+   */
+  readonly jobDefinitionArn?: string;
+
+  /**
+   * @schema SageMakerDescribeModelQualityJobDefinitionResponse#JobDefinitionName
+   */
+  readonly jobDefinitionName?: string;
+
+  /**
+   * @schema SageMakerDescribeModelQualityJobDefinitionResponse#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerDescribeModelQualityJobDefinitionResponse#ModelQualityBaselineConfig
+   */
+  readonly modelQualityBaselineConfig?: SageMakerModelQualityBaselineConfig;
+
+  /**
+   * @schema SageMakerDescribeModelQualityJobDefinitionResponse#ModelQualityAppSpecification
+   */
+  readonly modelQualityAppSpecification?: SageMakerModelQualityAppSpecification;
+
+  /**
+   * @schema SageMakerDescribeModelQualityJobDefinitionResponse#ModelQualityJobInput
+   */
+  readonly modelQualityJobInput?: SageMakerModelQualityJobInput;
+
+  /**
+   * @schema SageMakerDescribeModelQualityJobDefinitionResponse#ModelQualityJobOutputConfig
+   */
+  readonly modelQualityJobOutputConfig?: SageMakerMonitoringOutputConfig;
+
+  /**
+   * @schema SageMakerDescribeModelQualityJobDefinitionResponse#JobResources
+   */
+  readonly jobResources?: SageMakerMonitoringResources;
+
+  /**
+   * @schema SageMakerDescribeModelQualityJobDefinitionResponse#NetworkConfig
+   */
+  readonly networkConfig?: SageMakerMonitoringNetworkConfig;
+
+  /**
+   * @schema SageMakerDescribeModelQualityJobDefinitionResponse#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerDescribeModelQualityJobDefinitionResponse#StoppingCondition
+   */
+  readonly stoppingCondition?: SageMakerMonitoringStoppingCondition;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeModelQualityJobDefinitionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeModelQualityJobDefinitionResponse(obj: SageMakerDescribeModelQualityJobDefinitionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionArn': obj.jobDefinitionArn,
+    'JobDefinitionName': obj.jobDefinitionName,
+    'CreationTime': obj.creationTime,
+    'ModelQualityBaselineConfig': toJson_SageMakerModelQualityBaselineConfig(obj.modelQualityBaselineConfig),
+    'ModelQualityAppSpecification': toJson_SageMakerModelQualityAppSpecification(obj.modelQualityAppSpecification),
+    'ModelQualityJobInput': toJson_SageMakerModelQualityJobInput(obj.modelQualityJobInput),
+    'ModelQualityJobOutputConfig': toJson_SageMakerMonitoringOutputConfig(obj.modelQualityJobOutputConfig),
+    'JobResources': toJson_SageMakerMonitoringResources(obj.jobResources),
+    'NetworkConfig': toJson_SageMakerMonitoringNetworkConfig(obj.networkConfig),
+    'RoleArn': obj.roleArn,
+    'StoppingCondition': toJson_SageMakerMonitoringStoppingCondition(obj.stoppingCondition),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeMonitoringScheduleRequest
@@ -3215,9 +8688,23 @@ export interface SageMakerDescribeMonitoringScheduleRequest {
   /**
    * @schema SageMakerDescribeMonitoringScheduleRequest#MonitoringScheduleName
    */
-  readonly monitoringScheduleName: string;
+  readonly monitoringScheduleName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeMonitoringScheduleRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeMonitoringScheduleRequest(obj: SageMakerDescribeMonitoringScheduleRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MonitoringScheduleName': obj.monitoringScheduleName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeMonitoringScheduleResponse
@@ -3226,17 +8713,22 @@ export interface SageMakerDescribeMonitoringScheduleResponse {
   /**
    * @schema SageMakerDescribeMonitoringScheduleResponse#MonitoringScheduleArn
    */
-  readonly monitoringScheduleArn: string;
+  readonly monitoringScheduleArn?: string;
 
   /**
    * @schema SageMakerDescribeMonitoringScheduleResponse#MonitoringScheduleName
    */
-  readonly monitoringScheduleName: string;
+  readonly monitoringScheduleName?: string;
 
   /**
    * @schema SageMakerDescribeMonitoringScheduleResponse#MonitoringScheduleStatus
    */
-  readonly monitoringScheduleStatus: string;
+  readonly monitoringScheduleStatus?: string;
+
+  /**
+   * @schema SageMakerDescribeMonitoringScheduleResponse#MonitoringType
+   */
+  readonly monitoringType?: string;
 
   /**
    * @schema SageMakerDescribeMonitoringScheduleResponse#FailureReason
@@ -3246,17 +8738,17 @@ export interface SageMakerDescribeMonitoringScheduleResponse {
   /**
    * @schema SageMakerDescribeMonitoringScheduleResponse#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerDescribeMonitoringScheduleResponse#LastModifiedTime
    */
-  readonly lastModifiedTime: string;
+  readonly lastModifiedTime?: string;
 
   /**
    * @schema SageMakerDescribeMonitoringScheduleResponse#MonitoringScheduleConfig
    */
-  readonly monitoringScheduleConfig: SageMakerMonitoringScheduleConfig;
+  readonly monitoringScheduleConfig?: SageMakerMonitoringScheduleConfig;
 
   /**
    * @schema SageMakerDescribeMonitoringScheduleResponse#EndpointName
@@ -3271,15 +8763,52 @@ export interface SageMakerDescribeMonitoringScheduleResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDescribeMonitoringScheduleResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeMonitoringScheduleResponse(obj: SageMakerDescribeMonitoringScheduleResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MonitoringScheduleArn': obj.monitoringScheduleArn,
+    'MonitoringScheduleName': obj.monitoringScheduleName,
+    'MonitoringScheduleStatus': obj.monitoringScheduleStatus,
+    'MonitoringType': obj.monitoringType,
+    'FailureReason': obj.failureReason,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'MonitoringScheduleConfig': toJson_SageMakerMonitoringScheduleConfig(obj.monitoringScheduleConfig),
+    'EndpointName': obj.endpointName,
+    'LastMonitoringExecutionSummary': toJson_SageMakerMonitoringExecutionSummary(obj.lastMonitoringExecutionSummary),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDescribeNotebookInstanceInput
  */
 export interface SageMakerDescribeNotebookInstanceInput {
   /**
    * @schema SageMakerDescribeNotebookInstanceInput#NotebookInstanceName
    */
-  readonly notebookInstanceName: string;
+  readonly notebookInstanceName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeNotebookInstanceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeNotebookInstanceInput(obj: SageMakerDescribeNotebookInstanceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotebookInstanceName': obj.notebookInstanceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeNotebookInstanceOutput
@@ -3388,15 +8917,62 @@ export interface SageMakerDescribeNotebookInstanceOutput {
 }
 
 /**
+ * Converts an object of type 'SageMakerDescribeNotebookInstanceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeNotebookInstanceOutput(obj: SageMakerDescribeNotebookInstanceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotebookInstanceArn': obj.notebookInstanceArn,
+    'NotebookInstanceName': obj.notebookInstanceName,
+    'NotebookInstanceStatus': obj.notebookInstanceStatus,
+    'FailureReason': obj.failureReason,
+    'Url': obj.url,
+    'InstanceType': obj.instanceType,
+    'SubnetId': obj.subnetId,
+    'SecurityGroups': obj.securityGroups?.map(y => y),
+    'RoleArn': obj.roleArn,
+    'KmsKeyId': obj.kmsKeyId,
+    'NetworkInterfaceId': obj.networkInterfaceId,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'CreationTime': obj.creationTime,
+    'NotebookInstanceLifecycleConfigName': obj.notebookInstanceLifecycleConfigName,
+    'DirectInternetAccess': obj.directInternetAccess,
+    'VolumeSizeInGB': obj.volumeSizeInGb,
+    'AcceleratorTypes': obj.acceleratorTypes?.map(y => y),
+    'DefaultCodeRepository': obj.defaultCodeRepository,
+    'AdditionalCodeRepositories': obj.additionalCodeRepositories?.map(y => y),
+    'RootAccess': obj.rootAccess,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDescribeNotebookInstanceLifecycleConfigInput
  */
 export interface SageMakerDescribeNotebookInstanceLifecycleConfigInput {
   /**
    * @schema SageMakerDescribeNotebookInstanceLifecycleConfigInput#NotebookInstanceLifecycleConfigName
    */
-  readonly notebookInstanceLifecycleConfigName: string;
+  readonly notebookInstanceLifecycleConfigName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeNotebookInstanceLifecycleConfigInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeNotebookInstanceLifecycleConfigInput(obj: SageMakerDescribeNotebookInstanceLifecycleConfigInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotebookInstanceLifecycleConfigName': obj.notebookInstanceLifecycleConfigName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeNotebookInstanceLifecycleConfigOutput
@@ -3435,15 +9011,330 @@ export interface SageMakerDescribeNotebookInstanceLifecycleConfigOutput {
 }
 
 /**
+ * Converts an object of type 'SageMakerDescribeNotebookInstanceLifecycleConfigOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeNotebookInstanceLifecycleConfigOutput(obj: SageMakerDescribeNotebookInstanceLifecycleConfigOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotebookInstanceLifecycleConfigArn': obj.notebookInstanceLifecycleConfigArn,
+    'NotebookInstanceLifecycleConfigName': obj.notebookInstanceLifecycleConfigName,
+    'OnCreate': obj.onCreate?.map(y => toJson_SageMakerNotebookInstanceLifecycleHook(y)),
+    'OnStart': obj.onStart?.map(y => toJson_SageMakerNotebookInstanceLifecycleHook(y)),
+    'LastModifiedTime': obj.lastModifiedTime,
+    'CreationTime': obj.creationTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribePipelineRequest
+ */
+export interface SageMakerDescribePipelineRequest {
+  /**
+   * @schema SageMakerDescribePipelineRequest#PipelineName
+   */
+  readonly pipelineName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribePipelineRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribePipelineRequest(obj: SageMakerDescribePipelineRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineName': obj.pipelineName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribePipelineResponse
+ */
+export interface SageMakerDescribePipelineResponse {
+  /**
+   * @schema SageMakerDescribePipelineResponse#PipelineArn
+   */
+  readonly pipelineArn?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineResponse#PipelineName
+   */
+  readonly pipelineName?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineResponse#PipelineDisplayName
+   */
+  readonly pipelineDisplayName?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineResponse#PipelineDefinition
+   */
+  readonly pipelineDefinition?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineResponse#PipelineDescription
+   */
+  readonly pipelineDescription?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineResponse#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineResponse#PipelineStatus
+   */
+  readonly pipelineStatus?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineResponse#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineResponse#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineResponse#LastRunTime
+   */
+  readonly lastRunTime?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineResponse#CreatedBy
+   */
+  readonly createdBy?: SageMakerUserContext;
+
+  /**
+   * @schema SageMakerDescribePipelineResponse#LastModifiedBy
+   */
+  readonly lastModifiedBy?: SageMakerUserContext;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribePipelineResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribePipelineResponse(obj: SageMakerDescribePipelineResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineArn': obj.pipelineArn,
+    'PipelineName': obj.pipelineName,
+    'PipelineDisplayName': obj.pipelineDisplayName,
+    'PipelineDefinition': obj.pipelineDefinition,
+    'PipelineDescription': obj.pipelineDescription,
+    'RoleArn': obj.roleArn,
+    'PipelineStatus': obj.pipelineStatus,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'LastRunTime': obj.lastRunTime,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'LastModifiedBy': toJson_SageMakerUserContext(obj.lastModifiedBy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribePipelineDefinitionForExecutionRequest
+ */
+export interface SageMakerDescribePipelineDefinitionForExecutionRequest {
+  /**
+   * @schema SageMakerDescribePipelineDefinitionForExecutionRequest#PipelineExecutionArn
+   */
+  readonly pipelineExecutionArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribePipelineDefinitionForExecutionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribePipelineDefinitionForExecutionRequest(obj: SageMakerDescribePipelineDefinitionForExecutionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineExecutionArn': obj.pipelineExecutionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribePipelineDefinitionForExecutionResponse
+ */
+export interface SageMakerDescribePipelineDefinitionForExecutionResponse {
+  /**
+   * @schema SageMakerDescribePipelineDefinitionForExecutionResponse#PipelineDefinition
+   */
+  readonly pipelineDefinition?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineDefinitionForExecutionResponse#CreationTime
+   */
+  readonly creationTime?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribePipelineDefinitionForExecutionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribePipelineDefinitionForExecutionResponse(obj: SageMakerDescribePipelineDefinitionForExecutionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineDefinition': obj.pipelineDefinition,
+    'CreationTime': obj.creationTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribePipelineExecutionRequest
+ */
+export interface SageMakerDescribePipelineExecutionRequest {
+  /**
+   * @schema SageMakerDescribePipelineExecutionRequest#PipelineExecutionArn
+   */
+  readonly pipelineExecutionArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribePipelineExecutionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribePipelineExecutionRequest(obj: SageMakerDescribePipelineExecutionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineExecutionArn': obj.pipelineExecutionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribePipelineExecutionResponse
+ */
+export interface SageMakerDescribePipelineExecutionResponse {
+  /**
+   * @schema SageMakerDescribePipelineExecutionResponse#PipelineArn
+   */
+  readonly pipelineArn?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineExecutionResponse#PipelineExecutionArn
+   */
+  readonly pipelineExecutionArn?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineExecutionResponse#PipelineExecutionDisplayName
+   */
+  readonly pipelineExecutionDisplayName?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineExecutionResponse#PipelineExecutionStatus
+   */
+  readonly pipelineExecutionStatus?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineExecutionResponse#PipelineExecutionDescription
+   */
+  readonly pipelineExecutionDescription?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineExecutionResponse#PipelineExperimentConfig
+   */
+  readonly pipelineExperimentConfig?: SageMakerPipelineExperimentConfig;
+
+  /**
+   * @schema SageMakerDescribePipelineExecutionResponse#FailureReason
+   */
+  readonly failureReason?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineExecutionResponse#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineExecutionResponse#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+  /**
+   * @schema SageMakerDescribePipelineExecutionResponse#CreatedBy
+   */
+  readonly createdBy?: SageMakerUserContext;
+
+  /**
+   * @schema SageMakerDescribePipelineExecutionResponse#LastModifiedBy
+   */
+  readonly lastModifiedBy?: SageMakerUserContext;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribePipelineExecutionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribePipelineExecutionResponse(obj: SageMakerDescribePipelineExecutionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineArn': obj.pipelineArn,
+    'PipelineExecutionArn': obj.pipelineExecutionArn,
+    'PipelineExecutionDisplayName': obj.pipelineExecutionDisplayName,
+    'PipelineExecutionStatus': obj.pipelineExecutionStatus,
+    'PipelineExecutionDescription': obj.pipelineExecutionDescription,
+    'PipelineExperimentConfig': toJson_SageMakerPipelineExperimentConfig(obj.pipelineExperimentConfig),
+    'FailureReason': obj.failureReason,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'LastModifiedBy': toJson_SageMakerUserContext(obj.lastModifiedBy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDescribeProcessingJobRequest
  */
 export interface SageMakerDescribeProcessingJobRequest {
   /**
    * @schema SageMakerDescribeProcessingJobRequest#ProcessingJobName
    */
-  readonly processingJobName: string;
+  readonly processingJobName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeProcessingJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeProcessingJobRequest(obj: SageMakerDescribeProcessingJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProcessingJobName': obj.processingJobName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeProcessingJobResponse
@@ -3462,12 +9353,12 @@ export interface SageMakerDescribeProcessingJobResponse {
   /**
    * @schema SageMakerDescribeProcessingJobResponse#ProcessingJobName
    */
-  readonly processingJobName: string;
+  readonly processingJobName?: string;
 
   /**
    * @schema SageMakerDescribeProcessingJobResponse#ProcessingResources
    */
-  readonly processingResources: SageMakerProcessingResources;
+  readonly processingResources?: SageMakerProcessingResources;
 
   /**
    * @schema SageMakerDescribeProcessingJobResponse#StoppingCondition
@@ -3477,7 +9368,7 @@ export interface SageMakerDescribeProcessingJobResponse {
   /**
    * @schema SageMakerDescribeProcessingJobResponse#AppSpecification
    */
-  readonly appSpecification: SageMakerAppSpecification;
+  readonly appSpecification?: SageMakerAppSpecification;
 
   /**
    * @schema SageMakerDescribeProcessingJobResponse#Environment
@@ -3502,12 +9393,12 @@ export interface SageMakerDescribeProcessingJobResponse {
   /**
    * @schema SageMakerDescribeProcessingJobResponse#ProcessingJobArn
    */
-  readonly processingJobArn: string;
+  readonly processingJobArn?: string;
 
   /**
    * @schema SageMakerDescribeProcessingJobResponse#ProcessingJobStatus
    */
-  readonly processingJobStatus: string;
+  readonly processingJobStatus?: string;
 
   /**
    * @schema SageMakerDescribeProcessingJobResponse#ExitMessage
@@ -3537,7 +9428,7 @@ export interface SageMakerDescribeProcessingJobResponse {
   /**
    * @schema SageMakerDescribeProcessingJobResponse#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerDescribeProcessingJobResponse#MonitoringScheduleArn
@@ -3557,15 +9448,161 @@ export interface SageMakerDescribeProcessingJobResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDescribeProcessingJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeProcessingJobResponse(obj: SageMakerDescribeProcessingJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProcessingInputs': obj.processingInputs?.map(y => toJson_SageMakerProcessingInput(y)),
+    'ProcessingOutputConfig': toJson_SageMakerProcessingOutputConfig(obj.processingOutputConfig),
+    'ProcessingJobName': obj.processingJobName,
+    'ProcessingResources': toJson_SageMakerProcessingResources(obj.processingResources),
+    'StoppingCondition': toJson_SageMakerProcessingStoppingCondition(obj.stoppingCondition),
+    'AppSpecification': toJson_SageMakerAppSpecification(obj.appSpecification),
+    'Environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'NetworkConfig': toJson_SageMakerNetworkConfig(obj.networkConfig),
+    'RoleArn': obj.roleArn,
+    'ExperimentConfig': toJson_SageMakerExperimentConfig(obj.experimentConfig),
+    'ProcessingJobArn': obj.processingJobArn,
+    'ProcessingJobStatus': obj.processingJobStatus,
+    'ExitMessage': obj.exitMessage,
+    'FailureReason': obj.failureReason,
+    'ProcessingEndTime': obj.processingEndTime,
+    'ProcessingStartTime': obj.processingStartTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'CreationTime': obj.creationTime,
+    'MonitoringScheduleArn': obj.monitoringScheduleArn,
+    'AutoMLJobArn': obj.autoMlJobArn,
+    'TrainingJobArn': obj.trainingJobArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeProjectInput
+ */
+export interface SageMakerDescribeProjectInput {
+  /**
+   * @schema SageMakerDescribeProjectInput#ProjectName
+   */
+  readonly projectName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeProjectInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeProjectInput(obj: SageMakerDescribeProjectInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProjectName': obj.projectName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDescribeProjectOutput
+ */
+export interface SageMakerDescribeProjectOutput {
+  /**
+   * @schema SageMakerDescribeProjectOutput#ProjectArn
+   */
+  readonly projectArn?: string;
+
+  /**
+   * @schema SageMakerDescribeProjectOutput#ProjectName
+   */
+  readonly projectName?: string;
+
+  /**
+   * @schema SageMakerDescribeProjectOutput#ProjectId
+   */
+  readonly projectId?: string;
+
+  /**
+   * @schema SageMakerDescribeProjectOutput#ProjectDescription
+   */
+  readonly projectDescription?: string;
+
+  /**
+   * @schema SageMakerDescribeProjectOutput#ServiceCatalogProvisioningDetails
+   */
+  readonly serviceCatalogProvisioningDetails?: SageMakerServiceCatalogProvisioningDetails;
+
+  /**
+   * @schema SageMakerDescribeProjectOutput#ServiceCatalogProvisionedProductDetails
+   */
+  readonly serviceCatalogProvisionedProductDetails?: SageMakerServiceCatalogProvisionedProductDetails;
+
+  /**
+   * @schema SageMakerDescribeProjectOutput#ProjectStatus
+   */
+  readonly projectStatus?: string;
+
+  /**
+   * @schema SageMakerDescribeProjectOutput#CreatedBy
+   */
+  readonly createdBy?: SageMakerUserContext;
+
+  /**
+   * @schema SageMakerDescribeProjectOutput#CreationTime
+   */
+  readonly creationTime?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDescribeProjectOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeProjectOutput(obj: SageMakerDescribeProjectOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProjectArn': obj.projectArn,
+    'ProjectName': obj.projectName,
+    'ProjectId': obj.projectId,
+    'ProjectDescription': obj.projectDescription,
+    'ServiceCatalogProvisioningDetails': toJson_SageMakerServiceCatalogProvisioningDetails(obj.serviceCatalogProvisioningDetails),
+    'ServiceCatalogProvisionedProductDetails': toJson_SageMakerServiceCatalogProvisionedProductDetails(obj.serviceCatalogProvisionedProductDetails),
+    'ProjectStatus': obj.projectStatus,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'CreationTime': obj.creationTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDescribeSubscribedWorkteamRequest
  */
 export interface SageMakerDescribeSubscribedWorkteamRequest {
   /**
    * @schema SageMakerDescribeSubscribedWorkteamRequest#WorkteamArn
    */
-  readonly workteamArn: string;
+  readonly workteamArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeSubscribedWorkteamRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeSubscribedWorkteamRequest(obj: SageMakerDescribeSubscribedWorkteamRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WorkteamArn': obj.workteamArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeSubscribedWorkteamResponse
@@ -3574,9 +9611,23 @@ export interface SageMakerDescribeSubscribedWorkteamResponse {
   /**
    * @schema SageMakerDescribeSubscribedWorkteamResponse#SubscribedWorkteam
    */
-  readonly subscribedWorkteam: SageMakerSubscribedWorkteam;
+  readonly subscribedWorkteam?: SageMakerSubscribedWorkteam;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeSubscribedWorkteamResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeSubscribedWorkteamResponse(obj: SageMakerDescribeSubscribedWorkteamResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscribedWorkteam': toJson_SageMakerSubscribedWorkteam(obj.subscribedWorkteam),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeTrainingJobRequest
@@ -3585,9 +9636,23 @@ export interface SageMakerDescribeTrainingJobRequest {
   /**
    * @schema SageMakerDescribeTrainingJobRequest#TrainingJobName
    */
-  readonly trainingJobName: string;
+  readonly trainingJobName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeTrainingJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeTrainingJobRequest(obj: SageMakerDescribeTrainingJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrainingJobName': obj.trainingJobName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeTrainingJobResponse
@@ -3596,12 +9661,12 @@ export interface SageMakerDescribeTrainingJobResponse {
   /**
    * @schema SageMakerDescribeTrainingJobResponse#TrainingJobName
    */
-  readonly trainingJobName: string;
+  readonly trainingJobName?: string;
 
   /**
    * @schema SageMakerDescribeTrainingJobResponse#TrainingJobArn
    */
-  readonly trainingJobArn: string;
+  readonly trainingJobArn?: string;
 
   /**
    * @schema SageMakerDescribeTrainingJobResponse#TuningJobArn
@@ -3621,17 +9686,17 @@ export interface SageMakerDescribeTrainingJobResponse {
   /**
    * @schema SageMakerDescribeTrainingJobResponse#ModelArtifacts
    */
-  readonly modelArtifacts: SageMakerModelArtifacts;
+  readonly modelArtifacts?: SageMakerModelArtifacts;
 
   /**
    * @schema SageMakerDescribeTrainingJobResponse#TrainingJobStatus
    */
-  readonly trainingJobStatus: string;
+  readonly trainingJobStatus?: string;
 
   /**
    * @schema SageMakerDescribeTrainingJobResponse#SecondaryStatus
    */
-  readonly secondaryStatus: string;
+  readonly secondaryStatus?: string;
 
   /**
    * @schema SageMakerDescribeTrainingJobResponse#FailureReason
@@ -3646,7 +9711,7 @@ export interface SageMakerDescribeTrainingJobResponse {
   /**
    * @schema SageMakerDescribeTrainingJobResponse#AlgorithmSpecification
    */
-  readonly algorithmSpecification: SageMakerAlgorithmSpecification;
+  readonly algorithmSpecification?: SageMakerAlgorithmSpecification;
 
   /**
    * @schema SageMakerDescribeTrainingJobResponse#RoleArn
@@ -3666,7 +9731,7 @@ export interface SageMakerDescribeTrainingJobResponse {
   /**
    * @schema SageMakerDescribeTrainingJobResponse#ResourceConfig
    */
-  readonly resourceConfig: SageMakerResourceConfig;
+  readonly resourceConfig?: SageMakerResourceConfig;
 
   /**
    * @schema SageMakerDescribeTrainingJobResponse#VpcConfig
@@ -3676,12 +9741,12 @@ export interface SageMakerDescribeTrainingJobResponse {
   /**
    * @schema SageMakerDescribeTrainingJobResponse#StoppingCondition
    */
-  readonly stoppingCondition: SageMakerStoppingCondition;
+  readonly stoppingCondition?: SageMakerStoppingCondition;
 
   /**
    * @schema SageMakerDescribeTrainingJobResponse#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerDescribeTrainingJobResponse#TrainingStartTime
@@ -3763,7 +9828,90 @@ export interface SageMakerDescribeTrainingJobResponse {
    */
   readonly debugRuleEvaluationStatuses?: SageMakerDebugRuleEvaluationStatus[];
 
+  /**
+   * @schema SageMakerDescribeTrainingJobResponse#ProfilerConfig
+   */
+  readonly profilerConfig?: SageMakerProfilerConfig;
+
+  /**
+   * @schema SageMakerDescribeTrainingJobResponse#ProfilerRuleConfigurations
+   */
+  readonly profilerRuleConfigurations?: SageMakerProfilerRuleConfiguration[];
+
+  /**
+   * @schema SageMakerDescribeTrainingJobResponse#ProfilerRuleEvaluationStatuses
+   */
+  readonly profilerRuleEvaluationStatuses?: SageMakerProfilerRuleEvaluationStatus[];
+
+  /**
+   * @schema SageMakerDescribeTrainingJobResponse#ProfilingStatus
+   */
+  readonly profilingStatus?: string;
+
+  /**
+   * @schema SageMakerDescribeTrainingJobResponse#RetryStrategy
+   */
+  readonly retryStrategy?: SageMakerRetryStrategy;
+
+  /**
+   * @schema SageMakerDescribeTrainingJobResponse#Environment
+   */
+  readonly environment?: { [key: string]: string };
+
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeTrainingJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeTrainingJobResponse(obj: SageMakerDescribeTrainingJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrainingJobName': obj.trainingJobName,
+    'TrainingJobArn': obj.trainingJobArn,
+    'TuningJobArn': obj.tuningJobArn,
+    'LabelingJobArn': obj.labelingJobArn,
+    'AutoMLJobArn': obj.autoMlJobArn,
+    'ModelArtifacts': toJson_SageMakerModelArtifacts(obj.modelArtifacts),
+    'TrainingJobStatus': obj.trainingJobStatus,
+    'SecondaryStatus': obj.secondaryStatus,
+    'FailureReason': obj.failureReason,
+    'HyperParameters': ((obj.hyperParameters) === undefined) ? undefined : (Object.entries(obj.hyperParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'AlgorithmSpecification': toJson_SageMakerAlgorithmSpecification(obj.algorithmSpecification),
+    'RoleArn': obj.roleArn,
+    'InputDataConfig': obj.inputDataConfig?.map(y => toJson_SageMakerChannel(y)),
+    'OutputDataConfig': toJson_SageMakerOutputDataConfig(obj.outputDataConfig),
+    'ResourceConfig': toJson_SageMakerResourceConfig(obj.resourceConfig),
+    'VpcConfig': toJson_SageMakerVpcConfig(obj.vpcConfig),
+    'StoppingCondition': toJson_SageMakerStoppingCondition(obj.stoppingCondition),
+    'CreationTime': obj.creationTime,
+    'TrainingStartTime': obj.trainingStartTime,
+    'TrainingEndTime': obj.trainingEndTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'SecondaryStatusTransitions': obj.secondaryStatusTransitions?.map(y => toJson_SageMakerSecondaryStatusTransition(y)),
+    'FinalMetricDataList': obj.finalMetricDataList?.map(y => toJson_SageMakerMetricData(y)),
+    'EnableNetworkIsolation': obj.enableNetworkIsolation,
+    'EnableInterContainerTrafficEncryption': obj.enableInterContainerTrafficEncryption,
+    'EnableManagedSpotTraining': obj.enableManagedSpotTraining,
+    'CheckpointConfig': toJson_SageMakerCheckpointConfig(obj.checkpointConfig),
+    'TrainingTimeInSeconds': obj.trainingTimeInSeconds,
+    'BillableTimeInSeconds': obj.billableTimeInSeconds,
+    'DebugHookConfig': toJson_SageMakerDebugHookConfig(obj.debugHookConfig),
+    'ExperimentConfig': toJson_SageMakerExperimentConfig(obj.experimentConfig),
+    'DebugRuleConfigurations': obj.debugRuleConfigurations?.map(y => toJson_SageMakerDebugRuleConfiguration(y)),
+    'TensorBoardOutputConfig': toJson_SageMakerTensorBoardOutputConfig(obj.tensorBoardOutputConfig),
+    'DebugRuleEvaluationStatuses': obj.debugRuleEvaluationStatuses?.map(y => toJson_SageMakerDebugRuleEvaluationStatus(y)),
+    'ProfilerConfig': toJson_SageMakerProfilerConfig(obj.profilerConfig),
+    'ProfilerRuleConfigurations': obj.profilerRuleConfigurations?.map(y => toJson_SageMakerProfilerRuleConfiguration(y)),
+    'ProfilerRuleEvaluationStatuses': obj.profilerRuleEvaluationStatuses?.map(y => toJson_SageMakerProfilerRuleEvaluationStatus(y)),
+    'ProfilingStatus': obj.profilingStatus,
+    'RetryStrategy': toJson_SageMakerRetryStrategy(obj.retryStrategy),
+    'Environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeTransformJobRequest
@@ -3772,9 +9920,23 @@ export interface SageMakerDescribeTransformJobRequest {
   /**
    * @schema SageMakerDescribeTransformJobRequest#TransformJobName
    */
-  readonly transformJobName: string;
+  readonly transformJobName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeTransformJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeTransformJobRequest(obj: SageMakerDescribeTransformJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TransformJobName': obj.transformJobName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeTransformJobResponse
@@ -3783,17 +9945,17 @@ export interface SageMakerDescribeTransformJobResponse {
   /**
    * @schema SageMakerDescribeTransformJobResponse#TransformJobName
    */
-  readonly transformJobName: string;
+  readonly transformJobName?: string;
 
   /**
    * @schema SageMakerDescribeTransformJobResponse#TransformJobArn
    */
-  readonly transformJobArn: string;
+  readonly transformJobArn?: string;
 
   /**
    * @schema SageMakerDescribeTransformJobResponse#TransformJobStatus
    */
-  readonly transformJobStatus: string;
+  readonly transformJobStatus?: string;
 
   /**
    * @schema SageMakerDescribeTransformJobResponse#FailureReason
@@ -3803,7 +9965,7 @@ export interface SageMakerDescribeTransformJobResponse {
   /**
    * @schema SageMakerDescribeTransformJobResponse#ModelName
    */
-  readonly modelName: string;
+  readonly modelName?: string;
 
   /**
    * @schema SageMakerDescribeTransformJobResponse#MaxConcurrentTransforms
@@ -3833,7 +9995,7 @@ export interface SageMakerDescribeTransformJobResponse {
   /**
    * @schema SageMakerDescribeTransformJobResponse#TransformInput
    */
-  readonly transformInput: SageMakerTransformInput;
+  readonly transformInput?: SageMakerTransformInput;
 
   /**
    * @schema SageMakerDescribeTransformJobResponse#TransformOutput
@@ -3843,12 +10005,12 @@ export interface SageMakerDescribeTransformJobResponse {
   /**
    * @schema SageMakerDescribeTransformJobResponse#TransformResources
    */
-  readonly transformResources: SageMakerTransformResources;
+  readonly transformResources?: SageMakerTransformResources;
 
   /**
    * @schema SageMakerDescribeTransformJobResponse#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerDescribeTransformJobResponse#TransformStartTime
@@ -3883,15 +10045,62 @@ export interface SageMakerDescribeTransformJobResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDescribeTransformJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeTransformJobResponse(obj: SageMakerDescribeTransformJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TransformJobName': obj.transformJobName,
+    'TransformJobArn': obj.transformJobArn,
+    'TransformJobStatus': obj.transformJobStatus,
+    'FailureReason': obj.failureReason,
+    'ModelName': obj.modelName,
+    'MaxConcurrentTransforms': obj.maxConcurrentTransforms,
+    'ModelClientConfig': toJson_SageMakerModelClientConfig(obj.modelClientConfig),
+    'MaxPayloadInMB': obj.maxPayloadInMb,
+    'BatchStrategy': obj.batchStrategy,
+    'Environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'TransformInput': toJson_SageMakerTransformInput(obj.transformInput),
+    'TransformOutput': toJson_SageMakerTransformOutput(obj.transformOutput),
+    'TransformResources': toJson_SageMakerTransformResources(obj.transformResources),
+    'CreationTime': obj.creationTime,
+    'TransformStartTime': obj.transformStartTime,
+    'TransformEndTime': obj.transformEndTime,
+    'LabelingJobArn': obj.labelingJobArn,
+    'AutoMLJobArn': obj.autoMlJobArn,
+    'DataProcessing': toJson_SageMakerDataProcessing(obj.dataProcessing),
+    'ExperimentConfig': toJson_SageMakerExperimentConfig(obj.experimentConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDescribeTrialRequest
  */
 export interface SageMakerDescribeTrialRequest {
   /**
    * @schema SageMakerDescribeTrialRequest#TrialName
    */
-  readonly trialName: string;
+  readonly trialName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeTrialRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeTrialRequest(obj: SageMakerDescribeTrialRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialName': obj.trialName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeTrialResponse
@@ -3942,7 +10151,35 @@ export interface SageMakerDescribeTrialResponse {
    */
   readonly lastModifiedBy?: SageMakerUserContext;
 
+  /**
+   * @schema SageMakerDescribeTrialResponse#MetadataProperties
+   */
+  readonly metadataProperties?: SageMakerMetadataProperties;
+
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeTrialResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeTrialResponse(obj: SageMakerDescribeTrialResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialName': obj.trialName,
+    'TrialArn': obj.trialArn,
+    'DisplayName': obj.displayName,
+    'ExperimentName': obj.experimentName,
+    'Source': toJson_SageMakerTrialSource(obj.source),
+    'CreationTime': obj.creationTime,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'LastModifiedTime': obj.lastModifiedTime,
+    'LastModifiedBy': toJson_SageMakerUserContext(obj.lastModifiedBy),
+    'MetadataProperties': toJson_SageMakerMetadataProperties(obj.metadataProperties),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeTrialComponentRequest
@@ -3951,9 +10188,23 @@ export interface SageMakerDescribeTrialComponentRequest {
   /**
    * @schema SageMakerDescribeTrialComponentRequest#TrialComponentName
    */
-  readonly trialComponentName: string;
+  readonly trialComponentName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeTrialComponentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeTrialComponentRequest(obj: SageMakerDescribeTrialComponentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialComponentName': obj.trialComponentName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeTrialComponentResponse
@@ -4030,11 +10281,45 @@ export interface SageMakerDescribeTrialComponentResponse {
   readonly outputArtifacts?: { [key: string]: SageMakerTrialComponentArtifact };
 
   /**
+   * @schema SageMakerDescribeTrialComponentResponse#MetadataProperties
+   */
+  readonly metadataProperties?: SageMakerMetadataProperties;
+
+  /**
    * @schema SageMakerDescribeTrialComponentResponse#Metrics
    */
   readonly metrics?: SageMakerTrialComponentMetricSummary[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeTrialComponentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeTrialComponentResponse(obj: SageMakerDescribeTrialComponentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialComponentName': obj.trialComponentName,
+    'TrialComponentArn': obj.trialComponentArn,
+    'DisplayName': obj.displayName,
+    'Source': toJson_SageMakerTrialComponentSource(obj.source),
+    'Status': toJson_SageMakerTrialComponentStatus(obj.status),
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'CreationTime': obj.creationTime,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'LastModifiedTime': obj.lastModifiedTime,
+    'LastModifiedBy': toJson_SageMakerUserContext(obj.lastModifiedBy),
+    'Parameters': ((obj.parameters) === undefined) ? undefined : (Object.entries(obj.parameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_SageMakerTrialComponentParameterValue(i[1]) }), {})),
+    'InputArtifacts': ((obj.inputArtifacts) === undefined) ? undefined : (Object.entries(obj.inputArtifacts).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_SageMakerTrialComponentArtifact(i[1]) }), {})),
+    'OutputArtifacts': ((obj.outputArtifacts) === undefined) ? undefined : (Object.entries(obj.outputArtifacts).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_SageMakerTrialComponentArtifact(i[1]) }), {})),
+    'MetadataProperties': toJson_SageMakerMetadataProperties(obj.metadataProperties),
+    'Metrics': obj.metrics?.map(y => toJson_SageMakerTrialComponentMetricSummary(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeUserProfileRequest
@@ -4043,14 +10328,29 @@ export interface SageMakerDescribeUserProfileRequest {
   /**
    * @schema SageMakerDescribeUserProfileRequest#DomainId
    */
-  readonly domainId: string;
+  readonly domainId?: string;
 
   /**
    * @schema SageMakerDescribeUserProfileRequest#UserProfileName
    */
-  readonly userProfileName: string;
+  readonly userProfileName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeUserProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeUserProfileRequest(obj: SageMakerDescribeUserProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainId': obj.domainId,
+    'UserProfileName': obj.userProfileName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeUserProfileResponse
@@ -4114,15 +10414,53 @@ export interface SageMakerDescribeUserProfileResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDescribeUserProfileResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeUserProfileResponse(obj: SageMakerDescribeUserProfileResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainId': obj.domainId,
+    'UserProfileArn': obj.userProfileArn,
+    'UserProfileName': obj.userProfileName,
+    'HomeEfsFileSystemUid': obj.homeEfsFileSystemUid,
+    'Status': obj.status,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'CreationTime': obj.creationTime,
+    'FailureReason': obj.failureReason,
+    'SingleSignOnUserIdentifier': obj.singleSignOnUserIdentifier,
+    'SingleSignOnUserValue': obj.singleSignOnUserValue,
+    'UserSettings': toJson_SageMakerUserSettings(obj.userSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDescribeWorkforceRequest
  */
 export interface SageMakerDescribeWorkforceRequest {
   /**
    * @schema SageMakerDescribeWorkforceRequest#WorkforceName
    */
-  readonly workforceName: string;
+  readonly workforceName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeWorkforceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeWorkforceRequest(obj: SageMakerDescribeWorkforceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WorkforceName': obj.workforceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeWorkforceResponse
@@ -4131,9 +10469,23 @@ export interface SageMakerDescribeWorkforceResponse {
   /**
    * @schema SageMakerDescribeWorkforceResponse#Workforce
    */
-  readonly workforce: SageMakerWorkforce;
+  readonly workforce?: SageMakerWorkforce;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeWorkforceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeWorkforceResponse(obj: SageMakerDescribeWorkforceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Workforce': toJson_SageMakerWorkforce(obj.workforce),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeWorkteamRequest
@@ -4142,9 +10494,23 @@ export interface SageMakerDescribeWorkteamRequest {
   /**
    * @schema SageMakerDescribeWorkteamRequest#WorkteamName
    */
-  readonly workteamName: string;
+  readonly workteamName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeWorkteamRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeWorkteamRequest(obj: SageMakerDescribeWorkteamRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WorkteamName': obj.workteamName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDescribeWorkteamResponse
@@ -4153,9 +10519,61 @@ export interface SageMakerDescribeWorkteamResponse {
   /**
    * @schema SageMakerDescribeWorkteamResponse#Workteam
    */
-  readonly workteam: SageMakerWorkteam;
+  readonly workteam?: SageMakerWorkteam;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDescribeWorkteamResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDescribeWorkteamResponse(obj: SageMakerDescribeWorkteamResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Workteam': toJson_SageMakerWorkteam(obj.workteam),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDisableSagemakerServicecatalogPortfolioInput
+ */
+export interface SageMakerDisableSagemakerServicecatalogPortfolioInput {
+}
+
+/**
+ * Converts an object of type 'SageMakerDisableSagemakerServicecatalogPortfolioInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDisableSagemakerServicecatalogPortfolioInput(obj: SageMakerDisableSagemakerServicecatalogPortfolioInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDisableSagemakerServicecatalogPortfolioOutput
+ */
+export interface SageMakerDisableSagemakerServicecatalogPortfolioOutput {
+}
+
+/**
+ * Converts an object of type 'SageMakerDisableSagemakerServicecatalogPortfolioOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDisableSagemakerServicecatalogPortfolioOutput(obj: SageMakerDisableSagemakerServicecatalogPortfolioOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDisassociateTrialComponentRequest
@@ -4164,14 +10582,29 @@ export interface SageMakerDisassociateTrialComponentRequest {
   /**
    * @schema SageMakerDisassociateTrialComponentRequest#TrialComponentName
    */
-  readonly trialComponentName: string;
+  readonly trialComponentName?: string;
 
   /**
    * @schema SageMakerDisassociateTrialComponentRequest#TrialName
    */
-  readonly trialName: string;
+  readonly trialName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDisassociateTrialComponentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDisassociateTrialComponentRequest(obj: SageMakerDisassociateTrialComponentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialComponentName': obj.trialComponentName,
+    'TrialName': obj.trialName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDisassociateTrialComponentResponse
@@ -4190,13 +10623,252 @@ export interface SageMakerDisassociateTrialComponentResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerDisassociateTrialComponentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDisassociateTrialComponentResponse(obj: SageMakerDisassociateTrialComponentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialComponentArn': obj.trialComponentArn,
+    'TrialArn': obj.trialArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerEnableSagemakerServicecatalogPortfolioInput
+ */
+export interface SageMakerEnableSagemakerServicecatalogPortfolioInput {
+}
+
+/**
+ * Converts an object of type 'SageMakerEnableSagemakerServicecatalogPortfolioInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerEnableSagemakerServicecatalogPortfolioInput(obj: SageMakerEnableSagemakerServicecatalogPortfolioInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerEnableSagemakerServicecatalogPortfolioOutput
+ */
+export interface SageMakerEnableSagemakerServicecatalogPortfolioOutput {
+}
+
+/**
+ * Converts an object of type 'SageMakerEnableSagemakerServicecatalogPortfolioOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerEnableSagemakerServicecatalogPortfolioOutput(obj: SageMakerEnableSagemakerServicecatalogPortfolioOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerGetDeviceFleetReportRequest
+ */
+export interface SageMakerGetDeviceFleetReportRequest {
+  /**
+   * @schema SageMakerGetDeviceFleetReportRequest#DeviceFleetName
+   */
+  readonly deviceFleetName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerGetDeviceFleetReportRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerGetDeviceFleetReportRequest(obj: SageMakerGetDeviceFleetReportRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceFleetName': obj.deviceFleetName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerGetDeviceFleetReportResponse
+ */
+export interface SageMakerGetDeviceFleetReportResponse {
+  /**
+   * @schema SageMakerGetDeviceFleetReportResponse#DeviceFleetArn
+   */
+  readonly deviceFleetArn?: string;
+
+  /**
+   * @schema SageMakerGetDeviceFleetReportResponse#DeviceFleetName
+   */
+  readonly deviceFleetName?: string;
+
+  /**
+   * @schema SageMakerGetDeviceFleetReportResponse#OutputConfig
+   */
+  readonly outputConfig?: SageMakerEdgeOutputConfig;
+
+  /**
+   * @schema SageMakerGetDeviceFleetReportResponse#Description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema SageMakerGetDeviceFleetReportResponse#ReportGenerated
+   */
+  readonly reportGenerated?: string;
+
+  /**
+   * @schema SageMakerGetDeviceFleetReportResponse#DeviceStats
+   */
+  readonly deviceStats?: SageMakerDeviceStats;
+
+  /**
+   * @schema SageMakerGetDeviceFleetReportResponse#AgentVersions
+   */
+  readonly agentVersions?: SageMakerAgentVersion[];
+
+  /**
+   * @schema SageMakerGetDeviceFleetReportResponse#ModelStats
+   */
+  readonly modelStats?: SageMakerEdgeModelStat[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerGetDeviceFleetReportResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerGetDeviceFleetReportResponse(obj: SageMakerGetDeviceFleetReportResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceFleetArn': obj.deviceFleetArn,
+    'DeviceFleetName': obj.deviceFleetName,
+    'OutputConfig': toJson_SageMakerEdgeOutputConfig(obj.outputConfig),
+    'Description': obj.description,
+    'ReportGenerated': obj.reportGenerated,
+    'DeviceStats': toJson_SageMakerDeviceStats(obj.deviceStats),
+    'AgentVersions': obj.agentVersions?.map(y => toJson_SageMakerAgentVersion(y)),
+    'ModelStats': obj.modelStats?.map(y => toJson_SageMakerEdgeModelStat(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerGetModelPackageGroupPolicyInput
+ */
+export interface SageMakerGetModelPackageGroupPolicyInput {
+  /**
+   * @schema SageMakerGetModelPackageGroupPolicyInput#ModelPackageGroupName
+   */
+  readonly modelPackageGroupName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerGetModelPackageGroupPolicyInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerGetModelPackageGroupPolicyInput(obj: SageMakerGetModelPackageGroupPolicyInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageGroupName': obj.modelPackageGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerGetModelPackageGroupPolicyOutput
+ */
+export interface SageMakerGetModelPackageGroupPolicyOutput {
+  /**
+   * @schema SageMakerGetModelPackageGroupPolicyOutput#ResourcePolicy
+   */
+  readonly resourcePolicy?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerGetModelPackageGroupPolicyOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerGetModelPackageGroupPolicyOutput(obj: SageMakerGetModelPackageGroupPolicyOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourcePolicy': obj.resourcePolicy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerGetSagemakerServicecatalogPortfolioStatusInput
+ */
+export interface SageMakerGetSagemakerServicecatalogPortfolioStatusInput {
+}
+
+/**
+ * Converts an object of type 'SageMakerGetSagemakerServicecatalogPortfolioStatusInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerGetSagemakerServicecatalogPortfolioStatusInput(obj: SageMakerGetSagemakerServicecatalogPortfolioStatusInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerGetSagemakerServicecatalogPortfolioStatusOutput
+ */
+export interface SageMakerGetSagemakerServicecatalogPortfolioStatusOutput {
+  /**
+   * @schema SageMakerGetSagemakerServicecatalogPortfolioStatusOutput#Status
+   */
+  readonly status?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerGetSagemakerServicecatalogPortfolioStatusOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerGetSagemakerServicecatalogPortfolioStatusOutput(obj: SageMakerGetSagemakerServicecatalogPortfolioStatusOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerGetSearchSuggestionsRequest
  */
 export interface SageMakerGetSearchSuggestionsRequest {
   /**
    * @schema SageMakerGetSearchSuggestionsRequest#Resource
    */
-  readonly resource: string;
+  readonly resource?: string;
 
   /**
    * @schema SageMakerGetSearchSuggestionsRequest#SuggestionQuery
@@ -4204,6 +10876,21 @@ export interface SageMakerGetSearchSuggestionsRequest {
   readonly suggestionQuery?: SageMakerSuggestionQuery;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerGetSearchSuggestionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerGetSearchSuggestionsRequest(obj: SageMakerGetSearchSuggestionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Resource': obj.resource,
+    'SuggestionQuery': toJson_SageMakerSuggestionQuery(obj.suggestionQuery),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerGetSearchSuggestionsResponse
@@ -4215,6 +10902,118 @@ export interface SageMakerGetSearchSuggestionsResponse {
   readonly propertyNameSuggestions?: SageMakerPropertyNameSuggestion[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerGetSearchSuggestionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerGetSearchSuggestionsResponse(obj: SageMakerGetSearchSuggestionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PropertyNameSuggestions': obj.propertyNameSuggestions?.map(y => toJson_SageMakerPropertyNameSuggestion(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListActionsRequest
+ */
+export interface SageMakerListActionsRequest {
+  /**
+   * @schema SageMakerListActionsRequest#SourceUri
+   */
+  readonly sourceUri?: string;
+
+  /**
+   * @schema SageMakerListActionsRequest#ActionType
+   */
+  readonly actionType?: string;
+
+  /**
+   * @schema SageMakerListActionsRequest#CreatedAfter
+   */
+  readonly createdAfter?: string;
+
+  /**
+   * @schema SageMakerListActionsRequest#CreatedBefore
+   */
+  readonly createdBefore?: string;
+
+  /**
+   * @schema SageMakerListActionsRequest#SortBy
+   */
+  readonly sortBy?: string;
+
+  /**
+   * @schema SageMakerListActionsRequest#SortOrder
+   */
+  readonly sortOrder?: string;
+
+  /**
+   * @schema SageMakerListActionsRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema SageMakerListActionsRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListActionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListActionsRequest(obj: SageMakerListActionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceUri': obj.sourceUri,
+    'ActionType': obj.actionType,
+    'CreatedAfter': obj.createdAfter,
+    'CreatedBefore': obj.createdBefore,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListActionsResponse
+ */
+export interface SageMakerListActionsResponse {
+  /**
+   * @schema SageMakerListActionsResponse#ActionSummaries
+   */
+  readonly actionSummaries?: SageMakerActionSummary[];
+
+  /**
+   * @schema SageMakerListActionsResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListActionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListActionsResponse(obj: SageMakerListActionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ActionSummaries': obj.actionSummaries?.map(y => toJson_SageMakerActionSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListAlgorithmsInput
@@ -4258,13 +11057,33 @@ export interface SageMakerListAlgorithmsInput {
 }
 
 /**
+ * Converts an object of type 'SageMakerListAlgorithmsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListAlgorithmsInput(obj: SageMakerListAlgorithmsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'MaxResults': obj.maxResults,
+    'NameContains': obj.nameContains,
+    'NextToken': obj.nextToken,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListAlgorithmsOutput
  */
 export interface SageMakerListAlgorithmsOutput {
   /**
    * @schema SageMakerListAlgorithmsOutput#AlgorithmSummaryList
    */
-  readonly algorithmSummaryList: SageMakerAlgorithmSummary[];
+  readonly algorithmSummaryList?: SageMakerAlgorithmSummary[];
 
   /**
    * @schema SageMakerListAlgorithmsOutput#NextToken
@@ -4272,6 +11091,21 @@ export interface SageMakerListAlgorithmsOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListAlgorithmsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListAlgorithmsOutput(obj: SageMakerListAlgorithmsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AlgorithmSummaryList': obj.algorithmSummaryList?.map(y => toJson_SageMakerAlgorithmSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListAppImageConfigsRequest
@@ -4325,6 +11159,28 @@ export interface SageMakerListAppImageConfigsRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListAppImageConfigsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListAppImageConfigsRequest(obj: SageMakerListAppImageConfigsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+    'NameContains': obj.nameContains,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'ModifiedTimeBefore': obj.modifiedTimeBefore,
+    'ModifiedTimeAfter': obj.modifiedTimeAfter,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListAppImageConfigsResponse
  */
 export interface SageMakerListAppImageConfigsResponse {
@@ -4339,6 +11195,21 @@ export interface SageMakerListAppImageConfigsResponse {
   readonly appImageConfigs?: SageMakerAppImageConfigDetails[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListAppImageConfigsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListAppImageConfigsResponse(obj: SageMakerListAppImageConfigsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'AppImageConfigs': obj.appImageConfigs?.map(y => toJson_SageMakerAppImageConfigDetails(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListAppsRequest
@@ -4377,6 +11248,25 @@ export interface SageMakerListAppsRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListAppsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListAppsRequest(obj: SageMakerListAppsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'SortOrder': obj.sortOrder,
+    'SortBy': obj.sortBy,
+    'DomainIdEquals': obj.domainIdEquals,
+    'UserProfileNameEquals': obj.userProfileNameEquals,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListAppsResponse
  */
 export interface SageMakerListAppsResponse {
@@ -4391,6 +11281,235 @@ export interface SageMakerListAppsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListAppsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListAppsResponse(obj: SageMakerListAppsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Apps': obj.apps?.map(y => toJson_SageMakerAppDetails(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListArtifactsRequest
+ */
+export interface SageMakerListArtifactsRequest {
+  /**
+   * @schema SageMakerListArtifactsRequest#SourceUri
+   */
+  readonly sourceUri?: string;
+
+  /**
+   * @schema SageMakerListArtifactsRequest#ArtifactType
+   */
+  readonly artifactType?: string;
+
+  /**
+   * @schema SageMakerListArtifactsRequest#CreatedAfter
+   */
+  readonly createdAfter?: string;
+
+  /**
+   * @schema SageMakerListArtifactsRequest#CreatedBefore
+   */
+  readonly createdBefore?: string;
+
+  /**
+   * @schema SageMakerListArtifactsRequest#SortBy
+   */
+  readonly sortBy?: string;
+
+  /**
+   * @schema SageMakerListArtifactsRequest#SortOrder
+   */
+  readonly sortOrder?: string;
+
+  /**
+   * @schema SageMakerListArtifactsRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema SageMakerListArtifactsRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListArtifactsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListArtifactsRequest(obj: SageMakerListArtifactsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceUri': obj.sourceUri,
+    'ArtifactType': obj.artifactType,
+    'CreatedAfter': obj.createdAfter,
+    'CreatedBefore': obj.createdBefore,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListArtifactsResponse
+ */
+export interface SageMakerListArtifactsResponse {
+  /**
+   * @schema SageMakerListArtifactsResponse#ArtifactSummaries
+   */
+  readonly artifactSummaries?: SageMakerArtifactSummary[];
+
+  /**
+   * @schema SageMakerListArtifactsResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListArtifactsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListArtifactsResponse(obj: SageMakerListArtifactsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ArtifactSummaries': obj.artifactSummaries?.map(y => toJson_SageMakerArtifactSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListAssociationsRequest
+ */
+export interface SageMakerListAssociationsRequest {
+  /**
+   * @schema SageMakerListAssociationsRequest#SourceArn
+   */
+  readonly sourceArn?: string;
+
+  /**
+   * @schema SageMakerListAssociationsRequest#DestinationArn
+   */
+  readonly destinationArn?: string;
+
+  /**
+   * @schema SageMakerListAssociationsRequest#SourceType
+   */
+  readonly sourceType?: string;
+
+  /**
+   * @schema SageMakerListAssociationsRequest#DestinationType
+   */
+  readonly destinationType?: string;
+
+  /**
+   * @schema SageMakerListAssociationsRequest#AssociationType
+   */
+  readonly associationType?: string;
+
+  /**
+   * @schema SageMakerListAssociationsRequest#CreatedAfter
+   */
+  readonly createdAfter?: string;
+
+  /**
+   * @schema SageMakerListAssociationsRequest#CreatedBefore
+   */
+  readonly createdBefore?: string;
+
+  /**
+   * @schema SageMakerListAssociationsRequest#SortBy
+   */
+  readonly sortBy?: string;
+
+  /**
+   * @schema SageMakerListAssociationsRequest#SortOrder
+   */
+  readonly sortOrder?: string;
+
+  /**
+   * @schema SageMakerListAssociationsRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema SageMakerListAssociationsRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListAssociationsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListAssociationsRequest(obj: SageMakerListAssociationsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceArn': obj.sourceArn,
+    'DestinationArn': obj.destinationArn,
+    'SourceType': obj.sourceType,
+    'DestinationType': obj.destinationType,
+    'AssociationType': obj.associationType,
+    'CreatedAfter': obj.createdAfter,
+    'CreatedBefore': obj.createdBefore,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListAssociationsResponse
+ */
+export interface SageMakerListAssociationsResponse {
+  /**
+   * @schema SageMakerListAssociationsResponse#AssociationSummaries
+   */
+  readonly associationSummaries?: SageMakerAssociationSummary[];
+
+  /**
+   * @schema SageMakerListAssociationsResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListAssociationsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListAssociationsResponse(obj: SageMakerListAssociationsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AssociationSummaries': obj.associationSummaries?.map(y => toJson_SageMakerAssociationSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListAutoMlJobsRequest
@@ -4449,13 +11568,36 @@ export interface SageMakerListAutoMlJobsRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListAutoMlJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListAutoMlJobsRequest(obj: SageMakerListAutoMlJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'LastModifiedTimeAfter': obj.lastModifiedTimeAfter,
+    'LastModifiedTimeBefore': obj.lastModifiedTimeBefore,
+    'NameContains': obj.nameContains,
+    'StatusEquals': obj.statusEquals,
+    'SortOrder': obj.sortOrder,
+    'SortBy': obj.sortBy,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListAutoMlJobsResponse
  */
 export interface SageMakerListAutoMlJobsResponse {
   /**
    * @schema SageMakerListAutoMlJobsResponse#AutoMLJobSummaries
    */
-  readonly autoMlJobSummaries: SageMakerAutoMlJobSummary[];
+  readonly autoMlJobSummaries?: SageMakerAutoMlJobSummary[];
 
   /**
    * @schema SageMakerListAutoMlJobsResponse#NextToken
@@ -4465,13 +11607,28 @@ export interface SageMakerListAutoMlJobsResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerListAutoMlJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListAutoMlJobsResponse(obj: SageMakerListAutoMlJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AutoMLJobSummaries': obj.autoMlJobSummaries?.map(y => toJson_SageMakerAutoMlJobSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListCandidatesForAutoMlJobRequest
  */
 export interface SageMakerListCandidatesForAutoMlJobRequest {
   /**
    * @schema SageMakerListCandidatesForAutoMlJobRequest#AutoMLJobName
    */
-  readonly autoMlJobName: string;
+  readonly autoMlJobName?: string;
 
   /**
    * @schema SageMakerListCandidatesForAutoMlJobRequest#StatusEquals
@@ -4506,13 +11663,33 @@ export interface SageMakerListCandidatesForAutoMlJobRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListCandidatesForAutoMlJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListCandidatesForAutoMlJobRequest(obj: SageMakerListCandidatesForAutoMlJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AutoMLJobName': obj.autoMlJobName,
+    'StatusEquals': obj.statusEquals,
+    'CandidateNameEquals': obj.candidateNameEquals,
+    'SortOrder': obj.sortOrder,
+    'SortBy': obj.sortBy,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListCandidatesForAutoMlJobResponse
  */
 export interface SageMakerListCandidatesForAutoMlJobResponse {
   /**
    * @schema SageMakerListCandidatesForAutoMlJobResponse#Candidates
    */
-  readonly candidates: SageMakerAutoMlCandidate[];
+  readonly candidates?: SageMakerAutoMlCandidate[];
 
   /**
    * @schema SageMakerListCandidatesForAutoMlJobResponse#NextToken
@@ -4520,6 +11697,21 @@ export interface SageMakerListCandidatesForAutoMlJobResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListCandidatesForAutoMlJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListCandidatesForAutoMlJobResponse(obj: SageMakerListCandidatesForAutoMlJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Candidates': obj.candidates?.map(y => toJson_SageMakerAutoMlCandidate(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListCodeRepositoriesInput
@@ -4573,13 +11765,35 @@ export interface SageMakerListCodeRepositoriesInput {
 }
 
 /**
+ * Converts an object of type 'SageMakerListCodeRepositoriesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListCodeRepositoriesInput(obj: SageMakerListCodeRepositoriesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'LastModifiedTimeAfter': obj.lastModifiedTimeAfter,
+    'LastModifiedTimeBefore': obj.lastModifiedTimeBefore,
+    'MaxResults': obj.maxResults,
+    'NameContains': obj.nameContains,
+    'NextToken': obj.nextToken,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListCodeRepositoriesOutput
  */
 export interface SageMakerListCodeRepositoriesOutput {
   /**
    * @schema SageMakerListCodeRepositoriesOutput#CodeRepositorySummaryList
    */
-  readonly codeRepositorySummaryList: SageMakerCodeRepositorySummary[];
+  readonly codeRepositorySummaryList?: SageMakerCodeRepositorySummary[];
 
   /**
    * @schema SageMakerListCodeRepositoriesOutput#NextToken
@@ -4587,6 +11801,21 @@ export interface SageMakerListCodeRepositoriesOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListCodeRepositoriesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListCodeRepositoriesOutput(obj: SageMakerListCodeRepositoriesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CodeRepositorySummaryList': obj.codeRepositorySummaryList?.map(y => toJson_SageMakerCodeRepositorySummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListCompilationJobsRequest
@@ -4645,13 +11874,36 @@ export interface SageMakerListCompilationJobsRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListCompilationJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListCompilationJobsRequest(obj: SageMakerListCompilationJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'LastModifiedTimeAfter': obj.lastModifiedTimeAfter,
+    'LastModifiedTimeBefore': obj.lastModifiedTimeBefore,
+    'NameContains': obj.nameContains,
+    'StatusEquals': obj.statusEquals,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListCompilationJobsResponse
  */
 export interface SageMakerListCompilationJobsResponse {
   /**
    * @schema SageMakerListCompilationJobsResponse#CompilationJobSummaries
    */
-  readonly compilationJobSummaries: SageMakerCompilationJobSummary[];
+  readonly compilationJobSummaries?: SageMakerCompilationJobSummary[];
 
   /**
    * @schema SageMakerListCompilationJobsResponse#NextToken
@@ -4659,6 +11911,401 @@ export interface SageMakerListCompilationJobsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListCompilationJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListCompilationJobsResponse(obj: SageMakerListCompilationJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CompilationJobSummaries': obj.compilationJobSummaries?.map(y => toJson_SageMakerCompilationJobSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListContextsRequest
+ */
+export interface SageMakerListContextsRequest {
+  /**
+   * @schema SageMakerListContextsRequest#SourceUri
+   */
+  readonly sourceUri?: string;
+
+  /**
+   * @schema SageMakerListContextsRequest#ContextType
+   */
+  readonly contextType?: string;
+
+  /**
+   * @schema SageMakerListContextsRequest#CreatedAfter
+   */
+  readonly createdAfter?: string;
+
+  /**
+   * @schema SageMakerListContextsRequest#CreatedBefore
+   */
+  readonly createdBefore?: string;
+
+  /**
+   * @schema SageMakerListContextsRequest#SortBy
+   */
+  readonly sortBy?: string;
+
+  /**
+   * @schema SageMakerListContextsRequest#SortOrder
+   */
+  readonly sortOrder?: string;
+
+  /**
+   * @schema SageMakerListContextsRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema SageMakerListContextsRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListContextsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListContextsRequest(obj: SageMakerListContextsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceUri': obj.sourceUri,
+    'ContextType': obj.contextType,
+    'CreatedAfter': obj.createdAfter,
+    'CreatedBefore': obj.createdBefore,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListContextsResponse
+ */
+export interface SageMakerListContextsResponse {
+  /**
+   * @schema SageMakerListContextsResponse#ContextSummaries
+   */
+  readonly contextSummaries?: SageMakerContextSummary[];
+
+  /**
+   * @schema SageMakerListContextsResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListContextsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListContextsResponse(obj: SageMakerListContextsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContextSummaries': obj.contextSummaries?.map(y => toJson_SageMakerContextSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListDataQualityJobDefinitionsRequest
+ */
+export interface SageMakerListDataQualityJobDefinitionsRequest {
+  /**
+   * @schema SageMakerListDataQualityJobDefinitionsRequest#EndpointName
+   */
+  readonly endpointName?: string;
+
+  /**
+   * @schema SageMakerListDataQualityJobDefinitionsRequest#SortBy
+   */
+  readonly sortBy?: string;
+
+  /**
+   * @schema SageMakerListDataQualityJobDefinitionsRequest#SortOrder
+   */
+  readonly sortOrder?: string;
+
+  /**
+   * @schema SageMakerListDataQualityJobDefinitionsRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema SageMakerListDataQualityJobDefinitionsRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+  /**
+   * @schema SageMakerListDataQualityJobDefinitionsRequest#NameContains
+   */
+  readonly nameContains?: string;
+
+  /**
+   * @schema SageMakerListDataQualityJobDefinitionsRequest#CreationTimeBefore
+   */
+  readonly creationTimeBefore?: string;
+
+  /**
+   * @schema SageMakerListDataQualityJobDefinitionsRequest#CreationTimeAfter
+   */
+  readonly creationTimeAfter?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListDataQualityJobDefinitionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListDataQualityJobDefinitionsRequest(obj: SageMakerListDataQualityJobDefinitionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointName': obj.endpointName,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'NameContains': obj.nameContains,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'CreationTimeAfter': obj.creationTimeAfter,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListDataQualityJobDefinitionsResponse
+ */
+export interface SageMakerListDataQualityJobDefinitionsResponse {
+  /**
+   * @schema SageMakerListDataQualityJobDefinitionsResponse#JobDefinitionSummaries
+   */
+  readonly jobDefinitionSummaries?: SageMakerMonitoringJobDefinitionSummary[];
+
+  /**
+   * @schema SageMakerListDataQualityJobDefinitionsResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListDataQualityJobDefinitionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListDataQualityJobDefinitionsResponse(obj: SageMakerListDataQualityJobDefinitionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionSummaries': obj.jobDefinitionSummaries?.map(y => toJson_SageMakerMonitoringJobDefinitionSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListDeviceFleetsRequest
+ */
+export interface SageMakerListDeviceFleetsRequest {
+  /**
+   * @schema SageMakerListDeviceFleetsRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema SageMakerListDeviceFleetsRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+  /**
+   * @schema SageMakerListDeviceFleetsRequest#CreationTimeAfter
+   */
+  readonly creationTimeAfter?: string;
+
+  /**
+   * @schema SageMakerListDeviceFleetsRequest#CreationTimeBefore
+   */
+  readonly creationTimeBefore?: string;
+
+  /**
+   * @schema SageMakerListDeviceFleetsRequest#LastModifiedTimeAfter
+   */
+  readonly lastModifiedTimeAfter?: string;
+
+  /**
+   * @schema SageMakerListDeviceFleetsRequest#LastModifiedTimeBefore
+   */
+  readonly lastModifiedTimeBefore?: string;
+
+  /**
+   * @schema SageMakerListDeviceFleetsRequest#NameContains
+   */
+  readonly nameContains?: string;
+
+  /**
+   * @schema SageMakerListDeviceFleetsRequest#SortBy
+   */
+  readonly sortBy?: string;
+
+  /**
+   * @schema SageMakerListDeviceFleetsRequest#SortOrder
+   */
+  readonly sortOrder?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListDeviceFleetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListDeviceFleetsRequest(obj: SageMakerListDeviceFleetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'LastModifiedTimeAfter': obj.lastModifiedTimeAfter,
+    'LastModifiedTimeBefore': obj.lastModifiedTimeBefore,
+    'NameContains': obj.nameContains,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListDeviceFleetsResponse
+ */
+export interface SageMakerListDeviceFleetsResponse {
+  /**
+   * @schema SageMakerListDeviceFleetsResponse#DeviceFleetSummaries
+   */
+  readonly deviceFleetSummaries?: SageMakerDeviceFleetSummary[];
+
+  /**
+   * @schema SageMakerListDeviceFleetsResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListDeviceFleetsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListDeviceFleetsResponse(obj: SageMakerListDeviceFleetsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceFleetSummaries': obj.deviceFleetSummaries?.map(y => toJson_SageMakerDeviceFleetSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListDevicesRequest
+ */
+export interface SageMakerListDevicesRequest {
+  /**
+   * @schema SageMakerListDevicesRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema SageMakerListDevicesRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+  /**
+   * @schema SageMakerListDevicesRequest#LatestHeartbeatAfter
+   */
+  readonly latestHeartbeatAfter?: string;
+
+  /**
+   * @schema SageMakerListDevicesRequest#ModelName
+   */
+  readonly modelName?: string;
+
+  /**
+   * @schema SageMakerListDevicesRequest#DeviceFleetName
+   */
+  readonly deviceFleetName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListDevicesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListDevicesRequest(obj: SageMakerListDevicesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'LatestHeartbeatAfter': obj.latestHeartbeatAfter,
+    'ModelName': obj.modelName,
+    'DeviceFleetName': obj.deviceFleetName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListDevicesResponse
+ */
+export interface SageMakerListDevicesResponse {
+  /**
+   * @schema SageMakerListDevicesResponse#DeviceSummaries
+   */
+  readonly deviceSummaries?: SageMakerDeviceSummary[];
+
+  /**
+   * @schema SageMakerListDevicesResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListDevicesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListDevicesResponse(obj: SageMakerListDevicesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceSummaries': obj.deviceSummaries?.map(y => toJson_SageMakerDeviceSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListDomainsRequest
@@ -4677,6 +12324,21 @@ export interface SageMakerListDomainsRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListDomainsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListDomainsRequest(obj: SageMakerListDomainsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListDomainsResponse
  */
 export interface SageMakerListDomainsResponse {
@@ -4691,6 +12353,137 @@ export interface SageMakerListDomainsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListDomainsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListDomainsResponse(obj: SageMakerListDomainsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Domains': obj.domains?.map(y => toJson_SageMakerDomainDetails(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListEdgePackagingJobsRequest
+ */
+export interface SageMakerListEdgePackagingJobsRequest {
+  /**
+   * @schema SageMakerListEdgePackagingJobsRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema SageMakerListEdgePackagingJobsRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+  /**
+   * @schema SageMakerListEdgePackagingJobsRequest#CreationTimeAfter
+   */
+  readonly creationTimeAfter?: string;
+
+  /**
+   * @schema SageMakerListEdgePackagingJobsRequest#CreationTimeBefore
+   */
+  readonly creationTimeBefore?: string;
+
+  /**
+   * @schema SageMakerListEdgePackagingJobsRequest#LastModifiedTimeAfter
+   */
+  readonly lastModifiedTimeAfter?: string;
+
+  /**
+   * @schema SageMakerListEdgePackagingJobsRequest#LastModifiedTimeBefore
+   */
+  readonly lastModifiedTimeBefore?: string;
+
+  /**
+   * @schema SageMakerListEdgePackagingJobsRequest#NameContains
+   */
+  readonly nameContains?: string;
+
+  /**
+   * @schema SageMakerListEdgePackagingJobsRequest#ModelNameContains
+   */
+  readonly modelNameContains?: string;
+
+  /**
+   * @schema SageMakerListEdgePackagingJobsRequest#StatusEquals
+   */
+  readonly statusEquals?: string;
+
+  /**
+   * @schema SageMakerListEdgePackagingJobsRequest#SortBy
+   */
+  readonly sortBy?: string;
+
+  /**
+   * @schema SageMakerListEdgePackagingJobsRequest#SortOrder
+   */
+  readonly sortOrder?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListEdgePackagingJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListEdgePackagingJobsRequest(obj: SageMakerListEdgePackagingJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'LastModifiedTimeAfter': obj.lastModifiedTimeAfter,
+    'LastModifiedTimeBefore': obj.lastModifiedTimeBefore,
+    'NameContains': obj.nameContains,
+    'ModelNameContains': obj.modelNameContains,
+    'StatusEquals': obj.statusEquals,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListEdgePackagingJobsResponse
+ */
+export interface SageMakerListEdgePackagingJobsResponse {
+  /**
+   * @schema SageMakerListEdgePackagingJobsResponse#EdgePackagingJobSummaries
+   */
+  readonly edgePackagingJobSummaries?: SageMakerEdgePackagingJobSummary[];
+
+  /**
+   * @schema SageMakerListEdgePackagingJobsResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListEdgePackagingJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListEdgePackagingJobsResponse(obj: SageMakerListEdgePackagingJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EdgePackagingJobSummaries': obj.edgePackagingJobSummaries?.map(y => toJson_SageMakerEdgePackagingJobSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListEndpointConfigsInput
@@ -4734,13 +12527,33 @@ export interface SageMakerListEndpointConfigsInput {
 }
 
 /**
+ * Converts an object of type 'SageMakerListEndpointConfigsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListEndpointConfigsInput(obj: SageMakerListEndpointConfigsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'NameContains': obj.nameContains,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'CreationTimeAfter': obj.creationTimeAfter,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListEndpointConfigsOutput
  */
 export interface SageMakerListEndpointConfigsOutput {
   /**
    * @schema SageMakerListEndpointConfigsOutput#EndpointConfigs
    */
-  readonly endpointConfigs: SageMakerEndpointConfigSummary[];
+  readonly endpointConfigs?: SageMakerEndpointConfigSummary[];
 
   /**
    * @schema SageMakerListEndpointConfigsOutput#NextToken
@@ -4748,6 +12561,21 @@ export interface SageMakerListEndpointConfigsOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListEndpointConfigsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListEndpointConfigsOutput(obj: SageMakerListEndpointConfigsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointConfigs': obj.endpointConfigs?.map(y => toJson_SageMakerEndpointConfigSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListEndpointsInput
@@ -4806,13 +12634,36 @@ export interface SageMakerListEndpointsInput {
 }
 
 /**
+ * Converts an object of type 'SageMakerListEndpointsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListEndpointsInput(obj: SageMakerListEndpointsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'NameContains': obj.nameContains,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'LastModifiedTimeBefore': obj.lastModifiedTimeBefore,
+    'LastModifiedTimeAfter': obj.lastModifiedTimeAfter,
+    'StatusEquals': obj.statusEquals,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListEndpointsOutput
  */
 export interface SageMakerListEndpointsOutput {
   /**
    * @schema SageMakerListEndpointsOutput#Endpoints
    */
-  readonly endpoints: SageMakerEndpointSummary[];
+  readonly endpoints?: SageMakerEndpointSummary[];
 
   /**
    * @schema SageMakerListEndpointsOutput#NextToken
@@ -4820,6 +12671,21 @@ export interface SageMakerListEndpointsOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListEndpointsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListEndpointsOutput(obj: SageMakerListEndpointsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Endpoints': obj.endpoints?.map(y => toJson_SageMakerEndpointSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListExperimentsRequest
@@ -4858,6 +12724,25 @@ export interface SageMakerListExperimentsRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListExperimentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListExperimentsRequest(obj: SageMakerListExperimentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreatedAfter': obj.createdAfter,
+    'CreatedBefore': obj.createdBefore,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListExperimentsResponse
  */
 export interface SageMakerListExperimentsResponse {
@@ -4872,6 +12757,125 @@ export interface SageMakerListExperimentsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListExperimentsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListExperimentsResponse(obj: SageMakerListExperimentsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExperimentSummaries': obj.experimentSummaries?.map(y => toJson_SageMakerExperimentSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListFeatureGroupsRequest
+ */
+export interface SageMakerListFeatureGroupsRequest {
+  /**
+   * @schema SageMakerListFeatureGroupsRequest#NameContains
+   */
+  readonly nameContains?: string;
+
+  /**
+   * @schema SageMakerListFeatureGroupsRequest#FeatureGroupStatusEquals
+   */
+  readonly featureGroupStatusEquals?: string;
+
+  /**
+   * @schema SageMakerListFeatureGroupsRequest#OfflineStoreStatusEquals
+   */
+  readonly offlineStoreStatusEquals?: string;
+
+  /**
+   * @schema SageMakerListFeatureGroupsRequest#CreationTimeAfter
+   */
+  readonly creationTimeAfter?: string;
+
+  /**
+   * @schema SageMakerListFeatureGroupsRequest#CreationTimeBefore
+   */
+  readonly creationTimeBefore?: string;
+
+  /**
+   * @schema SageMakerListFeatureGroupsRequest#SortOrder
+   */
+  readonly sortOrder?: string;
+
+  /**
+   * @schema SageMakerListFeatureGroupsRequest#SortBy
+   */
+  readonly sortBy?: string;
+
+  /**
+   * @schema SageMakerListFeatureGroupsRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+  /**
+   * @schema SageMakerListFeatureGroupsRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListFeatureGroupsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListFeatureGroupsRequest(obj: SageMakerListFeatureGroupsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NameContains': obj.nameContains,
+    'FeatureGroupStatusEquals': obj.featureGroupStatusEquals,
+    'OfflineStoreStatusEquals': obj.offlineStoreStatusEquals,
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'SortOrder': obj.sortOrder,
+    'SortBy': obj.sortBy,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListFeatureGroupsResponse
+ */
+export interface SageMakerListFeatureGroupsResponse {
+  /**
+   * @schema SageMakerListFeatureGroupsResponse#FeatureGroupSummaries
+   */
+  readonly featureGroupSummaries?: SageMakerFeatureGroupSummary[];
+
+  /**
+   * @schema SageMakerListFeatureGroupsResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListFeatureGroupsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListFeatureGroupsResponse(obj: SageMakerListFeatureGroupsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FeatureGroupSummaries': obj.featureGroupSummaries?.map(y => toJson_SageMakerFeatureGroupSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListFlowDefinitionsRequest
@@ -4905,13 +12909,31 @@ export interface SageMakerListFlowDefinitionsRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListFlowDefinitionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListFlowDefinitionsRequest(obj: SageMakerListFlowDefinitionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListFlowDefinitionsResponse
  */
 export interface SageMakerListFlowDefinitionsResponse {
   /**
    * @schema SageMakerListFlowDefinitionsResponse#FlowDefinitionSummaries
    */
-  readonly flowDefinitionSummaries: SageMakerFlowDefinitionSummary[];
+  readonly flowDefinitionSummaries?: SageMakerFlowDefinitionSummary[];
 
   /**
    * @schema SageMakerListFlowDefinitionsResponse#NextToken
@@ -4919,6 +12941,21 @@ export interface SageMakerListFlowDefinitionsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListFlowDefinitionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListFlowDefinitionsResponse(obj: SageMakerListFlowDefinitionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FlowDefinitionSummaries': obj.flowDefinitionSummaries?.map(y => toJson_SageMakerFlowDefinitionSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListHumanTaskUisRequest
@@ -4952,13 +12989,31 @@ export interface SageMakerListHumanTaskUisRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListHumanTaskUisRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListHumanTaskUisRequest(obj: SageMakerListHumanTaskUisRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListHumanTaskUisResponse
  */
 export interface SageMakerListHumanTaskUisResponse {
   /**
    * @schema SageMakerListHumanTaskUisResponse#HumanTaskUiSummaries
    */
-  readonly humanTaskUiSummaries: SageMakerHumanTaskUiSummary[];
+  readonly humanTaskUiSummaries?: SageMakerHumanTaskUiSummary[];
 
   /**
    * @schema SageMakerListHumanTaskUisResponse#NextToken
@@ -4966,6 +13021,21 @@ export interface SageMakerListHumanTaskUisResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListHumanTaskUisResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListHumanTaskUisResponse(obj: SageMakerListHumanTaskUisResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HumanTaskUiSummaries': obj.humanTaskUiSummaries?.map(y => toJson_SageMakerHumanTaskUiSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListHyperParameterTuningJobsRequest
@@ -5024,13 +13094,36 @@ export interface SageMakerListHyperParameterTuningJobsRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListHyperParameterTuningJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListHyperParameterTuningJobsRequest(obj: SageMakerListHyperParameterTuningJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NameContains': obj.nameContains,
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'LastModifiedTimeAfter': obj.lastModifiedTimeAfter,
+    'LastModifiedTimeBefore': obj.lastModifiedTimeBefore,
+    'StatusEquals': obj.statusEquals,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListHyperParameterTuningJobsResponse
  */
 export interface SageMakerListHyperParameterTuningJobsResponse {
   /**
    * @schema SageMakerListHyperParameterTuningJobsResponse#HyperParameterTuningJobSummaries
    */
-  readonly hyperParameterTuningJobSummaries: SageMakerHyperParameterTuningJobSummary[];
+  readonly hyperParameterTuningJobSummaries?: SageMakerHyperParameterTuningJobSummary[];
 
   /**
    * @schema SageMakerListHyperParameterTuningJobsResponse#NextToken
@@ -5038,6 +13131,21 @@ export interface SageMakerListHyperParameterTuningJobsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListHyperParameterTuningJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListHyperParameterTuningJobsResponse(obj: SageMakerListHyperParameterTuningJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HyperParameterTuningJobSummaries': obj.hyperParameterTuningJobSummaries?.map(y => toJson_SageMakerHyperParameterTuningJobSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListImageVersionsRequest
@@ -5056,7 +13164,7 @@ export interface SageMakerListImageVersionsRequest {
   /**
    * @schema SageMakerListImageVersionsRequest#ImageName
    */
-  readonly imageName: string;
+  readonly imageName?: string;
 
   /**
    * @schema SageMakerListImageVersionsRequest#LastModifiedTimeAfter
@@ -5091,6 +13199,28 @@ export interface SageMakerListImageVersionsRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListImageVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListImageVersionsRequest(obj: SageMakerListImageVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'ImageName': obj.imageName,
+    'LastModifiedTimeAfter': obj.lastModifiedTimeAfter,
+    'LastModifiedTimeBefore': obj.lastModifiedTimeBefore,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListImageVersionsResponse
  */
 export interface SageMakerListImageVersionsResponse {
@@ -5105,6 +13235,21 @@ export interface SageMakerListImageVersionsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListImageVersionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListImageVersionsResponse(obj: SageMakerListImageVersionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ImageVersions': obj.imageVersions?.map(y => toJson_SageMakerImageVersion(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListImagesRequest
@@ -5158,6 +13303,28 @@ export interface SageMakerListImagesRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListImagesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListImagesRequest(obj: SageMakerListImagesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'LastModifiedTimeAfter': obj.lastModifiedTimeAfter,
+    'LastModifiedTimeBefore': obj.lastModifiedTimeBefore,
+    'MaxResults': obj.maxResults,
+    'NameContains': obj.nameContains,
+    'NextToken': obj.nextToken,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListImagesResponse
  */
 export interface SageMakerListImagesResponse {
@@ -5172,6 +13339,21 @@ export interface SageMakerListImagesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListImagesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListImagesResponse(obj: SageMakerListImagesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Images': obj.images?.map(y => toJson_SageMakerImage(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListLabelingJobsRequest
@@ -5230,6 +13412,29 @@ export interface SageMakerListLabelingJobsRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListLabelingJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListLabelingJobsRequest(obj: SageMakerListLabelingJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'LastModifiedTimeAfter': obj.lastModifiedTimeAfter,
+    'LastModifiedTimeBefore': obj.lastModifiedTimeBefore,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+    'NameContains': obj.nameContains,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'StatusEquals': obj.statusEquals,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListLabelingJobsResponse
  */
 export interface SageMakerListLabelingJobsResponse {
@@ -5246,13 +13451,28 @@ export interface SageMakerListLabelingJobsResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerListLabelingJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListLabelingJobsResponse(obj: SageMakerListLabelingJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LabelingJobSummaryList': obj.labelingJobSummaryList?.map(y => toJson_SageMakerLabelingJobSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListLabelingJobsForWorkteamRequest
  */
 export interface SageMakerListLabelingJobsForWorkteamRequest {
   /**
    * @schema SageMakerListLabelingJobsForWorkteamRequest#WorkteamArn
    */
-  readonly workteamArn: string;
+  readonly workteamArn?: string;
 
   /**
    * @schema SageMakerListLabelingJobsForWorkteamRequest#MaxResults
@@ -5292,13 +13512,34 @@ export interface SageMakerListLabelingJobsForWorkteamRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListLabelingJobsForWorkteamRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListLabelingJobsForWorkteamRequest(obj: SageMakerListLabelingJobsForWorkteamRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WorkteamArn': obj.workteamArn,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'JobReferenceCodeContains': obj.jobReferenceCodeContains,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListLabelingJobsForWorkteamResponse
  */
 export interface SageMakerListLabelingJobsForWorkteamResponse {
   /**
    * @schema SageMakerListLabelingJobsForWorkteamResponse#LabelingJobSummaryList
    */
-  readonly labelingJobSummaryList: SageMakerLabelingJobForWorkteamSummary[];
+  readonly labelingJobSummaryList?: SageMakerLabelingJobForWorkteamSummary[];
 
   /**
    * @schema SageMakerListLabelingJobsForWorkteamResponse#NextToken
@@ -5306,6 +13547,309 @@ export interface SageMakerListLabelingJobsForWorkteamResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListLabelingJobsForWorkteamResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListLabelingJobsForWorkteamResponse(obj: SageMakerListLabelingJobsForWorkteamResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LabelingJobSummaryList': obj.labelingJobSummaryList?.map(y => toJson_SageMakerLabelingJobForWorkteamSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListModelBiasJobDefinitionsRequest
+ */
+export interface SageMakerListModelBiasJobDefinitionsRequest {
+  /**
+   * @schema SageMakerListModelBiasJobDefinitionsRequest#EndpointName
+   */
+  readonly endpointName?: string;
+
+  /**
+   * @schema SageMakerListModelBiasJobDefinitionsRequest#SortBy
+   */
+  readonly sortBy?: string;
+
+  /**
+   * @schema SageMakerListModelBiasJobDefinitionsRequest#SortOrder
+   */
+  readonly sortOrder?: string;
+
+  /**
+   * @schema SageMakerListModelBiasJobDefinitionsRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema SageMakerListModelBiasJobDefinitionsRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+  /**
+   * @schema SageMakerListModelBiasJobDefinitionsRequest#NameContains
+   */
+  readonly nameContains?: string;
+
+  /**
+   * @schema SageMakerListModelBiasJobDefinitionsRequest#CreationTimeBefore
+   */
+  readonly creationTimeBefore?: string;
+
+  /**
+   * @schema SageMakerListModelBiasJobDefinitionsRequest#CreationTimeAfter
+   */
+  readonly creationTimeAfter?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListModelBiasJobDefinitionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListModelBiasJobDefinitionsRequest(obj: SageMakerListModelBiasJobDefinitionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointName': obj.endpointName,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'NameContains': obj.nameContains,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'CreationTimeAfter': obj.creationTimeAfter,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListModelBiasJobDefinitionsResponse
+ */
+export interface SageMakerListModelBiasJobDefinitionsResponse {
+  /**
+   * @schema SageMakerListModelBiasJobDefinitionsResponse#JobDefinitionSummaries
+   */
+  readonly jobDefinitionSummaries?: SageMakerMonitoringJobDefinitionSummary[];
+
+  /**
+   * @schema SageMakerListModelBiasJobDefinitionsResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListModelBiasJobDefinitionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListModelBiasJobDefinitionsResponse(obj: SageMakerListModelBiasJobDefinitionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionSummaries': obj.jobDefinitionSummaries?.map(y => toJson_SageMakerMonitoringJobDefinitionSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListModelExplainabilityJobDefinitionsRequest
+ */
+export interface SageMakerListModelExplainabilityJobDefinitionsRequest {
+  /**
+   * @schema SageMakerListModelExplainabilityJobDefinitionsRequest#EndpointName
+   */
+  readonly endpointName?: string;
+
+  /**
+   * @schema SageMakerListModelExplainabilityJobDefinitionsRequest#SortBy
+   */
+  readonly sortBy?: string;
+
+  /**
+   * @schema SageMakerListModelExplainabilityJobDefinitionsRequest#SortOrder
+   */
+  readonly sortOrder?: string;
+
+  /**
+   * @schema SageMakerListModelExplainabilityJobDefinitionsRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema SageMakerListModelExplainabilityJobDefinitionsRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+  /**
+   * @schema SageMakerListModelExplainabilityJobDefinitionsRequest#NameContains
+   */
+  readonly nameContains?: string;
+
+  /**
+   * @schema SageMakerListModelExplainabilityJobDefinitionsRequest#CreationTimeBefore
+   */
+  readonly creationTimeBefore?: string;
+
+  /**
+   * @schema SageMakerListModelExplainabilityJobDefinitionsRequest#CreationTimeAfter
+   */
+  readonly creationTimeAfter?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListModelExplainabilityJobDefinitionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListModelExplainabilityJobDefinitionsRequest(obj: SageMakerListModelExplainabilityJobDefinitionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointName': obj.endpointName,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'NameContains': obj.nameContains,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'CreationTimeAfter': obj.creationTimeAfter,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListModelExplainabilityJobDefinitionsResponse
+ */
+export interface SageMakerListModelExplainabilityJobDefinitionsResponse {
+  /**
+   * @schema SageMakerListModelExplainabilityJobDefinitionsResponse#JobDefinitionSummaries
+   */
+  readonly jobDefinitionSummaries?: SageMakerMonitoringJobDefinitionSummary[];
+
+  /**
+   * @schema SageMakerListModelExplainabilityJobDefinitionsResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListModelExplainabilityJobDefinitionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListModelExplainabilityJobDefinitionsResponse(obj: SageMakerListModelExplainabilityJobDefinitionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionSummaries': obj.jobDefinitionSummaries?.map(y => toJson_SageMakerMonitoringJobDefinitionSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListModelPackageGroupsInput
+ */
+export interface SageMakerListModelPackageGroupsInput {
+  /**
+   * @schema SageMakerListModelPackageGroupsInput#CreationTimeAfter
+   */
+  readonly creationTimeAfter?: string;
+
+  /**
+   * @schema SageMakerListModelPackageGroupsInput#CreationTimeBefore
+   */
+  readonly creationTimeBefore?: string;
+
+  /**
+   * @schema SageMakerListModelPackageGroupsInput#MaxResults
+   */
+  readonly maxResults?: number;
+
+  /**
+   * @schema SageMakerListModelPackageGroupsInput#NameContains
+   */
+  readonly nameContains?: string;
+
+  /**
+   * @schema SageMakerListModelPackageGroupsInput#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema SageMakerListModelPackageGroupsInput#SortBy
+   */
+  readonly sortBy?: string;
+
+  /**
+   * @schema SageMakerListModelPackageGroupsInput#SortOrder
+   */
+  readonly sortOrder?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListModelPackageGroupsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListModelPackageGroupsInput(obj: SageMakerListModelPackageGroupsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'MaxResults': obj.maxResults,
+    'NameContains': obj.nameContains,
+    'NextToken': obj.nextToken,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListModelPackageGroupsOutput
+ */
+export interface SageMakerListModelPackageGroupsOutput {
+  /**
+   * @schema SageMakerListModelPackageGroupsOutput#ModelPackageGroupSummaryList
+   */
+  readonly modelPackageGroupSummaryList?: SageMakerModelPackageGroupSummary[];
+
+  /**
+   * @schema SageMakerListModelPackageGroupsOutput#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListModelPackageGroupsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListModelPackageGroupsOutput(obj: SageMakerListModelPackageGroupsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageGroupSummaryList': obj.modelPackageGroupSummaryList?.map(y => toJson_SageMakerModelPackageGroupSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListModelPackagesInput
@@ -5332,6 +13876,21 @@ export interface SageMakerListModelPackagesInput {
   readonly nameContains?: string;
 
   /**
+   * @schema SageMakerListModelPackagesInput#ModelApprovalStatus
+   */
+  readonly modelApprovalStatus?: string;
+
+  /**
+   * @schema SageMakerListModelPackagesInput#ModelPackageGroupName
+   */
+  readonly modelPackageGroupName?: string;
+
+  /**
+   * @schema SageMakerListModelPackagesInput#ModelPackageType
+   */
+  readonly modelPackageType?: string;
+
+  /**
    * @schema SageMakerListModelPackagesInput#NextToken
    */
   readonly nextToken?: string;
@@ -5349,13 +13908,36 @@ export interface SageMakerListModelPackagesInput {
 }
 
 /**
+ * Converts an object of type 'SageMakerListModelPackagesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListModelPackagesInput(obj: SageMakerListModelPackagesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'MaxResults': obj.maxResults,
+    'NameContains': obj.nameContains,
+    'ModelApprovalStatus': obj.modelApprovalStatus,
+    'ModelPackageGroupName': obj.modelPackageGroupName,
+    'ModelPackageType': obj.modelPackageType,
+    'NextToken': obj.nextToken,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListModelPackagesOutput
  */
 export interface SageMakerListModelPackagesOutput {
   /**
    * @schema SageMakerListModelPackagesOutput#ModelPackageSummaryList
    */
-  readonly modelPackageSummaryList: SageMakerModelPackageSummary[];
+  readonly modelPackageSummaryList?: SageMakerModelPackageSummary[];
 
   /**
    * @schema SageMakerListModelPackagesOutput#NextToken
@@ -5363,6 +13945,119 @@ export interface SageMakerListModelPackagesOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListModelPackagesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListModelPackagesOutput(obj: SageMakerListModelPackagesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageSummaryList': obj.modelPackageSummaryList?.map(y => toJson_SageMakerModelPackageSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListModelQualityJobDefinitionsRequest
+ */
+export interface SageMakerListModelQualityJobDefinitionsRequest {
+  /**
+   * @schema SageMakerListModelQualityJobDefinitionsRequest#EndpointName
+   */
+  readonly endpointName?: string;
+
+  /**
+   * @schema SageMakerListModelQualityJobDefinitionsRequest#SortBy
+   */
+  readonly sortBy?: string;
+
+  /**
+   * @schema SageMakerListModelQualityJobDefinitionsRequest#SortOrder
+   */
+  readonly sortOrder?: string;
+
+  /**
+   * @schema SageMakerListModelQualityJobDefinitionsRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema SageMakerListModelQualityJobDefinitionsRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+  /**
+   * @schema SageMakerListModelQualityJobDefinitionsRequest#NameContains
+   */
+  readonly nameContains?: string;
+
+  /**
+   * @schema SageMakerListModelQualityJobDefinitionsRequest#CreationTimeBefore
+   */
+  readonly creationTimeBefore?: string;
+
+  /**
+   * @schema SageMakerListModelQualityJobDefinitionsRequest#CreationTimeAfter
+   */
+  readonly creationTimeAfter?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListModelQualityJobDefinitionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListModelQualityJobDefinitionsRequest(obj: SageMakerListModelQualityJobDefinitionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointName': obj.endpointName,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'NameContains': obj.nameContains,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'CreationTimeAfter': obj.creationTimeAfter,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListModelQualityJobDefinitionsResponse
+ */
+export interface SageMakerListModelQualityJobDefinitionsResponse {
+  /**
+   * @schema SageMakerListModelQualityJobDefinitionsResponse#JobDefinitionSummaries
+   */
+  readonly jobDefinitionSummaries?: SageMakerMonitoringJobDefinitionSummary[];
+
+  /**
+   * @schema SageMakerListModelQualityJobDefinitionsResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListModelQualityJobDefinitionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListModelQualityJobDefinitionsResponse(obj: SageMakerListModelQualityJobDefinitionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobDefinitionSummaries': obj.jobDefinitionSummaries?.map(y => toJson_SageMakerMonitoringJobDefinitionSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListModelsInput
@@ -5406,13 +14101,33 @@ export interface SageMakerListModelsInput {
 }
 
 /**
+ * Converts an object of type 'SageMakerListModelsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListModelsInput(obj: SageMakerListModelsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'NameContains': obj.nameContains,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'CreationTimeAfter': obj.creationTimeAfter,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListModelsOutput
  */
 export interface SageMakerListModelsOutput {
   /**
    * @schema SageMakerListModelsOutput#Models
    */
-  readonly models: SageMakerModelSummary[];
+  readonly models?: SageMakerModelSummary[];
 
   /**
    * @schema SageMakerListModelsOutput#NextToken
@@ -5420,6 +14135,21 @@ export interface SageMakerListModelsOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListModelsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListModelsOutput(obj: SageMakerListModelsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Models': obj.models?.map(y => toJson_SageMakerModelSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListMonitoringExecutionsRequest
@@ -5490,7 +14220,45 @@ export interface SageMakerListMonitoringExecutionsRequest {
    */
   readonly statusEquals?: string;
 
+  /**
+   * @schema SageMakerListMonitoringExecutionsRequest#MonitoringJobDefinitionName
+   */
+  readonly monitoringJobDefinitionName?: string;
+
+  /**
+   * @schema SageMakerListMonitoringExecutionsRequest#MonitoringTypeEquals
+   */
+  readonly monitoringTypeEquals?: string;
+
 }
+
+/**
+ * Converts an object of type 'SageMakerListMonitoringExecutionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListMonitoringExecutionsRequest(obj: SageMakerListMonitoringExecutionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MonitoringScheduleName': obj.monitoringScheduleName,
+    'EndpointName': obj.endpointName,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'ScheduledTimeBefore': obj.scheduledTimeBefore,
+    'ScheduledTimeAfter': obj.scheduledTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'LastModifiedTimeBefore': obj.lastModifiedTimeBefore,
+    'LastModifiedTimeAfter': obj.lastModifiedTimeAfter,
+    'StatusEquals': obj.statusEquals,
+    'MonitoringJobDefinitionName': obj.monitoringJobDefinitionName,
+    'MonitoringTypeEquals': obj.monitoringTypeEquals,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListMonitoringExecutionsResponse
@@ -5499,7 +14267,7 @@ export interface SageMakerListMonitoringExecutionsResponse {
   /**
    * @schema SageMakerListMonitoringExecutionsResponse#MonitoringExecutionSummaries
    */
-  readonly monitoringExecutionSummaries: SageMakerMonitoringExecutionSummary[];
+  readonly monitoringExecutionSummaries?: SageMakerMonitoringExecutionSummary[];
 
   /**
    * @schema SageMakerListMonitoringExecutionsResponse#NextToken
@@ -5507,6 +14275,21 @@ export interface SageMakerListMonitoringExecutionsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListMonitoringExecutionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListMonitoringExecutionsResponse(obj: SageMakerListMonitoringExecutionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MonitoringExecutionSummaries': obj.monitoringExecutionSummaries?.map(y => toJson_SageMakerMonitoringExecutionSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListMonitoringSchedulesRequest
@@ -5567,7 +14350,43 @@ export interface SageMakerListMonitoringSchedulesRequest {
    */
   readonly statusEquals?: string;
 
+  /**
+   * @schema SageMakerListMonitoringSchedulesRequest#MonitoringJobDefinitionName
+   */
+  readonly monitoringJobDefinitionName?: string;
+
+  /**
+   * @schema SageMakerListMonitoringSchedulesRequest#MonitoringTypeEquals
+   */
+  readonly monitoringTypeEquals?: string;
+
 }
+
+/**
+ * Converts an object of type 'SageMakerListMonitoringSchedulesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListMonitoringSchedulesRequest(obj: SageMakerListMonitoringSchedulesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointName': obj.endpointName,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'NameContains': obj.nameContains,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'LastModifiedTimeBefore': obj.lastModifiedTimeBefore,
+    'LastModifiedTimeAfter': obj.lastModifiedTimeAfter,
+    'StatusEquals': obj.statusEquals,
+    'MonitoringJobDefinitionName': obj.monitoringJobDefinitionName,
+    'MonitoringTypeEquals': obj.monitoringTypeEquals,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListMonitoringSchedulesResponse
@@ -5576,7 +14395,7 @@ export interface SageMakerListMonitoringSchedulesResponse {
   /**
    * @schema SageMakerListMonitoringSchedulesResponse#MonitoringScheduleSummaries
    */
-  readonly monitoringScheduleSummaries: SageMakerMonitoringScheduleSummary[];
+  readonly monitoringScheduleSummaries?: SageMakerMonitoringScheduleSummary[];
 
   /**
    * @schema SageMakerListMonitoringSchedulesResponse#NextToken
@@ -5584,6 +14403,21 @@ export interface SageMakerListMonitoringSchedulesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListMonitoringSchedulesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListMonitoringSchedulesResponse(obj: SageMakerListMonitoringSchedulesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MonitoringScheduleSummaries': obj.monitoringScheduleSummaries?.map(y => toJson_SageMakerMonitoringScheduleSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListNotebookInstanceLifecycleConfigsInput
@@ -5637,6 +14471,28 @@ export interface SageMakerListNotebookInstanceLifecycleConfigsInput {
 }
 
 /**
+ * Converts an object of type 'SageMakerListNotebookInstanceLifecycleConfigsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListNotebookInstanceLifecycleConfigsInput(obj: SageMakerListNotebookInstanceLifecycleConfigsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NameContains': obj.nameContains,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'LastModifiedTimeBefore': obj.lastModifiedTimeBefore,
+    'LastModifiedTimeAfter': obj.lastModifiedTimeAfter,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListNotebookInstanceLifecycleConfigsOutput
  */
 export interface SageMakerListNotebookInstanceLifecycleConfigsOutput {
@@ -5651,6 +14507,21 @@ export interface SageMakerListNotebookInstanceLifecycleConfigsOutput {
   readonly notebookInstanceLifecycleConfigs?: SageMakerNotebookInstanceLifecycleConfigSummary[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListNotebookInstanceLifecycleConfigsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListNotebookInstanceLifecycleConfigsOutput(obj: SageMakerListNotebookInstanceLifecycleConfigsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'NotebookInstanceLifecycleConfigs': obj.notebookInstanceLifecycleConfigs?.map(y => toJson_SageMakerNotebookInstanceLifecycleConfigSummary(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListNotebookInstancesInput
@@ -5724,6 +14595,32 @@ export interface SageMakerListNotebookInstancesInput {
 }
 
 /**
+ * Converts an object of type 'SageMakerListNotebookInstancesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListNotebookInstancesInput(obj: SageMakerListNotebookInstancesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NameContains': obj.nameContains,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'LastModifiedTimeBefore': obj.lastModifiedTimeBefore,
+    'LastModifiedTimeAfter': obj.lastModifiedTimeAfter,
+    'StatusEquals': obj.statusEquals,
+    'NotebookInstanceLifecycleConfigNameContains': obj.notebookInstanceLifecycleConfigNameContains,
+    'DefaultCodeRepositoryContains': obj.defaultCodeRepositoryContains,
+    'AdditionalCodeRepositoryEquals': obj.additionalCodeRepositoryEquals,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListNotebookInstancesOutput
  */
 export interface SageMakerListNotebookInstancesOutput {
@@ -5738,6 +14635,347 @@ export interface SageMakerListNotebookInstancesOutput {
   readonly notebookInstances?: SageMakerNotebookInstanceSummary[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListNotebookInstancesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListNotebookInstancesOutput(obj: SageMakerListNotebookInstancesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'NotebookInstances': obj.notebookInstances?.map(y => toJson_SageMakerNotebookInstanceSummary(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListPipelineExecutionStepsRequest
+ */
+export interface SageMakerListPipelineExecutionStepsRequest {
+  /**
+   * @schema SageMakerListPipelineExecutionStepsRequest#PipelineExecutionArn
+   */
+  readonly pipelineExecutionArn?: string;
+
+  /**
+   * @schema SageMakerListPipelineExecutionStepsRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema SageMakerListPipelineExecutionStepsRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+  /**
+   * @schema SageMakerListPipelineExecutionStepsRequest#SortOrder
+   */
+  readonly sortOrder?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListPipelineExecutionStepsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListPipelineExecutionStepsRequest(obj: SageMakerListPipelineExecutionStepsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineExecutionArn': obj.pipelineExecutionArn,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'SortOrder': obj.sortOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListPipelineExecutionStepsResponse
+ */
+export interface SageMakerListPipelineExecutionStepsResponse {
+  /**
+   * @schema SageMakerListPipelineExecutionStepsResponse#PipelineExecutionSteps
+   */
+  readonly pipelineExecutionSteps?: SageMakerPipelineExecutionStep[];
+
+  /**
+   * @schema SageMakerListPipelineExecutionStepsResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListPipelineExecutionStepsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListPipelineExecutionStepsResponse(obj: SageMakerListPipelineExecutionStepsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineExecutionSteps': obj.pipelineExecutionSteps?.map(y => toJson_SageMakerPipelineExecutionStep(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListPipelineExecutionsRequest
+ */
+export interface SageMakerListPipelineExecutionsRequest {
+  /**
+   * @schema SageMakerListPipelineExecutionsRequest#PipelineName
+   */
+  readonly pipelineName?: string;
+
+  /**
+   * @schema SageMakerListPipelineExecutionsRequest#CreatedAfter
+   */
+  readonly createdAfter?: string;
+
+  /**
+   * @schema SageMakerListPipelineExecutionsRequest#CreatedBefore
+   */
+  readonly createdBefore?: string;
+
+  /**
+   * @schema SageMakerListPipelineExecutionsRequest#SortBy
+   */
+  readonly sortBy?: string;
+
+  /**
+   * @schema SageMakerListPipelineExecutionsRequest#SortOrder
+   */
+  readonly sortOrder?: string;
+
+  /**
+   * @schema SageMakerListPipelineExecutionsRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema SageMakerListPipelineExecutionsRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListPipelineExecutionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListPipelineExecutionsRequest(obj: SageMakerListPipelineExecutionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineName': obj.pipelineName,
+    'CreatedAfter': obj.createdAfter,
+    'CreatedBefore': obj.createdBefore,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListPipelineExecutionsResponse
+ */
+export interface SageMakerListPipelineExecutionsResponse {
+  /**
+   * @schema SageMakerListPipelineExecutionsResponse#PipelineExecutionSummaries
+   */
+  readonly pipelineExecutionSummaries?: SageMakerPipelineExecutionSummary[];
+
+  /**
+   * @schema SageMakerListPipelineExecutionsResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListPipelineExecutionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListPipelineExecutionsResponse(obj: SageMakerListPipelineExecutionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineExecutionSummaries': obj.pipelineExecutionSummaries?.map(y => toJson_SageMakerPipelineExecutionSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListPipelineParametersForExecutionRequest
+ */
+export interface SageMakerListPipelineParametersForExecutionRequest {
+  /**
+   * @schema SageMakerListPipelineParametersForExecutionRequest#PipelineExecutionArn
+   */
+  readonly pipelineExecutionArn?: string;
+
+  /**
+   * @schema SageMakerListPipelineParametersForExecutionRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema SageMakerListPipelineParametersForExecutionRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListPipelineParametersForExecutionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListPipelineParametersForExecutionRequest(obj: SageMakerListPipelineParametersForExecutionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineExecutionArn': obj.pipelineExecutionArn,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListPipelineParametersForExecutionResponse
+ */
+export interface SageMakerListPipelineParametersForExecutionResponse {
+  /**
+   * @schema SageMakerListPipelineParametersForExecutionResponse#PipelineParameters
+   */
+  readonly pipelineParameters?: SageMakerParameter[];
+
+  /**
+   * @schema SageMakerListPipelineParametersForExecutionResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListPipelineParametersForExecutionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListPipelineParametersForExecutionResponse(obj: SageMakerListPipelineParametersForExecutionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineParameters': obj.pipelineParameters?.map(y => toJson_SageMakerParameter(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListPipelinesRequest
+ */
+export interface SageMakerListPipelinesRequest {
+  /**
+   * @schema SageMakerListPipelinesRequest#PipelineNamePrefix
+   */
+  readonly pipelineNamePrefix?: string;
+
+  /**
+   * @schema SageMakerListPipelinesRequest#CreatedAfter
+   */
+  readonly createdAfter?: string;
+
+  /**
+   * @schema SageMakerListPipelinesRequest#CreatedBefore
+   */
+  readonly createdBefore?: string;
+
+  /**
+   * @schema SageMakerListPipelinesRequest#SortBy
+   */
+  readonly sortBy?: string;
+
+  /**
+   * @schema SageMakerListPipelinesRequest#SortOrder
+   */
+  readonly sortOrder?: string;
+
+  /**
+   * @schema SageMakerListPipelinesRequest#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema SageMakerListPipelinesRequest#MaxResults
+   */
+  readonly maxResults?: number;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListPipelinesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListPipelinesRequest(obj: SageMakerListPipelinesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineNamePrefix': obj.pipelineNamePrefix,
+    'CreatedAfter': obj.createdAfter,
+    'CreatedBefore': obj.createdBefore,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListPipelinesResponse
+ */
+export interface SageMakerListPipelinesResponse {
+  /**
+   * @schema SageMakerListPipelinesResponse#PipelineSummaries
+   */
+  readonly pipelineSummaries?: SageMakerPipelineSummary[];
+
+  /**
+   * @schema SageMakerListPipelinesResponse#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListPipelinesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListPipelinesResponse(obj: SageMakerListPipelinesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineSummaries': obj.pipelineSummaries?.map(y => toJson_SageMakerPipelineSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListProcessingJobsRequest
@@ -5796,13 +15034,36 @@ export interface SageMakerListProcessingJobsRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListProcessingJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListProcessingJobsRequest(obj: SageMakerListProcessingJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'LastModifiedTimeAfter': obj.lastModifiedTimeAfter,
+    'LastModifiedTimeBefore': obj.lastModifiedTimeBefore,
+    'NameContains': obj.nameContains,
+    'StatusEquals': obj.statusEquals,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListProcessingJobsResponse
  */
 export interface SageMakerListProcessingJobsResponse {
   /**
    * @schema SageMakerListProcessingJobsResponse#ProcessingJobSummaries
    */
-  readonly processingJobSummaries: SageMakerProcessingJobSummary[];
+  readonly processingJobSummaries?: SageMakerProcessingJobSummary[];
 
   /**
    * @schema SageMakerListProcessingJobsResponse#NextToken
@@ -5810,6 +15071,113 @@ export interface SageMakerListProcessingJobsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListProcessingJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListProcessingJobsResponse(obj: SageMakerListProcessingJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProcessingJobSummaries': obj.processingJobSummaries?.map(y => toJson_SageMakerProcessingJobSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListProjectsInput
+ */
+export interface SageMakerListProjectsInput {
+  /**
+   * @schema SageMakerListProjectsInput#CreationTimeAfter
+   */
+  readonly creationTimeAfter?: string;
+
+  /**
+   * @schema SageMakerListProjectsInput#CreationTimeBefore
+   */
+  readonly creationTimeBefore?: string;
+
+  /**
+   * @schema SageMakerListProjectsInput#MaxResults
+   */
+  readonly maxResults?: number;
+
+  /**
+   * @schema SageMakerListProjectsInput#NameContains
+   */
+  readonly nameContains?: string;
+
+  /**
+   * @schema SageMakerListProjectsInput#NextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema SageMakerListProjectsInput#SortBy
+   */
+  readonly sortBy?: string;
+
+  /**
+   * @schema SageMakerListProjectsInput#SortOrder
+   */
+  readonly sortOrder?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListProjectsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListProjectsInput(obj: SageMakerListProjectsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'MaxResults': obj.maxResults,
+    'NameContains': obj.nameContains,
+    'NextToken': obj.nextToken,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerListProjectsOutput
+ */
+export interface SageMakerListProjectsOutput {
+  /**
+   * @schema SageMakerListProjectsOutput#ProjectSummaryList
+   */
+  readonly projectSummaryList?: SageMakerProjectSummary[];
+
+  /**
+   * @schema SageMakerListProjectsOutput#NextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerListProjectsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListProjectsOutput(obj: SageMakerListProjectsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProjectSummaryList': obj.projectSummaryList?.map(y => toJson_SageMakerProjectSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListSubscribedWorkteamsRequest
@@ -5833,13 +15201,29 @@ export interface SageMakerListSubscribedWorkteamsRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListSubscribedWorkteamsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListSubscribedWorkteamsRequest(obj: SageMakerListSubscribedWorkteamsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NameContains': obj.nameContains,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListSubscribedWorkteamsResponse
  */
 export interface SageMakerListSubscribedWorkteamsResponse {
   /**
    * @schema SageMakerListSubscribedWorkteamsResponse#SubscribedWorkteams
    */
-  readonly subscribedWorkteams: SageMakerSubscribedWorkteam[];
+  readonly subscribedWorkteams?: SageMakerSubscribedWorkteam[];
 
   /**
    * @schema SageMakerListSubscribedWorkteamsResponse#NextToken
@@ -5849,13 +15233,28 @@ export interface SageMakerListSubscribedWorkteamsResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerListSubscribedWorkteamsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListSubscribedWorkteamsResponse(obj: SageMakerListSubscribedWorkteamsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscribedWorkteams': obj.subscribedWorkteams?.map(y => toJson_SageMakerSubscribedWorkteam(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListTagsInput
  */
 export interface SageMakerListTagsInput {
   /**
    * @schema SageMakerListTagsInput#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema SageMakerListTagsInput#NextToken
@@ -5868,6 +15267,22 @@ export interface SageMakerListTagsInput {
   readonly maxResults?: number;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListTagsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListTagsInput(obj: SageMakerListTagsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListTagsOutput
@@ -5884,6 +15299,21 @@ export interface SageMakerListTagsOutput {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListTagsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListTagsOutput(obj: SageMakerListTagsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListTrainingJobsRequest
@@ -5942,13 +15372,36 @@ export interface SageMakerListTrainingJobsRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListTrainingJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListTrainingJobsRequest(obj: SageMakerListTrainingJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'LastModifiedTimeAfter': obj.lastModifiedTimeAfter,
+    'LastModifiedTimeBefore': obj.lastModifiedTimeBefore,
+    'NameContains': obj.nameContains,
+    'StatusEquals': obj.statusEquals,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListTrainingJobsResponse
  */
 export interface SageMakerListTrainingJobsResponse {
   /**
    * @schema SageMakerListTrainingJobsResponse#TrainingJobSummaries
    */
-  readonly trainingJobSummaries: SageMakerTrainingJobSummary[];
+  readonly trainingJobSummaries?: SageMakerTrainingJobSummary[];
 
   /**
    * @schema SageMakerListTrainingJobsResponse#NextToken
@@ -5958,13 +15411,28 @@ export interface SageMakerListTrainingJobsResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerListTrainingJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListTrainingJobsResponse(obj: SageMakerListTrainingJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrainingJobSummaries': obj.trainingJobSummaries?.map(y => toJson_SageMakerTrainingJobSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListTrainingJobsForHyperParameterTuningJobRequest
  */
 export interface SageMakerListTrainingJobsForHyperParameterTuningJobRequest {
   /**
    * @schema SageMakerListTrainingJobsForHyperParameterTuningJobRequest#HyperParameterTuningJobName
    */
-  readonly hyperParameterTuningJobName: string;
+  readonly hyperParameterTuningJobName?: string;
 
   /**
    * @schema SageMakerListTrainingJobsForHyperParameterTuningJobRequest#NextToken
@@ -5994,13 +15462,32 @@ export interface SageMakerListTrainingJobsForHyperParameterTuningJobRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListTrainingJobsForHyperParameterTuningJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListTrainingJobsForHyperParameterTuningJobRequest(obj: SageMakerListTrainingJobsForHyperParameterTuningJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HyperParameterTuningJobName': obj.hyperParameterTuningJobName,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'StatusEquals': obj.statusEquals,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListTrainingJobsForHyperParameterTuningJobResponse
  */
 export interface SageMakerListTrainingJobsForHyperParameterTuningJobResponse {
   /**
    * @schema SageMakerListTrainingJobsForHyperParameterTuningJobResponse#TrainingJobSummaries
    */
-  readonly trainingJobSummaries: SageMakerHyperParameterTrainingJobSummary[];
+  readonly trainingJobSummaries?: SageMakerHyperParameterTrainingJobSummary[];
 
   /**
    * @schema SageMakerListTrainingJobsForHyperParameterTuningJobResponse#NextToken
@@ -6008,6 +15495,21 @@ export interface SageMakerListTrainingJobsForHyperParameterTuningJobResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListTrainingJobsForHyperParameterTuningJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListTrainingJobsForHyperParameterTuningJobResponse(obj: SageMakerListTrainingJobsForHyperParameterTuningJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrainingJobSummaries': obj.trainingJobSummaries?.map(y => toJson_SageMakerHyperParameterTrainingJobSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListTransformJobsRequest
@@ -6066,13 +15568,36 @@ export interface SageMakerListTransformJobsRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListTransformJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListTransformJobsRequest(obj: SageMakerListTransformJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreationTimeAfter': obj.creationTimeAfter,
+    'CreationTimeBefore': obj.creationTimeBefore,
+    'LastModifiedTimeAfter': obj.lastModifiedTimeAfter,
+    'LastModifiedTimeBefore': obj.lastModifiedTimeBefore,
+    'NameContains': obj.nameContains,
+    'StatusEquals': obj.statusEquals,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListTransformJobsResponse
  */
 export interface SageMakerListTransformJobsResponse {
   /**
    * @schema SageMakerListTransformJobsResponse#TransformJobSummaries
    */
-  readonly transformJobSummaries: SageMakerTransformJobSummary[];
+  readonly transformJobSummaries?: SageMakerTransformJobSummary[];
 
   /**
    * @schema SageMakerListTransformJobsResponse#NextToken
@@ -6080,6 +15605,21 @@ export interface SageMakerListTransformJobsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListTransformJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListTransformJobsResponse(obj: SageMakerListTransformJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TransformJobSummaries': obj.transformJobSummaries?.map(y => toJson_SageMakerTransformJobSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListTrialComponentsRequest
@@ -6133,6 +15673,28 @@ export interface SageMakerListTrialComponentsRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListTrialComponentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListTrialComponentsRequest(obj: SageMakerListTrialComponentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExperimentName': obj.experimentName,
+    'TrialName': obj.trialName,
+    'SourceArn': obj.sourceArn,
+    'CreatedAfter': obj.createdAfter,
+    'CreatedBefore': obj.createdBefore,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListTrialComponentsResponse
  */
 export interface SageMakerListTrialComponentsResponse {
@@ -6147,6 +15709,21 @@ export interface SageMakerListTrialComponentsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListTrialComponentsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListTrialComponentsResponse(obj: SageMakerListTrialComponentsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialComponentSummaries': obj.trialComponentSummaries?.map(y => toJson_SageMakerTrialComponentSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListTrialsRequest
@@ -6195,6 +15772,27 @@ export interface SageMakerListTrialsRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListTrialsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListTrialsRequest(obj: SageMakerListTrialsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExperimentName': obj.experimentName,
+    'TrialComponentName': obj.trialComponentName,
+    'CreatedAfter': obj.createdAfter,
+    'CreatedBefore': obj.createdBefore,
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListTrialsResponse
  */
 export interface SageMakerListTrialsResponse {
@@ -6209,6 +15807,21 @@ export interface SageMakerListTrialsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListTrialsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListTrialsResponse(obj: SageMakerListTrialsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialSummaries': obj.trialSummaries?.map(y => toJson_SageMakerTrialSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListUserProfilesRequest
@@ -6247,6 +15860,25 @@ export interface SageMakerListUserProfilesRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListUserProfilesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListUserProfilesRequest(obj: SageMakerListUserProfilesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+    'SortOrder': obj.sortOrder,
+    'SortBy': obj.sortBy,
+    'DomainIdEquals': obj.domainIdEquals,
+    'UserProfileNameContains': obj.userProfileNameContains,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListUserProfilesResponse
  */
 export interface SageMakerListUserProfilesResponse {
@@ -6261,6 +15893,21 @@ export interface SageMakerListUserProfilesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListUserProfilesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListUserProfilesResponse(obj: SageMakerListUserProfilesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserProfiles': obj.userProfiles?.map(y => toJson_SageMakerUserProfileDetails(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListWorkforcesRequest
@@ -6294,13 +15941,31 @@ export interface SageMakerListWorkforcesRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListWorkforcesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListWorkforcesRequest(obj: SageMakerListWorkforcesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NameContains': obj.nameContains,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListWorkforcesResponse
  */
 export interface SageMakerListWorkforcesResponse {
   /**
    * @schema SageMakerListWorkforcesResponse#Workforces
    */
-  readonly workforces: SageMakerWorkforce[];
+  readonly workforces?: SageMakerWorkforce[];
 
   /**
    * @schema SageMakerListWorkforcesResponse#NextToken
@@ -6308,6 +15973,21 @@ export interface SageMakerListWorkforcesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListWorkforcesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListWorkforcesResponse(obj: SageMakerListWorkforcesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Workforces': obj.workforces?.map(y => toJson_SageMakerWorkforce(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerListWorkteamsRequest
@@ -6341,13 +16021,31 @@ export interface SageMakerListWorkteamsRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerListWorkteamsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListWorkteamsRequest(obj: SageMakerListWorkteamsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NameContains': obj.nameContains,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerListWorkteamsResponse
  */
 export interface SageMakerListWorkteamsResponse {
   /**
    * @schema SageMakerListWorkteamsResponse#Workteams
    */
-  readonly workteams: SageMakerWorkteam[];
+  readonly workteams?: SageMakerWorkteam[];
 
   /**
    * @schema SageMakerListWorkteamsResponse#NextToken
@@ -6355,6 +16053,114 @@ export interface SageMakerListWorkteamsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerListWorkteamsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerListWorkteamsResponse(obj: SageMakerListWorkteamsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Workteams': obj.workteams?.map(y => toJson_SageMakerWorkteam(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerPutModelPackageGroupPolicyInput
+ */
+export interface SageMakerPutModelPackageGroupPolicyInput {
+  /**
+   * @schema SageMakerPutModelPackageGroupPolicyInput#ModelPackageGroupName
+   */
+  readonly modelPackageGroupName?: string;
+
+  /**
+   * @schema SageMakerPutModelPackageGroupPolicyInput#ResourcePolicy
+   */
+  readonly resourcePolicy?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerPutModelPackageGroupPolicyInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerPutModelPackageGroupPolicyInput(obj: SageMakerPutModelPackageGroupPolicyInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageGroupName': obj.modelPackageGroupName,
+    'ResourcePolicy': obj.resourcePolicy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerPutModelPackageGroupPolicyOutput
+ */
+export interface SageMakerPutModelPackageGroupPolicyOutput {
+  /**
+   * @schema SageMakerPutModelPackageGroupPolicyOutput#ModelPackageGroupArn
+   */
+  readonly modelPackageGroupArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerPutModelPackageGroupPolicyOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerPutModelPackageGroupPolicyOutput(obj: SageMakerPutModelPackageGroupPolicyOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageGroupArn': obj.modelPackageGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerRegisterDevicesRequest
+ */
+export interface SageMakerRegisterDevicesRequest {
+  /**
+   * @schema SageMakerRegisterDevicesRequest#DeviceFleetName
+   */
+  readonly deviceFleetName?: string;
+
+  /**
+   * @schema SageMakerRegisterDevicesRequest#Devices
+   */
+  readonly devices?: SageMakerDevice[];
+
+  /**
+   * @schema SageMakerRegisterDevicesRequest#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerRegisterDevicesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerRegisterDevicesRequest(obj: SageMakerRegisterDevicesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceFleetName': obj.deviceFleetName,
+    'Devices': obj.devices?.map(y => toJson_SageMakerDevice(y)),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerRenderUiTemplateRequest
@@ -6368,12 +16174,12 @@ export interface SageMakerRenderUiTemplateRequest {
   /**
    * @schema SageMakerRenderUiTemplateRequest#Task
    */
-  readonly task: SageMakerRenderableTask;
+  readonly task?: SageMakerRenderableTask;
 
   /**
    * @schema SageMakerRenderUiTemplateRequest#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema SageMakerRenderUiTemplateRequest#HumanTaskUiArn
@@ -6383,20 +16189,52 @@ export interface SageMakerRenderUiTemplateRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerRenderUiTemplateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerRenderUiTemplateRequest(obj: SageMakerRenderUiTemplateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UiTemplate': toJson_SageMakerUiTemplate(obj.uiTemplate),
+    'Task': toJson_SageMakerRenderableTask(obj.task),
+    'RoleArn': obj.roleArn,
+    'HumanTaskUiArn': obj.humanTaskUiArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerRenderUiTemplateResponse
  */
 export interface SageMakerRenderUiTemplateResponse {
   /**
    * @schema SageMakerRenderUiTemplateResponse#RenderedContent
    */
-  readonly renderedContent: string;
+  readonly renderedContent?: string;
 
   /**
    * @schema SageMakerRenderUiTemplateResponse#Errors
    */
-  readonly errors: SageMakerRenderingError[];
+  readonly errors?: SageMakerRenderingError[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerRenderUiTemplateResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerRenderUiTemplateResponse(obj: SageMakerRenderUiTemplateResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RenderedContent': obj.renderedContent,
+    'Errors': obj.errors?.map(y => toJson_SageMakerRenderingError(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerSearchRequest
@@ -6405,7 +16243,7 @@ export interface SageMakerSearchRequest {
   /**
    * @schema SageMakerSearchRequest#Resource
    */
-  readonly resource: string;
+  readonly resource?: string;
 
   /**
    * @schema SageMakerSearchRequest#SearchExpression
@@ -6435,6 +16273,25 @@ export interface SageMakerSearchRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerSearchRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerSearchRequest(obj: SageMakerSearchRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Resource': obj.resource,
+    'SearchExpression': toJson_SageMakerSearchExpression(obj.searchExpression),
+    'SortBy': obj.sortBy,
+    'SortOrder': obj.sortOrder,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerSearchResponse
  */
 export interface SageMakerSearchResponse {
@@ -6451,15 +16308,168 @@ export interface SageMakerSearchResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerSearchResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerSearchResponse(obj: SageMakerSearchResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Results': obj.results?.map(y => toJson_SageMakerSearchRecord(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerSendPipelineExecutionStepFailureRequest
+ */
+export interface SageMakerSendPipelineExecutionStepFailureRequest {
+  /**
+   * @schema SageMakerSendPipelineExecutionStepFailureRequest#CallbackToken
+   */
+  readonly callbackToken?: string;
+
+  /**
+   * @schema SageMakerSendPipelineExecutionStepFailureRequest#FailureReason
+   */
+  readonly failureReason?: string;
+
+  /**
+   * @schema SageMakerSendPipelineExecutionStepFailureRequest#ClientRequestToken
+   */
+  readonly clientRequestToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerSendPipelineExecutionStepFailureRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerSendPipelineExecutionStepFailureRequest(obj: SageMakerSendPipelineExecutionStepFailureRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CallbackToken': obj.callbackToken,
+    'FailureReason': obj.failureReason,
+    'ClientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerSendPipelineExecutionStepFailureResponse
+ */
+export interface SageMakerSendPipelineExecutionStepFailureResponse {
+  /**
+   * @schema SageMakerSendPipelineExecutionStepFailureResponse#PipelineExecutionArn
+   */
+  readonly pipelineExecutionArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerSendPipelineExecutionStepFailureResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerSendPipelineExecutionStepFailureResponse(obj: SageMakerSendPipelineExecutionStepFailureResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineExecutionArn': obj.pipelineExecutionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerSendPipelineExecutionStepSuccessRequest
+ */
+export interface SageMakerSendPipelineExecutionStepSuccessRequest {
+  /**
+   * @schema SageMakerSendPipelineExecutionStepSuccessRequest#CallbackToken
+   */
+  readonly callbackToken?: string;
+
+  /**
+   * @schema SageMakerSendPipelineExecutionStepSuccessRequest#OutputParameters
+   */
+  readonly outputParameters?: SageMakerOutputParameter[];
+
+  /**
+   * @schema SageMakerSendPipelineExecutionStepSuccessRequest#ClientRequestToken
+   */
+  readonly clientRequestToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerSendPipelineExecutionStepSuccessRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerSendPipelineExecutionStepSuccessRequest(obj: SageMakerSendPipelineExecutionStepSuccessRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CallbackToken': obj.callbackToken,
+    'OutputParameters': obj.outputParameters?.map(y => toJson_SageMakerOutputParameter(y)),
+    'ClientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerSendPipelineExecutionStepSuccessResponse
+ */
+export interface SageMakerSendPipelineExecutionStepSuccessResponse {
+  /**
+   * @schema SageMakerSendPipelineExecutionStepSuccessResponse#PipelineExecutionArn
+   */
+  readonly pipelineExecutionArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerSendPipelineExecutionStepSuccessResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerSendPipelineExecutionStepSuccessResponse(obj: SageMakerSendPipelineExecutionStepSuccessResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineExecutionArn': obj.pipelineExecutionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerStartMonitoringScheduleRequest
  */
 export interface SageMakerStartMonitoringScheduleRequest {
   /**
    * @schema SageMakerStartMonitoringScheduleRequest#MonitoringScheduleName
    */
-  readonly monitoringScheduleName: string;
+  readonly monitoringScheduleName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerStartMonitoringScheduleRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerStartMonitoringScheduleRequest(obj: SageMakerStartMonitoringScheduleRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MonitoringScheduleName': obj.monitoringScheduleName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerStartNotebookInstanceInput
@@ -6468,9 +16478,97 @@ export interface SageMakerStartNotebookInstanceInput {
   /**
    * @schema SageMakerStartNotebookInstanceInput#NotebookInstanceName
    */
-  readonly notebookInstanceName: string;
+  readonly notebookInstanceName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerStartNotebookInstanceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerStartNotebookInstanceInput(obj: SageMakerStartNotebookInstanceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotebookInstanceName': obj.notebookInstanceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerStartPipelineExecutionRequest
+ */
+export interface SageMakerStartPipelineExecutionRequest {
+  /**
+   * @schema SageMakerStartPipelineExecutionRequest#PipelineName
+   */
+  readonly pipelineName?: string;
+
+  /**
+   * @schema SageMakerStartPipelineExecutionRequest#PipelineExecutionDisplayName
+   */
+  readonly pipelineExecutionDisplayName?: string;
+
+  /**
+   * @schema SageMakerStartPipelineExecutionRequest#PipelineParameters
+   */
+  readonly pipelineParameters?: SageMakerParameter[];
+
+  /**
+   * @schema SageMakerStartPipelineExecutionRequest#PipelineExecutionDescription
+   */
+  readonly pipelineExecutionDescription?: string;
+
+  /**
+   * @schema SageMakerStartPipelineExecutionRequest#ClientRequestToken
+   */
+  readonly clientRequestToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerStartPipelineExecutionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerStartPipelineExecutionRequest(obj: SageMakerStartPipelineExecutionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineName': obj.pipelineName,
+    'PipelineExecutionDisplayName': obj.pipelineExecutionDisplayName,
+    'PipelineParameters': obj.pipelineParameters?.map(y => toJson_SageMakerParameter(y)),
+    'PipelineExecutionDescription': obj.pipelineExecutionDescription,
+    'ClientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerStartPipelineExecutionResponse
+ */
+export interface SageMakerStartPipelineExecutionResponse {
+  /**
+   * @schema SageMakerStartPipelineExecutionResponse#PipelineExecutionArn
+   */
+  readonly pipelineExecutionArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerStartPipelineExecutionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerStartPipelineExecutionResponse(obj: SageMakerStartPipelineExecutionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineExecutionArn': obj.pipelineExecutionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerStopAutoMlJobRequest
@@ -6479,9 +16577,23 @@ export interface SageMakerStopAutoMlJobRequest {
   /**
    * @schema SageMakerStopAutoMlJobRequest#AutoMLJobName
    */
-  readonly autoMlJobName: string;
+  readonly autoMlJobName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerStopAutoMlJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerStopAutoMlJobRequest(obj: SageMakerStopAutoMlJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AutoMLJobName': obj.autoMlJobName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerStopCompilationJobRequest
@@ -6490,9 +16602,48 @@ export interface SageMakerStopCompilationJobRequest {
   /**
    * @schema SageMakerStopCompilationJobRequest#CompilationJobName
    */
-  readonly compilationJobName: string;
+  readonly compilationJobName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerStopCompilationJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerStopCompilationJobRequest(obj: SageMakerStopCompilationJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CompilationJobName': obj.compilationJobName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerStopEdgePackagingJobRequest
+ */
+export interface SageMakerStopEdgePackagingJobRequest {
+  /**
+   * @schema SageMakerStopEdgePackagingJobRequest#EdgePackagingJobName
+   */
+  readonly edgePackagingJobName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerStopEdgePackagingJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerStopEdgePackagingJobRequest(obj: SageMakerStopEdgePackagingJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EdgePackagingJobName': obj.edgePackagingJobName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerStopHyperParameterTuningJobRequest
@@ -6501,9 +16652,23 @@ export interface SageMakerStopHyperParameterTuningJobRequest {
   /**
    * @schema SageMakerStopHyperParameterTuningJobRequest#HyperParameterTuningJobName
    */
-  readonly hyperParameterTuningJobName: string;
+  readonly hyperParameterTuningJobName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerStopHyperParameterTuningJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerStopHyperParameterTuningJobRequest(obj: SageMakerStopHyperParameterTuningJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HyperParameterTuningJobName': obj.hyperParameterTuningJobName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerStopLabelingJobRequest
@@ -6512,9 +16677,23 @@ export interface SageMakerStopLabelingJobRequest {
   /**
    * @schema SageMakerStopLabelingJobRequest#LabelingJobName
    */
-  readonly labelingJobName: string;
+  readonly labelingJobName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerStopLabelingJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerStopLabelingJobRequest(obj: SageMakerStopLabelingJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LabelingJobName': obj.labelingJobName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerStopMonitoringScheduleRequest
@@ -6523,9 +16702,23 @@ export interface SageMakerStopMonitoringScheduleRequest {
   /**
    * @schema SageMakerStopMonitoringScheduleRequest#MonitoringScheduleName
    */
-  readonly monitoringScheduleName: string;
+  readonly monitoringScheduleName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerStopMonitoringScheduleRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerStopMonitoringScheduleRequest(obj: SageMakerStopMonitoringScheduleRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MonitoringScheduleName': obj.monitoringScheduleName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerStopNotebookInstanceInput
@@ -6534,9 +16727,79 @@ export interface SageMakerStopNotebookInstanceInput {
   /**
    * @schema SageMakerStopNotebookInstanceInput#NotebookInstanceName
    */
-  readonly notebookInstanceName: string;
+  readonly notebookInstanceName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerStopNotebookInstanceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerStopNotebookInstanceInput(obj: SageMakerStopNotebookInstanceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotebookInstanceName': obj.notebookInstanceName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerStopPipelineExecutionRequest
+ */
+export interface SageMakerStopPipelineExecutionRequest {
+  /**
+   * @schema SageMakerStopPipelineExecutionRequest#PipelineExecutionArn
+   */
+  readonly pipelineExecutionArn?: string;
+
+  /**
+   * @schema SageMakerStopPipelineExecutionRequest#ClientRequestToken
+   */
+  readonly clientRequestToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerStopPipelineExecutionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerStopPipelineExecutionRequest(obj: SageMakerStopPipelineExecutionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineExecutionArn': obj.pipelineExecutionArn,
+    'ClientRequestToken': obj.clientRequestToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerStopPipelineExecutionResponse
+ */
+export interface SageMakerStopPipelineExecutionResponse {
+  /**
+   * @schema SageMakerStopPipelineExecutionResponse#PipelineExecutionArn
+   */
+  readonly pipelineExecutionArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerStopPipelineExecutionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerStopPipelineExecutionResponse(obj: SageMakerStopPipelineExecutionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineExecutionArn': obj.pipelineExecutionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerStopProcessingJobRequest
@@ -6545,9 +16808,23 @@ export interface SageMakerStopProcessingJobRequest {
   /**
    * @schema SageMakerStopProcessingJobRequest#ProcessingJobName
    */
-  readonly processingJobName: string;
+  readonly processingJobName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerStopProcessingJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerStopProcessingJobRequest(obj: SageMakerStopProcessingJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProcessingJobName': obj.processingJobName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerStopTrainingJobRequest
@@ -6556,9 +16833,23 @@ export interface SageMakerStopTrainingJobRequest {
   /**
    * @schema SageMakerStopTrainingJobRequest#TrainingJobName
    */
-  readonly trainingJobName: string;
+  readonly trainingJobName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerStopTrainingJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerStopTrainingJobRequest(obj: SageMakerStopTrainingJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrainingJobName': obj.trainingJobName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerStopTransformJobRequest
@@ -6567,9 +16858,97 @@ export interface SageMakerStopTransformJobRequest {
   /**
    * @schema SageMakerStopTransformJobRequest#TransformJobName
    */
-  readonly transformJobName: string;
+  readonly transformJobName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerStopTransformJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerStopTransformJobRequest(obj: SageMakerStopTransformJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TransformJobName': obj.transformJobName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerUpdateActionRequest
+ */
+export interface SageMakerUpdateActionRequest {
+  /**
+   * @schema SageMakerUpdateActionRequest#ActionName
+   */
+  readonly actionName?: string;
+
+  /**
+   * @schema SageMakerUpdateActionRequest#Description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema SageMakerUpdateActionRequest#Status
+   */
+  readonly status?: string;
+
+  /**
+   * @schema SageMakerUpdateActionRequest#Properties
+   */
+  readonly properties?: { [key: string]: string };
+
+  /**
+   * @schema SageMakerUpdateActionRequest#PropertiesToRemove
+   */
+  readonly propertiesToRemove?: string[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerUpdateActionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateActionRequest(obj: SageMakerUpdateActionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ActionName': obj.actionName,
+    'Description': obj.description,
+    'Status': obj.status,
+    'Properties': ((obj.properties) === undefined) ? undefined : (Object.entries(obj.properties).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'PropertiesToRemove': obj.propertiesToRemove?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerUpdateActionResponse
+ */
+export interface SageMakerUpdateActionResponse {
+  /**
+   * @schema SageMakerUpdateActionResponse#ActionArn
+   */
+  readonly actionArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerUpdateActionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateActionResponse(obj: SageMakerUpdateActionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ActionArn': obj.actionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUpdateAppImageConfigRequest
@@ -6578,7 +16957,7 @@ export interface SageMakerUpdateAppImageConfigRequest {
   /**
    * @schema SageMakerUpdateAppImageConfigRequest#AppImageConfigName
    */
-  readonly appImageConfigName: string;
+  readonly appImageConfigName?: string;
 
   /**
    * @schema SageMakerUpdateAppImageConfigRequest#KernelGatewayImageConfig
@@ -6586,6 +16965,21 @@ export interface SageMakerUpdateAppImageConfigRequest {
   readonly kernelGatewayImageConfig?: SageMakerKernelGatewayImageConfig;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerUpdateAppImageConfigRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateAppImageConfigRequest(obj: SageMakerUpdateAppImageConfigRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AppImageConfigName': obj.appImageConfigName,
+    'KernelGatewayImageConfig': toJson_SageMakerKernelGatewayImageConfig(obj.kernelGatewayImageConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUpdateAppImageConfigResponse
@@ -6599,13 +16993,95 @@ export interface SageMakerUpdateAppImageConfigResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerUpdateAppImageConfigResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateAppImageConfigResponse(obj: SageMakerUpdateAppImageConfigResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AppImageConfigArn': obj.appImageConfigArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerUpdateArtifactRequest
+ */
+export interface SageMakerUpdateArtifactRequest {
+  /**
+   * @schema SageMakerUpdateArtifactRequest#ArtifactArn
+   */
+  readonly artifactArn?: string;
+
+  /**
+   * @schema SageMakerUpdateArtifactRequest#ArtifactName
+   */
+  readonly artifactName?: string;
+
+  /**
+   * @schema SageMakerUpdateArtifactRequest#Properties
+   */
+  readonly properties?: { [key: string]: string };
+
+  /**
+   * @schema SageMakerUpdateArtifactRequest#PropertiesToRemove
+   */
+  readonly propertiesToRemove?: string[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerUpdateArtifactRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateArtifactRequest(obj: SageMakerUpdateArtifactRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ArtifactArn': obj.artifactArn,
+    'ArtifactName': obj.artifactName,
+    'Properties': ((obj.properties) === undefined) ? undefined : (Object.entries(obj.properties).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'PropertiesToRemove': obj.propertiesToRemove?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerUpdateArtifactResponse
+ */
+export interface SageMakerUpdateArtifactResponse {
+  /**
+   * @schema SageMakerUpdateArtifactResponse#ArtifactArn
+   */
+  readonly artifactArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerUpdateArtifactResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateArtifactResponse(obj: SageMakerUpdateArtifactResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ArtifactArn': obj.artifactArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerUpdateCodeRepositoryInput
  */
 export interface SageMakerUpdateCodeRepositoryInput {
   /**
    * @schema SageMakerUpdateCodeRepositoryInput#CodeRepositoryName
    */
-  readonly codeRepositoryName: string;
+  readonly codeRepositoryName?: string;
 
   /**
    * @schema SageMakerUpdateCodeRepositoryInput#GitConfig
@@ -6615,15 +17091,192 @@ export interface SageMakerUpdateCodeRepositoryInput {
 }
 
 /**
+ * Converts an object of type 'SageMakerUpdateCodeRepositoryInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateCodeRepositoryInput(obj: SageMakerUpdateCodeRepositoryInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CodeRepositoryName': obj.codeRepositoryName,
+    'GitConfig': toJson_SageMakerGitConfigForUpdate(obj.gitConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerUpdateCodeRepositoryOutput
  */
 export interface SageMakerUpdateCodeRepositoryOutput {
   /**
    * @schema SageMakerUpdateCodeRepositoryOutput#CodeRepositoryArn
    */
-  readonly codeRepositoryArn: string;
+  readonly codeRepositoryArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerUpdateCodeRepositoryOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateCodeRepositoryOutput(obj: SageMakerUpdateCodeRepositoryOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CodeRepositoryArn': obj.codeRepositoryArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerUpdateContextRequest
+ */
+export interface SageMakerUpdateContextRequest {
+  /**
+   * @schema SageMakerUpdateContextRequest#ContextName
+   */
+  readonly contextName?: string;
+
+  /**
+   * @schema SageMakerUpdateContextRequest#Description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema SageMakerUpdateContextRequest#Properties
+   */
+  readonly properties?: { [key: string]: string };
+
+  /**
+   * @schema SageMakerUpdateContextRequest#PropertiesToRemove
+   */
+  readonly propertiesToRemove?: string[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerUpdateContextRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateContextRequest(obj: SageMakerUpdateContextRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContextName': obj.contextName,
+    'Description': obj.description,
+    'Properties': ((obj.properties) === undefined) ? undefined : (Object.entries(obj.properties).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'PropertiesToRemove': obj.propertiesToRemove?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerUpdateContextResponse
+ */
+export interface SageMakerUpdateContextResponse {
+  /**
+   * @schema SageMakerUpdateContextResponse#ContextArn
+   */
+  readonly contextArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerUpdateContextResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateContextResponse(obj: SageMakerUpdateContextResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContextArn': obj.contextArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerUpdateDeviceFleetRequest
+ */
+export interface SageMakerUpdateDeviceFleetRequest {
+  /**
+   * @schema SageMakerUpdateDeviceFleetRequest#DeviceFleetName
+   */
+  readonly deviceFleetName?: string;
+
+  /**
+   * @schema SageMakerUpdateDeviceFleetRequest#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerUpdateDeviceFleetRequest#Description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema SageMakerUpdateDeviceFleetRequest#OutputConfig
+   */
+  readonly outputConfig?: SageMakerEdgeOutputConfig;
+
+  /**
+   * @schema SageMakerUpdateDeviceFleetRequest#EnableIotRoleAlias
+   */
+  readonly enableIotRoleAlias?: boolean;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerUpdateDeviceFleetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateDeviceFleetRequest(obj: SageMakerUpdateDeviceFleetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceFleetName': obj.deviceFleetName,
+    'RoleArn': obj.roleArn,
+    'Description': obj.description,
+    'OutputConfig': toJson_SageMakerEdgeOutputConfig(obj.outputConfig),
+    'EnableIotRoleAlias': obj.enableIotRoleAlias,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerUpdateDevicesRequest
+ */
+export interface SageMakerUpdateDevicesRequest {
+  /**
+   * @schema SageMakerUpdateDevicesRequest#DeviceFleetName
+   */
+  readonly deviceFleetName?: string;
+
+  /**
+   * @schema SageMakerUpdateDevicesRequest#Devices
+   */
+  readonly devices?: SageMakerDevice[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerUpdateDevicesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateDevicesRequest(obj: SageMakerUpdateDevicesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceFleetName': obj.deviceFleetName,
+    'Devices': obj.devices?.map(y => toJson_SageMakerDevice(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUpdateDomainRequest
@@ -6632,7 +17285,7 @@ export interface SageMakerUpdateDomainRequest {
   /**
    * @schema SageMakerUpdateDomainRequest#DomainId
    */
-  readonly domainId: string;
+  readonly domainId?: string;
 
   /**
    * @schema SageMakerUpdateDomainRequest#DefaultUserSettings
@@ -6640,6 +17293,21 @@ export interface SageMakerUpdateDomainRequest {
   readonly defaultUserSettings?: SageMakerUserSettings;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerUpdateDomainRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateDomainRequest(obj: SageMakerUpdateDomainRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainId': obj.domainId,
+    'DefaultUserSettings': toJson_SageMakerUserSettings(obj.defaultUserSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUpdateDomainResponse
@@ -6653,18 +17321,32 @@ export interface SageMakerUpdateDomainResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerUpdateDomainResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateDomainResponse(obj: SageMakerUpdateDomainResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainArn': obj.domainArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerUpdateEndpointInput
  */
 export interface SageMakerUpdateEndpointInput {
   /**
    * @schema SageMakerUpdateEndpointInput#EndpointName
    */
-  readonly endpointName: string;
+  readonly endpointName?: string;
 
   /**
    * @schema SageMakerUpdateEndpointInput#EndpointConfigName
    */
-  readonly endpointConfigName: string;
+  readonly endpointConfigName?: string;
 
   /**
    * @schema SageMakerUpdateEndpointInput#RetainAllVariantProperties
@@ -6676,7 +17358,30 @@ export interface SageMakerUpdateEndpointInput {
    */
   readonly excludeRetainedVariantProperties?: SageMakerVariantProperty[];
 
+  /**
+   * @schema SageMakerUpdateEndpointInput#DeploymentConfig
+   */
+  readonly deploymentConfig?: SageMakerDeploymentConfig;
+
 }
+
+/**
+ * Converts an object of type 'SageMakerUpdateEndpointInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateEndpointInput(obj: SageMakerUpdateEndpointInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointName': obj.endpointName,
+    'EndpointConfigName': obj.endpointConfigName,
+    'RetainAllVariantProperties': obj.retainAllVariantProperties,
+    'ExcludeRetainedVariantProperties': obj.excludeRetainedVariantProperties?.map(y => toJson_SageMakerVariantProperty(y)),
+    'DeploymentConfig': toJson_SageMakerDeploymentConfig(obj.deploymentConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUpdateEndpointOutput
@@ -6685,9 +17390,23 @@ export interface SageMakerUpdateEndpointOutput {
   /**
    * @schema SageMakerUpdateEndpointOutput#EndpointArn
    */
-  readonly endpointArn: string;
+  readonly endpointArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerUpdateEndpointOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateEndpointOutput(obj: SageMakerUpdateEndpointOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointArn': obj.endpointArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUpdateEndpointWeightsAndCapacitiesInput
@@ -6696,14 +17415,29 @@ export interface SageMakerUpdateEndpointWeightsAndCapacitiesInput {
   /**
    * @schema SageMakerUpdateEndpointWeightsAndCapacitiesInput#EndpointName
    */
-  readonly endpointName: string;
+  readonly endpointName?: string;
 
   /**
    * @schema SageMakerUpdateEndpointWeightsAndCapacitiesInput#DesiredWeightsAndCapacities
    */
-  readonly desiredWeightsAndCapacities: SageMakerDesiredWeightAndCapacity[];
+  readonly desiredWeightsAndCapacities?: SageMakerDesiredWeightAndCapacity[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerUpdateEndpointWeightsAndCapacitiesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateEndpointWeightsAndCapacitiesInput(obj: SageMakerUpdateEndpointWeightsAndCapacitiesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointName': obj.endpointName,
+    'DesiredWeightsAndCapacities': obj.desiredWeightsAndCapacities?.map(y => toJson_SageMakerDesiredWeightAndCapacity(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUpdateEndpointWeightsAndCapacitiesOutput
@@ -6712,9 +17446,23 @@ export interface SageMakerUpdateEndpointWeightsAndCapacitiesOutput {
   /**
    * @schema SageMakerUpdateEndpointWeightsAndCapacitiesOutput#EndpointArn
    */
-  readonly endpointArn: string;
+  readonly endpointArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerUpdateEndpointWeightsAndCapacitiesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateEndpointWeightsAndCapacitiesOutput(obj: SageMakerUpdateEndpointWeightsAndCapacitiesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointArn': obj.endpointArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUpdateExperimentRequest
@@ -6723,7 +17471,7 @@ export interface SageMakerUpdateExperimentRequest {
   /**
    * @schema SageMakerUpdateExperimentRequest#ExperimentName
    */
-  readonly experimentName: string;
+  readonly experimentName?: string;
 
   /**
    * @schema SageMakerUpdateExperimentRequest#DisplayName
@@ -6738,6 +17486,22 @@ export interface SageMakerUpdateExperimentRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerUpdateExperimentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateExperimentRequest(obj: SageMakerUpdateExperimentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExperimentName': obj.experimentName,
+    'DisplayName': obj.displayName,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerUpdateExperimentResponse
  */
 export interface SageMakerUpdateExperimentResponse {
@@ -6747,6 +17511,20 @@ export interface SageMakerUpdateExperimentResponse {
   readonly experimentArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerUpdateExperimentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateExperimentResponse(obj: SageMakerUpdateExperimentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExperimentArn': obj.experimentArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUpdateImageRequest
@@ -6770,7 +17548,7 @@ export interface SageMakerUpdateImageRequest {
   /**
    * @schema SageMakerUpdateImageRequest#ImageName
    */
-  readonly imageName: string;
+  readonly imageName?: string;
 
   /**
    * @schema SageMakerUpdateImageRequest#RoleArn
@@ -6778,6 +17556,24 @@ export interface SageMakerUpdateImageRequest {
   readonly roleArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerUpdateImageRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateImageRequest(obj: SageMakerUpdateImageRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeleteProperties': obj.deleteProperties?.map(y => y),
+    'Description': obj.description,
+    'DisplayName': obj.displayName,
+    'ImageName': obj.imageName,
+    'RoleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUpdateImageResponse
@@ -6791,20 +17587,111 @@ export interface SageMakerUpdateImageResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerUpdateImageResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateImageResponse(obj: SageMakerUpdateImageResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ImageArn': obj.imageArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerUpdateModelPackageInput
+ */
+export interface SageMakerUpdateModelPackageInput {
+  /**
+   * @schema SageMakerUpdateModelPackageInput#ModelPackageArn
+   */
+  readonly modelPackageArn?: string;
+
+  /**
+   * @schema SageMakerUpdateModelPackageInput#ModelApprovalStatus
+   */
+  readonly modelApprovalStatus?: string;
+
+  /**
+   * @schema SageMakerUpdateModelPackageInput#ApprovalDescription
+   */
+  readonly approvalDescription?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerUpdateModelPackageInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateModelPackageInput(obj: SageMakerUpdateModelPackageInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageArn': obj.modelPackageArn,
+    'ModelApprovalStatus': obj.modelApprovalStatus,
+    'ApprovalDescription': obj.approvalDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerUpdateModelPackageOutput
+ */
+export interface SageMakerUpdateModelPackageOutput {
+  /**
+   * @schema SageMakerUpdateModelPackageOutput#ModelPackageArn
+   */
+  readonly modelPackageArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerUpdateModelPackageOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateModelPackageOutput(obj: SageMakerUpdateModelPackageOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageArn': obj.modelPackageArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerUpdateMonitoringScheduleRequest
  */
 export interface SageMakerUpdateMonitoringScheduleRequest {
   /**
    * @schema SageMakerUpdateMonitoringScheduleRequest#MonitoringScheduleName
    */
-  readonly monitoringScheduleName: string;
+  readonly monitoringScheduleName?: string;
 
   /**
    * @schema SageMakerUpdateMonitoringScheduleRequest#MonitoringScheduleConfig
    */
-  readonly monitoringScheduleConfig: SageMakerMonitoringScheduleConfig;
+  readonly monitoringScheduleConfig?: SageMakerMonitoringScheduleConfig;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerUpdateMonitoringScheduleRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateMonitoringScheduleRequest(obj: SageMakerUpdateMonitoringScheduleRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MonitoringScheduleName': obj.monitoringScheduleName,
+    'MonitoringScheduleConfig': toJson_SageMakerMonitoringScheduleConfig(obj.monitoringScheduleConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUpdateMonitoringScheduleResponse
@@ -6813,9 +17700,23 @@ export interface SageMakerUpdateMonitoringScheduleResponse {
   /**
    * @schema SageMakerUpdateMonitoringScheduleResponse#MonitoringScheduleArn
    */
-  readonly monitoringScheduleArn: string;
+  readonly monitoringScheduleArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerUpdateMonitoringScheduleResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateMonitoringScheduleResponse(obj: SageMakerUpdateMonitoringScheduleResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MonitoringScheduleArn': obj.monitoringScheduleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUpdateNotebookInstanceInput
@@ -6824,7 +17725,7 @@ export interface SageMakerUpdateNotebookInstanceInput {
   /**
    * @schema SageMakerUpdateNotebookInstanceInput#NotebookInstanceName
    */
-  readonly notebookInstanceName: string;
+  readonly notebookInstanceName?: string;
 
   /**
    * @schema SageMakerUpdateNotebookInstanceInput#InstanceType
@@ -6889,10 +17790,49 @@ export interface SageMakerUpdateNotebookInstanceInput {
 }
 
 /**
+ * Converts an object of type 'SageMakerUpdateNotebookInstanceInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateNotebookInstanceInput(obj: SageMakerUpdateNotebookInstanceInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotebookInstanceName': obj.notebookInstanceName,
+    'InstanceType': obj.instanceType,
+    'RoleArn': obj.roleArn,
+    'LifecycleConfigName': obj.lifecycleConfigName,
+    'DisassociateLifecycleConfig': obj.disassociateLifecycleConfig,
+    'VolumeSizeInGB': obj.volumeSizeInGb,
+    'DefaultCodeRepository': obj.defaultCodeRepository,
+    'AdditionalCodeRepositories': obj.additionalCodeRepositories?.map(y => y),
+    'AcceleratorTypes': obj.acceleratorTypes?.map(y => y),
+    'DisassociateAcceleratorTypes': obj.disassociateAcceleratorTypes,
+    'DisassociateDefaultCodeRepository': obj.disassociateDefaultCodeRepository,
+    'DisassociateAdditionalCodeRepositories': obj.disassociateAdditionalCodeRepositories,
+    'RootAccess': obj.rootAccess,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerUpdateNotebookInstanceOutput
  */
 export interface SageMakerUpdateNotebookInstanceOutput {
 }
+
+/**
+ * Converts an object of type 'SageMakerUpdateNotebookInstanceOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateNotebookInstanceOutput(obj: SageMakerUpdateNotebookInstanceOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUpdateNotebookInstanceLifecycleConfigInput
@@ -6901,7 +17841,7 @@ export interface SageMakerUpdateNotebookInstanceLifecycleConfigInput {
   /**
    * @schema SageMakerUpdateNotebookInstanceLifecycleConfigInput#NotebookInstanceLifecycleConfigName
    */
-  readonly notebookInstanceLifecycleConfigName: string;
+  readonly notebookInstanceLifecycleConfigName?: string;
 
   /**
    * @schema SageMakerUpdateNotebookInstanceLifecycleConfigInput#OnCreate
@@ -6916,10 +17856,237 @@ export interface SageMakerUpdateNotebookInstanceLifecycleConfigInput {
 }
 
 /**
+ * Converts an object of type 'SageMakerUpdateNotebookInstanceLifecycleConfigInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateNotebookInstanceLifecycleConfigInput(obj: SageMakerUpdateNotebookInstanceLifecycleConfigInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotebookInstanceLifecycleConfigName': obj.notebookInstanceLifecycleConfigName,
+    'OnCreate': obj.onCreate?.map(y => toJson_SageMakerNotebookInstanceLifecycleHook(y)),
+    'OnStart': obj.onStart?.map(y => toJson_SageMakerNotebookInstanceLifecycleHook(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerUpdateNotebookInstanceLifecycleConfigOutput
  */
 export interface SageMakerUpdateNotebookInstanceLifecycleConfigOutput {
 }
+
+/**
+ * Converts an object of type 'SageMakerUpdateNotebookInstanceLifecycleConfigOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateNotebookInstanceLifecycleConfigOutput(obj: SageMakerUpdateNotebookInstanceLifecycleConfigOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerUpdatePipelineRequest
+ */
+export interface SageMakerUpdatePipelineRequest {
+  /**
+   * @schema SageMakerUpdatePipelineRequest#PipelineName
+   */
+  readonly pipelineName?: string;
+
+  /**
+   * @schema SageMakerUpdatePipelineRequest#PipelineDisplayName
+   */
+  readonly pipelineDisplayName?: string;
+
+  /**
+   * @schema SageMakerUpdatePipelineRequest#PipelineDefinition
+   */
+  readonly pipelineDefinition?: string;
+
+  /**
+   * @schema SageMakerUpdatePipelineRequest#PipelineDescription
+   */
+  readonly pipelineDescription?: string;
+
+  /**
+   * @schema SageMakerUpdatePipelineRequest#RoleArn
+   */
+  readonly roleArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerUpdatePipelineRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdatePipelineRequest(obj: SageMakerUpdatePipelineRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineName': obj.pipelineName,
+    'PipelineDisplayName': obj.pipelineDisplayName,
+    'PipelineDefinition': obj.pipelineDefinition,
+    'PipelineDescription': obj.pipelineDescription,
+    'RoleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerUpdatePipelineResponse
+ */
+export interface SageMakerUpdatePipelineResponse {
+  /**
+   * @schema SageMakerUpdatePipelineResponse#PipelineArn
+   */
+  readonly pipelineArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerUpdatePipelineResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdatePipelineResponse(obj: SageMakerUpdatePipelineResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineArn': obj.pipelineArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerUpdatePipelineExecutionRequest
+ */
+export interface SageMakerUpdatePipelineExecutionRequest {
+  /**
+   * @schema SageMakerUpdatePipelineExecutionRequest#PipelineExecutionArn
+   */
+  readonly pipelineExecutionArn?: string;
+
+  /**
+   * @schema SageMakerUpdatePipelineExecutionRequest#PipelineExecutionDescription
+   */
+  readonly pipelineExecutionDescription?: string;
+
+  /**
+   * @schema SageMakerUpdatePipelineExecutionRequest#PipelineExecutionDisplayName
+   */
+  readonly pipelineExecutionDisplayName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerUpdatePipelineExecutionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdatePipelineExecutionRequest(obj: SageMakerUpdatePipelineExecutionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineExecutionArn': obj.pipelineExecutionArn,
+    'PipelineExecutionDescription': obj.pipelineExecutionDescription,
+    'PipelineExecutionDisplayName': obj.pipelineExecutionDisplayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerUpdatePipelineExecutionResponse
+ */
+export interface SageMakerUpdatePipelineExecutionResponse {
+  /**
+   * @schema SageMakerUpdatePipelineExecutionResponse#PipelineExecutionArn
+   */
+  readonly pipelineExecutionArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerUpdatePipelineExecutionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdatePipelineExecutionResponse(obj: SageMakerUpdatePipelineExecutionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineExecutionArn': obj.pipelineExecutionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerUpdateTrainingJobRequest
+ */
+export interface SageMakerUpdateTrainingJobRequest {
+  /**
+   * @schema SageMakerUpdateTrainingJobRequest#TrainingJobName
+   */
+  readonly trainingJobName?: string;
+
+  /**
+   * @schema SageMakerUpdateTrainingJobRequest#ProfilerConfig
+   */
+  readonly profilerConfig?: SageMakerProfilerConfigForUpdate;
+
+  /**
+   * @schema SageMakerUpdateTrainingJobRequest#ProfilerRuleConfigurations
+   */
+  readonly profilerRuleConfigurations?: SageMakerProfilerRuleConfiguration[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerUpdateTrainingJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateTrainingJobRequest(obj: SageMakerUpdateTrainingJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrainingJobName': obj.trainingJobName,
+    'ProfilerConfig': toJson_SageMakerProfilerConfigForUpdate(obj.profilerConfig),
+    'ProfilerRuleConfigurations': obj.profilerRuleConfigurations?.map(y => toJson_SageMakerProfilerRuleConfiguration(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerUpdateTrainingJobResponse
+ */
+export interface SageMakerUpdateTrainingJobResponse {
+  /**
+   * @schema SageMakerUpdateTrainingJobResponse#TrainingJobArn
+   */
+  readonly trainingJobArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerUpdateTrainingJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateTrainingJobResponse(obj: SageMakerUpdateTrainingJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrainingJobArn': obj.trainingJobArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUpdateTrialRequest
@@ -6928,7 +18095,7 @@ export interface SageMakerUpdateTrialRequest {
   /**
    * @schema SageMakerUpdateTrialRequest#TrialName
    */
-  readonly trialName: string;
+  readonly trialName?: string;
 
   /**
    * @schema SageMakerUpdateTrialRequest#DisplayName
@@ -6936,6 +18103,21 @@ export interface SageMakerUpdateTrialRequest {
   readonly displayName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerUpdateTrialRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateTrialRequest(obj: SageMakerUpdateTrialRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialName': obj.trialName,
+    'DisplayName': obj.displayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUpdateTrialResponse
@@ -6949,13 +18131,27 @@ export interface SageMakerUpdateTrialResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerUpdateTrialResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateTrialResponse(obj: SageMakerUpdateTrialResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialArn': obj.trialArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerUpdateTrialComponentRequest
  */
 export interface SageMakerUpdateTrialComponentRequest {
   /**
    * @schema SageMakerUpdateTrialComponentRequest#TrialComponentName
    */
-  readonly trialComponentName: string;
+  readonly trialComponentName?: string;
 
   /**
    * @schema SageMakerUpdateTrialComponentRequest#DisplayName
@@ -7010,6 +18206,30 @@ export interface SageMakerUpdateTrialComponentRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerUpdateTrialComponentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateTrialComponentRequest(obj: SageMakerUpdateTrialComponentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialComponentName': obj.trialComponentName,
+    'DisplayName': obj.displayName,
+    'Status': toJson_SageMakerTrialComponentStatus(obj.status),
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'Parameters': ((obj.parameters) === undefined) ? undefined : (Object.entries(obj.parameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_SageMakerTrialComponentParameterValue(i[1]) }), {})),
+    'ParametersToRemove': obj.parametersToRemove?.map(y => y),
+    'InputArtifacts': ((obj.inputArtifacts) === undefined) ? undefined : (Object.entries(obj.inputArtifacts).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_SageMakerTrialComponentArtifact(i[1]) }), {})),
+    'InputArtifactsToRemove': obj.inputArtifactsToRemove?.map(y => y),
+    'OutputArtifacts': ((obj.outputArtifacts) === undefined) ? undefined : (Object.entries(obj.outputArtifacts).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_SageMakerTrialComponentArtifact(i[1]) }), {})),
+    'OutputArtifactsToRemove': obj.outputArtifactsToRemove?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerUpdateTrialComponentResponse
  */
 export interface SageMakerUpdateTrialComponentResponse {
@@ -7021,18 +18241,32 @@ export interface SageMakerUpdateTrialComponentResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerUpdateTrialComponentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateTrialComponentResponse(obj: SageMakerUpdateTrialComponentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialComponentArn': obj.trialComponentArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerUpdateUserProfileRequest
  */
 export interface SageMakerUpdateUserProfileRequest {
   /**
    * @schema SageMakerUpdateUserProfileRequest#DomainId
    */
-  readonly domainId: string;
+  readonly domainId?: string;
 
   /**
    * @schema SageMakerUpdateUserProfileRequest#UserProfileName
    */
-  readonly userProfileName: string;
+  readonly userProfileName?: string;
 
   /**
    * @schema SageMakerUpdateUserProfileRequest#UserSettings
@@ -7040,6 +18274,22 @@ export interface SageMakerUpdateUserProfileRequest {
   readonly userSettings?: SageMakerUserSettings;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerUpdateUserProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateUserProfileRequest(obj: SageMakerUpdateUserProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainId': obj.domainId,
+    'UserProfileName': obj.userProfileName,
+    'UserSettings': toJson_SageMakerUserSettings(obj.userSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUpdateUserProfileResponse
@@ -7053,13 +18303,27 @@ export interface SageMakerUpdateUserProfileResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerUpdateUserProfileResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateUserProfileResponse(obj: SageMakerUpdateUserProfileResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserProfileArn': obj.userProfileArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerUpdateWorkforceRequest
  */
 export interface SageMakerUpdateWorkforceRequest {
   /**
    * @schema SageMakerUpdateWorkforceRequest#WorkforceName
    */
-  readonly workforceName: string;
+  readonly workforceName?: string;
 
   /**
    * @schema SageMakerUpdateWorkforceRequest#SourceIpConfig
@@ -7074,15 +18338,45 @@ export interface SageMakerUpdateWorkforceRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerUpdateWorkforceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateWorkforceRequest(obj: SageMakerUpdateWorkforceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WorkforceName': obj.workforceName,
+    'SourceIpConfig': toJson_SageMakerSourceIpConfig(obj.sourceIpConfig),
+    'OidcConfig': toJson_SageMakerOidcConfig(obj.oidcConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerUpdateWorkforceResponse
  */
 export interface SageMakerUpdateWorkforceResponse {
   /**
    * @schema SageMakerUpdateWorkforceResponse#Workforce
    */
-  readonly workforce: SageMakerWorkforce;
+  readonly workforce?: SageMakerWorkforce;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerUpdateWorkforceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateWorkforceResponse(obj: SageMakerUpdateWorkforceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Workforce': toJson_SageMakerWorkforce(obj.workforce),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUpdateWorkteamRequest
@@ -7091,7 +18385,7 @@ export interface SageMakerUpdateWorkteamRequest {
   /**
    * @schema SageMakerUpdateWorkteamRequest#WorkteamName
    */
-  readonly workteamName: string;
+  readonly workteamName?: string;
 
   /**
    * @schema SageMakerUpdateWorkteamRequest#MemberDefinitions
@@ -7111,15 +18405,46 @@ export interface SageMakerUpdateWorkteamRequest {
 }
 
 /**
+ * Converts an object of type 'SageMakerUpdateWorkteamRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateWorkteamRequest(obj: SageMakerUpdateWorkteamRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WorkteamName': obj.workteamName,
+    'MemberDefinitions': obj.memberDefinitions?.map(y => toJson_SageMakerMemberDefinition(y)),
+    'Description': obj.description,
+    'NotificationConfiguration': toJson_SageMakerNotificationConfiguration(obj.notificationConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerUpdateWorkteamResponse
  */
 export interface SageMakerUpdateWorkteamResponse {
   /**
    * @schema SageMakerUpdateWorkteamResponse#Workteam
    */
-  readonly workteam: SageMakerWorkteam;
+  readonly workteam?: SageMakerWorkteam;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerUpdateWorkteamResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUpdateWorkteamResponse(obj: SageMakerUpdateWorkteamResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Workteam': toJson_SageMakerWorkteam(obj.workteam),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerTag
@@ -7128,14 +18453,109 @@ export interface SageMakerTag {
   /**
    * @schema SageMakerTag#Key
    */
-  readonly key: string;
+  readonly key?: string;
 
   /**
    * @schema SageMakerTag#Value
    */
-  readonly value: string;
+  readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTag(obj: SageMakerTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerActionSource
+ */
+export interface SageMakerActionSource {
+  /**
+   * @schema SageMakerActionSource#SourceUri
+   */
+  readonly sourceUri?: string;
+
+  /**
+   * @schema SageMakerActionSource#SourceType
+   */
+  readonly sourceType?: string;
+
+  /**
+   * @schema SageMakerActionSource#SourceId
+   */
+  readonly sourceId?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerActionSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerActionSource(obj: SageMakerActionSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceUri': obj.sourceUri,
+    'SourceType': obj.sourceType,
+    'SourceId': obj.sourceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerMetadataProperties
+ */
+export interface SageMakerMetadataProperties {
+  /**
+   * @schema SageMakerMetadataProperties#CommitId
+   */
+  readonly commitId?: string;
+
+  /**
+   * @schema SageMakerMetadataProperties#Repository
+   */
+  readonly repository?: string;
+
+  /**
+   * @schema SageMakerMetadataProperties#GeneratedBy
+   */
+  readonly generatedBy?: string;
+
+  /**
+   * @schema SageMakerMetadataProperties#ProjectId
+   */
+  readonly projectId?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerMetadataProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMetadataProperties(obj: SageMakerMetadataProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CommitId': obj.commitId,
+    'Repository': obj.repository,
+    'GeneratedBy': obj.generatedBy,
+    'ProjectId': obj.projectId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerTrainingSpecification
@@ -7144,7 +18564,7 @@ export interface SageMakerTrainingSpecification {
   /**
    * @schema SageMakerTrainingSpecification#TrainingImage
    */
-  readonly trainingImage: string;
+  readonly trainingImage?: string;
 
   /**
    * @schema SageMakerTrainingSpecification#TrainingImageDigest
@@ -7159,7 +18579,7 @@ export interface SageMakerTrainingSpecification {
   /**
    * @schema SageMakerTrainingSpecification#SupportedTrainingInstanceTypes
    */
-  readonly supportedTrainingInstanceTypes: string[];
+  readonly supportedTrainingInstanceTypes?: string[];
 
   /**
    * @schema SageMakerTrainingSpecification#SupportsDistributedTraining
@@ -7174,7 +18594,7 @@ export interface SageMakerTrainingSpecification {
   /**
    * @schema SageMakerTrainingSpecification#TrainingChannels
    */
-  readonly trainingChannels: SageMakerChannelSpecification[];
+  readonly trainingChannels?: SageMakerChannelSpecification[];
 
   /**
    * @schema SageMakerTrainingSpecification#SupportedTuningJobObjectiveMetrics
@@ -7184,35 +18604,74 @@ export interface SageMakerTrainingSpecification {
 }
 
 /**
+ * Converts an object of type 'SageMakerTrainingSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrainingSpecification(obj: SageMakerTrainingSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrainingImage': obj.trainingImage,
+    'TrainingImageDigest': obj.trainingImageDigest,
+    'SupportedHyperParameters': obj.supportedHyperParameters?.map(y => toJson_SageMakerHyperParameterSpecification(y)),
+    'SupportedTrainingInstanceTypes': obj.supportedTrainingInstanceTypes?.map(y => y),
+    'SupportsDistributedTraining': obj.supportsDistributedTraining,
+    'MetricDefinitions': obj.metricDefinitions?.map(y => toJson_SageMakerMetricDefinition(y)),
+    'TrainingChannels': obj.trainingChannels?.map(y => toJson_SageMakerChannelSpecification(y)),
+    'SupportedTuningJobObjectiveMetrics': obj.supportedTuningJobObjectiveMetrics?.map(y => toJson_SageMakerHyperParameterTuningJobObjective(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerInferenceSpecification
  */
 export interface SageMakerInferenceSpecification {
   /**
    * @schema SageMakerInferenceSpecification#Containers
    */
-  readonly containers: SageMakerModelPackageContainerDefinition[];
+  readonly containers?: SageMakerModelPackageContainerDefinition[];
 
   /**
    * @schema SageMakerInferenceSpecification#SupportedTransformInstanceTypes
    */
-  readonly supportedTransformInstanceTypes: string[];
+  readonly supportedTransformInstanceTypes?: string[];
 
   /**
    * @schema SageMakerInferenceSpecification#SupportedRealtimeInferenceInstanceTypes
    */
-  readonly supportedRealtimeInferenceInstanceTypes: string[];
+  readonly supportedRealtimeInferenceInstanceTypes?: string[];
 
   /**
    * @schema SageMakerInferenceSpecification#SupportedContentTypes
    */
-  readonly supportedContentTypes: string[];
+  readonly supportedContentTypes?: string[];
 
   /**
    * @schema SageMakerInferenceSpecification#SupportedResponseMIMETypes
    */
-  readonly supportedResponseMimeTypes: string[];
+  readonly supportedResponseMimeTypes?: string[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerInferenceSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerInferenceSpecification(obj: SageMakerInferenceSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Containers': obj.containers?.map(y => toJson_SageMakerModelPackageContainerDefinition(y)),
+    'SupportedTransformInstanceTypes': obj.supportedTransformInstanceTypes?.map(y => y),
+    'SupportedRealtimeInferenceInstanceTypes': obj.supportedRealtimeInferenceInstanceTypes?.map(y => y),
+    'SupportedContentTypes': obj.supportedContentTypes?.map(y => y),
+    'SupportedResponseMIMETypes': obj.supportedResponseMimeTypes?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerAlgorithmValidationSpecification
@@ -7221,14 +18680,29 @@ export interface SageMakerAlgorithmValidationSpecification {
   /**
    * @schema SageMakerAlgorithmValidationSpecification#ValidationRole
    */
-  readonly validationRole: string;
+  readonly validationRole?: string;
 
   /**
    * @schema SageMakerAlgorithmValidationSpecification#ValidationProfiles
    */
-  readonly validationProfiles: SageMakerAlgorithmValidationProfile[];
+  readonly validationProfiles?: SageMakerAlgorithmValidationProfile[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerAlgorithmValidationSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAlgorithmValidationSpecification(obj: SageMakerAlgorithmValidationSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ValidationRole': obj.validationRole,
+    'ValidationProfiles': obj.validationProfiles?.map(y => toJson_SageMakerAlgorithmValidationProfile(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerResourceSpec
@@ -7252,13 +18726,29 @@ export interface SageMakerResourceSpec {
 }
 
 /**
+ * Converts an object of type 'SageMakerResourceSpec' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerResourceSpec(obj: SageMakerResourceSpec | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SageMakerImageArn': obj.sageMakerImageArn,
+    'SageMakerImageVersionArn': obj.sageMakerImageVersionArn,
+    'InstanceType': obj.instanceType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerKernelGatewayImageConfig
  */
 export interface SageMakerKernelGatewayImageConfig {
   /**
    * @schema SageMakerKernelGatewayImageConfig#KernelSpecs
    */
-  readonly kernelSpecs: SageMakerKernelSpec[];
+  readonly kernelSpecs?: SageMakerKernelSpec[];
 
   /**
    * @schema SageMakerKernelGatewayImageConfig#FileSystemConfig
@@ -7268,13 +18758,59 @@ export interface SageMakerKernelGatewayImageConfig {
 }
 
 /**
+ * Converts an object of type 'SageMakerKernelGatewayImageConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerKernelGatewayImageConfig(obj: SageMakerKernelGatewayImageConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'KernelSpecs': obj.kernelSpecs?.map(y => toJson_SageMakerKernelSpec(y)),
+    'FileSystemConfig': toJson_SageMakerFileSystemConfig(obj.fileSystemConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerArtifactSource
+ */
+export interface SageMakerArtifactSource {
+  /**
+   * @schema SageMakerArtifactSource#SourceUri
+   */
+  readonly sourceUri?: string;
+
+  /**
+   * @schema SageMakerArtifactSource#SourceTypes
+   */
+  readonly sourceTypes?: SageMakerArtifactSourceType[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerArtifactSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerArtifactSource(obj: SageMakerArtifactSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceUri': obj.sourceUri,
+    'SourceTypes': obj.sourceTypes?.map(y => toJson_SageMakerArtifactSourceType(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerAutoMlChannel
  */
 export interface SageMakerAutoMlChannel {
   /**
    * @schema SageMakerAutoMlChannel#DataSource
    */
-  readonly dataSource: SageMakerAutoMlDataSource;
+  readonly dataSource?: SageMakerAutoMlDataSource;
 
   /**
    * @schema SageMakerAutoMlChannel#CompressionType
@@ -7284,9 +18820,25 @@ export interface SageMakerAutoMlChannel {
   /**
    * @schema SageMakerAutoMlChannel#TargetAttributeName
    */
-  readonly targetAttributeName: string;
+  readonly targetAttributeName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerAutoMlChannel' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAutoMlChannel(obj: SageMakerAutoMlChannel | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSource': toJson_SageMakerAutoMlDataSource(obj.dataSource),
+    'CompressionType': obj.compressionType,
+    'TargetAttributeName': obj.targetAttributeName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerAutoMlOutputDataConfig
@@ -7300,9 +18852,24 @@ export interface SageMakerAutoMlOutputDataConfig {
   /**
    * @schema SageMakerAutoMlOutputDataConfig#S3OutputPath
    */
-  readonly s3OutputPath: string;
+  readonly s3OutputPath?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerAutoMlOutputDataConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAutoMlOutputDataConfig(obj: SageMakerAutoMlOutputDataConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'KmsKeyId': obj.kmsKeyId,
+    'S3OutputPath': obj.s3OutputPath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerAutoMlJobObjective
@@ -7311,9 +18878,23 @@ export interface SageMakerAutoMlJobObjective {
   /**
    * @schema SageMakerAutoMlJobObjective#MetricName
    */
-  readonly metricName: string;
+  readonly metricName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerAutoMlJobObjective' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAutoMlJobObjective(obj: SageMakerAutoMlJobObjective | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MetricName': obj.metricName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerAutoMlJobConfig
@@ -7332,13 +18913,59 @@ export interface SageMakerAutoMlJobConfig {
 }
 
 /**
+ * Converts an object of type 'SageMakerAutoMlJobConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAutoMlJobConfig(obj: SageMakerAutoMlJobConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CompletionCriteria': toJson_SageMakerAutoMlJobCompletionCriteria(obj.completionCriteria),
+    'SecurityConfig': toJson_SageMakerAutoMlSecurityConfig(obj.securityConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelDeployConfig
+ */
+export interface SageMakerModelDeployConfig {
+  /**
+   * @schema SageMakerModelDeployConfig#AutoGenerateEndpointName
+   */
+  readonly autoGenerateEndpointName?: boolean;
+
+  /**
+   * @schema SageMakerModelDeployConfig#EndpointName
+   */
+  readonly endpointName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelDeployConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelDeployConfig(obj: SageMakerModelDeployConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AutoGenerateEndpointName': obj.autoGenerateEndpointName,
+    'EndpointName': obj.endpointName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerGitConfig
  */
 export interface SageMakerGitConfig {
   /**
    * @schema SageMakerGitConfig#RepositoryUrl
    */
-  readonly repositoryUrl: string;
+  readonly repositoryUrl?: string;
 
   /**
    * @schema SageMakerGitConfig#Branch
@@ -7353,25 +18980,63 @@ export interface SageMakerGitConfig {
 }
 
 /**
+ * Converts an object of type 'SageMakerGitConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerGitConfig(obj: SageMakerGitConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RepositoryUrl': obj.repositoryUrl,
+    'Branch': obj.branch,
+    'SecretArn': obj.secretArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerInputConfig
  */
 export interface SageMakerInputConfig {
   /**
    * @schema SageMakerInputConfig#S3Uri
    */
-  readonly s3Uri: string;
+  readonly s3Uri?: string;
 
   /**
    * @schema SageMakerInputConfig#DataInputConfig
    */
-  readonly dataInputConfig: string;
+  readonly dataInputConfig?: string;
 
   /**
    * @schema SageMakerInputConfig#Framework
    */
-  readonly framework: string;
+  readonly framework?: string;
+
+  /**
+   * @schema SageMakerInputConfig#FrameworkVersion
+   */
+  readonly frameworkVersion?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerInputConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerInputConfig(obj: SageMakerInputConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3Uri': obj.s3Uri,
+    'DataInputConfig': obj.dataInputConfig,
+    'Framework': obj.framework,
+    'FrameworkVersion': obj.frameworkVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerOutputConfig
@@ -7380,7 +19045,7 @@ export interface SageMakerOutputConfig {
   /**
    * @schema SageMakerOutputConfig#S3OutputLocation
    */
-  readonly s3OutputLocation: string;
+  readonly s3OutputLocation?: string;
 
   /**
    * @schema SageMakerOutputConfig#TargetDevice
@@ -7397,7 +19062,61 @@ export interface SageMakerOutputConfig {
    */
   readonly compilerOptions?: string;
 
+  /**
+   * @schema SageMakerOutputConfig#KmsKeyId
+   */
+  readonly kmsKeyId?: string;
+
 }
+
+/**
+ * Converts an object of type 'SageMakerOutputConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerOutputConfig(obj: SageMakerOutputConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3OutputLocation': obj.s3OutputLocation,
+    'TargetDevice': obj.targetDevice,
+    'TargetPlatform': toJson_SageMakerTargetPlatform(obj.targetPlatform),
+    'CompilerOptions': obj.compilerOptions,
+    'KmsKeyId': obj.kmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerNeoVpcConfig
+ */
+export interface SageMakerNeoVpcConfig {
+  /**
+   * @schema SageMakerNeoVpcConfig#SecurityGroupIds
+   */
+  readonly securityGroupIds?: string[];
+
+  /**
+   * @schema SageMakerNeoVpcConfig#Subnets
+   */
+  readonly subnets?: string[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerNeoVpcConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerNeoVpcConfig(obj: SageMakerNeoVpcConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SecurityGroupIds': obj.securityGroupIds?.map(y => y),
+    'Subnets': obj.subnets?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerStoppingCondition
@@ -7414,6 +19133,336 @@ export interface SageMakerStoppingCondition {
   readonly maxWaitTimeInSeconds?: number;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerStoppingCondition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerStoppingCondition(obj: SageMakerStoppingCondition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxRuntimeInSeconds': obj.maxRuntimeInSeconds,
+    'MaxWaitTimeInSeconds': obj.maxWaitTimeInSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerContextSource
+ */
+export interface SageMakerContextSource {
+  /**
+   * @schema SageMakerContextSource#SourceUri
+   */
+  readonly sourceUri?: string;
+
+  /**
+   * @schema SageMakerContextSource#SourceType
+   */
+  readonly sourceType?: string;
+
+  /**
+   * @schema SageMakerContextSource#SourceId
+   */
+  readonly sourceId?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerContextSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerContextSource(obj: SageMakerContextSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceUri': obj.sourceUri,
+    'SourceType': obj.sourceType,
+    'SourceId': obj.sourceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDataQualityBaselineConfig
+ */
+export interface SageMakerDataQualityBaselineConfig {
+  /**
+   * @schema SageMakerDataQualityBaselineConfig#BaseliningJobName
+   */
+  readonly baseliningJobName?: string;
+
+  /**
+   * @schema SageMakerDataQualityBaselineConfig#ConstraintsResource
+   */
+  readonly constraintsResource?: SageMakerMonitoringConstraintsResource;
+
+  /**
+   * @schema SageMakerDataQualityBaselineConfig#StatisticsResource
+   */
+  readonly statisticsResource?: SageMakerMonitoringStatisticsResource;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDataQualityBaselineConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDataQualityBaselineConfig(obj: SageMakerDataQualityBaselineConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BaseliningJobName': obj.baseliningJobName,
+    'ConstraintsResource': toJson_SageMakerMonitoringConstraintsResource(obj.constraintsResource),
+    'StatisticsResource': toJson_SageMakerMonitoringStatisticsResource(obj.statisticsResource),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDataQualityAppSpecification
+ */
+export interface SageMakerDataQualityAppSpecification {
+  /**
+   * @schema SageMakerDataQualityAppSpecification#ImageUri
+   */
+  readonly imageUri?: string;
+
+  /**
+   * @schema SageMakerDataQualityAppSpecification#ContainerEntrypoint
+   */
+  readonly containerEntrypoint?: string[];
+
+  /**
+   * @schema SageMakerDataQualityAppSpecification#ContainerArguments
+   */
+  readonly containerArguments?: string[];
+
+  /**
+   * @schema SageMakerDataQualityAppSpecification#RecordPreprocessorSourceUri
+   */
+  readonly recordPreprocessorSourceUri?: string;
+
+  /**
+   * @schema SageMakerDataQualityAppSpecification#PostAnalyticsProcessorSourceUri
+   */
+  readonly postAnalyticsProcessorSourceUri?: string;
+
+  /**
+   * @schema SageMakerDataQualityAppSpecification#Environment
+   */
+  readonly environment?: { [key: string]: string };
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDataQualityAppSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDataQualityAppSpecification(obj: SageMakerDataQualityAppSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ImageUri': obj.imageUri,
+    'ContainerEntrypoint': obj.containerEntrypoint?.map(y => y),
+    'ContainerArguments': obj.containerArguments?.map(y => y),
+    'RecordPreprocessorSourceUri': obj.recordPreprocessorSourceUri,
+    'PostAnalyticsProcessorSourceUri': obj.postAnalyticsProcessorSourceUri,
+    'Environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDataQualityJobInput
+ */
+export interface SageMakerDataQualityJobInput {
+  /**
+   * @schema SageMakerDataQualityJobInput#EndpointInput
+   */
+  readonly endpointInput?: SageMakerEndpointInput;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDataQualityJobInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDataQualityJobInput(obj: SageMakerDataQualityJobInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointInput': toJson_SageMakerEndpointInput(obj.endpointInput),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerMonitoringOutputConfig
+ */
+export interface SageMakerMonitoringOutputConfig {
+  /**
+   * @schema SageMakerMonitoringOutputConfig#MonitoringOutputs
+   */
+  readonly monitoringOutputs?: SageMakerMonitoringOutput[];
+
+  /**
+   * @schema SageMakerMonitoringOutputConfig#KmsKeyId
+   */
+  readonly kmsKeyId?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerMonitoringOutputConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringOutputConfig(obj: SageMakerMonitoringOutputConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MonitoringOutputs': obj.monitoringOutputs?.map(y => toJson_SageMakerMonitoringOutput(y)),
+    'KmsKeyId': obj.kmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerMonitoringResources
+ */
+export interface SageMakerMonitoringResources {
+  /**
+   * @schema SageMakerMonitoringResources#ClusterConfig
+   */
+  readonly clusterConfig?: SageMakerMonitoringClusterConfig;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerMonitoringResources' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringResources(obj: SageMakerMonitoringResources | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ClusterConfig': toJson_SageMakerMonitoringClusterConfig(obj.clusterConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerMonitoringNetworkConfig
+ */
+export interface SageMakerMonitoringNetworkConfig {
+  /**
+   * @schema SageMakerMonitoringNetworkConfig#EnableInterContainerTrafficEncryption
+   */
+  readonly enableInterContainerTrafficEncryption?: boolean;
+
+  /**
+   * @schema SageMakerMonitoringNetworkConfig#EnableNetworkIsolation
+   */
+  readonly enableNetworkIsolation?: boolean;
+
+  /**
+   * @schema SageMakerMonitoringNetworkConfig#VpcConfig
+   */
+  readonly vpcConfig?: SageMakerVpcConfig;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerMonitoringNetworkConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringNetworkConfig(obj: SageMakerMonitoringNetworkConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnableInterContainerTrafficEncryption': obj.enableInterContainerTrafficEncryption,
+    'EnableNetworkIsolation': obj.enableNetworkIsolation,
+    'VpcConfig': toJson_SageMakerVpcConfig(obj.vpcConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerMonitoringStoppingCondition
+ */
+export interface SageMakerMonitoringStoppingCondition {
+  /**
+   * @schema SageMakerMonitoringStoppingCondition#MaxRuntimeInSeconds
+   */
+  readonly maxRuntimeInSeconds?: number;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerMonitoringStoppingCondition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringStoppingCondition(obj: SageMakerMonitoringStoppingCondition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxRuntimeInSeconds': obj.maxRuntimeInSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerEdgeOutputConfig
+ */
+export interface SageMakerEdgeOutputConfig {
+  /**
+   * @schema SageMakerEdgeOutputConfig#S3OutputLocation
+   */
+  readonly s3OutputLocation?: string;
+
+  /**
+   * @schema SageMakerEdgeOutputConfig#KmsKeyId
+   */
+  readonly kmsKeyId?: string;
+
+  /**
+   * @schema SageMakerEdgeOutputConfig#PresetDeploymentType
+   */
+  readonly presetDeploymentType?: string;
+
+  /**
+   * @schema SageMakerEdgeOutputConfig#PresetDeploymentConfig
+   */
+  readonly presetDeploymentConfig?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerEdgeOutputConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerEdgeOutputConfig(obj: SageMakerEdgeOutputConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3OutputLocation': obj.s3OutputLocation,
+    'KmsKeyId': obj.kmsKeyId,
+    'PresetDeploymentType': obj.presetDeploymentType,
+    'PresetDeploymentConfig': obj.presetDeploymentConfig,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUserSettings
@@ -7452,28 +19501,47 @@ export interface SageMakerUserSettings {
 }
 
 /**
+ * Converts an object of type 'SageMakerUserSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUserSettings(obj: SageMakerUserSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExecutionRole': obj.executionRole,
+    'SecurityGroups': obj.securityGroups?.map(y => y),
+    'SharingSettings': toJson_SageMakerSharingSettings(obj.sharingSettings),
+    'JupyterServerAppSettings': toJson_SageMakerJupyterServerAppSettings(obj.jupyterServerAppSettings),
+    'KernelGatewayAppSettings': toJson_SageMakerKernelGatewayAppSettings(obj.kernelGatewayAppSettings),
+    'TensorBoardAppSettings': toJson_SageMakerTensorBoardAppSettings(obj.tensorBoardAppSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerProductionVariant
  */
 export interface SageMakerProductionVariant {
   /**
    * @schema SageMakerProductionVariant#VariantName
    */
-  readonly variantName: string;
+  readonly variantName?: string;
 
   /**
    * @schema SageMakerProductionVariant#ModelName
    */
-  readonly modelName: string;
+  readonly modelName?: string;
 
   /**
    * @schema SageMakerProductionVariant#InitialInstanceCount
    */
-  readonly initialInstanceCount: number;
+  readonly initialInstanceCount?: number;
 
   /**
    * @schema SageMakerProductionVariant#InstanceType
    */
-  readonly instanceType: string;
+  readonly instanceType?: string;
 
   /**
    * @schema SageMakerProductionVariant#InitialVariantWeight
@@ -7485,7 +19553,32 @@ export interface SageMakerProductionVariant {
    */
   readonly acceleratorType?: string;
 
+  /**
+   * @schema SageMakerProductionVariant#CoreDumpConfig
+   */
+  readonly coreDumpConfig?: SageMakerProductionVariantCoreDumpConfig;
+
 }
+
+/**
+ * Converts an object of type 'SageMakerProductionVariant' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProductionVariant(obj: SageMakerProductionVariant | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VariantName': obj.variantName,
+    'ModelName': obj.modelName,
+    'InitialInstanceCount': obj.initialInstanceCount,
+    'InstanceType': obj.instanceType,
+    'InitialVariantWeight': obj.initialVariantWeight,
+    'AcceleratorType': obj.acceleratorType,
+    'CoreDumpConfig': toJson_SageMakerProductionVariantCoreDumpConfig(obj.coreDumpConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDataCaptureConfig
@@ -7499,12 +19592,12 @@ export interface SageMakerDataCaptureConfig {
   /**
    * @schema SageMakerDataCaptureConfig#InitialSamplingPercentage
    */
-  readonly initialSamplingPercentage: number;
+  readonly initialSamplingPercentage?: number;
 
   /**
    * @schema SageMakerDataCaptureConfig#DestinationS3Uri
    */
-  readonly destinationS3Uri: string;
+  readonly destinationS3Uri?: string;
 
   /**
    * @schema SageMakerDataCaptureConfig#KmsKeyId
@@ -7514,7 +19607,7 @@ export interface SageMakerDataCaptureConfig {
   /**
    * @schema SageMakerDataCaptureConfig#CaptureOptions
    */
-  readonly captureOptions: SageMakerCaptureOption[];
+  readonly captureOptions?: SageMakerCaptureOption[];
 
   /**
    * @schema SageMakerDataCaptureConfig#CaptureContentTypeHeader
@@ -7524,15 +19617,147 @@ export interface SageMakerDataCaptureConfig {
 }
 
 /**
+ * Converts an object of type 'SageMakerDataCaptureConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDataCaptureConfig(obj: SageMakerDataCaptureConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnableCapture': obj.enableCapture,
+    'InitialSamplingPercentage': obj.initialSamplingPercentage,
+    'DestinationS3Uri': obj.destinationS3Uri,
+    'KmsKeyId': obj.kmsKeyId,
+    'CaptureOptions': obj.captureOptions?.map(y => toJson_SageMakerCaptureOption(y)),
+    'CaptureContentTypeHeader': toJson_SageMakerCaptureContentTypeHeader(obj.captureContentTypeHeader),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerFeatureDefinition
+ */
+export interface SageMakerFeatureDefinition {
+  /**
+   * @schema SageMakerFeatureDefinition#FeatureName
+   */
+  readonly featureName?: string;
+
+  /**
+   * @schema SageMakerFeatureDefinition#FeatureType
+   */
+  readonly featureType?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerFeatureDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerFeatureDefinition(obj: SageMakerFeatureDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FeatureName': obj.featureName,
+    'FeatureType': obj.featureType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerOnlineStoreConfig
+ */
+export interface SageMakerOnlineStoreConfig {
+  /**
+   * @schema SageMakerOnlineStoreConfig#SecurityConfig
+   */
+  readonly securityConfig?: SageMakerOnlineStoreSecurityConfig;
+
+  /**
+   * @schema SageMakerOnlineStoreConfig#EnableOnlineStore
+   */
+  readonly enableOnlineStore?: boolean;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerOnlineStoreConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerOnlineStoreConfig(obj: SageMakerOnlineStoreConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SecurityConfig': toJson_SageMakerOnlineStoreSecurityConfig(obj.securityConfig),
+    'EnableOnlineStore': obj.enableOnlineStore,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerOfflineStoreConfig
+ */
+export interface SageMakerOfflineStoreConfig {
+  /**
+   * @schema SageMakerOfflineStoreConfig#S3StorageConfig
+   */
+  readonly s3StorageConfig?: SageMakerS3StorageConfig;
+
+  /**
+   * @schema SageMakerOfflineStoreConfig#DisableGlueTableCreation
+   */
+  readonly disableGlueTableCreation?: boolean;
+
+  /**
+   * @schema SageMakerOfflineStoreConfig#DataCatalogConfig
+   */
+  readonly dataCatalogConfig?: SageMakerDataCatalogConfig;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerOfflineStoreConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerOfflineStoreConfig(obj: SageMakerOfflineStoreConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3StorageConfig': toJson_SageMakerS3StorageConfig(obj.s3StorageConfig),
+    'DisableGlueTableCreation': obj.disableGlueTableCreation,
+    'DataCatalogConfig': toJson_SageMakerDataCatalogConfig(obj.dataCatalogConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerHumanLoopRequestSource
  */
 export interface SageMakerHumanLoopRequestSource {
   /**
    * @schema SageMakerHumanLoopRequestSource#AwsManagedHumanLoopRequestSource
    */
-  readonly awsManagedHumanLoopRequestSource: string;
+  readonly awsManagedHumanLoopRequestSource?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerHumanLoopRequestSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerHumanLoopRequestSource(obj: SageMakerHumanLoopRequestSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AwsManagedHumanLoopRequestSource': obj.awsManagedHumanLoopRequestSource,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerHumanLoopActivationConfig
@@ -7541,9 +19766,23 @@ export interface SageMakerHumanLoopActivationConfig {
   /**
    * @schema SageMakerHumanLoopActivationConfig#HumanLoopActivationConditionsConfig
    */
-  readonly humanLoopActivationConditionsConfig: SageMakerHumanLoopActivationConditionsConfig;
+  readonly humanLoopActivationConditionsConfig?: SageMakerHumanLoopActivationConditionsConfig;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerHumanLoopActivationConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerHumanLoopActivationConfig(obj: SageMakerHumanLoopActivationConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HumanLoopActivationConditionsConfig': toJson_SageMakerHumanLoopActivationConditionsConfig(obj.humanLoopActivationConditionsConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerHumanLoopConfig
@@ -7552,27 +19791,27 @@ export interface SageMakerHumanLoopConfig {
   /**
    * @schema SageMakerHumanLoopConfig#WorkteamArn
    */
-  readonly workteamArn: string;
+  readonly workteamArn?: string;
 
   /**
    * @schema SageMakerHumanLoopConfig#HumanTaskUiArn
    */
-  readonly humanTaskUiArn: string;
+  readonly humanTaskUiArn?: string;
 
   /**
    * @schema SageMakerHumanLoopConfig#TaskTitle
    */
-  readonly taskTitle: string;
+  readonly taskTitle?: string;
 
   /**
    * @schema SageMakerHumanLoopConfig#TaskDescription
    */
-  readonly taskDescription: string;
+  readonly taskDescription?: string;
 
   /**
    * @schema SageMakerHumanLoopConfig#TaskCount
    */
-  readonly taskCount: number;
+  readonly taskCount?: number;
 
   /**
    * @schema SageMakerHumanLoopConfig#TaskAvailabilityLifetimeInSeconds
@@ -7597,13 +19836,35 @@ export interface SageMakerHumanLoopConfig {
 }
 
 /**
+ * Converts an object of type 'SageMakerHumanLoopConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerHumanLoopConfig(obj: SageMakerHumanLoopConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WorkteamArn': obj.workteamArn,
+    'HumanTaskUiArn': obj.humanTaskUiArn,
+    'TaskTitle': obj.taskTitle,
+    'TaskDescription': obj.taskDescription,
+    'TaskCount': obj.taskCount,
+    'TaskAvailabilityLifetimeInSeconds': obj.taskAvailabilityLifetimeInSeconds,
+    'TaskTimeLimitInSeconds': obj.taskTimeLimitInSeconds,
+    'TaskKeywords': obj.taskKeywords?.map(y => y),
+    'PublicWorkforceTaskPrice': toJson_SageMakerPublicWorkforceTaskPrice(obj.publicWorkforceTaskPrice),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerFlowDefinitionOutputConfig
  */
 export interface SageMakerFlowDefinitionOutputConfig {
   /**
    * @schema SageMakerFlowDefinitionOutputConfig#S3OutputPath
    */
-  readonly s3OutputPath: string;
+  readonly s3OutputPath?: string;
 
   /**
    * @schema SageMakerFlowDefinitionOutputConfig#KmsKeyId
@@ -7613,15 +19874,44 @@ export interface SageMakerFlowDefinitionOutputConfig {
 }
 
 /**
+ * Converts an object of type 'SageMakerFlowDefinitionOutputConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerFlowDefinitionOutputConfig(obj: SageMakerFlowDefinitionOutputConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3OutputPath': obj.s3OutputPath,
+    'KmsKeyId': obj.kmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerUiTemplate
  */
 export interface SageMakerUiTemplate {
   /**
    * @schema SageMakerUiTemplate#Content
    */
-  readonly content: string;
+  readonly content?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerUiTemplate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUiTemplate(obj: SageMakerUiTemplate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Content': obj.content,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerHyperParameterTuningJobConfig
@@ -7630,7 +19920,7 @@ export interface SageMakerHyperParameterTuningJobConfig {
   /**
    * @schema SageMakerHyperParameterTuningJobConfig#Strategy
    */
-  readonly strategy: string;
+  readonly strategy?: string;
 
   /**
    * @schema SageMakerHyperParameterTuningJobConfig#HyperParameterTuningJobObjective
@@ -7640,7 +19930,7 @@ export interface SageMakerHyperParameterTuningJobConfig {
   /**
    * @schema SageMakerHyperParameterTuningJobConfig#ResourceLimits
    */
-  readonly resourceLimits: SageMakerResourceLimits;
+  readonly resourceLimits?: SageMakerResourceLimits;
 
   /**
    * @schema SageMakerHyperParameterTuningJobConfig#ParameterRanges
@@ -7658,6 +19948,25 @@ export interface SageMakerHyperParameterTuningJobConfig {
   readonly tuningJobCompletionCriteria?: SageMakerTuningJobCompletionCriteria;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerHyperParameterTuningJobConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerHyperParameterTuningJobConfig(obj: SageMakerHyperParameterTuningJobConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Strategy': obj.strategy,
+    'HyperParameterTuningJobObjective': toJson_SageMakerHyperParameterTuningJobObjective(obj.hyperParameterTuningJobObjective),
+    'ResourceLimits': toJson_SageMakerResourceLimits(obj.resourceLimits),
+    'ParameterRanges': toJson_SageMakerParameterRanges(obj.parameterRanges),
+    'TrainingJobEarlyStoppingType': obj.trainingJobEarlyStoppingType,
+    'TuningJobCompletionCriteria': toJson_SageMakerTuningJobCompletionCriteria(obj.tuningJobCompletionCriteria),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerHyperParameterTrainingJobDefinition
@@ -7686,12 +19995,12 @@ export interface SageMakerHyperParameterTrainingJobDefinition {
   /**
    * @schema SageMakerHyperParameterTrainingJobDefinition#AlgorithmSpecification
    */
-  readonly algorithmSpecification: SageMakerHyperParameterAlgorithmSpecification;
+  readonly algorithmSpecification?: SageMakerHyperParameterAlgorithmSpecification;
 
   /**
    * @schema SageMakerHyperParameterTrainingJobDefinition#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema SageMakerHyperParameterTrainingJobDefinition#InputDataConfig
@@ -7706,17 +20015,17 @@ export interface SageMakerHyperParameterTrainingJobDefinition {
   /**
    * @schema SageMakerHyperParameterTrainingJobDefinition#OutputDataConfig
    */
-  readonly outputDataConfig: SageMakerOutputDataConfig;
+  readonly outputDataConfig?: SageMakerOutputDataConfig;
 
   /**
    * @schema SageMakerHyperParameterTrainingJobDefinition#ResourceConfig
    */
-  readonly resourceConfig: SageMakerResourceConfig;
+  readonly resourceConfig?: SageMakerResourceConfig;
 
   /**
    * @schema SageMakerHyperParameterTrainingJobDefinition#StoppingCondition
    */
-  readonly stoppingCondition: SageMakerStoppingCondition;
+  readonly stoppingCondition?: SageMakerStoppingCondition;
 
   /**
    * @schema SageMakerHyperParameterTrainingJobDefinition#EnableNetworkIsolation
@@ -7738,7 +20047,41 @@ export interface SageMakerHyperParameterTrainingJobDefinition {
    */
   readonly checkpointConfig?: SageMakerCheckpointConfig;
 
+  /**
+   * @schema SageMakerHyperParameterTrainingJobDefinition#RetryStrategy
+   */
+  readonly retryStrategy?: SageMakerRetryStrategy;
+
 }
+
+/**
+ * Converts an object of type 'SageMakerHyperParameterTrainingJobDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerHyperParameterTrainingJobDefinition(obj: SageMakerHyperParameterTrainingJobDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DefinitionName': obj.definitionName,
+    'TuningObjective': toJson_SageMakerHyperParameterTuningJobObjective(obj.tuningObjective),
+    'HyperParameterRanges': toJson_SageMakerParameterRanges(obj.hyperParameterRanges),
+    'StaticHyperParameters': ((obj.staticHyperParameters) === undefined) ? undefined : (Object.entries(obj.staticHyperParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'AlgorithmSpecification': toJson_SageMakerHyperParameterAlgorithmSpecification(obj.algorithmSpecification),
+    'RoleArn': obj.roleArn,
+    'InputDataConfig': obj.inputDataConfig?.map(y => toJson_SageMakerChannel(y)),
+    'VpcConfig': toJson_SageMakerVpcConfig(obj.vpcConfig),
+    'OutputDataConfig': toJson_SageMakerOutputDataConfig(obj.outputDataConfig),
+    'ResourceConfig': toJson_SageMakerResourceConfig(obj.resourceConfig),
+    'StoppingCondition': toJson_SageMakerStoppingCondition(obj.stoppingCondition),
+    'EnableNetworkIsolation': obj.enableNetworkIsolation,
+    'EnableInterContainerTrafficEncryption': obj.enableInterContainerTrafficEncryption,
+    'EnableManagedSpotTraining': obj.enableManagedSpotTraining,
+    'CheckpointConfig': toJson_SageMakerCheckpointConfig(obj.checkpointConfig),
+    'RetryStrategy': toJson_SageMakerRetryStrategy(obj.retryStrategy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerHyperParameterTuningJobWarmStartConfig
@@ -7747,14 +20090,29 @@ export interface SageMakerHyperParameterTuningJobWarmStartConfig {
   /**
    * @schema SageMakerHyperParameterTuningJobWarmStartConfig#ParentHyperParameterTuningJobs
    */
-  readonly parentHyperParameterTuningJobs: SageMakerParentHyperParameterTuningJob[];
+  readonly parentHyperParameterTuningJobs?: SageMakerParentHyperParameterTuningJob[];
 
   /**
    * @schema SageMakerHyperParameterTuningJobWarmStartConfig#WarmStartType
    */
-  readonly warmStartType: string;
+  readonly warmStartType?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerHyperParameterTuningJobWarmStartConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerHyperParameterTuningJobWarmStartConfig(obj: SageMakerHyperParameterTuningJobWarmStartConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ParentHyperParameterTuningJobs': obj.parentHyperParameterTuningJobs?.map(y => toJson_SageMakerParentHyperParameterTuningJob(y)),
+    'WarmStartType': obj.warmStartType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerLabelingJobInputConfig
@@ -7763,7 +20121,7 @@ export interface SageMakerLabelingJobInputConfig {
   /**
    * @schema SageMakerLabelingJobInputConfig#DataSource
    */
-  readonly dataSource: SageMakerLabelingJobDataSource;
+  readonly dataSource?: SageMakerLabelingJobDataSource;
 
   /**
    * @schema SageMakerLabelingJobInputConfig#DataAttributes
@@ -7773,13 +20131,28 @@ export interface SageMakerLabelingJobInputConfig {
 }
 
 /**
+ * Converts an object of type 'SageMakerLabelingJobInputConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerLabelingJobInputConfig(obj: SageMakerLabelingJobInputConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSource': toJson_SageMakerLabelingJobDataSource(obj.dataSource),
+    'DataAttributes': toJson_SageMakerLabelingJobDataAttributes(obj.dataAttributes),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerLabelingJobOutputConfig
  */
 export interface SageMakerLabelingJobOutputConfig {
   /**
    * @schema SageMakerLabelingJobOutputConfig#S3OutputPath
    */
-  readonly s3OutputPath: string;
+  readonly s3OutputPath?: string;
 
   /**
    * @schema SageMakerLabelingJobOutputConfig#KmsKeyId
@@ -7792,6 +20165,22 @@ export interface SageMakerLabelingJobOutputConfig {
   readonly snsTopicArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerLabelingJobOutputConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerLabelingJobOutputConfig(obj: SageMakerLabelingJobOutputConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3OutputPath': obj.s3OutputPath,
+    'KmsKeyId': obj.kmsKeyId,
+    'SnsTopicArn': obj.snsTopicArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerLabelingJobStoppingConditions
@@ -7810,13 +20199,28 @@ export interface SageMakerLabelingJobStoppingConditions {
 }
 
 /**
+ * Converts an object of type 'SageMakerLabelingJobStoppingConditions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerLabelingJobStoppingConditions(obj: SageMakerLabelingJobStoppingConditions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxHumanLabeledObjectCount': obj.maxHumanLabeledObjectCount,
+    'MaxPercentageOfInputDatasetLabeled': obj.maxPercentageOfInputDatasetLabeled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerLabelingJobAlgorithmsConfig
  */
 export interface SageMakerLabelingJobAlgorithmsConfig {
   /**
    * @schema SageMakerLabelingJobAlgorithmsConfig#LabelingJobAlgorithmSpecificationArn
    */
-  readonly labelingJobAlgorithmSpecificationArn: string;
+  readonly labelingJobAlgorithmSpecificationArn?: string;
 
   /**
    * @schema SageMakerLabelingJobAlgorithmsConfig#InitialActiveLearningModelArn
@@ -7831,23 +20235,39 @@ export interface SageMakerLabelingJobAlgorithmsConfig {
 }
 
 /**
+ * Converts an object of type 'SageMakerLabelingJobAlgorithmsConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerLabelingJobAlgorithmsConfig(obj: SageMakerLabelingJobAlgorithmsConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LabelingJobAlgorithmSpecificationArn': obj.labelingJobAlgorithmSpecificationArn,
+    'InitialActiveLearningModelArn': obj.initialActiveLearningModelArn,
+    'LabelingJobResourceConfig': toJson_SageMakerLabelingJobResourceConfig(obj.labelingJobResourceConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerHumanTaskConfig
  */
 export interface SageMakerHumanTaskConfig {
   /**
    * @schema SageMakerHumanTaskConfig#WorkteamArn
    */
-  readonly workteamArn: string;
+  readonly workteamArn?: string;
 
   /**
    * @schema SageMakerHumanTaskConfig#UiConfig
    */
-  readonly uiConfig: SageMakerUiConfig;
+  readonly uiConfig?: SageMakerUiConfig;
 
   /**
    * @schema SageMakerHumanTaskConfig#PreHumanTaskLambdaArn
    */
-  readonly preHumanTaskLambdaArn: string;
+  readonly preHumanTaskLambdaArn?: string;
 
   /**
    * @schema SageMakerHumanTaskConfig#TaskKeywords
@@ -7857,22 +20277,22 @@ export interface SageMakerHumanTaskConfig {
   /**
    * @schema SageMakerHumanTaskConfig#TaskTitle
    */
-  readonly taskTitle: string;
+  readonly taskTitle?: string;
 
   /**
    * @schema SageMakerHumanTaskConfig#TaskDescription
    */
-  readonly taskDescription: string;
+  readonly taskDescription?: string;
 
   /**
    * @schema SageMakerHumanTaskConfig#NumberOfHumanWorkersPerDataObject
    */
-  readonly numberOfHumanWorkersPerDataObject: number;
+  readonly numberOfHumanWorkersPerDataObject?: number;
 
   /**
    * @schema SageMakerHumanTaskConfig#TaskTimeLimitInSeconds
    */
-  readonly taskTimeLimitInSeconds: number;
+  readonly taskTimeLimitInSeconds?: number;
 
   /**
    * @schema SageMakerHumanTaskConfig#TaskAvailabilityLifetimeInSeconds
@@ -7887,7 +20307,7 @@ export interface SageMakerHumanTaskConfig {
   /**
    * @schema SageMakerHumanTaskConfig#AnnotationConsolidationConfig
    */
-  readonly annotationConsolidationConfig: SageMakerAnnotationConsolidationConfig;
+  readonly annotationConsolidationConfig?: SageMakerAnnotationConsolidationConfig;
 
   /**
    * @schema SageMakerHumanTaskConfig#PublicWorkforceTaskPrice
@@ -7895,6 +20315,31 @@ export interface SageMakerHumanTaskConfig {
   readonly publicWorkforceTaskPrice?: SageMakerPublicWorkforceTaskPrice;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerHumanTaskConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerHumanTaskConfig(obj: SageMakerHumanTaskConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WorkteamArn': obj.workteamArn,
+    'UiConfig': toJson_SageMakerUiConfig(obj.uiConfig),
+    'PreHumanTaskLambdaArn': obj.preHumanTaskLambdaArn,
+    'TaskKeywords': obj.taskKeywords?.map(y => y),
+    'TaskTitle': obj.taskTitle,
+    'TaskDescription': obj.taskDescription,
+    'NumberOfHumanWorkersPerDataObject': obj.numberOfHumanWorkersPerDataObject,
+    'TaskTimeLimitInSeconds': obj.taskTimeLimitInSeconds,
+    'TaskAvailabilityLifetimeInSeconds': obj.taskAvailabilityLifetimeInSeconds,
+    'MaxConcurrentTaskCount': obj.maxConcurrentTaskCount,
+    'AnnotationConsolidationConfig': toJson_SageMakerAnnotationConsolidationConfig(obj.annotationConsolidationConfig),
+    'PublicWorkforceTaskPrice': toJson_SageMakerPublicWorkforceTaskPrice(obj.publicWorkforceTaskPrice),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerContainerDefinition
@@ -7935,7 +20380,58 @@ export interface SageMakerContainerDefinition {
    */
   readonly modelPackageName?: string;
 
+  /**
+   * @schema SageMakerContainerDefinition#MultiModelConfig
+   */
+  readonly multiModelConfig?: SageMakerMultiModelConfig;
+
 }
+
+/**
+ * Converts an object of type 'SageMakerContainerDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerContainerDefinition(obj: SageMakerContainerDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContainerHostname': obj.containerHostname,
+    'Image': obj.image,
+    'ImageConfig': toJson_SageMakerImageConfig(obj.imageConfig),
+    'Mode': obj.mode,
+    'ModelDataUrl': obj.modelDataUrl,
+    'Environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'ModelPackageName': obj.modelPackageName,
+    'MultiModelConfig': toJson_SageMakerMultiModelConfig(obj.multiModelConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerInferenceExecutionConfig
+ */
+export interface SageMakerInferenceExecutionConfig {
+  /**
+   * @schema SageMakerInferenceExecutionConfig#Mode
+   */
+  readonly mode?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerInferenceExecutionConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerInferenceExecutionConfig(obj: SageMakerInferenceExecutionConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Mode': obj.mode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerVpcConfig
@@ -7944,14 +20440,221 @@ export interface SageMakerVpcConfig {
   /**
    * @schema SageMakerVpcConfig#SecurityGroupIds
    */
-  readonly securityGroupIds: string[];
+  readonly securityGroupIds?: string[];
 
   /**
    * @schema SageMakerVpcConfig#Subnets
    */
-  readonly subnets: string[];
+  readonly subnets?: string[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerVpcConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerVpcConfig(obj: SageMakerVpcConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SecurityGroupIds': obj.securityGroupIds?.map(y => y),
+    'Subnets': obj.subnets?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelBiasBaselineConfig
+ */
+export interface SageMakerModelBiasBaselineConfig {
+  /**
+   * @schema SageMakerModelBiasBaselineConfig#BaseliningJobName
+   */
+  readonly baseliningJobName?: string;
+
+  /**
+   * @schema SageMakerModelBiasBaselineConfig#ConstraintsResource
+   */
+  readonly constraintsResource?: SageMakerMonitoringConstraintsResource;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelBiasBaselineConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelBiasBaselineConfig(obj: SageMakerModelBiasBaselineConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BaseliningJobName': obj.baseliningJobName,
+    'ConstraintsResource': toJson_SageMakerMonitoringConstraintsResource(obj.constraintsResource),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelBiasAppSpecification
+ */
+export interface SageMakerModelBiasAppSpecification {
+  /**
+   * @schema SageMakerModelBiasAppSpecification#ImageUri
+   */
+  readonly imageUri?: string;
+
+  /**
+   * @schema SageMakerModelBiasAppSpecification#ConfigUri
+   */
+  readonly configUri?: string;
+
+  /**
+   * @schema SageMakerModelBiasAppSpecification#Environment
+   */
+  readonly environment?: { [key: string]: string };
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelBiasAppSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelBiasAppSpecification(obj: SageMakerModelBiasAppSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ImageUri': obj.imageUri,
+    'ConfigUri': obj.configUri,
+    'Environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelBiasJobInput
+ */
+export interface SageMakerModelBiasJobInput {
+  /**
+   * @schema SageMakerModelBiasJobInput#EndpointInput
+   */
+  readonly endpointInput?: SageMakerEndpointInput;
+
+  /**
+   * @schema SageMakerModelBiasJobInput#GroundTruthS3Input
+   */
+  readonly groundTruthS3Input?: SageMakerMonitoringGroundTruthS3Input;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelBiasJobInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelBiasJobInput(obj: SageMakerModelBiasJobInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointInput': toJson_SageMakerEndpointInput(obj.endpointInput),
+    'GroundTruthS3Input': toJson_SageMakerMonitoringGroundTruthS3Input(obj.groundTruthS3Input),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelExplainabilityBaselineConfig
+ */
+export interface SageMakerModelExplainabilityBaselineConfig {
+  /**
+   * @schema SageMakerModelExplainabilityBaselineConfig#BaseliningJobName
+   */
+  readonly baseliningJobName?: string;
+
+  /**
+   * @schema SageMakerModelExplainabilityBaselineConfig#ConstraintsResource
+   */
+  readonly constraintsResource?: SageMakerMonitoringConstraintsResource;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelExplainabilityBaselineConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelExplainabilityBaselineConfig(obj: SageMakerModelExplainabilityBaselineConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BaseliningJobName': obj.baseliningJobName,
+    'ConstraintsResource': toJson_SageMakerMonitoringConstraintsResource(obj.constraintsResource),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelExplainabilityAppSpecification
+ */
+export interface SageMakerModelExplainabilityAppSpecification {
+  /**
+   * @schema SageMakerModelExplainabilityAppSpecification#ImageUri
+   */
+  readonly imageUri?: string;
+
+  /**
+   * @schema SageMakerModelExplainabilityAppSpecification#ConfigUri
+   */
+  readonly configUri?: string;
+
+  /**
+   * @schema SageMakerModelExplainabilityAppSpecification#Environment
+   */
+  readonly environment?: { [key: string]: string };
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelExplainabilityAppSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelExplainabilityAppSpecification(obj: SageMakerModelExplainabilityAppSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ImageUri': obj.imageUri,
+    'ConfigUri': obj.configUri,
+    'Environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelExplainabilityJobInput
+ */
+export interface SageMakerModelExplainabilityJobInput {
+  /**
+   * @schema SageMakerModelExplainabilityJobInput#EndpointInput
+   */
+  readonly endpointInput?: SageMakerEndpointInput;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelExplainabilityJobInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelExplainabilityJobInput(obj: SageMakerModelExplainabilityJobInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointInput': toJson_SageMakerEndpointInput(obj.endpointInput),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerModelPackageValidationSpecification
@@ -7960,14 +20663,29 @@ export interface SageMakerModelPackageValidationSpecification {
   /**
    * @schema SageMakerModelPackageValidationSpecification#ValidationRole
    */
-  readonly validationRole: string;
+  readonly validationRole?: string;
 
   /**
    * @schema SageMakerModelPackageValidationSpecification#ValidationProfiles
    */
-  readonly validationProfiles: SageMakerModelPackageValidationProfile[];
+  readonly validationProfiles?: SageMakerModelPackageValidationProfile[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerModelPackageValidationSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelPackageValidationSpecification(obj: SageMakerModelPackageValidationSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ValidationRole': obj.validationRole,
+    'ValidationProfiles': obj.validationProfiles?.map(y => toJson_SageMakerModelPackageValidationProfile(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerSourceAlgorithmSpecification
@@ -7976,9 +20694,189 @@ export interface SageMakerSourceAlgorithmSpecification {
   /**
    * @schema SageMakerSourceAlgorithmSpecification#SourceAlgorithms
    */
-  readonly sourceAlgorithms: SageMakerSourceAlgorithm[];
+  readonly sourceAlgorithms?: SageMakerSourceAlgorithm[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerSourceAlgorithmSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerSourceAlgorithmSpecification(obj: SageMakerSourceAlgorithmSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceAlgorithms': obj.sourceAlgorithms?.map(y => toJson_SageMakerSourceAlgorithm(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelMetrics
+ */
+export interface SageMakerModelMetrics {
+  /**
+   * @schema SageMakerModelMetrics#ModelQuality
+   */
+  readonly modelQuality?: SageMakerModelQuality;
+
+  /**
+   * @schema SageMakerModelMetrics#ModelDataQuality
+   */
+  readonly modelDataQuality?: SageMakerModelDataQuality;
+
+  /**
+   * @schema SageMakerModelMetrics#Bias
+   */
+  readonly bias?: SageMakerBias;
+
+  /**
+   * @schema SageMakerModelMetrics#Explainability
+   */
+  readonly explainability?: SageMakerExplainability;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelMetrics' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelMetrics(obj: SageMakerModelMetrics | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelQuality': toJson_SageMakerModelQuality(obj.modelQuality),
+    'ModelDataQuality': toJson_SageMakerModelDataQuality(obj.modelDataQuality),
+    'Bias': toJson_SageMakerBias(obj.bias),
+    'Explainability': toJson_SageMakerExplainability(obj.explainability),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelQualityBaselineConfig
+ */
+export interface SageMakerModelQualityBaselineConfig {
+  /**
+   * @schema SageMakerModelQualityBaselineConfig#BaseliningJobName
+   */
+  readonly baseliningJobName?: string;
+
+  /**
+   * @schema SageMakerModelQualityBaselineConfig#ConstraintsResource
+   */
+  readonly constraintsResource?: SageMakerMonitoringConstraintsResource;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelQualityBaselineConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelQualityBaselineConfig(obj: SageMakerModelQualityBaselineConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BaseliningJobName': obj.baseliningJobName,
+    'ConstraintsResource': toJson_SageMakerMonitoringConstraintsResource(obj.constraintsResource),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelQualityAppSpecification
+ */
+export interface SageMakerModelQualityAppSpecification {
+  /**
+   * @schema SageMakerModelQualityAppSpecification#ImageUri
+   */
+  readonly imageUri?: string;
+
+  /**
+   * @schema SageMakerModelQualityAppSpecification#ContainerEntrypoint
+   */
+  readonly containerEntrypoint?: string[];
+
+  /**
+   * @schema SageMakerModelQualityAppSpecification#ContainerArguments
+   */
+  readonly containerArguments?: string[];
+
+  /**
+   * @schema SageMakerModelQualityAppSpecification#RecordPreprocessorSourceUri
+   */
+  readonly recordPreprocessorSourceUri?: string;
+
+  /**
+   * @schema SageMakerModelQualityAppSpecification#PostAnalyticsProcessorSourceUri
+   */
+  readonly postAnalyticsProcessorSourceUri?: string;
+
+  /**
+   * @schema SageMakerModelQualityAppSpecification#ProblemType
+   */
+  readonly problemType?: string;
+
+  /**
+   * @schema SageMakerModelQualityAppSpecification#Environment
+   */
+  readonly environment?: { [key: string]: string };
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelQualityAppSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelQualityAppSpecification(obj: SageMakerModelQualityAppSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ImageUri': obj.imageUri,
+    'ContainerEntrypoint': obj.containerEntrypoint?.map(y => y),
+    'ContainerArguments': obj.containerArguments?.map(y => y),
+    'RecordPreprocessorSourceUri': obj.recordPreprocessorSourceUri,
+    'PostAnalyticsProcessorSourceUri': obj.postAnalyticsProcessorSourceUri,
+    'ProblemType': obj.problemType,
+    'Environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelQualityJobInput
+ */
+export interface SageMakerModelQualityJobInput {
+  /**
+   * @schema SageMakerModelQualityJobInput#EndpointInput
+   */
+  readonly endpointInput?: SageMakerEndpointInput;
+
+  /**
+   * @schema SageMakerModelQualityJobInput#GroundTruthS3Input
+   */
+  readonly groundTruthS3Input?: SageMakerMonitoringGroundTruthS3Input;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelQualityJobInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelQualityJobInput(obj: SageMakerModelQualityJobInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointInput': toJson_SageMakerEndpointInput(obj.endpointInput),
+    'GroundTruthS3Input': toJson_SageMakerMonitoringGroundTruthS3Input(obj.groundTruthS3Input),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerMonitoringScheduleConfig
@@ -7992,9 +20890,36 @@ export interface SageMakerMonitoringScheduleConfig {
   /**
    * @schema SageMakerMonitoringScheduleConfig#MonitoringJobDefinition
    */
-  readonly monitoringJobDefinition: SageMakerMonitoringJobDefinition;
+  readonly monitoringJobDefinition?: SageMakerMonitoringJobDefinition;
+
+  /**
+   * @schema SageMakerMonitoringScheduleConfig#MonitoringJobDefinitionName
+   */
+  readonly monitoringJobDefinitionName?: string;
+
+  /**
+   * @schema SageMakerMonitoringScheduleConfig#MonitoringType
+   */
+  readonly monitoringType?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerMonitoringScheduleConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringScheduleConfig(obj: SageMakerMonitoringScheduleConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ScheduleConfig': toJson_SageMakerScheduleConfig(obj.scheduleConfig),
+    'MonitoringJobDefinition': toJson_SageMakerMonitoringJobDefinition(obj.monitoringJobDefinition),
+    'MonitoringJobDefinitionName': obj.monitoringJobDefinitionName,
+    'MonitoringType': obj.monitoringType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerNotebookInstanceLifecycleHook
@@ -8008,20 +20933,61 @@ export interface SageMakerNotebookInstanceLifecycleHook {
 }
 
 /**
+ * Converts an object of type 'SageMakerNotebookInstanceLifecycleHook' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerNotebookInstanceLifecycleHook(obj: SageMakerNotebookInstanceLifecycleHook | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Content': obj.content,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerProcessingInput
  */
 export interface SageMakerProcessingInput {
   /**
    * @schema SageMakerProcessingInput#InputName
    */
-  readonly inputName: string;
+  readonly inputName?: string;
+
+  /**
+   * @schema SageMakerProcessingInput#AppManaged
+   */
+  readonly appManaged?: boolean;
 
   /**
    * @schema SageMakerProcessingInput#S3Input
    */
-  readonly s3Input: SageMakerProcessingS3Input;
+  readonly s3Input?: SageMakerProcessingS3Input;
+
+  /**
+   * @schema SageMakerProcessingInput#DatasetDefinition
+   */
+  readonly datasetDefinition?: SageMakerDatasetDefinition;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerProcessingInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProcessingInput(obj: SageMakerProcessingInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InputName': obj.inputName,
+    'AppManaged': obj.appManaged,
+    'S3Input': toJson_SageMakerProcessingS3Input(obj.s3Input),
+    'DatasetDefinition': toJson_SageMakerDatasetDefinition(obj.datasetDefinition),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerProcessingOutputConfig
@@ -8030,7 +20996,7 @@ export interface SageMakerProcessingOutputConfig {
   /**
    * @schema SageMakerProcessingOutputConfig#Outputs
    */
-  readonly outputs: SageMakerProcessingOutput[];
+  readonly outputs?: SageMakerProcessingOutput[];
 
   /**
    * @schema SageMakerProcessingOutputConfig#KmsKeyId
@@ -8040,15 +21006,44 @@ export interface SageMakerProcessingOutputConfig {
 }
 
 /**
+ * Converts an object of type 'SageMakerProcessingOutputConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProcessingOutputConfig(obj: SageMakerProcessingOutputConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Outputs': obj.outputs?.map(y => toJson_SageMakerProcessingOutput(y)),
+    'KmsKeyId': obj.kmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerProcessingResources
  */
 export interface SageMakerProcessingResources {
   /**
    * @schema SageMakerProcessingResources#ClusterConfig
    */
-  readonly clusterConfig: SageMakerProcessingClusterConfig;
+  readonly clusterConfig?: SageMakerProcessingClusterConfig;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerProcessingResources' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProcessingResources(obj: SageMakerProcessingResources | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ClusterConfig': toJson_SageMakerProcessingClusterConfig(obj.clusterConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerProcessingStoppingCondition
@@ -8057,9 +21052,23 @@ export interface SageMakerProcessingStoppingCondition {
   /**
    * @schema SageMakerProcessingStoppingCondition#MaxRuntimeInSeconds
    */
-  readonly maxRuntimeInSeconds: number;
+  readonly maxRuntimeInSeconds?: number;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerProcessingStoppingCondition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProcessingStoppingCondition(obj: SageMakerProcessingStoppingCondition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxRuntimeInSeconds': obj.maxRuntimeInSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerAppSpecification
@@ -8068,7 +21077,7 @@ export interface SageMakerAppSpecification {
   /**
    * @schema SageMakerAppSpecification#ImageUri
    */
-  readonly imageUri: string;
+  readonly imageUri?: string;
 
   /**
    * @schema SageMakerAppSpecification#ContainerEntrypoint
@@ -8081,6 +21090,22 @@ export interface SageMakerAppSpecification {
   readonly containerArguments?: string[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerAppSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAppSpecification(obj: SageMakerAppSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ImageUri': obj.imageUri,
+    'ContainerEntrypoint': obj.containerEntrypoint?.map(y => y),
+    'ContainerArguments': obj.containerArguments?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerNetworkConfig
@@ -8104,6 +21129,22 @@ export interface SageMakerNetworkConfig {
 }
 
 /**
+ * Converts an object of type 'SageMakerNetworkConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerNetworkConfig(obj: SageMakerNetworkConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnableInterContainerTrafficEncryption': obj.enableInterContainerTrafficEncryption,
+    'EnableNetworkIsolation': obj.enableNetworkIsolation,
+    'VpcConfig': toJson_SageMakerVpcConfig(obj.vpcConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerExperimentConfig
  */
 export interface SageMakerExperimentConfig {
@@ -8125,6 +21166,65 @@ export interface SageMakerExperimentConfig {
 }
 
 /**
+ * Converts an object of type 'SageMakerExperimentConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerExperimentConfig(obj: SageMakerExperimentConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExperimentName': obj.experimentName,
+    'TrialName': obj.trialName,
+    'TrialComponentDisplayName': obj.trialComponentDisplayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerServiceCatalogProvisioningDetails
+ */
+export interface SageMakerServiceCatalogProvisioningDetails {
+  /**
+   * @schema SageMakerServiceCatalogProvisioningDetails#ProductId
+   */
+  readonly productId?: string;
+
+  /**
+   * @schema SageMakerServiceCatalogProvisioningDetails#ProvisioningArtifactId
+   */
+  readonly provisioningArtifactId?: string;
+
+  /**
+   * @schema SageMakerServiceCatalogProvisioningDetails#PathId
+   */
+  readonly pathId?: string;
+
+  /**
+   * @schema SageMakerServiceCatalogProvisioningDetails#ProvisioningParameters
+   */
+  readonly provisioningParameters?: SageMakerProvisioningParameter[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerServiceCatalogProvisioningDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerServiceCatalogProvisioningDetails(obj: SageMakerServiceCatalogProvisioningDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProductId': obj.productId,
+    'ProvisioningArtifactId': obj.provisioningArtifactId,
+    'PathId': obj.pathId,
+    'ProvisioningParameters': obj.provisioningParameters?.map(y => toJson_SageMakerProvisioningParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerAlgorithmSpecification
  */
 export interface SageMakerAlgorithmSpecification {
@@ -8141,7 +21241,7 @@ export interface SageMakerAlgorithmSpecification {
   /**
    * @schema SageMakerAlgorithmSpecification#TrainingInputMode
    */
-  readonly trainingInputMode: string;
+  readonly trainingInputMode?: string;
 
   /**
    * @schema SageMakerAlgorithmSpecification#MetricDefinitions
@@ -8156,18 +21256,36 @@ export interface SageMakerAlgorithmSpecification {
 }
 
 /**
+ * Converts an object of type 'SageMakerAlgorithmSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAlgorithmSpecification(obj: SageMakerAlgorithmSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrainingImage': obj.trainingImage,
+    'AlgorithmName': obj.algorithmName,
+    'TrainingInputMode': obj.trainingInputMode,
+    'MetricDefinitions': obj.metricDefinitions?.map(y => toJson_SageMakerMetricDefinition(y)),
+    'EnableSageMakerMetricsTimeSeries': obj.enableSageMakerMetricsTimeSeries,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerChannel
  */
 export interface SageMakerChannel {
   /**
    * @schema SageMakerChannel#ChannelName
    */
-  readonly channelName: string;
+  readonly channelName?: string;
 
   /**
    * @schema SageMakerChannel#DataSource
    */
-  readonly dataSource: SageMakerDataSource;
+  readonly dataSource?: SageMakerDataSource;
 
   /**
    * @schema SageMakerChannel#ContentType
@@ -8197,6 +21315,26 @@ export interface SageMakerChannel {
 }
 
 /**
+ * Converts an object of type 'SageMakerChannel' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerChannel(obj: SageMakerChannel | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ChannelName': obj.channelName,
+    'DataSource': toJson_SageMakerDataSource(obj.dataSource),
+    'ContentType': obj.contentType,
+    'CompressionType': obj.compressionType,
+    'RecordWrapperType': obj.recordWrapperType,
+    'InputMode': obj.inputMode,
+    'ShuffleConfig': toJson_SageMakerShuffleConfig(obj.shuffleConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerOutputDataConfig
  */
 export interface SageMakerOutputDataConfig {
@@ -8208,9 +21346,24 @@ export interface SageMakerOutputDataConfig {
   /**
    * @schema SageMakerOutputDataConfig#S3OutputPath
    */
-  readonly s3OutputPath: string;
+  readonly s3OutputPath?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerOutputDataConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerOutputDataConfig(obj: SageMakerOutputDataConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'KmsKeyId': obj.kmsKeyId,
+    'S3OutputPath': obj.s3OutputPath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerResourceConfig
@@ -8219,17 +21372,17 @@ export interface SageMakerResourceConfig {
   /**
    * @schema SageMakerResourceConfig#InstanceType
    */
-  readonly instanceType: string;
+  readonly instanceType?: string;
 
   /**
    * @schema SageMakerResourceConfig#InstanceCount
    */
-  readonly instanceCount: number;
+  readonly instanceCount?: number;
 
   /**
    * @schema SageMakerResourceConfig#VolumeSizeInGB
    */
-  readonly volumeSizeInGb: number;
+  readonly volumeSizeInGb?: number;
 
   /**
    * @schema SageMakerResourceConfig#VolumeKmsKeyId
@@ -8239,13 +21392,30 @@ export interface SageMakerResourceConfig {
 }
 
 /**
+ * Converts an object of type 'SageMakerResourceConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerResourceConfig(obj: SageMakerResourceConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceType': obj.instanceType,
+    'InstanceCount': obj.instanceCount,
+    'VolumeSizeInGB': obj.volumeSizeInGb,
+    'VolumeKmsKeyId': obj.volumeKmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCheckpointConfig
  */
 export interface SageMakerCheckpointConfig {
   /**
    * @schema SageMakerCheckpointConfig#S3Uri
    */
-  readonly s3Uri: string;
+  readonly s3Uri?: string;
 
   /**
    * @schema SageMakerCheckpointConfig#LocalPath
@@ -8253,6 +21423,21 @@ export interface SageMakerCheckpointConfig {
   readonly localPath?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCheckpointConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCheckpointConfig(obj: SageMakerCheckpointConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3Uri': obj.s3Uri,
+    'LocalPath': obj.localPath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDebugHookConfig
@@ -8266,7 +21451,7 @@ export interface SageMakerDebugHookConfig {
   /**
    * @schema SageMakerDebugHookConfig#S3OutputPath
    */
-  readonly s3OutputPath: string;
+  readonly s3OutputPath?: string;
 
   /**
    * @schema SageMakerDebugHookConfig#HookParameters
@@ -8281,13 +21466,30 @@ export interface SageMakerDebugHookConfig {
 }
 
 /**
+ * Converts an object of type 'SageMakerDebugHookConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDebugHookConfig(obj: SageMakerDebugHookConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocalPath': obj.localPath,
+    'S3OutputPath': obj.s3OutputPath,
+    'HookParameters': ((obj.hookParameters) === undefined) ? undefined : (Object.entries(obj.hookParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'CollectionConfigurations': obj.collectionConfigurations?.map(y => toJson_SageMakerCollectionConfiguration(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDebugRuleConfiguration
  */
 export interface SageMakerDebugRuleConfiguration {
   /**
    * @schema SageMakerDebugRuleConfiguration#RuleConfigurationName
    */
-  readonly ruleConfigurationName: string;
+  readonly ruleConfigurationName?: string;
 
   /**
    * @schema SageMakerDebugRuleConfiguration#LocalPath
@@ -8302,7 +21504,7 @@ export interface SageMakerDebugRuleConfiguration {
   /**
    * @schema SageMakerDebugRuleConfiguration#RuleEvaluatorImage
    */
-  readonly ruleEvaluatorImage: string;
+  readonly ruleEvaluatorImage?: string;
 
   /**
    * @schema SageMakerDebugRuleConfiguration#InstanceType
@@ -8322,6 +21524,26 @@ export interface SageMakerDebugRuleConfiguration {
 }
 
 /**
+ * Converts an object of type 'SageMakerDebugRuleConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDebugRuleConfiguration(obj: SageMakerDebugRuleConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RuleConfigurationName': obj.ruleConfigurationName,
+    'LocalPath': obj.localPath,
+    'S3OutputPath': obj.s3OutputPath,
+    'RuleEvaluatorImage': obj.ruleEvaluatorImage,
+    'InstanceType': obj.instanceType,
+    'VolumeSizeInGB': obj.volumeSizeInGb,
+    'RuleParameters': ((obj.ruleParameters) === undefined) ? undefined : (Object.entries(obj.ruleParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerTensorBoardOutputConfig
  */
 export interface SageMakerTensorBoardOutputConfig {
@@ -8333,9 +21555,147 @@ export interface SageMakerTensorBoardOutputConfig {
   /**
    * @schema SageMakerTensorBoardOutputConfig#S3OutputPath
    */
-  readonly s3OutputPath: string;
+  readonly s3OutputPath?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerTensorBoardOutputConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTensorBoardOutputConfig(obj: SageMakerTensorBoardOutputConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LocalPath': obj.localPath,
+    'S3OutputPath': obj.s3OutputPath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerProfilerConfig
+ */
+export interface SageMakerProfilerConfig {
+  /**
+   * @schema SageMakerProfilerConfig#S3OutputPath
+   */
+  readonly s3OutputPath?: string;
+
+  /**
+   * @schema SageMakerProfilerConfig#ProfilingIntervalInMilliseconds
+   */
+  readonly profilingIntervalInMilliseconds?: number;
+
+  /**
+   * @schema SageMakerProfilerConfig#ProfilingParameters
+   */
+  readonly profilingParameters?: { [key: string]: string };
+
+}
+
+/**
+ * Converts an object of type 'SageMakerProfilerConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProfilerConfig(obj: SageMakerProfilerConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3OutputPath': obj.s3OutputPath,
+    'ProfilingIntervalInMilliseconds': obj.profilingIntervalInMilliseconds,
+    'ProfilingParameters': ((obj.profilingParameters) === undefined) ? undefined : (Object.entries(obj.profilingParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerProfilerRuleConfiguration
+ */
+export interface SageMakerProfilerRuleConfiguration {
+  /**
+   * @schema SageMakerProfilerRuleConfiguration#RuleConfigurationName
+   */
+  readonly ruleConfigurationName?: string;
+
+  /**
+   * @schema SageMakerProfilerRuleConfiguration#LocalPath
+   */
+  readonly localPath?: string;
+
+  /**
+   * @schema SageMakerProfilerRuleConfiguration#S3OutputPath
+   */
+  readonly s3OutputPath?: string;
+
+  /**
+   * @schema SageMakerProfilerRuleConfiguration#RuleEvaluatorImage
+   */
+  readonly ruleEvaluatorImage?: string;
+
+  /**
+   * @schema SageMakerProfilerRuleConfiguration#InstanceType
+   */
+  readonly instanceType?: string;
+
+  /**
+   * @schema SageMakerProfilerRuleConfiguration#VolumeSizeInGB
+   */
+  readonly volumeSizeInGb?: number;
+
+  /**
+   * @schema SageMakerProfilerRuleConfiguration#RuleParameters
+   */
+  readonly ruleParameters?: { [key: string]: string };
+
+}
+
+/**
+ * Converts an object of type 'SageMakerProfilerRuleConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProfilerRuleConfiguration(obj: SageMakerProfilerRuleConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RuleConfigurationName': obj.ruleConfigurationName,
+    'LocalPath': obj.localPath,
+    'S3OutputPath': obj.s3OutputPath,
+    'RuleEvaluatorImage': obj.ruleEvaluatorImage,
+    'InstanceType': obj.instanceType,
+    'VolumeSizeInGB': obj.volumeSizeInGb,
+    'RuleParameters': ((obj.ruleParameters) === undefined) ? undefined : (Object.entries(obj.ruleParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerRetryStrategy
+ */
+export interface SageMakerRetryStrategy {
+  /**
+   * @schema SageMakerRetryStrategy#MaximumRetryAttempts
+   */
+  readonly maximumRetryAttempts?: number;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerRetryStrategy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerRetryStrategy(obj: SageMakerRetryStrategy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaximumRetryAttempts': obj.maximumRetryAttempts,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerModelClientConfig
@@ -8354,13 +21714,28 @@ export interface SageMakerModelClientConfig {
 }
 
 /**
+ * Converts an object of type 'SageMakerModelClientConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelClientConfig(obj: SageMakerModelClientConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InvocationsTimeoutInSeconds': obj.invocationsTimeoutInSeconds,
+    'InvocationsMaxRetries': obj.invocationsMaxRetries,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerTransformInput
  */
 export interface SageMakerTransformInput {
   /**
    * @schema SageMakerTransformInput#DataSource
    */
-  readonly dataSource: SageMakerTransformDataSource;
+  readonly dataSource?: SageMakerTransformDataSource;
 
   /**
    * @schema SageMakerTransformInput#ContentType
@@ -8380,13 +21755,30 @@ export interface SageMakerTransformInput {
 }
 
 /**
+ * Converts an object of type 'SageMakerTransformInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTransformInput(obj: SageMakerTransformInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DataSource': toJson_SageMakerTransformDataSource(obj.dataSource),
+    'ContentType': obj.contentType,
+    'CompressionType': obj.compressionType,
+    'SplitType': obj.splitType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerTransformOutput
  */
 export interface SageMakerTransformOutput {
   /**
    * @schema SageMakerTransformOutput#S3OutputPath
    */
-  readonly s3OutputPath: string;
+  readonly s3OutputPath?: string;
 
   /**
    * @schema SageMakerTransformOutput#Accept
@@ -8406,18 +21798,35 @@ export interface SageMakerTransformOutput {
 }
 
 /**
+ * Converts an object of type 'SageMakerTransformOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTransformOutput(obj: SageMakerTransformOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3OutputPath': obj.s3OutputPath,
+    'Accept': obj.accept,
+    'AssembleWith': obj.assembleWith,
+    'KmsKeyId': obj.kmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerTransformResources
  */
 export interface SageMakerTransformResources {
   /**
    * @schema SageMakerTransformResources#InstanceType
    */
-  readonly instanceType: string;
+  readonly instanceType?: string;
 
   /**
    * @schema SageMakerTransformResources#InstanceCount
    */
-  readonly instanceCount: number;
+  readonly instanceCount?: number;
 
   /**
    * @schema SageMakerTransformResources#VolumeKmsKeyId
@@ -8425,6 +21834,22 @@ export interface SageMakerTransformResources {
   readonly volumeKmsKeyId?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerTransformResources' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTransformResources(obj: SageMakerTransformResources | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceType': obj.instanceType,
+    'InstanceCount': obj.instanceCount,
+    'VolumeKmsKeyId': obj.volumeKmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDataProcessing
@@ -8448,6 +21873,22 @@ export interface SageMakerDataProcessing {
 }
 
 /**
+ * Converts an object of type 'SageMakerDataProcessing' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDataProcessing(obj: SageMakerDataProcessing | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InputFilter': obj.inputFilter,
+    'OutputFilter': obj.outputFilter,
+    'JoinSource': obj.joinSource,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerTrialComponentStatus
  */
 export interface SageMakerTrialComponentStatus {
@@ -8462,6 +21903,21 @@ export interface SageMakerTrialComponentStatus {
   readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerTrialComponentStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrialComponentStatus(obj: SageMakerTrialComponentStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PrimaryStatus': obj.primaryStatus,
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerTrialComponentParameterValue
@@ -8480,6 +21936,21 @@ export interface SageMakerTrialComponentParameterValue {
 }
 
 /**
+ * Converts an object of type 'SageMakerTrialComponentParameterValue' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrialComponentParameterValue(obj: SageMakerTrialComponentParameterValue | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StringValue': obj.stringValue,
+    'NumberValue': obj.numberValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerTrialComponentArtifact
  */
 export interface SageMakerTrialComponentArtifact {
@@ -8491,9 +21962,24 @@ export interface SageMakerTrialComponentArtifact {
   /**
    * @schema SageMakerTrialComponentArtifact#Value
    */
-  readonly value: string;
+  readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerTrialComponentArtifact' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrialComponentArtifact(obj: SageMakerTrialComponentArtifact | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MediaType': obj.mediaType,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCognitoConfig
@@ -8502,14 +21988,29 @@ export interface SageMakerCognitoConfig {
   /**
    * @schema SageMakerCognitoConfig#UserPool
    */
-  readonly userPool: string;
+  readonly userPool?: string;
 
   /**
    * @schema SageMakerCognitoConfig#ClientId
    */
-  readonly clientId: string;
+  readonly clientId?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCognitoConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCognitoConfig(obj: SageMakerCognitoConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserPool': obj.userPool,
+    'ClientId': obj.clientId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerOidcConfig
@@ -8518,44 +22019,65 @@ export interface SageMakerOidcConfig {
   /**
    * @schema SageMakerOidcConfig#ClientId
    */
-  readonly clientId: string;
+  readonly clientId?: string;
 
   /**
    * @schema SageMakerOidcConfig#ClientSecret
    */
-  readonly clientSecret: string;
+  readonly clientSecret?: string;
 
   /**
    * @schema SageMakerOidcConfig#Issuer
    */
-  readonly issuer: string;
+  readonly issuer?: string;
 
   /**
    * @schema SageMakerOidcConfig#AuthorizationEndpoint
    */
-  readonly authorizationEndpoint: string;
+  readonly authorizationEndpoint?: string;
 
   /**
    * @schema SageMakerOidcConfig#TokenEndpoint
    */
-  readonly tokenEndpoint: string;
+  readonly tokenEndpoint?: string;
 
   /**
    * @schema SageMakerOidcConfig#UserInfoEndpoint
    */
-  readonly userInfoEndpoint: string;
+  readonly userInfoEndpoint?: string;
 
   /**
    * @schema SageMakerOidcConfig#LogoutEndpoint
    */
-  readonly logoutEndpoint: string;
+  readonly logoutEndpoint?: string;
 
   /**
    * @schema SageMakerOidcConfig#JwksUri
    */
-  readonly jwksUri: string;
+  readonly jwksUri?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerOidcConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerOidcConfig(obj: SageMakerOidcConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ClientId': obj.clientId,
+    'ClientSecret': obj.clientSecret,
+    'Issuer': obj.issuer,
+    'AuthorizationEndpoint': obj.authorizationEndpoint,
+    'TokenEndpoint': obj.tokenEndpoint,
+    'UserInfoEndpoint': obj.userInfoEndpoint,
+    'LogoutEndpoint': obj.logoutEndpoint,
+    'JwksUri': obj.jwksUri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerSourceIpConfig
@@ -8564,9 +22086,23 @@ export interface SageMakerSourceIpConfig {
   /**
    * @schema SageMakerSourceIpConfig#Cidrs
    */
-  readonly cidrs: string[];
+  readonly cidrs?: string[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerSourceIpConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerSourceIpConfig(obj: SageMakerSourceIpConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Cidrs': obj.cidrs?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerMemberDefinition
@@ -8585,6 +22121,21 @@ export interface SageMakerMemberDefinition {
 }
 
 /**
+ * Converts an object of type 'SageMakerMemberDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMemberDefinition(obj: SageMakerMemberDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CognitoMemberDefinition': toJson_SageMakerCognitoMemberDefinition(obj.cognitoMemberDefinition),
+    'OidcMemberDefinition': toJson_SageMakerOidcMemberDefinition(obj.oidcMemberDefinition),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerNotificationConfiguration
  */
 export interface SageMakerNotificationConfiguration {
@@ -8596,6 +22147,20 @@ export interface SageMakerNotificationConfiguration {
 }
 
 /**
+ * Converts an object of type 'SageMakerNotificationConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerNotificationConfiguration(obj: SageMakerNotificationConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotificationTopicArn': obj.notificationTopicArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerRetentionPolicy
  */
 export interface SageMakerRetentionPolicy {
@@ -8605,6 +22170,57 @@ export interface SageMakerRetentionPolicy {
   readonly homeEfsFileSystem?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerRetentionPolicy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerRetentionPolicy(obj: SageMakerRetentionPolicy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HomeEfsFileSystem': obj.homeEfsFileSystem,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerUserContext
+ */
+export interface SageMakerUserContext {
+  /**
+   * @schema SageMakerUserContext#UserProfileArn
+   */
+  readonly userProfileArn?: string;
+
+  /**
+   * @schema SageMakerUserContext#UserProfileName
+   */
+  readonly userProfileName?: string;
+
+  /**
+   * @schema SageMakerUserContext#DomainId
+   */
+  readonly domainId?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerUserContext' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUserContext(obj: SageMakerUserContext | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserProfileArn': obj.userProfileArn,
+    'UserProfileName': obj.userProfileName,
+    'DomainId': obj.domainId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerAlgorithmStatusDetails
@@ -8623,13 +22239,53 @@ export interface SageMakerAlgorithmStatusDetails {
 }
 
 /**
+ * Converts an object of type 'SageMakerAlgorithmStatusDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAlgorithmStatusDetails(obj: SageMakerAlgorithmStatusDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ValidationStatuses': obj.validationStatuses?.map(y => toJson_SageMakerAlgorithmStatusItem(y)),
+    'ImageScanStatuses': obj.imageScanStatuses?.map(y => toJson_SageMakerAlgorithmStatusItem(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerAutoMlPartialFailureReason
+ */
+export interface SageMakerAutoMlPartialFailureReason {
+  /**
+   * @schema SageMakerAutoMlPartialFailureReason#PartialFailureMessage
+   */
+  readonly partialFailureMessage?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerAutoMlPartialFailureReason' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAutoMlPartialFailureReason(obj: SageMakerAutoMlPartialFailureReason | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PartialFailureMessage': obj.partialFailureMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerAutoMlCandidate
  */
 export interface SageMakerAutoMlCandidate {
   /**
    * @schema SageMakerAutoMlCandidate#CandidateName
    */
-  readonly candidateName: string;
+  readonly candidateName?: string;
 
   /**
    * @schema SageMakerAutoMlCandidate#FinalAutoMLJobObjectiveMetric
@@ -8639,17 +22295,17 @@ export interface SageMakerAutoMlCandidate {
   /**
    * @schema SageMakerAutoMlCandidate#ObjectiveStatus
    */
-  readonly objectiveStatus: string;
+  readonly objectiveStatus?: string;
 
   /**
    * @schema SageMakerAutoMlCandidate#CandidateSteps
    */
-  readonly candidateSteps: SageMakerAutoMlCandidateStep[];
+  readonly candidateSteps?: SageMakerAutoMlCandidateStep[];
 
   /**
    * @schema SageMakerAutoMlCandidate#CandidateStatus
    */
-  readonly candidateStatus: string;
+  readonly candidateStatus?: string;
 
   /**
    * @schema SageMakerAutoMlCandidate#InferenceContainers
@@ -8659,7 +22315,7 @@ export interface SageMakerAutoMlCandidate {
   /**
    * @schema SageMakerAutoMlCandidate#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerAutoMlCandidate#EndTime
@@ -8669,14 +22325,43 @@ export interface SageMakerAutoMlCandidate {
   /**
    * @schema SageMakerAutoMlCandidate#LastModifiedTime
    */
-  readonly lastModifiedTime: string;
+  readonly lastModifiedTime?: string;
 
   /**
    * @schema SageMakerAutoMlCandidate#FailureReason
    */
   readonly failureReason?: string;
 
+  /**
+   * @schema SageMakerAutoMlCandidate#CandidateProperties
+   */
+  readonly candidateProperties?: SageMakerCandidateProperties;
+
 }
+
+/**
+ * Converts an object of type 'SageMakerAutoMlCandidate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAutoMlCandidate(obj: SageMakerAutoMlCandidate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CandidateName': obj.candidateName,
+    'FinalAutoMLJobObjectiveMetric': toJson_SageMakerFinalAutoMlJobObjectiveMetric(obj.finalAutoMlJobObjectiveMetric),
+    'ObjectiveStatus': obj.objectiveStatus,
+    'CandidateSteps': obj.candidateSteps?.map(y => toJson_SageMakerAutoMlCandidateStep(y)),
+    'CandidateStatus': obj.candidateStatus,
+    'InferenceContainers': obj.inferenceContainers?.map(y => toJson_SageMakerAutoMlContainerDefinition(y)),
+    'CreationTime': obj.creationTime,
+    'EndTime': obj.endTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'FailureReason': obj.failureReason,
+    'CandidateProperties': toJson_SageMakerCandidateProperties(obj.candidateProperties),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerAutoMlJobArtifacts
@@ -8693,6 +22378,21 @@ export interface SageMakerAutoMlJobArtifacts {
   readonly dataExplorationNotebookLocation?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerAutoMlJobArtifacts' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAutoMlJobArtifacts(obj: SageMakerAutoMlJobArtifacts | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CandidateDefinitionNotebookLocation': obj.candidateDefinitionNotebookLocation,
+    'DataExplorationNotebookLocation': obj.dataExplorationNotebookLocation,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerResolvedAttributes
@@ -8716,15 +22416,181 @@ export interface SageMakerResolvedAttributes {
 }
 
 /**
+ * Converts an object of type 'SageMakerResolvedAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerResolvedAttributes(obj: SageMakerResolvedAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AutoMLJobObjective': toJson_SageMakerAutoMlJobObjective(obj.autoMlJobObjective),
+    'ProblemType': obj.problemType,
+    'CompletionCriteria': toJson_SageMakerAutoMlJobCompletionCriteria(obj.completionCriteria),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelDeployResult
+ */
+export interface SageMakerModelDeployResult {
+  /**
+   * @schema SageMakerModelDeployResult#EndpointName
+   */
+  readonly endpointName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelDeployResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelDeployResult(obj: SageMakerModelDeployResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointName': obj.endpointName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerModelArtifacts
  */
 export interface SageMakerModelArtifacts {
   /**
    * @schema SageMakerModelArtifacts#S3ModelArtifacts
    */
-  readonly s3ModelArtifacts: string;
+  readonly s3ModelArtifacts?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerModelArtifacts' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelArtifacts(obj: SageMakerModelArtifacts | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3ModelArtifacts': obj.s3ModelArtifacts,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelDigests
+ */
+export interface SageMakerModelDigests {
+  /**
+   * @schema SageMakerModelDigests#ArtifactDigest
+   */
+  readonly artifactDigest?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelDigests' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelDigests(obj: SageMakerModelDigests | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ArtifactDigest': obj.artifactDigest,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerEdgeModel
+ */
+export interface SageMakerEdgeModel {
+  /**
+   * @schema SageMakerEdgeModel#ModelName
+   */
+  readonly modelName?: string;
+
+  /**
+   * @schema SageMakerEdgeModel#ModelVersion
+   */
+  readonly modelVersion?: string;
+
+  /**
+   * @schema SageMakerEdgeModel#LatestSampleTime
+   */
+  readonly latestSampleTime?: string;
+
+  /**
+   * @schema SageMakerEdgeModel#LatestInference
+   */
+  readonly latestInference?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerEdgeModel' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerEdgeModel(obj: SageMakerEdgeModel | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelName': obj.modelName,
+    'ModelVersion': obj.modelVersion,
+    'LatestSampleTime': obj.latestSampleTime,
+    'LatestInference': obj.latestInference,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerEdgePresetDeploymentOutput
+ */
+export interface SageMakerEdgePresetDeploymentOutput {
+  /**
+   * @schema SageMakerEdgePresetDeploymentOutput#Type
+   */
+  readonly type?: string;
+
+  /**
+   * @schema SageMakerEdgePresetDeploymentOutput#Artifact
+   */
+  readonly artifact?: string;
+
+  /**
+   * @schema SageMakerEdgePresetDeploymentOutput#Status
+   */
+  readonly status?: string;
+
+  /**
+   * @schema SageMakerEdgePresetDeploymentOutput#StatusMessage
+   */
+  readonly statusMessage?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerEdgePresetDeploymentOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerEdgePresetDeploymentOutput(obj: SageMakerEdgePresetDeploymentOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'Artifact': obj.artifact,
+    'Status': obj.status,
+    'StatusMessage': obj.statusMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerProductionVariantSummary
@@ -8733,7 +22599,7 @@ export interface SageMakerProductionVariantSummary {
   /**
    * @schema SageMakerProductionVariantSummary#VariantName
    */
-  readonly variantName: string;
+  readonly variantName?: string;
 
   /**
    * @schema SageMakerProductionVariantSummary#DeployedImages
@@ -8763,35 +22629,103 @@ export interface SageMakerProductionVariantSummary {
 }
 
 /**
+ * Converts an object of type 'SageMakerProductionVariantSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProductionVariantSummary(obj: SageMakerProductionVariantSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VariantName': obj.variantName,
+    'DeployedImages': obj.deployedImages?.map(y => toJson_SageMakerDeployedImage(y)),
+    'CurrentWeight': obj.currentWeight,
+    'DesiredWeight': obj.desiredWeight,
+    'CurrentInstanceCount': obj.currentInstanceCount,
+    'DesiredInstanceCount': obj.desiredInstanceCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerDataCaptureConfigSummary
  */
 export interface SageMakerDataCaptureConfigSummary {
   /**
    * @schema SageMakerDataCaptureConfigSummary#EnableCapture
    */
-  readonly enableCapture: boolean;
+  readonly enableCapture?: boolean;
 
   /**
    * @schema SageMakerDataCaptureConfigSummary#CaptureStatus
    */
-  readonly captureStatus: string;
+  readonly captureStatus?: string;
 
   /**
    * @schema SageMakerDataCaptureConfigSummary#CurrentSamplingPercentage
    */
-  readonly currentSamplingPercentage: number;
+  readonly currentSamplingPercentage?: number;
 
   /**
    * @schema SageMakerDataCaptureConfigSummary#DestinationS3Uri
    */
-  readonly destinationS3Uri: string;
+  readonly destinationS3Uri?: string;
 
   /**
    * @schema SageMakerDataCaptureConfigSummary#KmsKeyId
    */
-  readonly kmsKeyId: string;
+  readonly kmsKeyId?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerDataCaptureConfigSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDataCaptureConfigSummary(obj: SageMakerDataCaptureConfigSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnableCapture': obj.enableCapture,
+    'CaptureStatus': obj.captureStatus,
+    'CurrentSamplingPercentage': obj.currentSamplingPercentage,
+    'DestinationS3Uri': obj.destinationS3Uri,
+    'KmsKeyId': obj.kmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeploymentConfig
+ */
+export interface SageMakerDeploymentConfig {
+  /**
+   * @schema SageMakerDeploymentConfig#BlueGreenUpdatePolicy
+   */
+  readonly blueGreenUpdatePolicy?: SageMakerBlueGreenUpdatePolicy;
+
+  /**
+   * @schema SageMakerDeploymentConfig#AutoRollbackConfiguration
+   */
+  readonly autoRollbackConfiguration?: SageMakerAutoRollbackConfig;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeploymentConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeploymentConfig(obj: SageMakerDeploymentConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BlueGreenUpdatePolicy': toJson_SageMakerBlueGreenUpdatePolicy(obj.blueGreenUpdatePolicy),
+    'AutoRollbackConfiguration': toJson_SageMakerAutoRollbackConfig(obj.autoRollbackConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerExperimentSource
@@ -8800,7 +22734,7 @@ export interface SageMakerExperimentSource {
   /**
    * @schema SageMakerExperimentSource#SourceArn
    */
-  readonly sourceArn: string;
+  readonly sourceArn?: string;
 
   /**
    * @schema SageMakerExperimentSource#SourceType
@@ -8810,25 +22744,50 @@ export interface SageMakerExperimentSource {
 }
 
 /**
- * @schema SageMakerUserContext
+ * Converts an object of type 'SageMakerExperimentSource' to JSON representation.
  */
-export interface SageMakerUserContext {
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerExperimentSource(obj: SageMakerExperimentSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceArn': obj.sourceArn,
+    'SourceType': obj.sourceType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerOfflineStoreStatus
+ */
+export interface SageMakerOfflineStoreStatus {
   /**
-   * @schema SageMakerUserContext#UserProfileArn
+   * @schema SageMakerOfflineStoreStatus#Status
    */
-  readonly userProfileArn?: string;
+  readonly status?: string;
 
   /**
-   * @schema SageMakerUserContext#UserProfileName
+   * @schema SageMakerOfflineStoreStatus#BlockedReason
    */
-  readonly userProfileName?: string;
-
-  /**
-   * @schema SageMakerUserContext#DomainId
-   */
-  readonly domainId?: string;
+  readonly blockedReason?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerOfflineStoreStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerOfflineStoreStatus(obj: SageMakerOfflineStoreStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'BlockedReason': obj.blockedReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUiTemplateInfo
@@ -8845,6 +22804,21 @@ export interface SageMakerUiTemplateInfo {
   readonly contentSha256?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerUiTemplateInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUiTemplateInfo(obj: SageMakerUiTemplateInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Url': obj.url,
+    'ContentSha256': obj.contentSha256,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerTrainingJobStatusCounters
@@ -8878,6 +22852,24 @@ export interface SageMakerTrainingJobStatusCounters {
 }
 
 /**
+ * Converts an object of type 'SageMakerTrainingJobStatusCounters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrainingJobStatusCounters(obj: SageMakerTrainingJobStatusCounters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Completed': obj.completed,
+    'InProgress': obj.inProgress,
+    'RetryableError': obj.retryableError,
+    'NonRetryableError': obj.nonRetryableError,
+    'Stopped': obj.stopped,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerObjectiveStatusCounters
  */
 export interface SageMakerObjectiveStatusCounters {
@@ -8899,6 +22891,22 @@ export interface SageMakerObjectiveStatusCounters {
 }
 
 /**
+ * Converts an object of type 'SageMakerObjectiveStatusCounters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerObjectiveStatusCounters(obj: SageMakerObjectiveStatusCounters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Succeeded': obj.succeeded,
+    'Pending': obj.pending,
+    'Failed': obj.failed,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerHyperParameterTrainingJobSummary
  */
 export interface SageMakerHyperParameterTrainingJobSummary {
@@ -8910,12 +22918,12 @@ export interface SageMakerHyperParameterTrainingJobSummary {
   /**
    * @schema SageMakerHyperParameterTrainingJobSummary#TrainingJobName
    */
-  readonly trainingJobName: string;
+  readonly trainingJobName?: string;
 
   /**
    * @schema SageMakerHyperParameterTrainingJobSummary#TrainingJobArn
    */
-  readonly trainingJobArn: string;
+  readonly trainingJobArn?: string;
 
   /**
    * @schema SageMakerHyperParameterTrainingJobSummary#TuningJobName
@@ -8925,7 +22933,7 @@ export interface SageMakerHyperParameterTrainingJobSummary {
   /**
    * @schema SageMakerHyperParameterTrainingJobSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerHyperParameterTrainingJobSummary#TrainingStartTime
@@ -8940,12 +22948,12 @@ export interface SageMakerHyperParameterTrainingJobSummary {
   /**
    * @schema SageMakerHyperParameterTrainingJobSummary#TrainingJobStatus
    */
-  readonly trainingJobStatus: string;
+  readonly trainingJobStatus?: string;
 
   /**
    * @schema SageMakerHyperParameterTrainingJobSummary#TunedHyperParameters
    */
-  readonly tunedHyperParameters: { [key: string]: string };
+  readonly tunedHyperParameters?: { [key: string]: string };
 
   /**
    * @schema SageMakerHyperParameterTrainingJobSummary#FailureReason
@@ -8963,6 +22971,31 @@ export interface SageMakerHyperParameterTrainingJobSummary {
   readonly objectiveStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerHyperParameterTrainingJobSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerHyperParameterTrainingJobSummary(obj: SageMakerHyperParameterTrainingJobSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrainingJobDefinitionName': obj.trainingJobDefinitionName,
+    'TrainingJobName': obj.trainingJobName,
+    'TrainingJobArn': obj.trainingJobArn,
+    'TuningJobName': obj.tuningJobName,
+    'CreationTime': obj.creationTime,
+    'TrainingStartTime': obj.trainingStartTime,
+    'TrainingEndTime': obj.trainingEndTime,
+    'TrainingJobStatus': obj.trainingJobStatus,
+    'TunedHyperParameters': ((obj.tunedHyperParameters) === undefined) ? undefined : (Object.entries(obj.tunedHyperParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'FailureReason': obj.failureReason,
+    'FinalHyperParameterTuningJobObjectiveMetric': toJson_SageMakerFinalHyperParameterTuningJobObjectiveMetric(obj.finalHyperParameterTuningJobObjectiveMetric),
+    'ObjectiveStatus': obj.objectiveStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerLabelCounters
@@ -8996,13 +23029,31 @@ export interface SageMakerLabelCounters {
 }
 
 /**
+ * Converts an object of type 'SageMakerLabelCounters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerLabelCounters(obj: SageMakerLabelCounters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TotalLabeled': obj.totalLabeled,
+    'HumanLabeled': obj.humanLabeled,
+    'MachineLabeled': obj.machineLabeled,
+    'FailedNonRetryableError': obj.failedNonRetryableError,
+    'Unlabeled': obj.unlabeled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerLabelingJobOutput
  */
 export interface SageMakerLabelingJobOutput {
   /**
    * @schema SageMakerLabelingJobOutput#OutputDatasetS3Uri
    */
-  readonly outputDatasetS3Uri: string;
+  readonly outputDatasetS3Uri?: string;
 
   /**
    * @schema SageMakerLabelingJobOutput#FinalActiveLearningModelArn
@@ -9012,13 +23063,28 @@ export interface SageMakerLabelingJobOutput {
 }
 
 /**
+ * Converts an object of type 'SageMakerLabelingJobOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerLabelingJobOutput(obj: SageMakerLabelingJobOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OutputDatasetS3Uri': obj.outputDatasetS3Uri,
+    'FinalActiveLearningModelArn': obj.finalActiveLearningModelArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerModelPackageStatusDetails
  */
 export interface SageMakerModelPackageStatusDetails {
   /**
    * @schema SageMakerModelPackageStatusDetails#ValidationStatuses
    */
-  readonly validationStatuses: SageMakerModelPackageStatusItem[];
+  readonly validationStatuses?: SageMakerModelPackageStatusItem[];
 
   /**
    * @schema SageMakerModelPackageStatusDetails#ImageScanStatuses
@@ -9028,33 +23094,48 @@ export interface SageMakerModelPackageStatusDetails {
 }
 
 /**
+ * Converts an object of type 'SageMakerModelPackageStatusDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelPackageStatusDetails(obj: SageMakerModelPackageStatusDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ValidationStatuses': obj.validationStatuses?.map(y => toJson_SageMakerModelPackageStatusItem(y)),
+    'ImageScanStatuses': obj.imageScanStatuses?.map(y => toJson_SageMakerModelPackageStatusItem(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerMonitoringExecutionSummary
  */
 export interface SageMakerMonitoringExecutionSummary {
   /**
    * @schema SageMakerMonitoringExecutionSummary#MonitoringScheduleName
    */
-  readonly monitoringScheduleName: string;
+  readonly monitoringScheduleName?: string;
 
   /**
    * @schema SageMakerMonitoringExecutionSummary#ScheduledTime
    */
-  readonly scheduledTime: string;
+  readonly scheduledTime?: string;
 
   /**
    * @schema SageMakerMonitoringExecutionSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerMonitoringExecutionSummary#LastModifiedTime
    */
-  readonly lastModifiedTime: string;
+  readonly lastModifiedTime?: string;
 
   /**
    * @schema SageMakerMonitoringExecutionSummary#MonitoringExecutionStatus
    */
-  readonly monitoringExecutionStatus: string;
+  readonly monitoringExecutionStatus?: string;
 
   /**
    * @schema SageMakerMonitoringExecutionSummary#ProcessingJobArn
@@ -9071,7 +23152,102 @@ export interface SageMakerMonitoringExecutionSummary {
    */
   readonly failureReason?: string;
 
+  /**
+   * @schema SageMakerMonitoringExecutionSummary#MonitoringJobDefinitionName
+   */
+  readonly monitoringJobDefinitionName?: string;
+
+  /**
+   * @schema SageMakerMonitoringExecutionSummary#MonitoringType
+   */
+  readonly monitoringType?: string;
+
 }
+
+/**
+ * Converts an object of type 'SageMakerMonitoringExecutionSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringExecutionSummary(obj: SageMakerMonitoringExecutionSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MonitoringScheduleName': obj.monitoringScheduleName,
+    'ScheduledTime': obj.scheduledTime,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'MonitoringExecutionStatus': obj.monitoringExecutionStatus,
+    'ProcessingJobArn': obj.processingJobArn,
+    'EndpointName': obj.endpointName,
+    'FailureReason': obj.failureReason,
+    'MonitoringJobDefinitionName': obj.monitoringJobDefinitionName,
+    'MonitoringType': obj.monitoringType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerPipelineExperimentConfig
+ */
+export interface SageMakerPipelineExperimentConfig {
+  /**
+   * @schema SageMakerPipelineExperimentConfig#ExperimentName
+   */
+  readonly experimentName?: string;
+
+  /**
+   * @schema SageMakerPipelineExperimentConfig#TrialName
+   */
+  readonly trialName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerPipelineExperimentConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerPipelineExperimentConfig(obj: SageMakerPipelineExperimentConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExperimentName': obj.experimentName,
+    'TrialName': obj.trialName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerServiceCatalogProvisionedProductDetails
+ */
+export interface SageMakerServiceCatalogProvisionedProductDetails {
+  /**
+   * @schema SageMakerServiceCatalogProvisionedProductDetails#ProvisionedProductId
+   */
+  readonly provisionedProductId?: string;
+
+  /**
+   * @schema SageMakerServiceCatalogProvisionedProductDetails#ProvisionedProductStatusMessage
+   */
+  readonly provisionedProductStatusMessage?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerServiceCatalogProvisionedProductDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerServiceCatalogProvisionedProductDetails(obj: SageMakerServiceCatalogProvisionedProductDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProvisionedProductId': obj.provisionedProductId,
+    'ProvisionedProductStatusMessage': obj.provisionedProductStatusMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerSubscribedWorkteam
@@ -9080,7 +23256,7 @@ export interface SageMakerSubscribedWorkteam {
   /**
    * @schema SageMakerSubscribedWorkteam#WorkteamArn
    */
-  readonly workteamArn: string;
+  readonly workteamArn?: string;
 
   /**
    * @schema SageMakerSubscribedWorkteam#MarketplaceTitle
@@ -9105,18 +23281,36 @@ export interface SageMakerSubscribedWorkteam {
 }
 
 /**
+ * Converts an object of type 'SageMakerSubscribedWorkteam' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerSubscribedWorkteam(obj: SageMakerSubscribedWorkteam | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WorkteamArn': obj.workteamArn,
+    'MarketplaceTitle': obj.marketplaceTitle,
+    'SellerName': obj.sellerName,
+    'MarketplaceDescription': obj.marketplaceDescription,
+    'ListingId': obj.listingId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerSecondaryStatusTransition
  */
 export interface SageMakerSecondaryStatusTransition {
   /**
    * @schema SageMakerSecondaryStatusTransition#Status
    */
-  readonly status: string;
+  readonly status?: string;
 
   /**
    * @schema SageMakerSecondaryStatusTransition#StartTime
    */
-  readonly startTime: string;
+  readonly startTime?: string;
 
   /**
    * @schema SageMakerSecondaryStatusTransition#EndTime
@@ -9129,6 +23323,23 @@ export interface SageMakerSecondaryStatusTransition {
   readonly statusMessage?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerSecondaryStatusTransition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerSecondaryStatusTransition(obj: SageMakerSecondaryStatusTransition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Status': obj.status,
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'StatusMessage': obj.statusMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerMetricData
@@ -9150,6 +23361,22 @@ export interface SageMakerMetricData {
   readonly timestamp?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerMetricData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMetricData(obj: SageMakerMetricData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MetricName': obj.metricName,
+    'Value': obj.value,
+    'Timestamp': obj.timestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDebugRuleEvaluationStatus
@@ -9183,13 +23410,80 @@ export interface SageMakerDebugRuleEvaluationStatus {
 }
 
 /**
+ * Converts an object of type 'SageMakerDebugRuleEvaluationStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDebugRuleEvaluationStatus(obj: SageMakerDebugRuleEvaluationStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RuleConfigurationName': obj.ruleConfigurationName,
+    'RuleEvaluationJobArn': obj.ruleEvaluationJobArn,
+    'RuleEvaluationStatus': obj.ruleEvaluationStatus,
+    'StatusDetails': obj.statusDetails,
+    'LastModifiedTime': obj.lastModifiedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerProfilerRuleEvaluationStatus
+ */
+export interface SageMakerProfilerRuleEvaluationStatus {
+  /**
+   * @schema SageMakerProfilerRuleEvaluationStatus#RuleConfigurationName
+   */
+  readonly ruleConfigurationName?: string;
+
+  /**
+   * @schema SageMakerProfilerRuleEvaluationStatus#RuleEvaluationJobArn
+   */
+  readonly ruleEvaluationJobArn?: string;
+
+  /**
+   * @schema SageMakerProfilerRuleEvaluationStatus#RuleEvaluationStatus
+   */
+  readonly ruleEvaluationStatus?: string;
+
+  /**
+   * @schema SageMakerProfilerRuleEvaluationStatus#StatusDetails
+   */
+  readonly statusDetails?: string;
+
+  /**
+   * @schema SageMakerProfilerRuleEvaluationStatus#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerProfilerRuleEvaluationStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProfilerRuleEvaluationStatus(obj: SageMakerProfilerRuleEvaluationStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RuleConfigurationName': obj.ruleConfigurationName,
+    'RuleEvaluationJobArn': obj.ruleEvaluationJobArn,
+    'RuleEvaluationStatus': obj.ruleEvaluationStatus,
+    'StatusDetails': obj.statusDetails,
+    'LastModifiedTime': obj.lastModifiedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerTrialSource
  */
 export interface SageMakerTrialSource {
   /**
    * @schema SageMakerTrialSource#SourceArn
    */
-  readonly sourceArn: string;
+  readonly sourceArn?: string;
 
   /**
    * @schema SageMakerTrialSource#SourceType
@@ -9199,13 +23493,28 @@ export interface SageMakerTrialSource {
 }
 
 /**
+ * Converts an object of type 'SageMakerTrialSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrialSource(obj: SageMakerTrialSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceArn': obj.sourceArn,
+    'SourceType': obj.sourceType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerTrialComponentSource
  */
 export interface SageMakerTrialComponentSource {
   /**
    * @schema SageMakerTrialComponentSource#SourceArn
    */
-  readonly sourceArn: string;
+  readonly sourceArn?: string;
 
   /**
    * @schema SageMakerTrialComponentSource#SourceType
@@ -9213,6 +23522,21 @@ export interface SageMakerTrialComponentSource {
   readonly sourceType?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerTrialComponentSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrialComponentSource(obj: SageMakerTrialComponentSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceArn': obj.sourceArn,
+    'SourceType': obj.sourceType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerTrialComponentMetricSummary
@@ -9266,18 +23590,40 @@ export interface SageMakerTrialComponentMetricSummary {
 }
 
 /**
+ * Converts an object of type 'SageMakerTrialComponentMetricSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrialComponentMetricSummary(obj: SageMakerTrialComponentMetricSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MetricName': obj.metricName,
+    'SourceArn': obj.sourceArn,
+    'TimeStamp': obj.timeStamp,
+    'Max': obj.max,
+    'Min': obj.min,
+    'Last': obj.last,
+    'Count': obj.count,
+    'Avg': obj.avg,
+    'StdDev': obj.stdDev,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerWorkforce
  */
 export interface SageMakerWorkforce {
   /**
    * @schema SageMakerWorkforce#WorkforceName
    */
-  readonly workforceName: string;
+  readonly workforceName?: string;
 
   /**
    * @schema SageMakerWorkforce#WorkforceArn
    */
-  readonly workforceArn: string;
+  readonly workforceArn?: string;
 
   /**
    * @schema SageMakerWorkforce#LastUpdatedDate
@@ -9312,23 +23658,44 @@ export interface SageMakerWorkforce {
 }
 
 /**
+ * Converts an object of type 'SageMakerWorkforce' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerWorkforce(obj: SageMakerWorkforce | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WorkforceName': obj.workforceName,
+    'WorkforceArn': obj.workforceArn,
+    'LastUpdatedDate': obj.lastUpdatedDate,
+    'SourceIpConfig': toJson_SageMakerSourceIpConfig(obj.sourceIpConfig),
+    'SubDomain': obj.subDomain,
+    'CognitoConfig': toJson_SageMakerCognitoConfig(obj.cognitoConfig),
+    'OidcConfig': toJson_SageMakerOidcConfigForResponse(obj.oidcConfig),
+    'CreateDate': obj.createDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerWorkteam
  */
 export interface SageMakerWorkteam {
   /**
    * @schema SageMakerWorkteam#WorkteamName
    */
-  readonly workteamName: string;
+  readonly workteamName?: string;
 
   /**
    * @schema SageMakerWorkteam#MemberDefinitions
    */
-  readonly memberDefinitions: SageMakerMemberDefinition[];
+  readonly memberDefinitions?: SageMakerMemberDefinition[];
 
   /**
    * @schema SageMakerWorkteam#WorkteamArn
    */
-  readonly workteamArn: string;
+  readonly workteamArn?: string;
 
   /**
    * @schema SageMakerWorkteam#WorkforceArn
@@ -9343,7 +23710,7 @@ export interface SageMakerWorkteam {
   /**
    * @schema SageMakerWorkteam#Description
    */
-  readonly description: string;
+  readonly description?: string;
 
   /**
    * @schema SageMakerWorkteam#SubDomain
@@ -9368,6 +23735,146 @@ export interface SageMakerWorkteam {
 }
 
 /**
+ * Converts an object of type 'SageMakerWorkteam' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerWorkteam(obj: SageMakerWorkteam | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'WorkteamName': obj.workteamName,
+    'MemberDefinitions': obj.memberDefinitions?.map(y => toJson_SageMakerMemberDefinition(y)),
+    'WorkteamArn': obj.workteamArn,
+    'WorkforceArn': obj.workforceArn,
+    'ProductListingIds': obj.productListingIds?.map(y => y),
+    'Description': obj.description,
+    'SubDomain': obj.subDomain,
+    'CreateDate': obj.createDate,
+    'LastUpdatedDate': obj.lastUpdatedDate,
+    'NotificationConfiguration': toJson_SageMakerNotificationConfiguration(obj.notificationConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeviceStats
+ */
+export interface SageMakerDeviceStats {
+  /**
+   * @schema SageMakerDeviceStats#ConnectedDeviceCount
+   */
+  readonly connectedDeviceCount?: number;
+
+  /**
+   * @schema SageMakerDeviceStats#RegisteredDeviceCount
+   */
+  readonly registeredDeviceCount?: number;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeviceStats' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeviceStats(obj: SageMakerDeviceStats | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConnectedDeviceCount': obj.connectedDeviceCount,
+    'RegisteredDeviceCount': obj.registeredDeviceCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerAgentVersion
+ */
+export interface SageMakerAgentVersion {
+  /**
+   * @schema SageMakerAgentVersion#Version
+   */
+  readonly version?: string;
+
+  /**
+   * @schema SageMakerAgentVersion#AgentCount
+   */
+  readonly agentCount?: number;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerAgentVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAgentVersion(obj: SageMakerAgentVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Version': obj.version,
+    'AgentCount': obj.agentCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerEdgeModelStat
+ */
+export interface SageMakerEdgeModelStat {
+  /**
+   * @schema SageMakerEdgeModelStat#ModelName
+   */
+  readonly modelName?: string;
+
+  /**
+   * @schema SageMakerEdgeModelStat#ModelVersion
+   */
+  readonly modelVersion?: string;
+
+  /**
+   * @schema SageMakerEdgeModelStat#OfflineDeviceCount
+   */
+  readonly offlineDeviceCount?: number;
+
+  /**
+   * @schema SageMakerEdgeModelStat#ConnectedDeviceCount
+   */
+  readonly connectedDeviceCount?: number;
+
+  /**
+   * @schema SageMakerEdgeModelStat#ActiveDeviceCount
+   */
+  readonly activeDeviceCount?: number;
+
+  /**
+   * @schema SageMakerEdgeModelStat#SamplingDeviceCount
+   */
+  readonly samplingDeviceCount?: number;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerEdgeModelStat' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerEdgeModelStat(obj: SageMakerEdgeModelStat | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelName': obj.modelName,
+    'ModelVersion': obj.modelVersion,
+    'OfflineDeviceCount': obj.offlineDeviceCount,
+    'ConnectedDeviceCount': obj.connectedDeviceCount,
+    'ActiveDeviceCount': obj.activeDeviceCount,
+    'SamplingDeviceCount': obj.samplingDeviceCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerSuggestionQuery
  */
 export interface SageMakerSuggestionQuery {
@@ -9377,6 +23884,20 @@ export interface SageMakerSuggestionQuery {
   readonly propertyNameQuery?: SageMakerPropertyNameQuery;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerSuggestionQuery' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerSuggestionQuery(obj: SageMakerSuggestionQuery | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PropertyNameQuery': toJson_SageMakerPropertyNameQuery(obj.propertyNameQuery),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerPropertyNameSuggestion
@@ -9390,18 +23911,93 @@ export interface SageMakerPropertyNameSuggestion {
 }
 
 /**
+ * Converts an object of type 'SageMakerPropertyNameSuggestion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerPropertyNameSuggestion(obj: SageMakerPropertyNameSuggestion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PropertyName': obj.propertyName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerActionSummary
+ */
+export interface SageMakerActionSummary {
+  /**
+   * @schema SageMakerActionSummary#ActionArn
+   */
+  readonly actionArn?: string;
+
+  /**
+   * @schema SageMakerActionSummary#ActionName
+   */
+  readonly actionName?: string;
+
+  /**
+   * @schema SageMakerActionSummary#Source
+   */
+  readonly source?: SageMakerActionSource;
+
+  /**
+   * @schema SageMakerActionSummary#ActionType
+   */
+  readonly actionType?: string;
+
+  /**
+   * @schema SageMakerActionSummary#Status
+   */
+  readonly status?: string;
+
+  /**
+   * @schema SageMakerActionSummary#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerActionSummary#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerActionSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerActionSummary(obj: SageMakerActionSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ActionArn': obj.actionArn,
+    'ActionName': obj.actionName,
+    'Source': toJson_SageMakerActionSource(obj.source),
+    'ActionType': obj.actionType,
+    'Status': obj.status,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerAlgorithmSummary
  */
 export interface SageMakerAlgorithmSummary {
   /**
    * @schema SageMakerAlgorithmSummary#AlgorithmName
    */
-  readonly algorithmName: string;
+  readonly algorithmName?: string;
 
   /**
    * @schema SageMakerAlgorithmSummary#AlgorithmArn
    */
-  readonly algorithmArn: string;
+  readonly algorithmArn?: string;
 
   /**
    * @schema SageMakerAlgorithmSummary#AlgorithmDescription
@@ -9411,14 +24007,32 @@ export interface SageMakerAlgorithmSummary {
   /**
    * @schema SageMakerAlgorithmSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerAlgorithmSummary#AlgorithmStatus
    */
-  readonly algorithmStatus: string;
+  readonly algorithmStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerAlgorithmSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAlgorithmSummary(obj: SageMakerAlgorithmSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AlgorithmName': obj.algorithmName,
+    'AlgorithmArn': obj.algorithmArn,
+    'AlgorithmDescription': obj.algorithmDescription,
+    'CreationTime': obj.creationTime,
+    'AlgorithmStatus': obj.algorithmStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerAppImageConfigDetails
@@ -9450,6 +24064,24 @@ export interface SageMakerAppImageConfigDetails {
   readonly kernelGatewayImageConfig?: SageMakerKernelGatewayImageConfig;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerAppImageConfigDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAppImageConfigDetails(obj: SageMakerAppImageConfigDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AppImageConfigArn': obj.appImageConfigArn,
+    'AppImageConfigName': obj.appImageConfigName,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'KernelGatewayImageConfig': toJson_SageMakerKernelGatewayImageConfig(obj.kernelGatewayImageConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerAppDetails
@@ -9488,33 +24120,180 @@ export interface SageMakerAppDetails {
 }
 
 /**
+ * Converts an object of type 'SageMakerAppDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAppDetails(obj: SageMakerAppDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainId': obj.domainId,
+    'UserProfileName': obj.userProfileName,
+    'AppType': obj.appType,
+    'AppName': obj.appName,
+    'Status': obj.status,
+    'CreationTime': obj.creationTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerArtifactSummary
+ */
+export interface SageMakerArtifactSummary {
+  /**
+   * @schema SageMakerArtifactSummary#ArtifactArn
+   */
+  readonly artifactArn?: string;
+
+  /**
+   * @schema SageMakerArtifactSummary#ArtifactName
+   */
+  readonly artifactName?: string;
+
+  /**
+   * @schema SageMakerArtifactSummary#Source
+   */
+  readonly source?: SageMakerArtifactSource;
+
+  /**
+   * @schema SageMakerArtifactSummary#ArtifactType
+   */
+  readonly artifactType?: string;
+
+  /**
+   * @schema SageMakerArtifactSummary#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerArtifactSummary#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerArtifactSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerArtifactSummary(obj: SageMakerArtifactSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ArtifactArn': obj.artifactArn,
+    'ArtifactName': obj.artifactName,
+    'Source': toJson_SageMakerArtifactSource(obj.source),
+    'ArtifactType': obj.artifactType,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerAssociationSummary
+ */
+export interface SageMakerAssociationSummary {
+  /**
+   * @schema SageMakerAssociationSummary#SourceArn
+   */
+  readonly sourceArn?: string;
+
+  /**
+   * @schema SageMakerAssociationSummary#DestinationArn
+   */
+  readonly destinationArn?: string;
+
+  /**
+   * @schema SageMakerAssociationSummary#SourceType
+   */
+  readonly sourceType?: string;
+
+  /**
+   * @schema SageMakerAssociationSummary#DestinationType
+   */
+  readonly destinationType?: string;
+
+  /**
+   * @schema SageMakerAssociationSummary#AssociationType
+   */
+  readonly associationType?: string;
+
+  /**
+   * @schema SageMakerAssociationSummary#SourceName
+   */
+  readonly sourceName?: string;
+
+  /**
+   * @schema SageMakerAssociationSummary#DestinationName
+   */
+  readonly destinationName?: string;
+
+  /**
+   * @schema SageMakerAssociationSummary#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerAssociationSummary#CreatedBy
+   */
+  readonly createdBy?: SageMakerUserContext;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerAssociationSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAssociationSummary(obj: SageMakerAssociationSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceArn': obj.sourceArn,
+    'DestinationArn': obj.destinationArn,
+    'SourceType': obj.sourceType,
+    'DestinationType': obj.destinationType,
+    'AssociationType': obj.associationType,
+    'SourceName': obj.sourceName,
+    'DestinationName': obj.destinationName,
+    'CreationTime': obj.creationTime,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerAutoMlJobSummary
  */
 export interface SageMakerAutoMlJobSummary {
   /**
    * @schema SageMakerAutoMlJobSummary#AutoMLJobName
    */
-  readonly autoMlJobName: string;
+  readonly autoMlJobName?: string;
 
   /**
    * @schema SageMakerAutoMlJobSummary#AutoMLJobArn
    */
-  readonly autoMlJobArn: string;
+  readonly autoMlJobArn?: string;
 
   /**
    * @schema SageMakerAutoMlJobSummary#AutoMLJobStatus
    */
-  readonly autoMlJobStatus: string;
+  readonly autoMlJobStatus?: string;
 
   /**
    * @schema SageMakerAutoMlJobSummary#AutoMLJobSecondaryStatus
    */
-  readonly autoMlJobSecondaryStatus: string;
+  readonly autoMlJobSecondaryStatus?: string;
 
   /**
    * @schema SageMakerAutoMlJobSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerAutoMlJobSummary#EndTime
@@ -9524,14 +24303,41 @@ export interface SageMakerAutoMlJobSummary {
   /**
    * @schema SageMakerAutoMlJobSummary#LastModifiedTime
    */
-  readonly lastModifiedTime: string;
+  readonly lastModifiedTime?: string;
 
   /**
    * @schema SageMakerAutoMlJobSummary#FailureReason
    */
   readonly failureReason?: string;
 
+  /**
+   * @schema SageMakerAutoMlJobSummary#PartialFailureReasons
+   */
+  readonly partialFailureReasons?: SageMakerAutoMlPartialFailureReason[];
+
 }
+
+/**
+ * Converts an object of type 'SageMakerAutoMlJobSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAutoMlJobSummary(obj: SageMakerAutoMlJobSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AutoMLJobName': obj.autoMlJobName,
+    'AutoMLJobArn': obj.autoMlJobArn,
+    'AutoMLJobStatus': obj.autoMlJobStatus,
+    'AutoMLJobSecondaryStatus': obj.autoMlJobSecondaryStatus,
+    'CreationTime': obj.creationTime,
+    'EndTime': obj.endTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'FailureReason': obj.failureReason,
+    'PartialFailureReasons': obj.partialFailureReasons?.map(y => toJson_SageMakerAutoMlPartialFailureReason(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCodeRepositorySummary
@@ -9540,22 +24346,22 @@ export interface SageMakerCodeRepositorySummary {
   /**
    * @schema SageMakerCodeRepositorySummary#CodeRepositoryName
    */
-  readonly codeRepositoryName: string;
+  readonly codeRepositoryName?: string;
 
   /**
    * @schema SageMakerCodeRepositorySummary#CodeRepositoryArn
    */
-  readonly codeRepositoryArn: string;
+  readonly codeRepositoryArn?: string;
 
   /**
    * @schema SageMakerCodeRepositorySummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerCodeRepositorySummary#LastModifiedTime
    */
-  readonly lastModifiedTime: string;
+  readonly lastModifiedTime?: string;
 
   /**
    * @schema SageMakerCodeRepositorySummary#GitConfig
@@ -9565,23 +24371,41 @@ export interface SageMakerCodeRepositorySummary {
 }
 
 /**
+ * Converts an object of type 'SageMakerCodeRepositorySummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCodeRepositorySummary(obj: SageMakerCodeRepositorySummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CodeRepositoryName': obj.codeRepositoryName,
+    'CodeRepositoryArn': obj.codeRepositoryArn,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'GitConfig': toJson_SageMakerGitConfig(obj.gitConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCompilationJobSummary
  */
 export interface SageMakerCompilationJobSummary {
   /**
    * @schema SageMakerCompilationJobSummary#CompilationJobName
    */
-  readonly compilationJobName: string;
+  readonly compilationJobName?: string;
 
   /**
    * @schema SageMakerCompilationJobSummary#CompilationJobArn
    */
-  readonly compilationJobArn: string;
+  readonly compilationJobArn?: string;
 
   /**
    * @schema SageMakerCompilationJobSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerCompilationJobSummary#CompilationStartTime
@@ -9621,9 +24445,241 @@ export interface SageMakerCompilationJobSummary {
   /**
    * @schema SageMakerCompilationJobSummary#CompilationJobStatus
    */
-  readonly compilationJobStatus: string;
+  readonly compilationJobStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCompilationJobSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCompilationJobSummary(obj: SageMakerCompilationJobSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CompilationJobName': obj.compilationJobName,
+    'CompilationJobArn': obj.compilationJobArn,
+    'CreationTime': obj.creationTime,
+    'CompilationStartTime': obj.compilationStartTime,
+    'CompilationEndTime': obj.compilationEndTime,
+    'CompilationTargetDevice': obj.compilationTargetDevice,
+    'CompilationTargetPlatformOs': obj.compilationTargetPlatformOs,
+    'CompilationTargetPlatformArch': obj.compilationTargetPlatformArch,
+    'CompilationTargetPlatformAccelerator': obj.compilationTargetPlatformAccelerator,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'CompilationJobStatus': obj.compilationJobStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerContextSummary
+ */
+export interface SageMakerContextSummary {
+  /**
+   * @schema SageMakerContextSummary#ContextArn
+   */
+  readonly contextArn?: string;
+
+  /**
+   * @schema SageMakerContextSummary#ContextName
+   */
+  readonly contextName?: string;
+
+  /**
+   * @schema SageMakerContextSummary#Source
+   */
+  readonly source?: SageMakerContextSource;
+
+  /**
+   * @schema SageMakerContextSummary#ContextType
+   */
+  readonly contextType?: string;
+
+  /**
+   * @schema SageMakerContextSummary#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerContextSummary#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerContextSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerContextSummary(obj: SageMakerContextSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContextArn': obj.contextArn,
+    'ContextName': obj.contextName,
+    'Source': toJson_SageMakerContextSource(obj.source),
+    'ContextType': obj.contextType,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerMonitoringJobDefinitionSummary
+ */
+export interface SageMakerMonitoringJobDefinitionSummary {
+  /**
+   * @schema SageMakerMonitoringJobDefinitionSummary#MonitoringJobDefinitionName
+   */
+  readonly monitoringJobDefinitionName?: string;
+
+  /**
+   * @schema SageMakerMonitoringJobDefinitionSummary#MonitoringJobDefinitionArn
+   */
+  readonly monitoringJobDefinitionArn?: string;
+
+  /**
+   * @schema SageMakerMonitoringJobDefinitionSummary#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerMonitoringJobDefinitionSummary#EndpointName
+   */
+  readonly endpointName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerMonitoringJobDefinitionSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringJobDefinitionSummary(obj: SageMakerMonitoringJobDefinitionSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MonitoringJobDefinitionName': obj.monitoringJobDefinitionName,
+    'MonitoringJobDefinitionArn': obj.monitoringJobDefinitionArn,
+    'CreationTime': obj.creationTime,
+    'EndpointName': obj.endpointName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeviceFleetSummary
+ */
+export interface SageMakerDeviceFleetSummary {
+  /**
+   * @schema SageMakerDeviceFleetSummary#DeviceFleetArn
+   */
+  readonly deviceFleetArn?: string;
+
+  /**
+   * @schema SageMakerDeviceFleetSummary#DeviceFleetName
+   */
+  readonly deviceFleetName?: string;
+
+  /**
+   * @schema SageMakerDeviceFleetSummary#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerDeviceFleetSummary#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeviceFleetSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeviceFleetSummary(obj: SageMakerDeviceFleetSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceFleetArn': obj.deviceFleetArn,
+    'DeviceFleetName': obj.deviceFleetName,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDeviceSummary
+ */
+export interface SageMakerDeviceSummary {
+  /**
+   * @schema SageMakerDeviceSummary#DeviceName
+   */
+  readonly deviceName?: string;
+
+  /**
+   * @schema SageMakerDeviceSummary#DeviceArn
+   */
+  readonly deviceArn?: string;
+
+  /**
+   * @schema SageMakerDeviceSummary#Description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema SageMakerDeviceSummary#DeviceFleetName
+   */
+  readonly deviceFleetName?: string;
+
+  /**
+   * @schema SageMakerDeviceSummary#IotThingName
+   */
+  readonly iotThingName?: string;
+
+  /**
+   * @schema SageMakerDeviceSummary#RegistrationTime
+   */
+  readonly registrationTime?: string;
+
+  /**
+   * @schema SageMakerDeviceSummary#LatestHeartbeat
+   */
+  readonly latestHeartbeat?: string;
+
+  /**
+   * @schema SageMakerDeviceSummary#Models
+   */
+  readonly models?: SageMakerEdgeModelSummary[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDeviceSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeviceSummary(obj: SageMakerDeviceSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceName': obj.deviceName,
+    'DeviceArn': obj.deviceArn,
+    'Description': obj.description,
+    'DeviceFleetName': obj.deviceFleetName,
+    'IotThingName': obj.iotThingName,
+    'RegistrationTime': obj.registrationTime,
+    'LatestHeartbeat': obj.latestHeartbeat,
+    'Models': obj.models?.map(y => toJson_SageMakerEdgeModelSummary(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDomainDetails
@@ -9667,25 +24723,128 @@ export interface SageMakerDomainDetails {
 }
 
 /**
+ * Converts an object of type 'SageMakerDomainDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDomainDetails(obj: SageMakerDomainDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainArn': obj.domainArn,
+    'DomainId': obj.domainId,
+    'DomainName': obj.domainName,
+    'Status': obj.status,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'Url': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerEdgePackagingJobSummary
+ */
+export interface SageMakerEdgePackagingJobSummary {
+  /**
+   * @schema SageMakerEdgePackagingJobSummary#EdgePackagingJobArn
+   */
+  readonly edgePackagingJobArn?: string;
+
+  /**
+   * @schema SageMakerEdgePackagingJobSummary#EdgePackagingJobName
+   */
+  readonly edgePackagingJobName?: string;
+
+  /**
+   * @schema SageMakerEdgePackagingJobSummary#EdgePackagingJobStatus
+   */
+  readonly edgePackagingJobStatus?: string;
+
+  /**
+   * @schema SageMakerEdgePackagingJobSummary#CompilationJobName
+   */
+  readonly compilationJobName?: string;
+
+  /**
+   * @schema SageMakerEdgePackagingJobSummary#ModelName
+   */
+  readonly modelName?: string;
+
+  /**
+   * @schema SageMakerEdgePackagingJobSummary#ModelVersion
+   */
+  readonly modelVersion?: string;
+
+  /**
+   * @schema SageMakerEdgePackagingJobSummary#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerEdgePackagingJobSummary#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerEdgePackagingJobSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerEdgePackagingJobSummary(obj: SageMakerEdgePackagingJobSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EdgePackagingJobArn': obj.edgePackagingJobArn,
+    'EdgePackagingJobName': obj.edgePackagingJobName,
+    'EdgePackagingJobStatus': obj.edgePackagingJobStatus,
+    'CompilationJobName': obj.compilationJobName,
+    'ModelName': obj.modelName,
+    'ModelVersion': obj.modelVersion,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerEndpointConfigSummary
  */
 export interface SageMakerEndpointConfigSummary {
   /**
    * @schema SageMakerEndpointConfigSummary#EndpointConfigName
    */
-  readonly endpointConfigName: string;
+  readonly endpointConfigName?: string;
 
   /**
    * @schema SageMakerEndpointConfigSummary#EndpointConfigArn
    */
-  readonly endpointConfigArn: string;
+  readonly endpointConfigArn?: string;
 
   /**
    * @schema SageMakerEndpointConfigSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerEndpointConfigSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerEndpointConfigSummary(obj: SageMakerEndpointConfigSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointConfigName': obj.endpointConfigName,
+    'EndpointConfigArn': obj.endpointConfigArn,
+    'CreationTime': obj.creationTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerEndpointSummary
@@ -9694,29 +24853,47 @@ export interface SageMakerEndpointSummary {
   /**
    * @schema SageMakerEndpointSummary#EndpointName
    */
-  readonly endpointName: string;
+  readonly endpointName?: string;
 
   /**
    * @schema SageMakerEndpointSummary#EndpointArn
    */
-  readonly endpointArn: string;
+  readonly endpointArn?: string;
 
   /**
    * @schema SageMakerEndpointSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerEndpointSummary#LastModifiedTime
    */
-  readonly lastModifiedTime: string;
+  readonly lastModifiedTime?: string;
 
   /**
    * @schema SageMakerEndpointSummary#EndpointStatus
    */
-  readonly endpointStatus: string;
+  readonly endpointStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerEndpointSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerEndpointSummary(obj: SageMakerEndpointSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointName': obj.endpointName,
+    'EndpointArn': obj.endpointArn,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'EndpointStatus': obj.endpointStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerExperimentSummary
@@ -9755,28 +24932,96 @@ export interface SageMakerExperimentSummary {
 }
 
 /**
+ * Converts an object of type 'SageMakerExperimentSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerExperimentSummary(obj: SageMakerExperimentSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExperimentArn': obj.experimentArn,
+    'ExperimentName': obj.experimentName,
+    'DisplayName': obj.displayName,
+    'ExperimentSource': toJson_SageMakerExperimentSource(obj.experimentSource),
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerFeatureGroupSummary
+ */
+export interface SageMakerFeatureGroupSummary {
+  /**
+   * @schema SageMakerFeatureGroupSummary#FeatureGroupName
+   */
+  readonly featureGroupName?: string;
+
+  /**
+   * @schema SageMakerFeatureGroupSummary#FeatureGroupArn
+   */
+  readonly featureGroupArn?: string;
+
+  /**
+   * @schema SageMakerFeatureGroupSummary#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerFeatureGroupSummary#FeatureGroupStatus
+   */
+  readonly featureGroupStatus?: string;
+
+  /**
+   * @schema SageMakerFeatureGroupSummary#OfflineStoreStatus
+   */
+  readonly offlineStoreStatus?: SageMakerOfflineStoreStatus;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerFeatureGroupSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerFeatureGroupSummary(obj: SageMakerFeatureGroupSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FeatureGroupName': obj.featureGroupName,
+    'FeatureGroupArn': obj.featureGroupArn,
+    'CreationTime': obj.creationTime,
+    'FeatureGroupStatus': obj.featureGroupStatus,
+    'OfflineStoreStatus': toJson_SageMakerOfflineStoreStatus(obj.offlineStoreStatus),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerFlowDefinitionSummary
  */
 export interface SageMakerFlowDefinitionSummary {
   /**
    * @schema SageMakerFlowDefinitionSummary#FlowDefinitionName
    */
-  readonly flowDefinitionName: string;
+  readonly flowDefinitionName?: string;
 
   /**
    * @schema SageMakerFlowDefinitionSummary#FlowDefinitionArn
    */
-  readonly flowDefinitionArn: string;
+  readonly flowDefinitionArn?: string;
 
   /**
    * @schema SageMakerFlowDefinitionSummary#FlowDefinitionStatus
    */
-  readonly flowDefinitionStatus: string;
+  readonly flowDefinitionStatus?: string;
 
   /**
    * @schema SageMakerFlowDefinitionSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerFlowDefinitionSummary#FailureReason
@@ -9786,25 +25031,59 @@ export interface SageMakerFlowDefinitionSummary {
 }
 
 /**
+ * Converts an object of type 'SageMakerFlowDefinitionSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerFlowDefinitionSummary(obj: SageMakerFlowDefinitionSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FlowDefinitionName': obj.flowDefinitionName,
+    'FlowDefinitionArn': obj.flowDefinitionArn,
+    'FlowDefinitionStatus': obj.flowDefinitionStatus,
+    'CreationTime': obj.creationTime,
+    'FailureReason': obj.failureReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerHumanTaskUiSummary
  */
 export interface SageMakerHumanTaskUiSummary {
   /**
    * @schema SageMakerHumanTaskUiSummary#HumanTaskUiName
    */
-  readonly humanTaskUiName: string;
+  readonly humanTaskUiName?: string;
 
   /**
    * @schema SageMakerHumanTaskUiSummary#HumanTaskUiArn
    */
-  readonly humanTaskUiArn: string;
+  readonly humanTaskUiArn?: string;
 
   /**
    * @schema SageMakerHumanTaskUiSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerHumanTaskUiSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerHumanTaskUiSummary(obj: SageMakerHumanTaskUiSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HumanTaskUiName': obj.humanTaskUiName,
+    'HumanTaskUiArn': obj.humanTaskUiArn,
+    'CreationTime': obj.creationTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerHyperParameterTuningJobSummary
@@ -9813,27 +25092,27 @@ export interface SageMakerHyperParameterTuningJobSummary {
   /**
    * @schema SageMakerHyperParameterTuningJobSummary#HyperParameterTuningJobName
    */
-  readonly hyperParameterTuningJobName: string;
+  readonly hyperParameterTuningJobName?: string;
 
   /**
    * @schema SageMakerHyperParameterTuningJobSummary#HyperParameterTuningJobArn
    */
-  readonly hyperParameterTuningJobArn: string;
+  readonly hyperParameterTuningJobArn?: string;
 
   /**
    * @schema SageMakerHyperParameterTuningJobSummary#HyperParameterTuningJobStatus
    */
-  readonly hyperParameterTuningJobStatus: string;
+  readonly hyperParameterTuningJobStatus?: string;
 
   /**
    * @schema SageMakerHyperParameterTuningJobSummary#Strategy
    */
-  readonly strategy: string;
+  readonly strategy?: string;
 
   /**
    * @schema SageMakerHyperParameterTuningJobSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerHyperParameterTuningJobSummary#HyperParameterTuningEndTime
@@ -9848,12 +25127,12 @@ export interface SageMakerHyperParameterTuningJobSummary {
   /**
    * @schema SageMakerHyperParameterTuningJobSummary#TrainingJobStatusCounters
    */
-  readonly trainingJobStatusCounters: SageMakerTrainingJobStatusCounters;
+  readonly trainingJobStatusCounters?: SageMakerTrainingJobStatusCounters;
 
   /**
    * @schema SageMakerHyperParameterTuningJobSummary#ObjectiveStatusCounters
    */
-  readonly objectiveStatusCounters: SageMakerObjectiveStatusCounters;
+  readonly objectiveStatusCounters?: SageMakerObjectiveStatusCounters;
 
   /**
    * @schema SageMakerHyperParameterTuningJobSummary#ResourceLimits
@@ -9863,13 +25142,36 @@ export interface SageMakerHyperParameterTuningJobSummary {
 }
 
 /**
+ * Converts an object of type 'SageMakerHyperParameterTuningJobSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerHyperParameterTuningJobSummary(obj: SageMakerHyperParameterTuningJobSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HyperParameterTuningJobName': obj.hyperParameterTuningJobName,
+    'HyperParameterTuningJobArn': obj.hyperParameterTuningJobArn,
+    'HyperParameterTuningJobStatus': obj.hyperParameterTuningJobStatus,
+    'Strategy': obj.strategy,
+    'CreationTime': obj.creationTime,
+    'HyperParameterTuningEndTime': obj.hyperParameterTuningEndTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'TrainingJobStatusCounters': toJson_SageMakerTrainingJobStatusCounters(obj.trainingJobStatusCounters),
+    'ObjectiveStatusCounters': toJson_SageMakerObjectiveStatusCounters(obj.objectiveStatusCounters),
+    'ResourceLimits': toJson_SageMakerResourceLimits(obj.resourceLimits),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerImageVersion
  */
 export interface SageMakerImageVersion {
   /**
    * @schema SageMakerImageVersion#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerImageVersion#FailureReason
@@ -9879,29 +25181,49 @@ export interface SageMakerImageVersion {
   /**
    * @schema SageMakerImageVersion#ImageArn
    */
-  readonly imageArn: string;
+  readonly imageArn?: string;
 
   /**
    * @schema SageMakerImageVersion#ImageVersionArn
    */
-  readonly imageVersionArn: string;
+  readonly imageVersionArn?: string;
 
   /**
    * @schema SageMakerImageVersion#ImageVersionStatus
    */
-  readonly imageVersionStatus: string;
+  readonly imageVersionStatus?: string;
 
   /**
    * @schema SageMakerImageVersion#LastModifiedTime
    */
-  readonly lastModifiedTime: string;
+  readonly lastModifiedTime?: string;
 
   /**
    * @schema SageMakerImageVersion#Version
    */
-  readonly version: number;
+  readonly version?: number;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerImageVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerImageVersion(obj: SageMakerImageVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreationTime': obj.creationTime,
+    'FailureReason': obj.failureReason,
+    'ImageArn': obj.imageArn,
+    'ImageVersionArn': obj.imageVersionArn,
+    'ImageVersionStatus': obj.imageVersionStatus,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerImage
@@ -9910,7 +25232,7 @@ export interface SageMakerImage {
   /**
    * @schema SageMakerImage#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerImage#Description
@@ -9930,24 +25252,45 @@ export interface SageMakerImage {
   /**
    * @schema SageMakerImage#ImageArn
    */
-  readonly imageArn: string;
+  readonly imageArn?: string;
 
   /**
    * @schema SageMakerImage#ImageName
    */
-  readonly imageName: string;
+  readonly imageName?: string;
 
   /**
    * @schema SageMakerImage#ImageStatus
    */
-  readonly imageStatus: string;
+  readonly imageStatus?: string;
 
   /**
    * @schema SageMakerImage#LastModifiedTime
    */
-  readonly lastModifiedTime: string;
+  readonly lastModifiedTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerImage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerImage(obj: SageMakerImage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CreationTime': obj.creationTime,
+    'Description': obj.description,
+    'DisplayName': obj.displayName,
+    'FailureReason': obj.failureReason,
+    'ImageArn': obj.imageArn,
+    'ImageName': obj.imageName,
+    'ImageStatus': obj.imageStatus,
+    'LastModifiedTime': obj.lastModifiedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerLabelingJobSummary
@@ -9956,42 +25299,42 @@ export interface SageMakerLabelingJobSummary {
   /**
    * @schema SageMakerLabelingJobSummary#LabelingJobName
    */
-  readonly labelingJobName: string;
+  readonly labelingJobName?: string;
 
   /**
    * @schema SageMakerLabelingJobSummary#LabelingJobArn
    */
-  readonly labelingJobArn: string;
+  readonly labelingJobArn?: string;
 
   /**
    * @schema SageMakerLabelingJobSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerLabelingJobSummary#LastModifiedTime
    */
-  readonly lastModifiedTime: string;
+  readonly lastModifiedTime?: string;
 
   /**
    * @schema SageMakerLabelingJobSummary#LabelingJobStatus
    */
-  readonly labelingJobStatus: string;
+  readonly labelingJobStatus?: string;
 
   /**
    * @schema SageMakerLabelingJobSummary#LabelCounters
    */
-  readonly labelCounters: SageMakerLabelCounters;
+  readonly labelCounters?: SageMakerLabelCounters;
 
   /**
    * @schema SageMakerLabelingJobSummary#WorkteamArn
    */
-  readonly workteamArn: string;
+  readonly workteamArn?: string;
 
   /**
    * @schema SageMakerLabelingJobSummary#PreHumanTaskLambdaArn
    */
-  readonly preHumanTaskLambdaArn: string;
+  readonly preHumanTaskLambdaArn?: string;
 
   /**
    * @schema SageMakerLabelingJobSummary#AnnotationConsolidationLambdaArn
@@ -10016,6 +25359,31 @@ export interface SageMakerLabelingJobSummary {
 }
 
 /**
+ * Converts an object of type 'SageMakerLabelingJobSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerLabelingJobSummary(obj: SageMakerLabelingJobSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LabelingJobName': obj.labelingJobName,
+    'LabelingJobArn': obj.labelingJobArn,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'LabelingJobStatus': obj.labelingJobStatus,
+    'LabelCounters': toJson_SageMakerLabelCounters(obj.labelCounters),
+    'WorkteamArn': obj.workteamArn,
+    'PreHumanTaskLambdaArn': obj.preHumanTaskLambdaArn,
+    'AnnotationConsolidationLambdaArn': obj.annotationConsolidationLambdaArn,
+    'FailureReason': obj.failureReason,
+    'LabelingJobOutput': toJson_SageMakerLabelingJobOutput(obj.labelingJobOutput),
+    'InputConfig': toJson_SageMakerLabelingJobInputConfig(obj.inputConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerLabelingJobForWorkteamSummary
  */
 export interface SageMakerLabelingJobForWorkteamSummary {
@@ -10027,17 +25395,17 @@ export interface SageMakerLabelingJobForWorkteamSummary {
   /**
    * @schema SageMakerLabelingJobForWorkteamSummary#JobReferenceCode
    */
-  readonly jobReferenceCode: string;
+  readonly jobReferenceCode?: string;
 
   /**
    * @schema SageMakerLabelingJobForWorkteamSummary#WorkRequesterAccountId
    */
-  readonly workRequesterAccountId: string;
+  readonly workRequesterAccountId?: string;
 
   /**
    * @schema SageMakerLabelingJobForWorkteamSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerLabelingJobForWorkteamSummary#LabelCounters
@@ -10052,18 +25420,96 @@ export interface SageMakerLabelingJobForWorkteamSummary {
 }
 
 /**
+ * Converts an object of type 'SageMakerLabelingJobForWorkteamSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerLabelingJobForWorkteamSummary(obj: SageMakerLabelingJobForWorkteamSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LabelingJobName': obj.labelingJobName,
+    'JobReferenceCode': obj.jobReferenceCode,
+    'WorkRequesterAccountId': obj.workRequesterAccountId,
+    'CreationTime': obj.creationTime,
+    'LabelCounters': toJson_SageMakerLabelCountersForWorkteam(obj.labelCounters),
+    'NumberOfHumanWorkersPerDataObject': obj.numberOfHumanWorkersPerDataObject,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelPackageGroupSummary
+ */
+export interface SageMakerModelPackageGroupSummary {
+  /**
+   * @schema SageMakerModelPackageGroupSummary#ModelPackageGroupName
+   */
+  readonly modelPackageGroupName?: string;
+
+  /**
+   * @schema SageMakerModelPackageGroupSummary#ModelPackageGroupArn
+   */
+  readonly modelPackageGroupArn?: string;
+
+  /**
+   * @schema SageMakerModelPackageGroupSummary#ModelPackageGroupDescription
+   */
+  readonly modelPackageGroupDescription?: string;
+
+  /**
+   * @schema SageMakerModelPackageGroupSummary#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerModelPackageGroupSummary#ModelPackageGroupStatus
+   */
+  readonly modelPackageGroupStatus?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelPackageGroupSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelPackageGroupSummary(obj: SageMakerModelPackageGroupSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageGroupName': obj.modelPackageGroupName,
+    'ModelPackageGroupArn': obj.modelPackageGroupArn,
+    'ModelPackageGroupDescription': obj.modelPackageGroupDescription,
+    'CreationTime': obj.creationTime,
+    'ModelPackageGroupStatus': obj.modelPackageGroupStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerModelPackageSummary
  */
 export interface SageMakerModelPackageSummary {
   /**
    * @schema SageMakerModelPackageSummary#ModelPackageName
    */
-  readonly modelPackageName: string;
+  readonly modelPackageName?: string;
+
+  /**
+   * @schema SageMakerModelPackageSummary#ModelPackageGroupName
+   */
+  readonly modelPackageGroupName?: string;
+
+  /**
+   * @schema SageMakerModelPackageSummary#ModelPackageVersion
+   */
+  readonly modelPackageVersion?: number;
 
   /**
    * @schema SageMakerModelPackageSummary#ModelPackageArn
    */
-  readonly modelPackageArn: string;
+  readonly modelPackageArn?: string;
 
   /**
    * @schema SageMakerModelPackageSummary#ModelPackageDescription
@@ -10073,14 +25519,40 @@ export interface SageMakerModelPackageSummary {
   /**
    * @schema SageMakerModelPackageSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerModelPackageSummary#ModelPackageStatus
    */
-  readonly modelPackageStatus: string;
+  readonly modelPackageStatus?: string;
+
+  /**
+   * @schema SageMakerModelPackageSummary#ModelApprovalStatus
+   */
+  readonly modelApprovalStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerModelPackageSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelPackageSummary(obj: SageMakerModelPackageSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageName': obj.modelPackageName,
+    'ModelPackageGroupName': obj.modelPackageGroupName,
+    'ModelPackageVersion': obj.modelPackageVersion,
+    'ModelPackageArn': obj.modelPackageArn,
+    'ModelPackageDescription': obj.modelPackageDescription,
+    'CreationTime': obj.creationTime,
+    'ModelPackageStatus': obj.modelPackageStatus,
+    'ModelApprovalStatus': obj.modelApprovalStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerModelSummary
@@ -10089,19 +25561,35 @@ export interface SageMakerModelSummary {
   /**
    * @schema SageMakerModelSummary#ModelName
    */
-  readonly modelName: string;
+  readonly modelName?: string;
 
   /**
    * @schema SageMakerModelSummary#ModelArn
    */
-  readonly modelArn: string;
+  readonly modelArn?: string;
 
   /**
    * @schema SageMakerModelSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerModelSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelSummary(obj: SageMakerModelSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelName': obj.modelName,
+    'ModelArn': obj.modelArn,
+    'CreationTime': obj.creationTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerMonitoringScheduleSummary
@@ -10110,34 +25598,65 @@ export interface SageMakerMonitoringScheduleSummary {
   /**
    * @schema SageMakerMonitoringScheduleSummary#MonitoringScheduleName
    */
-  readonly monitoringScheduleName: string;
+  readonly monitoringScheduleName?: string;
 
   /**
    * @schema SageMakerMonitoringScheduleSummary#MonitoringScheduleArn
    */
-  readonly monitoringScheduleArn: string;
+  readonly monitoringScheduleArn?: string;
 
   /**
    * @schema SageMakerMonitoringScheduleSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerMonitoringScheduleSummary#LastModifiedTime
    */
-  readonly lastModifiedTime: string;
+  readonly lastModifiedTime?: string;
 
   /**
    * @schema SageMakerMonitoringScheduleSummary#MonitoringScheduleStatus
    */
-  readonly monitoringScheduleStatus: string;
+  readonly monitoringScheduleStatus?: string;
 
   /**
    * @schema SageMakerMonitoringScheduleSummary#EndpointName
    */
   readonly endpointName?: string;
 
+  /**
+   * @schema SageMakerMonitoringScheduleSummary#MonitoringJobDefinitionName
+   */
+  readonly monitoringJobDefinitionName?: string;
+
+  /**
+   * @schema SageMakerMonitoringScheduleSummary#MonitoringType
+   */
+  readonly monitoringType?: string;
+
 }
+
+/**
+ * Converts an object of type 'SageMakerMonitoringScheduleSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringScheduleSummary(obj: SageMakerMonitoringScheduleSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MonitoringScheduleName': obj.monitoringScheduleName,
+    'MonitoringScheduleArn': obj.monitoringScheduleArn,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'MonitoringScheduleStatus': obj.monitoringScheduleStatus,
+    'EndpointName': obj.endpointName,
+    'MonitoringJobDefinitionName': obj.monitoringJobDefinitionName,
+    'MonitoringType': obj.monitoringType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerNotebookInstanceLifecycleConfigSummary
@@ -10146,12 +25665,12 @@ export interface SageMakerNotebookInstanceLifecycleConfigSummary {
   /**
    * @schema SageMakerNotebookInstanceLifecycleConfigSummary#NotebookInstanceLifecycleConfigName
    */
-  readonly notebookInstanceLifecycleConfigName: string;
+  readonly notebookInstanceLifecycleConfigName?: string;
 
   /**
    * @schema SageMakerNotebookInstanceLifecycleConfigSummary#NotebookInstanceLifecycleConfigArn
    */
-  readonly notebookInstanceLifecycleConfigArn: string;
+  readonly notebookInstanceLifecycleConfigArn?: string;
 
   /**
    * @schema SageMakerNotebookInstanceLifecycleConfigSummary#CreationTime
@@ -10166,18 +25685,35 @@ export interface SageMakerNotebookInstanceLifecycleConfigSummary {
 }
 
 /**
+ * Converts an object of type 'SageMakerNotebookInstanceLifecycleConfigSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerNotebookInstanceLifecycleConfigSummary(obj: SageMakerNotebookInstanceLifecycleConfigSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotebookInstanceLifecycleConfigName': obj.notebookInstanceLifecycleConfigName,
+    'NotebookInstanceLifecycleConfigArn': obj.notebookInstanceLifecycleConfigArn,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerNotebookInstanceSummary
  */
 export interface SageMakerNotebookInstanceSummary {
   /**
    * @schema SageMakerNotebookInstanceSummary#NotebookInstanceName
    */
-  readonly notebookInstanceName: string;
+  readonly notebookInstanceName?: string;
 
   /**
    * @schema SageMakerNotebookInstanceSummary#NotebookInstanceArn
    */
-  readonly notebookInstanceArn: string;
+  readonly notebookInstanceArn?: string;
 
   /**
    * @schema SageMakerNotebookInstanceSummary#NotebookInstanceStatus
@@ -10222,23 +25758,254 @@ export interface SageMakerNotebookInstanceSummary {
 }
 
 /**
+ * Converts an object of type 'SageMakerNotebookInstanceSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerNotebookInstanceSummary(obj: SageMakerNotebookInstanceSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotebookInstanceName': obj.notebookInstanceName,
+    'NotebookInstanceArn': obj.notebookInstanceArn,
+    'NotebookInstanceStatus': obj.notebookInstanceStatus,
+    'Url': obj.url,
+    'InstanceType': obj.instanceType,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'NotebookInstanceLifecycleConfigName': obj.notebookInstanceLifecycleConfigName,
+    'DefaultCodeRepository': obj.defaultCodeRepository,
+    'AdditionalCodeRepositories': obj.additionalCodeRepositories?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerPipelineExecutionStep
+ */
+export interface SageMakerPipelineExecutionStep {
+  /**
+   * @schema SageMakerPipelineExecutionStep#StepName
+   */
+  readonly stepName?: string;
+
+  /**
+   * @schema SageMakerPipelineExecutionStep#StartTime
+   */
+  readonly startTime?: string;
+
+  /**
+   * @schema SageMakerPipelineExecutionStep#EndTime
+   */
+  readonly endTime?: string;
+
+  /**
+   * @schema SageMakerPipelineExecutionStep#StepStatus
+   */
+  readonly stepStatus?: string;
+
+  /**
+   * @schema SageMakerPipelineExecutionStep#CacheHitResult
+   */
+  readonly cacheHitResult?: SageMakerCacheHitResult;
+
+  /**
+   * @schema SageMakerPipelineExecutionStep#FailureReason
+   */
+  readonly failureReason?: string;
+
+  /**
+   * @schema SageMakerPipelineExecutionStep#Metadata
+   */
+  readonly metadata?: SageMakerPipelineExecutionStepMetadata;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerPipelineExecutionStep' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerPipelineExecutionStep(obj: SageMakerPipelineExecutionStep | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StepName': obj.stepName,
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'StepStatus': obj.stepStatus,
+    'CacheHitResult': toJson_SageMakerCacheHitResult(obj.cacheHitResult),
+    'FailureReason': obj.failureReason,
+    'Metadata': toJson_SageMakerPipelineExecutionStepMetadata(obj.metadata),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerPipelineExecutionSummary
+ */
+export interface SageMakerPipelineExecutionSummary {
+  /**
+   * @schema SageMakerPipelineExecutionSummary#PipelineExecutionArn
+   */
+  readonly pipelineExecutionArn?: string;
+
+  /**
+   * @schema SageMakerPipelineExecutionSummary#StartTime
+   */
+  readonly startTime?: string;
+
+  /**
+   * @schema SageMakerPipelineExecutionSummary#PipelineExecutionStatus
+   */
+  readonly pipelineExecutionStatus?: string;
+
+  /**
+   * @schema SageMakerPipelineExecutionSummary#PipelineExecutionDescription
+   */
+  readonly pipelineExecutionDescription?: string;
+
+  /**
+   * @schema SageMakerPipelineExecutionSummary#PipelineExecutionDisplayName
+   */
+  readonly pipelineExecutionDisplayName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerPipelineExecutionSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerPipelineExecutionSummary(obj: SageMakerPipelineExecutionSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineExecutionArn': obj.pipelineExecutionArn,
+    'StartTime': obj.startTime,
+    'PipelineExecutionStatus': obj.pipelineExecutionStatus,
+    'PipelineExecutionDescription': obj.pipelineExecutionDescription,
+    'PipelineExecutionDisplayName': obj.pipelineExecutionDisplayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerParameter
+ */
+export interface SageMakerParameter {
+  /**
+   * @schema SageMakerParameter#Name
+   */
+  readonly name?: string;
+
+  /**
+   * @schema SageMakerParameter#Value
+   */
+  readonly value?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerParameter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerParameter(obj: SageMakerParameter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerPipelineSummary
+ */
+export interface SageMakerPipelineSummary {
+  /**
+   * @schema SageMakerPipelineSummary#PipelineArn
+   */
+  readonly pipelineArn?: string;
+
+  /**
+   * @schema SageMakerPipelineSummary#PipelineName
+   */
+  readonly pipelineName?: string;
+
+  /**
+   * @schema SageMakerPipelineSummary#PipelineDisplayName
+   */
+  readonly pipelineDisplayName?: string;
+
+  /**
+   * @schema SageMakerPipelineSummary#PipelineDescription
+   */
+  readonly pipelineDescription?: string;
+
+  /**
+   * @schema SageMakerPipelineSummary#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerPipelineSummary#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerPipelineSummary#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+  /**
+   * @schema SageMakerPipelineSummary#LastExecutionTime
+   */
+  readonly lastExecutionTime?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerPipelineSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerPipelineSummary(obj: SageMakerPipelineSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineArn': obj.pipelineArn,
+    'PipelineName': obj.pipelineName,
+    'PipelineDisplayName': obj.pipelineDisplayName,
+    'PipelineDescription': obj.pipelineDescription,
+    'RoleArn': obj.roleArn,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'LastExecutionTime': obj.lastExecutionTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerProcessingJobSummary
  */
 export interface SageMakerProcessingJobSummary {
   /**
    * @schema SageMakerProcessingJobSummary#ProcessingJobName
    */
-  readonly processingJobName: string;
+  readonly processingJobName?: string;
 
   /**
    * @schema SageMakerProcessingJobSummary#ProcessingJobArn
    */
-  readonly processingJobArn: string;
+  readonly processingJobArn?: string;
 
   /**
    * @schema SageMakerProcessingJobSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerProcessingJobSummary#ProcessingEndTime
@@ -10253,7 +26020,7 @@ export interface SageMakerProcessingJobSummary {
   /**
    * @schema SageMakerProcessingJobSummary#ProcessingJobStatus
    */
-  readonly processingJobStatus: string;
+  readonly processingJobStatus?: string;
 
   /**
    * @schema SageMakerProcessingJobSummary#FailureReason
@@ -10268,23 +26035,99 @@ export interface SageMakerProcessingJobSummary {
 }
 
 /**
+ * Converts an object of type 'SageMakerProcessingJobSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProcessingJobSummary(obj: SageMakerProcessingJobSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProcessingJobName': obj.processingJobName,
+    'ProcessingJobArn': obj.processingJobArn,
+    'CreationTime': obj.creationTime,
+    'ProcessingEndTime': obj.processingEndTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'ProcessingJobStatus': obj.processingJobStatus,
+    'FailureReason': obj.failureReason,
+    'ExitMessage': obj.exitMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerProjectSummary
+ */
+export interface SageMakerProjectSummary {
+  /**
+   * @schema SageMakerProjectSummary#ProjectName
+   */
+  readonly projectName?: string;
+
+  /**
+   * @schema SageMakerProjectSummary#ProjectDescription
+   */
+  readonly projectDescription?: string;
+
+  /**
+   * @schema SageMakerProjectSummary#ProjectArn
+   */
+  readonly projectArn?: string;
+
+  /**
+   * @schema SageMakerProjectSummary#ProjectId
+   */
+  readonly projectId?: string;
+
+  /**
+   * @schema SageMakerProjectSummary#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerProjectSummary#ProjectStatus
+   */
+  readonly projectStatus?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerProjectSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProjectSummary(obj: SageMakerProjectSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProjectName': obj.projectName,
+    'ProjectDescription': obj.projectDescription,
+    'ProjectArn': obj.projectArn,
+    'ProjectId': obj.projectId,
+    'CreationTime': obj.creationTime,
+    'ProjectStatus': obj.projectStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerTrainingJobSummary
  */
 export interface SageMakerTrainingJobSummary {
   /**
    * @schema SageMakerTrainingJobSummary#TrainingJobName
    */
-  readonly trainingJobName: string;
+  readonly trainingJobName?: string;
 
   /**
    * @schema SageMakerTrainingJobSummary#TrainingJobArn
    */
-  readonly trainingJobArn: string;
+  readonly trainingJobArn?: string;
 
   /**
    * @schema SageMakerTrainingJobSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerTrainingJobSummary#TrainingEndTime
@@ -10299,9 +26142,28 @@ export interface SageMakerTrainingJobSummary {
   /**
    * @schema SageMakerTrainingJobSummary#TrainingJobStatus
    */
-  readonly trainingJobStatus: string;
+  readonly trainingJobStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerTrainingJobSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrainingJobSummary(obj: SageMakerTrainingJobSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrainingJobName': obj.trainingJobName,
+    'TrainingJobArn': obj.trainingJobArn,
+    'CreationTime': obj.creationTime,
+    'TrainingEndTime': obj.trainingEndTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'TrainingJobStatus': obj.trainingJobStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerTransformJobSummary
@@ -10310,17 +26172,17 @@ export interface SageMakerTransformJobSummary {
   /**
    * @schema SageMakerTransformJobSummary#TransformJobName
    */
-  readonly transformJobName: string;
+  readonly transformJobName?: string;
 
   /**
    * @schema SageMakerTransformJobSummary#TransformJobArn
    */
-  readonly transformJobArn: string;
+  readonly transformJobArn?: string;
 
   /**
    * @schema SageMakerTransformJobSummary#CreationTime
    */
-  readonly creationTime: string;
+  readonly creationTime?: string;
 
   /**
    * @schema SageMakerTransformJobSummary#TransformEndTime
@@ -10335,7 +26197,7 @@ export interface SageMakerTransformJobSummary {
   /**
    * @schema SageMakerTransformJobSummary#TransformJobStatus
    */
-  readonly transformJobStatus: string;
+  readonly transformJobStatus?: string;
 
   /**
    * @schema SageMakerTransformJobSummary#FailureReason
@@ -10343,6 +26205,26 @@ export interface SageMakerTransformJobSummary {
   readonly failureReason?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerTransformJobSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTransformJobSummary(obj: SageMakerTransformJobSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TransformJobName': obj.transformJobName,
+    'TransformJobArn': obj.transformJobArn,
+    'CreationTime': obj.creationTime,
+    'TransformEndTime': obj.transformEndTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'TransformJobStatus': obj.transformJobStatus,
+    'FailureReason': obj.failureReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerTrialComponentSummary
@@ -10406,6 +26288,30 @@ export interface SageMakerTrialComponentSummary {
 }
 
 /**
+ * Converts an object of type 'SageMakerTrialComponentSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrialComponentSummary(obj: SageMakerTrialComponentSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialComponentName': obj.trialComponentName,
+    'TrialComponentArn': obj.trialComponentArn,
+    'DisplayName': obj.displayName,
+    'TrialComponentSource': toJson_SageMakerTrialComponentSource(obj.trialComponentSource),
+    'Status': toJson_SageMakerTrialComponentStatus(obj.status),
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'CreationTime': obj.creationTime,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'LastModifiedTime': obj.lastModifiedTime,
+    'LastModifiedBy': toJson_SageMakerUserContext(obj.lastModifiedBy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerTrialSummary
  */
 export interface SageMakerTrialSummary {
@@ -10442,6 +26348,25 @@ export interface SageMakerTrialSummary {
 }
 
 /**
+ * Converts an object of type 'SageMakerTrialSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrialSummary(obj: SageMakerTrialSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialArn': obj.trialArn,
+    'TrialName': obj.trialName,
+    'DisplayName': obj.displayName,
+    'TrialSource': toJson_SageMakerTrialSource(obj.trialSource),
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerUserProfileDetails
  */
 export interface SageMakerUserProfileDetails {
@@ -10473,15 +26398,84 @@ export interface SageMakerUserProfileDetails {
 }
 
 /**
+ * Converts an object of type 'SageMakerUserProfileDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUserProfileDetails(obj: SageMakerUserProfileDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DomainId': obj.domainId,
+    'UserProfileName': obj.userProfileName,
+    'Status': obj.status,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDevice
+ */
+export interface SageMakerDevice {
+  /**
+   * @schema SageMakerDevice#DeviceName
+   */
+  readonly deviceName?: string;
+
+  /**
+   * @schema SageMakerDevice#Description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema SageMakerDevice#IotThingName
+   */
+  readonly iotThingName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDevice' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDevice(obj: SageMakerDevice | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceName': obj.deviceName,
+    'Description': obj.description,
+    'IotThingName': obj.iotThingName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerRenderableTask
  */
 export interface SageMakerRenderableTask {
   /**
    * @schema SageMakerRenderableTask#Input
    */
-  readonly input: string;
+  readonly input?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerRenderableTask' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerRenderableTask(obj: SageMakerRenderableTask | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Input': obj.input,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerRenderingError
@@ -10490,14 +26484,29 @@ export interface SageMakerRenderingError {
   /**
    * @schema SageMakerRenderingError#Code
    */
-  readonly code: string;
+  readonly code?: string;
 
   /**
    * @schema SageMakerRenderingError#Message
    */
-  readonly message: string;
+  readonly message?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerRenderingError' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerRenderingError(obj: SageMakerRenderingError | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Code': obj.code,
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerSearchExpression
@@ -10526,6 +26535,23 @@ export interface SageMakerSearchExpression {
 }
 
 /**
+ * Converts an object of type 'SageMakerSearchExpression' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerSearchExpression(obj: SageMakerSearchExpression | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Filters': obj.filters?.map(y => toJson_SageMakerFilter(y)),
+    'NestedFilters': obj.nestedFilters?.map(y => toJson_SageMakerNestedFilters(y)),
+    'SubExpressions': obj.subExpressions?.map(y => toJson_SageMakerSearchExpression(y)),
+    'Operator': obj.operator,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerSearchRecord
  */
 export interface SageMakerSearchRecord {
@@ -10549,7 +26575,91 @@ export interface SageMakerSearchRecord {
    */
   readonly trialComponent?: SageMakerTrialComponent;
 
+  /**
+   * @schema SageMakerSearchRecord#Endpoint
+   */
+  readonly endpoint?: SageMakerEndpoint;
+
+  /**
+   * @schema SageMakerSearchRecord#ModelPackage
+   */
+  readonly modelPackage?: SageMakerModelPackage;
+
+  /**
+   * @schema SageMakerSearchRecord#ModelPackageGroup
+   */
+  readonly modelPackageGroup?: SageMakerModelPackageGroup;
+
+  /**
+   * @schema SageMakerSearchRecord#Pipeline
+   */
+  readonly pipeline?: SageMakerPipeline;
+
+  /**
+   * @schema SageMakerSearchRecord#PipelineExecution
+   */
+  readonly pipelineExecution?: SageMakerPipelineExecution;
+
+  /**
+   * @schema SageMakerSearchRecord#FeatureGroup
+   */
+  readonly featureGroup?: SageMakerFeatureGroup;
+
 }
+
+/**
+ * Converts an object of type 'SageMakerSearchRecord' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerSearchRecord(obj: SageMakerSearchRecord | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrainingJob': toJson_SageMakerTrainingJob(obj.trainingJob),
+    'Experiment': toJson_SageMakerExperiment(obj.experiment),
+    'Trial': toJson_SageMakerTrial(obj.trial),
+    'TrialComponent': toJson_SageMakerTrialComponent(obj.trialComponent),
+    'Endpoint': toJson_SageMakerEndpoint(obj.endpoint),
+    'ModelPackage': toJson_SageMakerModelPackage(obj.modelPackage),
+    'ModelPackageGroup': toJson_SageMakerModelPackageGroup(obj.modelPackageGroup),
+    'Pipeline': toJson_SageMakerPipeline(obj.pipeline),
+    'PipelineExecution': toJson_SageMakerPipelineExecution(obj.pipelineExecution),
+    'FeatureGroup': toJson_SageMakerFeatureGroup(obj.featureGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerOutputParameter
+ */
+export interface SageMakerOutputParameter {
+  /**
+   * @schema SageMakerOutputParameter#Name
+   */
+  readonly name?: string;
+
+  /**
+   * @schema SageMakerOutputParameter#Value
+   */
+  readonly value?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerOutputParameter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerOutputParameter(obj: SageMakerOutputParameter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerGitConfigForUpdate
@@ -10563,15 +26673,43 @@ export interface SageMakerGitConfigForUpdate {
 }
 
 /**
+ * Converts an object of type 'SageMakerGitConfigForUpdate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerGitConfigForUpdate(obj: SageMakerGitConfigForUpdate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SecretArn': obj.secretArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerVariantProperty
  */
 export interface SageMakerVariantProperty {
   /**
    * @schema SageMakerVariantProperty#VariantPropertyType
    */
-  readonly variantPropertyType: string;
+  readonly variantPropertyType?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerVariantProperty' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerVariantProperty(obj: SageMakerVariantProperty | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VariantPropertyType': obj.variantPropertyType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDesiredWeightAndCapacity
@@ -10580,7 +26718,7 @@ export interface SageMakerDesiredWeightAndCapacity {
   /**
    * @schema SageMakerDesiredWeightAndCapacity#VariantName
    */
-  readonly variantName: string;
+  readonly variantName?: string;
 
   /**
    * @schema SageMakerDesiredWeightAndCapacity#DesiredWeight
@@ -10595,13 +26733,72 @@ export interface SageMakerDesiredWeightAndCapacity {
 }
 
 /**
+ * Converts an object of type 'SageMakerDesiredWeightAndCapacity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDesiredWeightAndCapacity(obj: SageMakerDesiredWeightAndCapacity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VariantName': obj.variantName,
+    'DesiredWeight': obj.desiredWeight,
+    'DesiredInstanceCount': obj.desiredInstanceCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerProfilerConfigForUpdate
+ */
+export interface SageMakerProfilerConfigForUpdate {
+  /**
+   * @schema SageMakerProfilerConfigForUpdate#S3OutputPath
+   */
+  readonly s3OutputPath?: string;
+
+  /**
+   * @schema SageMakerProfilerConfigForUpdate#ProfilingIntervalInMilliseconds
+   */
+  readonly profilingIntervalInMilliseconds?: number;
+
+  /**
+   * @schema SageMakerProfilerConfigForUpdate#ProfilingParameters
+   */
+  readonly profilingParameters?: { [key: string]: string };
+
+  /**
+   * @schema SageMakerProfilerConfigForUpdate#DisableProfiler
+   */
+  readonly disableProfiler?: boolean;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerProfilerConfigForUpdate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProfilerConfigForUpdate(obj: SageMakerProfilerConfigForUpdate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3OutputPath': obj.s3OutputPath,
+    'ProfilingIntervalInMilliseconds': obj.profilingIntervalInMilliseconds,
+    'ProfilingParameters': ((obj.profilingParameters) === undefined) ? undefined : (Object.entries(obj.profilingParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'DisableProfiler': obj.disableProfiler,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerHyperParameterSpecification
  */
 export interface SageMakerHyperParameterSpecification {
   /**
    * @schema SageMakerHyperParameterSpecification#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema SageMakerHyperParameterSpecification#Description
@@ -10611,7 +26808,7 @@ export interface SageMakerHyperParameterSpecification {
   /**
    * @schema SageMakerHyperParameterSpecification#Type
    */
-  readonly type: string;
+  readonly type?: string;
 
   /**
    * @schema SageMakerHyperParameterSpecification#Range
@@ -10636,20 +26833,55 @@ export interface SageMakerHyperParameterSpecification {
 }
 
 /**
+ * Converts an object of type 'SageMakerHyperParameterSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerHyperParameterSpecification(obj: SageMakerHyperParameterSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Description': obj.description,
+    'Type': obj.type,
+    'Range': toJson_SageMakerParameterRange(obj.range),
+    'IsTunable': obj.isTunable,
+    'IsRequired': obj.isRequired,
+    'DefaultValue': obj.defaultValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerMetricDefinition
  */
 export interface SageMakerMetricDefinition {
   /**
    * @schema SageMakerMetricDefinition#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema SageMakerMetricDefinition#Regex
    */
-  readonly regex: string;
+  readonly regex?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerMetricDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMetricDefinition(obj: SageMakerMetricDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Regex': obj.regex,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerChannelSpecification
@@ -10658,7 +26890,7 @@ export interface SageMakerChannelSpecification {
   /**
    * @schema SageMakerChannelSpecification#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema SageMakerChannelSpecification#Description
@@ -10673,7 +26905,7 @@ export interface SageMakerChannelSpecification {
   /**
    * @schema SageMakerChannelSpecification#SupportedContentTypes
    */
-  readonly supportedContentTypes: string[];
+  readonly supportedContentTypes?: string[];
 
   /**
    * @schema SageMakerChannelSpecification#SupportedCompressionTypes
@@ -10683,9 +26915,28 @@ export interface SageMakerChannelSpecification {
   /**
    * @schema SageMakerChannelSpecification#SupportedInputModes
    */
-  readonly supportedInputModes: string[];
+  readonly supportedInputModes?: string[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerChannelSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerChannelSpecification(obj: SageMakerChannelSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Description': obj.description,
+    'IsRequired': obj.isRequired,
+    'SupportedContentTypes': obj.supportedContentTypes?.map(y => y),
+    'SupportedCompressionTypes': obj.supportedCompressionTypes?.map(y => y),
+    'SupportedInputModes': obj.supportedInputModes?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerHyperParameterTuningJobObjective
@@ -10694,14 +26945,29 @@ export interface SageMakerHyperParameterTuningJobObjective {
   /**
    * @schema SageMakerHyperParameterTuningJobObjective#Type
    */
-  readonly type: string;
+  readonly type?: string;
 
   /**
    * @schema SageMakerHyperParameterTuningJobObjective#MetricName
    */
-  readonly metricName: string;
+  readonly metricName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerHyperParameterTuningJobObjective' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerHyperParameterTuningJobObjective(obj: SageMakerHyperParameterTuningJobObjective | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'MetricName': obj.metricName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerModelPackageContainerDefinition
@@ -10715,7 +26981,7 @@ export interface SageMakerModelPackageContainerDefinition {
   /**
    * @schema SageMakerModelPackageContainerDefinition#Image
    */
-  readonly image: string;
+  readonly image?: string;
 
   /**
    * @schema SageMakerModelPackageContainerDefinition#ImageDigest
@@ -10732,7 +26998,31 @@ export interface SageMakerModelPackageContainerDefinition {
    */
   readonly productId?: string;
 
+  /**
+   * @schema SageMakerModelPackageContainerDefinition#Environment
+   */
+  readonly environment?: { [key: string]: string };
+
 }
+
+/**
+ * Converts an object of type 'SageMakerModelPackageContainerDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelPackageContainerDefinition(obj: SageMakerModelPackageContainerDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContainerHostname': obj.containerHostname,
+    'Image': obj.image,
+    'ImageDigest': obj.imageDigest,
+    'ModelDataUrl': obj.modelDataUrl,
+    'ProductId': obj.productId,
+    'Environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerAlgorithmValidationProfile
@@ -10741,12 +27031,12 @@ export interface SageMakerAlgorithmValidationProfile {
   /**
    * @schema SageMakerAlgorithmValidationProfile#ProfileName
    */
-  readonly profileName: string;
+  readonly profileName?: string;
 
   /**
    * @schema SageMakerAlgorithmValidationProfile#TrainingJobDefinition
    */
-  readonly trainingJobDefinition: SageMakerTrainingJobDefinition;
+  readonly trainingJobDefinition?: SageMakerTrainingJobDefinition;
 
   /**
    * @schema SageMakerAlgorithmValidationProfile#TransformJobDefinition
@@ -10756,13 +27046,29 @@ export interface SageMakerAlgorithmValidationProfile {
 }
 
 /**
+ * Converts an object of type 'SageMakerAlgorithmValidationProfile' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAlgorithmValidationProfile(obj: SageMakerAlgorithmValidationProfile | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProfileName': obj.profileName,
+    'TrainingJobDefinition': toJson_SageMakerTrainingJobDefinition(obj.trainingJobDefinition),
+    'TransformJobDefinition': toJson_SageMakerTransformJobDefinition(obj.transformJobDefinition),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerKernelSpec
  */
 export interface SageMakerKernelSpec {
   /**
    * @schema SageMakerKernelSpec#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema SageMakerKernelSpec#DisplayName
@@ -10770,6 +27076,21 @@ export interface SageMakerKernelSpec {
   readonly displayName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerKernelSpec' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerKernelSpec(obj: SageMakerKernelSpec | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'DisplayName': obj.displayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerFileSystemConfig
@@ -10793,15 +27114,76 @@ export interface SageMakerFileSystemConfig {
 }
 
 /**
+ * Converts an object of type 'SageMakerFileSystemConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerFileSystemConfig(obj: SageMakerFileSystemConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MountPath': obj.mountPath,
+    'DefaultUid': obj.defaultUid,
+    'DefaultGid': obj.defaultGid,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerArtifactSourceType
+ */
+export interface SageMakerArtifactSourceType {
+  /**
+   * @schema SageMakerArtifactSourceType#SourceIdType
+   */
+  readonly sourceIdType?: string;
+
+  /**
+   * @schema SageMakerArtifactSourceType#Value
+   */
+  readonly value?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerArtifactSourceType' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerArtifactSourceType(obj: SageMakerArtifactSourceType | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceIdType': obj.sourceIdType,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerAutoMlDataSource
  */
 export interface SageMakerAutoMlDataSource {
   /**
    * @schema SageMakerAutoMlDataSource#S3DataSource
    */
-  readonly s3DataSource: SageMakerAutoMls3DataSource;
+  readonly s3DataSource?: SageMakerAutoMls3DataSource;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerAutoMlDataSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAutoMlDataSource(obj: SageMakerAutoMlDataSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3DataSource': toJson_SageMakerAutoMls3DataSource(obj.s3DataSource),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerAutoMlJobCompletionCriteria
@@ -10825,6 +27207,22 @@ export interface SageMakerAutoMlJobCompletionCriteria {
 }
 
 /**
+ * Converts an object of type 'SageMakerAutoMlJobCompletionCriteria' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAutoMlJobCompletionCriteria(obj: SageMakerAutoMlJobCompletionCriteria | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxCandidates': obj.maxCandidates,
+    'MaxRuntimePerTrainingJobInSeconds': obj.maxRuntimePerTrainingJobInSeconds,
+    'MaxAutoMLJobRuntimeInSeconds': obj.maxAutoMlJobRuntimeInSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerAutoMlSecurityConfig
  */
 export interface SageMakerAutoMlSecurityConfig {
@@ -10846,18 +27244,34 @@ export interface SageMakerAutoMlSecurityConfig {
 }
 
 /**
+ * Converts an object of type 'SageMakerAutoMlSecurityConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAutoMlSecurityConfig(obj: SageMakerAutoMlSecurityConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VolumeKmsKeyId': obj.volumeKmsKeyId,
+    'EnableInterContainerTrafficEncryption': obj.enableInterContainerTrafficEncryption,
+    'VpcConfig': toJson_SageMakerVpcConfig(obj.vpcConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerTargetPlatform
  */
 export interface SageMakerTargetPlatform {
   /**
    * @schema SageMakerTargetPlatform#Os
    */
-  readonly os: string;
+  readonly os?: string;
 
   /**
    * @schema SageMakerTargetPlatform#Arch
    */
-  readonly arch: string;
+  readonly arch?: string;
 
   /**
    * @schema SageMakerTargetPlatform#Accelerator
@@ -10865,6 +27279,219 @@ export interface SageMakerTargetPlatform {
   readonly accelerator?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerTargetPlatform' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTargetPlatform(obj: SageMakerTargetPlatform | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Os': obj.os,
+    'Arch': obj.arch,
+    'Accelerator': obj.accelerator,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerMonitoringConstraintsResource
+ */
+export interface SageMakerMonitoringConstraintsResource {
+  /**
+   * @schema SageMakerMonitoringConstraintsResource#S3Uri
+   */
+  readonly s3Uri?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerMonitoringConstraintsResource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringConstraintsResource(obj: SageMakerMonitoringConstraintsResource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3Uri': obj.s3Uri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerMonitoringStatisticsResource
+ */
+export interface SageMakerMonitoringStatisticsResource {
+  /**
+   * @schema SageMakerMonitoringStatisticsResource#S3Uri
+   */
+  readonly s3Uri?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerMonitoringStatisticsResource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringStatisticsResource(obj: SageMakerMonitoringStatisticsResource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3Uri': obj.s3Uri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerEndpointInput
+ */
+export interface SageMakerEndpointInput {
+  /**
+   * @schema SageMakerEndpointInput#EndpointName
+   */
+  readonly endpointName?: string;
+
+  /**
+   * @schema SageMakerEndpointInput#LocalPath
+   */
+  readonly localPath?: string;
+
+  /**
+   * @schema SageMakerEndpointInput#S3InputMode
+   */
+  readonly s3InputMode?: string;
+
+  /**
+   * @schema SageMakerEndpointInput#S3DataDistributionType
+   */
+  readonly s3DataDistributionType?: string;
+
+  /**
+   * @schema SageMakerEndpointInput#FeaturesAttribute
+   */
+  readonly featuresAttribute?: string;
+
+  /**
+   * @schema SageMakerEndpointInput#InferenceAttribute
+   */
+  readonly inferenceAttribute?: string;
+
+  /**
+   * @schema SageMakerEndpointInput#ProbabilityAttribute
+   */
+  readonly probabilityAttribute?: string;
+
+  /**
+   * @schema SageMakerEndpointInput#ProbabilityThresholdAttribute
+   */
+  readonly probabilityThresholdAttribute?: number;
+
+  /**
+   * @schema SageMakerEndpointInput#StartTimeOffset
+   */
+  readonly startTimeOffset?: string;
+
+  /**
+   * @schema SageMakerEndpointInput#EndTimeOffset
+   */
+  readonly endTimeOffset?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerEndpointInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerEndpointInput(obj: SageMakerEndpointInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointName': obj.endpointName,
+    'LocalPath': obj.localPath,
+    'S3InputMode': obj.s3InputMode,
+    'S3DataDistributionType': obj.s3DataDistributionType,
+    'FeaturesAttribute': obj.featuresAttribute,
+    'InferenceAttribute': obj.inferenceAttribute,
+    'ProbabilityAttribute': obj.probabilityAttribute,
+    'ProbabilityThresholdAttribute': obj.probabilityThresholdAttribute,
+    'StartTimeOffset': obj.startTimeOffset,
+    'EndTimeOffset': obj.endTimeOffset,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerMonitoringOutput
+ */
+export interface SageMakerMonitoringOutput {
+  /**
+   * @schema SageMakerMonitoringOutput#S3Output
+   */
+  readonly s3Output?: SageMakerMonitoringS3Output;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerMonitoringOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringOutput(obj: SageMakerMonitoringOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3Output': toJson_SageMakerMonitoringS3Output(obj.s3Output),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerMonitoringClusterConfig
+ */
+export interface SageMakerMonitoringClusterConfig {
+  /**
+   * @schema SageMakerMonitoringClusterConfig#InstanceCount
+   */
+  readonly instanceCount?: number;
+
+  /**
+   * @schema SageMakerMonitoringClusterConfig#InstanceType
+   */
+  readonly instanceType?: string;
+
+  /**
+   * @schema SageMakerMonitoringClusterConfig#VolumeSizeInGB
+   */
+  readonly volumeSizeInGb?: number;
+
+  /**
+   * @schema SageMakerMonitoringClusterConfig#VolumeKmsKeyId
+   */
+  readonly volumeKmsKeyId?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerMonitoringClusterConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringClusterConfig(obj: SageMakerMonitoringClusterConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceCount': obj.instanceCount,
+    'InstanceType': obj.instanceType,
+    'VolumeSizeInGB': obj.volumeSizeInGb,
+    'VolumeKmsKeyId': obj.volumeKmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerSharingSettings
@@ -10888,6 +27515,22 @@ export interface SageMakerSharingSettings {
 }
 
 /**
+ * Converts an object of type 'SageMakerSharingSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerSharingSettings(obj: SageMakerSharingSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NotebookOutputOption': obj.notebookOutputOption,
+    'S3OutputPath': obj.s3OutputPath,
+    'S3KmsKeyId': obj.s3KmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerJupyterServerAppSettings
  */
 export interface SageMakerJupyterServerAppSettings {
@@ -10897,6 +27540,20 @@ export interface SageMakerJupyterServerAppSettings {
   readonly defaultResourceSpec?: SageMakerResourceSpec;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerJupyterServerAppSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerJupyterServerAppSettings(obj: SageMakerJupyterServerAppSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DefaultResourceSpec': toJson_SageMakerResourceSpec(obj.defaultResourceSpec),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerKernelGatewayAppSettings
@@ -10915,6 +27572,21 @@ export interface SageMakerKernelGatewayAppSettings {
 }
 
 /**
+ * Converts an object of type 'SageMakerKernelGatewayAppSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerKernelGatewayAppSettings(obj: SageMakerKernelGatewayAppSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DefaultResourceSpec': toJson_SageMakerResourceSpec(obj.defaultResourceSpec),
+    'CustomImages': obj.customImages?.map(y => toJson_SageMakerCustomImage(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerTensorBoardAppSettings
  */
 export interface SageMakerTensorBoardAppSettings {
@@ -10926,15 +27598,74 @@ export interface SageMakerTensorBoardAppSettings {
 }
 
 /**
+ * Converts an object of type 'SageMakerTensorBoardAppSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTensorBoardAppSettings(obj: SageMakerTensorBoardAppSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DefaultResourceSpec': toJson_SageMakerResourceSpec(obj.defaultResourceSpec),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerProductionVariantCoreDumpConfig
+ */
+export interface SageMakerProductionVariantCoreDumpConfig {
+  /**
+   * @schema SageMakerProductionVariantCoreDumpConfig#DestinationS3Uri
+   */
+  readonly destinationS3Uri?: string;
+
+  /**
+   * @schema SageMakerProductionVariantCoreDumpConfig#KmsKeyId
+   */
+  readonly kmsKeyId?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerProductionVariantCoreDumpConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProductionVariantCoreDumpConfig(obj: SageMakerProductionVariantCoreDumpConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DestinationS3Uri': obj.destinationS3Uri,
+    'KmsKeyId': obj.kmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCaptureOption
  */
 export interface SageMakerCaptureOption {
   /**
    * @schema SageMakerCaptureOption#CaptureMode
    */
-  readonly captureMode: string;
+  readonly captureMode?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCaptureOption' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCaptureOption(obj: SageMakerCaptureOption | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CaptureMode': obj.captureMode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCaptureContentTypeHeader
@@ -10953,15 +27684,143 @@ export interface SageMakerCaptureContentTypeHeader {
 }
 
 /**
+ * Converts an object of type 'SageMakerCaptureContentTypeHeader' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCaptureContentTypeHeader(obj: SageMakerCaptureContentTypeHeader | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CsvContentTypes': obj.csvContentTypes?.map(y => y),
+    'JsonContentTypes': obj.jsonContentTypes?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerOnlineStoreSecurityConfig
+ */
+export interface SageMakerOnlineStoreSecurityConfig {
+  /**
+   * @schema SageMakerOnlineStoreSecurityConfig#KmsKeyId
+   */
+  readonly kmsKeyId?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerOnlineStoreSecurityConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerOnlineStoreSecurityConfig(obj: SageMakerOnlineStoreSecurityConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'KmsKeyId': obj.kmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerS3StorageConfig
+ */
+export interface SageMakerS3StorageConfig {
+  /**
+   * @schema SageMakerS3StorageConfig#S3Uri
+   */
+  readonly s3Uri?: string;
+
+  /**
+   * @schema SageMakerS3StorageConfig#KmsKeyId
+   */
+  readonly kmsKeyId?: string;
+
+  /**
+   * @schema SageMakerS3StorageConfig#ResolvedOutputS3Uri
+   */
+  readonly resolvedOutputS3Uri?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerS3StorageConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerS3StorageConfig(obj: SageMakerS3StorageConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3Uri': obj.s3Uri,
+    'KmsKeyId': obj.kmsKeyId,
+    'ResolvedOutputS3Uri': obj.resolvedOutputS3Uri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDataCatalogConfig
+ */
+export interface SageMakerDataCatalogConfig {
+  /**
+   * @schema SageMakerDataCatalogConfig#TableName
+   */
+  readonly tableName?: string;
+
+  /**
+   * @schema SageMakerDataCatalogConfig#Catalog
+   */
+  readonly catalog?: string;
+
+  /**
+   * @schema SageMakerDataCatalogConfig#Database
+   */
+  readonly database?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDataCatalogConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDataCatalogConfig(obj: SageMakerDataCatalogConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TableName': obj.tableName,
+    'Catalog': obj.catalog,
+    'Database': obj.database,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerHumanLoopActivationConditionsConfig
  */
 export interface SageMakerHumanLoopActivationConditionsConfig {
   /**
    * @schema SageMakerHumanLoopActivationConditionsConfig#HumanLoopActivationConditions
    */
-  readonly humanLoopActivationConditions: string;
+  readonly humanLoopActivationConditions?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerHumanLoopActivationConditionsConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerHumanLoopActivationConditionsConfig(obj: SageMakerHumanLoopActivationConditionsConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HumanLoopActivationConditions': obj.humanLoopActivationConditions,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerPublicWorkforceTaskPrice
@@ -10975,20 +27834,49 @@ export interface SageMakerPublicWorkforceTaskPrice {
 }
 
 /**
+ * Converts an object of type 'SageMakerPublicWorkforceTaskPrice' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerPublicWorkforceTaskPrice(obj: SageMakerPublicWorkforceTaskPrice | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AmountInUsd': toJson_SageMakerUsd(obj.amountInUsd),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerResourceLimits
  */
 export interface SageMakerResourceLimits {
   /**
    * @schema SageMakerResourceLimits#MaxNumberOfTrainingJobs
    */
-  readonly maxNumberOfTrainingJobs: number;
+  readonly maxNumberOfTrainingJobs?: number;
 
   /**
    * @schema SageMakerResourceLimits#MaxParallelTrainingJobs
    */
-  readonly maxParallelTrainingJobs: number;
+  readonly maxParallelTrainingJobs?: number;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerResourceLimits' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerResourceLimits(obj: SageMakerResourceLimits | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxNumberOfTrainingJobs': obj.maxNumberOfTrainingJobs,
+    'MaxParallelTrainingJobs': obj.maxParallelTrainingJobs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerParameterRanges
@@ -11012,15 +27900,45 @@ export interface SageMakerParameterRanges {
 }
 
 /**
+ * Converts an object of type 'SageMakerParameterRanges' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerParameterRanges(obj: SageMakerParameterRanges | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IntegerParameterRanges': obj.integerParameterRanges?.map(y => toJson_SageMakerIntegerParameterRange(y)),
+    'ContinuousParameterRanges': obj.continuousParameterRanges?.map(y => toJson_SageMakerContinuousParameterRange(y)),
+    'CategoricalParameterRanges': obj.categoricalParameterRanges?.map(y => toJson_SageMakerCategoricalParameterRange(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerTuningJobCompletionCriteria
  */
 export interface SageMakerTuningJobCompletionCriteria {
   /**
    * @schema SageMakerTuningJobCompletionCriteria#TargetObjectiveMetricValue
    */
-  readonly targetObjectiveMetricValue: number;
+  readonly targetObjectiveMetricValue?: number;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerTuningJobCompletionCriteria' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTuningJobCompletionCriteria(obj: SageMakerTuningJobCompletionCriteria | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TargetObjectiveMetricValue': obj.targetObjectiveMetricValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerHyperParameterAlgorithmSpecification
@@ -11034,7 +27952,7 @@ export interface SageMakerHyperParameterAlgorithmSpecification {
   /**
    * @schema SageMakerHyperParameterAlgorithmSpecification#TrainingInputMode
    */
-  readonly trainingInputMode: string;
+  readonly trainingInputMode?: string;
 
   /**
    * @schema SageMakerHyperParameterAlgorithmSpecification#AlgorithmName
@@ -11049,6 +27967,23 @@ export interface SageMakerHyperParameterAlgorithmSpecification {
 }
 
 /**
+ * Converts an object of type 'SageMakerHyperParameterAlgorithmSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerHyperParameterAlgorithmSpecification(obj: SageMakerHyperParameterAlgorithmSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrainingImage': obj.trainingImage,
+    'TrainingInputMode': obj.trainingInputMode,
+    'AlgorithmName': obj.algorithmName,
+    'MetricDefinitions': obj.metricDefinitions?.map(y => toJson_SageMakerMetricDefinition(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerParentHyperParameterTuningJob
  */
 export interface SageMakerParentHyperParameterTuningJob {
@@ -11058,6 +27993,20 @@ export interface SageMakerParentHyperParameterTuningJob {
   readonly hyperParameterTuningJobName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerParentHyperParameterTuningJob' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerParentHyperParameterTuningJob(obj: SageMakerParentHyperParameterTuningJob | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HyperParameterTuningJobName': obj.hyperParameterTuningJobName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerLabelingJobDataSource
@@ -11076,6 +28025,21 @@ export interface SageMakerLabelingJobDataSource {
 }
 
 /**
+ * Converts an object of type 'SageMakerLabelingJobDataSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerLabelingJobDataSource(obj: SageMakerLabelingJobDataSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3DataSource': toJson_SageMakerLabelingJobS3DataSource(obj.s3DataSource),
+    'SnsDataSource': toJson_SageMakerLabelingJobSnsDataSource(obj.snsDataSource),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerLabelingJobDataAttributes
  */
 export interface SageMakerLabelingJobDataAttributes {
@@ -11087,6 +28051,20 @@ export interface SageMakerLabelingJobDataAttributes {
 }
 
 /**
+ * Converts an object of type 'SageMakerLabelingJobDataAttributes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerLabelingJobDataAttributes(obj: SageMakerLabelingJobDataAttributes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContentClassifiers': obj.contentClassifiers?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerLabelingJobResourceConfig
  */
 export interface SageMakerLabelingJobResourceConfig {
@@ -11096,6 +28074,20 @@ export interface SageMakerLabelingJobResourceConfig {
   readonly volumeKmsKeyId?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerLabelingJobResourceConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerLabelingJobResourceConfig(obj: SageMakerLabelingJobResourceConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VolumeKmsKeyId': obj.volumeKmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUiConfig
@@ -11114,15 +28106,44 @@ export interface SageMakerUiConfig {
 }
 
 /**
+ * Converts an object of type 'SageMakerUiConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUiConfig(obj: SageMakerUiConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UiTemplateS3Uri': obj.uiTemplateS3Uri,
+    'HumanTaskUiArn': obj.humanTaskUiArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerAnnotationConsolidationConfig
  */
 export interface SageMakerAnnotationConsolidationConfig {
   /**
    * @schema SageMakerAnnotationConsolidationConfig#AnnotationConsolidationLambdaArn
    */
-  readonly annotationConsolidationLambdaArn: string;
+  readonly annotationConsolidationLambdaArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerAnnotationConsolidationConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAnnotationConsolidationConfig(obj: SageMakerAnnotationConsolidationConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AnnotationConsolidationLambdaArn': obj.annotationConsolidationLambdaArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerImageConfig
@@ -11131,9 +28152,79 @@ export interface SageMakerImageConfig {
   /**
    * @schema SageMakerImageConfig#RepositoryAccessMode
    */
-  readonly repositoryAccessMode: string;
+  readonly repositoryAccessMode?: string;
+
+  /**
+   * @schema SageMakerImageConfig#RepositoryAuthConfig
+   */
+  readonly repositoryAuthConfig?: SageMakerRepositoryAuthConfig;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerImageConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerImageConfig(obj: SageMakerImageConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RepositoryAccessMode': obj.repositoryAccessMode,
+    'RepositoryAuthConfig': toJson_SageMakerRepositoryAuthConfig(obj.repositoryAuthConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerMultiModelConfig
+ */
+export interface SageMakerMultiModelConfig {
+  /**
+   * @schema SageMakerMultiModelConfig#ModelCacheSetting
+   */
+  readonly modelCacheSetting?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerMultiModelConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMultiModelConfig(obj: SageMakerMultiModelConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelCacheSetting': obj.modelCacheSetting,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerMonitoringGroundTruthS3Input
+ */
+export interface SageMakerMonitoringGroundTruthS3Input {
+  /**
+   * @schema SageMakerMonitoringGroundTruthS3Input#S3Uri
+   */
+  readonly s3Uri?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerMonitoringGroundTruthS3Input' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringGroundTruthS3Input(obj: SageMakerMonitoringGroundTruthS3Input | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3Uri': obj.s3Uri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerModelPackageValidationProfile
@@ -11142,14 +28233,29 @@ export interface SageMakerModelPackageValidationProfile {
   /**
    * @schema SageMakerModelPackageValidationProfile#ProfileName
    */
-  readonly profileName: string;
+  readonly profileName?: string;
 
   /**
    * @schema SageMakerModelPackageValidationProfile#TransformJobDefinition
    */
-  readonly transformJobDefinition: SageMakerTransformJobDefinition;
+  readonly transformJobDefinition?: SageMakerTransformJobDefinition;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerModelPackageValidationProfile' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelPackageValidationProfile(obj: SageMakerModelPackageValidationProfile | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProfileName': obj.profileName,
+    'TransformJobDefinition': toJson_SageMakerTransformJobDefinition(obj.transformJobDefinition),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerSourceAlgorithm
@@ -11163,9 +28269,136 @@ export interface SageMakerSourceAlgorithm {
   /**
    * @schema SageMakerSourceAlgorithm#AlgorithmName
    */
-  readonly algorithmName: string;
+  readonly algorithmName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerSourceAlgorithm' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerSourceAlgorithm(obj: SageMakerSourceAlgorithm | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelDataUrl': obj.modelDataUrl,
+    'AlgorithmName': obj.algorithmName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelQuality
+ */
+export interface SageMakerModelQuality {
+  /**
+   * @schema SageMakerModelQuality#Statistics
+   */
+  readonly statistics?: SageMakerMetricsSource;
+
+  /**
+   * @schema SageMakerModelQuality#Constraints
+   */
+  readonly constraints?: SageMakerMetricsSource;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelQuality' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelQuality(obj: SageMakerModelQuality | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Statistics': toJson_SageMakerMetricsSource(obj.statistics),
+    'Constraints': toJson_SageMakerMetricsSource(obj.constraints),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelDataQuality
+ */
+export interface SageMakerModelDataQuality {
+  /**
+   * @schema SageMakerModelDataQuality#Statistics
+   */
+  readonly statistics?: SageMakerMetricsSource;
+
+  /**
+   * @schema SageMakerModelDataQuality#Constraints
+   */
+  readonly constraints?: SageMakerMetricsSource;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelDataQuality' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelDataQuality(obj: SageMakerModelDataQuality | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Statistics': toJson_SageMakerMetricsSource(obj.statistics),
+    'Constraints': toJson_SageMakerMetricsSource(obj.constraints),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerBias
+ */
+export interface SageMakerBias {
+  /**
+   * @schema SageMakerBias#Report
+   */
+  readonly report?: SageMakerMetricsSource;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerBias' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerBias(obj: SageMakerBias | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Report': toJson_SageMakerMetricsSource(obj.report),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerExplainability
+ */
+export interface SageMakerExplainability {
+  /**
+   * @schema SageMakerExplainability#Report
+   */
+  readonly report?: SageMakerMetricsSource;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerExplainability' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerExplainability(obj: SageMakerExplainability | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Report': toJson_SageMakerMetricsSource(obj.report),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerScheduleConfig
@@ -11174,9 +28407,23 @@ export interface SageMakerScheduleConfig {
   /**
    * @schema SageMakerScheduleConfig#ScheduleExpression
    */
-  readonly scheduleExpression: string;
+  readonly scheduleExpression?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerScheduleConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerScheduleConfig(obj: SageMakerScheduleConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ScheduleExpression': obj.scheduleExpression,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerMonitoringJobDefinition
@@ -11190,22 +28437,22 @@ export interface SageMakerMonitoringJobDefinition {
   /**
    * @schema SageMakerMonitoringJobDefinition#MonitoringInputs
    */
-  readonly monitoringInputs: SageMakerMonitoringInput[];
+  readonly monitoringInputs?: SageMakerMonitoringInput[];
 
   /**
    * @schema SageMakerMonitoringJobDefinition#MonitoringOutputConfig
    */
-  readonly monitoringOutputConfig: SageMakerMonitoringOutputConfig;
+  readonly monitoringOutputConfig?: SageMakerMonitoringOutputConfig;
 
   /**
    * @schema SageMakerMonitoringJobDefinition#MonitoringResources
    */
-  readonly monitoringResources: SageMakerMonitoringResources;
+  readonly monitoringResources?: SageMakerMonitoringResources;
 
   /**
    * @schema SageMakerMonitoringJobDefinition#MonitoringAppSpecification
    */
-  readonly monitoringAppSpecification: SageMakerMonitoringAppSpecification;
+  readonly monitoringAppSpecification?: SageMakerMonitoringAppSpecification;
 
   /**
    * @schema SageMakerMonitoringJobDefinition#StoppingCondition
@@ -11225,9 +28472,31 @@ export interface SageMakerMonitoringJobDefinition {
   /**
    * @schema SageMakerMonitoringJobDefinition#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerMonitoringJobDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringJobDefinition(obj: SageMakerMonitoringJobDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BaselineConfig': toJson_SageMakerMonitoringBaselineConfig(obj.baselineConfig),
+    'MonitoringInputs': obj.monitoringInputs?.map(y => toJson_SageMakerMonitoringInput(y)),
+    'MonitoringOutputConfig': toJson_SageMakerMonitoringOutputConfig(obj.monitoringOutputConfig),
+    'MonitoringResources': toJson_SageMakerMonitoringResources(obj.monitoringResources),
+    'MonitoringAppSpecification': toJson_SageMakerMonitoringAppSpecification(obj.monitoringAppSpecification),
+    'StoppingCondition': toJson_SageMakerMonitoringStoppingCondition(obj.stoppingCondition),
+    'Environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'NetworkConfig': toJson_SageMakerNetworkConfig(obj.networkConfig),
+    'RoleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerProcessingS3Input
@@ -11236,22 +28505,22 @@ export interface SageMakerProcessingS3Input {
   /**
    * @schema SageMakerProcessingS3Input#S3Uri
    */
-  readonly s3Uri: string;
+  readonly s3Uri?: string;
 
   /**
    * @schema SageMakerProcessingS3Input#LocalPath
    */
-  readonly localPath: string;
+  readonly localPath?: string;
 
   /**
    * @schema SageMakerProcessingS3Input#S3DataType
    */
-  readonly s3DataType: string;
+  readonly s3DataType?: string;
 
   /**
    * @schema SageMakerProcessingS3Input#S3InputMode
    */
-  readonly s3InputMode: string;
+  readonly s3InputMode?: string;
 
   /**
    * @schema SageMakerProcessingS3Input#S3DataDistributionType
@@ -11266,20 +28535,115 @@ export interface SageMakerProcessingS3Input {
 }
 
 /**
+ * Converts an object of type 'SageMakerProcessingS3Input' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProcessingS3Input(obj: SageMakerProcessingS3Input | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3Uri': obj.s3Uri,
+    'LocalPath': obj.localPath,
+    'S3DataType': obj.s3DataType,
+    'S3InputMode': obj.s3InputMode,
+    'S3DataDistributionType': obj.s3DataDistributionType,
+    'S3CompressionType': obj.s3CompressionType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerDatasetDefinition
+ */
+export interface SageMakerDatasetDefinition {
+  /**
+   * @schema SageMakerDatasetDefinition#AthenaDatasetDefinition
+   */
+  readonly athenaDatasetDefinition?: SageMakerAthenaDatasetDefinition;
+
+  /**
+   * @schema SageMakerDatasetDefinition#RedshiftDatasetDefinition
+   */
+  readonly redshiftDatasetDefinition?: SageMakerRedshiftDatasetDefinition;
+
+  /**
+   * @schema SageMakerDatasetDefinition#LocalPath
+   */
+  readonly localPath?: string;
+
+  /**
+   * @schema SageMakerDatasetDefinition#DataDistributionType
+   */
+  readonly dataDistributionType?: string;
+
+  /**
+   * @schema SageMakerDatasetDefinition#InputMode
+   */
+  readonly inputMode?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerDatasetDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDatasetDefinition(obj: SageMakerDatasetDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AthenaDatasetDefinition': toJson_SageMakerAthenaDatasetDefinition(obj.athenaDatasetDefinition),
+    'RedshiftDatasetDefinition': toJson_SageMakerRedshiftDatasetDefinition(obj.redshiftDatasetDefinition),
+    'LocalPath': obj.localPath,
+    'DataDistributionType': obj.dataDistributionType,
+    'InputMode': obj.inputMode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerProcessingOutput
  */
 export interface SageMakerProcessingOutput {
   /**
    * @schema SageMakerProcessingOutput#OutputName
    */
-  readonly outputName: string;
+  readonly outputName?: string;
 
   /**
    * @schema SageMakerProcessingOutput#S3Output
    */
-  readonly s3Output: SageMakerProcessingS3Output;
+  readonly s3Output?: SageMakerProcessingS3Output;
+
+  /**
+   * @schema SageMakerProcessingOutput#FeatureStoreOutput
+   */
+  readonly featureStoreOutput?: SageMakerProcessingFeatureStoreOutput;
+
+  /**
+   * @schema SageMakerProcessingOutput#AppManaged
+   */
+  readonly appManaged?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerProcessingOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProcessingOutput(obj: SageMakerProcessingOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OutputName': obj.outputName,
+    'S3Output': toJson_SageMakerProcessingS3Output(obj.s3Output),
+    'FeatureStoreOutput': toJson_SageMakerProcessingFeatureStoreOutput(obj.featureStoreOutput),
+    'AppManaged': obj.appManaged,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerProcessingClusterConfig
@@ -11288,17 +28652,17 @@ export interface SageMakerProcessingClusterConfig {
   /**
    * @schema SageMakerProcessingClusterConfig#InstanceCount
    */
-  readonly instanceCount: number;
+  readonly instanceCount?: number;
 
   /**
    * @schema SageMakerProcessingClusterConfig#InstanceType
    */
-  readonly instanceType: string;
+  readonly instanceType?: string;
 
   /**
    * @schema SageMakerProcessingClusterConfig#VolumeSizeInGB
    */
-  readonly volumeSizeInGb: number;
+  readonly volumeSizeInGb?: number;
 
   /**
    * @schema SageMakerProcessingClusterConfig#VolumeKmsKeyId
@@ -11306,6 +28670,54 @@ export interface SageMakerProcessingClusterConfig {
   readonly volumeKmsKeyId?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerProcessingClusterConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProcessingClusterConfig(obj: SageMakerProcessingClusterConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceCount': obj.instanceCount,
+    'InstanceType': obj.instanceType,
+    'VolumeSizeInGB': obj.volumeSizeInGb,
+    'VolumeKmsKeyId': obj.volumeKmsKeyId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerProvisioningParameter
+ */
+export interface SageMakerProvisioningParameter {
+  /**
+   * @schema SageMakerProvisioningParameter#Key
+   */
+  readonly key?: string;
+
+  /**
+   * @schema SageMakerProvisioningParameter#Value
+   */
+  readonly value?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerProvisioningParameter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProvisioningParameter(obj: SageMakerProvisioningParameter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDataSource
@@ -11324,15 +28736,44 @@ export interface SageMakerDataSource {
 }
 
 /**
+ * Converts an object of type 'SageMakerDataSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDataSource(obj: SageMakerDataSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3DataSource': toJson_SageMakerS3DataSource(obj.s3DataSource),
+    'FileSystemDataSource': toJson_SageMakerFileSystemDataSource(obj.fileSystemDataSource),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerShuffleConfig
  */
 export interface SageMakerShuffleConfig {
   /**
    * @schema SageMakerShuffleConfig#Seed
    */
-  readonly seed: number;
+  readonly seed?: number;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerShuffleConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerShuffleConfig(obj: SageMakerShuffleConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Seed': obj.seed,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCollectionConfiguration
@@ -11351,15 +28792,44 @@ export interface SageMakerCollectionConfiguration {
 }
 
 /**
+ * Converts an object of type 'SageMakerCollectionConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCollectionConfiguration(obj: SageMakerCollectionConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CollectionName': obj.collectionName,
+    'CollectionParameters': ((obj.collectionParameters) === undefined) ? undefined : (Object.entries(obj.collectionParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerTransformDataSource
  */
 export interface SageMakerTransformDataSource {
   /**
    * @schema SageMakerTransformDataSource#S3DataSource
    */
-  readonly s3DataSource: SageMakerTransformS3DataSource;
+  readonly s3DataSource?: SageMakerTransformS3DataSource;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerTransformDataSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTransformDataSource(obj: SageMakerTransformDataSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3DataSource': toJson_SageMakerTransformS3DataSource(obj.s3DataSource),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCognitoMemberDefinition
@@ -11368,19 +28838,35 @@ export interface SageMakerCognitoMemberDefinition {
   /**
    * @schema SageMakerCognitoMemberDefinition#UserPool
    */
-  readonly userPool: string;
+  readonly userPool?: string;
 
   /**
    * @schema SageMakerCognitoMemberDefinition#UserGroup
    */
-  readonly userGroup: string;
+  readonly userGroup?: string;
 
   /**
    * @schema SageMakerCognitoMemberDefinition#ClientId
    */
-  readonly clientId: string;
+  readonly clientId?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCognitoMemberDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCognitoMemberDefinition(obj: SageMakerCognitoMemberDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserPool': obj.userPool,
+    'UserGroup': obj.userGroup,
+    'ClientId': obj.clientId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerOidcMemberDefinition
@@ -11389,9 +28875,23 @@ export interface SageMakerOidcMemberDefinition {
   /**
    * @schema SageMakerOidcMemberDefinition#Groups
    */
-  readonly groups: string[];
+  readonly groups?: string[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerOidcMemberDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerOidcMemberDefinition(obj: SageMakerOidcMemberDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Groups': obj.groups?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerAlgorithmStatusItem
@@ -11400,12 +28900,12 @@ export interface SageMakerAlgorithmStatusItem {
   /**
    * @schema SageMakerAlgorithmStatusItem#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema SageMakerAlgorithmStatusItem#Status
    */
-  readonly status: string;
+  readonly status?: string;
 
   /**
    * @schema SageMakerAlgorithmStatusItem#FailureReason
@@ -11413,6 +28913,22 @@ export interface SageMakerAlgorithmStatusItem {
   readonly failureReason?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerAlgorithmStatusItem' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAlgorithmStatusItem(obj: SageMakerAlgorithmStatusItem | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Status': obj.status,
+    'FailureReason': obj.failureReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerFinalAutoMlJobObjectiveMetric
@@ -11426,14 +28942,30 @@ export interface SageMakerFinalAutoMlJobObjectiveMetric {
   /**
    * @schema SageMakerFinalAutoMlJobObjectiveMetric#MetricName
    */
-  readonly metricName: string;
+  readonly metricName?: string;
 
   /**
    * @schema SageMakerFinalAutoMlJobObjectiveMetric#Value
    */
-  readonly value: number;
+  readonly value?: number;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerFinalAutoMlJobObjectiveMetric' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerFinalAutoMlJobObjectiveMetric(obj: SageMakerFinalAutoMlJobObjectiveMetric | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'MetricName': obj.metricName,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerAutoMlCandidateStep
@@ -11442,19 +28974,35 @@ export interface SageMakerAutoMlCandidateStep {
   /**
    * @schema SageMakerAutoMlCandidateStep#CandidateStepType
    */
-  readonly candidateStepType: string;
+  readonly candidateStepType?: string;
 
   /**
    * @schema SageMakerAutoMlCandidateStep#CandidateStepArn
    */
-  readonly candidateStepArn: string;
+  readonly candidateStepArn?: string;
 
   /**
    * @schema SageMakerAutoMlCandidateStep#CandidateStepName
    */
-  readonly candidateStepName: string;
+  readonly candidateStepName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerAutoMlCandidateStep' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAutoMlCandidateStep(obj: SageMakerAutoMlCandidateStep | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CandidateStepType': obj.candidateStepType,
+    'CandidateStepArn': obj.candidateStepArn,
+    'CandidateStepName': obj.candidateStepName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerAutoMlContainerDefinition
@@ -11463,12 +29011,12 @@ export interface SageMakerAutoMlContainerDefinition {
   /**
    * @schema SageMakerAutoMlContainerDefinition#Image
    */
-  readonly image: string;
+  readonly image?: string;
 
   /**
    * @schema SageMakerAutoMlContainerDefinition#ModelDataUrl
    */
-  readonly modelDataUrl: string;
+  readonly modelDataUrl?: string;
 
   /**
    * @schema SageMakerAutoMlContainerDefinition#Environment
@@ -11476,6 +29024,47 @@ export interface SageMakerAutoMlContainerDefinition {
   readonly environment?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'SageMakerAutoMlContainerDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAutoMlContainerDefinition(obj: SageMakerAutoMlContainerDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Image': obj.image,
+    'ModelDataUrl': obj.modelDataUrl,
+    'Environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCandidateProperties
+ */
+export interface SageMakerCandidateProperties {
+  /**
+   * @schema SageMakerCandidateProperties#CandidateArtifactLocations
+   */
+  readonly candidateArtifactLocations?: SageMakerCandidateArtifactLocations;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCandidateProperties' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCandidateProperties(obj: SageMakerCandidateProperties | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CandidateArtifactLocations': toJson_SageMakerCandidateArtifactLocations(obj.candidateArtifactLocations),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerDeployedImage
@@ -11499,6 +29088,84 @@ export interface SageMakerDeployedImage {
 }
 
 /**
+ * Converts an object of type 'SageMakerDeployedImage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerDeployedImage(obj: SageMakerDeployedImage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SpecifiedImage': obj.specifiedImage,
+    'ResolvedImage': obj.resolvedImage,
+    'ResolutionTime': obj.resolutionTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerBlueGreenUpdatePolicy
+ */
+export interface SageMakerBlueGreenUpdatePolicy {
+  /**
+   * @schema SageMakerBlueGreenUpdatePolicy#TrafficRoutingConfiguration
+   */
+  readonly trafficRoutingConfiguration?: SageMakerTrafficRoutingConfig;
+
+  /**
+   * @schema SageMakerBlueGreenUpdatePolicy#TerminationWaitInSeconds
+   */
+  readonly terminationWaitInSeconds?: number;
+
+  /**
+   * @schema SageMakerBlueGreenUpdatePolicy#MaximumExecutionTimeoutInSeconds
+   */
+  readonly maximumExecutionTimeoutInSeconds?: number;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerBlueGreenUpdatePolicy' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerBlueGreenUpdatePolicy(obj: SageMakerBlueGreenUpdatePolicy | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrafficRoutingConfiguration': toJson_SageMakerTrafficRoutingConfig(obj.trafficRoutingConfiguration),
+    'TerminationWaitInSeconds': obj.terminationWaitInSeconds,
+    'MaximumExecutionTimeoutInSeconds': obj.maximumExecutionTimeoutInSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerAutoRollbackConfig
+ */
+export interface SageMakerAutoRollbackConfig {
+  /**
+   * @schema SageMakerAutoRollbackConfig#Alarms
+   */
+  readonly alarms?: SageMakerAlarm[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerAutoRollbackConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAutoRollbackConfig(obj: SageMakerAutoRollbackConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Alarms': obj.alarms?.map(y => toJson_SageMakerAlarm(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerFinalHyperParameterTuningJobObjectiveMetric
  */
 export interface SageMakerFinalHyperParameterTuningJobObjectiveMetric {
@@ -11510,14 +29177,30 @@ export interface SageMakerFinalHyperParameterTuningJobObjectiveMetric {
   /**
    * @schema SageMakerFinalHyperParameterTuningJobObjectiveMetric#MetricName
    */
-  readonly metricName: string;
+  readonly metricName?: string;
 
   /**
    * @schema SageMakerFinalHyperParameterTuningJobObjectiveMetric#Value
    */
-  readonly value: number;
+  readonly value?: number;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerFinalHyperParameterTuningJobObjectiveMetric' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerFinalHyperParameterTuningJobObjectiveMetric(obj: SageMakerFinalHyperParameterTuningJobObjectiveMetric | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'MetricName': obj.metricName,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerModelPackageStatusItem
@@ -11526,12 +29209,12 @@ export interface SageMakerModelPackageStatusItem {
   /**
    * @schema SageMakerModelPackageStatusItem#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema SageMakerModelPackageStatusItem#Status
    */
-  readonly status: string;
+  readonly status?: string;
 
   /**
    * @schema SageMakerModelPackageStatusItem#FailureReason
@@ -11539,6 +29222,22 @@ export interface SageMakerModelPackageStatusItem {
   readonly failureReason?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerModelPackageStatusItem' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelPackageStatusItem(obj: SageMakerModelPackageStatusItem | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Status': obj.status,
+    'FailureReason': obj.failureReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerOidcConfigForResponse
@@ -11582,15 +29281,80 @@ export interface SageMakerOidcConfigForResponse {
 }
 
 /**
+ * Converts an object of type 'SageMakerOidcConfigForResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerOidcConfigForResponse(obj: SageMakerOidcConfigForResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ClientId': obj.clientId,
+    'Issuer': obj.issuer,
+    'AuthorizationEndpoint': obj.authorizationEndpoint,
+    'TokenEndpoint': obj.tokenEndpoint,
+    'UserInfoEndpoint': obj.userInfoEndpoint,
+    'LogoutEndpoint': obj.logoutEndpoint,
+    'JwksUri': obj.jwksUri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerPropertyNameQuery
  */
 export interface SageMakerPropertyNameQuery {
   /**
    * @schema SageMakerPropertyNameQuery#PropertyNameHint
    */
-  readonly propertyNameHint: string;
+  readonly propertyNameHint?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerPropertyNameQuery' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerPropertyNameQuery(obj: SageMakerPropertyNameQuery | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PropertyNameHint': obj.propertyNameHint,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerEdgeModelSummary
+ */
+export interface SageMakerEdgeModelSummary {
+  /**
+   * @schema SageMakerEdgeModelSummary#ModelName
+   */
+  readonly modelName?: string;
+
+  /**
+   * @schema SageMakerEdgeModelSummary#ModelVersion
+   */
+  readonly modelVersion?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerEdgeModelSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerEdgeModelSummary(obj: SageMakerEdgeModelSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelName': obj.modelName,
+    'ModelVersion': obj.modelVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerLabelCountersForWorkteam
@@ -11614,13 +29378,127 @@ export interface SageMakerLabelCountersForWorkteam {
 }
 
 /**
+ * Converts an object of type 'SageMakerLabelCountersForWorkteam' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerLabelCountersForWorkteam(obj: SageMakerLabelCountersForWorkteam | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HumanLabeled': obj.humanLabeled,
+    'PendingHuman': obj.pendingHuman,
+    'Total': obj.total,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCacheHitResult
+ */
+export interface SageMakerCacheHitResult {
+  /**
+   * @schema SageMakerCacheHitResult#SourcePipelineExecutionArn
+   */
+  readonly sourcePipelineExecutionArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCacheHitResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCacheHitResult(obj: SageMakerCacheHitResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourcePipelineExecutionArn': obj.sourcePipelineExecutionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerPipelineExecutionStepMetadata
+ */
+export interface SageMakerPipelineExecutionStepMetadata {
+  /**
+   * @schema SageMakerPipelineExecutionStepMetadata#TrainingJob
+   */
+  readonly trainingJob?: SageMakerTrainingJobStepMetadata;
+
+  /**
+   * @schema SageMakerPipelineExecutionStepMetadata#ProcessingJob
+   */
+  readonly processingJob?: SageMakerProcessingJobStepMetadata;
+
+  /**
+   * @schema SageMakerPipelineExecutionStepMetadata#TransformJob
+   */
+  readonly transformJob?: SageMakerTransformJobStepMetadata;
+
+  /**
+   * @schema SageMakerPipelineExecutionStepMetadata#TuningJob
+   */
+  readonly tuningJob?: SageMakerTuningJobStepMetaData;
+
+  /**
+   * @schema SageMakerPipelineExecutionStepMetadata#Model
+   */
+  readonly model?: SageMakerModelStepMetadata;
+
+  /**
+   * @schema SageMakerPipelineExecutionStepMetadata#RegisterModel
+   */
+  readonly registerModel?: SageMakerRegisterModelStepMetadata;
+
+  /**
+   * @schema SageMakerPipelineExecutionStepMetadata#Condition
+   */
+  readonly condition?: SageMakerConditionStepMetadata;
+
+  /**
+   * @schema SageMakerPipelineExecutionStepMetadata#Callback
+   */
+  readonly callback?: SageMakerCallbackStepMetadata;
+
+  /**
+   * @schema SageMakerPipelineExecutionStepMetadata#Lambda
+   */
+  readonly lambda?: SageMakerLambdaStepMetadata;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerPipelineExecutionStepMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerPipelineExecutionStepMetadata(obj: SageMakerPipelineExecutionStepMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrainingJob': toJson_SageMakerTrainingJobStepMetadata(obj.trainingJob),
+    'ProcessingJob': toJson_SageMakerProcessingJobStepMetadata(obj.processingJob),
+    'TransformJob': toJson_SageMakerTransformJobStepMetadata(obj.transformJob),
+    'TuningJob': toJson_SageMakerTuningJobStepMetaData(obj.tuningJob),
+    'Model': toJson_SageMakerModelStepMetadata(obj.model),
+    'RegisterModel': toJson_SageMakerRegisterModelStepMetadata(obj.registerModel),
+    'Condition': toJson_SageMakerConditionStepMetadata(obj.condition),
+    'Callback': toJson_SageMakerCallbackStepMetadata(obj.callback),
+    'Lambda': toJson_SageMakerLambdaStepMetadata(obj.lambda),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerFilter
  */
 export interface SageMakerFilter {
   /**
    * @schema SageMakerFilter#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema SageMakerFilter#Operator
@@ -11635,20 +29513,51 @@ export interface SageMakerFilter {
 }
 
 /**
+ * Converts an object of type 'SageMakerFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerFilter(obj: SageMakerFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Operator': obj.operator,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerNestedFilters
  */
 export interface SageMakerNestedFilters {
   /**
    * @schema SageMakerNestedFilters#NestedPropertyName
    */
-  readonly nestedPropertyName: string;
+  readonly nestedPropertyName?: string;
 
   /**
    * @schema SageMakerNestedFilters#Filters
    */
-  readonly filters: SageMakerFilter[];
+  readonly filters?: SageMakerFilter[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerNestedFilters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerNestedFilters(obj: SageMakerNestedFilters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NestedPropertyName': obj.nestedPropertyName,
+    'Filters': obj.filters?.map(y => toJson_SageMakerFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerTrainingJob
@@ -11825,11 +29734,71 @@ export interface SageMakerTrainingJob {
   readonly debugRuleEvaluationStatuses?: SageMakerDebugRuleEvaluationStatus[];
 
   /**
+   * @schema SageMakerTrainingJob#Environment
+   */
+  readonly environment?: { [key: string]: string };
+
+  /**
+   * @schema SageMakerTrainingJob#RetryStrategy
+   */
+  readonly retryStrategy?: SageMakerRetryStrategy;
+
+  /**
    * @schema SageMakerTrainingJob#Tags
    */
   readonly tags?: SageMakerTag[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerTrainingJob' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrainingJob(obj: SageMakerTrainingJob | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrainingJobName': obj.trainingJobName,
+    'TrainingJobArn': obj.trainingJobArn,
+    'TuningJobArn': obj.tuningJobArn,
+    'LabelingJobArn': obj.labelingJobArn,
+    'AutoMLJobArn': obj.autoMlJobArn,
+    'ModelArtifacts': toJson_SageMakerModelArtifacts(obj.modelArtifacts),
+    'TrainingJobStatus': obj.trainingJobStatus,
+    'SecondaryStatus': obj.secondaryStatus,
+    'FailureReason': obj.failureReason,
+    'HyperParameters': ((obj.hyperParameters) === undefined) ? undefined : (Object.entries(obj.hyperParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'AlgorithmSpecification': toJson_SageMakerAlgorithmSpecification(obj.algorithmSpecification),
+    'RoleArn': obj.roleArn,
+    'InputDataConfig': obj.inputDataConfig?.map(y => toJson_SageMakerChannel(y)),
+    'OutputDataConfig': toJson_SageMakerOutputDataConfig(obj.outputDataConfig),
+    'ResourceConfig': toJson_SageMakerResourceConfig(obj.resourceConfig),
+    'VpcConfig': toJson_SageMakerVpcConfig(obj.vpcConfig),
+    'StoppingCondition': toJson_SageMakerStoppingCondition(obj.stoppingCondition),
+    'CreationTime': obj.creationTime,
+    'TrainingStartTime': obj.trainingStartTime,
+    'TrainingEndTime': obj.trainingEndTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'SecondaryStatusTransitions': obj.secondaryStatusTransitions?.map(y => toJson_SageMakerSecondaryStatusTransition(y)),
+    'FinalMetricDataList': obj.finalMetricDataList?.map(y => toJson_SageMakerMetricData(y)),
+    'EnableNetworkIsolation': obj.enableNetworkIsolation,
+    'EnableInterContainerTrafficEncryption': obj.enableInterContainerTrafficEncryption,
+    'EnableManagedSpotTraining': obj.enableManagedSpotTraining,
+    'CheckpointConfig': toJson_SageMakerCheckpointConfig(obj.checkpointConfig),
+    'TrainingTimeInSeconds': obj.trainingTimeInSeconds,
+    'BillableTimeInSeconds': obj.billableTimeInSeconds,
+    'DebugHookConfig': toJson_SageMakerDebugHookConfig(obj.debugHookConfig),
+    'ExperimentConfig': toJson_SageMakerExperimentConfig(obj.experimentConfig),
+    'DebugRuleConfigurations': obj.debugRuleConfigurations?.map(y => toJson_SageMakerDebugRuleConfiguration(y)),
+    'TensorBoardOutputConfig': toJson_SageMakerTensorBoardOutputConfig(obj.tensorBoardOutputConfig),
+    'DebugRuleEvaluationStatuses': obj.debugRuleEvaluationStatuses?.map(y => toJson_SageMakerDebugRuleEvaluationStatus(y)),
+    'Environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'RetryStrategy': toJson_SageMakerRetryStrategy(obj.retryStrategy),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerExperiment
@@ -11888,6 +29857,29 @@ export interface SageMakerExperiment {
 }
 
 /**
+ * Converts an object of type 'SageMakerExperiment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerExperiment(obj: SageMakerExperiment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExperimentName': obj.experimentName,
+    'ExperimentArn': obj.experimentArn,
+    'DisplayName': obj.displayName,
+    'Source': toJson_SageMakerExperimentSource(obj.source),
+    'Description': obj.description,
+    'CreationTime': obj.creationTime,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'LastModifiedTime': obj.lastModifiedTime,
+    'LastModifiedBy': toJson_SageMakerUserContext(obj.lastModifiedBy),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerTrial
  */
 export interface SageMakerTrial {
@@ -11937,6 +29929,11 @@ export interface SageMakerTrial {
   readonly lastModifiedBy?: SageMakerUserContext;
 
   /**
+   * @schema SageMakerTrial#MetadataProperties
+   */
+  readonly metadataProperties?: SageMakerMetadataProperties;
+
+  /**
    * @schema SageMakerTrial#Tags
    */
   readonly tags?: SageMakerTag[];
@@ -11947,6 +29944,31 @@ export interface SageMakerTrial {
   readonly trialComponentSummaries?: SageMakerTrialComponentSimpleSummary[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerTrial' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrial(obj: SageMakerTrial | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialName': obj.trialName,
+    'TrialArn': obj.trialArn,
+    'DisplayName': obj.displayName,
+    'ExperimentName': obj.experimentName,
+    'Source': toJson_SageMakerTrialSource(obj.source),
+    'CreationTime': obj.creationTime,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'LastModifiedTime': obj.lastModifiedTime,
+    'LastModifiedBy': toJson_SageMakerUserContext(obj.lastModifiedBy),
+    'MetadataProperties': toJson_SageMakerMetadataProperties(obj.metadataProperties),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+    'TrialComponentSummaries': obj.trialComponentSummaries?.map(y => toJson_SageMakerTrialComponentSimpleSummary(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerTrialComponent
@@ -12028,6 +30050,11 @@ export interface SageMakerTrialComponent {
   readonly metrics?: SageMakerTrialComponentMetricSummary[];
 
   /**
+   * @schema SageMakerTrialComponent#MetadataProperties
+   */
+  readonly metadataProperties?: SageMakerMetadataProperties;
+
+  /**
    * @schema SageMakerTrialComponent#SourceDetail
    */
   readonly sourceDetail?: SageMakerTrialComponentSourceDetail;
@@ -12043,6 +30070,608 @@ export interface SageMakerTrialComponent {
   readonly parents?: SageMakerParent[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerTrialComponent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrialComponent(obj: SageMakerTrialComponent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialComponentName': obj.trialComponentName,
+    'DisplayName': obj.displayName,
+    'TrialComponentArn': obj.trialComponentArn,
+    'Source': toJson_SageMakerTrialComponentSource(obj.source),
+    'Status': toJson_SageMakerTrialComponentStatus(obj.status),
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'CreationTime': obj.creationTime,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'LastModifiedTime': obj.lastModifiedTime,
+    'LastModifiedBy': toJson_SageMakerUserContext(obj.lastModifiedBy),
+    'Parameters': ((obj.parameters) === undefined) ? undefined : (Object.entries(obj.parameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_SageMakerTrialComponentParameterValue(i[1]) }), {})),
+    'InputArtifacts': ((obj.inputArtifacts) === undefined) ? undefined : (Object.entries(obj.inputArtifacts).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_SageMakerTrialComponentArtifact(i[1]) }), {})),
+    'OutputArtifacts': ((obj.outputArtifacts) === undefined) ? undefined : (Object.entries(obj.outputArtifacts).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_SageMakerTrialComponentArtifact(i[1]) }), {})),
+    'Metrics': obj.metrics?.map(y => toJson_SageMakerTrialComponentMetricSummary(y)),
+    'MetadataProperties': toJson_SageMakerMetadataProperties(obj.metadataProperties),
+    'SourceDetail': toJson_SageMakerTrialComponentSourceDetail(obj.sourceDetail),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+    'Parents': obj.parents?.map(y => toJson_SageMakerParent(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerEndpoint
+ */
+export interface SageMakerEndpoint {
+  /**
+   * @schema SageMakerEndpoint#EndpointName
+   */
+  readonly endpointName?: string;
+
+  /**
+   * @schema SageMakerEndpoint#EndpointArn
+   */
+  readonly endpointArn?: string;
+
+  /**
+   * @schema SageMakerEndpoint#EndpointConfigName
+   */
+  readonly endpointConfigName?: string;
+
+  /**
+   * @schema SageMakerEndpoint#ProductionVariants
+   */
+  readonly productionVariants?: SageMakerProductionVariantSummary[];
+
+  /**
+   * @schema SageMakerEndpoint#DataCaptureConfig
+   */
+  readonly dataCaptureConfig?: SageMakerDataCaptureConfigSummary;
+
+  /**
+   * @schema SageMakerEndpoint#EndpointStatus
+   */
+  readonly endpointStatus?: string;
+
+  /**
+   * @schema SageMakerEndpoint#FailureReason
+   */
+  readonly failureReason?: string;
+
+  /**
+   * @schema SageMakerEndpoint#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerEndpoint#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+  /**
+   * @schema SageMakerEndpoint#MonitoringSchedules
+   */
+  readonly monitoringSchedules?: SageMakerMonitoringSchedule[];
+
+  /**
+   * @schema SageMakerEndpoint#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerEndpoint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerEndpoint(obj: SageMakerEndpoint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointName': obj.endpointName,
+    'EndpointArn': obj.endpointArn,
+    'EndpointConfigName': obj.endpointConfigName,
+    'ProductionVariants': obj.productionVariants?.map(y => toJson_SageMakerProductionVariantSummary(y)),
+    'DataCaptureConfig': toJson_SageMakerDataCaptureConfigSummary(obj.dataCaptureConfig),
+    'EndpointStatus': obj.endpointStatus,
+    'FailureReason': obj.failureReason,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'MonitoringSchedules': obj.monitoringSchedules?.map(y => toJson_SageMakerMonitoringSchedule(y)),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelPackage
+ */
+export interface SageMakerModelPackage {
+  /**
+   * @schema SageMakerModelPackage#ModelPackageName
+   */
+  readonly modelPackageName?: string;
+
+  /**
+   * @schema SageMakerModelPackage#ModelPackageGroupName
+   */
+  readonly modelPackageGroupName?: string;
+
+  /**
+   * @schema SageMakerModelPackage#ModelPackageVersion
+   */
+  readonly modelPackageVersion?: number;
+
+  /**
+   * @schema SageMakerModelPackage#ModelPackageArn
+   */
+  readonly modelPackageArn?: string;
+
+  /**
+   * @schema SageMakerModelPackage#ModelPackageDescription
+   */
+  readonly modelPackageDescription?: string;
+
+  /**
+   * @schema SageMakerModelPackage#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerModelPackage#InferenceSpecification
+   */
+  readonly inferenceSpecification?: SageMakerInferenceSpecification;
+
+  /**
+   * @schema SageMakerModelPackage#SourceAlgorithmSpecification
+   */
+  readonly sourceAlgorithmSpecification?: SageMakerSourceAlgorithmSpecification;
+
+  /**
+   * @schema SageMakerModelPackage#ValidationSpecification
+   */
+  readonly validationSpecification?: SageMakerModelPackageValidationSpecification;
+
+  /**
+   * @schema SageMakerModelPackage#ModelPackageStatus
+   */
+  readonly modelPackageStatus?: string;
+
+  /**
+   * @schema SageMakerModelPackage#ModelPackageStatusDetails
+   */
+  readonly modelPackageStatusDetails?: SageMakerModelPackageStatusDetails;
+
+  /**
+   * @schema SageMakerModelPackage#CertifyForMarketplace
+   */
+  readonly certifyForMarketplace?: boolean;
+
+  /**
+   * @schema SageMakerModelPackage#ModelApprovalStatus
+   */
+  readonly modelApprovalStatus?: string;
+
+  /**
+   * @schema SageMakerModelPackage#CreatedBy
+   */
+  readonly createdBy?: SageMakerUserContext;
+
+  /**
+   * @schema SageMakerModelPackage#MetadataProperties
+   */
+  readonly metadataProperties?: SageMakerMetadataProperties;
+
+  /**
+   * @schema SageMakerModelPackage#ModelMetrics
+   */
+  readonly modelMetrics?: SageMakerModelMetrics;
+
+  /**
+   * @schema SageMakerModelPackage#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+  /**
+   * @schema SageMakerModelPackage#LastModifiedBy
+   */
+  readonly lastModifiedBy?: SageMakerUserContext;
+
+  /**
+   * @schema SageMakerModelPackage#ApprovalDescription
+   */
+  readonly approvalDescription?: string;
+
+  /**
+   * @schema SageMakerModelPackage#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelPackage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelPackage(obj: SageMakerModelPackage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageName': obj.modelPackageName,
+    'ModelPackageGroupName': obj.modelPackageGroupName,
+    'ModelPackageVersion': obj.modelPackageVersion,
+    'ModelPackageArn': obj.modelPackageArn,
+    'ModelPackageDescription': obj.modelPackageDescription,
+    'CreationTime': obj.creationTime,
+    'InferenceSpecification': toJson_SageMakerInferenceSpecification(obj.inferenceSpecification),
+    'SourceAlgorithmSpecification': toJson_SageMakerSourceAlgorithmSpecification(obj.sourceAlgorithmSpecification),
+    'ValidationSpecification': toJson_SageMakerModelPackageValidationSpecification(obj.validationSpecification),
+    'ModelPackageStatus': obj.modelPackageStatus,
+    'ModelPackageStatusDetails': toJson_SageMakerModelPackageStatusDetails(obj.modelPackageStatusDetails),
+    'CertifyForMarketplace': obj.certifyForMarketplace,
+    'ModelApprovalStatus': obj.modelApprovalStatus,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'MetadataProperties': toJson_SageMakerMetadataProperties(obj.metadataProperties),
+    'ModelMetrics': toJson_SageMakerModelMetrics(obj.modelMetrics),
+    'LastModifiedTime': obj.lastModifiedTime,
+    'LastModifiedBy': toJson_SageMakerUserContext(obj.lastModifiedBy),
+    'ApprovalDescription': obj.approvalDescription,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelPackageGroup
+ */
+export interface SageMakerModelPackageGroup {
+  /**
+   * @schema SageMakerModelPackageGroup#ModelPackageGroupName
+   */
+  readonly modelPackageGroupName?: string;
+
+  /**
+   * @schema SageMakerModelPackageGroup#ModelPackageGroupArn
+   */
+  readonly modelPackageGroupArn?: string;
+
+  /**
+   * @schema SageMakerModelPackageGroup#ModelPackageGroupDescription
+   */
+  readonly modelPackageGroupDescription?: string;
+
+  /**
+   * @schema SageMakerModelPackageGroup#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerModelPackageGroup#CreatedBy
+   */
+  readonly createdBy?: SageMakerUserContext;
+
+  /**
+   * @schema SageMakerModelPackageGroup#ModelPackageGroupStatus
+   */
+  readonly modelPackageGroupStatus?: string;
+
+  /**
+   * @schema SageMakerModelPackageGroup#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelPackageGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelPackageGroup(obj: SageMakerModelPackageGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ModelPackageGroupName': obj.modelPackageGroupName,
+    'ModelPackageGroupArn': obj.modelPackageGroupArn,
+    'ModelPackageGroupDescription': obj.modelPackageGroupDescription,
+    'CreationTime': obj.creationTime,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'ModelPackageGroupStatus': obj.modelPackageGroupStatus,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerPipeline
+ */
+export interface SageMakerPipeline {
+  /**
+   * @schema SageMakerPipeline#PipelineArn
+   */
+  readonly pipelineArn?: string;
+
+  /**
+   * @schema SageMakerPipeline#PipelineName
+   */
+  readonly pipelineName?: string;
+
+  /**
+   * @schema SageMakerPipeline#PipelineDisplayName
+   */
+  readonly pipelineDisplayName?: string;
+
+  /**
+   * @schema SageMakerPipeline#PipelineDescription
+   */
+  readonly pipelineDescription?: string;
+
+  /**
+   * @schema SageMakerPipeline#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerPipeline#PipelineStatus
+   */
+  readonly pipelineStatus?: string;
+
+  /**
+   * @schema SageMakerPipeline#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerPipeline#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+  /**
+   * @schema SageMakerPipeline#LastRunTime
+   */
+  readonly lastRunTime?: string;
+
+  /**
+   * @schema SageMakerPipeline#CreatedBy
+   */
+  readonly createdBy?: SageMakerUserContext;
+
+  /**
+   * @schema SageMakerPipeline#LastModifiedBy
+   */
+  readonly lastModifiedBy?: SageMakerUserContext;
+
+  /**
+   * @schema SageMakerPipeline#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerPipeline' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerPipeline(obj: SageMakerPipeline | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineArn': obj.pipelineArn,
+    'PipelineName': obj.pipelineName,
+    'PipelineDisplayName': obj.pipelineDisplayName,
+    'PipelineDescription': obj.pipelineDescription,
+    'RoleArn': obj.roleArn,
+    'PipelineStatus': obj.pipelineStatus,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'LastRunTime': obj.lastRunTime,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'LastModifiedBy': toJson_SageMakerUserContext(obj.lastModifiedBy),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerPipelineExecution
+ */
+export interface SageMakerPipelineExecution {
+  /**
+   * @schema SageMakerPipelineExecution#PipelineArn
+   */
+  readonly pipelineArn?: string;
+
+  /**
+   * @schema SageMakerPipelineExecution#PipelineExecutionArn
+   */
+  readonly pipelineExecutionArn?: string;
+
+  /**
+   * @schema SageMakerPipelineExecution#PipelineExecutionDisplayName
+   */
+  readonly pipelineExecutionDisplayName?: string;
+
+  /**
+   * @schema SageMakerPipelineExecution#PipelineExecutionStatus
+   */
+  readonly pipelineExecutionStatus?: string;
+
+  /**
+   * @schema SageMakerPipelineExecution#PipelineExecutionDescription
+   */
+  readonly pipelineExecutionDescription?: string;
+
+  /**
+   * @schema SageMakerPipelineExecution#PipelineExperimentConfig
+   */
+  readonly pipelineExperimentConfig?: SageMakerPipelineExperimentConfig;
+
+  /**
+   * @schema SageMakerPipelineExecution#FailureReason
+   */
+  readonly failureReason?: string;
+
+  /**
+   * @schema SageMakerPipelineExecution#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerPipelineExecution#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+  /**
+   * @schema SageMakerPipelineExecution#CreatedBy
+   */
+  readonly createdBy?: SageMakerUserContext;
+
+  /**
+   * @schema SageMakerPipelineExecution#LastModifiedBy
+   */
+  readonly lastModifiedBy?: SageMakerUserContext;
+
+  /**
+   * @schema SageMakerPipelineExecution#PipelineParameters
+   */
+  readonly pipelineParameters?: SageMakerParameter[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerPipelineExecution' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerPipelineExecution(obj: SageMakerPipelineExecution | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PipelineArn': obj.pipelineArn,
+    'PipelineExecutionArn': obj.pipelineExecutionArn,
+    'PipelineExecutionDisplayName': obj.pipelineExecutionDisplayName,
+    'PipelineExecutionStatus': obj.pipelineExecutionStatus,
+    'PipelineExecutionDescription': obj.pipelineExecutionDescription,
+    'PipelineExperimentConfig': toJson_SageMakerPipelineExperimentConfig(obj.pipelineExperimentConfig),
+    'FailureReason': obj.failureReason,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+    'LastModifiedBy': toJson_SageMakerUserContext(obj.lastModifiedBy),
+    'PipelineParameters': obj.pipelineParameters?.map(y => toJson_SageMakerParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerFeatureGroup
+ */
+export interface SageMakerFeatureGroup {
+  /**
+   * @schema SageMakerFeatureGroup#FeatureGroupArn
+   */
+  readonly featureGroupArn?: string;
+
+  /**
+   * @schema SageMakerFeatureGroup#FeatureGroupName
+   */
+  readonly featureGroupName?: string;
+
+  /**
+   * @schema SageMakerFeatureGroup#RecordIdentifierFeatureName
+   */
+  readonly recordIdentifierFeatureName?: string;
+
+  /**
+   * @schema SageMakerFeatureGroup#EventTimeFeatureName
+   */
+  readonly eventTimeFeatureName?: string;
+
+  /**
+   * @schema SageMakerFeatureGroup#FeatureDefinitions
+   */
+  readonly featureDefinitions?: SageMakerFeatureDefinition[];
+
+  /**
+   * @schema SageMakerFeatureGroup#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerFeatureGroup#OnlineStoreConfig
+   */
+  readonly onlineStoreConfig?: SageMakerOnlineStoreConfig;
+
+  /**
+   * @schema SageMakerFeatureGroup#OfflineStoreConfig
+   */
+  readonly offlineStoreConfig?: SageMakerOfflineStoreConfig;
+
+  /**
+   * @schema SageMakerFeatureGroup#RoleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema SageMakerFeatureGroup#FeatureGroupStatus
+   */
+  readonly featureGroupStatus?: string;
+
+  /**
+   * @schema SageMakerFeatureGroup#OfflineStoreStatus
+   */
+  readonly offlineStoreStatus?: SageMakerOfflineStoreStatus;
+
+  /**
+   * @schema SageMakerFeatureGroup#FailureReason
+   */
+  readonly failureReason?: string;
+
+  /**
+   * @schema SageMakerFeatureGroup#Description
+   */
+  readonly description?: string;
+
+  /**
+   * @schema SageMakerFeatureGroup#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerFeatureGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerFeatureGroup(obj: SageMakerFeatureGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FeatureGroupArn': obj.featureGroupArn,
+    'FeatureGroupName': obj.featureGroupName,
+    'RecordIdentifierFeatureName': obj.recordIdentifierFeatureName,
+    'EventTimeFeatureName': obj.eventTimeFeatureName,
+    'FeatureDefinitions': obj.featureDefinitions?.map(y => toJson_SageMakerFeatureDefinition(y)),
+    'CreationTime': obj.creationTime,
+    'OnlineStoreConfig': toJson_SageMakerOnlineStoreConfig(obj.onlineStoreConfig),
+    'OfflineStoreConfig': toJson_SageMakerOfflineStoreConfig(obj.offlineStoreConfig),
+    'RoleArn': obj.roleArn,
+    'FeatureGroupStatus': obj.featureGroupStatus,
+    'OfflineStoreStatus': toJson_SageMakerOfflineStoreStatus(obj.offlineStoreStatus),
+    'FailureReason': obj.failureReason,
+    'Description': obj.description,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerParameterRange
@@ -12066,13 +30695,29 @@ export interface SageMakerParameterRange {
 }
 
 /**
+ * Converts an object of type 'SageMakerParameterRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerParameterRange(obj: SageMakerParameterRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IntegerParameterRangeSpecification': toJson_SageMakerIntegerParameterRangeSpecification(obj.integerParameterRangeSpecification),
+    'ContinuousParameterRangeSpecification': toJson_SageMakerContinuousParameterRangeSpecification(obj.continuousParameterRangeSpecification),
+    'CategoricalParameterRangeSpecification': toJson_SageMakerCategoricalParameterRangeSpecification(obj.categoricalParameterRangeSpecification),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerTrainingJobDefinition
  */
 export interface SageMakerTrainingJobDefinition {
   /**
    * @schema SageMakerTrainingJobDefinition#TrainingInputMode
    */
-  readonly trainingInputMode: string;
+  readonly trainingInputMode?: string;
 
   /**
    * @schema SageMakerTrainingJobDefinition#HyperParameters
@@ -12082,24 +30727,43 @@ export interface SageMakerTrainingJobDefinition {
   /**
    * @schema SageMakerTrainingJobDefinition#InputDataConfig
    */
-  readonly inputDataConfig: SageMakerChannel[];
+  readonly inputDataConfig?: SageMakerChannel[];
 
   /**
    * @schema SageMakerTrainingJobDefinition#OutputDataConfig
    */
-  readonly outputDataConfig: SageMakerOutputDataConfig;
+  readonly outputDataConfig?: SageMakerOutputDataConfig;
 
   /**
    * @schema SageMakerTrainingJobDefinition#ResourceConfig
    */
-  readonly resourceConfig: SageMakerResourceConfig;
+  readonly resourceConfig?: SageMakerResourceConfig;
 
   /**
    * @schema SageMakerTrainingJobDefinition#StoppingCondition
    */
-  readonly stoppingCondition: SageMakerStoppingCondition;
+  readonly stoppingCondition?: SageMakerStoppingCondition;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerTrainingJobDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrainingJobDefinition(obj: SageMakerTrainingJobDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrainingInputMode': obj.trainingInputMode,
+    'HyperParameters': ((obj.hyperParameters) === undefined) ? undefined : (Object.entries(obj.hyperParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'InputDataConfig': obj.inputDataConfig?.map(y => toJson_SageMakerChannel(y)),
+    'OutputDataConfig': toJson_SageMakerOutputDataConfig(obj.outputDataConfig),
+    'ResourceConfig': toJson_SageMakerResourceConfig(obj.resourceConfig),
+    'StoppingCondition': toJson_SageMakerStoppingCondition(obj.stoppingCondition),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerTransformJobDefinition
@@ -12128,19 +30792,39 @@ export interface SageMakerTransformJobDefinition {
   /**
    * @schema SageMakerTransformJobDefinition#TransformInput
    */
-  readonly transformInput: SageMakerTransformInput;
+  readonly transformInput?: SageMakerTransformInput;
 
   /**
    * @schema SageMakerTransformJobDefinition#TransformOutput
    */
-  readonly transformOutput: SageMakerTransformOutput;
+  readonly transformOutput?: SageMakerTransformOutput;
 
   /**
    * @schema SageMakerTransformJobDefinition#TransformResources
    */
-  readonly transformResources: SageMakerTransformResources;
+  readonly transformResources?: SageMakerTransformResources;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerTransformJobDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTransformJobDefinition(obj: SageMakerTransformJobDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxConcurrentTransforms': obj.maxConcurrentTransforms,
+    'MaxPayloadInMB': obj.maxPayloadInMb,
+    'BatchStrategy': obj.batchStrategy,
+    'Environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'TransformInput': toJson_SageMakerTransformInput(obj.transformInput),
+    'TransformOutput': toJson_SageMakerTransformOutput(obj.transformOutput),
+    'TransformResources': toJson_SageMakerTransformResources(obj.transformResources),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerAutoMls3DataSource
@@ -12149,14 +30833,66 @@ export interface SageMakerAutoMls3DataSource {
   /**
    * @schema SageMakerAutoMls3DataSource#S3DataType
    */
-  readonly s3DataType: string;
+  readonly s3DataType?: string;
 
   /**
    * @schema SageMakerAutoMls3DataSource#S3Uri
    */
-  readonly s3Uri: string;
+  readonly s3Uri?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerAutoMls3DataSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAutoMls3DataSource(obj: SageMakerAutoMls3DataSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3DataType': obj.s3DataType,
+    'S3Uri': obj.s3Uri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerMonitoringS3Output
+ */
+export interface SageMakerMonitoringS3Output {
+  /**
+   * @schema SageMakerMonitoringS3Output#S3Uri
+   */
+  readonly s3Uri?: string;
+
+  /**
+   * @schema SageMakerMonitoringS3Output#LocalPath
+   */
+  readonly localPath?: string;
+
+  /**
+   * @schema SageMakerMonitoringS3Output#S3UploadMode
+   */
+  readonly s3UploadMode?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerMonitoringS3Output' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringS3Output(obj: SageMakerMonitoringS3Output | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3Uri': obj.s3Uri,
+    'LocalPath': obj.localPath,
+    'S3UploadMode': obj.s3UploadMode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCustomImage
@@ -12165,7 +30901,7 @@ export interface SageMakerCustomImage {
   /**
    * @schema SageMakerCustomImage#ImageName
    */
-  readonly imageName: string;
+  readonly imageName?: string;
 
   /**
    * @schema SageMakerCustomImage#ImageVersionNumber
@@ -12175,9 +30911,25 @@ export interface SageMakerCustomImage {
   /**
    * @schema SageMakerCustomImage#AppImageConfigName
    */
-  readonly appImageConfigName: string;
+  readonly appImageConfigName?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCustomImage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCustomImage(obj: SageMakerCustomImage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ImageName': obj.imageName,
+    'ImageVersionNumber': obj.imageVersionNumber,
+    'AppImageConfigName': obj.appImageConfigName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerUsd
@@ -12201,23 +30953,39 @@ export interface SageMakerUsd {
 }
 
 /**
+ * Converts an object of type 'SageMakerUsd' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerUsd(obj: SageMakerUsd | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Dollars': obj.dollars,
+    'Cents': obj.cents,
+    'TenthFractionsOfACent': obj.tenthFractionsOfACent,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerIntegerParameterRange
  */
 export interface SageMakerIntegerParameterRange {
   /**
    * @schema SageMakerIntegerParameterRange#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema SageMakerIntegerParameterRange#MinValue
    */
-  readonly minValue: string;
+  readonly minValue?: string;
 
   /**
    * @schema SageMakerIntegerParameterRange#MaxValue
    */
-  readonly maxValue: string;
+  readonly maxValue?: string;
 
   /**
    * @schema SageMakerIntegerParameterRange#ScalingType
@@ -12227,23 +30995,40 @@ export interface SageMakerIntegerParameterRange {
 }
 
 /**
+ * Converts an object of type 'SageMakerIntegerParameterRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerIntegerParameterRange(obj: SageMakerIntegerParameterRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'MinValue': obj.minValue,
+    'MaxValue': obj.maxValue,
+    'ScalingType': obj.scalingType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerContinuousParameterRange
  */
 export interface SageMakerContinuousParameterRange {
   /**
    * @schema SageMakerContinuousParameterRange#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema SageMakerContinuousParameterRange#MinValue
    */
-  readonly minValue: string;
+  readonly minValue?: string;
 
   /**
    * @schema SageMakerContinuousParameterRange#MaxValue
    */
-  readonly maxValue: string;
+  readonly maxValue?: string;
 
   /**
    * @schema SageMakerContinuousParameterRange#ScalingType
@@ -12253,20 +31038,52 @@ export interface SageMakerContinuousParameterRange {
 }
 
 /**
+ * Converts an object of type 'SageMakerContinuousParameterRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerContinuousParameterRange(obj: SageMakerContinuousParameterRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'MinValue': obj.minValue,
+    'MaxValue': obj.maxValue,
+    'ScalingType': obj.scalingType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerCategoricalParameterRange
  */
 export interface SageMakerCategoricalParameterRange {
   /**
    * @schema SageMakerCategoricalParameterRange#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema SageMakerCategoricalParameterRange#Values
    */
-  readonly values: string[];
+  readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'SageMakerCategoricalParameterRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCategoricalParameterRange(obj: SageMakerCategoricalParameterRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerLabelingJobS3DataSource
@@ -12275,9 +31092,23 @@ export interface SageMakerLabelingJobS3DataSource {
   /**
    * @schema SageMakerLabelingJobS3DataSource#ManifestS3Uri
    */
-  readonly manifestS3Uri: string;
+  readonly manifestS3Uri?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerLabelingJobS3DataSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerLabelingJobS3DataSource(obj: SageMakerLabelingJobS3DataSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ManifestS3Uri': obj.manifestS3Uri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerLabelingJobSnsDataSource
@@ -12286,14 +31117,95 @@ export interface SageMakerLabelingJobSnsDataSource {
   /**
    * @schema SageMakerLabelingJobSnsDataSource#SnsTopicArn
    */
-  readonly snsTopicArn: string;
+  readonly snsTopicArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerLabelingJobSnsDataSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerLabelingJobSnsDataSource(obj: SageMakerLabelingJobSnsDataSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SnsTopicArn': obj.snsTopicArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerRepositoryAuthConfig
+ */
+export interface SageMakerRepositoryAuthConfig {
+  /**
+   * @schema SageMakerRepositoryAuthConfig#RepositoryCredentialsProviderArn
+   */
+  readonly repositoryCredentialsProviderArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerRepositoryAuthConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerRepositoryAuthConfig(obj: SageMakerRepositoryAuthConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RepositoryCredentialsProviderArn': obj.repositoryCredentialsProviderArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerMetricsSource
+ */
+export interface SageMakerMetricsSource {
+  /**
+   * @schema SageMakerMetricsSource#ContentType
+   */
+  readonly contentType?: string;
+
+  /**
+   * @schema SageMakerMetricsSource#ContentDigest
+   */
+  readonly contentDigest?: string;
+
+  /**
+   * @schema SageMakerMetricsSource#S3Uri
+   */
+  readonly s3Uri?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerMetricsSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMetricsSource(obj: SageMakerMetricsSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ContentType': obj.contentType,
+    'ContentDigest': obj.contentDigest,
+    'S3Uri': obj.s3Uri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerMonitoringBaselineConfig
  */
 export interface SageMakerMonitoringBaselineConfig {
+  /**
+   * @schema SageMakerMonitoringBaselineConfig#BaseliningJobName
+   */
+  readonly baseliningJobName?: string;
+
   /**
    * @schema SageMakerMonitoringBaselineConfig#ConstraintsResource
    */
@@ -12307,42 +31219,45 @@ export interface SageMakerMonitoringBaselineConfig {
 }
 
 /**
+ * Converts an object of type 'SageMakerMonitoringBaselineConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringBaselineConfig(obj: SageMakerMonitoringBaselineConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BaseliningJobName': obj.baseliningJobName,
+    'ConstraintsResource': toJson_SageMakerMonitoringConstraintsResource(obj.constraintsResource),
+    'StatisticsResource': toJson_SageMakerMonitoringStatisticsResource(obj.statisticsResource),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerMonitoringInput
  */
 export interface SageMakerMonitoringInput {
   /**
    * @schema SageMakerMonitoringInput#EndpointInput
    */
-  readonly endpointInput: SageMakerEndpointInput;
+  readonly endpointInput?: SageMakerEndpointInput;
 
 }
 
 /**
- * @schema SageMakerMonitoringOutputConfig
+ * Converts an object of type 'SageMakerMonitoringInput' to JSON representation.
  */
-export interface SageMakerMonitoringOutputConfig {
-  /**
-   * @schema SageMakerMonitoringOutputConfig#MonitoringOutputs
-   */
-  readonly monitoringOutputs: SageMakerMonitoringOutput[];
-
-  /**
-   * @schema SageMakerMonitoringOutputConfig#KmsKeyId
-   */
-  readonly kmsKeyId?: string;
-
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringInput(obj: SageMakerMonitoringInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointInput': toJson_SageMakerEndpointInput(obj.endpointInput),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
 }
-
-/**
- * @schema SageMakerMonitoringResources
- */
-export interface SageMakerMonitoringResources {
-  /**
-   * @schema SageMakerMonitoringResources#ClusterConfig
-   */
-  readonly clusterConfig: SageMakerMonitoringClusterConfig;
-
-}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerMonitoringAppSpecification
@@ -12351,7 +31266,7 @@ export interface SageMakerMonitoringAppSpecification {
   /**
    * @schema SageMakerMonitoringAppSpecification#ImageUri
    */
-  readonly imageUri: string;
+  readonly imageUri?: string;
 
   /**
    * @schema SageMakerMonitoringAppSpecification#ContainerEntrypoint
@@ -12376,15 +31291,162 @@ export interface SageMakerMonitoringAppSpecification {
 }
 
 /**
- * @schema SageMakerMonitoringStoppingCondition
+ * Converts an object of type 'SageMakerMonitoringAppSpecification' to JSON representation.
  */
-export interface SageMakerMonitoringStoppingCondition {
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringAppSpecification(obj: SageMakerMonitoringAppSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ImageUri': obj.imageUri,
+    'ContainerEntrypoint': obj.containerEntrypoint?.map(y => y),
+    'ContainerArguments': obj.containerArguments?.map(y => y),
+    'RecordPreprocessorSourceUri': obj.recordPreprocessorSourceUri,
+    'PostAnalyticsProcessorSourceUri': obj.postAnalyticsProcessorSourceUri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerAthenaDatasetDefinition
+ */
+export interface SageMakerAthenaDatasetDefinition {
   /**
-   * @schema SageMakerMonitoringStoppingCondition#MaxRuntimeInSeconds
+   * @schema SageMakerAthenaDatasetDefinition#Catalog
    */
-  readonly maxRuntimeInSeconds: number;
+  readonly catalog?: string;
+
+  /**
+   * @schema SageMakerAthenaDatasetDefinition#Database
+   */
+  readonly database?: string;
+
+  /**
+   * @schema SageMakerAthenaDatasetDefinition#QueryString
+   */
+  readonly queryString?: string;
+
+  /**
+   * @schema SageMakerAthenaDatasetDefinition#WorkGroup
+   */
+  readonly workGroup?: string;
+
+  /**
+   * @schema SageMakerAthenaDatasetDefinition#OutputS3Uri
+   */
+  readonly outputS3Uri?: string;
+
+  /**
+   * @schema SageMakerAthenaDatasetDefinition#KmsKeyId
+   */
+  readonly kmsKeyId?: string;
+
+  /**
+   * @schema SageMakerAthenaDatasetDefinition#OutputFormat
+   */
+  readonly outputFormat?: string;
+
+  /**
+   * @schema SageMakerAthenaDatasetDefinition#OutputCompression
+   */
+  readonly outputCompression?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerAthenaDatasetDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAthenaDatasetDefinition(obj: SageMakerAthenaDatasetDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Catalog': obj.catalog,
+    'Database': obj.database,
+    'QueryString': obj.queryString,
+    'WorkGroup': obj.workGroup,
+    'OutputS3Uri': obj.outputS3Uri,
+    'KmsKeyId': obj.kmsKeyId,
+    'OutputFormat': obj.outputFormat,
+    'OutputCompression': obj.outputCompression,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerRedshiftDatasetDefinition
+ */
+export interface SageMakerRedshiftDatasetDefinition {
+  /**
+   * @schema SageMakerRedshiftDatasetDefinition#ClusterId
+   */
+  readonly clusterId?: string;
+
+  /**
+   * @schema SageMakerRedshiftDatasetDefinition#Database
+   */
+  readonly database?: string;
+
+  /**
+   * @schema SageMakerRedshiftDatasetDefinition#DbUser
+   */
+  readonly dbUser?: string;
+
+  /**
+   * @schema SageMakerRedshiftDatasetDefinition#QueryString
+   */
+  readonly queryString?: string;
+
+  /**
+   * @schema SageMakerRedshiftDatasetDefinition#ClusterRoleArn
+   */
+  readonly clusterRoleArn?: string;
+
+  /**
+   * @schema SageMakerRedshiftDatasetDefinition#OutputS3Uri
+   */
+  readonly outputS3Uri?: string;
+
+  /**
+   * @schema SageMakerRedshiftDatasetDefinition#KmsKeyId
+   */
+  readonly kmsKeyId?: string;
+
+  /**
+   * @schema SageMakerRedshiftDatasetDefinition#OutputFormat
+   */
+  readonly outputFormat?: string;
+
+  /**
+   * @schema SageMakerRedshiftDatasetDefinition#OutputCompression
+   */
+  readonly outputCompression?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerRedshiftDatasetDefinition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerRedshiftDatasetDefinition(obj: SageMakerRedshiftDatasetDefinition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ClusterId': obj.clusterId,
+    'Database': obj.database,
+    'DbUser': obj.dbUser,
+    'QueryString': obj.queryString,
+    'ClusterRoleArn': obj.clusterRoleArn,
+    'OutputS3Uri': obj.outputS3Uri,
+    'KmsKeyId': obj.kmsKeyId,
+    'OutputFormat': obj.outputFormat,
+    'OutputCompression': obj.outputCompression,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerProcessingS3Output
@@ -12393,19 +31455,60 @@ export interface SageMakerProcessingS3Output {
   /**
    * @schema SageMakerProcessingS3Output#S3Uri
    */
-  readonly s3Uri: string;
+  readonly s3Uri?: string;
 
   /**
    * @schema SageMakerProcessingS3Output#LocalPath
    */
-  readonly localPath: string;
+  readonly localPath?: string;
 
   /**
    * @schema SageMakerProcessingS3Output#S3UploadMode
    */
-  readonly s3UploadMode: string;
+  readonly s3UploadMode?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerProcessingS3Output' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProcessingS3Output(obj: SageMakerProcessingS3Output | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3Uri': obj.s3Uri,
+    'LocalPath': obj.localPath,
+    'S3UploadMode': obj.s3UploadMode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerProcessingFeatureStoreOutput
+ */
+export interface SageMakerProcessingFeatureStoreOutput {
+  /**
+   * @schema SageMakerProcessingFeatureStoreOutput#FeatureGroupName
+   */
+  readonly featureGroupName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerProcessingFeatureStoreOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProcessingFeatureStoreOutput(obj: SageMakerProcessingFeatureStoreOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FeatureGroupName': obj.featureGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerS3DataSource
@@ -12414,12 +31517,12 @@ export interface SageMakerS3DataSource {
   /**
    * @schema SageMakerS3DataSource#S3DataType
    */
-  readonly s3DataType: string;
+  readonly s3DataType?: string;
 
   /**
    * @schema SageMakerS3DataSource#S3Uri
    */
-  readonly s3Uri: string;
+  readonly s3Uri?: string;
 
   /**
    * @schema SageMakerS3DataSource#S3DataDistributionType
@@ -12434,30 +31537,64 @@ export interface SageMakerS3DataSource {
 }
 
 /**
+ * Converts an object of type 'SageMakerS3DataSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerS3DataSource(obj: SageMakerS3DataSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3DataType': obj.s3DataType,
+    'S3Uri': obj.s3Uri,
+    'S3DataDistributionType': obj.s3DataDistributionType,
+    'AttributeNames': obj.attributeNames?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerFileSystemDataSource
  */
 export interface SageMakerFileSystemDataSource {
   /**
    * @schema SageMakerFileSystemDataSource#FileSystemId
    */
-  readonly fileSystemId: string;
+  readonly fileSystemId?: string;
 
   /**
    * @schema SageMakerFileSystemDataSource#FileSystemAccessMode
    */
-  readonly fileSystemAccessMode: string;
+  readonly fileSystemAccessMode?: string;
 
   /**
    * @schema SageMakerFileSystemDataSource#FileSystemType
    */
-  readonly fileSystemType: string;
+  readonly fileSystemType?: string;
 
   /**
    * @schema SageMakerFileSystemDataSource#DirectoryPath
    */
-  readonly directoryPath: string;
+  readonly directoryPath?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerFileSystemDataSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerFileSystemDataSource(obj: SageMakerFileSystemDataSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FileSystemId': obj.fileSystemId,
+    'FileSystemAccessMode': obj.fileSystemAccessMode,
+    'FileSystemType': obj.fileSystemType,
+    'DirectoryPath': obj.directoryPath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerTransformS3DataSource
@@ -12466,14 +31603,359 @@ export interface SageMakerTransformS3DataSource {
   /**
    * @schema SageMakerTransformS3DataSource#S3DataType
    */
-  readonly s3DataType: string;
+  readonly s3DataType?: string;
 
   /**
    * @schema SageMakerTransformS3DataSource#S3Uri
    */
-  readonly s3Uri: string;
+  readonly s3Uri?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerTransformS3DataSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTransformS3DataSource(obj: SageMakerTransformS3DataSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3DataType': obj.s3DataType,
+    'S3Uri': obj.s3Uri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCandidateArtifactLocations
+ */
+export interface SageMakerCandidateArtifactLocations {
+  /**
+   * @schema SageMakerCandidateArtifactLocations#Explainability
+   */
+  readonly explainability?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCandidateArtifactLocations' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCandidateArtifactLocations(obj: SageMakerCandidateArtifactLocations | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Explainability': obj.explainability,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerTrafficRoutingConfig
+ */
+export interface SageMakerTrafficRoutingConfig {
+  /**
+   * @schema SageMakerTrafficRoutingConfig#Type
+   */
+  readonly type?: string;
+
+  /**
+   * @schema SageMakerTrafficRoutingConfig#WaitIntervalInSeconds
+   */
+  readonly waitIntervalInSeconds?: number;
+
+  /**
+   * @schema SageMakerTrafficRoutingConfig#CanarySize
+   */
+  readonly canarySize?: SageMakerCapacitySize;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerTrafficRoutingConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrafficRoutingConfig(obj: SageMakerTrafficRoutingConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'WaitIntervalInSeconds': obj.waitIntervalInSeconds,
+    'CanarySize': toJson_SageMakerCapacitySize(obj.canarySize),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerAlarm
+ */
+export interface SageMakerAlarm {
+  /**
+   * @schema SageMakerAlarm#AlarmName
+   */
+  readonly alarmName?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerAlarm' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerAlarm(obj: SageMakerAlarm | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AlarmName': obj.alarmName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerTrainingJobStepMetadata
+ */
+export interface SageMakerTrainingJobStepMetadata {
+  /**
+   * @schema SageMakerTrainingJobStepMetadata#Arn
+   */
+  readonly arn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerTrainingJobStepMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrainingJobStepMetadata(obj: SageMakerTrainingJobStepMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerProcessingJobStepMetadata
+ */
+export interface SageMakerProcessingJobStepMetadata {
+  /**
+   * @schema SageMakerProcessingJobStepMetadata#Arn
+   */
+  readonly arn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerProcessingJobStepMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProcessingJobStepMetadata(obj: SageMakerProcessingJobStepMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerTransformJobStepMetadata
+ */
+export interface SageMakerTransformJobStepMetadata {
+  /**
+   * @schema SageMakerTransformJobStepMetadata#Arn
+   */
+  readonly arn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerTransformJobStepMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTransformJobStepMetadata(obj: SageMakerTransformJobStepMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerTuningJobStepMetaData
+ */
+export interface SageMakerTuningJobStepMetaData {
+  /**
+   * @schema SageMakerTuningJobStepMetaData#Arn
+   */
+  readonly arn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerTuningJobStepMetaData' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTuningJobStepMetaData(obj: SageMakerTuningJobStepMetaData | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerModelStepMetadata
+ */
+export interface SageMakerModelStepMetadata {
+  /**
+   * @schema SageMakerModelStepMetadata#Arn
+   */
+  readonly arn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerModelStepMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerModelStepMetadata(obj: SageMakerModelStepMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerRegisterModelStepMetadata
+ */
+export interface SageMakerRegisterModelStepMetadata {
+  /**
+   * @schema SageMakerRegisterModelStepMetadata#Arn
+   */
+  readonly arn?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerRegisterModelStepMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerRegisterModelStepMetadata(obj: SageMakerRegisterModelStepMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerConditionStepMetadata
+ */
+export interface SageMakerConditionStepMetadata {
+  /**
+   * @schema SageMakerConditionStepMetadata#Outcome
+   */
+  readonly outcome?: string;
+
+}
+
+/**
+ * Converts an object of type 'SageMakerConditionStepMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerConditionStepMetadata(obj: SageMakerConditionStepMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Outcome': obj.outcome,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCallbackStepMetadata
+ */
+export interface SageMakerCallbackStepMetadata {
+  /**
+   * @schema SageMakerCallbackStepMetadata#CallbackToken
+   */
+  readonly callbackToken?: string;
+
+  /**
+   * @schema SageMakerCallbackStepMetadata#SqsQueueUrl
+   */
+  readonly sqsQueueUrl?: string;
+
+  /**
+   * @schema SageMakerCallbackStepMetadata#OutputParameters
+   */
+  readonly outputParameters?: SageMakerOutputParameter[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerCallbackStepMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCallbackStepMetadata(obj: SageMakerCallbackStepMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CallbackToken': obj.callbackToken,
+    'SqsQueueUrl': obj.sqsQueueUrl,
+    'OutputParameters': obj.outputParameters?.map(y => toJson_SageMakerOutputParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerLambdaStepMetadata
+ */
+export interface SageMakerLambdaStepMetadata {
+  /**
+   * @schema SageMakerLambdaStepMetadata#Arn
+   */
+  readonly arn?: string;
+
+  /**
+   * @schema SageMakerLambdaStepMetadata#OutputParameters
+   */
+  readonly outputParameters?: SageMakerOutputParameter[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerLambdaStepMetadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerLambdaStepMetadata(obj: SageMakerLambdaStepMetadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'OutputParameters': obj.outputParameters?.map(y => toJson_SageMakerOutputParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerTrialComponentSimpleSummary
@@ -12507,6 +31989,24 @@ export interface SageMakerTrialComponentSimpleSummary {
 }
 
 /**
+ * Converts an object of type 'SageMakerTrialComponentSimpleSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrialComponentSimpleSummary(obj: SageMakerTrialComponentSimpleSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialComponentName': obj.trialComponentName,
+    'TrialComponentArn': obj.trialComponentArn,
+    'TrialComponentSource': toJson_SageMakerTrialComponentSource(obj.trialComponentSource),
+    'CreationTime': obj.creationTime,
+    'CreatedBy': toJson_SageMakerUserContext(obj.createdBy),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerTrialComponentSourceDetail
  */
 export interface SageMakerTrialComponentSourceDetail {
@@ -12533,6 +32033,23 @@ export interface SageMakerTrialComponentSourceDetail {
 }
 
 /**
+ * Converts an object of type 'SageMakerTrialComponentSourceDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTrialComponentSourceDetail(obj: SageMakerTrialComponentSourceDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceArn': obj.sourceArn,
+    'TrainingJob': toJson_SageMakerTrainingJob(obj.trainingJob),
+    'ProcessingJob': toJson_SageMakerProcessingJob(obj.processingJob),
+    'TransformJob': toJson_SageMakerTransformJob(obj.transformJob),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerParent
  */
 export interface SageMakerParent {
@@ -12549,20 +32066,135 @@ export interface SageMakerParent {
 }
 
 /**
+ * Converts an object of type 'SageMakerParent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerParent(obj: SageMakerParent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrialName': obj.trialName,
+    'ExperimentName': obj.experimentName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerMonitoringSchedule
+ */
+export interface SageMakerMonitoringSchedule {
+  /**
+   * @schema SageMakerMonitoringSchedule#MonitoringScheduleArn
+   */
+  readonly monitoringScheduleArn?: string;
+
+  /**
+   * @schema SageMakerMonitoringSchedule#MonitoringScheduleName
+   */
+  readonly monitoringScheduleName?: string;
+
+  /**
+   * @schema SageMakerMonitoringSchedule#MonitoringScheduleStatus
+   */
+  readonly monitoringScheduleStatus?: string;
+
+  /**
+   * @schema SageMakerMonitoringSchedule#MonitoringType
+   */
+  readonly monitoringType?: string;
+
+  /**
+   * @schema SageMakerMonitoringSchedule#FailureReason
+   */
+  readonly failureReason?: string;
+
+  /**
+   * @schema SageMakerMonitoringSchedule#CreationTime
+   */
+  readonly creationTime?: string;
+
+  /**
+   * @schema SageMakerMonitoringSchedule#LastModifiedTime
+   */
+  readonly lastModifiedTime?: string;
+
+  /**
+   * @schema SageMakerMonitoringSchedule#MonitoringScheduleConfig
+   */
+  readonly monitoringScheduleConfig?: SageMakerMonitoringScheduleConfig;
+
+  /**
+   * @schema SageMakerMonitoringSchedule#EndpointName
+   */
+  readonly endpointName?: string;
+
+  /**
+   * @schema SageMakerMonitoringSchedule#LastMonitoringExecutionSummary
+   */
+  readonly lastMonitoringExecutionSummary?: SageMakerMonitoringExecutionSummary;
+
+  /**
+   * @schema SageMakerMonitoringSchedule#Tags
+   */
+  readonly tags?: SageMakerTag[];
+
+}
+
+/**
+ * Converts an object of type 'SageMakerMonitoringSchedule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerMonitoringSchedule(obj: SageMakerMonitoringSchedule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MonitoringScheduleArn': obj.monitoringScheduleArn,
+    'MonitoringScheduleName': obj.monitoringScheduleName,
+    'MonitoringScheduleStatus': obj.monitoringScheduleStatus,
+    'MonitoringType': obj.monitoringType,
+    'FailureReason': obj.failureReason,
+    'CreationTime': obj.creationTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'MonitoringScheduleConfig': toJson_SageMakerMonitoringScheduleConfig(obj.monitoringScheduleConfig),
+    'EndpointName': obj.endpointName,
+    'LastMonitoringExecutionSummary': toJson_SageMakerMonitoringExecutionSummary(obj.lastMonitoringExecutionSummary),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerIntegerParameterRangeSpecification
  */
 export interface SageMakerIntegerParameterRangeSpecification {
   /**
    * @schema SageMakerIntegerParameterRangeSpecification#MinValue
    */
-  readonly minValue: string;
+  readonly minValue?: string;
 
   /**
    * @schema SageMakerIntegerParameterRangeSpecification#MaxValue
    */
-  readonly maxValue: string;
+  readonly maxValue?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerIntegerParameterRangeSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerIntegerParameterRangeSpecification(obj: SageMakerIntegerParameterRangeSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MinValue': obj.minValue,
+    'MaxValue': obj.maxValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerContinuousParameterRangeSpecification
@@ -12571,14 +32203,29 @@ export interface SageMakerContinuousParameterRangeSpecification {
   /**
    * @schema SageMakerContinuousParameterRangeSpecification#MinValue
    */
-  readonly minValue: string;
+  readonly minValue?: string;
 
   /**
    * @schema SageMakerContinuousParameterRangeSpecification#MaxValue
    */
-  readonly maxValue: string;
+  readonly maxValue?: string;
 
 }
+
+/**
+ * Converts an object of type 'SageMakerContinuousParameterRangeSpecification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerContinuousParameterRangeSpecification(obj: SageMakerContinuousParameterRangeSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MinValue': obj.minValue,
+    'MaxValue': obj.maxValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerCategoricalParameterRangeSpecification
@@ -12587,94 +32234,54 @@ export interface SageMakerCategoricalParameterRangeSpecification {
   /**
    * @schema SageMakerCategoricalParameterRangeSpecification#Values
    */
-  readonly values: string[];
+  readonly values?: string[];
 
 }
 
 /**
- * @schema SageMakerMonitoringConstraintsResource
+ * Converts an object of type 'SageMakerCategoricalParameterRangeSpecification' to JSON representation.
  */
-export interface SageMakerMonitoringConstraintsResource {
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCategoricalParameterRangeSpecification(obj: SageMakerCategoricalParameterRangeSpecification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema SageMakerCapacitySize
+ */
+export interface SageMakerCapacitySize {
   /**
-   * @schema SageMakerMonitoringConstraintsResource#S3Uri
+   * @schema SageMakerCapacitySize#Type
    */
-  readonly s3Uri?: string;
+  readonly type?: string;
+
+  /**
+   * @schema SageMakerCapacitySize#Value
+   */
+  readonly value?: number;
 
 }
 
 /**
- * @schema SageMakerMonitoringStatisticsResource
+ * Converts an object of type 'SageMakerCapacitySize' to JSON representation.
  */
-export interface SageMakerMonitoringStatisticsResource {
-  /**
-   * @schema SageMakerMonitoringStatisticsResource#S3Uri
-   */
-  readonly s3Uri?: string;
-
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerCapacitySize(obj: SageMakerCapacitySize | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
 }
-
-/**
- * @schema SageMakerEndpointInput
- */
-export interface SageMakerEndpointInput {
-  /**
-   * @schema SageMakerEndpointInput#EndpointName
-   */
-  readonly endpointName: string;
-
-  /**
-   * @schema SageMakerEndpointInput#LocalPath
-   */
-  readonly localPath: string;
-
-  /**
-   * @schema SageMakerEndpointInput#S3InputMode
-   */
-  readonly s3InputMode?: string;
-
-  /**
-   * @schema SageMakerEndpointInput#S3DataDistributionType
-   */
-  readonly s3DataDistributionType?: string;
-
-}
-
-/**
- * @schema SageMakerMonitoringOutput
- */
-export interface SageMakerMonitoringOutput {
-  /**
-   * @schema SageMakerMonitoringOutput#S3Output
-   */
-  readonly s3Output: SageMakerMonitoringS3Output;
-
-}
-
-/**
- * @schema SageMakerMonitoringClusterConfig
- */
-export interface SageMakerMonitoringClusterConfig {
-  /**
-   * @schema SageMakerMonitoringClusterConfig#InstanceCount
-   */
-  readonly instanceCount: number;
-
-  /**
-   * @schema SageMakerMonitoringClusterConfig#InstanceType
-   */
-  readonly instanceType: string;
-
-  /**
-   * @schema SageMakerMonitoringClusterConfig#VolumeSizeInGB
-   */
-  readonly volumeSizeInGb: number;
-
-  /**
-   * @schema SageMakerMonitoringClusterConfig#VolumeKmsKeyId
-   */
-  readonly volumeKmsKeyId?: string;
-
-}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SageMakerProcessingJob
@@ -12793,6 +32400,41 @@ export interface SageMakerProcessingJob {
 }
 
 /**
+ * Converts an object of type 'SageMakerProcessingJob' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerProcessingJob(obj: SageMakerProcessingJob | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ProcessingInputs': obj.processingInputs?.map(y => toJson_SageMakerProcessingInput(y)),
+    'ProcessingOutputConfig': toJson_SageMakerProcessingOutputConfig(obj.processingOutputConfig),
+    'ProcessingJobName': obj.processingJobName,
+    'ProcessingResources': toJson_SageMakerProcessingResources(obj.processingResources),
+    'StoppingCondition': toJson_SageMakerProcessingStoppingCondition(obj.stoppingCondition),
+    'AppSpecification': toJson_SageMakerAppSpecification(obj.appSpecification),
+    'Environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'NetworkConfig': toJson_SageMakerNetworkConfig(obj.networkConfig),
+    'RoleArn': obj.roleArn,
+    'ExperimentConfig': toJson_SageMakerExperimentConfig(obj.experimentConfig),
+    'ProcessingJobArn': obj.processingJobArn,
+    'ProcessingJobStatus': obj.processingJobStatus,
+    'ExitMessage': obj.exitMessage,
+    'FailureReason': obj.failureReason,
+    'ProcessingEndTime': obj.processingEndTime,
+    'ProcessingStartTime': obj.processingStartTime,
+    'LastModifiedTime': obj.lastModifiedTime,
+    'CreationTime': obj.creationTime,
+    'MonitoringScheduleArn': obj.monitoringScheduleArn,
+    'AutoMLJobArn': obj.autoMlJobArn,
+    'TrainingJobArn': obj.trainingJobArn,
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SageMakerTransformJob
  */
 export interface SageMakerTransformJob {
@@ -12904,22 +32546,35 @@ export interface SageMakerTransformJob {
 }
 
 /**
- * @schema SageMakerMonitoringS3Output
+ * Converts an object of type 'SageMakerTransformJob' to JSON representation.
  */
-export interface SageMakerMonitoringS3Output {
-  /**
-   * @schema SageMakerMonitoringS3Output#S3Uri
-   */
-  readonly s3Uri: string;
-
-  /**
-   * @schema SageMakerMonitoringS3Output#LocalPath
-   */
-  readonly localPath: string;
-
-  /**
-   * @schema SageMakerMonitoringS3Output#S3UploadMode
-   */
-  readonly s3UploadMode?: string;
-
+/* eslint-disable max-len, quote-props */
+export function toJson_SageMakerTransformJob(obj: SageMakerTransformJob | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TransformJobName': obj.transformJobName,
+    'TransformJobArn': obj.transformJobArn,
+    'TransformJobStatus': obj.transformJobStatus,
+    'FailureReason': obj.failureReason,
+    'ModelName': obj.modelName,
+    'MaxConcurrentTransforms': obj.maxConcurrentTransforms,
+    'ModelClientConfig': toJson_SageMakerModelClientConfig(obj.modelClientConfig),
+    'MaxPayloadInMB': obj.maxPayloadInMb,
+    'BatchStrategy': obj.batchStrategy,
+    'Environment': ((obj.environment) === undefined) ? undefined : (Object.entries(obj.environment).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'TransformInput': toJson_SageMakerTransformInput(obj.transformInput),
+    'TransformOutput': toJson_SageMakerTransformOutput(obj.transformOutput),
+    'TransformResources': toJson_SageMakerTransformResources(obj.transformResources),
+    'CreationTime': obj.creationTime,
+    'TransformStartTime': obj.transformStartTime,
+    'TransformEndTime': obj.transformEndTime,
+    'LabelingJobArn': obj.labelingJobArn,
+    'AutoMLJobArn': obj.autoMlJobArn,
+    'DataProcessing': toJson_SageMakerDataProcessing(obj.dataProcessing),
+    'ExperimentConfig': toJson_SageMakerExperimentConfig(obj.experimentConfig),
+    'Tags': obj.tags?.map(y => toJson_SageMakerTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
 }
+/* eslint-enable max-len, quote-props */

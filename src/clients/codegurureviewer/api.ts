@@ -135,9 +135,17 @@ export class CodeGuruReviewerResponsesAssociateRepository {
               ConnectionArn: this.__input.repository.gitHubEnterpriseServer?.connectionArn,
               Owner: this.__input.repository.gitHubEnterpriseServer?.owner,
             },
+            S3Bucket: {
+              Name: this.__input.repository.s3Bucket?.name,
+              BucketName: this.__input.repository.s3Bucket?.bucketName,
+            },
           },
           ClientRequestToken: this.__input.clientRequestToken,
           Tags: this.__input.tags,
+          KMSKeyDetails: {
+            KMSKeyId: this.__input.kmsKeyDetails?.kmsKeyId,
+            EncryptionOption: this.__input.kmsKeyDetails?.encryptionOption,
+          },
         },
       },
     };
@@ -175,9 +183,17 @@ export class CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociation {
               ConnectionArn: this.__input.repository.gitHubEnterpriseServer?.connectionArn,
               Owner: this.__input.repository.gitHubEnterpriseServer?.owner,
             },
+            S3Bucket: {
+              Name: this.__input.repository.s3Bucket?.name,
+              BucketName: this.__input.repository.s3Bucket?.bucketName,
+            },
           },
           ClientRequestToken: this.__input.clientRequestToken,
           Tags: this.__input.tags,
+          KMSKeyDetails: {
+            KMSKeyId: this.__input.kmsKeyDetails?.kmsKeyId,
+            EncryptionOption: this.__input.kmsKeyDetails?.encryptionOption,
+          },
         },
       },
     };
@@ -208,9 +224,17 @@ export class CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociation {
               ConnectionArn: this.__input.repository.gitHubEnterpriseServer?.connectionArn,
               Owner: this.__input.repository.gitHubEnterpriseServer?.owner,
             },
+            S3Bucket: {
+              Name: this.__input.repository.s3Bucket?.name,
+              BucketName: this.__input.repository.s3Bucket?.bucketName,
+            },
           },
           ClientRequestToken: this.__input.clientRequestToken,
           Tags: this.__input.tags,
+          KMSKeyDetails: {
+            KMSKeyId: this.__input.kmsKeyDetails?.kmsKeyId,
+            EncryptionOption: this.__input.kmsKeyDetails?.encryptionOption,
+          },
         },
       },
     };
@@ -241,9 +265,17 @@ export class CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociation {
               ConnectionArn: this.__input.repository.gitHubEnterpriseServer?.connectionArn,
               Owner: this.__input.repository.gitHubEnterpriseServer?.owner,
             },
+            S3Bucket: {
+              Name: this.__input.repository.s3Bucket?.name,
+              BucketName: this.__input.repository.s3Bucket?.bucketName,
+            },
           },
           ClientRequestToken: this.__input.clientRequestToken,
           Tags: this.__input.tags,
+          KMSKeyDetails: {
+            KMSKeyId: this.__input.kmsKeyDetails?.kmsKeyId,
+            EncryptionOption: this.__input.kmsKeyDetails?.encryptionOption,
+          },
         },
       },
     };
@@ -274,9 +306,17 @@ export class CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociation {
               ConnectionArn: this.__input.repository.gitHubEnterpriseServer?.connectionArn,
               Owner: this.__input.repository.gitHubEnterpriseServer?.owner,
             },
+            S3Bucket: {
+              Name: this.__input.repository.s3Bucket?.name,
+              BucketName: this.__input.repository.s3Bucket?.bucketName,
+            },
           },
           ClientRequestToken: this.__input.clientRequestToken,
           Tags: this.__input.tags,
+          KMSKeyDetails: {
+            KMSKeyId: this.__input.kmsKeyDetails?.kmsKeyId,
+            EncryptionOption: this.__input.kmsKeyDetails?.encryptionOption,
+          },
         },
       },
     };
@@ -307,9 +347,17 @@ export class CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociation {
               ConnectionArn: this.__input.repository.gitHubEnterpriseServer?.connectionArn,
               Owner: this.__input.repository.gitHubEnterpriseServer?.owner,
             },
+            S3Bucket: {
+              Name: this.__input.repository.s3Bucket?.name,
+              BucketName: this.__input.repository.s3Bucket?.bucketName,
+            },
           },
           ClientRequestToken: this.__input.clientRequestToken,
           Tags: this.__input.tags,
+          KMSKeyDetails: {
+            KMSKeyId: this.__input.kmsKeyDetails?.kmsKeyId,
+            EncryptionOption: this.__input.kmsKeyDetails?.encryptionOption,
+          },
         },
       },
     };
@@ -340,9 +388,17 @@ export class CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociation {
               ConnectionArn: this.__input.repository.gitHubEnterpriseServer?.connectionArn,
               Owner: this.__input.repository.gitHubEnterpriseServer?.owner,
             },
+            S3Bucket: {
+              Name: this.__input.repository.s3Bucket?.name,
+              BucketName: this.__input.repository.s3Bucket?.bucketName,
+            },
           },
           ClientRequestToken: this.__input.clientRequestToken,
           Tags: this.__input.tags,
+          KMSKeyDetails: {
+            KMSKeyId: this.__input.kmsKeyDetails?.kmsKeyId,
+            EncryptionOption: this.__input.kmsKeyDetails?.encryptionOption,
+          },
         },
       },
     };
@@ -373,9 +429,17 @@ export class CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociation {
               ConnectionArn: this.__input.repository.gitHubEnterpriseServer?.connectionArn,
               Owner: this.__input.repository.gitHubEnterpriseServer?.owner,
             },
+            S3Bucket: {
+              Name: this.__input.repository.s3Bucket?.name,
+              BucketName: this.__input.repository.s3Bucket?.bucketName,
+            },
           },
           ClientRequestToken: this.__input.clientRequestToken,
           Tags: this.__input.tags,
+          KMSKeyDetails: {
+            KMSKeyId: this.__input.kmsKeyDetails?.kmsKeyId,
+            EncryptionOption: this.__input.kmsKeyDetails?.encryptionOption,
+          },
         },
       },
     };
@@ -406,9 +470,17 @@ export class CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociation {
               ConnectionArn: this.__input.repository.gitHubEnterpriseServer?.connectionArn,
               Owner: this.__input.repository.gitHubEnterpriseServer?.owner,
             },
+            S3Bucket: {
+              Name: this.__input.repository.s3Bucket?.name,
+              BucketName: this.__input.repository.s3Bucket?.bucketName,
+            },
           },
           ClientRequestToken: this.__input.clientRequestToken,
           Tags: this.__input.tags,
+          KMSKeyDetails: {
+            KMSKeyId: this.__input.kmsKeyDetails?.kmsKeyId,
+            EncryptionOption: this.__input.kmsKeyDetails?.encryptionOption,
+          },
         },
       },
     };
@@ -439,9 +511,17 @@ export class CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociation {
               ConnectionArn: this.__input.repository.gitHubEnterpriseServer?.connectionArn,
               Owner: this.__input.repository.gitHubEnterpriseServer?.owner,
             },
+            S3Bucket: {
+              Name: this.__input.repository.s3Bucket?.name,
+              BucketName: this.__input.repository.s3Bucket?.bucketName,
+            },
           },
           ClientRequestToken: this.__input.clientRequestToken,
           Tags: this.__input.tags,
+          KMSKeyDetails: {
+            KMSKeyId: this.__input.kmsKeyDetails?.kmsKeyId,
+            EncryptionOption: this.__input.kmsKeyDetails?.encryptionOption,
+          },
         },
       },
     };
@@ -472,14 +552,260 @@ export class CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociation {
               ConnectionArn: this.__input.repository.gitHubEnterpriseServer?.connectionArn,
               Owner: this.__input.repository.gitHubEnterpriseServer?.owner,
             },
+            S3Bucket: {
+              Name: this.__input.repository.s3Bucket?.name,
+              BucketName: this.__input.repository.s3Bucket?.bucketName,
+            },
           },
           ClientRequestToken: this.__input.clientRequestToken,
           Tags: this.__input.tags,
+          KMSKeyDetails: {
+            KMSKeyId: this.__input.kmsKeyDetails?.kmsKeyId,
+            EncryptionOption: this.__input.kmsKeyDetails?.encryptionOption,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AssociateRepository.RepositoryAssociation.CreatedTimeStamp', props);
     return resource.getResponseField('RepositoryAssociation.CreatedTimeStamp') as unknown as string;
+  }
+
+  public get kmsKeyDetails(): CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociationKmsKeyDetails {
+    return new CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociationKmsKeyDetails(this.__scope, this.__resources, this.__input);
+  }
+
+  public get s3RepositoryDetails(): CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociationS3RepositoryDetails {
+    return new CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociationS3RepositoryDetails(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociationKmsKeyDetails {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerAssociateRepositoryRequest) {
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateRepository',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.AssociateRepository.RepositoryAssociation.KMSKeyDetails.KMSKeyId'),
+        outputPath: 'RepositoryAssociation.KMSKeyDetails.KMSKeyId',
+        parameters: {
+          Repository: {
+            CodeCommit: {
+              Name: this.__input.repository.codeCommit?.name,
+            },
+            Bitbucket: {
+              Name: this.__input.repository.bitbucket?.name,
+              ConnectionArn: this.__input.repository.bitbucket?.connectionArn,
+              Owner: this.__input.repository.bitbucket?.owner,
+            },
+            GitHubEnterpriseServer: {
+              Name: this.__input.repository.gitHubEnterpriseServer?.name,
+              ConnectionArn: this.__input.repository.gitHubEnterpriseServer?.connectionArn,
+              Owner: this.__input.repository.gitHubEnterpriseServer?.owner,
+            },
+            S3Bucket: {
+              Name: this.__input.repository.s3Bucket?.name,
+              BucketName: this.__input.repository.s3Bucket?.bucketName,
+            },
+          },
+          ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
+          KMSKeyDetails: {
+            KMSKeyId: this.__input.kmsKeyDetails?.kmsKeyId,
+            EncryptionOption: this.__input.kmsKeyDetails?.encryptionOption,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateRepository.RepositoryAssociation.KMSKeyDetails.KMSKeyId', props);
+    return resource.getResponseField('RepositoryAssociation.KMSKeyDetails.KMSKeyId') as unknown as string;
+  }
+
+  public get encryptionOption(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateRepository',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.AssociateRepository.RepositoryAssociation.KMSKeyDetails.EncryptionOption'),
+        outputPath: 'RepositoryAssociation.KMSKeyDetails.EncryptionOption',
+        parameters: {
+          Repository: {
+            CodeCommit: {
+              Name: this.__input.repository.codeCommit?.name,
+            },
+            Bitbucket: {
+              Name: this.__input.repository.bitbucket?.name,
+              ConnectionArn: this.__input.repository.bitbucket?.connectionArn,
+              Owner: this.__input.repository.bitbucket?.owner,
+            },
+            GitHubEnterpriseServer: {
+              Name: this.__input.repository.gitHubEnterpriseServer?.name,
+              ConnectionArn: this.__input.repository.gitHubEnterpriseServer?.connectionArn,
+              Owner: this.__input.repository.gitHubEnterpriseServer?.owner,
+            },
+            S3Bucket: {
+              Name: this.__input.repository.s3Bucket?.name,
+              BucketName: this.__input.repository.s3Bucket?.bucketName,
+            },
+          },
+          ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
+          KMSKeyDetails: {
+            KMSKeyId: this.__input.kmsKeyDetails?.kmsKeyId,
+            EncryptionOption: this.__input.kmsKeyDetails?.encryptionOption,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateRepository.RepositoryAssociation.KMSKeyDetails.EncryptionOption', props);
+    return resource.getResponseField('RepositoryAssociation.KMSKeyDetails.EncryptionOption') as unknown as string;
+  }
+
+}
+
+export class CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociationS3RepositoryDetails {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerAssociateRepositoryRequest) {
+  }
+
+  public get bucketName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateRepository',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.AssociateRepository.RepositoryAssociation.S3RepositoryDetails.BucketName'),
+        outputPath: 'RepositoryAssociation.S3RepositoryDetails.BucketName',
+        parameters: {
+          Repository: {
+            CodeCommit: {
+              Name: this.__input.repository.codeCommit?.name,
+            },
+            Bitbucket: {
+              Name: this.__input.repository.bitbucket?.name,
+              ConnectionArn: this.__input.repository.bitbucket?.connectionArn,
+              Owner: this.__input.repository.bitbucket?.owner,
+            },
+            GitHubEnterpriseServer: {
+              Name: this.__input.repository.gitHubEnterpriseServer?.name,
+              ConnectionArn: this.__input.repository.gitHubEnterpriseServer?.connectionArn,
+              Owner: this.__input.repository.gitHubEnterpriseServer?.owner,
+            },
+            S3Bucket: {
+              Name: this.__input.repository.s3Bucket?.name,
+              BucketName: this.__input.repository.s3Bucket?.bucketName,
+            },
+          },
+          ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
+          KMSKeyDetails: {
+            KMSKeyId: this.__input.kmsKeyDetails?.kmsKeyId,
+            EncryptionOption: this.__input.kmsKeyDetails?.encryptionOption,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateRepository.RepositoryAssociation.S3RepositoryDetails.BucketName', props);
+    return resource.getResponseField('RepositoryAssociation.S3RepositoryDetails.BucketName') as unknown as string;
+  }
+
+  public get codeArtifacts(): CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociationS3RepositoryDetailsCodeArtifacts {
+    return new CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociationS3RepositoryDetailsCodeArtifacts(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CodeGuruReviewerResponsesAssociateRepositoryRepositoryAssociationS3RepositoryDetailsCodeArtifacts {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerAssociateRepositoryRequest) {
+  }
+
+  public get sourceCodeArtifactsObjectKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateRepository',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.AssociateRepository.RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.SourceCodeArtifactsObjectKey'),
+        outputPath: 'RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.SourceCodeArtifactsObjectKey',
+        parameters: {
+          Repository: {
+            CodeCommit: {
+              Name: this.__input.repository.codeCommit?.name,
+            },
+            Bitbucket: {
+              Name: this.__input.repository.bitbucket?.name,
+              ConnectionArn: this.__input.repository.bitbucket?.connectionArn,
+              Owner: this.__input.repository.bitbucket?.owner,
+            },
+            GitHubEnterpriseServer: {
+              Name: this.__input.repository.gitHubEnterpriseServer?.name,
+              ConnectionArn: this.__input.repository.gitHubEnterpriseServer?.connectionArn,
+              Owner: this.__input.repository.gitHubEnterpriseServer?.owner,
+            },
+            S3Bucket: {
+              Name: this.__input.repository.s3Bucket?.name,
+              BucketName: this.__input.repository.s3Bucket?.bucketName,
+            },
+          },
+          ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
+          KMSKeyDetails: {
+            KMSKeyId: this.__input.kmsKeyDetails?.kmsKeyId,
+            EncryptionOption: this.__input.kmsKeyDetails?.encryptionOption,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateRepository.RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.SourceCodeArtifactsObjectKey', props);
+    return resource.getResponseField('RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.SourceCodeArtifactsObjectKey') as unknown as string;
+  }
+
+  public get buildArtifactsObjectKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateRepository',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.AssociateRepository.RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.BuildArtifactsObjectKey'),
+        outputPath: 'RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.BuildArtifactsObjectKey',
+        parameters: {
+          Repository: {
+            CodeCommit: {
+              Name: this.__input.repository.codeCommit?.name,
+            },
+            Bitbucket: {
+              Name: this.__input.repository.bitbucket?.name,
+              ConnectionArn: this.__input.repository.bitbucket?.connectionArn,
+              Owner: this.__input.repository.bitbucket?.owner,
+            },
+            GitHubEnterpriseServer: {
+              Name: this.__input.repository.gitHubEnterpriseServer?.name,
+              ConnectionArn: this.__input.repository.gitHubEnterpriseServer?.connectionArn,
+              Owner: this.__input.repository.gitHubEnterpriseServer?.owner,
+            },
+            S3Bucket: {
+              Name: this.__input.repository.s3Bucket?.name,
+              BucketName: this.__input.repository.s3Bucket?.bucketName,
+            },
+          },
+          ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
+          KMSKeyDetails: {
+            KMSKeyId: this.__input.kmsKeyDetails?.kmsKeyId,
+            EncryptionOption: this.__input.kmsKeyDetails?.encryptionOption,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateRepository.RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.BuildArtifactsObjectKey', props);
+    return resource.getResponseField('RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.BuildArtifactsObjectKey') as unknown as string;
   }
 
 }
@@ -514,9 +840,43 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReview {
           Type: {
             RepositoryAnalysis: {
               RepositoryHead: {
-                BranchName: this.__input.type.repositoryAnalysis.repositoryHead.branchName,
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
               },
             },
+            AnalysisTypes: this.__input.type.analysisTypes,
           },
           ClientRequestToken: this.__input.clientRequestToken,
         },
@@ -540,9 +900,43 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReview {
           Type: {
             RepositoryAnalysis: {
               RepositoryHead: {
-                BranchName: this.__input.type.repositoryAnalysis.repositoryHead.branchName,
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
               },
             },
+            AnalysisTypes: this.__input.type.analysisTypes,
           },
           ClientRequestToken: this.__input.clientRequestToken,
         },
@@ -566,9 +960,43 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReview {
           Type: {
             RepositoryAnalysis: {
               RepositoryHead: {
-                BranchName: this.__input.type.repositoryAnalysis.repositoryHead.branchName,
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
               },
             },
+            AnalysisTypes: this.__input.type.analysisTypes,
           },
           ClientRequestToken: this.__input.clientRequestToken,
         },
@@ -592,9 +1020,43 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReview {
           Type: {
             RepositoryAnalysis: {
               RepositoryHead: {
-                BranchName: this.__input.type.repositoryAnalysis.repositoryHead.branchName,
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
               },
             },
+            AnalysisTypes: this.__input.type.analysisTypes,
           },
           ClientRequestToken: this.__input.clientRequestToken,
         },
@@ -618,9 +1080,43 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReview {
           Type: {
             RepositoryAnalysis: {
               RepositoryHead: {
-                BranchName: this.__input.type.repositoryAnalysis.repositoryHead.branchName,
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
               },
             },
+            AnalysisTypes: this.__input.type.analysisTypes,
           },
           ClientRequestToken: this.__input.clientRequestToken,
         },
@@ -644,9 +1140,43 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReview {
           Type: {
             RepositoryAnalysis: {
               RepositoryHead: {
-                BranchName: this.__input.type.repositoryAnalysis.repositoryHead.branchName,
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
               },
             },
+            AnalysisTypes: this.__input.type.analysisTypes,
           },
           ClientRequestToken: this.__input.clientRequestToken,
         },
@@ -670,9 +1200,43 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReview {
           Type: {
             RepositoryAnalysis: {
               RepositoryHead: {
-                BranchName: this.__input.type.repositoryAnalysis.repositoryHead.branchName,
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
               },
             },
+            AnalysisTypes: this.__input.type.analysisTypes,
           },
           ClientRequestToken: this.__input.clientRequestToken,
         },
@@ -696,9 +1260,43 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReview {
           Type: {
             RepositoryAnalysis: {
               RepositoryHead: {
-                BranchName: this.__input.type.repositoryAnalysis.repositoryHead.branchName,
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
               },
             },
+            AnalysisTypes: this.__input.type.analysisTypes,
           },
           ClientRequestToken: this.__input.clientRequestToken,
         },
@@ -722,9 +1320,43 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReview {
           Type: {
             RepositoryAnalysis: {
               RepositoryHead: {
-                BranchName: this.__input.type.repositoryAnalysis.repositoryHead.branchName,
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
               },
             },
+            AnalysisTypes: this.__input.type.analysisTypes,
           },
           ClientRequestToken: this.__input.clientRequestToken,
         },
@@ -748,9 +1380,43 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReview {
           Type: {
             RepositoryAnalysis: {
               RepositoryHead: {
-                BranchName: this.__input.type.repositoryAnalysis.repositoryHead.branchName,
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
               },
             },
+            AnalysisTypes: this.__input.type.analysisTypes,
           },
           ClientRequestToken: this.__input.clientRequestToken,
         },
@@ -774,9 +1440,43 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReview {
           Type: {
             RepositoryAnalysis: {
               RepositoryHead: {
-                BranchName: this.__input.type.repositoryAnalysis.repositoryHead.branchName,
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
               },
             },
+            AnalysisTypes: this.__input.type.analysisTypes,
           },
           ClientRequestToken: this.__input.clientRequestToken,
         },
@@ -804,9 +1504,43 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReview {
           Type: {
             RepositoryAnalysis: {
               RepositoryHead: {
-                BranchName: this.__input.type.repositoryAnalysis.repositoryHead.branchName,
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
               },
             },
+            AnalysisTypes: this.__input.type.analysisTypes,
           },
           ClientRequestToken: this.__input.clientRequestToken,
         },
@@ -818,6 +1552,66 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReview {
 
   public get metrics(): CodeGuruReviewerResponsesCreateCodeReviewCodeReviewMetrics {
     return new CodeGuruReviewerResponsesCreateCodeReviewCodeReviewMetrics(this.__scope, this.__resources, this.__input);
+  }
+
+  public get analysisTypes(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.CreateCodeReview.CodeReview.AnalysisTypes'),
+        outputPath: 'CodeReview.AnalysisTypes',
+        parameters: {
+          Name: this.__input.name,
+          RepositoryAssociationArn: this.__input.repositoryAssociationArn,
+          Type: {
+            RepositoryAnalysis: {
+              RepositoryHead: {
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
+              },
+            },
+            AnalysisTypes: this.__input.type.analysisTypes,
+          },
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCodeReview.CodeReview.AnalysisTypes', props);
+    return resource.getResponseField('CodeReview.AnalysisTypes') as unknown as string[];
   }
 
 }
@@ -833,6 +1627,18 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeType {
 
   public get repositoryHead(): CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeRepositoryHead {
     return new CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeRepositoryHead(this.__scope, this.__resources, this.__input);
+  }
+
+  public get branchDiff(): CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeBranchDiff {
+    return new CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeBranchDiff(this.__scope, this.__resources, this.__input);
+  }
+
+  public get s3BucketRepository(): CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeS3BucketRepository {
+    return new CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeS3BucketRepository(this.__scope, this.__resources, this.__input);
+  }
+
+  public get requestMetadata(): CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeRequestMetadata {
+    return new CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeRequestMetadata(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -856,9 +1662,43 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeCo
           Type: {
             RepositoryAnalysis: {
               RepositoryHead: {
-                BranchName: this.__input.type.repositoryAnalysis.repositoryHead.branchName,
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
               },
             },
+            AnalysisTypes: this.__input.type.analysisTypes,
           },
           ClientRequestToken: this.__input.clientRequestToken,
         },
@@ -882,9 +1722,43 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeCo
           Type: {
             RepositoryAnalysis: {
               RepositoryHead: {
-                BranchName: this.__input.type.repositoryAnalysis.repositoryHead.branchName,
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
               },
             },
+            AnalysisTypes: this.__input.type.analysisTypes,
           },
           ClientRequestToken: this.__input.clientRequestToken,
         },
@@ -892,6 +1766,66 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeCo
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateCodeReview.CodeReview.SourceCodeType.CommitDiff.DestinationCommit', props);
     return resource.getResponseField('CodeReview.SourceCodeType.CommitDiff.DestinationCommit') as unknown as string;
+  }
+
+  public get mergeBaseCommit(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.CreateCodeReview.CodeReview.SourceCodeType.CommitDiff.MergeBaseCommit'),
+        outputPath: 'CodeReview.SourceCodeType.CommitDiff.MergeBaseCommit',
+        parameters: {
+          Name: this.__input.name,
+          RepositoryAssociationArn: this.__input.repositoryAssociationArn,
+          Type: {
+            RepositoryAnalysis: {
+              RepositoryHead: {
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
+              },
+            },
+            AnalysisTypes: this.__input.type.analysisTypes,
+          },
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCodeReview.CodeReview.SourceCodeType.CommitDiff.MergeBaseCommit', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.CommitDiff.MergeBaseCommit') as unknown as string;
   }
 
 }
@@ -915,9 +1849,43 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeRe
           Type: {
             RepositoryAnalysis: {
               RepositoryHead: {
-                BranchName: this.__input.type.repositoryAnalysis.repositoryHead.branchName,
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
               },
             },
+            AnalysisTypes: this.__input.type.analysisTypes,
           },
           ClientRequestToken: this.__input.clientRequestToken,
         },
@@ -925,6 +1893,720 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeRe
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateCodeReview.CodeReview.SourceCodeType.RepositoryHead.BranchName', props);
     return resource.getResponseField('CodeReview.SourceCodeType.RepositoryHead.BranchName') as unknown as string;
+  }
+
+}
+
+export class CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeBranchDiff {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerCreateCodeReviewRequest) {
+  }
+
+  public get sourceBranchName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.CreateCodeReview.CodeReview.SourceCodeType.BranchDiff.SourceBranchName'),
+        outputPath: 'CodeReview.SourceCodeType.BranchDiff.SourceBranchName',
+        parameters: {
+          Name: this.__input.name,
+          RepositoryAssociationArn: this.__input.repositoryAssociationArn,
+          Type: {
+            RepositoryAnalysis: {
+              RepositoryHead: {
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
+              },
+            },
+            AnalysisTypes: this.__input.type.analysisTypes,
+          },
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCodeReview.CodeReview.SourceCodeType.BranchDiff.SourceBranchName', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.BranchDiff.SourceBranchName') as unknown as string;
+  }
+
+  public get destinationBranchName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.CreateCodeReview.CodeReview.SourceCodeType.BranchDiff.DestinationBranchName'),
+        outputPath: 'CodeReview.SourceCodeType.BranchDiff.DestinationBranchName',
+        parameters: {
+          Name: this.__input.name,
+          RepositoryAssociationArn: this.__input.repositoryAssociationArn,
+          Type: {
+            RepositoryAnalysis: {
+              RepositoryHead: {
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
+              },
+            },
+            AnalysisTypes: this.__input.type.analysisTypes,
+          },
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCodeReview.CodeReview.SourceCodeType.BranchDiff.DestinationBranchName', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.BranchDiff.DestinationBranchName') as unknown as string;
+  }
+
+}
+
+export class CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeS3BucketRepository {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerCreateCodeReviewRequest) {
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.CreateCodeReview.CodeReview.SourceCodeType.S3BucketRepository.Name'),
+        outputPath: 'CodeReview.SourceCodeType.S3BucketRepository.Name',
+        parameters: {
+          Name: this.__input.name,
+          RepositoryAssociationArn: this.__input.repositoryAssociationArn,
+          Type: {
+            RepositoryAnalysis: {
+              RepositoryHead: {
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
+              },
+            },
+            AnalysisTypes: this.__input.type.analysisTypes,
+          },
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCodeReview.CodeReview.SourceCodeType.S3BucketRepository.Name', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.S3BucketRepository.Name') as unknown as string;
+  }
+
+  public get details(): CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeS3BucketRepositoryDetails {
+    return new CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeS3BucketRepositoryDetails(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeS3BucketRepositoryDetails {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerCreateCodeReviewRequest) {
+  }
+
+  public get bucketName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.CreateCodeReview.CodeReview.SourceCodeType.S3BucketRepository.Details.BucketName'),
+        outputPath: 'CodeReview.SourceCodeType.S3BucketRepository.Details.BucketName',
+        parameters: {
+          Name: this.__input.name,
+          RepositoryAssociationArn: this.__input.repositoryAssociationArn,
+          Type: {
+            RepositoryAnalysis: {
+              RepositoryHead: {
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
+              },
+            },
+            AnalysisTypes: this.__input.type.analysisTypes,
+          },
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCodeReview.CodeReview.SourceCodeType.S3BucketRepository.Details.BucketName', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.S3BucketRepository.Details.BucketName') as unknown as string;
+  }
+
+  public get codeArtifacts(): CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeS3BucketRepositoryDetailsCodeArtifacts {
+    return new CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeS3BucketRepositoryDetailsCodeArtifacts(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeS3BucketRepositoryDetailsCodeArtifacts {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerCreateCodeReviewRequest) {
+  }
+
+  public get sourceCodeArtifactsObjectKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.CreateCodeReview.CodeReview.SourceCodeType.S3BucketRepository.Details.CodeArtifacts.SourceCodeArtifactsObjectKey'),
+        outputPath: 'CodeReview.SourceCodeType.S3BucketRepository.Details.CodeArtifacts.SourceCodeArtifactsObjectKey',
+        parameters: {
+          Name: this.__input.name,
+          RepositoryAssociationArn: this.__input.repositoryAssociationArn,
+          Type: {
+            RepositoryAnalysis: {
+              RepositoryHead: {
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
+              },
+            },
+            AnalysisTypes: this.__input.type.analysisTypes,
+          },
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCodeReview.CodeReview.SourceCodeType.S3BucketRepository.Details.CodeArtifacts.SourceCodeArtifactsObjectKey', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.S3BucketRepository.Details.CodeArtifacts.SourceCodeArtifactsObjectKey') as unknown as string;
+  }
+
+  public get buildArtifactsObjectKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.CreateCodeReview.CodeReview.SourceCodeType.S3BucketRepository.Details.CodeArtifacts.BuildArtifactsObjectKey'),
+        outputPath: 'CodeReview.SourceCodeType.S3BucketRepository.Details.CodeArtifacts.BuildArtifactsObjectKey',
+        parameters: {
+          Name: this.__input.name,
+          RepositoryAssociationArn: this.__input.repositoryAssociationArn,
+          Type: {
+            RepositoryAnalysis: {
+              RepositoryHead: {
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
+              },
+            },
+            AnalysisTypes: this.__input.type.analysisTypes,
+          },
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCodeReview.CodeReview.SourceCodeType.S3BucketRepository.Details.CodeArtifacts.BuildArtifactsObjectKey', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.S3BucketRepository.Details.CodeArtifacts.BuildArtifactsObjectKey') as unknown as string;
+  }
+
+}
+
+export class CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeRequestMetadata {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerCreateCodeReviewRequest) {
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.CreateCodeReview.CodeReview.SourceCodeType.RequestMetadata.RequestId'),
+        outputPath: 'CodeReview.SourceCodeType.RequestMetadata.RequestId',
+        parameters: {
+          Name: this.__input.name,
+          RepositoryAssociationArn: this.__input.repositoryAssociationArn,
+          Type: {
+            RepositoryAnalysis: {
+              RepositoryHead: {
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
+              },
+            },
+            AnalysisTypes: this.__input.type.analysisTypes,
+          },
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCodeReview.CodeReview.SourceCodeType.RequestMetadata.RequestId', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.RequestMetadata.RequestId') as unknown as string;
+  }
+
+  public get requester(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.CreateCodeReview.CodeReview.SourceCodeType.RequestMetadata.Requester'),
+        outputPath: 'CodeReview.SourceCodeType.RequestMetadata.Requester',
+        parameters: {
+          Name: this.__input.name,
+          RepositoryAssociationArn: this.__input.repositoryAssociationArn,
+          Type: {
+            RepositoryAnalysis: {
+              RepositoryHead: {
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
+              },
+            },
+            AnalysisTypes: this.__input.type.analysisTypes,
+          },
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCodeReview.CodeReview.SourceCodeType.RequestMetadata.Requester', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.RequestMetadata.Requester') as unknown as string;
+  }
+
+  public get eventInfo(): CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeRequestMetadataEventInfo {
+    return new CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeRequestMetadataEventInfo(this.__scope, this.__resources, this.__input);
+  }
+
+  public get vendorName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.CreateCodeReview.CodeReview.SourceCodeType.RequestMetadata.VendorName'),
+        outputPath: 'CodeReview.SourceCodeType.RequestMetadata.VendorName',
+        parameters: {
+          Name: this.__input.name,
+          RepositoryAssociationArn: this.__input.repositoryAssociationArn,
+          Type: {
+            RepositoryAnalysis: {
+              RepositoryHead: {
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
+              },
+            },
+            AnalysisTypes: this.__input.type.analysisTypes,
+          },
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCodeReview.CodeReview.SourceCodeType.RequestMetadata.VendorName', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.RequestMetadata.VendorName') as unknown as string;
+  }
+
+}
+
+export class CodeGuruReviewerResponsesCreateCodeReviewCodeReviewSourceCodeTypeRequestMetadataEventInfo {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerCreateCodeReviewRequest) {
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.CreateCodeReview.CodeReview.SourceCodeType.RequestMetadata.EventInfo.Name'),
+        outputPath: 'CodeReview.SourceCodeType.RequestMetadata.EventInfo.Name',
+        parameters: {
+          Name: this.__input.name,
+          RepositoryAssociationArn: this.__input.repositoryAssociationArn,
+          Type: {
+            RepositoryAnalysis: {
+              RepositoryHead: {
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
+              },
+            },
+            AnalysisTypes: this.__input.type.analysisTypes,
+          },
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCodeReview.CodeReview.SourceCodeType.RequestMetadata.EventInfo.Name', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.RequestMetadata.EventInfo.Name') as unknown as string;
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.CreateCodeReview.CodeReview.SourceCodeType.RequestMetadata.EventInfo.State'),
+        outputPath: 'CodeReview.SourceCodeType.RequestMetadata.EventInfo.State',
+        parameters: {
+          Name: this.__input.name,
+          RepositoryAssociationArn: this.__input.repositoryAssociationArn,
+          Type: {
+            RepositoryAnalysis: {
+              RepositoryHead: {
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
+              },
+            },
+            AnalysisTypes: this.__input.type.analysisTypes,
+          },
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCodeReview.CodeReview.SourceCodeType.RequestMetadata.EventInfo.State', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.RequestMetadata.EventInfo.State') as unknown as string;
   }
 
 }
@@ -948,9 +2630,43 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReviewMetrics {
           Type: {
             RepositoryAnalysis: {
               RepositoryHead: {
-                BranchName: this.__input.type.repositoryAnalysis.repositoryHead.branchName,
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
               },
             },
+            AnalysisTypes: this.__input.type.analysisTypes,
           },
           ClientRequestToken: this.__input.clientRequestToken,
         },
@@ -974,9 +2690,43 @@ export class CodeGuruReviewerResponsesCreateCodeReviewCodeReviewMetrics {
           Type: {
             RepositoryAnalysis: {
               RepositoryHead: {
-                BranchName: this.__input.type.repositoryAnalysis.repositoryHead.branchName,
+                BranchName: this.__input.type.repositoryAnalysis.repositoryHead?.branchName,
+              },
+              SourceCodeType: {
+                CommitDiff: {
+                  SourceCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.sourceCommit,
+                  DestinationCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.destinationCommit,
+                  MergeBaseCommit: this.__input.type.repositoryAnalysis.sourceCodeType?.commitDiff?.mergeBaseCommit,
+                },
+                RepositoryHead: {
+                  BranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.repositoryHead?.branchName,
+                },
+                BranchDiff: {
+                  SourceBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.sourceBranchName,
+                  DestinationBranchName: this.__input.type.repositoryAnalysis.sourceCodeType?.branchDiff?.destinationBranchName,
+                },
+                S3BucketRepository: {
+                  Name: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.name,
+                  Details: {
+                    BucketName: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.bucketName,
+                    CodeArtifacts: {
+                      SourceCodeArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.sourceCodeArtifactsObjectKey,
+                      BuildArtifactsObjectKey: this.__input.type.repositoryAnalysis.sourceCodeType?.s3BucketRepository?.details?.codeArtifacts?.buildArtifactsObjectKey,
+                    },
+                  },
+                },
+                RequestMetadata: {
+                  RequestId: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requestId,
+                  Requester: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.requester,
+                  EventInfo: {
+                    Name: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.name,
+                    State: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.eventInfo?.state,
+                  },
+                  VendorName: this.__input.type.repositoryAnalysis.sourceCodeType?.requestMetadata?.vendorName,
+                },
               },
             },
+            AnalysisTypes: this.__input.type.analysisTypes,
           },
           ClientRequestToken: this.__input.clientRequestToken,
         },
@@ -1216,6 +2966,23 @@ export class CodeGuruReviewerResponsesDescribeCodeReviewCodeReview {
     return new CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewMetrics(this.__scope, this.__resources, this.__input);
   }
 
+  public get analysisTypes(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DescribeCodeReview.CodeReview.AnalysisTypes'),
+        outputPath: 'CodeReview.AnalysisTypes',
+        parameters: {
+          CodeReviewArn: this.__input.codeReviewArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCodeReview.CodeReview.AnalysisTypes', props);
+    return resource.getResponseField('CodeReview.AnalysisTypes') as unknown as string[];
+  }
+
 }
 
 export class CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeType {
@@ -1229,6 +2996,18 @@ export class CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeType
 
   public get repositoryHead(): CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeRepositoryHead {
     return new CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeRepositoryHead(this.__scope, this.__resources, this.__input);
+  }
+
+  public get branchDiff(): CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeBranchDiff {
+    return new CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeBranchDiff(this.__scope, this.__resources, this.__input);
+  }
+
+  public get s3BucketRepository(): CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeS3BucketRepository {
+    return new CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeS3BucketRepository(this.__scope, this.__resources, this.__input);
+  }
+
+  public get requestMetadata(): CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeRequestMetadata {
+    return new CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeRequestMetadata(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -1272,6 +3051,23 @@ export class CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeType
     return resource.getResponseField('CodeReview.SourceCodeType.CommitDiff.DestinationCommit') as unknown as string;
   }
 
+  public get mergeBaseCommit(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DescribeCodeReview.CodeReview.SourceCodeType.CommitDiff.MergeBaseCommit'),
+        outputPath: 'CodeReview.SourceCodeType.CommitDiff.MergeBaseCommit',
+        parameters: {
+          CodeReviewArn: this.__input.codeReviewArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCodeReview.CodeReview.SourceCodeType.CommitDiff.MergeBaseCommit', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.CommitDiff.MergeBaseCommit') as unknown as string;
+  }
+
 }
 
 export class CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeRepositoryHead {
@@ -1294,6 +3090,247 @@ export class CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeType
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCodeReview.CodeReview.SourceCodeType.RepositoryHead.BranchName', props);
     return resource.getResponseField('CodeReview.SourceCodeType.RepositoryHead.BranchName') as unknown as string;
+  }
+
+}
+
+export class CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeBranchDiff {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerDescribeCodeReviewRequest) {
+  }
+
+  public get sourceBranchName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DescribeCodeReview.CodeReview.SourceCodeType.BranchDiff.SourceBranchName'),
+        outputPath: 'CodeReview.SourceCodeType.BranchDiff.SourceBranchName',
+        parameters: {
+          CodeReviewArn: this.__input.codeReviewArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCodeReview.CodeReview.SourceCodeType.BranchDiff.SourceBranchName', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.BranchDiff.SourceBranchName') as unknown as string;
+  }
+
+  public get destinationBranchName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DescribeCodeReview.CodeReview.SourceCodeType.BranchDiff.DestinationBranchName'),
+        outputPath: 'CodeReview.SourceCodeType.BranchDiff.DestinationBranchName',
+        parameters: {
+          CodeReviewArn: this.__input.codeReviewArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCodeReview.CodeReview.SourceCodeType.BranchDiff.DestinationBranchName', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.BranchDiff.DestinationBranchName') as unknown as string;
+  }
+
+}
+
+export class CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeS3BucketRepository {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerDescribeCodeReviewRequest) {
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DescribeCodeReview.CodeReview.SourceCodeType.S3BucketRepository.Name'),
+        outputPath: 'CodeReview.SourceCodeType.S3BucketRepository.Name',
+        parameters: {
+          CodeReviewArn: this.__input.codeReviewArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCodeReview.CodeReview.SourceCodeType.S3BucketRepository.Name', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.S3BucketRepository.Name') as unknown as string;
+  }
+
+  public get details(): CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeS3BucketRepositoryDetails {
+    return new CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeS3BucketRepositoryDetails(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeS3BucketRepositoryDetails {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerDescribeCodeReviewRequest) {
+  }
+
+  public get bucketName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DescribeCodeReview.CodeReview.SourceCodeType.S3BucketRepository.Details.BucketName'),
+        outputPath: 'CodeReview.SourceCodeType.S3BucketRepository.Details.BucketName',
+        parameters: {
+          CodeReviewArn: this.__input.codeReviewArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCodeReview.CodeReview.SourceCodeType.S3BucketRepository.Details.BucketName', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.S3BucketRepository.Details.BucketName') as unknown as string;
+  }
+
+  public get codeArtifacts(): CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeS3BucketRepositoryDetailsCodeArtifacts {
+    return new CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeS3BucketRepositoryDetailsCodeArtifacts(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeS3BucketRepositoryDetailsCodeArtifacts {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerDescribeCodeReviewRequest) {
+  }
+
+  public get sourceCodeArtifactsObjectKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DescribeCodeReview.CodeReview.SourceCodeType.S3BucketRepository.Details.CodeArtifacts.SourceCodeArtifactsObjectKey'),
+        outputPath: 'CodeReview.SourceCodeType.S3BucketRepository.Details.CodeArtifacts.SourceCodeArtifactsObjectKey',
+        parameters: {
+          CodeReviewArn: this.__input.codeReviewArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCodeReview.CodeReview.SourceCodeType.S3BucketRepository.Details.CodeArtifacts.SourceCodeArtifactsObjectKey', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.S3BucketRepository.Details.CodeArtifacts.SourceCodeArtifactsObjectKey') as unknown as string;
+  }
+
+  public get buildArtifactsObjectKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DescribeCodeReview.CodeReview.SourceCodeType.S3BucketRepository.Details.CodeArtifacts.BuildArtifactsObjectKey'),
+        outputPath: 'CodeReview.SourceCodeType.S3BucketRepository.Details.CodeArtifacts.BuildArtifactsObjectKey',
+        parameters: {
+          CodeReviewArn: this.__input.codeReviewArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCodeReview.CodeReview.SourceCodeType.S3BucketRepository.Details.CodeArtifacts.BuildArtifactsObjectKey', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.S3BucketRepository.Details.CodeArtifacts.BuildArtifactsObjectKey') as unknown as string;
+  }
+
+}
+
+export class CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeRequestMetadata {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerDescribeCodeReviewRequest) {
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DescribeCodeReview.CodeReview.SourceCodeType.RequestMetadata.RequestId'),
+        outputPath: 'CodeReview.SourceCodeType.RequestMetadata.RequestId',
+        parameters: {
+          CodeReviewArn: this.__input.codeReviewArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCodeReview.CodeReview.SourceCodeType.RequestMetadata.RequestId', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.RequestMetadata.RequestId') as unknown as string;
+  }
+
+  public get requester(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DescribeCodeReview.CodeReview.SourceCodeType.RequestMetadata.Requester'),
+        outputPath: 'CodeReview.SourceCodeType.RequestMetadata.Requester',
+        parameters: {
+          CodeReviewArn: this.__input.codeReviewArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCodeReview.CodeReview.SourceCodeType.RequestMetadata.Requester', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.RequestMetadata.Requester') as unknown as string;
+  }
+
+  public get eventInfo(): CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeRequestMetadataEventInfo {
+    return new CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeRequestMetadataEventInfo(this.__scope, this.__resources, this.__input);
+  }
+
+  public get vendorName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DescribeCodeReview.CodeReview.SourceCodeType.RequestMetadata.VendorName'),
+        outputPath: 'CodeReview.SourceCodeType.RequestMetadata.VendorName',
+        parameters: {
+          CodeReviewArn: this.__input.codeReviewArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCodeReview.CodeReview.SourceCodeType.RequestMetadata.VendorName', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.RequestMetadata.VendorName') as unknown as string;
+  }
+
+}
+
+export class CodeGuruReviewerResponsesDescribeCodeReviewCodeReviewSourceCodeTypeRequestMetadataEventInfo {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerDescribeCodeReviewRequest) {
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DescribeCodeReview.CodeReview.SourceCodeType.RequestMetadata.EventInfo.Name'),
+        outputPath: 'CodeReview.SourceCodeType.RequestMetadata.EventInfo.Name',
+        parameters: {
+          CodeReviewArn: this.__input.codeReviewArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCodeReview.CodeReview.SourceCodeType.RequestMetadata.EventInfo.Name', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.RequestMetadata.EventInfo.Name') as unknown as string;
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeCodeReview',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DescribeCodeReview.CodeReview.SourceCodeType.RequestMetadata.EventInfo.State'),
+        outputPath: 'CodeReview.SourceCodeType.RequestMetadata.EventInfo.State',
+        parameters: {
+          CodeReviewArn: this.__input.codeReviewArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeCodeReview.CodeReview.SourceCodeType.RequestMetadata.EventInfo.State', props);
+    return resource.getResponseField('CodeReview.SourceCodeType.RequestMetadata.EventInfo.State') as unknown as string;
   }
 
 }
@@ -1674,6 +3711,124 @@ export class CodeGuruReviewerResponsesDescribeRepositoryAssociationRepositoryAss
     return resource.getResponseField('RepositoryAssociation.CreatedTimeStamp') as unknown as string;
   }
 
+  public get kmsKeyDetails(): CodeGuruReviewerResponsesDescribeRepositoryAssociationRepositoryAssociationKmsKeyDetails {
+    return new CodeGuruReviewerResponsesDescribeRepositoryAssociationRepositoryAssociationKmsKeyDetails(this.__scope, this.__resources, this.__input);
+  }
+
+  public get s3RepositoryDetails(): CodeGuruReviewerResponsesDescribeRepositoryAssociationRepositoryAssociationS3RepositoryDetails {
+    return new CodeGuruReviewerResponsesDescribeRepositoryAssociationRepositoryAssociationS3RepositoryDetails(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CodeGuruReviewerResponsesDescribeRepositoryAssociationRepositoryAssociationKmsKeyDetails {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerDescribeRepositoryAssociationRequest) {
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeRepositoryAssociation',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DescribeRepositoryAssociation.RepositoryAssociation.KMSKeyDetails.KMSKeyId'),
+        outputPath: 'RepositoryAssociation.KMSKeyDetails.KMSKeyId',
+        parameters: {
+          AssociationArn: this.__input.associationArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeRepositoryAssociation.RepositoryAssociation.KMSKeyDetails.KMSKeyId', props);
+    return resource.getResponseField('RepositoryAssociation.KMSKeyDetails.KMSKeyId') as unknown as string;
+  }
+
+  public get encryptionOption(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeRepositoryAssociation',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DescribeRepositoryAssociation.RepositoryAssociation.KMSKeyDetails.EncryptionOption'),
+        outputPath: 'RepositoryAssociation.KMSKeyDetails.EncryptionOption',
+        parameters: {
+          AssociationArn: this.__input.associationArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeRepositoryAssociation.RepositoryAssociation.KMSKeyDetails.EncryptionOption', props);
+    return resource.getResponseField('RepositoryAssociation.KMSKeyDetails.EncryptionOption') as unknown as string;
+  }
+
+}
+
+export class CodeGuruReviewerResponsesDescribeRepositoryAssociationRepositoryAssociationS3RepositoryDetails {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerDescribeRepositoryAssociationRequest) {
+  }
+
+  public get bucketName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeRepositoryAssociation',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DescribeRepositoryAssociation.RepositoryAssociation.S3RepositoryDetails.BucketName'),
+        outputPath: 'RepositoryAssociation.S3RepositoryDetails.BucketName',
+        parameters: {
+          AssociationArn: this.__input.associationArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeRepositoryAssociation.RepositoryAssociation.S3RepositoryDetails.BucketName', props);
+    return resource.getResponseField('RepositoryAssociation.S3RepositoryDetails.BucketName') as unknown as string;
+  }
+
+  public get codeArtifacts(): CodeGuruReviewerResponsesDescribeRepositoryAssociationRepositoryAssociationS3RepositoryDetailsCodeArtifacts {
+    return new CodeGuruReviewerResponsesDescribeRepositoryAssociationRepositoryAssociationS3RepositoryDetailsCodeArtifacts(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CodeGuruReviewerResponsesDescribeRepositoryAssociationRepositoryAssociationS3RepositoryDetailsCodeArtifacts {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerDescribeRepositoryAssociationRequest) {
+  }
+
+  public get sourceCodeArtifactsObjectKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeRepositoryAssociation',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DescribeRepositoryAssociation.RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.SourceCodeArtifactsObjectKey'),
+        outputPath: 'RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.SourceCodeArtifactsObjectKey',
+        parameters: {
+          AssociationArn: this.__input.associationArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeRepositoryAssociation.RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.SourceCodeArtifactsObjectKey', props);
+    return resource.getResponseField('RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.SourceCodeArtifactsObjectKey') as unknown as string;
+  }
+
+  public get buildArtifactsObjectKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeRepositoryAssociation',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DescribeRepositoryAssociation.RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.BuildArtifactsObjectKey'),
+        outputPath: 'RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.BuildArtifactsObjectKey',
+        parameters: {
+          AssociationArn: this.__input.associationArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeRepositoryAssociation.RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.BuildArtifactsObjectKey', props);
+    return resource.getResponseField('RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.BuildArtifactsObjectKey') as unknown as string;
+  }
+
 }
 
 export class CodeGuruReviewerResponsesDisassociateRepository {
@@ -1877,6 +4032,124 @@ export class CodeGuruReviewerResponsesDisassociateRepositoryRepositoryAssociatio
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateRepository.RepositoryAssociation.CreatedTimeStamp', props);
     return resource.getResponseField('RepositoryAssociation.CreatedTimeStamp') as unknown as string;
+  }
+
+  public get kmsKeyDetails(): CodeGuruReviewerResponsesDisassociateRepositoryRepositoryAssociationKmsKeyDetails {
+    return new CodeGuruReviewerResponsesDisassociateRepositoryRepositoryAssociationKmsKeyDetails(this.__scope, this.__resources, this.__input);
+  }
+
+  public get s3RepositoryDetails(): CodeGuruReviewerResponsesDisassociateRepositoryRepositoryAssociationS3RepositoryDetails {
+    return new CodeGuruReviewerResponsesDisassociateRepositoryRepositoryAssociationS3RepositoryDetails(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CodeGuruReviewerResponsesDisassociateRepositoryRepositoryAssociationKmsKeyDetails {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerDisassociateRepositoryRequest) {
+  }
+
+  public get kmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateRepository',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DisassociateRepository.RepositoryAssociation.KMSKeyDetails.KMSKeyId'),
+        outputPath: 'RepositoryAssociation.KMSKeyDetails.KMSKeyId',
+        parameters: {
+          AssociationArn: this.__input.associationArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateRepository.RepositoryAssociation.KMSKeyDetails.KMSKeyId', props);
+    return resource.getResponseField('RepositoryAssociation.KMSKeyDetails.KMSKeyId') as unknown as string;
+  }
+
+  public get encryptionOption(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateRepository',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DisassociateRepository.RepositoryAssociation.KMSKeyDetails.EncryptionOption'),
+        outputPath: 'RepositoryAssociation.KMSKeyDetails.EncryptionOption',
+        parameters: {
+          AssociationArn: this.__input.associationArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateRepository.RepositoryAssociation.KMSKeyDetails.EncryptionOption', props);
+    return resource.getResponseField('RepositoryAssociation.KMSKeyDetails.EncryptionOption') as unknown as string;
+  }
+
+}
+
+export class CodeGuruReviewerResponsesDisassociateRepositoryRepositoryAssociationS3RepositoryDetails {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerDisassociateRepositoryRequest) {
+  }
+
+  public get bucketName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateRepository',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DisassociateRepository.RepositoryAssociation.S3RepositoryDetails.BucketName'),
+        outputPath: 'RepositoryAssociation.S3RepositoryDetails.BucketName',
+        parameters: {
+          AssociationArn: this.__input.associationArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateRepository.RepositoryAssociation.S3RepositoryDetails.BucketName', props);
+    return resource.getResponseField('RepositoryAssociation.S3RepositoryDetails.BucketName') as unknown as string;
+  }
+
+  public get codeArtifacts(): CodeGuruReviewerResponsesDisassociateRepositoryRepositoryAssociationS3RepositoryDetailsCodeArtifacts {
+    return new CodeGuruReviewerResponsesDisassociateRepositoryRepositoryAssociationS3RepositoryDetailsCodeArtifacts(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class CodeGuruReviewerResponsesDisassociateRepositoryRepositoryAssociationS3RepositoryDetailsCodeArtifacts {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeGuruReviewerDisassociateRepositoryRequest) {
+  }
+
+  public get sourceCodeArtifactsObjectKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateRepository',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DisassociateRepository.RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.SourceCodeArtifactsObjectKey'),
+        outputPath: 'RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.SourceCodeArtifactsObjectKey',
+        parameters: {
+          AssociationArn: this.__input.associationArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateRepository.RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.SourceCodeArtifactsObjectKey', props);
+    return resource.getResponseField('RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.SourceCodeArtifactsObjectKey') as unknown as string;
+  }
+
+  public get buildArtifactsObjectKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateRepository',
+        service: 'CodeGuruReviewer',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeGuruReviewer.DisassociateRepository.RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.BuildArtifactsObjectKey'),
+        outputPath: 'RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.BuildArtifactsObjectKey',
+        parameters: {
+          AssociationArn: this.__input.associationArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateRepository.RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.BuildArtifactsObjectKey', props);
+    return resource.getResponseField('RepositoryAssociation.S3RepositoryDetails.CodeArtifacts.BuildArtifactsObjectKey') as unknown as string;
   }
 
 }

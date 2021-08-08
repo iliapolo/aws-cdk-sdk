@@ -15,6 +15,21 @@ export interface IotDataDeleteThingShadowRequest {
 }
 
 /**
+ * Converts an object of type 'IotDataDeleteThingShadowRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IotDataDeleteThingShadowRequest(obj: IotDataDeleteThingShadowRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'thingName': obj.thingName,
+    'shadowName': obj.shadowName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IotDataDeleteThingShadowResponse
  */
 export interface IotDataDeleteThingShadowResponse {
@@ -24,6 +39,20 @@ export interface IotDataDeleteThingShadowResponse {
   readonly payload: any;
 
 }
+
+/**
+ * Converts an object of type 'IotDataDeleteThingShadowResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IotDataDeleteThingShadowResponse(obj: IotDataDeleteThingShadowResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'payload': obj.payload,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IotDataGetThingShadowRequest
@@ -42,6 +71,21 @@ export interface IotDataGetThingShadowRequest {
 }
 
 /**
+ * Converts an object of type 'IotDataGetThingShadowRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IotDataGetThingShadowRequest(obj: IotDataGetThingShadowRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'thingName': obj.thingName,
+    'shadowName': obj.shadowName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IotDataGetThingShadowResponse
  */
 export interface IotDataGetThingShadowResponse {
@@ -51,6 +95,20 @@ export interface IotDataGetThingShadowResponse {
   readonly payload?: any;
 
 }
+
+/**
+ * Converts an object of type 'IotDataGetThingShadowResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IotDataGetThingShadowResponse(obj: IotDataGetThingShadowResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'payload': obj.payload,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IotDataListNamedShadowsForThingRequest
@@ -74,6 +132,22 @@ export interface IotDataListNamedShadowsForThingRequest {
 }
 
 /**
+ * Converts an object of type 'IotDataListNamedShadowsForThingRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IotDataListNamedShadowsForThingRequest(obj: IotDataListNamedShadowsForThingRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'thingName': obj.thingName,
+    'nextToken': obj.nextToken,
+    'pageSize': obj.pageSize,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IotDataListNamedShadowsForThingResponse
  */
 export interface IotDataListNamedShadowsForThingResponse {
@@ -93,6 +167,22 @@ export interface IotDataListNamedShadowsForThingResponse {
   readonly timestamp?: number;
 
 }
+
+/**
+ * Converts an object of type 'IotDataListNamedShadowsForThingResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IotDataListNamedShadowsForThingResponse(obj: IotDataListNamedShadowsForThingResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'results': obj.results?.map(y => y),
+    'nextToken': obj.nextToken,
+    'timestamp': obj.timestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema IotDataPublishRequest
@@ -116,6 +206,22 @@ export interface IotDataPublishRequest {
 }
 
 /**
+ * Converts an object of type 'IotDataPublishRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IotDataPublishRequest(obj: IotDataPublishRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'topic': obj.topic,
+    'qos': obj.qos,
+    'payload': obj.payload,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IotDataUpdateThingShadowRequest
  */
 export interface IotDataUpdateThingShadowRequest {
@@ -137,6 +243,22 @@ export interface IotDataUpdateThingShadowRequest {
 }
 
 /**
+ * Converts an object of type 'IotDataUpdateThingShadowRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IotDataUpdateThingShadowRequest(obj: IotDataUpdateThingShadowRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'thingName': obj.thingName,
+    'shadowName': obj.shadowName,
+    'payload': obj.payload,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema IotDataUpdateThingShadowResponse
  */
 export interface IotDataUpdateThingShadowResponse {
@@ -146,3 +268,17 @@ export interface IotDataUpdateThingShadowResponse {
   readonly payload?: any;
 
 }
+
+/**
+ * Converts an object of type 'IotDataUpdateThingShadowResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_IotDataUpdateThingShadowResponse(obj: IotDataUpdateThingShadowResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'payload': obj.payload,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

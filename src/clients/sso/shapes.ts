@@ -20,6 +20,22 @@ export interface SsoGetRoleCredentialsRequest {
 }
 
 /**
+ * Converts an object of type 'SsoGetRoleCredentialsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SsoGetRoleCredentialsRequest(obj: SsoGetRoleCredentialsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'roleName': obj.roleName,
+    'accountId': obj.accountId,
+    'accessToken': obj.accessToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SsoGetRoleCredentialsResponse
  */
 export interface SsoGetRoleCredentialsResponse {
@@ -29,6 +45,20 @@ export interface SsoGetRoleCredentialsResponse {
   readonly roleCredentials?: SsoRoleCredentials;
 
 }
+
+/**
+ * Converts an object of type 'SsoGetRoleCredentialsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SsoGetRoleCredentialsResponse(obj: SsoGetRoleCredentialsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'roleCredentials': toJson_SsoRoleCredentials(obj.roleCredentials),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SsoListAccountRolesRequest
@@ -57,6 +87,23 @@ export interface SsoListAccountRolesRequest {
 }
 
 /**
+ * Converts an object of type 'SsoListAccountRolesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SsoListAccountRolesRequest(obj: SsoListAccountRolesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'accessToken': obj.accessToken,
+    'accountId': obj.accountId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SsoListAccountRolesResponse
  */
 export interface SsoListAccountRolesResponse {
@@ -71,6 +118,21 @@ export interface SsoListAccountRolesResponse {
   readonly roleList?: SsoRoleInfo[];
 
 }
+
+/**
+ * Converts an object of type 'SsoListAccountRolesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SsoListAccountRolesResponse(obj: SsoListAccountRolesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'roleList': obj.roleList?.map(y => toJson_SsoRoleInfo(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SsoListAccountsRequest
@@ -94,6 +156,22 @@ export interface SsoListAccountsRequest {
 }
 
 /**
+ * Converts an object of type 'SsoListAccountsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SsoListAccountsRequest(obj: SsoListAccountsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+    'accessToken': obj.accessToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SsoListAccountsResponse
  */
 export interface SsoListAccountsResponse {
@@ -110,6 +188,21 @@ export interface SsoListAccountsResponse {
 }
 
 /**
+ * Converts an object of type 'SsoListAccountsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SsoListAccountsResponse(obj: SsoListAccountsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'accountList': obj.accountList?.map(y => toJson_SsoAccountInfo(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SsoLogoutRequest
  */
 export interface SsoLogoutRequest {
@@ -119,6 +212,20 @@ export interface SsoLogoutRequest {
   readonly accessToken: string;
 
 }
+
+/**
+ * Converts an object of type 'SsoLogoutRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SsoLogoutRequest(obj: SsoLogoutRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessToken': obj.accessToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SsoRoleCredentials
@@ -147,6 +254,23 @@ export interface SsoRoleCredentials {
 }
 
 /**
+ * Converts an object of type 'SsoRoleCredentials' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SsoRoleCredentials(obj: SsoRoleCredentials | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accessKeyId': obj.accessKeyId,
+    'secretAccessKey': obj.secretAccessKey,
+    'sessionToken': obj.sessionToken,
+    'expiration': obj.expiration,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema SsoRoleInfo
  */
 export interface SsoRoleInfo {
@@ -161,6 +285,21 @@ export interface SsoRoleInfo {
   readonly accountId?: string;
 
 }
+
+/**
+ * Converts an object of type 'SsoRoleInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SsoRoleInfo(obj: SsoRoleInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'roleName': obj.roleName,
+    'accountId': obj.accountId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema SsoAccountInfo
@@ -182,3 +321,19 @@ export interface SsoAccountInfo {
   readonly emailAddress?: string;
 
 }
+
+/**
+ * Converts an object of type 'SsoAccountInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_SsoAccountInfo(obj: SsoAccountInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountId': obj.accountId,
+    'accountName': obj.accountName,
+    'emailAddress': obj.emailAddress,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

@@ -141,6 +141,7 @@ export class Cloud9ResponsesCreateEnvironmentEc2 {
           clientRequestToken: this.__input.clientRequestToken,
           instanceType: this.__input.instanceType,
           subnetId: this.__input.subnetId,
+          imageId: this.__input.imageId,
           automaticStopTimeMinutes: this.__input.automaticStopTimeMinutes,
           ownerArn: this.__input.ownerArn,
           tags: this.__input.tags,

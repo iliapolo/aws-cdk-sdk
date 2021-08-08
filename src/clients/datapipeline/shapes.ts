@@ -20,10 +20,39 @@ export interface DataPipelineActivatePipelineInput {
 }
 
 /**
+ * Converts an object of type 'DataPipelineActivatePipelineInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineActivatePipelineInput(obj: DataPipelineActivatePipelineInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineId': obj.pipelineId,
+    'parameterValues': obj.parameterValues?.map(y => toJson_DataPipelineParameterValue(y)),
+    'startTimestamp': obj.startTimestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineActivatePipelineOutput
  */
 export interface DataPipelineActivatePipelineOutput {
 }
+
+/**
+ * Converts an object of type 'DataPipelineActivatePipelineOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineActivatePipelineOutput(obj: DataPipelineActivatePipelineOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineAddTagsInput
@@ -42,10 +71,38 @@ export interface DataPipelineAddTagsInput {
 }
 
 /**
+ * Converts an object of type 'DataPipelineAddTagsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineAddTagsInput(obj: DataPipelineAddTagsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineId': obj.pipelineId,
+    'tags': obj.tags?.map(y => toJson_DataPipelineTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineAddTagsOutput
  */
 export interface DataPipelineAddTagsOutput {
 }
+
+/**
+ * Converts an object of type 'DataPipelineAddTagsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineAddTagsOutput(obj: DataPipelineAddTagsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineCreatePipelineInput
@@ -74,6 +131,23 @@ export interface DataPipelineCreatePipelineInput {
 }
 
 /**
+ * Converts an object of type 'DataPipelineCreatePipelineInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineCreatePipelineInput(obj: DataPipelineCreatePipelineInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'uniqueId': obj.uniqueId,
+    'description': obj.description,
+    'tags': obj.tags?.map(y => toJson_DataPipelineTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineCreatePipelineOutput
  */
 export interface DataPipelineCreatePipelineOutput {
@@ -83,6 +157,20 @@ export interface DataPipelineCreatePipelineOutput {
   readonly pipelineId: string;
 
 }
+
+/**
+ * Converts an object of type 'DataPipelineCreatePipelineOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineCreatePipelineOutput(obj: DataPipelineCreatePipelineOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineId': obj.pipelineId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineDeactivatePipelineInput
@@ -101,10 +189,38 @@ export interface DataPipelineDeactivatePipelineInput {
 }
 
 /**
+ * Converts an object of type 'DataPipelineDeactivatePipelineInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineDeactivatePipelineInput(obj: DataPipelineDeactivatePipelineInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineId': obj.pipelineId,
+    'cancelActive': obj.cancelActive,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineDeactivatePipelineOutput
  */
 export interface DataPipelineDeactivatePipelineOutput {
 }
+
+/**
+ * Converts an object of type 'DataPipelineDeactivatePipelineOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineDeactivatePipelineOutput(obj: DataPipelineDeactivatePipelineOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineDeletePipelineInput
@@ -116,6 +232,20 @@ export interface DataPipelineDeletePipelineInput {
   readonly pipelineId: string;
 
 }
+
+/**
+ * Converts an object of type 'DataPipelineDeletePipelineInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineDeletePipelineInput(obj: DataPipelineDeletePipelineInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineId': obj.pipelineId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineDescribeObjectsInput
@@ -144,6 +274,23 @@ export interface DataPipelineDescribeObjectsInput {
 }
 
 /**
+ * Converts an object of type 'DataPipelineDescribeObjectsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineDescribeObjectsInput(obj: DataPipelineDescribeObjectsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineId': obj.pipelineId,
+    'objectIds': obj.objectIds?.map(y => y),
+    'evaluateExpressions': obj.evaluateExpressions,
+    'marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineDescribeObjectsOutput
  */
 export interface DataPipelineDescribeObjectsOutput {
@@ -165,6 +312,22 @@ export interface DataPipelineDescribeObjectsOutput {
 }
 
 /**
+ * Converts an object of type 'DataPipelineDescribeObjectsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineDescribeObjectsOutput(obj: DataPipelineDescribeObjectsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineObjects': obj.pipelineObjects?.map(y => toJson_DataPipelinePipelineObject(y)),
+    'marker': obj.marker,
+    'hasMoreResults': obj.hasMoreResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineDescribePipelinesInput
  */
 export interface DataPipelineDescribePipelinesInput {
@@ -176,6 +339,20 @@ export interface DataPipelineDescribePipelinesInput {
 }
 
 /**
+ * Converts an object of type 'DataPipelineDescribePipelinesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineDescribePipelinesInput(obj: DataPipelineDescribePipelinesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineIds': obj.pipelineIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineDescribePipelinesOutput
  */
 export interface DataPipelineDescribePipelinesOutput {
@@ -185,6 +362,20 @@ export interface DataPipelineDescribePipelinesOutput {
   readonly pipelineDescriptionList: DataPipelinePipelineDescription[];
 
 }
+
+/**
+ * Converts an object of type 'DataPipelineDescribePipelinesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineDescribePipelinesOutput(obj: DataPipelineDescribePipelinesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineDescriptionList': obj.pipelineDescriptionList?.map(y => toJson_DataPipelinePipelineDescription(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineEvaluateExpressionInput
@@ -208,6 +399,22 @@ export interface DataPipelineEvaluateExpressionInput {
 }
 
 /**
+ * Converts an object of type 'DataPipelineEvaluateExpressionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineEvaluateExpressionInput(obj: DataPipelineEvaluateExpressionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineId': obj.pipelineId,
+    'objectId': obj.objectId,
+    'expression': obj.expression,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineEvaluateExpressionOutput
  */
 export interface DataPipelineEvaluateExpressionOutput {
@@ -217,6 +424,20 @@ export interface DataPipelineEvaluateExpressionOutput {
   readonly evaluatedExpression: string;
 
 }
+
+/**
+ * Converts an object of type 'DataPipelineEvaluateExpressionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineEvaluateExpressionOutput(obj: DataPipelineEvaluateExpressionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'evaluatedExpression': obj.evaluatedExpression,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineGetPipelineDefinitionInput
@@ -233,6 +454,21 @@ export interface DataPipelineGetPipelineDefinitionInput {
   readonly version?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataPipelineGetPipelineDefinitionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineGetPipelineDefinitionInput(obj: DataPipelineGetPipelineDefinitionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineId': obj.pipelineId,
+    'version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineGetPipelineDefinitionOutput
@@ -256,6 +492,22 @@ export interface DataPipelineGetPipelineDefinitionOutput {
 }
 
 /**
+ * Converts an object of type 'DataPipelineGetPipelineDefinitionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineGetPipelineDefinitionOutput(obj: DataPipelineGetPipelineDefinitionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineObjects': obj.pipelineObjects?.map(y => toJson_DataPipelinePipelineObject(y)),
+    'parameterObjects': obj.parameterObjects?.map(y => toJson_DataPipelineParameterObject(y)),
+    'parameterValues': obj.parameterValues?.map(y => toJson_DataPipelineParameterValue(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineListPipelinesInput
  */
 export interface DataPipelineListPipelinesInput {
@@ -265,6 +517,20 @@ export interface DataPipelineListPipelinesInput {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataPipelineListPipelinesInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineListPipelinesInput(obj: DataPipelineListPipelinesInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineListPipelinesOutput
@@ -288,6 +554,22 @@ export interface DataPipelineListPipelinesOutput {
 }
 
 /**
+ * Converts an object of type 'DataPipelineListPipelinesOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineListPipelinesOutput(obj: DataPipelineListPipelinesOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineIdList': obj.pipelineIdList?.map(y => toJson_DataPipelinePipelineIdName(y)),
+    'marker': obj.marker,
+    'hasMoreResults': obj.hasMoreResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelinePollForTaskInput
  */
 export interface DataPipelinePollForTaskInput {
@@ -309,6 +591,22 @@ export interface DataPipelinePollForTaskInput {
 }
 
 /**
+ * Converts an object of type 'DataPipelinePollForTaskInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelinePollForTaskInput(obj: DataPipelinePollForTaskInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'workerGroup': obj.workerGroup,
+    'hostname': obj.hostname,
+    'instanceIdentity': toJson_DataPipelineInstanceIdentity(obj.instanceIdentity),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelinePollForTaskOutput
  */
 export interface DataPipelinePollForTaskOutput {
@@ -318,6 +616,20 @@ export interface DataPipelinePollForTaskOutput {
   readonly taskObject?: DataPipelineTaskObject;
 
 }
+
+/**
+ * Converts an object of type 'DataPipelinePollForTaskOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelinePollForTaskOutput(obj: DataPipelinePollForTaskOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'taskObject': toJson_DataPipelineTaskObject(obj.taskObject),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelinePutPipelineDefinitionInput
@@ -346,6 +658,23 @@ export interface DataPipelinePutPipelineDefinitionInput {
 }
 
 /**
+ * Converts an object of type 'DataPipelinePutPipelineDefinitionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelinePutPipelineDefinitionInput(obj: DataPipelinePutPipelineDefinitionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineId': obj.pipelineId,
+    'pipelineObjects': obj.pipelineObjects?.map(y => toJson_DataPipelinePipelineObject(y)),
+    'parameterObjects': obj.parameterObjects?.map(y => toJson_DataPipelineParameterObject(y)),
+    'parameterValues': obj.parameterValues?.map(y => toJson_DataPipelineParameterValue(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelinePutPipelineDefinitionOutput
  */
 export interface DataPipelinePutPipelineDefinitionOutput {
@@ -365,6 +694,22 @@ export interface DataPipelinePutPipelineDefinitionOutput {
   readonly errored: boolean;
 
 }
+
+/**
+ * Converts an object of type 'DataPipelinePutPipelineDefinitionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelinePutPipelineDefinitionOutput(obj: DataPipelinePutPipelineDefinitionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'validationErrors': obj.validationErrors?.map(y => toJson_DataPipelineValidationError(y)),
+    'validationWarnings': obj.validationWarnings?.map(y => toJson_DataPipelineValidationWarning(y)),
+    'errored': obj.errored,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineQueryObjectsInput
@@ -398,6 +743,24 @@ export interface DataPipelineQueryObjectsInput {
 }
 
 /**
+ * Converts an object of type 'DataPipelineQueryObjectsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineQueryObjectsInput(obj: DataPipelineQueryObjectsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineId': obj.pipelineId,
+    'query': toJson_DataPipelineQuery(obj.query),
+    'sphere': obj.sphere,
+    'marker': obj.marker,
+    'limit': obj.limit,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineQueryObjectsOutput
  */
 export interface DataPipelineQueryObjectsOutput {
@@ -419,6 +782,22 @@ export interface DataPipelineQueryObjectsOutput {
 }
 
 /**
+ * Converts an object of type 'DataPipelineQueryObjectsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineQueryObjectsOutput(obj: DataPipelineQueryObjectsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ids': obj.ids?.map(y => y),
+    'marker': obj.marker,
+    'hasMoreResults': obj.hasMoreResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineRemoveTagsInput
  */
 export interface DataPipelineRemoveTagsInput {
@@ -435,10 +814,38 @@ export interface DataPipelineRemoveTagsInput {
 }
 
 /**
+ * Converts an object of type 'DataPipelineRemoveTagsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineRemoveTagsInput(obj: DataPipelineRemoveTagsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineId': obj.pipelineId,
+    'tagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineRemoveTagsOutput
  */
 export interface DataPipelineRemoveTagsOutput {
 }
+
+/**
+ * Converts an object of type 'DataPipelineRemoveTagsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineRemoveTagsOutput(obj: DataPipelineRemoveTagsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineReportTaskProgressInput
@@ -457,6 +864,21 @@ export interface DataPipelineReportTaskProgressInput {
 }
 
 /**
+ * Converts an object of type 'DataPipelineReportTaskProgressInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineReportTaskProgressInput(obj: DataPipelineReportTaskProgressInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'taskId': obj.taskId,
+    'fields': obj.fields?.map(y => toJson_DataPipelineField(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineReportTaskProgressOutput
  */
 export interface DataPipelineReportTaskProgressOutput {
@@ -466,6 +888,20 @@ export interface DataPipelineReportTaskProgressOutput {
   readonly canceled: boolean;
 
 }
+
+/**
+ * Converts an object of type 'DataPipelineReportTaskProgressOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineReportTaskProgressOutput(obj: DataPipelineReportTaskProgressOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'canceled': obj.canceled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineReportTaskRunnerHeartbeatInput
@@ -489,6 +925,22 @@ export interface DataPipelineReportTaskRunnerHeartbeatInput {
 }
 
 /**
+ * Converts an object of type 'DataPipelineReportTaskRunnerHeartbeatInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineReportTaskRunnerHeartbeatInput(obj: DataPipelineReportTaskRunnerHeartbeatInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'taskrunnerId': obj.taskrunnerId,
+    'workerGroup': obj.workerGroup,
+    'hostname': obj.hostname,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineReportTaskRunnerHeartbeatOutput
  */
 export interface DataPipelineReportTaskRunnerHeartbeatOutput {
@@ -498,6 +950,20 @@ export interface DataPipelineReportTaskRunnerHeartbeatOutput {
   readonly terminate: boolean;
 
 }
+
+/**
+ * Converts an object of type 'DataPipelineReportTaskRunnerHeartbeatOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineReportTaskRunnerHeartbeatOutput(obj: DataPipelineReportTaskRunnerHeartbeatOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'terminate': obj.terminate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineSetStatusInput
@@ -519,6 +985,22 @@ export interface DataPipelineSetStatusInput {
   readonly status: string;
 
 }
+
+/**
+ * Converts an object of type 'DataPipelineSetStatusInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineSetStatusInput(obj: DataPipelineSetStatusInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineId': obj.pipelineId,
+    'objectIds': obj.objectIds?.map(y => y),
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineSetTaskStatusInput
@@ -552,10 +1034,41 @@ export interface DataPipelineSetTaskStatusInput {
 }
 
 /**
+ * Converts an object of type 'DataPipelineSetTaskStatusInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineSetTaskStatusInput(obj: DataPipelineSetTaskStatusInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'taskId': obj.taskId,
+    'taskStatus': obj.taskStatus,
+    'errorId': obj.errorId,
+    'errorMessage': obj.errorMessage,
+    'errorStackTrace': obj.errorStackTrace,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineSetTaskStatusOutput
  */
 export interface DataPipelineSetTaskStatusOutput {
 }
+
+/**
+ * Converts an object of type 'DataPipelineSetTaskStatusOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineSetTaskStatusOutput(obj: DataPipelineSetTaskStatusOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineValidatePipelineDefinitionInput
@@ -584,6 +1097,23 @@ export interface DataPipelineValidatePipelineDefinitionInput {
 }
 
 /**
+ * Converts an object of type 'DataPipelineValidatePipelineDefinitionInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineValidatePipelineDefinitionInput(obj: DataPipelineValidatePipelineDefinitionInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineId': obj.pipelineId,
+    'pipelineObjects': obj.pipelineObjects?.map(y => toJson_DataPipelinePipelineObject(y)),
+    'parameterObjects': obj.parameterObjects?.map(y => toJson_DataPipelineParameterObject(y)),
+    'parameterValues': obj.parameterValues?.map(y => toJson_DataPipelineParameterValue(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineValidatePipelineDefinitionOutput
  */
 export interface DataPipelineValidatePipelineDefinitionOutput {
@@ -605,6 +1135,22 @@ export interface DataPipelineValidatePipelineDefinitionOutput {
 }
 
 /**
+ * Converts an object of type 'DataPipelineValidatePipelineDefinitionOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineValidatePipelineDefinitionOutput(obj: DataPipelineValidatePipelineDefinitionOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'validationErrors': obj.validationErrors?.map(y => toJson_DataPipelineValidationError(y)),
+    'validationWarnings': obj.validationWarnings?.map(y => toJson_DataPipelineValidationWarning(y)),
+    'errored': obj.errored,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineParameterValue
  */
 export interface DataPipelineParameterValue {
@@ -621,6 +1167,21 @@ export interface DataPipelineParameterValue {
 }
 
 /**
+ * Converts an object of type 'DataPipelineParameterValue' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineParameterValue(obj: DataPipelineParameterValue | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'stringValue': obj.stringValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineTag
  */
 export interface DataPipelineTag {
@@ -635,6 +1196,21 @@ export interface DataPipelineTag {
   readonly value: string;
 
 }
+
+/**
+ * Converts an object of type 'DataPipelineTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineTag(obj: DataPipelineTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelinePipelineObject
@@ -656,6 +1232,22 @@ export interface DataPipelinePipelineObject {
   readonly fields: DataPipelineField[];
 
 }
+
+/**
+ * Converts an object of type 'DataPipelinePipelineObject' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelinePipelineObject(obj: DataPipelinePipelineObject | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'name': obj.name,
+    'fields': obj.fields?.map(y => toJson_DataPipelineField(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelinePipelineDescription
@@ -689,6 +1281,24 @@ export interface DataPipelinePipelineDescription {
 }
 
 /**
+ * Converts an object of type 'DataPipelinePipelineDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelinePipelineDescription(obj: DataPipelinePipelineDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'pipelineId': obj.pipelineId,
+    'name': obj.name,
+    'fields': obj.fields?.map(y => toJson_DataPipelineField(y)),
+    'description': obj.description,
+    'tags': obj.tags?.map(y => toJson_DataPipelineTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineParameterObject
  */
 export interface DataPipelineParameterObject {
@@ -703,6 +1313,21 @@ export interface DataPipelineParameterObject {
   readonly attributes: DataPipelineParameterAttribute[];
 
 }
+
+/**
+ * Converts an object of type 'DataPipelineParameterObject' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineParameterObject(obj: DataPipelineParameterObject | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'attributes': obj.attributes?.map(y => toJson_DataPipelineParameterAttribute(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelinePipelineIdName
@@ -721,6 +1346,21 @@ export interface DataPipelinePipelineIdName {
 }
 
 /**
+ * Converts an object of type 'DataPipelinePipelineIdName' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelinePipelineIdName(obj: DataPipelinePipelineIdName | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineInstanceIdentity
  */
 export interface DataPipelineInstanceIdentity {
@@ -735,6 +1375,21 @@ export interface DataPipelineInstanceIdentity {
   readonly signature?: string;
 
 }
+
+/**
+ * Converts an object of type 'DataPipelineInstanceIdentity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineInstanceIdentity(obj: DataPipelineInstanceIdentity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'document': obj.document,
+    'signature': obj.signature,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineTaskObject
@@ -763,6 +1418,23 @@ export interface DataPipelineTaskObject {
 }
 
 /**
+ * Converts an object of type 'DataPipelineTaskObject' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineTaskObject(obj: DataPipelineTaskObject | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'taskId': obj.taskId,
+    'pipelineId': obj.pipelineId,
+    'attemptId': obj.attemptId,
+    'objects': ((obj.objects) === undefined) ? undefined : (Object.entries(obj.objects).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_DataPipelinePipelineObject(i[1]) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineValidationError
  */
 export interface DataPipelineValidationError {
@@ -777,6 +1449,21 @@ export interface DataPipelineValidationError {
   readonly errors?: string[];
 
 }
+
+/**
+ * Converts an object of type 'DataPipelineValidationError' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineValidationError(obj: DataPipelineValidationError | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'errors': obj.errors?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineValidationWarning
@@ -795,6 +1482,21 @@ export interface DataPipelineValidationWarning {
 }
 
 /**
+ * Converts an object of type 'DataPipelineValidationWarning' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineValidationWarning(obj: DataPipelineValidationWarning | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'warnings': obj.warnings?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineQuery
  */
 export interface DataPipelineQuery {
@@ -804,6 +1506,20 @@ export interface DataPipelineQuery {
   readonly selectors?: DataPipelineSelector[];
 
 }
+
+/**
+ * Converts an object of type 'DataPipelineQuery' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineQuery(obj: DataPipelineQuery | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'selectors': obj.selectors?.map(y => toJson_DataPipelineSelector(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineField
@@ -827,6 +1543,22 @@ export interface DataPipelineField {
 }
 
 /**
+ * Converts an object of type 'DataPipelineField' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineField(obj: DataPipelineField | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'stringValue': obj.stringValue,
+    'refValue': obj.refValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineParameterAttribute
  */
 export interface DataPipelineParameterAttribute {
@@ -841,6 +1573,21 @@ export interface DataPipelineParameterAttribute {
   readonly stringValue: string;
 
 }
+
+/**
+ * Converts an object of type 'DataPipelineParameterAttribute' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineParameterAttribute(obj: DataPipelineParameterAttribute | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'stringValue': obj.stringValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DataPipelineSelector
@@ -859,6 +1606,21 @@ export interface DataPipelineSelector {
 }
 
 /**
+ * Converts an object of type 'DataPipelineSelector' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineSelector(obj: DataPipelineSelector | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fieldName': obj.fieldName,
+    'operator': toJson_DataPipelineOperator(obj.operator),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DataPipelineOperator
  */
 export interface DataPipelineOperator {
@@ -873,3 +1635,18 @@ export interface DataPipelineOperator {
   readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'DataPipelineOperator' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DataPipelineOperator(obj: DataPipelineOperator | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+    'values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

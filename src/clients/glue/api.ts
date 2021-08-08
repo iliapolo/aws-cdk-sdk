@@ -3351,6 +3351,10 @@ export class GlueResponsesCreateTrigger {
           Description: this.__input.description,
           StartOnCreation: this.__input.startOnCreation,
           Tags: this.__input.tags,
+          EventBatchingCondition: {
+            BatchSize: this.__input.eventBatchingCondition?.batchSize,
+            BatchWindow: this.__input.eventBatchingCondition?.batchWindow,
+          },
         },
       },
     };
@@ -8291,6 +8295,23 @@ export class GlueResponsesFetchMlTransformEvaluationMetricsFindMatchesMetrics {
     return new GlueResponsesFetchMlTransformEvaluationMetricsFindMatchesMetricsConfusionMatrix(this.__scope, this.__resources, this.__input);
   }
 
+  public get columnImportances(): shapes.GlueColumnImportance[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getMlTransform',
+        service: 'Glue',
+        physicalResourceId: cr.PhysicalResourceId.of('Glue.GetMLTransform.EvaluationMetrics.FindMatchesMetrics.ColumnImportances'),
+        outputPath: 'EvaluationMetrics.FindMatchesMetrics.ColumnImportances',
+        parameters: {
+          TransformId: this.__input.transformId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetMLTransform.EvaluationMetrics.FindMatchesMetrics.ColumnImportances', props);
+    return resource.getResponseField('EvaluationMetrics.FindMatchesMetrics.ColumnImportances') as unknown as shapes.GlueColumnImportance[];
+  }
+
 }
 
 export class GlueResponsesFetchMlTransformEvaluationMetricsFindMatchesMetricsConfusionMatrix {
@@ -9267,6 +9288,7 @@ export class GlueResponsesFetchPartitions {
             TotalSegments: this.__input.segment?.totalSegments,
           },
           MaxResults: this.__input.maxResults,
+          ExcludeColumnSchema: this.__input.excludeColumnSchema,
         },
       },
     };
@@ -9293,6 +9315,7 @@ export class GlueResponsesFetchPartitions {
             TotalSegments: this.__input.segment?.totalSegments,
           },
           MaxResults: this.__input.maxResults,
+          ExcludeColumnSchema: this.__input.excludeColumnSchema,
         },
       },
     };
@@ -12524,6 +12547,10 @@ export class GlueResponsesFetchTriggerTrigger {
     return new GlueResponsesFetchTriggerTriggerPredicate(this.__scope, this.__resources, this.__input);
   }
 
+  public get eventBatchingCondition(): GlueResponsesFetchTriggerTriggerEventBatchingCondition {
+    return new GlueResponsesFetchTriggerTriggerEventBatchingCondition(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class GlueResponsesFetchTriggerTriggerPredicate {
@@ -12563,6 +12590,47 @@ export class GlueResponsesFetchTriggerTriggerPredicate {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetTrigger.Trigger.Predicate.Conditions', props);
     return resource.getResponseField('Trigger.Predicate.Conditions') as unknown as shapes.GlueCondition[];
+  }
+
+}
+
+export class GlueResponsesFetchTriggerTriggerEventBatchingCondition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlueGetTriggerRequest) {
+  }
+
+  public get batchSize(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getTrigger',
+        service: 'Glue',
+        physicalResourceId: cr.PhysicalResourceId.of('Glue.GetTrigger.Trigger.EventBatchingCondition.BatchSize'),
+        outputPath: 'Trigger.EventBatchingCondition.BatchSize',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetTrigger.Trigger.EventBatchingCondition.BatchSize', props);
+    return resource.getResponseField('Trigger.EventBatchingCondition.BatchSize') as unknown as number;
+  }
+
+  public get batchWindow(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getTrigger',
+        service: 'Glue',
+        physicalResourceId: cr.PhysicalResourceId.of('Glue.GetTrigger.Trigger.EventBatchingCondition.BatchWindow'),
+        outputPath: 'Trigger.EventBatchingCondition.BatchWindow',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetTrigger.Trigger.EventBatchingCondition.BatchWindow', props);
+    return resource.getResponseField('Trigger.EventBatchingCondition.BatchWindow') as unknown as number;
   }
 
 }
@@ -13122,6 +13190,10 @@ export class GlueResponsesFetchWorkflowWorkflowLastRun {
     return new GlueResponsesFetchWorkflowWorkflowLastRunGraph(this.__scope, this.__resources, this.__input);
   }
 
+  public get startingEventBatchCondition(): GlueResponsesFetchWorkflowWorkflowLastRunStartingEventBatchCondition {
+    return new GlueResponsesFetchWorkflowWorkflowLastRunStartingEventBatchCondition(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class GlueResponsesFetchWorkflowWorkflowLastRunStatistics {
@@ -13278,6 +13350,49 @@ export class GlueResponsesFetchWorkflowWorkflowLastRunGraph {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetWorkflow.Workflow.LastRun.Graph.Edges', props);
     return resource.getResponseField('Workflow.LastRun.Graph.Edges') as unknown as shapes.GlueEdge[];
+  }
+
+}
+
+export class GlueResponsesFetchWorkflowWorkflowLastRunStartingEventBatchCondition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlueGetWorkflowRequest) {
+  }
+
+  public get batchSize(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getWorkflow',
+        service: 'Glue',
+        physicalResourceId: cr.PhysicalResourceId.of('Glue.GetWorkflow.Workflow.LastRun.StartingEventBatchCondition.BatchSize'),
+        outputPath: 'Workflow.LastRun.StartingEventBatchCondition.BatchSize',
+        parameters: {
+          Name: this.__input.name,
+          IncludeGraph: this.__input.includeGraph,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetWorkflow.Workflow.LastRun.StartingEventBatchCondition.BatchSize', props);
+    return resource.getResponseField('Workflow.LastRun.StartingEventBatchCondition.BatchSize') as unknown as number;
+  }
+
+  public get batchWindow(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getWorkflow',
+        service: 'Glue',
+        physicalResourceId: cr.PhysicalResourceId.of('Glue.GetWorkflow.Workflow.LastRun.StartingEventBatchCondition.BatchWindow'),
+        outputPath: 'Workflow.LastRun.StartingEventBatchCondition.BatchWindow',
+        parameters: {
+          Name: this.__input.name,
+          IncludeGraph: this.__input.includeGraph,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetWorkflow.Workflow.LastRun.StartingEventBatchCondition.BatchWindow', props);
+    return resource.getResponseField('Workflow.LastRun.StartingEventBatchCondition.BatchWindow') as unknown as number;
   }
 
 }
@@ -13501,6 +13616,10 @@ export class GlueResponsesFetchWorkflowRunRun {
     return new GlueResponsesFetchWorkflowRunRunGraph(this.__scope, this.__resources, this.__input);
   }
 
+  public get startingEventBatchCondition(): GlueResponsesFetchWorkflowRunRunStartingEventBatchCondition {
+    return new GlueResponsesFetchWorkflowRunRunStartingEventBatchCondition(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class GlueResponsesFetchWorkflowRunRunStatistics {
@@ -13665,6 +13784,51 @@ export class GlueResponsesFetchWorkflowRunRunGraph {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetWorkflowRun.Run.Graph.Edges', props);
     return resource.getResponseField('Run.Graph.Edges') as unknown as shapes.GlueEdge[];
+  }
+
+}
+
+export class GlueResponsesFetchWorkflowRunRunStartingEventBatchCondition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlueGetWorkflowRunRequest) {
+  }
+
+  public get batchSize(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getWorkflowRun',
+        service: 'Glue',
+        physicalResourceId: cr.PhysicalResourceId.of('Glue.GetWorkflowRun.Run.StartingEventBatchCondition.BatchSize'),
+        outputPath: 'Run.StartingEventBatchCondition.BatchSize',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+          IncludeGraph: this.__input.includeGraph,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetWorkflowRun.Run.StartingEventBatchCondition.BatchSize', props);
+    return resource.getResponseField('Run.StartingEventBatchCondition.BatchSize') as unknown as number;
+  }
+
+  public get batchWindow(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getWorkflowRun',
+        service: 'Glue',
+        physicalResourceId: cr.PhysicalResourceId.of('Glue.GetWorkflowRun.Run.StartingEventBatchCondition.BatchWindow'),
+        outputPath: 'Run.StartingEventBatchCondition.BatchWindow',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+          IncludeGraph: this.__input.includeGraph,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetWorkflowRun.Run.StartingEventBatchCondition.BatchWindow', props);
+    return resource.getResponseField('Run.StartingEventBatchCondition.BatchWindow') as unknown as number;
   }
 
 }
@@ -15648,6 +15812,10 @@ export class GlueResponsesUpdateTriggerTrigger {
               Logical: this.__input.triggerUpdate.predicate?.logical,
               Conditions: this.__input.triggerUpdate.predicate?.conditions,
             },
+            EventBatchingCondition: {
+              BatchSize: this.__input.triggerUpdate.eventBatchingCondition?.batchSize,
+              BatchWindow: this.__input.triggerUpdate.eventBatchingCondition?.batchWindow,
+            },
           },
         },
       },
@@ -15674,6 +15842,10 @@ export class GlueResponsesUpdateTriggerTrigger {
             Predicate: {
               Logical: this.__input.triggerUpdate.predicate?.logical,
               Conditions: this.__input.triggerUpdate.predicate?.conditions,
+            },
+            EventBatchingCondition: {
+              BatchSize: this.__input.triggerUpdate.eventBatchingCondition?.batchSize,
+              BatchWindow: this.__input.triggerUpdate.eventBatchingCondition?.batchWindow,
             },
           },
         },
@@ -15702,6 +15874,10 @@ export class GlueResponsesUpdateTriggerTrigger {
               Logical: this.__input.triggerUpdate.predicate?.logical,
               Conditions: this.__input.triggerUpdate.predicate?.conditions,
             },
+            EventBatchingCondition: {
+              BatchSize: this.__input.triggerUpdate.eventBatchingCondition?.batchSize,
+              BatchWindow: this.__input.triggerUpdate.eventBatchingCondition?.batchWindow,
+            },
           },
         },
       },
@@ -15728,6 +15904,10 @@ export class GlueResponsesUpdateTriggerTrigger {
             Predicate: {
               Logical: this.__input.triggerUpdate.predicate?.logical,
               Conditions: this.__input.triggerUpdate.predicate?.conditions,
+            },
+            EventBatchingCondition: {
+              BatchSize: this.__input.triggerUpdate.eventBatchingCondition?.batchSize,
+              BatchWindow: this.__input.triggerUpdate.eventBatchingCondition?.batchWindow,
             },
           },
         },
@@ -15756,6 +15936,10 @@ export class GlueResponsesUpdateTriggerTrigger {
               Logical: this.__input.triggerUpdate.predicate?.logical,
               Conditions: this.__input.triggerUpdate.predicate?.conditions,
             },
+            EventBatchingCondition: {
+              BatchSize: this.__input.triggerUpdate.eventBatchingCondition?.batchSize,
+              BatchWindow: this.__input.triggerUpdate.eventBatchingCondition?.batchWindow,
+            },
           },
         },
       },
@@ -15782,6 +15966,10 @@ export class GlueResponsesUpdateTriggerTrigger {
             Predicate: {
               Logical: this.__input.triggerUpdate.predicate?.logical,
               Conditions: this.__input.triggerUpdate.predicate?.conditions,
+            },
+            EventBatchingCondition: {
+              BatchSize: this.__input.triggerUpdate.eventBatchingCondition?.batchSize,
+              BatchWindow: this.__input.triggerUpdate.eventBatchingCondition?.batchWindow,
             },
           },
         },
@@ -15810,6 +15998,10 @@ export class GlueResponsesUpdateTriggerTrigger {
               Logical: this.__input.triggerUpdate.predicate?.logical,
               Conditions: this.__input.triggerUpdate.predicate?.conditions,
             },
+            EventBatchingCondition: {
+              BatchSize: this.__input.triggerUpdate.eventBatchingCondition?.batchSize,
+              BatchWindow: this.__input.triggerUpdate.eventBatchingCondition?.batchWindow,
+            },
           },
         },
       },
@@ -15837,6 +16029,10 @@ export class GlueResponsesUpdateTriggerTrigger {
               Logical: this.__input.triggerUpdate.predicate?.logical,
               Conditions: this.__input.triggerUpdate.predicate?.conditions,
             },
+            EventBatchingCondition: {
+              BatchSize: this.__input.triggerUpdate.eventBatchingCondition?.batchSize,
+              BatchWindow: this.__input.triggerUpdate.eventBatchingCondition?.batchWindow,
+            },
           },
         },
       },
@@ -15847,6 +16043,10 @@ export class GlueResponsesUpdateTriggerTrigger {
 
   public get predicate(): GlueResponsesUpdateTriggerTriggerPredicate {
     return new GlueResponsesUpdateTriggerTriggerPredicate(this.__scope, this.__resources, this.__input);
+  }
+
+  public get eventBatchingCondition(): GlueResponsesUpdateTriggerTriggerEventBatchingCondition {
+    return new GlueResponsesUpdateTriggerTriggerEventBatchingCondition(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -15875,6 +16075,10 @@ export class GlueResponsesUpdateTriggerTriggerPredicate {
               Logical: this.__input.triggerUpdate.predicate?.logical,
               Conditions: this.__input.triggerUpdate.predicate?.conditions,
             },
+            EventBatchingCondition: {
+              BatchSize: this.__input.triggerUpdate.eventBatchingCondition?.batchSize,
+              BatchWindow: this.__input.triggerUpdate.eventBatchingCondition?.batchWindow,
+            },
           },
         },
       },
@@ -15902,12 +16106,85 @@ export class GlueResponsesUpdateTriggerTriggerPredicate {
               Logical: this.__input.triggerUpdate.predicate?.logical,
               Conditions: this.__input.triggerUpdate.predicate?.conditions,
             },
+            EventBatchingCondition: {
+              BatchSize: this.__input.triggerUpdate.eventBatchingCondition?.batchSize,
+              BatchWindow: this.__input.triggerUpdate.eventBatchingCondition?.batchWindow,
+            },
           },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateTrigger.Trigger.Predicate.Conditions', props);
     return resource.getResponseField('Trigger.Predicate.Conditions') as unknown as shapes.GlueCondition[];
+  }
+
+}
+
+export class GlueResponsesUpdateTriggerTriggerEventBatchingCondition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlueUpdateTriggerRequest) {
+  }
+
+  public get batchSize(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateTrigger',
+        service: 'Glue',
+        physicalResourceId: cr.PhysicalResourceId.of('Glue.UpdateTrigger.Trigger.EventBatchingCondition.BatchSize'),
+        outputPath: 'Trigger.EventBatchingCondition.BatchSize',
+        parameters: {
+          Name: this.__input.name,
+          TriggerUpdate: {
+            Name: this.__input.triggerUpdate.name,
+            Description: this.__input.triggerUpdate.description,
+            Schedule: this.__input.triggerUpdate.schedule,
+            Actions: this.__input.triggerUpdate.actions,
+            Predicate: {
+              Logical: this.__input.triggerUpdate.predicate?.logical,
+              Conditions: this.__input.triggerUpdate.predicate?.conditions,
+            },
+            EventBatchingCondition: {
+              BatchSize: this.__input.triggerUpdate.eventBatchingCondition?.batchSize,
+              BatchWindow: this.__input.triggerUpdate.eventBatchingCondition?.batchWindow,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateTrigger.Trigger.EventBatchingCondition.BatchSize', props);
+    return resource.getResponseField('Trigger.EventBatchingCondition.BatchSize') as unknown as number;
+  }
+
+  public get batchWindow(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateTrigger',
+        service: 'Glue',
+        physicalResourceId: cr.PhysicalResourceId.of('Glue.UpdateTrigger.Trigger.EventBatchingCondition.BatchWindow'),
+        outputPath: 'Trigger.EventBatchingCondition.BatchWindow',
+        parameters: {
+          Name: this.__input.name,
+          TriggerUpdate: {
+            Name: this.__input.triggerUpdate.name,
+            Description: this.__input.triggerUpdate.description,
+            Schedule: this.__input.triggerUpdate.schedule,
+            Actions: this.__input.triggerUpdate.actions,
+            Predicate: {
+              Logical: this.__input.triggerUpdate.predicate?.logical,
+              Conditions: this.__input.triggerUpdate.predicate?.conditions,
+            },
+            EventBatchingCondition: {
+              BatchSize: this.__input.triggerUpdate.eventBatchingCondition?.batchSize,
+              BatchWindow: this.__input.triggerUpdate.eventBatchingCondition?.batchWindow,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateTrigger.Trigger.EventBatchingCondition.BatchWindow', props);
+    return resource.getResponseField('Trigger.EventBatchingCondition.BatchWindow') as unknown as number;
   }
 
 }

@@ -51,6 +51,8 @@ export class S3OutpostsResponsesCreateEndpoint {
           OutpostId: this.__input.outpostId,
           SubnetId: this.__input.subnetId,
           SecurityGroupId: this.__input.securityGroupId,
+          AccessType: this.__input.accessType,
+          CustomerOwnedIpv4Pool: this.__input.customerOwnedIpv4Pool,
         },
       },
     };

@@ -5,14 +5,29 @@ export interface DmsAddTagsToResourceMessage {
   /**
    * @schema DmsAddTagsToResourceMessage#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema DmsAddTagsToResourceMessage#Tags
    */
-  readonly tags: DmsTag[];
+  readonly tags?: DmsTag[];
 
 }
+
+/**
+ * Converts an object of type 'DmsAddTagsToResourceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsAddTagsToResourceMessage(obj: DmsAddTagsToResourceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'Tags': obj.tags?.map(y => toJson_DmsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsAddTagsToResourceResponse
@@ -21,25 +36,54 @@ export interface DmsAddTagsToResourceResponse {
 }
 
 /**
+ * Converts an object of type 'DmsAddTagsToResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsAddTagsToResourceResponse(obj: DmsAddTagsToResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsApplyPendingMaintenanceActionMessage
  */
 export interface DmsApplyPendingMaintenanceActionMessage {
   /**
    * @schema DmsApplyPendingMaintenanceActionMessage#ReplicationInstanceArn
    */
-  readonly replicationInstanceArn: string;
+  readonly replicationInstanceArn?: string;
 
   /**
    * @schema DmsApplyPendingMaintenanceActionMessage#ApplyAction
    */
-  readonly applyAction: string;
+  readonly applyAction?: string;
 
   /**
    * @schema DmsApplyPendingMaintenanceActionMessage#OptInType
    */
-  readonly optInType: string;
+  readonly optInType?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsApplyPendingMaintenanceActionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsApplyPendingMaintenanceActionMessage(obj: DmsApplyPendingMaintenanceActionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationInstanceArn': obj.replicationInstanceArn,
+    'ApplyAction': obj.applyAction,
+    'OptInType': obj.optInType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsApplyPendingMaintenanceActionResponse
@@ -53,15 +97,43 @@ export interface DmsApplyPendingMaintenanceActionResponse {
 }
 
 /**
+ * Converts an object of type 'DmsApplyPendingMaintenanceActionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsApplyPendingMaintenanceActionResponse(obj: DmsApplyPendingMaintenanceActionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourcePendingMaintenanceActions': toJson_DmsResourcePendingMaintenanceActions(obj.resourcePendingMaintenanceActions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsCancelReplicationTaskAssessmentRunMessage
  */
 export interface DmsCancelReplicationTaskAssessmentRunMessage {
   /**
    * @schema DmsCancelReplicationTaskAssessmentRunMessage#ReplicationTaskAssessmentRunArn
    */
-  readonly replicationTaskAssessmentRunArn: string;
+  readonly replicationTaskAssessmentRunArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsCancelReplicationTaskAssessmentRunMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsCancelReplicationTaskAssessmentRunMessage(obj: DmsCancelReplicationTaskAssessmentRunMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskAssessmentRunArn': obj.replicationTaskAssessmentRunArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsCancelReplicationTaskAssessmentRunResponse
@@ -75,23 +147,37 @@ export interface DmsCancelReplicationTaskAssessmentRunResponse {
 }
 
 /**
+ * Converts an object of type 'DmsCancelReplicationTaskAssessmentRunResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsCancelReplicationTaskAssessmentRunResponse(obj: DmsCancelReplicationTaskAssessmentRunResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskAssessmentRun': toJson_DmsReplicationTaskAssessmentRun(obj.replicationTaskAssessmentRun),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsCreateEndpointMessage
  */
 export interface DmsCreateEndpointMessage {
   /**
    * @schema DmsCreateEndpointMessage#EndpointIdentifier
    */
-  readonly endpointIdentifier: string;
+  readonly endpointIdentifier?: string;
 
   /**
    * @schema DmsCreateEndpointMessage#EndpointType
    */
-  readonly endpointType: string;
+  readonly endpointType?: string;
 
   /**
    * @schema DmsCreateEndpointMessage#EngineName
    */
-  readonly engineName: string;
+  readonly engineName?: string;
 
   /**
    * @schema DmsCreateEndpointMessage#Username
@@ -241,6 +327,51 @@ export interface DmsCreateEndpointMessage {
 }
 
 /**
+ * Converts an object of type 'DmsCreateEndpointMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsCreateEndpointMessage(obj: DmsCreateEndpointMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointIdentifier': obj.endpointIdentifier,
+    'EndpointType': obj.endpointType,
+    'EngineName': obj.engineName,
+    'Username': obj.username,
+    'Password': obj.password,
+    'ServerName': obj.serverName,
+    'Port': obj.port,
+    'DatabaseName': obj.databaseName,
+    'ExtraConnectionAttributes': obj.extraConnectionAttributes,
+    'KmsKeyId': obj.kmsKeyId,
+    'Tags': obj.tags?.map(y => toJson_DmsTag(y)),
+    'CertificateArn': obj.certificateArn,
+    'SslMode': obj.sslMode,
+    'ServiceAccessRoleArn': obj.serviceAccessRoleArn,
+    'ExternalTableDefinition': obj.externalTableDefinition,
+    'DynamoDbSettings': toJson_DmsDynamoDbSettings(obj.dynamoDbSettings),
+    'S3Settings': toJson_Dmss3Settings(obj.s3Settings),
+    'DmsTransferSettings': toJson_DmsDmsTransferSettings(obj.dmsTransferSettings),
+    'MongoDbSettings': toJson_DmsMongoDbSettings(obj.mongoDbSettings),
+    'KinesisSettings': toJson_DmsKinesisSettings(obj.kinesisSettings),
+    'KafkaSettings': toJson_DmsKafkaSettings(obj.kafkaSettings),
+    'ElasticsearchSettings': toJson_DmsElasticsearchSettings(obj.elasticsearchSettings),
+    'NeptuneSettings': toJson_DmsNeptuneSettings(obj.neptuneSettings),
+    'RedshiftSettings': toJson_DmsRedshiftSettings(obj.redshiftSettings),
+    'PostgreSQLSettings': toJson_DmsPostgreSqlSettings(obj.postgreSqlSettings),
+    'MySQLSettings': toJson_DmsMySqlSettings(obj.mySqlSettings),
+    'OracleSettings': toJson_DmsOracleSettings(obj.oracleSettings),
+    'SybaseSettings': toJson_DmsSybaseSettings(obj.sybaseSettings),
+    'MicrosoftSQLServerSettings': toJson_DmsMicrosoftSqlServerSettings(obj.microsoftSqlServerSettings),
+    'IBMDb2Settings': toJson_DmsibmDb2Settings(obj.ibmDb2Settings),
+    'ResourceIdentifier': obj.resourceIdentifier,
+    'DocDbSettings': toJson_DmsDocDbSettings(obj.docDbSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsCreateEndpointResponse
  */
 export interface DmsCreateEndpointResponse {
@@ -252,18 +383,32 @@ export interface DmsCreateEndpointResponse {
 }
 
 /**
+ * Converts an object of type 'DmsCreateEndpointResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsCreateEndpointResponse(obj: DmsCreateEndpointResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Endpoint': toJson_DmsEndpoint(obj.endpoint),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsCreateEventSubscriptionMessage
  */
 export interface DmsCreateEventSubscriptionMessage {
   /**
    * @schema DmsCreateEventSubscriptionMessage#SubscriptionName
    */
-  readonly subscriptionName: string;
+  readonly subscriptionName?: string;
 
   /**
    * @schema DmsCreateEventSubscriptionMessage#SnsTopicArn
    */
-  readonly snsTopicArn: string;
+  readonly snsTopicArn?: string;
 
   /**
    * @schema DmsCreateEventSubscriptionMessage#SourceType
@@ -293,6 +438,26 @@ export interface DmsCreateEventSubscriptionMessage {
 }
 
 /**
+ * Converts an object of type 'DmsCreateEventSubscriptionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsCreateEventSubscriptionMessage(obj: DmsCreateEventSubscriptionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscriptionName': obj.subscriptionName,
+    'SnsTopicArn': obj.snsTopicArn,
+    'SourceType': obj.sourceType,
+    'EventCategories': obj.eventCategories?.map(y => y),
+    'SourceIds': obj.sourceIds?.map(y => y),
+    'Enabled': obj.enabled,
+    'Tags': obj.tags?.map(y => toJson_DmsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsCreateEventSubscriptionResponse
  */
 export interface DmsCreateEventSubscriptionResponse {
@@ -304,13 +469,27 @@ export interface DmsCreateEventSubscriptionResponse {
 }
 
 /**
+ * Converts an object of type 'DmsCreateEventSubscriptionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsCreateEventSubscriptionResponse(obj: DmsCreateEventSubscriptionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EventSubscription': toJson_DmsEventSubscription(obj.eventSubscription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsCreateReplicationInstanceMessage
  */
 export interface DmsCreateReplicationInstanceMessage {
   /**
    * @schema DmsCreateReplicationInstanceMessage#ReplicationInstanceIdentifier
    */
-  readonly replicationInstanceIdentifier: string;
+  readonly replicationInstanceIdentifier?: string;
 
   /**
    * @schema DmsCreateReplicationInstanceMessage#AllocatedStorage
@@ -320,7 +499,7 @@ export interface DmsCreateReplicationInstanceMessage {
   /**
    * @schema DmsCreateReplicationInstanceMessage#ReplicationInstanceClass
    */
-  readonly replicationInstanceClass: string;
+  readonly replicationInstanceClass?: string;
 
   /**
    * @schema DmsCreateReplicationInstanceMessage#VpcSecurityGroupIds
@@ -385,6 +564,34 @@ export interface DmsCreateReplicationInstanceMessage {
 }
 
 /**
+ * Converts an object of type 'DmsCreateReplicationInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsCreateReplicationInstanceMessage(obj: DmsCreateReplicationInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationInstanceIdentifier': obj.replicationInstanceIdentifier,
+    'AllocatedStorage': obj.allocatedStorage,
+    'ReplicationInstanceClass': obj.replicationInstanceClass,
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'AvailabilityZone': obj.availabilityZone,
+    'ReplicationSubnetGroupIdentifier': obj.replicationSubnetGroupIdentifier,
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'MultiAZ': obj.multiAz,
+    'EngineVersion': obj.engineVersion,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'Tags': obj.tags?.map(y => toJson_DmsTag(y)),
+    'KmsKeyId': obj.kmsKeyId,
+    'PubliclyAccessible': obj.publiclyAccessible,
+    'DnsNameServers': obj.dnsNameServers,
+    'ResourceIdentifier': obj.resourceIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsCreateReplicationInstanceResponse
  */
 export interface DmsCreateReplicationInstanceResponse {
@@ -396,23 +603,37 @@ export interface DmsCreateReplicationInstanceResponse {
 }
 
 /**
+ * Converts an object of type 'DmsCreateReplicationInstanceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsCreateReplicationInstanceResponse(obj: DmsCreateReplicationInstanceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationInstance': toJson_DmsReplicationInstance(obj.replicationInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsCreateReplicationSubnetGroupMessage
  */
 export interface DmsCreateReplicationSubnetGroupMessage {
   /**
    * @schema DmsCreateReplicationSubnetGroupMessage#ReplicationSubnetGroupIdentifier
    */
-  readonly replicationSubnetGroupIdentifier: string;
+  readonly replicationSubnetGroupIdentifier?: string;
 
   /**
    * @schema DmsCreateReplicationSubnetGroupMessage#ReplicationSubnetGroupDescription
    */
-  readonly replicationSubnetGroupDescription: string;
+  readonly replicationSubnetGroupDescription?: string;
 
   /**
    * @schema DmsCreateReplicationSubnetGroupMessage#SubnetIds
    */
-  readonly subnetIds: string[];
+  readonly subnetIds?: string[];
 
   /**
    * @schema DmsCreateReplicationSubnetGroupMessage#Tags
@@ -420,6 +641,23 @@ export interface DmsCreateReplicationSubnetGroupMessage {
   readonly tags?: DmsTag[];
 
 }
+
+/**
+ * Converts an object of type 'DmsCreateReplicationSubnetGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsCreateReplicationSubnetGroupMessage(obj: DmsCreateReplicationSubnetGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationSubnetGroupIdentifier': obj.replicationSubnetGroupIdentifier,
+    'ReplicationSubnetGroupDescription': obj.replicationSubnetGroupDescription,
+    'SubnetIds': obj.subnetIds?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_DmsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsCreateReplicationSubnetGroupResponse
@@ -433,38 +671,52 @@ export interface DmsCreateReplicationSubnetGroupResponse {
 }
 
 /**
+ * Converts an object of type 'DmsCreateReplicationSubnetGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsCreateReplicationSubnetGroupResponse(obj: DmsCreateReplicationSubnetGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationSubnetGroup': toJson_DmsReplicationSubnetGroup(obj.replicationSubnetGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsCreateReplicationTaskMessage
  */
 export interface DmsCreateReplicationTaskMessage {
   /**
    * @schema DmsCreateReplicationTaskMessage#ReplicationTaskIdentifier
    */
-  readonly replicationTaskIdentifier: string;
+  readonly replicationTaskIdentifier?: string;
 
   /**
    * @schema DmsCreateReplicationTaskMessage#SourceEndpointArn
    */
-  readonly sourceEndpointArn: string;
+  readonly sourceEndpointArn?: string;
 
   /**
    * @schema DmsCreateReplicationTaskMessage#TargetEndpointArn
    */
-  readonly targetEndpointArn: string;
+  readonly targetEndpointArn?: string;
 
   /**
    * @schema DmsCreateReplicationTaskMessage#ReplicationInstanceArn
    */
-  readonly replicationInstanceArn: string;
+  readonly replicationInstanceArn?: string;
 
   /**
    * @schema DmsCreateReplicationTaskMessage#MigrationType
    */
-  readonly migrationType: string;
+  readonly migrationType?: string;
 
   /**
    * @schema DmsCreateReplicationTaskMessage#TableMappings
    */
-  readonly tableMappings: string;
+  readonly tableMappings?: string;
 
   /**
    * @schema DmsCreateReplicationTaskMessage#ReplicationTaskSettings
@@ -504,6 +756,32 @@ export interface DmsCreateReplicationTaskMessage {
 }
 
 /**
+ * Converts an object of type 'DmsCreateReplicationTaskMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsCreateReplicationTaskMessage(obj: DmsCreateReplicationTaskMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskIdentifier': obj.replicationTaskIdentifier,
+    'SourceEndpointArn': obj.sourceEndpointArn,
+    'TargetEndpointArn': obj.targetEndpointArn,
+    'ReplicationInstanceArn': obj.replicationInstanceArn,
+    'MigrationType': obj.migrationType,
+    'TableMappings': obj.tableMappings,
+    'ReplicationTaskSettings': obj.replicationTaskSettings,
+    'CdcStartTime': obj.cdcStartTime,
+    'CdcStartPosition': obj.cdcStartPosition,
+    'CdcStopPosition': obj.cdcStopPosition,
+    'Tags': obj.tags?.map(y => toJson_DmsTag(y)),
+    'TaskData': obj.taskData,
+    'ResourceIdentifier': obj.resourceIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsCreateReplicationTaskResponse
  */
 export interface DmsCreateReplicationTaskResponse {
@@ -515,15 +793,43 @@ export interface DmsCreateReplicationTaskResponse {
 }
 
 /**
+ * Converts an object of type 'DmsCreateReplicationTaskResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsCreateReplicationTaskResponse(obj: DmsCreateReplicationTaskResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTask': toJson_DmsReplicationTask(obj.replicationTask),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDeleteCertificateMessage
  */
 export interface DmsDeleteCertificateMessage {
   /**
    * @schema DmsDeleteCertificateMessage#CertificateArn
    */
-  readonly certificateArn: string;
+  readonly certificateArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsDeleteCertificateMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDeleteCertificateMessage(obj: DmsDeleteCertificateMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CertificateArn': obj.certificateArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDeleteCertificateResponse
@@ -537,20 +843,49 @@ export interface DmsDeleteCertificateResponse {
 }
 
 /**
+ * Converts an object of type 'DmsDeleteCertificateResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDeleteCertificateResponse(obj: DmsDeleteCertificateResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Certificate': toJson_DmsCertificate(obj.certificate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDeleteConnectionMessage
  */
 export interface DmsDeleteConnectionMessage {
   /**
    * @schema DmsDeleteConnectionMessage#EndpointArn
    */
-  readonly endpointArn: string;
+  readonly endpointArn?: string;
 
   /**
    * @schema DmsDeleteConnectionMessage#ReplicationInstanceArn
    */
-  readonly replicationInstanceArn: string;
+  readonly replicationInstanceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsDeleteConnectionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDeleteConnectionMessage(obj: DmsDeleteConnectionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointArn': obj.endpointArn,
+    'ReplicationInstanceArn': obj.replicationInstanceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDeleteConnectionResponse
@@ -564,15 +899,43 @@ export interface DmsDeleteConnectionResponse {
 }
 
 /**
+ * Converts an object of type 'DmsDeleteConnectionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDeleteConnectionResponse(obj: DmsDeleteConnectionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Connection': toJson_DmsConnection(obj.connection),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDeleteEndpointMessage
  */
 export interface DmsDeleteEndpointMessage {
   /**
    * @schema DmsDeleteEndpointMessage#EndpointArn
    */
-  readonly endpointArn: string;
+  readonly endpointArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsDeleteEndpointMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDeleteEndpointMessage(obj: DmsDeleteEndpointMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointArn': obj.endpointArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDeleteEndpointResponse
@@ -586,15 +949,43 @@ export interface DmsDeleteEndpointResponse {
 }
 
 /**
+ * Converts an object of type 'DmsDeleteEndpointResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDeleteEndpointResponse(obj: DmsDeleteEndpointResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Endpoint': toJson_DmsEndpoint(obj.endpoint),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDeleteEventSubscriptionMessage
  */
 export interface DmsDeleteEventSubscriptionMessage {
   /**
    * @schema DmsDeleteEventSubscriptionMessage#SubscriptionName
    */
-  readonly subscriptionName: string;
+  readonly subscriptionName?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsDeleteEventSubscriptionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDeleteEventSubscriptionMessage(obj: DmsDeleteEventSubscriptionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscriptionName': obj.subscriptionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDeleteEventSubscriptionResponse
@@ -608,15 +999,43 @@ export interface DmsDeleteEventSubscriptionResponse {
 }
 
 /**
+ * Converts an object of type 'DmsDeleteEventSubscriptionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDeleteEventSubscriptionResponse(obj: DmsDeleteEventSubscriptionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EventSubscription': toJson_DmsEventSubscription(obj.eventSubscription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDeleteReplicationInstanceMessage
  */
 export interface DmsDeleteReplicationInstanceMessage {
   /**
    * @schema DmsDeleteReplicationInstanceMessage#ReplicationInstanceArn
    */
-  readonly replicationInstanceArn: string;
+  readonly replicationInstanceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsDeleteReplicationInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDeleteReplicationInstanceMessage(obj: DmsDeleteReplicationInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationInstanceArn': obj.replicationInstanceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDeleteReplicationInstanceResponse
@@ -630,15 +1049,43 @@ export interface DmsDeleteReplicationInstanceResponse {
 }
 
 /**
+ * Converts an object of type 'DmsDeleteReplicationInstanceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDeleteReplicationInstanceResponse(obj: DmsDeleteReplicationInstanceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationInstance': toJson_DmsReplicationInstance(obj.replicationInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDeleteReplicationSubnetGroupMessage
  */
 export interface DmsDeleteReplicationSubnetGroupMessage {
   /**
    * @schema DmsDeleteReplicationSubnetGroupMessage#ReplicationSubnetGroupIdentifier
    */
-  readonly replicationSubnetGroupIdentifier: string;
+  readonly replicationSubnetGroupIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsDeleteReplicationSubnetGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDeleteReplicationSubnetGroupMessage(obj: DmsDeleteReplicationSubnetGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationSubnetGroupIdentifier': obj.replicationSubnetGroupIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDeleteReplicationSubnetGroupResponse
@@ -647,15 +1094,42 @@ export interface DmsDeleteReplicationSubnetGroupResponse {
 }
 
 /**
+ * Converts an object of type 'DmsDeleteReplicationSubnetGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDeleteReplicationSubnetGroupResponse(obj: DmsDeleteReplicationSubnetGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDeleteReplicationTaskMessage
  */
 export interface DmsDeleteReplicationTaskMessage {
   /**
    * @schema DmsDeleteReplicationTaskMessage#ReplicationTaskArn
    */
-  readonly replicationTaskArn: string;
+  readonly replicationTaskArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsDeleteReplicationTaskMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDeleteReplicationTaskMessage(obj: DmsDeleteReplicationTaskMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskArn': obj.replicationTaskArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDeleteReplicationTaskResponse
@@ -669,15 +1143,43 @@ export interface DmsDeleteReplicationTaskResponse {
 }
 
 /**
+ * Converts an object of type 'DmsDeleteReplicationTaskResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDeleteReplicationTaskResponse(obj: DmsDeleteReplicationTaskResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTask': toJson_DmsReplicationTask(obj.replicationTask),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDeleteReplicationTaskAssessmentRunMessage
  */
 export interface DmsDeleteReplicationTaskAssessmentRunMessage {
   /**
    * @schema DmsDeleteReplicationTaskAssessmentRunMessage#ReplicationTaskAssessmentRunArn
    */
-  readonly replicationTaskAssessmentRunArn: string;
+  readonly replicationTaskAssessmentRunArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsDeleteReplicationTaskAssessmentRunMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDeleteReplicationTaskAssessmentRunMessage(obj: DmsDeleteReplicationTaskAssessmentRunMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskAssessmentRunArn': obj.replicationTaskAssessmentRunArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDeleteReplicationTaskAssessmentRunResponse
@@ -691,10 +1193,37 @@ export interface DmsDeleteReplicationTaskAssessmentRunResponse {
 }
 
 /**
+ * Converts an object of type 'DmsDeleteReplicationTaskAssessmentRunResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDeleteReplicationTaskAssessmentRunResponse(obj: DmsDeleteReplicationTaskAssessmentRunResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskAssessmentRun': toJson_DmsReplicationTaskAssessmentRun(obj.replicationTaskAssessmentRun),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeAccountAttributesMessage
  */
 export interface DmsDescribeAccountAttributesMessage {
 }
+
+/**
+ * Converts an object of type 'DmsDescribeAccountAttributesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeAccountAttributesMessage(obj: DmsDescribeAccountAttributesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeAccountAttributesResponse
@@ -711,6 +1240,21 @@ export interface DmsDescribeAccountAttributesResponse {
   readonly uniqueAccountIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeAccountAttributesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeAccountAttributesResponse(obj: DmsDescribeAccountAttributesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AccountQuotas': obj.accountQuotas?.map(y => toJson_DmsAccountQuota(y)),
+    'UniqueAccountIdentifier': obj.uniqueAccountIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeApplicableIndividualAssessmentsMessage
@@ -754,6 +1298,26 @@ export interface DmsDescribeApplicableIndividualAssessmentsMessage {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeApplicableIndividualAssessmentsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeApplicableIndividualAssessmentsMessage(obj: DmsDescribeApplicableIndividualAssessmentsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskArn': obj.replicationTaskArn,
+    'ReplicationInstanceArn': obj.replicationInstanceArn,
+    'SourceEngineName': obj.sourceEngineName,
+    'TargetEngineName': obj.targetEngineName,
+    'MigrationType': obj.migrationType,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeApplicableIndividualAssessmentsResponse
  */
 export interface DmsDescribeApplicableIndividualAssessmentsResponse {
@@ -768,6 +1332,21 @@ export interface DmsDescribeApplicableIndividualAssessmentsResponse {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeApplicableIndividualAssessmentsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeApplicableIndividualAssessmentsResponse(obj: DmsDescribeApplicableIndividualAssessmentsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IndividualAssessmentNames': obj.individualAssessmentNames?.map(y => y),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeCertificatesMessage
@@ -791,6 +1370,22 @@ export interface DmsDescribeCertificatesMessage {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeCertificatesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeCertificatesMessage(obj: DmsDescribeCertificatesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Filters': obj.filters?.map(y => toJson_DmsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeCertificatesResponse
  */
 export interface DmsDescribeCertificatesResponse {
@@ -805,6 +1400,21 @@ export interface DmsDescribeCertificatesResponse {
   readonly certificates?: DmsCertificate[];
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeCertificatesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeCertificatesResponse(obj: DmsDescribeCertificatesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'Certificates': obj.certificates?.map(y => toJson_DmsCertificate(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeConnectionsMessage
@@ -828,6 +1438,22 @@ export interface DmsDescribeConnectionsMessage {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeConnectionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeConnectionsMessage(obj: DmsDescribeConnectionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Filters': obj.filters?.map(y => toJson_DmsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeConnectionsResponse
  */
 export interface DmsDescribeConnectionsResponse {
@@ -842,6 +1468,89 @@ export interface DmsDescribeConnectionsResponse {
   readonly connections?: DmsConnection[];
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeConnectionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeConnectionsResponse(obj: DmsDescribeConnectionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'Connections': obj.connections?.map(y => toJson_DmsConnection(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema DmsDescribeEndpointSettingsMessage
+ */
+export interface DmsDescribeEndpointSettingsMessage {
+  /**
+   * @schema DmsDescribeEndpointSettingsMessage#EngineName
+   */
+  readonly engineName?: string;
+
+  /**
+   * @schema DmsDescribeEndpointSettingsMessage#MaxRecords
+   */
+  readonly maxRecords?: number;
+
+  /**
+   * @schema DmsDescribeEndpointSettingsMessage#Marker
+   */
+  readonly marker?: string;
+
+}
+
+/**
+ * Converts an object of type 'DmsDescribeEndpointSettingsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeEndpointSettingsMessage(obj: DmsDescribeEndpointSettingsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EngineName': obj.engineName,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema DmsDescribeEndpointSettingsResponse
+ */
+export interface DmsDescribeEndpointSettingsResponse {
+  /**
+   * @schema DmsDescribeEndpointSettingsResponse#Marker
+   */
+  readonly marker?: string;
+
+  /**
+   * @schema DmsDescribeEndpointSettingsResponse#EndpointSettings
+   */
+  readonly endpointSettings?: DmsEndpointSetting[];
+
+}
+
+/**
+ * Converts an object of type 'DmsDescribeEndpointSettingsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeEndpointSettingsResponse(obj: DmsDescribeEndpointSettingsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'EndpointSettings': obj.endpointSettings?.map(y => toJson_DmsEndpointSetting(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeEndpointTypesMessage
@@ -865,6 +1574,22 @@ export interface DmsDescribeEndpointTypesMessage {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeEndpointTypesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeEndpointTypesMessage(obj: DmsDescribeEndpointTypesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Filters': obj.filters?.map(y => toJson_DmsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeEndpointTypesResponse
  */
 export interface DmsDescribeEndpointTypesResponse {
@@ -879,6 +1604,21 @@ export interface DmsDescribeEndpointTypesResponse {
   readonly supportedEndpointTypes?: DmsSupportedEndpointType[];
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeEndpointTypesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeEndpointTypesResponse(obj: DmsDescribeEndpointTypesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'SupportedEndpointTypes': obj.supportedEndpointTypes?.map(y => toJson_DmsSupportedEndpointType(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeEndpointsMessage
@@ -902,6 +1642,22 @@ export interface DmsDescribeEndpointsMessage {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeEndpointsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeEndpointsMessage(obj: DmsDescribeEndpointsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Filters': obj.filters?.map(y => toJson_DmsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeEndpointsResponse
  */
 export interface DmsDescribeEndpointsResponse {
@@ -916,6 +1672,21 @@ export interface DmsDescribeEndpointsResponse {
   readonly endpoints?: DmsEndpoint[];
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeEndpointsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeEndpointsResponse(obj: DmsDescribeEndpointsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'Endpoints': obj.endpoints?.map(y => toJson_DmsEndpoint(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeEventCategoriesMessage
@@ -934,6 +1705,21 @@ export interface DmsDescribeEventCategoriesMessage {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeEventCategoriesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeEventCategoriesMessage(obj: DmsDescribeEventCategoriesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceType': obj.sourceType,
+    'Filters': obj.filters?.map(y => toJson_DmsFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeEventCategoriesResponse
  */
 export interface DmsDescribeEventCategoriesResponse {
@@ -943,6 +1729,20 @@ export interface DmsDescribeEventCategoriesResponse {
   readonly eventCategoryGroupList?: DmsEventCategoryGroup[];
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeEventCategoriesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeEventCategoriesResponse(obj: DmsDescribeEventCategoriesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EventCategoryGroupList': obj.eventCategoryGroupList?.map(y => toJson_DmsEventCategoryGroup(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeEventSubscriptionsMessage
@@ -971,6 +1771,23 @@ export interface DmsDescribeEventSubscriptionsMessage {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeEventSubscriptionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeEventSubscriptionsMessage(obj: DmsDescribeEventSubscriptionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscriptionName': obj.subscriptionName,
+    'Filters': obj.filters?.map(y => toJson_DmsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeEventSubscriptionsResponse
  */
 export interface DmsDescribeEventSubscriptionsResponse {
@@ -985,6 +1802,21 @@ export interface DmsDescribeEventSubscriptionsResponse {
   readonly eventSubscriptionsList?: DmsEventSubscription[];
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeEventSubscriptionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeEventSubscriptionsResponse(obj: DmsDescribeEventSubscriptionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'EventSubscriptionsList': obj.eventSubscriptionsList?.map(y => toJson_DmsEventSubscription(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeEventsMessage
@@ -1038,6 +1870,28 @@ export interface DmsDescribeEventsMessage {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeEventsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeEventsMessage(obj: DmsDescribeEventsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceIdentifier': obj.sourceIdentifier,
+    'SourceType': obj.sourceType,
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'Duration': obj.duration,
+    'EventCategories': obj.eventCategories?.map(y => y),
+    'Filters': obj.filters?.map(y => toJson_DmsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeEventsResponse
  */
 export interface DmsDescribeEventsResponse {
@@ -1052,6 +1906,21 @@ export interface DmsDescribeEventsResponse {
   readonly events?: DmsEvent[];
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeEventsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeEventsResponse(obj: DmsDescribeEventsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'Events': obj.events?.map(y => toJson_DmsEvent(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeOrderableReplicationInstancesMessage
@@ -1070,6 +1939,21 @@ export interface DmsDescribeOrderableReplicationInstancesMessage {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeOrderableReplicationInstancesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeOrderableReplicationInstancesMessage(obj: DmsDescribeOrderableReplicationInstancesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeOrderableReplicationInstancesResponse
  */
 export interface DmsDescribeOrderableReplicationInstancesResponse {
@@ -1084,6 +1968,21 @@ export interface DmsDescribeOrderableReplicationInstancesResponse {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeOrderableReplicationInstancesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeOrderableReplicationInstancesResponse(obj: DmsDescribeOrderableReplicationInstancesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OrderableReplicationInstances': obj.orderableReplicationInstances?.map(y => toJson_DmsOrderableReplicationInstance(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribePendingMaintenanceActionsMessage
@@ -1112,6 +2011,23 @@ export interface DmsDescribePendingMaintenanceActionsMessage {
 }
 
 /**
+ * Converts an object of type 'DmsDescribePendingMaintenanceActionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribePendingMaintenanceActionsMessage(obj: DmsDescribePendingMaintenanceActionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationInstanceArn': obj.replicationInstanceArn,
+    'Filters': obj.filters?.map(y => toJson_DmsFilter(y)),
+    'Marker': obj.marker,
+    'MaxRecords': obj.maxRecords,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribePendingMaintenanceActionsResponse
  */
 export interface DmsDescribePendingMaintenanceActionsResponse {
@@ -1128,15 +2044,44 @@ export interface DmsDescribePendingMaintenanceActionsResponse {
 }
 
 /**
+ * Converts an object of type 'DmsDescribePendingMaintenanceActionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribePendingMaintenanceActionsResponse(obj: DmsDescribePendingMaintenanceActionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PendingMaintenanceActions': obj.pendingMaintenanceActions?.map(y => toJson_DmsResourcePendingMaintenanceActions(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeRefreshSchemasStatusMessage
  */
 export interface DmsDescribeRefreshSchemasStatusMessage {
   /**
    * @schema DmsDescribeRefreshSchemasStatusMessage#EndpointArn
    */
-  readonly endpointArn: string;
+  readonly endpointArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeRefreshSchemasStatusMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeRefreshSchemasStatusMessage(obj: DmsDescribeRefreshSchemasStatusMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointArn': obj.endpointArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeRefreshSchemasStatusResponse
@@ -1150,13 +2095,27 @@ export interface DmsDescribeRefreshSchemasStatusResponse {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeRefreshSchemasStatusResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeRefreshSchemasStatusResponse(obj: DmsDescribeRefreshSchemasStatusResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RefreshSchemasStatus': toJson_DmsRefreshSchemasStatus(obj.refreshSchemasStatus),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeReplicationInstanceTaskLogsMessage
  */
 export interface DmsDescribeReplicationInstanceTaskLogsMessage {
   /**
    * @schema DmsDescribeReplicationInstanceTaskLogsMessage#ReplicationInstanceArn
    */
-  readonly replicationInstanceArn: string;
+  readonly replicationInstanceArn?: string;
 
   /**
    * @schema DmsDescribeReplicationInstanceTaskLogsMessage#MaxRecords
@@ -1169,6 +2128,22 @@ export interface DmsDescribeReplicationInstanceTaskLogsMessage {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeReplicationInstanceTaskLogsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeReplicationInstanceTaskLogsMessage(obj: DmsDescribeReplicationInstanceTaskLogsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationInstanceArn': obj.replicationInstanceArn,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeReplicationInstanceTaskLogsResponse
@@ -1192,6 +2167,22 @@ export interface DmsDescribeReplicationInstanceTaskLogsResponse {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeReplicationInstanceTaskLogsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeReplicationInstanceTaskLogsResponse(obj: DmsDescribeReplicationInstanceTaskLogsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationInstanceArn': obj.replicationInstanceArn,
+    'ReplicationInstanceTaskLogs': obj.replicationInstanceTaskLogs?.map(y => toJson_DmsReplicationInstanceTaskLog(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeReplicationInstancesMessage
  */
 export interface DmsDescribeReplicationInstancesMessage {
@@ -1213,6 +2204,22 @@ export interface DmsDescribeReplicationInstancesMessage {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeReplicationInstancesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeReplicationInstancesMessage(obj: DmsDescribeReplicationInstancesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Filters': obj.filters?.map(y => toJson_DmsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeReplicationInstancesResponse
  */
 export interface DmsDescribeReplicationInstancesResponse {
@@ -1227,6 +2234,21 @@ export interface DmsDescribeReplicationInstancesResponse {
   readonly replicationInstances?: DmsReplicationInstance[];
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeReplicationInstancesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeReplicationInstancesResponse(obj: DmsDescribeReplicationInstancesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'ReplicationInstances': obj.replicationInstances?.map(y => toJson_DmsReplicationInstance(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeReplicationSubnetGroupsMessage
@@ -1250,6 +2272,22 @@ export interface DmsDescribeReplicationSubnetGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeReplicationSubnetGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeReplicationSubnetGroupsMessage(obj: DmsDescribeReplicationSubnetGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Filters': obj.filters?.map(y => toJson_DmsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeReplicationSubnetGroupsResponse
  */
 export interface DmsDescribeReplicationSubnetGroupsResponse {
@@ -1264,6 +2302,21 @@ export interface DmsDescribeReplicationSubnetGroupsResponse {
   readonly replicationSubnetGroups?: DmsReplicationSubnetGroup[];
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeReplicationSubnetGroupsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeReplicationSubnetGroupsResponse(obj: DmsDescribeReplicationSubnetGroupsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'ReplicationSubnetGroups': obj.replicationSubnetGroups?.map(y => toJson_DmsReplicationSubnetGroup(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeReplicationTaskAssessmentResultsMessage
@@ -1287,6 +2340,22 @@ export interface DmsDescribeReplicationTaskAssessmentResultsMessage {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeReplicationTaskAssessmentResultsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeReplicationTaskAssessmentResultsMessage(obj: DmsDescribeReplicationTaskAssessmentResultsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskArn': obj.replicationTaskArn,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeReplicationTaskAssessmentResultsResponse
  */
 export interface DmsDescribeReplicationTaskAssessmentResultsResponse {
@@ -1306,6 +2375,22 @@ export interface DmsDescribeReplicationTaskAssessmentResultsResponse {
   readonly replicationTaskAssessmentResults?: DmsReplicationTaskAssessmentResult[];
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeReplicationTaskAssessmentResultsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeReplicationTaskAssessmentResultsResponse(obj: DmsDescribeReplicationTaskAssessmentResultsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'BucketName': obj.bucketName,
+    'ReplicationTaskAssessmentResults': obj.replicationTaskAssessmentResults?.map(y => toJson_DmsReplicationTaskAssessmentResult(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeReplicationTaskAssessmentRunsMessage
@@ -1329,6 +2414,22 @@ export interface DmsDescribeReplicationTaskAssessmentRunsMessage {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeReplicationTaskAssessmentRunsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeReplicationTaskAssessmentRunsMessage(obj: DmsDescribeReplicationTaskAssessmentRunsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Filters': obj.filters?.map(y => toJson_DmsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeReplicationTaskAssessmentRunsResponse
  */
 export interface DmsDescribeReplicationTaskAssessmentRunsResponse {
@@ -1343,6 +2444,21 @@ export interface DmsDescribeReplicationTaskAssessmentRunsResponse {
   readonly replicationTaskAssessmentRuns?: DmsReplicationTaskAssessmentRun[];
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeReplicationTaskAssessmentRunsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeReplicationTaskAssessmentRunsResponse(obj: DmsDescribeReplicationTaskAssessmentRunsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'ReplicationTaskAssessmentRuns': obj.replicationTaskAssessmentRuns?.map(y => toJson_DmsReplicationTaskAssessmentRun(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeReplicationTaskIndividualAssessmentsMessage
@@ -1366,6 +2482,22 @@ export interface DmsDescribeReplicationTaskIndividualAssessmentsMessage {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeReplicationTaskIndividualAssessmentsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeReplicationTaskIndividualAssessmentsMessage(obj: DmsDescribeReplicationTaskIndividualAssessmentsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Filters': obj.filters?.map(y => toJson_DmsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeReplicationTaskIndividualAssessmentsResponse
  */
 export interface DmsDescribeReplicationTaskIndividualAssessmentsResponse {
@@ -1380,6 +2512,21 @@ export interface DmsDescribeReplicationTaskIndividualAssessmentsResponse {
   readonly replicationTaskIndividualAssessments?: DmsReplicationTaskIndividualAssessment[];
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeReplicationTaskIndividualAssessmentsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeReplicationTaskIndividualAssessmentsResponse(obj: DmsDescribeReplicationTaskIndividualAssessmentsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'ReplicationTaskIndividualAssessments': obj.replicationTaskIndividualAssessments?.map(y => toJson_DmsReplicationTaskIndividualAssessment(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeReplicationTasksMessage
@@ -1408,6 +2555,23 @@ export interface DmsDescribeReplicationTasksMessage {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeReplicationTasksMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeReplicationTasksMessage(obj: DmsDescribeReplicationTasksMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Filters': obj.filters?.map(y => toJson_DmsFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+    'WithoutSettings': obj.withoutSettings,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeReplicationTasksResponse
  */
 export interface DmsDescribeReplicationTasksResponse {
@@ -1424,13 +2588,28 @@ export interface DmsDescribeReplicationTasksResponse {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeReplicationTasksResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeReplicationTasksResponse(obj: DmsDescribeReplicationTasksResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'ReplicationTasks': obj.replicationTasks?.map(y => toJson_DmsReplicationTask(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeSchemasMessage
  */
 export interface DmsDescribeSchemasMessage {
   /**
    * @schema DmsDescribeSchemasMessage#EndpointArn
    */
-  readonly endpointArn: string;
+  readonly endpointArn?: string;
 
   /**
    * @schema DmsDescribeSchemasMessage#MaxRecords
@@ -1443,6 +2622,22 @@ export interface DmsDescribeSchemasMessage {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeSchemasMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeSchemasMessage(obj: DmsDescribeSchemasMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointArn': obj.endpointArn,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeSchemasResponse
@@ -1461,13 +2656,28 @@ export interface DmsDescribeSchemasResponse {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeSchemasResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeSchemasResponse(obj: DmsDescribeSchemasResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'Schemas': obj.schemas?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDescribeTableStatisticsMessage
  */
 export interface DmsDescribeTableStatisticsMessage {
   /**
    * @schema DmsDescribeTableStatisticsMessage#ReplicationTaskArn
    */
-  readonly replicationTaskArn: string;
+  readonly replicationTaskArn?: string;
 
   /**
    * @schema DmsDescribeTableStatisticsMessage#MaxRecords
@@ -1485,6 +2695,23 @@ export interface DmsDescribeTableStatisticsMessage {
   readonly filters?: DmsFilter[];
 
 }
+
+/**
+ * Converts an object of type 'DmsDescribeTableStatisticsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeTableStatisticsMessage(obj: DmsDescribeTableStatisticsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskArn': obj.replicationTaskArn,
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+    'Filters': obj.filters?.map(y => toJson_DmsFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDescribeTableStatisticsResponse
@@ -1508,13 +2735,29 @@ export interface DmsDescribeTableStatisticsResponse {
 }
 
 /**
+ * Converts an object of type 'DmsDescribeTableStatisticsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDescribeTableStatisticsResponse(obj: DmsDescribeTableStatisticsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskArn': obj.replicationTaskArn,
+    'TableStatistics': obj.tableStatistics?.map(y => toJson_DmsTableStatistics(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsImportCertificateMessage
  */
 export interface DmsImportCertificateMessage {
   /**
    * @schema DmsImportCertificateMessage#CertificateIdentifier
    */
-  readonly certificateIdentifier: string;
+  readonly certificateIdentifier?: string;
 
   /**
    * @schema DmsImportCertificateMessage#CertificatePem
@@ -1534,6 +2777,23 @@ export interface DmsImportCertificateMessage {
 }
 
 /**
+ * Converts an object of type 'DmsImportCertificateMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsImportCertificateMessage(obj: DmsImportCertificateMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CertificateIdentifier': obj.certificateIdentifier,
+    'CertificatePem': obj.certificatePem,
+    'CertificateWallet': obj.certificateWallet,
+    'Tags': obj.tags?.map(y => toJson_DmsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsImportCertificateResponse
  */
 export interface DmsImportCertificateResponse {
@@ -1545,15 +2805,43 @@ export interface DmsImportCertificateResponse {
 }
 
 /**
+ * Converts an object of type 'DmsImportCertificateResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsImportCertificateResponse(obj: DmsImportCertificateResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Certificate': toJson_DmsCertificate(obj.certificate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsListTagsForResourceMessage
  */
 export interface DmsListTagsForResourceMessage {
   /**
    * @schema DmsListTagsForResourceMessage#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsListTagsForResourceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsListTagsForResourceMessage(obj: DmsListTagsForResourceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsListTagsForResourceResponse
@@ -1567,13 +2855,27 @@ export interface DmsListTagsForResourceResponse {
 }
 
 /**
+ * Converts an object of type 'DmsListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsListTagsForResourceResponse(obj: DmsListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TagList': obj.tagList?.map(y => toJson_DmsTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsModifyEndpointMessage
  */
 export interface DmsModifyEndpointMessage {
   /**
    * @schema DmsModifyEndpointMessage#EndpointArn
    */
-  readonly endpointArn: string;
+  readonly endpointArn?: string;
 
   /**
    * @schema DmsModifyEndpointMessage#EndpointIdentifier
@@ -1720,7 +3022,56 @@ export interface DmsModifyEndpointMessage {
    */
   readonly docDbSettings?: DmsDocDbSettings;
 
+  /**
+   * @schema DmsModifyEndpointMessage#ExactSettings
+   */
+  readonly exactSettings?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'DmsModifyEndpointMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsModifyEndpointMessage(obj: DmsModifyEndpointMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointArn': obj.endpointArn,
+    'EndpointIdentifier': obj.endpointIdentifier,
+    'EndpointType': obj.endpointType,
+    'EngineName': obj.engineName,
+    'Username': obj.username,
+    'Password': obj.password,
+    'ServerName': obj.serverName,
+    'Port': obj.port,
+    'DatabaseName': obj.databaseName,
+    'ExtraConnectionAttributes': obj.extraConnectionAttributes,
+    'CertificateArn': obj.certificateArn,
+    'SslMode': obj.sslMode,
+    'ServiceAccessRoleArn': obj.serviceAccessRoleArn,
+    'ExternalTableDefinition': obj.externalTableDefinition,
+    'DynamoDbSettings': toJson_DmsDynamoDbSettings(obj.dynamoDbSettings),
+    'S3Settings': toJson_Dmss3Settings(obj.s3Settings),
+    'DmsTransferSettings': toJson_DmsDmsTransferSettings(obj.dmsTransferSettings),
+    'MongoDbSettings': toJson_DmsMongoDbSettings(obj.mongoDbSettings),
+    'KinesisSettings': toJson_DmsKinesisSettings(obj.kinesisSettings),
+    'KafkaSettings': toJson_DmsKafkaSettings(obj.kafkaSettings),
+    'ElasticsearchSettings': toJson_DmsElasticsearchSettings(obj.elasticsearchSettings),
+    'NeptuneSettings': toJson_DmsNeptuneSettings(obj.neptuneSettings),
+    'RedshiftSettings': toJson_DmsRedshiftSettings(obj.redshiftSettings),
+    'PostgreSQLSettings': toJson_DmsPostgreSqlSettings(obj.postgreSqlSettings),
+    'MySQLSettings': toJson_DmsMySqlSettings(obj.mySqlSettings),
+    'OracleSettings': toJson_DmsOracleSettings(obj.oracleSettings),
+    'SybaseSettings': toJson_DmsSybaseSettings(obj.sybaseSettings),
+    'MicrosoftSQLServerSettings': toJson_DmsMicrosoftSqlServerSettings(obj.microsoftSqlServerSettings),
+    'IBMDb2Settings': toJson_DmsibmDb2Settings(obj.ibmDb2Settings),
+    'DocDbSettings': toJson_DmsDocDbSettings(obj.docDbSettings),
+    'ExactSettings': obj.exactSettings,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsModifyEndpointResponse
@@ -1734,13 +3085,27 @@ export interface DmsModifyEndpointResponse {
 }
 
 /**
+ * Converts an object of type 'DmsModifyEndpointResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsModifyEndpointResponse(obj: DmsModifyEndpointResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Endpoint': toJson_DmsEndpoint(obj.endpoint),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsModifyEventSubscriptionMessage
  */
 export interface DmsModifyEventSubscriptionMessage {
   /**
    * @schema DmsModifyEventSubscriptionMessage#SubscriptionName
    */
-  readonly subscriptionName: string;
+  readonly subscriptionName?: string;
 
   /**
    * @schema DmsModifyEventSubscriptionMessage#SnsTopicArn
@@ -1765,6 +3130,24 @@ export interface DmsModifyEventSubscriptionMessage {
 }
 
 /**
+ * Converts an object of type 'DmsModifyEventSubscriptionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsModifyEventSubscriptionMessage(obj: DmsModifyEventSubscriptionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscriptionName': obj.subscriptionName,
+    'SnsTopicArn': obj.snsTopicArn,
+    'SourceType': obj.sourceType,
+    'EventCategories': obj.eventCategories?.map(y => y),
+    'Enabled': obj.enabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsModifyEventSubscriptionResponse
  */
 export interface DmsModifyEventSubscriptionResponse {
@@ -1776,13 +3159,27 @@ export interface DmsModifyEventSubscriptionResponse {
 }
 
 /**
+ * Converts an object of type 'DmsModifyEventSubscriptionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsModifyEventSubscriptionResponse(obj: DmsModifyEventSubscriptionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EventSubscription': toJson_DmsEventSubscription(obj.eventSubscription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsModifyReplicationInstanceMessage
  */
 export interface DmsModifyReplicationInstanceMessage {
   /**
    * @schema DmsModifyReplicationInstanceMessage#ReplicationInstanceArn
    */
-  readonly replicationInstanceArn: string;
+  readonly replicationInstanceArn?: string;
 
   /**
    * @schema DmsModifyReplicationInstanceMessage#AllocatedStorage
@@ -1837,6 +3234,30 @@ export interface DmsModifyReplicationInstanceMessage {
 }
 
 /**
+ * Converts an object of type 'DmsModifyReplicationInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsModifyReplicationInstanceMessage(obj: DmsModifyReplicationInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationInstanceArn': obj.replicationInstanceArn,
+    'AllocatedStorage': obj.allocatedStorage,
+    'ApplyImmediately': obj.applyImmediately,
+    'ReplicationInstanceClass': obj.replicationInstanceClass,
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'MultiAZ': obj.multiAz,
+    'EngineVersion': obj.engineVersion,
+    'AllowMajorVersionUpgrade': obj.allowMajorVersionUpgrade,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'ReplicationInstanceIdentifier': obj.replicationInstanceIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsModifyReplicationInstanceResponse
  */
 export interface DmsModifyReplicationInstanceResponse {
@@ -1848,13 +3269,27 @@ export interface DmsModifyReplicationInstanceResponse {
 }
 
 /**
+ * Converts an object of type 'DmsModifyReplicationInstanceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsModifyReplicationInstanceResponse(obj: DmsModifyReplicationInstanceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationInstance': toJson_DmsReplicationInstance(obj.replicationInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsModifyReplicationSubnetGroupMessage
  */
 export interface DmsModifyReplicationSubnetGroupMessage {
   /**
    * @schema DmsModifyReplicationSubnetGroupMessage#ReplicationSubnetGroupIdentifier
    */
-  readonly replicationSubnetGroupIdentifier: string;
+  readonly replicationSubnetGroupIdentifier?: string;
 
   /**
    * @schema DmsModifyReplicationSubnetGroupMessage#ReplicationSubnetGroupDescription
@@ -1864,9 +3299,25 @@ export interface DmsModifyReplicationSubnetGroupMessage {
   /**
    * @schema DmsModifyReplicationSubnetGroupMessage#SubnetIds
    */
-  readonly subnetIds: string[];
+  readonly subnetIds?: string[];
 
 }
+
+/**
+ * Converts an object of type 'DmsModifyReplicationSubnetGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsModifyReplicationSubnetGroupMessage(obj: DmsModifyReplicationSubnetGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationSubnetGroupIdentifier': obj.replicationSubnetGroupIdentifier,
+    'ReplicationSubnetGroupDescription': obj.replicationSubnetGroupDescription,
+    'SubnetIds': obj.subnetIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsModifyReplicationSubnetGroupResponse
@@ -1880,13 +3331,27 @@ export interface DmsModifyReplicationSubnetGroupResponse {
 }
 
 /**
+ * Converts an object of type 'DmsModifyReplicationSubnetGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsModifyReplicationSubnetGroupResponse(obj: DmsModifyReplicationSubnetGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationSubnetGroup': toJson_DmsReplicationSubnetGroup(obj.replicationSubnetGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsModifyReplicationTaskMessage
  */
 export interface DmsModifyReplicationTaskMessage {
   /**
    * @schema DmsModifyReplicationTaskMessage#ReplicationTaskArn
    */
-  readonly replicationTaskArn: string;
+  readonly replicationTaskArn?: string;
 
   /**
    * @schema DmsModifyReplicationTaskMessage#ReplicationTaskIdentifier
@@ -1931,6 +3396,28 @@ export interface DmsModifyReplicationTaskMessage {
 }
 
 /**
+ * Converts an object of type 'DmsModifyReplicationTaskMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsModifyReplicationTaskMessage(obj: DmsModifyReplicationTaskMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskArn': obj.replicationTaskArn,
+    'ReplicationTaskIdentifier': obj.replicationTaskIdentifier,
+    'MigrationType': obj.migrationType,
+    'TableMappings': obj.tableMappings,
+    'ReplicationTaskSettings': obj.replicationTaskSettings,
+    'CdcStartTime': obj.cdcStartTime,
+    'CdcStartPosition': obj.cdcStartPosition,
+    'CdcStopPosition': obj.cdcStopPosition,
+    'TaskData': obj.taskData,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsModifyReplicationTaskResponse
  */
 export interface DmsModifyReplicationTaskResponse {
@@ -1942,20 +3429,49 @@ export interface DmsModifyReplicationTaskResponse {
 }
 
 /**
+ * Converts an object of type 'DmsModifyReplicationTaskResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsModifyReplicationTaskResponse(obj: DmsModifyReplicationTaskResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTask': toJson_DmsReplicationTask(obj.replicationTask),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsMoveReplicationTaskMessage
  */
 export interface DmsMoveReplicationTaskMessage {
   /**
    * @schema DmsMoveReplicationTaskMessage#ReplicationTaskArn
    */
-  readonly replicationTaskArn: string;
+  readonly replicationTaskArn?: string;
 
   /**
    * @schema DmsMoveReplicationTaskMessage#TargetReplicationInstanceArn
    */
-  readonly targetReplicationInstanceArn: string;
+  readonly targetReplicationInstanceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsMoveReplicationTaskMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsMoveReplicationTaskMessage(obj: DmsMoveReplicationTaskMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskArn': obj.replicationTaskArn,
+    'TargetReplicationInstanceArn': obj.targetReplicationInstanceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsMoveReplicationTaskResponse
@@ -1969,13 +3485,27 @@ export interface DmsMoveReplicationTaskResponse {
 }
 
 /**
+ * Converts an object of type 'DmsMoveReplicationTaskResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsMoveReplicationTaskResponse(obj: DmsMoveReplicationTaskResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTask': toJson_DmsReplicationTask(obj.replicationTask),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsRebootReplicationInstanceMessage
  */
 export interface DmsRebootReplicationInstanceMessage {
   /**
    * @schema DmsRebootReplicationInstanceMessage#ReplicationInstanceArn
    */
-  readonly replicationInstanceArn: string;
+  readonly replicationInstanceArn?: string;
 
   /**
    * @schema DmsRebootReplicationInstanceMessage#ForceFailover
@@ -1983,6 +3513,21 @@ export interface DmsRebootReplicationInstanceMessage {
   readonly forceFailover?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'DmsRebootReplicationInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsRebootReplicationInstanceMessage(obj: DmsRebootReplicationInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationInstanceArn': obj.replicationInstanceArn,
+    'ForceFailover': obj.forceFailover,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsRebootReplicationInstanceResponse
@@ -1996,20 +3541,49 @@ export interface DmsRebootReplicationInstanceResponse {
 }
 
 /**
+ * Converts an object of type 'DmsRebootReplicationInstanceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsRebootReplicationInstanceResponse(obj: DmsRebootReplicationInstanceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationInstance': toJson_DmsReplicationInstance(obj.replicationInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsRefreshSchemasMessage
  */
 export interface DmsRefreshSchemasMessage {
   /**
    * @schema DmsRefreshSchemasMessage#EndpointArn
    */
-  readonly endpointArn: string;
+  readonly endpointArn?: string;
 
   /**
    * @schema DmsRefreshSchemasMessage#ReplicationInstanceArn
    */
-  readonly replicationInstanceArn: string;
+  readonly replicationInstanceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsRefreshSchemasMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsRefreshSchemasMessage(obj: DmsRefreshSchemasMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointArn': obj.endpointArn,
+    'ReplicationInstanceArn': obj.replicationInstanceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsRefreshSchemasResponse
@@ -2023,18 +3597,32 @@ export interface DmsRefreshSchemasResponse {
 }
 
 /**
+ * Converts an object of type 'DmsRefreshSchemasResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsRefreshSchemasResponse(obj: DmsRefreshSchemasResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RefreshSchemasStatus': toJson_DmsRefreshSchemasStatus(obj.refreshSchemasStatus),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsReloadTablesMessage
  */
 export interface DmsReloadTablesMessage {
   /**
    * @schema DmsReloadTablesMessage#ReplicationTaskArn
    */
-  readonly replicationTaskArn: string;
+  readonly replicationTaskArn?: string;
 
   /**
    * @schema DmsReloadTablesMessage#TablesToReload
    */
-  readonly tablesToReload: DmsTableToReload[];
+  readonly tablesToReload?: DmsTableToReload[];
 
   /**
    * @schema DmsReloadTablesMessage#ReloadOption
@@ -2042,6 +3630,22 @@ export interface DmsReloadTablesMessage {
   readonly reloadOption?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsReloadTablesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsReloadTablesMessage(obj: DmsReloadTablesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskArn': obj.replicationTaskArn,
+    'TablesToReload': obj.tablesToReload?.map(y => toJson_DmsTableToReload(y)),
+    'ReloadOption': obj.reloadOption,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsReloadTablesResponse
@@ -2055,20 +3659,49 @@ export interface DmsReloadTablesResponse {
 }
 
 /**
+ * Converts an object of type 'DmsReloadTablesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsReloadTablesResponse(obj: DmsReloadTablesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskArn': obj.replicationTaskArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsRemoveTagsFromResourceMessage
  */
 export interface DmsRemoveTagsFromResourceMessage {
   /**
    * @schema DmsRemoveTagsFromResourceMessage#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema DmsRemoveTagsFromResourceMessage#TagKeys
    */
-  readonly tagKeys: string[];
+  readonly tagKeys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'DmsRemoveTagsFromResourceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsRemoveTagsFromResourceMessage(obj: DmsRemoveTagsFromResourceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsRemoveTagsFromResourceResponse
@@ -2077,18 +3710,31 @@ export interface DmsRemoveTagsFromResourceResponse {
 }
 
 /**
+ * Converts an object of type 'DmsRemoveTagsFromResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsRemoveTagsFromResourceResponse(obj: DmsRemoveTagsFromResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsStartReplicationTaskMessage
  */
 export interface DmsStartReplicationTaskMessage {
   /**
    * @schema DmsStartReplicationTaskMessage#ReplicationTaskArn
    */
-  readonly replicationTaskArn: string;
+  readonly replicationTaskArn?: string;
 
   /**
    * @schema DmsStartReplicationTaskMessage#StartReplicationTaskType
    */
-  readonly startReplicationTaskType: string;
+  readonly startReplicationTaskType?: string;
 
   /**
    * @schema DmsStartReplicationTaskMessage#CdcStartTime
@@ -2108,6 +3754,24 @@ export interface DmsStartReplicationTaskMessage {
 }
 
 /**
+ * Converts an object of type 'DmsStartReplicationTaskMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsStartReplicationTaskMessage(obj: DmsStartReplicationTaskMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskArn': obj.replicationTaskArn,
+    'StartReplicationTaskType': obj.startReplicationTaskType,
+    'CdcStartTime': obj.cdcStartTime,
+    'CdcStartPosition': obj.cdcStartPosition,
+    'CdcStopPosition': obj.cdcStopPosition,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsStartReplicationTaskResponse
  */
 export interface DmsStartReplicationTaskResponse {
@@ -2119,15 +3783,43 @@ export interface DmsStartReplicationTaskResponse {
 }
 
 /**
+ * Converts an object of type 'DmsStartReplicationTaskResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsStartReplicationTaskResponse(obj: DmsStartReplicationTaskResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTask': toJson_DmsReplicationTask(obj.replicationTask),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsStartReplicationTaskAssessmentMessage
  */
 export interface DmsStartReplicationTaskAssessmentMessage {
   /**
    * @schema DmsStartReplicationTaskAssessmentMessage#ReplicationTaskArn
    */
-  readonly replicationTaskArn: string;
+  readonly replicationTaskArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsStartReplicationTaskAssessmentMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsStartReplicationTaskAssessmentMessage(obj: DmsStartReplicationTaskAssessmentMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskArn': obj.replicationTaskArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsStartReplicationTaskAssessmentResponse
@@ -2141,23 +3833,37 @@ export interface DmsStartReplicationTaskAssessmentResponse {
 }
 
 /**
+ * Converts an object of type 'DmsStartReplicationTaskAssessmentResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsStartReplicationTaskAssessmentResponse(obj: DmsStartReplicationTaskAssessmentResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTask': toJson_DmsReplicationTask(obj.replicationTask),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsStartReplicationTaskAssessmentRunMessage
  */
 export interface DmsStartReplicationTaskAssessmentRunMessage {
   /**
    * @schema DmsStartReplicationTaskAssessmentRunMessage#ReplicationTaskArn
    */
-  readonly replicationTaskArn: string;
+  readonly replicationTaskArn?: string;
 
   /**
    * @schema DmsStartReplicationTaskAssessmentRunMessage#ServiceAccessRoleArn
    */
-  readonly serviceAccessRoleArn: string;
+  readonly serviceAccessRoleArn?: string;
 
   /**
    * @schema DmsStartReplicationTaskAssessmentRunMessage#ResultLocationBucket
    */
-  readonly resultLocationBucket: string;
+  readonly resultLocationBucket?: string;
 
   /**
    * @schema DmsStartReplicationTaskAssessmentRunMessage#ResultLocationFolder
@@ -2177,7 +3883,7 @@ export interface DmsStartReplicationTaskAssessmentRunMessage {
   /**
    * @schema DmsStartReplicationTaskAssessmentRunMessage#AssessmentRunName
    */
-  readonly assessmentRunName: string;
+  readonly assessmentRunName?: string;
 
   /**
    * @schema DmsStartReplicationTaskAssessmentRunMessage#IncludeOnly
@@ -2192,6 +3898,28 @@ export interface DmsStartReplicationTaskAssessmentRunMessage {
 }
 
 /**
+ * Converts an object of type 'DmsStartReplicationTaskAssessmentRunMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsStartReplicationTaskAssessmentRunMessage(obj: DmsStartReplicationTaskAssessmentRunMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskArn': obj.replicationTaskArn,
+    'ServiceAccessRoleArn': obj.serviceAccessRoleArn,
+    'ResultLocationBucket': obj.resultLocationBucket,
+    'ResultLocationFolder': obj.resultLocationFolder,
+    'ResultEncryptionMode': obj.resultEncryptionMode,
+    'ResultKmsKeyArn': obj.resultKmsKeyArn,
+    'AssessmentRunName': obj.assessmentRunName,
+    'IncludeOnly': obj.includeOnly?.map(y => y),
+    'Exclude': obj.exclude?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsStartReplicationTaskAssessmentRunResponse
  */
 export interface DmsStartReplicationTaskAssessmentRunResponse {
@@ -2203,15 +3931,43 @@ export interface DmsStartReplicationTaskAssessmentRunResponse {
 }
 
 /**
+ * Converts an object of type 'DmsStartReplicationTaskAssessmentRunResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsStartReplicationTaskAssessmentRunResponse(obj: DmsStartReplicationTaskAssessmentRunResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskAssessmentRun': toJson_DmsReplicationTaskAssessmentRun(obj.replicationTaskAssessmentRun),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsStopReplicationTaskMessage
  */
 export interface DmsStopReplicationTaskMessage {
   /**
    * @schema DmsStopReplicationTaskMessage#ReplicationTaskArn
    */
-  readonly replicationTaskArn: string;
+  readonly replicationTaskArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsStopReplicationTaskMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsStopReplicationTaskMessage(obj: DmsStopReplicationTaskMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskArn': obj.replicationTaskArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsStopReplicationTaskResponse
@@ -2225,20 +3981,49 @@ export interface DmsStopReplicationTaskResponse {
 }
 
 /**
+ * Converts an object of type 'DmsStopReplicationTaskResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsStopReplicationTaskResponse(obj: DmsStopReplicationTaskResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTask': toJson_DmsReplicationTask(obj.replicationTask),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsTestConnectionMessage
  */
 export interface DmsTestConnectionMessage {
   /**
    * @schema DmsTestConnectionMessage#ReplicationInstanceArn
    */
-  readonly replicationInstanceArn: string;
+  readonly replicationInstanceArn?: string;
 
   /**
    * @schema DmsTestConnectionMessage#EndpointArn
    */
-  readonly endpointArn: string;
+  readonly endpointArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsTestConnectionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsTestConnectionMessage(obj: DmsTestConnectionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationInstanceArn': obj.replicationInstanceArn,
+    'EndpointArn': obj.endpointArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsTestConnectionResponse
@@ -2250,6 +4035,20 @@ export interface DmsTestConnectionResponse {
   readonly connection?: DmsConnection;
 
 }
+
+/**
+ * Converts an object of type 'DmsTestConnectionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsTestConnectionResponse(obj: DmsTestConnectionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Connection': toJson_DmsConnection(obj.connection),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsTag
@@ -2268,6 +4067,21 @@ export interface DmsTag {
 }
 
 /**
+ * Converts an object of type 'DmsTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsTag(obj: DmsTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsResourcePendingMaintenanceActions
  */
 export interface DmsResourcePendingMaintenanceActions {
@@ -2282,6 +4096,21 @@ export interface DmsResourcePendingMaintenanceActions {
   readonly pendingMaintenanceActionDetails?: DmsPendingMaintenanceAction[];
 
 }
+
+/**
+ * Converts an object of type 'DmsResourcePendingMaintenanceActions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsResourcePendingMaintenanceActions(obj: DmsResourcePendingMaintenanceActions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceIdentifier': obj.resourceIdentifier,
+    'PendingMaintenanceActionDetails': obj.pendingMaintenanceActionDetails?.map(y => toJson_DmsPendingMaintenanceAction(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsReplicationTaskAssessmentRun
@@ -2350,15 +4179,54 @@ export interface DmsReplicationTaskAssessmentRun {
 }
 
 /**
+ * Converts an object of type 'DmsReplicationTaskAssessmentRun' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsReplicationTaskAssessmentRun(obj: DmsReplicationTaskAssessmentRun | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskAssessmentRunArn': obj.replicationTaskAssessmentRunArn,
+    'ReplicationTaskArn': obj.replicationTaskArn,
+    'Status': obj.status,
+    'ReplicationTaskAssessmentRunCreationDate': obj.replicationTaskAssessmentRunCreationDate,
+    'AssessmentProgress': toJson_DmsReplicationTaskAssessmentRunProgress(obj.assessmentProgress),
+    'LastFailureMessage': obj.lastFailureMessage,
+    'ServiceAccessRoleArn': obj.serviceAccessRoleArn,
+    'ResultLocationBucket': obj.resultLocationBucket,
+    'ResultLocationFolder': obj.resultLocationFolder,
+    'ResultEncryptionMode': obj.resultEncryptionMode,
+    'ResultKmsKeyArn': obj.resultKmsKeyArn,
+    'AssessmentRunName': obj.assessmentRunName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsDynamoDbSettings
  */
 export interface DmsDynamoDbSettings {
   /**
    * @schema DmsDynamoDbSettings#ServiceAccessRoleArn
    */
-  readonly serviceAccessRoleArn: string;
+  readonly serviceAccessRoleArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsDynamoDbSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDynamoDbSettings(obj: DmsDynamoDbSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ServiceAccessRoleArn': obj.serviceAccessRoleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema Dmss3Settings
@@ -2484,7 +4352,68 @@ export interface Dmss3Settings {
    */
   readonly datePartitionDelimiter?: string;
 
+  /**
+   * @schema Dmss3Settings#UseCsvNoSupValue
+   */
+  readonly useCsvNoSupValue?: boolean;
+
+  /**
+   * @schema Dmss3Settings#CsvNoSupValue
+   */
+  readonly csvNoSupValue?: string;
+
+  /**
+   * @schema Dmss3Settings#PreserveTransactions
+   */
+  readonly preserveTransactions?: boolean;
+
+  /**
+   * @schema Dmss3Settings#CdcPath
+   */
+  readonly cdcPath?: string;
+
 }
+
+/**
+ * Converts an object of type 'Dmss3Settings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_Dmss3Settings(obj: Dmss3Settings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ServiceAccessRoleArn': obj.serviceAccessRoleArn,
+    'ExternalTableDefinition': obj.externalTableDefinition,
+    'CsvRowDelimiter': obj.csvRowDelimiter,
+    'CsvDelimiter': obj.csvDelimiter,
+    'BucketFolder': obj.bucketFolder,
+    'BucketName': obj.bucketName,
+    'CompressionType': obj.compressionType,
+    'EncryptionMode': obj.encryptionMode,
+    'ServerSideEncryptionKmsKeyId': obj.serverSideEncryptionKmsKeyId,
+    'DataFormat': obj.dataFormat,
+    'EncodingType': obj.encodingType,
+    'DictPageSizeLimit': obj.dictPageSizeLimit,
+    'RowGroupLength': obj.rowGroupLength,
+    'DataPageSize': obj.dataPageSize,
+    'ParquetVersion': obj.parquetVersion,
+    'EnableStatistics': obj.enableStatistics,
+    'IncludeOpForFullLoad': obj.includeOpForFullLoad,
+    'CdcInsertsOnly': obj.cdcInsertsOnly,
+    'TimestampColumnName': obj.timestampColumnName,
+    'ParquetTimestampInMillisecond': obj.parquetTimestampInMillisecond,
+    'CdcInsertsAndUpdates': obj.cdcInsertsAndUpdates,
+    'DatePartitionEnabled': obj.datePartitionEnabled,
+    'DatePartitionSequence': obj.datePartitionSequence,
+    'DatePartitionDelimiter': obj.datePartitionDelimiter,
+    'UseCsvNoSupValue': obj.useCsvNoSupValue,
+    'CsvNoSupValue': obj.csvNoSupValue,
+    'PreserveTransactions': obj.preserveTransactions,
+    'CdcPath': obj.cdcPath,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDmsTransferSettings
@@ -2501,6 +4430,21 @@ export interface DmsDmsTransferSettings {
   readonly bucketName?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsDmsTransferSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDmsTransferSettings(obj: DmsDmsTransferSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ServiceAccessRoleArn': obj.serviceAccessRoleArn,
+    'BucketName': obj.bucketName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsMongoDbSettings
@@ -2566,7 +4510,44 @@ export interface DmsMongoDbSettings {
    */
   readonly kmsKeyId?: string;
 
+  /**
+   * @schema DmsMongoDbSettings#SecretsManagerAccessRoleArn
+   */
+  readonly secretsManagerAccessRoleArn?: string;
+
+  /**
+   * @schema DmsMongoDbSettings#SecretsManagerSecretId
+   */
+  readonly secretsManagerSecretId?: string;
+
 }
+
+/**
+ * Converts an object of type 'DmsMongoDbSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsMongoDbSettings(obj: DmsMongoDbSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Username': obj.username,
+    'Password': obj.password,
+    'ServerName': obj.serverName,
+    'Port': obj.port,
+    'DatabaseName': obj.databaseName,
+    'AuthType': obj.authType,
+    'AuthMechanism': obj.authMechanism,
+    'NestingLevel': obj.nestingLevel,
+    'ExtractDocId': obj.extractDocId,
+    'DocsToInvestigate': obj.docsToInvestigate,
+    'AuthSource': obj.authSource,
+    'KmsKeyId': obj.kmsKeyId,
+    'SecretsManagerAccessRoleArn': obj.secretsManagerAccessRoleArn,
+    'SecretsManagerSecretId': obj.secretsManagerSecretId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsKinesisSettings
@@ -2617,7 +4598,35 @@ export interface DmsKinesisSettings {
    */
   readonly includeNullAndEmpty?: boolean;
 
+  /**
+   * @schema DmsKinesisSettings#NoHexPrefix
+   */
+  readonly noHexPrefix?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'DmsKinesisSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsKinesisSettings(obj: DmsKinesisSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StreamArn': obj.streamArn,
+    'MessageFormat': obj.messageFormat,
+    'ServiceAccessRoleArn': obj.serviceAccessRoleArn,
+    'IncludeTransactionDetails': obj.includeTransactionDetails,
+    'IncludePartitionValue': obj.includePartitionValue,
+    'PartitionIncludeSchemaTable': obj.partitionIncludeSchemaTable,
+    'IncludeTableAlterOperations': obj.includeTableAlterOperations,
+    'IncludeControlDetails': obj.includeControlDetails,
+    'IncludeNullAndEmpty': obj.includeNullAndEmpty,
+    'NoHexPrefix': obj.noHexPrefix,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsKafkaSettings
@@ -2673,7 +4682,78 @@ export interface DmsKafkaSettings {
    */
   readonly includeNullAndEmpty?: boolean;
 
+  /**
+   * @schema DmsKafkaSettings#SecurityProtocol
+   */
+  readonly securityProtocol?: string;
+
+  /**
+   * @schema DmsKafkaSettings#SslClientCertificateArn
+   */
+  readonly sslClientCertificateArn?: string;
+
+  /**
+   * @schema DmsKafkaSettings#SslClientKeyArn
+   */
+  readonly sslClientKeyArn?: string;
+
+  /**
+   * @schema DmsKafkaSettings#SslClientKeyPassword
+   */
+  readonly sslClientKeyPassword?: string;
+
+  /**
+   * @schema DmsKafkaSettings#SslCaCertificateArn
+   */
+  readonly sslCaCertificateArn?: string;
+
+  /**
+   * @schema DmsKafkaSettings#SaslUsername
+   */
+  readonly saslUsername?: string;
+
+  /**
+   * @schema DmsKafkaSettings#SaslPassword
+   */
+  readonly saslPassword?: string;
+
+  /**
+   * @schema DmsKafkaSettings#NoHexPrefix
+   */
+  readonly noHexPrefix?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'DmsKafkaSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsKafkaSettings(obj: DmsKafkaSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Broker': obj.broker,
+    'Topic': obj.topic,
+    'MessageFormat': obj.messageFormat,
+    'IncludeTransactionDetails': obj.includeTransactionDetails,
+    'IncludePartitionValue': obj.includePartitionValue,
+    'PartitionIncludeSchemaTable': obj.partitionIncludeSchemaTable,
+    'IncludeTableAlterOperations': obj.includeTableAlterOperations,
+    'IncludeControlDetails': obj.includeControlDetails,
+    'MessageMaxBytes': obj.messageMaxBytes,
+    'IncludeNullAndEmpty': obj.includeNullAndEmpty,
+    'SecurityProtocol': obj.securityProtocol,
+    'SslClientCertificateArn': obj.sslClientCertificateArn,
+    'SslClientKeyArn': obj.sslClientKeyArn,
+    'SslClientKeyPassword': obj.sslClientKeyPassword,
+    'SslCaCertificateArn': obj.sslCaCertificateArn,
+    'SaslUsername': obj.saslUsername,
+    'SaslPassword': obj.saslPassword,
+    'NoHexPrefix': obj.noHexPrefix,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsElasticsearchSettings
@@ -2682,12 +4762,12 @@ export interface DmsElasticsearchSettings {
   /**
    * @schema DmsElasticsearchSettings#ServiceAccessRoleArn
    */
-  readonly serviceAccessRoleArn: string;
+  readonly serviceAccessRoleArn?: string;
 
   /**
    * @schema DmsElasticsearchSettings#EndpointUri
    */
-  readonly endpointUri: string;
+  readonly endpointUri?: string;
 
   /**
    * @schema DmsElasticsearchSettings#FullLoadErrorPercentage
@@ -2702,6 +4782,23 @@ export interface DmsElasticsearchSettings {
 }
 
 /**
+ * Converts an object of type 'DmsElasticsearchSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsElasticsearchSettings(obj: DmsElasticsearchSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ServiceAccessRoleArn': obj.serviceAccessRoleArn,
+    'EndpointUri': obj.endpointUri,
+    'FullLoadErrorPercentage': obj.fullLoadErrorPercentage,
+    'ErrorRetryDuration': obj.errorRetryDuration,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsNeptuneSettings
  */
 export interface DmsNeptuneSettings {
@@ -2713,12 +4810,12 @@ export interface DmsNeptuneSettings {
   /**
    * @schema DmsNeptuneSettings#S3BucketName
    */
-  readonly s3BucketName: string;
+  readonly s3BucketName?: string;
 
   /**
    * @schema DmsNeptuneSettings#S3BucketFolder
    */
-  readonly s3BucketFolder: string;
+  readonly s3BucketFolder?: string;
 
   /**
    * @schema DmsNeptuneSettings#ErrorRetryDuration
@@ -2741,6 +4838,26 @@ export interface DmsNeptuneSettings {
   readonly iamAuthEnabled?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'DmsNeptuneSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsNeptuneSettings(obj: DmsNeptuneSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ServiceAccessRoleArn': obj.serviceAccessRoleArn,
+    'S3BucketName': obj.s3BucketName,
+    'S3BucketFolder': obj.s3BucketFolder,
+    'ErrorRetryDuration': obj.errorRetryDuration,
+    'MaxFileSize': obj.maxFileSize,
+    'MaxRetryCount': obj.maxRetryCount,
+    'IamAuthEnabled': obj.iamAuthEnabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsRedshiftSettings
@@ -2886,7 +5003,60 @@ export interface DmsRedshiftSettings {
    */
   readonly writeBufferSize?: number;
 
+  /**
+   * @schema DmsRedshiftSettings#SecretsManagerAccessRoleArn
+   */
+  readonly secretsManagerAccessRoleArn?: string;
+
+  /**
+   * @schema DmsRedshiftSettings#SecretsManagerSecretId
+   */
+  readonly secretsManagerSecretId?: string;
+
 }
+
+/**
+ * Converts an object of type 'DmsRedshiftSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsRedshiftSettings(obj: DmsRedshiftSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AcceptAnyDate': obj.acceptAnyDate,
+    'AfterConnectScript': obj.afterConnectScript,
+    'BucketFolder': obj.bucketFolder,
+    'BucketName': obj.bucketName,
+    'CaseSensitiveNames': obj.caseSensitiveNames,
+    'CompUpdate': obj.compUpdate,
+    'ConnectionTimeout': obj.connectionTimeout,
+    'DatabaseName': obj.databaseName,
+    'DateFormat': obj.dateFormat,
+    'EmptyAsNull': obj.emptyAsNull,
+    'EncryptionMode': obj.encryptionMode,
+    'ExplicitIds': obj.explicitIds,
+    'FileTransferUploadStreams': obj.fileTransferUploadStreams,
+    'LoadTimeout': obj.loadTimeout,
+    'MaxFileSize': obj.maxFileSize,
+    'Password': obj.password,
+    'Port': obj.port,
+    'RemoveQuotes': obj.removeQuotes,
+    'ReplaceInvalidChars': obj.replaceInvalidChars,
+    'ReplaceChars': obj.replaceChars,
+    'ServerName': obj.serverName,
+    'ServiceAccessRoleArn': obj.serviceAccessRoleArn,
+    'ServerSideEncryptionKmsKeyId': obj.serverSideEncryptionKmsKeyId,
+    'TimeFormat': obj.timeFormat,
+    'TrimBlanks': obj.trimBlanks,
+    'TruncateColumns': obj.truncateColumns,
+    'Username': obj.username,
+    'WriteBufferSize': obj.writeBufferSize,
+    'SecretsManagerAccessRoleArn': obj.secretsManagerAccessRoleArn,
+    'SecretsManagerSecretId': obj.secretsManagerSecretId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsPostgreSqlSettings
@@ -2928,6 +5098,21 @@ export interface DmsPostgreSqlSettings {
   readonly failTasksOnLobTruncation?: boolean;
 
   /**
+   * @schema DmsPostgreSqlSettings#HeartbeatEnable
+   */
+  readonly heartbeatEnable?: boolean;
+
+  /**
+   * @schema DmsPostgreSqlSettings#HeartbeatSchema
+   */
+  readonly heartbeatSchema?: string;
+
+  /**
+   * @schema DmsPostgreSqlSettings#HeartbeatFrequency
+   */
+  readonly heartbeatFrequency?: number;
+
+  /**
    * @schema DmsPostgreSqlSettings#Password
    */
   readonly password?: string;
@@ -2952,7 +5137,53 @@ export interface DmsPostgreSqlSettings {
    */
   readonly slotName?: string;
 
+  /**
+   * @schema DmsPostgreSqlSettings#PluginName
+   */
+  readonly pluginName?: string;
+
+  /**
+   * @schema DmsPostgreSqlSettings#SecretsManagerAccessRoleArn
+   */
+  readonly secretsManagerAccessRoleArn?: string;
+
+  /**
+   * @schema DmsPostgreSqlSettings#SecretsManagerSecretId
+   */
+  readonly secretsManagerSecretId?: string;
+
 }
+
+/**
+ * Converts an object of type 'DmsPostgreSqlSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsPostgreSqlSettings(obj: DmsPostgreSqlSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AfterConnectScript': obj.afterConnectScript,
+    'CaptureDdls': obj.captureDdls,
+    'MaxFileSize': obj.maxFileSize,
+    'DatabaseName': obj.databaseName,
+    'DdlArtifactsSchema': obj.ddlArtifactsSchema,
+    'ExecuteTimeout': obj.executeTimeout,
+    'FailTasksOnLobTruncation': obj.failTasksOnLobTruncation,
+    'HeartbeatEnable': obj.heartbeatEnable,
+    'HeartbeatSchema': obj.heartbeatSchema,
+    'HeartbeatFrequency': obj.heartbeatFrequency,
+    'Password': obj.password,
+    'Port': obj.port,
+    'ServerName': obj.serverName,
+    'Username': obj.username,
+    'SlotName': obj.slotName,
+    'PluginName': obj.pluginName,
+    'SecretsManagerAccessRoleArn': obj.secretsManagerAccessRoleArn,
+    'SecretsManagerSecretId': obj.secretsManagerSecretId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsMySqlSettings
@@ -2962,6 +5193,11 @@ export interface DmsMySqlSettings {
    * @schema DmsMySqlSettings#AfterConnectScript
    */
   readonly afterConnectScript?: string;
+
+  /**
+   * @schema DmsMySqlSettings#CleanSourceMetadataOnMismatch
+   */
+  readonly cleanSourceMetadataOnMismatch?: boolean;
 
   /**
    * @schema DmsMySqlSettings#DatabaseName
@@ -3013,7 +5249,44 @@ export interface DmsMySqlSettings {
    */
   readonly username?: string;
 
+  /**
+   * @schema DmsMySqlSettings#SecretsManagerAccessRoleArn
+   */
+  readonly secretsManagerAccessRoleArn?: string;
+
+  /**
+   * @schema DmsMySqlSettings#SecretsManagerSecretId
+   */
+  readonly secretsManagerSecretId?: string;
+
 }
+
+/**
+ * Converts an object of type 'DmsMySqlSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsMySqlSettings(obj: DmsMySqlSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AfterConnectScript': obj.afterConnectScript,
+    'CleanSourceMetadataOnMismatch': obj.cleanSourceMetadataOnMismatch,
+    'DatabaseName': obj.databaseName,
+    'EventsPollInterval': obj.eventsPollInterval,
+    'TargetDbType': obj.targetDbType,
+    'MaxFileSize': obj.maxFileSize,
+    'ParallelLoadThreads': obj.parallelLoadThreads,
+    'Password': obj.password,
+    'Port': obj.port,
+    'ServerName': obj.serverName,
+    'ServerTimezone': obj.serverTimezone,
+    'Username': obj.username,
+    'SecretsManagerAccessRoleArn': obj.secretsManagerAccessRoleArn,
+    'SecretsManagerSecretId': obj.secretsManagerSecretId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsOracleSettings
@@ -3165,11 +5438,108 @@ export interface DmsOracleSettings {
   readonly serverName?: string;
 
   /**
+   * @schema DmsOracleSettings#SpatialDataOptionToGeoJsonFunctionName
+   */
+  readonly spatialDataOptionToGeoJsonFunctionName?: string;
+
+  /**
+   * @schema DmsOracleSettings#StandbyDelayTime
+   */
+  readonly standbyDelayTime?: number;
+
+  /**
    * @schema DmsOracleSettings#Username
    */
   readonly username?: string;
 
+  /**
+   * @schema DmsOracleSettings#UseBFile
+   */
+  readonly useBFile?: boolean;
+
+  /**
+   * @schema DmsOracleSettings#UseDirectPathFullLoad
+   */
+  readonly useDirectPathFullLoad?: boolean;
+
+  /**
+   * @schema DmsOracleSettings#UseLogminerReader
+   */
+  readonly useLogminerReader?: boolean;
+
+  /**
+   * @schema DmsOracleSettings#SecretsManagerAccessRoleArn
+   */
+  readonly secretsManagerAccessRoleArn?: string;
+
+  /**
+   * @schema DmsOracleSettings#SecretsManagerSecretId
+   */
+  readonly secretsManagerSecretId?: string;
+
+  /**
+   * @schema DmsOracleSettings#SecretsManagerOracleAsmAccessRoleArn
+   */
+  readonly secretsManagerOracleAsmAccessRoleArn?: string;
+
+  /**
+   * @schema DmsOracleSettings#SecretsManagerOracleAsmSecretId
+   */
+  readonly secretsManagerOracleAsmSecretId?: string;
+
 }
+
+/**
+ * Converts an object of type 'DmsOracleSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsOracleSettings(obj: DmsOracleSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AddSupplementalLogging': obj.addSupplementalLogging,
+    'ArchivedLogDestId': obj.archivedLogDestId,
+    'AdditionalArchivedLogDestId': obj.additionalArchivedLogDestId,
+    'AllowSelectNestedTables': obj.allowSelectNestedTables,
+    'ParallelAsmReadThreads': obj.parallelAsmReadThreads,
+    'ReadAheadBlocks': obj.readAheadBlocks,
+    'AccessAlternateDirectly': obj.accessAlternateDirectly,
+    'UseAlternateFolderForOnline': obj.useAlternateFolderForOnline,
+    'OraclePathPrefix': obj.oraclePathPrefix,
+    'UsePathPrefix': obj.usePathPrefix,
+    'ReplacePathPrefix': obj.replacePathPrefix,
+    'EnableHomogenousTablespace': obj.enableHomogenousTablespace,
+    'DirectPathNoLog': obj.directPathNoLog,
+    'ArchivedLogsOnly': obj.archivedLogsOnly,
+    'AsmPassword': obj.asmPassword,
+    'AsmServer': obj.asmServer,
+    'AsmUser': obj.asmUser,
+    'CharLengthSemantics': obj.charLengthSemantics,
+    'DatabaseName': obj.databaseName,
+    'DirectPathParallelLoad': obj.directPathParallelLoad,
+    'FailTasksOnLobTruncation': obj.failTasksOnLobTruncation,
+    'NumberDatatypeScale': obj.numberDatatypeScale,
+    'Password': obj.password,
+    'Port': obj.port,
+    'ReadTableSpaceName': obj.readTableSpaceName,
+    'RetryInterval': obj.retryInterval,
+    'SecurityDbEncryption': obj.securityDbEncryption,
+    'SecurityDbEncryptionName': obj.securityDbEncryptionName,
+    'ServerName': obj.serverName,
+    'SpatialDataOptionToGeoJsonFunctionName': obj.spatialDataOptionToGeoJsonFunctionName,
+    'StandbyDelayTime': obj.standbyDelayTime,
+    'Username': obj.username,
+    'UseBFile': obj.useBFile,
+    'UseDirectPathFullLoad': obj.useDirectPathFullLoad,
+    'UseLogminerReader': obj.useLogminerReader,
+    'SecretsManagerAccessRoleArn': obj.secretsManagerAccessRoleArn,
+    'SecretsManagerSecretId': obj.secretsManagerSecretId,
+    'SecretsManagerOracleAsmAccessRoleArn': obj.secretsManagerOracleAsmAccessRoleArn,
+    'SecretsManagerOracleAsmSecretId': obj.secretsManagerOracleAsmSecretId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsSybaseSettings
@@ -3200,7 +5570,37 @@ export interface DmsSybaseSettings {
    */
   readonly username?: string;
 
+  /**
+   * @schema DmsSybaseSettings#SecretsManagerAccessRoleArn
+   */
+  readonly secretsManagerAccessRoleArn?: string;
+
+  /**
+   * @schema DmsSybaseSettings#SecretsManagerSecretId
+   */
+  readonly secretsManagerSecretId?: string;
+
 }
+
+/**
+ * Converts an object of type 'DmsSybaseSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsSybaseSettings(obj: DmsSybaseSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DatabaseName': obj.databaseName,
+    'Password': obj.password,
+    'Port': obj.port,
+    'ServerName': obj.serverName,
+    'Username': obj.username,
+    'SecretsManagerAccessRoleArn': obj.secretsManagerAccessRoleArn,
+    'SecretsManagerSecretId': obj.secretsManagerSecretId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsMicrosoftSqlServerSettings
@@ -3232,6 +5632,11 @@ export interface DmsMicrosoftSqlServerSettings {
   readonly password?: string;
 
   /**
+   * @schema DmsMicrosoftSqlServerSettings#QuerySingleAlwaysOnNode
+   */
+  readonly querySingleAlwaysOnNode?: boolean;
+
+  /**
    * @schema DmsMicrosoftSqlServerSettings#ReadBackupOnly
    */
   readonly readBackupOnly?: boolean;
@@ -3256,7 +5661,49 @@ export interface DmsMicrosoftSqlServerSettings {
    */
   readonly useBcpFullLoad?: boolean;
 
+  /**
+   * @schema DmsMicrosoftSqlServerSettings#UseThirdPartyBackupDevice
+   */
+  readonly useThirdPartyBackupDevice?: boolean;
+
+  /**
+   * @schema DmsMicrosoftSqlServerSettings#SecretsManagerAccessRoleArn
+   */
+  readonly secretsManagerAccessRoleArn?: string;
+
+  /**
+   * @schema DmsMicrosoftSqlServerSettings#SecretsManagerSecretId
+   */
+  readonly secretsManagerSecretId?: string;
+
 }
+
+/**
+ * Converts an object of type 'DmsMicrosoftSqlServerSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsMicrosoftSqlServerSettings(obj: DmsMicrosoftSqlServerSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Port': obj.port,
+    'BcpPacketSize': obj.bcpPacketSize,
+    'DatabaseName': obj.databaseName,
+    'ControlTablesFileGroup': obj.controlTablesFileGroup,
+    'Password': obj.password,
+    'QuerySingleAlwaysOnNode': obj.querySingleAlwaysOnNode,
+    'ReadBackupOnly': obj.readBackupOnly,
+    'SafeguardPolicy': obj.safeguardPolicy,
+    'ServerName': obj.serverName,
+    'Username': obj.username,
+    'UseBcpFullLoad': obj.useBcpFullLoad,
+    'UseThirdPartyBackupDevice': obj.useThirdPartyBackupDevice,
+    'SecretsManagerAccessRoleArn': obj.secretsManagerAccessRoleArn,
+    'SecretsManagerSecretId': obj.secretsManagerSecretId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsibmDb2Settings
@@ -3302,7 +5749,40 @@ export interface DmsibmDb2Settings {
    */
   readonly username?: string;
 
+  /**
+   * @schema DmsibmDb2Settings#SecretsManagerAccessRoleArn
+   */
+  readonly secretsManagerAccessRoleArn?: string;
+
+  /**
+   * @schema DmsibmDb2Settings#SecretsManagerSecretId
+   */
+  readonly secretsManagerSecretId?: string;
+
 }
+
+/**
+ * Converts an object of type 'DmsibmDb2Settings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsibmDb2Settings(obj: DmsibmDb2Settings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DatabaseName': obj.databaseName,
+    'Password': obj.password,
+    'Port': obj.port,
+    'ServerName': obj.serverName,
+    'SetDataCaptureChanges': obj.setDataCaptureChanges,
+    'CurrentLsn': obj.currentLsn,
+    'MaxKBytesPerRead': obj.maxKBytesPerRead,
+    'Username': obj.username,
+    'SecretsManagerAccessRoleArn': obj.secretsManagerAccessRoleArn,
+    'SecretsManagerSecretId': obj.secretsManagerSecretId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsDocDbSettings
@@ -3353,7 +5833,41 @@ export interface DmsDocDbSettings {
    */
   readonly kmsKeyId?: string;
 
+  /**
+   * @schema DmsDocDbSettings#SecretsManagerAccessRoleArn
+   */
+  readonly secretsManagerAccessRoleArn?: string;
+
+  /**
+   * @schema DmsDocDbSettings#SecretsManagerSecretId
+   */
+  readonly secretsManagerSecretId?: string;
+
 }
+
+/**
+ * Converts an object of type 'DmsDocDbSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsDocDbSettings(obj: DmsDocDbSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Username': obj.username,
+    'Password': obj.password,
+    'ServerName': obj.serverName,
+    'Port': obj.port,
+    'DatabaseName': obj.databaseName,
+    'NestingLevel': obj.nestingLevel,
+    'ExtractDocId': obj.extractDocId,
+    'DocsToInvestigate': obj.docsToInvestigate,
+    'KmsKeyId': obj.kmsKeyId,
+    'SecretsManagerAccessRoleArn': obj.secretsManagerAccessRoleArn,
+    'SecretsManagerSecretId': obj.secretsManagerSecretId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsEndpoint
@@ -3527,6 +6041,52 @@ export interface DmsEndpoint {
 }
 
 /**
+ * Converts an object of type 'DmsEndpoint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsEndpoint(obj: DmsEndpoint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointIdentifier': obj.endpointIdentifier,
+    'EndpointType': obj.endpointType,
+    'EngineName': obj.engineName,
+    'EngineDisplayName': obj.engineDisplayName,
+    'Username': obj.username,
+    'ServerName': obj.serverName,
+    'Port': obj.port,
+    'DatabaseName': obj.databaseName,
+    'ExtraConnectionAttributes': obj.extraConnectionAttributes,
+    'Status': obj.status,
+    'KmsKeyId': obj.kmsKeyId,
+    'EndpointArn': obj.endpointArn,
+    'CertificateArn': obj.certificateArn,
+    'SslMode': obj.sslMode,
+    'ServiceAccessRoleArn': obj.serviceAccessRoleArn,
+    'ExternalTableDefinition': obj.externalTableDefinition,
+    'ExternalId': obj.externalId,
+    'DynamoDbSettings': toJson_DmsDynamoDbSettings(obj.dynamoDbSettings),
+    'S3Settings': toJson_Dmss3Settings(obj.s3Settings),
+    'DmsTransferSettings': toJson_DmsDmsTransferSettings(obj.dmsTransferSettings),
+    'MongoDbSettings': toJson_DmsMongoDbSettings(obj.mongoDbSettings),
+    'KinesisSettings': toJson_DmsKinesisSettings(obj.kinesisSettings),
+    'KafkaSettings': toJson_DmsKafkaSettings(obj.kafkaSettings),
+    'ElasticsearchSettings': toJson_DmsElasticsearchSettings(obj.elasticsearchSettings),
+    'NeptuneSettings': toJson_DmsNeptuneSettings(obj.neptuneSettings),
+    'RedshiftSettings': toJson_DmsRedshiftSettings(obj.redshiftSettings),
+    'PostgreSQLSettings': toJson_DmsPostgreSqlSettings(obj.postgreSqlSettings),
+    'MySQLSettings': toJson_DmsMySqlSettings(obj.mySqlSettings),
+    'OracleSettings': toJson_DmsOracleSettings(obj.oracleSettings),
+    'SybaseSettings': toJson_DmsSybaseSettings(obj.sybaseSettings),
+    'MicrosoftSQLServerSettings': toJson_DmsMicrosoftSqlServerSettings(obj.microsoftSqlServerSettings),
+    'IBMDb2Settings': toJson_DmsibmDb2Settings(obj.ibmDb2Settings),
+    'DocDbSettings': toJson_DmsDocDbSettings(obj.docDbSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsEventSubscription
  */
 export interface DmsEventSubscription {
@@ -3576,6 +6136,28 @@ export interface DmsEventSubscription {
   readonly enabled?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'DmsEventSubscription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsEventSubscription(obj: DmsEventSubscription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CustomerAwsId': obj.customerAwsId,
+    'CustSubscriptionId': obj.custSubscriptionId,
+    'SnsTopicArn': obj.snsTopicArn,
+    'Status': obj.status,
+    'SubscriptionCreationTime': obj.subscriptionCreationTime,
+    'SourceType': obj.sourceType,
+    'SourceIdsList': obj.sourceIdsList?.map(y => y),
+    'EventCategoriesList': obj.eventCategoriesList?.map(y => y),
+    'Enabled': obj.enabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsReplicationInstance
@@ -3699,6 +6281,42 @@ export interface DmsReplicationInstance {
 }
 
 /**
+ * Converts an object of type 'DmsReplicationInstance' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsReplicationInstance(obj: DmsReplicationInstance | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationInstanceIdentifier': obj.replicationInstanceIdentifier,
+    'ReplicationInstanceClass': obj.replicationInstanceClass,
+    'ReplicationInstanceStatus': obj.replicationInstanceStatus,
+    'AllocatedStorage': obj.allocatedStorage,
+    'InstanceCreateTime': obj.instanceCreateTime,
+    'VpcSecurityGroups': obj.vpcSecurityGroups?.map(y => toJson_DmsVpcSecurityGroupMembership(y)),
+    'AvailabilityZone': obj.availabilityZone,
+    'ReplicationSubnetGroup': toJson_DmsReplicationSubnetGroup(obj.replicationSubnetGroup),
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'PendingModifiedValues': toJson_DmsReplicationPendingModifiedValues(obj.pendingModifiedValues),
+    'MultiAZ': obj.multiAz,
+    'EngineVersion': obj.engineVersion,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'KmsKeyId': obj.kmsKeyId,
+    'ReplicationInstanceArn': obj.replicationInstanceArn,
+    'ReplicationInstancePublicIpAddress': obj.replicationInstancePublicIpAddress,
+    'ReplicationInstancePrivateIpAddress': obj.replicationInstancePrivateIpAddress,
+    'ReplicationInstancePublicIpAddresses': obj.replicationInstancePublicIpAddresses?.map(y => y),
+    'ReplicationInstancePrivateIpAddresses': obj.replicationInstancePrivateIpAddresses?.map(y => y),
+    'PubliclyAccessible': obj.publiclyAccessible,
+    'SecondaryAvailabilityZone': obj.secondaryAvailabilityZone,
+    'FreeUntil': obj.freeUntil,
+    'DnsNameServers': obj.dnsNameServers,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsReplicationSubnetGroup
  */
 export interface DmsReplicationSubnetGroup {
@@ -3728,6 +6346,24 @@ export interface DmsReplicationSubnetGroup {
   readonly subnets?: DmsSubnet[];
 
 }
+
+/**
+ * Converts an object of type 'DmsReplicationSubnetGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsReplicationSubnetGroup(obj: DmsReplicationSubnetGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationSubnetGroupIdentifier': obj.replicationSubnetGroupIdentifier,
+    'ReplicationSubnetGroupDescription': obj.replicationSubnetGroupDescription,
+    'VpcId': obj.vpcId,
+    'SubnetGroupStatus': obj.subnetGroupStatus,
+    'Subnets': obj.subnets?.map(y => toJson_DmsSubnet(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsReplicationTask
@@ -3831,6 +6467,38 @@ export interface DmsReplicationTask {
 }
 
 /**
+ * Converts an object of type 'DmsReplicationTask' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsReplicationTask(obj: DmsReplicationTask | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskIdentifier': obj.replicationTaskIdentifier,
+    'SourceEndpointArn': obj.sourceEndpointArn,
+    'TargetEndpointArn': obj.targetEndpointArn,
+    'ReplicationInstanceArn': obj.replicationInstanceArn,
+    'MigrationType': obj.migrationType,
+    'TableMappings': obj.tableMappings,
+    'ReplicationTaskSettings': obj.replicationTaskSettings,
+    'Status': obj.status,
+    'LastFailureMessage': obj.lastFailureMessage,
+    'StopReason': obj.stopReason,
+    'ReplicationTaskCreationDate': obj.replicationTaskCreationDate,
+    'ReplicationTaskStartDate': obj.replicationTaskStartDate,
+    'CdcStartPosition': obj.cdcStartPosition,
+    'CdcStopPosition': obj.cdcStopPosition,
+    'RecoveryCheckpoint': obj.recoveryCheckpoint,
+    'ReplicationTaskArn': obj.replicationTaskArn,
+    'ReplicationTaskStats': toJson_DmsReplicationTaskStats(obj.replicationTaskStats),
+    'TaskData': obj.taskData,
+    'TargetReplicationInstanceArn': obj.targetReplicationInstanceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsCertificate
  */
 export interface DmsCertificate {
@@ -3887,6 +6555,29 @@ export interface DmsCertificate {
 }
 
 /**
+ * Converts an object of type 'DmsCertificate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsCertificate(obj: DmsCertificate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CertificateIdentifier': obj.certificateIdentifier,
+    'CertificateCreationDate': obj.certificateCreationDate,
+    'CertificatePem': obj.certificatePem,
+    'CertificateWallet': obj.certificateWallet,
+    'CertificateArn': obj.certificateArn,
+    'CertificateOwner': obj.certificateOwner,
+    'ValidFromDate': obj.validFromDate,
+    'ValidToDate': obj.validToDate,
+    'SigningAlgorithm': obj.signingAlgorithm,
+    'KeyLength': obj.keyLength,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsConnection
  */
 export interface DmsConnection {
@@ -3923,6 +6614,25 @@ export interface DmsConnection {
 }
 
 /**
+ * Converts an object of type 'DmsConnection' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsConnection(obj: DmsConnection | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationInstanceArn': obj.replicationInstanceArn,
+    'EndpointArn': obj.endpointArn,
+    'Status': obj.status,
+    'LastFailureMessage': obj.lastFailureMessage,
+    'EndpointIdentifier': obj.endpointIdentifier,
+    'ReplicationInstanceIdentifier': obj.replicationInstanceIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsAccountQuota
  */
 export interface DmsAccountQuota {
@@ -3944,20 +6654,124 @@ export interface DmsAccountQuota {
 }
 
 /**
+ * Converts an object of type 'DmsAccountQuota' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsAccountQuota(obj: DmsAccountQuota | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AccountQuotaName': obj.accountQuotaName,
+    'Used': obj.used,
+    'Max': obj.max,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsFilter
  */
 export interface DmsFilter {
   /**
    * @schema DmsFilter#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema DmsFilter#Values
    */
-  readonly values: string[];
+  readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'DmsFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsFilter(obj: DmsFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema DmsEndpointSetting
+ */
+export interface DmsEndpointSetting {
+  /**
+   * @schema DmsEndpointSetting#Name
+   */
+  readonly name?: string;
+
+  /**
+   * @schema DmsEndpointSetting#Type
+   */
+  readonly type?: string;
+
+  /**
+   * @schema DmsEndpointSetting#EnumValues
+   */
+  readonly enumValues?: string[];
+
+  /**
+   * @schema DmsEndpointSetting#Sensitive
+   */
+  readonly sensitive?: boolean;
+
+  /**
+   * @schema DmsEndpointSetting#Units
+   */
+  readonly units?: string;
+
+  /**
+   * @schema DmsEndpointSetting#Applicability
+   */
+  readonly applicability?: string;
+
+  /**
+   * @schema DmsEndpointSetting#IntValueMin
+   */
+  readonly intValueMin?: number;
+
+  /**
+   * @schema DmsEndpointSetting#IntValueMax
+   */
+  readonly intValueMax?: number;
+
+  /**
+   * @schema DmsEndpointSetting#DefaultValue
+   */
+  readonly defaultValue?: string;
+
+}
+
+/**
+ * Converts an object of type 'DmsEndpointSetting' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsEndpointSetting(obj: DmsEndpointSetting | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Type': obj.type,
+    'EnumValues': obj.enumValues?.map(y => y),
+    'Sensitive': obj.sensitive,
+    'Units': obj.units,
+    'Applicability': obj.applicability,
+    'IntValueMin': obj.intValueMin,
+    'IntValueMax': obj.intValueMax,
+    'DefaultValue': obj.defaultValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsSupportedEndpointType
@@ -3991,6 +6805,24 @@ export interface DmsSupportedEndpointType {
 }
 
 /**
+ * Converts an object of type 'DmsSupportedEndpointType' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsSupportedEndpointType(obj: DmsSupportedEndpointType | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EngineName': obj.engineName,
+    'SupportsCDC': obj.supportsCdc,
+    'EndpointType': obj.endpointType,
+    'ReplicationInstanceEngineMinimumVersion': obj.replicationInstanceEngineMinimumVersion,
+    'EngineDisplayName': obj.engineDisplayName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsEventCategoryGroup
  */
 export interface DmsEventCategoryGroup {
@@ -4005,6 +6837,21 @@ export interface DmsEventCategoryGroup {
   readonly eventCategories?: string[];
 
 }
+
+/**
+ * Converts an object of type 'DmsEventCategoryGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsEventCategoryGroup(obj: DmsEventCategoryGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceType': obj.sourceType,
+    'EventCategories': obj.eventCategories?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsEvent
@@ -4036,6 +6883,24 @@ export interface DmsEvent {
   readonly date?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsEvent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsEvent(obj: DmsEvent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceIdentifier': obj.sourceIdentifier,
+    'SourceType': obj.sourceType,
+    'Message': obj.message,
+    'EventCategories': obj.eventCategories?.map(y => y),
+    'Date': obj.date,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsOrderableReplicationInstance
@@ -4089,6 +6954,28 @@ export interface DmsOrderableReplicationInstance {
 }
 
 /**
+ * Converts an object of type 'DmsOrderableReplicationInstance' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsOrderableReplicationInstance(obj: DmsOrderableReplicationInstance | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EngineVersion': obj.engineVersion,
+    'ReplicationInstanceClass': obj.replicationInstanceClass,
+    'StorageType': obj.storageType,
+    'MinAllocatedStorage': obj.minAllocatedStorage,
+    'MaxAllocatedStorage': obj.maxAllocatedStorage,
+    'DefaultAllocatedStorage': obj.defaultAllocatedStorage,
+    'IncludedAllocatedStorage': obj.includedAllocatedStorage,
+    'AvailabilityZones': obj.availabilityZones?.map(y => y),
+    'ReleaseStatus': obj.releaseStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsRefreshSchemasStatus
  */
 export interface DmsRefreshSchemasStatus {
@@ -4120,6 +7007,24 @@ export interface DmsRefreshSchemasStatus {
 }
 
 /**
+ * Converts an object of type 'DmsRefreshSchemasStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsRefreshSchemasStatus(obj: DmsRefreshSchemasStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndpointArn': obj.endpointArn,
+    'ReplicationInstanceArn': obj.replicationInstanceArn,
+    'Status': obj.status,
+    'LastRefreshDate': obj.lastRefreshDate,
+    'LastFailureMessage': obj.lastFailureMessage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsReplicationInstanceTaskLog
  */
 export interface DmsReplicationInstanceTaskLog {
@@ -4139,6 +7044,22 @@ export interface DmsReplicationInstanceTaskLog {
   readonly replicationInstanceTaskLogSize?: number;
 
 }
+
+/**
+ * Converts an object of type 'DmsReplicationInstanceTaskLog' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsReplicationInstanceTaskLog(obj: DmsReplicationInstanceTaskLog | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskName': obj.replicationTaskName,
+    'ReplicationTaskArn': obj.replicationTaskArn,
+    'ReplicationInstanceTaskLogSize': obj.replicationInstanceTaskLogSize,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsReplicationTaskAssessmentResult
@@ -4182,6 +7103,26 @@ export interface DmsReplicationTaskAssessmentResult {
 }
 
 /**
+ * Converts an object of type 'DmsReplicationTaskAssessmentResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsReplicationTaskAssessmentResult(obj: DmsReplicationTaskAssessmentResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskIdentifier': obj.replicationTaskIdentifier,
+    'ReplicationTaskArn': obj.replicationTaskArn,
+    'ReplicationTaskLastAssessmentDate': obj.replicationTaskLastAssessmentDate,
+    'AssessmentStatus': obj.assessmentStatus,
+    'AssessmentResultsFile': obj.assessmentResultsFile,
+    'AssessmentResults': obj.assessmentResults,
+    'S3ObjectUrl': obj.s3ObjectUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsReplicationTaskIndividualAssessment
  */
 export interface DmsReplicationTaskIndividualAssessment {
@@ -4211,6 +7152,24 @@ export interface DmsReplicationTaskIndividualAssessment {
   readonly replicationTaskIndividualAssessmentStartDate?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsReplicationTaskIndividualAssessment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsReplicationTaskIndividualAssessment(obj: DmsReplicationTaskIndividualAssessment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationTaskIndividualAssessmentArn': obj.replicationTaskIndividualAssessmentArn,
+    'ReplicationTaskAssessmentRunArn': obj.replicationTaskAssessmentRunArn,
+    'IndividualAssessmentName': obj.individualAssessmentName,
+    'Status': obj.status,
+    'ReplicationTaskIndividualAssessmentStartDate': obj.replicationTaskIndividualAssessmentStartDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsTableStatistics
@@ -4314,20 +7273,67 @@ export interface DmsTableStatistics {
 }
 
 /**
+ * Converts an object of type 'DmsTableStatistics' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsTableStatistics(obj: DmsTableStatistics | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SchemaName': obj.schemaName,
+    'TableName': obj.tableName,
+    'Inserts': obj.inserts,
+    'Deletes': obj.deletes,
+    'Updates': obj.updates,
+    'Ddls': obj.ddls,
+    'FullLoadRows': obj.fullLoadRows,
+    'FullLoadCondtnlChkFailedRows': obj.fullLoadCondtnlChkFailedRows,
+    'FullLoadErrorRows': obj.fullLoadErrorRows,
+    'FullLoadStartTime': obj.fullLoadStartTime,
+    'FullLoadEndTime': obj.fullLoadEndTime,
+    'FullLoadReloaded': obj.fullLoadReloaded,
+    'LastUpdateTime': obj.lastUpdateTime,
+    'TableState': obj.tableState,
+    'ValidationPendingRecords': obj.validationPendingRecords,
+    'ValidationFailedRecords': obj.validationFailedRecords,
+    'ValidationSuspendedRecords': obj.validationSuspendedRecords,
+    'ValidationState': obj.validationState,
+    'ValidationStateDetails': obj.validationStateDetails,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsTableToReload
  */
 export interface DmsTableToReload {
   /**
    * @schema DmsTableToReload#SchemaName
    */
-  readonly schemaName: string;
+  readonly schemaName?: string;
 
   /**
    * @schema DmsTableToReload#TableName
    */
-  readonly tableName: string;
+  readonly tableName?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsTableToReload' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsTableToReload(obj: DmsTableToReload | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SchemaName': obj.schemaName,
+    'TableName': obj.tableName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsPendingMaintenanceAction
@@ -4366,6 +7372,25 @@ export interface DmsPendingMaintenanceAction {
 }
 
 /**
+ * Converts an object of type 'DmsPendingMaintenanceAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsPendingMaintenanceAction(obj: DmsPendingMaintenanceAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Action': obj.action,
+    'AutoAppliedAfterDate': obj.autoAppliedAfterDate,
+    'ForcedApplyDate': obj.forcedApplyDate,
+    'OptInStatus': obj.optInStatus,
+    'CurrentApplyDate': obj.currentApplyDate,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsReplicationTaskAssessmentRunProgress
  */
 export interface DmsReplicationTaskAssessmentRunProgress {
@@ -4382,6 +7407,21 @@ export interface DmsReplicationTaskAssessmentRunProgress {
 }
 
 /**
+ * Converts an object of type 'DmsReplicationTaskAssessmentRunProgress' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsReplicationTaskAssessmentRunProgress(obj: DmsReplicationTaskAssessmentRunProgress | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IndividualAssessmentCount': obj.individualAssessmentCount,
+    'IndividualAssessmentCompletedCount': obj.individualAssessmentCompletedCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsVpcSecurityGroupMembership
  */
 export interface DmsVpcSecurityGroupMembership {
@@ -4396,6 +7436,21 @@ export interface DmsVpcSecurityGroupMembership {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsVpcSecurityGroupMembership' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsVpcSecurityGroupMembership(obj: DmsVpcSecurityGroupMembership | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VpcSecurityGroupId': obj.vpcSecurityGroupId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsReplicationPendingModifiedValues
@@ -4424,6 +7479,23 @@ export interface DmsReplicationPendingModifiedValues {
 }
 
 /**
+ * Converts an object of type 'DmsReplicationPendingModifiedValues' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsReplicationPendingModifiedValues(obj: DmsReplicationPendingModifiedValues | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ReplicationInstanceClass': obj.replicationInstanceClass,
+    'AllocatedStorage': obj.allocatedStorage,
+    'MultiAZ': obj.multiAz,
+    'EngineVersion': obj.engineVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsSubnet
  */
 export interface DmsSubnet {
@@ -4443,6 +7515,22 @@ export interface DmsSubnet {
   readonly subnetStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsSubnet' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsSubnet(obj: DmsSubnet | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubnetIdentifier': obj.subnetIdentifier,
+    'SubnetAvailabilityZone': toJson_DmsAvailabilityZone(obj.subnetAvailabilityZone),
+    'SubnetStatus': obj.subnetStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DmsReplicationTaskStats
@@ -4506,6 +7594,30 @@ export interface DmsReplicationTaskStats {
 }
 
 /**
+ * Converts an object of type 'DmsReplicationTaskStats' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsReplicationTaskStats(obj: DmsReplicationTaskStats | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FullLoadProgressPercent': obj.fullLoadProgressPercent,
+    'ElapsedTimeMillis': obj.elapsedTimeMillis,
+    'TablesLoaded': obj.tablesLoaded,
+    'TablesLoading': obj.tablesLoading,
+    'TablesQueued': obj.tablesQueued,
+    'TablesErrored': obj.tablesErrored,
+    'FreshStartDate': obj.freshStartDate,
+    'StartDate': obj.startDate,
+    'StopDate': obj.stopDate,
+    'FullLoadStartDate': obj.fullLoadStartDate,
+    'FullLoadFinishDate': obj.fullLoadFinishDate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DmsAvailabilityZone
  */
 export interface DmsAvailabilityZone {
@@ -4515,3 +7627,17 @@ export interface DmsAvailabilityZone {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'DmsAvailabilityZone' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DmsAvailabilityZone(obj: DmsAvailabilityZone | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

@@ -8,6 +8,18 @@ export class EksClient extends cdk.Construct {
     super(scope, id);
   }
 
+  public associateEncryptionConfig(input: shapes.EksAssociateEncryptionConfigRequest): EKSResponsesAssociateEncryptionConfig {
+    return new EKSResponsesAssociateEncryptionConfig(this, this.__resources, input);
+  }
+
+  public associateIdentityProviderConfig(input: shapes.EksAssociateIdentityProviderConfigRequest): EKSResponsesAssociateIdentityProviderConfig {
+    return new EKSResponsesAssociateIdentityProviderConfig(this, this.__resources, input);
+  }
+
+  public createAddon(input: shapes.EksCreateAddonRequest): EKSResponsesCreateAddon {
+    return new EKSResponsesCreateAddon(this, this.__resources, input);
+  }
+
   public createCluster(input: shapes.EksCreateClusterRequest): EKSResponsesCreateCluster {
     return new EKSResponsesCreateCluster(this, this.__resources, input);
   }
@@ -18,6 +30,10 @@ export class EksClient extends cdk.Construct {
 
   public createNodegroup(input: shapes.EksCreateNodegroupRequest): EKSResponsesCreateNodegroup {
     return new EKSResponsesCreateNodegroup(this, this.__resources, input);
+  }
+
+  public deleteAddon(input: shapes.EksDeleteAddonRequest): EKSResponsesDeleteAddon {
+    return new EKSResponsesDeleteAddon(this, this.__resources, input);
   }
 
   public deleteCluster(input: shapes.EksDeleteClusterRequest): EKSResponsesDeleteCluster {
@@ -32,12 +48,24 @@ export class EksClient extends cdk.Construct {
     return new EKSResponsesDeleteNodegroup(this, this.__resources, input);
   }
 
+  public describeAddon(input: shapes.EksDescribeAddonRequest): EKSResponsesDescribeAddon {
+    return new EKSResponsesDescribeAddon(this, this.__resources, input);
+  }
+
+  public describeAddonVersions(input: shapes.EksDescribeAddonVersionsRequest): EKSResponsesDescribeAddonVersions {
+    return new EKSResponsesDescribeAddonVersions(this, this.__resources, input);
+  }
+
   public describeCluster(input: shapes.EksDescribeClusterRequest): EKSResponsesDescribeCluster {
     return new EKSResponsesDescribeCluster(this, this.__resources, input);
   }
 
   public describeFargateProfile(input: shapes.EksDescribeFargateProfileRequest): EKSResponsesDescribeFargateProfile {
     return new EKSResponsesDescribeFargateProfile(this, this.__resources, input);
+  }
+
+  public describeIdentityProviderConfig(input: shapes.EksDescribeIdentityProviderConfigRequest): EKSResponsesDescribeIdentityProviderConfig {
+    return new EKSResponsesDescribeIdentityProviderConfig(this, this.__resources, input);
   }
 
   public describeNodegroup(input: shapes.EksDescribeNodegroupRequest): EKSResponsesDescribeNodegroup {
@@ -48,12 +76,24 @@ export class EksClient extends cdk.Construct {
     return new EKSResponsesDescribeUpdate(this, this.__resources, input);
   }
 
+  public disassociateIdentityProviderConfig(input: shapes.EksDisassociateIdentityProviderConfigRequest): EKSResponsesDisassociateIdentityProviderConfig {
+    return new EKSResponsesDisassociateIdentityProviderConfig(this, this.__resources, input);
+  }
+
+  public listAddons(input: shapes.EksListAddonsRequest): EKSResponsesListAddons {
+    return new EKSResponsesListAddons(this, this.__resources, input);
+  }
+
   public listClusters(input: shapes.EksListClustersRequest): EKSResponsesListClusters {
     return new EKSResponsesListClusters(this, this.__resources, input);
   }
 
   public listFargateProfiles(input: shapes.EksListFargateProfilesRequest): EKSResponsesListFargateProfiles {
     return new EKSResponsesListFargateProfiles(this, this.__resources, input);
+  }
+
+  public listIdentityProviderConfigs(input: shapes.EksListIdentityProviderConfigsRequest): EKSResponsesListIdentityProviderConfigs {
+    return new EKSResponsesListIdentityProviderConfigs(this, this.__resources, input);
   }
 
   public listNodegroups(input: shapes.EksListNodegroupsRequest): EKSResponsesListNodegroups {
@@ -100,6 +140,10 @@ export class EksClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'UntagResource', props);
   }
 
+  public updateAddon(input: shapes.EksUpdateAddonRequest): EKSResponsesUpdateAddon {
+    return new EKSResponsesUpdateAddon(this, this.__resources, input);
+  }
+
   public updateClusterConfig(input: shapes.EksUpdateClusterConfigRequest): EKSResponsesUpdateClusterConfig {
     return new EKSResponsesUpdateClusterConfig(this, this.__resources, input);
   }
@@ -114,6 +158,618 @@ export class EksClient extends cdk.Construct {
 
   public updateNodegroupVersion(input: shapes.EksUpdateNodegroupVersionRequest): EKSResponsesUpdateNodegroupVersion {
     return new EKSResponsesUpdateNodegroupVersion(this, this.__resources, input);
+  }
+
+}
+
+export class EKSResponsesAssociateEncryptionConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksAssociateEncryptionConfigRequest) {
+  }
+
+  public get update(): EKSResponsesAssociateEncryptionConfigUpdate {
+    return new EKSResponsesAssociateEncryptionConfigUpdate(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EKSResponsesAssociateEncryptionConfigUpdate {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksAssociateEncryptionConfigRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateEncryptionConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.AssociateEncryptionConfig.update.id'),
+        outputPath: 'update.id',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          encryptionConfig: this.__input.encryptionConfig,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateEncryptionConfig.update.id', props);
+    return resource.getResponseField('update.id') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateEncryptionConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.AssociateEncryptionConfig.update.status'),
+        outputPath: 'update.status',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          encryptionConfig: this.__input.encryptionConfig,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateEncryptionConfig.update.status', props);
+    return resource.getResponseField('update.status') as unknown as string;
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateEncryptionConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.AssociateEncryptionConfig.update.type'),
+        outputPath: 'update.type',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          encryptionConfig: this.__input.encryptionConfig,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateEncryptionConfig.update.type', props);
+    return resource.getResponseField('update.type') as unknown as string;
+  }
+
+  public get params(): shapes.EksUpdateParam[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateEncryptionConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.AssociateEncryptionConfig.update.params'),
+        outputPath: 'update.params',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          encryptionConfig: this.__input.encryptionConfig,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateEncryptionConfig.update.params', props);
+    return resource.getResponseField('update.params') as unknown as shapes.EksUpdateParam[];
+  }
+
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateEncryptionConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.AssociateEncryptionConfig.update.createdAt'),
+        outputPath: 'update.createdAt',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          encryptionConfig: this.__input.encryptionConfig,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateEncryptionConfig.update.createdAt', props);
+    return resource.getResponseField('update.createdAt') as unknown as string;
+  }
+
+  public get errors(): shapes.EksErrorDetail[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateEncryptionConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.AssociateEncryptionConfig.update.errors'),
+        outputPath: 'update.errors',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          encryptionConfig: this.__input.encryptionConfig,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateEncryptionConfig.update.errors', props);
+    return resource.getResponseField('update.errors') as unknown as shapes.EksErrorDetail[];
+  }
+
+}
+
+export class EKSResponsesAssociateIdentityProviderConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksAssociateIdentityProviderConfigRequest) {
+  }
+
+  public get update(): EKSResponsesAssociateIdentityProviderConfigUpdate {
+    return new EKSResponsesAssociateIdentityProviderConfigUpdate(this.__scope, this.__resources, this.__input);
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.AssociateIdentityProviderConfig.tags'),
+        outputPath: 'tags',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          oidc: {
+            identityProviderConfigName: this.__input.oidc.identityProviderConfigName,
+            issuerUrl: this.__input.oidc.issuerUrl,
+            clientId: this.__input.oidc.clientId,
+            usernameClaim: this.__input.oidc.usernameClaim,
+            usernamePrefix: this.__input.oidc.usernamePrefix,
+            groupsClaim: this.__input.oidc.groupsClaim,
+            groupsPrefix: this.__input.oidc.groupsPrefix,
+            requiredClaims: this.__input.oidc.requiredClaims,
+          },
+          tags: this.__input.tags,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateIdentityProviderConfig.tags', props);
+    return resource.getResponseField('tags') as unknown as Record<string, string>;
+  }
+
+}
+
+export class EKSResponsesAssociateIdentityProviderConfigUpdate {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksAssociateIdentityProviderConfigRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.AssociateIdentityProviderConfig.update.id'),
+        outputPath: 'update.id',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          oidc: {
+            identityProviderConfigName: this.__input.oidc.identityProviderConfigName,
+            issuerUrl: this.__input.oidc.issuerUrl,
+            clientId: this.__input.oidc.clientId,
+            usernameClaim: this.__input.oidc.usernameClaim,
+            usernamePrefix: this.__input.oidc.usernamePrefix,
+            groupsClaim: this.__input.oidc.groupsClaim,
+            groupsPrefix: this.__input.oidc.groupsPrefix,
+            requiredClaims: this.__input.oidc.requiredClaims,
+          },
+          tags: this.__input.tags,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateIdentityProviderConfig.update.id', props);
+    return resource.getResponseField('update.id') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.AssociateIdentityProviderConfig.update.status'),
+        outputPath: 'update.status',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          oidc: {
+            identityProviderConfigName: this.__input.oidc.identityProviderConfigName,
+            issuerUrl: this.__input.oidc.issuerUrl,
+            clientId: this.__input.oidc.clientId,
+            usernameClaim: this.__input.oidc.usernameClaim,
+            usernamePrefix: this.__input.oidc.usernamePrefix,
+            groupsClaim: this.__input.oidc.groupsClaim,
+            groupsPrefix: this.__input.oidc.groupsPrefix,
+            requiredClaims: this.__input.oidc.requiredClaims,
+          },
+          tags: this.__input.tags,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateIdentityProviderConfig.update.status', props);
+    return resource.getResponseField('update.status') as unknown as string;
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.AssociateIdentityProviderConfig.update.type'),
+        outputPath: 'update.type',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          oidc: {
+            identityProviderConfigName: this.__input.oidc.identityProviderConfigName,
+            issuerUrl: this.__input.oidc.issuerUrl,
+            clientId: this.__input.oidc.clientId,
+            usernameClaim: this.__input.oidc.usernameClaim,
+            usernamePrefix: this.__input.oidc.usernamePrefix,
+            groupsClaim: this.__input.oidc.groupsClaim,
+            groupsPrefix: this.__input.oidc.groupsPrefix,
+            requiredClaims: this.__input.oidc.requiredClaims,
+          },
+          tags: this.__input.tags,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateIdentityProviderConfig.update.type', props);
+    return resource.getResponseField('update.type') as unknown as string;
+  }
+
+  public get params(): shapes.EksUpdateParam[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.AssociateIdentityProviderConfig.update.params'),
+        outputPath: 'update.params',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          oidc: {
+            identityProviderConfigName: this.__input.oidc.identityProviderConfigName,
+            issuerUrl: this.__input.oidc.issuerUrl,
+            clientId: this.__input.oidc.clientId,
+            usernameClaim: this.__input.oidc.usernameClaim,
+            usernamePrefix: this.__input.oidc.usernamePrefix,
+            groupsClaim: this.__input.oidc.groupsClaim,
+            groupsPrefix: this.__input.oidc.groupsPrefix,
+            requiredClaims: this.__input.oidc.requiredClaims,
+          },
+          tags: this.__input.tags,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateIdentityProviderConfig.update.params', props);
+    return resource.getResponseField('update.params') as unknown as shapes.EksUpdateParam[];
+  }
+
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.AssociateIdentityProviderConfig.update.createdAt'),
+        outputPath: 'update.createdAt',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          oidc: {
+            identityProviderConfigName: this.__input.oidc.identityProviderConfigName,
+            issuerUrl: this.__input.oidc.issuerUrl,
+            clientId: this.__input.oidc.clientId,
+            usernameClaim: this.__input.oidc.usernameClaim,
+            usernamePrefix: this.__input.oidc.usernamePrefix,
+            groupsClaim: this.__input.oidc.groupsClaim,
+            groupsPrefix: this.__input.oidc.groupsPrefix,
+            requiredClaims: this.__input.oidc.requiredClaims,
+          },
+          tags: this.__input.tags,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateIdentityProviderConfig.update.createdAt', props);
+    return resource.getResponseField('update.createdAt') as unknown as string;
+  }
+
+  public get errors(): shapes.EksErrorDetail[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.AssociateIdentityProviderConfig.update.errors'),
+        outputPath: 'update.errors',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          oidc: {
+            identityProviderConfigName: this.__input.oidc.identityProviderConfigName,
+            issuerUrl: this.__input.oidc.issuerUrl,
+            clientId: this.__input.oidc.clientId,
+            usernameClaim: this.__input.oidc.usernameClaim,
+            usernamePrefix: this.__input.oidc.usernamePrefix,
+            groupsClaim: this.__input.oidc.groupsClaim,
+            groupsPrefix: this.__input.oidc.groupsPrefix,
+            requiredClaims: this.__input.oidc.requiredClaims,
+          },
+          tags: this.__input.tags,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateIdentityProviderConfig.update.errors', props);
+    return resource.getResponseField('update.errors') as unknown as shapes.EksErrorDetail[];
+  }
+
+}
+
+export class EKSResponsesCreateAddon {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksCreateAddonRequest) {
+  }
+
+  public get addon(): EKSResponsesCreateAddonAddon {
+    return new EKSResponsesCreateAddonAddon(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EKSResponsesCreateAddonAddon {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksCreateAddonRequest) {
+  }
+
+  public get addonName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.CreateAddon.addon.addonName'),
+        outputPath: 'addon.addonName',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+          addonVersion: this.__input.addonVersion,
+          serviceAccountRoleArn: this.__input.serviceAccountRoleArn,
+          resolveConflicts: this.__input.resolveConflicts,
+          clientRequestToken: this.__input.clientRequestToken,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAddon.addon.addonName', props);
+    return resource.getResponseField('addon.addonName') as unknown as string;
+  }
+
+  public get clusterName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.CreateAddon.addon.clusterName'),
+        outputPath: 'addon.clusterName',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+          addonVersion: this.__input.addonVersion,
+          serviceAccountRoleArn: this.__input.serviceAccountRoleArn,
+          resolveConflicts: this.__input.resolveConflicts,
+          clientRequestToken: this.__input.clientRequestToken,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAddon.addon.clusterName', props);
+    return resource.getResponseField('addon.clusterName') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.CreateAddon.addon.status'),
+        outputPath: 'addon.status',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+          addonVersion: this.__input.addonVersion,
+          serviceAccountRoleArn: this.__input.serviceAccountRoleArn,
+          resolveConflicts: this.__input.resolveConflicts,
+          clientRequestToken: this.__input.clientRequestToken,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAddon.addon.status', props);
+    return resource.getResponseField('addon.status') as unknown as string;
+  }
+
+  public get addonVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.CreateAddon.addon.addonVersion'),
+        outputPath: 'addon.addonVersion',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+          addonVersion: this.__input.addonVersion,
+          serviceAccountRoleArn: this.__input.serviceAccountRoleArn,
+          resolveConflicts: this.__input.resolveConflicts,
+          clientRequestToken: this.__input.clientRequestToken,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAddon.addon.addonVersion', props);
+    return resource.getResponseField('addon.addonVersion') as unknown as string;
+  }
+
+  public get health(): EKSResponsesCreateAddonAddonHealth {
+    return new EKSResponsesCreateAddonAddonHealth(this.__scope, this.__resources, this.__input);
+  }
+
+  public get addonArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.CreateAddon.addon.addonArn'),
+        outputPath: 'addon.addonArn',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+          addonVersion: this.__input.addonVersion,
+          serviceAccountRoleArn: this.__input.serviceAccountRoleArn,
+          resolveConflicts: this.__input.resolveConflicts,
+          clientRequestToken: this.__input.clientRequestToken,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAddon.addon.addonArn', props);
+    return resource.getResponseField('addon.addonArn') as unknown as string;
+  }
+
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.CreateAddon.addon.createdAt'),
+        outputPath: 'addon.createdAt',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+          addonVersion: this.__input.addonVersion,
+          serviceAccountRoleArn: this.__input.serviceAccountRoleArn,
+          resolveConflicts: this.__input.resolveConflicts,
+          clientRequestToken: this.__input.clientRequestToken,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAddon.addon.createdAt', props);
+    return resource.getResponseField('addon.createdAt') as unknown as string;
+  }
+
+  public get modifiedAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.CreateAddon.addon.modifiedAt'),
+        outputPath: 'addon.modifiedAt',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+          addonVersion: this.__input.addonVersion,
+          serviceAccountRoleArn: this.__input.serviceAccountRoleArn,
+          resolveConflicts: this.__input.resolveConflicts,
+          clientRequestToken: this.__input.clientRequestToken,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAddon.addon.modifiedAt', props);
+    return resource.getResponseField('addon.modifiedAt') as unknown as string;
+  }
+
+  public get serviceAccountRoleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.CreateAddon.addon.serviceAccountRoleArn'),
+        outputPath: 'addon.serviceAccountRoleArn',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+          addonVersion: this.__input.addonVersion,
+          serviceAccountRoleArn: this.__input.serviceAccountRoleArn,
+          resolveConflicts: this.__input.resolveConflicts,
+          clientRequestToken: this.__input.clientRequestToken,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAddon.addon.serviceAccountRoleArn', props);
+    return resource.getResponseField('addon.serviceAccountRoleArn') as unknown as string;
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.CreateAddon.addon.tags'),
+        outputPath: 'addon.tags',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+          addonVersion: this.__input.addonVersion,
+          serviceAccountRoleArn: this.__input.serviceAccountRoleArn,
+          resolveConflicts: this.__input.resolveConflicts,
+          clientRequestToken: this.__input.clientRequestToken,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAddon.addon.tags', props);
+    return resource.getResponseField('addon.tags') as unknown as Record<string, string>;
+  }
+
+}
+
+export class EKSResponsesCreateAddonAddonHealth {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksCreateAddonRequest) {
+  }
+
+  public get issues(): shapes.EksAddonIssue[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.CreateAddon.addon.health.issues'),
+        outputPath: 'addon.health.issues',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+          addonVersion: this.__input.addonVersion,
+          serviceAccountRoleArn: this.__input.serviceAccountRoleArn,
+          resolveConflicts: this.__input.resolveConflicts,
+          clientRequestToken: this.__input.clientRequestToken,
+          tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAddon.addon.health.issues', props);
+    return resource.getResponseField('addon.health.issues') as unknown as shapes.EksAddonIssue[];
   }
 
 }
@@ -1239,6 +1895,7 @@ export class EKSResponsesCreateNodegroupNodegroup {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -1246,6 +1903,11 @@ export class EKSResponsesCreateNodegroupNodegroup {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -1281,6 +1943,7 @@ export class EKSResponsesCreateNodegroupNodegroup {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -1288,6 +1951,11 @@ export class EKSResponsesCreateNodegroupNodegroup {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -1323,6 +1991,7 @@ export class EKSResponsesCreateNodegroupNodegroup {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -1330,6 +1999,11 @@ export class EKSResponsesCreateNodegroupNodegroup {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -1365,6 +2039,7 @@ export class EKSResponsesCreateNodegroupNodegroup {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -1372,6 +2047,11 @@ export class EKSResponsesCreateNodegroupNodegroup {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -1407,6 +2087,7 @@ export class EKSResponsesCreateNodegroupNodegroup {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -1414,6 +2095,11 @@ export class EKSResponsesCreateNodegroupNodegroup {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -1449,6 +2135,7 @@ export class EKSResponsesCreateNodegroupNodegroup {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -1456,6 +2143,11 @@ export class EKSResponsesCreateNodegroupNodegroup {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -1491,6 +2183,7 @@ export class EKSResponsesCreateNodegroupNodegroup {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -1498,6 +2191,11 @@ export class EKSResponsesCreateNodegroupNodegroup {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -1533,6 +2231,7 @@ export class EKSResponsesCreateNodegroupNodegroup {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -1540,6 +2239,11 @@ export class EKSResponsesCreateNodegroupNodegroup {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -1547,6 +2251,54 @@ export class EKSResponsesCreateNodegroupNodegroup {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateNodegroup.nodegroup.status', props);
     return resource.getResponseField('nodegroup.status') as unknown as string;
+  }
+
+  public get capacityType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createNodegroup',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.CreateNodegroup.nodegroup.capacityType'),
+        outputPath: 'nodegroup.capacityType',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          nodegroupName: this.__input.nodegroupName,
+          scalingConfig: {
+            minSize: this.__input.scalingConfig?.minSize,
+            maxSize: this.__input.scalingConfig?.maxSize,
+            desiredSize: this.__input.scalingConfig?.desiredSize,
+          },
+          diskSize: this.__input.diskSize,
+          subnets: this.__input.subnets,
+          instanceTypes: this.__input.instanceTypes,
+          amiType: this.__input.amiType,
+          remoteAccess: {
+            ec2SshKey: this.__input.remoteAccess?.ec2SshKey,
+            sourceSecurityGroups: this.__input.remoteAccess?.sourceSecurityGroups,
+          },
+          nodeRole: this.__input.nodeRole,
+          labels: this.__input.labels,
+          taints: this.__input.taints,
+          tags: this.__input.tags,
+          clientRequestToken: this.__input.clientRequestToken,
+          launchTemplate: {
+            name: this.__input.launchTemplate?.name,
+            version: this.__input.launchTemplate?.version,
+            id: this.__input.launchTemplate?.id,
+          },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
+          version: this.__input.version,
+          releaseVersion: this.__input.releaseVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateNodegroup.nodegroup.capacityType', props);
+    return resource.getResponseField('nodegroup.capacityType') as unknown as string;
   }
 
   public get scalingConfig(): EKSResponsesCreateNodegroupNodegroupScalingConfig {
@@ -1579,6 +2331,7 @@ export class EKSResponsesCreateNodegroupNodegroup {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -1586,6 +2339,11 @@ export class EKSResponsesCreateNodegroupNodegroup {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -1621,6 +2379,7 @@ export class EKSResponsesCreateNodegroupNodegroup {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -1628,6 +2387,11 @@ export class EKSResponsesCreateNodegroupNodegroup {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -1667,6 +2431,7 @@ export class EKSResponsesCreateNodegroupNodegroup {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -1674,6 +2439,11 @@ export class EKSResponsesCreateNodegroupNodegroup {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -1709,6 +2479,7 @@ export class EKSResponsesCreateNodegroupNodegroup {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -1716,6 +2487,11 @@ export class EKSResponsesCreateNodegroupNodegroup {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -1751,6 +2527,7 @@ export class EKSResponsesCreateNodegroupNodegroup {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -1758,6 +2535,11 @@ export class EKSResponsesCreateNodegroupNodegroup {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -1765,6 +2547,54 @@ export class EKSResponsesCreateNodegroupNodegroup {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateNodegroup.nodegroup.labels', props);
     return resource.getResponseField('nodegroup.labels') as unknown as Record<string, string>;
+  }
+
+  public get taints(): shapes.EksTaint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createNodegroup',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.CreateNodegroup.nodegroup.taints'),
+        outputPath: 'nodegroup.taints',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          nodegroupName: this.__input.nodegroupName,
+          scalingConfig: {
+            minSize: this.__input.scalingConfig?.minSize,
+            maxSize: this.__input.scalingConfig?.maxSize,
+            desiredSize: this.__input.scalingConfig?.desiredSize,
+          },
+          diskSize: this.__input.diskSize,
+          subnets: this.__input.subnets,
+          instanceTypes: this.__input.instanceTypes,
+          amiType: this.__input.amiType,
+          remoteAccess: {
+            ec2SshKey: this.__input.remoteAccess?.ec2SshKey,
+            sourceSecurityGroups: this.__input.remoteAccess?.sourceSecurityGroups,
+          },
+          nodeRole: this.__input.nodeRole,
+          labels: this.__input.labels,
+          taints: this.__input.taints,
+          tags: this.__input.tags,
+          clientRequestToken: this.__input.clientRequestToken,
+          launchTemplate: {
+            name: this.__input.launchTemplate?.name,
+            version: this.__input.launchTemplate?.version,
+            id: this.__input.launchTemplate?.id,
+          },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
+          version: this.__input.version,
+          releaseVersion: this.__input.releaseVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateNodegroup.nodegroup.taints', props);
+    return resource.getResponseField('nodegroup.taints') as unknown as shapes.EksTaint[];
   }
 
   public get resources(): EKSResponsesCreateNodegroupNodegroupResources {
@@ -1797,6 +2627,7 @@ export class EKSResponsesCreateNodegroupNodegroup {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -1804,6 +2635,11 @@ export class EKSResponsesCreateNodegroupNodegroup {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -1815,6 +2651,10 @@ export class EKSResponsesCreateNodegroupNodegroup {
 
   public get health(): EKSResponsesCreateNodegroupNodegroupHealth {
     return new EKSResponsesCreateNodegroupNodegroupHealth(this.__scope, this.__resources, this.__input);
+  }
+
+  public get updateConfig(): EKSResponsesCreateNodegroupNodegroupUpdateConfig {
+    return new EKSResponsesCreateNodegroupNodegroupUpdateConfig(this.__scope, this.__resources, this.__input);
   }
 
   public get launchTemplate(): EKSResponsesCreateNodegroupNodegroupLaunchTemplate {
@@ -1847,6 +2687,7 @@ export class EKSResponsesCreateNodegroupNodegroup {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -1854,6 +2695,11 @@ export class EKSResponsesCreateNodegroupNodegroup {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -1896,6 +2742,7 @@ export class EKSResponsesCreateNodegroupNodegroupScalingConfig {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -1903,6 +2750,11 @@ export class EKSResponsesCreateNodegroupNodegroupScalingConfig {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -1938,6 +2790,7 @@ export class EKSResponsesCreateNodegroupNodegroupScalingConfig {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -1945,6 +2798,11 @@ export class EKSResponsesCreateNodegroupNodegroupScalingConfig {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -1980,6 +2838,7 @@ export class EKSResponsesCreateNodegroupNodegroupScalingConfig {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -1987,6 +2846,11 @@ export class EKSResponsesCreateNodegroupNodegroupScalingConfig {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -2029,6 +2893,7 @@ export class EKSResponsesCreateNodegroupNodegroupRemoteAccess {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -2036,6 +2901,11 @@ export class EKSResponsesCreateNodegroupNodegroupRemoteAccess {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -2071,6 +2941,7 @@ export class EKSResponsesCreateNodegroupNodegroupRemoteAccess {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -2078,6 +2949,11 @@ export class EKSResponsesCreateNodegroupNodegroupRemoteAccess {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -2120,6 +2996,7 @@ export class EKSResponsesCreateNodegroupNodegroupResources {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -2127,6 +3004,11 @@ export class EKSResponsesCreateNodegroupNodegroupResources {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -2162,6 +3044,7 @@ export class EKSResponsesCreateNodegroupNodegroupResources {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -2169,6 +3052,11 @@ export class EKSResponsesCreateNodegroupNodegroupResources {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -2211,6 +3099,7 @@ export class EKSResponsesCreateNodegroupNodegroupHealth {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -2218,6 +3107,11 @@ export class EKSResponsesCreateNodegroupNodegroupHealth {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -2225,6 +3119,109 @@ export class EKSResponsesCreateNodegroupNodegroupHealth {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateNodegroup.nodegroup.health.issues', props);
     return resource.getResponseField('nodegroup.health.issues') as unknown as shapes.EksIssue[];
+  }
+
+}
+
+export class EKSResponsesCreateNodegroupNodegroupUpdateConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksCreateNodegroupRequest) {
+  }
+
+  public get maxUnavailable(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createNodegroup',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.CreateNodegroup.nodegroup.updateConfig.maxUnavailable'),
+        outputPath: 'nodegroup.updateConfig.maxUnavailable',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          nodegroupName: this.__input.nodegroupName,
+          scalingConfig: {
+            minSize: this.__input.scalingConfig?.minSize,
+            maxSize: this.__input.scalingConfig?.maxSize,
+            desiredSize: this.__input.scalingConfig?.desiredSize,
+          },
+          diskSize: this.__input.diskSize,
+          subnets: this.__input.subnets,
+          instanceTypes: this.__input.instanceTypes,
+          amiType: this.__input.amiType,
+          remoteAccess: {
+            ec2SshKey: this.__input.remoteAccess?.ec2SshKey,
+            sourceSecurityGroups: this.__input.remoteAccess?.sourceSecurityGroups,
+          },
+          nodeRole: this.__input.nodeRole,
+          labels: this.__input.labels,
+          taints: this.__input.taints,
+          tags: this.__input.tags,
+          clientRequestToken: this.__input.clientRequestToken,
+          launchTemplate: {
+            name: this.__input.launchTemplate?.name,
+            version: this.__input.launchTemplate?.version,
+            id: this.__input.launchTemplate?.id,
+          },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
+          version: this.__input.version,
+          releaseVersion: this.__input.releaseVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateNodegroup.nodegroup.updateConfig.maxUnavailable', props);
+    return resource.getResponseField('nodegroup.updateConfig.maxUnavailable') as unknown as number;
+  }
+
+  public get maxUnavailablePercentage(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createNodegroup',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.CreateNodegroup.nodegroup.updateConfig.maxUnavailablePercentage'),
+        outputPath: 'nodegroup.updateConfig.maxUnavailablePercentage',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          nodegroupName: this.__input.nodegroupName,
+          scalingConfig: {
+            minSize: this.__input.scalingConfig?.minSize,
+            maxSize: this.__input.scalingConfig?.maxSize,
+            desiredSize: this.__input.scalingConfig?.desiredSize,
+          },
+          diskSize: this.__input.diskSize,
+          subnets: this.__input.subnets,
+          instanceTypes: this.__input.instanceTypes,
+          amiType: this.__input.amiType,
+          remoteAccess: {
+            ec2SshKey: this.__input.remoteAccess?.ec2SshKey,
+            sourceSecurityGroups: this.__input.remoteAccess?.sourceSecurityGroups,
+          },
+          nodeRole: this.__input.nodeRole,
+          labels: this.__input.labels,
+          taints: this.__input.taints,
+          tags: this.__input.tags,
+          clientRequestToken: this.__input.clientRequestToken,
+          launchTemplate: {
+            name: this.__input.launchTemplate?.name,
+            version: this.__input.launchTemplate?.version,
+            id: this.__input.launchTemplate?.id,
+          },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
+          version: this.__input.version,
+          releaseVersion: this.__input.releaseVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateNodegroup.nodegroup.updateConfig.maxUnavailablePercentage', props);
+    return resource.getResponseField('nodegroup.updateConfig.maxUnavailablePercentage') as unknown as number;
   }
 
 }
@@ -2260,6 +3257,7 @@ export class EKSResponsesCreateNodegroupNodegroupLaunchTemplate {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -2267,6 +3265,11 @@ export class EKSResponsesCreateNodegroupNodegroupLaunchTemplate {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -2302,6 +3305,7 @@ export class EKSResponsesCreateNodegroupNodegroupLaunchTemplate {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -2309,6 +3313,11 @@ export class EKSResponsesCreateNodegroupNodegroupLaunchTemplate {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -2344,6 +3353,7 @@ export class EKSResponsesCreateNodegroupNodegroupLaunchTemplate {
           },
           nodeRole: this.__input.nodeRole,
           labels: this.__input.labels,
+          taints: this.__input.taints,
           tags: this.__input.tags,
           clientRequestToken: this.__input.clientRequestToken,
           launchTemplate: {
@@ -2351,6 +3361,11 @@ export class EKSResponsesCreateNodegroupNodegroupLaunchTemplate {
             version: this.__input.launchTemplate?.version,
             id: this.__input.launchTemplate?.id,
           },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
+          },
+          capacityType: this.__input.capacityType,
           version: this.__input.version,
           releaseVersion: this.__input.releaseVersion,
         },
@@ -2358,6 +3373,215 @@ export class EKSResponsesCreateNodegroupNodegroupLaunchTemplate {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateNodegroup.nodegroup.launchTemplate.id', props);
     return resource.getResponseField('nodegroup.launchTemplate.id') as unknown as string;
+  }
+
+}
+
+export class EKSResponsesDeleteAddon {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksDeleteAddonRequest) {
+  }
+
+  public get addon(): EKSResponsesDeleteAddonAddon {
+    return new EKSResponsesDeleteAddonAddon(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EKSResponsesDeleteAddonAddon {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksDeleteAddonRequest) {
+  }
+
+  public get addonName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DeleteAddon.addon.addonName'),
+        outputPath: 'addon.addonName',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteAddon.addon.addonName', props);
+    return resource.getResponseField('addon.addonName') as unknown as string;
+  }
+
+  public get clusterName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DeleteAddon.addon.clusterName'),
+        outputPath: 'addon.clusterName',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteAddon.addon.clusterName', props);
+    return resource.getResponseField('addon.clusterName') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DeleteAddon.addon.status'),
+        outputPath: 'addon.status',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteAddon.addon.status', props);
+    return resource.getResponseField('addon.status') as unknown as string;
+  }
+
+  public get addonVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DeleteAddon.addon.addonVersion'),
+        outputPath: 'addon.addonVersion',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteAddon.addon.addonVersion', props);
+    return resource.getResponseField('addon.addonVersion') as unknown as string;
+  }
+
+  public get health(): EKSResponsesDeleteAddonAddonHealth {
+    return new EKSResponsesDeleteAddonAddonHealth(this.__scope, this.__resources, this.__input);
+  }
+
+  public get addonArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DeleteAddon.addon.addonArn'),
+        outputPath: 'addon.addonArn',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteAddon.addon.addonArn', props);
+    return resource.getResponseField('addon.addonArn') as unknown as string;
+  }
+
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DeleteAddon.addon.createdAt'),
+        outputPath: 'addon.createdAt',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteAddon.addon.createdAt', props);
+    return resource.getResponseField('addon.createdAt') as unknown as string;
+  }
+
+  public get modifiedAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DeleteAddon.addon.modifiedAt'),
+        outputPath: 'addon.modifiedAt',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteAddon.addon.modifiedAt', props);
+    return resource.getResponseField('addon.modifiedAt') as unknown as string;
+  }
+
+  public get serviceAccountRoleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DeleteAddon.addon.serviceAccountRoleArn'),
+        outputPath: 'addon.serviceAccountRoleArn',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteAddon.addon.serviceAccountRoleArn', props);
+    return resource.getResponseField('addon.serviceAccountRoleArn') as unknown as string;
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DeleteAddon.addon.tags'),
+        outputPath: 'addon.tags',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteAddon.addon.tags', props);
+    return resource.getResponseField('addon.tags') as unknown as Record<string, string>;
+  }
+
+}
+
+export class EKSResponsesDeleteAddonAddonHealth {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksDeleteAddonRequest) {
+  }
+
+  public get issues(): shapes.EksAddonIssue[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DeleteAddon.addon.health.issues'),
+        outputPath: 'addon.health.issues',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteAddon.addon.health.issues', props);
+    return resource.getResponseField('addon.health.issues') as unknown as shapes.EksAddonIssue[];
   }
 
 }
@@ -3160,6 +4384,24 @@ export class EKSResponsesDeleteNodegroupNodegroup {
     return resource.getResponseField('nodegroup.status') as unknown as string;
   }
 
+  public get capacityType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteNodegroup',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DeleteNodegroup.nodegroup.capacityType'),
+        outputPath: 'nodegroup.capacityType',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          nodegroupName: this.__input.nodegroupName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteNodegroup.nodegroup.capacityType', props);
+    return resource.getResponseField('nodegroup.capacityType') as unknown as string;
+  }
+
   public get scalingConfig(): EKSResponsesDeleteNodegroupNodegroupScalingConfig {
     return new EKSResponsesDeleteNodegroupNodegroupScalingConfig(this.__scope, this.__resources, this.__input);
   }
@@ -3258,6 +4500,24 @@ export class EKSResponsesDeleteNodegroupNodegroup {
     return resource.getResponseField('nodegroup.labels') as unknown as Record<string, string>;
   }
 
+  public get taints(): shapes.EksTaint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteNodegroup',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DeleteNodegroup.nodegroup.taints'),
+        outputPath: 'nodegroup.taints',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          nodegroupName: this.__input.nodegroupName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteNodegroup.nodegroup.taints', props);
+    return resource.getResponseField('nodegroup.taints') as unknown as shapes.EksTaint[];
+  }
+
   public get resources(): EKSResponsesDeleteNodegroupNodegroupResources {
     return new EKSResponsesDeleteNodegroupNodegroupResources(this.__scope, this.__resources, this.__input);
   }
@@ -3282,6 +4542,10 @@ export class EKSResponsesDeleteNodegroupNodegroup {
 
   public get health(): EKSResponsesDeleteNodegroupNodegroupHealth {
     return new EKSResponsesDeleteNodegroupNodegroupHealth(this.__scope, this.__resources, this.__input);
+  }
+
+  public get updateConfig(): EKSResponsesDeleteNodegroupNodegroupUpdateConfig {
+    return new EKSResponsesDeleteNodegroupNodegroupUpdateConfig(this.__scope, this.__resources, this.__input);
   }
 
   public get launchTemplate(): EKSResponsesDeleteNodegroupNodegroupLaunchTemplate {
@@ -3480,6 +4744,49 @@ export class EKSResponsesDeleteNodegroupNodegroupHealth {
 
 }
 
+export class EKSResponsesDeleteNodegroupNodegroupUpdateConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksDeleteNodegroupRequest) {
+  }
+
+  public get maxUnavailable(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteNodegroup',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DeleteNodegroup.nodegroup.updateConfig.maxUnavailable'),
+        outputPath: 'nodegroup.updateConfig.maxUnavailable',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          nodegroupName: this.__input.nodegroupName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteNodegroup.nodegroup.updateConfig.maxUnavailable', props);
+    return resource.getResponseField('nodegroup.updateConfig.maxUnavailable') as unknown as number;
+  }
+
+  public get maxUnavailablePercentage(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteNodegroup',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DeleteNodegroup.nodegroup.updateConfig.maxUnavailablePercentage'),
+        outputPath: 'nodegroup.updateConfig.maxUnavailablePercentage',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          nodegroupName: this.__input.nodegroupName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteNodegroup.nodegroup.updateConfig.maxUnavailablePercentage', props);
+    return resource.getResponseField('nodegroup.updateConfig.maxUnavailablePercentage') as unknown as number;
+  }
+
+}
+
 export class EKSResponsesDeleteNodegroupNodegroupLaunchTemplate {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksDeleteNodegroupRequest) {
@@ -3537,6 +4844,262 @@ export class EKSResponsesDeleteNodegroupNodegroupLaunchTemplate {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteNodegroup.nodegroup.launchTemplate.id', props);
     return resource.getResponseField('nodegroup.launchTemplate.id') as unknown as string;
+  }
+
+}
+
+export class EKSResponsesDescribeAddon {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksDescribeAddonRequest) {
+  }
+
+  public get addon(): EKSResponsesDescribeAddonAddon {
+    return new EKSResponsesDescribeAddonAddon(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EKSResponsesDescribeAddonAddon {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksDescribeAddonRequest) {
+  }
+
+  public get addonName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeAddon.addon.addonName'),
+        outputPath: 'addon.addonName',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAddon.addon.addonName', props);
+    return resource.getResponseField('addon.addonName') as unknown as string;
+  }
+
+  public get clusterName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeAddon.addon.clusterName'),
+        outputPath: 'addon.clusterName',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAddon.addon.clusterName', props);
+    return resource.getResponseField('addon.clusterName') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeAddon.addon.status'),
+        outputPath: 'addon.status',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAddon.addon.status', props);
+    return resource.getResponseField('addon.status') as unknown as string;
+  }
+
+  public get addonVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeAddon.addon.addonVersion'),
+        outputPath: 'addon.addonVersion',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAddon.addon.addonVersion', props);
+    return resource.getResponseField('addon.addonVersion') as unknown as string;
+  }
+
+  public get health(): EKSResponsesDescribeAddonAddonHealth {
+    return new EKSResponsesDescribeAddonAddonHealth(this.__scope, this.__resources, this.__input);
+  }
+
+  public get addonArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeAddon.addon.addonArn'),
+        outputPath: 'addon.addonArn',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAddon.addon.addonArn', props);
+    return resource.getResponseField('addon.addonArn') as unknown as string;
+  }
+
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeAddon.addon.createdAt'),
+        outputPath: 'addon.createdAt',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAddon.addon.createdAt', props);
+    return resource.getResponseField('addon.createdAt') as unknown as string;
+  }
+
+  public get modifiedAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeAddon.addon.modifiedAt'),
+        outputPath: 'addon.modifiedAt',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAddon.addon.modifiedAt', props);
+    return resource.getResponseField('addon.modifiedAt') as unknown as string;
+  }
+
+  public get serviceAccountRoleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeAddon.addon.serviceAccountRoleArn'),
+        outputPath: 'addon.serviceAccountRoleArn',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAddon.addon.serviceAccountRoleArn', props);
+    return resource.getResponseField('addon.serviceAccountRoleArn') as unknown as string;
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeAddon.addon.tags'),
+        outputPath: 'addon.tags',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAddon.addon.tags', props);
+    return resource.getResponseField('addon.tags') as unknown as Record<string, string>;
+  }
+
+}
+
+export class EKSResponsesDescribeAddonAddonHealth {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksDescribeAddonRequest) {
+  }
+
+  public get issues(): shapes.EksAddonIssue[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeAddon.addon.health.issues'),
+        outputPath: 'addon.health.issues',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAddon.addon.health.issues', props);
+    return resource.getResponseField('addon.health.issues') as unknown as shapes.EksAddonIssue[];
+  }
+
+}
+
+export class EKSResponsesDescribeAddonVersions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksDescribeAddonVersionsRequest) {
+  }
+
+  public get addons(): shapes.EksAddonInfo[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAddonVersions',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeAddonVersions.addons'),
+        outputPath: 'addons',
+        parameters: {
+          kubernetesVersion: this.__input.kubernetesVersion,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAddonVersions.addons', props);
+    return resource.getResponseField('addons') as unknown as shapes.EksAddonInfo[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAddonVersions',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeAddonVersions.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          kubernetesVersion: this.__input.kubernetesVersion,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+          addonName: this.__input.addonName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAddonVersions.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
   }
 
 }
@@ -4179,6 +5742,287 @@ export class EKSResponsesDescribeFargateProfileFargateProfile {
 
 }
 
+export class EKSResponsesDescribeIdentityProviderConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksDescribeIdentityProviderConfigRequest) {
+  }
+
+  public get identityProviderConfig(): EKSResponsesDescribeIdentityProviderConfigIdentityProviderConfig {
+    return new EKSResponsesDescribeIdentityProviderConfigIdentityProviderConfig(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EKSResponsesDescribeIdentityProviderConfigIdentityProviderConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksDescribeIdentityProviderConfigRequest) {
+  }
+
+  public get oidc(): EKSResponsesDescribeIdentityProviderConfigIdentityProviderConfigOidc {
+    return new EKSResponsesDescribeIdentityProviderConfigIdentityProviderConfigOidc(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EKSResponsesDescribeIdentityProviderConfigIdentityProviderConfigOidc {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksDescribeIdentityProviderConfigRequest) {
+  }
+
+  public get identityProviderConfigName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeIdentityProviderConfig.identityProviderConfig.oidc.identityProviderConfigName'),
+        outputPath: 'identityProviderConfig.oidc.identityProviderConfigName',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          identityProviderConfig: {
+            type: this.__input.identityProviderConfig.type,
+            name: this.__input.identityProviderConfig.name,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeIdentityProviderConfig.identityProviderConfig.oidc.identityProviderConfigName', props);
+    return resource.getResponseField('identityProviderConfig.oidc.identityProviderConfigName') as unknown as string;
+  }
+
+  public get identityProviderConfigArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeIdentityProviderConfig.identityProviderConfig.oidc.identityProviderConfigArn'),
+        outputPath: 'identityProviderConfig.oidc.identityProviderConfigArn',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          identityProviderConfig: {
+            type: this.__input.identityProviderConfig.type,
+            name: this.__input.identityProviderConfig.name,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeIdentityProviderConfig.identityProviderConfig.oidc.identityProviderConfigArn', props);
+    return resource.getResponseField('identityProviderConfig.oidc.identityProviderConfigArn') as unknown as string;
+  }
+
+  public get clusterName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeIdentityProviderConfig.identityProviderConfig.oidc.clusterName'),
+        outputPath: 'identityProviderConfig.oidc.clusterName',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          identityProviderConfig: {
+            type: this.__input.identityProviderConfig.type,
+            name: this.__input.identityProviderConfig.name,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeIdentityProviderConfig.identityProviderConfig.oidc.clusterName', props);
+    return resource.getResponseField('identityProviderConfig.oidc.clusterName') as unknown as string;
+  }
+
+  public get issuerUrl(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeIdentityProviderConfig.identityProviderConfig.oidc.issuerUrl'),
+        outputPath: 'identityProviderConfig.oidc.issuerUrl',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          identityProviderConfig: {
+            type: this.__input.identityProviderConfig.type,
+            name: this.__input.identityProviderConfig.name,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeIdentityProviderConfig.identityProviderConfig.oidc.issuerUrl', props);
+    return resource.getResponseField('identityProviderConfig.oidc.issuerUrl') as unknown as string;
+  }
+
+  public get clientId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeIdentityProviderConfig.identityProviderConfig.oidc.clientId'),
+        outputPath: 'identityProviderConfig.oidc.clientId',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          identityProviderConfig: {
+            type: this.__input.identityProviderConfig.type,
+            name: this.__input.identityProviderConfig.name,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeIdentityProviderConfig.identityProviderConfig.oidc.clientId', props);
+    return resource.getResponseField('identityProviderConfig.oidc.clientId') as unknown as string;
+  }
+
+  public get usernameClaim(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeIdentityProviderConfig.identityProviderConfig.oidc.usernameClaim'),
+        outputPath: 'identityProviderConfig.oidc.usernameClaim',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          identityProviderConfig: {
+            type: this.__input.identityProviderConfig.type,
+            name: this.__input.identityProviderConfig.name,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeIdentityProviderConfig.identityProviderConfig.oidc.usernameClaim', props);
+    return resource.getResponseField('identityProviderConfig.oidc.usernameClaim') as unknown as string;
+  }
+
+  public get usernamePrefix(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeIdentityProviderConfig.identityProviderConfig.oidc.usernamePrefix'),
+        outputPath: 'identityProviderConfig.oidc.usernamePrefix',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          identityProviderConfig: {
+            type: this.__input.identityProviderConfig.type,
+            name: this.__input.identityProviderConfig.name,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeIdentityProviderConfig.identityProviderConfig.oidc.usernamePrefix', props);
+    return resource.getResponseField('identityProviderConfig.oidc.usernamePrefix') as unknown as string;
+  }
+
+  public get groupsClaim(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeIdentityProviderConfig.identityProviderConfig.oidc.groupsClaim'),
+        outputPath: 'identityProviderConfig.oidc.groupsClaim',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          identityProviderConfig: {
+            type: this.__input.identityProviderConfig.type,
+            name: this.__input.identityProviderConfig.name,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeIdentityProviderConfig.identityProviderConfig.oidc.groupsClaim', props);
+    return resource.getResponseField('identityProviderConfig.oidc.groupsClaim') as unknown as string;
+  }
+
+  public get groupsPrefix(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeIdentityProviderConfig.identityProviderConfig.oidc.groupsPrefix'),
+        outputPath: 'identityProviderConfig.oidc.groupsPrefix',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          identityProviderConfig: {
+            type: this.__input.identityProviderConfig.type,
+            name: this.__input.identityProviderConfig.name,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeIdentityProviderConfig.identityProviderConfig.oidc.groupsPrefix', props);
+    return resource.getResponseField('identityProviderConfig.oidc.groupsPrefix') as unknown as string;
+  }
+
+  public get requiredClaims(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeIdentityProviderConfig.identityProviderConfig.oidc.requiredClaims'),
+        outputPath: 'identityProviderConfig.oidc.requiredClaims',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          identityProviderConfig: {
+            type: this.__input.identityProviderConfig.type,
+            name: this.__input.identityProviderConfig.name,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeIdentityProviderConfig.identityProviderConfig.oidc.requiredClaims', props);
+    return resource.getResponseField('identityProviderConfig.oidc.requiredClaims') as unknown as Record<string, string>;
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeIdentityProviderConfig.identityProviderConfig.oidc.tags'),
+        outputPath: 'identityProviderConfig.oidc.tags',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          identityProviderConfig: {
+            type: this.__input.identityProviderConfig.type,
+            name: this.__input.identityProviderConfig.name,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeIdentityProviderConfig.identityProviderConfig.oidc.tags', props);
+    return resource.getResponseField('identityProviderConfig.oidc.tags') as unknown as Record<string, string>;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeIdentityProviderConfig.identityProviderConfig.oidc.status'),
+        outputPath: 'identityProviderConfig.oidc.status',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          identityProviderConfig: {
+            type: this.__input.identityProviderConfig.type,
+            name: this.__input.identityProviderConfig.name,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeIdentityProviderConfig.identityProviderConfig.oidc.status', props);
+    return resource.getResponseField('identityProviderConfig.oidc.status') as unknown as string;
+  }
+
+}
+
 export class EKSResponsesDescribeNodegroup {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksDescribeNodegroupRequest) {
@@ -4339,6 +6183,24 @@ export class EKSResponsesDescribeNodegroupNodegroup {
     return resource.getResponseField('nodegroup.status') as unknown as string;
   }
 
+  public get capacityType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeNodegroup',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeNodegroup.nodegroup.capacityType'),
+        outputPath: 'nodegroup.capacityType',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          nodegroupName: this.__input.nodegroupName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeNodegroup.nodegroup.capacityType', props);
+    return resource.getResponseField('nodegroup.capacityType') as unknown as string;
+  }
+
   public get scalingConfig(): EKSResponsesDescribeNodegroupNodegroupScalingConfig {
     return new EKSResponsesDescribeNodegroupNodegroupScalingConfig(this.__scope, this.__resources, this.__input);
   }
@@ -4437,6 +6299,24 @@ export class EKSResponsesDescribeNodegroupNodegroup {
     return resource.getResponseField('nodegroup.labels') as unknown as Record<string, string>;
   }
 
+  public get taints(): shapes.EksTaint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeNodegroup',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeNodegroup.nodegroup.taints'),
+        outputPath: 'nodegroup.taints',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          nodegroupName: this.__input.nodegroupName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeNodegroup.nodegroup.taints', props);
+    return resource.getResponseField('nodegroup.taints') as unknown as shapes.EksTaint[];
+  }
+
   public get resources(): EKSResponsesDescribeNodegroupNodegroupResources {
     return new EKSResponsesDescribeNodegroupNodegroupResources(this.__scope, this.__resources, this.__input);
   }
@@ -4461,6 +6341,10 @@ export class EKSResponsesDescribeNodegroupNodegroup {
 
   public get health(): EKSResponsesDescribeNodegroupNodegroupHealth {
     return new EKSResponsesDescribeNodegroupNodegroupHealth(this.__scope, this.__resources, this.__input);
+  }
+
+  public get updateConfig(): EKSResponsesDescribeNodegroupNodegroupUpdateConfig {
+    return new EKSResponsesDescribeNodegroupNodegroupUpdateConfig(this.__scope, this.__resources, this.__input);
   }
 
   public get launchTemplate(): EKSResponsesDescribeNodegroupNodegroupLaunchTemplate {
@@ -4659,6 +6543,49 @@ export class EKSResponsesDescribeNodegroupNodegroupHealth {
 
 }
 
+export class EKSResponsesDescribeNodegroupNodegroupUpdateConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksDescribeNodegroupRequest) {
+  }
+
+  public get maxUnavailable(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeNodegroup',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeNodegroup.nodegroup.updateConfig.maxUnavailable'),
+        outputPath: 'nodegroup.updateConfig.maxUnavailable',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          nodegroupName: this.__input.nodegroupName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeNodegroup.nodegroup.updateConfig.maxUnavailable', props);
+    return resource.getResponseField('nodegroup.updateConfig.maxUnavailable') as unknown as number;
+  }
+
+  public get maxUnavailablePercentage(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeNodegroup',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DescribeNodegroup.nodegroup.updateConfig.maxUnavailablePercentage'),
+        outputPath: 'nodegroup.updateConfig.maxUnavailablePercentage',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          nodegroupName: this.__input.nodegroupName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeNodegroup.nodegroup.updateConfig.maxUnavailablePercentage', props);
+    return resource.getResponseField('nodegroup.updateConfig.maxUnavailablePercentage') as unknown as number;
+  }
+
+}
+
 export class EKSResponsesDescribeNodegroupNodegroupLaunchTemplate {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksDescribeNodegroupRequest) {
@@ -4748,6 +6675,7 @@ export class EKSResponsesDescribeUpdateUpdate {
           name: this.__input.name,
           updateId: this.__input.updateId,
           nodegroupName: this.__input.nodegroupName,
+          addonName: this.__input.addonName,
         },
       },
     };
@@ -4767,6 +6695,7 @@ export class EKSResponsesDescribeUpdateUpdate {
           name: this.__input.name,
           updateId: this.__input.updateId,
           nodegroupName: this.__input.nodegroupName,
+          addonName: this.__input.addonName,
         },
       },
     };
@@ -4786,6 +6715,7 @@ export class EKSResponsesDescribeUpdateUpdate {
           name: this.__input.name,
           updateId: this.__input.updateId,
           nodegroupName: this.__input.nodegroupName,
+          addonName: this.__input.addonName,
         },
       },
     };
@@ -4805,6 +6735,7 @@ export class EKSResponsesDescribeUpdateUpdate {
           name: this.__input.name,
           updateId: this.__input.updateId,
           nodegroupName: this.__input.nodegroupName,
+          addonName: this.__input.addonName,
         },
       },
     };
@@ -4824,6 +6755,7 @@ export class EKSResponsesDescribeUpdateUpdate {
           name: this.__input.name,
           updateId: this.__input.updateId,
           nodegroupName: this.__input.nodegroupName,
+          addonName: this.__input.addonName,
         },
       },
     };
@@ -4843,11 +6775,207 @@ export class EKSResponsesDescribeUpdateUpdate {
           name: this.__input.name,
           updateId: this.__input.updateId,
           nodegroupName: this.__input.nodegroupName,
+          addonName: this.__input.addonName,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeUpdate.update.errors', props);
     return resource.getResponseField('update.errors') as unknown as shapes.EksErrorDetail[];
+  }
+
+}
+
+export class EKSResponsesDisassociateIdentityProviderConfig {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksDisassociateIdentityProviderConfigRequest) {
+  }
+
+  public get update(): EKSResponsesDisassociateIdentityProviderConfigUpdate {
+    return new EKSResponsesDisassociateIdentityProviderConfigUpdate(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EKSResponsesDisassociateIdentityProviderConfigUpdate {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksDisassociateIdentityProviderConfigRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DisassociateIdentityProviderConfig.update.id'),
+        outputPath: 'update.id',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          identityProviderConfig: {
+            type: this.__input.identityProviderConfig.type,
+            name: this.__input.identityProviderConfig.name,
+          },
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateIdentityProviderConfig.update.id', props);
+    return resource.getResponseField('update.id') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DisassociateIdentityProviderConfig.update.status'),
+        outputPath: 'update.status',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          identityProviderConfig: {
+            type: this.__input.identityProviderConfig.type,
+            name: this.__input.identityProviderConfig.name,
+          },
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateIdentityProviderConfig.update.status', props);
+    return resource.getResponseField('update.status') as unknown as string;
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DisassociateIdentityProviderConfig.update.type'),
+        outputPath: 'update.type',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          identityProviderConfig: {
+            type: this.__input.identityProviderConfig.type,
+            name: this.__input.identityProviderConfig.name,
+          },
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateIdentityProviderConfig.update.type', props);
+    return resource.getResponseField('update.type') as unknown as string;
+  }
+
+  public get params(): shapes.EksUpdateParam[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DisassociateIdentityProviderConfig.update.params'),
+        outputPath: 'update.params',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          identityProviderConfig: {
+            type: this.__input.identityProviderConfig.type,
+            name: this.__input.identityProviderConfig.name,
+          },
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateIdentityProviderConfig.update.params', props);
+    return resource.getResponseField('update.params') as unknown as shapes.EksUpdateParam[];
+  }
+
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DisassociateIdentityProviderConfig.update.createdAt'),
+        outputPath: 'update.createdAt',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          identityProviderConfig: {
+            type: this.__input.identityProviderConfig.type,
+            name: this.__input.identityProviderConfig.name,
+          },
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateIdentityProviderConfig.update.createdAt', props);
+    return resource.getResponseField('update.createdAt') as unknown as string;
+  }
+
+  public get errors(): shapes.EksErrorDetail[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateIdentityProviderConfig',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.DisassociateIdentityProviderConfig.update.errors'),
+        outputPath: 'update.errors',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          identityProviderConfig: {
+            type: this.__input.identityProviderConfig.type,
+            name: this.__input.identityProviderConfig.name,
+          },
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateIdentityProviderConfig.update.errors', props);
+    return resource.getResponseField('update.errors') as unknown as shapes.EksErrorDetail[];
+  }
+
+}
+
+export class EKSResponsesListAddons {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksListAddonsRequest) {
+  }
+
+  public get addons(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAddons',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.ListAddons.addons'),
+        outputPath: 'addons',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAddons.addons', props);
+    return resource.getResponseField('addons') as unknown as string[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAddons',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.ListAddons.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAddons.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
   }
 
 }
@@ -4940,6 +7068,51 @@ export class EKSResponsesListFargateProfiles {
 
 }
 
+export class EKSResponsesListIdentityProviderConfigs {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksListIdentityProviderConfigsRequest) {
+  }
+
+  public get identityProviderConfigs(): shapes.EksIdentityProviderConfig[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listIdentityProviderConfigs',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.ListIdentityProviderConfigs.identityProviderConfigs'),
+        outputPath: 'identityProviderConfigs',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListIdentityProviderConfigs.identityProviderConfigs', props);
+    return resource.getResponseField('identityProviderConfigs') as unknown as shapes.EksIdentityProviderConfig[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listIdentityProviderConfigs',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.ListIdentityProviderConfigs.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListIdentityProviderConfigs.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
 export class EKSResponsesListNodegroups {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksListNodegroupsRequest) {
@@ -5025,6 +7198,7 @@ export class EKSResponsesListUpdates {
         parameters: {
           name: this.__input.name,
           nodegroupName: this.__input.nodegroupName,
+          addonName: this.__input.addonName,
           nextToken: this.__input.nextToken,
           maxResults: this.__input.maxResults,
         },
@@ -5045,6 +7219,7 @@ export class EKSResponsesListUpdates {
         parameters: {
           name: this.__input.name,
           nodegroupName: this.__input.nodegroupName,
+          addonName: this.__input.addonName,
           nextToken: this.__input.nextToken,
           maxResults: this.__input.maxResults,
         },
@@ -5052,6 +7227,156 @@ export class EKSResponsesListUpdates {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListUpdates.nextToken', props);
     return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
+export class EKSResponsesUpdateAddon {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksUpdateAddonRequest) {
+  }
+
+  public get update(): EKSResponsesUpdateAddonUpdate {
+    return new EKSResponsesUpdateAddonUpdate(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EKSResponsesUpdateAddonUpdate {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EksUpdateAddonRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.UpdateAddon.update.id'),
+        outputPath: 'update.id',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+          addonVersion: this.__input.addonVersion,
+          serviceAccountRoleArn: this.__input.serviceAccountRoleArn,
+          resolveConflicts: this.__input.resolveConflicts,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAddon.update.id', props);
+    return resource.getResponseField('update.id') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.UpdateAddon.update.status'),
+        outputPath: 'update.status',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+          addonVersion: this.__input.addonVersion,
+          serviceAccountRoleArn: this.__input.serviceAccountRoleArn,
+          resolveConflicts: this.__input.resolveConflicts,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAddon.update.status', props);
+    return resource.getResponseField('update.status') as unknown as string;
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.UpdateAddon.update.type'),
+        outputPath: 'update.type',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+          addonVersion: this.__input.addonVersion,
+          serviceAccountRoleArn: this.__input.serviceAccountRoleArn,
+          resolveConflicts: this.__input.resolveConflicts,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAddon.update.type', props);
+    return resource.getResponseField('update.type') as unknown as string;
+  }
+
+  public get params(): shapes.EksUpdateParam[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.UpdateAddon.update.params'),
+        outputPath: 'update.params',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+          addonVersion: this.__input.addonVersion,
+          serviceAccountRoleArn: this.__input.serviceAccountRoleArn,
+          resolveConflicts: this.__input.resolveConflicts,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAddon.update.params', props);
+    return resource.getResponseField('update.params') as unknown as shapes.EksUpdateParam[];
+  }
+
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.UpdateAddon.update.createdAt'),
+        outputPath: 'update.createdAt',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+          addonVersion: this.__input.addonVersion,
+          serviceAccountRoleArn: this.__input.serviceAccountRoleArn,
+          resolveConflicts: this.__input.resolveConflicts,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAddon.update.createdAt', props);
+    return resource.getResponseField('update.createdAt') as unknown as string;
+  }
+
+  public get errors(): shapes.EksErrorDetail[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAddon',
+        service: 'EKS',
+        physicalResourceId: cr.PhysicalResourceId.of('EKS.UpdateAddon.update.errors'),
+        outputPath: 'update.errors',
+        parameters: {
+          clusterName: this.__input.clusterName,
+          addonName: this.__input.addonName,
+          addonVersion: this.__input.addonVersion,
+          serviceAccountRoleArn: this.__input.serviceAccountRoleArn,
+          resolveConflicts: this.__input.resolveConflicts,
+          clientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAddon.update.errors', props);
+    return resource.getResponseField('update.errors') as unknown as shapes.EksErrorDetail[];
   }
 
 }
@@ -5405,10 +7730,18 @@ export class EKSResponsesUpdateNodegroupConfigUpdate {
             addOrUpdateLabels: this.__input.labels?.addOrUpdateLabels,
             removeLabels: this.__input.labels?.removeLabels,
           },
+          taints: {
+            addOrUpdateTaints: this.__input.taints?.addOrUpdateTaints,
+            removeTaints: this.__input.taints?.removeTaints,
+          },
           scalingConfig: {
             minSize: this.__input.scalingConfig?.minSize,
             maxSize: this.__input.scalingConfig?.maxSize,
             desiredSize: this.__input.scalingConfig?.desiredSize,
+          },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
           },
           clientRequestToken: this.__input.clientRequestToken,
         },
@@ -5433,10 +7766,18 @@ export class EKSResponsesUpdateNodegroupConfigUpdate {
             addOrUpdateLabels: this.__input.labels?.addOrUpdateLabels,
             removeLabels: this.__input.labels?.removeLabels,
           },
+          taints: {
+            addOrUpdateTaints: this.__input.taints?.addOrUpdateTaints,
+            removeTaints: this.__input.taints?.removeTaints,
+          },
           scalingConfig: {
             minSize: this.__input.scalingConfig?.minSize,
             maxSize: this.__input.scalingConfig?.maxSize,
             desiredSize: this.__input.scalingConfig?.desiredSize,
+          },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
           },
           clientRequestToken: this.__input.clientRequestToken,
         },
@@ -5461,10 +7802,18 @@ export class EKSResponsesUpdateNodegroupConfigUpdate {
             addOrUpdateLabels: this.__input.labels?.addOrUpdateLabels,
             removeLabels: this.__input.labels?.removeLabels,
           },
+          taints: {
+            addOrUpdateTaints: this.__input.taints?.addOrUpdateTaints,
+            removeTaints: this.__input.taints?.removeTaints,
+          },
           scalingConfig: {
             minSize: this.__input.scalingConfig?.minSize,
             maxSize: this.__input.scalingConfig?.maxSize,
             desiredSize: this.__input.scalingConfig?.desiredSize,
+          },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
           },
           clientRequestToken: this.__input.clientRequestToken,
         },
@@ -5489,10 +7838,18 @@ export class EKSResponsesUpdateNodegroupConfigUpdate {
             addOrUpdateLabels: this.__input.labels?.addOrUpdateLabels,
             removeLabels: this.__input.labels?.removeLabels,
           },
+          taints: {
+            addOrUpdateTaints: this.__input.taints?.addOrUpdateTaints,
+            removeTaints: this.__input.taints?.removeTaints,
+          },
           scalingConfig: {
             minSize: this.__input.scalingConfig?.minSize,
             maxSize: this.__input.scalingConfig?.maxSize,
             desiredSize: this.__input.scalingConfig?.desiredSize,
+          },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
           },
           clientRequestToken: this.__input.clientRequestToken,
         },
@@ -5517,10 +7874,18 @@ export class EKSResponsesUpdateNodegroupConfigUpdate {
             addOrUpdateLabels: this.__input.labels?.addOrUpdateLabels,
             removeLabels: this.__input.labels?.removeLabels,
           },
+          taints: {
+            addOrUpdateTaints: this.__input.taints?.addOrUpdateTaints,
+            removeTaints: this.__input.taints?.removeTaints,
+          },
           scalingConfig: {
             minSize: this.__input.scalingConfig?.minSize,
             maxSize: this.__input.scalingConfig?.maxSize,
             desiredSize: this.__input.scalingConfig?.desiredSize,
+          },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
           },
           clientRequestToken: this.__input.clientRequestToken,
         },
@@ -5545,10 +7910,18 @@ export class EKSResponsesUpdateNodegroupConfigUpdate {
             addOrUpdateLabels: this.__input.labels?.addOrUpdateLabels,
             removeLabels: this.__input.labels?.removeLabels,
           },
+          taints: {
+            addOrUpdateTaints: this.__input.taints?.addOrUpdateTaints,
+            removeTaints: this.__input.taints?.removeTaints,
+          },
           scalingConfig: {
             minSize: this.__input.scalingConfig?.minSize,
             maxSize: this.__input.scalingConfig?.maxSize,
             desiredSize: this.__input.scalingConfig?.desiredSize,
+          },
+          updateConfig: {
+            maxUnavailable: this.__input.updateConfig?.maxUnavailable,
+            maxUnavailablePercentage: this.__input.updateConfig?.maxUnavailablePercentage,
           },
           clientRequestToken: this.__input.clientRequestToken,
         },

@@ -10,7 +10,7 @@ export interface MediaPackageConfigureLogsRequest {
   /**
    * @schema MediaPackageConfigureLogsRequest#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
   /**
    * @schema MediaPackageConfigureLogsRequest#IngressAccessLogs
@@ -18,6 +18,22 @@ export interface MediaPackageConfigureLogsRequest {
   readonly ingressAccessLogs?: MediaPackageIngressAccessLogs;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageConfigureLogsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageConfigureLogsRequest(obj: MediaPackageConfigureLogsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EgressAccessLogs': toJson_MediaPackageEgressAccessLogs(obj.egressAccessLogs),
+    'Id': obj.id,
+    'IngressAccessLogs': toJson_MediaPackageIngressAccessLogs(obj.ingressAccessLogs),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageConfigureLogsResponse
@@ -61,6 +77,26 @@ export interface MediaPackageConfigureLogsResponse {
 }
 
 /**
+ * Converts an object of type 'MediaPackageConfigureLogsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageConfigureLogsResponse(obj: MediaPackageConfigureLogsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Description': obj.description,
+    'EgressAccessLogs': toJson_MediaPackageEgressAccessLogs(obj.egressAccessLogs),
+    'HlsIngest': toJson_MediaPackageHlsIngest(obj.hlsIngest),
+    'Id': obj.id,
+    'IngressAccessLogs': toJson_MediaPackageIngressAccessLogs(obj.ingressAccessLogs),
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageCreateChannelRequest
  */
 export interface MediaPackageCreateChannelRequest {
@@ -72,7 +108,7 @@ export interface MediaPackageCreateChannelRequest {
   /**
    * @schema MediaPackageCreateChannelRequest#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
   /**
    * @schema MediaPackageCreateChannelRequest#Tags
@@ -80,6 +116,22 @@ export interface MediaPackageCreateChannelRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageCreateChannelRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageCreateChannelRequest(obj: MediaPackageCreateChannelRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Description': obj.description,
+    'Id': obj.id,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageCreateChannelResponse
@@ -123,35 +175,73 @@ export interface MediaPackageCreateChannelResponse {
 }
 
 /**
+ * Converts an object of type 'MediaPackageCreateChannelResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageCreateChannelResponse(obj: MediaPackageCreateChannelResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Description': obj.description,
+    'EgressAccessLogs': toJson_MediaPackageEgressAccessLogs(obj.egressAccessLogs),
+    'HlsIngest': toJson_MediaPackageHlsIngest(obj.hlsIngest),
+    'Id': obj.id,
+    'IngressAccessLogs': toJson_MediaPackageIngressAccessLogs(obj.ingressAccessLogs),
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageCreateHarvestJobRequest
  */
 export interface MediaPackageCreateHarvestJobRequest {
   /**
    * @schema MediaPackageCreateHarvestJobRequest#EndTime
    */
-  readonly endTime: string;
+  readonly endTime?: string;
 
   /**
    * @schema MediaPackageCreateHarvestJobRequest#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
   /**
    * @schema MediaPackageCreateHarvestJobRequest#OriginEndpointId
    */
-  readonly originEndpointId: string;
+  readonly originEndpointId?: string;
 
   /**
    * @schema MediaPackageCreateHarvestJobRequest#S3Destination
    */
-  readonly s3Destination: MediaPackageS3Destination;
+  readonly s3Destination?: MediaPackageS3Destination;
 
   /**
    * @schema MediaPackageCreateHarvestJobRequest#StartTime
    */
-  readonly startTime: string;
+  readonly startTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageCreateHarvestJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageCreateHarvestJobRequest(obj: MediaPackageCreateHarvestJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndTime': obj.endTime,
+    'Id': obj.id,
+    'OriginEndpointId': obj.originEndpointId,
+    'S3Destination': toJson_MediaPackageS3Destination(obj.s3Destination),
+    'StartTime': obj.startTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageCreateHarvestJobResponse
@@ -205,6 +295,28 @@ export interface MediaPackageCreateHarvestJobResponse {
 }
 
 /**
+ * Converts an object of type 'MediaPackageCreateHarvestJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageCreateHarvestJobResponse(obj: MediaPackageCreateHarvestJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'ChannelId': obj.channelId,
+    'CreatedAt': obj.createdAt,
+    'EndTime': obj.endTime,
+    'Id': obj.id,
+    'OriginEndpointId': obj.originEndpointId,
+    'S3Destination': toJson_MediaPackageS3Destination(obj.s3Destination),
+    'StartTime': obj.startTime,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageCreateOriginEndpointRequest
  */
 export interface MediaPackageCreateOriginEndpointRequest {
@@ -216,7 +328,7 @@ export interface MediaPackageCreateOriginEndpointRequest {
   /**
    * @schema MediaPackageCreateOriginEndpointRequest#ChannelId
    */
-  readonly channelId: string;
+  readonly channelId?: string;
 
   /**
    * @schema MediaPackageCreateOriginEndpointRequest#CmafPackage
@@ -241,7 +353,7 @@ export interface MediaPackageCreateOriginEndpointRequest {
   /**
    * @schema MediaPackageCreateOriginEndpointRequest#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
   /**
    * @schema MediaPackageCreateOriginEndpointRequest#ManifestName
@@ -279,6 +391,33 @@ export interface MediaPackageCreateOriginEndpointRequest {
   readonly whitelist?: string[];
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageCreateOriginEndpointRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageCreateOriginEndpointRequest(obj: MediaPackageCreateOriginEndpointRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Authorization': toJson_MediaPackageAuthorization(obj.authorization),
+    'ChannelId': obj.channelId,
+    'CmafPackage': toJson_MediaPackageCmafPackageCreateOrUpdateParameters(obj.cmafPackage),
+    'DashPackage': toJson_MediaPackageDashPackage(obj.dashPackage),
+    'Description': obj.description,
+    'HlsPackage': toJson_MediaPackageHlsPackage(obj.hlsPackage),
+    'Id': obj.id,
+    'ManifestName': obj.manifestName,
+    'MssPackage': toJson_MediaPackageMssPackage(obj.mssPackage),
+    'Origination': obj.origination,
+    'StartoverWindowSeconds': obj.startoverWindowSeconds,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'TimeDelaySeconds': obj.timeDelaySeconds,
+    'Whitelist': obj.whitelist?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageCreateOriginEndpointResponse
@@ -367,15 +506,58 @@ export interface MediaPackageCreateOriginEndpointResponse {
 }
 
 /**
+ * Converts an object of type 'MediaPackageCreateOriginEndpointResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageCreateOriginEndpointResponse(obj: MediaPackageCreateOriginEndpointResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Authorization': toJson_MediaPackageAuthorization(obj.authorization),
+    'ChannelId': obj.channelId,
+    'CmafPackage': toJson_MediaPackageCmafPackage(obj.cmafPackage),
+    'DashPackage': toJson_MediaPackageDashPackage(obj.dashPackage),
+    'Description': obj.description,
+    'HlsPackage': toJson_MediaPackageHlsPackage(obj.hlsPackage),
+    'Id': obj.id,
+    'ManifestName': obj.manifestName,
+    'MssPackage': toJson_MediaPackageMssPackage(obj.mssPackage),
+    'Origination': obj.origination,
+    'StartoverWindowSeconds': obj.startoverWindowSeconds,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'TimeDelaySeconds': obj.timeDelaySeconds,
+    'Url': obj.url,
+    'Whitelist': obj.whitelist?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageDeleteChannelRequest
  */
 export interface MediaPackageDeleteChannelRequest {
   /**
    * @schema MediaPackageDeleteChannelRequest#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageDeleteChannelRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageDeleteChannelRequest(obj: MediaPackageDeleteChannelRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageDeleteChannelResponse
@@ -384,15 +566,42 @@ export interface MediaPackageDeleteChannelResponse {
 }
 
 /**
+ * Converts an object of type 'MediaPackageDeleteChannelResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageDeleteChannelResponse(obj: MediaPackageDeleteChannelResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageDeleteOriginEndpointRequest
  */
 export interface MediaPackageDeleteOriginEndpointRequest {
   /**
    * @schema MediaPackageDeleteOriginEndpointRequest#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageDeleteOriginEndpointRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageDeleteOriginEndpointRequest(obj: MediaPackageDeleteOriginEndpointRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageDeleteOriginEndpointResponse
@@ -401,15 +610,42 @@ export interface MediaPackageDeleteOriginEndpointResponse {
 }
 
 /**
+ * Converts an object of type 'MediaPackageDeleteOriginEndpointResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageDeleteOriginEndpointResponse(obj: MediaPackageDeleteOriginEndpointResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageDescribeChannelRequest
  */
 export interface MediaPackageDescribeChannelRequest {
   /**
    * @schema MediaPackageDescribeChannelRequest#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageDescribeChannelRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageDescribeChannelRequest(obj: MediaPackageDescribeChannelRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageDescribeChannelResponse
@@ -453,15 +689,49 @@ export interface MediaPackageDescribeChannelResponse {
 }
 
 /**
+ * Converts an object of type 'MediaPackageDescribeChannelResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageDescribeChannelResponse(obj: MediaPackageDescribeChannelResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Description': obj.description,
+    'EgressAccessLogs': toJson_MediaPackageEgressAccessLogs(obj.egressAccessLogs),
+    'HlsIngest': toJson_MediaPackageHlsIngest(obj.hlsIngest),
+    'Id': obj.id,
+    'IngressAccessLogs': toJson_MediaPackageIngressAccessLogs(obj.ingressAccessLogs),
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageDescribeHarvestJobRequest
  */
 export interface MediaPackageDescribeHarvestJobRequest {
   /**
    * @schema MediaPackageDescribeHarvestJobRequest#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageDescribeHarvestJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageDescribeHarvestJobRequest(obj: MediaPackageDescribeHarvestJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageDescribeHarvestJobResponse
@@ -515,15 +785,51 @@ export interface MediaPackageDescribeHarvestJobResponse {
 }
 
 /**
+ * Converts an object of type 'MediaPackageDescribeHarvestJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageDescribeHarvestJobResponse(obj: MediaPackageDescribeHarvestJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'ChannelId': obj.channelId,
+    'CreatedAt': obj.createdAt,
+    'EndTime': obj.endTime,
+    'Id': obj.id,
+    'OriginEndpointId': obj.originEndpointId,
+    'S3Destination': toJson_MediaPackageS3Destination(obj.s3Destination),
+    'StartTime': obj.startTime,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageDescribeOriginEndpointRequest
  */
 export interface MediaPackageDescribeOriginEndpointRequest {
   /**
    * @schema MediaPackageDescribeOriginEndpointRequest#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageDescribeOriginEndpointRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageDescribeOriginEndpointRequest(obj: MediaPackageDescribeOriginEndpointRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageDescribeOriginEndpointResponse
@@ -612,6 +918,35 @@ export interface MediaPackageDescribeOriginEndpointResponse {
 }
 
 /**
+ * Converts an object of type 'MediaPackageDescribeOriginEndpointResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageDescribeOriginEndpointResponse(obj: MediaPackageDescribeOriginEndpointResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Authorization': toJson_MediaPackageAuthorization(obj.authorization),
+    'ChannelId': obj.channelId,
+    'CmafPackage': toJson_MediaPackageCmafPackage(obj.cmafPackage),
+    'DashPackage': toJson_MediaPackageDashPackage(obj.dashPackage),
+    'Description': obj.description,
+    'HlsPackage': toJson_MediaPackageHlsPackage(obj.hlsPackage),
+    'Id': obj.id,
+    'ManifestName': obj.manifestName,
+    'MssPackage': toJson_MediaPackageMssPackage(obj.mssPackage),
+    'Origination': obj.origination,
+    'StartoverWindowSeconds': obj.startoverWindowSeconds,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'TimeDelaySeconds': obj.timeDelaySeconds,
+    'Url': obj.url,
+    'Whitelist': obj.whitelist?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageListChannelsRequest
  */
 export interface MediaPackageListChannelsRequest {
@@ -628,6 +963,21 @@ export interface MediaPackageListChannelsRequest {
 }
 
 /**
+ * Converts an object of type 'MediaPackageListChannelsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageListChannelsRequest(obj: MediaPackageListChannelsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageListChannelsResponse
  */
 export interface MediaPackageListChannelsResponse {
@@ -642,6 +992,21 @@ export interface MediaPackageListChannelsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageListChannelsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageListChannelsResponse(obj: MediaPackageListChannelsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Channels': obj.channels?.map(y => toJson_MediaPackageChannel(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageListHarvestJobsRequest
@@ -670,6 +1035,23 @@ export interface MediaPackageListHarvestJobsRequest {
 }
 
 /**
+ * Converts an object of type 'MediaPackageListHarvestJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageListHarvestJobsRequest(obj: MediaPackageListHarvestJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IncludeChannelId': obj.includeChannelId,
+    'IncludeStatus': obj.includeStatus,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageListHarvestJobsResponse
  */
 export interface MediaPackageListHarvestJobsResponse {
@@ -684,6 +1066,21 @@ export interface MediaPackageListHarvestJobsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageListHarvestJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageListHarvestJobsResponse(obj: MediaPackageListHarvestJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HarvestJobs': obj.harvestJobs?.map(y => toJson_MediaPackageHarvestJob(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageListOriginEndpointsRequest
@@ -707,6 +1104,22 @@ export interface MediaPackageListOriginEndpointsRequest {
 }
 
 /**
+ * Converts an object of type 'MediaPackageListOriginEndpointsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageListOriginEndpointsRequest(obj: MediaPackageListOriginEndpointsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ChannelId': obj.channelId,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageListOriginEndpointsResponse
  */
 export interface MediaPackageListOriginEndpointsResponse {
@@ -723,15 +1136,44 @@ export interface MediaPackageListOriginEndpointsResponse {
 }
 
 /**
+ * Converts an object of type 'MediaPackageListOriginEndpointsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageListOriginEndpointsResponse(obj: MediaPackageListOriginEndpointsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'OriginEndpoints': obj.originEndpoints?.map(y => toJson_MediaPackageOriginEndpoint(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageListTagsForResourceRequest
  */
 export interface MediaPackageListTagsForResourceRequest {
   /**
    * @schema MediaPackageListTagsForResourceRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageListTagsForResourceRequest(obj: MediaPackageListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageListTagsForResourceResponse
@@ -745,15 +1187,43 @@ export interface MediaPackageListTagsForResourceResponse {
 }
 
 /**
+ * Converts an object of type 'MediaPackageListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageListTagsForResourceResponse(obj: MediaPackageListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageRotateChannelCredentialsRequest
  */
 export interface MediaPackageRotateChannelCredentialsRequest {
   /**
    * @schema MediaPackageRotateChannelCredentialsRequest#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageRotateChannelCredentialsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageRotateChannelCredentialsRequest(obj: MediaPackageRotateChannelCredentialsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageRotateChannelCredentialsResponse
@@ -797,20 +1267,55 @@ export interface MediaPackageRotateChannelCredentialsResponse {
 }
 
 /**
+ * Converts an object of type 'MediaPackageRotateChannelCredentialsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageRotateChannelCredentialsResponse(obj: MediaPackageRotateChannelCredentialsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Description': obj.description,
+    'EgressAccessLogs': toJson_MediaPackageEgressAccessLogs(obj.egressAccessLogs),
+    'HlsIngest': toJson_MediaPackageHlsIngest(obj.hlsIngest),
+    'Id': obj.id,
+    'IngressAccessLogs': toJson_MediaPackageIngressAccessLogs(obj.ingressAccessLogs),
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageRotateIngestEndpointCredentialsRequest
  */
 export interface MediaPackageRotateIngestEndpointCredentialsRequest {
   /**
    * @schema MediaPackageRotateIngestEndpointCredentialsRequest#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
   /**
    * @schema MediaPackageRotateIngestEndpointCredentialsRequest#IngestEndpointId
    */
-  readonly ingestEndpointId: string;
+  readonly ingestEndpointId?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageRotateIngestEndpointCredentialsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageRotateIngestEndpointCredentialsRequest(obj: MediaPackageRotateIngestEndpointCredentialsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+    'IngestEndpointId': obj.ingestEndpointId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageRotateIngestEndpointCredentialsResponse
@@ -854,20 +1359,55 @@ export interface MediaPackageRotateIngestEndpointCredentialsResponse {
 }
 
 /**
+ * Converts an object of type 'MediaPackageRotateIngestEndpointCredentialsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageRotateIngestEndpointCredentialsResponse(obj: MediaPackageRotateIngestEndpointCredentialsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Description': obj.description,
+    'EgressAccessLogs': toJson_MediaPackageEgressAccessLogs(obj.egressAccessLogs),
+    'HlsIngest': toJson_MediaPackageHlsIngest(obj.hlsIngest),
+    'Id': obj.id,
+    'IngressAccessLogs': toJson_MediaPackageIngressAccessLogs(obj.ingressAccessLogs),
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageTagResourceRequest
  */
 export interface MediaPackageTagResourceRequest {
   /**
    * @schema MediaPackageTagResourceRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema MediaPackageTagResourceRequest#Tags
    */
-  readonly tags: { [key: string]: string };
+  readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageTagResourceRequest(obj: MediaPackageTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageUntagResourceRequest
@@ -876,14 +1416,29 @@ export interface MediaPackageUntagResourceRequest {
   /**
    * @schema MediaPackageUntagResourceRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema MediaPackageUntagResourceRequest#TagKeys
    */
-  readonly tagKeys: string[];
+  readonly tagKeys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageUntagResourceRequest(obj: MediaPackageUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageUpdateChannelRequest
@@ -897,9 +1452,24 @@ export interface MediaPackageUpdateChannelRequest {
   /**
    * @schema MediaPackageUpdateChannelRequest#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageUpdateChannelRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageUpdateChannelRequest(obj: MediaPackageUpdateChannelRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Description': obj.description,
+    'Id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageUpdateChannelResponse
@@ -943,6 +1513,26 @@ export interface MediaPackageUpdateChannelResponse {
 }
 
 /**
+ * Converts an object of type 'MediaPackageUpdateChannelResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageUpdateChannelResponse(obj: MediaPackageUpdateChannelResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Description': obj.description,
+    'EgressAccessLogs': toJson_MediaPackageEgressAccessLogs(obj.egressAccessLogs),
+    'HlsIngest': toJson_MediaPackageHlsIngest(obj.hlsIngest),
+    'Id': obj.id,
+    'IngressAccessLogs': toJson_MediaPackageIngressAccessLogs(obj.ingressAccessLogs),
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageUpdateOriginEndpointRequest
  */
 export interface MediaPackageUpdateOriginEndpointRequest {
@@ -974,7 +1564,7 @@ export interface MediaPackageUpdateOriginEndpointRequest {
   /**
    * @schema MediaPackageUpdateOriginEndpointRequest#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
   /**
    * @schema MediaPackageUpdateOriginEndpointRequest#ManifestName
@@ -1007,6 +1597,31 @@ export interface MediaPackageUpdateOriginEndpointRequest {
   readonly whitelist?: string[];
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageUpdateOriginEndpointRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageUpdateOriginEndpointRequest(obj: MediaPackageUpdateOriginEndpointRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Authorization': toJson_MediaPackageAuthorization(obj.authorization),
+    'CmafPackage': toJson_MediaPackageCmafPackageCreateOrUpdateParameters(obj.cmafPackage),
+    'DashPackage': toJson_MediaPackageDashPackage(obj.dashPackage),
+    'Description': obj.description,
+    'HlsPackage': toJson_MediaPackageHlsPackage(obj.hlsPackage),
+    'Id': obj.id,
+    'ManifestName': obj.manifestName,
+    'MssPackage': toJson_MediaPackageMssPackage(obj.mssPackage),
+    'Origination': obj.origination,
+    'StartoverWindowSeconds': obj.startoverWindowSeconds,
+    'TimeDelaySeconds': obj.timeDelaySeconds,
+    'Whitelist': obj.whitelist?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageUpdateOriginEndpointResponse
@@ -1095,6 +1710,35 @@ export interface MediaPackageUpdateOriginEndpointResponse {
 }
 
 /**
+ * Converts an object of type 'MediaPackageUpdateOriginEndpointResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageUpdateOriginEndpointResponse(obj: MediaPackageUpdateOriginEndpointResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Authorization': toJson_MediaPackageAuthorization(obj.authorization),
+    'ChannelId': obj.channelId,
+    'CmafPackage': toJson_MediaPackageCmafPackage(obj.cmafPackage),
+    'DashPackage': toJson_MediaPackageDashPackage(obj.dashPackage),
+    'Description': obj.description,
+    'HlsPackage': toJson_MediaPackageHlsPackage(obj.hlsPackage),
+    'Id': obj.id,
+    'ManifestName': obj.manifestName,
+    'MssPackage': toJson_MediaPackageMssPackage(obj.mssPackage),
+    'Origination': obj.origination,
+    'StartoverWindowSeconds': obj.startoverWindowSeconds,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'TimeDelaySeconds': obj.timeDelaySeconds,
+    'Url': obj.url,
+    'Whitelist': obj.whitelist?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageEgressAccessLogs
  */
 export interface MediaPackageEgressAccessLogs {
@@ -1104,6 +1748,20 @@ export interface MediaPackageEgressAccessLogs {
   readonly logGroupName?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageEgressAccessLogs' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageEgressAccessLogs(obj: MediaPackageEgressAccessLogs | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LogGroupName': obj.logGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageIngressAccessLogs
@@ -1117,6 +1775,20 @@ export interface MediaPackageIngressAccessLogs {
 }
 
 /**
+ * Converts an object of type 'MediaPackageIngressAccessLogs' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageIngressAccessLogs(obj: MediaPackageIngressAccessLogs | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LogGroupName': obj.logGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageHlsIngest
  */
 export interface MediaPackageHlsIngest {
@@ -1128,25 +1800,55 @@ export interface MediaPackageHlsIngest {
 }
 
 /**
+ * Converts an object of type 'MediaPackageHlsIngest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageHlsIngest(obj: MediaPackageHlsIngest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IngestEndpoints': obj.ingestEndpoints?.map(y => toJson_MediaPackageIngestEndpoint(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageS3Destination
  */
 export interface MediaPackageS3Destination {
   /**
    * @schema MediaPackageS3Destination#BucketName
    */
-  readonly bucketName: string;
+  readonly bucketName?: string;
 
   /**
    * @schema MediaPackageS3Destination#ManifestKey
    */
-  readonly manifestKey: string;
+  readonly manifestKey?: string;
 
   /**
    * @schema MediaPackageS3Destination#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageS3Destination' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageS3Destination(obj: MediaPackageS3Destination | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BucketName': obj.bucketName,
+    'ManifestKey': obj.manifestKey,
+    'RoleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageAuthorization
@@ -1155,14 +1857,29 @@ export interface MediaPackageAuthorization {
   /**
    * @schema MediaPackageAuthorization#CdnIdentifierSecret
    */
-  readonly cdnIdentifierSecret: string;
+  readonly cdnIdentifierSecret?: string;
 
   /**
    * @schema MediaPackageAuthorization#SecretsRoleArn
    */
-  readonly secretsRoleArn: string;
+  readonly secretsRoleArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageAuthorization' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageAuthorization(obj: MediaPackageAuthorization | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CdnIdentifierSecret': obj.cdnIdentifierSecret,
+    'SecretsRoleArn': obj.secretsRoleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageCmafPackageCreateOrUpdateParameters
@@ -1194,6 +1911,24 @@ export interface MediaPackageCmafPackageCreateOrUpdateParameters {
   readonly streamSelection?: MediaPackageStreamSelection;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageCmafPackageCreateOrUpdateParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageCmafPackageCreateOrUpdateParameters(obj: MediaPackageCmafPackageCreateOrUpdateParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Encryption': toJson_MediaPackageCmafEncryption(obj.encryption),
+    'HlsManifests': obj.hlsManifests?.map(y => toJson_MediaPackageHlsManifestCreateOrUpdateParameters(y)),
+    'SegmentDurationSeconds': obj.segmentDurationSeconds,
+    'SegmentPrefix': obj.segmentPrefix,
+    'StreamSelection': toJson_MediaPackageStreamSelection(obj.streamSelection),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageDashPackage
@@ -1277,6 +2012,34 @@ export interface MediaPackageDashPackage {
 }
 
 /**
+ * Converts an object of type 'MediaPackageDashPackage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageDashPackage(obj: MediaPackageDashPackage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AdTriggers': obj.adTriggers?.map(y => y),
+    'AdsOnDeliveryRestrictions': obj.adsOnDeliveryRestrictions,
+    'Encryption': toJson_MediaPackageDashEncryption(obj.encryption),
+    'ManifestLayout': obj.manifestLayout,
+    'ManifestWindowSeconds': obj.manifestWindowSeconds,
+    'MinBufferTimeSeconds': obj.minBufferTimeSeconds,
+    'MinUpdatePeriodSeconds': obj.minUpdatePeriodSeconds,
+    'PeriodTriggers': obj.periodTriggers?.map(y => y),
+    'Profile': obj.profile,
+    'SegmentDurationSeconds': obj.segmentDurationSeconds,
+    'SegmentTemplateFormat': obj.segmentTemplateFormat,
+    'StreamSelection': toJson_MediaPackageStreamSelection(obj.streamSelection),
+    'SuggestedPresentationDelaySeconds': obj.suggestedPresentationDelaySeconds,
+    'UtcTiming': obj.utcTiming,
+    'UtcTimingUri': obj.utcTimingUri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageHlsPackage
  */
 export interface MediaPackageHlsPackage {
@@ -1338,6 +2101,30 @@ export interface MediaPackageHlsPackage {
 }
 
 /**
+ * Converts an object of type 'MediaPackageHlsPackage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageHlsPackage(obj: MediaPackageHlsPackage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AdMarkers': obj.adMarkers,
+    'AdTriggers': obj.adTriggers?.map(y => y),
+    'AdsOnDeliveryRestrictions': obj.adsOnDeliveryRestrictions,
+    'Encryption': toJson_MediaPackageHlsEncryption(obj.encryption),
+    'IncludeIframeOnlyStream': obj.includeIframeOnlyStream,
+    'PlaylistType': obj.playlistType,
+    'PlaylistWindowSeconds': obj.playlistWindowSeconds,
+    'ProgramDateTimeIntervalSeconds': obj.programDateTimeIntervalSeconds,
+    'SegmentDurationSeconds': obj.segmentDurationSeconds,
+    'StreamSelection': toJson_MediaPackageStreamSelection(obj.streamSelection),
+    'UseAudioRenditionGroup': obj.useAudioRenditionGroup,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageMssPackage
  */
 export interface MediaPackageMssPackage {
@@ -1362,6 +2149,23 @@ export interface MediaPackageMssPackage {
   readonly streamSelection?: MediaPackageStreamSelection;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageMssPackage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageMssPackage(obj: MediaPackageMssPackage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Encryption': toJson_MediaPackageMssEncryption(obj.encryption),
+    'ManifestWindowSeconds': obj.manifestWindowSeconds,
+    'SegmentDurationSeconds': obj.segmentDurationSeconds,
+    'StreamSelection': toJson_MediaPackageStreamSelection(obj.streamSelection),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageCmafPackage
@@ -1393,6 +2197,24 @@ export interface MediaPackageCmafPackage {
   readonly streamSelection?: MediaPackageStreamSelection;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageCmafPackage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageCmafPackage(obj: MediaPackageCmafPackage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Encryption': toJson_MediaPackageCmafEncryption(obj.encryption),
+    'HlsManifests': obj.hlsManifests?.map(y => toJson_MediaPackageHlsManifest(y)),
+    'SegmentDurationSeconds': obj.segmentDurationSeconds,
+    'SegmentPrefix': obj.segmentPrefix,
+    'StreamSelection': toJson_MediaPackageStreamSelection(obj.streamSelection),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageChannel
@@ -1434,6 +2256,26 @@ export interface MediaPackageChannel {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageChannel' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageChannel(obj: MediaPackageChannel | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Description': obj.description,
+    'EgressAccessLogs': toJson_MediaPackageEgressAccessLogs(obj.egressAccessLogs),
+    'HlsIngest': toJson_MediaPackageHlsIngest(obj.hlsIngest),
+    'Id': obj.id,
+    'IngressAccessLogs': toJson_MediaPackageIngressAccessLogs(obj.ingressAccessLogs),
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageHarvestJob
@@ -1485,6 +2327,28 @@ export interface MediaPackageHarvestJob {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageHarvestJob' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageHarvestJob(obj: MediaPackageHarvestJob | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'ChannelId': obj.channelId,
+    'CreatedAt': obj.createdAt,
+    'EndTime': obj.endTime,
+    'Id': obj.id,
+    'OriginEndpointId': obj.originEndpointId,
+    'S3Destination': toJson_MediaPackageS3Destination(obj.s3Destination),
+    'StartTime': obj.startTime,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageOriginEndpoint
@@ -1573,6 +2437,35 @@ export interface MediaPackageOriginEndpoint {
 }
 
 /**
+ * Converts an object of type 'MediaPackageOriginEndpoint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageOriginEndpoint(obj: MediaPackageOriginEndpoint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Authorization': toJson_MediaPackageAuthorization(obj.authorization),
+    'ChannelId': obj.channelId,
+    'CmafPackage': toJson_MediaPackageCmafPackage(obj.cmafPackage),
+    'DashPackage': toJson_MediaPackageDashPackage(obj.dashPackage),
+    'Description': obj.description,
+    'HlsPackage': toJson_MediaPackageHlsPackage(obj.hlsPackage),
+    'Id': obj.id,
+    'ManifestName': obj.manifestName,
+    'MssPackage': toJson_MediaPackageMssPackage(obj.mssPackage),
+    'Origination': obj.origination,
+    'StartoverWindowSeconds': obj.startoverWindowSeconds,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'TimeDelaySeconds': obj.timeDelaySeconds,
+    'Url': obj.url,
+    'Whitelist': obj.whitelist?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageIngestEndpoint
  */
 export interface MediaPackageIngestEndpoint {
@@ -1599,9 +2492,31 @@ export interface MediaPackageIngestEndpoint {
 }
 
 /**
+ * Converts an object of type 'MediaPackageIngestEndpoint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageIngestEndpoint(obj: MediaPackageIngestEndpoint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+    'Password': obj.password,
+    'Url': obj.url,
+    'Username': obj.username,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageCmafEncryption
  */
 export interface MediaPackageCmafEncryption {
+  /**
+   * @schema MediaPackageCmafEncryption#ConstantInitializationVector
+   */
+  readonly constantInitializationVector?: string;
+
   /**
    * @schema MediaPackageCmafEncryption#KeyRotationIntervalSeconds
    */
@@ -1610,9 +2525,25 @@ export interface MediaPackageCmafEncryption {
   /**
    * @schema MediaPackageCmafEncryption#SpekeKeyProvider
    */
-  readonly spekeKeyProvider: MediaPackageSpekeKeyProvider;
+  readonly spekeKeyProvider?: MediaPackageSpekeKeyProvider;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageCmafEncryption' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageCmafEncryption(obj: MediaPackageCmafEncryption | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConstantInitializationVector': obj.constantInitializationVector,
+    'KeyRotationIntervalSeconds': obj.keyRotationIntervalSeconds,
+    'SpekeKeyProvider': toJson_MediaPackageSpekeKeyProvider(obj.spekeKeyProvider),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageHlsManifestCreateOrUpdateParameters
@@ -1636,7 +2567,7 @@ export interface MediaPackageHlsManifestCreateOrUpdateParameters {
   /**
    * @schema MediaPackageHlsManifestCreateOrUpdateParameters#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
   /**
    * @schema MediaPackageHlsManifestCreateOrUpdateParameters#IncludeIframeOnlyStream
@@ -1666,6 +2597,28 @@ export interface MediaPackageHlsManifestCreateOrUpdateParameters {
 }
 
 /**
+ * Converts an object of type 'MediaPackageHlsManifestCreateOrUpdateParameters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageHlsManifestCreateOrUpdateParameters(obj: MediaPackageHlsManifestCreateOrUpdateParameters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AdMarkers': obj.adMarkers,
+    'AdTriggers': obj.adTriggers?.map(y => y),
+    'AdsOnDeliveryRestrictions': obj.adsOnDeliveryRestrictions,
+    'Id': obj.id,
+    'IncludeIframeOnlyStream': obj.includeIframeOnlyStream,
+    'ManifestName': obj.manifestName,
+    'PlaylistType': obj.playlistType,
+    'PlaylistWindowSeconds': obj.playlistWindowSeconds,
+    'ProgramDateTimeIntervalSeconds': obj.programDateTimeIntervalSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageStreamSelection
  */
 export interface MediaPackageStreamSelection {
@@ -1687,6 +2640,22 @@ export interface MediaPackageStreamSelection {
 }
 
 /**
+ * Converts an object of type 'MediaPackageStreamSelection' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageStreamSelection(obj: MediaPackageStreamSelection | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxVideoBitsPerSecond': obj.maxVideoBitsPerSecond,
+    'MinVideoBitsPerSecond': obj.minVideoBitsPerSecond,
+    'StreamOrder': obj.streamOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageDashEncryption
  */
 export interface MediaPackageDashEncryption {
@@ -1698,9 +2667,24 @@ export interface MediaPackageDashEncryption {
   /**
    * @schema MediaPackageDashEncryption#SpekeKeyProvider
    */
-  readonly spekeKeyProvider: MediaPackageSpekeKeyProvider;
+  readonly spekeKeyProvider?: MediaPackageSpekeKeyProvider;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageDashEncryption' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageDashEncryption(obj: MediaPackageDashEncryption | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'KeyRotationIntervalSeconds': obj.keyRotationIntervalSeconds,
+    'SpekeKeyProvider': toJson_MediaPackageSpekeKeyProvider(obj.spekeKeyProvider),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageHlsEncryption
@@ -1729,9 +2713,27 @@ export interface MediaPackageHlsEncryption {
   /**
    * @schema MediaPackageHlsEncryption#SpekeKeyProvider
    */
-  readonly spekeKeyProvider: MediaPackageSpekeKeyProvider;
+  readonly spekeKeyProvider?: MediaPackageSpekeKeyProvider;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageHlsEncryption' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageHlsEncryption(obj: MediaPackageHlsEncryption | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConstantInitializationVector': obj.constantInitializationVector,
+    'EncryptionMethod': obj.encryptionMethod,
+    'KeyRotationIntervalSeconds': obj.keyRotationIntervalSeconds,
+    'RepeatExtXKey': obj.repeatExtXKey,
+    'SpekeKeyProvider': toJson_MediaPackageSpekeKeyProvider(obj.spekeKeyProvider),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageMssEncryption
@@ -1740,9 +2742,23 @@ export interface MediaPackageMssEncryption {
   /**
    * @schema MediaPackageMssEncryption#SpekeKeyProvider
    */
-  readonly spekeKeyProvider: MediaPackageSpekeKeyProvider;
+  readonly spekeKeyProvider?: MediaPackageSpekeKeyProvider;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageMssEncryption' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageMssEncryption(obj: MediaPackageMssEncryption | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SpekeKeyProvider': toJson_MediaPackageSpekeKeyProvider(obj.spekeKeyProvider),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaPackageHlsManifest
@@ -1756,7 +2772,7 @@ export interface MediaPackageHlsManifest {
   /**
    * @schema MediaPackageHlsManifest#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
   /**
    * @schema MediaPackageHlsManifest#IncludeIframeOnlyStream
@@ -1791,6 +2807,27 @@ export interface MediaPackageHlsManifest {
 }
 
 /**
+ * Converts an object of type 'MediaPackageHlsManifest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageHlsManifest(obj: MediaPackageHlsManifest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AdMarkers': obj.adMarkers,
+    'Id': obj.id,
+    'IncludeIframeOnlyStream': obj.includeIframeOnlyStream,
+    'ManifestName': obj.manifestName,
+    'PlaylistType': obj.playlistType,
+    'PlaylistWindowSeconds': obj.playlistWindowSeconds,
+    'ProgramDateTimeIntervalSeconds': obj.programDateTimeIntervalSeconds,
+    'Url': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaPackageSpekeKeyProvider
  */
 export interface MediaPackageSpekeKeyProvider {
@@ -1800,23 +2837,78 @@ export interface MediaPackageSpekeKeyProvider {
   readonly certificateArn?: string;
 
   /**
+   * @schema MediaPackageSpekeKeyProvider#EncryptionContractConfiguration
+   */
+  readonly encryptionContractConfiguration?: MediaPackageEncryptionContractConfiguration;
+
+  /**
    * @schema MediaPackageSpekeKeyProvider#ResourceId
    */
-  readonly resourceId: string;
+  readonly resourceId?: string;
 
   /**
    * @schema MediaPackageSpekeKeyProvider#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema MediaPackageSpekeKeyProvider#SystemIds
    */
-  readonly systemIds: string[];
+  readonly systemIds?: string[];
 
   /**
    * @schema MediaPackageSpekeKeyProvider#Url
    */
-  readonly url: string;
+  readonly url?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaPackageSpekeKeyProvider' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageSpekeKeyProvider(obj: MediaPackageSpekeKeyProvider | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CertificateArn': obj.certificateArn,
+    'EncryptionContractConfiguration': toJson_MediaPackageEncryptionContractConfiguration(obj.encryptionContractConfiguration),
+    'ResourceId': obj.resourceId,
+    'RoleArn': obj.roleArn,
+    'SystemIds': obj.systemIds?.map(y => y),
+    'Url': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema MediaPackageEncryptionContractConfiguration
+ */
+export interface MediaPackageEncryptionContractConfiguration {
+  /**
+   * @schema MediaPackageEncryptionContractConfiguration#PresetSpeke20Audio
+   */
+  readonly presetSpeke20Audio?: string;
+
+  /**
+   * @schema MediaPackageEncryptionContractConfiguration#PresetSpeke20Video
+   */
+  readonly presetSpeke20Video?: string;
+
+}
+
+/**
+ * Converts an object of type 'MediaPackageEncryptionContractConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaPackageEncryptionContractConfiguration(obj: MediaPackageEncryptionContractConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PresetSpeke20Audio': obj.presetSpeke20Audio,
+    'PresetSpeke20Video': obj.presetSpeke20Video,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

@@ -294,6 +294,10 @@ export class KmsClient extends cdk.Construct {
     return new KMSResponsesReEncrypt(this, this.__resources, input);
   }
 
+  public replicateKey(input: shapes.KmsReplicateKeyRequest): KMSResponsesReplicateKey {
+    return new KMSResponsesReplicateKey(this, this.__resources, input);
+  }
+
   public retireGrant(input: shapes.KmsRetireGrantRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -415,6 +419,22 @@ export class KmsClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'UpdateKeyDescription', props);
+  }
+
+  public updatePrimaryRegion(input: shapes.KmsUpdatePrimaryRegionRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updatePrimaryRegion',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.UpdatePrimaryRegion'),
+        parameters: {
+          KeyId: input.keyId,
+          PrimaryRegion: input.primaryRegion,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdatePrimaryRegion', props);
   }
 
   public verify(input: shapes.KmsVerifyRequest): KMSResponsesVerify {
@@ -566,6 +586,7 @@ export class KMSResponsesCreateKeyKeyMetadata {
           CustomKeyStoreId: this.__input.customKeyStoreId,
           BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
           Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -590,6 +611,7 @@ export class KMSResponsesCreateKeyKeyMetadata {
           CustomKeyStoreId: this.__input.customKeyStoreId,
           BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
           Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -614,6 +636,7 @@ export class KMSResponsesCreateKeyKeyMetadata {
           CustomKeyStoreId: this.__input.customKeyStoreId,
           BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
           Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -638,6 +661,7 @@ export class KMSResponsesCreateKeyKeyMetadata {
           CustomKeyStoreId: this.__input.customKeyStoreId,
           BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
           Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -662,6 +686,7 @@ export class KMSResponsesCreateKeyKeyMetadata {
           CustomKeyStoreId: this.__input.customKeyStoreId,
           BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
           Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -686,6 +711,7 @@ export class KMSResponsesCreateKeyKeyMetadata {
           CustomKeyStoreId: this.__input.customKeyStoreId,
           BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
           Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -710,6 +736,7 @@ export class KMSResponsesCreateKeyKeyMetadata {
           CustomKeyStoreId: this.__input.customKeyStoreId,
           BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
           Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -734,6 +761,7 @@ export class KMSResponsesCreateKeyKeyMetadata {
           CustomKeyStoreId: this.__input.customKeyStoreId,
           BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
           Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -758,6 +786,7 @@ export class KMSResponsesCreateKeyKeyMetadata {
           CustomKeyStoreId: this.__input.customKeyStoreId,
           BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
           Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -782,6 +811,7 @@ export class KMSResponsesCreateKeyKeyMetadata {
           CustomKeyStoreId: this.__input.customKeyStoreId,
           BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
           Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -806,6 +836,7 @@ export class KMSResponsesCreateKeyKeyMetadata {
           CustomKeyStoreId: this.__input.customKeyStoreId,
           BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
           Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -830,6 +861,7 @@ export class KMSResponsesCreateKeyKeyMetadata {
           CustomKeyStoreId: this.__input.customKeyStoreId,
           BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
           Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -854,6 +886,7 @@ export class KMSResponsesCreateKeyKeyMetadata {
           CustomKeyStoreId: this.__input.customKeyStoreId,
           BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
           Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -878,6 +911,7 @@ export class KMSResponsesCreateKeyKeyMetadata {
           CustomKeyStoreId: this.__input.customKeyStoreId,
           BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
           Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -902,6 +936,7 @@ export class KMSResponsesCreateKeyKeyMetadata {
           CustomKeyStoreId: this.__input.customKeyStoreId,
           BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
           Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -926,6 +961,7 @@ export class KMSResponsesCreateKeyKeyMetadata {
           CustomKeyStoreId: this.__input.customKeyStoreId,
           BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
           Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -950,6 +986,7 @@ export class KMSResponsesCreateKeyKeyMetadata {
           CustomKeyStoreId: this.__input.customKeyStoreId,
           BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
           Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -974,11 +1011,184 @@ export class KMSResponsesCreateKeyKeyMetadata {
           CustomKeyStoreId: this.__input.customKeyStoreId,
           BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
           Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateKey.KeyMetadata.SigningAlgorithms', props);
     return resource.getResponseField('KeyMetadata.SigningAlgorithms') as unknown as string[];
+  }
+
+  public get multiRegion(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.CreateKey.KeyMetadata.MultiRegion'),
+        outputPath: 'KeyMetadata.MultiRegion',
+        parameters: {
+          Policy: this.__input.policy,
+          Description: this.__input.description,
+          KeyUsage: this.__input.keyUsage,
+          CustomerMasterKeySpec: this.__input.customerMasterKeySpec,
+          Origin: this.__input.origin,
+          CustomKeyStoreId: this.__input.customKeyStoreId,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKey.KeyMetadata.MultiRegion', props);
+    return resource.getResponseField('KeyMetadata.MultiRegion') as unknown as boolean;
+  }
+
+  public get multiRegionConfiguration(): KMSResponsesCreateKeyKeyMetadataMultiRegionConfiguration {
+    return new KMSResponsesCreateKeyKeyMetadataMultiRegionConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get pendingDeletionWindowInDays(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.CreateKey.KeyMetadata.PendingDeletionWindowInDays'),
+        outputPath: 'KeyMetadata.PendingDeletionWindowInDays',
+        parameters: {
+          Policy: this.__input.policy,
+          Description: this.__input.description,
+          KeyUsage: this.__input.keyUsage,
+          CustomerMasterKeySpec: this.__input.customerMasterKeySpec,
+          Origin: this.__input.origin,
+          CustomKeyStoreId: this.__input.customKeyStoreId,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKey.KeyMetadata.PendingDeletionWindowInDays', props);
+    return resource.getResponseField('KeyMetadata.PendingDeletionWindowInDays') as unknown as number;
+  }
+
+}
+
+export class KMSResponsesCreateKeyKeyMetadataMultiRegionConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KmsCreateKeyRequest) {
+  }
+
+  public get multiRegionKeyType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.CreateKey.KeyMetadata.MultiRegionConfiguration.MultiRegionKeyType'),
+        outputPath: 'KeyMetadata.MultiRegionConfiguration.MultiRegionKeyType',
+        parameters: {
+          Policy: this.__input.policy,
+          Description: this.__input.description,
+          KeyUsage: this.__input.keyUsage,
+          CustomerMasterKeySpec: this.__input.customerMasterKeySpec,
+          Origin: this.__input.origin,
+          CustomKeyStoreId: this.__input.customKeyStoreId,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKey.KeyMetadata.MultiRegionConfiguration.MultiRegionKeyType', props);
+    return resource.getResponseField('KeyMetadata.MultiRegionConfiguration.MultiRegionKeyType') as unknown as string;
+  }
+
+  public get primaryKey(): KMSResponsesCreateKeyKeyMetadataMultiRegionConfigurationPrimaryKey {
+    return new KMSResponsesCreateKeyKeyMetadataMultiRegionConfigurationPrimaryKey(this.__scope, this.__resources, this.__input);
+  }
+
+  public get replicaKeys(): shapes.KmsMultiRegionKey[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.CreateKey.KeyMetadata.MultiRegionConfiguration.ReplicaKeys'),
+        outputPath: 'KeyMetadata.MultiRegionConfiguration.ReplicaKeys',
+        parameters: {
+          Policy: this.__input.policy,
+          Description: this.__input.description,
+          KeyUsage: this.__input.keyUsage,
+          CustomerMasterKeySpec: this.__input.customerMasterKeySpec,
+          Origin: this.__input.origin,
+          CustomKeyStoreId: this.__input.customKeyStoreId,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKey.KeyMetadata.MultiRegionConfiguration.ReplicaKeys', props);
+    return resource.getResponseField('KeyMetadata.MultiRegionConfiguration.ReplicaKeys') as unknown as shapes.KmsMultiRegionKey[];
+  }
+
+}
+
+export class KMSResponsesCreateKeyKeyMetadataMultiRegionConfigurationPrimaryKey {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KmsCreateKeyRequest) {
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.CreateKey.KeyMetadata.MultiRegionConfiguration.PrimaryKey.Arn'),
+        outputPath: 'KeyMetadata.MultiRegionConfiguration.PrimaryKey.Arn',
+        parameters: {
+          Policy: this.__input.policy,
+          Description: this.__input.description,
+          KeyUsage: this.__input.keyUsage,
+          CustomerMasterKeySpec: this.__input.customerMasterKeySpec,
+          Origin: this.__input.origin,
+          CustomKeyStoreId: this.__input.customKeyStoreId,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKey.KeyMetadata.MultiRegionConfiguration.PrimaryKey.Arn', props);
+    return resource.getResponseField('KeyMetadata.MultiRegionConfiguration.PrimaryKey.Arn') as unknown as string;
+  }
+
+  public get region(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.CreateKey.KeyMetadata.MultiRegionConfiguration.PrimaryKey.Region'),
+        outputPath: 'KeyMetadata.MultiRegionConfiguration.PrimaryKey.Region',
+        parameters: {
+          Policy: this.__input.policy,
+          Description: this.__input.description,
+          KeyUsage: this.__input.keyUsage,
+          CustomerMasterKeySpec: this.__input.customerMasterKeySpec,
+          Origin: this.__input.origin,
+          CustomKeyStoreId: this.__input.customKeyStoreId,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Tags: this.__input.tags,
+          MultiRegion: this.__input.multiRegion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateKey.KeyMetadata.MultiRegionConfiguration.PrimaryKey.Region', props);
+    return resource.getResponseField('KeyMetadata.MultiRegionConfiguration.PrimaryKey.Region') as unknown as string;
   }
 
 }
@@ -1461,6 +1671,136 @@ export class KMSResponsesDescribeKeyKeyMetadata {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeKey.KeyMetadata.SigningAlgorithms', props);
     return resource.getResponseField('KeyMetadata.SigningAlgorithms') as unknown as string[];
+  }
+
+  public get multiRegion(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.DescribeKey.KeyMetadata.MultiRegion'),
+        outputPath: 'KeyMetadata.MultiRegion',
+        parameters: {
+          KeyId: this.__input.keyId,
+          GrantTokens: this.__input.grantTokens,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeKey.KeyMetadata.MultiRegion', props);
+    return resource.getResponseField('KeyMetadata.MultiRegion') as unknown as boolean;
+  }
+
+  public get multiRegionConfiguration(): KMSResponsesDescribeKeyKeyMetadataMultiRegionConfiguration {
+    return new KMSResponsesDescribeKeyKeyMetadataMultiRegionConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get pendingDeletionWindowInDays(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.DescribeKey.KeyMetadata.PendingDeletionWindowInDays'),
+        outputPath: 'KeyMetadata.PendingDeletionWindowInDays',
+        parameters: {
+          KeyId: this.__input.keyId,
+          GrantTokens: this.__input.grantTokens,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeKey.KeyMetadata.PendingDeletionWindowInDays', props);
+    return resource.getResponseField('KeyMetadata.PendingDeletionWindowInDays') as unknown as number;
+  }
+
+}
+
+export class KMSResponsesDescribeKeyKeyMetadataMultiRegionConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KmsDescribeKeyRequest) {
+  }
+
+  public get multiRegionKeyType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.DescribeKey.KeyMetadata.MultiRegionConfiguration.MultiRegionKeyType'),
+        outputPath: 'KeyMetadata.MultiRegionConfiguration.MultiRegionKeyType',
+        parameters: {
+          KeyId: this.__input.keyId,
+          GrantTokens: this.__input.grantTokens,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeKey.KeyMetadata.MultiRegionConfiguration.MultiRegionKeyType', props);
+    return resource.getResponseField('KeyMetadata.MultiRegionConfiguration.MultiRegionKeyType') as unknown as string;
+  }
+
+  public get primaryKey(): KMSResponsesDescribeKeyKeyMetadataMultiRegionConfigurationPrimaryKey {
+    return new KMSResponsesDescribeKeyKeyMetadataMultiRegionConfigurationPrimaryKey(this.__scope, this.__resources, this.__input);
+  }
+
+  public get replicaKeys(): shapes.KmsMultiRegionKey[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.DescribeKey.KeyMetadata.MultiRegionConfiguration.ReplicaKeys'),
+        outputPath: 'KeyMetadata.MultiRegionConfiguration.ReplicaKeys',
+        parameters: {
+          KeyId: this.__input.keyId,
+          GrantTokens: this.__input.grantTokens,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeKey.KeyMetadata.MultiRegionConfiguration.ReplicaKeys', props);
+    return resource.getResponseField('KeyMetadata.MultiRegionConfiguration.ReplicaKeys') as unknown as shapes.KmsMultiRegionKey[];
+  }
+
+}
+
+export class KMSResponsesDescribeKeyKeyMetadataMultiRegionConfigurationPrimaryKey {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KmsDescribeKeyRequest) {
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.DescribeKey.KeyMetadata.MultiRegionConfiguration.PrimaryKey.Arn'),
+        outputPath: 'KeyMetadata.MultiRegionConfiguration.PrimaryKey.Arn',
+        parameters: {
+          KeyId: this.__input.keyId,
+          GrantTokens: this.__input.grantTokens,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeKey.KeyMetadata.MultiRegionConfiguration.PrimaryKey.Arn', props);
+    return resource.getResponseField('KeyMetadata.MultiRegionConfiguration.PrimaryKey.Arn') as unknown as string;
+  }
+
+  public get region(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.DescribeKey.KeyMetadata.MultiRegionConfiguration.PrimaryKey.Region'),
+        outputPath: 'KeyMetadata.MultiRegionConfiguration.PrimaryKey.Region',
+        parameters: {
+          KeyId: this.__input.keyId,
+          GrantTokens: this.__input.grantTokens,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeKey.KeyMetadata.MultiRegionConfiguration.PrimaryKey.Region', props);
+    return resource.getResponseField('KeyMetadata.MultiRegionConfiguration.PrimaryKey.Region') as unknown as string;
   }
 
 }
@@ -2204,6 +2544,8 @@ export class KMSResponsesListGrants {
           Limit: this.__input.limit,
           Marker: this.__input.marker,
           KeyId: this.__input.keyId,
+          GrantId: this.__input.grantId,
+          GranteePrincipal: this.__input.granteePrincipal,
         },
       },
     };
@@ -2223,6 +2565,8 @@ export class KMSResponsesListGrants {
           Limit: this.__input.limit,
           Marker: this.__input.marker,
           KeyId: this.__input.keyId,
+          GrantId: this.__input.grantId,
+          GranteePrincipal: this.__input.granteePrincipal,
         },
       },
     };
@@ -2242,6 +2586,8 @@ export class KMSResponsesListGrants {
           Limit: this.__input.limit,
           Marker: this.__input.marker,
           KeyId: this.__input.keyId,
+          GrantId: this.__input.grantId,
+          GranteePrincipal: this.__input.granteePrincipal,
         },
       },
     };
@@ -2636,6 +2982,618 @@ export class KMSResponsesReEncrypt {
 
 }
 
+export class KMSResponsesReplicateKey {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KmsReplicateKeyRequest) {
+  }
+
+  public get replicaKeyMetadata(): KMSResponsesReplicateKeyReplicaKeyMetadata {
+    return new KMSResponsesReplicateKeyReplicaKeyMetadata(this.__scope, this.__resources, this.__input);
+  }
+
+  public get replicaPolicy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaPolicy'),
+        outputPath: 'ReplicaPolicy',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaPolicy', props);
+    return resource.getResponseField('ReplicaPolicy') as unknown as string;
+  }
+
+  public get replicaTags(): shapes.KmsTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaTags'),
+        outputPath: 'ReplicaTags',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaTags', props);
+    return resource.getResponseField('ReplicaTags') as unknown as shapes.KmsTag[];
+  }
+
+}
+
+export class KMSResponsesReplicateKeyReplicaKeyMetadata {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KmsReplicateKeyRequest) {
+  }
+
+  public get awsAccountId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.AWSAccountId'),
+        outputPath: 'ReplicaKeyMetadata.AWSAccountId',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.AWSAccountId', props);
+    return resource.getResponseField('ReplicaKeyMetadata.AWSAccountId') as unknown as string;
+  }
+
+  public get keyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.KeyId'),
+        outputPath: 'ReplicaKeyMetadata.KeyId',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.KeyId', props);
+    return resource.getResponseField('ReplicaKeyMetadata.KeyId') as unknown as string;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.Arn'),
+        outputPath: 'ReplicaKeyMetadata.Arn',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.Arn', props);
+    return resource.getResponseField('ReplicaKeyMetadata.Arn') as unknown as string;
+  }
+
+  public get creationDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.CreationDate'),
+        outputPath: 'ReplicaKeyMetadata.CreationDate',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.CreationDate', props);
+    return resource.getResponseField('ReplicaKeyMetadata.CreationDate') as unknown as string;
+  }
+
+  public get enabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.Enabled'),
+        outputPath: 'ReplicaKeyMetadata.Enabled',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.Enabled', props);
+    return resource.getResponseField('ReplicaKeyMetadata.Enabled') as unknown as boolean;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.Description'),
+        outputPath: 'ReplicaKeyMetadata.Description',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.Description', props);
+    return resource.getResponseField('ReplicaKeyMetadata.Description') as unknown as string;
+  }
+
+  public get keyUsage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.KeyUsage'),
+        outputPath: 'ReplicaKeyMetadata.KeyUsage',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.KeyUsage', props);
+    return resource.getResponseField('ReplicaKeyMetadata.KeyUsage') as unknown as string;
+  }
+
+  public get keyState(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.KeyState'),
+        outputPath: 'ReplicaKeyMetadata.KeyState',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.KeyState', props);
+    return resource.getResponseField('ReplicaKeyMetadata.KeyState') as unknown as string;
+  }
+
+  public get deletionDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.DeletionDate'),
+        outputPath: 'ReplicaKeyMetadata.DeletionDate',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.DeletionDate', props);
+    return resource.getResponseField('ReplicaKeyMetadata.DeletionDate') as unknown as string;
+  }
+
+  public get validTo(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.ValidTo'),
+        outputPath: 'ReplicaKeyMetadata.ValidTo',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.ValidTo', props);
+    return resource.getResponseField('ReplicaKeyMetadata.ValidTo') as unknown as string;
+  }
+
+  public get origin(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.Origin'),
+        outputPath: 'ReplicaKeyMetadata.Origin',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.Origin', props);
+    return resource.getResponseField('ReplicaKeyMetadata.Origin') as unknown as string;
+  }
+
+  public get customKeyStoreId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.CustomKeyStoreId'),
+        outputPath: 'ReplicaKeyMetadata.CustomKeyStoreId',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.CustomKeyStoreId', props);
+    return resource.getResponseField('ReplicaKeyMetadata.CustomKeyStoreId') as unknown as string;
+  }
+
+  public get cloudHsmClusterId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.CloudHsmClusterId'),
+        outputPath: 'ReplicaKeyMetadata.CloudHsmClusterId',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.CloudHsmClusterId', props);
+    return resource.getResponseField('ReplicaKeyMetadata.CloudHsmClusterId') as unknown as string;
+  }
+
+  public get expirationModel(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.ExpirationModel'),
+        outputPath: 'ReplicaKeyMetadata.ExpirationModel',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.ExpirationModel', props);
+    return resource.getResponseField('ReplicaKeyMetadata.ExpirationModel') as unknown as string;
+  }
+
+  public get keyManager(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.KeyManager'),
+        outputPath: 'ReplicaKeyMetadata.KeyManager',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.KeyManager', props);
+    return resource.getResponseField('ReplicaKeyMetadata.KeyManager') as unknown as string;
+  }
+
+  public get customerMasterKeySpec(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.CustomerMasterKeySpec'),
+        outputPath: 'ReplicaKeyMetadata.CustomerMasterKeySpec',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.CustomerMasterKeySpec', props);
+    return resource.getResponseField('ReplicaKeyMetadata.CustomerMasterKeySpec') as unknown as string;
+  }
+
+  public get encryptionAlgorithms(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.EncryptionAlgorithms'),
+        outputPath: 'ReplicaKeyMetadata.EncryptionAlgorithms',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.EncryptionAlgorithms', props);
+    return resource.getResponseField('ReplicaKeyMetadata.EncryptionAlgorithms') as unknown as string[];
+  }
+
+  public get signingAlgorithms(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.SigningAlgorithms'),
+        outputPath: 'ReplicaKeyMetadata.SigningAlgorithms',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.SigningAlgorithms', props);
+    return resource.getResponseField('ReplicaKeyMetadata.SigningAlgorithms') as unknown as string[];
+  }
+
+  public get multiRegion(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.MultiRegion'),
+        outputPath: 'ReplicaKeyMetadata.MultiRegion',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.MultiRegion', props);
+    return resource.getResponseField('ReplicaKeyMetadata.MultiRegion') as unknown as boolean;
+  }
+
+  public get multiRegionConfiguration(): KMSResponsesReplicateKeyReplicaKeyMetadataMultiRegionConfiguration {
+    return new KMSResponsesReplicateKeyReplicaKeyMetadataMultiRegionConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get pendingDeletionWindowInDays(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.PendingDeletionWindowInDays'),
+        outputPath: 'ReplicaKeyMetadata.PendingDeletionWindowInDays',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.PendingDeletionWindowInDays', props);
+    return resource.getResponseField('ReplicaKeyMetadata.PendingDeletionWindowInDays') as unknown as number;
+  }
+
+}
+
+export class KMSResponsesReplicateKeyReplicaKeyMetadataMultiRegionConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KmsReplicateKeyRequest) {
+  }
+
+  public get multiRegionKeyType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.MultiRegionConfiguration.MultiRegionKeyType'),
+        outputPath: 'ReplicaKeyMetadata.MultiRegionConfiguration.MultiRegionKeyType',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.MultiRegionConfiguration.MultiRegionKeyType', props);
+    return resource.getResponseField('ReplicaKeyMetadata.MultiRegionConfiguration.MultiRegionKeyType') as unknown as string;
+  }
+
+  public get primaryKey(): KMSResponsesReplicateKeyReplicaKeyMetadataMultiRegionConfigurationPrimaryKey {
+    return new KMSResponsesReplicateKeyReplicaKeyMetadataMultiRegionConfigurationPrimaryKey(this.__scope, this.__resources, this.__input);
+  }
+
+  public get replicaKeys(): shapes.KmsMultiRegionKey[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.MultiRegionConfiguration.ReplicaKeys'),
+        outputPath: 'ReplicaKeyMetadata.MultiRegionConfiguration.ReplicaKeys',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.MultiRegionConfiguration.ReplicaKeys', props);
+    return resource.getResponseField('ReplicaKeyMetadata.MultiRegionConfiguration.ReplicaKeys') as unknown as shapes.KmsMultiRegionKey[];
+  }
+
+}
+
+export class KMSResponsesReplicateKeyReplicaKeyMetadataMultiRegionConfigurationPrimaryKey {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KmsReplicateKeyRequest) {
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.MultiRegionConfiguration.PrimaryKey.Arn'),
+        outputPath: 'ReplicaKeyMetadata.MultiRegionConfiguration.PrimaryKey.Arn',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.MultiRegionConfiguration.PrimaryKey.Arn', props);
+    return resource.getResponseField('ReplicaKeyMetadata.MultiRegionConfiguration.PrimaryKey.Arn') as unknown as string;
+  }
+
+  public get region(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'replicateKey',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ReplicateKey.ReplicaKeyMetadata.MultiRegionConfiguration.PrimaryKey.Region'),
+        outputPath: 'ReplicaKeyMetadata.MultiRegionConfiguration.PrimaryKey.Region',
+        parameters: {
+          KeyId: this.__input.keyId,
+          ReplicaRegion: this.__input.replicaRegion,
+          Policy: this.__input.policy,
+          BypassPolicyLockoutSafetyCheck: this.__input.bypassPolicyLockoutSafetyCheck,
+          Description: this.__input.description,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ReplicateKey.ReplicaKeyMetadata.MultiRegionConfiguration.PrimaryKey.Region', props);
+    return resource.getResponseField('ReplicaKeyMetadata.MultiRegionConfiguration.PrimaryKey.Region') as unknown as string;
+  }
+
+}
+
 export class KMSResponsesScheduleKeyDeletion {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.KmsScheduleKeyDeletionRequest) {
@@ -2675,6 +3633,42 @@ export class KMSResponsesScheduleKeyDeletion {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ScheduleKeyDeletion.DeletionDate', props);
     return resource.getResponseField('DeletionDate') as unknown as string;
+  }
+
+  public get keyState(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'scheduleKeyDeletion',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ScheduleKeyDeletion.KeyState'),
+        outputPath: 'KeyState',
+        parameters: {
+          KeyId: this.__input.keyId,
+          PendingWindowInDays: this.__input.pendingWindowInDays,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ScheduleKeyDeletion.KeyState', props);
+    return resource.getResponseField('KeyState') as unknown as string;
+  }
+
+  public get pendingWindowInDays(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'scheduleKeyDeletion',
+        service: 'KMS',
+        physicalResourceId: cr.PhysicalResourceId.of('KMS.ScheduleKeyDeletion.PendingWindowInDays'),
+        outputPath: 'PendingWindowInDays',
+        parameters: {
+          KeyId: this.__input.keyId,
+          PendingWindowInDays: this.__input.pendingWindowInDays,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ScheduleKeyDeletion.PendingWindowInDays', props);
+    return resource.getResponseField('PendingWindowInDays') as unknown as number;
   }
 
 }

@@ -1025,6 +1025,57 @@ export class S3Client extends cdk.Construct {
     return new S3ResponsesUploadPartCopy(this, this.__resources, input);
   }
 
+  public writeGetObjectResponse(input: shapes.S3WriteGetObjectResponseRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'writeGetObjectResponse',
+        service: 'S3',
+        physicalResourceId: cr.PhysicalResourceId.of('S3.WriteGetObjectResponse'),
+        parameters: {
+          RequestRoute: input.requestRoute,
+          RequestToken: input.requestToken,
+          Body: {
+          },
+          StatusCode: input.statusCode,
+          ErrorCode: input.errorCode,
+          ErrorMessage: input.errorMessage,
+          AcceptRanges: input.acceptRanges,
+          CacheControl: input.cacheControl,
+          ContentDisposition: input.contentDisposition,
+          ContentEncoding: input.contentEncoding,
+          ContentLanguage: input.contentLanguage,
+          ContentLength: input.contentLength,
+          ContentRange: input.contentRange,
+          ContentType: input.contentType,
+          DeleteMarker: input.deleteMarker,
+          ETag: input.eTag,
+          Expires: input.expires,
+          Expiration: input.expiration,
+          LastModified: input.lastModified,
+          MissingMeta: input.missingMeta,
+          Metadata: input.metadata,
+          ObjectLockMode: input.objectLockMode,
+          ObjectLockLegalHoldStatus: input.objectLockLegalHoldStatus,
+          ObjectLockRetainUntilDate: input.objectLockRetainUntilDate,
+          PartsCount: input.partsCount,
+          ReplicationStatus: input.replicationStatus,
+          RequestCharged: input.requestCharged,
+          Restore: input.restore,
+          ServerSideEncryption: input.serverSideEncryption,
+          SSECustomerAlgorithm: input.sseCustomerAlgorithm,
+          SSEKMSKeyId: input.ssekmsKeyId,
+          SSECustomerKeyMD5: input.sseCustomerKeyMd5,
+          StorageClass: input.storageClass,
+          TagCount: input.tagCount,
+          VersionId: input.versionId,
+          BucketKeyEnabled: input.bucketKeyEnabled,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'WriteGetObjectResponse', props);
+  }
+
 }
 
 export class S3ResponsesAbortMultipartUpload {
@@ -1252,6 +1303,30 @@ export class S3ResponsesCompleteMultipartUpload {
     return resource.getResponseField('SSEKMSKeyId') as unknown as string;
   }
 
+  public get bucketKeyEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'completeMultipartUpload',
+        service: 'S3',
+        physicalResourceId: cr.PhysicalResourceId.of('S3.CompleteMultipartUpload.BucketKeyEnabled'),
+        outputPath: 'BucketKeyEnabled',
+        parameters: {
+          Bucket: this.__input.bucket,
+          Key: this.__input.key,
+          MultipartUpload: {
+            Parts: this.__input.multipartUpload?.parts,
+          },
+          UploadId: this.__input.uploadId,
+          RequestPayer: this.__input.requestPayer,
+          ExpectedBucketOwner: this.__input.expectedBucketOwner,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CompleteMultipartUpload.BucketKeyEnabled', props);
+    return resource.getResponseField('BucketKeyEnabled') as unknown as boolean;
+  }
+
   public get requestCharged(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -1326,6 +1401,7 @@ export class S3ResponsesCopyObject {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           CopySourceSSECustomerAlgorithm: this.__input.copySourceSseCustomerAlgorithm,
           CopySourceSSECustomerKey: {
           },
@@ -1383,6 +1459,7 @@ export class S3ResponsesCopyObject {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           CopySourceSSECustomerAlgorithm: this.__input.copySourceSseCustomerAlgorithm,
           CopySourceSSECustomerKey: {
           },
@@ -1440,6 +1517,7 @@ export class S3ResponsesCopyObject {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           CopySourceSSECustomerAlgorithm: this.__input.copySourceSseCustomerAlgorithm,
           CopySourceSSECustomerKey: {
           },
@@ -1497,6 +1575,7 @@ export class S3ResponsesCopyObject {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           CopySourceSSECustomerAlgorithm: this.__input.copySourceSseCustomerAlgorithm,
           CopySourceSSECustomerKey: {
           },
@@ -1554,6 +1633,7 @@ export class S3ResponsesCopyObject {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           CopySourceSSECustomerAlgorithm: this.__input.copySourceSseCustomerAlgorithm,
           CopySourceSSECustomerKey: {
           },
@@ -1611,6 +1691,7 @@ export class S3ResponsesCopyObject {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           CopySourceSSECustomerAlgorithm: this.__input.copySourceSseCustomerAlgorithm,
           CopySourceSSECustomerKey: {
           },
@@ -1668,6 +1749,7 @@ export class S3ResponsesCopyObject {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           CopySourceSSECustomerAlgorithm: this.__input.copySourceSseCustomerAlgorithm,
           CopySourceSSECustomerKey: {
           },
@@ -1725,6 +1807,7 @@ export class S3ResponsesCopyObject {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           CopySourceSSECustomerAlgorithm: this.__input.copySourceSseCustomerAlgorithm,
           CopySourceSSECustomerKey: {
           },
@@ -1741,6 +1824,64 @@ export class S3ResponsesCopyObject {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CopyObject.SSEKMSEncryptionContext', props);
     return resource.getResponseField('SSEKMSEncryptionContext') as unknown as string;
+  }
+
+  public get bucketKeyEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'copyObject',
+        service: 'S3',
+        physicalResourceId: cr.PhysicalResourceId.of('S3.CopyObject.BucketKeyEnabled'),
+        outputPath: 'BucketKeyEnabled',
+        parameters: {
+          ACL: this.__input.acl,
+          Bucket: this.__input.bucket,
+          CacheControl: this.__input.cacheControl,
+          ContentDisposition: this.__input.contentDisposition,
+          ContentEncoding: this.__input.contentEncoding,
+          ContentLanguage: this.__input.contentLanguage,
+          ContentType: this.__input.contentType,
+          CopySource: this.__input.copySource,
+          CopySourceIfMatch: this.__input.copySourceIfMatch,
+          CopySourceIfModifiedSince: this.__input.copySourceIfModifiedSince,
+          CopySourceIfNoneMatch: this.__input.copySourceIfNoneMatch,
+          CopySourceIfUnmodifiedSince: this.__input.copySourceIfUnmodifiedSince,
+          Expires: this.__input.expires,
+          GrantFullControl: this.__input.grantFullControl,
+          GrantRead: this.__input.grantRead,
+          GrantReadACP: this.__input.grantReadAcp,
+          GrantWriteACP: this.__input.grantWriteAcp,
+          Key: this.__input.key,
+          Metadata: this.__input.metadata,
+          MetadataDirective: this.__input.metadataDirective,
+          TaggingDirective: this.__input.taggingDirective,
+          ServerSideEncryption: this.__input.serverSideEncryption,
+          StorageClass: this.__input.storageClass,
+          WebsiteRedirectLocation: this.__input.websiteRedirectLocation,
+          SSECustomerAlgorithm: this.__input.sseCustomerAlgorithm,
+          SSECustomerKey: {
+          },
+          SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
+          SSEKMSKeyId: this.__input.ssekmsKeyId,
+          SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
+          CopySourceSSECustomerAlgorithm: this.__input.copySourceSseCustomerAlgorithm,
+          CopySourceSSECustomerKey: {
+          },
+          CopySourceSSECustomerKeyMD5: this.__input.copySourceSseCustomerKeyMd5,
+          RequestPayer: this.__input.requestPayer,
+          Tagging: this.__input.tagging,
+          ObjectLockMode: this.__input.objectLockMode,
+          ObjectLockRetainUntilDate: this.__input.objectLockRetainUntilDate,
+          ObjectLockLegalHoldStatus: this.__input.objectLockLegalHoldStatus,
+          ExpectedBucketOwner: this.__input.expectedBucketOwner,
+          ExpectedSourceBucketOwner: this.__input.expectedSourceBucketOwner,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CopyObject.BucketKeyEnabled', props);
+    return resource.getResponseField('BucketKeyEnabled') as unknown as boolean;
   }
 
   public get requestCharged(): string {
@@ -1782,6 +1923,7 @@ export class S3ResponsesCopyObject {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           CopySourceSSECustomerAlgorithm: this.__input.copySourceSseCustomerAlgorithm,
           CopySourceSSECustomerKey: {
           },
@@ -1846,6 +1988,7 @@ export class S3ResponsesCopyObjectCopyObjectResult {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           CopySourceSSECustomerAlgorithm: this.__input.copySourceSseCustomerAlgorithm,
           CopySourceSSECustomerKey: {
           },
@@ -1903,6 +2046,7 @@ export class S3ResponsesCopyObjectCopyObjectResult {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           CopySourceSSECustomerAlgorithm: this.__input.copySourceSseCustomerAlgorithm,
           CopySourceSSECustomerKey: {
           },
@@ -1994,6 +2138,7 @@ export class S3ResponsesCreateMultipartUpload {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -2039,6 +2184,7 @@ export class S3ResponsesCreateMultipartUpload {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -2084,6 +2230,7 @@ export class S3ResponsesCreateMultipartUpload {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -2129,6 +2276,7 @@ export class S3ResponsesCreateMultipartUpload {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -2174,6 +2322,7 @@ export class S3ResponsesCreateMultipartUpload {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -2219,6 +2368,7 @@ export class S3ResponsesCreateMultipartUpload {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -2264,6 +2414,7 @@ export class S3ResponsesCreateMultipartUpload {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -2309,6 +2460,7 @@ export class S3ResponsesCreateMultipartUpload {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -2354,6 +2506,7 @@ export class S3ResponsesCreateMultipartUpload {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -2399,6 +2552,7 @@ export class S3ResponsesCreateMultipartUpload {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -2410,6 +2564,52 @@ export class S3ResponsesCreateMultipartUpload {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateMultipartUpload.SSEKMSEncryptionContext', props);
     return resource.getResponseField('SSEKMSEncryptionContext') as unknown as string;
+  }
+
+  public get bucketKeyEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createMultipartUpload',
+        service: 'S3',
+        physicalResourceId: cr.PhysicalResourceId.of('S3.CreateMultipartUpload.BucketKeyEnabled'),
+        outputPath: 'BucketKeyEnabled',
+        parameters: {
+          ACL: this.__input.acl,
+          Bucket: this.__input.bucket,
+          CacheControl: this.__input.cacheControl,
+          ContentDisposition: this.__input.contentDisposition,
+          ContentEncoding: this.__input.contentEncoding,
+          ContentLanguage: this.__input.contentLanguage,
+          ContentType: this.__input.contentType,
+          Expires: this.__input.expires,
+          GrantFullControl: this.__input.grantFullControl,
+          GrantRead: this.__input.grantRead,
+          GrantReadACP: this.__input.grantReadAcp,
+          GrantWriteACP: this.__input.grantWriteAcp,
+          Key: this.__input.key,
+          Metadata: this.__input.metadata,
+          ServerSideEncryption: this.__input.serverSideEncryption,
+          StorageClass: this.__input.storageClass,
+          WebsiteRedirectLocation: this.__input.websiteRedirectLocation,
+          SSECustomerAlgorithm: this.__input.sseCustomerAlgorithm,
+          SSECustomerKey: {
+          },
+          SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
+          SSEKMSKeyId: this.__input.ssekmsKeyId,
+          SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
+          RequestPayer: this.__input.requestPayer,
+          Tagging: this.__input.tagging,
+          ObjectLockMode: this.__input.objectLockMode,
+          ObjectLockRetainUntilDate: this.__input.objectLockRetainUntilDate,
+          ObjectLockLegalHoldStatus: this.__input.objectLockLegalHoldStatus,
+          ExpectedBucketOwner: this.__input.expectedBucketOwner,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateMultipartUpload.BucketKeyEnabled', props);
+    return resource.getResponseField('BucketKeyEnabled') as unknown as boolean;
   }
 
   public get requestCharged(): string {
@@ -2444,6 +2644,7 @@ export class S3ResponsesCreateMultipartUpload {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -5490,6 +5691,43 @@ export class S3ResponsesFetchObject {
     return resource.getResponseField('SSEKMSKeyId') as unknown as string;
   }
 
+  public get bucketKeyEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getObject',
+        service: 'S3',
+        physicalResourceId: cr.PhysicalResourceId.of('S3.GetObject.BucketKeyEnabled'),
+        outputPath: 'BucketKeyEnabled',
+        parameters: {
+          Bucket: this.__input.bucket,
+          IfMatch: this.__input.ifMatch,
+          IfModifiedSince: this.__input.ifModifiedSince,
+          IfNoneMatch: this.__input.ifNoneMatch,
+          IfUnmodifiedSince: this.__input.ifUnmodifiedSince,
+          Key: this.__input.key,
+          Range: this.__input.range,
+          ResponseCacheControl: this.__input.responseCacheControl,
+          ResponseContentDisposition: this.__input.responseContentDisposition,
+          ResponseContentEncoding: this.__input.responseContentEncoding,
+          ResponseContentLanguage: this.__input.responseContentLanguage,
+          ResponseContentType: this.__input.responseContentType,
+          ResponseExpires: this.__input.responseExpires,
+          VersionId: this.__input.versionId,
+          SSECustomerAlgorithm: this.__input.sseCustomerAlgorithm,
+          SSECustomerKey: {
+          },
+          SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
+          RequestPayer: this.__input.requestPayer,
+          PartNumber: this.__input.partNumber,
+          ExpectedBucketOwner: this.__input.expectedBucketOwner,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetObject.BucketKeyEnabled', props);
+    return resource.getResponseField('BucketKeyEnabled') as unknown as boolean;
+  }
+
   public get storageClass(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -6119,6 +6357,7 @@ export class S3ResponsesFetchObjectTagging {
           Key: this.__input.key,
           VersionId: this.__input.versionId,
           ExpectedBucketOwner: this.__input.expectedBucketOwner,
+          RequestPayer: this.__input.requestPayer,
         },
       },
     };
@@ -6139,6 +6378,7 @@ export class S3ResponsesFetchObjectTagging {
           Key: this.__input.key,
           VersionId: this.__input.versionId,
           ExpectedBucketOwner: this.__input.expectedBucketOwner,
+          RequestPayer: this.__input.requestPayer,
         },
       },
     };
@@ -6970,6 +7210,37 @@ export class S3ResponsesHeadObject {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'HeadObject.SSEKMSKeyId', props);
     return resource.getResponseField('SSEKMSKeyId') as unknown as string;
+  }
+
+  public get bucketKeyEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'headObject',
+        service: 'S3',
+        physicalResourceId: cr.PhysicalResourceId.of('S3.HeadObject.BucketKeyEnabled'),
+        outputPath: 'BucketKeyEnabled',
+        parameters: {
+          Bucket: this.__input.bucket,
+          IfMatch: this.__input.ifMatch,
+          IfModifiedSince: this.__input.ifModifiedSince,
+          IfNoneMatch: this.__input.ifNoneMatch,
+          IfUnmodifiedSince: this.__input.ifUnmodifiedSince,
+          Key: this.__input.key,
+          Range: this.__input.range,
+          VersionId: this.__input.versionId,
+          SSECustomerAlgorithm: this.__input.sseCustomerAlgorithm,
+          SSECustomerKey: {
+          },
+          SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
+          RequestPayer: this.__input.requestPayer,
+          PartNumber: this.__input.partNumber,
+          ExpectedBucketOwner: this.__input.expectedBucketOwner,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'HeadObject.BucketKeyEnabled', props);
+    return resource.getResponseField('BucketKeyEnabled') as unknown as boolean;
   }
 
   public get storageClass(): string {
@@ -9197,6 +9468,7 @@ export class S3ResponsesPutObject {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -9246,6 +9518,7 @@ export class S3ResponsesPutObject {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -9295,6 +9568,7 @@ export class S3ResponsesPutObject {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -9344,6 +9618,7 @@ export class S3ResponsesPutObject {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -9393,6 +9668,7 @@ export class S3ResponsesPutObject {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -9442,6 +9718,7 @@ export class S3ResponsesPutObject {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -9491,6 +9768,7 @@ export class S3ResponsesPutObject {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -9540,6 +9818,7 @@ export class S3ResponsesPutObject {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -9551,6 +9830,56 @@ export class S3ResponsesPutObject {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'PutObject.SSEKMSEncryptionContext', props);
     return resource.getResponseField('SSEKMSEncryptionContext') as unknown as string;
+  }
+
+  public get bucketKeyEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putObject',
+        service: 'S3',
+        physicalResourceId: cr.PhysicalResourceId.of('S3.PutObject.BucketKeyEnabled'),
+        outputPath: 'BucketKeyEnabled',
+        parameters: {
+          ACL: this.__input.acl,
+          Body: {
+          },
+          Bucket: this.__input.bucket,
+          CacheControl: this.__input.cacheControl,
+          ContentDisposition: this.__input.contentDisposition,
+          ContentEncoding: this.__input.contentEncoding,
+          ContentLanguage: this.__input.contentLanguage,
+          ContentLength: this.__input.contentLength,
+          ContentMD5: this.__input.contentMd5,
+          ContentType: this.__input.contentType,
+          Expires: this.__input.expires,
+          GrantFullControl: this.__input.grantFullControl,
+          GrantRead: this.__input.grantRead,
+          GrantReadACP: this.__input.grantReadAcp,
+          GrantWriteACP: this.__input.grantWriteAcp,
+          Key: this.__input.key,
+          Metadata: this.__input.metadata,
+          ServerSideEncryption: this.__input.serverSideEncryption,
+          StorageClass: this.__input.storageClass,
+          WebsiteRedirectLocation: this.__input.websiteRedirectLocation,
+          SSECustomerAlgorithm: this.__input.sseCustomerAlgorithm,
+          SSECustomerKey: {
+          },
+          SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
+          SSEKMSKeyId: this.__input.ssekmsKeyId,
+          SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
+          RequestPayer: this.__input.requestPayer,
+          Tagging: this.__input.tagging,
+          ObjectLockMode: this.__input.objectLockMode,
+          ObjectLockRetainUntilDate: this.__input.objectLockRetainUntilDate,
+          ObjectLockLegalHoldStatus: this.__input.objectLockLegalHoldStatus,
+          ExpectedBucketOwner: this.__input.expectedBucketOwner,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PutObject.BucketKeyEnabled', props);
+    return resource.getResponseField('BucketKeyEnabled') as unknown as boolean;
   }
 
   public get requestCharged(): string {
@@ -9589,6 +9918,7 @@ export class S3ResponsesPutObject {
           SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
           SSEKMSKeyId: this.__input.ssekmsKeyId,
           SSEKMSEncryptionContext: this.__input.ssekmsEncryptionContext,
+          BucketKeyEnabled: this.__input.bucketKeyEnabled,
           RequestPayer: this.__input.requestPayer,
           Tagging: this.__input.tagging,
           ObjectLockMode: this.__input.objectLockMode,
@@ -9772,6 +10102,7 @@ export class S3ResponsesPutObjectTagging {
             TagSet: this.__input.tagging.tagSet,
           },
           ExpectedBucketOwner: this.__input.expectedBucketOwner,
+          RequestPayer: this.__input.requestPayer,
         },
       },
     };
@@ -10727,6 +11058,36 @@ export class S3ResponsesUploadPart {
     return resource.getResponseField('SSEKMSKeyId') as unknown as string;
   }
 
+  public get bucketKeyEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'uploadPart',
+        service: 'S3',
+        physicalResourceId: cr.PhysicalResourceId.of('S3.UploadPart.BucketKeyEnabled'),
+        outputPath: 'BucketKeyEnabled',
+        parameters: {
+          Body: {
+          },
+          Bucket: this.__input.bucket,
+          ContentLength: this.__input.contentLength,
+          ContentMD5: this.__input.contentMd5,
+          Key: this.__input.key,
+          PartNumber: this.__input.partNumber,
+          UploadId: this.__input.uploadId,
+          SSECustomerAlgorithm: this.__input.sseCustomerAlgorithm,
+          SSECustomerKey: {
+          },
+          SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
+          RequestPayer: this.__input.requestPayer,
+          ExpectedBucketOwner: this.__input.expectedBucketOwner,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UploadPart.BucketKeyEnabled', props);
+    return resource.getResponseField('BucketKeyEnabled') as unknown as boolean;
+  }
+
   public get requestCharged(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -10951,6 +11312,43 @@ export class S3ResponsesUploadPartCopy {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UploadPartCopy.SSEKMSKeyId', props);
     return resource.getResponseField('SSEKMSKeyId') as unknown as string;
+  }
+
+  public get bucketKeyEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'uploadPartCopy',
+        service: 'S3',
+        physicalResourceId: cr.PhysicalResourceId.of('S3.UploadPartCopy.BucketKeyEnabled'),
+        outputPath: 'BucketKeyEnabled',
+        parameters: {
+          Bucket: this.__input.bucket,
+          CopySource: this.__input.copySource,
+          CopySourceIfMatch: this.__input.copySourceIfMatch,
+          CopySourceIfModifiedSince: this.__input.copySourceIfModifiedSince,
+          CopySourceIfNoneMatch: this.__input.copySourceIfNoneMatch,
+          CopySourceIfUnmodifiedSince: this.__input.copySourceIfUnmodifiedSince,
+          CopySourceRange: this.__input.copySourceRange,
+          Key: this.__input.key,
+          PartNumber: this.__input.partNumber,
+          UploadId: this.__input.uploadId,
+          SSECustomerAlgorithm: this.__input.sseCustomerAlgorithm,
+          SSECustomerKey: {
+          },
+          SSECustomerKeyMD5: this.__input.sseCustomerKeyMd5,
+          CopySourceSSECustomerAlgorithm: this.__input.copySourceSseCustomerAlgorithm,
+          CopySourceSSECustomerKey: {
+          },
+          CopySourceSSECustomerKeyMD5: this.__input.copySourceSseCustomerKeyMd5,
+          RequestPayer: this.__input.requestPayer,
+          ExpectedBucketOwner: this.__input.expectedBucketOwner,
+          ExpectedSourceBucketOwner: this.__input.expectedSourceBucketOwner,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UploadPartCopy.BucketKeyEnabled', props);
+    return resource.getResponseField('BucketKeyEnabled') as unknown as boolean;
   }
 
   public get requestCharged(): string {

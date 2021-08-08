@@ -8,12 +8,49 @@ export class LakeFormationClient extends cdk.Construct {
     super(scope, id);
   }
 
+  public addLfTagsToResource(input: shapes.LakeFormationAddLfTagsToResourceRequest): LakeFormationResponsesAddLfTagsToResource {
+    return new LakeFormationResponsesAddLfTagsToResource(this, this.__resources, input);
+  }
+
   public batchGrantPermissions(input: shapes.LakeFormationBatchGrantPermissionsRequest): LakeFormationResponsesBatchGrantPermissions {
     return new LakeFormationResponsesBatchGrantPermissions(this, this.__resources, input);
   }
 
   public batchRevokePermissions(input: shapes.LakeFormationBatchRevokePermissionsRequest): LakeFormationResponsesBatchRevokePermissions {
     return new LakeFormationResponsesBatchRevokePermissions(this, this.__resources, input);
+  }
+
+  public createLfTag(input: shapes.LakeFormationCreateLfTagRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createLfTag',
+        service: 'LakeFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('LakeFormation.CreateLFTag'),
+        parameters: {
+          CatalogId: input.catalogId,
+          TagKey: input.tagKey,
+          TagValues: input.tagValues,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'CreateLFTag', props);
+  }
+
+  public deleteLfTag(input: shapes.LakeFormationDeleteLfTagRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteLfTag',
+        service: 'LakeFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('LakeFormation.DeleteLFTag'),
+        parameters: {
+          CatalogId: input.catalogId,
+          TagKey: input.tagKey,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteLFTag', props);
   }
 
   public deregisterResource(input: shapes.LakeFormationDeregisterResourceRequest): void {
@@ -41,6 +78,14 @@ export class LakeFormationClient extends cdk.Construct {
 
   public fetchEffectivePermissionsForPath(input: shapes.LakeFormationGetEffectivePermissionsForPathRequest): LakeFormationResponsesFetchEffectivePermissionsForPath {
     return new LakeFormationResponsesFetchEffectivePermissionsForPath(this, this.__resources, input);
+  }
+
+  public fetchLfTag(input: shapes.LakeFormationGetLfTagRequest): LakeFormationResponsesFetchLfTag {
+    return new LakeFormationResponsesFetchLfTag(this, this.__resources, input);
+  }
+
+  public fetchResourceLfTags(input: shapes.LakeFormationGetResourceLfTagsRequest): LakeFormationResponsesFetchResourceLfTags {
+    return new LakeFormationResponsesFetchResourceLfTags(this, this.__resources, input);
   }
 
   public grantPermissions(input: shapes.LakeFormationGrantPermissionsRequest): void {
@@ -82,6 +127,16 @@ export class LakeFormationClient extends cdk.Construct {
               CatalogId: input.resource.dataLocation?.catalogId,
               ResourceArn: input.resource.dataLocation?.resourceArn,
             },
+            LFTag: {
+              CatalogId: input.resource.lfTag?.catalogId,
+              TagKey: input.resource.lfTag?.tagKey,
+              TagValues: input.resource.lfTag?.tagValues,
+            },
+            LFTagPolicy: {
+              CatalogId: input.resource.lfTagPolicy?.catalogId,
+              ResourceType: input.resource.lfTagPolicy?.resourceType,
+              Expression: input.resource.lfTagPolicy?.expression,
+            },
           },
           Permissions: input.permissions,
           PermissionsWithGrantOption: input.permissionsWithGrantOption,
@@ -89,6 +144,10 @@ export class LakeFormationClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'GrantPermissions', props);
+  }
+
+  public listLfTags(input: shapes.LakeFormationListLfTagsRequest): LakeFormationResponsesListLfTags {
+    return new LakeFormationResponsesListLfTags(this, this.__resources, input);
   }
 
   public listPermissions(input: shapes.LakeFormationListPermissionsRequest): LakeFormationResponsesListPermissions {
@@ -137,6 +196,10 @@ export class LakeFormationClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'RegisterResource', props);
   }
 
+  public removeLfTagsFromResource(input: shapes.LakeFormationRemoveLfTagsFromResourceRequest): LakeFormationResponsesRemoveLfTagsFromResource {
+    return new LakeFormationResponsesRemoveLfTagsFromResource(this, this.__resources, input);
+  }
+
   public revokePermissions(input: shapes.LakeFormationRevokePermissionsRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -176,6 +239,16 @@ export class LakeFormationClient extends cdk.Construct {
               CatalogId: input.resource.dataLocation?.catalogId,
               ResourceArn: input.resource.dataLocation?.resourceArn,
             },
+            LFTag: {
+              CatalogId: input.resource.lfTag?.catalogId,
+              TagKey: input.resource.lfTag?.tagKey,
+              TagValues: input.resource.lfTag?.tagValues,
+            },
+            LFTagPolicy: {
+              CatalogId: input.resource.lfTagPolicy?.catalogId,
+              ResourceType: input.resource.lfTagPolicy?.resourceType,
+              Expression: input.resource.lfTagPolicy?.expression,
+            },
           },
           Permissions: input.permissions,
           PermissionsWithGrantOption: input.permissionsWithGrantOption,
@@ -183,6 +256,32 @@ export class LakeFormationClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'RevokePermissions', props);
+  }
+
+  public searchDatabasesByLfTags(input: shapes.LakeFormationSearchDatabasesByLfTagsRequest): LakeFormationResponsesSearchDatabasesByLfTags {
+    return new LakeFormationResponsesSearchDatabasesByLfTags(this, this.__resources, input);
+  }
+
+  public searchTablesByLfTags(input: shapes.LakeFormationSearchTablesByLfTagsRequest): LakeFormationResponsesSearchTablesByLfTags {
+    return new LakeFormationResponsesSearchTablesByLfTags(this, this.__resources, input);
+  }
+
+  public updateLfTag(input: shapes.LakeFormationUpdateLfTagRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateLfTag',
+        service: 'LakeFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('LakeFormation.UpdateLFTag'),
+        parameters: {
+          CatalogId: input.catalogId,
+          TagKey: input.tagKey,
+          TagValuesToDelete: input.tagValuesToDelete,
+          TagValuesToAdd: input.tagValuesToAdd,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateLFTag', props);
   }
 
   public updateResource(input: shapes.LakeFormationUpdateResourceRequest): void {
@@ -199,6 +298,69 @@ export class LakeFormationClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'UpdateResource', props);
+  }
+
+}
+
+export class LakeFormationResponsesAddLfTagsToResource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LakeFormationAddLfTagsToResourceRequest) {
+  }
+
+  public get failures(): shapes.LakeFormationLfTagError[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'addLfTagsToResource',
+        service: 'LakeFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('LakeFormation.AddLFTagsToResource.Failures'),
+        outputPath: 'Failures',
+        parameters: {
+          CatalogId: this.__input.catalogId,
+          Resource: {
+            Catalog: {
+            },
+            Database: {
+              CatalogId: this.__input.resource.database?.catalogId,
+              Name: this.__input.resource.database?.name,
+            },
+            Table: {
+              CatalogId: this.__input.resource.table?.catalogId,
+              DatabaseName: this.__input.resource.table?.databaseName,
+              Name: this.__input.resource.table?.name,
+              TableWildcard: {
+              },
+            },
+            TableWithColumns: {
+              CatalogId: this.__input.resource.tableWithColumns?.catalogId,
+              DatabaseName: this.__input.resource.tableWithColumns?.databaseName,
+              Name: this.__input.resource.tableWithColumns?.name,
+              ColumnNames: this.__input.resource.tableWithColumns?.columnNames,
+              ColumnWildcard: {
+                ExcludedColumnNames: this.__input.resource.tableWithColumns?.columnWildcard?.excludedColumnNames,
+              },
+            },
+            DataLocation: {
+              CatalogId: this.__input.resource.dataLocation?.catalogId,
+              ResourceArn: this.__input.resource.dataLocation?.resourceArn,
+            },
+            LFTag: {
+              CatalogId: this.__input.resource.lfTag?.catalogId,
+              TagKey: this.__input.resource.lfTag?.tagKey,
+              TagValues: this.__input.resource.lfTag?.tagValues,
+            },
+            LFTagPolicy: {
+              CatalogId: this.__input.resource.lfTagPolicy?.catalogId,
+              ResourceType: this.__input.resource.lfTagPolicy?.resourceType,
+              Expression: this.__input.resource.lfTagPolicy?.expression,
+            },
+          },
+          LFTags: this.__input.lfTags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AddLFTagsToResource.Failures', props);
+    return resource.getResponseField('Failures') as unknown as shapes.LakeFormationLfTagError[];
   }
 
 }
@@ -455,6 +617,289 @@ export class LakeFormationResponsesFetchEffectivePermissionsForPath {
 
 }
 
+export class LakeFormationResponsesFetchLfTag {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LakeFormationGetLfTagRequest) {
+  }
+
+  public get catalogId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getLfTag',
+        service: 'LakeFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('LakeFormation.GetLFTag.CatalogId'),
+        outputPath: 'CatalogId',
+        parameters: {
+          CatalogId: this.__input.catalogId,
+          TagKey: this.__input.tagKey,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetLFTag.CatalogId', props);
+    return resource.getResponseField('CatalogId') as unknown as string;
+  }
+
+  public get tagKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getLfTag',
+        service: 'LakeFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('LakeFormation.GetLFTag.TagKey'),
+        outputPath: 'TagKey',
+        parameters: {
+          CatalogId: this.__input.catalogId,
+          TagKey: this.__input.tagKey,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetLFTag.TagKey', props);
+    return resource.getResponseField('TagKey') as unknown as string;
+  }
+
+  public get tagValues(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getLfTag',
+        service: 'LakeFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('LakeFormation.GetLFTag.TagValues'),
+        outputPath: 'TagValues',
+        parameters: {
+          CatalogId: this.__input.catalogId,
+          TagKey: this.__input.tagKey,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetLFTag.TagValues', props);
+    return resource.getResponseField('TagValues') as unknown as string[];
+  }
+
+}
+
+export class LakeFormationResponsesFetchResourceLfTags {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LakeFormationGetResourceLfTagsRequest) {
+  }
+
+  public get lfTagOnDatabase(): shapes.LakeFormationLfTagPair[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getResourceLfTags',
+        service: 'LakeFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('LakeFormation.GetResourceLFTags.LFTagOnDatabase'),
+        outputPath: 'LFTagOnDatabase',
+        parameters: {
+          CatalogId: this.__input.catalogId,
+          Resource: {
+            Catalog: {
+            },
+            Database: {
+              CatalogId: this.__input.resource.database?.catalogId,
+              Name: this.__input.resource.database?.name,
+            },
+            Table: {
+              CatalogId: this.__input.resource.table?.catalogId,
+              DatabaseName: this.__input.resource.table?.databaseName,
+              Name: this.__input.resource.table?.name,
+              TableWildcard: {
+              },
+            },
+            TableWithColumns: {
+              CatalogId: this.__input.resource.tableWithColumns?.catalogId,
+              DatabaseName: this.__input.resource.tableWithColumns?.databaseName,
+              Name: this.__input.resource.tableWithColumns?.name,
+              ColumnNames: this.__input.resource.tableWithColumns?.columnNames,
+              ColumnWildcard: {
+                ExcludedColumnNames: this.__input.resource.tableWithColumns?.columnWildcard?.excludedColumnNames,
+              },
+            },
+            DataLocation: {
+              CatalogId: this.__input.resource.dataLocation?.catalogId,
+              ResourceArn: this.__input.resource.dataLocation?.resourceArn,
+            },
+            LFTag: {
+              CatalogId: this.__input.resource.lfTag?.catalogId,
+              TagKey: this.__input.resource.lfTag?.tagKey,
+              TagValues: this.__input.resource.lfTag?.tagValues,
+            },
+            LFTagPolicy: {
+              CatalogId: this.__input.resource.lfTagPolicy?.catalogId,
+              ResourceType: this.__input.resource.lfTagPolicy?.resourceType,
+              Expression: this.__input.resource.lfTagPolicy?.expression,
+            },
+          },
+          ShowAssignedLFTags: this.__input.showAssignedLfTags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetResourceLFTags.LFTagOnDatabase', props);
+    return resource.getResponseField('LFTagOnDatabase') as unknown as shapes.LakeFormationLfTagPair[];
+  }
+
+  public get lfTagsOnTable(): shapes.LakeFormationLfTagPair[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getResourceLfTags',
+        service: 'LakeFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('LakeFormation.GetResourceLFTags.LFTagsOnTable'),
+        outputPath: 'LFTagsOnTable',
+        parameters: {
+          CatalogId: this.__input.catalogId,
+          Resource: {
+            Catalog: {
+            },
+            Database: {
+              CatalogId: this.__input.resource.database?.catalogId,
+              Name: this.__input.resource.database?.name,
+            },
+            Table: {
+              CatalogId: this.__input.resource.table?.catalogId,
+              DatabaseName: this.__input.resource.table?.databaseName,
+              Name: this.__input.resource.table?.name,
+              TableWildcard: {
+              },
+            },
+            TableWithColumns: {
+              CatalogId: this.__input.resource.tableWithColumns?.catalogId,
+              DatabaseName: this.__input.resource.tableWithColumns?.databaseName,
+              Name: this.__input.resource.tableWithColumns?.name,
+              ColumnNames: this.__input.resource.tableWithColumns?.columnNames,
+              ColumnWildcard: {
+                ExcludedColumnNames: this.__input.resource.tableWithColumns?.columnWildcard?.excludedColumnNames,
+              },
+            },
+            DataLocation: {
+              CatalogId: this.__input.resource.dataLocation?.catalogId,
+              ResourceArn: this.__input.resource.dataLocation?.resourceArn,
+            },
+            LFTag: {
+              CatalogId: this.__input.resource.lfTag?.catalogId,
+              TagKey: this.__input.resource.lfTag?.tagKey,
+              TagValues: this.__input.resource.lfTag?.tagValues,
+            },
+            LFTagPolicy: {
+              CatalogId: this.__input.resource.lfTagPolicy?.catalogId,
+              ResourceType: this.__input.resource.lfTagPolicy?.resourceType,
+              Expression: this.__input.resource.lfTagPolicy?.expression,
+            },
+          },
+          ShowAssignedLFTags: this.__input.showAssignedLfTags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetResourceLFTags.LFTagsOnTable', props);
+    return resource.getResponseField('LFTagsOnTable') as unknown as shapes.LakeFormationLfTagPair[];
+  }
+
+  public get lfTagsOnColumns(): shapes.LakeFormationColumnLfTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getResourceLfTags',
+        service: 'LakeFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('LakeFormation.GetResourceLFTags.LFTagsOnColumns'),
+        outputPath: 'LFTagsOnColumns',
+        parameters: {
+          CatalogId: this.__input.catalogId,
+          Resource: {
+            Catalog: {
+            },
+            Database: {
+              CatalogId: this.__input.resource.database?.catalogId,
+              Name: this.__input.resource.database?.name,
+            },
+            Table: {
+              CatalogId: this.__input.resource.table?.catalogId,
+              DatabaseName: this.__input.resource.table?.databaseName,
+              Name: this.__input.resource.table?.name,
+              TableWildcard: {
+              },
+            },
+            TableWithColumns: {
+              CatalogId: this.__input.resource.tableWithColumns?.catalogId,
+              DatabaseName: this.__input.resource.tableWithColumns?.databaseName,
+              Name: this.__input.resource.tableWithColumns?.name,
+              ColumnNames: this.__input.resource.tableWithColumns?.columnNames,
+              ColumnWildcard: {
+                ExcludedColumnNames: this.__input.resource.tableWithColumns?.columnWildcard?.excludedColumnNames,
+              },
+            },
+            DataLocation: {
+              CatalogId: this.__input.resource.dataLocation?.catalogId,
+              ResourceArn: this.__input.resource.dataLocation?.resourceArn,
+            },
+            LFTag: {
+              CatalogId: this.__input.resource.lfTag?.catalogId,
+              TagKey: this.__input.resource.lfTag?.tagKey,
+              TagValues: this.__input.resource.lfTag?.tagValues,
+            },
+            LFTagPolicy: {
+              CatalogId: this.__input.resource.lfTagPolicy?.catalogId,
+              ResourceType: this.__input.resource.lfTagPolicy?.resourceType,
+              Expression: this.__input.resource.lfTagPolicy?.expression,
+            },
+          },
+          ShowAssignedLFTags: this.__input.showAssignedLfTags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetResourceLFTags.LFTagsOnColumns', props);
+    return resource.getResponseField('LFTagsOnColumns') as unknown as shapes.LakeFormationColumnLfTag[];
+  }
+
+}
+
+export class LakeFormationResponsesListLfTags {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LakeFormationListLfTagsRequest) {
+  }
+
+  public get lfTags(): shapes.LakeFormationLfTagPair[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listLfTags',
+        service: 'LakeFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('LakeFormation.ListLFTags.LFTags'),
+        outputPath: 'LFTags',
+        parameters: {
+          CatalogId: this.__input.catalogId,
+          ResourceShareType: this.__input.resourceShareType,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListLFTags.LFTags', props);
+    return resource.getResponseField('LFTags') as unknown as shapes.LakeFormationLfTagPair[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listLfTags',
+        service: 'LakeFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('LakeFormation.ListLFTags.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          CatalogId: this.__input.catalogId,
+          ResourceShareType: this.__input.resourceShareType,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListLFTags.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
 export class LakeFormationResponsesListPermissions {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LakeFormationListPermissionsRequest) {
@@ -500,6 +945,16 @@ export class LakeFormationResponsesListPermissions {
             DataLocation: {
               CatalogId: this.__input.resource?.dataLocation?.catalogId,
               ResourceArn: this.__input.resource?.dataLocation?.resourceArn,
+            },
+            LFTag: {
+              CatalogId: this.__input.resource?.lfTag?.catalogId,
+              TagKey: this.__input.resource?.lfTag?.tagKey,
+              TagValues: this.__input.resource?.lfTag?.tagValues,
+            },
+            LFTagPolicy: {
+              CatalogId: this.__input.resource?.lfTagPolicy?.catalogId,
+              ResourceType: this.__input.resource?.lfTagPolicy?.resourceType,
+              Expression: this.__input.resource?.lfTagPolicy?.expression,
             },
           },
           NextToken: this.__input.nextToken,
@@ -551,6 +1006,16 @@ export class LakeFormationResponsesListPermissions {
             DataLocation: {
               CatalogId: this.__input.resource?.dataLocation?.catalogId,
               ResourceArn: this.__input.resource?.dataLocation?.resourceArn,
+            },
+            LFTag: {
+              CatalogId: this.__input.resource?.lfTag?.catalogId,
+              TagKey: this.__input.resource?.lfTag?.tagKey,
+              TagValues: this.__input.resource?.lfTag?.tagValues,
+            },
+            LFTagPolicy: {
+              CatalogId: this.__input.resource?.lfTagPolicy?.catalogId,
+              ResourceType: this.__input.resource?.lfTagPolicy?.resourceType,
+              Expression: this.__input.resource?.lfTagPolicy?.expression,
             },
           },
           NextToken: this.__input.nextToken,
@@ -605,6 +1070,163 @@ export class LakeFormationResponsesListResources {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListResources.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class LakeFormationResponsesRemoveLfTagsFromResource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LakeFormationRemoveLfTagsFromResourceRequest) {
+  }
+
+  public get failures(): shapes.LakeFormationLfTagError[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'removeLfTagsFromResource',
+        service: 'LakeFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('LakeFormation.RemoveLFTagsFromResource.Failures'),
+        outputPath: 'Failures',
+        parameters: {
+          CatalogId: this.__input.catalogId,
+          Resource: {
+            Catalog: {
+            },
+            Database: {
+              CatalogId: this.__input.resource.database?.catalogId,
+              Name: this.__input.resource.database?.name,
+            },
+            Table: {
+              CatalogId: this.__input.resource.table?.catalogId,
+              DatabaseName: this.__input.resource.table?.databaseName,
+              Name: this.__input.resource.table?.name,
+              TableWildcard: {
+              },
+            },
+            TableWithColumns: {
+              CatalogId: this.__input.resource.tableWithColumns?.catalogId,
+              DatabaseName: this.__input.resource.tableWithColumns?.databaseName,
+              Name: this.__input.resource.tableWithColumns?.name,
+              ColumnNames: this.__input.resource.tableWithColumns?.columnNames,
+              ColumnWildcard: {
+                ExcludedColumnNames: this.__input.resource.tableWithColumns?.columnWildcard?.excludedColumnNames,
+              },
+            },
+            DataLocation: {
+              CatalogId: this.__input.resource.dataLocation?.catalogId,
+              ResourceArn: this.__input.resource.dataLocation?.resourceArn,
+            },
+            LFTag: {
+              CatalogId: this.__input.resource.lfTag?.catalogId,
+              TagKey: this.__input.resource.lfTag?.tagKey,
+              TagValues: this.__input.resource.lfTag?.tagValues,
+            },
+            LFTagPolicy: {
+              CatalogId: this.__input.resource.lfTagPolicy?.catalogId,
+              ResourceType: this.__input.resource.lfTagPolicy?.resourceType,
+              Expression: this.__input.resource.lfTagPolicy?.expression,
+            },
+          },
+          LFTags: this.__input.lfTags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RemoveLFTagsFromResource.Failures', props);
+    return resource.getResponseField('Failures') as unknown as shapes.LakeFormationLfTagError[];
+  }
+
+}
+
+export class LakeFormationResponsesSearchDatabasesByLfTags {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LakeFormationSearchDatabasesByLfTagsRequest) {
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'searchDatabasesByLfTags',
+        service: 'LakeFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('LakeFormation.SearchDatabasesByLFTags.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          CatalogId: this.__input.catalogId,
+          Expression: this.__input.expression,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SearchDatabasesByLFTags.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+  public get databaseList(): shapes.LakeFormationTaggedDatabase[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'searchDatabasesByLfTags',
+        service: 'LakeFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('LakeFormation.SearchDatabasesByLFTags.DatabaseList'),
+        outputPath: 'DatabaseList',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          CatalogId: this.__input.catalogId,
+          Expression: this.__input.expression,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SearchDatabasesByLFTags.DatabaseList', props);
+    return resource.getResponseField('DatabaseList') as unknown as shapes.LakeFormationTaggedDatabase[];
+  }
+
+}
+
+export class LakeFormationResponsesSearchTablesByLfTags {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.LakeFormationSearchTablesByLfTagsRequest) {
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'searchTablesByLfTags',
+        service: 'LakeFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('LakeFormation.SearchTablesByLFTags.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          CatalogId: this.__input.catalogId,
+          Expression: this.__input.expression,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SearchTablesByLFTags.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+  public get tableList(): shapes.LakeFormationTaggedTable[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'searchTablesByLfTags',
+        service: 'LakeFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('LakeFormation.SearchTablesByLFTags.TableList'),
+        outputPath: 'TableList',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          CatalogId: this.__input.catalogId,
+          Expression: this.__input.expression,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SearchTablesByLFTags.TableList', props);
+    return resource.getResponseField('TableList') as unknown as shapes.LakeFormationTaggedTable[];
   }
 
 }

@@ -12,6 +12,10 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesAcceptReservedInstancesExchangeQuote(this, this.__resources, input);
   }
 
+  public acceptTransitGatewayMulticastDomainAssociations(input: shapes.Ec2AcceptTransitGatewayMulticastDomainAssociationsRequest): EC2ResponsesAcceptTransitGatewayMulticastDomainAssociations {
+    return new EC2ResponsesAcceptTransitGatewayMulticastDomainAssociations(this, this.__resources, input);
+  }
+
   public acceptTransitGatewayPeeringAttachment(input: shapes.Ec2AcceptTransitGatewayPeeringAttachmentRequest): EC2ResponsesAcceptTransitGatewayPeeringAttachment {
     return new EC2ResponsesAcceptTransitGatewayPeeringAttachment(this, this.__resources, input);
   }
@@ -85,6 +89,10 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesAssociateIamInstanceProfile(this, this.__resources, input);
   }
 
+  public associateInstanceEventWindow(input: shapes.Ec2AssociateInstanceEventWindowRequest): EC2ResponsesAssociateInstanceEventWindow {
+    return new EC2ResponsesAssociateInstanceEventWindow(this, this.__resources, input);
+  }
+
   public associateRouteTable(input: shapes.Ec2AssociateRouteTableRequest): EC2ResponsesAssociateRouteTable {
     return new EC2ResponsesAssociateRouteTable(this, this.__resources, input);
   }
@@ -99,6 +107,10 @@ export class Ec2Client extends cdk.Construct {
 
   public associateTransitGatewayRouteTable(input: shapes.Ec2AssociateTransitGatewayRouteTableRequest): EC2ResponsesAssociateTransitGatewayRouteTable {
     return new EC2ResponsesAssociateTransitGatewayRouteTable(this, this.__resources, input);
+  }
+
+  public associateTrunkInterface(input: shapes.Ec2AssociateTrunkInterfaceRequest): EC2ResponsesAssociateTrunkInterface {
+    return new EC2ResponsesAssociateTrunkInterface(this, this.__resources, input);
   }
 
   public associateVpcCidrBlock(input: shapes.Ec2AssociateVpcCidrBlockRequest): EC2ResponsesAssociateVpcCidrBlock {
@@ -142,51 +154,12 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesAuthorizeClientVpnIngress(this, this.__resources, input);
   }
 
-  public authorizeSecurityGroupEgress(input: shapes.Ec2AuthorizeSecurityGroupEgressRequest): void {
-    const props: cr.AwsCustomResourceProps = {
-      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
-      onUpdate: {
-        action: 'authorizeSecurityGroupEgress',
-        service: 'EC2',
-        physicalResourceId: cr.PhysicalResourceId.of('EC2.AuthorizeSecurityGroupEgress'),
-        parameters: {
-          DryRun: input.dryRun,
-          GroupId: input.groupId,
-          IpPermissions: input.ipPermissions,
-          CidrIp: input.cidrIp,
-          FromPort: input.fromPort,
-          IpProtocol: input.ipProtocol,
-          ToPort: input.toPort,
-          SourceSecurityGroupName: input.sourceSecurityGroupName,
-          SourceSecurityGroupOwnerId: input.sourceSecurityGroupOwnerId,
-        },
-      },
-    };
-    new cr.AwsCustomResource(this, 'AuthorizeSecurityGroupEgress', props);
+  public authorizeSecurityGroupEgress(input: shapes.Ec2AuthorizeSecurityGroupEgressRequest): EC2ResponsesAuthorizeSecurityGroupEgress {
+    return new EC2ResponsesAuthorizeSecurityGroupEgress(this, this.__resources, input);
   }
 
-  public authorizeSecurityGroupIngress(input: shapes.Ec2AuthorizeSecurityGroupIngressRequest): void {
-    const props: cr.AwsCustomResourceProps = {
-      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
-      onUpdate: {
-        action: 'authorizeSecurityGroupIngress',
-        service: 'EC2',
-        physicalResourceId: cr.PhysicalResourceId.of('EC2.AuthorizeSecurityGroupIngress'),
-        parameters: {
-          CidrIp: input.cidrIp,
-          FromPort: input.fromPort,
-          GroupId: input.groupId,
-          GroupName: input.groupName,
-          IpPermissions: input.ipPermissions,
-          IpProtocol: input.ipProtocol,
-          SourceSecurityGroupName: input.sourceSecurityGroupName,
-          SourceSecurityGroupOwnerId: input.sourceSecurityGroupOwnerId,
-          ToPort: input.toPort,
-          DryRun: input.dryRun,
-        },
-      },
-    };
-    new cr.AwsCustomResource(this, 'AuthorizeSecurityGroupIngress', props);
+  public authorizeSecurityGroupIngress(input: shapes.Ec2AuthorizeSecurityGroupIngressRequest): EC2ResponsesAuthorizeSecurityGroupIngress {
+    return new EC2ResponsesAuthorizeSecurityGroupIngress(this, this.__resources, input);
   }
 
   public bundleInstance(input: shapes.Ec2BundleInstanceRequest): EC2ResponsesBundleInstance {
@@ -317,6 +290,10 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesCreateImage(this, this.__resources, input);
   }
 
+  public createInstanceEventWindow(input: shapes.Ec2CreateInstanceEventWindowRequest): EC2ResponsesCreateInstanceEventWindow {
+    return new EC2ResponsesCreateInstanceEventWindow(this, this.__resources, input);
+  }
+
   public createInstanceExportTask(input: shapes.Ec2CreateInstanceExportTaskRequest): EC2ResponsesCreateInstanceExportTask {
     return new EC2ResponsesCreateInstanceExportTask(this, this.__resources, input);
   }
@@ -387,6 +364,10 @@ export class Ec2Client extends cdk.Construct {
     new cr.AwsCustomResource(this, 'CreateNetworkAclEntry', props);
   }
 
+  public createNetworkInsightsPath(input: shapes.Ec2CreateNetworkInsightsPathRequest): EC2ResponsesCreateNetworkInsightsPath {
+    return new EC2ResponsesCreateNetworkInsightsPath(this, this.__resources, input);
+  }
+
   public createNetworkInterface(input: shapes.Ec2CreateNetworkInterfaceRequest): EC2ResponsesCreateNetworkInterface {
     return new EC2ResponsesCreateNetworkInterface(this, this.__resources, input);
   }
@@ -399,8 +380,16 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesCreatePlacementGroup(this, this.__resources, input);
   }
 
+  public createReplaceRootVolumeTask(input: shapes.Ec2CreateReplaceRootVolumeTaskRequest): EC2ResponsesCreateReplaceRootVolumeTask {
+    return new EC2ResponsesCreateReplaceRootVolumeTask(this, this.__resources, input);
+  }
+
   public createReservedInstancesListing(input: shapes.Ec2CreateReservedInstancesListingRequest): EC2ResponsesCreateReservedInstancesListing {
     return new EC2ResponsesCreateReservedInstancesListing(this, this.__resources, input);
+  }
+
+  public createRestoreImageTask(input: shapes.Ec2CreateRestoreImageTaskRequest): EC2ResponsesCreateRestoreImageTask {
+    return new EC2ResponsesCreateRestoreImageTask(this, this.__resources, input);
   }
 
   public createRoute(input: shapes.Ec2CreateRouteRequest): EC2ResponsesCreateRoute {
@@ -427,8 +416,16 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesCreateSpotDatafeedSubscription(this, this.__resources, input);
   }
 
+  public createStoreImageTask(input: shapes.Ec2CreateStoreImageTaskRequest): EC2ResponsesCreateStoreImageTask {
+    return new EC2ResponsesCreateStoreImageTask(this, this.__resources, input);
+  }
+
   public createSubnet(input: shapes.Ec2CreateSubnetRequest): EC2ResponsesCreateSubnet {
     return new EC2ResponsesCreateSubnet(this, this.__resources, input);
+  }
+
+  public createSubnetCidrReservation(input: shapes.Ec2CreateSubnetCidrReservationRequest): EC2ResponsesCreateSubnetCidrReservation {
+    return new EC2ResponsesCreateSubnetCidrReservation(this, this.__resources, input);
   }
 
   public createTags(input: shapes.Ec2CreateTagsRequest): void {
@@ -466,6 +463,14 @@ export class Ec2Client extends cdk.Construct {
 
   public createTransitGateway(input: shapes.Ec2CreateTransitGatewayRequest): EC2ResponsesCreateTransitGateway {
     return new EC2ResponsesCreateTransitGateway(this, this.__resources, input);
+  }
+
+  public createTransitGatewayConnect(input: shapes.Ec2CreateTransitGatewayConnectRequest): EC2ResponsesCreateTransitGatewayConnect {
+    return new EC2ResponsesCreateTransitGatewayConnect(this, this.__resources, input);
+  }
+
+  public createTransitGatewayConnectPeer(input: shapes.Ec2CreateTransitGatewayConnectPeerRequest): EC2ResponsesCreateTransitGatewayConnectPeer {
+    return new EC2ResponsesCreateTransitGatewayConnectPeer(this, this.__resources, input);
   }
 
   public createTransitGatewayMulticastDomain(input: shapes.Ec2CreateTransitGatewayMulticastDomainRequest): EC2ResponsesCreateTransitGatewayMulticastDomain {
@@ -600,6 +605,10 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesDeleteFpgaImage(this, this.__resources, input);
   }
 
+  public deleteInstanceEventWindow(input: shapes.Ec2DeleteInstanceEventWindowRequest): EC2ResponsesDeleteInstanceEventWindow {
+    return new EC2ResponsesDeleteInstanceEventWindow(this, this.__resources, input);
+  }
+
   public deleteInternetGateway(input: shapes.Ec2DeleteInternetGatewayRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -689,6 +698,14 @@ export class Ec2Client extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'DeleteNetworkAclEntry', props);
+  }
+
+  public deleteNetworkInsightsAnalysis(input: shapes.Ec2DeleteNetworkInsightsAnalysisRequest): EC2ResponsesDeleteNetworkInsightsAnalysis {
+    return new EC2ResponsesDeleteNetworkInsightsAnalysis(this, this.__resources, input);
+  }
+
+  public deleteNetworkInsightsPath(input: shapes.Ec2DeleteNetworkInsightsPathRequest): EC2ResponsesDeleteNetworkInsightsPath {
+    return new EC2ResponsesDeleteNetworkInsightsPath(this, this.__resources, input);
   }
 
   public deleteNetworkInterface(input: shapes.Ec2DeleteNetworkInterfaceRequest): void {
@@ -830,6 +847,10 @@ export class Ec2Client extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeleteSubnet', props);
   }
 
+  public deleteSubnetCidrReservation(input: shapes.Ec2DeleteSubnetCidrReservationRequest): EC2ResponsesDeleteSubnetCidrReservation {
+    return new EC2ResponsesDeleteSubnetCidrReservation(this, this.__resources, input);
+  }
+
   public deleteTags(input: shapes.Ec2DeleteTagsRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -865,6 +886,14 @@ export class Ec2Client extends cdk.Construct {
 
   public deleteTransitGateway(input: shapes.Ec2DeleteTransitGatewayRequest): EC2ResponsesDeleteTransitGateway {
     return new EC2ResponsesDeleteTransitGateway(this, this.__resources, input);
+  }
+
+  public deleteTransitGatewayConnect(input: shapes.Ec2DeleteTransitGatewayConnectRequest): EC2ResponsesDeleteTransitGatewayConnect {
+    return new EC2ResponsesDeleteTransitGatewayConnect(this, this.__resources, input);
+  }
+
+  public deleteTransitGatewayConnectPeer(input: shapes.Ec2DeleteTransitGatewayConnectPeerRequest): EC2ResponsesDeleteTransitGatewayConnectPeer {
+    return new EC2ResponsesDeleteTransitGatewayConnectPeer(this, this.__resources, input);
   }
 
   public deleteTransitGatewayMulticastDomain(input: shapes.Ec2DeleteTransitGatewayMulticastDomainRequest): EC2ResponsesDeleteTransitGatewayMulticastDomain {
@@ -1027,6 +1056,10 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesDescribeAddresses(this, this.__resources, input);
   }
 
+  public describeAddressesAttribute(input: shapes.Ec2DescribeAddressesAttributeRequest): EC2ResponsesDescribeAddressesAttribute {
+    return new EC2ResponsesDescribeAddressesAttribute(this, this.__resources, input);
+  }
+
   public describeAggregateIdFormat(input: shapes.Ec2DescribeAggregateIdFormatRequest): EC2ResponsesDescribeAggregateIdFormat {
     return new EC2ResponsesDescribeAggregateIdFormat(this, this.__resources, input);
   }
@@ -1187,6 +1220,10 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesDescribeInstanceEventNotificationAttributes(this, this.__resources, input);
   }
 
+  public describeInstanceEventWindows(input: shapes.Ec2DescribeInstanceEventWindowsRequest): EC2ResponsesDescribeInstanceEventWindows {
+    return new EC2ResponsesDescribeInstanceEventWindows(this, this.__resources, input);
+  }
+
   public describeInstanceStatus(input: shapes.Ec2DescribeInstanceStatusRequest): EC2ResponsesDescribeInstanceStatus {
     return new EC2ResponsesDescribeInstanceStatus(this, this.__resources, input);
   }
@@ -1263,6 +1300,14 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesDescribeNetworkAcls(this, this.__resources, input);
   }
 
+  public describeNetworkInsightsAnalyses(input: shapes.Ec2DescribeNetworkInsightsAnalysesRequest): EC2ResponsesDescribeNetworkInsightsAnalyses {
+    return new EC2ResponsesDescribeNetworkInsightsAnalyses(this, this.__resources, input);
+  }
+
+  public describeNetworkInsightsPaths(input: shapes.Ec2DescribeNetworkInsightsPathsRequest): EC2ResponsesDescribeNetworkInsightsPaths {
+    return new EC2ResponsesDescribeNetworkInsightsPaths(this, this.__resources, input);
+  }
+
   public describeNetworkInterfaceAttribute(input: shapes.Ec2DescribeNetworkInterfaceAttributeRequest): EC2ResponsesDescribeNetworkInterfaceAttribute {
     return new EC2ResponsesDescribeNetworkInterfaceAttribute(this, this.__resources, input);
   }
@@ -1295,6 +1340,10 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesDescribeRegions(this, this.__resources, input);
   }
 
+  public describeReplaceRootVolumeTasks(input: shapes.Ec2DescribeReplaceRootVolumeTasksRequest): EC2ResponsesDescribeReplaceRootVolumeTasks {
+    return new EC2ResponsesDescribeReplaceRootVolumeTasks(this, this.__resources, input);
+  }
+
   public describeReservedInstances(input: shapes.Ec2DescribeReservedInstancesRequest): EC2ResponsesDescribeReservedInstances {
     return new EC2ResponsesDescribeReservedInstances(this, this.__resources, input);
   }
@@ -1325,6 +1374,10 @@ export class Ec2Client extends cdk.Construct {
 
   public describeSecurityGroupReferences(input: shapes.Ec2DescribeSecurityGroupReferencesRequest): EC2ResponsesDescribeSecurityGroupReferences {
     return new EC2ResponsesDescribeSecurityGroupReferences(this, this.__resources, input);
+  }
+
+  public describeSecurityGroupRules(input: shapes.Ec2DescribeSecurityGroupRulesRequest): EC2ResponsesDescribeSecurityGroupRules {
+    return new EC2ResponsesDescribeSecurityGroupRules(this, this.__resources, input);
   }
 
   public describeSecurityGroups(input: shapes.Ec2DescribeSecurityGroupsRequest): EC2ResponsesDescribeSecurityGroups {
@@ -1367,6 +1420,10 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesDescribeStaleSecurityGroups(this, this.__resources, input);
   }
 
+  public describeStoreImageTasks(input: shapes.Ec2DescribeStoreImageTasksRequest): EC2ResponsesDescribeStoreImageTasks {
+    return new EC2ResponsesDescribeStoreImageTasks(this, this.__resources, input);
+  }
+
   public describeSubnets(input: shapes.Ec2DescribeSubnetsRequest): EC2ResponsesDescribeSubnets {
     return new EC2ResponsesDescribeSubnets(this, this.__resources, input);
   }
@@ -1391,6 +1448,14 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesDescribeTransitGatewayAttachments(this, this.__resources, input);
   }
 
+  public describeTransitGatewayConnectPeers(input: shapes.Ec2DescribeTransitGatewayConnectPeersRequest): EC2ResponsesDescribeTransitGatewayConnectPeers {
+    return new EC2ResponsesDescribeTransitGatewayConnectPeers(this, this.__resources, input);
+  }
+
+  public describeTransitGatewayConnects(input: shapes.Ec2DescribeTransitGatewayConnectsRequest): EC2ResponsesDescribeTransitGatewayConnects {
+    return new EC2ResponsesDescribeTransitGatewayConnects(this, this.__resources, input);
+  }
+
   public describeTransitGatewayMulticastDomains(input: shapes.Ec2DescribeTransitGatewayMulticastDomainsRequest): EC2ResponsesDescribeTransitGatewayMulticastDomains {
     return new EC2ResponsesDescribeTransitGatewayMulticastDomains(this, this.__resources, input);
   }
@@ -1409,6 +1474,10 @@ export class Ec2Client extends cdk.Construct {
 
   public describeTransitGateways(input: shapes.Ec2DescribeTransitGatewaysRequest): EC2ResponsesDescribeTransitGateways {
     return new EC2ResponsesDescribeTransitGateways(this, this.__resources, input);
+  }
+
+  public describeTrunkInterfaceAssociations(input: shapes.Ec2DescribeTrunkInterfaceAssociationsRequest): EC2ResponsesDescribeTrunkInterfaceAssociations {
+    return new EC2ResponsesDescribeTrunkInterfaceAssociations(this, this.__resources, input);
   }
 
   public describeVolumeAttribute(input: shapes.Ec2DescribeVolumeAttributeRequest): EC2ResponsesDescribeVolumeAttribute {
@@ -1546,6 +1615,14 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesDisableFastSnapshotRestores(this, this.__resources, input);
   }
 
+  public disableImageDeprecation(input: shapes.Ec2DisableImageDeprecationRequest): EC2ResponsesDisableImageDeprecation {
+    return new EC2ResponsesDisableImageDeprecation(this, this.__resources, input);
+  }
+
+  public disableSerialConsoleAccess(input: shapes.Ec2DisableSerialConsoleAccessRequest): EC2ResponsesDisableSerialConsoleAccess {
+    return new EC2ResponsesDisableSerialConsoleAccess(this, this.__resources, input);
+  }
+
   public disableTransitGatewayRouteTablePropagation(input: shapes.Ec2DisableTransitGatewayRouteTablePropagationRequest): EC2ResponsesDisableTransitGatewayRouteTablePropagation {
     return new EC2ResponsesDisableTransitGatewayRouteTablePropagation(this, this.__resources, input);
   }
@@ -1604,6 +1681,10 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesDisassociateIamInstanceProfile(this, this.__resources, input);
   }
 
+  public disassociateInstanceEventWindow(input: shapes.Ec2DisassociateInstanceEventWindowRequest): EC2ResponsesDisassociateInstanceEventWindow {
+    return new EC2ResponsesDisassociateInstanceEventWindow(this, this.__resources, input);
+  }
+
   public disassociateRouteTable(input: shapes.Ec2DisassociateRouteTableRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -1632,6 +1713,10 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesDisassociateTransitGatewayRouteTable(this, this.__resources, input);
   }
 
+  public disassociateTrunkInterface(input: shapes.Ec2DisassociateTrunkInterfaceRequest): EC2ResponsesDisassociateTrunkInterface {
+    return new EC2ResponsesDisassociateTrunkInterface(this, this.__resources, input);
+  }
+
   public disassociateVpcCidrBlock(input: shapes.Ec2DisassociateVpcCidrBlockRequest): EC2ResponsesDisassociateVpcCidrBlock {
     return new EC2ResponsesDisassociateVpcCidrBlock(this, this.__resources, input);
   }
@@ -1642,6 +1727,14 @@ export class Ec2Client extends cdk.Construct {
 
   public enableFastSnapshotRestores(input: shapes.Ec2EnableFastSnapshotRestoresRequest): EC2ResponsesEnableFastSnapshotRestores {
     return new EC2ResponsesEnableFastSnapshotRestores(this, this.__resources, input);
+  }
+
+  public enableImageDeprecation(input: shapes.Ec2EnableImageDeprecationRequest): EC2ResponsesEnableImageDeprecation {
+    return new EC2ResponsesEnableImageDeprecation(this, this.__resources, input);
+  }
+
+  public enableSerialConsoleAccess(input: shapes.Ec2EnableSerialConsoleAccessRequest): EC2ResponsesEnableSerialConsoleAccess {
+    return new EC2ResponsesEnableSerialConsoleAccess(this, this.__resources, input);
   }
 
   public enableTransitGatewayRouteTablePropagation(input: shapes.Ec2EnableTransitGatewayRouteTablePropagationRequest): EC2ResponsesEnableTransitGatewayRouteTablePropagation {
@@ -1741,6 +1834,10 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesFetchEbsEncryptionByDefault(this, this.__resources, input);
   }
 
+  public fetchFlowLogsIntegrationTemplate(input: shapes.Ec2GetFlowLogsIntegrationTemplateRequest): EC2ResponsesFetchFlowLogsIntegrationTemplate {
+    return new EC2ResponsesFetchFlowLogsIntegrationTemplate(this, this.__resources, input);
+  }
+
   public fetchGroupsForCapacityReservation(input: shapes.Ec2GetGroupsForCapacityReservationRequest): EC2ResponsesFetchGroupsForCapacityReservation {
     return new EC2ResponsesFetchGroupsForCapacityReservation(this, this.__resources, input);
   }
@@ -1767,6 +1864,14 @@ export class Ec2Client extends cdk.Construct {
 
   public fetchReservedInstancesExchangeQuote(input: shapes.Ec2GetReservedInstancesExchangeQuoteRequest): EC2ResponsesFetchReservedInstancesExchangeQuote {
     return new EC2ResponsesFetchReservedInstancesExchangeQuote(this, this.__resources, input);
+  }
+
+  public fetchSerialConsoleAccessStatus(input: shapes.Ec2GetSerialConsoleAccessStatusRequest): EC2ResponsesFetchSerialConsoleAccessStatus {
+    return new EC2ResponsesFetchSerialConsoleAccessStatus(this, this.__resources, input);
+  }
+
+  public fetchSubnetCidrReservations(input: shapes.Ec2GetSubnetCidrReservationsRequest): EC2ResponsesFetchSubnetCidrReservations {
+    return new EC2ResponsesFetchSubnetCidrReservations(this, this.__resources, input);
   }
 
   public fetchTransitGatewayAttachmentPropagations(input: shapes.Ec2GetTransitGatewayAttachmentPropagationsRequest): EC2ResponsesFetchTransitGatewayAttachmentPropagations {
@@ -1811,6 +1916,10 @@ export class Ec2Client extends cdk.Construct {
 
   public importVolume(input: shapes.Ec2ImportVolumeRequest): EC2ResponsesImportVolume {
     return new EC2ResponsesImportVolume(this, this.__resources, input);
+  }
+
+  public modifyAddressAttribute(input: shapes.Ec2ModifyAddressAttributeRequest): EC2ResponsesModifyAddressAttribute {
+    return new EC2ResponsesModifyAddressAttribute(this, this.__resources, input);
   }
 
   public modifyAvailabilityZoneGroup(input: shapes.Ec2ModifyAvailabilityZoneGroupRequest): EC2ResponsesModifyAvailabilityZoneGroup {
@@ -1970,6 +2079,10 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesModifyInstanceEventStartTime(this, this.__resources, input);
   }
 
+  public modifyInstanceEventWindow(input: shapes.Ec2ModifyInstanceEventWindowRequest): EC2ResponsesModifyInstanceEventWindow {
+    return new EC2ResponsesModifyInstanceEventWindow(this, this.__resources, input);
+  }
+
   public modifyInstanceMetadataOptions(input: shapes.Ec2ModifyInstanceMetadataOptionsRequest): EC2ResponsesModifyInstanceMetadataOptions {
     return new EC2ResponsesModifyInstanceMetadataOptions(this, this.__resources, input);
   }
@@ -2015,6 +2128,10 @@ export class Ec2Client extends cdk.Construct {
 
   public modifyReservedInstances(input: shapes.Ec2ModifyReservedInstancesRequest): EC2ResponsesModifyReservedInstances {
     return new EC2ResponsesModifyReservedInstances(this, this.__resources, input);
+  }
+
+  public modifySecurityGroupRules(input: shapes.Ec2ModifySecurityGroupRulesRequest): EC2ResponsesModifySecurityGroupRules {
+    return new EC2ResponsesModifySecurityGroupRules(this, this.__resources, input);
   }
 
   public modifySnapshotAttribute(input: shapes.Ec2ModifySnapshotAttributeRequest): void {
@@ -2234,6 +2351,10 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesRegisterTransitGatewayMulticastGroupSources(this, this.__resources, input);
   }
 
+  public rejectTransitGatewayMulticastDomainAssociations(input: shapes.Ec2RejectTransitGatewayMulticastDomainAssociationsRequest): EC2ResponsesRejectTransitGatewayMulticastDomainAssociations {
+    return new EC2ResponsesRejectTransitGatewayMulticastDomainAssociations(this, this.__resources, input);
+  }
+
   public rejectTransitGatewayPeeringAttachment(input: shapes.Ec2RejectTransitGatewayPeeringAttachmentRequest): EC2ResponsesRejectTransitGatewayPeeringAttachment {
     return new EC2ResponsesRejectTransitGatewayPeeringAttachment(this, this.__resources, input);
   }
@@ -2377,6 +2498,10 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesRequestSpotInstances(this, this.__resources, input);
   }
 
+  public resetAddressAttribute(input: shapes.Ec2ResetAddressAttributeRequest): EC2ResponsesResetAddressAttribute {
+    return new EC2ResponsesResetAddressAttribute(this, this.__resources, input);
+  }
+
   public resetEbsDefaultKmsKeyId(input: shapes.Ec2ResetEbsDefaultKmsKeyIdRequest): EC2ResponsesResetEbsDefaultKmsKeyId {
     return new EC2ResponsesResetEbsDefaultKmsKeyId(this, this.__resources, input);
   }
@@ -2513,6 +2638,10 @@ export class Ec2Client extends cdk.Construct {
     return new EC2ResponsesStartInstances(this, this.__resources, input);
   }
 
+  public startNetworkInsightsAnalysis(input: shapes.Ec2StartNetworkInsightsAnalysisRequest): EC2ResponsesStartNetworkInsightsAnalysis {
+    return new EC2ResponsesStartNetworkInsightsAnalysis(this, this.__resources, input);
+  }
+
   public startVpcEndpointServicePrivateDnsVerification(input: shapes.Ec2StartVpcEndpointServicePrivateDnsVerificationRequest): EC2ResponsesStartVpcEndpointServicePrivateDnsVerification {
     return new EC2ResponsesStartVpcEndpointServicePrivateDnsVerification(this, this.__resources, input);
   }
@@ -2543,6 +2672,7 @@ export class Ec2Client extends cdk.Construct {
         parameters: {
           NetworkInterfaceId: input.networkInterfaceId,
           PrivateIpAddresses: input.privateIpAddresses,
+          Ipv4Prefixes: input.ipv4Prefixes,
         },
       },
     };
@@ -2589,6 +2719,144 @@ export class EC2ResponsesAcceptReservedInstancesExchangeQuote {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AcceptReservedInstancesExchangeQuote.ExchangeId', props);
     return resource.getResponseField('ExchangeId') as unknown as string;
+  }
+
+}
+
+export class EC2ResponsesAcceptTransitGatewayMulticastDomainAssociations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2AcceptTransitGatewayMulticastDomainAssociationsRequest) {
+  }
+
+  public get associations(): EC2ResponsesAcceptTransitGatewayMulticastDomainAssociationsAssociations {
+    return new EC2ResponsesAcceptTransitGatewayMulticastDomainAssociationsAssociations(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesAcceptTransitGatewayMulticastDomainAssociationsAssociations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2AcceptTransitGatewayMulticastDomainAssociationsRequest) {
+  }
+
+  public get transitGatewayMulticastDomainId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'acceptTransitGatewayMulticastDomainAssociations',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AcceptTransitGatewayMulticastDomainAssociations.Associations.TransitGatewayMulticastDomainId'),
+        outputPath: 'Associations.TransitGatewayMulticastDomainId',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          SubnetIds: this.__input.subnetIds,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AcceptTransitGatewayMulticastDomainAssociations.Associations.TransitGatewayMulticastDomainId', props);
+    return resource.getResponseField('Associations.TransitGatewayMulticastDomainId') as unknown as string;
+  }
+
+  public get transitGatewayAttachmentId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'acceptTransitGatewayMulticastDomainAssociations',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AcceptTransitGatewayMulticastDomainAssociations.Associations.TransitGatewayAttachmentId'),
+        outputPath: 'Associations.TransitGatewayAttachmentId',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          SubnetIds: this.__input.subnetIds,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AcceptTransitGatewayMulticastDomainAssociations.Associations.TransitGatewayAttachmentId', props);
+    return resource.getResponseField('Associations.TransitGatewayAttachmentId') as unknown as string;
+  }
+
+  public get resourceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'acceptTransitGatewayMulticastDomainAssociations',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AcceptTransitGatewayMulticastDomainAssociations.Associations.ResourceId'),
+        outputPath: 'Associations.ResourceId',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          SubnetIds: this.__input.subnetIds,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AcceptTransitGatewayMulticastDomainAssociations.Associations.ResourceId', props);
+    return resource.getResponseField('Associations.ResourceId') as unknown as string;
+  }
+
+  public get resourceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'acceptTransitGatewayMulticastDomainAssociations',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AcceptTransitGatewayMulticastDomainAssociations.Associations.ResourceType'),
+        outputPath: 'Associations.ResourceType',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          SubnetIds: this.__input.subnetIds,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AcceptTransitGatewayMulticastDomainAssociations.Associations.ResourceType', props);
+    return resource.getResponseField('Associations.ResourceType') as unknown as string;
+  }
+
+  public get resourceOwnerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'acceptTransitGatewayMulticastDomainAssociations',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AcceptTransitGatewayMulticastDomainAssociations.Associations.ResourceOwnerId'),
+        outputPath: 'Associations.ResourceOwnerId',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          SubnetIds: this.__input.subnetIds,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AcceptTransitGatewayMulticastDomainAssociations.Associations.ResourceOwnerId', props);
+    return resource.getResponseField('Associations.ResourceOwnerId') as unknown as string;
+  }
+
+  public get subnets(): shapes.Ec2SubnetAssociation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'acceptTransitGatewayMulticastDomainAssociations',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AcceptTransitGatewayMulticastDomainAssociations.Associations.Subnets'),
+        outputPath: 'Associations.Subnets',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          SubnetIds: this.__input.subnetIds,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AcceptTransitGatewayMulticastDomainAssociations.Associations.Subnets', props);
+    return resource.getResponseField('Associations.Subnets') as unknown as shapes.Ec2SubnetAssociation[];
   }
 
 }
@@ -3710,6 +3978,7 @@ export class EC2ResponsesAllocateAddress {
           NetworkBorderGroup: this.__input.networkBorderGroup,
           CustomerOwnedIpv4Pool: this.__input.customerOwnedIpv4Pool,
           DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
         },
       },
     };
@@ -3732,6 +4001,7 @@ export class EC2ResponsesAllocateAddress {
           NetworkBorderGroup: this.__input.networkBorderGroup,
           CustomerOwnedIpv4Pool: this.__input.customerOwnedIpv4Pool,
           DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
         },
       },
     };
@@ -3754,6 +4024,7 @@ export class EC2ResponsesAllocateAddress {
           NetworkBorderGroup: this.__input.networkBorderGroup,
           CustomerOwnedIpv4Pool: this.__input.customerOwnedIpv4Pool,
           DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
         },
       },
     };
@@ -3776,6 +4047,7 @@ export class EC2ResponsesAllocateAddress {
           NetworkBorderGroup: this.__input.networkBorderGroup,
           CustomerOwnedIpv4Pool: this.__input.customerOwnedIpv4Pool,
           DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
         },
       },
     };
@@ -3798,6 +4070,7 @@ export class EC2ResponsesAllocateAddress {
           NetworkBorderGroup: this.__input.networkBorderGroup,
           CustomerOwnedIpv4Pool: this.__input.customerOwnedIpv4Pool,
           DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
         },
       },
     };
@@ -3820,6 +4093,7 @@ export class EC2ResponsesAllocateAddress {
           NetworkBorderGroup: this.__input.networkBorderGroup,
           CustomerOwnedIpv4Pool: this.__input.customerOwnedIpv4Pool,
           DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
         },
       },
     };
@@ -3842,6 +4116,7 @@ export class EC2ResponsesAllocateAddress {
           NetworkBorderGroup: this.__input.networkBorderGroup,
           CustomerOwnedIpv4Pool: this.__input.customerOwnedIpv4Pool,
           DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
         },
       },
     };
@@ -3864,6 +4139,7 @@ export class EC2ResponsesAllocateAddress {
           NetworkBorderGroup: this.__input.networkBorderGroup,
           CustomerOwnedIpv4Pool: this.__input.customerOwnedIpv4Pool,
           DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
         },
       },
     };
@@ -3947,12 +4223,35 @@ export class EC2ResponsesAssignIpv6Addresses {
         parameters: {
           Ipv6AddressCount: this.__input.ipv6AddressCount,
           Ipv6Addresses: this.__input.ipv6Addresses,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
           NetworkInterfaceId: this.__input.networkInterfaceId,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AssignIpv6Addresses.AssignedIpv6Addresses', props);
     return resource.getResponseField('AssignedIpv6Addresses') as unknown as string[];
+  }
+
+  public get assignedIpv6Prefixes(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'assignIpv6Addresses',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssignIpv6Addresses.AssignedIpv6Prefixes'),
+        outputPath: 'AssignedIpv6Prefixes',
+        parameters: {
+          Ipv6AddressCount: this.__input.ipv6AddressCount,
+          Ipv6Addresses: this.__input.ipv6Addresses,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          NetworkInterfaceId: this.__input.networkInterfaceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssignIpv6Addresses.AssignedIpv6Prefixes', props);
+    return resource.getResponseField('AssignedIpv6Prefixes') as unknown as string[];
   }
 
   public get networkInterfaceId(): string {
@@ -3966,6 +4265,8 @@ export class EC2ResponsesAssignIpv6Addresses {
         parameters: {
           Ipv6AddressCount: this.__input.ipv6AddressCount,
           Ipv6Addresses: this.__input.ipv6Addresses,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
           NetworkInterfaceId: this.__input.networkInterfaceId,
         },
       },
@@ -3994,6 +4295,8 @@ export class EC2ResponsesAssignPrivateIpAddresses {
           NetworkInterfaceId: this.__input.networkInterfaceId,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
         },
       },
     };
@@ -4014,11 +4317,35 @@ export class EC2ResponsesAssignPrivateIpAddresses {
           NetworkInterfaceId: this.__input.networkInterfaceId,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AssignPrivateIpAddresses.AssignedPrivateIpAddresses', props);
     return resource.getResponseField('AssignedPrivateIpAddresses') as unknown as shapes.Ec2AssignedPrivateIpAddress[];
+  }
+
+  public get assignedIpv4Prefixes(): shapes.Ec2Ipv4PrefixSpecification[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'assignPrivateIpAddresses',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssignPrivateIpAddresses.AssignedIpv4Prefixes'),
+        outputPath: 'AssignedIpv4Prefixes',
+        parameters: {
+          AllowReassignment: this.__input.allowReassignment,
+          NetworkInterfaceId: this.__input.networkInterfaceId,
+          PrivateIpAddresses: this.__input.privateIpAddresses,
+          SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssignPrivateIpAddresses.AssignedIpv4Prefixes', props);
+    return resource.getResponseField('AssignedIpv4Prefixes') as unknown as shapes.Ec2Ipv4PrefixSpecification[];
   }
 
 }
@@ -4350,6 +4677,242 @@ export class EC2ResponsesAssociateIamInstanceProfileIamInstanceProfileAssociatio
 
 }
 
+export class EC2ResponsesAssociateInstanceEventWindow {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2AssociateInstanceEventWindowRequest) {
+  }
+
+  public get instanceEventWindow(): EC2ResponsesAssociateInstanceEventWindowInstanceEventWindow {
+    return new EC2ResponsesAssociateInstanceEventWindowInstanceEventWindow(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesAssociateInstanceEventWindowInstanceEventWindow {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2AssociateInstanceEventWindowRequest) {
+  }
+
+  public get instanceEventWindowId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssociateInstanceEventWindow.InstanceEventWindow.InstanceEventWindowId'),
+        outputPath: 'InstanceEventWindow.InstanceEventWindowId',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          AssociationTarget: {
+            InstanceIds: this.__input.associationTarget.instanceIds,
+            InstanceTags: this.__input.associationTarget.instanceTags,
+            DedicatedHostIds: this.__input.associationTarget.dedicatedHostIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateInstanceEventWindow.InstanceEventWindow.InstanceEventWindowId', props);
+    return resource.getResponseField('InstanceEventWindow.InstanceEventWindowId') as unknown as string;
+  }
+
+  public get timeRanges(): shapes.Ec2InstanceEventWindowTimeRange[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssociateInstanceEventWindow.InstanceEventWindow.TimeRanges'),
+        outputPath: 'InstanceEventWindow.TimeRanges',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          AssociationTarget: {
+            InstanceIds: this.__input.associationTarget.instanceIds,
+            InstanceTags: this.__input.associationTarget.instanceTags,
+            DedicatedHostIds: this.__input.associationTarget.dedicatedHostIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateInstanceEventWindow.InstanceEventWindow.TimeRanges', props);
+    return resource.getResponseField('InstanceEventWindow.TimeRanges') as unknown as shapes.Ec2InstanceEventWindowTimeRange[];
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssociateInstanceEventWindow.InstanceEventWindow.Name'),
+        outputPath: 'InstanceEventWindow.Name',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          AssociationTarget: {
+            InstanceIds: this.__input.associationTarget.instanceIds,
+            InstanceTags: this.__input.associationTarget.instanceTags,
+            DedicatedHostIds: this.__input.associationTarget.dedicatedHostIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateInstanceEventWindow.InstanceEventWindow.Name', props);
+    return resource.getResponseField('InstanceEventWindow.Name') as unknown as string;
+  }
+
+  public get cronExpression(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssociateInstanceEventWindow.InstanceEventWindow.CronExpression'),
+        outputPath: 'InstanceEventWindow.CronExpression',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          AssociationTarget: {
+            InstanceIds: this.__input.associationTarget.instanceIds,
+            InstanceTags: this.__input.associationTarget.instanceTags,
+            DedicatedHostIds: this.__input.associationTarget.dedicatedHostIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateInstanceEventWindow.InstanceEventWindow.CronExpression', props);
+    return resource.getResponseField('InstanceEventWindow.CronExpression') as unknown as string;
+  }
+
+  public get associationTarget(): EC2ResponsesAssociateInstanceEventWindowInstanceEventWindowAssociationTarget {
+    return new EC2ResponsesAssociateInstanceEventWindowInstanceEventWindowAssociationTarget(this.__scope, this.__resources, this.__input);
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssociateInstanceEventWindow.InstanceEventWindow.State'),
+        outputPath: 'InstanceEventWindow.State',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          AssociationTarget: {
+            InstanceIds: this.__input.associationTarget.instanceIds,
+            InstanceTags: this.__input.associationTarget.instanceTags,
+            DedicatedHostIds: this.__input.associationTarget.dedicatedHostIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateInstanceEventWindow.InstanceEventWindow.State', props);
+    return resource.getResponseField('InstanceEventWindow.State') as unknown as string;
+  }
+
+  public get tags(): shapes.Ec2Tag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssociateInstanceEventWindow.InstanceEventWindow.Tags'),
+        outputPath: 'InstanceEventWindow.Tags',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          AssociationTarget: {
+            InstanceIds: this.__input.associationTarget.instanceIds,
+            InstanceTags: this.__input.associationTarget.instanceTags,
+            DedicatedHostIds: this.__input.associationTarget.dedicatedHostIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateInstanceEventWindow.InstanceEventWindow.Tags', props);
+    return resource.getResponseField('InstanceEventWindow.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+}
+
+export class EC2ResponsesAssociateInstanceEventWindowInstanceEventWindowAssociationTarget {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2AssociateInstanceEventWindowRequest) {
+  }
+
+  public get instanceIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssociateInstanceEventWindow.InstanceEventWindow.AssociationTarget.InstanceIds'),
+        outputPath: 'InstanceEventWindow.AssociationTarget.InstanceIds',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          AssociationTarget: {
+            InstanceIds: this.__input.associationTarget.instanceIds,
+            InstanceTags: this.__input.associationTarget.instanceTags,
+            DedicatedHostIds: this.__input.associationTarget.dedicatedHostIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateInstanceEventWindow.InstanceEventWindow.AssociationTarget.InstanceIds', props);
+    return resource.getResponseField('InstanceEventWindow.AssociationTarget.InstanceIds') as unknown as string[];
+  }
+
+  public get tags(): shapes.Ec2Tag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssociateInstanceEventWindow.InstanceEventWindow.AssociationTarget.Tags'),
+        outputPath: 'InstanceEventWindow.AssociationTarget.Tags',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          AssociationTarget: {
+            InstanceIds: this.__input.associationTarget.instanceIds,
+            InstanceTags: this.__input.associationTarget.instanceTags,
+            DedicatedHostIds: this.__input.associationTarget.dedicatedHostIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateInstanceEventWindow.InstanceEventWindow.AssociationTarget.Tags', props);
+    return resource.getResponseField('InstanceEventWindow.AssociationTarget.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+  public get dedicatedHostIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssociateInstanceEventWindow.InstanceEventWindow.AssociationTarget.DedicatedHostIds'),
+        outputPath: 'InstanceEventWindow.AssociationTarget.DedicatedHostIds',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          AssociationTarget: {
+            InstanceIds: this.__input.associationTarget.instanceIds,
+            InstanceTags: this.__input.associationTarget.instanceTags,
+            DedicatedHostIds: this.__input.associationTarget.dedicatedHostIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateInstanceEventWindow.InstanceEventWindow.AssociationTarget.DedicatedHostIds', props);
+    return resource.getResponseField('InstanceEventWindow.AssociationTarget.DedicatedHostIds') as unknown as string[];
+  }
+
+}
+
 export class EC2ResponsesAssociateRouteTable {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2AssociateRouteTableRequest) {
@@ -4643,6 +5206,26 @@ export class EC2ResponsesAssociateTransitGatewayMulticastDomainAssociations {
     return resource.getResponseField('Associations.ResourceType') as unknown as string;
   }
 
+  public get resourceOwnerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateTransitGatewayMulticastDomain',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssociateTransitGatewayMulticastDomain.Associations.ResourceOwnerId'),
+        outputPath: 'Associations.ResourceOwnerId',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          SubnetIds: this.__input.subnetIds,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateTransitGatewayMulticastDomain.Associations.ResourceOwnerId', props);
+    return resource.getResponseField('Associations.ResourceOwnerId') as unknown as string;
+  }
+
   public get subnets(): shapes.Ec2SubnetAssociation[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -4774,6 +5357,200 @@ export class EC2ResponsesAssociateTransitGatewayRouteTableAssociation {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AssociateTransitGatewayRouteTable.Association.State', props);
     return resource.getResponseField('Association.State') as unknown as string;
+  }
+
+}
+
+export class EC2ResponsesAssociateTrunkInterface {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2AssociateTrunkInterfaceRequest) {
+  }
+
+  public get interfaceAssociation(): EC2ResponsesAssociateTrunkInterfaceInterfaceAssociation {
+    return new EC2ResponsesAssociateTrunkInterfaceInterfaceAssociation(this.__scope, this.__resources, this.__input);
+  }
+
+  public get clientToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateTrunkInterface',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssociateTrunkInterface.ClientToken'),
+        outputPath: 'ClientToken',
+        parameters: {
+          BranchInterfaceId: this.__input.branchInterfaceId,
+          TrunkInterfaceId: this.__input.trunkInterfaceId,
+          VlanId: this.__input.vlanId,
+          GreKey: this.__input.greKey,
+          ClientToken: this.__input.clientToken,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateTrunkInterface.ClientToken', props);
+    return resource.getResponseField('ClientToken') as unknown as string;
+  }
+
+}
+
+export class EC2ResponsesAssociateTrunkInterfaceInterfaceAssociation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2AssociateTrunkInterfaceRequest) {
+  }
+
+  public get associationId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateTrunkInterface',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssociateTrunkInterface.InterfaceAssociation.AssociationId'),
+        outputPath: 'InterfaceAssociation.AssociationId',
+        parameters: {
+          BranchInterfaceId: this.__input.branchInterfaceId,
+          TrunkInterfaceId: this.__input.trunkInterfaceId,
+          VlanId: this.__input.vlanId,
+          GreKey: this.__input.greKey,
+          ClientToken: this.__input.clientToken,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateTrunkInterface.InterfaceAssociation.AssociationId', props);
+    return resource.getResponseField('InterfaceAssociation.AssociationId') as unknown as string;
+  }
+
+  public get branchInterfaceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateTrunkInterface',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssociateTrunkInterface.InterfaceAssociation.BranchInterfaceId'),
+        outputPath: 'InterfaceAssociation.BranchInterfaceId',
+        parameters: {
+          BranchInterfaceId: this.__input.branchInterfaceId,
+          TrunkInterfaceId: this.__input.trunkInterfaceId,
+          VlanId: this.__input.vlanId,
+          GreKey: this.__input.greKey,
+          ClientToken: this.__input.clientToken,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateTrunkInterface.InterfaceAssociation.BranchInterfaceId', props);
+    return resource.getResponseField('InterfaceAssociation.BranchInterfaceId') as unknown as string;
+  }
+
+  public get trunkInterfaceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateTrunkInterface',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssociateTrunkInterface.InterfaceAssociation.TrunkInterfaceId'),
+        outputPath: 'InterfaceAssociation.TrunkInterfaceId',
+        parameters: {
+          BranchInterfaceId: this.__input.branchInterfaceId,
+          TrunkInterfaceId: this.__input.trunkInterfaceId,
+          VlanId: this.__input.vlanId,
+          GreKey: this.__input.greKey,
+          ClientToken: this.__input.clientToken,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateTrunkInterface.InterfaceAssociation.TrunkInterfaceId', props);
+    return resource.getResponseField('InterfaceAssociation.TrunkInterfaceId') as unknown as string;
+  }
+
+  public get interfaceProtocol(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateTrunkInterface',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssociateTrunkInterface.InterfaceAssociation.InterfaceProtocol'),
+        outputPath: 'InterfaceAssociation.InterfaceProtocol',
+        parameters: {
+          BranchInterfaceId: this.__input.branchInterfaceId,
+          TrunkInterfaceId: this.__input.trunkInterfaceId,
+          VlanId: this.__input.vlanId,
+          GreKey: this.__input.greKey,
+          ClientToken: this.__input.clientToken,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateTrunkInterface.InterfaceAssociation.InterfaceProtocol', props);
+    return resource.getResponseField('InterfaceAssociation.InterfaceProtocol') as unknown as string;
+  }
+
+  public get vlanId(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateTrunkInterface',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssociateTrunkInterface.InterfaceAssociation.VlanId'),
+        outputPath: 'InterfaceAssociation.VlanId',
+        parameters: {
+          BranchInterfaceId: this.__input.branchInterfaceId,
+          TrunkInterfaceId: this.__input.trunkInterfaceId,
+          VlanId: this.__input.vlanId,
+          GreKey: this.__input.greKey,
+          ClientToken: this.__input.clientToken,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateTrunkInterface.InterfaceAssociation.VlanId', props);
+    return resource.getResponseField('InterfaceAssociation.VlanId') as unknown as number;
+  }
+
+  public get greKey(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateTrunkInterface',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssociateTrunkInterface.InterfaceAssociation.GreKey'),
+        outputPath: 'InterfaceAssociation.GreKey',
+        parameters: {
+          BranchInterfaceId: this.__input.branchInterfaceId,
+          TrunkInterfaceId: this.__input.trunkInterfaceId,
+          VlanId: this.__input.vlanId,
+          GreKey: this.__input.greKey,
+          ClientToken: this.__input.clientToken,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateTrunkInterface.InterfaceAssociation.GreKey', props);
+    return resource.getResponseField('InterfaceAssociation.GreKey') as unknown as number;
+  }
+
+  public get tags(): shapes.Ec2Tag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'associateTrunkInterface',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AssociateTrunkInterface.InterfaceAssociation.Tags'),
+        outputPath: 'InterfaceAssociation.Tags',
+        parameters: {
+          BranchInterfaceId: this.__input.branchInterfaceId,
+          TrunkInterfaceId: this.__input.trunkInterfaceId,
+          VlanId: this.__input.vlanId,
+          GreKey: this.__input.greKey,
+          ClientToken: this.__input.clientToken,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssociateTrunkInterface.InterfaceAssociation.Tags', props);
+    return resource.getResponseField('InterfaceAssociation.Tags') as unknown as shapes.Ec2Tag[];
   }
 
 }
@@ -5390,6 +6167,126 @@ export class EC2ResponsesAuthorizeClientVpnIngressStatus {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeClientVpnIngress.Status.Message', props);
     return resource.getResponseField('Status.Message') as unknown as string;
+  }
+
+}
+
+export class EC2ResponsesAuthorizeSecurityGroupEgress {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2AuthorizeSecurityGroupEgressRequest) {
+  }
+
+  public get return(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'authorizeSecurityGroupEgress',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AuthorizeSecurityGroupEgress.Return'),
+        outputPath: 'Return',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          GroupId: this.__input.groupId,
+          IpPermissions: this.__input.ipPermissions,
+          TagSpecifications: this.__input.tagSpecifications,
+          CidrIp: this.__input.cidrIp,
+          FromPort: this.__input.fromPort,
+          IpProtocol: this.__input.ipProtocol,
+          ToPort: this.__input.toPort,
+          SourceSecurityGroupName: this.__input.sourceSecurityGroupName,
+          SourceSecurityGroupOwnerId: this.__input.sourceSecurityGroupOwnerId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeSecurityGroupEgress.Return', props);
+    return resource.getResponseField('Return') as unknown as boolean;
+  }
+
+  public get securityGroupRules(): shapes.Ec2SecurityGroupRule[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'authorizeSecurityGroupEgress',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AuthorizeSecurityGroupEgress.SecurityGroupRules'),
+        outputPath: 'SecurityGroupRules',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          GroupId: this.__input.groupId,
+          IpPermissions: this.__input.ipPermissions,
+          TagSpecifications: this.__input.tagSpecifications,
+          CidrIp: this.__input.cidrIp,
+          FromPort: this.__input.fromPort,
+          IpProtocol: this.__input.ipProtocol,
+          ToPort: this.__input.toPort,
+          SourceSecurityGroupName: this.__input.sourceSecurityGroupName,
+          SourceSecurityGroupOwnerId: this.__input.sourceSecurityGroupOwnerId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeSecurityGroupEgress.SecurityGroupRules', props);
+    return resource.getResponseField('SecurityGroupRules') as unknown as shapes.Ec2SecurityGroupRule[];
+  }
+
+}
+
+export class EC2ResponsesAuthorizeSecurityGroupIngress {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2AuthorizeSecurityGroupIngressRequest) {
+  }
+
+  public get return(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'authorizeSecurityGroupIngress',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AuthorizeSecurityGroupIngress.Return'),
+        outputPath: 'Return',
+        parameters: {
+          CidrIp: this.__input.cidrIp,
+          FromPort: this.__input.fromPort,
+          GroupId: this.__input.groupId,
+          GroupName: this.__input.groupName,
+          IpPermissions: this.__input.ipPermissions,
+          IpProtocol: this.__input.ipProtocol,
+          SourceSecurityGroupName: this.__input.sourceSecurityGroupName,
+          SourceSecurityGroupOwnerId: this.__input.sourceSecurityGroupOwnerId,
+          ToPort: this.__input.toPort,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeSecurityGroupIngress.Return', props);
+    return resource.getResponseField('Return') as unknown as boolean;
+  }
+
+  public get securityGroupRules(): shapes.Ec2SecurityGroupRule[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'authorizeSecurityGroupIngress',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.AuthorizeSecurityGroupIngress.SecurityGroupRules'),
+        outputPath: 'SecurityGroupRules',
+        parameters: {
+          CidrIp: this.__input.cidrIp,
+          FromPort: this.__input.fromPort,
+          GroupId: this.__input.groupId,
+          GroupName: this.__input.groupName,
+          IpPermissions: this.__input.ipPermissions,
+          IpProtocol: this.__input.ipProtocol,
+          SourceSecurityGroupName: this.__input.sourceSecurityGroupName,
+          SourceSecurityGroupOwnerId: this.__input.sourceSecurityGroupOwnerId,
+          ToPort: this.__input.toPort,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AuthorizeSecurityGroupIngress.SecurityGroupRules', props);
+    return resource.getResponseField('SecurityGroupRules') as unknown as shapes.Ec2SecurityGroupRule[];
   }
 
 }
@@ -6372,6 +7269,7 @@ export class EC2ResponsesCopyImage {
           Name: this.__input.name,
           SourceImageId: this.__input.sourceImageId,
           SourceRegion: this.__input.sourceRegion,
+          DestinationOutpostArn: this.__input.destinationOutpostArn,
           DryRun: this.__input.dryRun,
         },
       },
@@ -6397,6 +7295,7 @@ export class EC2ResponsesCopySnapshot {
         outputPath: 'SnapshotId',
         parameters: {
           Description: this.__input.description,
+          DestinationOutpostArn: this.__input.destinationOutpostArn,
           DestinationRegion: this.__input.destinationRegion,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
@@ -6422,6 +7321,7 @@ export class EC2ResponsesCopySnapshot {
         outputPath: 'Tags',
         parameters: {
           Description: this.__input.description,
+          DestinationOutpostArn: this.__input.destinationOutpostArn,
           DestinationRegion: this.__input.destinationRegion,
           Encrypted: this.__input.encrypted,
           KmsKeyId: this.__input.kmsKeyId,
@@ -6478,6 +7378,7 @@ export class EC2ResponsesCreateCapacityReservationCapacityReservation {
           InstanceMatchCriteria: this.__input.instanceMatchCriteria,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
         },
       },
     };
@@ -6508,6 +7409,7 @@ export class EC2ResponsesCreateCapacityReservationCapacityReservation {
           InstanceMatchCriteria: this.__input.instanceMatchCriteria,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
         },
       },
     };
@@ -6538,6 +7440,7 @@ export class EC2ResponsesCreateCapacityReservationCapacityReservation {
           InstanceMatchCriteria: this.__input.instanceMatchCriteria,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
         },
       },
     };
@@ -6568,6 +7471,7 @@ export class EC2ResponsesCreateCapacityReservationCapacityReservation {
           InstanceMatchCriteria: this.__input.instanceMatchCriteria,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
         },
       },
     };
@@ -6598,6 +7502,7 @@ export class EC2ResponsesCreateCapacityReservationCapacityReservation {
           InstanceMatchCriteria: this.__input.instanceMatchCriteria,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
         },
       },
     };
@@ -6628,6 +7533,7 @@ export class EC2ResponsesCreateCapacityReservationCapacityReservation {
           InstanceMatchCriteria: this.__input.instanceMatchCriteria,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
         },
       },
     };
@@ -6658,6 +7564,7 @@ export class EC2ResponsesCreateCapacityReservationCapacityReservation {
           InstanceMatchCriteria: this.__input.instanceMatchCriteria,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
         },
       },
     };
@@ -6688,6 +7595,7 @@ export class EC2ResponsesCreateCapacityReservationCapacityReservation {
           InstanceMatchCriteria: this.__input.instanceMatchCriteria,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
         },
       },
     };
@@ -6718,6 +7626,7 @@ export class EC2ResponsesCreateCapacityReservationCapacityReservation {
           InstanceMatchCriteria: this.__input.instanceMatchCriteria,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
         },
       },
     };
@@ -6748,6 +7657,7 @@ export class EC2ResponsesCreateCapacityReservationCapacityReservation {
           InstanceMatchCriteria: this.__input.instanceMatchCriteria,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
         },
       },
     };
@@ -6778,6 +7688,7 @@ export class EC2ResponsesCreateCapacityReservationCapacityReservation {
           InstanceMatchCriteria: this.__input.instanceMatchCriteria,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
         },
       },
     };
@@ -6808,6 +7719,7 @@ export class EC2ResponsesCreateCapacityReservationCapacityReservation {
           InstanceMatchCriteria: this.__input.instanceMatchCriteria,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
         },
       },
     };
@@ -6838,11 +7750,43 @@ export class EC2ResponsesCreateCapacityReservationCapacityReservation {
           InstanceMatchCriteria: this.__input.instanceMatchCriteria,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateCapacityReservation.CapacityReservation.State', props);
     return resource.getResponseField('CapacityReservation.State') as unknown as string;
+  }
+
+  public get startDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCapacityReservation',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateCapacityReservation.CapacityReservation.StartDate'),
+        outputPath: 'CapacityReservation.StartDate',
+        parameters: {
+          ClientToken: this.__input.clientToken,
+          InstanceType: this.__input.instanceType,
+          InstancePlatform: this.__input.instancePlatform,
+          AvailabilityZone: this.__input.availabilityZone,
+          AvailabilityZoneId: this.__input.availabilityZoneId,
+          Tenancy: this.__input.tenancy,
+          InstanceCount: this.__input.instanceCount,
+          EbsOptimized: this.__input.ebsOptimized,
+          EphemeralStorage: this.__input.ephemeralStorage,
+          EndDate: this.__input.endDate,
+          EndDateType: this.__input.endDateType,
+          InstanceMatchCriteria: this.__input.instanceMatchCriteria,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCapacityReservation.CapacityReservation.StartDate', props);
+    return resource.getResponseField('CapacityReservation.StartDate') as unknown as string;
   }
 
   public get endDate(): string {
@@ -6868,6 +7812,7 @@ export class EC2ResponsesCreateCapacityReservationCapacityReservation {
           InstanceMatchCriteria: this.__input.instanceMatchCriteria,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
         },
       },
     };
@@ -6898,6 +7843,7 @@ export class EC2ResponsesCreateCapacityReservationCapacityReservation {
           InstanceMatchCriteria: this.__input.instanceMatchCriteria,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
         },
       },
     };
@@ -6928,6 +7874,7 @@ export class EC2ResponsesCreateCapacityReservationCapacityReservation {
           InstanceMatchCriteria: this.__input.instanceMatchCriteria,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
         },
       },
     };
@@ -6958,6 +7905,7 @@ export class EC2ResponsesCreateCapacityReservationCapacityReservation {
           InstanceMatchCriteria: this.__input.instanceMatchCriteria,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
         },
       },
     };
@@ -6988,11 +7936,43 @@ export class EC2ResponsesCreateCapacityReservationCapacityReservation {
           InstanceMatchCriteria: this.__input.instanceMatchCriteria,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateCapacityReservation.CapacityReservation.Tags', props);
     return resource.getResponseField('CapacityReservation.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+  public get outpostArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createCapacityReservation',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateCapacityReservation.CapacityReservation.OutpostArn'),
+        outputPath: 'CapacityReservation.OutpostArn',
+        parameters: {
+          ClientToken: this.__input.clientToken,
+          InstanceType: this.__input.instanceType,
+          InstancePlatform: this.__input.instancePlatform,
+          AvailabilityZone: this.__input.availabilityZone,
+          AvailabilityZoneId: this.__input.availabilityZoneId,
+          Tenancy: this.__input.tenancy,
+          InstanceCount: this.__input.instanceCount,
+          EbsOptimized: this.__input.ebsOptimized,
+          EphemeralStorage: this.__input.ephemeralStorage,
+          EndDate: this.__input.endDate,
+          EndDateType: this.__input.endDateType,
+          InstanceMatchCriteria: this.__input.instanceMatchCriteria,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+          OutpostArn: this.__input.outpostArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateCapacityReservation.CapacityReservation.OutpostArn', props);
+    return resource.getResponseField('CapacityReservation.OutpostArn') as unknown as string;
   }
 
 }
@@ -8311,6 +9291,7 @@ export class EC2ResponsesCreateFleet {
           ValidUntil: this.__input.validUntil,
           ReplaceUnhealthyInstances: this.__input.replaceUnhealthyInstances,
           TagSpecifications: this.__input.tagSpecifications,
+          Context: this.__input.context,
         },
       },
     };
@@ -8367,6 +9348,7 @@ export class EC2ResponsesCreateFleet {
           ValidUntil: this.__input.validUntil,
           ReplaceUnhealthyInstances: this.__input.replaceUnhealthyInstances,
           TagSpecifications: this.__input.tagSpecifications,
+          Context: this.__input.context,
         },
       },
     };
@@ -8423,6 +9405,7 @@ export class EC2ResponsesCreateFleet {
           ValidUntil: this.__input.validUntil,
           ReplaceUnhealthyInstances: this.__input.replaceUnhealthyInstances,
           TagSpecifications: this.__input.tagSpecifications,
+          Context: this.__input.context,
         },
       },
     };
@@ -8608,11 +9591,230 @@ export class EC2ResponsesCreateImage {
           InstanceId: this.__input.instanceId,
           Name: this.__input.name,
           NoReboot: this.__input.noReboot,
+          TagSpecifications: this.__input.tagSpecifications,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateImage.ImageId', props);
     return resource.getResponseField('ImageId') as unknown as string;
+  }
+
+}
+
+export class EC2ResponsesCreateInstanceEventWindow {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateInstanceEventWindowRequest) {
+  }
+
+  public get instanceEventWindow(): EC2ResponsesCreateInstanceEventWindowInstanceEventWindow {
+    return new EC2ResponsesCreateInstanceEventWindowInstanceEventWindow(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesCreateInstanceEventWindowInstanceEventWindow {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateInstanceEventWindowRequest) {
+  }
+
+  public get instanceEventWindowId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateInstanceEventWindow.InstanceEventWindow.InstanceEventWindowId'),
+        outputPath: 'InstanceEventWindow.InstanceEventWindowId',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          Name: this.__input.name,
+          TimeRanges: this.__input.timeRanges,
+          CronExpression: this.__input.cronExpression,
+          TagSpecifications: this.__input.tagSpecifications,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateInstanceEventWindow.InstanceEventWindow.InstanceEventWindowId', props);
+    return resource.getResponseField('InstanceEventWindow.InstanceEventWindowId') as unknown as string;
+  }
+
+  public get timeRanges(): shapes.Ec2InstanceEventWindowTimeRange[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateInstanceEventWindow.InstanceEventWindow.TimeRanges'),
+        outputPath: 'InstanceEventWindow.TimeRanges',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          Name: this.__input.name,
+          TimeRanges: this.__input.timeRanges,
+          CronExpression: this.__input.cronExpression,
+          TagSpecifications: this.__input.tagSpecifications,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateInstanceEventWindow.InstanceEventWindow.TimeRanges', props);
+    return resource.getResponseField('InstanceEventWindow.TimeRanges') as unknown as shapes.Ec2InstanceEventWindowTimeRange[];
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateInstanceEventWindow.InstanceEventWindow.Name'),
+        outputPath: 'InstanceEventWindow.Name',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          Name: this.__input.name,
+          TimeRanges: this.__input.timeRanges,
+          CronExpression: this.__input.cronExpression,
+          TagSpecifications: this.__input.tagSpecifications,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateInstanceEventWindow.InstanceEventWindow.Name', props);
+    return resource.getResponseField('InstanceEventWindow.Name') as unknown as string;
+  }
+
+  public get cronExpression(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateInstanceEventWindow.InstanceEventWindow.CronExpression'),
+        outputPath: 'InstanceEventWindow.CronExpression',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          Name: this.__input.name,
+          TimeRanges: this.__input.timeRanges,
+          CronExpression: this.__input.cronExpression,
+          TagSpecifications: this.__input.tagSpecifications,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateInstanceEventWindow.InstanceEventWindow.CronExpression', props);
+    return resource.getResponseField('InstanceEventWindow.CronExpression') as unknown as string;
+  }
+
+  public get associationTarget(): EC2ResponsesCreateInstanceEventWindowInstanceEventWindowAssociationTarget {
+    return new EC2ResponsesCreateInstanceEventWindowInstanceEventWindowAssociationTarget(this.__scope, this.__resources, this.__input);
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateInstanceEventWindow.InstanceEventWindow.State'),
+        outputPath: 'InstanceEventWindow.State',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          Name: this.__input.name,
+          TimeRanges: this.__input.timeRanges,
+          CronExpression: this.__input.cronExpression,
+          TagSpecifications: this.__input.tagSpecifications,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateInstanceEventWindow.InstanceEventWindow.State', props);
+    return resource.getResponseField('InstanceEventWindow.State') as unknown as string;
+  }
+
+  public get tags(): shapes.Ec2Tag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateInstanceEventWindow.InstanceEventWindow.Tags'),
+        outputPath: 'InstanceEventWindow.Tags',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          Name: this.__input.name,
+          TimeRanges: this.__input.timeRanges,
+          CronExpression: this.__input.cronExpression,
+          TagSpecifications: this.__input.tagSpecifications,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateInstanceEventWindow.InstanceEventWindow.Tags', props);
+    return resource.getResponseField('InstanceEventWindow.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+}
+
+export class EC2ResponsesCreateInstanceEventWindowInstanceEventWindowAssociationTarget {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateInstanceEventWindowRequest) {
+  }
+
+  public get instanceIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateInstanceEventWindow.InstanceEventWindow.AssociationTarget.InstanceIds'),
+        outputPath: 'InstanceEventWindow.AssociationTarget.InstanceIds',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          Name: this.__input.name,
+          TimeRanges: this.__input.timeRanges,
+          CronExpression: this.__input.cronExpression,
+          TagSpecifications: this.__input.tagSpecifications,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateInstanceEventWindow.InstanceEventWindow.AssociationTarget.InstanceIds', props);
+    return resource.getResponseField('InstanceEventWindow.AssociationTarget.InstanceIds') as unknown as string[];
+  }
+
+  public get tags(): shapes.Ec2Tag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateInstanceEventWindow.InstanceEventWindow.AssociationTarget.Tags'),
+        outputPath: 'InstanceEventWindow.AssociationTarget.Tags',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          Name: this.__input.name,
+          TimeRanges: this.__input.timeRanges,
+          CronExpression: this.__input.cronExpression,
+          TagSpecifications: this.__input.tagSpecifications,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateInstanceEventWindow.InstanceEventWindow.AssociationTarget.Tags', props);
+    return resource.getResponseField('InstanceEventWindow.AssociationTarget.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+  public get dedicatedHostIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateInstanceEventWindow.InstanceEventWindow.AssociationTarget.DedicatedHostIds'),
+        outputPath: 'InstanceEventWindow.AssociationTarget.DedicatedHostIds',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          Name: this.__input.name,
+          TimeRanges: this.__input.timeRanges,
+          CronExpression: this.__input.cronExpression,
+          TagSpecifications: this.__input.tagSpecifications,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateInstanceEventWindow.InstanceEventWindow.AssociationTarget.DedicatedHostIds', props);
+    return resource.getResponseField('InstanceEventWindow.AssociationTarget.DedicatedHostIds') as unknown as string[];
   }
 
 }
@@ -15121,8 +16323,8 @@ export class EC2ResponsesCreateLocalGatewayRouteRoute {
         parameters: {
           DestinationCidrBlock: this.__input.destinationCidrBlock,
           LocalGatewayRouteTableId: this.__input.localGatewayRouteTableId,
-          LocalGatewayVirtualInterfaceGroupId: this.__input.localGatewayVirtualInterfaceGroupId,
           DryRun: this.__input.dryRun,
+          LocalGatewayVirtualInterfaceGroupId: this.__input.localGatewayVirtualInterfaceGroupId,
         },
       },
     };
@@ -15141,8 +16343,8 @@ export class EC2ResponsesCreateLocalGatewayRouteRoute {
         parameters: {
           DestinationCidrBlock: this.__input.destinationCidrBlock,
           LocalGatewayRouteTableId: this.__input.localGatewayRouteTableId,
-          LocalGatewayVirtualInterfaceGroupId: this.__input.localGatewayVirtualInterfaceGroupId,
           DryRun: this.__input.dryRun,
+          LocalGatewayVirtualInterfaceGroupId: this.__input.localGatewayVirtualInterfaceGroupId,
         },
       },
     };
@@ -15161,8 +16363,8 @@ export class EC2ResponsesCreateLocalGatewayRouteRoute {
         parameters: {
           DestinationCidrBlock: this.__input.destinationCidrBlock,
           LocalGatewayRouteTableId: this.__input.localGatewayRouteTableId,
-          LocalGatewayVirtualInterfaceGroupId: this.__input.localGatewayVirtualInterfaceGroupId,
           DryRun: this.__input.dryRun,
+          LocalGatewayVirtualInterfaceGroupId: this.__input.localGatewayVirtualInterfaceGroupId,
         },
       },
     };
@@ -15181,8 +16383,8 @@ export class EC2ResponsesCreateLocalGatewayRouteRoute {
         parameters: {
           DestinationCidrBlock: this.__input.destinationCidrBlock,
           LocalGatewayRouteTableId: this.__input.localGatewayRouteTableId,
-          LocalGatewayVirtualInterfaceGroupId: this.__input.localGatewayVirtualInterfaceGroupId,
           DryRun: this.__input.dryRun,
+          LocalGatewayVirtualInterfaceGroupId: this.__input.localGatewayVirtualInterfaceGroupId,
         },
       },
     };
@@ -15201,8 +16403,8 @@ export class EC2ResponsesCreateLocalGatewayRouteRoute {
         parameters: {
           DestinationCidrBlock: this.__input.destinationCidrBlock,
           LocalGatewayRouteTableId: this.__input.localGatewayRouteTableId,
-          LocalGatewayVirtualInterfaceGroupId: this.__input.localGatewayVirtualInterfaceGroupId,
           DryRun: this.__input.dryRun,
+          LocalGatewayVirtualInterfaceGroupId: this.__input.localGatewayVirtualInterfaceGroupId,
         },
       },
     };
@@ -15221,8 +16423,8 @@ export class EC2ResponsesCreateLocalGatewayRouteRoute {
         parameters: {
           DestinationCidrBlock: this.__input.destinationCidrBlock,
           LocalGatewayRouteTableId: this.__input.localGatewayRouteTableId,
-          LocalGatewayVirtualInterfaceGroupId: this.__input.localGatewayVirtualInterfaceGroupId,
           DryRun: this.__input.dryRun,
+          LocalGatewayVirtualInterfaceGroupId: this.__input.localGatewayVirtualInterfaceGroupId,
         },
       },
     };
@@ -15241,8 +16443,8 @@ export class EC2ResponsesCreateLocalGatewayRouteRoute {
         parameters: {
           DestinationCidrBlock: this.__input.destinationCidrBlock,
           LocalGatewayRouteTableId: this.__input.localGatewayRouteTableId,
-          LocalGatewayVirtualInterfaceGroupId: this.__input.localGatewayVirtualInterfaceGroupId,
           DryRun: this.__input.dryRun,
+          LocalGatewayVirtualInterfaceGroupId: this.__input.localGatewayVirtualInterfaceGroupId,
         },
       },
     };
@@ -15697,6 +16899,7 @@ export class EC2ResponsesCreateNatGateway {
           DryRun: this.__input.dryRun,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ConnectivityType: this.__input.connectivityType,
         },
       },
     };
@@ -15729,6 +16932,7 @@ export class EC2ResponsesCreateNatGatewayNatGateway {
           DryRun: this.__input.dryRun,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ConnectivityType: this.__input.connectivityType,
         },
       },
     };
@@ -15750,6 +16954,7 @@ export class EC2ResponsesCreateNatGatewayNatGateway {
           DryRun: this.__input.dryRun,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ConnectivityType: this.__input.connectivityType,
         },
       },
     };
@@ -15771,6 +16976,7 @@ export class EC2ResponsesCreateNatGatewayNatGateway {
           DryRun: this.__input.dryRun,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ConnectivityType: this.__input.connectivityType,
         },
       },
     };
@@ -15792,6 +16998,7 @@ export class EC2ResponsesCreateNatGatewayNatGateway {
           DryRun: this.__input.dryRun,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ConnectivityType: this.__input.connectivityType,
         },
       },
     };
@@ -15813,6 +17020,7 @@ export class EC2ResponsesCreateNatGatewayNatGateway {
           DryRun: this.__input.dryRun,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ConnectivityType: this.__input.connectivityType,
         },
       },
     };
@@ -15834,6 +17042,7 @@ export class EC2ResponsesCreateNatGatewayNatGateway {
           DryRun: this.__input.dryRun,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ConnectivityType: this.__input.connectivityType,
         },
       },
     };
@@ -15859,6 +17068,7 @@ export class EC2ResponsesCreateNatGatewayNatGateway {
           DryRun: this.__input.dryRun,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ConnectivityType: this.__input.connectivityType,
         },
       },
     };
@@ -15880,6 +17090,7 @@ export class EC2ResponsesCreateNatGatewayNatGateway {
           DryRun: this.__input.dryRun,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ConnectivityType: this.__input.connectivityType,
         },
       },
     };
@@ -15901,6 +17112,7 @@ export class EC2ResponsesCreateNatGatewayNatGateway {
           DryRun: this.__input.dryRun,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ConnectivityType: this.__input.connectivityType,
         },
       },
     };
@@ -15922,11 +17134,34 @@ export class EC2ResponsesCreateNatGatewayNatGateway {
           DryRun: this.__input.dryRun,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ConnectivityType: this.__input.connectivityType,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateNatGateway.NatGateway.Tags', props);
     return resource.getResponseField('NatGateway.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+  public get connectivityType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createNatGateway',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateNatGateway.NatGateway.ConnectivityType'),
+        outputPath: 'NatGateway.ConnectivityType',
+        parameters: {
+          AllocationId: this.__input.allocationId,
+          ClientToken: this.__input.clientToken,
+          DryRun: this.__input.dryRun,
+          SubnetId: this.__input.subnetId,
+          TagSpecifications: this.__input.tagSpecifications,
+          ConnectivityType: this.__input.connectivityType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateNatGateway.NatGateway.ConnectivityType', props);
+    return resource.getResponseField('NatGateway.ConnectivityType') as unknown as string;
   }
 
 }
@@ -15950,6 +17185,7 @@ export class EC2ResponsesCreateNatGatewayNatGatewayProvisionedBandwidth {
           DryRun: this.__input.dryRun,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ConnectivityType: this.__input.connectivityType,
         },
       },
     };
@@ -15971,6 +17207,7 @@ export class EC2ResponsesCreateNatGatewayNatGatewayProvisionedBandwidth {
           DryRun: this.__input.dryRun,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ConnectivityType: this.__input.connectivityType,
         },
       },
     };
@@ -15992,6 +17229,7 @@ export class EC2ResponsesCreateNatGatewayNatGatewayProvisionedBandwidth {
           DryRun: this.__input.dryRun,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ConnectivityType: this.__input.connectivityType,
         },
       },
     };
@@ -16013,6 +17251,7 @@ export class EC2ResponsesCreateNatGatewayNatGatewayProvisionedBandwidth {
           DryRun: this.__input.dryRun,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ConnectivityType: this.__input.connectivityType,
         },
       },
     };
@@ -16034,6 +17273,7 @@ export class EC2ResponsesCreateNatGatewayNatGatewayProvisionedBandwidth {
           DryRun: this.__input.dryRun,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ConnectivityType: this.__input.connectivityType,
         },
       },
     };
@@ -16194,6 +17434,274 @@ export class EC2ResponsesCreateNetworkAclNetworkAcl {
 
 }
 
+export class EC2ResponsesCreateNetworkInsightsPath {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateNetworkInsightsPathRequest) {
+  }
+
+  public get networkInsightsPath(): EC2ResponsesCreateNetworkInsightsPathNetworkInsightsPath {
+    return new EC2ResponsesCreateNetworkInsightsPathNetworkInsightsPath(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesCreateNetworkInsightsPathNetworkInsightsPath {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateNetworkInsightsPathRequest) {
+  }
+
+  public get networkInsightsPathId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createNetworkInsightsPath',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateNetworkInsightsPath.NetworkInsightsPath.NetworkInsightsPathId'),
+        outputPath: 'NetworkInsightsPath.NetworkInsightsPathId',
+        parameters: {
+          SourceIp: this.__input.sourceIp,
+          DestinationIp: this.__input.destinationIp,
+          Source: this.__input.source,
+          Destination: this.__input.destination,
+          Protocol: this.__input.protocol,
+          DestinationPort: this.__input.destinationPort,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateNetworkInsightsPath.NetworkInsightsPath.NetworkInsightsPathId', props);
+    return resource.getResponseField('NetworkInsightsPath.NetworkInsightsPathId') as unknown as string;
+  }
+
+  public get networkInsightsPathArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createNetworkInsightsPath',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateNetworkInsightsPath.NetworkInsightsPath.NetworkInsightsPathArn'),
+        outputPath: 'NetworkInsightsPath.NetworkInsightsPathArn',
+        parameters: {
+          SourceIp: this.__input.sourceIp,
+          DestinationIp: this.__input.destinationIp,
+          Source: this.__input.source,
+          Destination: this.__input.destination,
+          Protocol: this.__input.protocol,
+          DestinationPort: this.__input.destinationPort,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateNetworkInsightsPath.NetworkInsightsPath.NetworkInsightsPathArn', props);
+    return resource.getResponseField('NetworkInsightsPath.NetworkInsightsPathArn') as unknown as string;
+  }
+
+  public get createdDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createNetworkInsightsPath',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateNetworkInsightsPath.NetworkInsightsPath.CreatedDate'),
+        outputPath: 'NetworkInsightsPath.CreatedDate',
+        parameters: {
+          SourceIp: this.__input.sourceIp,
+          DestinationIp: this.__input.destinationIp,
+          Source: this.__input.source,
+          Destination: this.__input.destination,
+          Protocol: this.__input.protocol,
+          DestinationPort: this.__input.destinationPort,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateNetworkInsightsPath.NetworkInsightsPath.CreatedDate', props);
+    return resource.getResponseField('NetworkInsightsPath.CreatedDate') as unknown as string;
+  }
+
+  public get source(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createNetworkInsightsPath',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateNetworkInsightsPath.NetworkInsightsPath.Source'),
+        outputPath: 'NetworkInsightsPath.Source',
+        parameters: {
+          SourceIp: this.__input.sourceIp,
+          DestinationIp: this.__input.destinationIp,
+          Source: this.__input.source,
+          Destination: this.__input.destination,
+          Protocol: this.__input.protocol,
+          DestinationPort: this.__input.destinationPort,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateNetworkInsightsPath.NetworkInsightsPath.Source', props);
+    return resource.getResponseField('NetworkInsightsPath.Source') as unknown as string;
+  }
+
+  public get destination(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createNetworkInsightsPath',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateNetworkInsightsPath.NetworkInsightsPath.Destination'),
+        outputPath: 'NetworkInsightsPath.Destination',
+        parameters: {
+          SourceIp: this.__input.sourceIp,
+          DestinationIp: this.__input.destinationIp,
+          Source: this.__input.source,
+          Destination: this.__input.destination,
+          Protocol: this.__input.protocol,
+          DestinationPort: this.__input.destinationPort,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateNetworkInsightsPath.NetworkInsightsPath.Destination', props);
+    return resource.getResponseField('NetworkInsightsPath.Destination') as unknown as string;
+  }
+
+  public get sourceIp(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createNetworkInsightsPath',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateNetworkInsightsPath.NetworkInsightsPath.SourceIp'),
+        outputPath: 'NetworkInsightsPath.SourceIp',
+        parameters: {
+          SourceIp: this.__input.sourceIp,
+          DestinationIp: this.__input.destinationIp,
+          Source: this.__input.source,
+          Destination: this.__input.destination,
+          Protocol: this.__input.protocol,
+          DestinationPort: this.__input.destinationPort,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateNetworkInsightsPath.NetworkInsightsPath.SourceIp', props);
+    return resource.getResponseField('NetworkInsightsPath.SourceIp') as unknown as string;
+  }
+
+  public get destinationIp(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createNetworkInsightsPath',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateNetworkInsightsPath.NetworkInsightsPath.DestinationIp'),
+        outputPath: 'NetworkInsightsPath.DestinationIp',
+        parameters: {
+          SourceIp: this.__input.sourceIp,
+          DestinationIp: this.__input.destinationIp,
+          Source: this.__input.source,
+          Destination: this.__input.destination,
+          Protocol: this.__input.protocol,
+          DestinationPort: this.__input.destinationPort,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateNetworkInsightsPath.NetworkInsightsPath.DestinationIp', props);
+    return resource.getResponseField('NetworkInsightsPath.DestinationIp') as unknown as string;
+  }
+
+  public get protocol(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createNetworkInsightsPath',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateNetworkInsightsPath.NetworkInsightsPath.Protocol'),
+        outputPath: 'NetworkInsightsPath.Protocol',
+        parameters: {
+          SourceIp: this.__input.sourceIp,
+          DestinationIp: this.__input.destinationIp,
+          Source: this.__input.source,
+          Destination: this.__input.destination,
+          Protocol: this.__input.protocol,
+          DestinationPort: this.__input.destinationPort,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateNetworkInsightsPath.NetworkInsightsPath.Protocol', props);
+    return resource.getResponseField('NetworkInsightsPath.Protocol') as unknown as string;
+  }
+
+  public get destinationPort(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createNetworkInsightsPath',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateNetworkInsightsPath.NetworkInsightsPath.DestinationPort'),
+        outputPath: 'NetworkInsightsPath.DestinationPort',
+        parameters: {
+          SourceIp: this.__input.sourceIp,
+          DestinationIp: this.__input.destinationIp,
+          Source: this.__input.source,
+          Destination: this.__input.destination,
+          Protocol: this.__input.protocol,
+          DestinationPort: this.__input.destinationPort,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateNetworkInsightsPath.NetworkInsightsPath.DestinationPort', props);
+    return resource.getResponseField('NetworkInsightsPath.DestinationPort') as unknown as number;
+  }
+
+  public get tags(): shapes.Ec2Tag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createNetworkInsightsPath',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateNetworkInsightsPath.NetworkInsightsPath.Tags'),
+        outputPath: 'NetworkInsightsPath.Tags',
+        parameters: {
+          SourceIp: this.__input.sourceIp,
+          DestinationIp: this.__input.destinationIp,
+          Source: this.__input.source,
+          Destination: this.__input.destination,
+          Protocol: this.__input.protocol,
+          DestinationPort: this.__input.destinationPort,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateNetworkInsightsPath.NetworkInsightsPath.Tags', props);
+    return resource.getResponseField('NetworkInsightsPath.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+}
+
 export class EC2ResponsesCreateNetworkInterface {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateNetworkInterfaceRequest) {
@@ -16201,6 +17709,38 @@ export class EC2ResponsesCreateNetworkInterface {
 
   public get networkInterface(): EC2ResponsesCreateNetworkInterfaceNetworkInterface {
     return new EC2ResponsesCreateNetworkInterfaceNetworkInterface(this.__scope, this.__resources, this.__input);
+  }
+
+  public get clientToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createNetworkInterface',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateNetworkInterface.ClientToken'),
+        outputPath: 'ClientToken',
+        parameters: {
+          Description: this.__input.description,
+          DryRun: this.__input.dryRun,
+          Groups: this.__input.groups,
+          Ipv6AddressCount: this.__input.ipv6AddressCount,
+          Ipv6Addresses: this.__input.ipv6Addresses,
+          PrivateIpAddress: this.__input.privateIpAddress,
+          PrivateIpAddresses: this.__input.privateIpAddresses,
+          SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
+          InterfaceType: this.__input.interfaceType,
+          SubnetId: this.__input.subnetId,
+          TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateNetworkInterface.ClientToken', props);
+    return resource.getResponseField('ClientToken') as unknown as string;
   }
 
 }
@@ -16235,9 +17775,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16262,9 +17807,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16289,9 +17839,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16316,9 +17871,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16343,9 +17903,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16370,9 +17935,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16397,9 +17967,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16424,9 +17999,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16451,9 +18031,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16478,9 +18063,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16505,9 +18095,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16532,14 +18127,83 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateNetworkInterface.NetworkInterface.PrivateIpAddresses', props);
     return resource.getResponseField('NetworkInterface.PrivateIpAddresses') as unknown as shapes.Ec2NetworkInterfacePrivateIpAddress[];
+  }
+
+  public get ipv4Prefixes(): shapes.Ec2Ipv4PrefixSpecification[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createNetworkInterface',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateNetworkInterface.NetworkInterface.Ipv4Prefixes'),
+        outputPath: 'NetworkInterface.Ipv4Prefixes',
+        parameters: {
+          Description: this.__input.description,
+          DryRun: this.__input.dryRun,
+          Groups: this.__input.groups,
+          Ipv6AddressCount: this.__input.ipv6AddressCount,
+          Ipv6Addresses: this.__input.ipv6Addresses,
+          PrivateIpAddress: this.__input.privateIpAddress,
+          PrivateIpAddresses: this.__input.privateIpAddresses,
+          SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
+          InterfaceType: this.__input.interfaceType,
+          SubnetId: this.__input.subnetId,
+          TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateNetworkInterface.NetworkInterface.Ipv4Prefixes', props);
+    return resource.getResponseField('NetworkInterface.Ipv4Prefixes') as unknown as shapes.Ec2Ipv4PrefixSpecification[];
+  }
+
+  public get ipv6Prefixes(): shapes.Ec2Ipv6PrefixSpecification[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createNetworkInterface',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateNetworkInterface.NetworkInterface.Ipv6Prefixes'),
+        outputPath: 'NetworkInterface.Ipv6Prefixes',
+        parameters: {
+          Description: this.__input.description,
+          DryRun: this.__input.dryRun,
+          Groups: this.__input.groups,
+          Ipv6AddressCount: this.__input.ipv6AddressCount,
+          Ipv6Addresses: this.__input.ipv6Addresses,
+          PrivateIpAddress: this.__input.privateIpAddress,
+          PrivateIpAddresses: this.__input.privateIpAddresses,
+          SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
+          InterfaceType: this.__input.interfaceType,
+          SubnetId: this.__input.subnetId,
+          TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateNetworkInterface.NetworkInterface.Ipv6Prefixes', props);
+    return resource.getResponseField('NetworkInterface.Ipv6Prefixes') as unknown as shapes.Ec2Ipv6PrefixSpecification[];
   }
 
   public get requesterId(): string {
@@ -16559,9 +18223,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16586,9 +18255,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16613,9 +18287,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16640,9 +18319,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16667,9 +18351,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16694,9 +18383,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16721,9 +18415,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterface {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16755,9 +18454,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterfaceAssociation {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16782,9 +18486,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterfaceAssociation {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16809,9 +18518,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterfaceAssociation {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16836,9 +18550,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterfaceAssociation {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16863,9 +18582,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterfaceAssociation {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16890,9 +18614,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterfaceAssociation {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16917,9 +18646,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterfaceAssociation {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16951,9 +18685,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterfaceAttachment {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -16978,9 +18717,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterfaceAttachment {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -17005,9 +18749,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterfaceAttachment {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -17032,9 +18781,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterfaceAttachment {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -17059,9 +18813,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterfaceAttachment {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -17086,9 +18845,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterfaceAttachment {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -17113,9 +18877,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterfaceAttachment {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -17140,9 +18909,14 @@ export class EC2ResponsesCreateNetworkInterfaceNetworkInterfaceAttachment {
           PrivateIpAddress: this.__input.privateIpAddress,
           PrivateIpAddresses: this.__input.privateIpAddresses,
           SecondaryPrivateIpAddressCount: this.__input.secondaryPrivateIpAddressCount,
+          Ipv4Prefixes: this.__input.ipv4Prefixes,
+          Ipv4PrefixCount: this.__input.ipv4PrefixCount,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          Ipv6PrefixCount: this.__input.ipv6PrefixCount,
           InterfaceType: this.__input.interfaceType,
           SubnetId: this.__input.subnetId,
           TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -17472,6 +19246,150 @@ export class EC2ResponsesCreatePlacementGroupPlacementGroup {
 
 }
 
+export class EC2ResponsesCreateReplaceRootVolumeTask {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateReplaceRootVolumeTaskRequest) {
+  }
+
+  public get replaceRootVolumeTask(): EC2ResponsesCreateReplaceRootVolumeTaskReplaceRootVolumeTask {
+    return new EC2ResponsesCreateReplaceRootVolumeTaskReplaceRootVolumeTask(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesCreateReplaceRootVolumeTaskReplaceRootVolumeTask {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateReplaceRootVolumeTaskRequest) {
+  }
+
+  public get replaceRootVolumeTaskId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createReplaceRootVolumeTask',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateReplaceRootVolumeTask.ReplaceRootVolumeTask.ReplaceRootVolumeTaskId'),
+        outputPath: 'ReplaceRootVolumeTask.ReplaceRootVolumeTaskId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          SnapshotId: this.__input.snapshotId,
+          ClientToken: this.__input.clientToken,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateReplaceRootVolumeTask.ReplaceRootVolumeTask.ReplaceRootVolumeTaskId', props);
+    return resource.getResponseField('ReplaceRootVolumeTask.ReplaceRootVolumeTaskId') as unknown as string;
+  }
+
+  public get instanceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createReplaceRootVolumeTask',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateReplaceRootVolumeTask.ReplaceRootVolumeTask.InstanceId'),
+        outputPath: 'ReplaceRootVolumeTask.InstanceId',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          SnapshotId: this.__input.snapshotId,
+          ClientToken: this.__input.clientToken,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateReplaceRootVolumeTask.ReplaceRootVolumeTask.InstanceId', props);
+    return resource.getResponseField('ReplaceRootVolumeTask.InstanceId') as unknown as string;
+  }
+
+  public get taskState(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createReplaceRootVolumeTask',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateReplaceRootVolumeTask.ReplaceRootVolumeTask.TaskState'),
+        outputPath: 'ReplaceRootVolumeTask.TaskState',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          SnapshotId: this.__input.snapshotId,
+          ClientToken: this.__input.clientToken,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateReplaceRootVolumeTask.ReplaceRootVolumeTask.TaskState', props);
+    return resource.getResponseField('ReplaceRootVolumeTask.TaskState') as unknown as string;
+  }
+
+  public get startTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createReplaceRootVolumeTask',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateReplaceRootVolumeTask.ReplaceRootVolumeTask.StartTime'),
+        outputPath: 'ReplaceRootVolumeTask.StartTime',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          SnapshotId: this.__input.snapshotId,
+          ClientToken: this.__input.clientToken,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateReplaceRootVolumeTask.ReplaceRootVolumeTask.StartTime', props);
+    return resource.getResponseField('ReplaceRootVolumeTask.StartTime') as unknown as string;
+  }
+
+  public get completeTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createReplaceRootVolumeTask',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateReplaceRootVolumeTask.ReplaceRootVolumeTask.CompleteTime'),
+        outputPath: 'ReplaceRootVolumeTask.CompleteTime',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          SnapshotId: this.__input.snapshotId,
+          ClientToken: this.__input.clientToken,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateReplaceRootVolumeTask.ReplaceRootVolumeTask.CompleteTime', props);
+    return resource.getResponseField('ReplaceRootVolumeTask.CompleteTime') as unknown as string;
+  }
+
+  public get tags(): shapes.Ec2Tag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createReplaceRootVolumeTask',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateReplaceRootVolumeTask.ReplaceRootVolumeTask.Tags'),
+        outputPath: 'ReplaceRootVolumeTask.Tags',
+        parameters: {
+          InstanceId: this.__input.instanceId,
+          SnapshotId: this.__input.snapshotId,
+          ClientToken: this.__input.clientToken,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateReplaceRootVolumeTask.ReplaceRootVolumeTask.Tags', props);
+    return resource.getResponseField('ReplaceRootVolumeTask.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+}
+
 export class EC2ResponsesCreateReservedInstancesListing {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateReservedInstancesListingRequest) {
@@ -17495,6 +19413,34 @@ export class EC2ResponsesCreateReservedInstancesListing {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateReservedInstancesListing.ReservedInstancesListings', props);
     return resource.getResponseField('ReservedInstancesListings') as unknown as shapes.Ec2ReservedInstancesListing[];
+  }
+
+}
+
+export class EC2ResponsesCreateRestoreImageTask {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateRestoreImageTaskRequest) {
+  }
+
+  public get imageId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createRestoreImageTask',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateRestoreImageTask.ImageId'),
+        outputPath: 'ImageId',
+        parameters: {
+          Bucket: this.__input.bucket,
+          ObjectKey: this.__input.objectKey,
+          Name: this.__input.name,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateRestoreImageTask.ImageId', props);
+    return resource.getResponseField('ImageId') as unknown as string;
   }
 
 }
@@ -17752,6 +19698,7 @@ export class EC2ResponsesCreateSnapshot {
         outputPath: 'DataEncryptionKeyId',
         parameters: {
           Description: this.__input.description,
+          OutpostArn: this.__input.outpostArn,
           VolumeId: this.__input.volumeId,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -17772,6 +19719,7 @@ export class EC2ResponsesCreateSnapshot {
         outputPath: 'Description',
         parameters: {
           Description: this.__input.description,
+          OutpostArn: this.__input.outpostArn,
           VolumeId: this.__input.volumeId,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -17792,6 +19740,7 @@ export class EC2ResponsesCreateSnapshot {
         outputPath: 'Encrypted',
         parameters: {
           Description: this.__input.description,
+          OutpostArn: this.__input.outpostArn,
           VolumeId: this.__input.volumeId,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -17812,6 +19761,7 @@ export class EC2ResponsesCreateSnapshot {
         outputPath: 'KmsKeyId',
         parameters: {
           Description: this.__input.description,
+          OutpostArn: this.__input.outpostArn,
           VolumeId: this.__input.volumeId,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -17832,6 +19782,7 @@ export class EC2ResponsesCreateSnapshot {
         outputPath: 'OwnerId',
         parameters: {
           Description: this.__input.description,
+          OutpostArn: this.__input.outpostArn,
           VolumeId: this.__input.volumeId,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -17852,6 +19803,7 @@ export class EC2ResponsesCreateSnapshot {
         outputPath: 'Progress',
         parameters: {
           Description: this.__input.description,
+          OutpostArn: this.__input.outpostArn,
           VolumeId: this.__input.volumeId,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -17872,6 +19824,7 @@ export class EC2ResponsesCreateSnapshot {
         outputPath: 'SnapshotId',
         parameters: {
           Description: this.__input.description,
+          OutpostArn: this.__input.outpostArn,
           VolumeId: this.__input.volumeId,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -17892,6 +19845,7 @@ export class EC2ResponsesCreateSnapshot {
         outputPath: 'StartTime',
         parameters: {
           Description: this.__input.description,
+          OutpostArn: this.__input.outpostArn,
           VolumeId: this.__input.volumeId,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -17912,6 +19866,7 @@ export class EC2ResponsesCreateSnapshot {
         outputPath: 'State',
         parameters: {
           Description: this.__input.description,
+          OutpostArn: this.__input.outpostArn,
           VolumeId: this.__input.volumeId,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -17932,6 +19887,7 @@ export class EC2ResponsesCreateSnapshot {
         outputPath: 'StateMessage',
         parameters: {
           Description: this.__input.description,
+          OutpostArn: this.__input.outpostArn,
           VolumeId: this.__input.volumeId,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -17952,6 +19908,7 @@ export class EC2ResponsesCreateSnapshot {
         outputPath: 'VolumeId',
         parameters: {
           Description: this.__input.description,
+          OutpostArn: this.__input.outpostArn,
           VolumeId: this.__input.volumeId,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -17972,6 +19929,7 @@ export class EC2ResponsesCreateSnapshot {
         outputPath: 'VolumeSize',
         parameters: {
           Description: this.__input.description,
+          OutpostArn: this.__input.outpostArn,
           VolumeId: this.__input.volumeId,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -17992,6 +19950,7 @@ export class EC2ResponsesCreateSnapshot {
         outputPath: 'OwnerAlias',
         parameters: {
           Description: this.__input.description,
+          OutpostArn: this.__input.outpostArn,
           VolumeId: this.__input.volumeId,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -18000,6 +19959,27 @@ export class EC2ResponsesCreateSnapshot {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateSnapshot.OwnerAlias', props);
     return resource.getResponseField('OwnerAlias') as unknown as string;
+  }
+
+  public get outpostArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createSnapshot',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateSnapshot.OutpostArn'),
+        outputPath: 'OutpostArn',
+        parameters: {
+          Description: this.__input.description,
+          OutpostArn: this.__input.outpostArn,
+          VolumeId: this.__input.volumeId,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateSnapshot.OutpostArn', props);
+    return resource.getResponseField('OutpostArn') as unknown as string;
   }
 
   public get tags(): shapes.Ec2Tag[] {
@@ -18012,6 +19992,7 @@ export class EC2ResponsesCreateSnapshot {
         outputPath: 'Tags',
         parameters: {
           Description: this.__input.description,
+          OutpostArn: this.__input.outpostArn,
           VolumeId: this.__input.volumeId,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -18043,6 +20024,7 @@ export class EC2ResponsesCreateSnapshots {
             InstanceId: this.__input.instanceSpecification.instanceId,
             ExcludeBootVolume: this.__input.instanceSpecification.excludeBootVolume,
           },
+          OutpostArn: this.__input.outpostArn,
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
           CopyTagsFromSource: this.__input.copyTagsFromSource,
@@ -18198,6 +20180,33 @@ export class EC2ResponsesCreateSpotDatafeedSubscriptionSpotDatafeedSubscriptionF
 
 }
 
+export class EC2ResponsesCreateStoreImageTask {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateStoreImageTaskRequest) {
+  }
+
+  public get objectKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createStoreImageTask',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateStoreImageTask.ObjectKey'),
+        outputPath: 'ObjectKey',
+        parameters: {
+          ImageId: this.__input.imageId,
+          Bucket: this.__input.bucket,
+          S3ObjectTags: this.__input.s3ObjectTags,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateStoreImageTask.ObjectKey', props);
+    return resource.getResponseField('ObjectKey') as unknown as string;
+  }
+
+}
+
 export class EC2ResponsesCreateSubnet {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateSubnetRequest) {
@@ -18226,11 +20235,11 @@ export class EC2ResponsesCreateSubnetSubnet {
           TagSpecifications: this.__input.tagSpecifications,
           AvailabilityZone: this.__input.availabilityZone,
           AvailabilityZoneId: this.__input.availabilityZoneId,
-          CidrBlock: this.__input.cidrBlock,
           Ipv6CidrBlock: this.__input.ipv6CidrBlock,
           OutpostArn: this.__input.outpostArn,
           VpcId: this.__input.vpcId,
           DryRun: this.__input.dryRun,
+          CidrBlock: this.__input.cidrBlock,
         },
       },
     };
@@ -18250,11 +20259,11 @@ export class EC2ResponsesCreateSubnetSubnet {
           TagSpecifications: this.__input.tagSpecifications,
           AvailabilityZone: this.__input.availabilityZone,
           AvailabilityZoneId: this.__input.availabilityZoneId,
-          CidrBlock: this.__input.cidrBlock,
           Ipv6CidrBlock: this.__input.ipv6CidrBlock,
           OutpostArn: this.__input.outpostArn,
           VpcId: this.__input.vpcId,
           DryRun: this.__input.dryRun,
+          CidrBlock: this.__input.cidrBlock,
         },
       },
     };
@@ -18274,11 +20283,11 @@ export class EC2ResponsesCreateSubnetSubnet {
           TagSpecifications: this.__input.tagSpecifications,
           AvailabilityZone: this.__input.availabilityZone,
           AvailabilityZoneId: this.__input.availabilityZoneId,
-          CidrBlock: this.__input.cidrBlock,
           Ipv6CidrBlock: this.__input.ipv6CidrBlock,
           OutpostArn: this.__input.outpostArn,
           VpcId: this.__input.vpcId,
           DryRun: this.__input.dryRun,
+          CidrBlock: this.__input.cidrBlock,
         },
       },
     };
@@ -18298,11 +20307,11 @@ export class EC2ResponsesCreateSubnetSubnet {
           TagSpecifications: this.__input.tagSpecifications,
           AvailabilityZone: this.__input.availabilityZone,
           AvailabilityZoneId: this.__input.availabilityZoneId,
-          CidrBlock: this.__input.cidrBlock,
           Ipv6CidrBlock: this.__input.ipv6CidrBlock,
           OutpostArn: this.__input.outpostArn,
           VpcId: this.__input.vpcId,
           DryRun: this.__input.dryRun,
+          CidrBlock: this.__input.cidrBlock,
         },
       },
     };
@@ -18322,11 +20331,11 @@ export class EC2ResponsesCreateSubnetSubnet {
           TagSpecifications: this.__input.tagSpecifications,
           AvailabilityZone: this.__input.availabilityZone,
           AvailabilityZoneId: this.__input.availabilityZoneId,
-          CidrBlock: this.__input.cidrBlock,
           Ipv6CidrBlock: this.__input.ipv6CidrBlock,
           OutpostArn: this.__input.outpostArn,
           VpcId: this.__input.vpcId,
           DryRun: this.__input.dryRun,
+          CidrBlock: this.__input.cidrBlock,
         },
       },
     };
@@ -18346,11 +20355,11 @@ export class EC2ResponsesCreateSubnetSubnet {
           TagSpecifications: this.__input.tagSpecifications,
           AvailabilityZone: this.__input.availabilityZone,
           AvailabilityZoneId: this.__input.availabilityZoneId,
-          CidrBlock: this.__input.cidrBlock,
           Ipv6CidrBlock: this.__input.ipv6CidrBlock,
           OutpostArn: this.__input.outpostArn,
           VpcId: this.__input.vpcId,
           DryRun: this.__input.dryRun,
+          CidrBlock: this.__input.cidrBlock,
         },
       },
     };
@@ -18370,11 +20379,11 @@ export class EC2ResponsesCreateSubnetSubnet {
           TagSpecifications: this.__input.tagSpecifications,
           AvailabilityZone: this.__input.availabilityZone,
           AvailabilityZoneId: this.__input.availabilityZoneId,
-          CidrBlock: this.__input.cidrBlock,
           Ipv6CidrBlock: this.__input.ipv6CidrBlock,
           OutpostArn: this.__input.outpostArn,
           VpcId: this.__input.vpcId,
           DryRun: this.__input.dryRun,
+          CidrBlock: this.__input.cidrBlock,
         },
       },
     };
@@ -18394,11 +20403,11 @@ export class EC2ResponsesCreateSubnetSubnet {
           TagSpecifications: this.__input.tagSpecifications,
           AvailabilityZone: this.__input.availabilityZone,
           AvailabilityZoneId: this.__input.availabilityZoneId,
-          CidrBlock: this.__input.cidrBlock,
           Ipv6CidrBlock: this.__input.ipv6CidrBlock,
           OutpostArn: this.__input.outpostArn,
           VpcId: this.__input.vpcId,
           DryRun: this.__input.dryRun,
+          CidrBlock: this.__input.cidrBlock,
         },
       },
     };
@@ -18418,11 +20427,11 @@ export class EC2ResponsesCreateSubnetSubnet {
           TagSpecifications: this.__input.tagSpecifications,
           AvailabilityZone: this.__input.availabilityZone,
           AvailabilityZoneId: this.__input.availabilityZoneId,
-          CidrBlock: this.__input.cidrBlock,
           Ipv6CidrBlock: this.__input.ipv6CidrBlock,
           OutpostArn: this.__input.outpostArn,
           VpcId: this.__input.vpcId,
           DryRun: this.__input.dryRun,
+          CidrBlock: this.__input.cidrBlock,
         },
       },
     };
@@ -18442,11 +20451,11 @@ export class EC2ResponsesCreateSubnetSubnet {
           TagSpecifications: this.__input.tagSpecifications,
           AvailabilityZone: this.__input.availabilityZone,
           AvailabilityZoneId: this.__input.availabilityZoneId,
-          CidrBlock: this.__input.cidrBlock,
           Ipv6CidrBlock: this.__input.ipv6CidrBlock,
           OutpostArn: this.__input.outpostArn,
           VpcId: this.__input.vpcId,
           DryRun: this.__input.dryRun,
+          CidrBlock: this.__input.cidrBlock,
         },
       },
     };
@@ -18466,11 +20475,11 @@ export class EC2ResponsesCreateSubnetSubnet {
           TagSpecifications: this.__input.tagSpecifications,
           AvailabilityZone: this.__input.availabilityZone,
           AvailabilityZoneId: this.__input.availabilityZoneId,
-          CidrBlock: this.__input.cidrBlock,
           Ipv6CidrBlock: this.__input.ipv6CidrBlock,
           OutpostArn: this.__input.outpostArn,
           VpcId: this.__input.vpcId,
           DryRun: this.__input.dryRun,
+          CidrBlock: this.__input.cidrBlock,
         },
       },
     };
@@ -18490,11 +20499,11 @@ export class EC2ResponsesCreateSubnetSubnet {
           TagSpecifications: this.__input.tagSpecifications,
           AvailabilityZone: this.__input.availabilityZone,
           AvailabilityZoneId: this.__input.availabilityZoneId,
-          CidrBlock: this.__input.cidrBlock,
           Ipv6CidrBlock: this.__input.ipv6CidrBlock,
           OutpostArn: this.__input.outpostArn,
           VpcId: this.__input.vpcId,
           DryRun: this.__input.dryRun,
+          CidrBlock: this.__input.cidrBlock,
         },
       },
     };
@@ -18514,11 +20523,11 @@ export class EC2ResponsesCreateSubnetSubnet {
           TagSpecifications: this.__input.tagSpecifications,
           AvailabilityZone: this.__input.availabilityZone,
           AvailabilityZoneId: this.__input.availabilityZoneId,
-          CidrBlock: this.__input.cidrBlock,
           Ipv6CidrBlock: this.__input.ipv6CidrBlock,
           OutpostArn: this.__input.outpostArn,
           VpcId: this.__input.vpcId,
           DryRun: this.__input.dryRun,
+          CidrBlock: this.__input.cidrBlock,
         },
       },
     };
@@ -18538,11 +20547,11 @@ export class EC2ResponsesCreateSubnetSubnet {
           TagSpecifications: this.__input.tagSpecifications,
           AvailabilityZone: this.__input.availabilityZone,
           AvailabilityZoneId: this.__input.availabilityZoneId,
-          CidrBlock: this.__input.cidrBlock,
           Ipv6CidrBlock: this.__input.ipv6CidrBlock,
           OutpostArn: this.__input.outpostArn,
           VpcId: this.__input.vpcId,
           DryRun: this.__input.dryRun,
+          CidrBlock: this.__input.cidrBlock,
         },
       },
     };
@@ -18562,11 +20571,11 @@ export class EC2ResponsesCreateSubnetSubnet {
           TagSpecifications: this.__input.tagSpecifications,
           AvailabilityZone: this.__input.availabilityZone,
           AvailabilityZoneId: this.__input.availabilityZoneId,
-          CidrBlock: this.__input.cidrBlock,
           Ipv6CidrBlock: this.__input.ipv6CidrBlock,
           OutpostArn: this.__input.outpostArn,
           VpcId: this.__input.vpcId,
           DryRun: this.__input.dryRun,
+          CidrBlock: this.__input.cidrBlock,
         },
       },
     };
@@ -18586,11 +20595,11 @@ export class EC2ResponsesCreateSubnetSubnet {
           TagSpecifications: this.__input.tagSpecifications,
           AvailabilityZone: this.__input.availabilityZone,
           AvailabilityZoneId: this.__input.availabilityZoneId,
-          CidrBlock: this.__input.cidrBlock,
           Ipv6CidrBlock: this.__input.ipv6CidrBlock,
           OutpostArn: this.__input.outpostArn,
           VpcId: this.__input.vpcId,
           DryRun: this.__input.dryRun,
+          CidrBlock: this.__input.cidrBlock,
         },
       },
     };
@@ -18610,16 +20619,188 @@ export class EC2ResponsesCreateSubnetSubnet {
           TagSpecifications: this.__input.tagSpecifications,
           AvailabilityZone: this.__input.availabilityZone,
           AvailabilityZoneId: this.__input.availabilityZoneId,
-          CidrBlock: this.__input.cidrBlock,
           Ipv6CidrBlock: this.__input.ipv6CidrBlock,
           OutpostArn: this.__input.outpostArn,
           VpcId: this.__input.vpcId,
           DryRun: this.__input.dryRun,
+          CidrBlock: this.__input.cidrBlock,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateSubnet.Subnet.OutpostArn', props);
     return resource.getResponseField('Subnet.OutpostArn') as unknown as string;
+  }
+
+}
+
+export class EC2ResponsesCreateSubnetCidrReservation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateSubnetCidrReservationRequest) {
+  }
+
+  public get subnetCidrReservation(): EC2ResponsesCreateSubnetCidrReservationSubnetCidrReservation {
+    return new EC2ResponsesCreateSubnetCidrReservationSubnetCidrReservation(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesCreateSubnetCidrReservationSubnetCidrReservation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateSubnetCidrReservationRequest) {
+  }
+
+  public get subnetCidrReservationId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createSubnetCidrReservation',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateSubnetCidrReservation.SubnetCidrReservation.SubnetCidrReservationId'),
+        outputPath: 'SubnetCidrReservation.SubnetCidrReservationId',
+        parameters: {
+          TagSpecifications: this.__input.tagSpecifications,
+          SubnetId: this.__input.subnetId,
+          Cidr: this.__input.cidr,
+          ReservationType: this.__input.reservationType,
+          Description: this.__input.description,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateSubnetCidrReservation.SubnetCidrReservation.SubnetCidrReservationId', props);
+    return resource.getResponseField('SubnetCidrReservation.SubnetCidrReservationId') as unknown as string;
+  }
+
+  public get subnetId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createSubnetCidrReservation',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateSubnetCidrReservation.SubnetCidrReservation.SubnetId'),
+        outputPath: 'SubnetCidrReservation.SubnetId',
+        parameters: {
+          TagSpecifications: this.__input.tagSpecifications,
+          SubnetId: this.__input.subnetId,
+          Cidr: this.__input.cidr,
+          ReservationType: this.__input.reservationType,
+          Description: this.__input.description,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateSubnetCidrReservation.SubnetCidrReservation.SubnetId', props);
+    return resource.getResponseField('SubnetCidrReservation.SubnetId') as unknown as string;
+  }
+
+  public get cidr(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createSubnetCidrReservation',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateSubnetCidrReservation.SubnetCidrReservation.Cidr'),
+        outputPath: 'SubnetCidrReservation.Cidr',
+        parameters: {
+          TagSpecifications: this.__input.tagSpecifications,
+          SubnetId: this.__input.subnetId,
+          Cidr: this.__input.cidr,
+          ReservationType: this.__input.reservationType,
+          Description: this.__input.description,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateSubnetCidrReservation.SubnetCidrReservation.Cidr', props);
+    return resource.getResponseField('SubnetCidrReservation.Cidr') as unknown as string;
+  }
+
+  public get reservationType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createSubnetCidrReservation',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateSubnetCidrReservation.SubnetCidrReservation.ReservationType'),
+        outputPath: 'SubnetCidrReservation.ReservationType',
+        parameters: {
+          TagSpecifications: this.__input.tagSpecifications,
+          SubnetId: this.__input.subnetId,
+          Cidr: this.__input.cidr,
+          ReservationType: this.__input.reservationType,
+          Description: this.__input.description,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateSubnetCidrReservation.SubnetCidrReservation.ReservationType', props);
+    return resource.getResponseField('SubnetCidrReservation.ReservationType') as unknown as string;
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createSubnetCidrReservation',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateSubnetCidrReservation.SubnetCidrReservation.OwnerId'),
+        outputPath: 'SubnetCidrReservation.OwnerId',
+        parameters: {
+          TagSpecifications: this.__input.tagSpecifications,
+          SubnetId: this.__input.subnetId,
+          Cidr: this.__input.cidr,
+          ReservationType: this.__input.reservationType,
+          Description: this.__input.description,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateSubnetCidrReservation.SubnetCidrReservation.OwnerId', props);
+    return resource.getResponseField('SubnetCidrReservation.OwnerId') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createSubnetCidrReservation',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateSubnetCidrReservation.SubnetCidrReservation.Description'),
+        outputPath: 'SubnetCidrReservation.Description',
+        parameters: {
+          TagSpecifications: this.__input.tagSpecifications,
+          SubnetId: this.__input.subnetId,
+          Cidr: this.__input.cidr,
+          ReservationType: this.__input.reservationType,
+          Description: this.__input.description,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateSubnetCidrReservation.SubnetCidrReservation.Description', props);
+    return resource.getResponseField('SubnetCidrReservation.Description') as unknown as string;
+  }
+
+  public get tags(): shapes.Ec2Tag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createSubnetCidrReservation',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateSubnetCidrReservation.SubnetCidrReservation.Tags'),
+        outputPath: 'SubnetCidrReservation.Tags',
+        parameters: {
+          TagSpecifications: this.__input.tagSpecifications,
+          SubnetId: this.__input.subnetId,
+          Cidr: this.__input.cidr,
+          ReservationType: this.__input.reservationType,
+          Description: this.__input.description,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateSubnetCidrReservation.SubnetCidrReservation.Tags', props);
+    return resource.getResponseField('SubnetCidrReservation.Tags') as unknown as shapes.Ec2Tag[];
   }
 
 }
@@ -19830,6 +22011,7 @@ export class EC2ResponsesCreateTransitGatewayTransitGateway {
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             MulticastSupport: this.__input.options?.multicastSupport,
+            TransitGatewayCidrBlocks: this.__input.options?.transitGatewayCidrBlocks,
           },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -19858,6 +22040,7 @@ export class EC2ResponsesCreateTransitGatewayTransitGateway {
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             MulticastSupport: this.__input.options?.multicastSupport,
+            TransitGatewayCidrBlocks: this.__input.options?.transitGatewayCidrBlocks,
           },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -19886,6 +22069,7 @@ export class EC2ResponsesCreateTransitGatewayTransitGateway {
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             MulticastSupport: this.__input.options?.multicastSupport,
+            TransitGatewayCidrBlocks: this.__input.options?.transitGatewayCidrBlocks,
           },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -19914,6 +22098,7 @@ export class EC2ResponsesCreateTransitGatewayTransitGateway {
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             MulticastSupport: this.__input.options?.multicastSupport,
+            TransitGatewayCidrBlocks: this.__input.options?.transitGatewayCidrBlocks,
           },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -19942,6 +22127,7 @@ export class EC2ResponsesCreateTransitGatewayTransitGateway {
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             MulticastSupport: this.__input.options?.multicastSupport,
+            TransitGatewayCidrBlocks: this.__input.options?.transitGatewayCidrBlocks,
           },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -19970,6 +22156,7 @@ export class EC2ResponsesCreateTransitGatewayTransitGateway {
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             MulticastSupport: this.__input.options?.multicastSupport,
+            TransitGatewayCidrBlocks: this.__input.options?.transitGatewayCidrBlocks,
           },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -20002,6 +22189,7 @@ export class EC2ResponsesCreateTransitGatewayTransitGateway {
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             MulticastSupport: this.__input.options?.multicastSupport,
+            TransitGatewayCidrBlocks: this.__input.options?.transitGatewayCidrBlocks,
           },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -20037,6 +22225,7 @@ export class EC2ResponsesCreateTransitGatewayTransitGatewayOptions {
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             MulticastSupport: this.__input.options?.multicastSupport,
+            TransitGatewayCidrBlocks: this.__input.options?.transitGatewayCidrBlocks,
           },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -20045,6 +22234,35 @@ export class EC2ResponsesCreateTransitGatewayTransitGatewayOptions {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGateway.TransitGateway.Options.AmazonSideAsn', props);
     return resource.getResponseField('TransitGateway.Options.AmazonSideAsn') as unknown as number;
+  }
+
+  public get transitGatewayCidrBlocks(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGateway',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGateway.TransitGateway.Options.TransitGatewayCidrBlocks'),
+        outputPath: 'TransitGateway.Options.TransitGatewayCidrBlocks',
+        parameters: {
+          Description: this.__input.description,
+          Options: {
+            AmazonSideAsn: this.__input.options?.amazonSideAsn,
+            AutoAcceptSharedAttachments: this.__input.options?.autoAcceptSharedAttachments,
+            DefaultRouteTableAssociation: this.__input.options?.defaultRouteTableAssociation,
+            DefaultRouteTablePropagation: this.__input.options?.defaultRouteTablePropagation,
+            VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
+            DnsSupport: this.__input.options?.dnsSupport,
+            MulticastSupport: this.__input.options?.multicastSupport,
+            TransitGatewayCidrBlocks: this.__input.options?.transitGatewayCidrBlocks,
+          },
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGateway.TransitGateway.Options.TransitGatewayCidrBlocks', props);
+    return resource.getResponseField('TransitGateway.Options.TransitGatewayCidrBlocks') as unknown as string[];
   }
 
   public get autoAcceptSharedAttachments(): string {
@@ -20065,6 +22283,7 @@ export class EC2ResponsesCreateTransitGatewayTransitGatewayOptions {
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             MulticastSupport: this.__input.options?.multicastSupport,
+            TransitGatewayCidrBlocks: this.__input.options?.transitGatewayCidrBlocks,
           },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -20093,6 +22312,7 @@ export class EC2ResponsesCreateTransitGatewayTransitGatewayOptions {
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             MulticastSupport: this.__input.options?.multicastSupport,
+            TransitGatewayCidrBlocks: this.__input.options?.transitGatewayCidrBlocks,
           },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -20121,6 +22341,7 @@ export class EC2ResponsesCreateTransitGatewayTransitGatewayOptions {
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             MulticastSupport: this.__input.options?.multicastSupport,
+            TransitGatewayCidrBlocks: this.__input.options?.transitGatewayCidrBlocks,
           },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -20149,6 +22370,7 @@ export class EC2ResponsesCreateTransitGatewayTransitGatewayOptions {
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             MulticastSupport: this.__input.options?.multicastSupport,
+            TransitGatewayCidrBlocks: this.__input.options?.transitGatewayCidrBlocks,
           },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -20177,6 +22399,7 @@ export class EC2ResponsesCreateTransitGatewayTransitGatewayOptions {
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             MulticastSupport: this.__input.options?.multicastSupport,
+            TransitGatewayCidrBlocks: this.__input.options?.transitGatewayCidrBlocks,
           },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -20205,6 +22428,7 @@ export class EC2ResponsesCreateTransitGatewayTransitGatewayOptions {
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             MulticastSupport: this.__input.options?.multicastSupport,
+            TransitGatewayCidrBlocks: this.__input.options?.transitGatewayCidrBlocks,
           },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -20233,6 +22457,7 @@ export class EC2ResponsesCreateTransitGatewayTransitGatewayOptions {
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             MulticastSupport: this.__input.options?.multicastSupport,
+            TransitGatewayCidrBlocks: this.__input.options?.transitGatewayCidrBlocks,
           },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -20261,6 +22486,7 @@ export class EC2ResponsesCreateTransitGatewayTransitGatewayOptions {
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             MulticastSupport: this.__input.options?.multicastSupport,
+            TransitGatewayCidrBlocks: this.__input.options?.transitGatewayCidrBlocks,
           },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
@@ -20269,6 +22495,468 @@ export class EC2ResponsesCreateTransitGatewayTransitGatewayOptions {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGateway.TransitGateway.Options.MulticastSupport', props);
     return resource.getResponseField('TransitGateway.Options.MulticastSupport') as unknown as string;
+  }
+
+}
+
+export class EC2ResponsesCreateTransitGatewayConnect {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateTransitGatewayConnectRequest) {
+  }
+
+  public get transitGatewayConnect(): EC2ResponsesCreateTransitGatewayConnectTransitGatewayConnect {
+    return new EC2ResponsesCreateTransitGatewayConnectTransitGatewayConnect(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesCreateTransitGatewayConnectTransitGatewayConnect {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateTransitGatewayConnectRequest) {
+  }
+
+  public get transitGatewayAttachmentId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayConnect',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayConnect.TransitGatewayConnect.TransitGatewayAttachmentId'),
+        outputPath: 'TransitGatewayConnect.TransitGatewayAttachmentId',
+        parameters: {
+          TransportTransitGatewayAttachmentId: this.__input.transportTransitGatewayAttachmentId,
+          Options: {
+            Protocol: this.__input.options.protocol,
+          },
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayConnect.TransitGatewayConnect.TransitGatewayAttachmentId', props);
+    return resource.getResponseField('TransitGatewayConnect.TransitGatewayAttachmentId') as unknown as string;
+  }
+
+  public get transportTransitGatewayAttachmentId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayConnect',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayConnect.TransitGatewayConnect.TransportTransitGatewayAttachmentId'),
+        outputPath: 'TransitGatewayConnect.TransportTransitGatewayAttachmentId',
+        parameters: {
+          TransportTransitGatewayAttachmentId: this.__input.transportTransitGatewayAttachmentId,
+          Options: {
+            Protocol: this.__input.options.protocol,
+          },
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayConnect.TransitGatewayConnect.TransportTransitGatewayAttachmentId', props);
+    return resource.getResponseField('TransitGatewayConnect.TransportTransitGatewayAttachmentId') as unknown as string;
+  }
+
+  public get transitGatewayId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayConnect',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayConnect.TransitGatewayConnect.TransitGatewayId'),
+        outputPath: 'TransitGatewayConnect.TransitGatewayId',
+        parameters: {
+          TransportTransitGatewayAttachmentId: this.__input.transportTransitGatewayAttachmentId,
+          Options: {
+            Protocol: this.__input.options.protocol,
+          },
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayConnect.TransitGatewayConnect.TransitGatewayId', props);
+    return resource.getResponseField('TransitGatewayConnect.TransitGatewayId') as unknown as string;
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayConnect',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayConnect.TransitGatewayConnect.State'),
+        outputPath: 'TransitGatewayConnect.State',
+        parameters: {
+          TransportTransitGatewayAttachmentId: this.__input.transportTransitGatewayAttachmentId,
+          Options: {
+            Protocol: this.__input.options.protocol,
+          },
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayConnect.TransitGatewayConnect.State', props);
+    return resource.getResponseField('TransitGatewayConnect.State') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayConnect',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayConnect.TransitGatewayConnect.CreationTime'),
+        outputPath: 'TransitGatewayConnect.CreationTime',
+        parameters: {
+          TransportTransitGatewayAttachmentId: this.__input.transportTransitGatewayAttachmentId,
+          Options: {
+            Protocol: this.__input.options.protocol,
+          },
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayConnect.TransitGatewayConnect.CreationTime', props);
+    return resource.getResponseField('TransitGatewayConnect.CreationTime') as unknown as string;
+  }
+
+  public get options(): EC2ResponsesCreateTransitGatewayConnectTransitGatewayConnectOptions {
+    return new EC2ResponsesCreateTransitGatewayConnectTransitGatewayConnectOptions(this.__scope, this.__resources, this.__input);
+  }
+
+  public get tags(): shapes.Ec2Tag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayConnect',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayConnect.TransitGatewayConnect.Tags'),
+        outputPath: 'TransitGatewayConnect.Tags',
+        parameters: {
+          TransportTransitGatewayAttachmentId: this.__input.transportTransitGatewayAttachmentId,
+          Options: {
+            Protocol: this.__input.options.protocol,
+          },
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayConnect.TransitGatewayConnect.Tags', props);
+    return resource.getResponseField('TransitGatewayConnect.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+}
+
+export class EC2ResponsesCreateTransitGatewayConnectTransitGatewayConnectOptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateTransitGatewayConnectRequest) {
+  }
+
+  public get protocol(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayConnect',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayConnect.TransitGatewayConnect.Options.Protocol'),
+        outputPath: 'TransitGatewayConnect.Options.Protocol',
+        parameters: {
+          TransportTransitGatewayAttachmentId: this.__input.transportTransitGatewayAttachmentId,
+          Options: {
+            Protocol: this.__input.options.protocol,
+          },
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayConnect.TransitGatewayConnect.Options.Protocol', props);
+    return resource.getResponseField('TransitGatewayConnect.Options.Protocol') as unknown as string;
+  }
+
+}
+
+export class EC2ResponsesCreateTransitGatewayConnectPeer {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateTransitGatewayConnectPeerRequest) {
+  }
+
+  public get transitGatewayConnectPeer(): EC2ResponsesCreateTransitGatewayConnectPeerTransitGatewayConnectPeer {
+    return new EC2ResponsesCreateTransitGatewayConnectPeerTransitGatewayConnectPeer(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesCreateTransitGatewayConnectPeerTransitGatewayConnectPeer {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateTransitGatewayConnectPeerRequest) {
+  }
+
+  public get transitGatewayAttachmentId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.TransitGatewayAttachmentId'),
+        outputPath: 'TransitGatewayConnectPeer.TransitGatewayAttachmentId',
+        parameters: {
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          TransitGatewayAddress: this.__input.transitGatewayAddress,
+          PeerAddress: this.__input.peerAddress,
+          BgpOptions: {
+            PeerAsn: this.__input.bgpOptions?.peerAsn,
+          },
+          InsideCidrBlocks: this.__input.insideCidrBlocks,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.TransitGatewayAttachmentId', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.TransitGatewayAttachmentId') as unknown as string;
+  }
+
+  public get transitGatewayConnectPeerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.TransitGatewayConnectPeerId'),
+        outputPath: 'TransitGatewayConnectPeer.TransitGatewayConnectPeerId',
+        parameters: {
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          TransitGatewayAddress: this.__input.transitGatewayAddress,
+          PeerAddress: this.__input.peerAddress,
+          BgpOptions: {
+            PeerAsn: this.__input.bgpOptions?.peerAsn,
+          },
+          InsideCidrBlocks: this.__input.insideCidrBlocks,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.TransitGatewayConnectPeerId', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.TransitGatewayConnectPeerId') as unknown as string;
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.State'),
+        outputPath: 'TransitGatewayConnectPeer.State',
+        parameters: {
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          TransitGatewayAddress: this.__input.transitGatewayAddress,
+          PeerAddress: this.__input.peerAddress,
+          BgpOptions: {
+            PeerAsn: this.__input.bgpOptions?.peerAsn,
+          },
+          InsideCidrBlocks: this.__input.insideCidrBlocks,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.State', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.State') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.CreationTime'),
+        outputPath: 'TransitGatewayConnectPeer.CreationTime',
+        parameters: {
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          TransitGatewayAddress: this.__input.transitGatewayAddress,
+          PeerAddress: this.__input.peerAddress,
+          BgpOptions: {
+            PeerAsn: this.__input.bgpOptions?.peerAsn,
+          },
+          InsideCidrBlocks: this.__input.insideCidrBlocks,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.CreationTime', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.CreationTime') as unknown as string;
+  }
+
+  public get connectPeerConfiguration(): EC2ResponsesCreateTransitGatewayConnectPeerTransitGatewayConnectPeerConnectPeerConfiguration {
+    return new EC2ResponsesCreateTransitGatewayConnectPeerTransitGatewayConnectPeerConnectPeerConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get tags(): shapes.Ec2Tag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.Tags'),
+        outputPath: 'TransitGatewayConnectPeer.Tags',
+        parameters: {
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          TransitGatewayAddress: this.__input.transitGatewayAddress,
+          PeerAddress: this.__input.peerAddress,
+          BgpOptions: {
+            PeerAsn: this.__input.bgpOptions?.peerAsn,
+          },
+          InsideCidrBlocks: this.__input.insideCidrBlocks,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.Tags', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+}
+
+export class EC2ResponsesCreateTransitGatewayConnectPeerTransitGatewayConnectPeerConnectPeerConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateTransitGatewayConnectPeerRequest) {
+  }
+
+  public get transitGatewayAddress(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.TransitGatewayAddress'),
+        outputPath: 'TransitGatewayConnectPeer.ConnectPeerConfiguration.TransitGatewayAddress',
+        parameters: {
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          TransitGatewayAddress: this.__input.transitGatewayAddress,
+          PeerAddress: this.__input.peerAddress,
+          BgpOptions: {
+            PeerAsn: this.__input.bgpOptions?.peerAsn,
+          },
+          InsideCidrBlocks: this.__input.insideCidrBlocks,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.TransitGatewayAddress', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.ConnectPeerConfiguration.TransitGatewayAddress') as unknown as string;
+  }
+
+  public get peerAddress(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.PeerAddress'),
+        outputPath: 'TransitGatewayConnectPeer.ConnectPeerConfiguration.PeerAddress',
+        parameters: {
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          TransitGatewayAddress: this.__input.transitGatewayAddress,
+          PeerAddress: this.__input.peerAddress,
+          BgpOptions: {
+            PeerAsn: this.__input.bgpOptions?.peerAsn,
+          },
+          InsideCidrBlocks: this.__input.insideCidrBlocks,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.PeerAddress', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.ConnectPeerConfiguration.PeerAddress') as unknown as string;
+  }
+
+  public get insideCidrBlocks(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.InsideCidrBlocks'),
+        outputPath: 'TransitGatewayConnectPeer.ConnectPeerConfiguration.InsideCidrBlocks',
+        parameters: {
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          TransitGatewayAddress: this.__input.transitGatewayAddress,
+          PeerAddress: this.__input.peerAddress,
+          BgpOptions: {
+            PeerAsn: this.__input.bgpOptions?.peerAsn,
+          },
+          InsideCidrBlocks: this.__input.insideCidrBlocks,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.InsideCidrBlocks', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.ConnectPeerConfiguration.InsideCidrBlocks') as unknown as string[];
+  }
+
+  public get protocol(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.Protocol'),
+        outputPath: 'TransitGatewayConnectPeer.ConnectPeerConfiguration.Protocol',
+        parameters: {
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          TransitGatewayAddress: this.__input.transitGatewayAddress,
+          PeerAddress: this.__input.peerAddress,
+          BgpOptions: {
+            PeerAsn: this.__input.bgpOptions?.peerAsn,
+          },
+          InsideCidrBlocks: this.__input.insideCidrBlocks,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.Protocol', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.ConnectPeerConfiguration.Protocol') as unknown as string;
+  }
+
+  public get bgpConfigurations(): shapes.Ec2TransitGatewayAttachmentBgpConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.BgpConfigurations'),
+        outputPath: 'TransitGatewayConnectPeer.ConnectPeerConfiguration.BgpConfigurations',
+        parameters: {
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          TransitGatewayAddress: this.__input.transitGatewayAddress,
+          PeerAddress: this.__input.peerAddress,
+          BgpOptions: {
+            PeerAsn: this.__input.bgpOptions?.peerAsn,
+          },
+          InsideCidrBlocks: this.__input.insideCidrBlocks,
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.BgpConfigurations', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.ConnectPeerConfiguration.BgpConfigurations') as unknown as shapes.Ec2TransitGatewayAttachmentBgpConfiguration[];
   }
 
 }
@@ -20299,6 +22987,11 @@ export class EC2ResponsesCreateTransitGatewayMulticastDomainTransitGatewayMultic
         outputPath: 'TransitGatewayMulticastDomain.TransitGatewayMulticastDomainId',
         parameters: {
           TransitGatewayId: this.__input.transitGatewayId,
+          Options: {
+            Igmpv2Support: this.__input.options?.igmpv2Support,
+            StaticSourcesSupport: this.__input.options?.staticSourcesSupport,
+            AutoAcceptSharedAssociations: this.__input.options?.autoAcceptSharedAssociations,
+          },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
         },
@@ -20318,6 +23011,11 @@ export class EC2ResponsesCreateTransitGatewayMulticastDomainTransitGatewayMultic
         outputPath: 'TransitGatewayMulticastDomain.TransitGatewayId',
         parameters: {
           TransitGatewayId: this.__input.transitGatewayId,
+          Options: {
+            Igmpv2Support: this.__input.options?.igmpv2Support,
+            StaticSourcesSupport: this.__input.options?.staticSourcesSupport,
+            AutoAcceptSharedAssociations: this.__input.options?.autoAcceptSharedAssociations,
+          },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
         },
@@ -20325,6 +23023,58 @@ export class EC2ResponsesCreateTransitGatewayMulticastDomainTransitGatewayMultic
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.TransitGatewayId', props);
     return resource.getResponseField('TransitGatewayMulticastDomain.TransitGatewayId') as unknown as string;
+  }
+
+  public get transitGatewayMulticastDomainArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayMulticastDomain',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.TransitGatewayMulticastDomainArn'),
+        outputPath: 'TransitGatewayMulticastDomain.TransitGatewayMulticastDomainArn',
+        parameters: {
+          TransitGatewayId: this.__input.transitGatewayId,
+          Options: {
+            Igmpv2Support: this.__input.options?.igmpv2Support,
+            StaticSourcesSupport: this.__input.options?.staticSourcesSupport,
+            AutoAcceptSharedAssociations: this.__input.options?.autoAcceptSharedAssociations,
+          },
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.TransitGatewayMulticastDomainArn', props);
+    return resource.getResponseField('TransitGatewayMulticastDomain.TransitGatewayMulticastDomainArn') as unknown as string;
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayMulticastDomain',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.OwnerId'),
+        outputPath: 'TransitGatewayMulticastDomain.OwnerId',
+        parameters: {
+          TransitGatewayId: this.__input.transitGatewayId,
+          Options: {
+            Igmpv2Support: this.__input.options?.igmpv2Support,
+            StaticSourcesSupport: this.__input.options?.staticSourcesSupport,
+            AutoAcceptSharedAssociations: this.__input.options?.autoAcceptSharedAssociations,
+          },
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.OwnerId', props);
+    return resource.getResponseField('TransitGatewayMulticastDomain.OwnerId') as unknown as string;
+  }
+
+  public get options(): EC2ResponsesCreateTransitGatewayMulticastDomainTransitGatewayMulticastDomainOptions {
+    return new EC2ResponsesCreateTransitGatewayMulticastDomainTransitGatewayMulticastDomainOptions(this.__scope, this.__resources, this.__input);
   }
 
   public get state(): string {
@@ -20337,6 +23087,11 @@ export class EC2ResponsesCreateTransitGatewayMulticastDomainTransitGatewayMultic
         outputPath: 'TransitGatewayMulticastDomain.State',
         parameters: {
           TransitGatewayId: this.__input.transitGatewayId,
+          Options: {
+            Igmpv2Support: this.__input.options?.igmpv2Support,
+            StaticSourcesSupport: this.__input.options?.staticSourcesSupport,
+            AutoAcceptSharedAssociations: this.__input.options?.autoAcceptSharedAssociations,
+          },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
         },
@@ -20356,6 +23111,11 @@ export class EC2ResponsesCreateTransitGatewayMulticastDomainTransitGatewayMultic
         outputPath: 'TransitGatewayMulticastDomain.CreationTime',
         parameters: {
           TransitGatewayId: this.__input.transitGatewayId,
+          Options: {
+            Igmpv2Support: this.__input.options?.igmpv2Support,
+            StaticSourcesSupport: this.__input.options?.staticSourcesSupport,
+            AutoAcceptSharedAssociations: this.__input.options?.autoAcceptSharedAssociations,
+          },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
         },
@@ -20375,6 +23135,11 @@ export class EC2ResponsesCreateTransitGatewayMulticastDomainTransitGatewayMultic
         outputPath: 'TransitGatewayMulticastDomain.Tags',
         parameters: {
           TransitGatewayId: this.__input.transitGatewayId,
+          Options: {
+            Igmpv2Support: this.__input.options?.igmpv2Support,
+            StaticSourcesSupport: this.__input.options?.staticSourcesSupport,
+            AutoAcceptSharedAssociations: this.__input.options?.autoAcceptSharedAssociations,
+          },
           TagSpecifications: this.__input.tagSpecifications,
           DryRun: this.__input.dryRun,
         },
@@ -20382,6 +23147,85 @@ export class EC2ResponsesCreateTransitGatewayMulticastDomainTransitGatewayMultic
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.Tags', props);
     return resource.getResponseField('TransitGatewayMulticastDomain.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+}
+
+export class EC2ResponsesCreateTransitGatewayMulticastDomainTransitGatewayMulticastDomainOptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2CreateTransitGatewayMulticastDomainRequest) {
+  }
+
+  public get igmpv2Support(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayMulticastDomain',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.Options.Igmpv2Support'),
+        outputPath: 'TransitGatewayMulticastDomain.Options.Igmpv2Support',
+        parameters: {
+          TransitGatewayId: this.__input.transitGatewayId,
+          Options: {
+            Igmpv2Support: this.__input.options?.igmpv2Support,
+            StaticSourcesSupport: this.__input.options?.staticSourcesSupport,
+            AutoAcceptSharedAssociations: this.__input.options?.autoAcceptSharedAssociations,
+          },
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.Options.Igmpv2Support', props);
+    return resource.getResponseField('TransitGatewayMulticastDomain.Options.Igmpv2Support') as unknown as string;
+  }
+
+  public get staticSourcesSupport(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayMulticastDomain',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.Options.StaticSourcesSupport'),
+        outputPath: 'TransitGatewayMulticastDomain.Options.StaticSourcesSupport',
+        parameters: {
+          TransitGatewayId: this.__input.transitGatewayId,
+          Options: {
+            Igmpv2Support: this.__input.options?.igmpv2Support,
+            StaticSourcesSupport: this.__input.options?.staticSourcesSupport,
+            AutoAcceptSharedAssociations: this.__input.options?.autoAcceptSharedAssociations,
+          },
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.Options.StaticSourcesSupport', props);
+    return resource.getResponseField('TransitGatewayMulticastDomain.Options.StaticSourcesSupport') as unknown as string;
+  }
+
+  public get autoAcceptSharedAssociations(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createTransitGatewayMulticastDomain',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.Options.AutoAcceptSharedAssociations'),
+        outputPath: 'TransitGatewayMulticastDomain.Options.AutoAcceptSharedAssociations',
+        parameters: {
+          TransitGatewayId: this.__input.transitGatewayId,
+          Options: {
+            Igmpv2Support: this.__input.options?.igmpv2Support,
+            StaticSourcesSupport: this.__input.options?.staticSourcesSupport,
+            AutoAcceptSharedAssociations: this.__input.options?.autoAcceptSharedAssociations,
+          },
+          TagSpecifications: this.__input.tagSpecifications,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.Options.AutoAcceptSharedAssociations', props);
+    return resource.getResponseField('TransitGatewayMulticastDomain.Options.AutoAcceptSharedAssociations') as unknown as string;
   }
 
 }
@@ -21512,6 +24356,8 @@ export class EC2ResponsesCreateVolume {
           DryRun: this.__input.dryRun,
           TagSpecifications: this.__input.tagSpecifications,
           MultiAttachEnabled: this.__input.multiAttachEnabled,
+          Throughput: this.__input.throughput,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -21539,6 +24385,8 @@ export class EC2ResponsesCreateVolume {
           DryRun: this.__input.dryRun,
           TagSpecifications: this.__input.tagSpecifications,
           MultiAttachEnabled: this.__input.multiAttachEnabled,
+          Throughput: this.__input.throughput,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -21566,6 +24414,8 @@ export class EC2ResponsesCreateVolume {
           DryRun: this.__input.dryRun,
           TagSpecifications: this.__input.tagSpecifications,
           MultiAttachEnabled: this.__input.multiAttachEnabled,
+          Throughput: this.__input.throughput,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -21593,6 +24443,8 @@ export class EC2ResponsesCreateVolume {
           DryRun: this.__input.dryRun,
           TagSpecifications: this.__input.tagSpecifications,
           MultiAttachEnabled: this.__input.multiAttachEnabled,
+          Throughput: this.__input.throughput,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -21620,6 +24472,8 @@ export class EC2ResponsesCreateVolume {
           DryRun: this.__input.dryRun,
           TagSpecifications: this.__input.tagSpecifications,
           MultiAttachEnabled: this.__input.multiAttachEnabled,
+          Throughput: this.__input.throughput,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -21647,6 +24501,8 @@ export class EC2ResponsesCreateVolume {
           DryRun: this.__input.dryRun,
           TagSpecifications: this.__input.tagSpecifications,
           MultiAttachEnabled: this.__input.multiAttachEnabled,
+          Throughput: this.__input.throughput,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -21674,6 +24530,8 @@ export class EC2ResponsesCreateVolume {
           DryRun: this.__input.dryRun,
           TagSpecifications: this.__input.tagSpecifications,
           MultiAttachEnabled: this.__input.multiAttachEnabled,
+          Throughput: this.__input.throughput,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -21701,6 +24559,8 @@ export class EC2ResponsesCreateVolume {
           DryRun: this.__input.dryRun,
           TagSpecifications: this.__input.tagSpecifications,
           MultiAttachEnabled: this.__input.multiAttachEnabled,
+          Throughput: this.__input.throughput,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -21728,6 +24588,8 @@ export class EC2ResponsesCreateVolume {
           DryRun: this.__input.dryRun,
           TagSpecifications: this.__input.tagSpecifications,
           MultiAttachEnabled: this.__input.multiAttachEnabled,
+          Throughput: this.__input.throughput,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -21755,6 +24617,8 @@ export class EC2ResponsesCreateVolume {
           DryRun: this.__input.dryRun,
           TagSpecifications: this.__input.tagSpecifications,
           MultiAttachEnabled: this.__input.multiAttachEnabled,
+          Throughput: this.__input.throughput,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -21782,6 +24646,8 @@ export class EC2ResponsesCreateVolume {
           DryRun: this.__input.dryRun,
           TagSpecifications: this.__input.tagSpecifications,
           MultiAttachEnabled: this.__input.multiAttachEnabled,
+          Throughput: this.__input.throughput,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -21809,6 +24675,8 @@ export class EC2ResponsesCreateVolume {
           DryRun: this.__input.dryRun,
           TagSpecifications: this.__input.tagSpecifications,
           MultiAttachEnabled: this.__input.multiAttachEnabled,
+          Throughput: this.__input.throughput,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -21836,6 +24704,8 @@ export class EC2ResponsesCreateVolume {
           DryRun: this.__input.dryRun,
           TagSpecifications: this.__input.tagSpecifications,
           MultiAttachEnabled: this.__input.multiAttachEnabled,
+          Throughput: this.__input.throughput,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -21863,6 +24733,8 @@ export class EC2ResponsesCreateVolume {
           DryRun: this.__input.dryRun,
           TagSpecifications: this.__input.tagSpecifications,
           MultiAttachEnabled: this.__input.multiAttachEnabled,
+          Throughput: this.__input.throughput,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
@@ -21890,11 +24762,42 @@ export class EC2ResponsesCreateVolume {
           DryRun: this.__input.dryRun,
           TagSpecifications: this.__input.tagSpecifications,
           MultiAttachEnabled: this.__input.multiAttachEnabled,
+          Throughput: this.__input.throughput,
+          ClientToken: this.__input.clientToken,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateVolume.MultiAttachEnabled', props);
     return resource.getResponseField('MultiAttachEnabled') as unknown as boolean;
+  }
+
+  public get throughput(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createVolume',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.CreateVolume.Throughput'),
+        outputPath: 'Throughput',
+        parameters: {
+          AvailabilityZone: this.__input.availabilityZone,
+          Encrypted: this.__input.encrypted,
+          Iops: this.__input.iops,
+          KmsKeyId: this.__input.kmsKeyId,
+          OutpostArn: this.__input.outpostArn,
+          Size: this.__input.size,
+          SnapshotId: this.__input.snapshotId,
+          VolumeType: this.__input.volumeType,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+          MultiAttachEnabled: this.__input.multiAttachEnabled,
+          Throughput: this.__input.throughput,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateVolume.Throughput', props);
+    return resource.getResponseField('Throughput') as unknown as number;
   }
 
 }
@@ -25034,6 +27937,62 @@ export class EC2ResponsesDeleteFpgaImage {
 
 }
 
+export class EC2ResponsesDeleteInstanceEventWindow {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DeleteInstanceEventWindowRequest) {
+  }
+
+  public get instanceEventWindowState(): EC2ResponsesDeleteInstanceEventWindowInstanceEventWindowState {
+    return new EC2ResponsesDeleteInstanceEventWindowInstanceEventWindowState(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesDeleteInstanceEventWindowInstanceEventWindowState {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DeleteInstanceEventWindowRequest) {
+  }
+
+  public get instanceEventWindowId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteInstanceEventWindow.InstanceEventWindowState.InstanceEventWindowId'),
+        outputPath: 'InstanceEventWindowState.InstanceEventWindowId',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          ForceDelete: this.__input.forceDelete,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteInstanceEventWindow.InstanceEventWindowState.InstanceEventWindowId', props);
+    return resource.getResponseField('InstanceEventWindowState.InstanceEventWindowId') as unknown as string;
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteInstanceEventWindow.InstanceEventWindowState.State'),
+        outputPath: 'InstanceEventWindowState.State',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          ForceDelete: this.__input.forceDelete,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteInstanceEventWindow.InstanceEventWindowState.State', props);
+    return resource.getResponseField('InstanceEventWindowState.State') as unknown as string;
+  }
+
+}
+
 export class EC2ResponsesDeleteLaunchTemplate {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DeleteLaunchTemplateRequest) {
@@ -25768,6 +28727,56 @@ export class EC2ResponsesDeleteNatGateway {
 
 }
 
+export class EC2ResponsesDeleteNetworkInsightsAnalysis {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DeleteNetworkInsightsAnalysisRequest) {
+  }
+
+  public get networkInsightsAnalysisId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteNetworkInsightsAnalysis',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteNetworkInsightsAnalysis.NetworkInsightsAnalysisId'),
+        outputPath: 'NetworkInsightsAnalysisId',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          NetworkInsightsAnalysisId: this.__input.networkInsightsAnalysisId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteNetworkInsightsAnalysis.NetworkInsightsAnalysisId', props);
+    return resource.getResponseField('NetworkInsightsAnalysisId') as unknown as string;
+  }
+
+}
+
+export class EC2ResponsesDeleteNetworkInsightsPath {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DeleteNetworkInsightsPathRequest) {
+  }
+
+  public get networkInsightsPathId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteNetworkInsightsPath',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteNetworkInsightsPath.NetworkInsightsPathId'),
+        outputPath: 'NetworkInsightsPathId',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          NetworkInsightsPathId: this.__input.networkInsightsPathId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteNetworkInsightsPath.NetworkInsightsPathId', props);
+    return resource.getResponseField('NetworkInsightsPathId') as unknown as string;
+  }
+
+}
+
 export class EC2ResponsesDeleteNetworkInterfacePermission {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DeleteNetworkInterfacePermissionRequest) {
@@ -25833,6 +28842,150 @@ export class EC2ResponsesDeleteQueuedReservedInstances {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteQueuedReservedInstances.FailedQueuedPurchaseDeletions', props);
     return resource.getResponseField('FailedQueuedPurchaseDeletions') as unknown as shapes.Ec2FailedQueuedPurchaseDeletion[];
+  }
+
+}
+
+export class EC2ResponsesDeleteSubnetCidrReservation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DeleteSubnetCidrReservationRequest) {
+  }
+
+  public get deletedSubnetCidrReservation(): EC2ResponsesDeleteSubnetCidrReservationDeletedSubnetCidrReservation {
+    return new EC2ResponsesDeleteSubnetCidrReservationDeletedSubnetCidrReservation(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesDeleteSubnetCidrReservationDeletedSubnetCidrReservation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DeleteSubnetCidrReservationRequest) {
+  }
+
+  public get subnetCidrReservationId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteSubnetCidrReservation',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteSubnetCidrReservation.DeletedSubnetCidrReservation.SubnetCidrReservationId'),
+        outputPath: 'DeletedSubnetCidrReservation.SubnetCidrReservationId',
+        parameters: {
+          SubnetCidrReservationId: this.__input.subnetCidrReservationId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteSubnetCidrReservation.DeletedSubnetCidrReservation.SubnetCidrReservationId', props);
+    return resource.getResponseField('DeletedSubnetCidrReservation.SubnetCidrReservationId') as unknown as string;
+  }
+
+  public get subnetId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteSubnetCidrReservation',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteSubnetCidrReservation.DeletedSubnetCidrReservation.SubnetId'),
+        outputPath: 'DeletedSubnetCidrReservation.SubnetId',
+        parameters: {
+          SubnetCidrReservationId: this.__input.subnetCidrReservationId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteSubnetCidrReservation.DeletedSubnetCidrReservation.SubnetId', props);
+    return resource.getResponseField('DeletedSubnetCidrReservation.SubnetId') as unknown as string;
+  }
+
+  public get cidr(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteSubnetCidrReservation',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteSubnetCidrReservation.DeletedSubnetCidrReservation.Cidr'),
+        outputPath: 'DeletedSubnetCidrReservation.Cidr',
+        parameters: {
+          SubnetCidrReservationId: this.__input.subnetCidrReservationId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteSubnetCidrReservation.DeletedSubnetCidrReservation.Cidr', props);
+    return resource.getResponseField('DeletedSubnetCidrReservation.Cidr') as unknown as string;
+  }
+
+  public get reservationType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteSubnetCidrReservation',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteSubnetCidrReservation.DeletedSubnetCidrReservation.ReservationType'),
+        outputPath: 'DeletedSubnetCidrReservation.ReservationType',
+        parameters: {
+          SubnetCidrReservationId: this.__input.subnetCidrReservationId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteSubnetCidrReservation.DeletedSubnetCidrReservation.ReservationType', props);
+    return resource.getResponseField('DeletedSubnetCidrReservation.ReservationType') as unknown as string;
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteSubnetCidrReservation',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteSubnetCidrReservation.DeletedSubnetCidrReservation.OwnerId'),
+        outputPath: 'DeletedSubnetCidrReservation.OwnerId',
+        parameters: {
+          SubnetCidrReservationId: this.__input.subnetCidrReservationId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteSubnetCidrReservation.DeletedSubnetCidrReservation.OwnerId', props);
+    return resource.getResponseField('DeletedSubnetCidrReservation.OwnerId') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteSubnetCidrReservation',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteSubnetCidrReservation.DeletedSubnetCidrReservation.Description'),
+        outputPath: 'DeletedSubnetCidrReservation.Description',
+        parameters: {
+          SubnetCidrReservationId: this.__input.subnetCidrReservationId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteSubnetCidrReservation.DeletedSubnetCidrReservation.Description', props);
+    return resource.getResponseField('DeletedSubnetCidrReservation.Description') as unknown as string;
+  }
+
+  public get tags(): shapes.Ec2Tag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteSubnetCidrReservation',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteSubnetCidrReservation.DeletedSubnetCidrReservation.Tags'),
+        outputPath: 'DeletedSubnetCidrReservation.Tags',
+        parameters: {
+          SubnetCidrReservationId: this.__input.subnetCidrReservationId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteSubnetCidrReservation.DeletedSubnetCidrReservation.Tags', props);
+    return resource.getResponseField('DeletedSubnetCidrReservation.Tags') as unknown as shapes.Ec2Tag[];
   }
 
 }
@@ -26108,6 +29261,24 @@ export class EC2ResponsesDeleteTransitGatewayTransitGatewayOptions {
     return resource.getResponseField('TransitGateway.Options.AmazonSideAsn') as unknown as number;
   }
 
+  public get transitGatewayCidrBlocks(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGateway',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGateway.TransitGateway.Options.TransitGatewayCidrBlocks'),
+        outputPath: 'TransitGateway.Options.TransitGatewayCidrBlocks',
+        parameters: {
+          TransitGatewayId: this.__input.transitGatewayId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGateway.TransitGateway.Options.TransitGatewayCidrBlocks', props);
+    return resource.getResponseField('TransitGateway.Options.TransitGatewayCidrBlocks') as unknown as string[];
+  }
+
   public get autoAcceptSharedAttachments(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -26254,6 +29425,370 @@ export class EC2ResponsesDeleteTransitGatewayTransitGatewayOptions {
 
 }
 
+export class EC2ResponsesDeleteTransitGatewayConnect {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DeleteTransitGatewayConnectRequest) {
+  }
+
+  public get transitGatewayConnect(): EC2ResponsesDeleteTransitGatewayConnectTransitGatewayConnect {
+    return new EC2ResponsesDeleteTransitGatewayConnectTransitGatewayConnect(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesDeleteTransitGatewayConnectTransitGatewayConnect {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DeleteTransitGatewayConnectRequest) {
+  }
+
+  public get transitGatewayAttachmentId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayConnect',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayConnect.TransitGatewayConnect.TransitGatewayAttachmentId'),
+        outputPath: 'TransitGatewayConnect.TransitGatewayAttachmentId',
+        parameters: {
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayConnect.TransitGatewayConnect.TransitGatewayAttachmentId', props);
+    return resource.getResponseField('TransitGatewayConnect.TransitGatewayAttachmentId') as unknown as string;
+  }
+
+  public get transportTransitGatewayAttachmentId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayConnect',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayConnect.TransitGatewayConnect.TransportTransitGatewayAttachmentId'),
+        outputPath: 'TransitGatewayConnect.TransportTransitGatewayAttachmentId',
+        parameters: {
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayConnect.TransitGatewayConnect.TransportTransitGatewayAttachmentId', props);
+    return resource.getResponseField('TransitGatewayConnect.TransportTransitGatewayAttachmentId') as unknown as string;
+  }
+
+  public get transitGatewayId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayConnect',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayConnect.TransitGatewayConnect.TransitGatewayId'),
+        outputPath: 'TransitGatewayConnect.TransitGatewayId',
+        parameters: {
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayConnect.TransitGatewayConnect.TransitGatewayId', props);
+    return resource.getResponseField('TransitGatewayConnect.TransitGatewayId') as unknown as string;
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayConnect',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayConnect.TransitGatewayConnect.State'),
+        outputPath: 'TransitGatewayConnect.State',
+        parameters: {
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayConnect.TransitGatewayConnect.State', props);
+    return resource.getResponseField('TransitGatewayConnect.State') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayConnect',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayConnect.TransitGatewayConnect.CreationTime'),
+        outputPath: 'TransitGatewayConnect.CreationTime',
+        parameters: {
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayConnect.TransitGatewayConnect.CreationTime', props);
+    return resource.getResponseField('TransitGatewayConnect.CreationTime') as unknown as string;
+  }
+
+  public get options(): EC2ResponsesDeleteTransitGatewayConnectTransitGatewayConnectOptions {
+    return new EC2ResponsesDeleteTransitGatewayConnectTransitGatewayConnectOptions(this.__scope, this.__resources, this.__input);
+  }
+
+  public get tags(): shapes.Ec2Tag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayConnect',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayConnect.TransitGatewayConnect.Tags'),
+        outputPath: 'TransitGatewayConnect.Tags',
+        parameters: {
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayConnect.TransitGatewayConnect.Tags', props);
+    return resource.getResponseField('TransitGatewayConnect.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+}
+
+export class EC2ResponsesDeleteTransitGatewayConnectTransitGatewayConnectOptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DeleteTransitGatewayConnectRequest) {
+  }
+
+  public get protocol(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayConnect',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayConnect.TransitGatewayConnect.Options.Protocol'),
+        outputPath: 'TransitGatewayConnect.Options.Protocol',
+        parameters: {
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayConnect.TransitGatewayConnect.Options.Protocol', props);
+    return resource.getResponseField('TransitGatewayConnect.Options.Protocol') as unknown as string;
+  }
+
+}
+
+export class EC2ResponsesDeleteTransitGatewayConnectPeer {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DeleteTransitGatewayConnectPeerRequest) {
+  }
+
+  public get transitGatewayConnectPeer(): EC2ResponsesDeleteTransitGatewayConnectPeerTransitGatewayConnectPeer {
+    return new EC2ResponsesDeleteTransitGatewayConnectPeerTransitGatewayConnectPeer(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesDeleteTransitGatewayConnectPeerTransitGatewayConnectPeer {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DeleteTransitGatewayConnectPeerRequest) {
+  }
+
+  public get transitGatewayAttachmentId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.TransitGatewayAttachmentId'),
+        outputPath: 'TransitGatewayConnectPeer.TransitGatewayAttachmentId',
+        parameters: {
+          TransitGatewayConnectPeerId: this.__input.transitGatewayConnectPeerId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.TransitGatewayAttachmentId', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.TransitGatewayAttachmentId') as unknown as string;
+  }
+
+  public get transitGatewayConnectPeerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.TransitGatewayConnectPeerId'),
+        outputPath: 'TransitGatewayConnectPeer.TransitGatewayConnectPeerId',
+        parameters: {
+          TransitGatewayConnectPeerId: this.__input.transitGatewayConnectPeerId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.TransitGatewayConnectPeerId', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.TransitGatewayConnectPeerId') as unknown as string;
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.State'),
+        outputPath: 'TransitGatewayConnectPeer.State',
+        parameters: {
+          TransitGatewayConnectPeerId: this.__input.transitGatewayConnectPeerId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.State', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.State') as unknown as string;
+  }
+
+  public get creationTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.CreationTime'),
+        outputPath: 'TransitGatewayConnectPeer.CreationTime',
+        parameters: {
+          TransitGatewayConnectPeerId: this.__input.transitGatewayConnectPeerId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.CreationTime', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.CreationTime') as unknown as string;
+  }
+
+  public get connectPeerConfiguration(): EC2ResponsesDeleteTransitGatewayConnectPeerTransitGatewayConnectPeerConnectPeerConfiguration {
+    return new EC2ResponsesDeleteTransitGatewayConnectPeerTransitGatewayConnectPeerConnectPeerConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get tags(): shapes.Ec2Tag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.Tags'),
+        outputPath: 'TransitGatewayConnectPeer.Tags',
+        parameters: {
+          TransitGatewayConnectPeerId: this.__input.transitGatewayConnectPeerId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.Tags', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+}
+
+export class EC2ResponsesDeleteTransitGatewayConnectPeerTransitGatewayConnectPeerConnectPeerConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DeleteTransitGatewayConnectPeerRequest) {
+  }
+
+  public get transitGatewayAddress(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.TransitGatewayAddress'),
+        outputPath: 'TransitGatewayConnectPeer.ConnectPeerConfiguration.TransitGatewayAddress',
+        parameters: {
+          TransitGatewayConnectPeerId: this.__input.transitGatewayConnectPeerId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.TransitGatewayAddress', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.ConnectPeerConfiguration.TransitGatewayAddress') as unknown as string;
+  }
+
+  public get peerAddress(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.PeerAddress'),
+        outputPath: 'TransitGatewayConnectPeer.ConnectPeerConfiguration.PeerAddress',
+        parameters: {
+          TransitGatewayConnectPeerId: this.__input.transitGatewayConnectPeerId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.PeerAddress', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.ConnectPeerConfiguration.PeerAddress') as unknown as string;
+  }
+
+  public get insideCidrBlocks(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.InsideCidrBlocks'),
+        outputPath: 'TransitGatewayConnectPeer.ConnectPeerConfiguration.InsideCidrBlocks',
+        parameters: {
+          TransitGatewayConnectPeerId: this.__input.transitGatewayConnectPeerId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.InsideCidrBlocks', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.ConnectPeerConfiguration.InsideCidrBlocks') as unknown as string[];
+  }
+
+  public get protocol(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.Protocol'),
+        outputPath: 'TransitGatewayConnectPeer.ConnectPeerConfiguration.Protocol',
+        parameters: {
+          TransitGatewayConnectPeerId: this.__input.transitGatewayConnectPeerId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.Protocol', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.ConnectPeerConfiguration.Protocol') as unknown as string;
+  }
+
+  public get bgpConfigurations(): shapes.Ec2TransitGatewayAttachmentBgpConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayConnectPeer',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.BgpConfigurations'),
+        outputPath: 'TransitGatewayConnectPeer.ConnectPeerConfiguration.BgpConfigurations',
+        parameters: {
+          TransitGatewayConnectPeerId: this.__input.transitGatewayConnectPeerId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayConnectPeer.TransitGatewayConnectPeer.ConnectPeerConfiguration.BgpConfigurations', props);
+    return resource.getResponseField('TransitGatewayConnectPeer.ConnectPeerConfiguration.BgpConfigurations') as unknown as shapes.Ec2TransitGatewayAttachmentBgpConfiguration[];
+  }
+
+}
+
 export class EC2ResponsesDeleteTransitGatewayMulticastDomain {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DeleteTransitGatewayMulticastDomainRequest) {
@@ -26304,6 +29839,46 @@ export class EC2ResponsesDeleteTransitGatewayMulticastDomainTransitGatewayMultic
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.TransitGatewayId', props);
     return resource.getResponseField('TransitGatewayMulticastDomain.TransitGatewayId') as unknown as string;
+  }
+
+  public get transitGatewayMulticastDomainArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayMulticastDomain',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.TransitGatewayMulticastDomainArn'),
+        outputPath: 'TransitGatewayMulticastDomain.TransitGatewayMulticastDomainArn',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.TransitGatewayMulticastDomainArn', props);
+    return resource.getResponseField('TransitGatewayMulticastDomain.TransitGatewayMulticastDomainArn') as unknown as string;
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayMulticastDomain',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.OwnerId'),
+        outputPath: 'TransitGatewayMulticastDomain.OwnerId',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.OwnerId', props);
+    return resource.getResponseField('TransitGatewayMulticastDomain.OwnerId') as unknown as string;
+  }
+
+  public get options(): EC2ResponsesDeleteTransitGatewayMulticastDomainTransitGatewayMulticastDomainOptions {
+    return new EC2ResponsesDeleteTransitGatewayMulticastDomainTransitGatewayMulticastDomainOptions(this.__scope, this.__resources, this.__input);
   }
 
   public get state(): string {
@@ -26358,6 +29933,67 @@ export class EC2ResponsesDeleteTransitGatewayMulticastDomainTransitGatewayMultic
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.Tags', props);
     return resource.getResponseField('TransitGatewayMulticastDomain.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+}
+
+export class EC2ResponsesDeleteTransitGatewayMulticastDomainTransitGatewayMulticastDomainOptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DeleteTransitGatewayMulticastDomainRequest) {
+  }
+
+  public get igmpv2Support(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayMulticastDomain',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.Options.Igmpv2Support'),
+        outputPath: 'TransitGatewayMulticastDomain.Options.Igmpv2Support',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.Options.Igmpv2Support', props);
+    return resource.getResponseField('TransitGatewayMulticastDomain.Options.Igmpv2Support') as unknown as string;
+  }
+
+  public get staticSourcesSupport(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayMulticastDomain',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.Options.StaticSourcesSupport'),
+        outputPath: 'TransitGatewayMulticastDomain.Options.StaticSourcesSupport',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.Options.StaticSourcesSupport', props);
+    return resource.getResponseField('TransitGatewayMulticastDomain.Options.StaticSourcesSupport') as unknown as string;
+  }
+
+  public get autoAcceptSharedAssociations(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteTransitGatewayMulticastDomain',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DeleteTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.Options.AutoAcceptSharedAssociations'),
+        outputPath: 'TransitGatewayMulticastDomain.Options.AutoAcceptSharedAssociations',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteTransitGatewayMulticastDomain.TransitGatewayMulticastDomain.Options.AutoAcceptSharedAssociations', props);
+    return resource.getResponseField('TransitGatewayMulticastDomain.Options.AutoAcceptSharedAssociations') as unknown as string;
   }
 
 }
@@ -27748,6 +31384,55 @@ export class EC2ResponsesDescribeAddresses {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAddresses.Addresses', props);
     return resource.getResponseField('Addresses') as unknown as shapes.Ec2Address[];
+  }
+
+}
+
+export class EC2ResponsesDescribeAddressesAttribute {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DescribeAddressesAttributeRequest) {
+  }
+
+  public get addresses(): shapes.Ec2AddressAttribute[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAddressesAttribute',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeAddressesAttribute.Addresses'),
+        outputPath: 'Addresses',
+        parameters: {
+          AllocationIds: this.__input.allocationIds,
+          Attribute: this.__input.attribute,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAddressesAttribute.Addresses', props);
+    return resource.getResponseField('Addresses') as unknown as shapes.Ec2AddressAttribute[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeAddressesAttribute',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeAddressesAttribute.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          AllocationIds: this.__input.allocationIds,
+          Attribute: this.__input.attribute,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeAddressesAttribute.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
 
 }
@@ -29462,6 +33147,10 @@ export class EC2ResponsesDescribeImageAttribute {
     return new EC2ResponsesDescribeImageAttributeSriovNetSupport(this.__scope, this.__resources, this.__input);
   }
 
+  public get bootMode(): EC2ResponsesDescribeImageAttributeBootMode {
+    return new EC2ResponsesDescribeImageAttributeBootMode(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class EC2ResponsesDescribeImageAttributeDescription {
@@ -29568,6 +33257,32 @@ export class EC2ResponsesDescribeImageAttributeSriovNetSupport {
 
 }
 
+export class EC2ResponsesDescribeImageAttributeBootMode {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DescribeImageAttributeRequest) {
+  }
+
+  public get value(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeImageAttribute',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeImageAttribute.BootMode.Value'),
+        outputPath: 'BootMode.Value',
+        parameters: {
+          Attribute: this.__input.attribute,
+          ImageId: this.__input.imageId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeImageAttribute.BootMode.Value', props);
+    return resource.getResponseField('BootMode.Value') as unknown as string;
+  }
+
+}
+
 export class EC2ResponsesDescribeImages {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DescribeImagesRequest) {
@@ -29586,6 +33301,7 @@ export class EC2ResponsesDescribeImages {
           Filters: this.__input.filters,
           ImageIds: this.__input.imageIds,
           Owners: this.__input.owners,
+          IncludeDeprecated: this.__input.includeDeprecated,
           DryRun: this.__input.dryRun,
         },
       },
@@ -30234,6 +33950,55 @@ export class EC2ResponsesDescribeInstanceEventNotificationAttributesInstanceTagA
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeInstanceEventNotificationAttributes.InstanceTagAttribute.IncludeAllTagsOfInstance', props);
     return resource.getResponseField('InstanceTagAttribute.IncludeAllTagsOfInstance') as unknown as boolean;
+  }
+
+}
+
+export class EC2ResponsesDescribeInstanceEventWindows {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DescribeInstanceEventWindowsRequest) {
+  }
+
+  public get instanceEventWindows(): shapes.Ec2InstanceEventWindow[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeInstanceEventWindows',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeInstanceEventWindows.InstanceEventWindows'),
+        outputPath: 'InstanceEventWindows',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowIds: this.__input.instanceEventWindowIds,
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeInstanceEventWindows.InstanceEventWindows', props);
+    return resource.getResponseField('InstanceEventWindows') as unknown as shapes.Ec2InstanceEventWindow[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeInstanceEventWindows',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeInstanceEventWindows.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowIds: this.__input.instanceEventWindowIds,
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeInstanceEventWindows.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
 
 }
@@ -31159,6 +34924,110 @@ export class EC2ResponsesDescribeNetworkAcls {
 
 }
 
+export class EC2ResponsesDescribeNetworkInsightsAnalyses {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DescribeNetworkInsightsAnalysesRequest) {
+  }
+
+  public get networkInsightsAnalyses(): shapes.Ec2NetworkInsightsAnalysis[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeNetworkInsightsAnalyses',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeNetworkInsightsAnalyses.NetworkInsightsAnalyses'),
+        outputPath: 'NetworkInsightsAnalyses',
+        parameters: {
+          NetworkInsightsAnalysisIds: this.__input.networkInsightsAnalysisIds,
+          NetworkInsightsPathId: this.__input.networkInsightsPathId,
+          AnalysisStartTime: this.__input.analysisStartTime,
+          AnalysisEndTime: this.__input.analysisEndTime,
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          DryRun: this.__input.dryRun,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeNetworkInsightsAnalyses.NetworkInsightsAnalyses', props);
+    return resource.getResponseField('NetworkInsightsAnalyses') as unknown as shapes.Ec2NetworkInsightsAnalysis[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeNetworkInsightsAnalyses',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeNetworkInsightsAnalyses.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          NetworkInsightsAnalysisIds: this.__input.networkInsightsAnalysisIds,
+          NetworkInsightsPathId: this.__input.networkInsightsPathId,
+          AnalysisStartTime: this.__input.analysisStartTime,
+          AnalysisEndTime: this.__input.analysisEndTime,
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          DryRun: this.__input.dryRun,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeNetworkInsightsAnalyses.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class EC2ResponsesDescribeNetworkInsightsPaths {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DescribeNetworkInsightsPathsRequest) {
+  }
+
+  public get networkInsightsPaths(): shapes.Ec2NetworkInsightsPath[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeNetworkInsightsPaths',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeNetworkInsightsPaths.NetworkInsightsPaths'),
+        outputPath: 'NetworkInsightsPaths',
+        parameters: {
+          NetworkInsightsPathIds: this.__input.networkInsightsPathIds,
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          DryRun: this.__input.dryRun,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeNetworkInsightsPaths.NetworkInsightsPaths', props);
+    return resource.getResponseField('NetworkInsightsPaths') as unknown as shapes.Ec2NetworkInsightsPath[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeNetworkInsightsPaths',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeNetworkInsightsPaths.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          NetworkInsightsPathIds: this.__input.networkInsightsPathIds,
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          DryRun: this.__input.dryRun,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeNetworkInsightsPaths.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
 export class EC2ResponsesDescribeNetworkInterfaceAttribute {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DescribeNetworkInterfaceAttributeRequest) {
@@ -31720,6 +35589,55 @@ export class EC2ResponsesDescribeRegions {
 
 }
 
+export class EC2ResponsesDescribeReplaceRootVolumeTasks {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DescribeReplaceRootVolumeTasksRequest) {
+  }
+
+  public get replaceRootVolumeTasks(): shapes.Ec2ReplaceRootVolumeTask[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeReplaceRootVolumeTasks',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeReplaceRootVolumeTasks.ReplaceRootVolumeTasks'),
+        outputPath: 'ReplaceRootVolumeTasks',
+        parameters: {
+          ReplaceRootVolumeTaskIds: this.__input.replaceRootVolumeTaskIds,
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeReplaceRootVolumeTasks.ReplaceRootVolumeTasks', props);
+    return resource.getResponseField('ReplaceRootVolumeTasks') as unknown as shapes.Ec2ReplaceRootVolumeTask[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeReplaceRootVolumeTasks',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeReplaceRootVolumeTasks.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          ReplaceRootVolumeTaskIds: this.__input.replaceRootVolumeTaskIds,
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeReplaceRootVolumeTasks.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
 export class EC2ResponsesDescribeReservedInstances {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DescribeReservedInstancesRequest) {
@@ -32088,6 +36006,55 @@ export class EC2ResponsesDescribeSecurityGroupReferences {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeSecurityGroupReferences.SecurityGroupReferenceSet', props);
     return resource.getResponseField('SecurityGroupReferenceSet') as unknown as shapes.Ec2SecurityGroupReference[];
+  }
+
+}
+
+export class EC2ResponsesDescribeSecurityGroupRules {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DescribeSecurityGroupRulesRequest) {
+  }
+
+  public get securityGroupRules(): shapes.Ec2SecurityGroupRule[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeSecurityGroupRules',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeSecurityGroupRules.SecurityGroupRules'),
+        outputPath: 'SecurityGroupRules',
+        parameters: {
+          Filters: this.__input.filters,
+          SecurityGroupRuleIds: this.__input.securityGroupRuleIds,
+          DryRun: this.__input.dryRun,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeSecurityGroupRules.SecurityGroupRules', props);
+    return resource.getResponseField('SecurityGroupRules') as unknown as shapes.Ec2SecurityGroupRule[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeSecurityGroupRules',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeSecurityGroupRules.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          Filters: this.__input.filters,
+          SecurityGroupRuleIds: this.__input.securityGroupRuleIds,
+          DryRun: this.__input.dryRun,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeSecurityGroupRules.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
 
 }
@@ -32775,6 +36742,55 @@ export class EC2ResponsesDescribeStaleSecurityGroups {
 
 }
 
+export class EC2ResponsesDescribeStoreImageTasks {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DescribeStoreImageTasksRequest) {
+  }
+
+  public get storeImageTaskResults(): shapes.Ec2StoreImageTaskResult[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeStoreImageTasks',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeStoreImageTasks.StoreImageTaskResults'),
+        outputPath: 'StoreImageTaskResults',
+        parameters: {
+          ImageIds: this.__input.imageIds,
+          DryRun: this.__input.dryRun,
+          Filters: this.__input.filters,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeStoreImageTasks.StoreImageTaskResults', props);
+    return resource.getResponseField('StoreImageTaskResults') as unknown as shapes.Ec2StoreImageTaskResult[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeStoreImageTasks',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeStoreImageTasks.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          ImageIds: this.__input.imageIds,
+          DryRun: this.__input.dryRun,
+          Filters: this.__input.filters,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeStoreImageTasks.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
 export class EC2ResponsesDescribeSubnets {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DescribeSubnetsRequest) {
@@ -33067,6 +37083,104 @@ export class EC2ResponsesDescribeTransitGatewayAttachments {
 
 }
 
+export class EC2ResponsesDescribeTransitGatewayConnectPeers {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DescribeTransitGatewayConnectPeersRequest) {
+  }
+
+  public get transitGatewayConnectPeers(): shapes.Ec2TransitGatewayConnectPeer[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTransitGatewayConnectPeers',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeTransitGatewayConnectPeers.TransitGatewayConnectPeers'),
+        outputPath: 'TransitGatewayConnectPeers',
+        parameters: {
+          TransitGatewayConnectPeerIds: this.__input.transitGatewayConnectPeerIds,
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTransitGatewayConnectPeers.TransitGatewayConnectPeers', props);
+    return resource.getResponseField('TransitGatewayConnectPeers') as unknown as shapes.Ec2TransitGatewayConnectPeer[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTransitGatewayConnectPeers',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeTransitGatewayConnectPeers.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          TransitGatewayConnectPeerIds: this.__input.transitGatewayConnectPeerIds,
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTransitGatewayConnectPeers.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class EC2ResponsesDescribeTransitGatewayConnects {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DescribeTransitGatewayConnectsRequest) {
+  }
+
+  public get transitGatewayConnects(): shapes.Ec2TransitGatewayConnect[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTransitGatewayConnects',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeTransitGatewayConnects.TransitGatewayConnects'),
+        outputPath: 'TransitGatewayConnects',
+        parameters: {
+          TransitGatewayAttachmentIds: this.__input.transitGatewayAttachmentIds,
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTransitGatewayConnects.TransitGatewayConnects', props);
+    return resource.getResponseField('TransitGatewayConnects') as unknown as shapes.Ec2TransitGatewayConnect[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTransitGatewayConnects',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeTransitGatewayConnects.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          TransitGatewayAttachmentIds: this.__input.transitGatewayAttachmentIds,
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTransitGatewayConnects.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
 export class EC2ResponsesDescribeTransitGatewayMulticastDomains {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DescribeTransitGatewayMulticastDomainsRequest) {
@@ -33307,6 +37421,55 @@ export class EC2ResponsesDescribeTransitGateways {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTransitGateways.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class EC2ResponsesDescribeTrunkInterfaceAssociations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DescribeTrunkInterfaceAssociationsRequest) {
+  }
+
+  public get interfaceAssociations(): shapes.Ec2TrunkInterfaceAssociation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTrunkInterfaceAssociations',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeTrunkInterfaceAssociations.InterfaceAssociations'),
+        outputPath: 'InterfaceAssociations',
+        parameters: {
+          AssociationIds: this.__input.associationIds,
+          DryRun: this.__input.dryRun,
+          Filters: this.__input.filters,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrunkInterfaceAssociations.InterfaceAssociations', props);
+    return resource.getResponseField('InterfaceAssociations') as unknown as shapes.Ec2TrunkInterfaceAssociation[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTrunkInterfaceAssociations',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DescribeTrunkInterfaceAssociations.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          AssociationIds: this.__input.associationIds,
+          DryRun: this.__input.dryRun,
+          Filters: this.__input.filters,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTrunkInterfaceAssociations.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
 
@@ -34382,6 +38545,55 @@ export class EC2ResponsesDisableFastSnapshotRestores {
 
 }
 
+export class EC2ResponsesDisableImageDeprecation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DisableImageDeprecationRequest) {
+  }
+
+  public get return(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disableImageDeprecation',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DisableImageDeprecation.Return'),
+        outputPath: 'Return',
+        parameters: {
+          ImageId: this.__input.imageId,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisableImageDeprecation.Return', props);
+    return resource.getResponseField('Return') as unknown as boolean;
+  }
+
+}
+
+export class EC2ResponsesDisableSerialConsoleAccess {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DisableSerialConsoleAccessRequest) {
+  }
+
+  public get serialConsoleAccessEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disableSerialConsoleAccess',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DisableSerialConsoleAccess.SerialConsoleAccessEnabled'),
+        outputPath: 'SerialConsoleAccessEnabled',
+        parameters: {
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisableSerialConsoleAccess.SerialConsoleAccessEnabled', props);
+    return resource.getResponseField('SerialConsoleAccessEnabled') as unknown as boolean;
+  }
+
+}
+
 export class EC2ResponsesDisableTransitGatewayRouteTablePropagation {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DisableTransitGatewayRouteTablePropagationRequest) {
@@ -34776,6 +38988,242 @@ export class EC2ResponsesDisassociateIamInstanceProfileIamInstanceProfileAssocia
 
 }
 
+export class EC2ResponsesDisassociateInstanceEventWindow {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DisassociateInstanceEventWindowRequest) {
+  }
+
+  public get instanceEventWindow(): EC2ResponsesDisassociateInstanceEventWindowInstanceEventWindow {
+    return new EC2ResponsesDisassociateInstanceEventWindowInstanceEventWindow(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesDisassociateInstanceEventWindowInstanceEventWindow {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DisassociateInstanceEventWindowRequest) {
+  }
+
+  public get instanceEventWindowId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DisassociateInstanceEventWindow.InstanceEventWindow.InstanceEventWindowId'),
+        outputPath: 'InstanceEventWindow.InstanceEventWindowId',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          AssociationTarget: {
+            InstanceIds: this.__input.associationTarget.instanceIds,
+            InstanceTags: this.__input.associationTarget.instanceTags,
+            DedicatedHostIds: this.__input.associationTarget.dedicatedHostIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateInstanceEventWindow.InstanceEventWindow.InstanceEventWindowId', props);
+    return resource.getResponseField('InstanceEventWindow.InstanceEventWindowId') as unknown as string;
+  }
+
+  public get timeRanges(): shapes.Ec2InstanceEventWindowTimeRange[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DisassociateInstanceEventWindow.InstanceEventWindow.TimeRanges'),
+        outputPath: 'InstanceEventWindow.TimeRanges',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          AssociationTarget: {
+            InstanceIds: this.__input.associationTarget.instanceIds,
+            InstanceTags: this.__input.associationTarget.instanceTags,
+            DedicatedHostIds: this.__input.associationTarget.dedicatedHostIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateInstanceEventWindow.InstanceEventWindow.TimeRanges', props);
+    return resource.getResponseField('InstanceEventWindow.TimeRanges') as unknown as shapes.Ec2InstanceEventWindowTimeRange[];
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DisassociateInstanceEventWindow.InstanceEventWindow.Name'),
+        outputPath: 'InstanceEventWindow.Name',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          AssociationTarget: {
+            InstanceIds: this.__input.associationTarget.instanceIds,
+            InstanceTags: this.__input.associationTarget.instanceTags,
+            DedicatedHostIds: this.__input.associationTarget.dedicatedHostIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateInstanceEventWindow.InstanceEventWindow.Name', props);
+    return resource.getResponseField('InstanceEventWindow.Name') as unknown as string;
+  }
+
+  public get cronExpression(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DisassociateInstanceEventWindow.InstanceEventWindow.CronExpression'),
+        outputPath: 'InstanceEventWindow.CronExpression',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          AssociationTarget: {
+            InstanceIds: this.__input.associationTarget.instanceIds,
+            InstanceTags: this.__input.associationTarget.instanceTags,
+            DedicatedHostIds: this.__input.associationTarget.dedicatedHostIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateInstanceEventWindow.InstanceEventWindow.CronExpression', props);
+    return resource.getResponseField('InstanceEventWindow.CronExpression') as unknown as string;
+  }
+
+  public get associationTarget(): EC2ResponsesDisassociateInstanceEventWindowInstanceEventWindowAssociationTarget {
+    return new EC2ResponsesDisassociateInstanceEventWindowInstanceEventWindowAssociationTarget(this.__scope, this.__resources, this.__input);
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DisassociateInstanceEventWindow.InstanceEventWindow.State'),
+        outputPath: 'InstanceEventWindow.State',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          AssociationTarget: {
+            InstanceIds: this.__input.associationTarget.instanceIds,
+            InstanceTags: this.__input.associationTarget.instanceTags,
+            DedicatedHostIds: this.__input.associationTarget.dedicatedHostIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateInstanceEventWindow.InstanceEventWindow.State', props);
+    return resource.getResponseField('InstanceEventWindow.State') as unknown as string;
+  }
+
+  public get tags(): shapes.Ec2Tag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DisassociateInstanceEventWindow.InstanceEventWindow.Tags'),
+        outputPath: 'InstanceEventWindow.Tags',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          AssociationTarget: {
+            InstanceIds: this.__input.associationTarget.instanceIds,
+            InstanceTags: this.__input.associationTarget.instanceTags,
+            DedicatedHostIds: this.__input.associationTarget.dedicatedHostIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateInstanceEventWindow.InstanceEventWindow.Tags', props);
+    return resource.getResponseField('InstanceEventWindow.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+}
+
+export class EC2ResponsesDisassociateInstanceEventWindowInstanceEventWindowAssociationTarget {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DisassociateInstanceEventWindowRequest) {
+  }
+
+  public get instanceIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DisassociateInstanceEventWindow.InstanceEventWindow.AssociationTarget.InstanceIds'),
+        outputPath: 'InstanceEventWindow.AssociationTarget.InstanceIds',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          AssociationTarget: {
+            InstanceIds: this.__input.associationTarget.instanceIds,
+            InstanceTags: this.__input.associationTarget.instanceTags,
+            DedicatedHostIds: this.__input.associationTarget.dedicatedHostIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateInstanceEventWindow.InstanceEventWindow.AssociationTarget.InstanceIds', props);
+    return resource.getResponseField('InstanceEventWindow.AssociationTarget.InstanceIds') as unknown as string[];
+  }
+
+  public get tags(): shapes.Ec2Tag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DisassociateInstanceEventWindow.InstanceEventWindow.AssociationTarget.Tags'),
+        outputPath: 'InstanceEventWindow.AssociationTarget.Tags',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          AssociationTarget: {
+            InstanceIds: this.__input.associationTarget.instanceIds,
+            InstanceTags: this.__input.associationTarget.instanceTags,
+            DedicatedHostIds: this.__input.associationTarget.dedicatedHostIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateInstanceEventWindow.InstanceEventWindow.AssociationTarget.Tags', props);
+    return resource.getResponseField('InstanceEventWindow.AssociationTarget.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+  public get dedicatedHostIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DisassociateInstanceEventWindow.InstanceEventWindow.AssociationTarget.DedicatedHostIds'),
+        outputPath: 'InstanceEventWindow.AssociationTarget.DedicatedHostIds',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          AssociationTarget: {
+            InstanceIds: this.__input.associationTarget.instanceIds,
+            InstanceTags: this.__input.associationTarget.instanceTags,
+            DedicatedHostIds: this.__input.associationTarget.dedicatedHostIds,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateInstanceEventWindow.InstanceEventWindow.AssociationTarget.DedicatedHostIds', props);
+    return resource.getResponseField('InstanceEventWindow.AssociationTarget.DedicatedHostIds') as unknown as string[];
+  }
+
+}
+
 export class EC2ResponsesDisassociateSubnetCidrBlock {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DisassociateSubnetCidrBlockRequest) {
@@ -34986,6 +39434,26 @@ export class EC2ResponsesDisassociateTransitGatewayMulticastDomainAssociations {
     return resource.getResponseField('Associations.ResourceType') as unknown as string;
   }
 
+  public get resourceOwnerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateTransitGatewayMulticastDomain',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DisassociateTransitGatewayMulticastDomain.Associations.ResourceOwnerId'),
+        outputPath: 'Associations.ResourceOwnerId',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          SubnetIds: this.__input.subnetIds,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateTransitGatewayMulticastDomain.Associations.ResourceOwnerId', props);
+    return resource.getResponseField('Associations.ResourceOwnerId') as unknown as string;
+  }
+
   public get subnets(): shapes.Ec2SubnetAssociation[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -35117,6 +39585,51 @@ export class EC2ResponsesDisassociateTransitGatewayRouteTableAssociation {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateTransitGatewayRouteTable.Association.State', props);
     return resource.getResponseField('Association.State') as unknown as string;
+  }
+
+}
+
+export class EC2ResponsesDisassociateTrunkInterface {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2DisassociateTrunkInterfaceRequest) {
+  }
+
+  public get return(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateTrunkInterface',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DisassociateTrunkInterface.Return'),
+        outputPath: 'Return',
+        parameters: {
+          AssociationId: this.__input.associationId,
+          ClientToken: this.__input.clientToken,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateTrunkInterface.Return', props);
+    return resource.getResponseField('Return') as unknown as boolean;
+  }
+
+  public get clientToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateTrunkInterface',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.DisassociateTrunkInterface.ClientToken'),
+        outputPath: 'ClientToken',
+        parameters: {
+          AssociationId: this.__input.associationId,
+          ClientToken: this.__input.clientToken,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DisassociateTrunkInterface.ClientToken', props);
+    return resource.getResponseField('ClientToken') as unknown as string;
   }
 
 }
@@ -35424,6 +39937,56 @@ export class EC2ResponsesEnableFastSnapshotRestores {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'EnableFastSnapshotRestores.Unsuccessful', props);
     return resource.getResponseField('Unsuccessful') as unknown as shapes.Ec2EnableFastSnapshotRestoreErrorItem[];
+  }
+
+}
+
+export class EC2ResponsesEnableImageDeprecation {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2EnableImageDeprecationRequest) {
+  }
+
+  public get return(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'enableImageDeprecation',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.EnableImageDeprecation.Return'),
+        outputPath: 'Return',
+        parameters: {
+          ImageId: this.__input.imageId,
+          DeprecateAt: this.__input.deprecateAt,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'EnableImageDeprecation.Return', props);
+    return resource.getResponseField('Return') as unknown as boolean;
+  }
+
+}
+
+export class EC2ResponsesEnableSerialConsoleAccess {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2EnableSerialConsoleAccessRequest) {
+  }
+
+  public get serialConsoleAccessEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'enableSerialConsoleAccess',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.EnableSerialConsoleAccess.SerialConsoleAccessEnabled'),
+        outputPath: 'SerialConsoleAccessEnabled',
+        parameters: {
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'EnableSerialConsoleAccess.SerialConsoleAccessEnabled', props);
+    return resource.getResponseField('SerialConsoleAccessEnabled') as unknown as boolean;
   }
 
 }
@@ -36525,6 +41088,35 @@ export class EC2ResponsesFetchEbsEncryptionByDefault {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetEbsEncryptionByDefault.EbsEncryptionByDefault', props);
     return resource.getResponseField('EbsEncryptionByDefault') as unknown as boolean;
+  }
+
+}
+
+export class EC2ResponsesFetchFlowLogsIntegrationTemplate {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2GetFlowLogsIntegrationTemplateRequest) {
+  }
+
+  public get result(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getFlowLogsIntegrationTemplate',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.GetFlowLogsIntegrationTemplate.Result'),
+        outputPath: 'Result',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          FlowLogId: this.__input.flowLogId,
+          ConfigDeliveryS3DestinationArn: this.__input.configDeliveryS3DestinationArn,
+          IntegrateServices: {
+            AthenaIntegrations: this.__input.integrateServices.athenaIntegrations,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetFlowLogsIntegrationTemplate.Result', props);
+    return resource.getResponseField('Result') as unknown as string;
   }
 
 }
@@ -38062,6 +42654,100 @@ export class EC2ResponsesFetchReservedInstancesExchangeQuoteTargetConfigurationV
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetReservedInstancesExchangeQuote.TargetConfigurationValueRollup.RemainingUpfrontValue', props);
     return resource.getResponseField('TargetConfigurationValueRollup.RemainingUpfrontValue') as unknown as string;
+  }
+
+}
+
+export class EC2ResponsesFetchSerialConsoleAccessStatus {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2GetSerialConsoleAccessStatusRequest) {
+  }
+
+  public get serialConsoleAccessEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getSerialConsoleAccessStatus',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.GetSerialConsoleAccessStatus.SerialConsoleAccessEnabled'),
+        outputPath: 'SerialConsoleAccessEnabled',
+        parameters: {
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetSerialConsoleAccessStatus.SerialConsoleAccessEnabled', props);
+    return resource.getResponseField('SerialConsoleAccessEnabled') as unknown as boolean;
+  }
+
+}
+
+export class EC2ResponsesFetchSubnetCidrReservations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2GetSubnetCidrReservationsRequest) {
+  }
+
+  public get subnetIpv4CidrReservations(): shapes.Ec2SubnetCidrReservation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getSubnetCidrReservations',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.GetSubnetCidrReservations.SubnetIpv4CidrReservations'),
+        outputPath: 'SubnetIpv4CidrReservations',
+        parameters: {
+          Filters: this.__input.filters,
+          SubnetId: this.__input.subnetId,
+          DryRun: this.__input.dryRun,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetSubnetCidrReservations.SubnetIpv4CidrReservations', props);
+    return resource.getResponseField('SubnetIpv4CidrReservations') as unknown as shapes.Ec2SubnetCidrReservation[];
+  }
+
+  public get subnetIpv6CidrReservations(): shapes.Ec2SubnetCidrReservation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getSubnetCidrReservations',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.GetSubnetCidrReservations.SubnetIpv6CidrReservations'),
+        outputPath: 'SubnetIpv6CidrReservations',
+        parameters: {
+          Filters: this.__input.filters,
+          SubnetId: this.__input.subnetId,
+          DryRun: this.__input.dryRun,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetSubnetCidrReservations.SubnetIpv6CidrReservations', props);
+    return resource.getResponseField('SubnetIpv6CidrReservations') as unknown as shapes.Ec2SubnetCidrReservation[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getSubnetCidrReservations',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.GetSubnetCidrReservations.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          Filters: this.__input.filters,
+          SubnetId: this.__input.subnetId,
+          DryRun: this.__input.dryRun,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetSubnetCidrReservations.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
 
 }
@@ -40961,6 +45647,149 @@ export class EC2ResponsesImportVolumeConversionTaskImportVolumeVolume {
 
 }
 
+export class EC2ResponsesModifyAddressAttribute {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2ModifyAddressAttributeRequest) {
+  }
+
+  public get address(): EC2ResponsesModifyAddressAttributeAddress {
+    return new EC2ResponsesModifyAddressAttributeAddress(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesModifyAddressAttributeAddress {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2ModifyAddressAttributeRequest) {
+  }
+
+  public get publicIp(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyAddressAttribute',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyAddressAttribute.Address.PublicIp'),
+        outputPath: 'Address.PublicIp',
+        parameters: {
+          AllocationId: this.__input.allocationId,
+          DomainName: this.__input.domainName,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyAddressAttribute.Address.PublicIp', props);
+    return resource.getResponseField('Address.PublicIp') as unknown as string;
+  }
+
+  public get allocationId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyAddressAttribute',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyAddressAttribute.Address.AllocationId'),
+        outputPath: 'Address.AllocationId',
+        parameters: {
+          AllocationId: this.__input.allocationId,
+          DomainName: this.__input.domainName,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyAddressAttribute.Address.AllocationId', props);
+    return resource.getResponseField('Address.AllocationId') as unknown as string;
+  }
+
+  public get ptrRecord(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyAddressAttribute',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyAddressAttribute.Address.PtrRecord'),
+        outputPath: 'Address.PtrRecord',
+        parameters: {
+          AllocationId: this.__input.allocationId,
+          DomainName: this.__input.domainName,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyAddressAttribute.Address.PtrRecord', props);
+    return resource.getResponseField('Address.PtrRecord') as unknown as string;
+  }
+
+  public get ptrRecordUpdate(): EC2ResponsesModifyAddressAttributeAddressPtrRecordUpdate {
+    return new EC2ResponsesModifyAddressAttributeAddressPtrRecordUpdate(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesModifyAddressAttributeAddressPtrRecordUpdate {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2ModifyAddressAttributeRequest) {
+  }
+
+  public get value(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyAddressAttribute',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyAddressAttribute.Address.PtrRecordUpdate.Value'),
+        outputPath: 'Address.PtrRecordUpdate.Value',
+        parameters: {
+          AllocationId: this.__input.allocationId,
+          DomainName: this.__input.domainName,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyAddressAttribute.Address.PtrRecordUpdate.Value', props);
+    return resource.getResponseField('Address.PtrRecordUpdate.Value') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyAddressAttribute',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyAddressAttribute.Address.PtrRecordUpdate.Status'),
+        outputPath: 'Address.PtrRecordUpdate.Status',
+        parameters: {
+          AllocationId: this.__input.allocationId,
+          DomainName: this.__input.domainName,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyAddressAttribute.Address.PtrRecordUpdate.Status', props);
+    return resource.getResponseField('Address.PtrRecordUpdate.Status') as unknown as string;
+  }
+
+  public get reason(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyAddressAttribute',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyAddressAttribute.Address.PtrRecordUpdate.Reason'),
+        outputPath: 'Address.PtrRecordUpdate.Reason',
+        parameters: {
+          AllocationId: this.__input.allocationId,
+          DomainName: this.__input.domainName,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyAddressAttribute.Address.PtrRecordUpdate.Reason', props);
+    return resource.getResponseField('Address.PtrRecordUpdate.Reason') as unknown as string;
+  }
+
+}
+
 export class EC2ResponsesModifyAvailabilityZoneGroup {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2ModifyAvailabilityZoneGroupRequest) {
@@ -41005,6 +45834,7 @@ export class EC2ResponsesModifyCapacityReservation {
           InstanceCount: this.__input.instanceCount,
           EndDate: this.__input.endDate,
           EndDateType: this.__input.endDateType,
+          Accept: this.__input.accept,
           DryRun: this.__input.dryRun,
         },
       },
@@ -41165,6 +45995,7 @@ export class EC2ResponsesModifyFleet {
             SpotTargetCapacity: this.__input.targetCapacitySpecification?.spotTargetCapacity,
             DefaultTargetCapacityType: this.__input.targetCapacitySpecification?.defaultTargetCapacityType,
           },
+          Context: this.__input.context,
         },
       },
     };
@@ -41597,6 +46428,224 @@ export class EC2ResponsesModifyInstanceEventStartTimeEvent {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyInstanceEventStartTime.Event.NotBeforeDeadline', props);
     return resource.getResponseField('Event.NotBeforeDeadline') as unknown as string;
+  }
+
+}
+
+export class EC2ResponsesModifyInstanceEventWindow {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2ModifyInstanceEventWindowRequest) {
+  }
+
+  public get instanceEventWindow(): EC2ResponsesModifyInstanceEventWindowInstanceEventWindow {
+    return new EC2ResponsesModifyInstanceEventWindowInstanceEventWindow(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesModifyInstanceEventWindowInstanceEventWindow {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2ModifyInstanceEventWindowRequest) {
+  }
+
+  public get instanceEventWindowId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyInstanceEventWindow.InstanceEventWindow.InstanceEventWindowId'),
+        outputPath: 'InstanceEventWindow.InstanceEventWindowId',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          Name: this.__input.name,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          TimeRanges: this.__input.timeRanges,
+          CronExpression: this.__input.cronExpression,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyInstanceEventWindow.InstanceEventWindow.InstanceEventWindowId', props);
+    return resource.getResponseField('InstanceEventWindow.InstanceEventWindowId') as unknown as string;
+  }
+
+  public get timeRanges(): shapes.Ec2InstanceEventWindowTimeRange[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyInstanceEventWindow.InstanceEventWindow.TimeRanges'),
+        outputPath: 'InstanceEventWindow.TimeRanges',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          Name: this.__input.name,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          TimeRanges: this.__input.timeRanges,
+          CronExpression: this.__input.cronExpression,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyInstanceEventWindow.InstanceEventWindow.TimeRanges', props);
+    return resource.getResponseField('InstanceEventWindow.TimeRanges') as unknown as shapes.Ec2InstanceEventWindowTimeRange[];
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyInstanceEventWindow.InstanceEventWindow.Name'),
+        outputPath: 'InstanceEventWindow.Name',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          Name: this.__input.name,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          TimeRanges: this.__input.timeRanges,
+          CronExpression: this.__input.cronExpression,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyInstanceEventWindow.InstanceEventWindow.Name', props);
+    return resource.getResponseField('InstanceEventWindow.Name') as unknown as string;
+  }
+
+  public get cronExpression(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyInstanceEventWindow.InstanceEventWindow.CronExpression'),
+        outputPath: 'InstanceEventWindow.CronExpression',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          Name: this.__input.name,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          TimeRanges: this.__input.timeRanges,
+          CronExpression: this.__input.cronExpression,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyInstanceEventWindow.InstanceEventWindow.CronExpression', props);
+    return resource.getResponseField('InstanceEventWindow.CronExpression') as unknown as string;
+  }
+
+  public get associationTarget(): EC2ResponsesModifyInstanceEventWindowInstanceEventWindowAssociationTarget {
+    return new EC2ResponsesModifyInstanceEventWindowInstanceEventWindowAssociationTarget(this.__scope, this.__resources, this.__input);
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyInstanceEventWindow.InstanceEventWindow.State'),
+        outputPath: 'InstanceEventWindow.State',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          Name: this.__input.name,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          TimeRanges: this.__input.timeRanges,
+          CronExpression: this.__input.cronExpression,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyInstanceEventWindow.InstanceEventWindow.State', props);
+    return resource.getResponseField('InstanceEventWindow.State') as unknown as string;
+  }
+
+  public get tags(): shapes.Ec2Tag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyInstanceEventWindow.InstanceEventWindow.Tags'),
+        outputPath: 'InstanceEventWindow.Tags',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          Name: this.__input.name,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          TimeRanges: this.__input.timeRanges,
+          CronExpression: this.__input.cronExpression,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyInstanceEventWindow.InstanceEventWindow.Tags', props);
+    return resource.getResponseField('InstanceEventWindow.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+}
+
+export class EC2ResponsesModifyInstanceEventWindowInstanceEventWindowAssociationTarget {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2ModifyInstanceEventWindowRequest) {
+  }
+
+  public get instanceIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyInstanceEventWindow.InstanceEventWindow.AssociationTarget.InstanceIds'),
+        outputPath: 'InstanceEventWindow.AssociationTarget.InstanceIds',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          Name: this.__input.name,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          TimeRanges: this.__input.timeRanges,
+          CronExpression: this.__input.cronExpression,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyInstanceEventWindow.InstanceEventWindow.AssociationTarget.InstanceIds', props);
+    return resource.getResponseField('InstanceEventWindow.AssociationTarget.InstanceIds') as unknown as string[];
+  }
+
+  public get tags(): shapes.Ec2Tag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyInstanceEventWindow.InstanceEventWindow.AssociationTarget.Tags'),
+        outputPath: 'InstanceEventWindow.AssociationTarget.Tags',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          Name: this.__input.name,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          TimeRanges: this.__input.timeRanges,
+          CronExpression: this.__input.cronExpression,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyInstanceEventWindow.InstanceEventWindow.AssociationTarget.Tags', props);
+    return resource.getResponseField('InstanceEventWindow.AssociationTarget.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+  public get dedicatedHostIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyInstanceEventWindow',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyInstanceEventWindow.InstanceEventWindow.AssociationTarget.DedicatedHostIds'),
+        outputPath: 'InstanceEventWindow.AssociationTarget.DedicatedHostIds',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          Name: this.__input.name,
+          InstanceEventWindowId: this.__input.instanceEventWindowId,
+          TimeRanges: this.__input.timeRanges,
+          CronExpression: this.__input.cronExpression,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyInstanceEventWindow.InstanceEventWindow.AssociationTarget.DedicatedHostIds', props);
+    return resource.getResponseField('InstanceEventWindow.AssociationTarget.DedicatedHostIds') as unknown as string[];
   }
 
 }
@@ -42183,6 +47232,32 @@ export class EC2ResponsesModifyReservedInstances {
 
 }
 
+export class EC2ResponsesModifySecurityGroupRules {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2ModifySecurityGroupRulesRequest) {
+  }
+
+  public get return(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifySecurityGroupRules',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifySecurityGroupRules.Return'),
+        outputPath: 'Return',
+        parameters: {
+          GroupId: this.__input.groupId,
+          SecurityGroupRules: this.__input.securityGroupRules,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifySecurityGroupRules.Return', props);
+    return resource.getResponseField('Return') as unknown as boolean;
+  }
+
+}
+
 export class EC2ResponsesModifySpotFleetRequest {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2ModifySpotFleetRequestRequest) {
@@ -42202,6 +47277,7 @@ export class EC2ResponsesModifySpotFleetRequest {
           SpotFleetRequestId: this.__input.spotFleetRequestId,
           TargetCapacity: this.__input.targetCapacity,
           OnDemandTargetCapacity: this.__input.onDemandTargetCapacity,
+          Context: this.__input.context,
         },
       },
     };
@@ -43127,6 +48203,8 @@ export class EC2ResponsesModifyTransitGatewayTransitGateway {
           TransitGatewayId: this.__input.transitGatewayId,
           Description: this.__input.description,
           Options: {
+            AddTransitGatewayCidrBlocks: this.__input.options?.addTransitGatewayCidrBlocks,
+            RemoveTransitGatewayCidrBlocks: this.__input.options?.removeTransitGatewayCidrBlocks,
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             AutoAcceptSharedAttachments: this.__input.options?.autoAcceptSharedAttachments,
@@ -43155,6 +48233,8 @@ export class EC2ResponsesModifyTransitGatewayTransitGateway {
           TransitGatewayId: this.__input.transitGatewayId,
           Description: this.__input.description,
           Options: {
+            AddTransitGatewayCidrBlocks: this.__input.options?.addTransitGatewayCidrBlocks,
+            RemoveTransitGatewayCidrBlocks: this.__input.options?.removeTransitGatewayCidrBlocks,
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             AutoAcceptSharedAttachments: this.__input.options?.autoAcceptSharedAttachments,
@@ -43183,6 +48263,8 @@ export class EC2ResponsesModifyTransitGatewayTransitGateway {
           TransitGatewayId: this.__input.transitGatewayId,
           Description: this.__input.description,
           Options: {
+            AddTransitGatewayCidrBlocks: this.__input.options?.addTransitGatewayCidrBlocks,
+            RemoveTransitGatewayCidrBlocks: this.__input.options?.removeTransitGatewayCidrBlocks,
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             AutoAcceptSharedAttachments: this.__input.options?.autoAcceptSharedAttachments,
@@ -43211,6 +48293,8 @@ export class EC2ResponsesModifyTransitGatewayTransitGateway {
           TransitGatewayId: this.__input.transitGatewayId,
           Description: this.__input.description,
           Options: {
+            AddTransitGatewayCidrBlocks: this.__input.options?.addTransitGatewayCidrBlocks,
+            RemoveTransitGatewayCidrBlocks: this.__input.options?.removeTransitGatewayCidrBlocks,
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             AutoAcceptSharedAttachments: this.__input.options?.autoAcceptSharedAttachments,
@@ -43239,6 +48323,8 @@ export class EC2ResponsesModifyTransitGatewayTransitGateway {
           TransitGatewayId: this.__input.transitGatewayId,
           Description: this.__input.description,
           Options: {
+            AddTransitGatewayCidrBlocks: this.__input.options?.addTransitGatewayCidrBlocks,
+            RemoveTransitGatewayCidrBlocks: this.__input.options?.removeTransitGatewayCidrBlocks,
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             AutoAcceptSharedAttachments: this.__input.options?.autoAcceptSharedAttachments,
@@ -43267,6 +48353,8 @@ export class EC2ResponsesModifyTransitGatewayTransitGateway {
           TransitGatewayId: this.__input.transitGatewayId,
           Description: this.__input.description,
           Options: {
+            AddTransitGatewayCidrBlocks: this.__input.options?.addTransitGatewayCidrBlocks,
+            RemoveTransitGatewayCidrBlocks: this.__input.options?.removeTransitGatewayCidrBlocks,
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             AutoAcceptSharedAttachments: this.__input.options?.autoAcceptSharedAttachments,
@@ -43299,6 +48387,8 @@ export class EC2ResponsesModifyTransitGatewayTransitGateway {
           TransitGatewayId: this.__input.transitGatewayId,
           Description: this.__input.description,
           Options: {
+            AddTransitGatewayCidrBlocks: this.__input.options?.addTransitGatewayCidrBlocks,
+            RemoveTransitGatewayCidrBlocks: this.__input.options?.removeTransitGatewayCidrBlocks,
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             AutoAcceptSharedAttachments: this.__input.options?.autoAcceptSharedAttachments,
@@ -43334,6 +48424,8 @@ export class EC2ResponsesModifyTransitGatewayTransitGatewayOptions {
           TransitGatewayId: this.__input.transitGatewayId,
           Description: this.__input.description,
           Options: {
+            AddTransitGatewayCidrBlocks: this.__input.options?.addTransitGatewayCidrBlocks,
+            RemoveTransitGatewayCidrBlocks: this.__input.options?.removeTransitGatewayCidrBlocks,
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             AutoAcceptSharedAttachments: this.__input.options?.autoAcceptSharedAttachments,
@@ -43350,6 +48442,36 @@ export class EC2ResponsesModifyTransitGatewayTransitGatewayOptions {
     return resource.getResponseField('TransitGateway.Options.AmazonSideAsn') as unknown as number;
   }
 
+  public get transitGatewayCidrBlocks(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyTransitGateway',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyTransitGateway.TransitGateway.Options.TransitGatewayCidrBlocks'),
+        outputPath: 'TransitGateway.Options.TransitGatewayCidrBlocks',
+        parameters: {
+          TransitGatewayId: this.__input.transitGatewayId,
+          Description: this.__input.description,
+          Options: {
+            AddTransitGatewayCidrBlocks: this.__input.options?.addTransitGatewayCidrBlocks,
+            RemoveTransitGatewayCidrBlocks: this.__input.options?.removeTransitGatewayCidrBlocks,
+            VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
+            DnsSupport: this.__input.options?.dnsSupport,
+            AutoAcceptSharedAttachments: this.__input.options?.autoAcceptSharedAttachments,
+            DefaultRouteTableAssociation: this.__input.options?.defaultRouteTableAssociation,
+            AssociationDefaultRouteTableId: this.__input.options?.associationDefaultRouteTableId,
+            DefaultRouteTablePropagation: this.__input.options?.defaultRouteTablePropagation,
+            PropagationDefaultRouteTableId: this.__input.options?.propagationDefaultRouteTableId,
+          },
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyTransitGateway.TransitGateway.Options.TransitGatewayCidrBlocks', props);
+    return resource.getResponseField('TransitGateway.Options.TransitGatewayCidrBlocks') as unknown as string[];
+  }
+
   public get autoAcceptSharedAttachments(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -43362,6 +48484,8 @@ export class EC2ResponsesModifyTransitGatewayTransitGatewayOptions {
           TransitGatewayId: this.__input.transitGatewayId,
           Description: this.__input.description,
           Options: {
+            AddTransitGatewayCidrBlocks: this.__input.options?.addTransitGatewayCidrBlocks,
+            RemoveTransitGatewayCidrBlocks: this.__input.options?.removeTransitGatewayCidrBlocks,
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             AutoAcceptSharedAttachments: this.__input.options?.autoAcceptSharedAttachments,
@@ -43390,6 +48514,8 @@ export class EC2ResponsesModifyTransitGatewayTransitGatewayOptions {
           TransitGatewayId: this.__input.transitGatewayId,
           Description: this.__input.description,
           Options: {
+            AddTransitGatewayCidrBlocks: this.__input.options?.addTransitGatewayCidrBlocks,
+            RemoveTransitGatewayCidrBlocks: this.__input.options?.removeTransitGatewayCidrBlocks,
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             AutoAcceptSharedAttachments: this.__input.options?.autoAcceptSharedAttachments,
@@ -43418,6 +48544,8 @@ export class EC2ResponsesModifyTransitGatewayTransitGatewayOptions {
           TransitGatewayId: this.__input.transitGatewayId,
           Description: this.__input.description,
           Options: {
+            AddTransitGatewayCidrBlocks: this.__input.options?.addTransitGatewayCidrBlocks,
+            RemoveTransitGatewayCidrBlocks: this.__input.options?.removeTransitGatewayCidrBlocks,
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             AutoAcceptSharedAttachments: this.__input.options?.autoAcceptSharedAttachments,
@@ -43446,6 +48574,8 @@ export class EC2ResponsesModifyTransitGatewayTransitGatewayOptions {
           TransitGatewayId: this.__input.transitGatewayId,
           Description: this.__input.description,
           Options: {
+            AddTransitGatewayCidrBlocks: this.__input.options?.addTransitGatewayCidrBlocks,
+            RemoveTransitGatewayCidrBlocks: this.__input.options?.removeTransitGatewayCidrBlocks,
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             AutoAcceptSharedAttachments: this.__input.options?.autoAcceptSharedAttachments,
@@ -43474,6 +48604,8 @@ export class EC2ResponsesModifyTransitGatewayTransitGatewayOptions {
           TransitGatewayId: this.__input.transitGatewayId,
           Description: this.__input.description,
           Options: {
+            AddTransitGatewayCidrBlocks: this.__input.options?.addTransitGatewayCidrBlocks,
+            RemoveTransitGatewayCidrBlocks: this.__input.options?.removeTransitGatewayCidrBlocks,
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             AutoAcceptSharedAttachments: this.__input.options?.autoAcceptSharedAttachments,
@@ -43502,6 +48634,8 @@ export class EC2ResponsesModifyTransitGatewayTransitGatewayOptions {
           TransitGatewayId: this.__input.transitGatewayId,
           Description: this.__input.description,
           Options: {
+            AddTransitGatewayCidrBlocks: this.__input.options?.addTransitGatewayCidrBlocks,
+            RemoveTransitGatewayCidrBlocks: this.__input.options?.removeTransitGatewayCidrBlocks,
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             AutoAcceptSharedAttachments: this.__input.options?.autoAcceptSharedAttachments,
@@ -43530,6 +48664,8 @@ export class EC2ResponsesModifyTransitGatewayTransitGatewayOptions {
           TransitGatewayId: this.__input.transitGatewayId,
           Description: this.__input.description,
           Options: {
+            AddTransitGatewayCidrBlocks: this.__input.options?.addTransitGatewayCidrBlocks,
+            RemoveTransitGatewayCidrBlocks: this.__input.options?.removeTransitGatewayCidrBlocks,
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             AutoAcceptSharedAttachments: this.__input.options?.autoAcceptSharedAttachments,
@@ -43558,6 +48694,8 @@ export class EC2ResponsesModifyTransitGatewayTransitGatewayOptions {
           TransitGatewayId: this.__input.transitGatewayId,
           Description: this.__input.description,
           Options: {
+            AddTransitGatewayCidrBlocks: this.__input.options?.addTransitGatewayCidrBlocks,
+            RemoveTransitGatewayCidrBlocks: this.__input.options?.removeTransitGatewayCidrBlocks,
             VpnEcmpSupport: this.__input.options?.vpnEcmpSupport,
             DnsSupport: this.__input.options?.dnsSupport,
             AutoAcceptSharedAttachments: this.__input.options?.autoAcceptSharedAttachments,
@@ -44107,6 +49245,8 @@ export class EC2ResponsesModifyVolumeVolumeModification {
           Size: this.__input.size,
           VolumeType: this.__input.volumeType,
           Iops: this.__input.iops,
+          Throughput: this.__input.throughput,
+          MultiAttachEnabled: this.__input.multiAttachEnabled,
         },
       },
     };
@@ -44128,6 +49268,8 @@ export class EC2ResponsesModifyVolumeVolumeModification {
           Size: this.__input.size,
           VolumeType: this.__input.volumeType,
           Iops: this.__input.iops,
+          Throughput: this.__input.throughput,
+          MultiAttachEnabled: this.__input.multiAttachEnabled,
         },
       },
     };
@@ -44149,6 +49291,8 @@ export class EC2ResponsesModifyVolumeVolumeModification {
           Size: this.__input.size,
           VolumeType: this.__input.volumeType,
           Iops: this.__input.iops,
+          Throughput: this.__input.throughput,
+          MultiAttachEnabled: this.__input.multiAttachEnabled,
         },
       },
     };
@@ -44170,6 +49314,8 @@ export class EC2ResponsesModifyVolumeVolumeModification {
           Size: this.__input.size,
           VolumeType: this.__input.volumeType,
           Iops: this.__input.iops,
+          Throughput: this.__input.throughput,
+          MultiAttachEnabled: this.__input.multiAttachEnabled,
         },
       },
     };
@@ -44191,6 +49337,8 @@ export class EC2ResponsesModifyVolumeVolumeModification {
           Size: this.__input.size,
           VolumeType: this.__input.volumeType,
           Iops: this.__input.iops,
+          Throughput: this.__input.throughput,
+          MultiAttachEnabled: this.__input.multiAttachEnabled,
         },
       },
     };
@@ -44212,11 +49360,59 @@ export class EC2ResponsesModifyVolumeVolumeModification {
           Size: this.__input.size,
           VolumeType: this.__input.volumeType,
           Iops: this.__input.iops,
+          Throughput: this.__input.throughput,
+          MultiAttachEnabled: this.__input.multiAttachEnabled,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyVolume.VolumeModification.TargetVolumeType', props);
     return resource.getResponseField('VolumeModification.TargetVolumeType') as unknown as string;
+  }
+
+  public get targetThroughput(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyVolume',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyVolume.VolumeModification.TargetThroughput'),
+        outputPath: 'VolumeModification.TargetThroughput',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          VolumeId: this.__input.volumeId,
+          Size: this.__input.size,
+          VolumeType: this.__input.volumeType,
+          Iops: this.__input.iops,
+          Throughput: this.__input.throughput,
+          MultiAttachEnabled: this.__input.multiAttachEnabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyVolume.VolumeModification.TargetThroughput', props);
+    return resource.getResponseField('VolumeModification.TargetThroughput') as unknown as number;
+  }
+
+  public get targetMultiAttachEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyVolume',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyVolume.VolumeModification.TargetMultiAttachEnabled'),
+        outputPath: 'VolumeModification.TargetMultiAttachEnabled',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          VolumeId: this.__input.volumeId,
+          Size: this.__input.size,
+          VolumeType: this.__input.volumeType,
+          Iops: this.__input.iops,
+          Throughput: this.__input.throughput,
+          MultiAttachEnabled: this.__input.multiAttachEnabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyVolume.VolumeModification.TargetMultiAttachEnabled', props);
+    return resource.getResponseField('VolumeModification.TargetMultiAttachEnabled') as unknown as boolean;
   }
 
   public get originalSize(): number {
@@ -44233,6 +49429,8 @@ export class EC2ResponsesModifyVolumeVolumeModification {
           Size: this.__input.size,
           VolumeType: this.__input.volumeType,
           Iops: this.__input.iops,
+          Throughput: this.__input.throughput,
+          MultiAttachEnabled: this.__input.multiAttachEnabled,
         },
       },
     };
@@ -44254,6 +49452,8 @@ export class EC2ResponsesModifyVolumeVolumeModification {
           Size: this.__input.size,
           VolumeType: this.__input.volumeType,
           Iops: this.__input.iops,
+          Throughput: this.__input.throughput,
+          MultiAttachEnabled: this.__input.multiAttachEnabled,
         },
       },
     };
@@ -44275,11 +49475,59 @@ export class EC2ResponsesModifyVolumeVolumeModification {
           Size: this.__input.size,
           VolumeType: this.__input.volumeType,
           Iops: this.__input.iops,
+          Throughput: this.__input.throughput,
+          MultiAttachEnabled: this.__input.multiAttachEnabled,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ModifyVolume.VolumeModification.OriginalVolumeType', props);
     return resource.getResponseField('VolumeModification.OriginalVolumeType') as unknown as string;
+  }
+
+  public get originalThroughput(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyVolume',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyVolume.VolumeModification.OriginalThroughput'),
+        outputPath: 'VolumeModification.OriginalThroughput',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          VolumeId: this.__input.volumeId,
+          Size: this.__input.size,
+          VolumeType: this.__input.volumeType,
+          Iops: this.__input.iops,
+          Throughput: this.__input.throughput,
+          MultiAttachEnabled: this.__input.multiAttachEnabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyVolume.VolumeModification.OriginalThroughput', props);
+    return resource.getResponseField('VolumeModification.OriginalThroughput') as unknown as number;
+  }
+
+  public get originalMultiAttachEnabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'modifyVolume',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ModifyVolume.VolumeModification.OriginalMultiAttachEnabled'),
+        outputPath: 'VolumeModification.OriginalMultiAttachEnabled',
+        parameters: {
+          DryRun: this.__input.dryRun,
+          VolumeId: this.__input.volumeId,
+          Size: this.__input.size,
+          VolumeType: this.__input.volumeType,
+          Iops: this.__input.iops,
+          Throughput: this.__input.throughput,
+          MultiAttachEnabled: this.__input.multiAttachEnabled,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ModifyVolume.VolumeModification.OriginalMultiAttachEnabled', props);
+    return resource.getResponseField('VolumeModification.OriginalMultiAttachEnabled') as unknown as boolean;
   }
 
   public get progress(): number {
@@ -44296,6 +49544,8 @@ export class EC2ResponsesModifyVolumeVolumeModification {
           Size: this.__input.size,
           VolumeType: this.__input.volumeType,
           Iops: this.__input.iops,
+          Throughput: this.__input.throughput,
+          MultiAttachEnabled: this.__input.multiAttachEnabled,
         },
       },
     };
@@ -44317,6 +49567,8 @@ export class EC2ResponsesModifyVolumeVolumeModification {
           Size: this.__input.size,
           VolumeType: this.__input.volumeType,
           Iops: this.__input.iops,
+          Throughput: this.__input.throughput,
+          MultiAttachEnabled: this.__input.multiAttachEnabled,
         },
       },
     };
@@ -44338,6 +49590,8 @@ export class EC2ResponsesModifyVolumeVolumeModification {
           Size: this.__input.size,
           VolumeType: this.__input.volumeType,
           Iops: this.__input.iops,
+          Throughput: this.__input.throughput,
+          MultiAttachEnabled: this.__input.multiAttachEnabled,
         },
       },
     };
@@ -46827,6 +52081,7 @@ export class EC2ResponsesProvisionByoipCidrByoipCidr {
           Description: this.__input.description,
           DryRun: this.__input.dryRun,
           PoolTagSpecifications: this.__input.poolTagSpecifications,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -46852,6 +52107,7 @@ export class EC2ResponsesProvisionByoipCidrByoipCidr {
           Description: this.__input.description,
           DryRun: this.__input.dryRun,
           PoolTagSpecifications: this.__input.poolTagSpecifications,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -46877,6 +52133,7 @@ export class EC2ResponsesProvisionByoipCidrByoipCidr {
           Description: this.__input.description,
           DryRun: this.__input.dryRun,
           PoolTagSpecifications: this.__input.poolTagSpecifications,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -46902,6 +52159,7 @@ export class EC2ResponsesProvisionByoipCidrByoipCidr {
           Description: this.__input.description,
           DryRun: this.__input.dryRun,
           PoolTagSpecifications: this.__input.poolTagSpecifications,
+          MultiRegion: this.__input.multiRegion,
         },
       },
     };
@@ -47112,6 +52370,7 @@ export class EC2ResponsesRegisterImage {
           RootDeviceName: this.__input.rootDeviceName,
           SriovNetSupport: this.__input.sriovNetSupport,
           VirtualizationType: this.__input.virtualizationType,
+          BootMode: this.__input.bootMode,
         },
       },
     };
@@ -47333,6 +52592,144 @@ export class EC2ResponsesRegisterTransitGatewayMulticastGroupSourcesRegisteredMu
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RegisterTransitGatewayMulticastGroupSources.RegisteredMulticastGroupSources.GroupIpAddress', props);
     return resource.getResponseField('RegisteredMulticastGroupSources.GroupIpAddress') as unknown as string;
+  }
+
+}
+
+export class EC2ResponsesRejectTransitGatewayMulticastDomainAssociations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2RejectTransitGatewayMulticastDomainAssociationsRequest) {
+  }
+
+  public get associations(): EC2ResponsesRejectTransitGatewayMulticastDomainAssociationsAssociations {
+    return new EC2ResponsesRejectTransitGatewayMulticastDomainAssociationsAssociations(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesRejectTransitGatewayMulticastDomainAssociationsAssociations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2RejectTransitGatewayMulticastDomainAssociationsRequest) {
+  }
+
+  public get transitGatewayMulticastDomainId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rejectTransitGatewayMulticastDomainAssociations',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.RejectTransitGatewayMulticastDomainAssociations.Associations.TransitGatewayMulticastDomainId'),
+        outputPath: 'Associations.TransitGatewayMulticastDomainId',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          SubnetIds: this.__input.subnetIds,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RejectTransitGatewayMulticastDomainAssociations.Associations.TransitGatewayMulticastDomainId', props);
+    return resource.getResponseField('Associations.TransitGatewayMulticastDomainId') as unknown as string;
+  }
+
+  public get transitGatewayAttachmentId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rejectTransitGatewayMulticastDomainAssociations',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.RejectTransitGatewayMulticastDomainAssociations.Associations.TransitGatewayAttachmentId'),
+        outputPath: 'Associations.TransitGatewayAttachmentId',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          SubnetIds: this.__input.subnetIds,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RejectTransitGatewayMulticastDomainAssociations.Associations.TransitGatewayAttachmentId', props);
+    return resource.getResponseField('Associations.TransitGatewayAttachmentId') as unknown as string;
+  }
+
+  public get resourceId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rejectTransitGatewayMulticastDomainAssociations',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.RejectTransitGatewayMulticastDomainAssociations.Associations.ResourceId'),
+        outputPath: 'Associations.ResourceId',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          SubnetIds: this.__input.subnetIds,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RejectTransitGatewayMulticastDomainAssociations.Associations.ResourceId', props);
+    return resource.getResponseField('Associations.ResourceId') as unknown as string;
+  }
+
+  public get resourceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rejectTransitGatewayMulticastDomainAssociations',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.RejectTransitGatewayMulticastDomainAssociations.Associations.ResourceType'),
+        outputPath: 'Associations.ResourceType',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          SubnetIds: this.__input.subnetIds,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RejectTransitGatewayMulticastDomainAssociations.Associations.ResourceType', props);
+    return resource.getResponseField('Associations.ResourceType') as unknown as string;
+  }
+
+  public get resourceOwnerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rejectTransitGatewayMulticastDomainAssociations',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.RejectTransitGatewayMulticastDomainAssociations.Associations.ResourceOwnerId'),
+        outputPath: 'Associations.ResourceOwnerId',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          SubnetIds: this.__input.subnetIds,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RejectTransitGatewayMulticastDomainAssociations.Associations.ResourceOwnerId', props);
+    return resource.getResponseField('Associations.ResourceOwnerId') as unknown as string;
+  }
+
+  public get subnets(): shapes.Ec2SubnetAssociation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'rejectTransitGatewayMulticastDomainAssociations',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.RejectTransitGatewayMulticastDomainAssociations.Associations.Subnets'),
+        outputPath: 'Associations.Subnets',
+        parameters: {
+          TransitGatewayMulticastDomainId: this.__input.transitGatewayMulticastDomainId,
+          TransitGatewayAttachmentId: this.__input.transitGatewayAttachmentId,
+          SubnetIds: this.__input.subnetIds,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RejectTransitGatewayMulticastDomainAssociations.Associations.Subnets', props);
+    return resource.getResponseField('Associations.Subnets') as unknown as shapes.Ec2SubnetAssociation[];
   }
 
 }
@@ -48352,6 +53749,7 @@ export class EC2ResponsesRequestSpotFleet {
               },
             },
             InstancePoolsToUseCount: this.__input.spotFleetRequestConfig.instancePoolsToUseCount,
+            Context: this.__input.spotFleetRequestConfig.context,
             TagSpecifications: this.__input.spotFleetRequestConfig.tagSpecifications,
           },
         },
@@ -48421,6 +53819,149 @@ export class EC2ResponsesRequestSpotInstances {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RequestSpotInstances.SpotInstanceRequests', props);
     return resource.getResponseField('SpotInstanceRequests') as unknown as shapes.Ec2SpotInstanceRequest[];
+  }
+
+}
+
+export class EC2ResponsesResetAddressAttribute {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2ResetAddressAttributeRequest) {
+  }
+
+  public get address(): EC2ResponsesResetAddressAttributeAddress {
+    return new EC2ResponsesResetAddressAttributeAddress(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesResetAddressAttributeAddress {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2ResetAddressAttributeRequest) {
+  }
+
+  public get publicIp(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'resetAddressAttribute',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ResetAddressAttribute.Address.PublicIp'),
+        outputPath: 'Address.PublicIp',
+        parameters: {
+          AllocationId: this.__input.allocationId,
+          Attribute: this.__input.attribute,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ResetAddressAttribute.Address.PublicIp', props);
+    return resource.getResponseField('Address.PublicIp') as unknown as string;
+  }
+
+  public get allocationId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'resetAddressAttribute',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ResetAddressAttribute.Address.AllocationId'),
+        outputPath: 'Address.AllocationId',
+        parameters: {
+          AllocationId: this.__input.allocationId,
+          Attribute: this.__input.attribute,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ResetAddressAttribute.Address.AllocationId', props);
+    return resource.getResponseField('Address.AllocationId') as unknown as string;
+  }
+
+  public get ptrRecord(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'resetAddressAttribute',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ResetAddressAttribute.Address.PtrRecord'),
+        outputPath: 'Address.PtrRecord',
+        parameters: {
+          AllocationId: this.__input.allocationId,
+          Attribute: this.__input.attribute,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ResetAddressAttribute.Address.PtrRecord', props);
+    return resource.getResponseField('Address.PtrRecord') as unknown as string;
+  }
+
+  public get ptrRecordUpdate(): EC2ResponsesResetAddressAttributeAddressPtrRecordUpdate {
+    return new EC2ResponsesResetAddressAttributeAddressPtrRecordUpdate(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesResetAddressAttributeAddressPtrRecordUpdate {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2ResetAddressAttributeRequest) {
+  }
+
+  public get value(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'resetAddressAttribute',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ResetAddressAttribute.Address.PtrRecordUpdate.Value'),
+        outputPath: 'Address.PtrRecordUpdate.Value',
+        parameters: {
+          AllocationId: this.__input.allocationId,
+          Attribute: this.__input.attribute,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ResetAddressAttribute.Address.PtrRecordUpdate.Value', props);
+    return resource.getResponseField('Address.PtrRecordUpdate.Value') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'resetAddressAttribute',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ResetAddressAttribute.Address.PtrRecordUpdate.Status'),
+        outputPath: 'Address.PtrRecordUpdate.Status',
+        parameters: {
+          AllocationId: this.__input.allocationId,
+          Attribute: this.__input.attribute,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ResetAddressAttribute.Address.PtrRecordUpdate.Status', props);
+    return resource.getResponseField('Address.PtrRecordUpdate.Status') as unknown as string;
+  }
+
+  public get reason(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'resetAddressAttribute',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.ResetAddressAttribute.Address.PtrRecordUpdate.Reason'),
+        outputPath: 'Address.PtrRecordUpdate.Reason',
+        parameters: {
+          AllocationId: this.__input.allocationId,
+          Attribute: this.__input.attribute,
+          DryRun: this.__input.dryRun,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ResetAddressAttribute.Address.PtrRecordUpdate.Reason', props);
+    return resource.getResponseField('Address.PtrRecordUpdate.Reason') as unknown as string;
   }
 
 }
@@ -48813,6 +54354,7 @@ export class EC2ResponsesRevokeSecurityGroupEgress {
           DryRun: this.__input.dryRun,
           GroupId: this.__input.groupId,
           IpPermissions: this.__input.ipPermissions,
+          SecurityGroupRuleIds: this.__input.securityGroupRuleIds,
           CidrIp: this.__input.cidrIp,
           FromPort: this.__input.fromPort,
           IpProtocol: this.__input.ipProtocol,
@@ -48838,6 +54380,7 @@ export class EC2ResponsesRevokeSecurityGroupEgress {
           DryRun: this.__input.dryRun,
           GroupId: this.__input.groupId,
           IpPermissions: this.__input.ipPermissions,
+          SecurityGroupRuleIds: this.__input.securityGroupRuleIds,
           CidrIp: this.__input.cidrIp,
           FromPort: this.__input.fromPort,
           IpProtocol: this.__input.ipProtocol,
@@ -48877,6 +54420,7 @@ export class EC2ResponsesRevokeSecurityGroupIngress {
           SourceSecurityGroupOwnerId: this.__input.sourceSecurityGroupOwnerId,
           ToPort: this.__input.toPort,
           DryRun: this.__input.dryRun,
+          SecurityGroupRuleIds: this.__input.securityGroupRuleIds,
         },
       },
     };
@@ -48903,6 +54447,7 @@ export class EC2ResponsesRevokeSecurityGroupIngress {
           SourceSecurityGroupOwnerId: this.__input.sourceSecurityGroupOwnerId,
           ToPort: this.__input.toPort,
           DryRun: this.__input.dryRun,
+          SecurityGroupRuleIds: this.__input.securityGroupRuleIds,
         },
       },
     };
@@ -49636,6 +55181,297 @@ export class EC2ResponsesStartInstances {
 
 }
 
+export class EC2ResponsesStartNetworkInsightsAnalysis {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2StartNetworkInsightsAnalysisRequest) {
+  }
+
+  public get networkInsightsAnalysis(): EC2ResponsesStartNetworkInsightsAnalysisNetworkInsightsAnalysis {
+    return new EC2ResponsesStartNetworkInsightsAnalysisNetworkInsightsAnalysis(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class EC2ResponsesStartNetworkInsightsAnalysisNetworkInsightsAnalysis {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2StartNetworkInsightsAnalysisRequest) {
+  }
+
+  public get networkInsightsAnalysisId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startNetworkInsightsAnalysis',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.NetworkInsightsAnalysisId'),
+        outputPath: 'NetworkInsightsAnalysis.NetworkInsightsAnalysisId',
+        parameters: {
+          NetworkInsightsPathId: this.__input.networkInsightsPathId,
+          FilterInArns: this.__input.filterInArns,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.NetworkInsightsAnalysisId', props);
+    return resource.getResponseField('NetworkInsightsAnalysis.NetworkInsightsAnalysisId') as unknown as string;
+  }
+
+  public get networkInsightsAnalysisArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startNetworkInsightsAnalysis',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.NetworkInsightsAnalysisArn'),
+        outputPath: 'NetworkInsightsAnalysis.NetworkInsightsAnalysisArn',
+        parameters: {
+          NetworkInsightsPathId: this.__input.networkInsightsPathId,
+          FilterInArns: this.__input.filterInArns,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.NetworkInsightsAnalysisArn', props);
+    return resource.getResponseField('NetworkInsightsAnalysis.NetworkInsightsAnalysisArn') as unknown as string;
+  }
+
+  public get networkInsightsPathId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startNetworkInsightsAnalysis',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.NetworkInsightsPathId'),
+        outputPath: 'NetworkInsightsAnalysis.NetworkInsightsPathId',
+        parameters: {
+          NetworkInsightsPathId: this.__input.networkInsightsPathId,
+          FilterInArns: this.__input.filterInArns,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.NetworkInsightsPathId', props);
+    return resource.getResponseField('NetworkInsightsAnalysis.NetworkInsightsPathId') as unknown as string;
+  }
+
+  public get filterInArns(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startNetworkInsightsAnalysis',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.FilterInArns'),
+        outputPath: 'NetworkInsightsAnalysis.FilterInArns',
+        parameters: {
+          NetworkInsightsPathId: this.__input.networkInsightsPathId,
+          FilterInArns: this.__input.filterInArns,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.FilterInArns', props);
+    return resource.getResponseField('NetworkInsightsAnalysis.FilterInArns') as unknown as string[];
+  }
+
+  public get startDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startNetworkInsightsAnalysis',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.StartDate'),
+        outputPath: 'NetworkInsightsAnalysis.StartDate',
+        parameters: {
+          NetworkInsightsPathId: this.__input.networkInsightsPathId,
+          FilterInArns: this.__input.filterInArns,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.StartDate', props);
+    return resource.getResponseField('NetworkInsightsAnalysis.StartDate') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startNetworkInsightsAnalysis',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.Status'),
+        outputPath: 'NetworkInsightsAnalysis.Status',
+        parameters: {
+          NetworkInsightsPathId: this.__input.networkInsightsPathId,
+          FilterInArns: this.__input.filterInArns,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.Status', props);
+    return resource.getResponseField('NetworkInsightsAnalysis.Status') as unknown as string;
+  }
+
+  public get statusMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startNetworkInsightsAnalysis',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.StatusMessage'),
+        outputPath: 'NetworkInsightsAnalysis.StatusMessage',
+        parameters: {
+          NetworkInsightsPathId: this.__input.networkInsightsPathId,
+          FilterInArns: this.__input.filterInArns,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.StatusMessage', props);
+    return resource.getResponseField('NetworkInsightsAnalysis.StatusMessage') as unknown as string;
+  }
+
+  public get networkPathFound(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startNetworkInsightsAnalysis',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.NetworkPathFound'),
+        outputPath: 'NetworkInsightsAnalysis.NetworkPathFound',
+        parameters: {
+          NetworkInsightsPathId: this.__input.networkInsightsPathId,
+          FilterInArns: this.__input.filterInArns,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.NetworkPathFound', props);
+    return resource.getResponseField('NetworkInsightsAnalysis.NetworkPathFound') as unknown as boolean;
+  }
+
+  public get forwardPathComponents(): shapes.Ec2PathComponent[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startNetworkInsightsAnalysis',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.ForwardPathComponents'),
+        outputPath: 'NetworkInsightsAnalysis.ForwardPathComponents',
+        parameters: {
+          NetworkInsightsPathId: this.__input.networkInsightsPathId,
+          FilterInArns: this.__input.filterInArns,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.ForwardPathComponents', props);
+    return resource.getResponseField('NetworkInsightsAnalysis.ForwardPathComponents') as unknown as shapes.Ec2PathComponent[];
+  }
+
+  public get returnPathComponents(): shapes.Ec2PathComponent[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startNetworkInsightsAnalysis',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.ReturnPathComponents'),
+        outputPath: 'NetworkInsightsAnalysis.ReturnPathComponents',
+        parameters: {
+          NetworkInsightsPathId: this.__input.networkInsightsPathId,
+          FilterInArns: this.__input.filterInArns,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.ReturnPathComponents', props);
+    return resource.getResponseField('NetworkInsightsAnalysis.ReturnPathComponents') as unknown as shapes.Ec2PathComponent[];
+  }
+
+  public get explanations(): shapes.Ec2Explanation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startNetworkInsightsAnalysis',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.Explanations'),
+        outputPath: 'NetworkInsightsAnalysis.Explanations',
+        parameters: {
+          NetworkInsightsPathId: this.__input.networkInsightsPathId,
+          FilterInArns: this.__input.filterInArns,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.Explanations', props);
+    return resource.getResponseField('NetworkInsightsAnalysis.Explanations') as unknown as shapes.Ec2Explanation[];
+  }
+
+  public get alternatePathHints(): shapes.Ec2AlternatePathHint[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startNetworkInsightsAnalysis',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.AlternatePathHints'),
+        outputPath: 'NetworkInsightsAnalysis.AlternatePathHints',
+        parameters: {
+          NetworkInsightsPathId: this.__input.networkInsightsPathId,
+          FilterInArns: this.__input.filterInArns,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.AlternatePathHints', props);
+    return resource.getResponseField('NetworkInsightsAnalysis.AlternatePathHints') as unknown as shapes.Ec2AlternatePathHint[];
+  }
+
+  public get tags(): shapes.Ec2Tag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startNetworkInsightsAnalysis',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.Tags'),
+        outputPath: 'NetworkInsightsAnalysis.Tags',
+        parameters: {
+          NetworkInsightsPathId: this.__input.networkInsightsPathId,
+          FilterInArns: this.__input.filterInArns,
+          DryRun: this.__input.dryRun,
+          TagSpecifications: this.__input.tagSpecifications,
+          ClientToken: this.__input.clientToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartNetworkInsightsAnalysis.NetworkInsightsAnalysis.Tags', props);
+    return resource.getResponseField('NetworkInsightsAnalysis.Tags') as unknown as shapes.Ec2Tag[];
+  }
+
+}
+
 export class EC2ResponsesStartVpcEndpointServicePrivateDnsVerification {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.Ec2StartVpcEndpointServicePrivateDnsVerificationRequest) {
@@ -49795,6 +55631,7 @@ export class EC2ResponsesUnassignIpv6Addresses {
         outputPath: 'NetworkInterfaceId',
         parameters: {
           Ipv6Addresses: this.__input.ipv6Addresses,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
           NetworkInterfaceId: this.__input.networkInterfaceId,
         },
       },
@@ -49813,12 +55650,32 @@ export class EC2ResponsesUnassignIpv6Addresses {
         outputPath: 'UnassignedIpv6Addresses',
         parameters: {
           Ipv6Addresses: this.__input.ipv6Addresses,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
           NetworkInterfaceId: this.__input.networkInterfaceId,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UnassignIpv6Addresses.UnassignedIpv6Addresses', props);
     return resource.getResponseField('UnassignedIpv6Addresses') as unknown as string[];
+  }
+
+  public get unassignedIpv6Prefixes(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'unassignIpv6Addresses',
+        service: 'EC2',
+        physicalResourceId: cr.PhysicalResourceId.of('EC2.UnassignIpv6Addresses.UnassignedIpv6Prefixes'),
+        outputPath: 'UnassignedIpv6Prefixes',
+        parameters: {
+          Ipv6Addresses: this.__input.ipv6Addresses,
+          Ipv6Prefixes: this.__input.ipv6Prefixes,
+          NetworkInterfaceId: this.__input.networkInterfaceId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UnassignIpv6Addresses.UnassignedIpv6Prefixes', props);
+    return resource.getResponseField('UnassignedIpv6Prefixes') as unknown as string[];
   }
 
 }
@@ -49866,6 +55723,7 @@ export class EC2ResponsesUpdateSecurityGroupRuleDescriptionsEgress {
           GroupId: this.__input.groupId,
           GroupName: this.__input.groupName,
           IpPermissions: this.__input.ipPermissions,
+          SecurityGroupRuleDescriptions: this.__input.securityGroupRuleDescriptions,
         },
       },
     };
@@ -49893,6 +55751,7 @@ export class EC2ResponsesUpdateSecurityGroupRuleDescriptionsIngress {
           GroupId: this.__input.groupId,
           GroupName: this.__input.groupName,
           IpPermissions: this.__input.ipPermissions,
+          SecurityGroupRuleDescriptions: this.__input.securityGroupRuleDescriptions,
         },
       },
     };

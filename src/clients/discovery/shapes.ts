@@ -15,10 +15,38 @@ export interface DiscoveryAssociateConfigurationItemsToApplicationRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryAssociateConfigurationItemsToApplicationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryAssociateConfigurationItemsToApplicationRequest(obj: DiscoveryAssociateConfigurationItemsToApplicationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationConfigurationId': obj.applicationConfigurationId,
+    'configurationIds': obj.configurationIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryAssociateConfigurationItemsToApplicationResponse
  */
 export interface DiscoveryAssociateConfigurationItemsToApplicationResponse {
 }
+
+/**
+ * Converts an object of type 'DiscoveryAssociateConfigurationItemsToApplicationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryAssociateConfigurationItemsToApplicationResponse(obj: DiscoveryAssociateConfigurationItemsToApplicationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryBatchDeleteImportDataRequest
@@ -32,6 +60,20 @@ export interface DiscoveryBatchDeleteImportDataRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryBatchDeleteImportDataRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryBatchDeleteImportDataRequest(obj: DiscoveryBatchDeleteImportDataRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'importTaskIds': obj.importTaskIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryBatchDeleteImportDataResponse
  */
 export interface DiscoveryBatchDeleteImportDataResponse {
@@ -41,6 +83,20 @@ export interface DiscoveryBatchDeleteImportDataResponse {
   readonly errors?: DiscoveryBatchDeleteImportDataError[];
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryBatchDeleteImportDataResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryBatchDeleteImportDataResponse(obj: DiscoveryBatchDeleteImportDataResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'errors': obj.errors?.map(y => toJson_DiscoveryBatchDeleteImportDataError(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryCreateApplicationRequest
@@ -59,6 +115,21 @@ export interface DiscoveryCreateApplicationRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryCreateApplicationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryCreateApplicationRequest(obj: DiscoveryCreateApplicationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryCreateApplicationResponse
  */
 export interface DiscoveryCreateApplicationResponse {
@@ -68,6 +139,20 @@ export interface DiscoveryCreateApplicationResponse {
   readonly configurationId?: string;
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryCreateApplicationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryCreateApplicationResponse(obj: DiscoveryCreateApplicationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configurationId': obj.configurationId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryCreateTagsRequest
@@ -86,10 +171,38 @@ export interface DiscoveryCreateTagsRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryCreateTagsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryCreateTagsRequest(obj: DiscoveryCreateTagsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configurationIds': obj.configurationIds?.map(y => y),
+    'tags': obj.tags?.map(y => toJson_DiscoveryTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryCreateTagsResponse
  */
 export interface DiscoveryCreateTagsResponse {
 }
+
+/**
+ * Converts an object of type 'DiscoveryCreateTagsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryCreateTagsResponse(obj: DiscoveryCreateTagsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryDeleteApplicationsRequest
@@ -103,10 +216,37 @@ export interface DiscoveryDeleteApplicationsRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryDeleteApplicationsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDeleteApplicationsRequest(obj: DiscoveryDeleteApplicationsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configurationIds': obj.configurationIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryDeleteApplicationsResponse
  */
 export interface DiscoveryDeleteApplicationsResponse {
 }
+
+/**
+ * Converts an object of type 'DiscoveryDeleteApplicationsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDeleteApplicationsResponse(obj: DiscoveryDeleteApplicationsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryDeleteTagsRequest
@@ -125,10 +265,38 @@ export interface DiscoveryDeleteTagsRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryDeleteTagsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDeleteTagsRequest(obj: DiscoveryDeleteTagsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configurationIds': obj.configurationIds?.map(y => y),
+    'tags': obj.tags?.map(y => toJson_DiscoveryTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryDeleteTagsResponse
  */
 export interface DiscoveryDeleteTagsResponse {
 }
+
+/**
+ * Converts an object of type 'DiscoveryDeleteTagsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDeleteTagsResponse(obj: DiscoveryDeleteTagsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryDescribeAgentsRequest
@@ -157,6 +325,23 @@ export interface DiscoveryDescribeAgentsRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryDescribeAgentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDescribeAgentsRequest(obj: DiscoveryDescribeAgentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'agentIds': obj.agentIds?.map(y => y),
+    'filters': obj.filters?.map(y => toJson_DiscoveryFilter(y)),
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryDescribeAgentsResponse
  */
 export interface DiscoveryDescribeAgentsResponse {
@@ -173,6 +358,21 @@ export interface DiscoveryDescribeAgentsResponse {
 }
 
 /**
+ * Converts an object of type 'DiscoveryDescribeAgentsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDescribeAgentsResponse(obj: DiscoveryDescribeAgentsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'agentsInfo': obj.agentsInfo?.map(y => toJson_DiscoveryAgentInfo(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryDescribeConfigurationsRequest
  */
 export interface DiscoveryDescribeConfigurationsRequest {
@@ -184,6 +384,20 @@ export interface DiscoveryDescribeConfigurationsRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryDescribeConfigurationsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDescribeConfigurationsRequest(obj: DiscoveryDescribeConfigurationsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configurationIds': obj.configurationIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryDescribeConfigurationsResponse
  */
 export interface DiscoveryDescribeConfigurationsResponse {
@@ -193,6 +407,20 @@ export interface DiscoveryDescribeConfigurationsResponse {
   readonly configurations?: { [key: string]: string }[];
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryDescribeConfigurationsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDescribeConfigurationsResponse(obj: DiscoveryDescribeConfigurationsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configurations': obj.configurations?.map(y => ((y) === undefined) ? undefined : (Object.entries(y).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {}))),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryDescribeContinuousExportsRequest
@@ -216,6 +444,22 @@ export interface DiscoveryDescribeContinuousExportsRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryDescribeContinuousExportsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDescribeContinuousExportsRequest(obj: DiscoveryDescribeContinuousExportsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exportIds': obj.exportIds?.map(y => y),
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryDescribeContinuousExportsResponse
  */
 export interface DiscoveryDescribeContinuousExportsResponse {
@@ -230,6 +474,21 @@ export interface DiscoveryDescribeContinuousExportsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryDescribeContinuousExportsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDescribeContinuousExportsResponse(obj: DiscoveryDescribeContinuousExportsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'descriptions': obj.descriptions?.map(y => toJson_DiscoveryContinuousExportDescription(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryDescribeExportConfigurationsRequest
@@ -253,6 +512,22 @@ export interface DiscoveryDescribeExportConfigurationsRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryDescribeExportConfigurationsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDescribeExportConfigurationsRequest(obj: DiscoveryDescribeExportConfigurationsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exportIds': obj.exportIds?.map(y => y),
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryDescribeExportConfigurationsResponse
  */
 export interface DiscoveryDescribeExportConfigurationsResponse {
@@ -267,6 +542,21 @@ export interface DiscoveryDescribeExportConfigurationsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryDescribeExportConfigurationsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDescribeExportConfigurationsResponse(obj: DiscoveryDescribeExportConfigurationsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exportsInfo': obj.exportsInfo?.map(y => toJson_DiscoveryExportInfo(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryDescribeExportTasksRequest
@@ -295,6 +585,23 @@ export interface DiscoveryDescribeExportTasksRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryDescribeExportTasksRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDescribeExportTasksRequest(obj: DiscoveryDescribeExportTasksRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exportIds': obj.exportIds?.map(y => y),
+    'filters': obj.filters?.map(y => toJson_DiscoveryExportFilter(y)),
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryDescribeExportTasksResponse
  */
 export interface DiscoveryDescribeExportTasksResponse {
@@ -309,6 +616,21 @@ export interface DiscoveryDescribeExportTasksResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryDescribeExportTasksResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDescribeExportTasksResponse(obj: DiscoveryDescribeExportTasksResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exportsInfo': obj.exportsInfo?.map(y => toJson_DiscoveryExportInfo(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryDescribeImportTasksRequest
@@ -332,6 +654,22 @@ export interface DiscoveryDescribeImportTasksRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryDescribeImportTasksRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDescribeImportTasksRequest(obj: DiscoveryDescribeImportTasksRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filters': obj.filters?.map(y => toJson_DiscoveryImportTaskFilter(y)),
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryDescribeImportTasksResponse
  */
 export interface DiscoveryDescribeImportTasksResponse {
@@ -346,6 +684,21 @@ export interface DiscoveryDescribeImportTasksResponse {
   readonly tasks?: DiscoveryImportTask[];
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryDescribeImportTasksResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDescribeImportTasksResponse(obj: DiscoveryDescribeImportTasksResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'tasks': obj.tasks?.map(y => toJson_DiscoveryImportTask(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryDescribeTagsRequest
@@ -369,6 +722,22 @@ export interface DiscoveryDescribeTagsRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryDescribeTagsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDescribeTagsRequest(obj: DiscoveryDescribeTagsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filters': obj.filters?.map(y => toJson_DiscoveryTagFilter(y)),
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryDescribeTagsResponse
  */
 export interface DiscoveryDescribeTagsResponse {
@@ -383,6 +752,21 @@ export interface DiscoveryDescribeTagsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryDescribeTagsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDescribeTagsResponse(obj: DiscoveryDescribeTagsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tags': obj.tags?.map(y => toJson_DiscoveryConfigurationTag(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryDisassociateConfigurationItemsFromApplicationRequest
@@ -401,10 +785,38 @@ export interface DiscoveryDisassociateConfigurationItemsFromApplicationRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryDisassociateConfigurationItemsFromApplicationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDisassociateConfigurationItemsFromApplicationRequest(obj: DiscoveryDisassociateConfigurationItemsFromApplicationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'applicationConfigurationId': obj.applicationConfigurationId,
+    'configurationIds': obj.configurationIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryDisassociateConfigurationItemsFromApplicationResponse
  */
 export interface DiscoveryDisassociateConfigurationItemsFromApplicationResponse {
 }
+
+/**
+ * Converts an object of type 'DiscoveryDisassociateConfigurationItemsFromApplicationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryDisassociateConfigurationItemsFromApplicationResponse(obj: DiscoveryDisassociateConfigurationItemsFromApplicationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryExportConfigurationsResponse
@@ -418,10 +830,37 @@ export interface DiscoveryExportConfigurationsResponse {
 }
 
 /**
+ * Converts an object of type 'DiscoveryExportConfigurationsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryExportConfigurationsResponse(obj: DiscoveryExportConfigurationsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exportId': obj.exportId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryGetDiscoverySummaryRequest
  */
 export interface DiscoveryGetDiscoverySummaryRequest {
 }
+
+/**
+ * Converts an object of type 'DiscoveryGetDiscoverySummaryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryGetDiscoverySummaryRequest(obj: DiscoveryGetDiscoverySummaryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryGetDiscoverySummaryResponse
@@ -460,6 +899,25 @@ export interface DiscoveryGetDiscoverySummaryResponse {
 }
 
 /**
+ * Converts an object of type 'DiscoveryGetDiscoverySummaryResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryGetDiscoverySummaryResponse(obj: DiscoveryGetDiscoverySummaryResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'servers': obj.servers,
+    'applications': obj.applications,
+    'serversMappedToApplications': obj.serversMappedToApplications,
+    'serversMappedtoTags': obj.serversMappedtoTags,
+    'agentSummary': toJson_DiscoveryCustomerAgentInfo(obj.agentSummary),
+    'connectorSummary': toJson_DiscoveryCustomerConnectorInfo(obj.connectorSummary),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryListConfigurationsRequest
  */
 export interface DiscoveryListConfigurationsRequest {
@@ -491,6 +949,24 @@ export interface DiscoveryListConfigurationsRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryListConfigurationsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryListConfigurationsRequest(obj: DiscoveryListConfigurationsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configurationType': obj.configurationType,
+    'filters': obj.filters?.map(y => toJson_DiscoveryFilter(y)),
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+    'orderBy': obj.orderBy?.map(y => toJson_DiscoveryOrderByElement(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryListConfigurationsResponse
  */
 export interface DiscoveryListConfigurationsResponse {
@@ -505,6 +981,21 @@ export interface DiscoveryListConfigurationsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryListConfigurationsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryListConfigurationsResponse(obj: DiscoveryListConfigurationsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configurations': obj.configurations?.map(y => ((y) === undefined) ? undefined : (Object.entries(y).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {}))),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryListServerNeighborsRequest
@@ -538,6 +1029,24 @@ export interface DiscoveryListServerNeighborsRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryListServerNeighborsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryListServerNeighborsRequest(obj: DiscoveryListServerNeighborsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configurationId': obj.configurationId,
+    'portInformationNeeded': obj.portInformationNeeded,
+    'neighborConfigurationIds': obj.neighborConfigurationIds?.map(y => y),
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryListServerNeighborsResponse
  */
 export interface DiscoveryListServerNeighborsResponse {
@@ -559,10 +1068,39 @@ export interface DiscoveryListServerNeighborsResponse {
 }
 
 /**
+ * Converts an object of type 'DiscoveryListServerNeighborsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryListServerNeighborsResponse(obj: DiscoveryListServerNeighborsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'neighbors': obj.neighbors?.map(y => toJson_DiscoveryNeighborConnectionDetail(y)),
+    'nextToken': obj.nextToken,
+    'knownDependencyCount': obj.knownDependencyCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryStartContinuousExportRequest
  */
 export interface DiscoveryStartContinuousExportRequest {
 }
+
+/**
+ * Converts an object of type 'DiscoveryStartContinuousExportRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryStartContinuousExportRequest(obj: DiscoveryStartContinuousExportRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryStartContinuousExportResponse
@@ -596,6 +1134,24 @@ export interface DiscoveryStartContinuousExportResponse {
 }
 
 /**
+ * Converts an object of type 'DiscoveryStartContinuousExportResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryStartContinuousExportResponse(obj: DiscoveryStartContinuousExportResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exportId': obj.exportId,
+    's3Bucket': obj.s3Bucket,
+    'startTime': obj.startTime,
+    'dataSource': obj.dataSource,
+    'schemaStorageConfig': ((obj.schemaStorageConfig) === undefined) ? undefined : (Object.entries(obj.schemaStorageConfig).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryStartDataCollectionByAgentIdsRequest
  */
 export interface DiscoveryStartDataCollectionByAgentIdsRequest {
@@ -607,6 +1163,20 @@ export interface DiscoveryStartDataCollectionByAgentIdsRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryStartDataCollectionByAgentIdsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryStartDataCollectionByAgentIdsRequest(obj: DiscoveryStartDataCollectionByAgentIdsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'agentIds': obj.agentIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryStartDataCollectionByAgentIdsResponse
  */
 export interface DiscoveryStartDataCollectionByAgentIdsResponse {
@@ -616,6 +1186,20 @@ export interface DiscoveryStartDataCollectionByAgentIdsResponse {
   readonly agentsConfigurationStatus?: DiscoveryAgentConfigurationStatus[];
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryStartDataCollectionByAgentIdsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryStartDataCollectionByAgentIdsResponse(obj: DiscoveryStartDataCollectionByAgentIdsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'agentsConfigurationStatus': obj.agentsConfigurationStatus?.map(y => toJson_DiscoveryAgentConfigurationStatus(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryStartExportTaskRequest
@@ -644,6 +1228,23 @@ export interface DiscoveryStartExportTaskRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryStartExportTaskRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryStartExportTaskRequest(obj: DiscoveryStartExportTaskRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exportDataFormat': obj.exportDataFormat?.map(y => y),
+    'filters': obj.filters?.map(y => toJson_DiscoveryExportFilter(y)),
+    'startTime': obj.startTime,
+    'endTime': obj.endTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryStartExportTaskResponse
  */
 export interface DiscoveryStartExportTaskResponse {
@@ -653,6 +1254,20 @@ export interface DiscoveryStartExportTaskResponse {
   readonly exportId?: string;
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryStartExportTaskResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryStartExportTaskResponse(obj: DiscoveryStartExportTaskResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exportId': obj.exportId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryStartImportTaskRequest
@@ -676,6 +1291,22 @@ export interface DiscoveryStartImportTaskRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryStartImportTaskRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryStartImportTaskRequest(obj: DiscoveryStartImportTaskRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'clientRequestToken': obj.clientRequestToken,
+    'name': obj.name,
+    'importUrl': obj.importUrl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryStartImportTaskResponse
  */
 export interface DiscoveryStartImportTaskResponse {
@@ -687,6 +1318,20 @@ export interface DiscoveryStartImportTaskResponse {
 }
 
 /**
+ * Converts an object of type 'DiscoveryStartImportTaskResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryStartImportTaskResponse(obj: DiscoveryStartImportTaskResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'task': toJson_DiscoveryImportTask(obj.task),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryStopContinuousExportRequest
  */
 export interface DiscoveryStopContinuousExportRequest {
@@ -696,6 +1341,20 @@ export interface DiscoveryStopContinuousExportRequest {
   readonly exportId: string;
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryStopContinuousExportRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryStopContinuousExportRequest(obj: DiscoveryStopContinuousExportRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exportId': obj.exportId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryStopContinuousExportResponse
@@ -714,6 +1373,21 @@ export interface DiscoveryStopContinuousExportResponse {
 }
 
 /**
+ * Converts an object of type 'DiscoveryStopContinuousExportResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryStopContinuousExportResponse(obj: DiscoveryStopContinuousExportResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'startTime': obj.startTime,
+    'stopTime': obj.stopTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryStopDataCollectionByAgentIdsRequest
  */
 export interface DiscoveryStopDataCollectionByAgentIdsRequest {
@@ -725,6 +1399,20 @@ export interface DiscoveryStopDataCollectionByAgentIdsRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryStopDataCollectionByAgentIdsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryStopDataCollectionByAgentIdsRequest(obj: DiscoveryStopDataCollectionByAgentIdsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'agentIds': obj.agentIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryStopDataCollectionByAgentIdsResponse
  */
 export interface DiscoveryStopDataCollectionByAgentIdsResponse {
@@ -734,6 +1422,20 @@ export interface DiscoveryStopDataCollectionByAgentIdsResponse {
   readonly agentsConfigurationStatus?: DiscoveryAgentConfigurationStatus[];
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryStopDataCollectionByAgentIdsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryStopDataCollectionByAgentIdsResponse(obj: DiscoveryStopDataCollectionByAgentIdsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'agentsConfigurationStatus': obj.agentsConfigurationStatus?.map(y => toJson_DiscoveryAgentConfigurationStatus(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryUpdateApplicationRequest
@@ -757,10 +1459,39 @@ export interface DiscoveryUpdateApplicationRequest {
 }
 
 /**
+ * Converts an object of type 'DiscoveryUpdateApplicationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryUpdateApplicationRequest(obj: DiscoveryUpdateApplicationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configurationId': obj.configurationId,
+    'name': obj.name,
+    'description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryUpdateApplicationResponse
  */
 export interface DiscoveryUpdateApplicationResponse {
 }
+
+/**
+ * Converts an object of type 'DiscoveryUpdateApplicationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryUpdateApplicationResponse(obj: DiscoveryUpdateApplicationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryBatchDeleteImportDataError
@@ -784,6 +1515,22 @@ export interface DiscoveryBatchDeleteImportDataError {
 }
 
 /**
+ * Converts an object of type 'DiscoveryBatchDeleteImportDataError' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryBatchDeleteImportDataError(obj: DiscoveryBatchDeleteImportDataError | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'importTaskId': obj.importTaskId,
+    'errorCode': obj.errorCode,
+    'errorDescription': obj.errorDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryTag
  */
 export interface DiscoveryTag {
@@ -798,6 +1545,21 @@ export interface DiscoveryTag {
   readonly value: string;
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryTag(obj: DiscoveryTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'key': obj.key,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryFilter
@@ -819,6 +1581,22 @@ export interface DiscoveryFilter {
   readonly condition: string;
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryFilter(obj: DiscoveryFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'values': obj.values?.map(y => y),
+    'condition': obj.condition,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryAgentInfo
@@ -877,6 +1655,29 @@ export interface DiscoveryAgentInfo {
 }
 
 /**
+ * Converts an object of type 'DiscoveryAgentInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryAgentInfo(obj: DiscoveryAgentInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'agentId': obj.agentId,
+    'hostName': obj.hostName,
+    'agentNetworkInfoList': obj.agentNetworkInfoList?.map(y => toJson_DiscoveryAgentNetworkInfo(y)),
+    'connectorId': obj.connectorId,
+    'version': obj.version,
+    'health': obj.health,
+    'lastHealthPingTime': obj.lastHealthPingTime,
+    'collectionStatus': obj.collectionStatus,
+    'agentType': obj.agentType,
+    'registeredTime': obj.registeredTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryContinuousExportDescription
  */
 export interface DiscoveryContinuousExportDescription {
@@ -921,6 +1722,27 @@ export interface DiscoveryContinuousExportDescription {
   readonly schemaStorageConfig?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryContinuousExportDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryContinuousExportDescription(obj: DiscoveryContinuousExportDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exportId': obj.exportId,
+    'status': obj.status,
+    'statusDetail': obj.statusDetail,
+    's3Bucket': obj.s3Bucket,
+    'startTime': obj.startTime,
+    'stopTime': obj.stopTime,
+    'dataSource': obj.dataSource,
+    'schemaStorageConfig': ((obj.schemaStorageConfig) === undefined) ? undefined : (Object.entries(obj.schemaStorageConfig).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryExportInfo
@@ -969,6 +1791,27 @@ export interface DiscoveryExportInfo {
 }
 
 /**
+ * Converts an object of type 'DiscoveryExportInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryExportInfo(obj: DiscoveryExportInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'exportId': obj.exportId,
+    'exportStatus': obj.exportStatus,
+    'statusMessage': obj.statusMessage,
+    'configurationsDownloadUrl': obj.configurationsDownloadUrl,
+    'exportRequestTime': obj.exportRequestTime,
+    'isTruncated': obj.isTruncated,
+    'requestedStartTime': obj.requestedStartTime,
+    'requestedEndTime': obj.requestedEndTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryExportFilter
  */
 export interface DiscoveryExportFilter {
@@ -990,6 +1833,22 @@ export interface DiscoveryExportFilter {
 }
 
 /**
+ * Converts an object of type 'DiscoveryExportFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryExportFilter(obj: DiscoveryExportFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'values': obj.values?.map(y => y),
+    'condition': obj.condition,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryImportTaskFilter
  */
 export interface DiscoveryImportTaskFilter {
@@ -1004,6 +1863,21 @@ export interface DiscoveryImportTaskFilter {
   readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryImportTaskFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryImportTaskFilter(obj: DiscoveryImportTaskFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryImportTask
@@ -1077,6 +1951,32 @@ export interface DiscoveryImportTask {
 }
 
 /**
+ * Converts an object of type 'DiscoveryImportTask' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryImportTask(obj: DiscoveryImportTask | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'importTaskId': obj.importTaskId,
+    'clientRequestToken': obj.clientRequestToken,
+    'name': obj.name,
+    'importUrl': obj.importUrl,
+    'status': obj.status,
+    'importRequestTime': obj.importRequestTime,
+    'importCompletionTime': obj.importCompletionTime,
+    'importDeletedTime': obj.importDeletedTime,
+    'serverImportSuccess': obj.serverImportSuccess,
+    'serverImportFailure': obj.serverImportFailure,
+    'applicationImportSuccess': obj.applicationImportSuccess,
+    'applicationImportFailure': obj.applicationImportFailure,
+    'errorsAndFailedEntriesZip': obj.errorsAndFailedEntriesZip,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryTagFilter
  */
 export interface DiscoveryTagFilter {
@@ -1091,6 +1991,21 @@ export interface DiscoveryTagFilter {
   readonly values: string[];
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryTagFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryTagFilter(obj: DiscoveryTagFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryConfigurationTag
@@ -1122,6 +2037,24 @@ export interface DiscoveryConfigurationTag {
   readonly timeOfCreation?: string;
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryConfigurationTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryConfigurationTag(obj: DiscoveryConfigurationTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'configurationType': obj.configurationType,
+    'configurationId': obj.configurationId,
+    'key': obj.key,
+    'value': obj.value,
+    'timeOfCreation': obj.timeOfCreation,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryCustomerAgentInfo
@@ -1165,6 +2098,26 @@ export interface DiscoveryCustomerAgentInfo {
 }
 
 /**
+ * Converts an object of type 'DiscoveryCustomerAgentInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryCustomerAgentInfo(obj: DiscoveryCustomerAgentInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'activeAgents': obj.activeAgents,
+    'healthyAgents': obj.healthyAgents,
+    'blackListedAgents': obj.blackListedAgents,
+    'shutdownAgents': obj.shutdownAgents,
+    'unhealthyAgents': obj.unhealthyAgents,
+    'totalAgents': obj.totalAgents,
+    'unknownAgents': obj.unknownAgents,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryCustomerConnectorInfo
  */
 export interface DiscoveryCustomerConnectorInfo {
@@ -1206,6 +2159,26 @@ export interface DiscoveryCustomerConnectorInfo {
 }
 
 /**
+ * Converts an object of type 'DiscoveryCustomerConnectorInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryCustomerConnectorInfo(obj: DiscoveryCustomerConnectorInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'activeConnectors': obj.activeConnectors,
+    'healthyConnectors': obj.healthyConnectors,
+    'blackListedConnectors': obj.blackListedConnectors,
+    'shutdownConnectors': obj.shutdownConnectors,
+    'unhealthyConnectors': obj.unhealthyConnectors,
+    'totalConnectors': obj.totalConnectors,
+    'unknownConnectors': obj.unknownConnectors,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryOrderByElement
  */
 export interface DiscoveryOrderByElement {
@@ -1220,6 +2193,21 @@ export interface DiscoveryOrderByElement {
   readonly sortOrder?: string;
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryOrderByElement' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryOrderByElement(obj: DiscoveryOrderByElement | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'fieldName': obj.fieldName,
+    'sortOrder': obj.sortOrder,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DiscoveryNeighborConnectionDetail
@@ -1253,6 +2241,24 @@ export interface DiscoveryNeighborConnectionDetail {
 }
 
 /**
+ * Converts an object of type 'DiscoveryNeighborConnectionDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryNeighborConnectionDetail(obj: DiscoveryNeighborConnectionDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sourceServerId': obj.sourceServerId,
+    'destinationServerId': obj.destinationServerId,
+    'destinationPort': obj.destinationPort,
+    'transportProtocol': obj.transportProtocol,
+    'connectionsCount': obj.connectionsCount,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryAgentConfigurationStatus
  */
 export interface DiscoveryAgentConfigurationStatus {
@@ -1274,6 +2280,22 @@ export interface DiscoveryAgentConfigurationStatus {
 }
 
 /**
+ * Converts an object of type 'DiscoveryAgentConfigurationStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryAgentConfigurationStatus(obj: DiscoveryAgentConfigurationStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'agentId': obj.agentId,
+    'operationSucceeded': obj.operationSucceeded,
+    'description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DiscoveryAgentNetworkInfo
  */
 export interface DiscoveryAgentNetworkInfo {
@@ -1288,3 +2310,18 @@ export interface DiscoveryAgentNetworkInfo {
   readonly macAddress?: string;
 
 }
+
+/**
+ * Converts an object of type 'DiscoveryAgentNetworkInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DiscoveryAgentNetworkInfo(obj: DiscoveryAgentNetworkInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ipAddress': obj.ipAddress,
+    'macAddress': obj.macAddress,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

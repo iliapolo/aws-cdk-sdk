@@ -721,8 +721,8 @@ export class CodeDeployResponsesCreateDeploymentConfig {
         parameters: {
           deploymentConfigName: this.__input.deploymentConfigName,
           minimumHealthyHosts: {
-            value: this.__input.minimumHealthyHosts?.value,
             type: this.__input.minimumHealthyHosts?.type,
+            value: this.__input.minimumHealthyHosts?.value,
           },
           trafficRoutingConfig: {
             type: this.__input.trafficRoutingConfig?.type,
@@ -776,6 +776,7 @@ export class CodeDeployResponsesCreateDeploymentGroup {
             enabled: this.__input.autoRollbackConfiguration?.enabled,
             events: this.__input.autoRollbackConfiguration?.events,
           },
+          outdatedInstancesStrategy: this.__input.outdatedInstancesStrategy,
           deploymentStyle: {
             deploymentType: this.__input.deploymentStyle?.deploymentType,
             deploymentOption: this.__input.deploymentStyle?.deploymentOption,
@@ -2121,6 +2122,10 @@ export class CodeDeployResponsesFetchDeploymentDeploymentInfo {
     return resource.getResponseField('deploymentInfo.externalId') as unknown as string;
   }
 
+  public get relatedDeployments(): CodeDeployResponsesFetchDeploymentDeploymentInfoRelatedDeployments {
+    return new CodeDeployResponsesFetchDeploymentDeploymentInfoRelatedDeployments(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class CodeDeployResponsesFetchDeploymentDeploymentInfoPreviousRevision {
@@ -3175,6 +3180,47 @@ export class CodeDeployResponsesFetchDeploymentDeploymentInfoLoadBalancerInfo {
 
 }
 
+export class CodeDeployResponsesFetchDeploymentDeploymentInfoRelatedDeployments {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeDeployGetDeploymentInput) {
+  }
+
+  public get autoUpdateOutdatedInstancesRootDeploymentId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDeployment',
+        service: 'CodeDeploy',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeDeploy.GetDeployment.deploymentInfo.relatedDeployments.autoUpdateOutdatedInstancesRootDeploymentId'),
+        outputPath: 'deploymentInfo.relatedDeployments.autoUpdateOutdatedInstancesRootDeploymentId',
+        parameters: {
+          deploymentId: this.__input.deploymentId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDeployment.deploymentInfo.relatedDeployments.autoUpdateOutdatedInstancesRootDeploymentId', props);
+    return resource.getResponseField('deploymentInfo.relatedDeployments.autoUpdateOutdatedInstancesRootDeploymentId') as unknown as string;
+  }
+
+  public get autoUpdateOutdatedInstancesDeploymentIds(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDeployment',
+        service: 'CodeDeploy',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeDeploy.GetDeployment.deploymentInfo.relatedDeployments.autoUpdateOutdatedInstancesDeploymentIds'),
+        outputPath: 'deploymentInfo.relatedDeployments.autoUpdateOutdatedInstancesDeploymentIds',
+        parameters: {
+          deploymentId: this.__input.deploymentId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDeployment.deploymentInfo.relatedDeployments.autoUpdateOutdatedInstancesDeploymentIds', props);
+    return resource.getResponseField('deploymentInfo.relatedDeployments.autoUpdateOutdatedInstancesDeploymentIds') as unknown as string[];
+  }
+
+}
+
 export class CodeDeployResponsesFetchDeploymentConfig {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeDeployGetDeploymentConfigInput) {
@@ -3274,23 +3320,6 @@ export class CodeDeployResponsesFetchDeploymentConfigDeploymentConfigInfoMinimum
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeDeployGetDeploymentConfigInput) {
   }
 
-  public get value(): number {
-    const props: cr.AwsCustomResourceProps = {
-      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
-      onUpdate: {
-        action: 'getDeploymentConfig',
-        service: 'CodeDeploy',
-        physicalResourceId: cr.PhysicalResourceId.of('CodeDeploy.GetDeploymentConfig.deploymentConfigInfo.minimumHealthyHosts.value'),
-        outputPath: 'deploymentConfigInfo.minimumHealthyHosts.value',
-        parameters: {
-          deploymentConfigName: this.__input.deploymentConfigName,
-        },
-      },
-    };
-    const resource = new cr.AwsCustomResource(this.__scope, 'GetDeploymentConfig.deploymentConfigInfo.minimumHealthyHosts.value', props);
-    return resource.getResponseField('deploymentConfigInfo.minimumHealthyHosts.value') as unknown as number;
-  }
-
   public get type(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -3306,6 +3335,23 @@ export class CodeDeployResponsesFetchDeploymentConfigDeploymentConfigInfoMinimum
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetDeploymentConfig.deploymentConfigInfo.minimumHealthyHosts.type', props);
     return resource.getResponseField('deploymentConfigInfo.minimumHealthyHosts.type') as unknown as string;
+  }
+
+  public get value(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDeploymentConfig',
+        service: 'CodeDeploy',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeDeploy.GetDeploymentConfig.deploymentConfigInfo.minimumHealthyHosts.value'),
+        outputPath: 'deploymentConfigInfo.minimumHealthyHosts.value',
+        parameters: {
+          deploymentConfigName: this.__input.deploymentConfigName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDeploymentConfig.deploymentConfigInfo.minimumHealthyHosts.value', props);
+    return resource.getResponseField('deploymentConfigInfo.minimumHealthyHosts.value') as unknown as number;
   }
 
 }
@@ -3616,6 +3662,24 @@ export class CodeDeployResponsesFetchDeploymentGroupDeploymentGroupInfo {
 
   public get deploymentStyle(): CodeDeployResponsesFetchDeploymentGroupDeploymentGroupInfoDeploymentStyle {
     return new CodeDeployResponsesFetchDeploymentGroupDeploymentGroupInfoDeploymentStyle(this.__scope, this.__resources, this.__input);
+  }
+
+  public get outdatedInstancesStrategy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getDeploymentGroup',
+        service: 'CodeDeploy',
+        physicalResourceId: cr.PhysicalResourceId.of('CodeDeploy.GetDeploymentGroup.deploymentGroupInfo.outdatedInstancesStrategy'),
+        outputPath: 'deploymentGroupInfo.outdatedInstancesStrategy',
+        parameters: {
+          applicationName: this.__input.applicationName,
+          deploymentGroupName: this.__input.deploymentGroupName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetDeploymentGroup.deploymentGroupInfo.outdatedInstancesStrategy', props);
+    return resource.getResponseField('deploymentGroupInfo.outdatedInstancesStrategy') as unknown as string;
   }
 
   public get blueGreenDeploymentConfiguration(): CodeDeployResponsesFetchDeploymentGroupDeploymentGroupInfoBlueGreenDeploymentConfiguration {
@@ -5998,6 +6062,7 @@ export class CodeDeployResponsesUpdateDeploymentGroup {
             enabled: this.__input.autoRollbackConfiguration?.enabled,
             events: this.__input.autoRollbackConfiguration?.events,
           },
+          outdatedInstancesStrategy: this.__input.outdatedInstancesStrategy,
           deploymentStyle: {
             deploymentType: this.__input.deploymentStyle?.deploymentType,
             deploymentOption: this.__input.deploymentStyle?.deploymentOption,

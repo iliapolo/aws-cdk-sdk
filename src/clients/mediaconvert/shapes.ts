@@ -5,9 +5,23 @@ export interface MediaConvertAssociateCertificateRequest {
   /**
    * @schema MediaConvertAssociateCertificateRequest#Arn
    */
-  readonly arn: string;
+  readonly arn?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertAssociateCertificateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAssociateCertificateRequest(obj: MediaConvertAssociateCertificateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertAssociateCertificateResponse
@@ -16,21 +30,61 @@ export interface MediaConvertAssociateCertificateResponse {
 }
 
 /**
+ * Converts an object of type 'MediaConvertAssociateCertificateResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAssociateCertificateResponse(obj: MediaConvertAssociateCertificateResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertCancelJobRequest
  */
 export interface MediaConvertCancelJobRequest {
   /**
    * @schema MediaConvertCancelJobRequest#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertCancelJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCancelJobRequest(obj: MediaConvertCancelJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertCancelJobResponse
  */
 export interface MediaConvertCancelJobResponse {
 }
+
+/**
+ * Converts an object of type 'MediaConvertCancelJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCancelJobResponse(obj: MediaConvertCancelJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertCreateJobRequest
@@ -74,12 +128,12 @@ export interface MediaConvertCreateJobRequest {
   /**
    * @schema MediaConvertCreateJobRequest#Role
    */
-  readonly role: string;
+  readonly role?: string;
 
   /**
    * @schema MediaConvertCreateJobRequest#Settings
    */
-  readonly settings: MediaConvertJobSettings;
+  readonly settings?: MediaConvertJobSettings;
 
   /**
    * @schema MediaConvertCreateJobRequest#SimulateReservedQueue
@@ -104,6 +158,32 @@ export interface MediaConvertCreateJobRequest {
 }
 
 /**
+ * Converts an object of type 'MediaConvertCreateJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCreateJobRequest(obj: MediaConvertCreateJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AccelerationSettings': toJson_MediaConvertAccelerationSettings(obj.accelerationSettings),
+    'BillingTagsSource': obj.billingTagsSource,
+    'ClientRequestToken': obj.clientRequestToken,
+    'HopDestinations': obj.hopDestinations?.map(y => toJson_MediaConvertHopDestination(y)),
+    'JobTemplate': obj.jobTemplate,
+    'Priority': obj.priority,
+    'Queue': obj.queue,
+    'Role': obj.role,
+    'Settings': toJson_MediaConvertJobSettings(obj.settings),
+    'SimulateReservedQueue': obj.simulateReservedQueue,
+    'StatusUpdateInterval': obj.statusUpdateInterval,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'UserMetadata': ((obj.userMetadata) === undefined) ? undefined : (Object.entries(obj.userMetadata).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertCreateJobResponse
  */
 export interface MediaConvertCreateJobResponse {
@@ -113,6 +193,20 @@ export interface MediaConvertCreateJobResponse {
   readonly job?: MediaConvertJob;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertCreateJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCreateJobResponse(obj: MediaConvertCreateJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Job': toJson_MediaConvertJob(obj.job),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertCreateJobTemplateRequest
@@ -141,7 +235,7 @@ export interface MediaConvertCreateJobTemplateRequest {
   /**
    * @schema MediaConvertCreateJobTemplateRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema MediaConvertCreateJobTemplateRequest#Priority
@@ -156,7 +250,7 @@ export interface MediaConvertCreateJobTemplateRequest {
   /**
    * @schema MediaConvertCreateJobTemplateRequest#Settings
    */
-  readonly settings: MediaConvertJobTemplateSettings;
+  readonly settings?: MediaConvertJobTemplateSettings;
 
   /**
    * @schema MediaConvertCreateJobTemplateRequest#StatusUpdateInterval
@@ -171,6 +265,29 @@ export interface MediaConvertCreateJobTemplateRequest {
 }
 
 /**
+ * Converts an object of type 'MediaConvertCreateJobTemplateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCreateJobTemplateRequest(obj: MediaConvertCreateJobTemplateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AccelerationSettings': toJson_MediaConvertAccelerationSettings(obj.accelerationSettings),
+    'Category': obj.category,
+    'Description': obj.description,
+    'HopDestinations': obj.hopDestinations?.map(y => toJson_MediaConvertHopDestination(y)),
+    'Name': obj.name,
+    'Priority': obj.priority,
+    'Queue': obj.queue,
+    'Settings': toJson_MediaConvertJobTemplateSettings(obj.settings),
+    'StatusUpdateInterval': obj.statusUpdateInterval,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertCreateJobTemplateResponse
  */
 export interface MediaConvertCreateJobTemplateResponse {
@@ -180,6 +297,20 @@ export interface MediaConvertCreateJobTemplateResponse {
   readonly jobTemplate?: MediaConvertJobTemplate;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertCreateJobTemplateResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCreateJobTemplateResponse(obj: MediaConvertCreateJobTemplateResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobTemplate': toJson_MediaConvertJobTemplate(obj.jobTemplate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertCreatePresetRequest
@@ -198,12 +329,12 @@ export interface MediaConvertCreatePresetRequest {
   /**
    * @schema MediaConvertCreatePresetRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema MediaConvertCreatePresetRequest#Settings
    */
-  readonly settings: MediaConvertPresetSettings;
+  readonly settings?: MediaConvertPresetSettings;
 
   /**
    * @schema MediaConvertCreatePresetRequest#Tags
@@ -211,6 +342,24 @@ export interface MediaConvertCreatePresetRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertCreatePresetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCreatePresetRequest(obj: MediaConvertCreatePresetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Category': obj.category,
+    'Description': obj.description,
+    'Name': obj.name,
+    'Settings': toJson_MediaConvertPresetSettings(obj.settings),
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertCreatePresetResponse
@@ -224,6 +373,20 @@ export interface MediaConvertCreatePresetResponse {
 }
 
 /**
+ * Converts an object of type 'MediaConvertCreatePresetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCreatePresetResponse(obj: MediaConvertCreatePresetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Preset': toJson_MediaConvertPreset(obj.preset),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertCreateQueueRequest
  */
 export interface MediaConvertCreateQueueRequest {
@@ -235,7 +398,7 @@ export interface MediaConvertCreateQueueRequest {
   /**
    * @schema MediaConvertCreateQueueRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema MediaConvertCreateQueueRequest#PricingPlan
@@ -260,6 +423,25 @@ export interface MediaConvertCreateQueueRequest {
 }
 
 /**
+ * Converts an object of type 'MediaConvertCreateQueueRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCreateQueueRequest(obj: MediaConvertCreateQueueRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Description': obj.description,
+    'Name': obj.name,
+    'PricingPlan': obj.pricingPlan,
+    'ReservationPlanSettings': toJson_MediaConvertReservationPlanSettings(obj.reservationPlanSettings),
+    'Status': obj.status,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertCreateQueueResponse
  */
 export interface MediaConvertCreateQueueResponse {
@@ -271,15 +453,43 @@ export interface MediaConvertCreateQueueResponse {
 }
 
 /**
+ * Converts an object of type 'MediaConvertCreateQueueResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCreateQueueResponse(obj: MediaConvertCreateQueueResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Queue': toJson_MediaConvertQueue(obj.queue),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertDeleteJobTemplateRequest
  */
 export interface MediaConvertDeleteJobTemplateRequest {
   /**
    * @schema MediaConvertDeleteJobTemplateRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertDeleteJobTemplateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDeleteJobTemplateRequest(obj: MediaConvertDeleteJobTemplateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertDeleteJobTemplateResponse
@@ -288,15 +498,42 @@ export interface MediaConvertDeleteJobTemplateResponse {
 }
 
 /**
+ * Converts an object of type 'MediaConvertDeleteJobTemplateResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDeleteJobTemplateResponse(obj: MediaConvertDeleteJobTemplateResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertDeletePresetRequest
  */
 export interface MediaConvertDeletePresetRequest {
   /**
    * @schema MediaConvertDeletePresetRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertDeletePresetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDeletePresetRequest(obj: MediaConvertDeletePresetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertDeletePresetResponse
@@ -305,21 +542,61 @@ export interface MediaConvertDeletePresetResponse {
 }
 
 /**
+ * Converts an object of type 'MediaConvertDeletePresetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDeletePresetResponse(obj: MediaConvertDeletePresetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertDeleteQueueRequest
  */
 export interface MediaConvertDeleteQueueRequest {
   /**
    * @schema MediaConvertDeleteQueueRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertDeleteQueueRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDeleteQueueRequest(obj: MediaConvertDeleteQueueRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertDeleteQueueResponse
  */
 export interface MediaConvertDeleteQueueResponse {
 }
+
+/**
+ * Converts an object of type 'MediaConvertDeleteQueueResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDeleteQueueResponse(obj: MediaConvertDeleteQueueResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertDescribeEndpointsRequest
@@ -343,6 +620,22 @@ export interface MediaConvertDescribeEndpointsRequest {
 }
 
 /**
+ * Converts an object of type 'MediaConvertDescribeEndpointsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDescribeEndpointsRequest(obj: MediaConvertDescribeEndpointsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'Mode': obj.mode,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertDescribeEndpointsResponse
  */
 export interface MediaConvertDescribeEndpointsResponse {
@@ -359,15 +652,44 @@ export interface MediaConvertDescribeEndpointsResponse {
 }
 
 /**
+ * Converts an object of type 'MediaConvertDescribeEndpointsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDescribeEndpointsResponse(obj: MediaConvertDescribeEndpointsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Endpoints': obj.endpoints?.map(y => toJson_MediaConvertEndpoint(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertDisassociateCertificateRequest
  */
 export interface MediaConvertDisassociateCertificateRequest {
   /**
    * @schema MediaConvertDisassociateCertificateRequest#Arn
    */
-  readonly arn: string;
+  readonly arn?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertDisassociateCertificateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDisassociateCertificateRequest(obj: MediaConvertDisassociateCertificateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertDisassociateCertificateResponse
@@ -376,15 +698,42 @@ export interface MediaConvertDisassociateCertificateResponse {
 }
 
 /**
+ * Converts an object of type 'MediaConvertDisassociateCertificateResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDisassociateCertificateResponse(obj: MediaConvertDisassociateCertificateResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertGetJobRequest
  */
 export interface MediaConvertGetJobRequest {
   /**
    * @schema MediaConvertGetJobRequest#Id
    */
-  readonly id: string;
+  readonly id?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertGetJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertGetJobRequest(obj: MediaConvertGetJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertGetJobResponse
@@ -398,15 +747,43 @@ export interface MediaConvertGetJobResponse {
 }
 
 /**
+ * Converts an object of type 'MediaConvertGetJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertGetJobResponse(obj: MediaConvertGetJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Job': toJson_MediaConvertJob(obj.job),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertGetJobTemplateRequest
  */
 export interface MediaConvertGetJobTemplateRequest {
   /**
    * @schema MediaConvertGetJobTemplateRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertGetJobTemplateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertGetJobTemplateRequest(obj: MediaConvertGetJobTemplateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertGetJobTemplateResponse
@@ -420,15 +797,43 @@ export interface MediaConvertGetJobTemplateResponse {
 }
 
 /**
+ * Converts an object of type 'MediaConvertGetJobTemplateResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertGetJobTemplateResponse(obj: MediaConvertGetJobTemplateResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobTemplate': toJson_MediaConvertJobTemplate(obj.jobTemplate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertGetPresetRequest
  */
 export interface MediaConvertGetPresetRequest {
   /**
    * @schema MediaConvertGetPresetRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertGetPresetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertGetPresetRequest(obj: MediaConvertGetPresetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertGetPresetResponse
@@ -442,15 +847,43 @@ export interface MediaConvertGetPresetResponse {
 }
 
 /**
+ * Converts an object of type 'MediaConvertGetPresetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertGetPresetResponse(obj: MediaConvertGetPresetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Preset': toJson_MediaConvertPreset(obj.preset),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertGetQueueRequest
  */
 export interface MediaConvertGetQueueRequest {
   /**
    * @schema MediaConvertGetQueueRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertGetQueueRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertGetQueueRequest(obj: MediaConvertGetQueueRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertGetQueueResponse
@@ -462,6 +895,20 @@ export interface MediaConvertGetQueueResponse {
   readonly queue?: MediaConvertQueue;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertGetQueueResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertGetQueueResponse(obj: MediaConvertGetQueueResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Queue': toJson_MediaConvertQueue(obj.queue),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertListJobTemplatesRequest
@@ -495,6 +942,24 @@ export interface MediaConvertListJobTemplatesRequest {
 }
 
 /**
+ * Converts an object of type 'MediaConvertListJobTemplatesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertListJobTemplatesRequest(obj: MediaConvertListJobTemplatesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Category': obj.category,
+    'ListBy': obj.listBy,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+    'Order': obj.order,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertListJobTemplatesResponse
  */
 export interface MediaConvertListJobTemplatesResponse {
@@ -509,6 +974,21 @@ export interface MediaConvertListJobTemplatesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertListJobTemplatesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertListJobTemplatesResponse(obj: MediaConvertListJobTemplatesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobTemplates': obj.jobTemplates?.map(y => toJson_MediaConvertJobTemplate(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertListJobsRequest
@@ -542,6 +1022,24 @@ export interface MediaConvertListJobsRequest {
 }
 
 /**
+ * Converts an object of type 'MediaConvertListJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertListJobsRequest(obj: MediaConvertListJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+    'Order': obj.order,
+    'Queue': obj.queue,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertListJobsResponse
  */
 export interface MediaConvertListJobsResponse {
@@ -556,6 +1054,21 @@ export interface MediaConvertListJobsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertListJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertListJobsResponse(obj: MediaConvertListJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Jobs': obj.jobs?.map(y => toJson_MediaConvertJob(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertListPresetsRequest
@@ -589,6 +1102,24 @@ export interface MediaConvertListPresetsRequest {
 }
 
 /**
+ * Converts an object of type 'MediaConvertListPresetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertListPresetsRequest(obj: MediaConvertListPresetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Category': obj.category,
+    'ListBy': obj.listBy,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+    'Order': obj.order,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertListPresetsResponse
  */
 export interface MediaConvertListPresetsResponse {
@@ -603,6 +1134,21 @@ export interface MediaConvertListPresetsResponse {
   readonly presets?: MediaConvertPreset[];
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertListPresetsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertListPresetsResponse(obj: MediaConvertListPresetsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'Presets': obj.presets?.map(y => toJson_MediaConvertPreset(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertListQueuesRequest
@@ -631,6 +1177,23 @@ export interface MediaConvertListQueuesRequest {
 }
 
 /**
+ * Converts an object of type 'MediaConvertListQueuesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertListQueuesRequest(obj: MediaConvertListQueuesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ListBy': obj.listBy,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+    'Order': obj.order,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertListQueuesResponse
  */
 export interface MediaConvertListQueuesResponse {
@@ -647,15 +1210,44 @@ export interface MediaConvertListQueuesResponse {
 }
 
 /**
+ * Converts an object of type 'MediaConvertListQueuesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertListQueuesResponse(obj: MediaConvertListQueuesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NextToken': obj.nextToken,
+    'Queues': obj.queues?.map(y => toJson_MediaConvertQueue(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertListTagsForResourceRequest
  */
 export interface MediaConvertListTagsForResourceRequest {
   /**
    * @schema MediaConvertListTagsForResourceRequest#Arn
    */
-  readonly arn: string;
+  readonly arn?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertListTagsForResourceRequest(obj: MediaConvertListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertListTagsForResourceResponse
@@ -669,20 +1261,49 @@ export interface MediaConvertListTagsForResourceResponse {
 }
 
 /**
+ * Converts an object of type 'MediaConvertListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertListTagsForResourceResponse(obj: MediaConvertListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceTags': toJson_MediaConvertResourceTags(obj.resourceTags),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertTagResourceRequest
  */
 export interface MediaConvertTagResourceRequest {
   /**
    * @schema MediaConvertTagResourceRequest#Arn
    */
-  readonly arn: string;
+  readonly arn?: string;
 
   /**
    * @schema MediaConvertTagResourceRequest#Tags
    */
-  readonly tags: { [key: string]: string };
+  readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertTagResourceRequest(obj: MediaConvertTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertTagResourceResponse
@@ -691,13 +1312,26 @@ export interface MediaConvertTagResourceResponse {
 }
 
 /**
+ * Converts an object of type 'MediaConvertTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertTagResourceResponse(obj: MediaConvertTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertUntagResourceRequest
  */
 export interface MediaConvertUntagResourceRequest {
   /**
    * @schema MediaConvertUntagResourceRequest#Arn
    */
-  readonly arn: string;
+  readonly arn?: string;
 
   /**
    * @schema MediaConvertUntagResourceRequest#TagKeys
@@ -707,10 +1341,38 @@ export interface MediaConvertUntagResourceRequest {
 }
 
 /**
+ * Converts an object of type 'MediaConvertUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertUntagResourceRequest(obj: MediaConvertUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertUntagResourceResponse
  */
 export interface MediaConvertUntagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'MediaConvertUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertUntagResourceResponse(obj: MediaConvertUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertUpdateJobTemplateRequest
@@ -739,7 +1401,7 @@ export interface MediaConvertUpdateJobTemplateRequest {
   /**
    * @schema MediaConvertUpdateJobTemplateRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema MediaConvertUpdateJobTemplateRequest#Priority
@@ -764,6 +1426,28 @@ export interface MediaConvertUpdateJobTemplateRequest {
 }
 
 /**
+ * Converts an object of type 'MediaConvertUpdateJobTemplateRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertUpdateJobTemplateRequest(obj: MediaConvertUpdateJobTemplateRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AccelerationSettings': toJson_MediaConvertAccelerationSettings(obj.accelerationSettings),
+    'Category': obj.category,
+    'Description': obj.description,
+    'HopDestinations': obj.hopDestinations?.map(y => toJson_MediaConvertHopDestination(y)),
+    'Name': obj.name,
+    'Priority': obj.priority,
+    'Queue': obj.queue,
+    'Settings': toJson_MediaConvertJobTemplateSettings(obj.settings),
+    'StatusUpdateInterval': obj.statusUpdateInterval,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertUpdateJobTemplateResponse
  */
 export interface MediaConvertUpdateJobTemplateResponse {
@@ -773,6 +1457,20 @@ export interface MediaConvertUpdateJobTemplateResponse {
   readonly jobTemplate?: MediaConvertJobTemplate;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertUpdateJobTemplateResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertUpdateJobTemplateResponse(obj: MediaConvertUpdateJobTemplateResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobTemplate': toJson_MediaConvertJobTemplate(obj.jobTemplate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertUpdatePresetRequest
@@ -791,7 +1489,7 @@ export interface MediaConvertUpdatePresetRequest {
   /**
    * @schema MediaConvertUpdatePresetRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema MediaConvertUpdatePresetRequest#Settings
@@ -799,6 +1497,23 @@ export interface MediaConvertUpdatePresetRequest {
   readonly settings?: MediaConvertPresetSettings;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertUpdatePresetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertUpdatePresetRequest(obj: MediaConvertUpdatePresetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Category': obj.category,
+    'Description': obj.description,
+    'Name': obj.name,
+    'Settings': toJson_MediaConvertPresetSettings(obj.settings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertUpdatePresetResponse
@@ -812,6 +1527,20 @@ export interface MediaConvertUpdatePresetResponse {
 }
 
 /**
+ * Converts an object of type 'MediaConvertUpdatePresetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertUpdatePresetResponse(obj: MediaConvertUpdatePresetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Preset': toJson_MediaConvertPreset(obj.preset),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertUpdateQueueRequest
  */
 export interface MediaConvertUpdateQueueRequest {
@@ -823,7 +1552,7 @@ export interface MediaConvertUpdateQueueRequest {
   /**
    * @schema MediaConvertUpdateQueueRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema MediaConvertUpdateQueueRequest#ReservationPlanSettings
@@ -838,6 +1567,23 @@ export interface MediaConvertUpdateQueueRequest {
 }
 
 /**
+ * Converts an object of type 'MediaConvertUpdateQueueRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertUpdateQueueRequest(obj: MediaConvertUpdateQueueRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Description': obj.description,
+    'Name': obj.name,
+    'ReservationPlanSettings': toJson_MediaConvertReservationPlanSettings(obj.reservationPlanSettings),
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertUpdateQueueResponse
  */
 export interface MediaConvertUpdateQueueResponse {
@@ -849,15 +1595,43 @@ export interface MediaConvertUpdateQueueResponse {
 }
 
 /**
+ * Converts an object of type 'MediaConvertUpdateQueueResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertUpdateQueueResponse(obj: MediaConvertUpdateQueueResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Queue': toJson_MediaConvertQueue(obj.queue),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertAccelerationSettings
  */
 export interface MediaConvertAccelerationSettings {
   /**
    * @schema MediaConvertAccelerationSettings#Mode
    */
-  readonly mode: string;
+  readonly mode?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertAccelerationSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAccelerationSettings(obj: MediaConvertAccelerationSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Mode': obj.mode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertHopDestination
@@ -881,6 +1655,22 @@ export interface MediaConvertHopDestination {
 }
 
 /**
+ * Converts an object of type 'MediaConvertHopDestination' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertHopDestination(obj: MediaConvertHopDestination | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Priority': obj.priority,
+    'Queue': obj.queue,
+    'WaitMinutes': obj.waitMinutes,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertJobSettings
  */
 export interface MediaConvertJobSettings {
@@ -900,9 +1690,19 @@ export interface MediaConvertJobSettings {
   readonly esam?: MediaConvertEsamSettings;
 
   /**
+   * @schema MediaConvertJobSettings#ExtendedDataServices
+   */
+  readonly extendedDataServices?: MediaConvertExtendedDataServices;
+
+  /**
    * @schema MediaConvertJobSettings#Inputs
    */
   readonly inputs?: MediaConvertInput[];
+
+  /**
+   * @schema MediaConvertJobSettings#KantarWatermark
+   */
+  readonly kantarWatermark?: MediaConvertKantarWatermarkSettings;
 
   /**
    * @schema MediaConvertJobSettings#MotionImageInserter
@@ -935,6 +1735,31 @@ export interface MediaConvertJobSettings {
   readonly timedMetadataInsertion?: MediaConvertTimedMetadataInsertion;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertJobSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertJobSettings(obj: MediaConvertJobSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AdAvailOffset': obj.adAvailOffset,
+    'AvailBlanking': toJson_MediaConvertAvailBlanking(obj.availBlanking),
+    'Esam': toJson_MediaConvertEsamSettings(obj.esam),
+    'ExtendedDataServices': toJson_MediaConvertExtendedDataServices(obj.extendedDataServices),
+    'Inputs': obj.inputs?.map(y => toJson_MediaConvertInput(y)),
+    'KantarWatermark': toJson_MediaConvertKantarWatermarkSettings(obj.kantarWatermark),
+    'MotionImageInserter': toJson_MediaConvertMotionImageInserter(obj.motionImageInserter),
+    'NielsenConfiguration': toJson_MediaConvertNielsenConfiguration(obj.nielsenConfiguration),
+    'NielsenNonLinearWatermark': toJson_MediaConvertNielsenNonLinearWatermarkSettings(obj.nielsenNonLinearWatermark),
+    'OutputGroups': obj.outputGroups?.map(y => toJson_MediaConvertOutputGroup(y)),
+    'TimecodeConfig': toJson_MediaConvertTimecodeConfig(obj.timecodeConfig),
+    'TimedMetadataInsertion': toJson_MediaConvertTimedMetadataInsertion(obj.timedMetadataInsertion),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertJob
@@ -1033,12 +1858,12 @@ export interface MediaConvertJob {
   /**
    * @schema MediaConvertJob#Role
    */
-  readonly role: string;
+  readonly role?: string;
 
   /**
    * @schema MediaConvertJob#Settings
    */
-  readonly settings: MediaConvertJobSettings;
+  readonly settings?: MediaConvertJobSettings;
 
   /**
    * @schema MediaConvertJob#SimulateReservedQueue
@@ -1068,6 +1893,44 @@ export interface MediaConvertJob {
 }
 
 /**
+ * Converts an object of type 'MediaConvertJob' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertJob(obj: MediaConvertJob | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AccelerationSettings': toJson_MediaConvertAccelerationSettings(obj.accelerationSettings),
+    'AccelerationStatus': obj.accelerationStatus,
+    'Arn': obj.arn,
+    'BillingTagsSource': obj.billingTagsSource,
+    'CreatedAt': obj.createdAt,
+    'CurrentPhase': obj.currentPhase,
+    'ErrorCode': obj.errorCode,
+    'ErrorMessage': obj.errorMessage,
+    'HopDestinations': obj.hopDestinations?.map(y => toJson_MediaConvertHopDestination(y)),
+    'Id': obj.id,
+    'JobPercentComplete': obj.jobPercentComplete,
+    'JobTemplate': obj.jobTemplate,
+    'Messages': toJson_MediaConvertJobMessages(obj.messages),
+    'OutputGroupDetails': obj.outputGroupDetails?.map(y => toJson_MediaConvertOutputGroupDetail(y)),
+    'Priority': obj.priority,
+    'Queue': obj.queue,
+    'QueueTransitions': obj.queueTransitions?.map(y => toJson_MediaConvertQueueTransition(y)),
+    'RetryCount': obj.retryCount,
+    'Role': obj.role,
+    'Settings': toJson_MediaConvertJobSettings(obj.settings),
+    'SimulateReservedQueue': obj.simulateReservedQueue,
+    'Status': obj.status,
+    'StatusUpdateInterval': obj.statusUpdateInterval,
+    'Timing': toJson_MediaConvertTiming(obj.timing),
+    'UserMetadata': ((obj.userMetadata) === undefined) ? undefined : (Object.entries(obj.userMetadata).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertJobTemplateSettings
  */
 export interface MediaConvertJobTemplateSettings {
@@ -1087,9 +1950,19 @@ export interface MediaConvertJobTemplateSettings {
   readonly esam?: MediaConvertEsamSettings;
 
   /**
+   * @schema MediaConvertJobTemplateSettings#ExtendedDataServices
+   */
+  readonly extendedDataServices?: MediaConvertExtendedDataServices;
+
+  /**
    * @schema MediaConvertJobTemplateSettings#Inputs
    */
   readonly inputs?: MediaConvertInputTemplate[];
+
+  /**
+   * @schema MediaConvertJobTemplateSettings#KantarWatermark
+   */
+  readonly kantarWatermark?: MediaConvertKantarWatermarkSettings;
 
   /**
    * @schema MediaConvertJobTemplateSettings#MotionImageInserter
@@ -1122,6 +1995,31 @@ export interface MediaConvertJobTemplateSettings {
   readonly timedMetadataInsertion?: MediaConvertTimedMetadataInsertion;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertJobTemplateSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertJobTemplateSettings(obj: MediaConvertJobTemplateSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AdAvailOffset': obj.adAvailOffset,
+    'AvailBlanking': toJson_MediaConvertAvailBlanking(obj.availBlanking),
+    'Esam': toJson_MediaConvertEsamSettings(obj.esam),
+    'ExtendedDataServices': toJson_MediaConvertExtendedDataServices(obj.extendedDataServices),
+    'Inputs': obj.inputs?.map(y => toJson_MediaConvertInputTemplate(y)),
+    'KantarWatermark': toJson_MediaConvertKantarWatermarkSettings(obj.kantarWatermark),
+    'MotionImageInserter': toJson_MediaConvertMotionImageInserter(obj.motionImageInserter),
+    'NielsenConfiguration': toJson_MediaConvertNielsenConfiguration(obj.nielsenConfiguration),
+    'NielsenNonLinearWatermark': toJson_MediaConvertNielsenNonLinearWatermarkSettings(obj.nielsenNonLinearWatermark),
+    'OutputGroups': obj.outputGroups?.map(y => toJson_MediaConvertOutputGroup(y)),
+    'TimecodeConfig': toJson_MediaConvertTimecodeConfig(obj.timecodeConfig),
+    'TimedMetadataInsertion': toJson_MediaConvertTimedMetadataInsertion(obj.timedMetadataInsertion),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertJobTemplate
@@ -1165,7 +2063,7 @@ export interface MediaConvertJobTemplate {
   /**
    * @schema MediaConvertJobTemplate#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema MediaConvertJobTemplate#Priority
@@ -1180,7 +2078,7 @@ export interface MediaConvertJobTemplate {
   /**
    * @schema MediaConvertJobTemplate#Settings
    */
-  readonly settings: MediaConvertJobTemplateSettings;
+  readonly settings?: MediaConvertJobTemplateSettings;
 
   /**
    * @schema MediaConvertJobTemplate#StatusUpdateInterval
@@ -1193,6 +2091,32 @@ export interface MediaConvertJobTemplate {
   readonly type?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertJobTemplate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertJobTemplate(obj: MediaConvertJobTemplate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AccelerationSettings': toJson_MediaConvertAccelerationSettings(obj.accelerationSettings),
+    'Arn': obj.arn,
+    'Category': obj.category,
+    'CreatedAt': obj.createdAt,
+    'Description': obj.description,
+    'HopDestinations': obj.hopDestinations?.map(y => toJson_MediaConvertHopDestination(y)),
+    'LastUpdated': obj.lastUpdated,
+    'Name': obj.name,
+    'Priority': obj.priority,
+    'Queue': obj.queue,
+    'Settings': toJson_MediaConvertJobTemplateSettings(obj.settings),
+    'StatusUpdateInterval': obj.statusUpdateInterval,
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertPresetSettings
@@ -1219,6 +2143,23 @@ export interface MediaConvertPresetSettings {
   readonly videoDescription?: MediaConvertVideoDescription;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertPresetSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertPresetSettings(obj: MediaConvertPresetSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AudioDescriptions': obj.audioDescriptions?.map(y => toJson_MediaConvertAudioDescription(y)),
+    'CaptionDescriptions': obj.captionDescriptions?.map(y => toJson_MediaConvertCaptionDescriptionPreset(y)),
+    'ContainerSettings': toJson_MediaConvertContainerSettings(obj.containerSettings),
+    'VideoDescription': toJson_MediaConvertVideoDescription(obj.videoDescription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertPreset
@@ -1252,12 +2193,12 @@ export interface MediaConvertPreset {
   /**
    * @schema MediaConvertPreset#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema MediaConvertPreset#Settings
    */
-  readonly settings: MediaConvertPresetSettings;
+  readonly settings?: MediaConvertPresetSettings;
 
   /**
    * @schema MediaConvertPreset#Type
@@ -1267,25 +2208,62 @@ export interface MediaConvertPreset {
 }
 
 /**
+ * Converts an object of type 'MediaConvertPreset' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertPreset(obj: MediaConvertPreset | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Category': obj.category,
+    'CreatedAt': obj.createdAt,
+    'Description': obj.description,
+    'LastUpdated': obj.lastUpdated,
+    'Name': obj.name,
+    'Settings': toJson_MediaConvertPresetSettings(obj.settings),
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertReservationPlanSettings
  */
 export interface MediaConvertReservationPlanSettings {
   /**
    * @schema MediaConvertReservationPlanSettings#Commitment
    */
-  readonly commitment: string;
+  readonly commitment?: string;
 
   /**
    * @schema MediaConvertReservationPlanSettings#RenewalType
    */
-  readonly renewalType: string;
+  readonly renewalType?: string;
 
   /**
    * @schema MediaConvertReservationPlanSettings#ReservedSlots
    */
-  readonly reservedSlots: number;
+  readonly reservedSlots?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertReservationPlanSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertReservationPlanSettings(obj: MediaConvertReservationPlanSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Commitment': obj.commitment,
+    'RenewalType': obj.renewalType,
+    'ReservedSlots': obj.reservedSlots,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertQueue
@@ -1314,7 +2292,7 @@ export interface MediaConvertQueue {
   /**
    * @schema MediaConvertQueue#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema MediaConvertQueue#PricingPlan
@@ -1349,6 +2327,30 @@ export interface MediaConvertQueue {
 }
 
 /**
+ * Converts an object of type 'MediaConvertQueue' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertQueue(obj: MediaConvertQueue | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'CreatedAt': obj.createdAt,
+    'Description': obj.description,
+    'LastUpdated': obj.lastUpdated,
+    'Name': obj.name,
+    'PricingPlan': obj.pricingPlan,
+    'ProgressingJobsCount': obj.progressingJobsCount,
+    'ReservationPlan': toJson_MediaConvertReservationPlan(obj.reservationPlan),
+    'Status': obj.status,
+    'SubmittedJobsCount': obj.submittedJobsCount,
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertEndpoint
  */
 export interface MediaConvertEndpoint {
@@ -1358,6 +2360,20 @@ export interface MediaConvertEndpoint {
   readonly url?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertEndpoint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertEndpoint(obj: MediaConvertEndpoint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Url': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertResourceTags
@@ -1376,6 +2392,21 @@ export interface MediaConvertResourceTags {
 }
 
 /**
+ * Converts an object of type 'MediaConvertResourceTags' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertResourceTags(obj: MediaConvertResourceTags | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertAvailBlanking
  */
 export interface MediaConvertAvailBlanking {
@@ -1385,6 +2416,20 @@ export interface MediaConvertAvailBlanking {
   readonly availBlankingImage?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertAvailBlanking' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAvailBlanking(obj: MediaConvertAvailBlanking | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AvailBlankingImage': obj.availBlankingImage,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertEsamSettings
@@ -1406,6 +2451,53 @@ export interface MediaConvertEsamSettings {
   readonly signalProcessingNotification?: MediaConvertEsamSignalProcessingNotification;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertEsamSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertEsamSettings(obj: MediaConvertEsamSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ManifestConfirmConditionNotification': toJson_MediaConvertEsamManifestConfirmConditionNotification(obj.manifestConfirmConditionNotification),
+    'ResponseSignalPreroll': obj.responseSignalPreroll,
+    'SignalProcessingNotification': toJson_MediaConvertEsamSignalProcessingNotification(obj.signalProcessingNotification),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema MediaConvertExtendedDataServices
+ */
+export interface MediaConvertExtendedDataServices {
+  /**
+   * @schema MediaConvertExtendedDataServices#CopyProtectionAction
+   */
+  readonly copyProtectionAction?: string;
+
+  /**
+   * @schema MediaConvertExtendedDataServices#VchipAction
+   */
+  readonly vchipAction?: string;
+
+}
+
+/**
+ * Converts an object of type 'MediaConvertExtendedDataServices' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertExtendedDataServices(obj: MediaConvertExtendedDataServices | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CopyProtectionAction': obj.copyProtectionAction,
+    'VchipAction': obj.vchipAction,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertInput
@@ -1514,6 +2606,136 @@ export interface MediaConvertInput {
 }
 
 /**
+ * Converts an object of type 'MediaConvertInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertInput(obj: MediaConvertInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AudioSelectorGroups': ((obj.audioSelectorGroups) === undefined) ? undefined : (Object.entries(obj.audioSelectorGroups).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_MediaConvertAudioSelectorGroup(i[1]) }), {})),
+    'AudioSelectors': ((obj.audioSelectors) === undefined) ? undefined : (Object.entries(obj.audioSelectors).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_MediaConvertAudioSelector(i[1]) }), {})),
+    'CaptionSelectors': ((obj.captionSelectors) === undefined) ? undefined : (Object.entries(obj.captionSelectors).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_MediaConvertCaptionSelector(i[1]) }), {})),
+    'Crop': toJson_MediaConvertRectangle(obj.crop),
+    'DeblockFilter': obj.deblockFilter,
+    'DecryptionSettings': toJson_MediaConvertInputDecryptionSettings(obj.decryptionSettings),
+    'DenoiseFilter': obj.denoiseFilter,
+    'FileInput': obj.fileInput,
+    'FilterEnable': obj.filterEnable,
+    'FilterStrength': obj.filterStrength,
+    'ImageInserter': toJson_MediaConvertImageInserter(obj.imageInserter),
+    'InputClippings': obj.inputClippings?.map(y => toJson_MediaConvertInputClipping(y)),
+    'InputScanType': obj.inputScanType,
+    'Position': toJson_MediaConvertRectangle(obj.position),
+    'ProgramNumber': obj.programNumber,
+    'PsiControl': obj.psiControl,
+    'SupplementalImps': obj.supplementalImps?.map(y => y),
+    'TimecodeSource': obj.timecodeSource,
+    'TimecodeStart': obj.timecodeStart,
+    'VideoSelector': toJson_MediaConvertVideoSelector(obj.videoSelector),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema MediaConvertKantarWatermarkSettings
+ */
+export interface MediaConvertKantarWatermarkSettings {
+  /**
+   * @schema MediaConvertKantarWatermarkSettings#ChannelName
+   */
+  readonly channelName?: string;
+
+  /**
+   * @schema MediaConvertKantarWatermarkSettings#ContentReference
+   */
+  readonly contentReference?: string;
+
+  /**
+   * @schema MediaConvertKantarWatermarkSettings#CredentialsSecretName
+   */
+  readonly credentialsSecretName?: string;
+
+  /**
+   * @schema MediaConvertKantarWatermarkSettings#FileOffset
+   */
+  readonly fileOffset?: number;
+
+  /**
+   * @schema MediaConvertKantarWatermarkSettings#KantarLicenseId
+   */
+  readonly kantarLicenseId?: number;
+
+  /**
+   * @schema MediaConvertKantarWatermarkSettings#KantarServerUrl
+   */
+  readonly kantarServerUrl?: string;
+
+  /**
+   * @schema MediaConvertKantarWatermarkSettings#LogDestination
+   */
+  readonly logDestination?: string;
+
+  /**
+   * @schema MediaConvertKantarWatermarkSettings#Metadata3
+   */
+  readonly metadata3?: string;
+
+  /**
+   * @schema MediaConvertKantarWatermarkSettings#Metadata4
+   */
+  readonly metadata4?: string;
+
+  /**
+   * @schema MediaConvertKantarWatermarkSettings#Metadata5
+   */
+  readonly metadata5?: string;
+
+  /**
+   * @schema MediaConvertKantarWatermarkSettings#Metadata6
+   */
+  readonly metadata6?: string;
+
+  /**
+   * @schema MediaConvertKantarWatermarkSettings#Metadata7
+   */
+  readonly metadata7?: string;
+
+  /**
+   * @schema MediaConvertKantarWatermarkSettings#Metadata8
+   */
+  readonly metadata8?: string;
+
+}
+
+/**
+ * Converts an object of type 'MediaConvertKantarWatermarkSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertKantarWatermarkSettings(obj: MediaConvertKantarWatermarkSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ChannelName': obj.channelName,
+    'ContentReference': obj.contentReference,
+    'CredentialsSecretName': obj.credentialsSecretName,
+    'FileOffset': obj.fileOffset,
+    'KantarLicenseId': obj.kantarLicenseId,
+    'KantarServerUrl': obj.kantarServerUrl,
+    'LogDestination': obj.logDestination,
+    'Metadata3': obj.metadata3,
+    'Metadata4': obj.metadata4,
+    'Metadata5': obj.metadata5,
+    'Metadata6': obj.metadata6,
+    'Metadata7': obj.metadata7,
+    'Metadata8': obj.metadata8,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertMotionImageInserter
  */
 export interface MediaConvertMotionImageInserter {
@@ -1550,6 +2772,25 @@ export interface MediaConvertMotionImageInserter {
 }
 
 /**
+ * Converts an object of type 'MediaConvertMotionImageInserter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertMotionImageInserter(obj: MediaConvertMotionImageInserter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Framerate': toJson_MediaConvertMotionImageInsertionFramerate(obj.framerate),
+    'Input': obj.input,
+    'InsertionMode': obj.insertionMode,
+    'Offset': toJson_MediaConvertMotionImageInsertionOffset(obj.offset),
+    'Playback': obj.playback,
+    'StartTime': obj.startTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertNielsenConfiguration
  */
 export interface MediaConvertNielsenConfiguration {
@@ -1564,6 +2805,21 @@ export interface MediaConvertNielsenConfiguration {
   readonly distributorId?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertNielsenConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertNielsenConfiguration(obj: MediaConvertNielsenConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BreakoutCode': obj.breakoutCode,
+    'DistributorId': obj.distributorId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertNielsenNonLinearWatermarkSettings
@@ -1627,6 +2883,30 @@ export interface MediaConvertNielsenNonLinearWatermarkSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertNielsenNonLinearWatermarkSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertNielsenNonLinearWatermarkSettings(obj: MediaConvertNielsenNonLinearWatermarkSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ActiveWatermarkProcess': obj.activeWatermarkProcess,
+    'AdiFilename': obj.adiFilename,
+    'AssetId': obj.assetId,
+    'AssetName': obj.assetName,
+    'CbetSourceId': obj.cbetSourceId,
+    'EpisodeId': obj.episodeId,
+    'MetadataDestination': obj.metadataDestination,
+    'SourceId': obj.sourceId,
+    'SourceWatermarkStatus': obj.sourceWatermarkStatus,
+    'TicServerUrl': obj.ticServerUrl,
+    'UniqueTicPerAudioTrack': obj.uniqueTicPerAudioTrack,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertOutputGroup
  */
 export interface MediaConvertOutputGroup {
@@ -1658,6 +2938,24 @@ export interface MediaConvertOutputGroup {
 }
 
 /**
+ * Converts an object of type 'MediaConvertOutputGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertOutputGroup(obj: MediaConvertOutputGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AutomatedEncodingSettings': toJson_MediaConvertAutomatedEncodingSettings(obj.automatedEncodingSettings),
+    'CustomName': obj.customName,
+    'Name': obj.name,
+    'OutputGroupSettings': toJson_MediaConvertOutputGroupSettings(obj.outputGroupSettings),
+    'Outputs': obj.outputs?.map(y => toJson_MediaConvertOutput(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertTimecodeConfig
  */
 export interface MediaConvertTimecodeConfig {
@@ -1684,6 +2982,23 @@ export interface MediaConvertTimecodeConfig {
 }
 
 /**
+ * Converts an object of type 'MediaConvertTimecodeConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertTimecodeConfig(obj: MediaConvertTimecodeConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Anchor': obj.anchor,
+    'Source': obj.source,
+    'Start': obj.start,
+    'TimestampOffset': obj.timestampOffset,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertTimedMetadataInsertion
  */
 export interface MediaConvertTimedMetadataInsertion {
@@ -1693,6 +3008,20 @@ export interface MediaConvertTimedMetadataInsertion {
   readonly id3Insertions?: MediaConvertId3Insertion[];
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertTimedMetadataInsertion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertTimedMetadataInsertion(obj: MediaConvertTimedMetadataInsertion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id3Insertions': obj.id3Insertions?.map(y => toJson_MediaConvertId3Insertion(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertJobMessages
@@ -1711,6 +3040,21 @@ export interface MediaConvertJobMessages {
 }
 
 /**
+ * Converts an object of type 'MediaConvertJobMessages' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertJobMessages(obj: MediaConvertJobMessages | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Info': obj.info?.map(y => y),
+    'Warning': obj.warning?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertOutputGroupDetail
  */
 export interface MediaConvertOutputGroupDetail {
@@ -1720,6 +3064,20 @@ export interface MediaConvertOutputGroupDetail {
   readonly outputDetails?: MediaConvertOutputDetail[];
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertOutputGroupDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertOutputGroupDetail(obj: MediaConvertOutputGroupDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OutputDetails': obj.outputDetails?.map(y => toJson_MediaConvertOutputDetail(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertQueueTransition
@@ -1743,6 +3101,22 @@ export interface MediaConvertQueueTransition {
 }
 
 /**
+ * Converts an object of type 'MediaConvertQueueTransition' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertQueueTransition(obj: MediaConvertQueueTransition | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DestinationQueue': obj.destinationQueue,
+    'SourceQueue': obj.sourceQueue,
+    'Timestamp': obj.timestamp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertTiming
  */
 export interface MediaConvertTiming {
@@ -1762,6 +3136,22 @@ export interface MediaConvertTiming {
   readonly submitTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertTiming' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertTiming(obj: MediaConvertTiming | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FinishTime': obj.finishTime,
+    'StartTime': obj.startTime,
+    'SubmitTime': obj.submitTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertInputTemplate
@@ -1855,6 +3245,36 @@ export interface MediaConvertInputTemplate {
 }
 
 /**
+ * Converts an object of type 'MediaConvertInputTemplate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertInputTemplate(obj: MediaConvertInputTemplate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AudioSelectorGroups': ((obj.audioSelectorGroups) === undefined) ? undefined : (Object.entries(obj.audioSelectorGroups).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_MediaConvertAudioSelectorGroup(i[1]) }), {})),
+    'AudioSelectors': ((obj.audioSelectors) === undefined) ? undefined : (Object.entries(obj.audioSelectors).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_MediaConvertAudioSelector(i[1]) }), {})),
+    'CaptionSelectors': ((obj.captionSelectors) === undefined) ? undefined : (Object.entries(obj.captionSelectors).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_MediaConvertCaptionSelector(i[1]) }), {})),
+    'Crop': toJson_MediaConvertRectangle(obj.crop),
+    'DeblockFilter': obj.deblockFilter,
+    'DenoiseFilter': obj.denoiseFilter,
+    'FilterEnable': obj.filterEnable,
+    'FilterStrength': obj.filterStrength,
+    'ImageInserter': toJson_MediaConvertImageInserter(obj.imageInserter),
+    'InputClippings': obj.inputClippings?.map(y => toJson_MediaConvertInputClipping(y)),
+    'InputScanType': obj.inputScanType,
+    'Position': toJson_MediaConvertRectangle(obj.position),
+    'ProgramNumber': obj.programNumber,
+    'PsiControl': obj.psiControl,
+    'TimecodeSource': obj.timecodeSource,
+    'TimecodeStart': obj.timecodeStart,
+    'VideoSelector': toJson_MediaConvertVideoSelector(obj.videoSelector),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertAudioDescription
  */
 export interface MediaConvertAudioDescription {
@@ -1916,6 +3336,30 @@ export interface MediaConvertAudioDescription {
 }
 
 /**
+ * Converts an object of type 'MediaConvertAudioDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAudioDescription(obj: MediaConvertAudioDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AudioChannelTaggingSettings': toJson_MediaConvertAudioChannelTaggingSettings(obj.audioChannelTaggingSettings),
+    'AudioNormalizationSettings': toJson_MediaConvertAudioNormalizationSettings(obj.audioNormalizationSettings),
+    'AudioSourceName': obj.audioSourceName,
+    'AudioType': obj.audioType,
+    'AudioTypeControl': obj.audioTypeControl,
+    'CodecSettings': toJson_MediaConvertAudioCodecSettings(obj.codecSettings),
+    'CustomLanguageCode': obj.customLanguageCode,
+    'LanguageCode': obj.languageCode,
+    'LanguageCodeControl': obj.languageCodeControl,
+    'RemixSettings': toJson_MediaConvertRemixSettings(obj.remixSettings),
+    'StreamName': obj.streamName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertCaptionDescriptionPreset
  */
 export interface MediaConvertCaptionDescriptionPreset {
@@ -1940,6 +3384,23 @@ export interface MediaConvertCaptionDescriptionPreset {
   readonly languageDescription?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertCaptionDescriptionPreset' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCaptionDescriptionPreset(obj: MediaConvertCaptionDescriptionPreset | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CustomLanguageCode': obj.customLanguageCode,
+    'DestinationSettings': toJson_MediaConvertCaptionDestinationSettings(obj.destinationSettings),
+    'LanguageCode': obj.languageCode,
+    'LanguageDescription': obj.languageDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertContainerSettings
@@ -1991,6 +3452,28 @@ export interface MediaConvertContainerSettings {
   readonly mxfSettings?: MediaConvertMxfSettings;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertContainerSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertContainerSettings(obj: MediaConvertContainerSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CmfcSettings': toJson_MediaConvertCmfcSettings(obj.cmfcSettings),
+    'Container': obj.container,
+    'F4vSettings': toJson_MediaConvertF4vSettings(obj.f4VSettings),
+    'M2tsSettings': toJson_MediaConvertM2tsSettings(obj.m2TsSettings),
+    'M3u8Settings': toJson_MediaConvertM3u8Settings(obj.m3U8Settings),
+    'MovSettings': toJson_MediaConvertMovSettings(obj.movSettings),
+    'Mp4Settings': toJson_MediaConvertMp4Settings(obj.mp4Settings),
+    'MpdSettings': toJson_MediaConvertMpdSettings(obj.mpdSettings),
+    'MxfSettings': toJson_MediaConvertMxfSettings(obj.mxfSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertVideoDescription
@@ -2074,6 +3557,34 @@ export interface MediaConvertVideoDescription {
 }
 
 /**
+ * Converts an object of type 'MediaConvertVideoDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertVideoDescription(obj: MediaConvertVideoDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AfdSignaling': obj.afdSignaling,
+    'AntiAlias': obj.antiAlias,
+    'CodecSettings': toJson_MediaConvertVideoCodecSettings(obj.codecSettings),
+    'ColorMetadata': obj.colorMetadata,
+    'Crop': toJson_MediaConvertRectangle(obj.crop),
+    'DropFrameTimecode': obj.dropFrameTimecode,
+    'FixedAfd': obj.fixedAfd,
+    'Height': obj.height,
+    'Position': toJson_MediaConvertRectangle(obj.position),
+    'RespondToAfd': obj.respondToAfd,
+    'ScalingBehavior': obj.scalingBehavior,
+    'Sharpness': obj.sharpness,
+    'TimecodeInsertion': obj.timecodeInsertion,
+    'VideoPreprocessors': toJson_MediaConvertVideoPreprocessor(obj.videoPreprocessors),
+    'Width': obj.width,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertReservationPlan
  */
 export interface MediaConvertReservationPlan {
@@ -2110,6 +3621,25 @@ export interface MediaConvertReservationPlan {
 }
 
 /**
+ * Converts an object of type 'MediaConvertReservationPlan' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertReservationPlan(obj: MediaConvertReservationPlan | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Commitment': obj.commitment,
+    'ExpiresAt': obj.expiresAt,
+    'PurchasedAt': obj.purchasedAt,
+    'RenewalType': obj.renewalType,
+    'ReservedSlots': obj.reservedSlots,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertEsamManifestConfirmConditionNotification
  */
 export interface MediaConvertEsamManifestConfirmConditionNotification {
@@ -2119,6 +3649,20 @@ export interface MediaConvertEsamManifestConfirmConditionNotification {
   readonly mccXml?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertEsamManifestConfirmConditionNotification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertEsamManifestConfirmConditionNotification(obj: MediaConvertEsamManifestConfirmConditionNotification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MccXml': obj.mccXml,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertEsamSignalProcessingNotification
@@ -2132,6 +3676,20 @@ export interface MediaConvertEsamSignalProcessingNotification {
 }
 
 /**
+ * Converts an object of type 'MediaConvertEsamSignalProcessingNotification' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertEsamSignalProcessingNotification(obj: MediaConvertEsamSignalProcessingNotification | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SccXml': obj.sccXml,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertAudioSelectorGroup
  */
 export interface MediaConvertAudioSelectorGroup {
@@ -2141,6 +3699,20 @@ export interface MediaConvertAudioSelectorGroup {
   readonly audioSelectorNames?: string[];
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertAudioSelectorGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAudioSelectorGroup(obj: MediaConvertAudioSelectorGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AudioSelectorNames': obj.audioSelectorNames?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertAudioSelector
@@ -2160,6 +3732,11 @@ export interface MediaConvertAudioSelector {
    * @schema MediaConvertAudioSelector#ExternalAudioFileInput
    */
   readonly externalAudioFileInput?: string;
+
+  /**
+   * @schema MediaConvertAudioSelector#HlsRenditionGroupSettings
+   */
+  readonly hlsRenditionGroupSettings?: MediaConvertHlsRenditionGroupSettings;
 
   /**
    * @schema MediaConvertAudioSelector#LanguageCode
@@ -2199,6 +3776,30 @@ export interface MediaConvertAudioSelector {
 }
 
 /**
+ * Converts an object of type 'MediaConvertAudioSelector' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAudioSelector(obj: MediaConvertAudioSelector | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CustomLanguageCode': obj.customLanguageCode,
+    'DefaultSelection': obj.defaultSelection,
+    'ExternalAudioFileInput': obj.externalAudioFileInput,
+    'HlsRenditionGroupSettings': toJson_MediaConvertHlsRenditionGroupSettings(obj.hlsRenditionGroupSettings),
+    'LanguageCode': obj.languageCode,
+    'Offset': obj.offset,
+    'Pids': obj.pids?.map(y => y),
+    'ProgramSelection': obj.programSelection,
+    'RemixSettings': toJson_MediaConvertRemixSettings(obj.remixSettings),
+    'SelectorType': obj.selectorType,
+    'Tracks': obj.tracks?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertCaptionSelector
  */
 export interface MediaConvertCaptionSelector {
@@ -2218,6 +3819,22 @@ export interface MediaConvertCaptionSelector {
   readonly sourceSettings?: MediaConvertCaptionSourceSettings;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertCaptionSelector' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCaptionSelector(obj: MediaConvertCaptionSelector | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CustomLanguageCode': obj.customLanguageCode,
+    'LanguageCode': obj.languageCode,
+    'SourceSettings': toJson_MediaConvertCaptionSourceSettings(obj.sourceSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertRectangle
@@ -2246,6 +3863,23 @@ export interface MediaConvertRectangle {
 }
 
 /**
+ * Converts an object of type 'MediaConvertRectangle' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertRectangle(obj: MediaConvertRectangle | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Height': obj.height,
+    'Width': obj.width,
+    'X': obj.x,
+    'Y': obj.y,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertInputDecryptionSettings
  */
 export interface MediaConvertInputDecryptionSettings {
@@ -2272,6 +3906,23 @@ export interface MediaConvertInputDecryptionSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertInputDecryptionSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertInputDecryptionSettings(obj: MediaConvertInputDecryptionSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DecryptionMode': obj.decryptionMode,
+    'EncryptedDecryptionKey': obj.encryptedDecryptionKey,
+    'InitializationVector': obj.initializationVector,
+    'KmsKeyRegion': obj.kmsKeyRegion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertImageInserter
  */
 export interface MediaConvertImageInserter {
@@ -2281,6 +3932,20 @@ export interface MediaConvertImageInserter {
   readonly insertableImages?: MediaConvertInsertableImage[];
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertImageInserter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertImageInserter(obj: MediaConvertImageInserter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InsertableImages': obj.insertableImages?.map(y => toJson_MediaConvertInsertableImage(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertInputClipping
@@ -2297,6 +3962,21 @@ export interface MediaConvertInputClipping {
   readonly startTimecode?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertInputClipping' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertInputClipping(obj: MediaConvertInputClipping | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EndTimecode': obj.endTimecode,
+    'StartTimecode': obj.startTimecode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertVideoSelector
@@ -2337,7 +4017,33 @@ export interface MediaConvertVideoSelector {
    */
   readonly rotate?: string;
 
+  /**
+   * @schema MediaConvertVideoSelector#SampleRange
+   */
+  readonly sampleRange?: string;
+
 }
+
+/**
+ * Converts an object of type 'MediaConvertVideoSelector' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertVideoSelector(obj: MediaConvertVideoSelector | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AlphaBehavior': obj.alphaBehavior,
+    'ColorSpace': obj.colorSpace,
+    'ColorSpaceUsage': obj.colorSpaceUsage,
+    'Hdr10Metadata': toJson_MediaConvertHdr10Metadata(obj.hdr10Metadata),
+    'Pid': obj.pid,
+    'ProgramNumber': obj.programNumber,
+    'Rotate': obj.rotate,
+    'SampleRange': obj.sampleRange,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertMotionImageInsertionFramerate
@@ -2356,6 +4062,21 @@ export interface MediaConvertMotionImageInsertionFramerate {
 }
 
 /**
+ * Converts an object of type 'MediaConvertMotionImageInsertionFramerate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertMotionImageInsertionFramerate(obj: MediaConvertMotionImageInsertionFramerate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FramerateDenominator': obj.framerateDenominator,
+    'FramerateNumerator': obj.framerateNumerator,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertMotionImageInsertionOffset
  */
 export interface MediaConvertMotionImageInsertionOffset {
@@ -2372,6 +4093,21 @@ export interface MediaConvertMotionImageInsertionOffset {
 }
 
 /**
+ * Converts an object of type 'MediaConvertMotionImageInsertionOffset' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertMotionImageInsertionOffset(obj: MediaConvertMotionImageInsertionOffset | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ImageX': obj.imageX,
+    'ImageY': obj.imageY,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertAutomatedEncodingSettings
  */
 export interface MediaConvertAutomatedEncodingSettings {
@@ -2381,6 +4117,20 @@ export interface MediaConvertAutomatedEncodingSettings {
   readonly abrSettings?: MediaConvertAutomatedAbrSettings;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertAutomatedEncodingSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAutomatedEncodingSettings(obj: MediaConvertAutomatedEncodingSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AbrSettings': toJson_MediaConvertAutomatedAbrSettings(obj.abrSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertOutputGroupSettings
@@ -2417,6 +4167,25 @@ export interface MediaConvertOutputGroupSettings {
   readonly type?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertOutputGroupSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertOutputGroupSettings(obj: MediaConvertOutputGroupSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CmafGroupSettings': toJson_MediaConvertCmafGroupSettings(obj.cmafGroupSettings),
+    'DashIsoGroupSettings': toJson_MediaConvertDashIsoGroupSettings(obj.dashIsoGroupSettings),
+    'FileGroupSettings': toJson_MediaConvertFileGroupSettings(obj.fileGroupSettings),
+    'HlsGroupSettings': toJson_MediaConvertHlsGroupSettings(obj.hlsGroupSettings),
+    'MsSmoothGroupSettings': toJson_MediaConvertMsSmoothGroupSettings(obj.msSmoothGroupSettings),
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertOutput
@@ -2465,6 +4234,27 @@ export interface MediaConvertOutput {
 }
 
 /**
+ * Converts an object of type 'MediaConvertOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertOutput(obj: MediaConvertOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AudioDescriptions': obj.audioDescriptions?.map(y => toJson_MediaConvertAudioDescription(y)),
+    'CaptionDescriptions': obj.captionDescriptions?.map(y => toJson_MediaConvertCaptionDescription(y)),
+    'ContainerSettings': toJson_MediaConvertContainerSettings(obj.containerSettings),
+    'Extension': obj.extension,
+    'NameModifier': obj.nameModifier,
+    'OutputSettings': toJson_MediaConvertOutputSettings(obj.outputSettings),
+    'Preset': obj.preset,
+    'VideoDescription': toJson_MediaConvertVideoDescription(obj.videoDescription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertId3Insertion
  */
 export interface MediaConvertId3Insertion {
@@ -2479,6 +4269,21 @@ export interface MediaConvertId3Insertion {
   readonly timecode?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertId3Insertion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertId3Insertion(obj: MediaConvertId3Insertion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id3': obj.id3,
+    'Timecode': obj.timecode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertOutputDetail
@@ -2497,6 +4302,21 @@ export interface MediaConvertOutputDetail {
 }
 
 /**
+ * Converts an object of type 'MediaConvertOutputDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertOutputDetail(obj: MediaConvertOutputDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DurationInMs': obj.durationInMs,
+    'VideoDetails': toJson_MediaConvertVideoDetail(obj.videoDetails),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertAudioChannelTaggingSettings
  */
 export interface MediaConvertAudioChannelTaggingSettings {
@@ -2506,6 +4326,20 @@ export interface MediaConvertAudioChannelTaggingSettings {
   readonly channelTag?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertAudioChannelTaggingSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAudioChannelTaggingSettings(obj: MediaConvertAudioChannelTaggingSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ChannelTag': obj.channelTag,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertAudioNormalizationSettings
@@ -2542,6 +4376,25 @@ export interface MediaConvertAudioNormalizationSettings {
   readonly targetLkfs?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertAudioNormalizationSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAudioNormalizationSettings(obj: MediaConvertAudioNormalizationSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Algorithm': obj.algorithm,
+    'AlgorithmControl': obj.algorithmControl,
+    'CorrectionGateLevel': obj.correctionGateLevel,
+    'LoudnessLogging': obj.loudnessLogging,
+    'PeakCalculation': obj.peakCalculation,
+    'TargetLkfs': obj.targetLkfs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertAudioCodecSettings
@@ -2605,6 +4458,30 @@ export interface MediaConvertAudioCodecSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertAudioCodecSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAudioCodecSettings(obj: MediaConvertAudioCodecSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AacSettings': toJson_MediaConvertAacSettings(obj.aacSettings),
+    'Ac3Settings': toJson_MediaConvertAc3Settings(obj.ac3Settings),
+    'AiffSettings': toJson_MediaConvertAiffSettings(obj.aiffSettings),
+    'Codec': obj.codec,
+    'Eac3AtmosSettings': toJson_MediaConvertEac3AtmosSettings(obj.eac3AtmosSettings),
+    'Eac3Settings': toJson_MediaConvertEac3Settings(obj.eac3Settings),
+    'Mp2Settings': toJson_MediaConvertMp2Settings(obj.mp2Settings),
+    'Mp3Settings': toJson_MediaConvertMp3Settings(obj.mp3Settings),
+    'OpusSettings': toJson_MediaConvertOpusSettings(obj.opusSettings),
+    'VorbisSettings': toJson_MediaConvertVorbisSettings(obj.vorbisSettings),
+    'WavSettings': toJson_MediaConvertWavSettings(obj.wavSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertRemixSettings
  */
 export interface MediaConvertRemixSettings {
@@ -2624,6 +4501,22 @@ export interface MediaConvertRemixSettings {
   readonly channelsOut?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertRemixSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertRemixSettings(obj: MediaConvertRemixSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ChannelMapping': toJson_MediaConvertChannelMapping(obj.channelMapping),
+    'ChannelsIn': obj.channelsIn,
+    'ChannelsOut': obj.channelsOut,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertCaptionDestinationSettings
@@ -2660,6 +4553,11 @@ export interface MediaConvertCaptionDestinationSettings {
   readonly sccDestinationSettings?: MediaConvertSccDestinationSettings;
 
   /**
+   * @schema MediaConvertCaptionDestinationSettings#SrtDestinationSettings
+   */
+  readonly srtDestinationSettings?: MediaConvertSrtDestinationSettings;
+
+  /**
    * @schema MediaConvertCaptionDestinationSettings#TeletextDestinationSettings
    */
   readonly teletextDestinationSettings?: MediaConvertTeletextDestinationSettings;
@@ -2669,7 +4567,35 @@ export interface MediaConvertCaptionDestinationSettings {
    */
   readonly ttmlDestinationSettings?: MediaConvertTtmlDestinationSettings;
 
+  /**
+   * @schema MediaConvertCaptionDestinationSettings#WebvttDestinationSettings
+   */
+  readonly webvttDestinationSettings?: MediaConvertWebvttDestinationSettings;
+
 }
+
+/**
+ * Converts an object of type 'MediaConvertCaptionDestinationSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCaptionDestinationSettings(obj: MediaConvertCaptionDestinationSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BurninDestinationSettings': toJson_MediaConvertBurninDestinationSettings(obj.burninDestinationSettings),
+    'DestinationType': obj.destinationType,
+    'DvbSubDestinationSettings': toJson_MediaConvertDvbSubDestinationSettings(obj.dvbSubDestinationSettings),
+    'EmbeddedDestinationSettings': toJson_MediaConvertEmbeddedDestinationSettings(obj.embeddedDestinationSettings),
+    'ImscDestinationSettings': toJson_MediaConvertImscDestinationSettings(obj.imscDestinationSettings),
+    'SccDestinationSettings': toJson_MediaConvertSccDestinationSettings(obj.sccDestinationSettings),
+    'SrtDestinationSettings': toJson_MediaConvertSrtDestinationSettings(obj.srtDestinationSettings),
+    'TeletextDestinationSettings': toJson_MediaConvertTeletextDestinationSettings(obj.teletextDestinationSettings),
+    'TtmlDestinationSettings': toJson_MediaConvertTtmlDestinationSettings(obj.ttmlDestinationSettings),
+    'WebvttDestinationSettings': toJson_MediaConvertWebvttDestinationSettings(obj.webvttDestinationSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertCmfcSettings
@@ -2679,6 +4605,31 @@ export interface MediaConvertCmfcSettings {
    * @schema MediaConvertCmfcSettings#AudioDuration
    */
   readonly audioDuration?: string;
+
+  /**
+   * @schema MediaConvertCmfcSettings#AudioGroupId
+   */
+  readonly audioGroupId?: string;
+
+  /**
+   * @schema MediaConvertCmfcSettings#AudioRenditionSets
+   */
+  readonly audioRenditionSets?: string;
+
+  /**
+   * @schema MediaConvertCmfcSettings#AudioTrackType
+   */
+  readonly audioTrackType?: string;
+
+  /**
+   * @schema MediaConvertCmfcSettings#DescriptiveVideoServiceFlag
+   */
+  readonly descriptiveVideoServiceFlag?: string;
+
+  /**
+   * @schema MediaConvertCmfcSettings#IFrameOnlyManifest
+   */
+  readonly iFrameOnlyManifest?: string;
 
   /**
    * @schema MediaConvertCmfcSettings#Scte35Esam
@@ -2693,6 +4644,27 @@ export interface MediaConvertCmfcSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertCmfcSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCmfcSettings(obj: MediaConvertCmfcSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AudioDuration': obj.audioDuration,
+    'AudioGroupId': obj.audioGroupId,
+    'AudioRenditionSets': obj.audioRenditionSets,
+    'AudioTrackType': obj.audioTrackType,
+    'DescriptiveVideoServiceFlag': obj.descriptiveVideoServiceFlag,
+    'IFrameOnlyManifest': obj.iFrameOnlyManifest,
+    'Scte35Esam': obj.scte35Esam,
+    'Scte35Source': obj.scte35Source,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertF4vSettings
  */
 export interface MediaConvertF4vSettings {
@@ -2702,6 +4674,20 @@ export interface MediaConvertF4vSettings {
   readonly moovPlacement?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertF4vSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertF4vSettings(obj: MediaConvertF4vSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MoovPlacement': obj.moovPlacement,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertM2tsSettings
@@ -2895,6 +4881,56 @@ export interface MediaConvertM2tsSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertM2tsSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertM2tsSettings(obj: MediaConvertM2tsSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AudioBufferModel': obj.audioBufferModel,
+    'AudioDuration': obj.audioDuration,
+    'AudioFramesPerPes': obj.audioFramesPerPes,
+    'AudioPids': obj.audioPids?.map(y => y),
+    'Bitrate': obj.bitrate,
+    'BufferModel': obj.bufferModel,
+    'DvbNitSettings': toJson_MediaConvertDvbNitSettings(obj.dvbNitSettings),
+    'DvbSdtSettings': toJson_MediaConvertDvbSdtSettings(obj.dvbSdtSettings),
+    'DvbSubPids': obj.dvbSubPids?.map(y => y),
+    'DvbTdtSettings': toJson_MediaConvertDvbTdtSettings(obj.dvbTdtSettings),
+    'DvbTeletextPid': obj.dvbTeletextPid,
+    'EbpAudioInterval': obj.ebpAudioInterval,
+    'EbpPlacement': obj.ebpPlacement,
+    'EsRateInPes': obj.esRateInPes,
+    'ForceTsVideoEbpOrder': obj.forceTsVideoEbpOrder,
+    'FragmentTime': obj.fragmentTime,
+    'MaxPcrInterval': obj.maxPcrInterval,
+    'MinEbpInterval': obj.minEbpInterval,
+    'NielsenId3': obj.nielsenId3,
+    'NullPacketBitrate': obj.nullPacketBitrate,
+    'PatInterval': obj.patInterval,
+    'PcrControl': obj.pcrControl,
+    'PcrPid': obj.pcrPid,
+    'PmtInterval': obj.pmtInterval,
+    'PmtPid': obj.pmtPid,
+    'PrivateMetadataPid': obj.privateMetadataPid,
+    'ProgramNumber': obj.programNumber,
+    'RateMode': obj.rateMode,
+    'Scte35Esam': toJson_MediaConvertM2tsScte35Esam(obj.scte35Esam),
+    'Scte35Pid': obj.scte35Pid,
+    'Scte35Source': obj.scte35Source,
+    'SegmentationMarkers': obj.segmentationMarkers,
+    'SegmentationStyle': obj.segmentationStyle,
+    'SegmentationTime': obj.segmentationTime,
+    'TimedMetadataPid': obj.timedMetadataPid,
+    'TransportStreamId': obj.transportStreamId,
+    'VideoPid': obj.videoPid,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertM3u8Settings
  */
 export interface MediaConvertM3u8Settings {
@@ -2912,6 +4948,11 @@ export interface MediaConvertM3u8Settings {
    * @schema MediaConvertM3u8Settings#AudioPids
    */
   readonly audioPids?: number[];
+
+  /**
+   * @schema MediaConvertM3u8Settings#MaxPcrInterval
+   */
+  readonly maxPcrInterval?: number;
 
   /**
    * @schema MediaConvertM3u8Settings#NielsenId3
@@ -2986,6 +5027,37 @@ export interface MediaConvertM3u8Settings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertM3u8Settings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertM3u8Settings(obj: MediaConvertM3u8Settings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AudioDuration': obj.audioDuration,
+    'AudioFramesPerPes': obj.audioFramesPerPes,
+    'AudioPids': obj.audioPids?.map(y => y),
+    'MaxPcrInterval': obj.maxPcrInterval,
+    'NielsenId3': obj.nielsenId3,
+    'PatInterval': obj.patInterval,
+    'PcrControl': obj.pcrControl,
+    'PcrPid': obj.pcrPid,
+    'PmtInterval': obj.pmtInterval,
+    'PmtPid': obj.pmtPid,
+    'PrivateMetadataPid': obj.privateMetadataPid,
+    'ProgramNumber': obj.programNumber,
+    'Scte35Pid': obj.scte35Pid,
+    'Scte35Source': obj.scte35Source,
+    'TimedMetadata': obj.timedMetadata,
+    'TimedMetadataPid': obj.timedMetadataPid,
+    'TransportStreamId': obj.transportStreamId,
+    'VideoPid': obj.videoPid,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertMovSettings
  */
 export interface MediaConvertMovSettings {
@@ -3015,6 +5087,24 @@ export interface MediaConvertMovSettings {
   readonly reference?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertMovSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertMovSettings(obj: MediaConvertMovSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ClapAtom': obj.clapAtom,
+    'CslgAtom': obj.cslgAtom,
+    'Mpeg2FourCCControl': obj.mpeg2FourCcControl,
+    'PaddingControl': obj.paddingControl,
+    'Reference': obj.reference,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertMp4Settings
@@ -3053,6 +5143,25 @@ export interface MediaConvertMp4Settings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertMp4Settings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertMp4Settings(obj: MediaConvertMp4Settings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AudioDuration': obj.audioDuration,
+    'CslgAtom': obj.cslgAtom,
+    'CttsVersion': obj.cttsVersion,
+    'FreeSpaceBox': obj.freeSpaceBox,
+    'MoovPlacement': obj.moovPlacement,
+    'Mp4MajorBrand': obj.mp4MajorBrand,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertMpdSettings
  */
 export interface MediaConvertMpdSettings {
@@ -3084,6 +5193,24 @@ export interface MediaConvertMpdSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertMpdSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertMpdSettings(obj: MediaConvertMpdSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AccessibilityCaptionHints': obj.accessibilityCaptionHints,
+    'AudioDuration': obj.audioDuration,
+    'CaptionContainerType': obj.captionContainerType,
+    'Scte35Esam': obj.scte35Esam,
+    'Scte35Source': obj.scte35Source,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertMxfSettings
  */
 export interface MediaConvertMxfSettings {
@@ -3097,7 +5224,28 @@ export interface MediaConvertMxfSettings {
    */
   readonly profile?: string;
 
+  /**
+   * @schema MediaConvertMxfSettings#XavcProfileSettings
+   */
+  readonly xavcProfileSettings?: MediaConvertMxfXavcProfileSettings;
+
 }
+
+/**
+ * Converts an object of type 'MediaConvertMxfSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertMxfSettings(obj: MediaConvertMxfSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AfdSignaling': obj.afdSignaling,
+    'Profile': obj.profile,
+    'XavcProfileSettings': toJson_MediaConvertMxfXavcProfileSettings(obj.xavcProfileSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertVideoCodecSettings
@@ -3158,7 +5306,37 @@ export interface MediaConvertVideoCodecSettings {
    */
   readonly vp9Settings?: MediaConvertVp9Settings;
 
+  /**
+   * @schema MediaConvertVideoCodecSettings#XavcSettings
+   */
+  readonly xavcSettings?: MediaConvertXavcSettings;
+
 }
+
+/**
+ * Converts an object of type 'MediaConvertVideoCodecSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertVideoCodecSettings(obj: MediaConvertVideoCodecSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Av1Settings': toJson_MediaConvertAv1Settings(obj.av1Settings),
+    'AvcIntraSettings': toJson_MediaConvertAvcIntraSettings(obj.avcIntraSettings),
+    'Codec': obj.codec,
+    'FrameCaptureSettings': toJson_MediaConvertFrameCaptureSettings(obj.frameCaptureSettings),
+    'H264Settings': toJson_MediaConvertH264Settings(obj.h264Settings),
+    'H265Settings': toJson_MediaConvertH265Settings(obj.h265Settings),
+    'Mpeg2Settings': toJson_MediaConvertMpeg2Settings(obj.mpeg2Settings),
+    'ProresSettings': toJson_MediaConvertProresSettings(obj.proresSettings),
+    'Vc3Settings': toJson_MediaConvertVc3Settings(obj.vc3Settings),
+    'Vp8Settings': toJson_MediaConvertVp8Settings(obj.vp8Settings),
+    'Vp9Settings': toJson_MediaConvertVp9Settings(obj.vp9Settings),
+    'XavcSettings': toJson_MediaConvertXavcSettings(obj.xavcSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertVideoPreprocessor
@@ -3178,6 +5356,11 @@ export interface MediaConvertVideoPreprocessor {
    * @schema MediaConvertVideoPreprocessor#DolbyVision
    */
   readonly dolbyVision?: MediaConvertDolbyVision;
+
+  /**
+   * @schema MediaConvertVideoPreprocessor#Hdr10Plus
+   */
+  readonly hdr10Plus?: MediaConvertHdr10Plus;
 
   /**
    * @schema MediaConvertVideoPreprocessor#ImageInserter
@@ -3200,6 +5383,64 @@ export interface MediaConvertVideoPreprocessor {
   readonly timecodeBurnin?: MediaConvertTimecodeBurnin;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertVideoPreprocessor' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertVideoPreprocessor(obj: MediaConvertVideoPreprocessor | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ColorCorrector': toJson_MediaConvertColorCorrector(obj.colorCorrector),
+    'Deinterlacer': toJson_MediaConvertDeinterlacer(obj.deinterlacer),
+    'DolbyVision': toJson_MediaConvertDolbyVision(obj.dolbyVision),
+    'Hdr10Plus': toJson_MediaConvertHdr10Plus(obj.hdr10Plus),
+    'ImageInserter': toJson_MediaConvertImageInserter(obj.imageInserter),
+    'NoiseReducer': toJson_MediaConvertNoiseReducer(obj.noiseReducer),
+    'PartnerWatermarking': toJson_MediaConvertPartnerWatermarking(obj.partnerWatermarking),
+    'TimecodeBurnin': toJson_MediaConvertTimecodeBurnin(obj.timecodeBurnin),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema MediaConvertHlsRenditionGroupSettings
+ */
+export interface MediaConvertHlsRenditionGroupSettings {
+  /**
+   * @schema MediaConvertHlsRenditionGroupSettings#RenditionGroupId
+   */
+  readonly renditionGroupId?: string;
+
+  /**
+   * @schema MediaConvertHlsRenditionGroupSettings#RenditionLanguageCode
+   */
+  readonly renditionLanguageCode?: string;
+
+  /**
+   * @schema MediaConvertHlsRenditionGroupSettings#RenditionName
+   */
+  readonly renditionName?: string;
+
+}
+
+/**
+ * Converts an object of type 'MediaConvertHlsRenditionGroupSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertHlsRenditionGroupSettings(obj: MediaConvertHlsRenditionGroupSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RenditionGroupId': obj.renditionGroupId,
+    'RenditionLanguageCode': obj.renditionLanguageCode,
+    'RenditionName': obj.renditionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertCaptionSourceSettings
@@ -3240,7 +5481,33 @@ export interface MediaConvertCaptionSourceSettings {
    */
   readonly trackSourceSettings?: MediaConvertTrackSourceSettings;
 
+  /**
+   * @schema MediaConvertCaptionSourceSettings#WebvttHlsSourceSettings
+   */
+  readonly webvttHlsSourceSettings?: MediaConvertWebvttHlsSourceSettings;
+
 }
+
+/**
+ * Converts an object of type 'MediaConvertCaptionSourceSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCaptionSourceSettings(obj: MediaConvertCaptionSourceSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AncillarySourceSettings': toJson_MediaConvertAncillarySourceSettings(obj.ancillarySourceSettings),
+    'DvbSubSourceSettings': toJson_MediaConvertDvbSubSourceSettings(obj.dvbSubSourceSettings),
+    'EmbeddedSourceSettings': toJson_MediaConvertEmbeddedSourceSettings(obj.embeddedSourceSettings),
+    'FileSourceSettings': toJson_MediaConvertFileSourceSettings(obj.fileSourceSettings),
+    'SourceType': obj.sourceType,
+    'TeletextSourceSettings': toJson_MediaConvertTeletextSourceSettings(obj.teletextSourceSettings),
+    'TrackSourceSettings': toJson_MediaConvertTrackSourceSettings(obj.trackSourceSettings),
+    'WebvttHlsSourceSettings': toJson_MediaConvertWebvttHlsSourceSettings(obj.webvttHlsSourceSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertInsertableImage
@@ -3302,6 +5569,30 @@ export interface MediaConvertInsertableImage {
   readonly width?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertInsertableImage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertInsertableImage(obj: MediaConvertInsertableImage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Duration': obj.duration,
+    'FadeIn': obj.fadeIn,
+    'FadeOut': obj.fadeOut,
+    'Height': obj.height,
+    'ImageInserterInput': obj.imageInserterInput,
+    'ImageX': obj.imageX,
+    'ImageY': obj.imageY,
+    'Layer': obj.layer,
+    'Opacity': obj.opacity,
+    'StartTime': obj.startTime,
+    'Width': obj.width,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertHdr10Metadata
@@ -3370,6 +5661,31 @@ export interface MediaConvertHdr10Metadata {
 }
 
 /**
+ * Converts an object of type 'MediaConvertHdr10Metadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertHdr10Metadata(obj: MediaConvertHdr10Metadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BluePrimaryX': obj.bluePrimaryX,
+    'BluePrimaryY': obj.bluePrimaryY,
+    'GreenPrimaryX': obj.greenPrimaryX,
+    'GreenPrimaryY': obj.greenPrimaryY,
+    'MaxContentLightLevel': obj.maxContentLightLevel,
+    'MaxFrameAverageLightLevel': obj.maxFrameAverageLightLevel,
+    'MaxLuminance': obj.maxLuminance,
+    'MinLuminance': obj.minLuminance,
+    'RedPrimaryX': obj.redPrimaryX,
+    'RedPrimaryY': obj.redPrimaryY,
+    'WhitePointX': obj.whitePointX,
+    'WhitePointY': obj.whitePointY,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertAutomatedAbrSettings
  */
 export interface MediaConvertAutomatedAbrSettings {
@@ -3389,6 +5705,22 @@ export interface MediaConvertAutomatedAbrSettings {
   readonly minAbrBitrate?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertAutomatedAbrSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAutomatedAbrSettings(obj: MediaConvertAutomatedAbrSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxAbrBitrate': obj.maxAbrBitrate,
+    'MaxRenditions': obj.maxRenditions,
+    'MinAbrBitrate': obj.minAbrBitrate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertCmafGroupSettings
@@ -3435,6 +5767,11 @@ export interface MediaConvertCmafGroupSettings {
   readonly fragmentLength?: number;
 
   /**
+   * @schema MediaConvertCmafGroupSettings#ImageBasedTrickPlay
+   */
+  readonly imageBasedTrickPlay?: string;
+
+  /**
    * @schema MediaConvertCmafGroupSettings#ManifestCompression
    */
   readonly manifestCompression?: string;
@@ -3460,6 +5797,11 @@ export interface MediaConvertCmafGroupSettings {
   readonly mpdProfile?: string;
 
   /**
+   * @schema MediaConvertCmafGroupSettings#PtsOffsetHandlingForBFrames
+   */
+  readonly ptsOffsetHandlingForBFrames?: string;
+
+  /**
    * @schema MediaConvertCmafGroupSettings#SegmentControl
    */
   readonly segmentControl?: string;
@@ -3473,6 +5815,11 @@ export interface MediaConvertCmafGroupSettings {
    * @schema MediaConvertCmafGroupSettings#StreamInfResolution
    */
   readonly streamInfResolution?: string;
+
+  /**
+   * @schema MediaConvertCmafGroupSettings#TargetDurationCompatibilityMode
+   */
+  readonly targetDurationCompatibilityMode?: string;
 
   /**
    * @schema MediaConvertCmafGroupSettings#WriteDashManifest
@@ -3492,6 +5839,41 @@ export interface MediaConvertCmafGroupSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertCmafGroupSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCmafGroupSettings(obj: MediaConvertCmafGroupSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AdditionalManifests': obj.additionalManifests?.map(y => toJson_MediaConvertCmafAdditionalManifest(y)),
+    'BaseUrl': obj.baseUrl,
+    'ClientCache': obj.clientCache,
+    'CodecSpecification': obj.codecSpecification,
+    'Destination': obj.destination,
+    'DestinationSettings': toJson_MediaConvertDestinationSettings(obj.destinationSettings),
+    'Encryption': toJson_MediaConvertCmafEncryptionSettings(obj.encryption),
+    'FragmentLength': obj.fragmentLength,
+    'ImageBasedTrickPlay': obj.imageBasedTrickPlay,
+    'ManifestCompression': obj.manifestCompression,
+    'ManifestDurationFormat': obj.manifestDurationFormat,
+    'MinBufferTime': obj.minBufferTime,
+    'MinFinalSegmentLength': obj.minFinalSegmentLength,
+    'MpdProfile': obj.mpdProfile,
+    'PtsOffsetHandlingForBFrames': obj.ptsOffsetHandlingForBFrames,
+    'SegmentControl': obj.segmentControl,
+    'SegmentLength': obj.segmentLength,
+    'StreamInfResolution': obj.streamInfResolution,
+    'TargetDurationCompatibilityMode': obj.targetDurationCompatibilityMode,
+    'WriteDashManifest': obj.writeDashManifest,
+    'WriteHlsManifest': obj.writeHlsManifest,
+    'WriteSegmentTimelineInRepresentation': obj.writeSegmentTimelineInRepresentation,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertDashIsoGroupSettings
  */
 export interface MediaConvertDashIsoGroupSettings {
@@ -3499,6 +5881,11 @@ export interface MediaConvertDashIsoGroupSettings {
    * @schema MediaConvertDashIsoGroupSettings#AdditionalManifests
    */
   readonly additionalManifests?: MediaConvertDashAdditionalManifest[];
+
+  /**
+   * @schema MediaConvertDashIsoGroupSettings#AudioChannelConfigSchemeIdUri
+   */
+  readonly audioChannelConfigSchemeIdUri?: string;
 
   /**
    * @schema MediaConvertDashIsoGroupSettings#BaseUrl
@@ -3531,6 +5918,11 @@ export interface MediaConvertDashIsoGroupSettings {
   readonly hbbtvCompliance?: string;
 
   /**
+   * @schema MediaConvertDashIsoGroupSettings#ImageBasedTrickPlay
+   */
+  readonly imageBasedTrickPlay?: string;
+
+  /**
    * @schema MediaConvertDashIsoGroupSettings#MinBufferTime
    */
   readonly minBufferTime?: number;
@@ -3544,6 +5936,11 @@ export interface MediaConvertDashIsoGroupSettings {
    * @schema MediaConvertDashIsoGroupSettings#MpdProfile
    */
   readonly mpdProfile?: string;
+
+  /**
+   * @schema MediaConvertDashIsoGroupSettings#PtsOffsetHandlingForBFrames
+   */
+  readonly ptsOffsetHandlingForBFrames?: string;
 
   /**
    * @schema MediaConvertDashIsoGroupSettings#SegmentControl
@@ -3563,6 +5960,35 @@ export interface MediaConvertDashIsoGroupSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertDashIsoGroupSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDashIsoGroupSettings(obj: MediaConvertDashIsoGroupSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AdditionalManifests': obj.additionalManifests?.map(y => toJson_MediaConvertDashAdditionalManifest(y)),
+    'AudioChannelConfigSchemeIdUri': obj.audioChannelConfigSchemeIdUri,
+    'BaseUrl': obj.baseUrl,
+    'Destination': obj.destination,
+    'DestinationSettings': toJson_MediaConvertDestinationSettings(obj.destinationSettings),
+    'Encryption': toJson_MediaConvertDashIsoEncryptionSettings(obj.encryption),
+    'FragmentLength': obj.fragmentLength,
+    'HbbtvCompliance': obj.hbbtvCompliance,
+    'ImageBasedTrickPlay': obj.imageBasedTrickPlay,
+    'MinBufferTime': obj.minBufferTime,
+    'MinFinalSegmentLength': obj.minFinalSegmentLength,
+    'MpdProfile': obj.mpdProfile,
+    'PtsOffsetHandlingForBFrames': obj.ptsOffsetHandlingForBFrames,
+    'SegmentControl': obj.segmentControl,
+    'SegmentLength': obj.segmentLength,
+    'WriteSegmentTimelineInRepresentation': obj.writeSegmentTimelineInRepresentation,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertFileGroupSettings
  */
 export interface MediaConvertFileGroupSettings {
@@ -3577,6 +6003,21 @@ export interface MediaConvertFileGroupSettings {
   readonly destinationSettings?: MediaConvertDestinationSettings;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertFileGroupSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertFileGroupSettings(obj: MediaConvertFileGroupSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Destination': obj.destination,
+    'DestinationSettings': toJson_MediaConvertDestinationSettings(obj.destinationSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertHlsGroupSettings
@@ -3643,6 +6084,11 @@ export interface MediaConvertHlsGroupSettings {
   readonly encryption?: MediaConvertHlsEncryptionSettings;
 
   /**
+   * @schema MediaConvertHlsGroupSettings#ImageBasedTrickPlay
+   */
+  readonly imageBasedTrickPlay?: string;
+
+  /**
    * @schema MediaConvertHlsGroupSettings#ManifestCompression
    */
   readonly manifestCompression?: string;
@@ -3698,6 +6144,11 @@ export interface MediaConvertHlsGroupSettings {
   readonly streamInfResolution?: string;
 
   /**
+   * @schema MediaConvertHlsGroupSettings#TargetDurationCompatibilityMode
+   */
+  readonly targetDurationCompatibilityMode?: string;
+
+  /**
    * @schema MediaConvertHlsGroupSettings#TimedMetadataId3Frame
    */
   readonly timedMetadataId3Frame?: string;
@@ -3713,6 +6164,47 @@ export interface MediaConvertHlsGroupSettings {
   readonly timestampDeltaMilliseconds?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertHlsGroupSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertHlsGroupSettings(obj: MediaConvertHlsGroupSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AdMarkers': obj.adMarkers?.map(y => y),
+    'AdditionalManifests': obj.additionalManifests?.map(y => toJson_MediaConvertHlsAdditionalManifest(y)),
+    'AudioOnlyHeader': obj.audioOnlyHeader,
+    'BaseUrl': obj.baseUrl,
+    'CaptionLanguageMappings': obj.captionLanguageMappings?.map(y => toJson_MediaConvertHlsCaptionLanguageMapping(y)),
+    'CaptionLanguageSetting': obj.captionLanguageSetting,
+    'ClientCache': obj.clientCache,
+    'CodecSpecification': obj.codecSpecification,
+    'Destination': obj.destination,
+    'DestinationSettings': toJson_MediaConvertDestinationSettings(obj.destinationSettings),
+    'DirectoryStructure': obj.directoryStructure,
+    'Encryption': toJson_MediaConvertHlsEncryptionSettings(obj.encryption),
+    'ImageBasedTrickPlay': obj.imageBasedTrickPlay,
+    'ManifestCompression': obj.manifestCompression,
+    'ManifestDurationFormat': obj.manifestDurationFormat,
+    'MinFinalSegmentLength': obj.minFinalSegmentLength,
+    'MinSegmentLength': obj.minSegmentLength,
+    'OutputSelection': obj.outputSelection,
+    'ProgramDateTime': obj.programDateTime,
+    'ProgramDateTimePeriod': obj.programDateTimePeriod,
+    'SegmentControl': obj.segmentControl,
+    'SegmentLength': obj.segmentLength,
+    'SegmentsPerSubdirectory': obj.segmentsPerSubdirectory,
+    'StreamInfResolution': obj.streamInfResolution,
+    'TargetDurationCompatibilityMode': obj.targetDurationCompatibilityMode,
+    'TimedMetadataId3Frame': obj.timedMetadataId3Frame,
+    'TimedMetadataId3Period': obj.timedMetadataId3Period,
+    'TimestampDeltaMilliseconds': obj.timestampDeltaMilliseconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertMsSmoothGroupSettings
@@ -3756,6 +6248,26 @@ export interface MediaConvertMsSmoothGroupSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertMsSmoothGroupSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertMsSmoothGroupSettings(obj: MediaConvertMsSmoothGroupSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AdditionalManifests': obj.additionalManifests?.map(y => toJson_MediaConvertMsSmoothAdditionalManifest(y)),
+    'AudioDeduplication': obj.audioDeduplication,
+    'Destination': obj.destination,
+    'DestinationSettings': toJson_MediaConvertDestinationSettings(obj.destinationSettings),
+    'Encryption': toJson_MediaConvertMsSmoothEncryptionSettings(obj.encryption),
+    'FragmentLength': obj.fragmentLength,
+    'ManifestEncoding': obj.manifestEncoding,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertCaptionDescription
  */
 export interface MediaConvertCaptionDescription {
@@ -3787,6 +6299,24 @@ export interface MediaConvertCaptionDescription {
 }
 
 /**
+ * Converts an object of type 'MediaConvertCaptionDescription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCaptionDescription(obj: MediaConvertCaptionDescription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CaptionSelectorName': obj.captionSelectorName,
+    'CustomLanguageCode': obj.customLanguageCode,
+    'DestinationSettings': toJson_MediaConvertCaptionDestinationSettings(obj.destinationSettings),
+    'LanguageCode': obj.languageCode,
+    'LanguageDescription': obj.languageDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertOutputSettings
  */
 export interface MediaConvertOutputSettings {
@@ -3796,6 +6326,20 @@ export interface MediaConvertOutputSettings {
   readonly hlsSettings?: MediaConvertHlsSettings;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertOutputSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertOutputSettings(obj: MediaConvertOutputSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HlsSettings': toJson_MediaConvertHlsSettings(obj.hlsSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertVideoDetail
@@ -3812,6 +6356,21 @@ export interface MediaConvertVideoDetail {
   readonly widthInPx?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertVideoDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertVideoDetail(obj: MediaConvertVideoDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'HeightInPx': obj.heightInPx,
+    'WidthInPx': obj.widthInPx,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertAacSettings
@@ -3865,6 +6424,28 @@ export interface MediaConvertAacSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertAacSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAacSettings(obj: MediaConvertAacSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AudioDescriptionBroadcasterMix': obj.audioDescriptionBroadcasterMix,
+    'Bitrate': obj.bitrate,
+    'CodecProfile': obj.codecProfile,
+    'CodingMode': obj.codingMode,
+    'RateControlMode': obj.rateControlMode,
+    'RawFormat': obj.rawFormat,
+    'SampleRate': obj.sampleRate,
+    'Specification': obj.specification,
+    'VbrQuality': obj.vbrQuality,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertAc3Settings
  */
 export interface MediaConvertAc3Settings {
@@ -3889,9 +6470,19 @@ export interface MediaConvertAc3Settings {
   readonly dialnorm?: number;
 
   /**
+   * @schema MediaConvertAc3Settings#DynamicRangeCompressionLine
+   */
+  readonly dynamicRangeCompressionLine?: string;
+
+  /**
    * @schema MediaConvertAc3Settings#DynamicRangeCompressionProfile
    */
   readonly dynamicRangeCompressionProfile?: string;
+
+  /**
+   * @schema MediaConvertAc3Settings#DynamicRangeCompressionRf
+   */
+  readonly dynamicRangeCompressionRf?: string;
 
   /**
    * @schema MediaConvertAc3Settings#LfeFilter
@@ -3909,6 +6500,29 @@ export interface MediaConvertAc3Settings {
   readonly sampleRate?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertAc3Settings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAc3Settings(obj: MediaConvertAc3Settings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Bitrate': obj.bitrate,
+    'BitstreamMode': obj.bitstreamMode,
+    'CodingMode': obj.codingMode,
+    'Dialnorm': obj.dialnorm,
+    'DynamicRangeCompressionLine': obj.dynamicRangeCompressionLine,
+    'DynamicRangeCompressionProfile': obj.dynamicRangeCompressionProfile,
+    'DynamicRangeCompressionRf': obj.dynamicRangeCompressionRf,
+    'LfeFilter': obj.lfeFilter,
+    'MetadataControl': obj.metadataControl,
+    'SampleRate': obj.sampleRate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertAiffSettings
@@ -3930,6 +6544,22 @@ export interface MediaConvertAiffSettings {
   readonly sampleRate?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertAiffSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAiffSettings(obj: MediaConvertAiffSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BitDepth': obj.bitDepth,
+    'Channels': obj.channels,
+    'SampleRate': obj.sampleRate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertEac3AtmosSettings
@@ -3956,6 +6586,11 @@ export interface MediaConvertEac3AtmosSettings {
   readonly dialogueIntelligence?: string;
 
   /**
+   * @schema MediaConvertEac3AtmosSettings#DownmixControl
+   */
+  readonly downmixControl?: string;
+
+  /**
    * @schema MediaConvertEac3AtmosSettings#DynamicRangeCompressionLine
    */
   readonly dynamicRangeCompressionLine?: string;
@@ -3964,6 +6599,11 @@ export interface MediaConvertEac3AtmosSettings {
    * @schema MediaConvertEac3AtmosSettings#DynamicRangeCompressionRf
    */
   readonly dynamicRangeCompressionRf?: string;
+
+  /**
+   * @schema MediaConvertEac3AtmosSettings#DynamicRangeControl
+   */
+  readonly dynamicRangeControl?: string;
 
   /**
    * @schema MediaConvertEac3AtmosSettings#LoRoCenterMixLevel
@@ -4011,6 +6651,36 @@ export interface MediaConvertEac3AtmosSettings {
   readonly surroundExMode?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertEac3AtmosSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertEac3AtmosSettings(obj: MediaConvertEac3AtmosSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Bitrate': obj.bitrate,
+    'BitstreamMode': obj.bitstreamMode,
+    'CodingMode': obj.codingMode,
+    'DialogueIntelligence': obj.dialogueIntelligence,
+    'DownmixControl': obj.downmixControl,
+    'DynamicRangeCompressionLine': obj.dynamicRangeCompressionLine,
+    'DynamicRangeCompressionRf': obj.dynamicRangeCompressionRf,
+    'DynamicRangeControl': obj.dynamicRangeControl,
+    'LoRoCenterMixLevel': obj.loRoCenterMixLevel,
+    'LoRoSurroundMixLevel': obj.loRoSurroundMixLevel,
+    'LtRtCenterMixLevel': obj.ltRtCenterMixLevel,
+    'LtRtSurroundMixLevel': obj.ltRtSurroundMixLevel,
+    'MeteringMode': obj.meteringMode,
+    'SampleRate': obj.sampleRate,
+    'SpeechThreshold': obj.speechThreshold,
+    'StereoDownmix': obj.stereoDownmix,
+    'SurroundExMode': obj.surroundExMode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertEac3Settings
@@ -4124,6 +6794,40 @@ export interface MediaConvertEac3Settings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertEac3Settings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertEac3Settings(obj: MediaConvertEac3Settings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AttenuationControl': obj.attenuationControl,
+    'Bitrate': obj.bitrate,
+    'BitstreamMode': obj.bitstreamMode,
+    'CodingMode': obj.codingMode,
+    'DcFilter': obj.dcFilter,
+    'Dialnorm': obj.dialnorm,
+    'DynamicRangeCompressionLine': obj.dynamicRangeCompressionLine,
+    'DynamicRangeCompressionRf': obj.dynamicRangeCompressionRf,
+    'LfeControl': obj.lfeControl,
+    'LfeFilter': obj.lfeFilter,
+    'LoRoCenterMixLevel': obj.loRoCenterMixLevel,
+    'LoRoSurroundMixLevel': obj.loRoSurroundMixLevel,
+    'LtRtCenterMixLevel': obj.ltRtCenterMixLevel,
+    'LtRtSurroundMixLevel': obj.ltRtSurroundMixLevel,
+    'MetadataControl': obj.metadataControl,
+    'PassthroughControl': obj.passthroughControl,
+    'PhaseControl': obj.phaseControl,
+    'SampleRate': obj.sampleRate,
+    'StereoDownmix': obj.stereoDownmix,
+    'SurroundExMode': obj.surroundExMode,
+    'SurroundMode': obj.surroundMode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertMp2Settings
  */
 export interface MediaConvertMp2Settings {
@@ -4143,6 +6847,22 @@ export interface MediaConvertMp2Settings {
   readonly sampleRate?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertMp2Settings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertMp2Settings(obj: MediaConvertMp2Settings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Bitrate': obj.bitrate,
+    'Channels': obj.channels,
+    'SampleRate': obj.sampleRate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertMp3Settings
@@ -4176,6 +6896,24 @@ export interface MediaConvertMp3Settings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertMp3Settings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertMp3Settings(obj: MediaConvertMp3Settings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Bitrate': obj.bitrate,
+    'Channels': obj.channels,
+    'RateControlMode': obj.rateControlMode,
+    'SampleRate': obj.sampleRate,
+    'VbrQuality': obj.vbrQuality,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertOpusSettings
  */
 export interface MediaConvertOpusSettings {
@@ -4197,6 +6935,22 @@ export interface MediaConvertOpusSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertOpusSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertOpusSettings(obj: MediaConvertOpusSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Bitrate': obj.bitrate,
+    'Channels': obj.channels,
+    'SampleRate': obj.sampleRate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertVorbisSettings
  */
 export interface MediaConvertVorbisSettings {
@@ -4216,6 +6970,22 @@ export interface MediaConvertVorbisSettings {
   readonly vbrQuality?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertVorbisSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertVorbisSettings(obj: MediaConvertVorbisSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Channels': obj.channels,
+    'SampleRate': obj.sampleRate,
+    'VbrQuality': obj.vbrQuality,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertWavSettings
@@ -4244,6 +7014,23 @@ export interface MediaConvertWavSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertWavSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertWavSettings(obj: MediaConvertWavSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BitDepth': obj.bitDepth,
+    'Channels': obj.channels,
+    'Format': obj.format,
+    'SampleRate': obj.sampleRate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertChannelMapping
  */
 export interface MediaConvertChannelMapping {
@@ -4253,6 +7040,20 @@ export interface MediaConvertChannelMapping {
   readonly outputChannels?: MediaConvertOutputChannelMapping[];
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertChannelMapping' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertChannelMapping(obj: MediaConvertChannelMapping | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OutputChannels': obj.outputChannels?.map(y => toJson_MediaConvertOutputChannelMapping(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertBurninDestinationSettings
@@ -4346,6 +7147,36 @@ export interface MediaConvertBurninDestinationSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertBurninDestinationSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertBurninDestinationSettings(obj: MediaConvertBurninDestinationSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Alignment': obj.alignment,
+    'BackgroundColor': obj.backgroundColor,
+    'BackgroundOpacity': obj.backgroundOpacity,
+    'FontColor': obj.fontColor,
+    'FontOpacity': obj.fontOpacity,
+    'FontResolution': obj.fontResolution,
+    'FontScript': obj.fontScript,
+    'FontSize': obj.fontSize,
+    'OutlineColor': obj.outlineColor,
+    'OutlineSize': obj.outlineSize,
+    'ShadowColor': obj.shadowColor,
+    'ShadowOpacity': obj.shadowOpacity,
+    'ShadowXOffset': obj.shadowXOffset,
+    'ShadowYOffset': obj.shadowYOffset,
+    'TeletextSpacing': obj.teletextSpacing,
+    'XPosition': obj.xPosition,
+    'YPosition': obj.yPosition,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertDvbSubDestinationSettings
  */
 export interface MediaConvertDvbSubDestinationSettings {
@@ -4363,6 +7194,21 @@ export interface MediaConvertDvbSubDestinationSettings {
    * @schema MediaConvertDvbSubDestinationSettings#BackgroundOpacity
    */
   readonly backgroundOpacity?: number;
+
+  /**
+   * @schema MediaConvertDvbSubDestinationSettings#DdsHandling
+   */
+  readonly ddsHandling?: string;
+
+  /**
+   * @schema MediaConvertDvbSubDestinationSettings#DdsXCoordinate
+   */
+  readonly ddsXCoordinate?: number;
+
+  /**
+   * @schema MediaConvertDvbSubDestinationSettings#DdsYCoordinate
+   */
+  readonly ddsYCoordinate?: number;
 
   /**
    * @schema MediaConvertDvbSubDestinationSettings#FontColor
@@ -4388,6 +7234,11 @@ export interface MediaConvertDvbSubDestinationSettings {
    * @schema MediaConvertDvbSubDestinationSettings#FontSize
    */
   readonly fontSize?: number;
+
+  /**
+   * @schema MediaConvertDvbSubDestinationSettings#Height
+   */
+  readonly height?: number;
 
   /**
    * @schema MediaConvertDvbSubDestinationSettings#OutlineColor
@@ -4430,6 +7281,11 @@ export interface MediaConvertDvbSubDestinationSettings {
   readonly teletextSpacing?: string;
 
   /**
+   * @schema MediaConvertDvbSubDestinationSettings#Width
+   */
+  readonly width?: number;
+
+  /**
    * @schema MediaConvertDvbSubDestinationSettings#XPosition
    */
   readonly xPosition?: number;
@@ -4440,6 +7296,42 @@ export interface MediaConvertDvbSubDestinationSettings {
   readonly yPosition?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertDvbSubDestinationSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDvbSubDestinationSettings(obj: MediaConvertDvbSubDestinationSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Alignment': obj.alignment,
+    'BackgroundColor': obj.backgroundColor,
+    'BackgroundOpacity': obj.backgroundOpacity,
+    'DdsHandling': obj.ddsHandling,
+    'DdsXCoordinate': obj.ddsXCoordinate,
+    'DdsYCoordinate': obj.ddsYCoordinate,
+    'FontColor': obj.fontColor,
+    'FontOpacity': obj.fontOpacity,
+    'FontResolution': obj.fontResolution,
+    'FontScript': obj.fontScript,
+    'FontSize': obj.fontSize,
+    'Height': obj.height,
+    'OutlineColor': obj.outlineColor,
+    'OutlineSize': obj.outlineSize,
+    'ShadowColor': obj.shadowColor,
+    'ShadowOpacity': obj.shadowOpacity,
+    'ShadowXOffset': obj.shadowXOffset,
+    'ShadowYOffset': obj.shadowYOffset,
+    'SubtitlingType': obj.subtitlingType,
+    'TeletextSpacing': obj.teletextSpacing,
+    'Width': obj.width,
+    'XPosition': obj.xPosition,
+    'YPosition': obj.yPosition,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertEmbeddedDestinationSettings
@@ -4458,6 +7350,21 @@ export interface MediaConvertEmbeddedDestinationSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertEmbeddedDestinationSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertEmbeddedDestinationSettings(obj: MediaConvertEmbeddedDestinationSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Destination608ChannelNumber': obj.destination608ChannelNumber,
+    'Destination708ServiceNumber': obj.destination708ServiceNumber,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertImscDestinationSettings
  */
 export interface MediaConvertImscDestinationSettings {
@@ -4469,6 +7376,20 @@ export interface MediaConvertImscDestinationSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertImscDestinationSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertImscDestinationSettings(obj: MediaConvertImscDestinationSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StylePassthrough': obj.stylePassthrough,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertSccDestinationSettings
  */
 export interface MediaConvertSccDestinationSettings {
@@ -4478,6 +7399,45 @@ export interface MediaConvertSccDestinationSettings {
   readonly framerate?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertSccDestinationSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertSccDestinationSettings(obj: MediaConvertSccDestinationSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Framerate': obj.framerate,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema MediaConvertSrtDestinationSettings
+ */
+export interface MediaConvertSrtDestinationSettings {
+  /**
+   * @schema MediaConvertSrtDestinationSettings#StylePassthrough
+   */
+  readonly stylePassthrough?: string;
+
+}
+
+/**
+ * Converts an object of type 'MediaConvertSrtDestinationSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertSrtDestinationSettings(obj: MediaConvertSrtDestinationSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StylePassthrough': obj.stylePassthrough,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertTeletextDestinationSettings
@@ -4496,6 +7456,21 @@ export interface MediaConvertTeletextDestinationSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertTeletextDestinationSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertTeletextDestinationSettings(obj: MediaConvertTeletextDestinationSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PageNumber': obj.pageNumber,
+    'PageTypes': obj.pageTypes?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertTtmlDestinationSettings
  */
 export interface MediaConvertTtmlDestinationSettings {
@@ -4505,6 +7480,45 @@ export interface MediaConvertTtmlDestinationSettings {
   readonly stylePassthrough?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertTtmlDestinationSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertTtmlDestinationSettings(obj: MediaConvertTtmlDestinationSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StylePassthrough': obj.stylePassthrough,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema MediaConvertWebvttDestinationSettings
+ */
+export interface MediaConvertWebvttDestinationSettings {
+  /**
+   * @schema MediaConvertWebvttDestinationSettings#StylePassthrough
+   */
+  readonly stylePassthrough?: string;
+
+}
+
+/**
+ * Converts an object of type 'MediaConvertWebvttDestinationSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertWebvttDestinationSettings(obj: MediaConvertWebvttDestinationSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StylePassthrough': obj.stylePassthrough,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertDvbNitSettings
@@ -4526,6 +7540,22 @@ export interface MediaConvertDvbNitSettings {
   readonly nitInterval?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertDvbNitSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDvbNitSettings(obj: MediaConvertDvbNitSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NetworkId': obj.networkId,
+    'NetworkName': obj.networkName,
+    'NitInterval': obj.nitInterval,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertDvbSdtSettings
@@ -4554,6 +7584,23 @@ export interface MediaConvertDvbSdtSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertDvbSdtSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDvbSdtSettings(obj: MediaConvertDvbSdtSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OutputSdt': obj.outputSdt,
+    'SdtInterval': obj.sdtInterval,
+    'ServiceName': obj.serviceName,
+    'ServiceProviderName': obj.serviceProviderName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertDvbTdtSettings
  */
 export interface MediaConvertDvbTdtSettings {
@@ -4565,6 +7612,20 @@ export interface MediaConvertDvbTdtSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertDvbTdtSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDvbTdtSettings(obj: MediaConvertDvbTdtSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TdtInterval': obj.tdtInterval,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertM2tsScte35Esam
  */
 export interface MediaConvertM2tsScte35Esam {
@@ -4574,6 +7635,51 @@ export interface MediaConvertM2tsScte35Esam {
   readonly scte35EsamPid?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertM2tsScte35Esam' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertM2tsScte35Esam(obj: MediaConvertM2tsScte35Esam | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Scte35EsamPid': obj.scte35EsamPid,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema MediaConvertMxfXavcProfileSettings
+ */
+export interface MediaConvertMxfXavcProfileSettings {
+  /**
+   * @schema MediaConvertMxfXavcProfileSettings#DurationMode
+   */
+  readonly durationMode?: string;
+
+  /**
+   * @schema MediaConvertMxfXavcProfileSettings#MaxAncDataSize
+   */
+  readonly maxAncDataSize?: number;
+
+}
+
+/**
+ * Converts an object of type 'MediaConvertMxfXavcProfileSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertMxfXavcProfileSettings(obj: MediaConvertMxfXavcProfileSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DurationMode': obj.durationMode,
+    'MaxAncDataSize': obj.maxAncDataSize,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertAv1Settings
@@ -4642,6 +7748,31 @@ export interface MediaConvertAv1Settings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertAv1Settings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAv1Settings(obj: MediaConvertAv1Settings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AdaptiveQuantization': obj.adaptiveQuantization,
+    'FramerateControl': obj.framerateControl,
+    'FramerateConversionAlgorithm': obj.framerateConversionAlgorithm,
+    'FramerateDenominator': obj.framerateDenominator,
+    'FramerateNumerator': obj.framerateNumerator,
+    'GopSize': obj.gopSize,
+    'MaxBitrate': obj.maxBitrate,
+    'NumberBFramesBetweenReferenceFrames': obj.numberBFramesBetweenReferenceFrames,
+    'QvbrSettings': toJson_MediaConvertAv1QvbrSettings(obj.qvbrSettings),
+    'RateControlMode': obj.rateControlMode,
+    'Slices': obj.slices,
+    'SpatialAdaptiveQuantization': obj.spatialAdaptiveQuantization,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertAvcIntraSettings
  */
 export interface MediaConvertAvcIntraSettings {
@@ -4649,6 +7780,11 @@ export interface MediaConvertAvcIntraSettings {
    * @schema MediaConvertAvcIntraSettings#AvcIntraClass
    */
   readonly avcIntraClass?: string;
+
+  /**
+   * @schema MediaConvertAvcIntraSettings#AvcIntraUhdSettings
+   */
+  readonly avcIntraUhdSettings?: MediaConvertAvcIntraUhdSettings;
 
   /**
    * @schema MediaConvertAvcIntraSettings#FramerateControl
@@ -4676,6 +7812,11 @@ export interface MediaConvertAvcIntraSettings {
   readonly interlaceMode?: string;
 
   /**
+   * @schema MediaConvertAvcIntraSettings#ScanTypeConversionMode
+   */
+  readonly scanTypeConversionMode?: string;
+
+  /**
    * @schema MediaConvertAvcIntraSettings#SlowPal
    */
   readonly slowPal?: string;
@@ -4686,6 +7827,29 @@ export interface MediaConvertAvcIntraSettings {
   readonly telecine?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertAvcIntraSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAvcIntraSettings(obj: MediaConvertAvcIntraSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AvcIntraClass': obj.avcIntraClass,
+    'AvcIntraUhdSettings': toJson_MediaConvertAvcIntraUhdSettings(obj.avcIntraUhdSettings),
+    'FramerateControl': obj.framerateControl,
+    'FramerateConversionAlgorithm': obj.framerateConversionAlgorithm,
+    'FramerateDenominator': obj.framerateDenominator,
+    'FramerateNumerator': obj.framerateNumerator,
+    'InterlaceMode': obj.interlaceMode,
+    'ScanTypeConversionMode': obj.scanTypeConversionMode,
+    'SlowPal': obj.slowPal,
+    'Telecine': obj.telecine,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertFrameCaptureSettings
@@ -4712,6 +7876,23 @@ export interface MediaConvertFrameCaptureSettings {
   readonly quality?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertFrameCaptureSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertFrameCaptureSettings(obj: MediaConvertFrameCaptureSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FramerateDenominator': obj.framerateDenominator,
+    'FramerateNumerator': obj.framerateNumerator,
+    'MaxCaptures': obj.maxCaptures,
+    'Quality': obj.quality,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertH264Settings
@@ -4868,6 +8049,11 @@ export interface MediaConvertH264Settings {
   readonly repeatPps?: string;
 
   /**
+   * @schema MediaConvertH264Settings#ScanTypeConversionMode
+   */
+  readonly scanTypeConversionMode?: string;
+
+  /**
    * @schema MediaConvertH264Settings#SceneChangeDetect
    */
   readonly sceneChangeDetect?: string;
@@ -4913,6 +8099,59 @@ export interface MediaConvertH264Settings {
   readonly unregisteredSeiTimecode?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertH264Settings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertH264Settings(obj: MediaConvertH264Settings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AdaptiveQuantization': obj.adaptiveQuantization,
+    'Bitrate': obj.bitrate,
+    'CodecLevel': obj.codecLevel,
+    'CodecProfile': obj.codecProfile,
+    'DynamicSubGop': obj.dynamicSubGop,
+    'EntropyEncoding': obj.entropyEncoding,
+    'FieldEncoding': obj.fieldEncoding,
+    'FlickerAdaptiveQuantization': obj.flickerAdaptiveQuantization,
+    'FramerateControl': obj.framerateControl,
+    'FramerateConversionAlgorithm': obj.framerateConversionAlgorithm,
+    'FramerateDenominator': obj.framerateDenominator,
+    'FramerateNumerator': obj.framerateNumerator,
+    'GopBReference': obj.gopBReference,
+    'GopClosedCadence': obj.gopClosedCadence,
+    'GopSize': obj.gopSize,
+    'GopSizeUnits': obj.gopSizeUnits,
+    'HrdBufferInitialFillPercentage': obj.hrdBufferInitialFillPercentage,
+    'HrdBufferSize': obj.hrdBufferSize,
+    'InterlaceMode': obj.interlaceMode,
+    'MaxBitrate': obj.maxBitrate,
+    'MinIInterval': obj.minIInterval,
+    'NumberBFramesBetweenReferenceFrames': obj.numberBFramesBetweenReferenceFrames,
+    'NumberReferenceFrames': obj.numberReferenceFrames,
+    'ParControl': obj.parControl,
+    'ParDenominator': obj.parDenominator,
+    'ParNumerator': obj.parNumerator,
+    'QualityTuningLevel': obj.qualityTuningLevel,
+    'QvbrSettings': toJson_MediaConvertH264QvbrSettings(obj.qvbrSettings),
+    'RateControlMode': obj.rateControlMode,
+    'RepeatPps': obj.repeatPps,
+    'ScanTypeConversionMode': obj.scanTypeConversionMode,
+    'SceneChangeDetect': obj.sceneChangeDetect,
+    'Slices': obj.slices,
+    'SlowPal': obj.slowPal,
+    'Softness': obj.softness,
+    'SpatialAdaptiveQuantization': obj.spatialAdaptiveQuantization,
+    'Syntax': obj.syntax,
+    'Telecine': obj.telecine,
+    'TemporalAdaptiveQuantization': obj.temporalAdaptiveQuantization,
+    'UnregisteredSeiTimecode': obj.unregisteredSeiTimecode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertH265Settings
@@ -5064,6 +8303,11 @@ export interface MediaConvertH265Settings {
   readonly sampleAdaptiveOffsetFilterMode?: string;
 
   /**
+   * @schema MediaConvertH265Settings#ScanTypeConversionMode
+   */
+  readonly scanTypeConversionMode?: string;
+
+  /**
    * @schema MediaConvertH265Settings#SceneChangeDetect
    */
   readonly sceneChangeDetect?: string;
@@ -5114,6 +8358,59 @@ export interface MediaConvertH265Settings {
   readonly writeMp4PackagingType?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertH265Settings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertH265Settings(obj: MediaConvertH265Settings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AdaptiveQuantization': obj.adaptiveQuantization,
+    'AlternateTransferFunctionSei': obj.alternateTransferFunctionSei,
+    'Bitrate': obj.bitrate,
+    'CodecLevel': obj.codecLevel,
+    'CodecProfile': obj.codecProfile,
+    'DynamicSubGop': obj.dynamicSubGop,
+    'FlickerAdaptiveQuantization': obj.flickerAdaptiveQuantization,
+    'FramerateControl': obj.framerateControl,
+    'FramerateConversionAlgorithm': obj.framerateConversionAlgorithm,
+    'FramerateDenominator': obj.framerateDenominator,
+    'FramerateNumerator': obj.framerateNumerator,
+    'GopBReference': obj.gopBReference,
+    'GopClosedCadence': obj.gopClosedCadence,
+    'GopSize': obj.gopSize,
+    'GopSizeUnits': obj.gopSizeUnits,
+    'HrdBufferInitialFillPercentage': obj.hrdBufferInitialFillPercentage,
+    'HrdBufferSize': obj.hrdBufferSize,
+    'InterlaceMode': obj.interlaceMode,
+    'MaxBitrate': obj.maxBitrate,
+    'MinIInterval': obj.minIInterval,
+    'NumberBFramesBetweenReferenceFrames': obj.numberBFramesBetweenReferenceFrames,
+    'NumberReferenceFrames': obj.numberReferenceFrames,
+    'ParControl': obj.parControl,
+    'ParDenominator': obj.parDenominator,
+    'ParNumerator': obj.parNumerator,
+    'QualityTuningLevel': obj.qualityTuningLevel,
+    'QvbrSettings': toJson_MediaConvertH265QvbrSettings(obj.qvbrSettings),
+    'RateControlMode': obj.rateControlMode,
+    'SampleAdaptiveOffsetFilterMode': obj.sampleAdaptiveOffsetFilterMode,
+    'ScanTypeConversionMode': obj.scanTypeConversionMode,
+    'SceneChangeDetect': obj.sceneChangeDetect,
+    'Slices': obj.slices,
+    'SlowPal': obj.slowPal,
+    'SpatialAdaptiveQuantization': obj.spatialAdaptiveQuantization,
+    'Telecine': obj.telecine,
+    'TemporalAdaptiveQuantization': obj.temporalAdaptiveQuantization,
+    'TemporalIds': obj.temporalIds,
+    'Tiles': obj.tiles,
+    'UnregisteredSeiTimecode': obj.unregisteredSeiTimecode,
+    'WriteMp4PackagingType': obj.writeMp4PackagingType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertMpeg2Settings
@@ -5240,6 +8537,11 @@ export interface MediaConvertMpeg2Settings {
   readonly rateControlMode?: string;
 
   /**
+   * @schema MediaConvertMpeg2Settings#ScanTypeConversionMode
+   */
+  readonly scanTypeConversionMode?: string;
+
+  /**
    * @schema MediaConvertMpeg2Settings#SceneChangeDetect
    */
   readonly sceneChangeDetect?: string;
@@ -5277,9 +8579,59 @@ export interface MediaConvertMpeg2Settings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertMpeg2Settings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertMpeg2Settings(obj: MediaConvertMpeg2Settings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AdaptiveQuantization': obj.adaptiveQuantization,
+    'Bitrate': obj.bitrate,
+    'CodecLevel': obj.codecLevel,
+    'CodecProfile': obj.codecProfile,
+    'DynamicSubGop': obj.dynamicSubGop,
+    'FramerateControl': obj.framerateControl,
+    'FramerateConversionAlgorithm': obj.framerateConversionAlgorithm,
+    'FramerateDenominator': obj.framerateDenominator,
+    'FramerateNumerator': obj.framerateNumerator,
+    'GopClosedCadence': obj.gopClosedCadence,
+    'GopSize': obj.gopSize,
+    'GopSizeUnits': obj.gopSizeUnits,
+    'HrdBufferInitialFillPercentage': obj.hrdBufferInitialFillPercentage,
+    'HrdBufferSize': obj.hrdBufferSize,
+    'InterlaceMode': obj.interlaceMode,
+    'IntraDcPrecision': obj.intraDcPrecision,
+    'MaxBitrate': obj.maxBitrate,
+    'MinIInterval': obj.minIInterval,
+    'NumberBFramesBetweenReferenceFrames': obj.numberBFramesBetweenReferenceFrames,
+    'ParControl': obj.parControl,
+    'ParDenominator': obj.parDenominator,
+    'ParNumerator': obj.parNumerator,
+    'QualityTuningLevel': obj.qualityTuningLevel,
+    'RateControlMode': obj.rateControlMode,
+    'ScanTypeConversionMode': obj.scanTypeConversionMode,
+    'SceneChangeDetect': obj.sceneChangeDetect,
+    'SlowPal': obj.slowPal,
+    'Softness': obj.softness,
+    'SpatialAdaptiveQuantization': obj.spatialAdaptiveQuantization,
+    'Syntax': obj.syntax,
+    'Telecine': obj.telecine,
+    'TemporalAdaptiveQuantization': obj.temporalAdaptiveQuantization,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertProresSettings
  */
 export interface MediaConvertProresSettings {
+  /**
+   * @schema MediaConvertProresSettings#ChromaSampling
+   */
+  readonly chromaSampling?: string;
+
   /**
    * @schema MediaConvertProresSettings#CodecProfile
    */
@@ -5326,6 +8678,11 @@ export interface MediaConvertProresSettings {
   readonly parNumerator?: number;
 
   /**
+   * @schema MediaConvertProresSettings#ScanTypeConversionMode
+   */
+  readonly scanTypeConversionMode?: string;
+
+  /**
    * @schema MediaConvertProresSettings#SlowPal
    */
   readonly slowPal?: string;
@@ -5336,6 +8693,32 @@ export interface MediaConvertProresSettings {
   readonly telecine?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertProresSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertProresSettings(obj: MediaConvertProresSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ChromaSampling': obj.chromaSampling,
+    'CodecProfile': obj.codecProfile,
+    'FramerateControl': obj.framerateControl,
+    'FramerateConversionAlgorithm': obj.framerateConversionAlgorithm,
+    'FramerateDenominator': obj.framerateDenominator,
+    'FramerateNumerator': obj.framerateNumerator,
+    'InterlaceMode': obj.interlaceMode,
+    'ParControl': obj.parControl,
+    'ParDenominator': obj.parDenominator,
+    'ParNumerator': obj.parNumerator,
+    'ScanTypeConversionMode': obj.scanTypeConversionMode,
+    'SlowPal': obj.slowPal,
+    'Telecine': obj.telecine,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertVc3Settings
@@ -5367,6 +8750,11 @@ export interface MediaConvertVc3Settings {
   readonly interlaceMode?: string;
 
   /**
+   * @schema MediaConvertVc3Settings#ScanTypeConversionMode
+   */
+  readonly scanTypeConversionMode?: string;
+
+  /**
    * @schema MediaConvertVc3Settings#SlowPal
    */
   readonly slowPal?: string;
@@ -5382,6 +8770,28 @@ export interface MediaConvertVc3Settings {
   readonly vc3Class?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertVc3Settings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertVc3Settings(obj: MediaConvertVc3Settings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FramerateControl': obj.framerateControl,
+    'FramerateConversionAlgorithm': obj.framerateConversionAlgorithm,
+    'FramerateDenominator': obj.framerateDenominator,
+    'FramerateNumerator': obj.framerateNumerator,
+    'InterlaceMode': obj.interlaceMode,
+    'ScanTypeConversionMode': obj.scanTypeConversionMode,
+    'SlowPal': obj.slowPal,
+    'Telecine': obj.telecine,
+    'Vc3Class': obj.vc3Class,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertVp8Settings
@@ -5455,6 +8865,32 @@ export interface MediaConvertVp8Settings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertVp8Settings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertVp8Settings(obj: MediaConvertVp8Settings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Bitrate': obj.bitrate,
+    'FramerateControl': obj.framerateControl,
+    'FramerateConversionAlgorithm': obj.framerateConversionAlgorithm,
+    'FramerateDenominator': obj.framerateDenominator,
+    'FramerateNumerator': obj.framerateNumerator,
+    'GopSize': obj.gopSize,
+    'HrdBufferSize': obj.hrdBufferSize,
+    'MaxBitrate': obj.maxBitrate,
+    'ParControl': obj.parControl,
+    'ParDenominator': obj.parDenominator,
+    'ParNumerator': obj.parNumerator,
+    'QualityTuningLevel': obj.qualityTuningLevel,
+    'RateControlMode': obj.rateControlMode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertVp9Settings
  */
 export interface MediaConvertVp9Settings {
@@ -5526,6 +8962,147 @@ export interface MediaConvertVp9Settings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertVp9Settings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertVp9Settings(obj: MediaConvertVp9Settings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Bitrate': obj.bitrate,
+    'FramerateControl': obj.framerateControl,
+    'FramerateConversionAlgorithm': obj.framerateConversionAlgorithm,
+    'FramerateDenominator': obj.framerateDenominator,
+    'FramerateNumerator': obj.framerateNumerator,
+    'GopSize': obj.gopSize,
+    'HrdBufferSize': obj.hrdBufferSize,
+    'MaxBitrate': obj.maxBitrate,
+    'ParControl': obj.parControl,
+    'ParDenominator': obj.parDenominator,
+    'ParNumerator': obj.parNumerator,
+    'QualityTuningLevel': obj.qualityTuningLevel,
+    'RateControlMode': obj.rateControlMode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema MediaConvertXavcSettings
+ */
+export interface MediaConvertXavcSettings {
+  /**
+   * @schema MediaConvertXavcSettings#AdaptiveQuantization
+   */
+  readonly adaptiveQuantization?: string;
+
+  /**
+   * @schema MediaConvertXavcSettings#EntropyEncoding
+   */
+  readonly entropyEncoding?: string;
+
+  /**
+   * @schema MediaConvertXavcSettings#FramerateControl
+   */
+  readonly framerateControl?: string;
+
+  /**
+   * @schema MediaConvertXavcSettings#FramerateConversionAlgorithm
+   */
+  readonly framerateConversionAlgorithm?: string;
+
+  /**
+   * @schema MediaConvertXavcSettings#FramerateDenominator
+   */
+  readonly framerateDenominator?: number;
+
+  /**
+   * @schema MediaConvertXavcSettings#FramerateNumerator
+   */
+  readonly framerateNumerator?: number;
+
+  /**
+   * @schema MediaConvertXavcSettings#Profile
+   */
+  readonly profile?: string;
+
+  /**
+   * @schema MediaConvertXavcSettings#SlowPal
+   */
+  readonly slowPal?: string;
+
+  /**
+   * @schema MediaConvertXavcSettings#Softness
+   */
+  readonly softness?: number;
+
+  /**
+   * @schema MediaConvertXavcSettings#SpatialAdaptiveQuantization
+   */
+  readonly spatialAdaptiveQuantization?: string;
+
+  /**
+   * @schema MediaConvertXavcSettings#TemporalAdaptiveQuantization
+   */
+  readonly temporalAdaptiveQuantization?: string;
+
+  /**
+   * @schema MediaConvertXavcSettings#Xavc4kIntraCbgProfileSettings
+   */
+  readonly xavc4KIntraCbgProfileSettings?: MediaConvertXavc4kIntraCbgProfileSettings;
+
+  /**
+   * @schema MediaConvertXavcSettings#Xavc4kIntraVbrProfileSettings
+   */
+  readonly xavc4KIntraVbrProfileSettings?: MediaConvertXavc4kIntraVbrProfileSettings;
+
+  /**
+   * @schema MediaConvertXavcSettings#Xavc4kProfileSettings
+   */
+  readonly xavc4KProfileSettings?: MediaConvertXavc4kProfileSettings;
+
+  /**
+   * @schema MediaConvertXavcSettings#XavcHdIntraCbgProfileSettings
+   */
+  readonly xavcHdIntraCbgProfileSettings?: MediaConvertXavcHdIntraCbgProfileSettings;
+
+  /**
+   * @schema MediaConvertXavcSettings#XavcHdProfileSettings
+   */
+  readonly xavcHdProfileSettings?: MediaConvertXavcHdProfileSettings;
+
+}
+
+/**
+ * Converts an object of type 'MediaConvertXavcSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertXavcSettings(obj: MediaConvertXavcSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AdaptiveQuantization': obj.adaptiveQuantization,
+    'EntropyEncoding': obj.entropyEncoding,
+    'FramerateControl': obj.framerateControl,
+    'FramerateConversionAlgorithm': obj.framerateConversionAlgorithm,
+    'FramerateDenominator': obj.framerateDenominator,
+    'FramerateNumerator': obj.framerateNumerator,
+    'Profile': obj.profile,
+    'SlowPal': obj.slowPal,
+    'Softness': obj.softness,
+    'SpatialAdaptiveQuantization': obj.spatialAdaptiveQuantization,
+    'TemporalAdaptiveQuantization': obj.temporalAdaptiveQuantization,
+    'Xavc4kIntraCbgProfileSettings': toJson_MediaConvertXavc4kIntraCbgProfileSettings(obj.xavc4KIntraCbgProfileSettings),
+    'Xavc4kIntraVbrProfileSettings': toJson_MediaConvertXavc4kIntraVbrProfileSettings(obj.xavc4KIntraVbrProfileSettings),
+    'Xavc4kProfileSettings': toJson_MediaConvertXavc4kProfileSettings(obj.xavc4KProfileSettings),
+    'XavcHdIntraCbgProfileSettings': toJson_MediaConvertXavcHdIntraCbgProfileSettings(obj.xavcHdIntraCbgProfileSettings),
+    'XavcHdProfileSettings': toJson_MediaConvertXavcHdProfileSettings(obj.xavcHdProfileSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertColorCorrector
  */
 export interface MediaConvertColorCorrector {
@@ -5555,11 +9132,36 @@ export interface MediaConvertColorCorrector {
   readonly hue?: number;
 
   /**
+   * @schema MediaConvertColorCorrector#SampleRangeConversion
+   */
+  readonly sampleRangeConversion?: string;
+
+  /**
    * @schema MediaConvertColorCorrector#Saturation
    */
   readonly saturation?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertColorCorrector' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertColorCorrector(obj: MediaConvertColorCorrector | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Brightness': obj.brightness,
+    'ColorSpaceConversion': obj.colorSpaceConversion,
+    'Contrast': obj.contrast,
+    'Hdr10Metadata': toJson_MediaConvertHdr10Metadata(obj.hdr10Metadata),
+    'Hue': obj.hue,
+    'SampleRangeConversion': obj.sampleRangeConversion,
+    'Saturation': obj.saturation,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertDeinterlacer
@@ -5583,6 +9185,22 @@ export interface MediaConvertDeinterlacer {
 }
 
 /**
+ * Converts an object of type 'MediaConvertDeinterlacer' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDeinterlacer(obj: MediaConvertDeinterlacer | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Algorithm': obj.algorithm,
+    'Control': obj.control,
+    'Mode': obj.mode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertDolbyVision
  */
 export interface MediaConvertDolbyVision {
@@ -5602,6 +9220,53 @@ export interface MediaConvertDolbyVision {
   readonly profile?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertDolbyVision' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDolbyVision(obj: MediaConvertDolbyVision | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'L6Metadata': toJson_MediaConvertDolbyVisionLevel6Metadata(obj.l6Metadata),
+    'L6Mode': obj.l6Mode,
+    'Profile': obj.profile,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema MediaConvertHdr10Plus
+ */
+export interface MediaConvertHdr10Plus {
+  /**
+   * @schema MediaConvertHdr10Plus#MasteringMonitorNits
+   */
+  readonly masteringMonitorNits?: number;
+
+  /**
+   * @schema MediaConvertHdr10Plus#TargetMonitorNits
+   */
+  readonly targetMonitorNits?: number;
+
+}
+
+/**
+ * Converts an object of type 'MediaConvertHdr10Plus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertHdr10Plus(obj: MediaConvertHdr10Plus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MasteringMonitorNits': obj.masteringMonitorNits,
+    'TargetMonitorNits': obj.targetMonitorNits,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertNoiseReducer
@@ -5630,6 +9295,23 @@ export interface MediaConvertNoiseReducer {
 }
 
 /**
+ * Converts an object of type 'MediaConvertNoiseReducer' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertNoiseReducer(obj: MediaConvertNoiseReducer | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Filter': obj.filter,
+    'FilterSettings': toJson_MediaConvertNoiseReducerFilterSettings(obj.filterSettings),
+    'SpatialFilterSettings': toJson_MediaConvertNoiseReducerSpatialFilterSettings(obj.spatialFilterSettings),
+    'TemporalFilterSettings': toJson_MediaConvertNoiseReducerTemporalFilterSettings(obj.temporalFilterSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertPartnerWatermarking
  */
 export interface MediaConvertPartnerWatermarking {
@@ -5639,6 +9321,20 @@ export interface MediaConvertPartnerWatermarking {
   readonly nexguardFileMarkerSettings?: MediaConvertNexGuardFileMarkerSettings;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertPartnerWatermarking' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertPartnerWatermarking(obj: MediaConvertPartnerWatermarking | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'NexguardFileMarkerSettings': toJson_MediaConvertNexGuardFileMarkerSettings(obj.nexguardFileMarkerSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertTimecodeBurnin
@@ -5662,6 +9358,22 @@ export interface MediaConvertTimecodeBurnin {
 }
 
 /**
+ * Converts an object of type 'MediaConvertTimecodeBurnin' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertTimecodeBurnin(obj: MediaConvertTimecodeBurnin | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FontSize': obj.fontSize,
+    'Position': obj.position,
+    'Prefix': obj.prefix,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertAncillarySourceSettings
  */
 export interface MediaConvertAncillarySourceSettings {
@@ -5683,6 +9395,22 @@ export interface MediaConvertAncillarySourceSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertAncillarySourceSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAncillarySourceSettings(obj: MediaConvertAncillarySourceSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Convert608To708': obj.convert608To708,
+    'SourceAncillaryChannelNumber': obj.sourceAncillaryChannelNumber,
+    'TerminateCaptions': obj.terminateCaptions,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertDvbSubSourceSettings
  */
 export interface MediaConvertDvbSubSourceSettings {
@@ -5692,6 +9420,20 @@ export interface MediaConvertDvbSubSourceSettings {
   readonly pid?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertDvbSubSourceSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDvbSubSourceSettings(obj: MediaConvertDvbSubSourceSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Pid': obj.pid,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertEmbeddedSourceSettings
@@ -5720,6 +9462,23 @@ export interface MediaConvertEmbeddedSourceSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertEmbeddedSourceSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertEmbeddedSourceSettings(obj: MediaConvertEmbeddedSourceSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Convert608To708': obj.convert608To708,
+    'Source608ChannelNumber': obj.source608ChannelNumber,
+    'Source608TrackNumber': obj.source608TrackNumber,
+    'TerminateCaptions': obj.terminateCaptions,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertFileSourceSettings
  */
 export interface MediaConvertFileSourceSettings {
@@ -5746,6 +9505,23 @@ export interface MediaConvertFileSourceSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertFileSourceSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertFileSourceSettings(obj: MediaConvertFileSourceSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Convert608To708': obj.convert608To708,
+    'Framerate': toJson_MediaConvertCaptionSourceFramerate(obj.framerate),
+    'SourceFile': obj.sourceFile,
+    'TimeDelta': obj.timeDelta,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertTeletextSourceSettings
  */
 export interface MediaConvertTeletextSourceSettings {
@@ -5757,6 +9533,20 @@ export interface MediaConvertTeletextSourceSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertTeletextSourceSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertTeletextSourceSettings(obj: MediaConvertTeletextSourceSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PageNumber': obj.pageNumber,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertTrackSourceSettings
  */
 export interface MediaConvertTrackSourceSettings {
@@ -5766,6 +9556,57 @@ export interface MediaConvertTrackSourceSettings {
   readonly trackNumber?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertTrackSourceSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertTrackSourceSettings(obj: MediaConvertTrackSourceSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TrackNumber': obj.trackNumber,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema MediaConvertWebvttHlsSourceSettings
+ */
+export interface MediaConvertWebvttHlsSourceSettings {
+  /**
+   * @schema MediaConvertWebvttHlsSourceSettings#RenditionGroupId
+   */
+  readonly renditionGroupId?: string;
+
+  /**
+   * @schema MediaConvertWebvttHlsSourceSettings#RenditionLanguageCode
+   */
+  readonly renditionLanguageCode?: string;
+
+  /**
+   * @schema MediaConvertWebvttHlsSourceSettings#RenditionName
+   */
+  readonly renditionName?: string;
+
+}
+
+/**
+ * Converts an object of type 'MediaConvertWebvttHlsSourceSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertWebvttHlsSourceSettings(obj: MediaConvertWebvttHlsSourceSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RenditionGroupId': obj.renditionGroupId,
+    'RenditionLanguageCode': obj.renditionLanguageCode,
+    'RenditionName': obj.renditionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertCmafAdditionalManifest
@@ -5784,6 +9625,21 @@ export interface MediaConvertCmafAdditionalManifest {
 }
 
 /**
+ * Converts an object of type 'MediaConvertCmafAdditionalManifest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCmafAdditionalManifest(obj: MediaConvertCmafAdditionalManifest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ManifestNameModifier': obj.manifestNameModifier,
+    'SelectedOutputs': obj.selectedOutputs?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertDestinationSettings
  */
 export interface MediaConvertDestinationSettings {
@@ -5793,6 +9649,20 @@ export interface MediaConvertDestinationSettings {
   readonly s3Settings?: MediaConvertS3DestinationSettings;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertDestinationSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDestinationSettings(obj: MediaConvertDestinationSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'S3Settings': toJson_MediaConvertS3DestinationSettings(obj.s3Settings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertCmafEncryptionSettings
@@ -5831,6 +9701,25 @@ export interface MediaConvertCmafEncryptionSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertCmafEncryptionSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCmafEncryptionSettings(obj: MediaConvertCmafEncryptionSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConstantInitializationVector': obj.constantInitializationVector,
+    'EncryptionMethod': obj.encryptionMethod,
+    'InitializationVectorInManifest': obj.initializationVectorInManifest,
+    'SpekeKeyProvider': toJson_MediaConvertSpekeKeyProviderCmaf(obj.spekeKeyProvider),
+    'StaticKeyProvider': toJson_MediaConvertStaticKeyProvider(obj.staticKeyProvider),
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertDashAdditionalManifest
  */
 export interface MediaConvertDashAdditionalManifest {
@@ -5845,6 +9734,21 @@ export interface MediaConvertDashAdditionalManifest {
   readonly selectedOutputs?: string[];
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertDashAdditionalManifest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDashAdditionalManifest(obj: MediaConvertDashAdditionalManifest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ManifestNameModifier': obj.manifestNameModifier,
+    'SelectedOutputs': obj.selectedOutputs?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertDashIsoEncryptionSettings
@@ -5863,6 +9767,21 @@ export interface MediaConvertDashIsoEncryptionSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertDashIsoEncryptionSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDashIsoEncryptionSettings(obj: MediaConvertDashIsoEncryptionSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PlaybackDeviceCompatibility': obj.playbackDeviceCompatibility,
+    'SpekeKeyProvider': toJson_MediaConvertSpekeKeyProvider(obj.spekeKeyProvider),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertHlsAdditionalManifest
  */
 export interface MediaConvertHlsAdditionalManifest {
@@ -5877,6 +9796,21 @@ export interface MediaConvertHlsAdditionalManifest {
   readonly selectedOutputs?: string[];
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertHlsAdditionalManifest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertHlsAdditionalManifest(obj: MediaConvertHlsAdditionalManifest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ManifestNameModifier': obj.manifestNameModifier,
+    'SelectedOutputs': obj.selectedOutputs?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertHlsCaptionLanguageMapping
@@ -5903,6 +9837,23 @@ export interface MediaConvertHlsCaptionLanguageMapping {
   readonly languageDescription?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertHlsCaptionLanguageMapping' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertHlsCaptionLanguageMapping(obj: MediaConvertHlsCaptionLanguageMapping | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CaptionChannel': obj.captionChannel,
+    'CustomLanguageCode': obj.customLanguageCode,
+    'LanguageCode': obj.languageCode,
+    'LanguageDescription': obj.languageDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertHlsEncryptionSettings
@@ -5946,6 +9897,26 @@ export interface MediaConvertHlsEncryptionSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertHlsEncryptionSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertHlsEncryptionSettings(obj: MediaConvertHlsEncryptionSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConstantInitializationVector': obj.constantInitializationVector,
+    'EncryptionMethod': obj.encryptionMethod,
+    'InitializationVectorInManifest': obj.initializationVectorInManifest,
+    'OfflineEncrypted': obj.offlineEncrypted,
+    'SpekeKeyProvider': toJson_MediaConvertSpekeKeyProvider(obj.spekeKeyProvider),
+    'StaticKeyProvider': toJson_MediaConvertStaticKeyProvider(obj.staticKeyProvider),
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertMsSmoothAdditionalManifest
  */
 export interface MediaConvertMsSmoothAdditionalManifest {
@@ -5962,6 +9933,21 @@ export interface MediaConvertMsSmoothAdditionalManifest {
 }
 
 /**
+ * Converts an object of type 'MediaConvertMsSmoothAdditionalManifest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertMsSmoothAdditionalManifest(obj: MediaConvertMsSmoothAdditionalManifest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ManifestNameModifier': obj.manifestNameModifier,
+    'SelectedOutputs': obj.selectedOutputs?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertMsSmoothEncryptionSettings
  */
 export interface MediaConvertMsSmoothEncryptionSettings {
@@ -5971,6 +9957,20 @@ export interface MediaConvertMsSmoothEncryptionSettings {
   readonly spekeKeyProvider?: MediaConvertSpekeKeyProvider;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertMsSmoothEncryptionSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertMsSmoothEncryptionSettings(obj: MediaConvertMsSmoothEncryptionSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SpekeKeyProvider': toJson_MediaConvertSpekeKeyProvider(obj.spekeKeyProvider),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertHlsSettings
@@ -5997,6 +9997,11 @@ export interface MediaConvertHlsSettings {
   readonly audioTrackType?: string;
 
   /**
+   * @schema MediaConvertHlsSettings#DescriptiveVideoServiceFlag
+   */
+  readonly descriptiveVideoServiceFlag?: string;
+
+  /**
    * @schema MediaConvertHlsSettings#IFrameOnlyManifest
    */
   readonly iFrameOnlyManifest?: string;
@@ -6009,6 +10014,26 @@ export interface MediaConvertHlsSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertHlsSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertHlsSettings(obj: MediaConvertHlsSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AudioGroupId': obj.audioGroupId,
+    'AudioOnlyContainer': obj.audioOnlyContainer,
+    'AudioRenditionSets': obj.audioRenditionSets,
+    'AudioTrackType': obj.audioTrackType,
+    'DescriptiveVideoServiceFlag': obj.descriptiveVideoServiceFlag,
+    'IFrameOnlyManifest': obj.iFrameOnlyManifest,
+    'SegmentModifier': obj.segmentModifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertOutputChannelMapping
  */
 export interface MediaConvertOutputChannelMapping {
@@ -6017,7 +10042,27 @@ export interface MediaConvertOutputChannelMapping {
    */
   readonly inputChannels?: number[];
 
+  /**
+   * @schema MediaConvertOutputChannelMapping#InputChannelsFineTune
+   */
+  readonly inputChannelsFineTune?: number[];
+
 }
+
+/**
+ * Converts an object of type 'MediaConvertOutputChannelMapping' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertOutputChannelMapping(obj: MediaConvertOutputChannelMapping | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InputChannels': obj.inputChannels?.map(y => y),
+    'InputChannelsFineTune': obj.inputChannelsFineTune?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertAv1QvbrSettings
@@ -6034,6 +10079,46 @@ export interface MediaConvertAv1QvbrSettings {
   readonly qvbrQualityLevelFineTune?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertAv1QvbrSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAv1QvbrSettings(obj: MediaConvertAv1QvbrSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'QvbrQualityLevel': obj.qvbrQualityLevel,
+    'QvbrQualityLevelFineTune': obj.qvbrQualityLevelFineTune,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema MediaConvertAvcIntraUhdSettings
+ */
+export interface MediaConvertAvcIntraUhdSettings {
+  /**
+   * @schema MediaConvertAvcIntraUhdSettings#QualityTuningLevel
+   */
+  readonly qualityTuningLevel?: string;
+
+}
+
+/**
+ * Converts an object of type 'MediaConvertAvcIntraUhdSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertAvcIntraUhdSettings(obj: MediaConvertAvcIntraUhdSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'QualityTuningLevel': obj.qualityTuningLevel,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertH264QvbrSettings
@@ -6057,6 +10142,22 @@ export interface MediaConvertH264QvbrSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertH264QvbrSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertH264QvbrSettings(obj: MediaConvertH264QvbrSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxAverageBitrate': obj.maxAverageBitrate,
+    'QvbrQualityLevel': obj.qvbrQualityLevel,
+    'QvbrQualityLevelFineTune': obj.qvbrQualityLevelFineTune,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertH265QvbrSettings
  */
 export interface MediaConvertH265QvbrSettings {
@@ -6078,6 +10179,237 @@ export interface MediaConvertH265QvbrSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertH265QvbrSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertH265QvbrSettings(obj: MediaConvertH265QvbrSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxAverageBitrate': obj.maxAverageBitrate,
+    'QvbrQualityLevel': obj.qvbrQualityLevel,
+    'QvbrQualityLevelFineTune': obj.qvbrQualityLevelFineTune,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema MediaConvertXavc4kIntraCbgProfileSettings
+ */
+export interface MediaConvertXavc4kIntraCbgProfileSettings {
+  /**
+   * @schema MediaConvertXavc4kIntraCbgProfileSettings#XavcClass
+   */
+  readonly xavcClass?: string;
+
+}
+
+/**
+ * Converts an object of type 'MediaConvertXavc4kIntraCbgProfileSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertXavc4kIntraCbgProfileSettings(obj: MediaConvertXavc4kIntraCbgProfileSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'XavcClass': obj.xavcClass,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema MediaConvertXavc4kIntraVbrProfileSettings
+ */
+export interface MediaConvertXavc4kIntraVbrProfileSettings {
+  /**
+   * @schema MediaConvertXavc4kIntraVbrProfileSettings#XavcClass
+   */
+  readonly xavcClass?: string;
+
+}
+
+/**
+ * Converts an object of type 'MediaConvertXavc4kIntraVbrProfileSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertXavc4kIntraVbrProfileSettings(obj: MediaConvertXavc4kIntraVbrProfileSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'XavcClass': obj.xavcClass,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema MediaConvertXavc4kProfileSettings
+ */
+export interface MediaConvertXavc4kProfileSettings {
+  /**
+   * @schema MediaConvertXavc4kProfileSettings#BitrateClass
+   */
+  readonly bitrateClass?: string;
+
+  /**
+   * @schema MediaConvertXavc4kProfileSettings#CodecProfile
+   */
+  readonly codecProfile?: string;
+
+  /**
+   * @schema MediaConvertXavc4kProfileSettings#FlickerAdaptiveQuantization
+   */
+  readonly flickerAdaptiveQuantization?: string;
+
+  /**
+   * @schema MediaConvertXavc4kProfileSettings#GopBReference
+   */
+  readonly gopBReference?: string;
+
+  /**
+   * @schema MediaConvertXavc4kProfileSettings#GopClosedCadence
+   */
+  readonly gopClosedCadence?: number;
+
+  /**
+   * @schema MediaConvertXavc4kProfileSettings#HrdBufferSize
+   */
+  readonly hrdBufferSize?: number;
+
+  /**
+   * @schema MediaConvertXavc4kProfileSettings#QualityTuningLevel
+   */
+  readonly qualityTuningLevel?: string;
+
+  /**
+   * @schema MediaConvertXavc4kProfileSettings#Slices
+   */
+  readonly slices?: number;
+
+}
+
+/**
+ * Converts an object of type 'MediaConvertXavc4kProfileSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertXavc4kProfileSettings(obj: MediaConvertXavc4kProfileSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BitrateClass': obj.bitrateClass,
+    'CodecProfile': obj.codecProfile,
+    'FlickerAdaptiveQuantization': obj.flickerAdaptiveQuantization,
+    'GopBReference': obj.gopBReference,
+    'GopClosedCadence': obj.gopClosedCadence,
+    'HrdBufferSize': obj.hrdBufferSize,
+    'QualityTuningLevel': obj.qualityTuningLevel,
+    'Slices': obj.slices,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema MediaConvertXavcHdIntraCbgProfileSettings
+ */
+export interface MediaConvertXavcHdIntraCbgProfileSettings {
+  /**
+   * @schema MediaConvertXavcHdIntraCbgProfileSettings#XavcClass
+   */
+  readonly xavcClass?: string;
+
+}
+
+/**
+ * Converts an object of type 'MediaConvertXavcHdIntraCbgProfileSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertXavcHdIntraCbgProfileSettings(obj: MediaConvertXavcHdIntraCbgProfileSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'XavcClass': obj.xavcClass,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema MediaConvertXavcHdProfileSettings
+ */
+export interface MediaConvertXavcHdProfileSettings {
+  /**
+   * @schema MediaConvertXavcHdProfileSettings#BitrateClass
+   */
+  readonly bitrateClass?: string;
+
+  /**
+   * @schema MediaConvertXavcHdProfileSettings#FlickerAdaptiveQuantization
+   */
+  readonly flickerAdaptiveQuantization?: string;
+
+  /**
+   * @schema MediaConvertXavcHdProfileSettings#GopBReference
+   */
+  readonly gopBReference?: string;
+
+  /**
+   * @schema MediaConvertXavcHdProfileSettings#GopClosedCadence
+   */
+  readonly gopClosedCadence?: number;
+
+  /**
+   * @schema MediaConvertXavcHdProfileSettings#HrdBufferSize
+   */
+  readonly hrdBufferSize?: number;
+
+  /**
+   * @schema MediaConvertXavcHdProfileSettings#InterlaceMode
+   */
+  readonly interlaceMode?: string;
+
+  /**
+   * @schema MediaConvertXavcHdProfileSettings#QualityTuningLevel
+   */
+  readonly qualityTuningLevel?: string;
+
+  /**
+   * @schema MediaConvertXavcHdProfileSettings#Slices
+   */
+  readonly slices?: number;
+
+  /**
+   * @schema MediaConvertXavcHdProfileSettings#Telecine
+   */
+  readonly telecine?: string;
+
+}
+
+/**
+ * Converts an object of type 'MediaConvertXavcHdProfileSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertXavcHdProfileSettings(obj: MediaConvertXavcHdProfileSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BitrateClass': obj.bitrateClass,
+    'FlickerAdaptiveQuantization': obj.flickerAdaptiveQuantization,
+    'GopBReference': obj.gopBReference,
+    'GopClosedCadence': obj.gopClosedCadence,
+    'HrdBufferSize': obj.hrdBufferSize,
+    'InterlaceMode': obj.interlaceMode,
+    'QualityTuningLevel': obj.qualityTuningLevel,
+    'Slices': obj.slices,
+    'Telecine': obj.telecine,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertDolbyVisionLevel6Metadata
  */
 export interface MediaConvertDolbyVisionLevel6Metadata {
@@ -6094,6 +10426,21 @@ export interface MediaConvertDolbyVisionLevel6Metadata {
 }
 
 /**
+ * Converts an object of type 'MediaConvertDolbyVisionLevel6Metadata' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertDolbyVisionLevel6Metadata(obj: MediaConvertDolbyVisionLevel6Metadata | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxCll': obj.maxCll,
+    'MaxFall': obj.maxFall,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertNoiseReducerFilterSettings
  */
 export interface MediaConvertNoiseReducerFilterSettings {
@@ -6103,6 +10450,20 @@ export interface MediaConvertNoiseReducerFilterSettings {
   readonly strength?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertNoiseReducerFilterSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertNoiseReducerFilterSettings(obj: MediaConvertNoiseReducerFilterSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Strength': obj.strength,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertNoiseReducerSpatialFilterSettings
@@ -6124,6 +10485,22 @@ export interface MediaConvertNoiseReducerSpatialFilterSettings {
   readonly strength?: number;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertNoiseReducerSpatialFilterSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertNoiseReducerSpatialFilterSettings(obj: MediaConvertNoiseReducerSpatialFilterSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PostFilterSharpenStrength': obj.postFilterSharpenStrength,
+    'Speed': obj.speed,
+    'Strength': obj.strength,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertNoiseReducerTemporalFilterSettings
@@ -6152,6 +10529,23 @@ export interface MediaConvertNoiseReducerTemporalFilterSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertNoiseReducerTemporalFilterSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertNoiseReducerTemporalFilterSettings(obj: MediaConvertNoiseReducerTemporalFilterSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AggressiveMode': obj.aggressiveMode,
+    'PostTemporalSharpening': obj.postTemporalSharpening,
+    'Speed': obj.speed,
+    'Strength': obj.strength,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertNexGuardFileMarkerSettings
  */
 export interface MediaConvertNexGuardFileMarkerSettings {
@@ -6178,6 +10572,23 @@ export interface MediaConvertNexGuardFileMarkerSettings {
 }
 
 /**
+ * Converts an object of type 'MediaConvertNexGuardFileMarkerSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertNexGuardFileMarkerSettings(obj: MediaConvertNexGuardFileMarkerSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'License': obj.license,
+    'Payload': obj.payload,
+    'Preset': obj.preset,
+    'Strength': obj.strength,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertCaptionSourceFramerate
  */
 export interface MediaConvertCaptionSourceFramerate {
@@ -6194,6 +10605,21 @@ export interface MediaConvertCaptionSourceFramerate {
 }
 
 /**
+ * Converts an object of type 'MediaConvertCaptionSourceFramerate' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertCaptionSourceFramerate(obj: MediaConvertCaptionSourceFramerate | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'FramerateDenominator': obj.framerateDenominator,
+    'FramerateNumerator': obj.framerateNumerator,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertS3DestinationSettings
  */
 export interface MediaConvertS3DestinationSettings {
@@ -6208,6 +10634,21 @@ export interface MediaConvertS3DestinationSettings {
   readonly encryption?: MediaConvertS3EncryptionSettings;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertS3DestinationSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertS3DestinationSettings(obj: MediaConvertS3DestinationSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AccessControl': toJson_MediaConvertS3DestinationAccessControl(obj.accessControl),
+    'Encryption': toJson_MediaConvertS3EncryptionSettings(obj.encryption),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertSpekeKeyProviderCmaf
@@ -6241,6 +10682,24 @@ export interface MediaConvertSpekeKeyProviderCmaf {
 }
 
 /**
+ * Converts an object of type 'MediaConvertSpekeKeyProviderCmaf' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertSpekeKeyProviderCmaf(obj: MediaConvertSpekeKeyProviderCmaf | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CertificateArn': obj.certificateArn,
+    'DashSignaledSystemIds': obj.dashSignaledSystemIds?.map(y => y),
+    'HlsSignaledSystemIds': obj.hlsSignaledSystemIds?.map(y => y),
+    'ResourceId': obj.resourceId,
+    'Url': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertStaticKeyProvider
  */
 export interface MediaConvertStaticKeyProvider {
@@ -6265,6 +10724,23 @@ export interface MediaConvertStaticKeyProvider {
   readonly url?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertStaticKeyProvider' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertStaticKeyProvider(obj: MediaConvertStaticKeyProvider | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'KeyFormat': obj.keyFormat,
+    'KeyFormatVersions': obj.keyFormatVersions,
+    'StaticKeyValue': obj.staticKeyValue,
+    'Url': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertSpekeKeyProvider
@@ -6293,6 +10769,23 @@ export interface MediaConvertSpekeKeyProvider {
 }
 
 /**
+ * Converts an object of type 'MediaConvertSpekeKeyProvider' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertSpekeKeyProvider(obj: MediaConvertSpekeKeyProvider | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CertificateArn': obj.certificateArn,
+    'ResourceId': obj.resourceId,
+    'SystemIds': obj.systemIds?.map(y => y),
+    'Url': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MediaConvertS3DestinationAccessControl
  */
 export interface MediaConvertS3DestinationAccessControl {
@@ -6302,6 +10795,20 @@ export interface MediaConvertS3DestinationAccessControl {
   readonly cannedAcl?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertS3DestinationAccessControl' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertS3DestinationAccessControl(obj: MediaConvertS3DestinationAccessControl | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CannedAcl': obj.cannedAcl,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MediaConvertS3EncryptionSettings
@@ -6318,3 +10825,18 @@ export interface MediaConvertS3EncryptionSettings {
   readonly kmsKeyArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'MediaConvertS3EncryptionSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MediaConvertS3EncryptionSettings(obj: MediaConvertS3EncryptionSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EncryptionType': obj.encryptionType,
+    'KmsKeyArn': obj.kmsKeyArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

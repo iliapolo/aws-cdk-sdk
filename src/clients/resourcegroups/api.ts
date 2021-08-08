@@ -44,6 +44,22 @@ export class ResourceGroupsClient extends cdk.Construct {
     return new ResourceGroupsResponsesListGroups(this, this.__resources, input);
   }
 
+  public putGroupConfiguration(input: shapes.ResourceGroupsPutGroupConfigurationInput): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putGroupConfiguration',
+        service: 'ResourceGroups',
+        physicalResourceId: cr.PhysicalResourceId.of('ResourceGroups.PutGroupConfiguration'),
+        parameters: {
+          Group: input.group,
+          Configuration: input.configuration,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'PutGroupConfiguration', props);
+  }
+
   public searchResources(input: shapes.ResourceGroupsSearchResourcesInput): ResourceGroupsResponsesSearchResources {
     return new ResourceGroupsResponsesSearchResources(this, this.__resources, input);
   }
@@ -745,11 +761,50 @@ export class ResourceGroupsResponsesGroupResources {
     return resource.getResponseField('Failed') as unknown as shapes.ResourceGroupsFailedResource[];
   }
 
+  public get pending(): shapes.ResourceGroupsPendingResource[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'groupResources',
+        service: 'ResourceGroups',
+        physicalResourceId: cr.PhysicalResourceId.of('ResourceGroups.GroupResources.Pending'),
+        outputPath: 'Pending',
+        parameters: {
+          Group: this.__input.group,
+          ResourceArns: this.__input.resourceArns,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GroupResources.Pending', props);
+    return resource.getResponseField('Pending') as unknown as shapes.ResourceGroupsPendingResource[];
+  }
+
 }
 
 export class ResourceGroupsResponsesListGroupResources {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ResourceGroupsListGroupResourcesInput) {
+  }
+
+  public get resources(): shapes.ResourceGroupsListGroupResourcesItem[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listGroupResources',
+        service: 'ResourceGroups',
+        physicalResourceId: cr.PhysicalResourceId.of('ResourceGroups.ListGroupResources.Resources'),
+        outputPath: 'Resources',
+        parameters: {
+          GroupName: this.__input.groupName,
+          Group: this.__input.group,
+          Filters: this.__input.filters,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListGroupResources.Resources', props);
+    return resource.getResponseField('Resources') as unknown as shapes.ResourceGroupsListGroupResourcesItem[];
   }
 
   public get resourceIdentifiers(): shapes.ResourceGroupsResourceIdentifier[] {
@@ -1036,6 +1091,24 @@ export class ResourceGroupsResponsesUngroupResources {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UngroupResources.Failed', props);
     return resource.getResponseField('Failed') as unknown as shapes.ResourceGroupsFailedResource[];
+  }
+
+  public get pending(): shapes.ResourceGroupsPendingResource[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'ungroupResources',
+        service: 'ResourceGroups',
+        physicalResourceId: cr.PhysicalResourceId.of('ResourceGroups.UngroupResources.Pending'),
+        outputPath: 'Pending',
+        parameters: {
+          Group: this.__input.group,
+          ResourceArns: this.__input.resourceArns,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UngroupResources.Pending', props);
+    return resource.getResponseField('Pending') as unknown as shapes.ResourceGroupsPendingResource[];
   }
 
 }

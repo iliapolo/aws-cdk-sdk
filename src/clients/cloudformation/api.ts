@@ -8,6 +8,14 @@ export class CloudFormationClient extends cdk.Construct {
     super(scope, id);
   }
 
+  public activateType(input: shapes.CloudFormationActivateTypeInput): CloudFormationResponsesActivateType {
+    return new CloudFormationResponsesActivateType(this, this.__resources, input);
+  }
+
+  public batchDescribeTypeConfigurations(input: shapes.CloudFormationBatchDescribeTypeConfigurationsInput): CloudFormationResponsesBatchDescribeTypeConfigurations {
+    return new CloudFormationResponsesBatchDescribeTypeConfigurations(this, this.__resources, input);
+  }
+
   public cancelUpdateStack(input: shapes.CloudFormationCancelUpdateStackInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -58,6 +66,23 @@ export class CloudFormationClient extends cdk.Construct {
     return new CloudFormationResponsesCreateStackSet(this, this.__resources, input);
   }
 
+  public deactivateType(input: shapes.CloudFormationDeactivateTypeInput): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deactivateType',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DeactivateType'),
+        parameters: {
+          TypeName: input.typeName,
+          Type: input.type,
+          Arn: input.arn,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeactivateType', props);
+  }
+
   public deleteChangeSet(input: shapes.CloudFormationDeleteChangeSetInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -105,6 +130,7 @@ export class CloudFormationClient extends cdk.Construct {
         physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DeleteStackSet'),
         parameters: {
           StackSetName: input.stackSetName,
+          CallAs: input.callAs,
         },
       },
     };
@@ -135,6 +161,10 @@ export class CloudFormationClient extends cdk.Construct {
 
   public describeChangeSet(input: shapes.CloudFormationDescribeChangeSetInput): CloudFormationResponsesDescribeChangeSet {
     return new CloudFormationResponsesDescribeChangeSet(this, this.__resources, input);
+  }
+
+  public describePublisher(input: shapes.CloudFormationDescribePublisherInput): CloudFormationResponsesDescribePublisher {
+    return new CloudFormationResponsesDescribePublisher(this, this.__resources, input);
   }
 
   public describeStackDriftDetectionStatus(input: shapes.CloudFormationDescribeStackDriftDetectionStatusInput): CloudFormationResponsesDescribeStackDriftDetectionStatus {
@@ -226,6 +256,10 @@ export class CloudFormationClient extends cdk.Construct {
     return new CloudFormationResponsesFetchTemplateSummary(this, this.__resources, input);
   }
 
+  public importStacksToStackSet(input: shapes.CloudFormationImportStacksToStackSetInput): CloudFormationResponsesImportStacksToStackSet {
+    return new CloudFormationResponsesImportStacksToStackSet(this, this.__resources, input);
+  }
+
   public listChangeSets(input: shapes.CloudFormationListChangeSetsInput): CloudFormationResponsesListChangeSets {
     return new CloudFormationResponsesListChangeSets(this, this.__resources, input);
   }
@@ -274,6 +308,10 @@ export class CloudFormationClient extends cdk.Construct {
     return new CloudFormationResponsesListTypes(this, this.__resources, input);
   }
 
+  public publishType(input: shapes.CloudFormationPublishTypeInput): CloudFormationResponsesPublishType {
+    return new CloudFormationResponsesPublishType(this, this.__resources, input);
+  }
+
   public recordHandlerProgress(input: shapes.CloudFormationRecordHandlerProgressInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -295,6 +333,10 @@ export class CloudFormationClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'RecordHandlerProgress', props);
   }
 
+  public registerPublisher(input: shapes.CloudFormationRegisterPublisherInput): CloudFormationResponsesRegisterPublisher {
+    return new CloudFormationResponsesRegisterPublisher(this, this.__resources, input);
+  }
+
   public registerType(input: shapes.CloudFormationRegisterTypeInput): CloudFormationResponsesRegisterType {
     return new CloudFormationResponsesRegisterType(this, this.__resources, input);
   }
@@ -314,6 +356,10 @@ export class CloudFormationClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'SetStackPolicy', props);
+  }
+
+  public putTypeConfiguration(input: shapes.CloudFormationSetTypeConfigurationInput): CloudFormationResponsesPutTypeConfiguration {
+    return new CloudFormationResponsesPutTypeConfiguration(this, this.__resources, input);
   }
 
   public putTypeDefaultVersion(input: shapes.CloudFormationSetTypeDefaultVersionInput): void {
@@ -362,10 +408,15 @@ export class CloudFormationClient extends cdk.Construct {
         parameters: {
           StackSetName: input.stackSetName,
           OperationId: input.operationId,
+          CallAs: input.callAs,
         },
       },
     };
     new cr.AwsCustomResource(this, 'StopStackSetOperation', props);
+  }
+
+  public testType(input: shapes.CloudFormationTestTypeInput): CloudFormationResponsesTestType {
+    return new CloudFormationResponsesTestType(this, this.__resources, input);
   }
 
   public updateStack(input: shapes.CloudFormationUpdateStackInput): CloudFormationResponsesUpdateStack {
@@ -386,6 +437,100 @@ export class CloudFormationClient extends cdk.Construct {
 
   public validateTemplate(input: shapes.CloudFormationValidateTemplateInput): CloudFormationResponsesValidateTemplate {
     return new CloudFormationResponsesValidateTemplate(this, this.__resources, input);
+  }
+
+}
+
+export class CloudFormationResponsesActivateType {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFormationActivateTypeInput) {
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'activateType',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.ActivateType.Arn'),
+        outputPath: 'Arn',
+        parameters: {
+          Type: this.__input.type,
+          PublicTypeArn: this.__input.publicTypeArn,
+          PublisherId: this.__input.publisherId,
+          TypeName: this.__input.typeName,
+          TypeNameAlias: this.__input.typeNameAlias,
+          AutoUpdate: this.__input.autoUpdate,
+          LoggingConfig: {
+            LogRoleArn: this.__input.loggingConfig?.logRoleArn,
+            LogGroupName: this.__input.loggingConfig?.logGroupName,
+          },
+          ExecutionRoleArn: this.__input.executionRoleArn,
+          VersionBump: this.__input.versionBump,
+          MajorVersion: this.__input.majorVersion,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ActivateType.Arn', props);
+    return resource.getResponseField('Arn') as unknown as string;
+  }
+
+}
+
+export class CloudFormationResponsesBatchDescribeTypeConfigurations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFormationBatchDescribeTypeConfigurationsInput) {
+  }
+
+  public get errors(): shapes.CloudFormationBatchDescribeTypeConfigurationsError[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'batchDescribeTypeConfigurations',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.BatchDescribeTypeConfigurations.Errors'),
+        outputPath: 'Errors',
+        parameters: {
+          TypeConfigurationIdentifiers: this.__input.typeConfigurationIdentifiers,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'BatchDescribeTypeConfigurations.Errors', props);
+    return resource.getResponseField('Errors') as unknown as shapes.CloudFormationBatchDescribeTypeConfigurationsError[];
+  }
+
+  public get unprocessedTypeConfigurations(): shapes.CloudFormationTypeConfigurationIdentifier[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'batchDescribeTypeConfigurations',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.BatchDescribeTypeConfigurations.UnprocessedTypeConfigurations'),
+        outputPath: 'UnprocessedTypeConfigurations',
+        parameters: {
+          TypeConfigurationIdentifiers: this.__input.typeConfigurationIdentifiers,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'BatchDescribeTypeConfigurations.UnprocessedTypeConfigurations', props);
+    return resource.getResponseField('UnprocessedTypeConfigurations') as unknown as shapes.CloudFormationTypeConfigurationIdentifier[];
+  }
+
+  public get typeConfigurations(): shapes.CloudFormationTypeConfigurationDetails[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'batchDescribeTypeConfigurations',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.BatchDescribeTypeConfigurations.TypeConfigurations'),
+        outputPath: 'TypeConfigurations',
+        parameters: {
+          TypeConfigurationIdentifiers: this.__input.typeConfigurationIdentifiers,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'BatchDescribeTypeConfigurations.TypeConfigurations', props);
+    return resource.getResponseField('TypeConfigurations') as unknown as shapes.CloudFormationTypeConfigurationDetails[];
   }
 
 }
@@ -530,11 +675,13 @@ export class CloudFormationResponsesCreateStackInstances {
           Accounts: this.__input.accounts,
           DeploymentTargets: {
             Accounts: this.__input.deploymentTargets?.accounts,
+            AccountsUrl: this.__input.deploymentTargets?.accountsUrl,
             OrganizationalUnitIds: this.__input.deploymentTargets?.organizationalUnitIds,
           },
           Regions: this.__input.regions,
           ParameterOverrides: this.__input.parameterOverrides,
           OperationPreferences: {
+            RegionConcurrencyType: this.__input.operationPreferences?.regionConcurrencyType,
             RegionOrder: this.__input.operationPreferences?.regionOrder,
             FailureToleranceCount: this.__input.operationPreferences?.failureToleranceCount,
             FailureTolerancePercentage: this.__input.operationPreferences?.failureTolerancePercentage,
@@ -542,6 +689,7 @@ export class CloudFormationResponsesCreateStackInstances {
             MaxConcurrentPercentage: this.__input.operationPreferences?.maxConcurrentPercentage,
           },
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -569,6 +717,7 @@ export class CloudFormationResponsesCreateStackSet {
           Description: this.__input.description,
           TemplateBody: this.__input.templateBody,
           TemplateURL: this.__input.templateUrl,
+          StackId: this.__input.stackId,
           Parameters: this.__input.parameters,
           Capabilities: this.__input.capabilities,
           Tags: this.__input.tags,
@@ -579,6 +728,7 @@ export class CloudFormationResponsesCreateStackSet {
             Enabled: this.__input.autoDeployment?.enabled,
             RetainStacksOnAccountRemoval: this.__input.autoDeployment?.retainStacksOnAccountRemoval,
           },
+          CallAs: this.__input.callAs,
           ClientRequestToken: this.__input.clientRequestToken,
         },
       },
@@ -607,10 +757,12 @@ export class CloudFormationResponsesDeleteStackInstances {
           Accounts: this.__input.accounts,
           DeploymentTargets: {
             Accounts: this.__input.deploymentTargets?.accounts,
+            AccountsUrl: this.__input.deploymentTargets?.accountsUrl,
             OrganizationalUnitIds: this.__input.deploymentTargets?.organizationalUnitIds,
           },
           Regions: this.__input.regions,
           OperationPreferences: {
+            RegionConcurrencyType: this.__input.operationPreferences?.regionConcurrencyType,
             RegionOrder: this.__input.operationPreferences?.regionOrder,
             FailureToleranceCount: this.__input.operationPreferences?.failureToleranceCount,
             FailureTolerancePercentage: this.__input.operationPreferences?.failureTolerancePercentage,
@@ -619,6 +771,7 @@ export class CloudFormationResponsesDeleteStackInstances {
           },
           RetainStacks: this.__input.retainStacks,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1067,6 +1220,81 @@ export class CloudFormationResponsesDescribeChangeSetRollbackConfiguration {
 
 }
 
+export class CloudFormationResponsesDescribePublisher {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFormationDescribePublisherInput) {
+  }
+
+  public get publisherId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePublisher',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DescribePublisher.PublisherId'),
+        outputPath: 'PublisherId',
+        parameters: {
+          PublisherId: this.__input.publisherId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePublisher.PublisherId', props);
+    return resource.getResponseField('PublisherId') as unknown as string;
+  }
+
+  public get publisherStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePublisher',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DescribePublisher.PublisherStatus'),
+        outputPath: 'PublisherStatus',
+        parameters: {
+          PublisherId: this.__input.publisherId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePublisher.PublisherStatus', props);
+    return resource.getResponseField('PublisherStatus') as unknown as string;
+  }
+
+  public get identityProvider(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePublisher',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DescribePublisher.IdentityProvider'),
+        outputPath: 'IdentityProvider',
+        parameters: {
+          PublisherId: this.__input.publisherId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePublisher.IdentityProvider', props);
+    return resource.getResponseField('IdentityProvider') as unknown as string;
+  }
+
+  public get publisherProfile(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePublisher',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DescribePublisher.PublisherProfile'),
+        outputPath: 'PublisherProfile',
+        parameters: {
+          PublisherId: this.__input.publisherId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePublisher.PublisherProfile', props);
+    return resource.getResponseField('PublisherProfile') as unknown as string;
+  }
+
+}
+
 export class CloudFormationResponsesDescribeStackDriftDetectionStatus {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFormationDescribeStackDriftDetectionStatusInput) {
@@ -1264,6 +1492,7 @@ export class CloudFormationResponsesDescribeStackInstanceStackInstance {
           StackSetName: this.__input.stackSetName,
           StackInstanceAccount: this.__input.stackInstanceAccount,
           StackInstanceRegion: this.__input.stackInstanceRegion,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1283,6 +1512,7 @@ export class CloudFormationResponsesDescribeStackInstanceStackInstance {
           StackSetName: this.__input.stackSetName,
           StackInstanceAccount: this.__input.stackInstanceAccount,
           StackInstanceRegion: this.__input.stackInstanceRegion,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1302,6 +1532,7 @@ export class CloudFormationResponsesDescribeStackInstanceStackInstance {
           StackSetName: this.__input.stackSetName,
           StackInstanceAccount: this.__input.stackInstanceAccount,
           StackInstanceRegion: this.__input.stackInstanceRegion,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1321,6 +1552,7 @@ export class CloudFormationResponsesDescribeStackInstanceStackInstance {
           StackSetName: this.__input.stackSetName,
           StackInstanceAccount: this.__input.stackInstanceAccount,
           StackInstanceRegion: this.__input.stackInstanceRegion,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1340,6 +1572,7 @@ export class CloudFormationResponsesDescribeStackInstanceStackInstance {
           StackSetName: this.__input.stackSetName,
           StackInstanceAccount: this.__input.stackInstanceAccount,
           StackInstanceRegion: this.__input.stackInstanceRegion,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1359,6 +1592,7 @@ export class CloudFormationResponsesDescribeStackInstanceStackInstance {
           StackSetName: this.__input.stackSetName,
           StackInstanceAccount: this.__input.stackInstanceAccount,
           StackInstanceRegion: this.__input.stackInstanceRegion,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1382,6 +1616,7 @@ export class CloudFormationResponsesDescribeStackInstanceStackInstance {
           StackSetName: this.__input.stackSetName,
           StackInstanceAccount: this.__input.stackInstanceAccount,
           StackInstanceRegion: this.__input.stackInstanceRegion,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1401,6 +1636,7 @@ export class CloudFormationResponsesDescribeStackInstanceStackInstance {
           StackSetName: this.__input.stackSetName,
           StackInstanceAccount: this.__input.stackInstanceAccount,
           StackInstanceRegion: this.__input.stackInstanceRegion,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1420,6 +1656,7 @@ export class CloudFormationResponsesDescribeStackInstanceStackInstance {
           StackSetName: this.__input.stackSetName,
           StackInstanceAccount: this.__input.stackInstanceAccount,
           StackInstanceRegion: this.__input.stackInstanceRegion,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1439,6 +1676,7 @@ export class CloudFormationResponsesDescribeStackInstanceStackInstance {
           StackSetName: this.__input.stackSetName,
           StackInstanceAccount: this.__input.stackInstanceAccount,
           StackInstanceRegion: this.__input.stackInstanceRegion,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1465,6 +1703,7 @@ export class CloudFormationResponsesDescribeStackInstanceStackInstanceStackInsta
           StackSetName: this.__input.stackSetName,
           StackInstanceAccount: this.__input.stackInstanceAccount,
           StackInstanceRegion: this.__input.stackInstanceRegion,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1865,6 +2104,7 @@ export class CloudFormationResponsesDescribeStackSetStackSet {
         outputPath: 'StackSet.StackSetName',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1882,6 +2122,7 @@ export class CloudFormationResponsesDescribeStackSetStackSet {
         outputPath: 'StackSet.StackSetId',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1899,6 +2140,7 @@ export class CloudFormationResponsesDescribeStackSetStackSet {
         outputPath: 'StackSet.Description',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1916,6 +2158,7 @@ export class CloudFormationResponsesDescribeStackSetStackSet {
         outputPath: 'StackSet.Status',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1933,6 +2176,7 @@ export class CloudFormationResponsesDescribeStackSetStackSet {
         outputPath: 'StackSet.TemplateBody',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1950,6 +2194,7 @@ export class CloudFormationResponsesDescribeStackSetStackSet {
         outputPath: 'StackSet.Parameters',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1967,6 +2212,7 @@ export class CloudFormationResponsesDescribeStackSetStackSet {
         outputPath: 'StackSet.Capabilities',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -1984,6 +2230,7 @@ export class CloudFormationResponsesDescribeStackSetStackSet {
         outputPath: 'StackSet.Tags',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2001,6 +2248,7 @@ export class CloudFormationResponsesDescribeStackSetStackSet {
         outputPath: 'StackSet.StackSetARN',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2018,6 +2266,7 @@ export class CloudFormationResponsesDescribeStackSetStackSet {
         outputPath: 'StackSet.AdministrationRoleARN',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2035,6 +2284,7 @@ export class CloudFormationResponsesDescribeStackSetStackSet {
         outputPath: 'StackSet.ExecutionRoleName',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2060,6 +2310,7 @@ export class CloudFormationResponsesDescribeStackSetStackSet {
         outputPath: 'StackSet.PermissionModel',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2077,6 +2328,7 @@ export class CloudFormationResponsesDescribeStackSetStackSet {
         outputPath: 'StackSet.OrganizationalUnitIds',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2101,6 +2353,7 @@ export class CloudFormationResponsesDescribeStackSetStackSetStackSetDriftDetecti
         outputPath: 'StackSet.StackSetDriftDetectionDetails.DriftStatus',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2118,6 +2371,7 @@ export class CloudFormationResponsesDescribeStackSetStackSetStackSetDriftDetecti
         outputPath: 'StackSet.StackSetDriftDetectionDetails.DriftDetectionStatus',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2135,6 +2389,7 @@ export class CloudFormationResponsesDescribeStackSetStackSetStackSetDriftDetecti
         outputPath: 'StackSet.StackSetDriftDetectionDetails.LastDriftCheckTimestamp',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2152,6 +2407,7 @@ export class CloudFormationResponsesDescribeStackSetStackSetStackSetDriftDetecti
         outputPath: 'StackSet.StackSetDriftDetectionDetails.TotalStackInstancesCount',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2169,6 +2425,7 @@ export class CloudFormationResponsesDescribeStackSetStackSetStackSetDriftDetecti
         outputPath: 'StackSet.StackSetDriftDetectionDetails.DriftedStackInstancesCount',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2186,6 +2443,7 @@ export class CloudFormationResponsesDescribeStackSetStackSetStackSetDriftDetecti
         outputPath: 'StackSet.StackSetDriftDetectionDetails.InSyncStackInstancesCount',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2203,6 +2461,7 @@ export class CloudFormationResponsesDescribeStackSetStackSetStackSetDriftDetecti
         outputPath: 'StackSet.StackSetDriftDetectionDetails.InProgressStackInstancesCount',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2220,6 +2479,7 @@ export class CloudFormationResponsesDescribeStackSetStackSetStackSetDriftDetecti
         outputPath: 'StackSet.StackSetDriftDetectionDetails.FailedStackInstancesCount',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2244,6 +2504,7 @@ export class CloudFormationResponsesDescribeStackSetStackSetAutoDeployment {
         outputPath: 'StackSet.AutoDeployment.Enabled',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2261,6 +2522,7 @@ export class CloudFormationResponsesDescribeStackSetStackSetAutoDeployment {
         outputPath: 'StackSet.AutoDeployment.RetainStacksOnAccountRemoval',
         parameters: {
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2297,6 +2559,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperation {
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2315,6 +2578,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperation {
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2333,6 +2597,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperation {
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2351,6 +2616,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperation {
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2373,6 +2639,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperation {
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2391,6 +2658,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperation {
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2409,6 +2677,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperation {
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2427,6 +2696,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperation {
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2445,6 +2715,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperation {
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2467,6 +2738,25 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperationOp
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFormationDescribeStackSetOperationInput) {
   }
 
+  public get regionConcurrencyType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeStackSetOperation',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DescribeStackSetOperation.StackSetOperation.OperationPreferences.RegionConcurrencyType'),
+        outputPath: 'StackSetOperation.OperationPreferences.RegionConcurrencyType',
+        parameters: {
+          StackSetName: this.__input.stackSetName,
+          OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeStackSetOperation.StackSetOperation.OperationPreferences.RegionConcurrencyType', props);
+    return resource.getResponseField('StackSetOperation.OperationPreferences.RegionConcurrencyType') as unknown as string;
+  }
+
   public get regionOrder(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -2478,6 +2768,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperationOp
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2496,6 +2787,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperationOp
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2514,6 +2806,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperationOp
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2532,6 +2825,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperationOp
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2550,6 +2844,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperationOp
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2575,11 +2870,31 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperationDe
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeStackSetOperation.StackSetOperation.DeploymentTargets.Accounts', props);
     return resource.getResponseField('StackSetOperation.DeploymentTargets.Accounts') as unknown as string[];
+  }
+
+  public get accountsUrl(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeStackSetOperation',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DescribeStackSetOperation.StackSetOperation.DeploymentTargets.AccountsUrl'),
+        outputPath: 'StackSetOperation.DeploymentTargets.AccountsUrl',
+        parameters: {
+          StackSetName: this.__input.stackSetName,
+          OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeStackSetOperation.StackSetOperation.DeploymentTargets.AccountsUrl', props);
+    return resource.getResponseField('StackSetOperation.DeploymentTargets.AccountsUrl') as unknown as string;
   }
 
   public get organizationalUnitIds(): string[] {
@@ -2593,6 +2908,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperationDe
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2618,6 +2934,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperationSt
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2636,6 +2953,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperationSt
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2654,6 +2972,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperationSt
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2672,6 +2991,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperationSt
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2690,6 +3010,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperationSt
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2708,6 +3029,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperationSt
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2726,6 +3048,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperationSt
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2744,6 +3067,7 @@ export class CloudFormationResponsesDescribeStackSetOperationStackSetOperationSt
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -2814,6 +3138,8 @@ export class CloudFormationResponsesDescribeType {
           TypeName: this.__input.typeName,
           Arn: this.__input.arn,
           VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
         },
       },
     };
@@ -2834,6 +3160,8 @@ export class CloudFormationResponsesDescribeType {
           TypeName: this.__input.typeName,
           Arn: this.__input.arn,
           VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
         },
       },
     };
@@ -2854,6 +3182,8 @@ export class CloudFormationResponsesDescribeType {
           TypeName: this.__input.typeName,
           Arn: this.__input.arn,
           VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
         },
       },
     };
@@ -2874,6 +3204,8 @@ export class CloudFormationResponsesDescribeType {
           TypeName: this.__input.typeName,
           Arn: this.__input.arn,
           VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
         },
       },
     };
@@ -2894,11 +3226,57 @@ export class CloudFormationResponsesDescribeType {
           TypeName: this.__input.typeName,
           Arn: this.__input.arn,
           VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeType.IsDefaultVersion', props);
     return resource.getResponseField('IsDefaultVersion') as unknown as boolean;
+  }
+
+  public get typeTestsStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeType',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DescribeType.TypeTestsStatus'),
+        outputPath: 'TypeTestsStatus',
+        parameters: {
+          Type: this.__input.type,
+          TypeName: this.__input.typeName,
+          Arn: this.__input.arn,
+          VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeType.TypeTestsStatus', props);
+    return resource.getResponseField('TypeTestsStatus') as unknown as string;
+  }
+
+  public get typeTestsStatusDescription(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeType',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DescribeType.TypeTestsStatusDescription'),
+        outputPath: 'TypeTestsStatusDescription',
+        parameters: {
+          Type: this.__input.type,
+          TypeName: this.__input.typeName,
+          Arn: this.__input.arn,
+          VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeType.TypeTestsStatusDescription', props);
+    return resource.getResponseField('TypeTestsStatusDescription') as unknown as string;
   }
 
   public get description(): string {
@@ -2914,6 +3292,8 @@ export class CloudFormationResponsesDescribeType {
           TypeName: this.__input.typeName,
           Arn: this.__input.arn,
           VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
         },
       },
     };
@@ -2934,6 +3314,8 @@ export class CloudFormationResponsesDescribeType {
           TypeName: this.__input.typeName,
           Arn: this.__input.arn,
           VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
         },
       },
     };
@@ -2954,6 +3336,8 @@ export class CloudFormationResponsesDescribeType {
           TypeName: this.__input.typeName,
           Arn: this.__input.arn,
           VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
         },
       },
     };
@@ -2974,6 +3358,8 @@ export class CloudFormationResponsesDescribeType {
           TypeName: this.__input.typeName,
           Arn: this.__input.arn,
           VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
         },
       },
     };
@@ -2983,6 +3369,28 @@ export class CloudFormationResponsesDescribeType {
 
   public get loggingConfig(): CloudFormationResponsesDescribeTypeLoggingConfig {
     return new CloudFormationResponsesDescribeTypeLoggingConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get requiredActivatedTypes(): shapes.CloudFormationRequiredActivatedType[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeType',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DescribeType.RequiredActivatedTypes'),
+        outputPath: 'RequiredActivatedTypes',
+        parameters: {
+          Type: this.__input.type,
+          TypeName: this.__input.typeName,
+          Arn: this.__input.arn,
+          VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeType.RequiredActivatedTypes', props);
+    return resource.getResponseField('RequiredActivatedTypes') as unknown as shapes.CloudFormationRequiredActivatedType[];
   }
 
   public get executionRoleArn(): string {
@@ -2998,6 +3406,8 @@ export class CloudFormationResponsesDescribeType {
           TypeName: this.__input.typeName,
           Arn: this.__input.arn,
           VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
         },
       },
     };
@@ -3018,6 +3428,8 @@ export class CloudFormationResponsesDescribeType {
           TypeName: this.__input.typeName,
           Arn: this.__input.arn,
           VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
         },
       },
     };
@@ -3038,6 +3450,8 @@ export class CloudFormationResponsesDescribeType {
           TypeName: this.__input.typeName,
           Arn: this.__input.arn,
           VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
         },
       },
     };
@@ -3058,6 +3472,8 @@ export class CloudFormationResponsesDescribeType {
           TypeName: this.__input.typeName,
           Arn: this.__input.arn,
           VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
         },
       },
     };
@@ -3078,6 +3494,8 @@ export class CloudFormationResponsesDescribeType {
           TypeName: this.__input.typeName,
           Arn: this.__input.arn,
           VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
         },
       },
     };
@@ -3098,11 +3516,189 @@ export class CloudFormationResponsesDescribeType {
           TypeName: this.__input.typeName,
           Arn: this.__input.arn,
           VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeType.TimeCreated', props);
     return resource.getResponseField('TimeCreated') as unknown as string;
+  }
+
+  public get configurationSchema(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeType',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DescribeType.ConfigurationSchema'),
+        outputPath: 'ConfigurationSchema',
+        parameters: {
+          Type: this.__input.type,
+          TypeName: this.__input.typeName,
+          Arn: this.__input.arn,
+          VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeType.ConfigurationSchema', props);
+    return resource.getResponseField('ConfigurationSchema') as unknown as string;
+  }
+
+  public get publisherId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeType',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DescribeType.PublisherId'),
+        outputPath: 'PublisherId',
+        parameters: {
+          Type: this.__input.type,
+          TypeName: this.__input.typeName,
+          Arn: this.__input.arn,
+          VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeType.PublisherId', props);
+    return resource.getResponseField('PublisherId') as unknown as string;
+  }
+
+  public get originalTypeName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeType',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DescribeType.OriginalTypeName'),
+        outputPath: 'OriginalTypeName',
+        parameters: {
+          Type: this.__input.type,
+          TypeName: this.__input.typeName,
+          Arn: this.__input.arn,
+          VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeType.OriginalTypeName', props);
+    return resource.getResponseField('OriginalTypeName') as unknown as string;
+  }
+
+  public get originalTypeArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeType',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DescribeType.OriginalTypeArn'),
+        outputPath: 'OriginalTypeArn',
+        parameters: {
+          Type: this.__input.type,
+          TypeName: this.__input.typeName,
+          Arn: this.__input.arn,
+          VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeType.OriginalTypeArn', props);
+    return resource.getResponseField('OriginalTypeArn') as unknown as string;
+  }
+
+  public get publicVersionNumber(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeType',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DescribeType.PublicVersionNumber'),
+        outputPath: 'PublicVersionNumber',
+        parameters: {
+          Type: this.__input.type,
+          TypeName: this.__input.typeName,
+          Arn: this.__input.arn,
+          VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeType.PublicVersionNumber', props);
+    return resource.getResponseField('PublicVersionNumber') as unknown as string;
+  }
+
+  public get latestPublicVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeType',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DescribeType.LatestPublicVersion'),
+        outputPath: 'LatestPublicVersion',
+        parameters: {
+          Type: this.__input.type,
+          TypeName: this.__input.typeName,
+          Arn: this.__input.arn,
+          VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeType.LatestPublicVersion', props);
+    return resource.getResponseField('LatestPublicVersion') as unknown as string;
+  }
+
+  public get isActivated(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeType',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DescribeType.IsActivated'),
+        outputPath: 'IsActivated',
+        parameters: {
+          Type: this.__input.type,
+          TypeName: this.__input.typeName,
+          Arn: this.__input.arn,
+          VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeType.IsActivated', props);
+    return resource.getResponseField('IsActivated') as unknown as boolean;
+  }
+
+  public get autoUpdate(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeType',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.DescribeType.AutoUpdate'),
+        outputPath: 'AutoUpdate',
+        parameters: {
+          Type: this.__input.type,
+          TypeName: this.__input.typeName,
+          Arn: this.__input.arn,
+          VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeType.AutoUpdate', props);
+    return resource.getResponseField('AutoUpdate') as unknown as boolean;
   }
 
 }
@@ -3125,6 +3721,8 @@ export class CloudFormationResponsesDescribeTypeLoggingConfig {
           TypeName: this.__input.typeName,
           Arn: this.__input.arn,
           VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
         },
       },
     };
@@ -3145,6 +3743,8 @@ export class CloudFormationResponsesDescribeTypeLoggingConfig {
           TypeName: this.__input.typeName,
           Arn: this.__input.arn,
           VersionId: this.__input.versionId,
+          PublisherId: this.__input.publisherId,
+          PublicVersionNumber: this.__input.publicVersionNumber,
         },
       },
     };
@@ -3515,6 +4115,7 @@ export class CloudFormationResponsesDetectStackSetDrift {
         parameters: {
           StackSetName: this.__input.stackSetName,
           OperationPreferences: {
+            RegionConcurrencyType: this.__input.operationPreferences?.regionConcurrencyType,
             RegionOrder: this.__input.operationPreferences?.regionOrder,
             FailureToleranceCount: this.__input.operationPreferences?.failureToleranceCount,
             FailureTolerancePercentage: this.__input.operationPreferences?.failureTolerancePercentage,
@@ -3522,6 +4123,7 @@ export class CloudFormationResponsesDetectStackSetDrift {
             MaxConcurrentPercentage: this.__input.operationPreferences?.maxConcurrentPercentage,
           },
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -3644,6 +4246,7 @@ export class CloudFormationResponsesFetchTemplateSummary {
           TemplateURL: this.__input.templateUrl,
           StackName: this.__input.stackName,
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -3664,6 +4267,7 @@ export class CloudFormationResponsesFetchTemplateSummary {
           TemplateURL: this.__input.templateUrl,
           StackName: this.__input.stackName,
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -3684,6 +4288,7 @@ export class CloudFormationResponsesFetchTemplateSummary {
           TemplateURL: this.__input.templateUrl,
           StackName: this.__input.stackName,
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -3704,6 +4309,7 @@ export class CloudFormationResponsesFetchTemplateSummary {
           TemplateURL: this.__input.templateUrl,
           StackName: this.__input.stackName,
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -3724,6 +4330,7 @@ export class CloudFormationResponsesFetchTemplateSummary {
           TemplateURL: this.__input.templateUrl,
           StackName: this.__input.stackName,
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -3744,6 +4351,7 @@ export class CloudFormationResponsesFetchTemplateSummary {
           TemplateURL: this.__input.templateUrl,
           StackName: this.__input.stackName,
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -3764,6 +4372,7 @@ export class CloudFormationResponsesFetchTemplateSummary {
           TemplateURL: this.__input.templateUrl,
           StackName: this.__input.stackName,
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -3784,6 +4393,7 @@ export class CloudFormationResponsesFetchTemplateSummary {
           TemplateURL: this.__input.templateUrl,
           StackName: this.__input.stackName,
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -3804,11 +4414,47 @@ export class CloudFormationResponsesFetchTemplateSummary {
           TemplateURL: this.__input.templateUrl,
           StackName: this.__input.stackName,
           StackSetName: this.__input.stackSetName,
+          CallAs: this.__input.callAs,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetTemplateSummary.ResourceIdentifierSummaries', props);
     return resource.getResponseField('ResourceIdentifierSummaries') as unknown as shapes.CloudFormationResourceIdentifierSummary[];
+  }
+
+}
+
+export class CloudFormationResponsesImportStacksToStackSet {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFormationImportStacksToStackSetInput) {
+  }
+
+  public get operationId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'importStacksToStackSet',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.ImportStacksToStackSet.OperationId'),
+        outputPath: 'OperationId',
+        parameters: {
+          StackSetName: this.__input.stackSetName,
+          StackIds: this.__input.stackIds,
+          OperationPreferences: {
+            RegionConcurrencyType: this.__input.operationPreferences?.regionConcurrencyType,
+            RegionOrder: this.__input.operationPreferences?.regionOrder,
+            FailureToleranceCount: this.__input.operationPreferences?.failureToleranceCount,
+            FailureTolerancePercentage: this.__input.operationPreferences?.failureTolerancePercentage,
+            MaxConcurrentCount: this.__input.operationPreferences?.maxConcurrentCount,
+            MaxConcurrentPercentage: this.__input.operationPreferences?.maxConcurrentPercentage,
+          },
+          OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ImportStacksToStackSet.OperationId', props);
+    return resource.getResponseField('OperationId') as unknown as string;
   }
 
 }
@@ -3960,6 +4606,7 @@ export class CloudFormationResponsesListStackInstances {
           Filters: this.__input.filters,
           StackInstanceAccount: this.__input.stackInstanceAccount,
           StackInstanceRegion: this.__input.stackInstanceRegion,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -3982,6 +4629,7 @@ export class CloudFormationResponsesListStackInstances {
           Filters: this.__input.filters,
           StackInstanceAccount: this.__input.stackInstanceAccount,
           StackInstanceRegion: this.__input.stackInstanceRegion,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -4052,6 +4700,7 @@ export class CloudFormationResponsesListStackSetOperationResults {
           OperationId: this.__input.operationId,
           NextToken: this.__input.nextToken,
           MaxResults: this.__input.maxResults,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -4072,6 +4721,7 @@ export class CloudFormationResponsesListStackSetOperationResults {
           OperationId: this.__input.operationId,
           NextToken: this.__input.nextToken,
           MaxResults: this.__input.maxResults,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -4098,6 +4748,7 @@ export class CloudFormationResponsesListStackSetOperations {
           StackSetName: this.__input.stackSetName,
           NextToken: this.__input.nextToken,
           MaxResults: this.__input.maxResults,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -4117,6 +4768,7 @@ export class CloudFormationResponsesListStackSetOperations {
           StackSetName: this.__input.stackSetName,
           NextToken: this.__input.nextToken,
           MaxResults: this.__input.maxResults,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -4143,6 +4795,7 @@ export class CloudFormationResponsesListStackSets {
           NextToken: this.__input.nextToken,
           MaxResults: this.__input.maxResults,
           Status: this.__input.status,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -4162,6 +4815,7 @@ export class CloudFormationResponsesListStackSets {
           NextToken: this.__input.nextToken,
           MaxResults: this.__input.maxResults,
           Status: this.__input.status,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -4285,6 +4939,7 @@ export class CloudFormationResponsesListTypeVersions {
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
           DeprecatedStatus: this.__input.deprecatedStatus,
+          PublisherId: this.__input.publisherId,
         },
       },
     };
@@ -4307,6 +4962,7 @@ export class CloudFormationResponsesListTypeVersions {
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
           DeprecatedStatus: this.__input.deprecatedStatus,
+          PublisherId: this.__input.publisherId,
         },
       },
     };
@@ -4334,6 +4990,11 @@ export class CloudFormationResponsesListTypes {
           ProvisioningType: this.__input.provisioningType,
           DeprecatedStatus: this.__input.deprecatedStatus,
           Type: this.__input.type,
+          Filters: {
+            Category: this.__input.filters?.category,
+            PublisherId: this.__input.filters?.publisherId,
+            TypeNamePrefix: this.__input.filters?.typeNamePrefix,
+          },
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
         },
@@ -4356,6 +5017,11 @@ export class CloudFormationResponsesListTypes {
           ProvisioningType: this.__input.provisioningType,
           DeprecatedStatus: this.__input.deprecatedStatus,
           Type: this.__input.type,
+          Filters: {
+            Category: this.__input.filters?.category,
+            PublisherId: this.__input.filters?.publisherId,
+            TypeNamePrefix: this.__input.filters?.typeNamePrefix,
+          },
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
         },
@@ -4363,6 +5029,58 @@ export class CloudFormationResponsesListTypes {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListTypes.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class CloudFormationResponsesPublishType {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFormationPublishTypeInput) {
+  }
+
+  public get publicTypeArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'publishType',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.PublishType.PublicTypeArn'),
+        outputPath: 'PublicTypeArn',
+        parameters: {
+          Type: this.__input.type,
+          Arn: this.__input.arn,
+          TypeName: this.__input.typeName,
+          PublicVersionNumber: this.__input.publicVersionNumber,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'PublishType.PublicTypeArn', props);
+    return resource.getResponseField('PublicTypeArn') as unknown as string;
+  }
+
+}
+
+export class CloudFormationResponsesRegisterPublisher {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFormationRegisterPublisherInput) {
+  }
+
+  public get publisherId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'registerPublisher',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.RegisterPublisher.PublisherId'),
+        outputPath: 'PublisherId',
+        parameters: {
+          AcceptTermsAndConditions: this.__input.acceptTermsAndConditions,
+          ConnectionArn: this.__input.connectionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RegisterPublisher.PublisherId', props);
+    return resource.getResponseField('PublisherId') as unknown as string;
   }
 
 }
@@ -4395,6 +5113,62 @@ export class CloudFormationResponsesRegisterType {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RegisterType.RegistrationToken', props);
     return resource.getResponseField('RegistrationToken') as unknown as string;
+  }
+
+}
+
+export class CloudFormationResponsesPutTypeConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFormationSetTypeConfigurationInput) {
+  }
+
+  public get configurationArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'setTypeConfiguration',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.SetTypeConfiguration.ConfigurationArn'),
+        outputPath: 'ConfigurationArn',
+        parameters: {
+          TypeArn: this.__input.typeArn,
+          Configuration: this.__input.configuration,
+          ConfigurationAlias: this.__input.configurationAlias,
+          TypeName: this.__input.typeName,
+          Type: this.__input.type,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SetTypeConfiguration.ConfigurationArn', props);
+    return resource.getResponseField('ConfigurationArn') as unknown as string;
+  }
+
+}
+
+export class CloudFormationResponsesTestType {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CloudFormationTestTypeInput) {
+  }
+
+  public get typeVersionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'testType',
+        service: 'CloudFormation',
+        physicalResourceId: cr.PhysicalResourceId.of('CloudFormation.TestType.TypeVersionArn'),
+        outputPath: 'TypeVersionArn',
+        parameters: {
+          Arn: this.__input.arn,
+          Type: this.__input.type,
+          TypeName: this.__input.typeName,
+          VersionId: this.__input.versionId,
+          LogDeliveryBucket: this.__input.logDeliveryBucket,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'TestType.TypeVersionArn', props);
+    return resource.getResponseField('TypeVersionArn') as unknown as string;
   }
 
 }
@@ -4459,11 +5233,13 @@ export class CloudFormationResponsesUpdateStackInstances {
           Accounts: this.__input.accounts,
           DeploymentTargets: {
             Accounts: this.__input.deploymentTargets?.accounts,
+            AccountsUrl: this.__input.deploymentTargets?.accountsUrl,
             OrganizationalUnitIds: this.__input.deploymentTargets?.organizationalUnitIds,
           },
           Regions: this.__input.regions,
           ParameterOverrides: this.__input.parameterOverrides,
           OperationPreferences: {
+            RegionConcurrencyType: this.__input.operationPreferences?.regionConcurrencyType,
             RegionOrder: this.__input.operationPreferences?.regionOrder,
             FailureToleranceCount: this.__input.operationPreferences?.failureToleranceCount,
             FailureTolerancePercentage: this.__input.operationPreferences?.failureTolerancePercentage,
@@ -4471,6 +5247,7 @@ export class CloudFormationResponsesUpdateStackInstances {
             MaxConcurrentPercentage: this.__input.operationPreferences?.maxConcurrentPercentage,
           },
           OperationId: this.__input.operationId,
+          CallAs: this.__input.callAs,
         },
       },
     };
@@ -4503,6 +5280,7 @@ export class CloudFormationResponsesUpdateStackSet {
           Capabilities: this.__input.capabilities,
           Tags: this.__input.tags,
           OperationPreferences: {
+            RegionConcurrencyType: this.__input.operationPreferences?.regionConcurrencyType,
             RegionOrder: this.__input.operationPreferences?.regionOrder,
             FailureToleranceCount: this.__input.operationPreferences?.failureToleranceCount,
             FailureTolerancePercentage: this.__input.operationPreferences?.failureTolerancePercentage,
@@ -4513,6 +5291,7 @@ export class CloudFormationResponsesUpdateStackSet {
           ExecutionRoleName: this.__input.executionRoleName,
           DeploymentTargets: {
             Accounts: this.__input.deploymentTargets?.accounts,
+            AccountsUrl: this.__input.deploymentTargets?.accountsUrl,
             OrganizationalUnitIds: this.__input.deploymentTargets?.organizationalUnitIds,
           },
           PermissionModel: this.__input.permissionModel,
@@ -4523,6 +5302,7 @@ export class CloudFormationResponsesUpdateStackSet {
           OperationId: this.__input.operationId,
           Accounts: this.__input.accounts,
           Regions: this.__input.regions,
+          CallAs: this.__input.callAs,
         },
       },
     };

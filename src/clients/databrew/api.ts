@@ -64,6 +64,10 @@ export class DataBrewClient extends cdk.Construct {
     return new DataBrewResponsesDescribeJob(this, this.__resources, input);
   }
 
+  public describeJobRun(input: shapes.DataBrewDescribeJobRunRequest): DataBrewResponsesDescribeJobRun {
+    return new DataBrewResponsesDescribeJobRun(this, this.__resources, input);
+  }
+
   public describeProject(input: shapes.DataBrewDescribeProjectRequest): DataBrewResponsesDescribeProject {
     return new DataBrewResponsesDescribeProject(this, this.__resources, input);
   }
@@ -244,6 +248,7 @@ export class DataBrewResponsesCreateDataset {
         outputPath: 'Name',
         parameters: {
           Name: this.__input.name,
+          Format: this.__input.format,
           FormatOptions: {
             Json: {
               MultiLine: this.__input.formatOptions?.json?.multiLine,
@@ -251,6 +256,11 @@ export class DataBrewResponsesCreateDataset {
             Excel: {
               SheetNames: this.__input.formatOptions?.excel?.sheetNames,
               SheetIndexes: this.__input.formatOptions?.excel?.sheetIndexes,
+              HeaderRow: this.__input.formatOptions?.excel?.headerRow,
+            },
+            Csv: {
+              Delimiter: this.__input.formatOptions?.csv?.delimiter,
+              HeaderRow: this.__input.formatOptions?.csv?.headerRow,
             },
           },
           Input: {
@@ -267,6 +277,26 @@ export class DataBrewResponsesCreateDataset {
                 Key: this.__input.input.dataCatalogInputDefinition?.tempDirectory?.key,
               },
             },
+            DatabaseInputDefinition: {
+              GlueConnectionName: this.__input.input.databaseInputDefinition?.glueConnectionName,
+              DatabaseTableName: this.__input.input.databaseInputDefinition?.databaseTableName,
+              TempDirectory: {
+                Bucket: this.__input.input.databaseInputDefinition?.tempDirectory?.bucket,
+                Key: this.__input.input.databaseInputDefinition?.tempDirectory?.key,
+              },
+            },
+          },
+          PathOptions: {
+            LastModifiedDateCondition: {
+              Expression: this.__input.pathOptions?.lastModifiedDateCondition?.expression,
+              ValuesMap: this.__input.pathOptions?.lastModifiedDateCondition?.valuesMap,
+            },
+            FilesLimit: {
+              MaxFiles: this.__input.pathOptions?.filesLimit?.maxFiles,
+              OrderedBy: this.__input.pathOptions?.filesLimit?.orderedBy,
+              Order: this.__input.pathOptions?.filesLimit?.order,
+            },
+            Parameters: this.__input.pathOptions?.parameters,
           },
           Tags: this.__input.tags,
         },
@@ -303,9 +333,21 @@ export class DataBrewResponsesCreateProfileJob {
             Bucket: this.__input.outputLocation.bucket,
             Key: this.__input.outputLocation.key,
           },
+          Configuration: {
+            DatasetStatisticsConfiguration: {
+              IncludedStatistics: this.__input.configuration?.datasetStatisticsConfiguration?.includedStatistics,
+              Overrides: this.__input.configuration?.datasetStatisticsConfiguration?.overrides,
+            },
+            ProfileColumns: this.__input.configuration?.profileColumns,
+            ColumnStatisticsConfigurations: this.__input.configuration?.columnStatisticsConfigurations,
+          },
           RoleArn: this.__input.roleArn,
           Tags: this.__input.tags,
           Timeout: this.__input.timeout,
+          JobSample: {
+            Mode: this.__input.jobSample?.mode,
+            Size: this.__input.jobSample?.size,
+          },
         },
       },
     };
@@ -396,6 +438,8 @@ export class DataBrewResponsesCreateRecipeJob {
           MaxCapacity: this.__input.maxCapacity,
           MaxRetries: this.__input.maxRetries,
           Outputs: this.__input.outputs,
+          DataCatalogOutputs: this.__input.dataCatalogOutputs,
+          DatabaseOutputs: this.__input.databaseOutputs,
           ProjectName: this.__input.projectName,
           RecipeReference: {
             Name: this.__input.recipeReference?.name,
@@ -635,6 +679,23 @@ export class DataBrewResponsesDescribeDataset {
     return resource.getResponseField('Name') as unknown as string;
   }
 
+  public get format(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataset',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeDataset.Format'),
+        outputPath: 'Format',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataset.Format', props);
+    return resource.getResponseField('Format') as unknown as string;
+  }
+
   public get formatOptions(): DataBrewResponsesDescribeDatasetFormatOptions {
     return new DataBrewResponsesDescribeDatasetFormatOptions(this.__scope, this.__resources, this.__input);
   }
@@ -694,6 +755,10 @@ export class DataBrewResponsesDescribeDataset {
     return resource.getResponseField('Source') as unknown as string;
   }
 
+  public get pathOptions(): DataBrewResponsesDescribeDatasetPathOptions {
+    return new DataBrewResponsesDescribeDatasetPathOptions(this.__scope, this.__resources, this.__input);
+  }
+
   public get tags(): Record<string, string> {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -741,6 +806,10 @@ export class DataBrewResponsesDescribeDatasetFormatOptions {
 
   public get excel(): DataBrewResponsesDescribeDatasetFormatOptionsExcel {
     return new DataBrewResponsesDescribeDatasetFormatOptionsExcel(this.__scope, this.__resources, this.__input);
+  }
+
+  public get csv(): DataBrewResponsesDescribeDatasetFormatOptionsCsv {
+    return new DataBrewResponsesDescribeDatasetFormatOptionsCsv(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -808,6 +877,64 @@ export class DataBrewResponsesDescribeDatasetFormatOptionsExcel {
     return resource.getResponseField('FormatOptions.Excel.SheetIndexes') as unknown as number[];
   }
 
+  public get headerRow(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataset',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeDataset.FormatOptions.Excel.HeaderRow'),
+        outputPath: 'FormatOptions.Excel.HeaderRow',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataset.FormatOptions.Excel.HeaderRow', props);
+    return resource.getResponseField('FormatOptions.Excel.HeaderRow') as unknown as boolean;
+  }
+
+}
+
+export class DataBrewResponsesDescribeDatasetFormatOptionsCsv {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DataBrewDescribeDatasetRequest) {
+  }
+
+  public get delimiter(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataset',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeDataset.FormatOptions.Csv.Delimiter'),
+        outputPath: 'FormatOptions.Csv.Delimiter',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataset.FormatOptions.Csv.Delimiter', props);
+    return resource.getResponseField('FormatOptions.Csv.Delimiter') as unknown as string;
+  }
+
+  public get headerRow(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataset',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeDataset.FormatOptions.Csv.HeaderRow'),
+        outputPath: 'FormatOptions.Csv.HeaderRow',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataset.FormatOptions.Csv.HeaderRow', props);
+    return resource.getResponseField('FormatOptions.Csv.HeaderRow') as unknown as boolean;
+  }
+
 }
 
 export class DataBrewResponsesDescribeDatasetInput {
@@ -821,6 +948,10 @@ export class DataBrewResponsesDescribeDatasetInput {
 
   public get dataCatalogInputDefinition(): DataBrewResponsesDescribeDatasetInputDataCatalogInputDefinition {
     return new DataBrewResponsesDescribeDatasetInputDataCatalogInputDefinition(this.__scope, this.__resources, this.__input);
+  }
+
+  public get databaseInputDefinition(): DataBrewResponsesDescribeDatasetInputDatabaseInputDefinition {
+    return new DataBrewResponsesDescribeDatasetInputDatabaseInputDefinition(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -965,6 +1096,223 @@ export class DataBrewResponsesDescribeDatasetInputDataCatalogInputDefinitionTemp
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataset.Input.DataCatalogInputDefinition.TempDirectory.Key', props);
     return resource.getResponseField('Input.DataCatalogInputDefinition.TempDirectory.Key') as unknown as string;
+  }
+
+}
+
+export class DataBrewResponsesDescribeDatasetInputDatabaseInputDefinition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DataBrewDescribeDatasetRequest) {
+  }
+
+  public get glueConnectionName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataset',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeDataset.Input.DatabaseInputDefinition.GlueConnectionName'),
+        outputPath: 'Input.DatabaseInputDefinition.GlueConnectionName',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataset.Input.DatabaseInputDefinition.GlueConnectionName', props);
+    return resource.getResponseField('Input.DatabaseInputDefinition.GlueConnectionName') as unknown as string;
+  }
+
+  public get databaseTableName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataset',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeDataset.Input.DatabaseInputDefinition.DatabaseTableName'),
+        outputPath: 'Input.DatabaseInputDefinition.DatabaseTableName',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataset.Input.DatabaseInputDefinition.DatabaseTableName', props);
+    return resource.getResponseField('Input.DatabaseInputDefinition.DatabaseTableName') as unknown as string;
+  }
+
+  public get tempDirectory(): DataBrewResponsesDescribeDatasetInputDatabaseInputDefinitionTempDirectory {
+    return new DataBrewResponsesDescribeDatasetInputDatabaseInputDefinitionTempDirectory(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class DataBrewResponsesDescribeDatasetInputDatabaseInputDefinitionTempDirectory {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DataBrewDescribeDatasetRequest) {
+  }
+
+  public get bucket(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataset',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeDataset.Input.DatabaseInputDefinition.TempDirectory.Bucket'),
+        outputPath: 'Input.DatabaseInputDefinition.TempDirectory.Bucket',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataset.Input.DatabaseInputDefinition.TempDirectory.Bucket', props);
+    return resource.getResponseField('Input.DatabaseInputDefinition.TempDirectory.Bucket') as unknown as string;
+  }
+
+  public get key(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataset',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeDataset.Input.DatabaseInputDefinition.TempDirectory.Key'),
+        outputPath: 'Input.DatabaseInputDefinition.TempDirectory.Key',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataset.Input.DatabaseInputDefinition.TempDirectory.Key', props);
+    return resource.getResponseField('Input.DatabaseInputDefinition.TempDirectory.Key') as unknown as string;
+  }
+
+}
+
+export class DataBrewResponsesDescribeDatasetPathOptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DataBrewDescribeDatasetRequest) {
+  }
+
+  public get lastModifiedDateCondition(): DataBrewResponsesDescribeDatasetPathOptionsLastModifiedDateCondition {
+    return new DataBrewResponsesDescribeDatasetPathOptionsLastModifiedDateCondition(this.__scope, this.__resources, this.__input);
+  }
+
+  public get filesLimit(): DataBrewResponsesDescribeDatasetPathOptionsFilesLimit {
+    return new DataBrewResponsesDescribeDatasetPathOptionsFilesLimit(this.__scope, this.__resources, this.__input);
+  }
+
+  public get parameters(): Record<string, shapes.DataBrewDatasetParameter> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataset',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeDataset.PathOptions.Parameters'),
+        outputPath: 'PathOptions.Parameters',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataset.PathOptions.Parameters', props);
+    return resource.getResponseField('PathOptions.Parameters') as unknown as Record<string, shapes.DataBrewDatasetParameter>;
+  }
+
+}
+
+export class DataBrewResponsesDescribeDatasetPathOptionsLastModifiedDateCondition {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DataBrewDescribeDatasetRequest) {
+  }
+
+  public get expression(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataset',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeDataset.PathOptions.LastModifiedDateCondition.Expression'),
+        outputPath: 'PathOptions.LastModifiedDateCondition.Expression',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataset.PathOptions.LastModifiedDateCondition.Expression', props);
+    return resource.getResponseField('PathOptions.LastModifiedDateCondition.Expression') as unknown as string;
+  }
+
+  public get valuesMap(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataset',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeDataset.PathOptions.LastModifiedDateCondition.ValuesMap'),
+        outputPath: 'PathOptions.LastModifiedDateCondition.ValuesMap',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataset.PathOptions.LastModifiedDateCondition.ValuesMap', props);
+    return resource.getResponseField('PathOptions.LastModifiedDateCondition.ValuesMap') as unknown as Record<string, string>;
+  }
+
+}
+
+export class DataBrewResponsesDescribeDatasetPathOptionsFilesLimit {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DataBrewDescribeDatasetRequest) {
+  }
+
+  public get maxFiles(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataset',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeDataset.PathOptions.FilesLimit.MaxFiles'),
+        outputPath: 'PathOptions.FilesLimit.MaxFiles',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataset.PathOptions.FilesLimit.MaxFiles', props);
+    return resource.getResponseField('PathOptions.FilesLimit.MaxFiles') as unknown as number;
+  }
+
+  public get orderedBy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataset',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeDataset.PathOptions.FilesLimit.OrderedBy'),
+        outputPath: 'PathOptions.FilesLimit.OrderedBy',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataset.PathOptions.FilesLimit.OrderedBy', props);
+    return resource.getResponseField('PathOptions.FilesLimit.OrderedBy') as unknown as string;
+  }
+
+  public get order(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataset',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeDataset.PathOptions.FilesLimit.Order'),
+        outputPath: 'PathOptions.FilesLimit.Order',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataset.PathOptions.FilesLimit.Order', props);
+    return resource.getResponseField('PathOptions.FilesLimit.Order') as unknown as string;
   }
 
 }
@@ -1195,6 +1543,40 @@ export class DataBrewResponsesDescribeJob {
     return resource.getResponseField('Outputs') as unknown as shapes.DataBrewOutput[];
   }
 
+  public get dataCatalogOutputs(): shapes.DataBrewDataCatalogOutput[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJob',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJob.DataCatalogOutputs'),
+        outputPath: 'DataCatalogOutputs',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJob.DataCatalogOutputs', props);
+    return resource.getResponseField('DataCatalogOutputs') as unknown as shapes.DataBrewDataCatalogOutput[];
+  }
+
+  public get databaseOutputs(): shapes.DataBrewDatabaseOutput[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJob',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJob.DatabaseOutputs'),
+        outputPath: 'DatabaseOutputs',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJob.DatabaseOutputs', props);
+    return resource.getResponseField('DatabaseOutputs') as unknown as shapes.DataBrewDatabaseOutput[];
+  }
+
   public get projectName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -1210,6 +1592,10 @@ export class DataBrewResponsesDescribeJob {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJob.ProjectName', props);
     return resource.getResponseField('ProjectName') as unknown as string;
+  }
+
+  public get profileConfiguration(): DataBrewResponsesDescribeJobProfileConfiguration {
+    return new DataBrewResponsesDescribeJobProfileConfiguration(this.__scope, this.__resources, this.__input);
   }
 
   public get recipeReference(): DataBrewResponsesDescribeJobRecipeReference {
@@ -1284,6 +1670,96 @@ export class DataBrewResponsesDescribeJob {
     return resource.getResponseField('Timeout') as unknown as number;
   }
 
+  public get jobSample(): DataBrewResponsesDescribeJobJobSample {
+    return new DataBrewResponsesDescribeJobJobSample(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class DataBrewResponsesDescribeJobProfileConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DataBrewDescribeJobRequest) {
+  }
+
+  public get datasetStatisticsConfiguration(): DataBrewResponsesDescribeJobProfileConfigurationDatasetStatisticsConfiguration {
+    return new DataBrewResponsesDescribeJobProfileConfigurationDatasetStatisticsConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get profileColumns(): shapes.DataBrewColumnSelector[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJob',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJob.ProfileConfiguration.ProfileColumns'),
+        outputPath: 'ProfileConfiguration.ProfileColumns',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJob.ProfileConfiguration.ProfileColumns', props);
+    return resource.getResponseField('ProfileConfiguration.ProfileColumns') as unknown as shapes.DataBrewColumnSelector[];
+  }
+
+  public get columnStatisticsConfigurations(): shapes.DataBrewColumnStatisticsConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJob',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJob.ProfileConfiguration.ColumnStatisticsConfigurations'),
+        outputPath: 'ProfileConfiguration.ColumnStatisticsConfigurations',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJob.ProfileConfiguration.ColumnStatisticsConfigurations', props);
+    return resource.getResponseField('ProfileConfiguration.ColumnStatisticsConfigurations') as unknown as shapes.DataBrewColumnStatisticsConfiguration[];
+  }
+
+}
+
+export class DataBrewResponsesDescribeJobProfileConfigurationDatasetStatisticsConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DataBrewDescribeJobRequest) {
+  }
+
+  public get includedStatistics(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJob',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJob.ProfileConfiguration.DatasetStatisticsConfiguration.IncludedStatistics'),
+        outputPath: 'ProfileConfiguration.DatasetStatisticsConfiguration.IncludedStatistics',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJob.ProfileConfiguration.DatasetStatisticsConfiguration.IncludedStatistics', props);
+    return resource.getResponseField('ProfileConfiguration.DatasetStatisticsConfiguration.IncludedStatistics') as unknown as string[];
+  }
+
+  public get overrides(): shapes.DataBrewStatisticOverride[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJob',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJob.ProfileConfiguration.DatasetStatisticsConfiguration.Overrides'),
+        outputPath: 'ProfileConfiguration.DatasetStatisticsConfiguration.Overrides',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJob.ProfileConfiguration.DatasetStatisticsConfiguration.Overrides', props);
+    return resource.getResponseField('ProfileConfiguration.DatasetStatisticsConfiguration.Overrides') as unknown as shapes.DataBrewStatisticOverride[];
+  }
+
 }
 
 export class DataBrewResponsesDescribeJobRecipeReference {
@@ -1323,6 +1799,512 @@ export class DataBrewResponsesDescribeJobRecipeReference {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJob.RecipeReference.RecipeVersion', props);
     return resource.getResponseField('RecipeReference.RecipeVersion') as unknown as string;
+  }
+
+}
+
+export class DataBrewResponsesDescribeJobJobSample {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DataBrewDescribeJobRequest) {
+  }
+
+  public get mode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJob',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJob.JobSample.Mode'),
+        outputPath: 'JobSample.Mode',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJob.JobSample.Mode', props);
+    return resource.getResponseField('JobSample.Mode') as unknown as string;
+  }
+
+  public get size(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJob',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJob.JobSample.Size'),
+        outputPath: 'JobSample.Size',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJob.JobSample.Size', props);
+    return resource.getResponseField('JobSample.Size') as unknown as number;
+  }
+
+}
+
+export class DataBrewResponsesDescribeJobRun {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DataBrewDescribeJobRunRequest) {
+  }
+
+  public get attempt(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.Attempt'),
+        outputPath: 'Attempt',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.Attempt', props);
+    return resource.getResponseField('Attempt') as unknown as number;
+  }
+
+  public get completedOn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.CompletedOn'),
+        outputPath: 'CompletedOn',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.CompletedOn', props);
+    return resource.getResponseField('CompletedOn') as unknown as string;
+  }
+
+  public get datasetName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.DatasetName'),
+        outputPath: 'DatasetName',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.DatasetName', props);
+    return resource.getResponseField('DatasetName') as unknown as string;
+  }
+
+  public get errorMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.ErrorMessage'),
+        outputPath: 'ErrorMessage',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.ErrorMessage', props);
+    return resource.getResponseField('ErrorMessage') as unknown as string;
+  }
+
+  public get executionTime(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.ExecutionTime'),
+        outputPath: 'ExecutionTime',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.ExecutionTime', props);
+    return resource.getResponseField('ExecutionTime') as unknown as number;
+  }
+
+  public get jobName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.JobName'),
+        outputPath: 'JobName',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.JobName', props);
+    return resource.getResponseField('JobName') as unknown as string;
+  }
+
+  public get profileConfiguration(): DataBrewResponsesDescribeJobRunProfileConfiguration {
+    return new DataBrewResponsesDescribeJobRunProfileConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get runId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.RunId'),
+        outputPath: 'RunId',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.RunId', props);
+    return resource.getResponseField('RunId') as unknown as string;
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.State'),
+        outputPath: 'State',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.State', props);
+    return resource.getResponseField('State') as unknown as string;
+  }
+
+  public get logSubscription(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.LogSubscription'),
+        outputPath: 'LogSubscription',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.LogSubscription', props);
+    return resource.getResponseField('LogSubscription') as unknown as string;
+  }
+
+  public get logGroupName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.LogGroupName'),
+        outputPath: 'LogGroupName',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.LogGroupName', props);
+    return resource.getResponseField('LogGroupName') as unknown as string;
+  }
+
+  public get outputs(): shapes.DataBrewOutput[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.Outputs'),
+        outputPath: 'Outputs',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.Outputs', props);
+    return resource.getResponseField('Outputs') as unknown as shapes.DataBrewOutput[];
+  }
+
+  public get dataCatalogOutputs(): shapes.DataBrewDataCatalogOutput[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.DataCatalogOutputs'),
+        outputPath: 'DataCatalogOutputs',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.DataCatalogOutputs', props);
+    return resource.getResponseField('DataCatalogOutputs') as unknown as shapes.DataBrewDataCatalogOutput[];
+  }
+
+  public get databaseOutputs(): shapes.DataBrewDatabaseOutput[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.DatabaseOutputs'),
+        outputPath: 'DatabaseOutputs',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.DatabaseOutputs', props);
+    return resource.getResponseField('DatabaseOutputs') as unknown as shapes.DataBrewDatabaseOutput[];
+  }
+
+  public get recipeReference(): DataBrewResponsesDescribeJobRunRecipeReference {
+    return new DataBrewResponsesDescribeJobRunRecipeReference(this.__scope, this.__resources, this.__input);
+  }
+
+  public get startedBy(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.StartedBy'),
+        outputPath: 'StartedBy',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.StartedBy', props);
+    return resource.getResponseField('StartedBy') as unknown as string;
+  }
+
+  public get startedOn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.StartedOn'),
+        outputPath: 'StartedOn',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.StartedOn', props);
+    return resource.getResponseField('StartedOn') as unknown as string;
+  }
+
+  public get jobSample(): DataBrewResponsesDescribeJobRunJobSample {
+    return new DataBrewResponsesDescribeJobRunJobSample(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class DataBrewResponsesDescribeJobRunProfileConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DataBrewDescribeJobRunRequest) {
+  }
+
+  public get datasetStatisticsConfiguration(): DataBrewResponsesDescribeJobRunProfileConfigurationDatasetStatisticsConfiguration {
+    return new DataBrewResponsesDescribeJobRunProfileConfigurationDatasetStatisticsConfiguration(this.__scope, this.__resources, this.__input);
+  }
+
+  public get profileColumns(): shapes.DataBrewColumnSelector[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.ProfileConfiguration.ProfileColumns'),
+        outputPath: 'ProfileConfiguration.ProfileColumns',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.ProfileConfiguration.ProfileColumns', props);
+    return resource.getResponseField('ProfileConfiguration.ProfileColumns') as unknown as shapes.DataBrewColumnSelector[];
+  }
+
+  public get columnStatisticsConfigurations(): shapes.DataBrewColumnStatisticsConfiguration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.ProfileConfiguration.ColumnStatisticsConfigurations'),
+        outputPath: 'ProfileConfiguration.ColumnStatisticsConfigurations',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.ProfileConfiguration.ColumnStatisticsConfigurations', props);
+    return resource.getResponseField('ProfileConfiguration.ColumnStatisticsConfigurations') as unknown as shapes.DataBrewColumnStatisticsConfiguration[];
+  }
+
+}
+
+export class DataBrewResponsesDescribeJobRunProfileConfigurationDatasetStatisticsConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DataBrewDescribeJobRunRequest) {
+  }
+
+  public get includedStatistics(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.ProfileConfiguration.DatasetStatisticsConfiguration.IncludedStatistics'),
+        outputPath: 'ProfileConfiguration.DatasetStatisticsConfiguration.IncludedStatistics',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.ProfileConfiguration.DatasetStatisticsConfiguration.IncludedStatistics', props);
+    return resource.getResponseField('ProfileConfiguration.DatasetStatisticsConfiguration.IncludedStatistics') as unknown as string[];
+  }
+
+  public get overrides(): shapes.DataBrewStatisticOverride[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.ProfileConfiguration.DatasetStatisticsConfiguration.Overrides'),
+        outputPath: 'ProfileConfiguration.DatasetStatisticsConfiguration.Overrides',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.ProfileConfiguration.DatasetStatisticsConfiguration.Overrides', props);
+    return resource.getResponseField('ProfileConfiguration.DatasetStatisticsConfiguration.Overrides') as unknown as shapes.DataBrewStatisticOverride[];
+  }
+
+}
+
+export class DataBrewResponsesDescribeJobRunRecipeReference {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DataBrewDescribeJobRunRequest) {
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.RecipeReference.Name'),
+        outputPath: 'RecipeReference.Name',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.RecipeReference.Name', props);
+    return resource.getResponseField('RecipeReference.Name') as unknown as string;
+  }
+
+  public get recipeVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.RecipeReference.RecipeVersion'),
+        outputPath: 'RecipeReference.RecipeVersion',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.RecipeReference.RecipeVersion', props);
+    return resource.getResponseField('RecipeReference.RecipeVersion') as unknown as string;
+  }
+
+}
+
+export class DataBrewResponsesDescribeJobRunJobSample {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.DataBrewDescribeJobRunRequest) {
+  }
+
+  public get mode(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.JobSample.Mode'),
+        outputPath: 'JobSample.Mode',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.JobSample.Mode', props);
+    return resource.getResponseField('JobSample.Mode') as unknown as string;
+  }
+
+  public get size(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeJobRun',
+        service: 'DataBrew',
+        physicalResourceId: cr.PhysicalResourceId.of('DataBrew.DescribeJobRun.JobSample.Size'),
+        outputPath: 'JobSample.Size',
+        parameters: {
+          Name: this.__input.name,
+          RunId: this.__input.runId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeJobRun.JobSample.Size', props);
+    return resource.getResponseField('JobSample.Size') as unknown as number;
   }
 
 }
@@ -2573,6 +3555,7 @@ export class DataBrewResponsesUpdateDataset {
         outputPath: 'Name',
         parameters: {
           Name: this.__input.name,
+          Format: this.__input.format,
           FormatOptions: {
             Json: {
               MultiLine: this.__input.formatOptions?.json?.multiLine,
@@ -2580,6 +3563,11 @@ export class DataBrewResponsesUpdateDataset {
             Excel: {
               SheetNames: this.__input.formatOptions?.excel?.sheetNames,
               SheetIndexes: this.__input.formatOptions?.excel?.sheetIndexes,
+              HeaderRow: this.__input.formatOptions?.excel?.headerRow,
+            },
+            Csv: {
+              Delimiter: this.__input.formatOptions?.csv?.delimiter,
+              HeaderRow: this.__input.formatOptions?.csv?.headerRow,
             },
           },
           Input: {
@@ -2596,6 +3584,26 @@ export class DataBrewResponsesUpdateDataset {
                 Key: this.__input.input.dataCatalogInputDefinition?.tempDirectory?.key,
               },
             },
+            DatabaseInputDefinition: {
+              GlueConnectionName: this.__input.input.databaseInputDefinition?.glueConnectionName,
+              DatabaseTableName: this.__input.input.databaseInputDefinition?.databaseTableName,
+              TempDirectory: {
+                Bucket: this.__input.input.databaseInputDefinition?.tempDirectory?.bucket,
+                Key: this.__input.input.databaseInputDefinition?.tempDirectory?.key,
+              },
+            },
+          },
+          PathOptions: {
+            LastModifiedDateCondition: {
+              Expression: this.__input.pathOptions?.lastModifiedDateCondition?.expression,
+              ValuesMap: this.__input.pathOptions?.lastModifiedDateCondition?.valuesMap,
+            },
+            FilesLimit: {
+              MaxFiles: this.__input.pathOptions?.filesLimit?.maxFiles,
+              OrderedBy: this.__input.pathOptions?.filesLimit?.orderedBy,
+              Order: this.__input.pathOptions?.filesLimit?.order,
+            },
+            Parameters: this.__input.pathOptions?.parameters,
           },
         },
       },
@@ -2620,6 +3628,14 @@ export class DataBrewResponsesUpdateProfileJob {
         physicalResourceId: cr.PhysicalResourceId.of('DataBrew.UpdateProfileJob.Name'),
         outputPath: 'Name',
         parameters: {
+          Configuration: {
+            DatasetStatisticsConfiguration: {
+              IncludedStatistics: this.__input.configuration?.datasetStatisticsConfiguration?.includedStatistics,
+              Overrides: this.__input.configuration?.datasetStatisticsConfiguration?.overrides,
+            },
+            ProfileColumns: this.__input.configuration?.profileColumns,
+            ColumnStatisticsConfigurations: this.__input.configuration?.columnStatisticsConfigurations,
+          },
           EncryptionKeyArn: this.__input.encryptionKeyArn,
           EncryptionMode: this.__input.encryptionMode,
           Name: this.__input.name,
@@ -2632,6 +3648,10 @@ export class DataBrewResponsesUpdateProfileJob {
           },
           RoleArn: this.__input.roleArn,
           Timeout: this.__input.timeout,
+          JobSample: {
+            Mode: this.__input.jobSample?.mode,
+            Size: this.__input.jobSample?.size,
+          },
         },
       },
     };
@@ -2739,6 +3759,8 @@ export class DataBrewResponsesUpdateRecipeJob {
           MaxCapacity: this.__input.maxCapacity,
           MaxRetries: this.__input.maxRetries,
           Outputs: this.__input.outputs,
+          DataCatalogOutputs: this.__input.dataCatalogOutputs,
+          DatabaseOutputs: this.__input.databaseOutputs,
           RoleArn: this.__input.roleArn,
           Timeout: this.__input.timeout,
         },

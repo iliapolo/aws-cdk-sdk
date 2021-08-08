@@ -16,12 +16,24 @@ export class ComputeOptimizerClient extends cdk.Construct {
     return new ComputeOptimizerResponsesExportAutoScalingGroupRecommendations(this, this.__resources, input);
   }
 
+  public exportEbsVolumeRecommendations(input: shapes.ComputeOptimizerExportEbsVolumeRecommendationsRequest): ComputeOptimizerResponsesExportEbsVolumeRecommendations {
+    return new ComputeOptimizerResponsesExportEbsVolumeRecommendations(this, this.__resources, input);
+  }
+
   public exportEc2InstanceRecommendations(input: shapes.ComputeOptimizerExportEc2InstanceRecommendationsRequest): ComputeOptimizerResponsesExportEc2InstanceRecommendations {
     return new ComputeOptimizerResponsesExportEc2InstanceRecommendations(this, this.__resources, input);
   }
 
+  public exportLambdaFunctionRecommendations(input: shapes.ComputeOptimizerExportLambdaFunctionRecommendationsRequest): ComputeOptimizerResponsesExportLambdaFunctionRecommendations {
+    return new ComputeOptimizerResponsesExportLambdaFunctionRecommendations(this, this.__resources, input);
+  }
+
   public fetchAutoScalingGroupRecommendations(input: shapes.ComputeOptimizerGetAutoScalingGroupRecommendationsRequest): ComputeOptimizerResponsesFetchAutoScalingGroupRecommendations {
     return new ComputeOptimizerResponsesFetchAutoScalingGroupRecommendations(this, this.__resources, input);
+  }
+
+  public fetchEbsVolumeRecommendations(input: shapes.ComputeOptimizerGetEbsVolumeRecommendationsRequest): ComputeOptimizerResponsesFetchEbsVolumeRecommendations {
+    return new ComputeOptimizerResponsesFetchEbsVolumeRecommendations(this, this.__resources, input);
   }
 
   public fetchEc2InstanceRecommendations(input: shapes.ComputeOptimizerGetEc2InstanceRecommendationsRequest): ComputeOptimizerResponsesFetchEc2InstanceRecommendations {
@@ -34,6 +46,10 @@ export class ComputeOptimizerClient extends cdk.Construct {
 
   public fetchEnrollmentStatus(): ComputeOptimizerResponsesFetchEnrollmentStatus {
     return new ComputeOptimizerResponsesFetchEnrollmentStatus(this, this.__resources);
+  }
+
+  public fetchLambdaFunctionRecommendations(input: shapes.ComputeOptimizerGetLambdaFunctionRecommendationsRequest): ComputeOptimizerResponsesFetchLambdaFunctionRecommendations {
+    return new ComputeOptimizerResponsesFetchLambdaFunctionRecommendations(this, this.__resources, input);
   }
 
   public fetchRecommendationSummaries(input: shapes.ComputeOptimizerGetRecommendationSummariesRequest): ComputeOptimizerResponsesFetchRecommendationSummaries {
@@ -211,6 +227,124 @@ export class ComputeOptimizerResponsesExportAutoScalingGroupRecommendationsS3Des
 
 }
 
+export class ComputeOptimizerResponsesExportEbsVolumeRecommendations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ComputeOptimizerExportEbsVolumeRecommendationsRequest) {
+  }
+
+  public get jobId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'exportEbsVolumeRecommendations',
+        service: 'ComputeOptimizer',
+        physicalResourceId: cr.PhysicalResourceId.of('ComputeOptimizer.ExportEBSVolumeRecommendations.jobId'),
+        outputPath: 'jobId',
+        parameters: {
+          accountIds: this.__input.accountIds,
+          filters: this.__input.filters,
+          fieldsToExport: this.__input.fieldsToExport,
+          s3DestinationConfig: {
+            bucket: this.__input.s3DestinationConfig.bucket,
+            keyPrefix: this.__input.s3DestinationConfig.keyPrefix,
+          },
+          fileFormat: this.__input.fileFormat,
+          includeMemberAccounts: this.__input.includeMemberAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ExportEBSVolumeRecommendations.jobId', props);
+    return resource.getResponseField('jobId') as unknown as string;
+  }
+
+  public get s3Destination(): ComputeOptimizerResponsesExportEbsVolumeRecommendationsS3Destination {
+    return new ComputeOptimizerResponsesExportEbsVolumeRecommendationsS3Destination(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ComputeOptimizerResponsesExportEbsVolumeRecommendationsS3Destination {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ComputeOptimizerExportEbsVolumeRecommendationsRequest) {
+  }
+
+  public get bucket(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'exportEbsVolumeRecommendations',
+        service: 'ComputeOptimizer',
+        physicalResourceId: cr.PhysicalResourceId.of('ComputeOptimizer.ExportEBSVolumeRecommendations.s3Destination.bucket'),
+        outputPath: 's3Destination.bucket',
+        parameters: {
+          accountIds: this.__input.accountIds,
+          filters: this.__input.filters,
+          fieldsToExport: this.__input.fieldsToExport,
+          s3DestinationConfig: {
+            bucket: this.__input.s3DestinationConfig.bucket,
+            keyPrefix: this.__input.s3DestinationConfig.keyPrefix,
+          },
+          fileFormat: this.__input.fileFormat,
+          includeMemberAccounts: this.__input.includeMemberAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ExportEBSVolumeRecommendations.s3Destination.bucket', props);
+    return resource.getResponseField('s3Destination.bucket') as unknown as string;
+  }
+
+  public get key(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'exportEbsVolumeRecommendations',
+        service: 'ComputeOptimizer',
+        physicalResourceId: cr.PhysicalResourceId.of('ComputeOptimizer.ExportEBSVolumeRecommendations.s3Destination.key'),
+        outputPath: 's3Destination.key',
+        parameters: {
+          accountIds: this.__input.accountIds,
+          filters: this.__input.filters,
+          fieldsToExport: this.__input.fieldsToExport,
+          s3DestinationConfig: {
+            bucket: this.__input.s3DestinationConfig.bucket,
+            keyPrefix: this.__input.s3DestinationConfig.keyPrefix,
+          },
+          fileFormat: this.__input.fileFormat,
+          includeMemberAccounts: this.__input.includeMemberAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ExportEBSVolumeRecommendations.s3Destination.key', props);
+    return resource.getResponseField('s3Destination.key') as unknown as string;
+  }
+
+  public get metadataKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'exportEbsVolumeRecommendations',
+        service: 'ComputeOptimizer',
+        physicalResourceId: cr.PhysicalResourceId.of('ComputeOptimizer.ExportEBSVolumeRecommendations.s3Destination.metadataKey'),
+        outputPath: 's3Destination.metadataKey',
+        parameters: {
+          accountIds: this.__input.accountIds,
+          filters: this.__input.filters,
+          fieldsToExport: this.__input.fieldsToExport,
+          s3DestinationConfig: {
+            bucket: this.__input.s3DestinationConfig.bucket,
+            keyPrefix: this.__input.s3DestinationConfig.keyPrefix,
+          },
+          fileFormat: this.__input.fileFormat,
+          includeMemberAccounts: this.__input.includeMemberAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ExportEBSVolumeRecommendations.s3Destination.metadataKey', props);
+    return resource.getResponseField('s3Destination.metadataKey') as unknown as string;
+  }
+
+}
+
 export class ComputeOptimizerResponsesExportEc2InstanceRecommendations {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ComputeOptimizerExportEc2InstanceRecommendationsRequest) {
@@ -329,6 +463,124 @@ export class ComputeOptimizerResponsesExportEc2InstanceRecommendationsS3Destinat
 
 }
 
+export class ComputeOptimizerResponsesExportLambdaFunctionRecommendations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ComputeOptimizerExportLambdaFunctionRecommendationsRequest) {
+  }
+
+  public get jobId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'exportLambdaFunctionRecommendations',
+        service: 'ComputeOptimizer',
+        physicalResourceId: cr.PhysicalResourceId.of('ComputeOptimizer.ExportLambdaFunctionRecommendations.jobId'),
+        outputPath: 'jobId',
+        parameters: {
+          accountIds: this.__input.accountIds,
+          filters: this.__input.filters,
+          fieldsToExport: this.__input.fieldsToExport,
+          s3DestinationConfig: {
+            bucket: this.__input.s3DestinationConfig.bucket,
+            keyPrefix: this.__input.s3DestinationConfig.keyPrefix,
+          },
+          fileFormat: this.__input.fileFormat,
+          includeMemberAccounts: this.__input.includeMemberAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ExportLambdaFunctionRecommendations.jobId', props);
+    return resource.getResponseField('jobId') as unknown as string;
+  }
+
+  public get s3Destination(): ComputeOptimizerResponsesExportLambdaFunctionRecommendationsS3Destination {
+    return new ComputeOptimizerResponsesExportLambdaFunctionRecommendationsS3Destination(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ComputeOptimizerResponsesExportLambdaFunctionRecommendationsS3Destination {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ComputeOptimizerExportLambdaFunctionRecommendationsRequest) {
+  }
+
+  public get bucket(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'exportLambdaFunctionRecommendations',
+        service: 'ComputeOptimizer',
+        physicalResourceId: cr.PhysicalResourceId.of('ComputeOptimizer.ExportLambdaFunctionRecommendations.s3Destination.bucket'),
+        outputPath: 's3Destination.bucket',
+        parameters: {
+          accountIds: this.__input.accountIds,
+          filters: this.__input.filters,
+          fieldsToExport: this.__input.fieldsToExport,
+          s3DestinationConfig: {
+            bucket: this.__input.s3DestinationConfig.bucket,
+            keyPrefix: this.__input.s3DestinationConfig.keyPrefix,
+          },
+          fileFormat: this.__input.fileFormat,
+          includeMemberAccounts: this.__input.includeMemberAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ExportLambdaFunctionRecommendations.s3Destination.bucket', props);
+    return resource.getResponseField('s3Destination.bucket') as unknown as string;
+  }
+
+  public get key(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'exportLambdaFunctionRecommendations',
+        service: 'ComputeOptimizer',
+        physicalResourceId: cr.PhysicalResourceId.of('ComputeOptimizer.ExportLambdaFunctionRecommendations.s3Destination.key'),
+        outputPath: 's3Destination.key',
+        parameters: {
+          accountIds: this.__input.accountIds,
+          filters: this.__input.filters,
+          fieldsToExport: this.__input.fieldsToExport,
+          s3DestinationConfig: {
+            bucket: this.__input.s3DestinationConfig.bucket,
+            keyPrefix: this.__input.s3DestinationConfig.keyPrefix,
+          },
+          fileFormat: this.__input.fileFormat,
+          includeMemberAccounts: this.__input.includeMemberAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ExportLambdaFunctionRecommendations.s3Destination.key', props);
+    return resource.getResponseField('s3Destination.key') as unknown as string;
+  }
+
+  public get metadataKey(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'exportLambdaFunctionRecommendations',
+        service: 'ComputeOptimizer',
+        physicalResourceId: cr.PhysicalResourceId.of('ComputeOptimizer.ExportLambdaFunctionRecommendations.s3Destination.metadataKey'),
+        outputPath: 's3Destination.metadataKey',
+        parameters: {
+          accountIds: this.__input.accountIds,
+          filters: this.__input.filters,
+          fieldsToExport: this.__input.fieldsToExport,
+          s3DestinationConfig: {
+            bucket: this.__input.s3DestinationConfig.bucket,
+            keyPrefix: this.__input.s3DestinationConfig.keyPrefix,
+          },
+          fileFormat: this.__input.fileFormat,
+          includeMemberAccounts: this.__input.includeMemberAccounts,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ExportLambdaFunctionRecommendations.s3Destination.metadataKey', props);
+    return resource.getResponseField('s3Destination.metadataKey') as unknown as string;
+  }
+
+}
+
 export class ComputeOptimizerResponsesFetchAutoScalingGroupRecommendations {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ComputeOptimizerGetAutoScalingGroupRecommendationsRequest) {
@@ -394,6 +646,76 @@ export class ComputeOptimizerResponsesFetchAutoScalingGroupRecommendations {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetAutoScalingGroupRecommendations.errors', props);
+    return resource.getResponseField('errors') as unknown as shapes.ComputeOptimizerGetRecommendationError[];
+  }
+
+}
+
+export class ComputeOptimizerResponsesFetchEbsVolumeRecommendations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ComputeOptimizerGetEbsVolumeRecommendationsRequest) {
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getEbsVolumeRecommendations',
+        service: 'ComputeOptimizer',
+        physicalResourceId: cr.PhysicalResourceId.of('ComputeOptimizer.GetEBSVolumeRecommendations.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          volumeArns: this.__input.volumeArns,
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+          filters: this.__input.filters,
+          accountIds: this.__input.accountIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetEBSVolumeRecommendations.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+  public get volumeRecommendations(): shapes.ComputeOptimizerVolumeRecommendation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getEbsVolumeRecommendations',
+        service: 'ComputeOptimizer',
+        physicalResourceId: cr.PhysicalResourceId.of('ComputeOptimizer.GetEBSVolumeRecommendations.volumeRecommendations'),
+        outputPath: 'volumeRecommendations',
+        parameters: {
+          volumeArns: this.__input.volumeArns,
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+          filters: this.__input.filters,
+          accountIds: this.__input.accountIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetEBSVolumeRecommendations.volumeRecommendations', props);
+    return resource.getResponseField('volumeRecommendations') as unknown as shapes.ComputeOptimizerVolumeRecommendation[];
+  }
+
+  public get errors(): shapes.ComputeOptimizerGetRecommendationError[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getEbsVolumeRecommendations',
+        service: 'ComputeOptimizer',
+        physicalResourceId: cr.PhysicalResourceId.of('ComputeOptimizer.GetEBSVolumeRecommendations.errors'),
+        outputPath: 'errors',
+        parameters: {
+          volumeArns: this.__input.volumeArns,
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+          filters: this.__input.filters,
+          accountIds: this.__input.accountIds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetEBSVolumeRecommendations.errors', props);
     return resource.getResponseField('errors') as unknown as shapes.ComputeOptimizerGetRecommendationError[];
   }
 
@@ -548,6 +870,55 @@ export class ComputeOptimizerResponsesFetchEnrollmentStatus {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetEnrollmentStatus.memberAccountsEnrolled', props);
     return resource.getResponseField('memberAccountsEnrolled') as unknown as boolean;
+  }
+
+}
+
+export class ComputeOptimizerResponsesFetchLambdaFunctionRecommendations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ComputeOptimizerGetLambdaFunctionRecommendationsRequest) {
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getLambdaFunctionRecommendations',
+        service: 'ComputeOptimizer',
+        physicalResourceId: cr.PhysicalResourceId.of('ComputeOptimizer.GetLambdaFunctionRecommendations.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          functionArns: this.__input.functionArns,
+          accountIds: this.__input.accountIds,
+          filters: this.__input.filters,
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetLambdaFunctionRecommendations.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+  public get lambdaFunctionRecommendations(): shapes.ComputeOptimizerLambdaFunctionRecommendation[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getLambdaFunctionRecommendations',
+        service: 'ComputeOptimizer',
+        physicalResourceId: cr.PhysicalResourceId.of('ComputeOptimizer.GetLambdaFunctionRecommendations.lambdaFunctionRecommendations'),
+        outputPath: 'lambdaFunctionRecommendations',
+        parameters: {
+          functionArns: this.__input.functionArns,
+          accountIds: this.__input.accountIds,
+          filters: this.__input.filters,
+          nextToken: this.__input.nextToken,
+          maxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetLambdaFunctionRecommendations.lambdaFunctionRecommendations', props);
+    return resource.getResponseField('lambdaFunctionRecommendations') as unknown as shapes.ComputeOptimizerLambdaFunctionRecommendation[];
   }
 
 }

@@ -53,6 +53,10 @@ export class ChimeClient extends cdk.Construct {
     return new ChimeResponsesBatchCreateAttendee(this, this.__resources, input);
   }
 
+  public batchCreateChannelMembership(input: shapes.ChimeBatchCreateChannelMembershipRequest): ChimeResponsesBatchCreateChannelMembership {
+    return new ChimeResponsesBatchCreateChannelMembership(this, this.__resources, input);
+  }
+
   public batchCreateRoomMembership(input: shapes.ChimeBatchCreateRoomMembershipRequest): ChimeResponsesBatchCreateRoomMembership {
     return new ChimeResponsesBatchCreateRoomMembership(this, this.__resources, input);
   }
@@ -115,6 +119,10 @@ export class ChimeClient extends cdk.Construct {
 
   public createChannelModerator(input: shapes.ChimeCreateChannelModeratorRequest): ChimeResponsesCreateChannelModerator {
     return new ChimeResponsesCreateChannelModerator(this, this.__resources, input);
+  }
+
+  public createMediaCapturePipeline(input: shapes.ChimeCreateMediaCapturePipelineRequest): ChimeResponsesCreateMediaCapturePipeline {
+    return new ChimeResponsesCreateMediaCapturePipeline(this, this.__resources, input);
   }
 
   public createMeeting(input: shapes.ChimeCreateMeetingRequest): ChimeResponsesCreateMeeting {
@@ -270,6 +278,7 @@ export class ChimeClient extends cdk.Construct {
         physicalResourceId: cr.PhysicalResourceId.of('Chime.DeleteChannel'),
         parameters: {
           ChannelArn: input.channelArn,
+          ChimeBearer: input.chimeBearer,
         },
       },
     };
@@ -286,6 +295,7 @@ export class ChimeClient extends cdk.Construct {
         parameters: {
           ChannelArn: input.channelArn,
           MemberArn: input.memberArn,
+          ChimeBearer: input.chimeBearer,
         },
       },
     };
@@ -302,6 +312,7 @@ export class ChimeClient extends cdk.Construct {
         parameters: {
           ChannelArn: input.channelArn,
           MemberArn: input.memberArn,
+          ChimeBearer: input.chimeBearer,
         },
       },
     };
@@ -318,6 +329,7 @@ export class ChimeClient extends cdk.Construct {
         parameters: {
           ChannelArn: input.channelArn,
           MessageId: input.messageId,
+          ChimeBearer: input.chimeBearer,
         },
       },
     };
@@ -334,6 +346,7 @@ export class ChimeClient extends cdk.Construct {
         parameters: {
           ChannelArn: input.channelArn,
           ChannelModeratorArn: input.channelModeratorArn,
+          ChimeBearer: input.chimeBearer,
         },
       },
     };
@@ -354,6 +367,21 @@ export class ChimeClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'DeleteEventsConfiguration', props);
+  }
+
+  public deleteMediaCapturePipeline(input: shapes.ChimeDeleteMediaCapturePipelineRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteMediaCapturePipeline',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.DeleteMediaCapturePipeline'),
+        parameters: {
+          MediaPipelineId: input.mediaPipelineId,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeleteMediaCapturePipeline', props);
   }
 
   public deleteMeeting(input: shapes.ChimeDeleteMeetingRequest): void {
@@ -698,6 +726,10 @@ export class ChimeClient extends cdk.Construct {
     return new ChimeResponsesFetchGlobalSettings(this, this.__resources);
   }
 
+  public fetchMediaCapturePipeline(input: shapes.ChimeGetMediaCapturePipelineRequest): ChimeResponsesFetchMediaCapturePipeline {
+    return new ChimeResponsesFetchMediaCapturePipeline(this, this.__resources, input);
+  }
+
   public fetchMeeting(input: shapes.ChimeGetMeetingRequest): ChimeResponsesFetchMeeting {
     return new ChimeResponsesFetchMeeting(this, this.__resources, input);
   }
@@ -846,6 +878,10 @@ export class ChimeClient extends cdk.Construct {
     return new ChimeResponsesListChannelsModeratedByAppInstanceUser(this, this.__resources, input);
   }
 
+  public listMediaCapturePipelines(input: shapes.ChimeListMediaCapturePipelinesRequest): ChimeResponsesListMediaCapturePipelines {
+    return new ChimeResponsesListMediaCapturePipelines(this, this.__resources, input);
+  }
+
   public listMeetingTags(input: shapes.ChimeListMeetingTagsRequest): ChimeResponsesListMeetingTags {
     return new ChimeResponsesListMeetingTags(this, this.__resources, input);
   }
@@ -880,6 +916,10 @@ export class ChimeClient extends cdk.Construct {
 
   public listSipRules(input: shapes.ChimeListSipRulesRequest): ChimeResponsesListSipRules {
     return new ChimeResponsesListSipRules(this, this.__resources, input);
+  }
+
+  public listSupportedPhoneNumberCountries(input: shapes.ChimeListSupportedPhoneNumberCountriesRequest): ChimeResponsesListSupportedPhoneNumberCountries {
+    return new ChimeResponsesListSupportedPhoneNumberCountries(this, this.__resources, input);
   }
 
   public listTagsForResource(input: shapes.ChimeListTagsForResourceRequest): ChimeResponsesListTagsForResource {
@@ -1034,6 +1074,52 @@ export class ChimeClient extends cdk.Construct {
 
   public sendChannelMessage(input: shapes.ChimeSendChannelMessageRequest): ChimeResponsesSendChannelMessage {
     return new ChimeResponsesSendChannelMessage(this, this.__resources, input);
+  }
+
+  public startMeetingTranscription(input: shapes.ChimeStartMeetingTranscriptionRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startMeetingTranscription',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.StartMeetingTranscription'),
+        parameters: {
+          MeetingId: input.meetingId,
+          TranscriptionConfiguration: {
+            EngineTranscribeSettings: {
+              LanguageCode: input.transcriptionConfiguration.engineTranscribeSettings?.languageCode,
+              VocabularyFilterMethod: input.transcriptionConfiguration.engineTranscribeSettings?.vocabularyFilterMethod,
+              VocabularyFilterName: input.transcriptionConfiguration.engineTranscribeSettings?.vocabularyFilterName,
+              VocabularyName: input.transcriptionConfiguration.engineTranscribeSettings?.vocabularyName,
+              Region: input.transcriptionConfiguration.engineTranscribeSettings?.region,
+            },
+            EngineTranscribeMedicalSettings: {
+              LanguageCode: input.transcriptionConfiguration.engineTranscribeMedicalSettings?.languageCode,
+              Specialty: input.transcriptionConfiguration.engineTranscribeMedicalSettings?.specialty,
+              Type: input.transcriptionConfiguration.engineTranscribeMedicalSettings?.type,
+              VocabularyName: input.transcriptionConfiguration.engineTranscribeMedicalSettings?.vocabularyName,
+              Region: input.transcriptionConfiguration.engineTranscribeMedicalSettings?.region,
+            },
+          },
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'StartMeetingTranscription', props);
+  }
+
+  public stopMeetingTranscription(input: shapes.ChimeStopMeetingTranscriptionRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'stopMeetingTranscription',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.StopMeetingTranscription'),
+        parameters: {
+          MeetingId: input.meetingId,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'StopMeetingTranscription', props);
   }
 
   public tagAttendee(input: shapes.ChimeTagAttendeeRequest): void {
@@ -1236,6 +1322,10 @@ export class ChimeClient extends cdk.Construct {
     return new ChimeResponsesUpdateSipMediaApplication(this, this.__resources, input);
   }
 
+  public updateSipMediaApplicationCall(input: shapes.ChimeUpdateSipMediaApplicationCallRequest): ChimeResponsesUpdateSipMediaApplicationCall {
+    return new ChimeResponsesUpdateSipMediaApplicationCall(this, this.__resources, input);
+  }
+
   public updateSipRule(input: shapes.ChimeUpdateSipRuleRequest): ChimeResponsesUpdateSipRule {
     return new ChimeResponsesUpdateSipRule(this, this.__resources, input);
   }
@@ -1368,6 +1458,155 @@ export class ChimeResponsesBatchCreateAttendee {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'BatchCreateAttendee.Errors', props);
     return resource.getResponseField('Errors') as unknown as shapes.ChimeCreateAttendeeError[];
+  }
+
+}
+
+export class ChimeResponsesBatchCreateChannelMembership {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ChimeBatchCreateChannelMembershipRequest) {
+  }
+
+  public get batchChannelMemberships(): ChimeResponsesBatchCreateChannelMembershipBatchChannelMemberships {
+    return new ChimeResponsesBatchCreateChannelMembershipBatchChannelMemberships(this.__scope, this.__resources, this.__input);
+  }
+
+  public get errors(): shapes.ChimeBatchCreateChannelMembershipError[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'batchCreateChannelMembership',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.BatchCreateChannelMembership.Errors'),
+        outputPath: 'Errors',
+        parameters: {
+          ChannelArn: this.__input.channelArn,
+          Type: this.__input.type,
+          MemberArns: this.__input.memberArns,
+          ChimeBearer: this.__input.chimeBearer,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'BatchCreateChannelMembership.Errors', props);
+    return resource.getResponseField('Errors') as unknown as shapes.ChimeBatchCreateChannelMembershipError[];
+  }
+
+}
+
+export class ChimeResponsesBatchCreateChannelMembershipBatchChannelMemberships {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ChimeBatchCreateChannelMembershipRequest) {
+  }
+
+  public get invitedBy(): ChimeResponsesBatchCreateChannelMembershipBatchChannelMembershipsInvitedBy {
+    return new ChimeResponsesBatchCreateChannelMembershipBatchChannelMembershipsInvitedBy(this.__scope, this.__resources, this.__input);
+  }
+
+  public get type(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'batchCreateChannelMembership',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.BatchCreateChannelMembership.BatchChannelMemberships.Type'),
+        outputPath: 'BatchChannelMemberships.Type',
+        parameters: {
+          ChannelArn: this.__input.channelArn,
+          Type: this.__input.type,
+          MemberArns: this.__input.memberArns,
+          ChimeBearer: this.__input.chimeBearer,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'BatchCreateChannelMembership.BatchChannelMemberships.Type', props);
+    return resource.getResponseField('BatchChannelMemberships.Type') as unknown as string;
+  }
+
+  public get members(): shapes.ChimeIdentity[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'batchCreateChannelMembership',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.BatchCreateChannelMembership.BatchChannelMemberships.Members'),
+        outputPath: 'BatchChannelMemberships.Members',
+        parameters: {
+          ChannelArn: this.__input.channelArn,
+          Type: this.__input.type,
+          MemberArns: this.__input.memberArns,
+          ChimeBearer: this.__input.chimeBearer,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'BatchCreateChannelMembership.BatchChannelMemberships.Members', props);
+    return resource.getResponseField('BatchChannelMemberships.Members') as unknown as shapes.ChimeIdentity[];
+  }
+
+  public get channelArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'batchCreateChannelMembership',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.BatchCreateChannelMembership.BatchChannelMemberships.ChannelArn'),
+        outputPath: 'BatchChannelMemberships.ChannelArn',
+        parameters: {
+          ChannelArn: this.__input.channelArn,
+          Type: this.__input.type,
+          MemberArns: this.__input.memberArns,
+          ChimeBearer: this.__input.chimeBearer,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'BatchCreateChannelMembership.BatchChannelMemberships.ChannelArn', props);
+    return resource.getResponseField('BatchChannelMemberships.ChannelArn') as unknown as string;
+  }
+
+}
+
+export class ChimeResponsesBatchCreateChannelMembershipBatchChannelMembershipsInvitedBy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ChimeBatchCreateChannelMembershipRequest) {
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'batchCreateChannelMembership',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.BatchCreateChannelMembership.BatchChannelMemberships.InvitedBy.Arn'),
+        outputPath: 'BatchChannelMemberships.InvitedBy.Arn',
+        parameters: {
+          ChannelArn: this.__input.channelArn,
+          Type: this.__input.type,
+          MemberArns: this.__input.memberArns,
+          ChimeBearer: this.__input.chimeBearer,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'BatchCreateChannelMembership.BatchChannelMemberships.InvitedBy.Arn', props);
+    return resource.getResponseField('BatchChannelMemberships.InvitedBy.Arn') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'batchCreateChannelMembership',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.BatchCreateChannelMembership.BatchChannelMemberships.InvitedBy.Name'),
+        outputPath: 'BatchChannelMemberships.InvitedBy.Name',
+        parameters: {
+          ChannelArn: this.__input.channelArn,
+          Type: this.__input.type,
+          MemberArns: this.__input.memberArns,
+          ChimeBearer: this.__input.chimeBearer,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'BatchCreateChannelMembership.BatchChannelMemberships.InvitedBy.Name', props);
+    return resource.getResponseField('BatchChannelMemberships.InvitedBy.Name') as unknown as string;
   }
 
 }
@@ -1656,6 +1895,23 @@ export class ChimeResponsesCreateAccountAccount {
     return resource.getResponseField('Account.SupportedLicenses') as unknown as string[];
   }
 
+  public get accountStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAccount',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.CreateAccount.Account.AccountStatus'),
+        outputPath: 'Account.AccountStatus',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAccount.Account.AccountStatus', props);
+    return resource.getResponseField('Account.AccountStatus') as unknown as string;
+  }
+
   public get signinDelegateGroups(): shapes.ChimeSigninDelegateGroup[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -1692,6 +1948,7 @@ export class ChimeResponsesCreateAppInstance {
           Name: this.__input.name,
           Metadata: this.__input.metadata,
           ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -1792,6 +2049,7 @@ export class ChimeResponsesCreateAppInstanceUser {
           Name: this.__input.name,
           Metadata: this.__input.metadata,
           ClientRequestToken: this.__input.clientRequestToken,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -2086,6 +2344,7 @@ export class ChimeResponsesCreateChannel {
           Metadata: this.__input.metadata,
           ClientRequestToken: this.__input.clientRequestToken,
           Tags: this.__input.tags,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -2111,6 +2370,7 @@ export class ChimeResponsesCreateChannelBan {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -2140,6 +2400,7 @@ export class ChimeResponsesCreateChannelBanMember {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -2158,6 +2419,7 @@ export class ChimeResponsesCreateChannelBanMember {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -2184,6 +2446,7 @@ export class ChimeResponsesCreateChannelMembership {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
           Type: this.__input.type,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -2214,6 +2477,7 @@ export class ChimeResponsesCreateChannelMembershipMember {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
           Type: this.__input.type,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -2233,6 +2497,7 @@ export class ChimeResponsesCreateChannelMembershipMember {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
           Type: this.__input.type,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -2258,6 +2523,7 @@ export class ChimeResponsesCreateChannelModerator {
         parameters: {
           ChannelArn: this.__input.channelArn,
           ChannelModeratorArn: this.__input.channelModeratorArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -2287,6 +2553,7 @@ export class ChimeResponsesCreateChannelModeratorChannelModerator {
         parameters: {
           ChannelArn: this.__input.channelArn,
           ChannelModeratorArn: this.__input.channelModeratorArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -2305,11 +2572,198 @@ export class ChimeResponsesCreateChannelModeratorChannelModerator {
         parameters: {
           ChannelArn: this.__input.channelArn,
           ChannelModeratorArn: this.__input.channelModeratorArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateChannelModerator.ChannelModerator.Name', props);
     return resource.getResponseField('ChannelModerator.Name') as unknown as string;
+  }
+
+}
+
+export class ChimeResponsesCreateMediaCapturePipeline {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ChimeCreateMediaCapturePipelineRequest) {
+  }
+
+  public get mediaCapturePipeline(): ChimeResponsesCreateMediaCapturePipelineMediaCapturePipeline {
+    return new ChimeResponsesCreateMediaCapturePipelineMediaCapturePipeline(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ChimeResponsesCreateMediaCapturePipelineMediaCapturePipeline {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ChimeCreateMediaCapturePipelineRequest) {
+  }
+
+  public get mediaPipelineId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createMediaCapturePipeline',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.CreateMediaCapturePipeline.MediaCapturePipeline.MediaPipelineId'),
+        outputPath: 'MediaCapturePipeline.MediaPipelineId',
+        parameters: {
+          SourceType: this.__input.sourceType,
+          SourceArn: this.__input.sourceArn,
+          SinkType: this.__input.sinkType,
+          SinkArn: this.__input.sinkArn,
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateMediaCapturePipeline.MediaCapturePipeline.MediaPipelineId', props);
+    return resource.getResponseField('MediaCapturePipeline.MediaPipelineId') as unknown as string;
+  }
+
+  public get sourceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createMediaCapturePipeline',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.CreateMediaCapturePipeline.MediaCapturePipeline.SourceType'),
+        outputPath: 'MediaCapturePipeline.SourceType',
+        parameters: {
+          SourceType: this.__input.sourceType,
+          SourceArn: this.__input.sourceArn,
+          SinkType: this.__input.sinkType,
+          SinkArn: this.__input.sinkArn,
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateMediaCapturePipeline.MediaCapturePipeline.SourceType', props);
+    return resource.getResponseField('MediaCapturePipeline.SourceType') as unknown as string;
+  }
+
+  public get sourceArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createMediaCapturePipeline',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.CreateMediaCapturePipeline.MediaCapturePipeline.SourceArn'),
+        outputPath: 'MediaCapturePipeline.SourceArn',
+        parameters: {
+          SourceType: this.__input.sourceType,
+          SourceArn: this.__input.sourceArn,
+          SinkType: this.__input.sinkType,
+          SinkArn: this.__input.sinkArn,
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateMediaCapturePipeline.MediaCapturePipeline.SourceArn', props);
+    return resource.getResponseField('MediaCapturePipeline.SourceArn') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createMediaCapturePipeline',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.CreateMediaCapturePipeline.MediaCapturePipeline.Status'),
+        outputPath: 'MediaCapturePipeline.Status',
+        parameters: {
+          SourceType: this.__input.sourceType,
+          SourceArn: this.__input.sourceArn,
+          SinkType: this.__input.sinkType,
+          SinkArn: this.__input.sinkArn,
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateMediaCapturePipeline.MediaCapturePipeline.Status', props);
+    return resource.getResponseField('MediaCapturePipeline.Status') as unknown as string;
+  }
+
+  public get sinkType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createMediaCapturePipeline',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.CreateMediaCapturePipeline.MediaCapturePipeline.SinkType'),
+        outputPath: 'MediaCapturePipeline.SinkType',
+        parameters: {
+          SourceType: this.__input.sourceType,
+          SourceArn: this.__input.sourceArn,
+          SinkType: this.__input.sinkType,
+          SinkArn: this.__input.sinkArn,
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateMediaCapturePipeline.MediaCapturePipeline.SinkType', props);
+    return resource.getResponseField('MediaCapturePipeline.SinkType') as unknown as string;
+  }
+
+  public get sinkArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createMediaCapturePipeline',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.CreateMediaCapturePipeline.MediaCapturePipeline.SinkArn'),
+        outputPath: 'MediaCapturePipeline.SinkArn',
+        parameters: {
+          SourceType: this.__input.sourceType,
+          SourceArn: this.__input.sourceArn,
+          SinkType: this.__input.sinkType,
+          SinkArn: this.__input.sinkArn,
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateMediaCapturePipeline.MediaCapturePipeline.SinkArn', props);
+    return resource.getResponseField('MediaCapturePipeline.SinkArn') as unknown as string;
+  }
+
+  public get createdTimestamp(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createMediaCapturePipeline',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.CreateMediaCapturePipeline.MediaCapturePipeline.CreatedTimestamp'),
+        outputPath: 'MediaCapturePipeline.CreatedTimestamp',
+        parameters: {
+          SourceType: this.__input.sourceType,
+          SourceArn: this.__input.sourceArn,
+          SinkType: this.__input.sinkType,
+          SinkArn: this.__input.sinkArn,
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateMediaCapturePipeline.MediaCapturePipeline.CreatedTimestamp', props);
+    return resource.getResponseField('MediaCapturePipeline.CreatedTimestamp') as unknown as string;
+  }
+
+  public get updatedTimestamp(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createMediaCapturePipeline',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.CreateMediaCapturePipeline.MediaCapturePipeline.UpdatedTimestamp'),
+        outputPath: 'MediaCapturePipeline.UpdatedTimestamp',
+        parameters: {
+          SourceType: this.__input.sourceType,
+          SourceArn: this.__input.sourceArn,
+          SinkType: this.__input.sinkType,
+          SinkArn: this.__input.sinkArn,
+          ClientRequestToken: this.__input.clientRequestToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateMediaCapturePipeline.MediaCapturePipeline.UpdatedTimestamp', props);
+    return resource.getResponseField('MediaCapturePipeline.UpdatedTimestamp') as unknown as string;
   }
 
 }
@@ -2589,6 +3043,31 @@ export class ChimeResponsesCreateMeetingMeetingMediaPlacement {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateMeeting.Meeting.MediaPlacement.TurnControlUrl', props);
     return resource.getResponseField('Meeting.MediaPlacement.TurnControlUrl') as unknown as string;
+  }
+
+  public get eventIngestionUrl(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createMeeting',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.CreateMeeting.Meeting.MediaPlacement.EventIngestionUrl'),
+        outputPath: 'Meeting.MediaPlacement.EventIngestionUrl',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          ExternalMeetingId: this.__input.externalMeetingId,
+          MeetingHostId: this.__input.meetingHostId,
+          MediaRegion: this.__input.mediaRegion,
+          Tags: this.__input.tags,
+          NotificationsConfiguration: {
+            SnsTopicArn: this.__input.notificationsConfiguration?.snsTopicArn,
+            SqsQueueArn: this.__input.notificationsConfiguration?.sqsQueueArn,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateMeeting.Meeting.MediaPlacement.EventIngestionUrl', props);
+    return resource.getResponseField('Meeting.MediaPlacement.EventIngestionUrl') as unknown as string;
   }
 
 }
@@ -2957,6 +3436,32 @@ export class ChimeResponsesCreateMeetingWithAttendeesMeetingMediaPlacement {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateMeetingWithAttendees.Meeting.MediaPlacement.TurnControlUrl', props);
     return resource.getResponseField('Meeting.MediaPlacement.TurnControlUrl') as unknown as string;
+  }
+
+  public get eventIngestionUrl(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createMeetingWithAttendees',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.CreateMeetingWithAttendees.Meeting.MediaPlacement.EventIngestionUrl'),
+        outputPath: 'Meeting.MediaPlacement.EventIngestionUrl',
+        parameters: {
+          ClientRequestToken: this.__input.clientRequestToken,
+          ExternalMeetingId: this.__input.externalMeetingId,
+          MeetingHostId: this.__input.meetingHostId,
+          MediaRegion: this.__input.mediaRegion,
+          Tags: this.__input.tags,
+          NotificationsConfiguration: {
+            SnsTopicArn: this.__input.notificationsConfiguration?.snsTopicArn,
+            SqsQueueArn: this.__input.notificationsConfiguration?.sqsQueueArn,
+          },
+          Attendees: this.__input.attendees,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateMeetingWithAttendees.Meeting.MediaPlacement.EventIngestionUrl', props);
+    return resource.getResponseField('Meeting.MediaPlacement.EventIngestionUrl') as unknown as string;
   }
 
 }
@@ -5091,6 +5596,7 @@ export class ChimeResponsesDescribeChannelChannel {
         outputPath: 'Channel.Name',
         parameters: {
           ChannelArn: this.__input.channelArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5108,6 +5614,7 @@ export class ChimeResponsesDescribeChannelChannel {
         outputPath: 'Channel.ChannelArn',
         parameters: {
           ChannelArn: this.__input.channelArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5125,6 +5632,7 @@ export class ChimeResponsesDescribeChannelChannel {
         outputPath: 'Channel.Mode',
         parameters: {
           ChannelArn: this.__input.channelArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5142,6 +5650,7 @@ export class ChimeResponsesDescribeChannelChannel {
         outputPath: 'Channel.Privacy',
         parameters: {
           ChannelArn: this.__input.channelArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5159,6 +5668,7 @@ export class ChimeResponsesDescribeChannelChannel {
         outputPath: 'Channel.Metadata',
         parameters: {
           ChannelArn: this.__input.channelArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5180,6 +5690,7 @@ export class ChimeResponsesDescribeChannelChannel {
         outputPath: 'Channel.CreatedTimestamp',
         parameters: {
           ChannelArn: this.__input.channelArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5197,6 +5708,7 @@ export class ChimeResponsesDescribeChannelChannel {
         outputPath: 'Channel.LastMessageTimestamp',
         parameters: {
           ChannelArn: this.__input.channelArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5214,6 +5726,7 @@ export class ChimeResponsesDescribeChannelChannel {
         outputPath: 'Channel.LastUpdatedTimestamp',
         parameters: {
           ChannelArn: this.__input.channelArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5238,6 +5751,7 @@ export class ChimeResponsesDescribeChannelChannelCreatedBy {
         outputPath: 'Channel.CreatedBy.Arn',
         parameters: {
           ChannelArn: this.__input.channelArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5255,6 +5769,7 @@ export class ChimeResponsesDescribeChannelChannelCreatedBy {
         outputPath: 'Channel.CreatedBy.Name',
         parameters: {
           ChannelArn: this.__input.channelArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5295,6 +5810,7 @@ export class ChimeResponsesDescribeChannelBanChannelBan {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5313,6 +5829,7 @@ export class ChimeResponsesDescribeChannelBanChannelBan {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5342,6 +5859,7 @@ export class ChimeResponsesDescribeChannelBanChannelBanMember {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5360,6 +5878,7 @@ export class ChimeResponsesDescribeChannelBanChannelBanMember {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5385,6 +5904,7 @@ export class ChimeResponsesDescribeChannelBanChannelBanCreatedBy {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5403,6 +5923,7 @@ export class ChimeResponsesDescribeChannelBanChannelBanCreatedBy {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5443,6 +5964,7 @@ export class ChimeResponsesDescribeChannelMembershipChannelMembership {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5465,6 +5987,7 @@ export class ChimeResponsesDescribeChannelMembershipChannelMembership {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5483,6 +6006,7 @@ export class ChimeResponsesDescribeChannelMembershipChannelMembership {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5501,6 +6025,7 @@ export class ChimeResponsesDescribeChannelMembershipChannelMembership {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5526,6 +6051,7 @@ export class ChimeResponsesDescribeChannelMembershipChannelMembershipInvitedBy {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5544,6 +6070,7 @@ export class ChimeResponsesDescribeChannelMembershipChannelMembershipInvitedBy {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5569,6 +6096,7 @@ export class ChimeResponsesDescribeChannelMembershipChannelMembershipMember {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5587,6 +6115,7 @@ export class ChimeResponsesDescribeChannelMembershipChannelMembershipMember {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MemberArn: this.__input.memberArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5638,6 +6167,7 @@ export class ChimeResponsesDescribeChannelMembershipForAppInstanceUserChannelMem
         parameters: {
           ChannelArn: this.__input.channelArn,
           AppInstanceUserArn: this.__input.appInstanceUserArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5656,6 +6186,7 @@ export class ChimeResponsesDescribeChannelMembershipForAppInstanceUserChannelMem
         parameters: {
           ChannelArn: this.__input.channelArn,
           AppInstanceUserArn: this.__input.appInstanceUserArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5674,6 +6205,7 @@ export class ChimeResponsesDescribeChannelMembershipForAppInstanceUserChannelMem
         parameters: {
           ChannelArn: this.__input.channelArn,
           AppInstanceUserArn: this.__input.appInstanceUserArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5692,6 +6224,7 @@ export class ChimeResponsesDescribeChannelMembershipForAppInstanceUserChannelMem
         parameters: {
           ChannelArn: this.__input.channelArn,
           AppInstanceUserArn: this.__input.appInstanceUserArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5710,6 +6243,7 @@ export class ChimeResponsesDescribeChannelMembershipForAppInstanceUserChannelMem
         parameters: {
           ChannelArn: this.__input.channelArn,
           AppInstanceUserArn: this.__input.appInstanceUserArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5728,6 +6262,7 @@ export class ChimeResponsesDescribeChannelMembershipForAppInstanceUserChannelMem
         parameters: {
           ChannelArn: this.__input.channelArn,
           AppInstanceUserArn: this.__input.appInstanceUserArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5753,6 +6288,7 @@ export class ChimeResponsesDescribeChannelMembershipForAppInstanceUserChannelMem
         parameters: {
           ChannelArn: this.__input.channelArn,
           AppInstanceUserArn: this.__input.appInstanceUserArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5771,6 +6307,7 @@ export class ChimeResponsesDescribeChannelMembershipForAppInstanceUserChannelMem
         parameters: {
           ChannelArn: this.__input.channelArn,
           AppInstanceUserArn: this.__input.appInstanceUserArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5818,6 +6355,7 @@ export class ChimeResponsesDescribeChannelModeratedByAppInstanceUserChannelChann
         parameters: {
           ChannelArn: this.__input.channelArn,
           AppInstanceUserArn: this.__input.appInstanceUserArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5836,6 +6374,7 @@ export class ChimeResponsesDescribeChannelModeratedByAppInstanceUserChannelChann
         parameters: {
           ChannelArn: this.__input.channelArn,
           AppInstanceUserArn: this.__input.appInstanceUserArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5854,6 +6393,7 @@ export class ChimeResponsesDescribeChannelModeratedByAppInstanceUserChannelChann
         parameters: {
           ChannelArn: this.__input.channelArn,
           AppInstanceUserArn: this.__input.appInstanceUserArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5872,6 +6412,7 @@ export class ChimeResponsesDescribeChannelModeratedByAppInstanceUserChannelChann
         parameters: {
           ChannelArn: this.__input.channelArn,
           AppInstanceUserArn: this.__input.appInstanceUserArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5890,6 +6431,7 @@ export class ChimeResponsesDescribeChannelModeratedByAppInstanceUserChannelChann
         parameters: {
           ChannelArn: this.__input.channelArn,
           AppInstanceUserArn: this.__input.appInstanceUserArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5908,6 +6450,7 @@ export class ChimeResponsesDescribeChannelModeratedByAppInstanceUserChannelChann
         parameters: {
           ChannelArn: this.__input.channelArn,
           AppInstanceUserArn: this.__input.appInstanceUserArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5948,6 +6491,7 @@ export class ChimeResponsesDescribeChannelModeratorChannelModerator {
         parameters: {
           ChannelArn: this.__input.channelArn,
           ChannelModeratorArn: this.__input.channelModeratorArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5966,6 +6510,7 @@ export class ChimeResponsesDescribeChannelModeratorChannelModerator {
         parameters: {
           ChannelArn: this.__input.channelArn,
           ChannelModeratorArn: this.__input.channelModeratorArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -5995,6 +6540,7 @@ export class ChimeResponsesDescribeChannelModeratorChannelModeratorModerator {
         parameters: {
           ChannelArn: this.__input.channelArn,
           ChannelModeratorArn: this.__input.channelModeratorArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -6013,6 +6559,7 @@ export class ChimeResponsesDescribeChannelModeratorChannelModeratorModerator {
         parameters: {
           ChannelArn: this.__input.channelArn,
           ChannelModeratorArn: this.__input.channelModeratorArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -6038,6 +6585,7 @@ export class ChimeResponsesDescribeChannelModeratorChannelModeratorCreatedBy {
         parameters: {
           ChannelArn: this.__input.channelArn,
           ChannelModeratorArn: this.__input.channelModeratorArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -6056,6 +6604,7 @@ export class ChimeResponsesDescribeChannelModeratorChannelModeratorCreatedBy {
         parameters: {
           ChannelArn: this.__input.channelArn,
           ChannelModeratorArn: this.__input.channelModeratorArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -6248,6 +6797,23 @@ export class ChimeResponsesFetchAccountAccount {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetAccount.Account.SupportedLicenses', props);
     return resource.getResponseField('Account.SupportedLicenses') as unknown as string[];
+  }
+
+  public get accountStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccount',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.GetAccount.Account.AccountStatus'),
+        outputPath: 'Account.AccountStatus',
+        parameters: {
+          AccountId: this.__input.accountId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccount.Account.AccountStatus', props);
+    return resource.getResponseField('Account.AccountStatus') as unknown as string;
   }
 
   public get signinDelegateGroups(): shapes.ChimeSigninDelegateGroup[] {
@@ -6687,6 +7253,7 @@ export class ChimeResponsesFetchChannelMessageChannelMessage {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MessageId: this.__input.messageId,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -6705,6 +7272,7 @@ export class ChimeResponsesFetchChannelMessageChannelMessage {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MessageId: this.__input.messageId,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -6723,6 +7291,7 @@ export class ChimeResponsesFetchChannelMessageChannelMessage {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MessageId: this.__input.messageId,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -6741,6 +7310,7 @@ export class ChimeResponsesFetchChannelMessageChannelMessage {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MessageId: this.__input.messageId,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -6759,6 +7329,7 @@ export class ChimeResponsesFetchChannelMessageChannelMessage {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MessageId: this.__input.messageId,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -6777,6 +7348,7 @@ export class ChimeResponsesFetchChannelMessageChannelMessage {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MessageId: this.__input.messageId,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -6795,6 +7367,7 @@ export class ChimeResponsesFetchChannelMessageChannelMessage {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MessageId: this.__input.messageId,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -6813,6 +7386,7 @@ export class ChimeResponsesFetchChannelMessageChannelMessage {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MessageId: this.__input.messageId,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -6835,6 +7409,7 @@ export class ChimeResponsesFetchChannelMessageChannelMessage {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MessageId: this.__input.messageId,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -6853,6 +7428,7 @@ export class ChimeResponsesFetchChannelMessageChannelMessage {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MessageId: this.__input.messageId,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -6878,6 +7454,7 @@ export class ChimeResponsesFetchChannelMessageChannelMessageSender {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MessageId: this.__input.messageId,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -6896,6 +7473,7 @@ export class ChimeResponsesFetchChannelMessageChannelMessageSender {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MessageId: this.__input.messageId,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -7030,6 +7608,160 @@ export class ChimeResponsesFetchGlobalSettingsVoiceConnector {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetGlobalSettings.VoiceConnector.CdrBucket', props);
     return resource.getResponseField('VoiceConnector.CdrBucket') as unknown as string;
+  }
+
+}
+
+export class ChimeResponsesFetchMediaCapturePipeline {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ChimeGetMediaCapturePipelineRequest) {
+  }
+
+  public get mediaCapturePipeline(): ChimeResponsesFetchMediaCapturePipelineMediaCapturePipeline {
+    return new ChimeResponsesFetchMediaCapturePipelineMediaCapturePipeline(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ChimeResponsesFetchMediaCapturePipelineMediaCapturePipeline {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ChimeGetMediaCapturePipelineRequest) {
+  }
+
+  public get mediaPipelineId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getMediaCapturePipeline',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.GetMediaCapturePipeline.MediaCapturePipeline.MediaPipelineId'),
+        outputPath: 'MediaCapturePipeline.MediaPipelineId',
+        parameters: {
+          MediaPipelineId: this.__input.mediaPipelineId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetMediaCapturePipeline.MediaCapturePipeline.MediaPipelineId', props);
+    return resource.getResponseField('MediaCapturePipeline.MediaPipelineId') as unknown as string;
+  }
+
+  public get sourceType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getMediaCapturePipeline',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.GetMediaCapturePipeline.MediaCapturePipeline.SourceType'),
+        outputPath: 'MediaCapturePipeline.SourceType',
+        parameters: {
+          MediaPipelineId: this.__input.mediaPipelineId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetMediaCapturePipeline.MediaCapturePipeline.SourceType', props);
+    return resource.getResponseField('MediaCapturePipeline.SourceType') as unknown as string;
+  }
+
+  public get sourceArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getMediaCapturePipeline',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.GetMediaCapturePipeline.MediaCapturePipeline.SourceArn'),
+        outputPath: 'MediaCapturePipeline.SourceArn',
+        parameters: {
+          MediaPipelineId: this.__input.mediaPipelineId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetMediaCapturePipeline.MediaCapturePipeline.SourceArn', props);
+    return resource.getResponseField('MediaCapturePipeline.SourceArn') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getMediaCapturePipeline',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.GetMediaCapturePipeline.MediaCapturePipeline.Status'),
+        outputPath: 'MediaCapturePipeline.Status',
+        parameters: {
+          MediaPipelineId: this.__input.mediaPipelineId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetMediaCapturePipeline.MediaCapturePipeline.Status', props);
+    return resource.getResponseField('MediaCapturePipeline.Status') as unknown as string;
+  }
+
+  public get sinkType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getMediaCapturePipeline',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.GetMediaCapturePipeline.MediaCapturePipeline.SinkType'),
+        outputPath: 'MediaCapturePipeline.SinkType',
+        parameters: {
+          MediaPipelineId: this.__input.mediaPipelineId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetMediaCapturePipeline.MediaCapturePipeline.SinkType', props);
+    return resource.getResponseField('MediaCapturePipeline.SinkType') as unknown as string;
+  }
+
+  public get sinkArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getMediaCapturePipeline',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.GetMediaCapturePipeline.MediaCapturePipeline.SinkArn'),
+        outputPath: 'MediaCapturePipeline.SinkArn',
+        parameters: {
+          MediaPipelineId: this.__input.mediaPipelineId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetMediaCapturePipeline.MediaCapturePipeline.SinkArn', props);
+    return resource.getResponseField('MediaCapturePipeline.SinkArn') as unknown as string;
+  }
+
+  public get createdTimestamp(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getMediaCapturePipeline',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.GetMediaCapturePipeline.MediaCapturePipeline.CreatedTimestamp'),
+        outputPath: 'MediaCapturePipeline.CreatedTimestamp',
+        parameters: {
+          MediaPipelineId: this.__input.mediaPipelineId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetMediaCapturePipeline.MediaCapturePipeline.CreatedTimestamp', props);
+    return resource.getResponseField('MediaCapturePipeline.CreatedTimestamp') as unknown as string;
+  }
+
+  public get updatedTimestamp(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getMediaCapturePipeline',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.GetMediaCapturePipeline.MediaCapturePipeline.UpdatedTimestamp'),
+        outputPath: 'MediaCapturePipeline.UpdatedTimestamp',
+        parameters: {
+          MediaPipelineId: this.__input.mediaPipelineId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetMediaCapturePipeline.MediaCapturePipeline.UpdatedTimestamp', props);
+    return resource.getResponseField('MediaCapturePipeline.UpdatedTimestamp') as unknown as string;
   }
 
 }
@@ -7231,6 +7963,23 @@ export class ChimeResponsesFetchMeetingMeetingMediaPlacement {
     return resource.getResponseField('Meeting.MediaPlacement.TurnControlUrl') as unknown as string;
   }
 
+  public get eventIngestionUrl(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getMeeting',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.GetMeeting.Meeting.MediaPlacement.EventIngestionUrl'),
+        outputPath: 'Meeting.MediaPlacement.EventIngestionUrl',
+        parameters: {
+          MeetingId: this.__input.meetingId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetMeeting.Meeting.MediaPlacement.EventIngestionUrl', props);
+    return resource.getResponseField('Meeting.MediaPlacement.EventIngestionUrl') as unknown as string;
+  }
+
 }
 
 export class ChimeResponsesFetchMessagingSessionEndpoint {
@@ -7315,6 +8064,23 @@ export class ChimeResponsesFetchPhoneNumberPhoneNumber {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetPhoneNumber.PhoneNumber.E164PhoneNumber', props);
     return resource.getResponseField('PhoneNumber.E164PhoneNumber') as unknown as string;
+  }
+
+  public get country(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getPhoneNumber',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.GetPhoneNumber.PhoneNumber.Country'),
+        outputPath: 'PhoneNumber.Country',
+        parameters: {
+          PhoneNumberId: this.__input.phoneNumberId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetPhoneNumber.PhoneNumber.Country', props);
+    return resource.getResponseField('PhoneNumber.Country') as unknown as string;
   }
 
   public get type(): string {
@@ -9959,6 +10725,7 @@ export class ChimeResponsesListChannelBans {
           ChannelArn: this.__input.channelArn,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -9978,6 +10745,7 @@ export class ChimeResponsesListChannelBans {
           ChannelArn: this.__input.channelArn,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -9997,6 +10765,7 @@ export class ChimeResponsesListChannelBans {
           ChannelArn: this.__input.channelArn,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -10024,6 +10793,7 @@ export class ChimeResponsesListChannelMemberships {
           Type: this.__input.type,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -10044,6 +10814,7 @@ export class ChimeResponsesListChannelMemberships {
           Type: this.__input.type,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -10064,6 +10835,7 @@ export class ChimeResponsesListChannelMemberships {
           Type: this.__input.type,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -10090,6 +10862,7 @@ export class ChimeResponsesListChannelMembershipsForAppInstanceUser {
           AppInstanceUserArn: this.__input.appInstanceUserArn,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -10109,6 +10882,7 @@ export class ChimeResponsesListChannelMembershipsForAppInstanceUser {
           AppInstanceUserArn: this.__input.appInstanceUserArn,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -10138,6 +10912,7 @@ export class ChimeResponsesListChannelMessages {
           NotAfter: this.__input.notAfter,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -10160,6 +10935,7 @@ export class ChimeResponsesListChannelMessages {
           NotAfter: this.__input.notAfter,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -10182,6 +10958,7 @@ export class ChimeResponsesListChannelMessages {
           NotAfter: this.__input.notAfter,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -10208,6 +10985,7 @@ export class ChimeResponsesListChannelModerators {
           ChannelArn: this.__input.channelArn,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -10227,6 +11005,7 @@ export class ChimeResponsesListChannelModerators {
           ChannelArn: this.__input.channelArn,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -10246,6 +11025,7 @@ export class ChimeResponsesListChannelModerators {
           ChannelArn: this.__input.channelArn,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -10273,6 +11053,7 @@ export class ChimeResponsesListChannels {
           Privacy: this.__input.privacy,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -10293,6 +11074,7 @@ export class ChimeResponsesListChannels {
           Privacy: this.__input.privacy,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -10319,6 +11101,7 @@ export class ChimeResponsesListChannelsModeratedByAppInstanceUser {
           AppInstanceUserArn: this.__input.appInstanceUserArn,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -10338,10 +11121,54 @@ export class ChimeResponsesListChannelsModeratedByAppInstanceUser {
           AppInstanceUserArn: this.__input.appInstanceUserArn,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListChannelsModeratedByAppInstanceUser.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class ChimeResponsesListMediaCapturePipelines {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ChimeListMediaCapturePipelinesRequest) {
+  }
+
+  public get mediaCapturePipelines(): shapes.ChimeMediaCapturePipeline[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listMediaCapturePipelines',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.ListMediaCapturePipelines.MediaCapturePipelines'),
+        outputPath: 'MediaCapturePipelines',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListMediaCapturePipelines.MediaCapturePipelines', props);
+    return resource.getResponseField('MediaCapturePipelines') as unknown as shapes.ChimeMediaCapturePipeline[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listMediaCapturePipelines',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.ListMediaCapturePipelines.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListMediaCapturePipelines.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
 
@@ -10733,6 +11560,30 @@ export class ChimeResponsesListSipRules {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListSipRules.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class ChimeResponsesListSupportedPhoneNumberCountries {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ChimeListSupportedPhoneNumberCountriesRequest) {
+  }
+
+  public get phoneNumberCountries(): shapes.ChimePhoneNumberCountry[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listSupportedPhoneNumberCountries',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.ListSupportedPhoneNumberCountries.PhoneNumberCountries'),
+        outputPath: 'PhoneNumberCountries',
+        parameters: {
+          ProductType: this.__input.productType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListSupportedPhoneNumberCountries.PhoneNumberCountries', props);
+    return resource.getResponseField('PhoneNumberCountries') as unknown as shapes.ChimePhoneNumberCountry[];
   }
 
 }
@@ -11725,6 +12576,7 @@ export class ChimeResponsesRedactChannelMessage {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MessageId: this.__input.messageId,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -11743,6 +12595,7 @@ export class ChimeResponsesRedactChannelMessage {
         parameters: {
           ChannelArn: this.__input.channelArn,
           MessageId: this.__input.messageId,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -12263,6 +13116,23 @@ export class ChimeResponsesRestorePhoneNumberPhoneNumber {
     return resource.getResponseField('PhoneNumber.E164PhoneNumber') as unknown as string;
   }
 
+  public get country(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'restorePhoneNumber',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.RestorePhoneNumber.PhoneNumber.Country'),
+        outputPath: 'PhoneNumber.Country',
+        parameters: {
+          PhoneNumberId: this.__input.phoneNumberId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RestorePhoneNumber.PhoneNumber.Country', props);
+    return resource.getResponseField('PhoneNumber.Country') as unknown as string;
+  }
+
   public get type(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -12550,6 +13420,7 @@ export class ChimeResponsesSearchAvailablePhoneNumbers {
           Country: this.__input.country,
           State: this.__input.state,
           TollFreePrefix: this.__input.tollFreePrefix,
+          PhoneNumberType: this.__input.phoneNumberType,
           MaxResults: this.__input.maxResults,
           NextToken: this.__input.nextToken,
         },
@@ -12557,6 +13428,30 @@ export class ChimeResponsesSearchAvailablePhoneNumbers {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'SearchAvailablePhoneNumbers.E164PhoneNumbers', props);
     return resource.getResponseField('E164PhoneNumbers') as unknown as string[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'searchAvailablePhoneNumbers',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.SearchAvailablePhoneNumbers.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          AreaCode: this.__input.areaCode,
+          City: this.__input.city,
+          Country: this.__input.country,
+          State: this.__input.state,
+          TollFreePrefix: this.__input.tollFreePrefix,
+          PhoneNumberType: this.__input.phoneNumberType,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SearchAvailablePhoneNumbers.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
 
 }
@@ -12581,6 +13476,7 @@ export class ChimeResponsesSendChannelMessage {
           Persistence: this.__input.persistence,
           Metadata: this.__input.metadata,
           ClientRequestToken: this.__input.clientRequestToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -12603,6 +13499,7 @@ export class ChimeResponsesSendChannelMessage {
           Persistence: this.__input.persistence,
           Metadata: this.__input.metadata,
           ClientRequestToken: this.__input.clientRequestToken,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -12639,6 +13536,7 @@ export class ChimeResponsesUpdateAccountAccount {
         parameters: {
           AccountId: this.__input.accountId,
           Name: this.__input.name,
+          DefaultLicense: this.__input.defaultLicense,
         },
       },
     };
@@ -12657,6 +13555,7 @@ export class ChimeResponsesUpdateAccountAccount {
         parameters: {
           AccountId: this.__input.accountId,
           Name: this.__input.name,
+          DefaultLicense: this.__input.defaultLicense,
         },
       },
     };
@@ -12675,6 +13574,7 @@ export class ChimeResponsesUpdateAccountAccount {
         parameters: {
           AccountId: this.__input.accountId,
           Name: this.__input.name,
+          DefaultLicense: this.__input.defaultLicense,
         },
       },
     };
@@ -12693,6 +13593,7 @@ export class ChimeResponsesUpdateAccountAccount {
         parameters: {
           AccountId: this.__input.accountId,
           Name: this.__input.name,
+          DefaultLicense: this.__input.defaultLicense,
         },
       },
     };
@@ -12711,6 +13612,7 @@ export class ChimeResponsesUpdateAccountAccount {
         parameters: {
           AccountId: this.__input.accountId,
           Name: this.__input.name,
+          DefaultLicense: this.__input.defaultLicense,
         },
       },
     };
@@ -12729,6 +13631,7 @@ export class ChimeResponsesUpdateAccountAccount {
         parameters: {
           AccountId: this.__input.accountId,
           Name: this.__input.name,
+          DefaultLicense: this.__input.defaultLicense,
         },
       },
     };
@@ -12747,11 +13650,31 @@ export class ChimeResponsesUpdateAccountAccount {
         parameters: {
           AccountId: this.__input.accountId,
           Name: this.__input.name,
+          DefaultLicense: this.__input.defaultLicense,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAccount.Account.SupportedLicenses', props);
     return resource.getResponseField('Account.SupportedLicenses') as unknown as string[];
+  }
+
+  public get accountStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateAccount',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.UpdateAccount.Account.AccountStatus'),
+        outputPath: 'Account.AccountStatus',
+        parameters: {
+          AccountId: this.__input.accountId,
+          Name: this.__input.name,
+          DefaultLicense: this.__input.defaultLicense,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateAccount.Account.AccountStatus', props);
+    return resource.getResponseField('Account.AccountStatus') as unknown as string;
   }
 
   public get signinDelegateGroups(): shapes.ChimeSigninDelegateGroup[] {
@@ -12765,6 +13688,7 @@ export class ChimeResponsesUpdateAccountAccount {
         parameters: {
           AccountId: this.__input.accountId,
           Name: this.__input.name,
+          DefaultLicense: this.__input.defaultLicense,
         },
       },
     };
@@ -13033,6 +13957,7 @@ export class ChimeResponsesUpdateChannel {
           Name: this.__input.name,
           Mode: this.__input.mode,
           Metadata: this.__input.metadata,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -13060,6 +13985,7 @@ export class ChimeResponsesUpdateChannelMessage {
           MessageId: this.__input.messageId,
           Content: this.__input.content,
           Metadata: this.__input.metadata,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -13080,6 +14006,7 @@ export class ChimeResponsesUpdateChannelMessage {
           MessageId: this.__input.messageId,
           Content: this.__input.content,
           Metadata: this.__input.metadata,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -13104,6 +14031,7 @@ export class ChimeResponsesUpdateChannelReadMarker {
         outputPath: 'ChannelArn',
         parameters: {
           ChannelArn: this.__input.channelArn,
+          ChimeBearer: this.__input.chimeBearer,
         },
       },
     };
@@ -13165,6 +14093,25 @@ export class ChimeResponsesUpdatePhoneNumberPhoneNumber {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdatePhoneNumber.PhoneNumber.E164PhoneNumber', props);
     return resource.getResponseField('PhoneNumber.E164PhoneNumber') as unknown as string;
+  }
+
+  public get country(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updatePhoneNumber',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.UpdatePhoneNumber.PhoneNumber.Country'),
+        outputPath: 'PhoneNumber.Country',
+        parameters: {
+          PhoneNumberId: this.__input.phoneNumberId,
+          ProductType: this.__input.productType,
+          CallingName: this.__input.callingName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdatePhoneNumber.PhoneNumber.Country', props);
+    return resource.getResponseField('PhoneNumber.Country') as unknown as string;
   }
 
   public get type(): string {
@@ -14243,6 +15190,43 @@ export class ChimeResponsesUpdateSipMediaApplicationSipMediaApplication {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateSipMediaApplication.SipMediaApplication.UpdatedTimestamp', props);
     return resource.getResponseField('SipMediaApplication.UpdatedTimestamp') as unknown as string;
+  }
+
+}
+
+export class ChimeResponsesUpdateSipMediaApplicationCall {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ChimeUpdateSipMediaApplicationCallRequest) {
+  }
+
+  public get sipMediaApplicationCall(): ChimeResponsesUpdateSipMediaApplicationCallSipMediaApplicationCall {
+    return new ChimeResponsesUpdateSipMediaApplicationCallSipMediaApplicationCall(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ChimeResponsesUpdateSipMediaApplicationCallSipMediaApplicationCall {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ChimeUpdateSipMediaApplicationCallRequest) {
+  }
+
+  public get transactionId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateSipMediaApplicationCall',
+        service: 'Chime',
+        physicalResourceId: cr.PhysicalResourceId.of('Chime.UpdateSipMediaApplicationCall.SipMediaApplicationCall.TransactionId'),
+        outputPath: 'SipMediaApplicationCall.TransactionId',
+        parameters: {
+          SipMediaApplicationId: this.__input.sipMediaApplicationId,
+          TransactionId: this.__input.transactionId,
+          Arguments: this.__input.arguments,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateSipMediaApplicationCall.SipMediaApplicationCall.TransactionId', props);
+    return resource.getResponseField('SipMediaApplicationCall.TransactionId') as unknown as string;
   }
 
 }

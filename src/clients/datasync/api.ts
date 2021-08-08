@@ -208,6 +208,72 @@ export class DataSyncClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'UpdateAgent', props);
   }
 
+  public updateLocationNfs(input: shapes.DataSyncUpdateLocationNfsRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateLocationNfs',
+        service: 'DataSync',
+        physicalResourceId: cr.PhysicalResourceId.of('DataSync.UpdateLocationNfs'),
+        parameters: {
+          LocationArn: input.locationArn,
+          Subdirectory: input.subdirectory,
+          OnPremConfig: {
+            AgentArns: input.onPremConfig?.agentArns,
+          },
+          MountOptions: {
+            Version: input.mountOptions?.version,
+          },
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateLocationNfs', props);
+  }
+
+  public updateLocationObjectStorage(input: shapes.DataSyncUpdateLocationObjectStorageRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateLocationObjectStorage',
+        service: 'DataSync',
+        physicalResourceId: cr.PhysicalResourceId.of('DataSync.UpdateLocationObjectStorage'),
+        parameters: {
+          LocationArn: input.locationArn,
+          ServerPort: input.serverPort,
+          ServerProtocol: input.serverProtocol,
+          Subdirectory: input.subdirectory,
+          AccessKey: input.accessKey,
+          SecretKey: input.secretKey,
+          AgentArns: input.agentArns,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateLocationObjectStorage', props);
+  }
+
+  public updateLocationSmb(input: shapes.DataSyncUpdateLocationSmbRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateLocationSmb',
+        service: 'DataSync',
+        physicalResourceId: cr.PhysicalResourceId.of('DataSync.UpdateLocationSmb'),
+        parameters: {
+          LocationArn: input.locationArn,
+          Subdirectory: input.subdirectory,
+          User: input.user,
+          Domain: input.domain,
+          Password: input.password,
+          AgentArns: input.agentArns,
+          MountOptions: {
+            Version: input.mountOptions?.version,
+          },
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdateLocationSmb', props);
+  }
+
   public updateTask(input: shapes.DataSyncUpdateTaskRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -231,6 +297,7 @@ export class DataSyncClient extends cdk.Construct {
             TaskQueueing: input.options?.taskQueueing,
             LogLevel: input.options?.logLevel,
             TransferMode: input.options?.transferMode,
+            SecurityDescriptorCopyFlags: input.options?.securityDescriptorCopyFlags,
           },
           Excludes: input.excludes,
           Schedule: {
@@ -267,6 +334,7 @@ export class DataSyncClient extends cdk.Construct {
             TaskQueueing: input.options.taskQueueing,
             LogLevel: input.options.logLevel,
             TransferMode: input.options.transferMode,
+            SecurityDescriptorCopyFlags: input.options.securityDescriptorCopyFlags,
           },
         },
       },
@@ -525,6 +593,7 @@ export class DataSyncResponsesCreateTask {
             TaskQueueing: this.__input.options?.taskQueueing,
             LogLevel: this.__input.options?.logLevel,
             TransferMode: this.__input.options?.transferMode,
+            SecurityDescriptorCopyFlags: this.__input.options?.securityDescriptorCopyFlags,
           },
           Excludes: this.__input.excludes,
           Schedule: {
@@ -1899,6 +1968,23 @@ export class DataSyncResponsesDescribeTaskOptions {
     return resource.getResponseField('Options.TransferMode') as unknown as string;
   }
 
+  public get securityDescriptorCopyFlags(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTask',
+        service: 'DataSync',
+        physicalResourceId: cr.PhysicalResourceId.of('DataSync.DescribeTask.Options.SecurityDescriptorCopyFlags'),
+        outputPath: 'Options.SecurityDescriptorCopyFlags',
+        parameters: {
+          TaskArn: this.__input.taskArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTask.Options.SecurityDescriptorCopyFlags', props);
+    return resource.getResponseField('Options.SecurityDescriptorCopyFlags') as unknown as string;
+  }
+
 }
 
 export class DataSyncResponsesDescribeTaskSchedule {
@@ -2336,6 +2422,23 @@ export class DataSyncResponsesDescribeTaskExecutionOptions {
     return resource.getResponseField('Options.TransferMode') as unknown as string;
   }
 
+  public get securityDescriptorCopyFlags(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeTaskExecution',
+        service: 'DataSync',
+        physicalResourceId: cr.PhysicalResourceId.of('DataSync.DescribeTaskExecution.Options.SecurityDescriptorCopyFlags'),
+        outputPath: 'Options.SecurityDescriptorCopyFlags',
+        parameters: {
+          TaskExecutionArn: this.__input.taskExecutionArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeTaskExecution.Options.SecurityDescriptorCopyFlags', props);
+    return resource.getResponseField('Options.SecurityDescriptorCopyFlags') as unknown as string;
+  }
+
 }
 
 export class DataSyncResponsesDescribeTaskExecutionResult {
@@ -2750,6 +2853,7 @@ export class DataSyncResponsesStartTaskExecution {
             TaskQueueing: this.__input.overrideOptions?.taskQueueing,
             LogLevel: this.__input.overrideOptions?.logLevel,
             TransferMode: this.__input.overrideOptions?.transferMode,
+            SecurityDescriptorCopyFlags: this.__input.overrideOptions?.securityDescriptorCopyFlags,
           },
           Includes: this.__input.includes,
         },

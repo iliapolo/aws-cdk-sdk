@@ -12,6 +12,10 @@ export class TextractClient extends cdk.Construct {
     return new TextractResponsesAnalyzeDocument(this, this.__resources, input);
   }
 
+  public analyzeExpense(input: shapes.TextractAnalyzeExpenseRequest): TextractResponsesAnalyzeExpense {
+    return new TextractResponsesAnalyzeExpense(this, this.__resources, input);
+  }
+
   public detectDocumentText(input: shapes.TextractDetectDocumentTextRequest): TextractResponsesDetectDocumentText {
     return new TextractResponsesDetectDocumentText(this, this.__resources, input);
   }
@@ -257,6 +261,74 @@ export class TextractResponsesAnalyzeDocumentHumanLoopActivationOutput {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AnalyzeDocument.HumanLoopActivationOutput.HumanLoopActivationConditionsEvaluationResults', props);
     return resource.getResponseField('HumanLoopActivationOutput.HumanLoopActivationConditionsEvaluationResults') as unknown as string;
+  }
+
+}
+
+export class TextractResponsesAnalyzeExpense {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.TextractAnalyzeExpenseRequest) {
+  }
+
+  public get documentMetadata(): TextractResponsesAnalyzeExpenseDocumentMetadata {
+    return new TextractResponsesAnalyzeExpenseDocumentMetadata(this.__scope, this.__resources, this.__input);
+  }
+
+  public get expenseDocuments(): shapes.TextractExpenseDocument[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'analyzeExpense',
+        service: 'Textract',
+        physicalResourceId: cr.PhysicalResourceId.of('Textract.AnalyzeExpense.ExpenseDocuments'),
+        outputPath: 'ExpenseDocuments',
+        parameters: {
+          Document: {
+            Bytes: {
+            },
+            S3Object: {
+              Bucket: this.__input.document.s3Object?.bucket,
+              Name: this.__input.document.s3Object?.name,
+              Version: this.__input.document.s3Object?.version,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AnalyzeExpense.ExpenseDocuments', props);
+    return resource.getResponseField('ExpenseDocuments') as unknown as shapes.TextractExpenseDocument[];
+  }
+
+}
+
+export class TextractResponsesAnalyzeExpenseDocumentMetadata {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.TextractAnalyzeExpenseRequest) {
+  }
+
+  public get pages(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'analyzeExpense',
+        service: 'Textract',
+        physicalResourceId: cr.PhysicalResourceId.of('Textract.AnalyzeExpense.DocumentMetadata.Pages'),
+        outputPath: 'DocumentMetadata.Pages',
+        parameters: {
+          Document: {
+            Bytes: {
+            },
+            S3Object: {
+              Bucket: this.__input.document.s3Object?.bucket,
+              Name: this.__input.document.s3Object?.name,
+              Version: this.__input.document.s3Object?.version,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AnalyzeExpense.DocumentMetadata.Pages', props);
+    return resource.getResponseField('DocumentMetadata.Pages') as unknown as number;
   }
 
 }

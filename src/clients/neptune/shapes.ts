@@ -5,12 +5,12 @@ export interface NeptuneAddRoleToDbClusterMessage {
   /**
    * @schema NeptuneAddRoleToDbClusterMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema NeptuneAddRoleToDbClusterMessage#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema NeptuneAddRoleToDbClusterMessage#FeatureName
@@ -20,20 +20,51 @@ export interface NeptuneAddRoleToDbClusterMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneAddRoleToDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneAddRoleToDbClusterMessage(obj: NeptuneAddRoleToDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'RoleArn': obj.roleArn,
+    'FeatureName': obj.featureName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneAddSourceIdentifierToSubscriptionMessage
  */
 export interface NeptuneAddSourceIdentifierToSubscriptionMessage {
   /**
    * @schema NeptuneAddSourceIdentifierToSubscriptionMessage#SubscriptionName
    */
-  readonly subscriptionName: string;
+  readonly subscriptionName?: string;
 
   /**
    * @schema NeptuneAddSourceIdentifierToSubscriptionMessage#SourceIdentifier
    */
-  readonly sourceIdentifier: string;
+  readonly sourceIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneAddSourceIdentifierToSubscriptionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneAddSourceIdentifierToSubscriptionMessage(obj: NeptuneAddSourceIdentifierToSubscriptionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscriptionName': obj.subscriptionName,
+    'SourceIdentifier': obj.sourceIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneAddSourceIdentifierToSubscriptionResult
@@ -47,20 +78,49 @@ export interface NeptuneAddSourceIdentifierToSubscriptionResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneAddSourceIdentifierToSubscriptionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneAddSourceIdentifierToSubscriptionResult(obj: NeptuneAddSourceIdentifierToSubscriptionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EventSubscription': toJson_NeptuneEventSubscription(obj.eventSubscription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneAddTagsToResourceMessage
  */
 export interface NeptuneAddTagsToResourceMessage {
   /**
    * @schema NeptuneAddTagsToResourceMessage#ResourceName
    */
-  readonly resourceName: string;
+  readonly resourceName?: string;
 
   /**
    * @schema NeptuneAddTagsToResourceMessage#Tags
    */
-  readonly tags: NeptuneTag[];
+  readonly tags?: NeptuneTag[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneAddTagsToResourceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneAddTagsToResourceMessage(obj: NeptuneAddTagsToResourceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceName': obj.resourceName,
+    'Tags': obj.tags?.map(y => toJson_NeptuneTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneApplyPendingMaintenanceActionMessage
@@ -69,19 +129,35 @@ export interface NeptuneApplyPendingMaintenanceActionMessage {
   /**
    * @schema NeptuneApplyPendingMaintenanceActionMessage#ResourceIdentifier
    */
-  readonly resourceIdentifier: string;
+  readonly resourceIdentifier?: string;
 
   /**
    * @schema NeptuneApplyPendingMaintenanceActionMessage#ApplyAction
    */
-  readonly applyAction: string;
+  readonly applyAction?: string;
 
   /**
    * @schema NeptuneApplyPendingMaintenanceActionMessage#OptInType
    */
-  readonly optInType: string;
+  readonly optInType?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneApplyPendingMaintenanceActionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneApplyPendingMaintenanceActionMessage(obj: NeptuneApplyPendingMaintenanceActionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceIdentifier': obj.resourceIdentifier,
+    'ApplyAction': obj.applyAction,
+    'OptInType': obj.optInType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneApplyPendingMaintenanceActionResult
@@ -95,23 +171,37 @@ export interface NeptuneApplyPendingMaintenanceActionResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneApplyPendingMaintenanceActionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneApplyPendingMaintenanceActionResult(obj: NeptuneApplyPendingMaintenanceActionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourcePendingMaintenanceActions': toJson_NeptuneResourcePendingMaintenanceActions(obj.resourcePendingMaintenanceActions),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneCopyDbClusterParameterGroupMessage
  */
 export interface NeptuneCopyDbClusterParameterGroupMessage {
   /**
    * @schema NeptuneCopyDbClusterParameterGroupMessage#SourceDBClusterParameterGroupIdentifier
    */
-  readonly sourceDbClusterParameterGroupIdentifier: string;
+  readonly sourceDbClusterParameterGroupIdentifier?: string;
 
   /**
    * @schema NeptuneCopyDbClusterParameterGroupMessage#TargetDBClusterParameterGroupIdentifier
    */
-  readonly targetDbClusterParameterGroupIdentifier: string;
+  readonly targetDbClusterParameterGroupIdentifier?: string;
 
   /**
    * @schema NeptuneCopyDbClusterParameterGroupMessage#TargetDBClusterParameterGroupDescription
    */
-  readonly targetDbClusterParameterGroupDescription: string;
+  readonly targetDbClusterParameterGroupDescription?: string;
 
   /**
    * @schema NeptuneCopyDbClusterParameterGroupMessage#Tags
@@ -119,6 +209,23 @@ export interface NeptuneCopyDbClusterParameterGroupMessage {
   readonly tags?: NeptuneTag[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneCopyDbClusterParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCopyDbClusterParameterGroupMessage(obj: NeptuneCopyDbClusterParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceDBClusterParameterGroupIdentifier': obj.sourceDbClusterParameterGroupIdentifier,
+    'TargetDBClusterParameterGroupIdentifier': obj.targetDbClusterParameterGroupIdentifier,
+    'TargetDBClusterParameterGroupDescription': obj.targetDbClusterParameterGroupDescription,
+    'Tags': obj.tags?.map(y => toJson_NeptuneTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneCopyDbClusterParameterGroupResult
@@ -132,18 +239,32 @@ export interface NeptuneCopyDbClusterParameterGroupResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneCopyDbClusterParameterGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCopyDbClusterParameterGroupResult(obj: NeptuneCopyDbClusterParameterGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroup': toJson_NeptuneDbClusterParameterGroup(obj.dbClusterParameterGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneCopyDbClusterSnapshotMessage
  */
 export interface NeptuneCopyDbClusterSnapshotMessage {
   /**
    * @schema NeptuneCopyDbClusterSnapshotMessage#SourceDBClusterSnapshotIdentifier
    */
-  readonly sourceDbClusterSnapshotIdentifier: string;
+  readonly sourceDbClusterSnapshotIdentifier?: string;
 
   /**
    * @schema NeptuneCopyDbClusterSnapshotMessage#TargetDBClusterSnapshotIdentifier
    */
-  readonly targetDbClusterSnapshotIdentifier: string;
+  readonly targetDbClusterSnapshotIdentifier?: string;
 
   /**
    * @schema NeptuneCopyDbClusterSnapshotMessage#KmsKeyId
@@ -168,6 +289,25 @@ export interface NeptuneCopyDbClusterSnapshotMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneCopyDbClusterSnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCopyDbClusterSnapshotMessage(obj: NeptuneCopyDbClusterSnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceDBClusterSnapshotIdentifier': obj.sourceDbClusterSnapshotIdentifier,
+    'TargetDBClusterSnapshotIdentifier': obj.targetDbClusterSnapshotIdentifier,
+    'KmsKeyId': obj.kmsKeyId,
+    'PreSignedUrl': obj.preSignedUrl,
+    'CopyTags': obj.copyTags,
+    'Tags': obj.tags?.map(y => toJson_NeptuneTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneCopyDbClusterSnapshotResult
  */
 export interface NeptuneCopyDbClusterSnapshotResult {
@@ -179,23 +319,37 @@ export interface NeptuneCopyDbClusterSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneCopyDbClusterSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCopyDbClusterSnapshotResult(obj: NeptuneCopyDbClusterSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshot': toJson_NeptuneDbClusterSnapshot(obj.dbClusterSnapshot),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneCopyDbParameterGroupMessage
  */
 export interface NeptuneCopyDbParameterGroupMessage {
   /**
    * @schema NeptuneCopyDbParameterGroupMessage#SourceDBParameterGroupIdentifier
    */
-  readonly sourceDbParameterGroupIdentifier: string;
+  readonly sourceDbParameterGroupIdentifier?: string;
 
   /**
    * @schema NeptuneCopyDbParameterGroupMessage#TargetDBParameterGroupIdentifier
    */
-  readonly targetDbParameterGroupIdentifier: string;
+  readonly targetDbParameterGroupIdentifier?: string;
 
   /**
    * @schema NeptuneCopyDbParameterGroupMessage#TargetDBParameterGroupDescription
    */
-  readonly targetDbParameterGroupDescription: string;
+  readonly targetDbParameterGroupDescription?: string;
 
   /**
    * @schema NeptuneCopyDbParameterGroupMessage#Tags
@@ -203,6 +357,23 @@ export interface NeptuneCopyDbParameterGroupMessage {
   readonly tags?: NeptuneTag[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneCopyDbParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCopyDbParameterGroupMessage(obj: NeptuneCopyDbParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceDBParameterGroupIdentifier': obj.sourceDbParameterGroupIdentifier,
+    'TargetDBParameterGroupIdentifier': obj.targetDbParameterGroupIdentifier,
+    'TargetDBParameterGroupDescription': obj.targetDbParameterGroupDescription,
+    'Tags': obj.tags?.map(y => toJson_NeptuneTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneCopyDbParameterGroupResult
@@ -214,6 +385,20 @@ export interface NeptuneCopyDbParameterGroupResult {
   readonly dbParameterGroup?: NeptuneDbParameterGroup;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneCopyDbParameterGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCopyDbParameterGroupResult(obj: NeptuneCopyDbParameterGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroup': toJson_NeptuneDbParameterGroup(obj.dbParameterGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneCreateDbClusterMessage
@@ -235,6 +420,11 @@ export interface NeptuneCreateDbClusterMessage {
   readonly characterSetName?: string;
 
   /**
+   * @schema NeptuneCreateDbClusterMessage#CopyTagsToSnapshot
+   */
+  readonly copyTagsToSnapshot?: boolean;
+
+  /**
    * @schema NeptuneCreateDbClusterMessage#DatabaseName
    */
   readonly databaseName?: string;
@@ -242,7 +432,7 @@ export interface NeptuneCreateDbClusterMessage {
   /**
    * @schema NeptuneCreateDbClusterMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema NeptuneCreateDbClusterMessage#DBClusterParameterGroupName
@@ -262,7 +452,7 @@ export interface NeptuneCreateDbClusterMessage {
   /**
    * @schema NeptuneCreateDbClusterMessage#Engine
    */
-  readonly engine: string;
+  readonly engine?: string;
 
   /**
    * @schema NeptuneCreateDbClusterMessage#EngineVersion
@@ -342,6 +532,44 @@ export interface NeptuneCreateDbClusterMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneCreateDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCreateDbClusterMessage(obj: NeptuneCreateDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AvailabilityZones': obj.availabilityZones?.map(y => y),
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'CharacterSetName': obj.characterSetName,
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+    'DatabaseName': obj.databaseName,
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'Port': obj.port,
+    'MasterUsername': obj.masterUsername,
+    'MasterUserPassword': obj.masterUserPassword,
+    'OptionGroupName': obj.optionGroupName,
+    'PreferredBackupWindow': obj.preferredBackupWindow,
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'ReplicationSourceIdentifier': obj.replicationSourceIdentifier,
+    'Tags': obj.tags?.map(y => toJson_NeptuneTag(y)),
+    'StorageEncrypted': obj.storageEncrypted,
+    'KmsKeyId': obj.kmsKeyId,
+    'PreSignedUrl': obj.preSignedUrl,
+    'EnableIAMDatabaseAuthentication': obj.enableIamDatabaseAuthentication,
+    'EnableCloudwatchLogsExports': obj.enableCloudwatchLogsExports?.map(y => y),
+    'DeletionProtection': obj.deletionProtection,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneCreateDbClusterResult
  */
 export interface NeptuneCreateDbClusterResult {
@@ -353,23 +581,37 @@ export interface NeptuneCreateDbClusterResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneCreateDbClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCreateDbClusterResult(obj: NeptuneCreateDbClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_NeptuneDbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneCreateDbClusterEndpointMessage
  */
 export interface NeptuneCreateDbClusterEndpointMessage {
   /**
    * @schema NeptuneCreateDbClusterEndpointMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema NeptuneCreateDbClusterEndpointMessage#DBClusterEndpointIdentifier
    */
-  readonly dbClusterEndpointIdentifier: string;
+  readonly dbClusterEndpointIdentifier?: string;
 
   /**
    * @schema NeptuneCreateDbClusterEndpointMessage#EndpointType
    */
-  readonly endpointType: string;
+  readonly endpointType?: string;
 
   /**
    * @schema NeptuneCreateDbClusterEndpointMessage#StaticMembers
@@ -387,6 +629,25 @@ export interface NeptuneCreateDbClusterEndpointMessage {
   readonly tags?: NeptuneTag[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneCreateDbClusterEndpointMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCreateDbClusterEndpointMessage(obj: NeptuneCreateDbClusterEndpointMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'DBClusterEndpointIdentifier': obj.dbClusterEndpointIdentifier,
+    'EndpointType': obj.endpointType,
+    'StaticMembers': obj.staticMembers?.map(y => y),
+    'ExcludedMembers': obj.excludedMembers?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_NeptuneTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneCreateDbClusterEndpointOutput
@@ -445,23 +706,46 @@ export interface NeptuneCreateDbClusterEndpointOutput {
 }
 
 /**
+ * Converts an object of type 'NeptuneCreateDbClusterEndpointOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCreateDbClusterEndpointOutput(obj: NeptuneCreateDbClusterEndpointOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterEndpointIdentifier': obj.dbClusterEndpointIdentifier,
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'DBClusterEndpointResourceIdentifier': obj.dbClusterEndpointResourceIdentifier,
+    'Endpoint': obj.endpoint,
+    'Status': obj.status,
+    'EndpointType': obj.endpointType,
+    'CustomEndpointType': obj.customEndpointType,
+    'StaticMembers': obj.staticMembers?.map(y => y),
+    'ExcludedMembers': obj.excludedMembers?.map(y => y),
+    'DBClusterEndpointArn': obj.dbClusterEndpointArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneCreateDbClusterParameterGroupMessage
  */
 export interface NeptuneCreateDbClusterParameterGroupMessage {
   /**
    * @schema NeptuneCreateDbClusterParameterGroupMessage#DBClusterParameterGroupName
    */
-  readonly dbClusterParameterGroupName: string;
+  readonly dbClusterParameterGroupName?: string;
 
   /**
    * @schema NeptuneCreateDbClusterParameterGroupMessage#DBParameterGroupFamily
    */
-  readonly dbParameterGroupFamily: string;
+  readonly dbParameterGroupFamily?: string;
 
   /**
    * @schema NeptuneCreateDbClusterParameterGroupMessage#Description
    */
-  readonly description: string;
+  readonly description?: string;
 
   /**
    * @schema NeptuneCreateDbClusterParameterGroupMessage#Tags
@@ -469,6 +753,23 @@ export interface NeptuneCreateDbClusterParameterGroupMessage {
   readonly tags?: NeptuneTag[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneCreateDbClusterParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCreateDbClusterParameterGroupMessage(obj: NeptuneCreateDbClusterParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'DBParameterGroupFamily': obj.dbParameterGroupFamily,
+    'Description': obj.description,
+    'Tags': obj.tags?.map(y => toJson_NeptuneTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneCreateDbClusterParameterGroupResult
@@ -482,18 +783,32 @@ export interface NeptuneCreateDbClusterParameterGroupResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneCreateDbClusterParameterGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCreateDbClusterParameterGroupResult(obj: NeptuneCreateDbClusterParameterGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroup': toJson_NeptuneDbClusterParameterGroup(obj.dbClusterParameterGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneCreateDbClusterSnapshotMessage
  */
 export interface NeptuneCreateDbClusterSnapshotMessage {
   /**
    * @schema NeptuneCreateDbClusterSnapshotMessage#DBClusterSnapshotIdentifier
    */
-  readonly dbClusterSnapshotIdentifier: string;
+  readonly dbClusterSnapshotIdentifier?: string;
 
   /**
    * @schema NeptuneCreateDbClusterSnapshotMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema NeptuneCreateDbClusterSnapshotMessage#Tags
@@ -501,6 +816,22 @@ export interface NeptuneCreateDbClusterSnapshotMessage {
   readonly tags?: NeptuneTag[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneCreateDbClusterSnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCreateDbClusterSnapshotMessage(obj: NeptuneCreateDbClusterSnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshotIdentifier': obj.dbClusterSnapshotIdentifier,
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'Tags': obj.tags?.map(y => toJson_NeptuneTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneCreateDbClusterSnapshotResult
@@ -514,6 +845,20 @@ export interface NeptuneCreateDbClusterSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneCreateDbClusterSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCreateDbClusterSnapshotResult(obj: NeptuneCreateDbClusterSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshot': toJson_NeptuneDbClusterSnapshot(obj.dbClusterSnapshot),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneCreateDbInstanceMessage
  */
 export interface NeptuneCreateDbInstanceMessage {
@@ -525,7 +870,7 @@ export interface NeptuneCreateDbInstanceMessage {
   /**
    * @schema NeptuneCreateDbInstanceMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
   /**
    * @schema NeptuneCreateDbInstanceMessage#AllocatedStorage
@@ -535,12 +880,12 @@ export interface NeptuneCreateDbInstanceMessage {
   /**
    * @schema NeptuneCreateDbInstanceMessage#DBInstanceClass
    */
-  readonly dbInstanceClass: string;
+  readonly dbInstanceClass?: string;
 
   /**
    * @schema NeptuneCreateDbInstanceMessage#Engine
    */
-  readonly engine: string;
+  readonly engine?: string;
 
   /**
    * @schema NeptuneCreateDbInstanceMessage#MasterUsername
@@ -735,6 +1080,62 @@ export interface NeptuneCreateDbInstanceMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneCreateDbInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCreateDbInstanceMessage(obj: NeptuneCreateDbInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBName': obj.dbName,
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'AllocatedStorage': obj.allocatedStorage,
+    'DBInstanceClass': obj.dbInstanceClass,
+    'Engine': obj.engine,
+    'MasterUsername': obj.masterUsername,
+    'MasterUserPassword': obj.masterUserPassword,
+    'DBSecurityGroups': obj.dbSecurityGroups?.map(y => y),
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'AvailabilityZone': obj.availabilityZone,
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'PreferredBackupWindow': obj.preferredBackupWindow,
+    'Port': obj.port,
+    'MultiAZ': obj.multiAz,
+    'EngineVersion': obj.engineVersion,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'LicenseModel': obj.licenseModel,
+    'Iops': obj.iops,
+    'OptionGroupName': obj.optionGroupName,
+    'CharacterSetName': obj.characterSetName,
+    'PubliclyAccessible': obj.publiclyAccessible,
+    'Tags': obj.tags?.map(y => toJson_NeptuneTag(y)),
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'StorageType': obj.storageType,
+    'TdeCredentialArn': obj.tdeCredentialArn,
+    'TdeCredentialPassword': obj.tdeCredentialPassword,
+    'StorageEncrypted': obj.storageEncrypted,
+    'KmsKeyId': obj.kmsKeyId,
+    'Domain': obj.domain,
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+    'MonitoringInterval': obj.monitoringInterval,
+    'MonitoringRoleArn': obj.monitoringRoleArn,
+    'DomainIAMRoleName': obj.domainIamRoleName,
+    'PromotionTier': obj.promotionTier,
+    'Timezone': obj.timezone,
+    'EnableIAMDatabaseAuthentication': obj.enableIamDatabaseAuthentication,
+    'EnablePerformanceInsights': obj.enablePerformanceInsights,
+    'PerformanceInsightsKMSKeyId': obj.performanceInsightsKmsKeyId,
+    'EnableCloudwatchLogsExports': obj.enableCloudwatchLogsExports?.map(y => y),
+    'DeletionProtection': obj.deletionProtection,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneCreateDbInstanceResult
  */
 export interface NeptuneCreateDbInstanceResult {
@@ -746,23 +1147,37 @@ export interface NeptuneCreateDbInstanceResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneCreateDbInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCreateDbInstanceResult(obj: NeptuneCreateDbInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstance': toJson_NeptuneDbInstance(obj.dbInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneCreateDbParameterGroupMessage
  */
 export interface NeptuneCreateDbParameterGroupMessage {
   /**
    * @schema NeptuneCreateDbParameterGroupMessage#DBParameterGroupName
    */
-  readonly dbParameterGroupName: string;
+  readonly dbParameterGroupName?: string;
 
   /**
    * @schema NeptuneCreateDbParameterGroupMessage#DBParameterGroupFamily
    */
-  readonly dbParameterGroupFamily: string;
+  readonly dbParameterGroupFamily?: string;
 
   /**
    * @schema NeptuneCreateDbParameterGroupMessage#Description
    */
-  readonly description: string;
+  readonly description?: string;
 
   /**
    * @schema NeptuneCreateDbParameterGroupMessage#Tags
@@ -770,6 +1185,23 @@ export interface NeptuneCreateDbParameterGroupMessage {
   readonly tags?: NeptuneTag[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneCreateDbParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCreateDbParameterGroupMessage(obj: NeptuneCreateDbParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'DBParameterGroupFamily': obj.dbParameterGroupFamily,
+    'Description': obj.description,
+    'Tags': obj.tags?.map(y => toJson_NeptuneTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneCreateDbParameterGroupResult
@@ -783,23 +1215,37 @@ export interface NeptuneCreateDbParameterGroupResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneCreateDbParameterGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCreateDbParameterGroupResult(obj: NeptuneCreateDbParameterGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroup': toJson_NeptuneDbParameterGroup(obj.dbParameterGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneCreateDbSubnetGroupMessage
  */
 export interface NeptuneCreateDbSubnetGroupMessage {
   /**
    * @schema NeptuneCreateDbSubnetGroupMessage#DBSubnetGroupName
    */
-  readonly dbSubnetGroupName: string;
+  readonly dbSubnetGroupName?: string;
 
   /**
    * @schema NeptuneCreateDbSubnetGroupMessage#DBSubnetGroupDescription
    */
-  readonly dbSubnetGroupDescription: string;
+  readonly dbSubnetGroupDescription?: string;
 
   /**
    * @schema NeptuneCreateDbSubnetGroupMessage#SubnetIds
    */
-  readonly subnetIds: string[];
+  readonly subnetIds?: string[];
 
   /**
    * @schema NeptuneCreateDbSubnetGroupMessage#Tags
@@ -807,6 +1253,23 @@ export interface NeptuneCreateDbSubnetGroupMessage {
   readonly tags?: NeptuneTag[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneCreateDbSubnetGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCreateDbSubnetGroupMessage(obj: NeptuneCreateDbSubnetGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'DBSubnetGroupDescription': obj.dbSubnetGroupDescription,
+    'SubnetIds': obj.subnetIds?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_NeptuneTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneCreateDbSubnetGroupResult
@@ -820,18 +1283,32 @@ export interface NeptuneCreateDbSubnetGroupResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneCreateDbSubnetGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCreateDbSubnetGroupResult(obj: NeptuneCreateDbSubnetGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSubnetGroup': toJson_NeptuneDbSubnetGroup(obj.dbSubnetGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneCreateEventSubscriptionMessage
  */
 export interface NeptuneCreateEventSubscriptionMessage {
   /**
    * @schema NeptuneCreateEventSubscriptionMessage#SubscriptionName
    */
-  readonly subscriptionName: string;
+  readonly subscriptionName?: string;
 
   /**
    * @schema NeptuneCreateEventSubscriptionMessage#SnsTopicArn
    */
-  readonly snsTopicArn: string;
+  readonly snsTopicArn?: string;
 
   /**
    * @schema NeptuneCreateEventSubscriptionMessage#SourceType
@@ -861,6 +1338,26 @@ export interface NeptuneCreateEventSubscriptionMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneCreateEventSubscriptionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCreateEventSubscriptionMessage(obj: NeptuneCreateEventSubscriptionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscriptionName': obj.subscriptionName,
+    'SnsTopicArn': obj.snsTopicArn,
+    'SourceType': obj.sourceType,
+    'EventCategories': obj.eventCategories?.map(y => y),
+    'SourceIds': obj.sourceIds?.map(y => y),
+    'Enabled': obj.enabled,
+    'Tags': obj.tags?.map(y => toJson_NeptuneTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneCreateEventSubscriptionResult
  */
 export interface NeptuneCreateEventSubscriptionResult {
@@ -872,13 +1369,27 @@ export interface NeptuneCreateEventSubscriptionResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneCreateEventSubscriptionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCreateEventSubscriptionResult(obj: NeptuneCreateEventSubscriptionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EventSubscription': toJson_NeptuneEventSubscription(obj.eventSubscription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDeleteDbClusterMessage
  */
 export interface NeptuneDeleteDbClusterMessage {
   /**
    * @schema NeptuneDeleteDbClusterMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema NeptuneDeleteDbClusterMessage#SkipFinalSnapshot
@@ -893,6 +1404,22 @@ export interface NeptuneDeleteDbClusterMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDeleteDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDeleteDbClusterMessage(obj: NeptuneDeleteDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'SkipFinalSnapshot': obj.skipFinalSnapshot,
+    'FinalDBSnapshotIdentifier': obj.finalDbSnapshotIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDeleteDbClusterResult
  */
 export interface NeptuneDeleteDbClusterResult {
@@ -904,15 +1431,43 @@ export interface NeptuneDeleteDbClusterResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneDeleteDbClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDeleteDbClusterResult(obj: NeptuneDeleteDbClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_NeptuneDbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDeleteDbClusterEndpointMessage
  */
 export interface NeptuneDeleteDbClusterEndpointMessage {
   /**
    * @schema NeptuneDeleteDbClusterEndpointMessage#DBClusterEndpointIdentifier
    */
-  readonly dbClusterEndpointIdentifier: string;
+  readonly dbClusterEndpointIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDeleteDbClusterEndpointMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDeleteDbClusterEndpointMessage(obj: NeptuneDeleteDbClusterEndpointMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterEndpointIdentifier': obj.dbClusterEndpointIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDeleteDbClusterEndpointOutput
@@ -971,15 +1526,52 @@ export interface NeptuneDeleteDbClusterEndpointOutput {
 }
 
 /**
+ * Converts an object of type 'NeptuneDeleteDbClusterEndpointOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDeleteDbClusterEndpointOutput(obj: NeptuneDeleteDbClusterEndpointOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterEndpointIdentifier': obj.dbClusterEndpointIdentifier,
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'DBClusterEndpointResourceIdentifier': obj.dbClusterEndpointResourceIdentifier,
+    'Endpoint': obj.endpoint,
+    'Status': obj.status,
+    'EndpointType': obj.endpointType,
+    'CustomEndpointType': obj.customEndpointType,
+    'StaticMembers': obj.staticMembers?.map(y => y),
+    'ExcludedMembers': obj.excludedMembers?.map(y => y),
+    'DBClusterEndpointArn': obj.dbClusterEndpointArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDeleteDbClusterParameterGroupMessage
  */
 export interface NeptuneDeleteDbClusterParameterGroupMessage {
   /**
    * @schema NeptuneDeleteDbClusterParameterGroupMessage#DBClusterParameterGroupName
    */
-  readonly dbClusterParameterGroupName: string;
+  readonly dbClusterParameterGroupName?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDeleteDbClusterParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDeleteDbClusterParameterGroupMessage(obj: NeptuneDeleteDbClusterParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDeleteDbClusterSnapshotMessage
@@ -988,9 +1580,23 @@ export interface NeptuneDeleteDbClusterSnapshotMessage {
   /**
    * @schema NeptuneDeleteDbClusterSnapshotMessage#DBClusterSnapshotIdentifier
    */
-  readonly dbClusterSnapshotIdentifier: string;
+  readonly dbClusterSnapshotIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDeleteDbClusterSnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDeleteDbClusterSnapshotMessage(obj: NeptuneDeleteDbClusterSnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshotIdentifier': obj.dbClusterSnapshotIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDeleteDbClusterSnapshotResult
@@ -1004,13 +1610,27 @@ export interface NeptuneDeleteDbClusterSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneDeleteDbClusterSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDeleteDbClusterSnapshotResult(obj: NeptuneDeleteDbClusterSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshot': toJson_NeptuneDbClusterSnapshot(obj.dbClusterSnapshot),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDeleteDbInstanceMessage
  */
 export interface NeptuneDeleteDbInstanceMessage {
   /**
    * @schema NeptuneDeleteDbInstanceMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
   /**
    * @schema NeptuneDeleteDbInstanceMessage#SkipFinalSnapshot
@@ -1025,6 +1645,22 @@ export interface NeptuneDeleteDbInstanceMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDeleteDbInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDeleteDbInstanceMessage(obj: NeptuneDeleteDbInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'SkipFinalSnapshot': obj.skipFinalSnapshot,
+    'FinalDBSnapshotIdentifier': obj.finalDbSnapshotIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDeleteDbInstanceResult
  */
 export interface NeptuneDeleteDbInstanceResult {
@@ -1036,15 +1672,43 @@ export interface NeptuneDeleteDbInstanceResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneDeleteDbInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDeleteDbInstanceResult(obj: NeptuneDeleteDbInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstance': toJson_NeptuneDbInstance(obj.dbInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDeleteDbParameterGroupMessage
  */
 export interface NeptuneDeleteDbParameterGroupMessage {
   /**
    * @schema NeptuneDeleteDbParameterGroupMessage#DBParameterGroupName
    */
-  readonly dbParameterGroupName: string;
+  readonly dbParameterGroupName?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDeleteDbParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDeleteDbParameterGroupMessage(obj: NeptuneDeleteDbParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupName': obj.dbParameterGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDeleteDbSubnetGroupMessage
@@ -1053,9 +1717,23 @@ export interface NeptuneDeleteDbSubnetGroupMessage {
   /**
    * @schema NeptuneDeleteDbSubnetGroupMessage#DBSubnetGroupName
    */
-  readonly dbSubnetGroupName: string;
+  readonly dbSubnetGroupName?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDeleteDbSubnetGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDeleteDbSubnetGroupMessage(obj: NeptuneDeleteDbSubnetGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDeleteEventSubscriptionMessage
@@ -1064,9 +1742,23 @@ export interface NeptuneDeleteEventSubscriptionMessage {
   /**
    * @schema NeptuneDeleteEventSubscriptionMessage#SubscriptionName
    */
-  readonly subscriptionName: string;
+  readonly subscriptionName?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDeleteEventSubscriptionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDeleteEventSubscriptionMessage(obj: NeptuneDeleteEventSubscriptionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscriptionName': obj.subscriptionName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDeleteEventSubscriptionResult
@@ -1078,6 +1770,20 @@ export interface NeptuneDeleteEventSubscriptionResult {
   readonly eventSubscription?: NeptuneEventSubscription;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDeleteEventSubscriptionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDeleteEventSubscriptionResult(obj: NeptuneDeleteEventSubscriptionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EventSubscription': toJson_NeptuneEventSubscription(obj.eventSubscription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDescribeDbClusterEndpointsMessage
@@ -1111,6 +1817,24 @@ export interface NeptuneDescribeDbClusterEndpointsMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDescribeDbClusterEndpointsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeDbClusterEndpointsMessage(obj: NeptuneDescribeDbClusterEndpointsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'DBClusterEndpointIdentifier': obj.dbClusterEndpointIdentifier,
+    'Filters': obj.filters?.map(y => toJson_NeptuneFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDbClusterEndpointMessage
  */
 export interface NeptuneDbClusterEndpointMessage {
@@ -1125,6 +1849,21 @@ export interface NeptuneDbClusterEndpointMessage {
   readonly dbClusterEndpoints?: NeptuneDbClusterEndpoint[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDbClusterEndpointMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbClusterEndpointMessage(obj: NeptuneDbClusterEndpointMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBClusterEndpoints': obj.dbClusterEndpoints?.map(y => toJson_NeptuneDbClusterEndpoint(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDescribeDbClusterParameterGroupsMessage
@@ -1153,6 +1892,23 @@ export interface NeptuneDescribeDbClusterParameterGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDescribeDbClusterParameterGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeDbClusterParameterGroupsMessage(obj: NeptuneDescribeDbClusterParameterGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'Filters': obj.filters?.map(y => toJson_NeptuneFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDbClusterParameterGroupsMessage
  */
 export interface NeptuneDbClusterParameterGroupsMessage {
@@ -1169,13 +1925,28 @@ export interface NeptuneDbClusterParameterGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDbClusterParameterGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbClusterParameterGroupsMessage(obj: NeptuneDbClusterParameterGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBClusterParameterGroups': obj.dbClusterParameterGroups?.map(y => toJson_NeptuneDbClusterParameterGroup(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDescribeDbClusterParametersMessage
  */
 export interface NeptuneDescribeDbClusterParametersMessage {
   /**
    * @schema NeptuneDescribeDbClusterParametersMessage#DBClusterParameterGroupName
    */
-  readonly dbClusterParameterGroupName: string;
+  readonly dbClusterParameterGroupName?: string;
 
   /**
    * @schema NeptuneDescribeDbClusterParametersMessage#Source
@@ -1200,6 +1971,24 @@ export interface NeptuneDescribeDbClusterParametersMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDescribeDbClusterParametersMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeDbClusterParametersMessage(obj: NeptuneDescribeDbClusterParametersMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'Source': obj.source,
+    'Filters': obj.filters?.map(y => toJson_NeptuneFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDbClusterParameterGroupDetails
  */
 export interface NeptuneDbClusterParameterGroupDetails {
@@ -1216,15 +2005,44 @@ export interface NeptuneDbClusterParameterGroupDetails {
 }
 
 /**
+ * Converts an object of type 'NeptuneDbClusterParameterGroupDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbClusterParameterGroupDetails(obj: NeptuneDbClusterParameterGroupDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Parameters': obj.parameters?.map(y => toJson_NeptuneParameter(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDescribeDbClusterSnapshotAttributesMessage
  */
 export interface NeptuneDescribeDbClusterSnapshotAttributesMessage {
   /**
    * @schema NeptuneDescribeDbClusterSnapshotAttributesMessage#DBClusterSnapshotIdentifier
    */
-  readonly dbClusterSnapshotIdentifier: string;
+  readonly dbClusterSnapshotIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDescribeDbClusterSnapshotAttributesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeDbClusterSnapshotAttributesMessage(obj: NeptuneDescribeDbClusterSnapshotAttributesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshotIdentifier': obj.dbClusterSnapshotIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDescribeDbClusterSnapshotAttributesResult
@@ -1236,6 +2054,20 @@ export interface NeptuneDescribeDbClusterSnapshotAttributesResult {
   readonly dbClusterSnapshotAttributesResult?: NeptuneDbClusterSnapshotAttributesResult;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDescribeDbClusterSnapshotAttributesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeDbClusterSnapshotAttributesResult(obj: NeptuneDescribeDbClusterSnapshotAttributesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshotAttributesResult': toJson_NeptuneDbClusterSnapshotAttributesResult(obj.dbClusterSnapshotAttributesResult),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDescribeDbClusterSnapshotsMessage
@@ -1284,6 +2116,27 @@ export interface NeptuneDescribeDbClusterSnapshotsMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDescribeDbClusterSnapshotsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeDbClusterSnapshotsMessage(obj: NeptuneDescribeDbClusterSnapshotsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'DBClusterSnapshotIdentifier': obj.dbClusterSnapshotIdentifier,
+    'SnapshotType': obj.snapshotType,
+    'Filters': obj.filters?.map(y => toJson_NeptuneFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+    'IncludeShared': obj.includeShared,
+    'IncludePublic': obj.includePublic,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDbClusterSnapshotMessage
  */
 export interface NeptuneDbClusterSnapshotMessage {
@@ -1298,6 +2151,21 @@ export interface NeptuneDbClusterSnapshotMessage {
   readonly dbClusterSnapshots?: NeptuneDbClusterSnapshot[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDbClusterSnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbClusterSnapshotMessage(obj: NeptuneDbClusterSnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBClusterSnapshots': obj.dbClusterSnapshots?.map(y => toJson_NeptuneDbClusterSnapshot(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDescribeDbClustersMessage
@@ -1326,6 +2194,23 @@ export interface NeptuneDescribeDbClustersMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDescribeDbClustersMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeDbClustersMessage(obj: NeptuneDescribeDbClustersMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'Filters': obj.filters?.map(y => toJson_NeptuneFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDbClusterMessage
  */
 export interface NeptuneDbClusterMessage {
@@ -1340,6 +2225,21 @@ export interface NeptuneDbClusterMessage {
   readonly dbClusters?: NeptuneDbCluster[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbClusterMessage(obj: NeptuneDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBClusters': obj.dbClusters?.map(y => toJson_NeptuneDbCluster(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDescribeDbEngineVersionsMessage
@@ -1393,6 +2293,28 @@ export interface NeptuneDescribeDbEngineVersionsMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDescribeDbEngineVersionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeDbEngineVersionsMessage(obj: NeptuneDescribeDbEngineVersionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'DBParameterGroupFamily': obj.dbParameterGroupFamily,
+    'Filters': obj.filters?.map(y => toJson_NeptuneFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+    'DefaultOnly': obj.defaultOnly,
+    'ListSupportedCharacterSets': obj.listSupportedCharacterSets,
+    'ListSupportedTimezones': obj.listSupportedTimezones,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDbEngineVersionMessage
  */
 export interface NeptuneDbEngineVersionMessage {
@@ -1407,6 +2329,21 @@ export interface NeptuneDbEngineVersionMessage {
   readonly dbEngineVersions?: NeptuneDbEngineVersion[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDbEngineVersionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbEngineVersionMessage(obj: NeptuneDbEngineVersionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBEngineVersions': obj.dbEngineVersions?.map(y => toJson_NeptuneDbEngineVersion(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDescribeDbInstancesMessage
@@ -1435,6 +2372,23 @@ export interface NeptuneDescribeDbInstancesMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDescribeDbInstancesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeDbInstancesMessage(obj: NeptuneDescribeDbInstancesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'Filters': obj.filters?.map(y => toJson_NeptuneFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDbInstanceMessage
  */
 export interface NeptuneDbInstanceMessage {
@@ -1449,6 +2403,21 @@ export interface NeptuneDbInstanceMessage {
   readonly dbInstances?: NeptuneDbInstance[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDbInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbInstanceMessage(obj: NeptuneDbInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBInstances': obj.dbInstances?.map(y => toJson_NeptuneDbInstance(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDescribeDbParameterGroupsMessage
@@ -1477,6 +2446,23 @@ export interface NeptuneDescribeDbParameterGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDescribeDbParameterGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeDbParameterGroupsMessage(obj: NeptuneDescribeDbParameterGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'Filters': obj.filters?.map(y => toJson_NeptuneFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDbParameterGroupsMessage
  */
 export interface NeptuneDbParameterGroupsMessage {
@@ -1493,13 +2479,28 @@ export interface NeptuneDbParameterGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDbParameterGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbParameterGroupsMessage(obj: NeptuneDbParameterGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBParameterGroups': obj.dbParameterGroups?.map(y => toJson_NeptuneDbParameterGroup(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDescribeDbParametersMessage
  */
 export interface NeptuneDescribeDbParametersMessage {
   /**
    * @schema NeptuneDescribeDbParametersMessage#DBParameterGroupName
    */
-  readonly dbParameterGroupName: string;
+  readonly dbParameterGroupName?: string;
 
   /**
    * @schema NeptuneDescribeDbParametersMessage#Source
@@ -1524,6 +2525,24 @@ export interface NeptuneDescribeDbParametersMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDescribeDbParametersMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeDbParametersMessage(obj: NeptuneDescribeDbParametersMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'Source': obj.source,
+    'Filters': obj.filters?.map(y => toJson_NeptuneFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDbParameterGroupDetails
  */
 export interface NeptuneDbParameterGroupDetails {
@@ -1538,6 +2557,21 @@ export interface NeptuneDbParameterGroupDetails {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDbParameterGroupDetails' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbParameterGroupDetails(obj: NeptuneDbParameterGroupDetails | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Parameters': obj.parameters?.map(y => toJson_NeptuneParameter(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDescribeDbSubnetGroupsMessage
@@ -1566,6 +2600,23 @@ export interface NeptuneDescribeDbSubnetGroupsMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDescribeDbSubnetGroupsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeDbSubnetGroupsMessage(obj: NeptuneDescribeDbSubnetGroupsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'Filters': obj.filters?.map(y => toJson_NeptuneFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDbSubnetGroupMessage
  */
 export interface NeptuneDbSubnetGroupMessage {
@@ -1582,13 +2633,28 @@ export interface NeptuneDbSubnetGroupMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDbSubnetGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbSubnetGroupMessage(obj: NeptuneDbSubnetGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'DBSubnetGroups': obj.dbSubnetGroups?.map(y => toJson_NeptuneDbSubnetGroup(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDescribeEngineDefaultClusterParametersMessage
  */
 export interface NeptuneDescribeEngineDefaultClusterParametersMessage {
   /**
    * @schema NeptuneDescribeEngineDefaultClusterParametersMessage#DBParameterGroupFamily
    */
-  readonly dbParameterGroupFamily: string;
+  readonly dbParameterGroupFamily?: string;
 
   /**
    * @schema NeptuneDescribeEngineDefaultClusterParametersMessage#Filters
@@ -1608,6 +2674,23 @@ export interface NeptuneDescribeEngineDefaultClusterParametersMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDescribeEngineDefaultClusterParametersMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeEngineDefaultClusterParametersMessage(obj: NeptuneDescribeEngineDefaultClusterParametersMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupFamily': obj.dbParameterGroupFamily,
+    'Filters': obj.filters?.map(y => toJson_NeptuneFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDescribeEngineDefaultClusterParametersResult
  */
 export interface NeptuneDescribeEngineDefaultClusterParametersResult {
@@ -1619,13 +2702,27 @@ export interface NeptuneDescribeEngineDefaultClusterParametersResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneDescribeEngineDefaultClusterParametersResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeEngineDefaultClusterParametersResult(obj: NeptuneDescribeEngineDefaultClusterParametersResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EngineDefaults': toJson_NeptuneEngineDefaults(obj.engineDefaults),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDescribeEngineDefaultParametersMessage
  */
 export interface NeptuneDescribeEngineDefaultParametersMessage {
   /**
    * @schema NeptuneDescribeEngineDefaultParametersMessage#DBParameterGroupFamily
    */
-  readonly dbParameterGroupFamily: string;
+  readonly dbParameterGroupFamily?: string;
 
   /**
    * @schema NeptuneDescribeEngineDefaultParametersMessage#Filters
@@ -1645,6 +2742,23 @@ export interface NeptuneDescribeEngineDefaultParametersMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDescribeEngineDefaultParametersMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeEngineDefaultParametersMessage(obj: NeptuneDescribeEngineDefaultParametersMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupFamily': obj.dbParameterGroupFamily,
+    'Filters': obj.filters?.map(y => toJson_NeptuneFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDescribeEngineDefaultParametersResult
  */
 export interface NeptuneDescribeEngineDefaultParametersResult {
@@ -1654,6 +2768,20 @@ export interface NeptuneDescribeEngineDefaultParametersResult {
   readonly engineDefaults?: NeptuneEngineDefaults;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDescribeEngineDefaultParametersResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeEngineDefaultParametersResult(obj: NeptuneDescribeEngineDefaultParametersResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EngineDefaults': toJson_NeptuneEngineDefaults(obj.engineDefaults),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDescribeEventCategoriesMessage
@@ -1672,6 +2800,21 @@ export interface NeptuneDescribeEventCategoriesMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDescribeEventCategoriesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeEventCategoriesMessage(obj: NeptuneDescribeEventCategoriesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceType': obj.sourceType,
+    'Filters': obj.filters?.map(y => toJson_NeptuneFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneEventCategoriesMessage
  */
 export interface NeptuneEventCategoriesMessage {
@@ -1681,6 +2824,20 @@ export interface NeptuneEventCategoriesMessage {
   readonly eventCategoriesMapList?: NeptuneEventCategoriesMap[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneEventCategoriesMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneEventCategoriesMessage(obj: NeptuneEventCategoriesMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EventCategoriesMapList': obj.eventCategoriesMapList?.map(y => toJson_NeptuneEventCategoriesMap(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDescribeEventSubscriptionsMessage
@@ -1709,6 +2866,23 @@ export interface NeptuneDescribeEventSubscriptionsMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDescribeEventSubscriptionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeEventSubscriptionsMessage(obj: NeptuneDescribeEventSubscriptionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscriptionName': obj.subscriptionName,
+    'Filters': obj.filters?.map(y => toJson_NeptuneFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneEventSubscriptionsMessage
  */
 export interface NeptuneEventSubscriptionsMessage {
@@ -1723,6 +2897,21 @@ export interface NeptuneEventSubscriptionsMessage {
   readonly eventSubscriptionsList?: NeptuneEventSubscription[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneEventSubscriptionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneEventSubscriptionsMessage(obj: NeptuneEventSubscriptionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'EventSubscriptionsList': obj.eventSubscriptionsList?.map(y => toJson_NeptuneEventSubscription(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDescribeEventsMessage
@@ -1776,6 +2965,28 @@ export interface NeptuneDescribeEventsMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDescribeEventsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeEventsMessage(obj: NeptuneDescribeEventsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceIdentifier': obj.sourceIdentifier,
+    'SourceType': obj.sourceType,
+    'StartTime': obj.startTime,
+    'EndTime': obj.endTime,
+    'Duration': obj.duration,
+    'EventCategories': obj.eventCategories?.map(y => y),
+    'Filters': obj.filters?.map(y => toJson_NeptuneFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneEventsMessage
  */
 export interface NeptuneEventsMessage {
@@ -1792,13 +3003,28 @@ export interface NeptuneEventsMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneEventsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneEventsMessage(obj: NeptuneEventsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Marker': obj.marker,
+    'Events': obj.events?.map(y => toJson_NeptuneEvent(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDescribeOrderableDbInstanceOptionsMessage
  */
 export interface NeptuneDescribeOrderableDbInstanceOptionsMessage {
   /**
    * @schema NeptuneDescribeOrderableDbInstanceOptionsMessage#Engine
    */
-  readonly engine: string;
+  readonly engine?: string;
 
   /**
    * @schema NeptuneDescribeOrderableDbInstanceOptionsMessage#EngineVersion
@@ -1838,6 +3064,27 @@ export interface NeptuneDescribeOrderableDbInstanceOptionsMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDescribeOrderableDbInstanceOptionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeOrderableDbInstanceOptionsMessage(obj: NeptuneDescribeOrderableDbInstanceOptionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'DBInstanceClass': obj.dbInstanceClass,
+    'LicenseModel': obj.licenseModel,
+    'Vpc': obj.vpc,
+    'Filters': obj.filters?.map(y => toJson_NeptuneFilter(y)),
+    'MaxRecords': obj.maxRecords,
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneOrderableDbInstanceOptionsMessage
  */
 export interface NeptuneOrderableDbInstanceOptionsMessage {
@@ -1852,6 +3099,21 @@ export interface NeptuneOrderableDbInstanceOptionsMessage {
   readonly marker?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneOrderableDbInstanceOptionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneOrderableDbInstanceOptionsMessage(obj: NeptuneOrderableDbInstanceOptionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OrderableDBInstanceOptions': obj.orderableDbInstanceOptions?.map(y => toJson_NeptuneOrderableDbInstanceOption(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDescribePendingMaintenanceActionsMessage
@@ -1880,6 +3142,23 @@ export interface NeptuneDescribePendingMaintenanceActionsMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDescribePendingMaintenanceActionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribePendingMaintenanceActionsMessage(obj: NeptuneDescribePendingMaintenanceActionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceIdentifier': obj.resourceIdentifier,
+    'Filters': obj.filters?.map(y => toJson_NeptuneFilter(y)),
+    'Marker': obj.marker,
+    'MaxRecords': obj.maxRecords,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptunePendingMaintenanceActionsMessage
  */
 export interface NeptunePendingMaintenanceActionsMessage {
@@ -1896,15 +3175,44 @@ export interface NeptunePendingMaintenanceActionsMessage {
 }
 
 /**
+ * Converts an object of type 'NeptunePendingMaintenanceActionsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptunePendingMaintenanceActionsMessage(obj: NeptunePendingMaintenanceActionsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PendingMaintenanceActions': obj.pendingMaintenanceActions?.map(y => toJson_NeptuneResourcePendingMaintenanceActions(y)),
+    'Marker': obj.marker,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDescribeValidDbInstanceModificationsMessage
  */
 export interface NeptuneDescribeValidDbInstanceModificationsMessage {
   /**
    * @schema NeptuneDescribeValidDbInstanceModificationsMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDescribeValidDbInstanceModificationsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeValidDbInstanceModificationsMessage(obj: NeptuneDescribeValidDbInstanceModificationsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDescribeValidDbInstanceModificationsResult
@@ -1916,6 +3224,20 @@ export interface NeptuneDescribeValidDbInstanceModificationsResult {
   readonly validDbInstanceModificationsMessage?: NeptuneValidDbInstanceModificationsMessage;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDescribeValidDbInstanceModificationsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDescribeValidDbInstanceModificationsResult(obj: NeptuneDescribeValidDbInstanceModificationsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ValidDBInstanceModificationsMessage': toJson_NeptuneValidDbInstanceModificationsMessage(obj.validDbInstanceModificationsMessage),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneFailoverDbClusterMessage
@@ -1934,6 +3256,21 @@ export interface NeptuneFailoverDbClusterMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneFailoverDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneFailoverDbClusterMessage(obj: NeptuneFailoverDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'TargetDBInstanceIdentifier': obj.targetDbInstanceIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneFailoverDbClusterResult
  */
 export interface NeptuneFailoverDbClusterResult {
@@ -1945,13 +3282,27 @@ export interface NeptuneFailoverDbClusterResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneFailoverDbClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneFailoverDbClusterResult(obj: NeptuneFailoverDbClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_NeptuneDbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneListTagsForResourceMessage
  */
 export interface NeptuneListTagsForResourceMessage {
   /**
    * @schema NeptuneListTagsForResourceMessage#ResourceName
    */
-  readonly resourceName: string;
+  readonly resourceName?: string;
 
   /**
    * @schema NeptuneListTagsForResourceMessage#Filters
@@ -1959,6 +3310,21 @@ export interface NeptuneListTagsForResourceMessage {
   readonly filters?: NeptuneFilter[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneListTagsForResourceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneListTagsForResourceMessage(obj: NeptuneListTagsForResourceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceName': obj.resourceName,
+    'Filters': obj.filters?.map(y => toJson_NeptuneFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneTagListMessage
@@ -1972,13 +3338,27 @@ export interface NeptuneTagListMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneTagListMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneTagListMessage(obj: NeptuneTagListMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TagList': obj.tagList?.map(y => toJson_NeptuneTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneModifyDbClusterMessage
  */
 export interface NeptuneModifyDbClusterMessage {
   /**
    * @schema NeptuneModifyDbClusterMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema NeptuneModifyDbClusterMessage#NewDBClusterIdentifier
@@ -2050,7 +3430,41 @@ export interface NeptuneModifyDbClusterMessage {
    */
   readonly deletionProtection?: boolean;
 
+  /**
+   * @schema NeptuneModifyDbClusterMessage#CopyTagsToSnapshot
+   */
+  readonly copyTagsToSnapshot?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'NeptuneModifyDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneModifyDbClusterMessage(obj: NeptuneModifyDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'NewDBClusterIdentifier': obj.newDbClusterIdentifier,
+    'ApplyImmediately': obj.applyImmediately,
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'Port': obj.port,
+    'MasterUserPassword': obj.masterUserPassword,
+    'OptionGroupName': obj.optionGroupName,
+    'PreferredBackupWindow': obj.preferredBackupWindow,
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'EnableIAMDatabaseAuthentication': obj.enableIamDatabaseAuthentication,
+    'CloudwatchLogsExportConfiguration': toJson_NeptuneCloudwatchLogsExportConfiguration(obj.cloudwatchLogsExportConfiguration),
+    'EngineVersion': obj.engineVersion,
+    'DeletionProtection': obj.deletionProtection,
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneModifyDbClusterResult
@@ -2064,13 +3478,27 @@ export interface NeptuneModifyDbClusterResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneModifyDbClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneModifyDbClusterResult(obj: NeptuneModifyDbClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_NeptuneDbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneModifyDbClusterEndpointMessage
  */
 export interface NeptuneModifyDbClusterEndpointMessage {
   /**
    * @schema NeptuneModifyDbClusterEndpointMessage#DBClusterEndpointIdentifier
    */
-  readonly dbClusterEndpointIdentifier: string;
+  readonly dbClusterEndpointIdentifier?: string;
 
   /**
    * @schema NeptuneModifyDbClusterEndpointMessage#EndpointType
@@ -2088,6 +3516,23 @@ export interface NeptuneModifyDbClusterEndpointMessage {
   readonly excludedMembers?: string[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneModifyDbClusterEndpointMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneModifyDbClusterEndpointMessage(obj: NeptuneModifyDbClusterEndpointMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterEndpointIdentifier': obj.dbClusterEndpointIdentifier,
+    'EndpointType': obj.endpointType,
+    'StaticMembers': obj.staticMembers?.map(y => y),
+    'ExcludedMembers': obj.excludedMembers?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneModifyDbClusterEndpointOutput
@@ -2146,20 +3591,58 @@ export interface NeptuneModifyDbClusterEndpointOutput {
 }
 
 /**
+ * Converts an object of type 'NeptuneModifyDbClusterEndpointOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneModifyDbClusterEndpointOutput(obj: NeptuneModifyDbClusterEndpointOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterEndpointIdentifier': obj.dbClusterEndpointIdentifier,
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'DBClusterEndpointResourceIdentifier': obj.dbClusterEndpointResourceIdentifier,
+    'Endpoint': obj.endpoint,
+    'Status': obj.status,
+    'EndpointType': obj.endpointType,
+    'CustomEndpointType': obj.customEndpointType,
+    'StaticMembers': obj.staticMembers?.map(y => y),
+    'ExcludedMembers': obj.excludedMembers?.map(y => y),
+    'DBClusterEndpointArn': obj.dbClusterEndpointArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneModifyDbClusterParameterGroupMessage
  */
 export interface NeptuneModifyDbClusterParameterGroupMessage {
   /**
    * @schema NeptuneModifyDbClusterParameterGroupMessage#DBClusterParameterGroupName
    */
-  readonly dbClusterParameterGroupName: string;
+  readonly dbClusterParameterGroupName?: string;
 
   /**
    * @schema NeptuneModifyDbClusterParameterGroupMessage#Parameters
    */
-  readonly parameters: NeptuneParameter[];
+  readonly parameters?: NeptuneParameter[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneModifyDbClusterParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneModifyDbClusterParameterGroupMessage(obj: NeptuneModifyDbClusterParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'Parameters': obj.parameters?.map(y => toJson_NeptuneParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDbClusterParameterGroupNameMessage
@@ -2173,18 +3656,32 @@ export interface NeptuneDbClusterParameterGroupNameMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDbClusterParameterGroupNameMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbClusterParameterGroupNameMessage(obj: NeptuneDbClusterParameterGroupNameMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneModifyDbClusterSnapshotAttributeMessage
  */
 export interface NeptuneModifyDbClusterSnapshotAttributeMessage {
   /**
    * @schema NeptuneModifyDbClusterSnapshotAttributeMessage#DBClusterSnapshotIdentifier
    */
-  readonly dbClusterSnapshotIdentifier: string;
+  readonly dbClusterSnapshotIdentifier?: string;
 
   /**
    * @schema NeptuneModifyDbClusterSnapshotAttributeMessage#AttributeName
    */
-  readonly attributeName: string;
+  readonly attributeName?: string;
 
   /**
    * @schema NeptuneModifyDbClusterSnapshotAttributeMessage#ValuesToAdd
@@ -2199,6 +3696,23 @@ export interface NeptuneModifyDbClusterSnapshotAttributeMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneModifyDbClusterSnapshotAttributeMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneModifyDbClusterSnapshotAttributeMessage(obj: NeptuneModifyDbClusterSnapshotAttributeMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshotIdentifier': obj.dbClusterSnapshotIdentifier,
+    'AttributeName': obj.attributeName,
+    'ValuesToAdd': obj.valuesToAdd?.map(y => y),
+    'ValuesToRemove': obj.valuesToRemove?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneModifyDbClusterSnapshotAttributeResult
  */
 export interface NeptuneModifyDbClusterSnapshotAttributeResult {
@@ -2210,13 +3724,27 @@ export interface NeptuneModifyDbClusterSnapshotAttributeResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneModifyDbClusterSnapshotAttributeResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneModifyDbClusterSnapshotAttributeResult(obj: NeptuneModifyDbClusterSnapshotAttributeResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshotAttributesResult': toJson_NeptuneDbClusterSnapshotAttributesResult(obj.dbClusterSnapshotAttributesResult),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneModifyDbInstanceMessage
  */
 export interface NeptuneModifyDbInstanceMessage {
   /**
    * @schema NeptuneModifyDbInstanceMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
   /**
    * @schema NeptuneModifyDbInstanceMessage#AllocatedStorage
@@ -2401,6 +3929,56 @@ export interface NeptuneModifyDbInstanceMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneModifyDbInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneModifyDbInstanceMessage(obj: NeptuneModifyDbInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'AllocatedStorage': obj.allocatedStorage,
+    'DBInstanceClass': obj.dbInstanceClass,
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'DBSecurityGroups': obj.dbSecurityGroups?.map(y => y),
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'ApplyImmediately': obj.applyImmediately,
+    'MasterUserPassword': obj.masterUserPassword,
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'PreferredBackupWindow': obj.preferredBackupWindow,
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'MultiAZ': obj.multiAz,
+    'EngineVersion': obj.engineVersion,
+    'AllowMajorVersionUpgrade': obj.allowMajorVersionUpgrade,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'LicenseModel': obj.licenseModel,
+    'Iops': obj.iops,
+    'OptionGroupName': obj.optionGroupName,
+    'NewDBInstanceIdentifier': obj.newDbInstanceIdentifier,
+    'StorageType': obj.storageType,
+    'TdeCredentialArn': obj.tdeCredentialArn,
+    'TdeCredentialPassword': obj.tdeCredentialPassword,
+    'CACertificateIdentifier': obj.caCertificateIdentifier,
+    'Domain': obj.domain,
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+    'MonitoringInterval': obj.monitoringInterval,
+    'DBPortNumber': obj.dbPortNumber,
+    'PubliclyAccessible': obj.publiclyAccessible,
+    'MonitoringRoleArn': obj.monitoringRoleArn,
+    'DomainIAMRoleName': obj.domainIamRoleName,
+    'PromotionTier': obj.promotionTier,
+    'EnableIAMDatabaseAuthentication': obj.enableIamDatabaseAuthentication,
+    'EnablePerformanceInsights': obj.enablePerformanceInsights,
+    'PerformanceInsightsKMSKeyId': obj.performanceInsightsKmsKeyId,
+    'CloudwatchLogsExportConfiguration': toJson_NeptuneCloudwatchLogsExportConfiguration(obj.cloudwatchLogsExportConfiguration),
+    'DeletionProtection': obj.deletionProtection,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneModifyDbInstanceResult
  */
 export interface NeptuneModifyDbInstanceResult {
@@ -2412,20 +3990,49 @@ export interface NeptuneModifyDbInstanceResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneModifyDbInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneModifyDbInstanceResult(obj: NeptuneModifyDbInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstance': toJson_NeptuneDbInstance(obj.dbInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneModifyDbParameterGroupMessage
  */
 export interface NeptuneModifyDbParameterGroupMessage {
   /**
    * @schema NeptuneModifyDbParameterGroupMessage#DBParameterGroupName
    */
-  readonly dbParameterGroupName: string;
+  readonly dbParameterGroupName?: string;
 
   /**
    * @schema NeptuneModifyDbParameterGroupMessage#Parameters
    */
-  readonly parameters: NeptuneParameter[];
+  readonly parameters?: NeptuneParameter[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneModifyDbParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneModifyDbParameterGroupMessage(obj: NeptuneModifyDbParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'Parameters': obj.parameters?.map(y => toJson_NeptuneParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDbParameterGroupNameMessage
@@ -2439,13 +4046,27 @@ export interface NeptuneDbParameterGroupNameMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneDbParameterGroupNameMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbParameterGroupNameMessage(obj: NeptuneDbParameterGroupNameMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupName': obj.dbParameterGroupName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneModifyDbSubnetGroupMessage
  */
 export interface NeptuneModifyDbSubnetGroupMessage {
   /**
    * @schema NeptuneModifyDbSubnetGroupMessage#DBSubnetGroupName
    */
-  readonly dbSubnetGroupName: string;
+  readonly dbSubnetGroupName?: string;
 
   /**
    * @schema NeptuneModifyDbSubnetGroupMessage#DBSubnetGroupDescription
@@ -2455,9 +4076,25 @@ export interface NeptuneModifyDbSubnetGroupMessage {
   /**
    * @schema NeptuneModifyDbSubnetGroupMessage#SubnetIds
    */
-  readonly subnetIds: string[];
+  readonly subnetIds?: string[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneModifyDbSubnetGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneModifyDbSubnetGroupMessage(obj: NeptuneModifyDbSubnetGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'DBSubnetGroupDescription': obj.dbSubnetGroupDescription,
+    'SubnetIds': obj.subnetIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneModifyDbSubnetGroupResult
@@ -2471,13 +4108,27 @@ export interface NeptuneModifyDbSubnetGroupResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneModifyDbSubnetGroupResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneModifyDbSubnetGroupResult(obj: NeptuneModifyDbSubnetGroupResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSubnetGroup': toJson_NeptuneDbSubnetGroup(obj.dbSubnetGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneModifyEventSubscriptionMessage
  */
 export interface NeptuneModifyEventSubscriptionMessage {
   /**
    * @schema NeptuneModifyEventSubscriptionMessage#SubscriptionName
    */
-  readonly subscriptionName: string;
+  readonly subscriptionName?: string;
 
   /**
    * @schema NeptuneModifyEventSubscriptionMessage#SnsTopicArn
@@ -2502,6 +4153,24 @@ export interface NeptuneModifyEventSubscriptionMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneModifyEventSubscriptionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneModifyEventSubscriptionMessage(obj: NeptuneModifyEventSubscriptionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscriptionName': obj.subscriptionName,
+    'SnsTopicArn': obj.snsTopicArn,
+    'SourceType': obj.sourceType,
+    'EventCategories': obj.eventCategories?.map(y => y),
+    'Enabled': obj.enabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneModifyEventSubscriptionResult
  */
 export interface NeptuneModifyEventSubscriptionResult {
@@ -2513,15 +4182,43 @@ export interface NeptuneModifyEventSubscriptionResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneModifyEventSubscriptionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneModifyEventSubscriptionResult(obj: NeptuneModifyEventSubscriptionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EventSubscription': toJson_NeptuneEventSubscription(obj.eventSubscription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptunePromoteReadReplicaDbClusterMessage
  */
 export interface NeptunePromoteReadReplicaDbClusterMessage {
   /**
    * @schema NeptunePromoteReadReplicaDbClusterMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptunePromoteReadReplicaDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptunePromoteReadReplicaDbClusterMessage(obj: NeptunePromoteReadReplicaDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptunePromoteReadReplicaDbClusterResult
@@ -2535,13 +4232,27 @@ export interface NeptunePromoteReadReplicaDbClusterResult {
 }
 
 /**
+ * Converts an object of type 'NeptunePromoteReadReplicaDbClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptunePromoteReadReplicaDbClusterResult(obj: NeptunePromoteReadReplicaDbClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_NeptuneDbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneRebootDbInstanceMessage
  */
 export interface NeptuneRebootDbInstanceMessage {
   /**
    * @schema NeptuneRebootDbInstanceMessage#DBInstanceIdentifier
    */
-  readonly dbInstanceIdentifier: string;
+  readonly dbInstanceIdentifier?: string;
 
   /**
    * @schema NeptuneRebootDbInstanceMessage#ForceFailover
@@ -2549,6 +4260,21 @@ export interface NeptuneRebootDbInstanceMessage {
   readonly forceFailover?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneRebootDbInstanceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneRebootDbInstanceMessage(obj: NeptuneRebootDbInstanceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'ForceFailover': obj.forceFailover,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneRebootDbInstanceResult
@@ -2562,18 +4288,32 @@ export interface NeptuneRebootDbInstanceResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneRebootDbInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneRebootDbInstanceResult(obj: NeptuneRebootDbInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstance': toJson_NeptuneDbInstance(obj.dbInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneRemoveRoleFromDbClusterMessage
  */
 export interface NeptuneRemoveRoleFromDbClusterMessage {
   /**
    * @schema NeptuneRemoveRoleFromDbClusterMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema NeptuneRemoveRoleFromDbClusterMessage#RoleArn
    */
-  readonly roleArn: string;
+  readonly roleArn?: string;
 
   /**
    * @schema NeptuneRemoveRoleFromDbClusterMessage#FeatureName
@@ -2583,20 +4323,51 @@ export interface NeptuneRemoveRoleFromDbClusterMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneRemoveRoleFromDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneRemoveRoleFromDbClusterMessage(obj: NeptuneRemoveRoleFromDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'RoleArn': obj.roleArn,
+    'FeatureName': obj.featureName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneRemoveSourceIdentifierFromSubscriptionMessage
  */
 export interface NeptuneRemoveSourceIdentifierFromSubscriptionMessage {
   /**
    * @schema NeptuneRemoveSourceIdentifierFromSubscriptionMessage#SubscriptionName
    */
-  readonly subscriptionName: string;
+  readonly subscriptionName?: string;
 
   /**
    * @schema NeptuneRemoveSourceIdentifierFromSubscriptionMessage#SourceIdentifier
    */
-  readonly sourceIdentifier: string;
+  readonly sourceIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneRemoveSourceIdentifierFromSubscriptionMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneRemoveSourceIdentifierFromSubscriptionMessage(obj: NeptuneRemoveSourceIdentifierFromSubscriptionMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubscriptionName': obj.subscriptionName,
+    'SourceIdentifier': obj.sourceIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneRemoveSourceIdentifierFromSubscriptionResult
@@ -2610,20 +4381,49 @@ export interface NeptuneRemoveSourceIdentifierFromSubscriptionResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneRemoveSourceIdentifierFromSubscriptionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneRemoveSourceIdentifierFromSubscriptionResult(obj: NeptuneRemoveSourceIdentifierFromSubscriptionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EventSubscription': toJson_NeptuneEventSubscription(obj.eventSubscription),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneRemoveTagsFromResourceMessage
  */
 export interface NeptuneRemoveTagsFromResourceMessage {
   /**
    * @schema NeptuneRemoveTagsFromResourceMessage#ResourceName
    */
-  readonly resourceName: string;
+  readonly resourceName?: string;
 
   /**
    * @schema NeptuneRemoveTagsFromResourceMessage#TagKeys
    */
-  readonly tagKeys: string[];
+  readonly tagKeys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneRemoveTagsFromResourceMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneRemoveTagsFromResourceMessage(obj: NeptuneRemoveTagsFromResourceMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceName': obj.resourceName,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneResetDbClusterParameterGroupMessage
@@ -2632,7 +4432,7 @@ export interface NeptuneResetDbClusterParameterGroupMessage {
   /**
    * @schema NeptuneResetDbClusterParameterGroupMessage#DBClusterParameterGroupName
    */
-  readonly dbClusterParameterGroupName: string;
+  readonly dbClusterParameterGroupName?: string;
 
   /**
    * @schema NeptuneResetDbClusterParameterGroupMessage#ResetAllParameters
@@ -2647,13 +4447,29 @@ export interface NeptuneResetDbClusterParameterGroupMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneResetDbClusterParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneResetDbClusterParameterGroupMessage(obj: NeptuneResetDbClusterParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'ResetAllParameters': obj.resetAllParameters,
+    'Parameters': obj.parameters?.map(y => toJson_NeptuneParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneResetDbParameterGroupMessage
  */
 export interface NeptuneResetDbParameterGroupMessage {
   /**
    * @schema NeptuneResetDbParameterGroupMessage#DBParameterGroupName
    */
-  readonly dbParameterGroupName: string;
+  readonly dbParameterGroupName?: string;
 
   /**
    * @schema NeptuneResetDbParameterGroupMessage#ResetAllParameters
@@ -2668,6 +4484,22 @@ export interface NeptuneResetDbParameterGroupMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneResetDbParameterGroupMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneResetDbParameterGroupMessage(obj: NeptuneResetDbParameterGroupMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'ResetAllParameters': obj.resetAllParameters,
+    'Parameters': obj.parameters?.map(y => toJson_NeptuneParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneRestoreDbClusterFromSnapshotMessage
  */
 export interface NeptuneRestoreDbClusterFromSnapshotMessage {
@@ -2679,17 +4511,17 @@ export interface NeptuneRestoreDbClusterFromSnapshotMessage {
   /**
    * @schema NeptuneRestoreDbClusterFromSnapshotMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema NeptuneRestoreDbClusterFromSnapshotMessage#SnapshotIdentifier
    */
-  readonly snapshotIdentifier: string;
+  readonly snapshotIdentifier?: string;
 
   /**
    * @schema NeptuneRestoreDbClusterFromSnapshotMessage#Engine
    */
-  readonly engine: string;
+  readonly engine?: string;
 
   /**
    * @schema NeptuneRestoreDbClusterFromSnapshotMessage#EngineVersion
@@ -2751,7 +4583,42 @@ export interface NeptuneRestoreDbClusterFromSnapshotMessage {
    */
   readonly deletionProtection?: boolean;
 
+  /**
+   * @schema NeptuneRestoreDbClusterFromSnapshotMessage#CopyTagsToSnapshot
+   */
+  readonly copyTagsToSnapshot?: boolean;
+
 }
+
+/**
+ * Converts an object of type 'NeptuneRestoreDbClusterFromSnapshotMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneRestoreDbClusterFromSnapshotMessage(obj: NeptuneRestoreDbClusterFromSnapshotMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AvailabilityZones': obj.availabilityZones?.map(y => y),
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'SnapshotIdentifier': obj.snapshotIdentifier,
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'Port': obj.port,
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'DatabaseName': obj.databaseName,
+    'OptionGroupName': obj.optionGroupName,
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_NeptuneTag(y)),
+    'KmsKeyId': obj.kmsKeyId,
+    'EnableIAMDatabaseAuthentication': obj.enableIamDatabaseAuthentication,
+    'EnableCloudwatchLogsExports': obj.enableCloudwatchLogsExports?.map(y => y),
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'DeletionProtection': obj.deletionProtection,
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneRestoreDbClusterFromSnapshotResult
@@ -2765,13 +4632,27 @@ export interface NeptuneRestoreDbClusterFromSnapshotResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneRestoreDbClusterFromSnapshotResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneRestoreDbClusterFromSnapshotResult(obj: NeptuneRestoreDbClusterFromSnapshotResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_NeptuneDbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneRestoreDbClusterToPointInTimeMessage
  */
 export interface NeptuneRestoreDbClusterToPointInTimeMessage {
   /**
    * @schema NeptuneRestoreDbClusterToPointInTimeMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
   /**
    * @schema NeptuneRestoreDbClusterToPointInTimeMessage#RestoreType
@@ -2781,7 +4662,7 @@ export interface NeptuneRestoreDbClusterToPointInTimeMessage {
   /**
    * @schema NeptuneRestoreDbClusterToPointInTimeMessage#SourceDBClusterIdentifier
    */
-  readonly sourceDbClusterIdentifier: string;
+  readonly sourceDbClusterIdentifier?: string;
 
   /**
    * @schema NeptuneRestoreDbClusterToPointInTimeMessage#RestoreToTime
@@ -2846,6 +4727,34 @@ export interface NeptuneRestoreDbClusterToPointInTimeMessage {
 }
 
 /**
+ * Converts an object of type 'NeptuneRestoreDbClusterToPointInTimeMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneRestoreDbClusterToPointInTimeMessage(obj: NeptuneRestoreDbClusterToPointInTimeMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'RestoreType': obj.restoreType,
+    'SourceDBClusterIdentifier': obj.sourceDbClusterIdentifier,
+    'RestoreToTime': obj.restoreToTime,
+    'UseLatestRestorableTime': obj.useLatestRestorableTime,
+    'Port': obj.port,
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'OptionGroupName': obj.optionGroupName,
+    'VpcSecurityGroupIds': obj.vpcSecurityGroupIds?.map(y => y),
+    'Tags': obj.tags?.map(y => toJson_NeptuneTag(y)),
+    'KmsKeyId': obj.kmsKeyId,
+    'EnableIAMDatabaseAuthentication': obj.enableIamDatabaseAuthentication,
+    'EnableCloudwatchLogsExports': obj.enableCloudwatchLogsExports?.map(y => y),
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'DeletionProtection': obj.deletionProtection,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneRestoreDbClusterToPointInTimeResult
  */
 export interface NeptuneRestoreDbClusterToPointInTimeResult {
@@ -2857,15 +4766,43 @@ export interface NeptuneRestoreDbClusterToPointInTimeResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneRestoreDbClusterToPointInTimeResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneRestoreDbClusterToPointInTimeResult(obj: NeptuneRestoreDbClusterToPointInTimeResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_NeptuneDbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneStartDbClusterMessage
  */
 export interface NeptuneStartDbClusterMessage {
   /**
    * @schema NeptuneStartDbClusterMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneStartDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneStartDbClusterMessage(obj: NeptuneStartDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneStartDbClusterResult
@@ -2879,15 +4816,43 @@ export interface NeptuneStartDbClusterResult {
 }
 
 /**
+ * Converts an object of type 'NeptuneStartDbClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneStartDbClusterResult(obj: NeptuneStartDbClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_NeptuneDbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneStopDbClusterMessage
  */
 export interface NeptuneStopDbClusterMessage {
   /**
    * @schema NeptuneStopDbClusterMessage#DBClusterIdentifier
    */
-  readonly dbClusterIdentifier: string;
+  readonly dbClusterIdentifier?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneStopDbClusterMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneStopDbClusterMessage(obj: NeptuneStopDbClusterMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneStopDbClusterResult
@@ -2899,6 +4864,20 @@ export interface NeptuneStopDbClusterResult {
   readonly dbCluster?: NeptuneDbCluster;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneStopDbClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneStopDbClusterResult(obj: NeptuneStopDbClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBCluster': toJson_NeptuneDbCluster(obj.dbCluster),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneEventSubscription
@@ -2957,6 +4936,29 @@ export interface NeptuneEventSubscription {
 }
 
 /**
+ * Converts an object of type 'NeptuneEventSubscription' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneEventSubscription(obj: NeptuneEventSubscription | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CustomerAwsId': obj.customerAwsId,
+    'CustSubscriptionId': obj.custSubscriptionId,
+    'SnsTopicArn': obj.snsTopicArn,
+    'Status': obj.status,
+    'SubscriptionCreationTime': obj.subscriptionCreationTime,
+    'SourceType': obj.sourceType,
+    'SourceIdsList': obj.sourceIdsList?.map(y => y),
+    'EventCategoriesList': obj.eventCategoriesList?.map(y => y),
+    'Enabled': obj.enabled,
+    'EventSubscriptionArn': obj.eventSubscriptionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneTag
  */
 export interface NeptuneTag {
@@ -2973,6 +4975,21 @@ export interface NeptuneTag {
 }
 
 /**
+ * Converts an object of type 'NeptuneTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneTag(obj: NeptuneTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneResourcePendingMaintenanceActions
  */
 export interface NeptuneResourcePendingMaintenanceActions {
@@ -2987,6 +5004,21 @@ export interface NeptuneResourcePendingMaintenanceActions {
   readonly pendingMaintenanceActionDetails?: NeptunePendingMaintenanceAction[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneResourcePendingMaintenanceActions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneResourcePendingMaintenanceActions(obj: NeptuneResourcePendingMaintenanceActions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceIdentifier': obj.resourceIdentifier,
+    'PendingMaintenanceActionDetails': obj.pendingMaintenanceActionDetails?.map(y => toJson_NeptunePendingMaintenanceAction(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDbClusterParameterGroup
@@ -3013,6 +5045,23 @@ export interface NeptuneDbClusterParameterGroup {
   readonly dbClusterParameterGroupArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDbClusterParameterGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbClusterParameterGroup(obj: NeptuneDbClusterParameterGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterParameterGroupName': obj.dbClusterParameterGroupName,
+    'DBParameterGroupFamily': obj.dbParameterGroupFamily,
+    'Description': obj.description,
+    'DBClusterParameterGroupArn': obj.dbClusterParameterGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDbClusterSnapshot
@@ -3121,6 +5170,39 @@ export interface NeptuneDbClusterSnapshot {
 }
 
 /**
+ * Converts an object of type 'NeptuneDbClusterSnapshot' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbClusterSnapshot(obj: NeptuneDbClusterSnapshot | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AvailabilityZones': obj.availabilityZones?.map(y => y),
+    'DBClusterSnapshotIdentifier': obj.dbClusterSnapshotIdentifier,
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'SnapshotCreateTime': obj.snapshotCreateTime,
+    'Engine': obj.engine,
+    'AllocatedStorage': obj.allocatedStorage,
+    'Status': obj.status,
+    'Port': obj.port,
+    'VpcId': obj.vpcId,
+    'ClusterCreateTime': obj.clusterCreateTime,
+    'MasterUsername': obj.masterUsername,
+    'EngineVersion': obj.engineVersion,
+    'LicenseModel': obj.licenseModel,
+    'SnapshotType': obj.snapshotType,
+    'PercentProgress': obj.percentProgress,
+    'StorageEncrypted': obj.storageEncrypted,
+    'KmsKeyId': obj.kmsKeyId,
+    'DBClusterSnapshotArn': obj.dbClusterSnapshotArn,
+    'SourceDBClusterSnapshotArn': obj.sourceDbClusterSnapshotArn,
+    'IAMDatabaseAuthenticationEnabled': obj.iamDatabaseAuthenticationEnabled,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDbParameterGroup
  */
 export interface NeptuneDbParameterGroup {
@@ -3145,6 +5227,23 @@ export interface NeptuneDbParameterGroup {
   readonly dbParameterGroupArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDbParameterGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbParameterGroup(obj: NeptuneDbParameterGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'DBParameterGroupFamily': obj.dbParameterGroupFamily,
+    'Description': obj.description,
+    'DBParameterGroupArn': obj.dbParameterGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDbCluster
@@ -3326,6 +5425,11 @@ export interface NeptuneDbCluster {
   readonly clusterCreateTime?: string;
 
   /**
+   * @schema NeptuneDbCluster#CopyTagsToSnapshot
+   */
+  readonly copyTagsToSnapshot?: boolean;
+
+  /**
    * @schema NeptuneDbCluster#EnabledCloudwatchLogsExports
    */
   readonly enabledCloudwatchLogsExports?: string[];
@@ -3335,7 +5439,70 @@ export interface NeptuneDbCluster {
    */
   readonly deletionProtection?: boolean;
 
+  /**
+   * @schema NeptuneDbCluster#CrossAccountClone
+   */
+  readonly crossAccountClone?: boolean;
+
+  /**
+   * @schema NeptuneDbCluster#AutomaticRestartTime
+   */
+  readonly automaticRestartTime?: string;
+
 }
+
+/**
+ * Converts an object of type 'NeptuneDbCluster' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbCluster(obj: NeptuneDbCluster | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AllocatedStorage': obj.allocatedStorage,
+    'AvailabilityZones': obj.availabilityZones?.map(y => y),
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'CharacterSetName': obj.characterSetName,
+    'DatabaseName': obj.databaseName,
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'DBClusterParameterGroup': obj.dbClusterParameterGroup,
+    'DBSubnetGroup': obj.dbSubnetGroup,
+    'Status': obj.status,
+    'PercentProgress': obj.percentProgress,
+    'EarliestRestorableTime': obj.earliestRestorableTime,
+    'Endpoint': obj.endpoint,
+    'ReaderEndpoint': obj.readerEndpoint,
+    'MultiAZ': obj.multiAz,
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'LatestRestorableTime': obj.latestRestorableTime,
+    'Port': obj.port,
+    'MasterUsername': obj.masterUsername,
+    'DBClusterOptionGroupMemberships': obj.dbClusterOptionGroupMemberships?.map(y => toJson_NeptuneDbClusterOptionGroupStatus(y)),
+    'PreferredBackupWindow': obj.preferredBackupWindow,
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'ReplicationSourceIdentifier': obj.replicationSourceIdentifier,
+    'ReadReplicaIdentifiers': obj.readReplicaIdentifiers?.map(y => y),
+    'DBClusterMembers': obj.dbClusterMembers?.map(y => toJson_NeptuneDbClusterMember(y)),
+    'VpcSecurityGroups': obj.vpcSecurityGroups?.map(y => toJson_NeptuneVpcSecurityGroupMembership(y)),
+    'HostedZoneId': obj.hostedZoneId,
+    'StorageEncrypted': obj.storageEncrypted,
+    'KmsKeyId': obj.kmsKeyId,
+    'DbClusterResourceId': obj.dbClusterResourceId,
+    'DBClusterArn': obj.dbClusterArn,
+    'AssociatedRoles': obj.associatedRoles?.map(y => toJson_NeptuneDbClusterRole(y)),
+    'IAMDatabaseAuthenticationEnabled': obj.iamDatabaseAuthenticationEnabled,
+    'CloneGroupId': obj.cloneGroupId,
+    'ClusterCreateTime': obj.clusterCreateTime,
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+    'EnabledCloudwatchLogsExports': obj.enabledCloudwatchLogsExports?.map(y => y),
+    'DeletionProtection': obj.deletionProtection,
+    'CrossAccountClone': obj.crossAccountClone,
+    'AutomaticRestartTime': obj.automaticRestartTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDbInstance
@@ -3609,6 +5776,72 @@ export interface NeptuneDbInstance {
 }
 
 /**
+ * Converts an object of type 'NeptuneDbInstance' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbInstance(obj: NeptuneDbInstance | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'DBInstanceClass': obj.dbInstanceClass,
+    'Engine': obj.engine,
+    'DBInstanceStatus': obj.dbInstanceStatus,
+    'MasterUsername': obj.masterUsername,
+    'DBName': obj.dbName,
+    'Endpoint': toJson_NeptuneEndpoint(obj.endpoint),
+    'AllocatedStorage': obj.allocatedStorage,
+    'InstanceCreateTime': obj.instanceCreateTime,
+    'PreferredBackupWindow': obj.preferredBackupWindow,
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'DBSecurityGroups': obj.dbSecurityGroups?.map(y => toJson_NeptuneDbSecurityGroupMembership(y)),
+    'VpcSecurityGroups': obj.vpcSecurityGroups?.map(y => toJson_NeptuneVpcSecurityGroupMembership(y)),
+    'DBParameterGroups': obj.dbParameterGroups?.map(y => toJson_NeptuneDbParameterGroupStatus(y)),
+    'AvailabilityZone': obj.availabilityZone,
+    'DBSubnetGroup': toJson_NeptuneDbSubnetGroup(obj.dbSubnetGroup),
+    'PreferredMaintenanceWindow': obj.preferredMaintenanceWindow,
+    'PendingModifiedValues': toJson_NeptunePendingModifiedValues(obj.pendingModifiedValues),
+    'LatestRestorableTime': obj.latestRestorableTime,
+    'MultiAZ': obj.multiAz,
+    'EngineVersion': obj.engineVersion,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'ReadReplicaSourceDBInstanceIdentifier': obj.readReplicaSourceDbInstanceIdentifier,
+    'ReadReplicaDBInstanceIdentifiers': obj.readReplicaDbInstanceIdentifiers?.map(y => y),
+    'ReadReplicaDBClusterIdentifiers': obj.readReplicaDbClusterIdentifiers?.map(y => y),
+    'LicenseModel': obj.licenseModel,
+    'Iops': obj.iops,
+    'OptionGroupMemberships': obj.optionGroupMemberships?.map(y => toJson_NeptuneOptionGroupMembership(y)),
+    'CharacterSetName': obj.characterSetName,
+    'SecondaryAvailabilityZone': obj.secondaryAvailabilityZone,
+    'PubliclyAccessible': obj.publiclyAccessible,
+    'StatusInfos': obj.statusInfos?.map(y => toJson_NeptuneDbInstanceStatusInfo(y)),
+    'StorageType': obj.storageType,
+    'TdeCredentialArn': obj.tdeCredentialArn,
+    'DbInstancePort': obj.dbInstancePort,
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'StorageEncrypted': obj.storageEncrypted,
+    'KmsKeyId': obj.kmsKeyId,
+    'DbiResourceId': obj.dbiResourceId,
+    'CACertificateIdentifier': obj.caCertificateIdentifier,
+    'DomainMemberships': obj.domainMemberships?.map(y => toJson_NeptuneDomainMembership(y)),
+    'CopyTagsToSnapshot': obj.copyTagsToSnapshot,
+    'MonitoringInterval': obj.monitoringInterval,
+    'EnhancedMonitoringResourceArn': obj.enhancedMonitoringResourceArn,
+    'MonitoringRoleArn': obj.monitoringRoleArn,
+    'PromotionTier': obj.promotionTier,
+    'DBInstanceArn': obj.dbInstanceArn,
+    'Timezone': obj.timezone,
+    'IAMDatabaseAuthenticationEnabled': obj.iamDatabaseAuthenticationEnabled,
+    'PerformanceInsightsEnabled': obj.performanceInsightsEnabled,
+    'PerformanceInsightsKMSKeyId': obj.performanceInsightsKmsKeyId,
+    'EnabledCloudwatchLogsExports': obj.enabledCloudwatchLogsExports?.map(y => y),
+    'DeletionProtection': obj.deletionProtection,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDbSubnetGroup
  */
 export interface NeptuneDbSubnetGroup {
@@ -3645,20 +5878,54 @@ export interface NeptuneDbSubnetGroup {
 }
 
 /**
+ * Converts an object of type 'NeptuneDbSubnetGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbSubnetGroup(obj: NeptuneDbSubnetGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'DBSubnetGroupDescription': obj.dbSubnetGroupDescription,
+    'VpcId': obj.vpcId,
+    'SubnetGroupStatus': obj.subnetGroupStatus,
+    'Subnets': obj.subnets?.map(y => toJson_NeptuneSubnet(y)),
+    'DBSubnetGroupArn': obj.dbSubnetGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneFilter
  */
 export interface NeptuneFilter {
   /**
    * @schema NeptuneFilter#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema NeptuneFilter#Values
    */
-  readonly values: string[];
+  readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneFilter(obj: NeptuneFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDbClusterEndpoint
@@ -3717,6 +5984,29 @@ export interface NeptuneDbClusterEndpoint {
 }
 
 /**
+ * Converts an object of type 'NeptuneDbClusterEndpoint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbClusterEndpoint(obj: NeptuneDbClusterEndpoint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterEndpointIdentifier': obj.dbClusterEndpointIdentifier,
+    'DBClusterIdentifier': obj.dbClusterIdentifier,
+    'DBClusterEndpointResourceIdentifier': obj.dbClusterEndpointResourceIdentifier,
+    'Endpoint': obj.endpoint,
+    'Status': obj.status,
+    'EndpointType': obj.endpointType,
+    'CustomEndpointType': obj.customEndpointType,
+    'StaticMembers': obj.staticMembers?.map(y => y),
+    'ExcludedMembers': obj.excludedMembers?.map(y => y),
+    'DBClusterEndpointArn': obj.dbClusterEndpointArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneParameter
  */
 export interface NeptuneParameter {
@@ -3773,6 +6063,29 @@ export interface NeptuneParameter {
 }
 
 /**
+ * Converts an object of type 'NeptuneParameter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneParameter(obj: NeptuneParameter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ParameterName': obj.parameterName,
+    'ParameterValue': obj.parameterValue,
+    'Description': obj.description,
+    'Source': obj.source,
+    'ApplyType': obj.applyType,
+    'DataType': obj.dataType,
+    'AllowedValues': obj.allowedValues,
+    'IsModifiable': obj.isModifiable,
+    'MinimumEngineVersion': obj.minimumEngineVersion,
+    'ApplyMethod': obj.applyMethod,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDbClusterSnapshotAttributesResult
  */
 export interface NeptuneDbClusterSnapshotAttributesResult {
@@ -3787,6 +6100,21 @@ export interface NeptuneDbClusterSnapshotAttributesResult {
   readonly dbClusterSnapshotAttributes?: NeptuneDbClusterSnapshotAttribute[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDbClusterSnapshotAttributesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbClusterSnapshotAttributesResult(obj: NeptuneDbClusterSnapshotAttributesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterSnapshotIdentifier': obj.dbClusterSnapshotIdentifier,
+    'DBClusterSnapshotAttributes': obj.dbClusterSnapshotAttributes?.map(y => toJson_NeptuneDbClusterSnapshotAttribute(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDbEngineVersion
@@ -3855,6 +6183,31 @@ export interface NeptuneDbEngineVersion {
 }
 
 /**
+ * Converts an object of type 'NeptuneDbEngineVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbEngineVersion(obj: NeptuneDbEngineVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'DBParameterGroupFamily': obj.dbParameterGroupFamily,
+    'DBEngineDescription': obj.dbEngineDescription,
+    'DBEngineVersionDescription': obj.dbEngineVersionDescription,
+    'DefaultCharacterSet': toJson_NeptuneCharacterSet(obj.defaultCharacterSet),
+    'SupportedCharacterSets': obj.supportedCharacterSets?.map(y => toJson_NeptuneCharacterSet(y)),
+    'ValidUpgradeTarget': obj.validUpgradeTarget?.map(y => toJson_NeptuneUpgradeTarget(y)),
+    'SupportedTimezones': obj.supportedTimezones?.map(y => toJson_NeptuneTimezone(y)),
+    'ExportableLogTypes': obj.exportableLogTypes?.map(y => y),
+    'SupportsLogExportsToCloudwatchLogs': obj.supportsLogExportsToCloudwatchLogs,
+    'SupportsReadReplica': obj.supportsReadReplica,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneEngineDefaults
  */
 export interface NeptuneEngineDefaults {
@@ -3876,6 +6229,22 @@ export interface NeptuneEngineDefaults {
 }
 
 /**
+ * Converts an object of type 'NeptuneEngineDefaults' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneEngineDefaults(obj: NeptuneEngineDefaults | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupFamily': obj.dbParameterGroupFamily,
+    'Marker': obj.marker,
+    'Parameters': obj.parameters?.map(y => toJson_NeptuneParameter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneEventCategoriesMap
  */
 export interface NeptuneEventCategoriesMap {
@@ -3890,6 +6259,21 @@ export interface NeptuneEventCategoriesMap {
   readonly eventCategories?: string[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneEventCategoriesMap' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneEventCategoriesMap(obj: NeptuneEventCategoriesMap | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceType': obj.sourceType,
+    'EventCategories': obj.eventCategories?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneEvent
@@ -3926,6 +6310,25 @@ export interface NeptuneEvent {
   readonly sourceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneEvent' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneEvent(obj: NeptuneEvent | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceIdentifier': obj.sourceIdentifier,
+    'SourceType': obj.sourceType,
+    'Message': obj.message,
+    'EventCategories': obj.eventCategories?.map(y => y),
+    'Date': obj.date,
+    'SourceArn': obj.sourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneOrderableDbInstanceOption
@@ -4034,6 +6437,39 @@ export interface NeptuneOrderableDbInstanceOption {
 }
 
 /**
+ * Converts an object of type 'NeptuneOrderableDbInstanceOption' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneOrderableDbInstanceOption(obj: NeptuneOrderableDbInstanceOption | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'DBInstanceClass': obj.dbInstanceClass,
+    'LicenseModel': obj.licenseModel,
+    'AvailabilityZones': obj.availabilityZones?.map(y => toJson_NeptuneAvailabilityZone(y)),
+    'MultiAZCapable': obj.multiAzCapable,
+    'ReadReplicaCapable': obj.readReplicaCapable,
+    'Vpc': obj.vpc,
+    'SupportsStorageEncryption': obj.supportsStorageEncryption,
+    'StorageType': obj.storageType,
+    'SupportsIops': obj.supportsIops,
+    'SupportsEnhancedMonitoring': obj.supportsEnhancedMonitoring,
+    'SupportsIAMDatabaseAuthentication': obj.supportsIamDatabaseAuthentication,
+    'SupportsPerformanceInsights': obj.supportsPerformanceInsights,
+    'MinStorageSize': obj.minStorageSize,
+    'MaxStorageSize': obj.maxStorageSize,
+    'MinIopsPerDbInstance': obj.minIopsPerDbInstance,
+    'MaxIopsPerDbInstance': obj.maxIopsPerDbInstance,
+    'MinIopsPerGib': obj.minIopsPerGib,
+    'MaxIopsPerGib': obj.maxIopsPerGib,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneValidDbInstanceModificationsMessage
  */
 export interface NeptuneValidDbInstanceModificationsMessage {
@@ -4043,6 +6479,20 @@ export interface NeptuneValidDbInstanceModificationsMessage {
   readonly storage?: NeptuneValidStorageOptions[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneValidDbInstanceModificationsMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneValidDbInstanceModificationsMessage(obj: NeptuneValidDbInstanceModificationsMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Storage': obj.storage?.map(y => toJson_NeptuneValidStorageOptions(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneCloudwatchLogsExportConfiguration
@@ -4059,6 +6509,21 @@ export interface NeptuneCloudwatchLogsExportConfiguration {
   readonly disableLogTypes?: string[];
 
 }
+
+/**
+ * Converts an object of type 'NeptuneCloudwatchLogsExportConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCloudwatchLogsExportConfiguration(obj: NeptuneCloudwatchLogsExportConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EnableLogTypes': obj.enableLogTypes?.map(y => y),
+    'DisableLogTypes': obj.disableLogTypes?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptunePendingMaintenanceAction
@@ -4097,6 +6562,25 @@ export interface NeptunePendingMaintenanceAction {
 }
 
 /**
+ * Converts an object of type 'NeptunePendingMaintenanceAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptunePendingMaintenanceAction(obj: NeptunePendingMaintenanceAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Action': obj.action,
+    'AutoAppliedAfterDate': obj.autoAppliedAfterDate,
+    'ForcedApplyDate': obj.forcedApplyDate,
+    'OptInStatus': obj.optInStatus,
+    'CurrentApplyDate': obj.currentApplyDate,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDbClusterOptionGroupStatus
  */
 export interface NeptuneDbClusterOptionGroupStatus {
@@ -4111,6 +6595,21 @@ export interface NeptuneDbClusterOptionGroupStatus {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDbClusterOptionGroupStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbClusterOptionGroupStatus(obj: NeptuneDbClusterOptionGroupStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBClusterOptionGroupName': obj.dbClusterOptionGroupName,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDbClusterMember
@@ -4139,6 +6638,23 @@ export interface NeptuneDbClusterMember {
 }
 
 /**
+ * Converts an object of type 'NeptuneDbClusterMember' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbClusterMember(obj: NeptuneDbClusterMember | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'IsClusterWriter': obj.isClusterWriter,
+    'DBClusterParameterGroupStatus': obj.dbClusterParameterGroupStatus,
+    'PromotionTier': obj.promotionTier,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneVpcSecurityGroupMembership
  */
 export interface NeptuneVpcSecurityGroupMembership {
@@ -4153,6 +6669,21 @@ export interface NeptuneVpcSecurityGroupMembership {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneVpcSecurityGroupMembership' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneVpcSecurityGroupMembership(obj: NeptuneVpcSecurityGroupMembership | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VpcSecurityGroupId': obj.vpcSecurityGroupId,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDbClusterRole
@@ -4176,6 +6707,22 @@ export interface NeptuneDbClusterRole {
 }
 
 /**
+ * Converts an object of type 'NeptuneDbClusterRole' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbClusterRole(obj: NeptuneDbClusterRole | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RoleArn': obj.roleArn,
+    'Status': obj.status,
+    'FeatureName': obj.featureName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneEndpoint
  */
 export interface NeptuneEndpoint {
@@ -4197,6 +6744,22 @@ export interface NeptuneEndpoint {
 }
 
 /**
+ * Converts an object of type 'NeptuneEndpoint' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneEndpoint(obj: NeptuneEndpoint | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Address': obj.address,
+    'Port': obj.port,
+    'HostedZoneId': obj.hostedZoneId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDbSecurityGroupMembership
  */
 export interface NeptuneDbSecurityGroupMembership {
@@ -4213,6 +6776,21 @@ export interface NeptuneDbSecurityGroupMembership {
 }
 
 /**
+ * Converts an object of type 'NeptuneDbSecurityGroupMembership' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbSecurityGroupMembership(obj: NeptuneDbSecurityGroupMembership | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBSecurityGroupName': obj.dbSecurityGroupName,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDbParameterGroupStatus
  */
 export interface NeptuneDbParameterGroupStatus {
@@ -4227,6 +6805,21 @@ export interface NeptuneDbParameterGroupStatus {
   readonly parameterApplyStatus?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDbParameterGroupStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbParameterGroupStatus(obj: NeptuneDbParameterGroupStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBParameterGroupName': obj.dbParameterGroupName,
+    'ParameterApplyStatus': obj.parameterApplyStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptunePendingModifiedValues
@@ -4305,6 +6898,33 @@ export interface NeptunePendingModifiedValues {
 }
 
 /**
+ * Converts an object of type 'NeptunePendingModifiedValues' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptunePendingModifiedValues(obj: NeptunePendingModifiedValues | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DBInstanceClass': obj.dbInstanceClass,
+    'AllocatedStorage': obj.allocatedStorage,
+    'MasterUserPassword': obj.masterUserPassword,
+    'Port': obj.port,
+    'BackupRetentionPeriod': obj.backupRetentionPeriod,
+    'MultiAZ': obj.multiAz,
+    'EngineVersion': obj.engineVersion,
+    'LicenseModel': obj.licenseModel,
+    'Iops': obj.iops,
+    'DBInstanceIdentifier': obj.dbInstanceIdentifier,
+    'StorageType': obj.storageType,
+    'CACertificateIdentifier': obj.caCertificateIdentifier,
+    'DBSubnetGroupName': obj.dbSubnetGroupName,
+    'PendingCloudwatchLogsExports': toJson_NeptunePendingCloudwatchLogsExports(obj.pendingCloudwatchLogsExports),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneOptionGroupMembership
  */
 export interface NeptuneOptionGroupMembership {
@@ -4319,6 +6939,21 @@ export interface NeptuneOptionGroupMembership {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneOptionGroupMembership' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneOptionGroupMembership(obj: NeptuneOptionGroupMembership | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OptionGroupName': obj.optionGroupName,
+    'Status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneDbInstanceStatusInfo
@@ -4347,6 +6982,23 @@ export interface NeptuneDbInstanceStatusInfo {
 }
 
 /**
+ * Converts an object of type 'NeptuneDbInstanceStatusInfo' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbInstanceStatusInfo(obj: NeptuneDbInstanceStatusInfo | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StatusType': obj.statusType,
+    'Normal': obj.normal,
+    'Status': obj.status,
+    'Message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDomainMembership
  */
 export interface NeptuneDomainMembership {
@@ -4373,6 +7025,23 @@ export interface NeptuneDomainMembership {
 }
 
 /**
+ * Converts an object of type 'NeptuneDomainMembership' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDomainMembership(obj: NeptuneDomainMembership | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Domain': obj.domain,
+    'Status': obj.status,
+    'FQDN': obj.fqdn,
+    'IAMRoleName': obj.iamRoleName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneSubnet
  */
 export interface NeptuneSubnet {
@@ -4394,6 +7063,22 @@ export interface NeptuneSubnet {
 }
 
 /**
+ * Converts an object of type 'NeptuneSubnet' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneSubnet(obj: NeptuneSubnet | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SubnetIdentifier': obj.subnetIdentifier,
+    'SubnetAvailabilityZone': toJson_NeptuneAvailabilityZone(obj.subnetAvailabilityZone),
+    'SubnetStatus': obj.subnetStatus,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDbClusterSnapshotAttribute
  */
 export interface NeptuneDbClusterSnapshotAttribute {
@@ -4410,6 +7095,21 @@ export interface NeptuneDbClusterSnapshotAttribute {
 }
 
 /**
+ * Converts an object of type 'NeptuneDbClusterSnapshotAttribute' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDbClusterSnapshotAttribute(obj: NeptuneDbClusterSnapshotAttribute | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AttributeName': obj.attributeName,
+    'AttributeValues': obj.attributeValues?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneCharacterSet
  */
 export interface NeptuneCharacterSet {
@@ -4424,6 +7124,21 @@ export interface NeptuneCharacterSet {
   readonly characterSetDescription?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneCharacterSet' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneCharacterSet(obj: NeptuneCharacterSet | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CharacterSetName': obj.characterSetName,
+    'CharacterSetDescription': obj.characterSetDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneUpgradeTarget
@@ -4457,6 +7172,24 @@ export interface NeptuneUpgradeTarget {
 }
 
 /**
+ * Converts an object of type 'NeptuneUpgradeTarget' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneUpgradeTarget(obj: NeptuneUpgradeTarget | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Engine': obj.engine,
+    'EngineVersion': obj.engineVersion,
+    'Description': obj.description,
+    'AutoUpgrade': obj.autoUpgrade,
+    'IsMajorVersionUpgrade': obj.isMajorVersionUpgrade,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneTimezone
  */
 export interface NeptuneTimezone {
@@ -4468,6 +7201,20 @@ export interface NeptuneTimezone {
 }
 
 /**
+ * Converts an object of type 'NeptuneTimezone' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneTimezone(obj: NeptuneTimezone | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TimezoneName': obj.timezoneName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneAvailabilityZone
  */
 export interface NeptuneAvailabilityZone {
@@ -4477,6 +7224,20 @@ export interface NeptuneAvailabilityZone {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneAvailabilityZone' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneAvailabilityZone(obj: NeptuneAvailabilityZone | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneValidStorageOptions
@@ -4505,6 +7266,23 @@ export interface NeptuneValidStorageOptions {
 }
 
 /**
+ * Converts an object of type 'NeptuneValidStorageOptions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneValidStorageOptions(obj: NeptuneValidStorageOptions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StorageType': obj.storageType,
+    'StorageSize': obj.storageSize?.map(y => toJson_NeptuneRange(y)),
+    'ProvisionedIops': obj.provisionedIops?.map(y => toJson_NeptuneRange(y)),
+    'IopsToStorageRatio': obj.iopsToStorageRatio?.map(y => toJson_NeptuneDoubleRange(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptunePendingCloudwatchLogsExports
  */
 export interface NeptunePendingCloudwatchLogsExports {
@@ -4519,6 +7297,21 @@ export interface NeptunePendingCloudwatchLogsExports {
   readonly logTypesToDisable?: string[];
 
 }
+
+/**
+ * Converts an object of type 'NeptunePendingCloudwatchLogsExports' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptunePendingCloudwatchLogsExports(obj: NeptunePendingCloudwatchLogsExports | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LogTypesToEnable': obj.logTypesToEnable?.map(y => y),
+    'LogTypesToDisable': obj.logTypesToDisable?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema NeptuneRange
@@ -4542,6 +7335,22 @@ export interface NeptuneRange {
 }
 
 /**
+ * Converts an object of type 'NeptuneRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneRange(obj: NeptuneRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'From': obj.from,
+    'To': obj.to,
+    'Step': obj.step,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema NeptuneDoubleRange
  */
 export interface NeptuneDoubleRange {
@@ -4556,3 +7365,18 @@ export interface NeptuneDoubleRange {
   readonly to?: number;
 
 }
+
+/**
+ * Converts an object of type 'NeptuneDoubleRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_NeptuneDoubleRange(obj: NeptuneDoubleRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'From': obj.from,
+    'To': obj.to,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

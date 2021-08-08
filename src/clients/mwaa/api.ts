@@ -185,6 +185,7 @@ export class MWAAResponsesCreateEnvironment {
             },
           },
           MaxWorkers: this.__input.maxWorkers,
+          MinWorkers: this.__input.minWorkers,
           Name: this.__input.name,
           NetworkConfiguration: {
             SecurityGroupIds: this.__input.networkConfiguration.securityGroupIds,
@@ -194,6 +195,7 @@ export class MWAAResponsesCreateEnvironment {
           PluginsS3Path: this.__input.pluginsS3Path,
           RequirementsS3ObjectVersion: this.__input.requirementsS3ObjectVersion,
           RequirementsS3Path: this.__input.requirementsS3Path,
+          Schedulers: this.__input.schedulers,
           SourceBucketArn: this.__input.sourceBucketArn,
           Tags: this.__input.tags,
           WebserverAccessMode: this.__input.webserverAccessMode,
@@ -425,6 +427,23 @@ export class MWAAResponsesFetchEnvironmentEnvironment {
     return resource.getResponseField('Environment.MaxWorkers') as unknown as number;
   }
 
+  public get minWorkers(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getEnvironment',
+        service: 'MWAA',
+        physicalResourceId: cr.PhysicalResourceId.of('MWAA.GetEnvironment.Environment.MinWorkers'),
+        outputPath: 'Environment.MinWorkers',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetEnvironment.Environment.MinWorkers', props);
+    return resource.getResponseField('Environment.MinWorkers') as unknown as number;
+  }
+
   public get name(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -512,6 +531,23 @@ export class MWAAResponsesFetchEnvironmentEnvironment {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetEnvironment.Environment.RequirementsS3Path', props);
     return resource.getResponseField('Environment.RequirementsS3Path') as unknown as string;
+  }
+
+  public get schedulers(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getEnvironment',
+        service: 'MWAA',
+        physicalResourceId: cr.PhysicalResourceId.of('MWAA.GetEnvironment.Environment.Schedulers'),
+        outputPath: 'Environment.Schedulers',
+        parameters: {
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetEnvironment.Environment.Schedulers', props);
+    return resource.getResponseField('Environment.Schedulers') as unknown as number;
   }
 
   public get serviceRoleArn(): string {
@@ -1188,6 +1224,7 @@ export class MWAAResponsesUpdateEnvironment {
             },
           },
           MaxWorkers: this.__input.maxWorkers,
+          MinWorkers: this.__input.minWorkers,
           Name: this.__input.name,
           NetworkConfiguration: {
             SecurityGroupIds: this.__input.networkConfiguration?.securityGroupIds,
@@ -1196,6 +1233,7 @@ export class MWAAResponsesUpdateEnvironment {
           PluginsS3Path: this.__input.pluginsS3Path,
           RequirementsS3ObjectVersion: this.__input.requirementsS3ObjectVersion,
           RequirementsS3Path: this.__input.requirementsS3Path,
+          Schedulers: this.__input.schedulers,
           SourceBucketArn: this.__input.sourceBucketArn,
           WebserverAccessMode: this.__input.webserverAccessMode,
           WeeklyMaintenanceWindowStart: this.__input.weeklyMaintenanceWindowStart,

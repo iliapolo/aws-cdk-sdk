@@ -25,6 +25,25 @@ export class AccessAnalyzerClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'ApplyArchiveRule', props);
   }
 
+  public cancelPolicyGeneration(input: shapes.AccessAnalyzerCancelPolicyGenerationRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'cancelPolicyGeneration',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.CancelPolicyGeneration'),
+        parameters: {
+          jobId: input.jobId,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'CancelPolicyGeneration', props);
+  }
+
+  public createAccessPreview(input: shapes.AccessAnalyzerCreateAccessPreviewRequest): AccessAnalyzerResponsesCreateAccessPreview {
+    return new AccessAnalyzerResponsesCreateAccessPreview(this, this.__resources, input);
+  }
+
   public createAnalyzer(input: shapes.AccessAnalyzerCreateAnalyzerRequest): AccessAnalyzerResponsesCreateAnalyzer {
     return new AccessAnalyzerResponsesCreateAnalyzer(this, this.__resources, input);
   }
@@ -80,6 +99,10 @@ export class AccessAnalyzerClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeleteArchiveRule', props);
   }
 
+  public fetchAccessPreview(input: shapes.AccessAnalyzerGetAccessPreviewRequest): AccessAnalyzerResponsesFetchAccessPreview {
+    return new AccessAnalyzerResponsesFetchAccessPreview(this, this.__resources, input);
+  }
+
   public fetchAnalyzedResource(input: shapes.AccessAnalyzerGetAnalyzedResourceRequest): AccessAnalyzerResponsesFetchAnalyzedResource {
     return new AccessAnalyzerResponsesFetchAnalyzedResource(this, this.__resources, input);
   }
@@ -94,6 +117,18 @@ export class AccessAnalyzerClient extends cdk.Construct {
 
   public fetchFinding(input: shapes.AccessAnalyzerGetFindingRequest): AccessAnalyzerResponsesFetchFinding {
     return new AccessAnalyzerResponsesFetchFinding(this, this.__resources, input);
+  }
+
+  public fetchGeneratedPolicy(input: shapes.AccessAnalyzerGetGeneratedPolicyRequest): AccessAnalyzerResponsesFetchGeneratedPolicy {
+    return new AccessAnalyzerResponsesFetchGeneratedPolicy(this, this.__resources, input);
+  }
+
+  public listAccessPreviewFindings(input: shapes.AccessAnalyzerListAccessPreviewFindingsRequest): AccessAnalyzerResponsesListAccessPreviewFindings {
+    return new AccessAnalyzerResponsesListAccessPreviewFindings(this, this.__resources, input);
+  }
+
+  public listAccessPreviews(input: shapes.AccessAnalyzerListAccessPreviewsRequest): AccessAnalyzerResponsesListAccessPreviews {
+    return new AccessAnalyzerResponsesListAccessPreviews(this, this.__resources, input);
   }
 
   public listAnalyzedResources(input: shapes.AccessAnalyzerListAnalyzedResourcesRequest): AccessAnalyzerResponsesListAnalyzedResources {
@@ -112,8 +147,16 @@ export class AccessAnalyzerClient extends cdk.Construct {
     return new AccessAnalyzerResponsesListFindings(this, this.__resources, input);
   }
 
+  public listPolicyGenerations(input: shapes.AccessAnalyzerListPolicyGenerationsRequest): AccessAnalyzerResponsesListPolicyGenerations {
+    return new AccessAnalyzerResponsesListPolicyGenerations(this, this.__resources, input);
+  }
+
   public listTagsForResource(input: shapes.AccessAnalyzerListTagsForResourceRequest): AccessAnalyzerResponsesListTagsForResource {
     return new AccessAnalyzerResponsesListTagsForResource(this, this.__resources, input);
+  }
+
+  public startPolicyGeneration(input: shapes.AccessAnalyzerStartPolicyGenerationRequest): AccessAnalyzerResponsesStartPolicyGeneration {
+    return new AccessAnalyzerResponsesStartPolicyGeneration(this, this.__resources, input);
   }
 
   public startResourceScan(input: shapes.AccessAnalyzerStartResourceScanRequest): void {
@@ -201,6 +244,36 @@ export class AccessAnalyzerClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'UpdateFindings', props);
   }
 
+  public validatePolicy(input: shapes.AccessAnalyzerValidatePolicyRequest): AccessAnalyzerResponsesValidatePolicy {
+    return new AccessAnalyzerResponsesValidatePolicy(this, this.__resources, input);
+  }
+
+}
+
+export class AccessAnalyzerResponsesCreateAccessPreview {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AccessAnalyzerCreateAccessPreviewRequest) {
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createAccessPreview',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.CreateAccessPreview.id'),
+        outputPath: 'id',
+        parameters: {
+          analyzerArn: this.__input.analyzerArn,
+          clientToken: this.__input.clientToken,
+          configurations: this.__input.configurations,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateAccessPreview.id', props);
+    return resource.getResponseField('id') as unknown as string;
+  }
+
 }
 
 export class AccessAnalyzerResponsesCreateAnalyzer {
@@ -227,6 +300,143 @@ export class AccessAnalyzerResponsesCreateAnalyzer {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateAnalyzer.arn', props);
     return resource.getResponseField('arn') as unknown as string;
+  }
+
+}
+
+export class AccessAnalyzerResponsesFetchAccessPreview {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AccessAnalyzerGetAccessPreviewRequest) {
+  }
+
+  public get accessPreview(): AccessAnalyzerResponsesFetchAccessPreviewAccessPreview {
+    return new AccessAnalyzerResponsesFetchAccessPreviewAccessPreview(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class AccessAnalyzerResponsesFetchAccessPreviewAccessPreview {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AccessAnalyzerGetAccessPreviewRequest) {
+  }
+
+  public get analyzerArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPreview',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.GetAccessPreview.accessPreview.analyzerArn'),
+        outputPath: 'accessPreview.analyzerArn',
+        parameters: {
+          accessPreviewId: this.__input.accessPreviewId,
+          analyzerArn: this.__input.analyzerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPreview.accessPreview.analyzerArn', props);
+    return resource.getResponseField('accessPreview.analyzerArn') as unknown as string;
+  }
+
+  public get configurations(): Record<string, shapes.AccessAnalyzerConfiguration> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPreview',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.GetAccessPreview.accessPreview.configurations'),
+        outputPath: 'accessPreview.configurations',
+        parameters: {
+          accessPreviewId: this.__input.accessPreviewId,
+          analyzerArn: this.__input.analyzerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPreview.accessPreview.configurations', props);
+    return resource.getResponseField('accessPreview.configurations') as unknown as Record<string, shapes.AccessAnalyzerConfiguration>;
+  }
+
+  public get createdAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPreview',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.GetAccessPreview.accessPreview.createdAt'),
+        outputPath: 'accessPreview.createdAt',
+        parameters: {
+          accessPreviewId: this.__input.accessPreviewId,
+          analyzerArn: this.__input.analyzerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPreview.accessPreview.createdAt', props);
+    return resource.getResponseField('accessPreview.createdAt') as unknown as string;
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPreview',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.GetAccessPreview.accessPreview.id'),
+        outputPath: 'accessPreview.id',
+        parameters: {
+          accessPreviewId: this.__input.accessPreviewId,
+          analyzerArn: this.__input.analyzerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPreview.accessPreview.id', props);
+    return resource.getResponseField('accessPreview.id') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPreview',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.GetAccessPreview.accessPreview.status'),
+        outputPath: 'accessPreview.status',
+        parameters: {
+          accessPreviewId: this.__input.accessPreviewId,
+          analyzerArn: this.__input.analyzerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPreview.accessPreview.status', props);
+    return resource.getResponseField('accessPreview.status') as unknown as string;
+  }
+
+  public get statusReason(): AccessAnalyzerResponsesFetchAccessPreviewAccessPreviewStatusReason {
+    return new AccessAnalyzerResponsesFetchAccessPreviewAccessPreviewStatusReason(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class AccessAnalyzerResponsesFetchAccessPreviewAccessPreviewStatusReason {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AccessAnalyzerGetAccessPreviewRequest) {
+  }
+
+  public get code(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccessPreview',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.GetAccessPreview.accessPreview.statusReason.code'),
+        outputPath: 'accessPreview.statusReason.code',
+        parameters: {
+          accessPreviewId: this.__input.accessPreviewId,
+          analyzerArn: this.__input.analyzerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccessPreview.accessPreview.statusReason.code', props);
+    return resource.getResponseField('accessPreview.statusReason.code') as unknown as string;
   }
 
 }
@@ -989,6 +1199,390 @@ export class AccessAnalyzerResponsesFetchFindingFinding {
 
 }
 
+export class AccessAnalyzerResponsesFetchGeneratedPolicy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AccessAnalyzerGetGeneratedPolicyRequest) {
+  }
+
+  public get generatedPolicyResult(): AccessAnalyzerResponsesFetchGeneratedPolicyGeneratedPolicyResult {
+    return new AccessAnalyzerResponsesFetchGeneratedPolicyGeneratedPolicyResult(this.__scope, this.__resources, this.__input);
+  }
+
+  public get jobDetails(): AccessAnalyzerResponsesFetchGeneratedPolicyJobDetails {
+    return new AccessAnalyzerResponsesFetchGeneratedPolicyJobDetails(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class AccessAnalyzerResponsesFetchGeneratedPolicyGeneratedPolicyResult {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AccessAnalyzerGetGeneratedPolicyRequest) {
+  }
+
+  public get generatedPolicies(): shapes.AccessAnalyzerGeneratedPolicy[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getGeneratedPolicy',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.GetGeneratedPolicy.generatedPolicyResult.generatedPolicies'),
+        outputPath: 'generatedPolicyResult.generatedPolicies',
+        parameters: {
+          includeResourcePlaceholders: this.__input.includeResourcePlaceholders,
+          includeServiceLevelTemplate: this.__input.includeServiceLevelTemplate,
+          jobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetGeneratedPolicy.generatedPolicyResult.generatedPolicies', props);
+    return resource.getResponseField('generatedPolicyResult.generatedPolicies') as unknown as shapes.AccessAnalyzerGeneratedPolicy[];
+  }
+
+  public get properties(): AccessAnalyzerResponsesFetchGeneratedPolicyGeneratedPolicyResultProperties {
+    return new AccessAnalyzerResponsesFetchGeneratedPolicyGeneratedPolicyResultProperties(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class AccessAnalyzerResponsesFetchGeneratedPolicyGeneratedPolicyResultProperties {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AccessAnalyzerGetGeneratedPolicyRequest) {
+  }
+
+  public get cloudTrailProperties(): AccessAnalyzerResponsesFetchGeneratedPolicyGeneratedPolicyResultPropertiesCloudTrailProperties {
+    return new AccessAnalyzerResponsesFetchGeneratedPolicyGeneratedPolicyResultPropertiesCloudTrailProperties(this.__scope, this.__resources, this.__input);
+  }
+
+  public get isComplete(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getGeneratedPolicy',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.GetGeneratedPolicy.generatedPolicyResult.properties.isComplete'),
+        outputPath: 'generatedPolicyResult.properties.isComplete',
+        parameters: {
+          includeResourcePlaceholders: this.__input.includeResourcePlaceholders,
+          includeServiceLevelTemplate: this.__input.includeServiceLevelTemplate,
+          jobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetGeneratedPolicy.generatedPolicyResult.properties.isComplete', props);
+    return resource.getResponseField('generatedPolicyResult.properties.isComplete') as unknown as boolean;
+  }
+
+  public get principalArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getGeneratedPolicy',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.GetGeneratedPolicy.generatedPolicyResult.properties.principalArn'),
+        outputPath: 'generatedPolicyResult.properties.principalArn',
+        parameters: {
+          includeResourcePlaceholders: this.__input.includeResourcePlaceholders,
+          includeServiceLevelTemplate: this.__input.includeServiceLevelTemplate,
+          jobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetGeneratedPolicy.generatedPolicyResult.properties.principalArn', props);
+    return resource.getResponseField('generatedPolicyResult.properties.principalArn') as unknown as string;
+  }
+
+}
+
+export class AccessAnalyzerResponsesFetchGeneratedPolicyGeneratedPolicyResultPropertiesCloudTrailProperties {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AccessAnalyzerGetGeneratedPolicyRequest) {
+  }
+
+  public get endTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getGeneratedPolicy',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.GetGeneratedPolicy.generatedPolicyResult.properties.cloudTrailProperties.endTime'),
+        outputPath: 'generatedPolicyResult.properties.cloudTrailProperties.endTime',
+        parameters: {
+          includeResourcePlaceholders: this.__input.includeResourcePlaceholders,
+          includeServiceLevelTemplate: this.__input.includeServiceLevelTemplate,
+          jobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetGeneratedPolicy.generatedPolicyResult.properties.cloudTrailProperties.endTime', props);
+    return resource.getResponseField('generatedPolicyResult.properties.cloudTrailProperties.endTime') as unknown as string;
+  }
+
+  public get startTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getGeneratedPolicy',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.GetGeneratedPolicy.generatedPolicyResult.properties.cloudTrailProperties.startTime'),
+        outputPath: 'generatedPolicyResult.properties.cloudTrailProperties.startTime',
+        parameters: {
+          includeResourcePlaceholders: this.__input.includeResourcePlaceholders,
+          includeServiceLevelTemplate: this.__input.includeServiceLevelTemplate,
+          jobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetGeneratedPolicy.generatedPolicyResult.properties.cloudTrailProperties.startTime', props);
+    return resource.getResponseField('generatedPolicyResult.properties.cloudTrailProperties.startTime') as unknown as string;
+  }
+
+  public get trailProperties(): shapes.AccessAnalyzerTrailProperties[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getGeneratedPolicy',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.GetGeneratedPolicy.generatedPolicyResult.properties.cloudTrailProperties.trailProperties'),
+        outputPath: 'generatedPolicyResult.properties.cloudTrailProperties.trailProperties',
+        parameters: {
+          includeResourcePlaceholders: this.__input.includeResourcePlaceholders,
+          includeServiceLevelTemplate: this.__input.includeServiceLevelTemplate,
+          jobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetGeneratedPolicy.generatedPolicyResult.properties.cloudTrailProperties.trailProperties', props);
+    return resource.getResponseField('generatedPolicyResult.properties.cloudTrailProperties.trailProperties') as unknown as shapes.AccessAnalyzerTrailProperties[];
+  }
+
+}
+
+export class AccessAnalyzerResponsesFetchGeneratedPolicyJobDetails {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AccessAnalyzerGetGeneratedPolicyRequest) {
+  }
+
+  public get completedOn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getGeneratedPolicy',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.GetGeneratedPolicy.jobDetails.completedOn'),
+        outputPath: 'jobDetails.completedOn',
+        parameters: {
+          includeResourcePlaceholders: this.__input.includeResourcePlaceholders,
+          includeServiceLevelTemplate: this.__input.includeServiceLevelTemplate,
+          jobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetGeneratedPolicy.jobDetails.completedOn', props);
+    return resource.getResponseField('jobDetails.completedOn') as unknown as string;
+  }
+
+  public get jobError(): AccessAnalyzerResponsesFetchGeneratedPolicyJobDetailsJobError {
+    return new AccessAnalyzerResponsesFetchGeneratedPolicyJobDetailsJobError(this.__scope, this.__resources, this.__input);
+  }
+
+  public get jobId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getGeneratedPolicy',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.GetGeneratedPolicy.jobDetails.jobId'),
+        outputPath: 'jobDetails.jobId',
+        parameters: {
+          includeResourcePlaceholders: this.__input.includeResourcePlaceholders,
+          includeServiceLevelTemplate: this.__input.includeServiceLevelTemplate,
+          jobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetGeneratedPolicy.jobDetails.jobId', props);
+    return resource.getResponseField('jobDetails.jobId') as unknown as string;
+  }
+
+  public get startedOn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getGeneratedPolicy',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.GetGeneratedPolicy.jobDetails.startedOn'),
+        outputPath: 'jobDetails.startedOn',
+        parameters: {
+          includeResourcePlaceholders: this.__input.includeResourcePlaceholders,
+          includeServiceLevelTemplate: this.__input.includeServiceLevelTemplate,
+          jobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetGeneratedPolicy.jobDetails.startedOn', props);
+    return resource.getResponseField('jobDetails.startedOn') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getGeneratedPolicy',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.GetGeneratedPolicy.jobDetails.status'),
+        outputPath: 'jobDetails.status',
+        parameters: {
+          includeResourcePlaceholders: this.__input.includeResourcePlaceholders,
+          includeServiceLevelTemplate: this.__input.includeServiceLevelTemplate,
+          jobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetGeneratedPolicy.jobDetails.status', props);
+    return resource.getResponseField('jobDetails.status') as unknown as string;
+  }
+
+}
+
+export class AccessAnalyzerResponsesFetchGeneratedPolicyJobDetailsJobError {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AccessAnalyzerGetGeneratedPolicyRequest) {
+  }
+
+  public get code(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getGeneratedPolicy',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.GetGeneratedPolicy.jobDetails.jobError.code'),
+        outputPath: 'jobDetails.jobError.code',
+        parameters: {
+          includeResourcePlaceholders: this.__input.includeResourcePlaceholders,
+          includeServiceLevelTemplate: this.__input.includeServiceLevelTemplate,
+          jobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetGeneratedPolicy.jobDetails.jobError.code', props);
+    return resource.getResponseField('jobDetails.jobError.code') as unknown as string;
+  }
+
+  public get message(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getGeneratedPolicy',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.GetGeneratedPolicy.jobDetails.jobError.message'),
+        outputPath: 'jobDetails.jobError.message',
+        parameters: {
+          includeResourcePlaceholders: this.__input.includeResourcePlaceholders,
+          includeServiceLevelTemplate: this.__input.includeServiceLevelTemplate,
+          jobId: this.__input.jobId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetGeneratedPolicy.jobDetails.jobError.message', props);
+    return resource.getResponseField('jobDetails.jobError.message') as unknown as string;
+  }
+
+}
+
+export class AccessAnalyzerResponsesListAccessPreviewFindings {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AccessAnalyzerListAccessPreviewFindingsRequest) {
+  }
+
+  public get findings(): shapes.AccessAnalyzerAccessPreviewFinding[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAccessPreviewFindings',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.ListAccessPreviewFindings.findings'),
+        outputPath: 'findings',
+        parameters: {
+          accessPreviewId: this.__input.accessPreviewId,
+          analyzerArn: this.__input.analyzerArn,
+          filter: this.__input.filter,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAccessPreviewFindings.findings', props);
+    return resource.getResponseField('findings') as unknown as shapes.AccessAnalyzerAccessPreviewFinding[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAccessPreviewFindings',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.ListAccessPreviewFindings.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          accessPreviewId: this.__input.accessPreviewId,
+          analyzerArn: this.__input.analyzerArn,
+          filter: this.__input.filter,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAccessPreviewFindings.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
+export class AccessAnalyzerResponsesListAccessPreviews {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AccessAnalyzerListAccessPreviewsRequest) {
+  }
+
+  public get accessPreviews(): shapes.AccessAnalyzerAccessPreviewSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAccessPreviews',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.ListAccessPreviews.accessPreviews'),
+        outputPath: 'accessPreviews',
+        parameters: {
+          analyzerArn: this.__input.analyzerArn,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAccessPreviews.accessPreviews', props);
+    return resource.getResponseField('accessPreviews') as unknown as shapes.AccessAnalyzerAccessPreviewSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listAccessPreviews',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.ListAccessPreviews.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          analyzerArn: this.__input.analyzerArn,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListAccessPreviews.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+}
+
 export class AccessAnalyzerResponsesListAnalyzedResources {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AccessAnalyzerListAnalyzedResourcesRequest) {
@@ -1181,6 +1775,51 @@ export class AccessAnalyzerResponsesListFindings {
 
 }
 
+export class AccessAnalyzerResponsesListPolicyGenerations {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AccessAnalyzerListPolicyGenerationsRequest) {
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listPolicyGenerations',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.ListPolicyGenerations.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+          principalArn: this.__input.principalArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListPolicyGenerations.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
+  }
+
+  public get policyGenerations(): shapes.AccessAnalyzerPolicyGeneration[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listPolicyGenerations',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.ListPolicyGenerations.policyGenerations'),
+        outputPath: 'policyGenerations',
+        parameters: {
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+          principalArn: this.__input.principalArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListPolicyGenerations.policyGenerations', props);
+    return resource.getResponseField('policyGenerations') as unknown as shapes.AccessAnalyzerPolicyGeneration[];
+  }
+
+}
+
 export class AccessAnalyzerResponsesListTagsForResource {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AccessAnalyzerListTagsForResourceRequest) {
@@ -1201,6 +1840,88 @@ export class AccessAnalyzerResponsesListTagsForResource {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListTagsForResource.tags', props);
     return resource.getResponseField('tags') as unknown as Record<string, string>;
+  }
+
+}
+
+export class AccessAnalyzerResponsesStartPolicyGeneration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AccessAnalyzerStartPolicyGenerationRequest) {
+  }
+
+  public get jobId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'startPolicyGeneration',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.StartPolicyGeneration.jobId'),
+        outputPath: 'jobId',
+        parameters: {
+          clientToken: this.__input.clientToken,
+          cloudTrailDetails: {
+            accessRole: this.__input.cloudTrailDetails?.accessRole,
+            endTime: this.__input.cloudTrailDetails?.endTime,
+            startTime: this.__input.cloudTrailDetails?.startTime,
+            trails: this.__input.cloudTrailDetails?.trails,
+          },
+          policyGenerationDetails: {
+            principalArn: this.__input.policyGenerationDetails.principalArn,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'StartPolicyGeneration.jobId', props);
+    return resource.getResponseField('jobId') as unknown as string;
+  }
+
+}
+
+export class AccessAnalyzerResponsesValidatePolicy {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AccessAnalyzerValidatePolicyRequest) {
+  }
+
+  public get findings(): shapes.AccessAnalyzerValidatePolicyFinding[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'validatePolicy',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.ValidatePolicy.findings'),
+        outputPath: 'findings',
+        parameters: {
+          locale: this.__input.locale,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+          policyDocument: this.__input.policyDocument,
+          policyType: this.__input.policyType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ValidatePolicy.findings', props);
+    return resource.getResponseField('findings') as unknown as shapes.AccessAnalyzerValidatePolicyFinding[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'validatePolicy',
+        service: 'AccessAnalyzer',
+        physicalResourceId: cr.PhysicalResourceId.of('AccessAnalyzer.ValidatePolicy.nextToken'),
+        outputPath: 'nextToken',
+        parameters: {
+          locale: this.__input.locale,
+          maxResults: this.__input.maxResults,
+          nextToken: this.__input.nextToken,
+          policyDocument: this.__input.policyDocument,
+          policyType: this.__input.policyType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ValidatePolicy.nextToken', props);
+    return resource.getResponseField('nextToken') as unknown as string;
   }
 
 }

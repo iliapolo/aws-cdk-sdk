@@ -5,7 +5,7 @@ export interface ImportExportCancelJobInput {
   /**
    * @schema ImportExportCancelJobInput#JobId
    */
-  readonly jobId: string;
+  readonly jobId?: string;
 
   /**
    * @schema ImportExportCancelJobInput#APIVersion
@@ -13,6 +13,21 @@ export interface ImportExportCancelJobInput {
   readonly apiVersion?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImportExportCancelJobInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImportExportCancelJobInput(obj: ImportExportCancelJobInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobId': obj.jobId,
+    'APIVersion': obj.apiVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImportExportCancelJobOutput
@@ -26,18 +41,32 @@ export interface ImportExportCancelJobOutput {
 }
 
 /**
+ * Converts an object of type 'ImportExportCancelJobOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImportExportCancelJobOutput(obj: ImportExportCancelJobOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Success': obj.success,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImportExportCreateJobInput
  */
 export interface ImportExportCreateJobInput {
   /**
    * @schema ImportExportCreateJobInput#JobType
    */
-  readonly jobType: string;
+  readonly jobType?: string;
 
   /**
    * @schema ImportExportCreateJobInput#Manifest
    */
-  readonly manifest: string;
+  readonly manifest?: string;
 
   /**
    * @schema ImportExportCreateJobInput#ManifestAddendum
@@ -47,7 +76,7 @@ export interface ImportExportCreateJobInput {
   /**
    * @schema ImportExportCreateJobInput#ValidateOnly
    */
-  readonly validateOnly: boolean;
+  readonly validateOnly?: boolean;
 
   /**
    * @schema ImportExportCreateJobInput#APIVersion
@@ -55,6 +84,24 @@ export interface ImportExportCreateJobInput {
   readonly apiVersion?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImportExportCreateJobInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImportExportCreateJobInput(obj: ImportExportCreateJobInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobType': obj.jobType,
+    'Manifest': obj.manifest,
+    'ManifestAddendum': obj.manifestAddendum,
+    'ValidateOnly': obj.validateOnly,
+    'APIVersion': obj.apiVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImportExportCreateJobOutput
@@ -91,6 +138,25 @@ export interface ImportExportCreateJobOutput {
   readonly artifactList?: ImportExportArtifact[];
 
 }
+
+/**
+ * Converts an object of type 'ImportExportCreateJobOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImportExportCreateJobOutput(obj: ImportExportCreateJobOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobId': obj.jobId,
+    'JobType': obj.jobType,
+    'Signature': obj.signature,
+    'SignatureFileContents': obj.signatureFileContents,
+    'WarningMessage': obj.warningMessage,
+    'ArtifactList': obj.artifactList?.map(y => toJson_ImportExportArtifact(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImportExportGetShippingLabelInput
@@ -159,6 +225,31 @@ export interface ImportExportGetShippingLabelInput {
 }
 
 /**
+ * Converts an object of type 'ImportExportGetShippingLabelInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImportExportGetShippingLabelInput(obj: ImportExportGetShippingLabelInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobIds': obj.jobIds?.map(y => y),
+    'name': obj.name,
+    'company': obj.company,
+    'phoneNumber': obj.phoneNumber,
+    'country': obj.country,
+    'stateOrProvince': obj.stateOrProvince,
+    'city': obj.city,
+    'postalCode': obj.postalCode,
+    'street1': obj.street1,
+    'street2': obj.street2,
+    'street3': obj.street3,
+    'APIVersion': obj.apiVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImportExportGetShippingLabelOutput
  */
 export interface ImportExportGetShippingLabelOutput {
@@ -175,13 +266,28 @@ export interface ImportExportGetShippingLabelOutput {
 }
 
 /**
+ * Converts an object of type 'ImportExportGetShippingLabelOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImportExportGetShippingLabelOutput(obj: ImportExportGetShippingLabelOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ShippingLabelURL': obj.shippingLabelUrl,
+    'Warning': obj.warning,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImportExportGetStatusInput
  */
 export interface ImportExportGetStatusInput {
   /**
    * @schema ImportExportGetStatusInput#JobId
    */
-  readonly jobId: string;
+  readonly jobId?: string;
 
   /**
    * @schema ImportExportGetStatusInput#APIVersion
@@ -189,6 +295,21 @@ export interface ImportExportGetStatusInput {
   readonly apiVersion?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImportExportGetStatusInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImportExportGetStatusInput(obj: ImportExportGetStatusInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobId': obj.jobId,
+    'APIVersion': obj.apiVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImportExportGetStatusOutput
@@ -277,6 +398,35 @@ export interface ImportExportGetStatusOutput {
 }
 
 /**
+ * Converts an object of type 'ImportExportGetStatusOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImportExportGetStatusOutput(obj: ImportExportGetStatusOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobId': obj.jobId,
+    'JobType': obj.jobType,
+    'LocationCode': obj.locationCode,
+    'LocationMessage': obj.locationMessage,
+    'ProgressCode': obj.progressCode,
+    'ProgressMessage': obj.progressMessage,
+    'Carrier': obj.carrier,
+    'TrackingNumber': obj.trackingNumber,
+    'LogBucket': obj.logBucket,
+    'LogKey': obj.logKey,
+    'ErrorCount': obj.errorCount,
+    'Signature': obj.signature,
+    'SignatureFileContents': obj.signatureFileContents,
+    'CurrentManifest': obj.currentManifest,
+    'CreationDate': obj.creationDate,
+    'ArtifactList': obj.artifactList?.map(y => toJson_ImportExportArtifact(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImportExportListJobsInput
  */
 export interface ImportExportListJobsInput {
@@ -298,6 +448,22 @@ export interface ImportExportListJobsInput {
 }
 
 /**
+ * Converts an object of type 'ImportExportListJobsInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImportExportListJobsInput(obj: ImportExportListJobsInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxJobs': obj.maxJobs,
+    'Marker': obj.marker,
+    'APIVersion': obj.apiVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImportExportListJobsOutput
  */
 export interface ImportExportListJobsOutput {
@@ -314,28 +480,43 @@ export interface ImportExportListJobsOutput {
 }
 
 /**
+ * Converts an object of type 'ImportExportListJobsOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImportExportListJobsOutput(obj: ImportExportListJobsOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Jobs': obj.jobs?.map(y => toJson_ImportExportJob(y)),
+    'IsTruncated': obj.isTruncated,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImportExportUpdateJobInput
  */
 export interface ImportExportUpdateJobInput {
   /**
    * @schema ImportExportUpdateJobInput#JobId
    */
-  readonly jobId: string;
+  readonly jobId?: string;
 
   /**
    * @schema ImportExportUpdateJobInput#Manifest
    */
-  readonly manifest: string;
+  readonly manifest?: string;
 
   /**
    * @schema ImportExportUpdateJobInput#JobType
    */
-  readonly jobType: string;
+  readonly jobType?: string;
 
   /**
    * @schema ImportExportUpdateJobInput#ValidateOnly
    */
-  readonly validateOnly: boolean;
+  readonly validateOnly?: boolean;
 
   /**
    * @schema ImportExportUpdateJobInput#APIVersion
@@ -343,6 +524,24 @@ export interface ImportExportUpdateJobInput {
   readonly apiVersion?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImportExportUpdateJobInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImportExportUpdateJobInput(obj: ImportExportUpdateJobInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobId': obj.jobId,
+    'Manifest': obj.manifest,
+    'JobType': obj.jobType,
+    'ValidateOnly': obj.validateOnly,
+    'APIVersion': obj.apiVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImportExportUpdateJobOutput
@@ -366,6 +565,22 @@ export interface ImportExportUpdateJobOutput {
 }
 
 /**
+ * Converts an object of type 'ImportExportUpdateJobOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImportExportUpdateJobOutput(obj: ImportExportUpdateJobOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Success': obj.success,
+    'WarningMessage': obj.warningMessage,
+    'ArtifactList': obj.artifactList?.map(y => toJson_ImportExportArtifact(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema ImportExportArtifact
  */
 export interface ImportExportArtifact {
@@ -380,6 +595,21 @@ export interface ImportExportArtifact {
   readonly url?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImportExportArtifact' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImportExportArtifact(obj: ImportExportArtifact | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Description': obj.description,
+    'URL': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema ImportExportJob
@@ -406,3 +636,20 @@ export interface ImportExportJob {
   readonly jobType?: string;
 
 }
+
+/**
+ * Converts an object of type 'ImportExportJob' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_ImportExportJob(obj: ImportExportJob | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'JobId': obj.jobId,
+    'CreationDate': obj.creationDate,
+    'IsCanceled': obj.isCanceled,
+    'JobType': obj.jobType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

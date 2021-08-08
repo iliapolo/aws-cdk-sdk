@@ -86,6 +86,7 @@ export class ShieldClient extends cdk.Construct {
           Pattern: input.pattern,
           ResourceType: input.resourceType,
           Members: input.members,
+          Tags: input.tags,
         },
       },
     };
@@ -271,6 +272,42 @@ export class ShieldClient extends cdk.Construct {
     return new ShieldResponsesListResourcesInProtectionGroup(this, this.__resources, input);
   }
 
+  public listTagsForResource(input: shapes.ShieldListTagsForResourceRequest): ShieldResponsesListTagsForResource {
+    return new ShieldResponsesListTagsForResource(this, this.__resources, input);
+  }
+
+  public tagResource(input: shapes.ShieldTagResourceRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'tagResource',
+        service: 'Shield',
+        physicalResourceId: cr.PhysicalResourceId.of('Shield.TagResource'),
+        parameters: {
+          ResourceARN: input.resourceArn,
+          Tags: input.tags,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'TagResource', props);
+  }
+
+  public untagResource(input: shapes.ShieldUntagResourceRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'untagResource',
+        service: 'Shield',
+        physicalResourceId: cr.PhysicalResourceId.of('Shield.UntagResource'),
+        parameters: {
+          ResourceARN: input.resourceArn,
+          TagKeys: input.tagKeys,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UntagResource', props);
+  }
+
   public updateEmergencyContactSettings(input: shapes.ShieldUpdateEmergencyContactSettingsRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -338,6 +375,7 @@ export class ShieldResponsesCreateProtection {
         parameters: {
           Name: this.__input.name,
           ResourceArn: this.__input.resourceArn,
+          Tags: this.__input.tags,
         },
       },
     };
@@ -717,6 +755,24 @@ export class ShieldResponsesDescribeProtectionProtection {
     return resource.getResponseField('Protection.HealthCheckIds') as unknown as string[];
   }
 
+  public get protectionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeProtection',
+        service: 'Shield',
+        physicalResourceId: cr.PhysicalResourceId.of('Shield.DescribeProtection.Protection.ProtectionArn'),
+        outputPath: 'Protection.ProtectionArn',
+        parameters: {
+          ProtectionId: this.__input.protectionId,
+          ResourceArn: this.__input.resourceArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProtection.Protection.ProtectionArn', props);
+    return resource.getResponseField('Protection.ProtectionArn') as unknown as string;
+  }
+
 }
 
 export class ShieldResponsesDescribeProtectionGroup {
@@ -818,6 +874,23 @@ export class ShieldResponsesDescribeProtectionGroupProtectionGroup {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProtectionGroup.ProtectionGroup.Members', props);
     return resource.getResponseField('ProtectionGroup.Members') as unknown as string[];
+  }
+
+  public get protectionGroupArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeProtectionGroup',
+        service: 'Shield',
+        physicalResourceId: cr.PhysicalResourceId.of('Shield.DescribeProtectionGroup.ProtectionGroup.ProtectionGroupArn'),
+        outputPath: 'ProtectionGroup.ProtectionGroupArn',
+        parameters: {
+          ProtectionGroupId: this.__input.protectionGroupId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeProtectionGroup.ProtectionGroup.ProtectionGroupArn', props);
+    return resource.getResponseField('ProtectionGroup.ProtectionGroupArn') as unknown as string;
   }
 
 }
@@ -936,6 +1009,22 @@ export class ShieldResponsesDescribeSubscriptionSubscription {
 
   public get subscriptionLimits(): ShieldResponsesDescribeSubscriptionSubscriptionSubscriptionLimits {
     return new ShieldResponsesDescribeSubscriptionSubscriptionSubscriptionLimits(this.__scope, this.__resources);
+  }
+
+  public get subscriptionArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeSubscription',
+        service: 'Shield',
+        physicalResourceId: cr.PhysicalResourceId.of('Shield.DescribeSubscription.Subscription.SubscriptionArn'),
+        outputPath: 'Subscription.SubscriptionArn',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeSubscription.Subscription.SubscriptionArn', props);
+    return resource.getResponseField('Subscription.SubscriptionArn') as unknown as string;
   }
 
 }
@@ -1250,6 +1339,30 @@ export class ShieldResponsesListResourcesInProtectionGroup {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListResourcesInProtectionGroup.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class ShieldResponsesListTagsForResource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ShieldListTagsForResourceRequest) {
+  }
+
+  public get tags(): shapes.ShieldTag[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listTagsForResource',
+        service: 'Shield',
+        physicalResourceId: cr.PhysicalResourceId.of('Shield.ListTagsForResource.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          ResourceARN: this.__input.resourceArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListTagsForResource.Tags', props);
+    return resource.getResponseField('Tags') as unknown as shapes.ShieldTag[];
   }
 
 }

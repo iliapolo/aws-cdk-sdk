@@ -74,11 +74,39 @@ export class STSResponsesAssumeRole {
           ExternalId: this.__input.externalId,
           SerialNumber: this.__input.serialNumber,
           TokenCode: this.__input.tokenCode,
+          SourceIdentity: this.__input.sourceIdentity,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AssumeRole.PackedPolicySize', props);
     return resource.getResponseField('PackedPolicySize') as unknown as number;
+  }
+
+  public get sourceIdentity(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'assumeRole',
+        service: 'STS',
+        physicalResourceId: cr.PhysicalResourceId.of('STS.AssumeRole.SourceIdentity'),
+        outputPath: 'SourceIdentity',
+        parameters: {
+          RoleArn: this.__input.roleArn,
+          RoleSessionName: this.__input.roleSessionName,
+          PolicyArns: this.__input.policyArns,
+          Policy: this.__input.policy,
+          DurationSeconds: this.__input.durationSeconds,
+          Tags: this.__input.tags,
+          TransitiveTagKeys: this.__input.transitiveTagKeys,
+          ExternalId: this.__input.externalId,
+          SerialNumber: this.__input.serialNumber,
+          TokenCode: this.__input.tokenCode,
+          SourceIdentity: this.__input.sourceIdentity,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssumeRole.SourceIdentity', props);
+    return resource.getResponseField('SourceIdentity') as unknown as string;
   }
 
 }
@@ -107,6 +135,7 @@ export class STSResponsesAssumeRoleCredentials {
           ExternalId: this.__input.externalId,
           SerialNumber: this.__input.serialNumber,
           TokenCode: this.__input.tokenCode,
+          SourceIdentity: this.__input.sourceIdentity,
         },
       },
     };
@@ -133,6 +162,7 @@ export class STSResponsesAssumeRoleCredentials {
           ExternalId: this.__input.externalId,
           SerialNumber: this.__input.serialNumber,
           TokenCode: this.__input.tokenCode,
+          SourceIdentity: this.__input.sourceIdentity,
         },
       },
     };
@@ -159,6 +189,7 @@ export class STSResponsesAssumeRoleCredentials {
           ExternalId: this.__input.externalId,
           SerialNumber: this.__input.serialNumber,
           TokenCode: this.__input.tokenCode,
+          SourceIdentity: this.__input.sourceIdentity,
         },
       },
     };
@@ -185,6 +216,7 @@ export class STSResponsesAssumeRoleCredentials {
           ExternalId: this.__input.externalId,
           SerialNumber: this.__input.serialNumber,
           TokenCode: this.__input.tokenCode,
+          SourceIdentity: this.__input.sourceIdentity,
         },
       },
     };
@@ -218,6 +250,7 @@ export class STSResponsesAssumeRoleAssumedRoleUser {
           ExternalId: this.__input.externalId,
           SerialNumber: this.__input.serialNumber,
           TokenCode: this.__input.tokenCode,
+          SourceIdentity: this.__input.sourceIdentity,
         },
       },
     };
@@ -244,6 +277,7 @@ export class STSResponsesAssumeRoleAssumedRoleUser {
           ExternalId: this.__input.externalId,
           SerialNumber: this.__input.serialNumber,
           TokenCode: this.__input.tokenCode,
+          SourceIdentity: this.__input.sourceIdentity,
         },
       },
     };
@@ -396,6 +430,28 @@ export class STSResponsesAssumeRoleWithSaml {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AssumeRoleWithSAML.NameQualifier', props);
     return resource.getResponseField('NameQualifier') as unknown as string;
+  }
+
+  public get sourceIdentity(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'assumeRoleWithSaml',
+        service: 'STS',
+        physicalResourceId: cr.PhysicalResourceId.of('STS.AssumeRoleWithSAML.SourceIdentity'),
+        outputPath: 'SourceIdentity',
+        parameters: {
+          RoleArn: this.__input.roleArn,
+          PrincipalArn: this.__input.principalArn,
+          SAMLAssertion: this.__input.samlAssertion,
+          PolicyArns: this.__input.policyArns,
+          Policy: this.__input.policy,
+          DurationSeconds: this.__input.durationSeconds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssumeRoleWithSAML.SourceIdentity', props);
+    return resource.getResponseField('SourceIdentity') as unknown as string;
   }
 
 }
@@ -649,6 +705,29 @@ export class STSResponsesAssumeRoleWithWebIdentity {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'AssumeRoleWithWebIdentity.Audience', props);
     return resource.getResponseField('Audience') as unknown as string;
+  }
+
+  public get sourceIdentity(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'assumeRoleWithWebIdentity',
+        service: 'STS',
+        physicalResourceId: cr.PhysicalResourceId.of('STS.AssumeRoleWithWebIdentity.SourceIdentity'),
+        outputPath: 'SourceIdentity',
+        parameters: {
+          RoleArn: this.__input.roleArn,
+          RoleSessionName: this.__input.roleSessionName,
+          WebIdentityToken: this.__input.webIdentityToken,
+          ProviderId: this.__input.providerId,
+          PolicyArns: this.__input.policyArns,
+          Policy: this.__input.policy,
+          DurationSeconds: this.__input.durationSeconds,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'AssumeRoleWithWebIdentity.SourceIdentity', props);
+    return resource.getResponseField('SourceIdentity') as unknown as string;
   }
 
 }

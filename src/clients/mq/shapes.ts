@@ -100,6 +100,38 @@ export interface MqCreateBrokerRequest {
 }
 
 /**
+ * Converts an object of type 'MqCreateBrokerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqCreateBrokerRequest(obj: MqCreateBrokerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AuthenticationStrategy': obj.authenticationStrategy,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'BrokerName': obj.brokerName,
+    'Configuration': toJson_MqConfigurationId(obj.configuration),
+    'CreatorRequestId': obj.creatorRequestId,
+    'DeploymentMode': obj.deploymentMode,
+    'EncryptionOptions': toJson_MqEncryptionOptions(obj.encryptionOptions),
+    'EngineType': obj.engineType,
+    'EngineVersion': obj.engineVersion,
+    'HostInstanceType': obj.hostInstanceType,
+    'LdapServerMetadata': toJson_MqLdapServerMetadataInput(obj.ldapServerMetadata),
+    'Logs': toJson_MqLogs(obj.logs),
+    'MaintenanceWindowStartTime': toJson_MqWeeklyStartTime(obj.maintenanceWindowStartTime),
+    'PubliclyAccessible': obj.publiclyAccessible,
+    'SecurityGroups': obj.securityGroups?.map(y => y),
+    'StorageType': obj.storageType,
+    'SubnetIds': obj.subnetIds?.map(y => y),
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'Users': obj.users?.map(y => toJson_MqUser(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqCreateBrokerResponse
  */
 export interface MqCreateBrokerResponse {
@@ -114,6 +146,21 @@ export interface MqCreateBrokerResponse {
   readonly brokerId?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqCreateBrokerResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqCreateBrokerResponse(obj: MqCreateBrokerResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BrokerArn': obj.brokerArn,
+    'BrokerId': obj.brokerId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqCreateConfigurationRequest
@@ -145,6 +192,24 @@ export interface MqCreateConfigurationRequest {
   readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'MqCreateConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqCreateConfigurationRequest(obj: MqCreateConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AuthenticationStrategy': obj.authenticationStrategy,
+    'EngineType': obj.engineType,
+    'EngineVersion': obj.engineVersion,
+    'Name': obj.name,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqCreateConfigurationResponse
@@ -183,13 +248,32 @@ export interface MqCreateConfigurationResponse {
 }
 
 /**
+ * Converts an object of type 'MqCreateConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqCreateConfigurationResponse(obj: MqCreateConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'AuthenticationStrategy': obj.authenticationStrategy,
+    'Created': obj.created,
+    'Id': obj.id,
+    'LatestRevision': toJson_MqConfigurationRevision(obj.latestRevision),
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqCreateTagsRequest
  */
 export interface MqCreateTagsRequest {
   /**
    * @schema MqCreateTagsRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema MqCreateTagsRequest#Tags
@@ -199,13 +283,28 @@ export interface MqCreateTagsRequest {
 }
 
 /**
+ * Converts an object of type 'MqCreateTagsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqCreateTagsRequest(obj: MqCreateTagsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqCreateUserRequest
  */
 export interface MqCreateUserRequest {
   /**
    * @schema MqCreateUserRequest#BrokerId
    */
-  readonly brokerId: string;
+  readonly brokerId?: string;
 
   /**
    * @schema MqCreateUserRequest#ConsoleAccess
@@ -225,9 +324,27 @@ export interface MqCreateUserRequest {
   /**
    * @schema MqCreateUserRequest#Username
    */
-  readonly username: string;
+  readonly username?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqCreateUserRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqCreateUserRequest(obj: MqCreateUserRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BrokerId': obj.brokerId,
+    'ConsoleAccess': obj.consoleAccess,
+    'Groups': obj.groups?.map(y => y),
+    'Password': obj.password,
+    'Username': obj.username,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqCreateUserResponse
@@ -236,15 +353,42 @@ export interface MqCreateUserResponse {
 }
 
 /**
+ * Converts an object of type 'MqCreateUserResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqCreateUserResponse(obj: MqCreateUserResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqDeleteBrokerRequest
  */
 export interface MqDeleteBrokerRequest {
   /**
    * @schema MqDeleteBrokerRequest#BrokerId
    */
-  readonly brokerId: string;
+  readonly brokerId?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqDeleteBrokerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqDeleteBrokerRequest(obj: MqDeleteBrokerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BrokerId': obj.brokerId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqDeleteBrokerResponse
@@ -258,20 +402,49 @@ export interface MqDeleteBrokerResponse {
 }
 
 /**
+ * Converts an object of type 'MqDeleteBrokerResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqDeleteBrokerResponse(obj: MqDeleteBrokerResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BrokerId': obj.brokerId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqDeleteTagsRequest
  */
 export interface MqDeleteTagsRequest {
   /**
    * @schema MqDeleteTagsRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema MqDeleteTagsRequest#TagKeys
    */
-  readonly tagKeys: string[];
+  readonly tagKeys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'MqDeleteTagsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqDeleteTagsRequest(obj: MqDeleteTagsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqDeleteUserRequest
@@ -280,14 +453,29 @@ export interface MqDeleteUserRequest {
   /**
    * @schema MqDeleteUserRequest#BrokerId
    */
-  readonly brokerId: string;
+  readonly brokerId?: string;
 
   /**
    * @schema MqDeleteUserRequest#Username
    */
-  readonly username: string;
+  readonly username?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqDeleteUserRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqDeleteUserRequest(obj: MqDeleteUserRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BrokerId': obj.brokerId,
+    'Username': obj.username,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqDeleteUserResponse
@@ -296,15 +484,42 @@ export interface MqDeleteUserResponse {
 }
 
 /**
+ * Converts an object of type 'MqDeleteUserResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqDeleteUserResponse(obj: MqDeleteUserResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqDescribeBrokerRequest
  */
 export interface MqDescribeBrokerRequest {
   /**
    * @schema MqDescribeBrokerRequest#BrokerId
    */
-  readonly brokerId: string;
+  readonly brokerId?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqDescribeBrokerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqDescribeBrokerRequest(obj: MqDescribeBrokerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BrokerId': obj.brokerId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqDescribeBrokerResponse
@@ -453,6 +668,47 @@ export interface MqDescribeBrokerResponse {
 }
 
 /**
+ * Converts an object of type 'MqDescribeBrokerResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqDescribeBrokerResponse(obj: MqDescribeBrokerResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AuthenticationStrategy': obj.authenticationStrategy,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'BrokerArn': obj.brokerArn,
+    'BrokerId': obj.brokerId,
+    'BrokerInstances': obj.brokerInstances?.map(y => toJson_MqBrokerInstance(y)),
+    'BrokerName': obj.brokerName,
+    'BrokerState': obj.brokerState,
+    'Configurations': toJson_MqConfigurations(obj.configurations),
+    'Created': obj.created,
+    'DeploymentMode': obj.deploymentMode,
+    'EncryptionOptions': toJson_MqEncryptionOptions(obj.encryptionOptions),
+    'EngineType': obj.engineType,
+    'EngineVersion': obj.engineVersion,
+    'HostInstanceType': obj.hostInstanceType,
+    'LdapServerMetadata': toJson_MqLdapServerMetadataOutput(obj.ldapServerMetadata),
+    'Logs': toJson_MqLogsSummary(obj.logs),
+    'MaintenanceWindowStartTime': toJson_MqWeeklyStartTime(obj.maintenanceWindowStartTime),
+    'PendingAuthenticationStrategy': obj.pendingAuthenticationStrategy,
+    'PendingEngineVersion': obj.pendingEngineVersion,
+    'PendingHostInstanceType': obj.pendingHostInstanceType,
+    'PendingLdapServerMetadata': toJson_MqLdapServerMetadataOutput(obj.pendingLdapServerMetadata),
+    'PendingSecurityGroups': obj.pendingSecurityGroups?.map(y => y),
+    'PubliclyAccessible': obj.publiclyAccessible,
+    'SecurityGroups': obj.securityGroups?.map(y => y),
+    'StorageType': obj.storageType,
+    'SubnetIds': obj.subnetIds?.map(y => y),
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'Users': obj.users?.map(y => toJson_MqUserSummary(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqDescribeBrokerEngineTypesRequest
  */
 export interface MqDescribeBrokerEngineTypesRequest {
@@ -474,6 +730,22 @@ export interface MqDescribeBrokerEngineTypesRequest {
 }
 
 /**
+ * Converts an object of type 'MqDescribeBrokerEngineTypesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqDescribeBrokerEngineTypesRequest(obj: MqDescribeBrokerEngineTypesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EngineType': obj.engineType,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqDescribeBrokerEngineTypesResponse
  */
 export interface MqDescribeBrokerEngineTypesResponse {
@@ -493,6 +765,22 @@ export interface MqDescribeBrokerEngineTypesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqDescribeBrokerEngineTypesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqDescribeBrokerEngineTypesResponse(obj: MqDescribeBrokerEngineTypesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BrokerEngineTypes': obj.brokerEngineTypes?.map(y => toJson_MqBrokerEngineType(y)),
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqDescribeBrokerInstanceOptionsRequest
@@ -526,6 +814,24 @@ export interface MqDescribeBrokerInstanceOptionsRequest {
 }
 
 /**
+ * Converts an object of type 'MqDescribeBrokerInstanceOptionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqDescribeBrokerInstanceOptionsRequest(obj: MqDescribeBrokerInstanceOptionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EngineType': obj.engineType,
+    'HostInstanceType': obj.hostInstanceType,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+    'StorageType': obj.storageType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqDescribeBrokerInstanceOptionsResponse
  */
 export interface MqDescribeBrokerInstanceOptionsResponse {
@@ -547,15 +853,45 @@ export interface MqDescribeBrokerInstanceOptionsResponse {
 }
 
 /**
+ * Converts an object of type 'MqDescribeBrokerInstanceOptionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqDescribeBrokerInstanceOptionsResponse(obj: MqDescribeBrokerInstanceOptionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BrokerInstanceOptions': obj.brokerInstanceOptions?.map(y => toJson_MqBrokerInstanceOption(y)),
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqDescribeConfigurationRequest
  */
 export interface MqDescribeConfigurationRequest {
   /**
    * @schema MqDescribeConfigurationRequest#ConfigurationId
    */
-  readonly configurationId: string;
+  readonly configurationId?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqDescribeConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqDescribeConfigurationRequest(obj: MqDescribeConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConfigurationId': obj.configurationId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqDescribeConfigurationResponse
@@ -614,20 +950,58 @@ export interface MqDescribeConfigurationResponse {
 }
 
 /**
+ * Converts an object of type 'MqDescribeConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqDescribeConfigurationResponse(obj: MqDescribeConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'AuthenticationStrategy': obj.authenticationStrategy,
+    'Created': obj.created,
+    'Description': obj.description,
+    'EngineType': obj.engineType,
+    'EngineVersion': obj.engineVersion,
+    'Id': obj.id,
+    'LatestRevision': toJson_MqConfigurationRevision(obj.latestRevision),
+    'Name': obj.name,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqDescribeConfigurationRevisionRequest
  */
 export interface MqDescribeConfigurationRevisionRequest {
   /**
    * @schema MqDescribeConfigurationRevisionRequest#ConfigurationId
    */
-  readonly configurationId: string;
+  readonly configurationId?: string;
 
   /**
    * @schema MqDescribeConfigurationRevisionRequest#ConfigurationRevision
    */
-  readonly configurationRevision: string;
+  readonly configurationRevision?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqDescribeConfigurationRevisionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqDescribeConfigurationRevisionRequest(obj: MqDescribeConfigurationRevisionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConfigurationId': obj.configurationId,
+    'ConfigurationRevision': obj.configurationRevision,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqDescribeConfigurationRevisionResponse
@@ -656,20 +1030,52 @@ export interface MqDescribeConfigurationRevisionResponse {
 }
 
 /**
+ * Converts an object of type 'MqDescribeConfigurationRevisionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqDescribeConfigurationRevisionResponse(obj: MqDescribeConfigurationRevisionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConfigurationId': obj.configurationId,
+    'Created': obj.created,
+    'Data': obj.data,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqDescribeUserRequest
  */
 export interface MqDescribeUserRequest {
   /**
    * @schema MqDescribeUserRequest#BrokerId
    */
-  readonly brokerId: string;
+  readonly brokerId?: string;
 
   /**
    * @schema MqDescribeUserRequest#Username
    */
-  readonly username: string;
+  readonly username?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqDescribeUserRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqDescribeUserRequest(obj: MqDescribeUserRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BrokerId': obj.brokerId,
+    'Username': obj.username,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqDescribeUserResponse
@@ -703,6 +1109,24 @@ export interface MqDescribeUserResponse {
 }
 
 /**
+ * Converts an object of type 'MqDescribeUserResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqDescribeUserResponse(obj: MqDescribeUserResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BrokerId': obj.brokerId,
+    'ConsoleAccess': obj.consoleAccess,
+    'Groups': obj.groups?.map(y => y),
+    'Pending': toJson_MqUserPendingChanges(obj.pending),
+    'Username': obj.username,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqListBrokersRequest
  */
 export interface MqListBrokersRequest {
@@ -717,6 +1141,21 @@ export interface MqListBrokersRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqListBrokersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqListBrokersRequest(obj: MqListBrokersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqListBrokersResponse
@@ -735,13 +1174,28 @@ export interface MqListBrokersResponse {
 }
 
 /**
+ * Converts an object of type 'MqListBrokersResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqListBrokersResponse(obj: MqListBrokersResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BrokerSummaries': obj.brokerSummaries?.map(y => toJson_MqBrokerSummary(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqListConfigurationRevisionsRequest
  */
 export interface MqListConfigurationRevisionsRequest {
   /**
    * @schema MqListConfigurationRevisionsRequest#ConfigurationId
    */
-  readonly configurationId: string;
+  readonly configurationId?: string;
 
   /**
    * @schema MqListConfigurationRevisionsRequest#MaxResults
@@ -754,6 +1208,22 @@ export interface MqListConfigurationRevisionsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqListConfigurationRevisionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqListConfigurationRevisionsRequest(obj: MqListConfigurationRevisionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConfigurationId': obj.configurationId,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqListConfigurationRevisionsResponse
@@ -782,6 +1252,23 @@ export interface MqListConfigurationRevisionsResponse {
 }
 
 /**
+ * Converts an object of type 'MqListConfigurationRevisionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqListConfigurationRevisionsResponse(obj: MqListConfigurationRevisionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConfigurationId': obj.configurationId,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+    'Revisions': obj.revisions?.map(y => toJson_MqConfigurationRevision(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqListConfigurationsRequest
  */
 export interface MqListConfigurationsRequest {
@@ -796,6 +1283,21 @@ export interface MqListConfigurationsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqListConfigurationsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqListConfigurationsRequest(obj: MqListConfigurationsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqListConfigurationsResponse
@@ -819,15 +1321,45 @@ export interface MqListConfigurationsResponse {
 }
 
 /**
+ * Converts an object of type 'MqListConfigurationsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqListConfigurationsResponse(obj: MqListConfigurationsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Configurations': obj.configurations?.map(y => toJson_MqConfiguration(y)),
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqListTagsRequest
  */
 export interface MqListTagsRequest {
   /**
    * @schema MqListTagsRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqListTagsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqListTagsRequest(obj: MqListTagsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqListTagsResponse
@@ -841,13 +1373,27 @@ export interface MqListTagsResponse {
 }
 
 /**
+ * Converts an object of type 'MqListTagsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqListTagsResponse(obj: MqListTagsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqListUsersRequest
  */
 export interface MqListUsersRequest {
   /**
    * @schema MqListUsersRequest#BrokerId
    */
-  readonly brokerId: string;
+  readonly brokerId?: string;
 
   /**
    * @schema MqListUsersRequest#MaxResults
@@ -860,6 +1406,22 @@ export interface MqListUsersRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqListUsersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqListUsersRequest(obj: MqListUsersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BrokerId': obj.brokerId,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqListUsersResponse
@@ -888,21 +1450,65 @@ export interface MqListUsersResponse {
 }
 
 /**
+ * Converts an object of type 'MqListUsersResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqListUsersResponse(obj: MqListUsersResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BrokerId': obj.brokerId,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+    'Users': obj.users?.map(y => toJson_MqUserSummary(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqRebootBrokerRequest
  */
 export interface MqRebootBrokerRequest {
   /**
    * @schema MqRebootBrokerRequest#BrokerId
    */
-  readonly brokerId: string;
+  readonly brokerId?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqRebootBrokerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqRebootBrokerRequest(obj: MqRebootBrokerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BrokerId': obj.brokerId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqRebootBrokerResponse
  */
 export interface MqRebootBrokerResponse {
 }
+
+/**
+ * Converts an object of type 'MqRebootBrokerResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqRebootBrokerResponse(obj: MqRebootBrokerResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqUpdateBrokerRequest
@@ -921,7 +1527,7 @@ export interface MqUpdateBrokerRequest {
   /**
    * @schema MqUpdateBrokerRequest#BrokerId
    */
-  readonly brokerId: string;
+  readonly brokerId?: string;
 
   /**
    * @schema MqUpdateBrokerRequest#Configuration
@@ -949,11 +1555,39 @@ export interface MqUpdateBrokerRequest {
   readonly logs?: MqLogs;
 
   /**
+   * @schema MqUpdateBrokerRequest#MaintenanceWindowStartTime
+   */
+  readonly maintenanceWindowStartTime?: MqWeeklyStartTime;
+
+  /**
    * @schema MqUpdateBrokerRequest#SecurityGroups
    */
   readonly securityGroups?: string[];
 
 }
+
+/**
+ * Converts an object of type 'MqUpdateBrokerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqUpdateBrokerRequest(obj: MqUpdateBrokerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AuthenticationStrategy': obj.authenticationStrategy,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'BrokerId': obj.brokerId,
+    'Configuration': toJson_MqConfigurationId(obj.configuration),
+    'EngineVersion': obj.engineVersion,
+    'HostInstanceType': obj.hostInstanceType,
+    'LdapServerMetadata': toJson_MqLdapServerMetadataInput(obj.ldapServerMetadata),
+    'Logs': toJson_MqLogs(obj.logs),
+    'MaintenanceWindowStartTime': toJson_MqWeeklyStartTime(obj.maintenanceWindowStartTime),
+    'SecurityGroups': obj.securityGroups?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqUpdateBrokerResponse
@@ -1000,11 +1634,39 @@ export interface MqUpdateBrokerResponse {
   readonly logs?: MqLogs;
 
   /**
+   * @schema MqUpdateBrokerResponse#MaintenanceWindowStartTime
+   */
+  readonly maintenanceWindowStartTime?: MqWeeklyStartTime;
+
+  /**
    * @schema MqUpdateBrokerResponse#SecurityGroups
    */
   readonly securityGroups?: string[];
 
 }
+
+/**
+ * Converts an object of type 'MqUpdateBrokerResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqUpdateBrokerResponse(obj: MqUpdateBrokerResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AuthenticationStrategy': obj.authenticationStrategy,
+    'AutoMinorVersionUpgrade': obj.autoMinorVersionUpgrade,
+    'BrokerId': obj.brokerId,
+    'Configuration': toJson_MqConfigurationId(obj.configuration),
+    'EngineVersion': obj.engineVersion,
+    'HostInstanceType': obj.hostInstanceType,
+    'LdapServerMetadata': toJson_MqLdapServerMetadataOutput(obj.ldapServerMetadata),
+    'Logs': toJson_MqLogs(obj.logs),
+    'MaintenanceWindowStartTime': toJson_MqWeeklyStartTime(obj.maintenanceWindowStartTime),
+    'SecurityGroups': obj.securityGroups?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqUpdateConfigurationRequest
@@ -1013,7 +1675,7 @@ export interface MqUpdateConfigurationRequest {
   /**
    * @schema MqUpdateConfigurationRequest#ConfigurationId
    */
-  readonly configurationId: string;
+  readonly configurationId?: string;
 
   /**
    * @schema MqUpdateConfigurationRequest#Data
@@ -1026,6 +1688,22 @@ export interface MqUpdateConfigurationRequest {
   readonly description?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqUpdateConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqUpdateConfigurationRequest(obj: MqUpdateConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConfigurationId': obj.configurationId,
+    'Data': obj.data,
+    'Description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqUpdateConfigurationResponse
@@ -1064,13 +1742,32 @@ export interface MqUpdateConfigurationResponse {
 }
 
 /**
+ * Converts an object of type 'MqUpdateConfigurationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqUpdateConfigurationResponse(obj: MqUpdateConfigurationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'Created': obj.created,
+    'Id': obj.id,
+    'LatestRevision': toJson_MqConfigurationRevision(obj.latestRevision),
+    'Name': obj.name,
+    'Warnings': obj.warnings?.map(y => toJson_MqSanitizationWarning(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqUpdateUserRequest
  */
 export interface MqUpdateUserRequest {
   /**
    * @schema MqUpdateUserRequest#BrokerId
    */
-  readonly brokerId: string;
+  readonly brokerId?: string;
 
   /**
    * @schema MqUpdateUserRequest#ConsoleAccess
@@ -1090,15 +1787,46 @@ export interface MqUpdateUserRequest {
   /**
    * @schema MqUpdateUserRequest#Username
    */
-  readonly username: string;
+  readonly username?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqUpdateUserRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqUpdateUserRequest(obj: MqUpdateUserRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BrokerId': obj.brokerId,
+    'ConsoleAccess': obj.consoleAccess,
+    'Groups': obj.groups?.map(y => y),
+    'Password': obj.password,
+    'Username': obj.username,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqUpdateUserResponse
  */
 export interface MqUpdateUserResponse {
 }
+
+/**
+ * Converts an object of type 'MqUpdateUserResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqUpdateUserResponse(obj: MqUpdateUserResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqConfigurationId
@@ -1117,6 +1845,21 @@ export interface MqConfigurationId {
 }
 
 /**
+ * Converts an object of type 'MqConfigurationId' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqConfigurationId(obj: MqConfigurationId | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Id': obj.id,
+    'Revision': obj.revision,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqEncryptionOptions
  */
 export interface MqEncryptionOptions {
@@ -1128,9 +1871,24 @@ export interface MqEncryptionOptions {
   /**
    * @schema MqEncryptionOptions#UseAwsOwnedKey
    */
-  readonly useAwsOwnedKey: boolean;
+  readonly useAwsOwnedKey?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'MqEncryptionOptions' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqEncryptionOptions(obj: MqEncryptionOptions | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'KmsKeyId': obj.kmsKeyId,
+    'UseAwsOwnedKey': obj.useAwsOwnedKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqLdapServerMetadataInput
@@ -1194,6 +1952,30 @@ export interface MqLdapServerMetadataInput {
 }
 
 /**
+ * Converts an object of type 'MqLdapServerMetadataInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqLdapServerMetadataInput(obj: MqLdapServerMetadataInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Hosts': obj.hosts?.map(y => y),
+    'RoleBase': obj.roleBase,
+    'RoleName': obj.roleName,
+    'RoleSearchMatching': obj.roleSearchMatching,
+    'RoleSearchSubtree': obj.roleSearchSubtree,
+    'ServiceAccountPassword': obj.serviceAccountPassword,
+    'ServiceAccountUsername': obj.serviceAccountUsername,
+    'UserBase': obj.userBase,
+    'UserRoleName': obj.userRoleName,
+    'UserSearchMatching': obj.userSearchMatching,
+    'UserSearchSubtree': obj.userSearchSubtree,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqLogs
  */
 export interface MqLogs {
@@ -1208,6 +1990,21 @@ export interface MqLogs {
   readonly general?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'MqLogs' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqLogs(obj: MqLogs | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Audit': obj.audit,
+    'General': obj.general,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqWeeklyStartTime
@@ -1229,6 +2026,22 @@ export interface MqWeeklyStartTime {
   readonly timeZone?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqWeeklyStartTime' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqWeeklyStartTime(obj: MqWeeklyStartTime | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DayOfWeek': obj.dayOfWeek,
+    'TimeOfDay': obj.timeOfDay,
+    'TimeZone': obj.timeZone,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqUser
@@ -1257,6 +2070,23 @@ export interface MqUser {
 }
 
 /**
+ * Converts an object of type 'MqUser' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqUser(obj: MqUser | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConsoleAccess': obj.consoleAccess,
+    'Groups': obj.groups?.map(y => y),
+    'Password': obj.password,
+    'Username': obj.username,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqConfigurationRevision
  */
 export interface MqConfigurationRevision {
@@ -1276,6 +2106,22 @@ export interface MqConfigurationRevision {
   readonly revision?: number;
 
 }
+
+/**
+ * Converts an object of type 'MqConfigurationRevision' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqConfigurationRevision(obj: MqConfigurationRevision | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Created': obj.created,
+    'Description': obj.description,
+    'Revision': obj.revision,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqBrokerInstance
@@ -1299,6 +2145,22 @@ export interface MqBrokerInstance {
 }
 
 /**
+ * Converts an object of type 'MqBrokerInstance' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqBrokerInstance(obj: MqBrokerInstance | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConsoleURL': obj.consoleUrl,
+    'Endpoints': obj.endpoints?.map(y => y),
+    'IpAddress': obj.ipAddress,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqConfigurations
  */
 export interface MqConfigurations {
@@ -1318,6 +2180,22 @@ export interface MqConfigurations {
   readonly pending?: MqConfigurationId;
 
 }
+
+/**
+ * Converts an object of type 'MqConfigurations' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqConfigurations(obj: MqConfigurations | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Current': toJson_MqConfigurationId(obj.current),
+    'History': obj.history?.map(y => toJson_MqConfigurationId(y)),
+    'Pending': toJson_MqConfigurationId(obj.pending),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqLdapServerMetadataOutput
@@ -1376,6 +2254,29 @@ export interface MqLdapServerMetadataOutput {
 }
 
 /**
+ * Converts an object of type 'MqLdapServerMetadataOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqLdapServerMetadataOutput(obj: MqLdapServerMetadataOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Hosts': obj.hosts?.map(y => y),
+    'RoleBase': obj.roleBase,
+    'RoleName': obj.roleName,
+    'RoleSearchMatching': obj.roleSearchMatching,
+    'RoleSearchSubtree': obj.roleSearchSubtree,
+    'ServiceAccountUsername': obj.serviceAccountUsername,
+    'UserBase': obj.userBase,
+    'UserRoleName': obj.userRoleName,
+    'UserSearchMatching': obj.userSearchMatching,
+    'UserSearchSubtree': obj.userSearchSubtree,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqLogsSummary
  */
 export interface MqLogsSummary {
@@ -1407,6 +2308,24 @@ export interface MqLogsSummary {
 }
 
 /**
+ * Converts an object of type 'MqLogsSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqLogsSummary(obj: MqLogsSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Audit': obj.audit,
+    'AuditLogGroup': obj.auditLogGroup,
+    'General': obj.general,
+    'GeneralLogGroup': obj.generalLogGroup,
+    'Pending': toJson_MqPendingLogs(obj.pending),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqUserSummary
  */
 export interface MqUserSummary {
@@ -1423,6 +2342,21 @@ export interface MqUserSummary {
 }
 
 /**
+ * Converts an object of type 'MqUserSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqUserSummary(obj: MqUserSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'PendingChange': obj.pendingChange,
+    'Username': obj.username,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqBrokerEngineType
  */
 export interface MqBrokerEngineType {
@@ -1437,6 +2371,21 @@ export interface MqBrokerEngineType {
   readonly engineVersions?: MqEngineVersion[];
 
 }
+
+/**
+ * Converts an object of type 'MqBrokerEngineType' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqBrokerEngineType(obj: MqBrokerEngineType | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EngineType': obj.engineType,
+    'EngineVersions': obj.engineVersions?.map(y => toJson_MqEngineVersion(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqBrokerInstanceOption
@@ -1475,6 +2424,25 @@ export interface MqBrokerInstanceOption {
 }
 
 /**
+ * Converts an object of type 'MqBrokerInstanceOption' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqBrokerInstanceOption(obj: MqBrokerInstanceOption | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AvailabilityZones': obj.availabilityZones?.map(y => toJson_MqAvailabilityZone(y)),
+    'EngineType': obj.engineType,
+    'HostInstanceType': obj.hostInstanceType,
+    'StorageType': obj.storageType,
+    'SupportedDeploymentModes': obj.supportedDeploymentModes?.map(y => y),
+    'SupportedEngineVersions': obj.supportedEngineVersions?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqUserPendingChanges
  */
 export interface MqUserPendingChanges {
@@ -1494,6 +2462,22 @@ export interface MqUserPendingChanges {
   readonly pendingChange?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqUserPendingChanges' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqUserPendingChanges(obj: MqUserPendingChanges | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ConsoleAccess': obj.consoleAccess,
+    'Groups': obj.groups?.map(y => y),
+    'PendingChange': obj.pendingChange,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqBrokerSummary
@@ -1540,6 +2524,27 @@ export interface MqBrokerSummary {
   readonly hostInstanceType?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqBrokerSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqBrokerSummary(obj: MqBrokerSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'BrokerArn': obj.brokerArn,
+    'BrokerId': obj.brokerId,
+    'BrokerName': obj.brokerName,
+    'BrokerState': obj.brokerState,
+    'Created': obj.created,
+    'DeploymentMode': obj.deploymentMode,
+    'EngineType': obj.engineType,
+    'HostInstanceType': obj.hostInstanceType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema MqConfiguration
@@ -1598,6 +2603,29 @@ export interface MqConfiguration {
 }
 
 /**
+ * Converts an object of type 'MqConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqConfiguration(obj: MqConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'AuthenticationStrategy': obj.authenticationStrategy,
+    'Created': obj.created,
+    'Description': obj.description,
+    'EngineType': obj.engineType,
+    'EngineVersion': obj.engineVersion,
+    'Id': obj.id,
+    'LatestRevision': toJson_MqConfigurationRevision(obj.latestRevision),
+    'Name': obj.name,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqSanitizationWarning
  */
 export interface MqSanitizationWarning {
@@ -1619,6 +2647,22 @@ export interface MqSanitizationWarning {
 }
 
 /**
+ * Converts an object of type 'MqSanitizationWarning' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqSanitizationWarning(obj: MqSanitizationWarning | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AttributeName': obj.attributeName,
+    'ElementName': obj.elementName,
+    'Reason': obj.reason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqPendingLogs
  */
 export interface MqPendingLogs {
@@ -1635,6 +2679,21 @@ export interface MqPendingLogs {
 }
 
 /**
+ * Converts an object of type 'MqPendingLogs' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqPendingLogs(obj: MqPendingLogs | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Audit': obj.audit,
+    'General': obj.general,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqEngineVersion
  */
 export interface MqEngineVersion {
@@ -1646,6 +2705,20 @@ export interface MqEngineVersion {
 }
 
 /**
+ * Converts an object of type 'MqEngineVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqEngineVersion(obj: MqEngineVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema MqAvailabilityZone
  */
 export interface MqAvailabilityZone {
@@ -1655,3 +2728,17 @@ export interface MqAvailabilityZone {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'MqAvailabilityZone' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_MqAvailabilityZone(obj: MqAvailabilityZone | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

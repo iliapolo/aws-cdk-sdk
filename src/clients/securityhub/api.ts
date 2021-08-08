@@ -8,6 +8,22 @@ export class SecurityHubClient extends cdk.Construct {
     super(scope, id);
   }
 
+  public acceptAdministratorInvitation(input: shapes.SecurityHubAcceptAdministratorInvitationRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'acceptAdministratorInvitation',
+        service: 'SecurityHub',
+        physicalResourceId: cr.PhysicalResourceId.of('SecurityHub.AcceptAdministratorInvitation'),
+        parameters: {
+          AdministratorId: input.administratorId,
+          InvitationId: input.invitationId,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'AcceptAdministratorInvitation', props);
+  }
+
   public acceptInvitation(input: shapes.SecurityHubAcceptInvitationRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -140,6 +156,20 @@ export class SecurityHubClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DisableSecurityHub', props);
   }
 
+  public disassociateFromAdministratorAccount(): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'disassociateFromAdministratorAccount',
+        service: 'SecurityHub',
+        physicalResourceId: cr.PhysicalResourceId.of('SecurityHub.DisassociateFromAdministratorAccount'),
+        parameters: {
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DisassociateFromAdministratorAccount', props);
+  }
+
   public disassociateFromMasterAccount(): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -202,6 +232,10 @@ export class SecurityHubClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'EnableSecurityHub', props);
+  }
+
+  public fetchAdministratorAccount(): SecurityHubResponsesFetchAdministratorAccount {
+    return new SecurityHubResponsesFetchAdministratorAccount(this, this.__resources);
   }
 
   public fetchEnabledStandards(input: shapes.SecurityHubGetEnabledStandardsRequest): SecurityHubResponsesFetchEnabledStandards {
@@ -318,6 +352,7 @@ export class SecurityHubClient extends cdk.Construct {
             AwsAccountId: input.filters.awsAccountId,
             Id: input.filters.id,
             GeneratorId: input.filters.generatorId,
+            Region: input.filters.region,
             Type: input.filters.type,
             FirstObservedAt: input.filters.firstObservedAt,
             LastObservedAt: input.filters.lastObservedAt,
@@ -380,8 +415,10 @@ export class SecurityHubClient extends cdk.Construct {
             ResourceAwsS3BucketOwnerId: input.filters.resourceAwsS3BucketOwnerId,
             ResourceAwsS3BucketOwnerName: input.filters.resourceAwsS3BucketOwnerName,
             ResourceAwsIamAccessKeyUserName: input.filters.resourceAwsIamAccessKeyUserName,
+            ResourceAwsIamAccessKeyPrincipalName: input.filters.resourceAwsIamAccessKeyPrincipalName,
             ResourceAwsIamAccessKeyStatus: input.filters.resourceAwsIamAccessKeyStatus,
             ResourceAwsIamAccessKeyCreatedAt: input.filters.resourceAwsIamAccessKeyCreatedAt,
+            ResourceAwsIamUserUserName: input.filters.resourceAwsIamUserUserName,
             ResourceContainerName: input.filters.resourceContainerName,
             ResourceContainerImageId: input.filters.resourceContainerImageId,
             ResourceContainerImageName: input.filters.resourceContainerImageName,
@@ -398,6 +435,13 @@ export class SecurityHubClient extends cdk.Construct {
             NoteUpdatedAt: input.filters.noteUpdatedAt,
             NoteUpdatedBy: input.filters.noteUpdatedBy,
             Keyword: input.filters.keyword,
+            FindingProviderFieldsConfidence: input.filters.findingProviderFieldsConfidence,
+            FindingProviderFieldsCriticality: input.filters.findingProviderFieldsCriticality,
+            FindingProviderFieldsRelatedFindingsId: input.filters.findingProviderFieldsRelatedFindingsId,
+            FindingProviderFieldsRelatedFindingsProductArn: input.filters.findingProviderFieldsRelatedFindingsProductArn,
+            FindingProviderFieldsSeverityLabel: input.filters.findingProviderFieldsSeverityLabel,
+            FindingProviderFieldsSeverityOriginal: input.filters.findingProviderFieldsSeverityOriginal,
+            FindingProviderFieldsTypes: input.filters.findingProviderFieldsTypes,
           },
           Note: {
             Text: input.note?.text,
@@ -425,6 +469,7 @@ export class SecurityHubClient extends cdk.Construct {
             AwsAccountId: input.filters?.awsAccountId,
             Id: input.filters?.id,
             GeneratorId: input.filters?.generatorId,
+            Region: input.filters?.region,
             Type: input.filters?.type,
             FirstObservedAt: input.filters?.firstObservedAt,
             LastObservedAt: input.filters?.lastObservedAt,
@@ -487,8 +532,10 @@ export class SecurityHubClient extends cdk.Construct {
             ResourceAwsS3BucketOwnerId: input.filters?.resourceAwsS3BucketOwnerId,
             ResourceAwsS3BucketOwnerName: input.filters?.resourceAwsS3BucketOwnerName,
             ResourceAwsIamAccessKeyUserName: input.filters?.resourceAwsIamAccessKeyUserName,
+            ResourceAwsIamAccessKeyPrincipalName: input.filters?.resourceAwsIamAccessKeyPrincipalName,
             ResourceAwsIamAccessKeyStatus: input.filters?.resourceAwsIamAccessKeyStatus,
             ResourceAwsIamAccessKeyCreatedAt: input.filters?.resourceAwsIamAccessKeyCreatedAt,
+            ResourceAwsIamUserUserName: input.filters?.resourceAwsIamUserUserName,
             ResourceContainerName: input.filters?.resourceContainerName,
             ResourceContainerImageId: input.filters?.resourceContainerImageId,
             ResourceContainerImageName: input.filters?.resourceContainerImageName,
@@ -505,6 +552,13 @@ export class SecurityHubClient extends cdk.Construct {
             NoteUpdatedAt: input.filters?.noteUpdatedAt,
             NoteUpdatedBy: input.filters?.noteUpdatedBy,
             Keyword: input.filters?.keyword,
+            FindingProviderFieldsConfidence: input.filters?.findingProviderFieldsConfidence,
+            FindingProviderFieldsCriticality: input.filters?.findingProviderFieldsCriticality,
+            FindingProviderFieldsRelatedFindingsId: input.filters?.findingProviderFieldsRelatedFindingsId,
+            FindingProviderFieldsRelatedFindingsProductArn: input.filters?.findingProviderFieldsRelatedFindingsProductArn,
+            FindingProviderFieldsSeverityLabel: input.filters?.findingProviderFieldsSeverityLabel,
+            FindingProviderFieldsSeverityOriginal: input.filters?.findingProviderFieldsSeverityOriginal,
+            FindingProviderFieldsTypes: input.filters?.findingProviderFieldsTypes,
           },
           GroupByAttribute: input.groupByAttribute,
         },
@@ -791,6 +845,7 @@ export class SecurityHubResponsesCreateInsight {
             AwsAccountId: this.__input.filters.awsAccountId,
             Id: this.__input.filters.id,
             GeneratorId: this.__input.filters.generatorId,
+            Region: this.__input.filters.region,
             Type: this.__input.filters.type,
             FirstObservedAt: this.__input.filters.firstObservedAt,
             LastObservedAt: this.__input.filters.lastObservedAt,
@@ -853,8 +908,10 @@ export class SecurityHubResponsesCreateInsight {
             ResourceAwsS3BucketOwnerId: this.__input.filters.resourceAwsS3BucketOwnerId,
             ResourceAwsS3BucketOwnerName: this.__input.filters.resourceAwsS3BucketOwnerName,
             ResourceAwsIamAccessKeyUserName: this.__input.filters.resourceAwsIamAccessKeyUserName,
+            ResourceAwsIamAccessKeyPrincipalName: this.__input.filters.resourceAwsIamAccessKeyPrincipalName,
             ResourceAwsIamAccessKeyStatus: this.__input.filters.resourceAwsIamAccessKeyStatus,
             ResourceAwsIamAccessKeyCreatedAt: this.__input.filters.resourceAwsIamAccessKeyCreatedAt,
+            ResourceAwsIamUserUserName: this.__input.filters.resourceAwsIamUserUserName,
             ResourceContainerName: this.__input.filters.resourceContainerName,
             ResourceContainerImageId: this.__input.filters.resourceContainerImageId,
             ResourceContainerImageName: this.__input.filters.resourceContainerImageName,
@@ -871,6 +928,13 @@ export class SecurityHubResponsesCreateInsight {
             NoteUpdatedAt: this.__input.filters.noteUpdatedAt,
             NoteUpdatedBy: this.__input.filters.noteUpdatedBy,
             Keyword: this.__input.filters.keyword,
+            FindingProviderFieldsConfidence: this.__input.filters.findingProviderFieldsConfidence,
+            FindingProviderFieldsCriticality: this.__input.filters.findingProviderFieldsCriticality,
+            FindingProviderFieldsRelatedFindingsId: this.__input.filters.findingProviderFieldsRelatedFindingsId,
+            FindingProviderFieldsRelatedFindingsProductArn: this.__input.filters.findingProviderFieldsRelatedFindingsProductArn,
+            FindingProviderFieldsSeverityLabel: this.__input.filters.findingProviderFieldsSeverityLabel,
+            FindingProviderFieldsSeverityOriginal: this.__input.filters.findingProviderFieldsSeverityOriginal,
+            FindingProviderFieldsTypes: this.__input.filters.findingProviderFieldsTypes,
           },
           GroupByAttribute: this.__input.groupByAttribute,
         },
@@ -1184,6 +1248,7 @@ export class SecurityHubResponsesDescribeProducts {
         parameters: {
           NextToken: this.__input.nextToken,
           MaxResults: this.__input.maxResults,
+          ProductArn: this.__input.productArn,
         },
       },
     };
@@ -1202,6 +1267,7 @@ export class SecurityHubResponsesDescribeProducts {
         parameters: {
           NextToken: this.__input.nextToken,
           MaxResults: this.__input.maxResults,
+          ProductArn: this.__input.productArn,
         },
       },
     };
@@ -1323,6 +1389,88 @@ export class SecurityHubResponsesEnableImportFindingsForProduct {
 
 }
 
+export class SecurityHubResponsesFetchAdministratorAccount {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get administrator(): SecurityHubResponsesFetchAdministratorAccountAdministrator {
+    return new SecurityHubResponsesFetchAdministratorAccountAdministrator(this.__scope, this.__resources);
+  }
+
+}
+
+export class SecurityHubResponsesFetchAdministratorAccountAdministrator {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get accountId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAdministratorAccount',
+        service: 'SecurityHub',
+        physicalResourceId: cr.PhysicalResourceId.of('SecurityHub.GetAdministratorAccount.Administrator.AccountId'),
+        outputPath: 'Administrator.AccountId',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAdministratorAccount.Administrator.AccountId', props);
+    return resource.getResponseField('Administrator.AccountId') as unknown as string;
+  }
+
+  public get invitationId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAdministratorAccount',
+        service: 'SecurityHub',
+        physicalResourceId: cr.PhysicalResourceId.of('SecurityHub.GetAdministratorAccount.Administrator.InvitationId'),
+        outputPath: 'Administrator.InvitationId',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAdministratorAccount.Administrator.InvitationId', props);
+    return resource.getResponseField('Administrator.InvitationId') as unknown as string;
+  }
+
+  public get invitedAt(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAdministratorAccount',
+        service: 'SecurityHub',
+        physicalResourceId: cr.PhysicalResourceId.of('SecurityHub.GetAdministratorAccount.Administrator.InvitedAt'),
+        outputPath: 'Administrator.InvitedAt',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAdministratorAccount.Administrator.InvitedAt', props);
+    return resource.getResponseField('Administrator.InvitedAt') as unknown as string;
+  }
+
+  public get memberStatus(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAdministratorAccount',
+        service: 'SecurityHub',
+        physicalResourceId: cr.PhysicalResourceId.of('SecurityHub.GetAdministratorAccount.Administrator.MemberStatus'),
+        outputPath: 'Administrator.MemberStatus',
+        parameters: {
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAdministratorAccount.Administrator.MemberStatus', props);
+    return resource.getResponseField('Administrator.MemberStatus') as unknown as string;
+  }
+
+}
+
 export class SecurityHubResponsesFetchEnabledStandards {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.SecurityHubGetEnabledStandardsRequest) {
@@ -1387,6 +1535,7 @@ export class SecurityHubResponsesFetchFindings {
             AwsAccountId: this.__input.filters?.awsAccountId,
             Id: this.__input.filters?.id,
             GeneratorId: this.__input.filters?.generatorId,
+            Region: this.__input.filters?.region,
             Type: this.__input.filters?.type,
             FirstObservedAt: this.__input.filters?.firstObservedAt,
             LastObservedAt: this.__input.filters?.lastObservedAt,
@@ -1449,8 +1598,10 @@ export class SecurityHubResponsesFetchFindings {
             ResourceAwsS3BucketOwnerId: this.__input.filters?.resourceAwsS3BucketOwnerId,
             ResourceAwsS3BucketOwnerName: this.__input.filters?.resourceAwsS3BucketOwnerName,
             ResourceAwsIamAccessKeyUserName: this.__input.filters?.resourceAwsIamAccessKeyUserName,
+            ResourceAwsIamAccessKeyPrincipalName: this.__input.filters?.resourceAwsIamAccessKeyPrincipalName,
             ResourceAwsIamAccessKeyStatus: this.__input.filters?.resourceAwsIamAccessKeyStatus,
             ResourceAwsIamAccessKeyCreatedAt: this.__input.filters?.resourceAwsIamAccessKeyCreatedAt,
+            ResourceAwsIamUserUserName: this.__input.filters?.resourceAwsIamUserUserName,
             ResourceContainerName: this.__input.filters?.resourceContainerName,
             ResourceContainerImageId: this.__input.filters?.resourceContainerImageId,
             ResourceContainerImageName: this.__input.filters?.resourceContainerImageName,
@@ -1467,6 +1618,13 @@ export class SecurityHubResponsesFetchFindings {
             NoteUpdatedAt: this.__input.filters?.noteUpdatedAt,
             NoteUpdatedBy: this.__input.filters?.noteUpdatedBy,
             Keyword: this.__input.filters?.keyword,
+            FindingProviderFieldsConfidence: this.__input.filters?.findingProviderFieldsConfidence,
+            FindingProviderFieldsCriticality: this.__input.filters?.findingProviderFieldsCriticality,
+            FindingProviderFieldsRelatedFindingsId: this.__input.filters?.findingProviderFieldsRelatedFindingsId,
+            FindingProviderFieldsRelatedFindingsProductArn: this.__input.filters?.findingProviderFieldsRelatedFindingsProductArn,
+            FindingProviderFieldsSeverityLabel: this.__input.filters?.findingProviderFieldsSeverityLabel,
+            FindingProviderFieldsSeverityOriginal: this.__input.filters?.findingProviderFieldsSeverityOriginal,
+            FindingProviderFieldsTypes: this.__input.filters?.findingProviderFieldsTypes,
           },
           SortCriteria: this.__input.sortCriteria,
           NextToken: this.__input.nextToken,
@@ -1492,6 +1650,7 @@ export class SecurityHubResponsesFetchFindings {
             AwsAccountId: this.__input.filters?.awsAccountId,
             Id: this.__input.filters?.id,
             GeneratorId: this.__input.filters?.generatorId,
+            Region: this.__input.filters?.region,
             Type: this.__input.filters?.type,
             FirstObservedAt: this.__input.filters?.firstObservedAt,
             LastObservedAt: this.__input.filters?.lastObservedAt,
@@ -1554,8 +1713,10 @@ export class SecurityHubResponsesFetchFindings {
             ResourceAwsS3BucketOwnerId: this.__input.filters?.resourceAwsS3BucketOwnerId,
             ResourceAwsS3BucketOwnerName: this.__input.filters?.resourceAwsS3BucketOwnerName,
             ResourceAwsIamAccessKeyUserName: this.__input.filters?.resourceAwsIamAccessKeyUserName,
+            ResourceAwsIamAccessKeyPrincipalName: this.__input.filters?.resourceAwsIamAccessKeyPrincipalName,
             ResourceAwsIamAccessKeyStatus: this.__input.filters?.resourceAwsIamAccessKeyStatus,
             ResourceAwsIamAccessKeyCreatedAt: this.__input.filters?.resourceAwsIamAccessKeyCreatedAt,
+            ResourceAwsIamUserUserName: this.__input.filters?.resourceAwsIamUserUserName,
             ResourceContainerName: this.__input.filters?.resourceContainerName,
             ResourceContainerImageId: this.__input.filters?.resourceContainerImageId,
             ResourceContainerImageName: this.__input.filters?.resourceContainerImageName,
@@ -1572,6 +1733,13 @@ export class SecurityHubResponsesFetchFindings {
             NoteUpdatedAt: this.__input.filters?.noteUpdatedAt,
             NoteUpdatedBy: this.__input.filters?.noteUpdatedBy,
             Keyword: this.__input.filters?.keyword,
+            FindingProviderFieldsConfidence: this.__input.filters?.findingProviderFieldsConfidence,
+            FindingProviderFieldsCriticality: this.__input.filters?.findingProviderFieldsCriticality,
+            FindingProviderFieldsRelatedFindingsId: this.__input.filters?.findingProviderFieldsRelatedFindingsId,
+            FindingProviderFieldsRelatedFindingsProductArn: this.__input.filters?.findingProviderFieldsRelatedFindingsProductArn,
+            FindingProviderFieldsSeverityLabel: this.__input.filters?.findingProviderFieldsSeverityLabel,
+            FindingProviderFieldsSeverityOriginal: this.__input.filters?.findingProviderFieldsSeverityOriginal,
+            FindingProviderFieldsTypes: this.__input.filters?.findingProviderFieldsTypes,
           },
           SortCriteria: this.__input.sortCriteria,
           NextToken: this.__input.nextToken,

@@ -32,6 +32,14 @@ export class QuickSightClient extends cdk.Construct {
     return new QuickSightResponsesCreateDataSource(this, this.__resources, input);
   }
 
+  public createFolder(input: shapes.QuickSightCreateFolderRequest): QuickSightResponsesCreateFolder {
+    return new QuickSightResponsesCreateFolder(this, this.__resources, input);
+  }
+
+  public createFolderMembership(input: shapes.QuickSightCreateFolderMembershipRequest): QuickSightResponsesCreateFolderMembership {
+    return new QuickSightResponsesCreateFolderMembership(this, this.__resources, input);
+  }
+
   public createGroup(input: shapes.QuickSightCreateGroupRequest): QuickSightResponsesCreateGroup {
     return new QuickSightResponsesCreateGroup(this, this.__resources, input);
   }
@@ -86,6 +94,14 @@ export class QuickSightClient extends cdk.Construct {
 
   public deleteDataSource(input: shapes.QuickSightDeleteDataSourceRequest): QuickSightResponsesDeleteDataSource {
     return new QuickSightResponsesDeleteDataSource(this, this.__resources, input);
+  }
+
+  public deleteFolder(input: shapes.QuickSightDeleteFolderRequest): QuickSightResponsesDeleteFolder {
+    return new QuickSightResponsesDeleteFolder(this, this.__resources, input);
+  }
+
+  public deleteFolderMembership(input: shapes.QuickSightDeleteFolderMembershipRequest): QuickSightResponsesDeleteFolderMembership {
+    return new QuickSightResponsesDeleteFolderMembership(this, this.__resources, input);
   }
 
   public deleteGroup(input: shapes.QuickSightDeleteGroupRequest): QuickSightResponsesDeleteGroup {
@@ -168,6 +184,18 @@ export class QuickSightClient extends cdk.Construct {
     return new QuickSightResponsesDescribeDataSourcePermissions(this, this.__resources, input);
   }
 
+  public describeFolder(input: shapes.QuickSightDescribeFolderRequest): QuickSightResponsesDescribeFolder {
+    return new QuickSightResponsesDescribeFolder(this, this.__resources, input);
+  }
+
+  public describeFolderPermissions(input: shapes.QuickSightDescribeFolderPermissionsRequest): QuickSightResponsesDescribeFolderPermissions {
+    return new QuickSightResponsesDescribeFolderPermissions(this, this.__resources, input);
+  }
+
+  public describeFolderResolvedPermissions(input: shapes.QuickSightDescribeFolderResolvedPermissionsRequest): QuickSightResponsesDescribeFolderResolvedPermissions {
+    return new QuickSightResponsesDescribeFolderResolvedPermissions(this, this.__resources, input);
+  }
+
   public describeGroup(input: shapes.QuickSightDescribeGroupRequest): QuickSightResponsesDescribeGroup {
     return new QuickSightResponsesDescribeGroup(this, this.__resources, input);
   }
@@ -212,6 +240,14 @@ export class QuickSightClient extends cdk.Construct {
     return new QuickSightResponsesDescribeUser(this, this.__resources, input);
   }
 
+  public generateEmbedUrlForAnonymousUser(input: shapes.QuickSightGenerateEmbedUrlForAnonymousUserRequest): QuickSightResponsesGenerateEmbedUrlForAnonymousUser {
+    return new QuickSightResponsesGenerateEmbedUrlForAnonymousUser(this, this.__resources, input);
+  }
+
+  public generateEmbedUrlForRegisteredUser(input: shapes.QuickSightGenerateEmbedUrlForRegisteredUserRequest): QuickSightResponsesGenerateEmbedUrlForRegisteredUser {
+    return new QuickSightResponsesGenerateEmbedUrlForRegisteredUser(this, this.__resources, input);
+  }
+
   public fetchDashboardEmbedUrl(input: shapes.QuickSightGetDashboardEmbedUrlRequest): QuickSightResponsesFetchDashboardEmbedUrl {
     return new QuickSightResponsesFetchDashboardEmbedUrl(this, this.__resources, input);
   }
@@ -238,6 +274,14 @@ export class QuickSightClient extends cdk.Construct {
 
   public listDataSources(input: shapes.QuickSightListDataSourcesRequest): QuickSightResponsesListDataSources {
     return new QuickSightResponsesListDataSources(this, this.__resources, input);
+  }
+
+  public listFolderMembers(input: shapes.QuickSightListFolderMembersRequest): QuickSightResponsesListFolderMembers {
+    return new QuickSightResponsesListFolderMembers(this, this.__resources, input);
+  }
+
+  public listFolders(input: shapes.QuickSightListFoldersRequest): QuickSightResponsesListFolders {
+    return new QuickSightResponsesListFolders(this, this.__resources, input);
   }
 
   public listGroupMemberships(input: shapes.QuickSightListGroupMembershipsRequest): QuickSightResponsesListGroupMemberships {
@@ -316,6 +360,10 @@ export class QuickSightClient extends cdk.Construct {
     return new QuickSightResponsesSearchDashboards(this, this.__resources, input);
   }
 
+  public searchFolders(input: shapes.QuickSightSearchFoldersRequest): QuickSightResponsesSearchFolders {
+    return new QuickSightResponsesSearchFolders(this, this.__resources, input);
+  }
+
   public tagResource(input: shapes.QuickSightTagResourceRequest): QuickSightResponsesTagResource {
     return new QuickSightResponsesTagResource(this, this.__resources, input);
   }
@@ -366,6 +414,14 @@ export class QuickSightClient extends cdk.Construct {
 
   public updateDataSourcePermissions(input: shapes.QuickSightUpdateDataSourcePermissionsRequest): QuickSightResponsesUpdateDataSourcePermissions {
     return new QuickSightResponsesUpdateDataSourcePermissions(this, this.__resources, input);
+  }
+
+  public updateFolder(input: shapes.QuickSightUpdateFolderRequest): QuickSightResponsesUpdateFolder {
+    return new QuickSightResponsesUpdateFolder(this, this.__resources, input);
+  }
+
+  public updateFolderPermissions(input: shapes.QuickSightUpdateFolderPermissionsRequest): QuickSightResponsesUpdateFolderPermissions {
+    return new QuickSightResponsesUpdateFolderPermissions(this, this.__resources, input);
   }
 
   public updateGroup(input: shapes.QuickSightUpdateGroupRequest): QuickSightResponsesUpdateGroup {
@@ -1120,11 +1176,18 @@ export class QuickSightResponsesCreateDataSet {
           LogicalTableMap: this.__input.logicalTableMap,
           ImportMode: this.__input.importMode,
           ColumnGroups: this.__input.columnGroups,
+          FieldFolders: this.__input.fieldFolders,
           Permissions: this.__input.permissions,
           RowLevelPermissionDataSet: {
             Namespace: this.__input.rowLevelPermissionDataSet?.namespace,
             Arn: this.__input.rowLevelPermissionDataSet?.arn,
             PermissionPolicy: this.__input.rowLevelPermissionDataSet?.permissionPolicy,
+            FormatVersion: this.__input.rowLevelPermissionDataSet?.formatVersion,
+            Status: this.__input.rowLevelPermissionDataSet?.status,
+          },
+          RowLevelPermissionTagConfiguration: {
+            Status: this.__input.rowLevelPermissionTagConfiguration?.status,
+            TagRules: this.__input.rowLevelPermissionTagConfiguration?.tagRules,
           },
           ColumnLevelPermissionRules: this.__input.columnLevelPermissionRules,
           Tags: this.__input.tags,
@@ -1151,11 +1214,18 @@ export class QuickSightResponsesCreateDataSet {
           LogicalTableMap: this.__input.logicalTableMap,
           ImportMode: this.__input.importMode,
           ColumnGroups: this.__input.columnGroups,
+          FieldFolders: this.__input.fieldFolders,
           Permissions: this.__input.permissions,
           RowLevelPermissionDataSet: {
             Namespace: this.__input.rowLevelPermissionDataSet?.namespace,
             Arn: this.__input.rowLevelPermissionDataSet?.arn,
             PermissionPolicy: this.__input.rowLevelPermissionDataSet?.permissionPolicy,
+            FormatVersion: this.__input.rowLevelPermissionDataSet?.formatVersion,
+            Status: this.__input.rowLevelPermissionDataSet?.status,
+          },
+          RowLevelPermissionTagConfiguration: {
+            Status: this.__input.rowLevelPermissionTagConfiguration?.status,
+            TagRules: this.__input.rowLevelPermissionTagConfiguration?.tagRules,
           },
           ColumnLevelPermissionRules: this.__input.columnLevelPermissionRules,
           Tags: this.__input.tags,
@@ -1182,11 +1252,18 @@ export class QuickSightResponsesCreateDataSet {
           LogicalTableMap: this.__input.logicalTableMap,
           ImportMode: this.__input.importMode,
           ColumnGroups: this.__input.columnGroups,
+          FieldFolders: this.__input.fieldFolders,
           Permissions: this.__input.permissions,
           RowLevelPermissionDataSet: {
             Namespace: this.__input.rowLevelPermissionDataSet?.namespace,
             Arn: this.__input.rowLevelPermissionDataSet?.arn,
             PermissionPolicy: this.__input.rowLevelPermissionDataSet?.permissionPolicy,
+            FormatVersion: this.__input.rowLevelPermissionDataSet?.formatVersion,
+            Status: this.__input.rowLevelPermissionDataSet?.status,
+          },
+          RowLevelPermissionTagConfiguration: {
+            Status: this.__input.rowLevelPermissionTagConfiguration?.status,
+            TagRules: this.__input.rowLevelPermissionTagConfiguration?.tagRules,
           },
           ColumnLevelPermissionRules: this.__input.columnLevelPermissionRules,
           Tags: this.__input.tags,
@@ -1213,11 +1290,18 @@ export class QuickSightResponsesCreateDataSet {
           LogicalTableMap: this.__input.logicalTableMap,
           ImportMode: this.__input.importMode,
           ColumnGroups: this.__input.columnGroups,
+          FieldFolders: this.__input.fieldFolders,
           Permissions: this.__input.permissions,
           RowLevelPermissionDataSet: {
             Namespace: this.__input.rowLevelPermissionDataSet?.namespace,
             Arn: this.__input.rowLevelPermissionDataSet?.arn,
             PermissionPolicy: this.__input.rowLevelPermissionDataSet?.permissionPolicy,
+            FormatVersion: this.__input.rowLevelPermissionDataSet?.formatVersion,
+            Status: this.__input.rowLevelPermissionDataSet?.status,
+          },
+          RowLevelPermissionTagConfiguration: {
+            Status: this.__input.rowLevelPermissionTagConfiguration?.status,
+            TagRules: this.__input.rowLevelPermissionTagConfiguration?.tagRules,
           },
           ColumnLevelPermissionRules: this.__input.columnLevelPermissionRules,
           Tags: this.__input.tags,
@@ -1244,11 +1328,18 @@ export class QuickSightResponsesCreateDataSet {
           LogicalTableMap: this.__input.logicalTableMap,
           ImportMode: this.__input.importMode,
           ColumnGroups: this.__input.columnGroups,
+          FieldFolders: this.__input.fieldFolders,
           Permissions: this.__input.permissions,
           RowLevelPermissionDataSet: {
             Namespace: this.__input.rowLevelPermissionDataSet?.namespace,
             Arn: this.__input.rowLevelPermissionDataSet?.arn,
             PermissionPolicy: this.__input.rowLevelPermissionDataSet?.permissionPolicy,
+            FormatVersion: this.__input.rowLevelPermissionDataSet?.formatVersion,
+            Status: this.__input.rowLevelPermissionDataSet?.status,
+          },
+          RowLevelPermissionTagConfiguration: {
+            Status: this.__input.rowLevelPermissionTagConfiguration?.status,
+            TagRules: this.__input.rowLevelPermissionTagConfiguration?.tagRules,
           },
           ColumnLevelPermissionRules: this.__input.columnLevelPermissionRules,
           Tags: this.__input.tags,
@@ -1275,11 +1366,18 @@ export class QuickSightResponsesCreateDataSet {
           LogicalTableMap: this.__input.logicalTableMap,
           ImportMode: this.__input.importMode,
           ColumnGroups: this.__input.columnGroups,
+          FieldFolders: this.__input.fieldFolders,
           Permissions: this.__input.permissions,
           RowLevelPermissionDataSet: {
             Namespace: this.__input.rowLevelPermissionDataSet?.namespace,
             Arn: this.__input.rowLevelPermissionDataSet?.arn,
             PermissionPolicy: this.__input.rowLevelPermissionDataSet?.permissionPolicy,
+            FormatVersion: this.__input.rowLevelPermissionDataSet?.formatVersion,
+            Status: this.__input.rowLevelPermissionDataSet?.status,
+          },
+          RowLevelPermissionTagConfiguration: {
+            Status: this.__input.rowLevelPermissionTagConfiguration?.status,
+            TagRules: this.__input.rowLevelPermissionTagConfiguration?.tagRules,
           },
           ColumnLevelPermissionRules: this.__input.columnLevelPermissionRules,
           Tags: this.__input.tags,
@@ -1930,6 +2028,203 @@ export class QuickSightResponsesCreateDataSource {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateDataSource.Status', props);
     return resource.getResponseField('Status') as unknown as number;
+  }
+
+}
+
+export class QuickSightResponsesCreateFolder {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QuickSightCreateFolderRequest) {
+  }
+
+  public get status(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.CreateFolder.Status'),
+        outputPath: 'Status',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          Name: this.__input.name,
+          FolderType: this.__input.folderType,
+          ParentFolderArn: this.__input.parentFolderArn,
+          Permissions: this.__input.permissions,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFolder.Status', props);
+    return resource.getResponseField('Status') as unknown as number;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.CreateFolder.Arn'),
+        outputPath: 'Arn',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          Name: this.__input.name,
+          FolderType: this.__input.folderType,
+          ParentFolderArn: this.__input.parentFolderArn,
+          Permissions: this.__input.permissions,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFolder.Arn', props);
+    return resource.getResponseField('Arn') as unknown as string;
+  }
+
+  public get folderId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.CreateFolder.FolderId'),
+        outputPath: 'FolderId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          Name: this.__input.name,
+          FolderType: this.__input.folderType,
+          ParentFolderArn: this.__input.parentFolderArn,
+          Permissions: this.__input.permissions,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFolder.FolderId', props);
+    return resource.getResponseField('FolderId') as unknown as string;
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.CreateFolder.RequestId'),
+        outputPath: 'RequestId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          Name: this.__input.name,
+          FolderType: this.__input.folderType,
+          ParentFolderArn: this.__input.parentFolderArn,
+          Permissions: this.__input.permissions,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFolder.RequestId', props);
+    return resource.getResponseField('RequestId') as unknown as string;
+  }
+
+}
+
+export class QuickSightResponsesCreateFolderMembership {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QuickSightCreateFolderMembershipRequest) {
+  }
+
+  public get status(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFolderMembership',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.CreateFolderMembership.Status'),
+        outputPath: 'Status',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          MemberId: this.__input.memberId,
+          MemberType: this.__input.memberType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFolderMembership.Status', props);
+    return resource.getResponseField('Status') as unknown as number;
+  }
+
+  public get folderMember(): QuickSightResponsesCreateFolderMembershipFolderMember {
+    return new QuickSightResponsesCreateFolderMembershipFolderMember(this.__scope, this.__resources, this.__input);
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFolderMembership',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.CreateFolderMembership.RequestId'),
+        outputPath: 'RequestId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          MemberId: this.__input.memberId,
+          MemberType: this.__input.memberType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFolderMembership.RequestId', props);
+    return resource.getResponseField('RequestId') as unknown as string;
+  }
+
+}
+
+export class QuickSightResponsesCreateFolderMembershipFolderMember {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QuickSightCreateFolderMembershipRequest) {
+  }
+
+  public get memberId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFolderMembership',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.CreateFolderMembership.FolderMember.MemberId'),
+        outputPath: 'FolderMember.MemberId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          MemberId: this.__input.memberId,
+          MemberType: this.__input.memberType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFolderMembership.FolderMember.MemberId', props);
+    return resource.getResponseField('FolderMember.MemberId') as unknown as string;
+  }
+
+  public get memberType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createFolderMembership',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.CreateFolderMembership.FolderMember.MemberType'),
+        outputPath: 'FolderMember.MemberType',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          MemberId: this.__input.memberId,
+          MemberType: this.__input.memberType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateFolderMembership.FolderMember.MemberType', props);
+    return resource.getResponseField('FolderMember.MemberType') as unknown as string;
   }
 
 }
@@ -3781,6 +4076,132 @@ export class QuickSightResponsesDeleteDataSource {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteDataSource.Status', props);
     return resource.getResponseField('Status') as unknown as number;
+  }
+
+}
+
+export class QuickSightResponsesDeleteFolder {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QuickSightDeleteFolderRequest) {
+  }
+
+  public get status(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DeleteFolder.Status'),
+        outputPath: 'Status',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFolder.Status', props);
+    return resource.getResponseField('Status') as unknown as number;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DeleteFolder.Arn'),
+        outputPath: 'Arn',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFolder.Arn', props);
+    return resource.getResponseField('Arn') as unknown as string;
+  }
+
+  public get folderId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DeleteFolder.FolderId'),
+        outputPath: 'FolderId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFolder.FolderId', props);
+    return resource.getResponseField('FolderId') as unknown as string;
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DeleteFolder.RequestId'),
+        outputPath: 'RequestId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFolder.RequestId', props);
+    return resource.getResponseField('RequestId') as unknown as string;
+  }
+
+}
+
+export class QuickSightResponsesDeleteFolderMembership {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QuickSightDeleteFolderMembershipRequest) {
+  }
+
+  public get status(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFolderMembership',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DeleteFolderMembership.Status'),
+        outputPath: 'Status',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          MemberId: this.__input.memberId,
+          MemberType: this.__input.memberType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFolderMembership.Status', props);
+    return resource.getResponseField('Status') as unknown as number;
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteFolderMembership',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DeleteFolderMembership.RequestId'),
+        outputPath: 'RequestId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          MemberId: this.__input.memberId,
+          MemberType: this.__input.memberType,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteFolderMembership.RequestId', props);
+    return resource.getResponseField('RequestId') as unknown as string;
   }
 
 }
@@ -5763,8 +6184,30 @@ export class QuickSightResponsesDescribeDataSetDataSet {
     return resource.getResponseField('DataSet.ColumnGroups') as unknown as shapes.QuickSightColumnGroup[];
   }
 
+  public get fieldFolders(): Record<string, shapes.QuickSightFieldFolder> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataSet',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeDataSet.DataSet.FieldFolders'),
+        outputPath: 'DataSet.FieldFolders',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          DataSetId: this.__input.dataSetId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataSet.DataSet.FieldFolders', props);
+    return resource.getResponseField('DataSet.FieldFolders') as unknown as Record<string, shapes.QuickSightFieldFolder>;
+  }
+
   public get rowLevelPermissionDataSet(): QuickSightResponsesDescribeDataSetDataSetRowLevelPermissionDataSet {
     return new QuickSightResponsesDescribeDataSetDataSetRowLevelPermissionDataSet(this.__scope, this.__resources, this.__input);
+  }
+
+  public get rowLevelPermissionTagConfiguration(): QuickSightResponsesDescribeDataSetDataSetRowLevelPermissionTagConfiguration {
+    return new QuickSightResponsesDescribeDataSetDataSetRowLevelPermissionTagConfiguration(this.__scope, this.__resources, this.__input);
   }
 
   public get columnLevelPermissionRules(): shapes.QuickSightColumnLevelPermissionRule[] {
@@ -5844,6 +6287,85 @@ export class QuickSightResponsesDescribeDataSetDataSetRowLevelPermissionDataSet 
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataSet.DataSet.RowLevelPermissionDataSet.PermissionPolicy', props);
     return resource.getResponseField('DataSet.RowLevelPermissionDataSet.PermissionPolicy') as unknown as string;
+  }
+
+  public get formatVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataSet',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeDataSet.DataSet.RowLevelPermissionDataSet.FormatVersion'),
+        outputPath: 'DataSet.RowLevelPermissionDataSet.FormatVersion',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          DataSetId: this.__input.dataSetId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataSet.DataSet.RowLevelPermissionDataSet.FormatVersion', props);
+    return resource.getResponseField('DataSet.RowLevelPermissionDataSet.FormatVersion') as unknown as string;
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataSet',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeDataSet.DataSet.RowLevelPermissionDataSet.Status'),
+        outputPath: 'DataSet.RowLevelPermissionDataSet.Status',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          DataSetId: this.__input.dataSetId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataSet.DataSet.RowLevelPermissionDataSet.Status', props);
+    return resource.getResponseField('DataSet.RowLevelPermissionDataSet.Status') as unknown as string;
+  }
+
+}
+
+export class QuickSightResponsesDescribeDataSetDataSetRowLevelPermissionTagConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QuickSightDescribeDataSetRequest) {
+  }
+
+  public get status(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataSet',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeDataSet.DataSet.RowLevelPermissionTagConfiguration.Status'),
+        outputPath: 'DataSet.RowLevelPermissionTagConfiguration.Status',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          DataSetId: this.__input.dataSetId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataSet.DataSet.RowLevelPermissionTagConfiguration.Status', props);
+    return resource.getResponseField('DataSet.RowLevelPermissionTagConfiguration.Status') as unknown as string;
+  }
+
+  public get tagRules(): shapes.QuickSightRowLevelPermissionTagRule[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDataSet',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeDataSet.DataSet.RowLevelPermissionTagConfiguration.TagRules'),
+        outputPath: 'DataSet.RowLevelPermissionTagConfiguration.TagRules',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          DataSetId: this.__input.dataSetId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataSet.DataSet.RowLevelPermissionTagConfiguration.TagRules', props);
+    return resource.getResponseField('DataSet.RowLevelPermissionTagConfiguration.TagRules') as unknown as shapes.QuickSightRowLevelPermissionTagRule[];
   }
 
 }
@@ -7429,6 +7951,380 @@ export class QuickSightResponsesDescribeDataSourcePermissions {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDataSourcePermissions.Status', props);
     return resource.getResponseField('Status') as unknown as number;
+  }
+
+}
+
+export class QuickSightResponsesDescribeFolder {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QuickSightDescribeFolderRequest) {
+  }
+
+  public get status(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolder.Status'),
+        outputPath: 'Status',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolder.Status', props);
+    return resource.getResponseField('Status') as unknown as number;
+  }
+
+  public get folder(): QuickSightResponsesDescribeFolderFolder {
+    return new QuickSightResponsesDescribeFolderFolder(this.__scope, this.__resources, this.__input);
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolder.RequestId'),
+        outputPath: 'RequestId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolder.RequestId', props);
+    return resource.getResponseField('RequestId') as unknown as string;
+  }
+
+}
+
+export class QuickSightResponsesDescribeFolderFolder {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QuickSightDescribeFolderRequest) {
+  }
+
+  public get folderId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolder.Folder.FolderId'),
+        outputPath: 'Folder.FolderId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolder.Folder.FolderId', props);
+    return resource.getResponseField('Folder.FolderId') as unknown as string;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolder.Folder.Arn'),
+        outputPath: 'Folder.Arn',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolder.Folder.Arn', props);
+    return resource.getResponseField('Folder.Arn') as unknown as string;
+  }
+
+  public get name(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolder.Folder.Name'),
+        outputPath: 'Folder.Name',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolder.Folder.Name', props);
+    return resource.getResponseField('Folder.Name') as unknown as string;
+  }
+
+  public get folderType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolder.Folder.FolderType'),
+        outputPath: 'Folder.FolderType',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolder.Folder.FolderType', props);
+    return resource.getResponseField('Folder.FolderType') as unknown as string;
+  }
+
+  public get folderPath(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolder.Folder.FolderPath'),
+        outputPath: 'Folder.FolderPath',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolder.Folder.FolderPath', props);
+    return resource.getResponseField('Folder.FolderPath') as unknown as string[];
+  }
+
+  public get createdTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolder.Folder.CreatedTime'),
+        outputPath: 'Folder.CreatedTime',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolder.Folder.CreatedTime', props);
+    return resource.getResponseField('Folder.CreatedTime') as unknown as string;
+  }
+
+  public get lastUpdatedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolder.Folder.LastUpdatedTime'),
+        outputPath: 'Folder.LastUpdatedTime',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolder.Folder.LastUpdatedTime', props);
+    return resource.getResponseField('Folder.LastUpdatedTime') as unknown as string;
+  }
+
+}
+
+export class QuickSightResponsesDescribeFolderPermissions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QuickSightDescribeFolderPermissionsRequest) {
+  }
+
+  public get status(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolderPermissions',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolderPermissions.Status'),
+        outputPath: 'Status',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolderPermissions.Status', props);
+    return resource.getResponseField('Status') as unknown as number;
+  }
+
+  public get folderId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolderPermissions',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolderPermissions.FolderId'),
+        outputPath: 'FolderId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolderPermissions.FolderId', props);
+    return resource.getResponseField('FolderId') as unknown as string;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolderPermissions',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolderPermissions.Arn'),
+        outputPath: 'Arn',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolderPermissions.Arn', props);
+    return resource.getResponseField('Arn') as unknown as string;
+  }
+
+  public get permissions(): shapes.QuickSightResourcePermission[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolderPermissions',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolderPermissions.Permissions'),
+        outputPath: 'Permissions',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolderPermissions.Permissions', props);
+    return resource.getResponseField('Permissions') as unknown as shapes.QuickSightResourcePermission[];
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolderPermissions',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolderPermissions.RequestId'),
+        outputPath: 'RequestId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolderPermissions.RequestId', props);
+    return resource.getResponseField('RequestId') as unknown as string;
+  }
+
+}
+
+export class QuickSightResponsesDescribeFolderResolvedPermissions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QuickSightDescribeFolderResolvedPermissionsRequest) {
+  }
+
+  public get status(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolderResolvedPermissions',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolderResolvedPermissions.Status'),
+        outputPath: 'Status',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolderResolvedPermissions.Status', props);
+    return resource.getResponseField('Status') as unknown as number;
+  }
+
+  public get folderId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolderResolvedPermissions',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolderResolvedPermissions.FolderId'),
+        outputPath: 'FolderId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolderResolvedPermissions.FolderId', props);
+    return resource.getResponseField('FolderId') as unknown as string;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolderResolvedPermissions',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolderResolvedPermissions.Arn'),
+        outputPath: 'Arn',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolderResolvedPermissions.Arn', props);
+    return resource.getResponseField('Arn') as unknown as string;
+  }
+
+  public get permissions(): shapes.QuickSightResourcePermission[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolderResolvedPermissions',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolderResolvedPermissions.Permissions'),
+        outputPath: 'Permissions',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolderResolvedPermissions.Permissions', props);
+    return resource.getResponseField('Permissions') as unknown as shapes.QuickSightResourcePermission[];
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeFolderResolvedPermissions',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeFolderResolvedPermissions.RequestId'),
+        outputPath: 'RequestId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeFolderResolvedPermissions.RequestId', props);
+    return resource.getResponseField('RequestId') as unknown as string;
   }
 
 }
@@ -10124,6 +11020,236 @@ export class QuickSightResponsesDescribeUserUser {
     return resource.getResponseField('User.CustomPermissionsName') as unknown as string;
   }
 
+  public get externalLoginFederationProviderType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeUser',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeUser.User.ExternalLoginFederationProviderType'),
+        outputPath: 'User.ExternalLoginFederationProviderType',
+        parameters: {
+          UserName: this.__input.userName,
+          AwsAccountId: this.__input.awsAccountId,
+          Namespace: this.__input.namespace,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeUser.User.ExternalLoginFederationProviderType', props);
+    return resource.getResponseField('User.ExternalLoginFederationProviderType') as unknown as string;
+  }
+
+  public get externalLoginFederationProviderUrl(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeUser',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeUser.User.ExternalLoginFederationProviderUrl'),
+        outputPath: 'User.ExternalLoginFederationProviderUrl',
+        parameters: {
+          UserName: this.__input.userName,
+          AwsAccountId: this.__input.awsAccountId,
+          Namespace: this.__input.namespace,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeUser.User.ExternalLoginFederationProviderUrl', props);
+    return resource.getResponseField('User.ExternalLoginFederationProviderUrl') as unknown as string;
+  }
+
+  public get externalLoginId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeUser',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.DescribeUser.User.ExternalLoginId'),
+        outputPath: 'User.ExternalLoginId',
+        parameters: {
+          UserName: this.__input.userName,
+          AwsAccountId: this.__input.awsAccountId,
+          Namespace: this.__input.namespace,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeUser.User.ExternalLoginId', props);
+    return resource.getResponseField('User.ExternalLoginId') as unknown as string;
+  }
+
+}
+
+export class QuickSightResponsesGenerateEmbedUrlForAnonymousUser {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QuickSightGenerateEmbedUrlForAnonymousUserRequest) {
+  }
+
+  public get embedUrl(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'generateEmbedUrlForAnonymousUser',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.GenerateEmbedUrlForAnonymousUser.EmbedUrl'),
+        outputPath: 'EmbedUrl',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          SessionLifetimeInMinutes: this.__input.sessionLifetimeInMinutes,
+          Namespace: this.__input.namespace,
+          SessionTags: this.__input.sessionTags,
+          AuthorizedResourceArns: this.__input.authorizedResourceArns,
+          ExperienceConfiguration: {
+            Dashboard: {
+              InitialDashboardId: this.__input.experienceConfiguration.dashboard?.initialDashboardId,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GenerateEmbedUrlForAnonymousUser.EmbedUrl', props);
+    return resource.getResponseField('EmbedUrl') as unknown as string;
+  }
+
+  public get status(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'generateEmbedUrlForAnonymousUser',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.GenerateEmbedUrlForAnonymousUser.Status'),
+        outputPath: 'Status',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          SessionLifetimeInMinutes: this.__input.sessionLifetimeInMinutes,
+          Namespace: this.__input.namespace,
+          SessionTags: this.__input.sessionTags,
+          AuthorizedResourceArns: this.__input.authorizedResourceArns,
+          ExperienceConfiguration: {
+            Dashboard: {
+              InitialDashboardId: this.__input.experienceConfiguration.dashboard?.initialDashboardId,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GenerateEmbedUrlForAnonymousUser.Status', props);
+    return resource.getResponseField('Status') as unknown as number;
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'generateEmbedUrlForAnonymousUser',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.GenerateEmbedUrlForAnonymousUser.RequestId'),
+        outputPath: 'RequestId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          SessionLifetimeInMinutes: this.__input.sessionLifetimeInMinutes,
+          Namespace: this.__input.namespace,
+          SessionTags: this.__input.sessionTags,
+          AuthorizedResourceArns: this.__input.authorizedResourceArns,
+          ExperienceConfiguration: {
+            Dashboard: {
+              InitialDashboardId: this.__input.experienceConfiguration.dashboard?.initialDashboardId,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GenerateEmbedUrlForAnonymousUser.RequestId', props);
+    return resource.getResponseField('RequestId') as unknown as string;
+  }
+
+}
+
+export class QuickSightResponsesGenerateEmbedUrlForRegisteredUser {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QuickSightGenerateEmbedUrlForRegisteredUserRequest) {
+  }
+
+  public get embedUrl(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'generateEmbedUrlForRegisteredUser',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.GenerateEmbedUrlForRegisteredUser.EmbedUrl'),
+        outputPath: 'EmbedUrl',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          SessionLifetimeInMinutes: this.__input.sessionLifetimeInMinutes,
+          UserArn: this.__input.userArn,
+          ExperienceConfiguration: {
+            Dashboard: {
+              InitialDashboardId: this.__input.experienceConfiguration.dashboard?.initialDashboardId,
+            },
+            QuickSightConsole: {
+              InitialPath: this.__input.experienceConfiguration.quickSightConsole?.initialPath,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GenerateEmbedUrlForRegisteredUser.EmbedUrl', props);
+    return resource.getResponseField('EmbedUrl') as unknown as string;
+  }
+
+  public get status(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'generateEmbedUrlForRegisteredUser',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.GenerateEmbedUrlForRegisteredUser.Status'),
+        outputPath: 'Status',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          SessionLifetimeInMinutes: this.__input.sessionLifetimeInMinutes,
+          UserArn: this.__input.userArn,
+          ExperienceConfiguration: {
+            Dashboard: {
+              InitialDashboardId: this.__input.experienceConfiguration.dashboard?.initialDashboardId,
+            },
+            QuickSightConsole: {
+              InitialPath: this.__input.experienceConfiguration.quickSightConsole?.initialPath,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GenerateEmbedUrlForRegisteredUser.Status', props);
+    return resource.getResponseField('Status') as unknown as number;
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'generateEmbedUrlForRegisteredUser',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.GenerateEmbedUrlForRegisteredUser.RequestId'),
+        outputPath: 'RequestId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          SessionLifetimeInMinutes: this.__input.sessionLifetimeInMinutes,
+          UserArn: this.__input.userArn,
+          ExperienceConfiguration: {
+            Dashboard: {
+              InitialDashboardId: this.__input.experienceConfiguration.dashboard?.initialDashboardId,
+            },
+            QuickSightConsole: {
+              InitialPath: this.__input.experienceConfiguration.quickSightConsole?.initialPath,
+            },
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GenerateEmbedUrlForRegisteredUser.RequestId', props);
+    return resource.getResponseField('RequestId') as unknown as string;
+  }
+
 }
 
 export class QuickSightResponsesFetchDashboardEmbedUrl {
@@ -10693,6 +11819,176 @@ export class QuickSightResponsesListDataSources {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListDataSources.Status', props);
     return resource.getResponseField('Status') as unknown as number;
+  }
+
+}
+
+export class QuickSightResponsesListFolderMembers {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QuickSightListFolderMembersRequest) {
+  }
+
+  public get status(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFolderMembers',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.ListFolderMembers.Status'),
+        outputPath: 'Status',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFolderMembers.Status', props);
+    return resource.getResponseField('Status') as unknown as number;
+  }
+
+  public get folderMemberList(): shapes.QuickSightMemberIdArnPair[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFolderMembers',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.ListFolderMembers.FolderMemberList'),
+        outputPath: 'FolderMemberList',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFolderMembers.FolderMemberList', props);
+    return resource.getResponseField('FolderMemberList') as unknown as shapes.QuickSightMemberIdArnPair[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFolderMembers',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.ListFolderMembers.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFolderMembers.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFolderMembers',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.ListFolderMembers.RequestId'),
+        outputPath: 'RequestId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFolderMembers.RequestId', props);
+    return resource.getResponseField('RequestId') as unknown as string;
+  }
+
+}
+
+export class QuickSightResponsesListFolders {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QuickSightListFoldersRequest) {
+  }
+
+  public get status(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFolders',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.ListFolders.Status'),
+        outputPath: 'Status',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFolders.Status', props);
+    return resource.getResponseField('Status') as unknown as number;
+  }
+
+  public get folderSummaryList(): shapes.QuickSightFolderSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFolders',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.ListFolders.FolderSummaryList'),
+        outputPath: 'FolderSummaryList',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFolders.FolderSummaryList', props);
+    return resource.getResponseField('FolderSummaryList') as unknown as shapes.QuickSightFolderSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFolders',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.ListFolders.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFolders.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listFolders',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.ListFolders.RequestId'),
+        outputPath: 'RequestId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListFolders.RequestId', props);
+    return resource.getResponseField('RequestId') as unknown as string;
   }
 
 }
@@ -12008,6 +13304,9 @@ export class QuickSightResponsesRegisterUser {
           Namespace: this.__input.namespace,
           UserName: this.__input.userName,
           CustomPermissionsName: this.__input.customPermissionsName,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -12033,6 +13332,9 @@ export class QuickSightResponsesRegisterUser {
           Namespace: this.__input.namespace,
           UserName: this.__input.userName,
           CustomPermissionsName: this.__input.customPermissionsName,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -12058,6 +13360,9 @@ export class QuickSightResponsesRegisterUser {
           Namespace: this.__input.namespace,
           UserName: this.__input.userName,
           CustomPermissionsName: this.__input.customPermissionsName,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -12090,6 +13395,9 @@ export class QuickSightResponsesRegisterUserUser {
           Namespace: this.__input.namespace,
           UserName: this.__input.userName,
           CustomPermissionsName: this.__input.customPermissionsName,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -12115,6 +13423,9 @@ export class QuickSightResponsesRegisterUserUser {
           Namespace: this.__input.namespace,
           UserName: this.__input.userName,
           CustomPermissionsName: this.__input.customPermissionsName,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -12140,6 +13451,9 @@ export class QuickSightResponsesRegisterUserUser {
           Namespace: this.__input.namespace,
           UserName: this.__input.userName,
           CustomPermissionsName: this.__input.customPermissionsName,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -12165,6 +13479,9 @@ export class QuickSightResponsesRegisterUserUser {
           Namespace: this.__input.namespace,
           UserName: this.__input.userName,
           CustomPermissionsName: this.__input.customPermissionsName,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -12190,6 +13507,9 @@ export class QuickSightResponsesRegisterUserUser {
           Namespace: this.__input.namespace,
           UserName: this.__input.userName,
           CustomPermissionsName: this.__input.customPermissionsName,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -12215,6 +13535,9 @@ export class QuickSightResponsesRegisterUserUser {
           Namespace: this.__input.namespace,
           UserName: this.__input.userName,
           CustomPermissionsName: this.__input.customPermissionsName,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -12240,6 +13563,9 @@ export class QuickSightResponsesRegisterUserUser {
           Namespace: this.__input.namespace,
           UserName: this.__input.userName,
           CustomPermissionsName: this.__input.customPermissionsName,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -12265,11 +13591,98 @@ export class QuickSightResponsesRegisterUserUser {
           Namespace: this.__input.namespace,
           UserName: this.__input.userName,
           CustomPermissionsName: this.__input.customPermissionsName,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'RegisterUser.User.CustomPermissionsName', props);
     return resource.getResponseField('User.CustomPermissionsName') as unknown as string;
+  }
+
+  public get externalLoginFederationProviderType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'registerUser',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.RegisterUser.User.ExternalLoginFederationProviderType'),
+        outputPath: 'User.ExternalLoginFederationProviderType',
+        parameters: {
+          IdentityType: this.__input.identityType,
+          Email: this.__input.email,
+          UserRole: this.__input.userRole,
+          IamArn: this.__input.iamArn,
+          SessionName: this.__input.sessionName,
+          AwsAccountId: this.__input.awsAccountId,
+          Namespace: this.__input.namespace,
+          UserName: this.__input.userName,
+          CustomPermissionsName: this.__input.customPermissionsName,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RegisterUser.User.ExternalLoginFederationProviderType', props);
+    return resource.getResponseField('User.ExternalLoginFederationProviderType') as unknown as string;
+  }
+
+  public get externalLoginFederationProviderUrl(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'registerUser',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.RegisterUser.User.ExternalLoginFederationProviderUrl'),
+        outputPath: 'User.ExternalLoginFederationProviderUrl',
+        parameters: {
+          IdentityType: this.__input.identityType,
+          Email: this.__input.email,
+          UserRole: this.__input.userRole,
+          IamArn: this.__input.iamArn,
+          SessionName: this.__input.sessionName,
+          AwsAccountId: this.__input.awsAccountId,
+          Namespace: this.__input.namespace,
+          UserName: this.__input.userName,
+          CustomPermissionsName: this.__input.customPermissionsName,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RegisterUser.User.ExternalLoginFederationProviderUrl', props);
+    return resource.getResponseField('User.ExternalLoginFederationProviderUrl') as unknown as string;
+  }
+
+  public get externalLoginId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'registerUser',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.RegisterUser.User.ExternalLoginId'),
+        outputPath: 'User.ExternalLoginId',
+        parameters: {
+          IdentityType: this.__input.identityType,
+          Email: this.__input.email,
+          UserRole: this.__input.userRole,
+          IamArn: this.__input.iamArn,
+          SessionName: this.__input.sessionName,
+          AwsAccountId: this.__input.awsAccountId,
+          Namespace: this.__input.namespace,
+          UserName: this.__input.userName,
+          CustomPermissionsName: this.__input.customPermissionsName,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'RegisterUser.User.ExternalLoginId', props);
+    return resource.getResponseField('User.ExternalLoginId') as unknown as string;
   }
 
 }
@@ -12522,6 +13935,93 @@ export class QuickSightResponsesSearchDashboards {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'SearchDashboards.RequestId', props);
+    return resource.getResponseField('RequestId') as unknown as string;
+  }
+
+}
+
+export class QuickSightResponsesSearchFolders {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QuickSightSearchFoldersRequest) {
+  }
+
+  public get status(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'searchFolders',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.SearchFolders.Status'),
+        outputPath: 'Status',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          Filters: this.__input.filters,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SearchFolders.Status', props);
+    return resource.getResponseField('Status') as unknown as number;
+  }
+
+  public get folderSummaryList(): shapes.QuickSightFolderSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'searchFolders',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.SearchFolders.FolderSummaryList'),
+        outputPath: 'FolderSummaryList',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          Filters: this.__input.filters,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SearchFolders.FolderSummaryList', props);
+    return resource.getResponseField('FolderSummaryList') as unknown as shapes.QuickSightFolderSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'searchFolders',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.SearchFolders.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          Filters: this.__input.filters,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SearchFolders.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'searchFolders',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.SearchFolders.RequestId'),
+        outputPath: 'RequestId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          Filters: this.__input.filters,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SearchFolders.RequestId', props);
     return resource.getResponseField('RequestId') as unknown as string;
   }
 
@@ -13558,10 +15058,17 @@ export class QuickSightResponsesUpdateDataSet {
           LogicalTableMap: this.__input.logicalTableMap,
           ImportMode: this.__input.importMode,
           ColumnGroups: this.__input.columnGroups,
+          FieldFolders: this.__input.fieldFolders,
           RowLevelPermissionDataSet: {
             Namespace: this.__input.rowLevelPermissionDataSet?.namespace,
             Arn: this.__input.rowLevelPermissionDataSet?.arn,
             PermissionPolicy: this.__input.rowLevelPermissionDataSet?.permissionPolicy,
+            FormatVersion: this.__input.rowLevelPermissionDataSet?.formatVersion,
+            Status: this.__input.rowLevelPermissionDataSet?.status,
+          },
+          RowLevelPermissionTagConfiguration: {
+            Status: this.__input.rowLevelPermissionTagConfiguration?.status,
+            TagRules: this.__input.rowLevelPermissionTagConfiguration?.tagRules,
           },
           ColumnLevelPermissionRules: this.__input.columnLevelPermissionRules,
         },
@@ -13587,10 +15094,17 @@ export class QuickSightResponsesUpdateDataSet {
           LogicalTableMap: this.__input.logicalTableMap,
           ImportMode: this.__input.importMode,
           ColumnGroups: this.__input.columnGroups,
+          FieldFolders: this.__input.fieldFolders,
           RowLevelPermissionDataSet: {
             Namespace: this.__input.rowLevelPermissionDataSet?.namespace,
             Arn: this.__input.rowLevelPermissionDataSet?.arn,
             PermissionPolicy: this.__input.rowLevelPermissionDataSet?.permissionPolicy,
+            FormatVersion: this.__input.rowLevelPermissionDataSet?.formatVersion,
+            Status: this.__input.rowLevelPermissionDataSet?.status,
+          },
+          RowLevelPermissionTagConfiguration: {
+            Status: this.__input.rowLevelPermissionTagConfiguration?.status,
+            TagRules: this.__input.rowLevelPermissionTagConfiguration?.tagRules,
           },
           ColumnLevelPermissionRules: this.__input.columnLevelPermissionRules,
         },
@@ -13616,10 +15130,17 @@ export class QuickSightResponsesUpdateDataSet {
           LogicalTableMap: this.__input.logicalTableMap,
           ImportMode: this.__input.importMode,
           ColumnGroups: this.__input.columnGroups,
+          FieldFolders: this.__input.fieldFolders,
           RowLevelPermissionDataSet: {
             Namespace: this.__input.rowLevelPermissionDataSet?.namespace,
             Arn: this.__input.rowLevelPermissionDataSet?.arn,
             PermissionPolicy: this.__input.rowLevelPermissionDataSet?.permissionPolicy,
+            FormatVersion: this.__input.rowLevelPermissionDataSet?.formatVersion,
+            Status: this.__input.rowLevelPermissionDataSet?.status,
+          },
+          RowLevelPermissionTagConfiguration: {
+            Status: this.__input.rowLevelPermissionTagConfiguration?.status,
+            TagRules: this.__input.rowLevelPermissionTagConfiguration?.tagRules,
           },
           ColumnLevelPermissionRules: this.__input.columnLevelPermissionRules,
         },
@@ -13645,10 +15166,17 @@ export class QuickSightResponsesUpdateDataSet {
           LogicalTableMap: this.__input.logicalTableMap,
           ImportMode: this.__input.importMode,
           ColumnGroups: this.__input.columnGroups,
+          FieldFolders: this.__input.fieldFolders,
           RowLevelPermissionDataSet: {
             Namespace: this.__input.rowLevelPermissionDataSet?.namespace,
             Arn: this.__input.rowLevelPermissionDataSet?.arn,
             PermissionPolicy: this.__input.rowLevelPermissionDataSet?.permissionPolicy,
+            FormatVersion: this.__input.rowLevelPermissionDataSet?.formatVersion,
+            Status: this.__input.rowLevelPermissionDataSet?.status,
+          },
+          RowLevelPermissionTagConfiguration: {
+            Status: this.__input.rowLevelPermissionTagConfiguration?.status,
+            TagRules: this.__input.rowLevelPermissionTagConfiguration?.tagRules,
           },
           ColumnLevelPermissionRules: this.__input.columnLevelPermissionRules,
         },
@@ -13674,10 +15202,17 @@ export class QuickSightResponsesUpdateDataSet {
           LogicalTableMap: this.__input.logicalTableMap,
           ImportMode: this.__input.importMode,
           ColumnGroups: this.__input.columnGroups,
+          FieldFolders: this.__input.fieldFolders,
           RowLevelPermissionDataSet: {
             Namespace: this.__input.rowLevelPermissionDataSet?.namespace,
             Arn: this.__input.rowLevelPermissionDataSet?.arn,
             PermissionPolicy: this.__input.rowLevelPermissionDataSet?.permissionPolicy,
+            FormatVersion: this.__input.rowLevelPermissionDataSet?.formatVersion,
+            Status: this.__input.rowLevelPermissionDataSet?.status,
+          },
+          RowLevelPermissionTagConfiguration: {
+            Status: this.__input.rowLevelPermissionTagConfiguration?.status,
+            TagRules: this.__input.rowLevelPermissionTagConfiguration?.tagRules,
           },
           ColumnLevelPermissionRules: this.__input.columnLevelPermissionRules,
         },
@@ -13703,10 +15238,17 @@ export class QuickSightResponsesUpdateDataSet {
           LogicalTableMap: this.__input.logicalTableMap,
           ImportMode: this.__input.importMode,
           ColumnGroups: this.__input.columnGroups,
+          FieldFolders: this.__input.fieldFolders,
           RowLevelPermissionDataSet: {
             Namespace: this.__input.rowLevelPermissionDataSet?.namespace,
             Arn: this.__input.rowLevelPermissionDataSet?.arn,
             PermissionPolicy: this.__input.rowLevelPermissionDataSet?.permissionPolicy,
+            FormatVersion: this.__input.rowLevelPermissionDataSet?.formatVersion,
+            Status: this.__input.rowLevelPermissionDataSet?.status,
+          },
+          RowLevelPermissionTagConfiguration: {
+            Status: this.__input.rowLevelPermissionTagConfiguration?.status,
+            TagRules: this.__input.rowLevelPermissionTagConfiguration?.tagRules,
           },
           ColumnLevelPermissionRules: this.__input.columnLevelPermissionRules,
         },
@@ -14515,6 +16057,196 @@ export class QuickSightResponsesUpdateDataSourcePermissions {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateDataSourcePermissions.Status', props);
     return resource.getResponseField('Status') as unknown as number;
+  }
+
+}
+
+export class QuickSightResponsesUpdateFolder {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QuickSightUpdateFolderRequest) {
+  }
+
+  public get status(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.UpdateFolder.Status'),
+        outputPath: 'Status',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFolder.Status', props);
+    return resource.getResponseField('Status') as unknown as number;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.UpdateFolder.Arn'),
+        outputPath: 'Arn',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFolder.Arn', props);
+    return resource.getResponseField('Arn') as unknown as string;
+  }
+
+  public get folderId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.UpdateFolder.FolderId'),
+        outputPath: 'FolderId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFolder.FolderId', props);
+    return resource.getResponseField('FolderId') as unknown as string;
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFolder',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.UpdateFolder.RequestId'),
+        outputPath: 'RequestId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          Name: this.__input.name,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFolder.RequestId', props);
+    return resource.getResponseField('RequestId') as unknown as string;
+  }
+
+}
+
+export class QuickSightResponsesUpdateFolderPermissions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.QuickSightUpdateFolderPermissionsRequest) {
+  }
+
+  public get status(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFolderPermissions',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.UpdateFolderPermissions.Status'),
+        outputPath: 'Status',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          GrantPermissions: this.__input.grantPermissions,
+          RevokePermissions: this.__input.revokePermissions,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFolderPermissions.Status', props);
+    return resource.getResponseField('Status') as unknown as number;
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFolderPermissions',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.UpdateFolderPermissions.Arn'),
+        outputPath: 'Arn',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          GrantPermissions: this.__input.grantPermissions,
+          RevokePermissions: this.__input.revokePermissions,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFolderPermissions.Arn', props);
+    return resource.getResponseField('Arn') as unknown as string;
+  }
+
+  public get folderId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFolderPermissions',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.UpdateFolderPermissions.FolderId'),
+        outputPath: 'FolderId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          GrantPermissions: this.__input.grantPermissions,
+          RevokePermissions: this.__input.revokePermissions,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFolderPermissions.FolderId', props);
+    return resource.getResponseField('FolderId') as unknown as string;
+  }
+
+  public get permissions(): shapes.QuickSightResourcePermission[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFolderPermissions',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.UpdateFolderPermissions.Permissions'),
+        outputPath: 'Permissions',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          GrantPermissions: this.__input.grantPermissions,
+          RevokePermissions: this.__input.revokePermissions,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFolderPermissions.Permissions', props);
+    return resource.getResponseField('Permissions') as unknown as shapes.QuickSightResourcePermission[];
+  }
+
+  public get requestId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateFolderPermissions',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.UpdateFolderPermissions.RequestId'),
+        outputPath: 'RequestId',
+        parameters: {
+          AwsAccountId: this.__input.awsAccountId,
+          FolderId: this.__input.folderId,
+          GrantPermissions: this.__input.grantPermissions,
+          RevokePermissions: this.__input.revokePermissions,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateFolderPermissions.RequestId', props);
+    return resource.getResponseField('RequestId') as unknown as string;
   }
 
 }
@@ -15847,6 +17579,9 @@ export class QuickSightResponsesUpdateUser {
           Role: this.__input.role,
           CustomPermissionsName: this.__input.customPermissionsName,
           UnapplyCustomPermissions: this.__input.unapplyCustomPermissions,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -15870,6 +17605,9 @@ export class QuickSightResponsesUpdateUser {
           Role: this.__input.role,
           CustomPermissionsName: this.__input.customPermissionsName,
           UnapplyCustomPermissions: this.__input.unapplyCustomPermissions,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -15900,6 +17638,9 @@ export class QuickSightResponsesUpdateUserUser {
           Role: this.__input.role,
           CustomPermissionsName: this.__input.customPermissionsName,
           UnapplyCustomPermissions: this.__input.unapplyCustomPermissions,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -15923,6 +17664,9 @@ export class QuickSightResponsesUpdateUserUser {
           Role: this.__input.role,
           CustomPermissionsName: this.__input.customPermissionsName,
           UnapplyCustomPermissions: this.__input.unapplyCustomPermissions,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -15946,6 +17690,9 @@ export class QuickSightResponsesUpdateUserUser {
           Role: this.__input.role,
           CustomPermissionsName: this.__input.customPermissionsName,
           UnapplyCustomPermissions: this.__input.unapplyCustomPermissions,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -15969,6 +17716,9 @@ export class QuickSightResponsesUpdateUserUser {
           Role: this.__input.role,
           CustomPermissionsName: this.__input.customPermissionsName,
           UnapplyCustomPermissions: this.__input.unapplyCustomPermissions,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -15992,6 +17742,9 @@ export class QuickSightResponsesUpdateUserUser {
           Role: this.__input.role,
           CustomPermissionsName: this.__input.customPermissionsName,
           UnapplyCustomPermissions: this.__input.unapplyCustomPermissions,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -16015,6 +17768,9 @@ export class QuickSightResponsesUpdateUserUser {
           Role: this.__input.role,
           CustomPermissionsName: this.__input.customPermissionsName,
           UnapplyCustomPermissions: this.__input.unapplyCustomPermissions,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -16038,6 +17794,9 @@ export class QuickSightResponsesUpdateUserUser {
           Role: this.__input.role,
           CustomPermissionsName: this.__input.customPermissionsName,
           UnapplyCustomPermissions: this.__input.unapplyCustomPermissions,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
@@ -16061,11 +17820,92 @@ export class QuickSightResponsesUpdateUserUser {
           Role: this.__input.role,
           CustomPermissionsName: this.__input.customPermissionsName,
           UnapplyCustomPermissions: this.__input.unapplyCustomPermissions,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateUser.User.CustomPermissionsName', props);
     return resource.getResponseField('User.CustomPermissionsName') as unknown as string;
+  }
+
+  public get externalLoginFederationProviderType(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateUser',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.UpdateUser.User.ExternalLoginFederationProviderType'),
+        outputPath: 'User.ExternalLoginFederationProviderType',
+        parameters: {
+          UserName: this.__input.userName,
+          AwsAccountId: this.__input.awsAccountId,
+          Namespace: this.__input.namespace,
+          Email: this.__input.email,
+          Role: this.__input.role,
+          CustomPermissionsName: this.__input.customPermissionsName,
+          UnapplyCustomPermissions: this.__input.unapplyCustomPermissions,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateUser.User.ExternalLoginFederationProviderType', props);
+    return resource.getResponseField('User.ExternalLoginFederationProviderType') as unknown as string;
+  }
+
+  public get externalLoginFederationProviderUrl(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateUser',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.UpdateUser.User.ExternalLoginFederationProviderUrl'),
+        outputPath: 'User.ExternalLoginFederationProviderUrl',
+        parameters: {
+          UserName: this.__input.userName,
+          AwsAccountId: this.__input.awsAccountId,
+          Namespace: this.__input.namespace,
+          Email: this.__input.email,
+          Role: this.__input.role,
+          CustomPermissionsName: this.__input.customPermissionsName,
+          UnapplyCustomPermissions: this.__input.unapplyCustomPermissions,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateUser.User.ExternalLoginFederationProviderUrl', props);
+    return resource.getResponseField('User.ExternalLoginFederationProviderUrl') as unknown as string;
+  }
+
+  public get externalLoginId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateUser',
+        service: 'QuickSight',
+        physicalResourceId: cr.PhysicalResourceId.of('QuickSight.UpdateUser.User.ExternalLoginId'),
+        outputPath: 'User.ExternalLoginId',
+        parameters: {
+          UserName: this.__input.userName,
+          AwsAccountId: this.__input.awsAccountId,
+          Namespace: this.__input.namespace,
+          Email: this.__input.email,
+          Role: this.__input.role,
+          CustomPermissionsName: this.__input.customPermissionsName,
+          UnapplyCustomPermissions: this.__input.unapplyCustomPermissions,
+          ExternalLoginFederationProviderType: this.__input.externalLoginFederationProviderType,
+          CustomFederationProviderUrl: this.__input.customFederationProviderUrl,
+          ExternalLoginId: this.__input.externalLoginId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateUser.User.ExternalLoginId', props);
+    return resource.getResponseField('User.ExternalLoginId') as unknown as string;
   }
 
 }

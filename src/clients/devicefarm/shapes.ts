@@ -30,6 +30,24 @@ export interface DeviceFarmCreateDevicePoolRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmCreateDevicePoolRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateDevicePoolRequest(obj: DeviceFarmCreateDevicePoolRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectArn': obj.projectArn,
+    'name': obj.name,
+    'description': obj.description,
+    'rules': obj.rules?.map(y => toJson_DeviceFarmRule(y)),
+    'maxDevices': obj.maxDevices,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmCreateDevicePoolResult
  */
 export interface DeviceFarmCreateDevicePoolResult {
@@ -39,6 +57,20 @@ export interface DeviceFarmCreateDevicePoolResult {
   readonly devicePool?: DeviceFarmDevicePool;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmCreateDevicePoolResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateDevicePoolResult(obj: DeviceFarmCreateDevicePoolResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'devicePool': toJson_DeviceFarmDevicePool(obj.devicePool),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmCreateInstanceProfileRequest
@@ -72,6 +104,24 @@ export interface DeviceFarmCreateInstanceProfileRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmCreateInstanceProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateInstanceProfileRequest(obj: DeviceFarmCreateInstanceProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'description': obj.description,
+    'packageCleanup': obj.packageCleanup,
+    'excludeAppPackagesFromCleanup': obj.excludeAppPackagesFromCleanup?.map(y => y),
+    'rebootAfterUse': obj.rebootAfterUse,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmCreateInstanceProfileResult
  */
 export interface DeviceFarmCreateInstanceProfileResult {
@@ -81,6 +131,20 @@ export interface DeviceFarmCreateInstanceProfileResult {
   readonly instanceProfile?: DeviceFarmInstanceProfile;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmCreateInstanceProfileResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateInstanceProfileResult(obj: DeviceFarmCreateInstanceProfileResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceProfile': toJson_DeviceFarmInstanceProfile(obj.instanceProfile),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmCreateNetworkProfileRequest
@@ -149,6 +213,31 @@ export interface DeviceFarmCreateNetworkProfileRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmCreateNetworkProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateNetworkProfileRequest(obj: DeviceFarmCreateNetworkProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectArn': obj.projectArn,
+    'name': obj.name,
+    'description': obj.description,
+    'type': obj.type,
+    'uplinkBandwidthBits': obj.uplinkBandwidthBits,
+    'downlinkBandwidthBits': obj.downlinkBandwidthBits,
+    'uplinkDelayMs': obj.uplinkDelayMs,
+    'downlinkDelayMs': obj.downlinkDelayMs,
+    'uplinkJitterMs': obj.uplinkJitterMs,
+    'downlinkJitterMs': obj.downlinkJitterMs,
+    'uplinkLossPercent': obj.uplinkLossPercent,
+    'downlinkLossPercent': obj.downlinkLossPercent,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmCreateNetworkProfileResult
  */
 export interface DeviceFarmCreateNetworkProfileResult {
@@ -158,6 +247,20 @@ export interface DeviceFarmCreateNetworkProfileResult {
   readonly networkProfile?: DeviceFarmNetworkProfile;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmCreateNetworkProfileResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateNetworkProfileResult(obj: DeviceFarmCreateNetworkProfileResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'networkProfile': toJson_DeviceFarmNetworkProfile(obj.networkProfile),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmCreateProjectRequest
@@ -176,6 +279,21 @@ export interface DeviceFarmCreateProjectRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmCreateProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateProjectRequest(obj: DeviceFarmCreateProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'defaultJobTimeoutMinutes': obj.defaultJobTimeoutMinutes,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmCreateProjectResult
  */
 export interface DeviceFarmCreateProjectResult {
@@ -185,6 +303,20 @@ export interface DeviceFarmCreateProjectResult {
   readonly project?: DeviceFarmProject;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmCreateProjectResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateProjectResult(obj: DeviceFarmCreateProjectResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'project': toJson_DeviceFarmProject(obj.project),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmCreateRemoteAccessSessionRequest
@@ -253,6 +385,31 @@ export interface DeviceFarmCreateRemoteAccessSessionRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmCreateRemoteAccessSessionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateRemoteAccessSessionRequest(obj: DeviceFarmCreateRemoteAccessSessionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectArn': obj.projectArn,
+    'deviceArn': obj.deviceArn,
+    'instanceArn': obj.instanceArn,
+    'sshPublicKey': obj.sshPublicKey,
+    'remoteDebugEnabled': obj.remoteDebugEnabled,
+    'remoteRecordEnabled': obj.remoteRecordEnabled,
+    'remoteRecordAppArn': obj.remoteRecordAppArn,
+    'name': obj.name,
+    'clientId': obj.clientId,
+    'configuration': toJson_DeviceFarmCreateRemoteAccessSessionConfiguration(obj.configuration),
+    'interactionMode': obj.interactionMode,
+    'skipAppResign': obj.skipAppResign,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmCreateRemoteAccessSessionResult
  */
 export interface DeviceFarmCreateRemoteAccessSessionResult {
@@ -262,6 +419,20 @@ export interface DeviceFarmCreateRemoteAccessSessionResult {
   readonly remoteAccessSession?: DeviceFarmRemoteAccessSession;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmCreateRemoteAccessSessionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateRemoteAccessSessionResult(obj: DeviceFarmCreateRemoteAccessSessionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'remoteAccessSession': toJson_DeviceFarmRemoteAccessSession(obj.remoteAccessSession),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmCreateTestGridProjectRequest
@@ -277,7 +448,28 @@ export interface DeviceFarmCreateTestGridProjectRequest {
    */
   readonly description?: string;
 
+  /**
+   * @schema DeviceFarmCreateTestGridProjectRequest#vpcConfig
+   */
+  readonly vpcConfig?: DeviceFarmTestGridVpcConfig;
+
 }
+
+/**
+ * Converts an object of type 'DeviceFarmCreateTestGridProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateTestGridProjectRequest(obj: DeviceFarmCreateTestGridProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'description': obj.description,
+    'vpcConfig': toJson_DeviceFarmTestGridVpcConfig(obj.vpcConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmCreateTestGridProjectResult
@@ -289,6 +481,20 @@ export interface DeviceFarmCreateTestGridProjectResult {
   readonly testGridProject?: DeviceFarmTestGridProject;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmCreateTestGridProjectResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateTestGridProjectResult(obj: DeviceFarmCreateTestGridProjectResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'testGridProject': toJson_DeviceFarmTestGridProject(obj.testGridProject),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmCreateTestGridUrlRequest
@@ -307,6 +513,21 @@ export interface DeviceFarmCreateTestGridUrlRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmCreateTestGridUrlRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateTestGridUrlRequest(obj: DeviceFarmCreateTestGridUrlRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectArn': obj.projectArn,
+    'expiresInSeconds': obj.expiresInSeconds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmCreateTestGridUrlResult
  */
 export interface DeviceFarmCreateTestGridUrlResult {
@@ -321,6 +542,21 @@ export interface DeviceFarmCreateTestGridUrlResult {
   readonly expires?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmCreateTestGridUrlResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateTestGridUrlResult(obj: DeviceFarmCreateTestGridUrlResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'url': obj.url,
+    'expires': obj.expires,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmCreateUploadRequest
@@ -349,6 +585,23 @@ export interface DeviceFarmCreateUploadRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmCreateUploadRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateUploadRequest(obj: DeviceFarmCreateUploadRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectArn': obj.projectArn,
+    'name': obj.name,
+    'type': obj.type,
+    'contentType': obj.contentType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmCreateUploadResult
  */
 export interface DeviceFarmCreateUploadResult {
@@ -358,6 +611,20 @@ export interface DeviceFarmCreateUploadResult {
   readonly upload?: DeviceFarmUpload;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmCreateUploadResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateUploadResult(obj: DeviceFarmCreateUploadResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'upload': toJson_DeviceFarmUpload(obj.upload),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmCreateVpceConfigurationRequest
@@ -386,6 +653,23 @@ export interface DeviceFarmCreateVpceConfigurationRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmCreateVpceConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateVpceConfigurationRequest(obj: DeviceFarmCreateVpceConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'vpceConfigurationName': obj.vpceConfigurationName,
+    'vpceServiceName': obj.vpceServiceName,
+    'serviceDnsName': obj.serviceDnsName,
+    'vpceConfigurationDescription': obj.vpceConfigurationDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmCreateVpceConfigurationResult
  */
 export interface DeviceFarmCreateVpceConfigurationResult {
@@ -395,6 +679,20 @@ export interface DeviceFarmCreateVpceConfigurationResult {
   readonly vpceConfiguration?: DeviceFarmVpceConfiguration;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmCreateVpceConfigurationResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateVpceConfigurationResult(obj: DeviceFarmCreateVpceConfigurationResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'vpceConfiguration': toJson_DeviceFarmVpceConfiguration(obj.vpceConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmDeleteDevicePoolRequest
@@ -408,10 +706,37 @@ export interface DeviceFarmDeleteDevicePoolRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmDeleteDevicePoolRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeleteDevicePoolRequest(obj: DeviceFarmDeleteDevicePoolRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmDeleteDevicePoolResult
  */
 export interface DeviceFarmDeleteDevicePoolResult {
 }
+
+/**
+ * Converts an object of type 'DeviceFarmDeleteDevicePoolResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeleteDevicePoolResult(obj: DeviceFarmDeleteDevicePoolResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmDeleteInstanceProfileRequest
@@ -425,10 +750,37 @@ export interface DeviceFarmDeleteInstanceProfileRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmDeleteInstanceProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeleteInstanceProfileRequest(obj: DeviceFarmDeleteInstanceProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmDeleteInstanceProfileResult
  */
 export interface DeviceFarmDeleteInstanceProfileResult {
 }
+
+/**
+ * Converts an object of type 'DeviceFarmDeleteInstanceProfileResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeleteInstanceProfileResult(obj: DeviceFarmDeleteInstanceProfileResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmDeleteNetworkProfileRequest
@@ -442,10 +794,37 @@ export interface DeviceFarmDeleteNetworkProfileRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmDeleteNetworkProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeleteNetworkProfileRequest(obj: DeviceFarmDeleteNetworkProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmDeleteNetworkProfileResult
  */
 export interface DeviceFarmDeleteNetworkProfileResult {
 }
+
+/**
+ * Converts an object of type 'DeviceFarmDeleteNetworkProfileResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeleteNetworkProfileResult(obj: DeviceFarmDeleteNetworkProfileResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmDeleteProjectRequest
@@ -459,10 +838,37 @@ export interface DeviceFarmDeleteProjectRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmDeleteProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeleteProjectRequest(obj: DeviceFarmDeleteProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmDeleteProjectResult
  */
 export interface DeviceFarmDeleteProjectResult {
 }
+
+/**
+ * Converts an object of type 'DeviceFarmDeleteProjectResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeleteProjectResult(obj: DeviceFarmDeleteProjectResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmDeleteRemoteAccessSessionRequest
@@ -476,10 +882,37 @@ export interface DeviceFarmDeleteRemoteAccessSessionRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmDeleteRemoteAccessSessionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeleteRemoteAccessSessionRequest(obj: DeviceFarmDeleteRemoteAccessSessionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmDeleteRemoteAccessSessionResult
  */
 export interface DeviceFarmDeleteRemoteAccessSessionResult {
 }
+
+/**
+ * Converts an object of type 'DeviceFarmDeleteRemoteAccessSessionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeleteRemoteAccessSessionResult(obj: DeviceFarmDeleteRemoteAccessSessionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmDeleteRunRequest
@@ -493,10 +926,37 @@ export interface DeviceFarmDeleteRunRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmDeleteRunRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeleteRunRequest(obj: DeviceFarmDeleteRunRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmDeleteRunResult
  */
 export interface DeviceFarmDeleteRunResult {
 }
+
+/**
+ * Converts an object of type 'DeviceFarmDeleteRunResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeleteRunResult(obj: DeviceFarmDeleteRunResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmDeleteTestGridProjectRequest
@@ -510,10 +970,37 @@ export interface DeviceFarmDeleteTestGridProjectRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmDeleteTestGridProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeleteTestGridProjectRequest(obj: DeviceFarmDeleteTestGridProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectArn': obj.projectArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmDeleteTestGridProjectResult
  */
 export interface DeviceFarmDeleteTestGridProjectResult {
 }
+
+/**
+ * Converts an object of type 'DeviceFarmDeleteTestGridProjectResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeleteTestGridProjectResult(obj: DeviceFarmDeleteTestGridProjectResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmDeleteUploadRequest
@@ -527,10 +1014,37 @@ export interface DeviceFarmDeleteUploadRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmDeleteUploadRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeleteUploadRequest(obj: DeviceFarmDeleteUploadRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmDeleteUploadResult
  */
 export interface DeviceFarmDeleteUploadResult {
 }
+
+/**
+ * Converts an object of type 'DeviceFarmDeleteUploadResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeleteUploadResult(obj: DeviceFarmDeleteUploadResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmDeleteVpceConfigurationRequest
@@ -544,16 +1058,56 @@ export interface DeviceFarmDeleteVpceConfigurationRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmDeleteVpceConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeleteVpceConfigurationRequest(obj: DeviceFarmDeleteVpceConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmDeleteVpceConfigurationResult
  */
 export interface DeviceFarmDeleteVpceConfigurationResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmDeleteVpceConfigurationResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeleteVpceConfigurationResult(obj: DeviceFarmDeleteVpceConfigurationResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetAccountSettingsRequest
  */
 export interface DeviceFarmGetAccountSettingsRequest {
 }
+
+/**
+ * Converts an object of type 'DeviceFarmGetAccountSettingsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetAccountSettingsRequest(obj: DeviceFarmGetAccountSettingsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmGetAccountSettingsResult
@@ -567,6 +1121,20 @@ export interface DeviceFarmGetAccountSettingsResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetAccountSettingsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetAccountSettingsResult(obj: DeviceFarmGetAccountSettingsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'accountSettings': toJson_DeviceFarmAccountSettings(obj.accountSettings),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetDeviceRequest
  */
 export interface DeviceFarmGetDeviceRequest {
@@ -576,6 +1144,20 @@ export interface DeviceFarmGetDeviceRequest {
   readonly arn: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmGetDeviceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetDeviceRequest(obj: DeviceFarmGetDeviceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmGetDeviceResult
@@ -589,6 +1171,20 @@ export interface DeviceFarmGetDeviceResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetDeviceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetDeviceResult(obj: DeviceFarmGetDeviceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'device': toJson_DeviceFarmDevice(obj.device),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetDeviceInstanceRequest
  */
 export interface DeviceFarmGetDeviceInstanceRequest {
@@ -598,6 +1194,20 @@ export interface DeviceFarmGetDeviceInstanceRequest {
   readonly arn: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmGetDeviceInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetDeviceInstanceRequest(obj: DeviceFarmGetDeviceInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmGetDeviceInstanceResult
@@ -611,6 +1221,20 @@ export interface DeviceFarmGetDeviceInstanceResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetDeviceInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetDeviceInstanceResult(obj: DeviceFarmGetDeviceInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deviceInstance': toJson_DeviceFarmDeviceInstance(obj.deviceInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetDevicePoolRequest
  */
 export interface DeviceFarmGetDevicePoolRequest {
@@ -622,6 +1246,20 @@ export interface DeviceFarmGetDevicePoolRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetDevicePoolRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetDevicePoolRequest(obj: DeviceFarmGetDevicePoolRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetDevicePoolResult
  */
 export interface DeviceFarmGetDevicePoolResult {
@@ -631,6 +1269,20 @@ export interface DeviceFarmGetDevicePoolResult {
   readonly devicePool?: DeviceFarmDevicePool;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmGetDevicePoolResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetDevicePoolResult(obj: DeviceFarmGetDevicePoolResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'devicePool': toJson_DeviceFarmDevicePool(obj.devicePool),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmGetDevicePoolCompatibilityRequest
@@ -664,6 +1316,24 @@ export interface DeviceFarmGetDevicePoolCompatibilityRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetDevicePoolCompatibilityRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetDevicePoolCompatibilityRequest(obj: DeviceFarmGetDevicePoolCompatibilityRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'devicePoolArn': obj.devicePoolArn,
+    'appArn': obj.appArn,
+    'testType': obj.testType,
+    'test': toJson_DeviceFarmScheduleRunTest(obj.test),
+    'configuration': toJson_DeviceFarmScheduleRunConfiguration(obj.configuration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetDevicePoolCompatibilityResult
  */
 export interface DeviceFarmGetDevicePoolCompatibilityResult {
@@ -680,6 +1350,21 @@ export interface DeviceFarmGetDevicePoolCompatibilityResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetDevicePoolCompatibilityResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetDevicePoolCompatibilityResult(obj: DeviceFarmGetDevicePoolCompatibilityResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'compatibleDevices': obj.compatibleDevices?.map(y => toJson_DeviceFarmDevicePoolCompatibilityResult(y)),
+    'incompatibleDevices': obj.incompatibleDevices?.map(y => toJson_DeviceFarmDevicePoolCompatibilityResult(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetInstanceProfileRequest
  */
 export interface DeviceFarmGetInstanceProfileRequest {
@@ -689,6 +1374,20 @@ export interface DeviceFarmGetInstanceProfileRequest {
   readonly arn: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmGetInstanceProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetInstanceProfileRequest(obj: DeviceFarmGetInstanceProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmGetInstanceProfileResult
@@ -702,6 +1401,20 @@ export interface DeviceFarmGetInstanceProfileResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetInstanceProfileResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetInstanceProfileResult(obj: DeviceFarmGetInstanceProfileResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceProfile': toJson_DeviceFarmInstanceProfile(obj.instanceProfile),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetJobRequest
  */
 export interface DeviceFarmGetJobRequest {
@@ -711,6 +1424,20 @@ export interface DeviceFarmGetJobRequest {
   readonly arn: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmGetJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetJobRequest(obj: DeviceFarmGetJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmGetJobResult
@@ -724,6 +1451,20 @@ export interface DeviceFarmGetJobResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetJobResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetJobResult(obj: DeviceFarmGetJobResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'job': toJson_DeviceFarmJob(obj.job),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetNetworkProfileRequest
  */
 export interface DeviceFarmGetNetworkProfileRequest {
@@ -733,6 +1474,20 @@ export interface DeviceFarmGetNetworkProfileRequest {
   readonly arn: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmGetNetworkProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetNetworkProfileRequest(obj: DeviceFarmGetNetworkProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmGetNetworkProfileResult
@@ -746,6 +1501,20 @@ export interface DeviceFarmGetNetworkProfileResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetNetworkProfileResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetNetworkProfileResult(obj: DeviceFarmGetNetworkProfileResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'networkProfile': toJson_DeviceFarmNetworkProfile(obj.networkProfile),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetOfferingStatusRequest
  */
 export interface DeviceFarmGetOfferingStatusRequest {
@@ -755,6 +1524,20 @@ export interface DeviceFarmGetOfferingStatusRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmGetOfferingStatusRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetOfferingStatusRequest(obj: DeviceFarmGetOfferingStatusRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmGetOfferingStatusResult
@@ -778,6 +1561,22 @@ export interface DeviceFarmGetOfferingStatusResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetOfferingStatusResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetOfferingStatusResult(obj: DeviceFarmGetOfferingStatusResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'current': ((obj.current) === undefined) ? undefined : (Object.entries(obj.current).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_DeviceFarmOfferingStatus(i[1]) }), {})),
+    'nextPeriod': ((obj.nextPeriod) === undefined) ? undefined : (Object.entries(obj.nextPeriod).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: toJson_DeviceFarmOfferingStatus(i[1]) }), {})),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetProjectRequest
  */
 export interface DeviceFarmGetProjectRequest {
@@ -787,6 +1586,20 @@ export interface DeviceFarmGetProjectRequest {
   readonly arn: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmGetProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetProjectRequest(obj: DeviceFarmGetProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmGetProjectResult
@@ -800,6 +1613,20 @@ export interface DeviceFarmGetProjectResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetProjectResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetProjectResult(obj: DeviceFarmGetProjectResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'project': toJson_DeviceFarmProject(obj.project),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetRemoteAccessSessionRequest
  */
 export interface DeviceFarmGetRemoteAccessSessionRequest {
@@ -809,6 +1636,20 @@ export interface DeviceFarmGetRemoteAccessSessionRequest {
   readonly arn: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmGetRemoteAccessSessionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetRemoteAccessSessionRequest(obj: DeviceFarmGetRemoteAccessSessionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmGetRemoteAccessSessionResult
@@ -822,6 +1663,20 @@ export interface DeviceFarmGetRemoteAccessSessionResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetRemoteAccessSessionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetRemoteAccessSessionResult(obj: DeviceFarmGetRemoteAccessSessionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'remoteAccessSession': toJson_DeviceFarmRemoteAccessSession(obj.remoteAccessSession),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetRunRequest
  */
 export interface DeviceFarmGetRunRequest {
@@ -831,6 +1686,20 @@ export interface DeviceFarmGetRunRequest {
   readonly arn: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmGetRunRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetRunRequest(obj: DeviceFarmGetRunRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmGetRunResult
@@ -844,6 +1713,20 @@ export interface DeviceFarmGetRunResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetRunResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetRunResult(obj: DeviceFarmGetRunResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'run': toJson_DeviceFarmRun(obj.run),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetSuiteRequest
  */
 export interface DeviceFarmGetSuiteRequest {
@@ -853,6 +1736,20 @@ export interface DeviceFarmGetSuiteRequest {
   readonly arn: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmGetSuiteRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetSuiteRequest(obj: DeviceFarmGetSuiteRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmGetSuiteResult
@@ -866,6 +1763,20 @@ export interface DeviceFarmGetSuiteResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetSuiteResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetSuiteResult(obj: DeviceFarmGetSuiteResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'suite': toJson_DeviceFarmSuite(obj.suite),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetTestRequest
  */
 export interface DeviceFarmGetTestRequest {
@@ -875,6 +1786,20 @@ export interface DeviceFarmGetTestRequest {
   readonly arn: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmGetTestRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetTestRequest(obj: DeviceFarmGetTestRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmGetTestResult
@@ -888,6 +1813,20 @@ export interface DeviceFarmGetTestResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetTestResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetTestResult(obj: DeviceFarmGetTestResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'test': toJson_DeviceFarmTest(obj.test),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetTestGridProjectRequest
  */
 export interface DeviceFarmGetTestGridProjectRequest {
@@ -899,6 +1838,20 @@ export interface DeviceFarmGetTestGridProjectRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetTestGridProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetTestGridProjectRequest(obj: DeviceFarmGetTestGridProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectArn': obj.projectArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetTestGridProjectResult
  */
 export interface DeviceFarmGetTestGridProjectResult {
@@ -908,6 +1861,20 @@ export interface DeviceFarmGetTestGridProjectResult {
   readonly testGridProject?: DeviceFarmTestGridProject;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmGetTestGridProjectResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetTestGridProjectResult(obj: DeviceFarmGetTestGridProjectResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'testGridProject': toJson_DeviceFarmTestGridProject(obj.testGridProject),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmGetTestGridSessionRequest
@@ -931,6 +1898,22 @@ export interface DeviceFarmGetTestGridSessionRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetTestGridSessionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetTestGridSessionRequest(obj: DeviceFarmGetTestGridSessionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectArn': obj.projectArn,
+    'sessionId': obj.sessionId,
+    'sessionArn': obj.sessionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetTestGridSessionResult
  */
 export interface DeviceFarmGetTestGridSessionResult {
@@ -940,6 +1923,20 @@ export interface DeviceFarmGetTestGridSessionResult {
   readonly testGridSession?: DeviceFarmTestGridSession;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmGetTestGridSessionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetTestGridSessionResult(obj: DeviceFarmGetTestGridSessionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'testGridSession': toJson_DeviceFarmTestGridSession(obj.testGridSession),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmGetUploadRequest
@@ -953,6 +1950,20 @@ export interface DeviceFarmGetUploadRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetUploadRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetUploadRequest(obj: DeviceFarmGetUploadRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetUploadResult
  */
 export interface DeviceFarmGetUploadResult {
@@ -962,6 +1973,20 @@ export interface DeviceFarmGetUploadResult {
   readonly upload?: DeviceFarmUpload;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmGetUploadResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetUploadResult(obj: DeviceFarmGetUploadResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'upload': toJson_DeviceFarmUpload(obj.upload),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmGetVpceConfigurationRequest
@@ -975,6 +2000,20 @@ export interface DeviceFarmGetVpceConfigurationRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmGetVpceConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetVpceConfigurationRequest(obj: DeviceFarmGetVpceConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmGetVpceConfigurationResult
  */
 export interface DeviceFarmGetVpceConfigurationResult {
@@ -984,6 +2023,20 @@ export interface DeviceFarmGetVpceConfigurationResult {
   readonly vpceConfiguration?: DeviceFarmVpceConfiguration;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmGetVpceConfigurationResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmGetVpceConfigurationResult(obj: DeviceFarmGetVpceConfigurationResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'vpceConfiguration': toJson_DeviceFarmVpceConfiguration(obj.vpceConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmInstallToRemoteAccessSessionRequest
@@ -1002,6 +2055,21 @@ export interface DeviceFarmInstallToRemoteAccessSessionRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmInstallToRemoteAccessSessionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmInstallToRemoteAccessSessionRequest(obj: DeviceFarmInstallToRemoteAccessSessionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'remoteAccessSessionArn': obj.remoteAccessSessionArn,
+    'appArn': obj.appArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmInstallToRemoteAccessSessionResult
  */
 export interface DeviceFarmInstallToRemoteAccessSessionResult {
@@ -1011,6 +2079,20 @@ export interface DeviceFarmInstallToRemoteAccessSessionResult {
   readonly appUpload?: DeviceFarmUpload;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmInstallToRemoteAccessSessionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmInstallToRemoteAccessSessionResult(obj: DeviceFarmInstallToRemoteAccessSessionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'appUpload': toJson_DeviceFarmUpload(obj.appUpload),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListArtifactsRequest
@@ -1034,6 +2116,22 @@ export interface DeviceFarmListArtifactsRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListArtifactsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListArtifactsRequest(obj: DeviceFarmListArtifactsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'type': obj.type,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListArtifactsResult
  */
 export interface DeviceFarmListArtifactsResult {
@@ -1048,6 +2146,21 @@ export interface DeviceFarmListArtifactsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListArtifactsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListArtifactsResult(obj: DeviceFarmListArtifactsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'artifacts': obj.artifacts?.map(y => toJson_DeviceFarmArtifact(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListDeviceInstancesRequest
@@ -1066,6 +2179,21 @@ export interface DeviceFarmListDeviceInstancesRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListDeviceInstancesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListDeviceInstancesRequest(obj: DeviceFarmListDeviceInstancesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListDeviceInstancesResult
  */
 export interface DeviceFarmListDeviceInstancesResult {
@@ -1080,6 +2208,21 @@ export interface DeviceFarmListDeviceInstancesResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListDeviceInstancesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListDeviceInstancesResult(obj: DeviceFarmListDeviceInstancesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deviceInstances': obj.deviceInstances?.map(y => toJson_DeviceFarmDeviceInstance(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListDevicePoolsRequest
@@ -1103,6 +2246,22 @@ export interface DeviceFarmListDevicePoolsRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListDevicePoolsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListDevicePoolsRequest(obj: DeviceFarmListDevicePoolsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'type': obj.type,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListDevicePoolsResult
  */
 export interface DeviceFarmListDevicePoolsResult {
@@ -1117,6 +2276,21 @@ export interface DeviceFarmListDevicePoolsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListDevicePoolsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListDevicePoolsResult(obj: DeviceFarmListDevicePoolsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'devicePools': obj.devicePools?.map(y => toJson_DeviceFarmDevicePool(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListDevicesRequest
@@ -1140,6 +2314,22 @@ export interface DeviceFarmListDevicesRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListDevicesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListDevicesRequest(obj: DeviceFarmListDevicesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'nextToken': obj.nextToken,
+    'filters': obj.filters?.map(y => toJson_DeviceFarmDeviceFilter(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListDevicesResult
  */
 export interface DeviceFarmListDevicesResult {
@@ -1154,6 +2344,21 @@ export interface DeviceFarmListDevicesResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListDevicesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListDevicesResult(obj: DeviceFarmListDevicesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'devices': obj.devices?.map(y => toJson_DeviceFarmDevice(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListInstanceProfilesRequest
@@ -1172,6 +2377,21 @@ export interface DeviceFarmListInstanceProfilesRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListInstanceProfilesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListInstanceProfilesRequest(obj: DeviceFarmListInstanceProfilesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListInstanceProfilesResult
  */
 export interface DeviceFarmListInstanceProfilesResult {
@@ -1186,6 +2406,21 @@ export interface DeviceFarmListInstanceProfilesResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListInstanceProfilesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListInstanceProfilesResult(obj: DeviceFarmListInstanceProfilesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceProfiles': obj.instanceProfiles?.map(y => toJson_DeviceFarmInstanceProfile(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListJobsRequest
@@ -1204,6 +2439,21 @@ export interface DeviceFarmListJobsRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListJobsRequest(obj: DeviceFarmListJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListJobsResult
  */
 export interface DeviceFarmListJobsResult {
@@ -1218,6 +2468,21 @@ export interface DeviceFarmListJobsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListJobsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListJobsResult(obj: DeviceFarmListJobsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobs': obj.jobs?.map(y => toJson_DeviceFarmJob(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListNetworkProfilesRequest
@@ -1241,6 +2506,22 @@ export interface DeviceFarmListNetworkProfilesRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListNetworkProfilesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListNetworkProfilesRequest(obj: DeviceFarmListNetworkProfilesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'type': obj.type,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListNetworkProfilesResult
  */
 export interface DeviceFarmListNetworkProfilesResult {
@@ -1257,6 +2538,21 @@ export interface DeviceFarmListNetworkProfilesResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListNetworkProfilesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListNetworkProfilesResult(obj: DeviceFarmListNetworkProfilesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'networkProfiles': obj.networkProfiles?.map(y => toJson_DeviceFarmNetworkProfile(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListOfferingPromotionsRequest
  */
 export interface DeviceFarmListOfferingPromotionsRequest {
@@ -1266,6 +2562,20 @@ export interface DeviceFarmListOfferingPromotionsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListOfferingPromotionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListOfferingPromotionsRequest(obj: DeviceFarmListOfferingPromotionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListOfferingPromotionsResult
@@ -1284,6 +2594,21 @@ export interface DeviceFarmListOfferingPromotionsResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListOfferingPromotionsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListOfferingPromotionsResult(obj: DeviceFarmListOfferingPromotionsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'offeringPromotions': obj.offeringPromotions?.map(y => toJson_DeviceFarmOfferingPromotion(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListOfferingTransactionsRequest
  */
 export interface DeviceFarmListOfferingTransactionsRequest {
@@ -1293,6 +2618,20 @@ export interface DeviceFarmListOfferingTransactionsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListOfferingTransactionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListOfferingTransactionsRequest(obj: DeviceFarmListOfferingTransactionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListOfferingTransactionsResult
@@ -1311,6 +2650,21 @@ export interface DeviceFarmListOfferingTransactionsResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListOfferingTransactionsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListOfferingTransactionsResult(obj: DeviceFarmListOfferingTransactionsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'offeringTransactions': obj.offeringTransactions?.map(y => toJson_DeviceFarmOfferingTransaction(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListOfferingsRequest
  */
 export interface DeviceFarmListOfferingsRequest {
@@ -1320,6 +2674,20 @@ export interface DeviceFarmListOfferingsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListOfferingsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListOfferingsRequest(obj: DeviceFarmListOfferingsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListOfferingsResult
@@ -1338,6 +2706,21 @@ export interface DeviceFarmListOfferingsResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListOfferingsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListOfferingsResult(obj: DeviceFarmListOfferingsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'offerings': obj.offerings?.map(y => toJson_DeviceFarmOffering(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListProjectsRequest
  */
 export interface DeviceFarmListProjectsRequest {
@@ -1352,6 +2735,21 @@ export interface DeviceFarmListProjectsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListProjectsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListProjectsRequest(obj: DeviceFarmListProjectsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListProjectsResult
@@ -1370,6 +2768,21 @@ export interface DeviceFarmListProjectsResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListProjectsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListProjectsResult(obj: DeviceFarmListProjectsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projects': obj.projects?.map(y => toJson_DeviceFarmProject(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListRemoteAccessSessionsRequest
  */
 export interface DeviceFarmListRemoteAccessSessionsRequest {
@@ -1384,6 +2797,21 @@ export interface DeviceFarmListRemoteAccessSessionsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListRemoteAccessSessionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListRemoteAccessSessionsRequest(obj: DeviceFarmListRemoteAccessSessionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListRemoteAccessSessionsResult
@@ -1402,6 +2830,21 @@ export interface DeviceFarmListRemoteAccessSessionsResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListRemoteAccessSessionsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListRemoteAccessSessionsResult(obj: DeviceFarmListRemoteAccessSessionsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'remoteAccessSessions': obj.remoteAccessSessions?.map(y => toJson_DeviceFarmRemoteAccessSession(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListRunsRequest
  */
 export interface DeviceFarmListRunsRequest {
@@ -1416,6 +2859,21 @@ export interface DeviceFarmListRunsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListRunsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListRunsRequest(obj: DeviceFarmListRunsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListRunsResult
@@ -1434,6 +2892,21 @@ export interface DeviceFarmListRunsResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListRunsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListRunsResult(obj: DeviceFarmListRunsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'runs': obj.runs?.map(y => toJson_DeviceFarmRun(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListSamplesRequest
  */
 export interface DeviceFarmListSamplesRequest {
@@ -1448,6 +2921,21 @@ export interface DeviceFarmListSamplesRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListSamplesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListSamplesRequest(obj: DeviceFarmListSamplesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListSamplesResult
@@ -1466,6 +2954,21 @@ export interface DeviceFarmListSamplesResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListSamplesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListSamplesResult(obj: DeviceFarmListSamplesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'samples': obj.samples?.map(y => toJson_DeviceFarmSample(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListSuitesRequest
  */
 export interface DeviceFarmListSuitesRequest {
@@ -1480,6 +2983,21 @@ export interface DeviceFarmListSuitesRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListSuitesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListSuitesRequest(obj: DeviceFarmListSuitesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListSuitesResult
@@ -1498,15 +3016,44 @@ export interface DeviceFarmListSuitesResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListSuitesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListSuitesResult(obj: DeviceFarmListSuitesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'suites': obj.suites?.map(y => toJson_DeviceFarmSuite(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListTagsForResourceRequest
  */
 export interface DeviceFarmListTagsForResourceRequest {
   /**
    * @schema DeviceFarmListTagsForResourceRequest#ResourceARN
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListTagsForResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListTagsForResourceRequest(obj: DeviceFarmListTagsForResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceARN': obj.resourceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListTagsForResourceResponse
@@ -1518,6 +3065,20 @@ export interface DeviceFarmListTagsForResourceResponse {
   readonly tags?: DeviceFarmTag[];
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListTagsForResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListTagsForResourceResponse(obj: DeviceFarmListTagsForResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Tags': obj.tags?.map(y => toJson_DeviceFarmTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListTestGridProjectsRequest
@@ -1536,6 +3097,21 @@ export interface DeviceFarmListTestGridProjectsRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListTestGridProjectsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListTestGridProjectsRequest(obj: DeviceFarmListTestGridProjectsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxResult': obj.maxResult,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListTestGridProjectsResult
  */
 export interface DeviceFarmListTestGridProjectsResult {
@@ -1550,6 +3126,21 @@ export interface DeviceFarmListTestGridProjectsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListTestGridProjectsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListTestGridProjectsResult(obj: DeviceFarmListTestGridProjectsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'testGridProjects': obj.testGridProjects?.map(y => toJson_DeviceFarmTestGridProject(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListTestGridSessionActionsRequest
@@ -1573,6 +3164,22 @@ export interface DeviceFarmListTestGridSessionActionsRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListTestGridSessionActionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListTestGridSessionActionsRequest(obj: DeviceFarmListTestGridSessionActionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sessionArn': obj.sessionArn,
+    'maxResult': obj.maxResult,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListTestGridSessionActionsResult
  */
 export interface DeviceFarmListTestGridSessionActionsResult {
@@ -1587,6 +3194,21 @@ export interface DeviceFarmListTestGridSessionActionsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListTestGridSessionActionsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListTestGridSessionActionsResult(obj: DeviceFarmListTestGridSessionActionsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'actions': obj.actions?.map(y => toJson_DeviceFarmTestGridSessionAction(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListTestGridSessionArtifactsRequest
@@ -1615,6 +3237,23 @@ export interface DeviceFarmListTestGridSessionArtifactsRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListTestGridSessionArtifactsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListTestGridSessionArtifactsRequest(obj: DeviceFarmListTestGridSessionArtifactsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'sessionArn': obj.sessionArn,
+    'type': obj.type,
+    'maxResult': obj.maxResult,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListTestGridSessionArtifactsResult
  */
 export interface DeviceFarmListTestGridSessionArtifactsResult {
@@ -1629,6 +3268,21 @@ export interface DeviceFarmListTestGridSessionArtifactsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListTestGridSessionArtifactsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListTestGridSessionArtifactsResult(obj: DeviceFarmListTestGridSessionArtifactsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'artifacts': obj.artifacts?.map(y => toJson_DeviceFarmTestGridSessionArtifact(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListTestGridSessionsRequest
@@ -1677,6 +3331,27 @@ export interface DeviceFarmListTestGridSessionsRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListTestGridSessionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListTestGridSessionsRequest(obj: DeviceFarmListTestGridSessionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectArn': obj.projectArn,
+    'status': obj.status,
+    'creationTimeAfter': obj.creationTimeAfter,
+    'creationTimeBefore': obj.creationTimeBefore,
+    'endTimeAfter': obj.endTimeAfter,
+    'endTimeBefore': obj.endTimeBefore,
+    'maxResult': obj.maxResult,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListTestGridSessionsResult
  */
 export interface DeviceFarmListTestGridSessionsResult {
@@ -1691,6 +3366,21 @@ export interface DeviceFarmListTestGridSessionsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListTestGridSessionsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListTestGridSessionsResult(obj: DeviceFarmListTestGridSessionsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'testGridSessions': obj.testGridSessions?.map(y => toJson_DeviceFarmTestGridSession(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListTestsRequest
@@ -1709,6 +3399,21 @@ export interface DeviceFarmListTestsRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListTestsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListTestsRequest(obj: DeviceFarmListTestsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListTestsResult
  */
 export interface DeviceFarmListTestsResult {
@@ -1723,6 +3428,21 @@ export interface DeviceFarmListTestsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListTestsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListTestsResult(obj: DeviceFarmListTestsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'tests': obj.tests?.map(y => toJson_DeviceFarmTest(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListUniqueProblemsRequest
@@ -1741,6 +3461,21 @@ export interface DeviceFarmListUniqueProblemsRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListUniqueProblemsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListUniqueProblemsRequest(obj: DeviceFarmListUniqueProblemsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListUniqueProblemsResult
  */
 export interface DeviceFarmListUniqueProblemsResult {
@@ -1755,6 +3490,21 @@ export interface DeviceFarmListUniqueProblemsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListUniqueProblemsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListUniqueProblemsResult(obj: DeviceFarmListUniqueProblemsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'uniqueProblems': ((obj.uniqueProblems) === undefined) ? undefined : (Object.entries(obj.uniqueProblems).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.map(y => toJson_DeviceFarmUniqueProblem(y)) }), {})),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListUploadsRequest
@@ -1778,6 +3528,22 @@ export interface DeviceFarmListUploadsRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListUploadsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListUploadsRequest(obj: DeviceFarmListUploadsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'type': obj.type,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListUploadsResult
  */
 export interface DeviceFarmListUploadsResult {
@@ -1792,6 +3558,21 @@ export interface DeviceFarmListUploadsResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmListUploadsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListUploadsResult(obj: DeviceFarmListUploadsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'uploads': obj.uploads?.map(y => toJson_DeviceFarmUpload(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmListVpceConfigurationsRequest
@@ -1810,6 +3591,21 @@ export interface DeviceFarmListVpceConfigurationsRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListVpceConfigurationsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListVpceConfigurationsRequest(obj: DeviceFarmListVpceConfigurationsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxResults': obj.maxResults,
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmListVpceConfigurationsResult
  */
 export interface DeviceFarmListVpceConfigurationsResult {
@@ -1826,18 +3622,33 @@ export interface DeviceFarmListVpceConfigurationsResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmListVpceConfigurationsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmListVpceConfigurationsResult(obj: DeviceFarmListVpceConfigurationsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'vpceConfigurations': obj.vpceConfigurations?.map(y => toJson_DeviceFarmVpceConfiguration(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmPurchaseOfferingRequest
  */
 export interface DeviceFarmPurchaseOfferingRequest {
   /**
    * @schema DeviceFarmPurchaseOfferingRequest#offeringId
    */
-  readonly offeringId?: string;
+  readonly offeringId: string;
 
   /**
    * @schema DeviceFarmPurchaseOfferingRequest#quantity
    */
-  readonly quantity?: number;
+  readonly quantity: number;
 
   /**
    * @schema DeviceFarmPurchaseOfferingRequest#offeringPromotionId
@@ -1845,6 +3656,22 @@ export interface DeviceFarmPurchaseOfferingRequest {
   readonly offeringPromotionId?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmPurchaseOfferingRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmPurchaseOfferingRequest(obj: DeviceFarmPurchaseOfferingRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'offeringId': obj.offeringId,
+    'quantity': obj.quantity,
+    'offeringPromotionId': obj.offeringPromotionId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmPurchaseOfferingResult
@@ -1858,20 +3685,49 @@ export interface DeviceFarmPurchaseOfferingResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmPurchaseOfferingResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmPurchaseOfferingResult(obj: DeviceFarmPurchaseOfferingResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'offeringTransaction': toJson_DeviceFarmOfferingTransaction(obj.offeringTransaction),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmRenewOfferingRequest
  */
 export interface DeviceFarmRenewOfferingRequest {
   /**
    * @schema DeviceFarmRenewOfferingRequest#offeringId
    */
-  readonly offeringId?: string;
+  readonly offeringId: string;
 
   /**
    * @schema DeviceFarmRenewOfferingRequest#quantity
    */
-  readonly quantity?: number;
+  readonly quantity: number;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmRenewOfferingRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmRenewOfferingRequest(obj: DeviceFarmRenewOfferingRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'offeringId': obj.offeringId,
+    'quantity': obj.quantity,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmRenewOfferingResult
@@ -1883,6 +3739,20 @@ export interface DeviceFarmRenewOfferingResult {
   readonly offeringTransaction?: DeviceFarmOfferingTransaction;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmRenewOfferingResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmRenewOfferingResult(obj: DeviceFarmRenewOfferingResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'offeringTransaction': toJson_DeviceFarmOfferingTransaction(obj.offeringTransaction),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmScheduleRunRequest
@@ -1931,6 +3801,27 @@ export interface DeviceFarmScheduleRunRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmScheduleRunRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmScheduleRunRequest(obj: DeviceFarmScheduleRunRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectArn': obj.projectArn,
+    'appArn': obj.appArn,
+    'devicePoolArn': obj.devicePoolArn,
+    'deviceSelectionConfiguration': toJson_DeviceFarmDeviceSelectionConfiguration(obj.deviceSelectionConfiguration),
+    'name': obj.name,
+    'test': toJson_DeviceFarmScheduleRunTest(obj.test),
+    'configuration': toJson_DeviceFarmScheduleRunConfiguration(obj.configuration),
+    'executionConfiguration': toJson_DeviceFarmExecutionConfiguration(obj.executionConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmScheduleRunResult
  */
 export interface DeviceFarmScheduleRunResult {
@@ -1940,6 +3831,20 @@ export interface DeviceFarmScheduleRunResult {
   readonly run?: DeviceFarmRun;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmScheduleRunResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmScheduleRunResult(obj: DeviceFarmScheduleRunResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'run': toJson_DeviceFarmRun(obj.run),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmStopJobRequest
@@ -1953,6 +3858,20 @@ export interface DeviceFarmStopJobRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmStopJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmStopJobRequest(obj: DeviceFarmStopJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmStopJobResult
  */
 export interface DeviceFarmStopJobResult {
@@ -1962,6 +3881,20 @@ export interface DeviceFarmStopJobResult {
   readonly job?: DeviceFarmJob;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmStopJobResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmStopJobResult(obj: DeviceFarmStopJobResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'job': toJson_DeviceFarmJob(obj.job),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmStopRemoteAccessSessionRequest
@@ -1975,6 +3908,20 @@ export interface DeviceFarmStopRemoteAccessSessionRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmStopRemoteAccessSessionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmStopRemoteAccessSessionRequest(obj: DeviceFarmStopRemoteAccessSessionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmStopRemoteAccessSessionResult
  */
 export interface DeviceFarmStopRemoteAccessSessionResult {
@@ -1984,6 +3931,20 @@ export interface DeviceFarmStopRemoteAccessSessionResult {
   readonly remoteAccessSession?: DeviceFarmRemoteAccessSession;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmStopRemoteAccessSessionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmStopRemoteAccessSessionResult(obj: DeviceFarmStopRemoteAccessSessionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'remoteAccessSession': toJson_DeviceFarmRemoteAccessSession(obj.remoteAccessSession),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmStopRunRequest
@@ -1997,6 +3958,20 @@ export interface DeviceFarmStopRunRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmStopRunRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmStopRunRequest(obj: DeviceFarmStopRunRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmStopRunResult
  */
 export interface DeviceFarmStopRunResult {
@@ -2008,20 +3983,49 @@ export interface DeviceFarmStopRunResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmStopRunResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmStopRunResult(obj: DeviceFarmStopRunResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'run': toJson_DeviceFarmRun(obj.run),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmTagResourceRequest
  */
 export interface DeviceFarmTagResourceRequest {
   /**
    * @schema DeviceFarmTagResourceRequest#ResourceARN
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema DeviceFarmTagResourceRequest#Tags
    */
-  readonly tags: DeviceFarmTag[];
+  readonly tags?: DeviceFarmTag[];
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmTagResourceRequest(obj: DeviceFarmTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceARN': obj.resourceArn,
+    'Tags': obj.tags?.map(y => toJson_DeviceFarmTag(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmTagResourceResponse
@@ -2030,26 +4034,67 @@ export interface DeviceFarmTagResourceResponse {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmTagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmTagResourceResponse(obj: DeviceFarmTagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmUntagResourceRequest
  */
 export interface DeviceFarmUntagResourceRequest {
   /**
    * @schema DeviceFarmUntagResourceRequest#ResourceARN
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema DeviceFarmUntagResourceRequest#TagKeys
    */
-  readonly tagKeys: string[];
+  readonly tagKeys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUntagResourceRequest(obj: DeviceFarmUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceARN': obj.resourceArn,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmUntagResourceResponse
  */
 export interface DeviceFarmUntagResourceResponse {
 }
+
+/**
+ * Converts an object of type 'DeviceFarmUntagResourceResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUntagResourceResponse(obj: DeviceFarmUntagResourceResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmUpdateDeviceInstanceRequest
@@ -2073,6 +4118,22 @@ export interface DeviceFarmUpdateDeviceInstanceRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmUpdateDeviceInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUpdateDeviceInstanceRequest(obj: DeviceFarmUpdateDeviceInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'profileArn': obj.profileArn,
+    'labels': obj.labels?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmUpdateDeviceInstanceResult
  */
 export interface DeviceFarmUpdateDeviceInstanceResult {
@@ -2082,6 +4143,20 @@ export interface DeviceFarmUpdateDeviceInstanceResult {
   readonly deviceInstance?: DeviceFarmDeviceInstance;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmUpdateDeviceInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUpdateDeviceInstanceResult(obj: DeviceFarmUpdateDeviceInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'deviceInstance': toJson_DeviceFarmDeviceInstance(obj.deviceInstance),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmUpdateDevicePoolRequest
@@ -2120,6 +4195,25 @@ export interface DeviceFarmUpdateDevicePoolRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmUpdateDevicePoolRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUpdateDevicePoolRequest(obj: DeviceFarmUpdateDevicePoolRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'description': obj.description,
+    'rules': obj.rules?.map(y => toJson_DeviceFarmRule(y)),
+    'maxDevices': obj.maxDevices,
+    'clearMaxDevices': obj.clearMaxDevices,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmUpdateDevicePoolResult
  */
 export interface DeviceFarmUpdateDevicePoolResult {
@@ -2129,6 +4223,20 @@ export interface DeviceFarmUpdateDevicePoolResult {
   readonly devicePool?: DeviceFarmDevicePool;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmUpdateDevicePoolResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUpdateDevicePoolResult(obj: DeviceFarmUpdateDevicePoolResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'devicePool': toJson_DeviceFarmDevicePool(obj.devicePool),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmUpdateInstanceProfileRequest
@@ -2167,6 +4275,25 @@ export interface DeviceFarmUpdateInstanceProfileRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmUpdateInstanceProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUpdateInstanceProfileRequest(obj: DeviceFarmUpdateInstanceProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'description': obj.description,
+    'packageCleanup': obj.packageCleanup,
+    'excludeAppPackagesFromCleanup': obj.excludeAppPackagesFromCleanup?.map(y => y),
+    'rebootAfterUse': obj.rebootAfterUse,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmUpdateInstanceProfileResult
  */
 export interface DeviceFarmUpdateInstanceProfileResult {
@@ -2176,6 +4303,20 @@ export interface DeviceFarmUpdateInstanceProfileResult {
   readonly instanceProfile?: DeviceFarmInstanceProfile;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmUpdateInstanceProfileResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUpdateInstanceProfileResult(obj: DeviceFarmUpdateInstanceProfileResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'instanceProfile': toJson_DeviceFarmInstanceProfile(obj.instanceProfile),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmUpdateNetworkProfileRequest
@@ -2244,6 +4385,31 @@ export interface DeviceFarmUpdateNetworkProfileRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmUpdateNetworkProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUpdateNetworkProfileRequest(obj: DeviceFarmUpdateNetworkProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'description': obj.description,
+    'type': obj.type,
+    'uplinkBandwidthBits': obj.uplinkBandwidthBits,
+    'downlinkBandwidthBits': obj.downlinkBandwidthBits,
+    'uplinkDelayMs': obj.uplinkDelayMs,
+    'downlinkDelayMs': obj.downlinkDelayMs,
+    'uplinkJitterMs': obj.uplinkJitterMs,
+    'downlinkJitterMs': obj.downlinkJitterMs,
+    'uplinkLossPercent': obj.uplinkLossPercent,
+    'downlinkLossPercent': obj.downlinkLossPercent,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmUpdateNetworkProfileResult
  */
 export interface DeviceFarmUpdateNetworkProfileResult {
@@ -2253,6 +4419,20 @@ export interface DeviceFarmUpdateNetworkProfileResult {
   readonly networkProfile?: DeviceFarmNetworkProfile;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmUpdateNetworkProfileResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUpdateNetworkProfileResult(obj: DeviceFarmUpdateNetworkProfileResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'networkProfile': toJson_DeviceFarmNetworkProfile(obj.networkProfile),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmUpdateProjectRequest
@@ -2276,6 +4456,22 @@ export interface DeviceFarmUpdateProjectRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmUpdateProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUpdateProjectRequest(obj: DeviceFarmUpdateProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'defaultJobTimeoutMinutes': obj.defaultJobTimeoutMinutes,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmUpdateProjectResult
  */
 export interface DeviceFarmUpdateProjectResult {
@@ -2285,6 +4481,20 @@ export interface DeviceFarmUpdateProjectResult {
   readonly project?: DeviceFarmProject;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmUpdateProjectResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUpdateProjectResult(obj: DeviceFarmUpdateProjectResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'project': toJson_DeviceFarmProject(obj.project),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmUpdateTestGridProjectRequest
@@ -2305,7 +4515,29 @@ export interface DeviceFarmUpdateTestGridProjectRequest {
    */
   readonly description?: string;
 
+  /**
+   * @schema DeviceFarmUpdateTestGridProjectRequest#vpcConfig
+   */
+  readonly vpcConfig?: DeviceFarmTestGridVpcConfig;
+
 }
+
+/**
+ * Converts an object of type 'DeviceFarmUpdateTestGridProjectRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUpdateTestGridProjectRequest(obj: DeviceFarmUpdateTestGridProjectRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'projectArn': obj.projectArn,
+    'name': obj.name,
+    'description': obj.description,
+    'vpcConfig': toJson_DeviceFarmTestGridVpcConfig(obj.vpcConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmUpdateTestGridProjectResult
@@ -2317,6 +4549,20 @@ export interface DeviceFarmUpdateTestGridProjectResult {
   readonly testGridProject?: DeviceFarmTestGridProject;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmUpdateTestGridProjectResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUpdateTestGridProjectResult(obj: DeviceFarmUpdateTestGridProjectResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'testGridProject': toJson_DeviceFarmTestGridProject(obj.testGridProject),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmUpdateUploadRequest
@@ -2345,6 +4591,23 @@ export interface DeviceFarmUpdateUploadRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmUpdateUploadRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUpdateUploadRequest(obj: DeviceFarmUpdateUploadRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'contentType': obj.contentType,
+    'editContent': obj.editContent,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmUpdateUploadResult
  */
 export interface DeviceFarmUpdateUploadResult {
@@ -2354,6 +4617,20 @@ export interface DeviceFarmUpdateUploadResult {
   readonly upload?: DeviceFarmUpload;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmUpdateUploadResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUpdateUploadResult(obj: DeviceFarmUpdateUploadResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'upload': toJson_DeviceFarmUpload(obj.upload),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmUpdateVpceConfigurationRequest
@@ -2387,6 +4664,24 @@ export interface DeviceFarmUpdateVpceConfigurationRequest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmUpdateVpceConfigurationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUpdateVpceConfigurationRequest(obj: DeviceFarmUpdateVpceConfigurationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'vpceConfigurationName': obj.vpceConfigurationName,
+    'vpceServiceName': obj.vpceServiceName,
+    'serviceDnsName': obj.serviceDnsName,
+    'vpceConfigurationDescription': obj.vpceConfigurationDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmUpdateVpceConfigurationResult
  */
 export interface DeviceFarmUpdateVpceConfigurationResult {
@@ -2396,6 +4691,20 @@ export interface DeviceFarmUpdateVpceConfigurationResult {
   readonly vpceConfiguration?: DeviceFarmVpceConfiguration;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmUpdateVpceConfigurationResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUpdateVpceConfigurationResult(obj: DeviceFarmUpdateVpceConfigurationResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'vpceConfiguration': toJson_DeviceFarmVpceConfiguration(obj.vpceConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmRule
@@ -2417,6 +4726,22 @@ export interface DeviceFarmRule {
   readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmRule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmRule(obj: DeviceFarmRule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'attribute': obj.attribute,
+    'operator': obj.operator,
+    'value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmDevicePool
@@ -2455,6 +4780,25 @@ export interface DeviceFarmDevicePool {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmDevicePool' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDevicePool(obj: DeviceFarmDevicePool | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'description': obj.description,
+    'type': obj.type,
+    'rules': obj.rules?.map(y => toJson_DeviceFarmRule(y)),
+    'maxDevices': obj.maxDevices,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmInstanceProfile
  */
 export interface DeviceFarmInstanceProfile {
@@ -2489,6 +4833,25 @@ export interface DeviceFarmInstanceProfile {
   readonly description?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmInstanceProfile' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmInstanceProfile(obj: DeviceFarmInstanceProfile | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'packageCleanup': obj.packageCleanup,
+    'excludeAppPackagesFromCleanup': obj.excludeAppPackagesFromCleanup?.map(y => y),
+    'rebootAfterUse': obj.rebootAfterUse,
+    'name': obj.name,
+    'description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmNetworkProfile
@@ -2557,6 +4920,31 @@ export interface DeviceFarmNetworkProfile {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmNetworkProfile' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmNetworkProfile(obj: DeviceFarmNetworkProfile | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'description': obj.description,
+    'type': obj.type,
+    'uplinkBandwidthBits': obj.uplinkBandwidthBits,
+    'downlinkBandwidthBits': obj.downlinkBandwidthBits,
+    'uplinkDelayMs': obj.uplinkDelayMs,
+    'downlinkDelayMs': obj.downlinkDelayMs,
+    'uplinkJitterMs': obj.uplinkJitterMs,
+    'downlinkJitterMs': obj.downlinkJitterMs,
+    'uplinkLossPercent': obj.uplinkLossPercent,
+    'downlinkLossPercent': obj.downlinkLossPercent,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmProject
  */
 export interface DeviceFarmProject {
@@ -2583,6 +4971,23 @@ export interface DeviceFarmProject {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmProject' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmProject(obj: DeviceFarmProject | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'defaultJobTimeoutMinutes': obj.defaultJobTimeoutMinutes,
+    'created': obj.created,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmCreateRemoteAccessSessionConfiguration
  */
 export interface DeviceFarmCreateRemoteAccessSessionConfiguration {
@@ -2597,6 +5002,21 @@ export interface DeviceFarmCreateRemoteAccessSessionConfiguration {
   readonly vpceConfigurationArns?: string[];
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmCreateRemoteAccessSessionConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCreateRemoteAccessSessionConfiguration(obj: DeviceFarmCreateRemoteAccessSessionConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'billingMethod': obj.billingMethod,
+    'vpceConfigurationArns': obj.vpceConfigurationArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmRemoteAccessSession
@@ -2710,6 +5130,77 @@ export interface DeviceFarmRemoteAccessSession {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmRemoteAccessSession' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmRemoteAccessSession(obj: DeviceFarmRemoteAccessSession | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'created': obj.created,
+    'status': obj.status,
+    'result': obj.result,
+    'message': obj.message,
+    'started': obj.started,
+    'stopped': obj.stopped,
+    'device': toJson_DeviceFarmDevice(obj.device),
+    'instanceArn': obj.instanceArn,
+    'remoteDebugEnabled': obj.remoteDebugEnabled,
+    'remoteRecordEnabled': obj.remoteRecordEnabled,
+    'remoteRecordAppArn': obj.remoteRecordAppArn,
+    'hostAddress': obj.hostAddress,
+    'clientId': obj.clientId,
+    'billingMethod': obj.billingMethod,
+    'deviceMinutes': toJson_DeviceFarmDeviceMinutes(obj.deviceMinutes),
+    'endpoint': obj.endpoint,
+    'deviceUdid': obj.deviceUdid,
+    'interactionMode': obj.interactionMode,
+    'skipAppResign': obj.skipAppResign,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema DeviceFarmTestGridVpcConfig
+ */
+export interface DeviceFarmTestGridVpcConfig {
+  /**
+   * @schema DeviceFarmTestGridVpcConfig#securityGroupIds
+   */
+  readonly securityGroupIds: string[];
+
+  /**
+   * @schema DeviceFarmTestGridVpcConfig#subnetIds
+   */
+  readonly subnetIds: string[];
+
+  /**
+   * @schema DeviceFarmTestGridVpcConfig#vpcId
+   */
+  readonly vpcId: string;
+
+}
+
+/**
+ * Converts an object of type 'DeviceFarmTestGridVpcConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmTestGridVpcConfig(obj: DeviceFarmTestGridVpcConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'securityGroupIds': obj.securityGroupIds?.map(y => y),
+    'subnetIds': obj.subnetIds?.map(y => y),
+    'vpcId': obj.vpcId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmTestGridProject
  */
 export interface DeviceFarmTestGridProject {
@@ -2729,11 +5220,34 @@ export interface DeviceFarmTestGridProject {
   readonly description?: string;
 
   /**
+   * @schema DeviceFarmTestGridProject#vpcConfig
+   */
+  readonly vpcConfig?: DeviceFarmTestGridVpcConfig;
+
+  /**
    * @schema DeviceFarmTestGridProject#created
    */
   readonly created?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmTestGridProject' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmTestGridProject(obj: DeviceFarmTestGridProject | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'description': obj.description,
+    'vpcConfig': toJson_DeviceFarmTestGridVpcConfig(obj.vpcConfig),
+    'created': obj.created,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmUpload
@@ -2792,6 +5306,29 @@ export interface DeviceFarmUpload {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmUpload' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUpload(obj: DeviceFarmUpload | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'created': obj.created,
+    'type': obj.type,
+    'status': obj.status,
+    'url': obj.url,
+    'metadata': obj.metadata,
+    'contentType': obj.contentType,
+    'message': obj.message,
+    'category': obj.category,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmVpceConfiguration
  */
 export interface DeviceFarmVpceConfiguration {
@@ -2821,6 +5358,24 @@ export interface DeviceFarmVpceConfiguration {
   readonly vpceConfigurationDescription?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmVpceConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmVpceConfiguration(obj: DeviceFarmVpceConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'vpceConfigurationName': obj.vpceConfigurationName,
+    'vpceServiceName': obj.vpceServiceName,
+    'serviceDnsName': obj.serviceDnsName,
+    'vpceConfigurationDescription': obj.vpceConfigurationDescription,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmAccountSettings
@@ -2867,6 +5422,27 @@ export interface DeviceFarmAccountSettings {
   readonly skipAppResign?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmAccountSettings' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmAccountSettings(obj: DeviceFarmAccountSettings | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'awsAccountNumber': obj.awsAccountNumber,
+    'unmeteredDevices': ((obj.unmeteredDevices) === undefined) ? undefined : (Object.entries(obj.unmeteredDevices).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'unmeteredRemoteAccessDevices': ((obj.unmeteredRemoteAccessDevices) === undefined) ? undefined : (Object.entries(obj.unmeteredRemoteAccessDevices).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'maxJobTimeoutMinutes': obj.maxJobTimeoutMinutes,
+    'trialMinutes': toJson_DeviceFarmTrialMinutes(obj.trialMinutes),
+    'maxSlots': ((obj.maxSlots) === undefined) ? undefined : (Object.entries(obj.maxSlots).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'defaultJobTimeoutMinutes': obj.defaultJobTimeoutMinutes,
+    'skipAppResign': obj.skipAppResign,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmDevice
@@ -2980,6 +5556,40 @@ export interface DeviceFarmDevice {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmDevice' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDevice(obj: DeviceFarmDevice | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'manufacturer': obj.manufacturer,
+    'model': obj.model,
+    'modelId': obj.modelId,
+    'formFactor': obj.formFactor,
+    'platform': obj.platform,
+    'os': obj.os,
+    'cpu': toJson_DeviceFarmCpu(obj.cpu),
+    'resolution': toJson_DeviceFarmResolution(obj.resolution),
+    'heapSize': obj.heapSize,
+    'memory': obj.memory,
+    'image': obj.image,
+    'carrier': obj.carrier,
+    'radio': obj.radio,
+    'remoteAccessEnabled': obj.remoteAccessEnabled,
+    'remoteDebugEnabled': obj.remoteDebugEnabled,
+    'fleetType': obj.fleetType,
+    'fleetName': obj.fleetName,
+    'instances': obj.instances?.map(y => toJson_DeviceFarmDeviceInstance(y)),
+    'availability': obj.availability,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmDeviceInstance
  */
 export interface DeviceFarmDeviceInstance {
@@ -3016,6 +5626,25 @@ export interface DeviceFarmDeviceInstance {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmDeviceInstance' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeviceInstance(obj: DeviceFarmDeviceInstance | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'deviceArn': obj.deviceArn,
+    'labels': obj.labels?.map(y => y),
+    'status': obj.status,
+    'udid': obj.udid,
+    'instanceProfile': toJson_DeviceFarmInstanceProfile(obj.instanceProfile),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmScheduleRunTest
  */
 export interface DeviceFarmScheduleRunTest {
@@ -3045,6 +5674,24 @@ export interface DeviceFarmScheduleRunTest {
   readonly parameters?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmScheduleRunTest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmScheduleRunTest(obj: DeviceFarmScheduleRunTest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+    'testPackageArn': obj.testPackageArn,
+    'testSpecArn': obj.testSpecArn,
+    'filter': obj.filter,
+    'parameters': ((obj.parameters) === undefined) ? undefined : (Object.entries(obj.parameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmScheduleRunConfiguration
@@ -3098,6 +5745,28 @@ export interface DeviceFarmScheduleRunConfiguration {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmScheduleRunConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmScheduleRunConfiguration(obj: DeviceFarmScheduleRunConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'extraDataPackageArn': obj.extraDataPackageArn,
+    'networkProfileArn': obj.networkProfileArn,
+    'locale': obj.locale,
+    'location': toJson_DeviceFarmLocation(obj.location),
+    'vpceConfigurationArns': obj.vpceConfigurationArns?.map(y => y),
+    'customerArtifactPaths': toJson_DeviceFarmCustomerArtifactPaths(obj.customerArtifactPaths),
+    'radios': toJson_DeviceFarmRadios(obj.radios),
+    'auxiliaryApps': obj.auxiliaryApps?.map(y => y),
+    'billingMethod': obj.billingMethod,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmDevicePoolCompatibilityResult
  */
 export interface DeviceFarmDevicePoolCompatibilityResult {
@@ -3117,6 +5786,22 @@ export interface DeviceFarmDevicePoolCompatibilityResult {
   readonly incompatibilityMessages?: DeviceFarmIncompatibilityMessage[];
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmDevicePoolCompatibilityResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDevicePoolCompatibilityResult(obj: DeviceFarmDevicePoolCompatibilityResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'device': toJson_DeviceFarmDevice(obj.device),
+    'compatible': obj.compatible,
+    'incompatibilityMessages': obj.incompatibilityMessages?.map(y => toJson_DeviceFarmIncompatibilityMessage(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmJob
@@ -3200,6 +5885,34 @@ export interface DeviceFarmJob {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmJob' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmJob(obj: DeviceFarmJob | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'type': obj.type,
+    'created': obj.created,
+    'status': obj.status,
+    'result': obj.result,
+    'started': obj.started,
+    'stopped': obj.stopped,
+    'counters': toJson_DeviceFarmCounters(obj.counters),
+    'message': obj.message,
+    'device': toJson_DeviceFarmDevice(obj.device),
+    'instanceArn': obj.instanceArn,
+    'deviceMinutes': toJson_DeviceFarmDeviceMinutes(obj.deviceMinutes),
+    'videoEndpoint': obj.videoEndpoint,
+    'videoCapture': obj.videoCapture,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmOfferingStatus
  */
 export interface DeviceFarmOfferingStatus {
@@ -3224,6 +5937,23 @@ export interface DeviceFarmOfferingStatus {
   readonly effectiveOn?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmOfferingStatus' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmOfferingStatus(obj: DeviceFarmOfferingStatus | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+    'offering': toJson_DeviceFarmOffering(obj.offering),
+    'quantity': obj.quantity,
+    'effectiveOn': obj.effectiveOn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmRun
@@ -3387,6 +6117,50 @@ export interface DeviceFarmRun {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmRun' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmRun(obj: DeviceFarmRun | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'type': obj.type,
+    'platform': obj.platform,
+    'created': obj.created,
+    'status': obj.status,
+    'result': obj.result,
+    'started': obj.started,
+    'stopped': obj.stopped,
+    'counters': toJson_DeviceFarmCounters(obj.counters),
+    'message': obj.message,
+    'totalJobs': obj.totalJobs,
+    'completedJobs': obj.completedJobs,
+    'billingMethod': obj.billingMethod,
+    'deviceMinutes': toJson_DeviceFarmDeviceMinutes(obj.deviceMinutes),
+    'networkProfile': toJson_DeviceFarmNetworkProfile(obj.networkProfile),
+    'parsingResultUrl': obj.parsingResultUrl,
+    'resultCode': obj.resultCode,
+    'seed': obj.seed,
+    'appUpload': obj.appUpload,
+    'eventCount': obj.eventCount,
+    'jobTimeoutMinutes': obj.jobTimeoutMinutes,
+    'devicePoolArn': obj.devicePoolArn,
+    'locale': obj.locale,
+    'radios': toJson_DeviceFarmRadios(obj.radios),
+    'location': toJson_DeviceFarmLocation(obj.location),
+    'customerArtifactPaths': toJson_DeviceFarmCustomerArtifactPaths(obj.customerArtifactPaths),
+    'webUrl': obj.webUrl,
+    'skipAppResign': obj.skipAppResign,
+    'testSpecArn': obj.testSpecArn,
+    'deviceSelectionResult': toJson_DeviceFarmDeviceSelectionResult(obj.deviceSelectionResult),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmSuite
  */
 export interface DeviceFarmSuite {
@@ -3446,6 +6220,30 @@ export interface DeviceFarmSuite {
   readonly deviceMinutes?: DeviceFarmDeviceMinutes;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmSuite' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmSuite(obj: DeviceFarmSuite | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'type': obj.type,
+    'created': obj.created,
+    'status': obj.status,
+    'result': obj.result,
+    'started': obj.started,
+    'stopped': obj.stopped,
+    'counters': toJson_DeviceFarmCounters(obj.counters),
+    'message': obj.message,
+    'deviceMinutes': toJson_DeviceFarmDeviceMinutes(obj.deviceMinutes),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmTest
@@ -3509,6 +6307,30 @@ export interface DeviceFarmTest {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmTest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmTest(obj: DeviceFarmTest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'type': obj.type,
+    'created': obj.created,
+    'status': obj.status,
+    'result': obj.result,
+    'started': obj.started,
+    'stopped': obj.stopped,
+    'counters': toJson_DeviceFarmCounters(obj.counters),
+    'message': obj.message,
+    'deviceMinutes': toJson_DeviceFarmDeviceMinutes(obj.deviceMinutes),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmTestGridSession
  */
 export interface DeviceFarmTestGridSession {
@@ -3545,6 +6367,25 @@ export interface DeviceFarmTestGridSession {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmTestGridSession' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmTestGridSession(obj: DeviceFarmTestGridSession | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'status': obj.status,
+    'created': obj.created,
+    'ended': obj.ended,
+    'billingMinutes': obj.billingMinutes,
+    'seleniumProperties': obj.seleniumProperties,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmArtifact
  */
 export interface DeviceFarmArtifact {
@@ -3576,25 +6417,59 @@ export interface DeviceFarmArtifact {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmArtifact' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmArtifact(obj: DeviceFarmArtifact | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+    'type': obj.type,
+    'extension': obj.extension,
+    'url': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmDeviceFilter
  */
 export interface DeviceFarmDeviceFilter {
   /**
    * @schema DeviceFarmDeviceFilter#attribute
    */
-  readonly attribute?: string;
+  readonly attribute: string;
 
   /**
    * @schema DeviceFarmDeviceFilter#operator
    */
-  readonly operator?: string;
+  readonly operator: string;
 
   /**
    * @schema DeviceFarmDeviceFilter#values
    */
-  readonly values?: string[];
+  readonly values: string[];
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmDeviceFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeviceFilter(obj: DeviceFarmDeviceFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'attribute': obj.attribute,
+    'operator': obj.operator,
+    'values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmOfferingPromotion
@@ -3611,6 +6486,21 @@ export interface DeviceFarmOfferingPromotion {
   readonly description?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmOfferingPromotion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmOfferingPromotion(obj: DeviceFarmOfferingPromotion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'description': obj.description,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmOfferingTransaction
@@ -3644,6 +6534,24 @@ export interface DeviceFarmOfferingTransaction {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmOfferingTransaction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmOfferingTransaction(obj: DeviceFarmOfferingTransaction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'offeringStatus': toJson_DeviceFarmOfferingStatus(obj.offeringStatus),
+    'transactionId': obj.transactionId,
+    'offeringPromotionId': obj.offeringPromotionId,
+    'createdOn': obj.createdOn,
+    'cost': toJson_DeviceFarmMonetaryAmount(obj.cost),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmOffering
  */
 export interface DeviceFarmOffering {
@@ -3675,6 +6583,24 @@ export interface DeviceFarmOffering {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmOffering' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmOffering(obj: DeviceFarmOffering | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'id': obj.id,
+    'description': obj.description,
+    'type': obj.type,
+    'platform': obj.platform,
+    'recurringCharges': obj.recurringCharges?.map(y => toJson_DeviceFarmRecurringCharge(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmSample
  */
 export interface DeviceFarmSample {
@@ -3696,20 +6622,51 @@ export interface DeviceFarmSample {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmSample' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmSample(obj: DeviceFarmSample | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'type': obj.type,
+    'url': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmTag
  */
 export interface DeviceFarmTag {
   /**
    * @schema DeviceFarmTag#Key
    */
-  readonly key: string;
+  readonly key?: string;
 
   /**
    * @schema DeviceFarmTag#Value
    */
-  readonly value: string;
+  readonly value?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmTag' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmTag(obj: DeviceFarmTag | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmTestGridSessionAction
@@ -3743,6 +6700,24 @@ export interface DeviceFarmTestGridSessionAction {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmTestGridSessionAction' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmTestGridSessionAction(obj: DeviceFarmTestGridSessionAction | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'action': obj.action,
+    'started': obj.started,
+    'duration': obj.duration,
+    'statusCode': obj.statusCode,
+    'requestMethod': obj.requestMethod,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmTestGridSessionArtifact
  */
 export interface DeviceFarmTestGridSessionArtifact {
@@ -3764,6 +6739,22 @@ export interface DeviceFarmTestGridSessionArtifact {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmTestGridSessionArtifact' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmTestGridSessionArtifact(obj: DeviceFarmTestGridSessionArtifact | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filename': obj.filename,
+    'type': obj.type,
+    'url': obj.url,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmUniqueProblem
  */
 export interface DeviceFarmUniqueProblem {
@@ -3780,6 +6771,21 @@ export interface DeviceFarmUniqueProblem {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmUniqueProblem' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmUniqueProblem(obj: DeviceFarmUniqueProblem | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'message': obj.message,
+    'problems': obj.problems?.map(y => toJson_DeviceFarmProblem(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmDeviceSelectionConfiguration
  */
 export interface DeviceFarmDeviceSelectionConfiguration {
@@ -3794,6 +6800,21 @@ export interface DeviceFarmDeviceSelectionConfiguration {
   readonly maxDevices: number;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmDeviceSelectionConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeviceSelectionConfiguration(obj: DeviceFarmDeviceSelectionConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filters': obj.filters?.map(y => toJson_DeviceFarmDeviceFilter(y)),
+    'maxDevices': obj.maxDevices,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmExecutionConfiguration
@@ -3827,6 +6848,24 @@ export interface DeviceFarmExecutionConfiguration {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmExecutionConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmExecutionConfiguration(obj: DeviceFarmExecutionConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobTimeoutMinutes': obj.jobTimeoutMinutes,
+    'accountsCleanup': obj.accountsCleanup,
+    'appPackagesCleanup': obj.appPackagesCleanup,
+    'videoCapture': obj.videoCapture,
+    'skipAppResign': obj.skipAppResign,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmDeviceMinutes
  */
 export interface DeviceFarmDeviceMinutes {
@@ -3848,6 +6887,22 @@ export interface DeviceFarmDeviceMinutes {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmDeviceMinutes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeviceMinutes(obj: DeviceFarmDeviceMinutes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'total': obj.total,
+    'metered': obj.metered,
+    'unmetered': obj.unmetered,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmTrialMinutes
  */
 export interface DeviceFarmTrialMinutes {
@@ -3862,6 +6917,21 @@ export interface DeviceFarmTrialMinutes {
   readonly remaining?: number;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmTrialMinutes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmTrialMinutes(obj: DeviceFarmTrialMinutes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'total': obj.total,
+    'remaining': obj.remaining,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmCpu
@@ -3885,6 +6955,22 @@ export interface DeviceFarmCpu {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmCpu' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCpu(obj: DeviceFarmCpu | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'frequency': obj.frequency,
+    'architecture': obj.architecture,
+    'clock': obj.clock,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmResolution
  */
 export interface DeviceFarmResolution {
@@ -3901,6 +6987,21 @@ export interface DeviceFarmResolution {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmResolution' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmResolution(obj: DeviceFarmResolution | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'width': obj.width,
+    'height': obj.height,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmLocation
  */
 export interface DeviceFarmLocation {
@@ -3915,6 +7016,21 @@ export interface DeviceFarmLocation {
   readonly longitude: number;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmLocation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmLocation(obj: DeviceFarmLocation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'latitude': obj.latitude,
+    'longitude': obj.longitude,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmCustomerArtifactPaths
@@ -3936,6 +7052,22 @@ export interface DeviceFarmCustomerArtifactPaths {
   readonly deviceHostPaths?: string[];
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmCustomerArtifactPaths' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCustomerArtifactPaths(obj: DeviceFarmCustomerArtifactPaths | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'iosPaths': obj.iosPaths?.map(y => y),
+    'androidPaths': obj.androidPaths?.map(y => y),
+    'deviceHostPaths': obj.deviceHostPaths?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmRadios
@@ -3964,6 +7096,23 @@ export interface DeviceFarmRadios {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmRadios' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmRadios(obj: DeviceFarmRadios | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'wifi': obj.wifi,
+    'bluetooth': obj.bluetooth,
+    'nfc': obj.nfc,
+    'gps': obj.gps,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmIncompatibilityMessage
  */
 export interface DeviceFarmIncompatibilityMessage {
@@ -3978,6 +7127,21 @@ export interface DeviceFarmIncompatibilityMessage {
   readonly type?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmIncompatibilityMessage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmIncompatibilityMessage(obj: DeviceFarmIncompatibilityMessage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'message': obj.message,
+    'type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmCounters
@@ -4021,6 +7185,26 @@ export interface DeviceFarmCounters {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmCounters' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmCounters(obj: DeviceFarmCounters | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'total': obj.total,
+    'passed': obj.passed,
+    'failed': obj.failed,
+    'warned': obj.warned,
+    'errored': obj.errored,
+    'stopped': obj.stopped,
+    'skipped': obj.skipped,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmDeviceSelectionResult
  */
 export interface DeviceFarmDeviceSelectionResult {
@@ -4042,6 +7226,22 @@ export interface DeviceFarmDeviceSelectionResult {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmDeviceSelectionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmDeviceSelectionResult(obj: DeviceFarmDeviceSelectionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filters': obj.filters?.map(y => toJson_DeviceFarmDeviceFilter(y)),
+    'matchedDevicesCount': obj.matchedDevicesCount,
+    'maxDevices': obj.maxDevices,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmMonetaryAmount
  */
 export interface DeviceFarmMonetaryAmount {
@@ -4058,6 +7258,21 @@ export interface DeviceFarmMonetaryAmount {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmMonetaryAmount' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmMonetaryAmount(obj: DeviceFarmMonetaryAmount | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'amount': obj.amount,
+    'currencyCode': obj.currencyCode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmRecurringCharge
  */
 export interface DeviceFarmRecurringCharge {
@@ -4072,6 +7287,21 @@ export interface DeviceFarmRecurringCharge {
   readonly frequency?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmRecurringCharge' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmRecurringCharge(obj: DeviceFarmRecurringCharge | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'cost': toJson_DeviceFarmMonetaryAmount(obj.cost),
+    'frequency': obj.frequency,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema DeviceFarmProblem
@@ -4115,6 +7345,26 @@ export interface DeviceFarmProblem {
 }
 
 /**
+ * Converts an object of type 'DeviceFarmProblem' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmProblem(obj: DeviceFarmProblem | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'run': toJson_DeviceFarmProblemDetail(obj.run),
+    'job': toJson_DeviceFarmProblemDetail(obj.job),
+    'suite': toJson_DeviceFarmProblemDetail(obj.suite),
+    'test': toJson_DeviceFarmProblemDetail(obj.test),
+    'device': toJson_DeviceFarmDevice(obj.device),
+    'result': obj.result,
+    'message': obj.message,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema DeviceFarmProblemDetail
  */
 export interface DeviceFarmProblemDetail {
@@ -4129,3 +7379,18 @@ export interface DeviceFarmProblemDetail {
   readonly name?: string;
 
 }
+
+/**
+ * Converts an object of type 'DeviceFarmProblemDetail' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_DeviceFarmProblemDetail(obj: DeviceFarmProblemDetail | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'arn': obj.arn,
+    'name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

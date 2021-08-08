@@ -5,14 +5,29 @@ export interface OpsWorksAssignInstanceRequest {
   /**
    * @schema OpsWorksAssignInstanceRequest#InstanceId
    */
-  readonly instanceId: string;
+  readonly instanceId?: string;
 
   /**
    * @schema OpsWorksAssignInstanceRequest#LayerIds
    */
-  readonly layerIds: string[];
+  readonly layerIds?: string[];
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksAssignInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksAssignInstanceRequest(obj: OpsWorksAssignInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceId': obj.instanceId,
+    'LayerIds': obj.layerIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksAssignVolumeRequest
@@ -21,7 +36,7 @@ export interface OpsWorksAssignVolumeRequest {
   /**
    * @schema OpsWorksAssignVolumeRequest#VolumeId
    */
-  readonly volumeId: string;
+  readonly volumeId?: string;
 
   /**
    * @schema OpsWorksAssignVolumeRequest#InstanceId
@@ -31,13 +46,28 @@ export interface OpsWorksAssignVolumeRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksAssignVolumeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksAssignVolumeRequest(obj: OpsWorksAssignVolumeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VolumeId': obj.volumeId,
+    'InstanceId': obj.instanceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksAssociateElasticIpRequest
  */
 export interface OpsWorksAssociateElasticIpRequest {
   /**
    * @schema OpsWorksAssociateElasticIpRequest#ElasticIp
    */
-  readonly elasticIp: string;
+  readonly elasticIp?: string;
 
   /**
    * @schema OpsWorksAssociateElasticIpRequest#InstanceId
@@ -47,20 +77,50 @@ export interface OpsWorksAssociateElasticIpRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksAssociateElasticIpRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksAssociateElasticIpRequest(obj: OpsWorksAssociateElasticIpRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ElasticIp': obj.elasticIp,
+    'InstanceId': obj.instanceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksAttachElasticLoadBalancerRequest
  */
 export interface OpsWorksAttachElasticLoadBalancerRequest {
   /**
    * @schema OpsWorksAttachElasticLoadBalancerRequest#ElasticLoadBalancerName
    */
-  readonly elasticLoadBalancerName: string;
+  readonly elasticLoadBalancerName?: string;
 
   /**
    * @schema OpsWorksAttachElasticLoadBalancerRequest#LayerId
    */
-  readonly layerId: string;
+  readonly layerId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksAttachElasticLoadBalancerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksAttachElasticLoadBalancerRequest(obj: OpsWorksAttachElasticLoadBalancerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ElasticLoadBalancerName': obj.elasticLoadBalancerName,
+    'LayerId': obj.layerId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksCloneStackRequest
@@ -69,7 +129,7 @@ export interface OpsWorksCloneStackRequest {
   /**
    * @schema OpsWorksCloneStackRequest#SourceStackId
    */
-  readonly sourceStackId: string;
+  readonly sourceStackId?: string;
 
   /**
    * @schema OpsWorksCloneStackRequest#Name
@@ -94,7 +154,7 @@ export interface OpsWorksCloneStackRequest {
   /**
    * @schema OpsWorksCloneStackRequest#ServiceRoleArn
    */
-  readonly serviceRoleArn: string;
+  readonly serviceRoleArn?: string;
 
   /**
    * @schema OpsWorksCloneStackRequest#DefaultInstanceProfileArn
@@ -179,6 +239,41 @@ export interface OpsWorksCloneStackRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksCloneStackRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksCloneStackRequest(obj: OpsWorksCloneStackRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SourceStackId': obj.sourceStackId,
+    'Name': obj.name,
+    'Region': obj.region,
+    'VpcId': obj.vpcId,
+    'Attributes': ((obj.attributes) === undefined) ? undefined : (Object.entries(obj.attributes).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'ServiceRoleArn': obj.serviceRoleArn,
+    'DefaultInstanceProfileArn': obj.defaultInstanceProfileArn,
+    'DefaultOs': obj.defaultOs,
+    'HostnameTheme': obj.hostnameTheme,
+    'DefaultAvailabilityZone': obj.defaultAvailabilityZone,
+    'DefaultSubnetId': obj.defaultSubnetId,
+    'CustomJson': obj.customJson,
+    'ConfigurationManager': toJson_OpsWorksStackConfigurationManager(obj.configurationManager),
+    'ChefConfiguration': toJson_OpsWorksChefConfiguration(obj.chefConfiguration),
+    'UseCustomCookbooks': obj.useCustomCookbooks,
+    'UseOpsworksSecurityGroups': obj.useOpsworksSecurityGroups,
+    'CustomCookbooksSource': toJson_OpsWorksSource(obj.customCookbooksSource),
+    'DefaultSshKeyName': obj.defaultSshKeyName,
+    'ClonePermissions': obj.clonePermissions,
+    'CloneAppIds': obj.cloneAppIds?.map(y => y),
+    'DefaultRootDeviceType': obj.defaultRootDeviceType,
+    'AgentVersion': obj.agentVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksCloneStackResult
  */
 export interface OpsWorksCloneStackResult {
@@ -190,13 +285,27 @@ export interface OpsWorksCloneStackResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksCloneStackResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksCloneStackResult(obj: OpsWorksCloneStackResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksCreateAppRequest
  */
 export interface OpsWorksCreateAppRequest {
   /**
    * @schema OpsWorksCreateAppRequest#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
   /**
    * @schema OpsWorksCreateAppRequest#Shortname
@@ -206,7 +315,7 @@ export interface OpsWorksCreateAppRequest {
   /**
    * @schema OpsWorksCreateAppRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema OpsWorksCreateAppRequest#Description
@@ -221,7 +330,7 @@ export interface OpsWorksCreateAppRequest {
   /**
    * @schema OpsWorksCreateAppRequest#Type
    */
-  readonly type: string;
+  readonly type?: string;
 
   /**
    * @schema OpsWorksCreateAppRequest#AppSource
@@ -256,6 +365,31 @@ export interface OpsWorksCreateAppRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksCreateAppRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksCreateAppRequest(obj: OpsWorksCreateAppRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'Shortname': obj.shortname,
+    'Name': obj.name,
+    'Description': obj.description,
+    'DataSources': obj.dataSources?.map(y => toJson_OpsWorksDataSource(y)),
+    'Type': obj.type,
+    'AppSource': toJson_OpsWorksSource(obj.appSource),
+    'Domains': obj.domains?.map(y => y),
+    'EnableSsl': obj.enableSsl,
+    'SslConfiguration': toJson_OpsWorksSslConfiguration(obj.sslConfiguration),
+    'Attributes': ((obj.attributes) === undefined) ? undefined : (Object.entries(obj.attributes).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'Environment': obj.environment?.map(y => toJson_OpsWorksEnvironmentVariable(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksCreateAppResult
  */
 export interface OpsWorksCreateAppResult {
@@ -267,13 +401,27 @@ export interface OpsWorksCreateAppResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksCreateAppResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksCreateAppResult(obj: OpsWorksCreateAppResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AppId': obj.appId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksCreateDeploymentRequest
  */
 export interface OpsWorksCreateDeploymentRequest {
   /**
    * @schema OpsWorksCreateDeploymentRequest#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
   /**
    * @schema OpsWorksCreateDeploymentRequest#AppId
@@ -293,7 +441,7 @@ export interface OpsWorksCreateDeploymentRequest {
   /**
    * @schema OpsWorksCreateDeploymentRequest#Command
    */
-  readonly command: OpsWorksDeploymentCommand;
+  readonly command?: OpsWorksDeploymentCommand;
 
   /**
    * @schema OpsWorksCreateDeploymentRequest#Comment
@@ -308,6 +456,26 @@ export interface OpsWorksCreateDeploymentRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksCreateDeploymentRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksCreateDeploymentRequest(obj: OpsWorksCreateDeploymentRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'AppId': obj.appId,
+    'InstanceIds': obj.instanceIds?.map(y => y),
+    'LayerIds': obj.layerIds?.map(y => y),
+    'Command': toJson_OpsWorksDeploymentCommand(obj.command),
+    'Comment': obj.comment,
+    'CustomJson': obj.customJson,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksCreateDeploymentResult
  */
 export interface OpsWorksCreateDeploymentResult {
@@ -319,23 +487,37 @@ export interface OpsWorksCreateDeploymentResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksCreateDeploymentResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksCreateDeploymentResult(obj: OpsWorksCreateDeploymentResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeploymentId': obj.deploymentId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksCreateInstanceRequest
  */
 export interface OpsWorksCreateInstanceRequest {
   /**
    * @schema OpsWorksCreateInstanceRequest#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
   /**
    * @schema OpsWorksCreateInstanceRequest#LayerIds
    */
-  readonly layerIds: string[];
+  readonly layerIds?: string[];
 
   /**
    * @schema OpsWorksCreateInstanceRequest#InstanceType
    */
-  readonly instanceType: string;
+  readonly instanceType?: string;
 
   /**
    * @schema OpsWorksCreateInstanceRequest#AutoScalingType
@@ -415,6 +597,37 @@ export interface OpsWorksCreateInstanceRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksCreateInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksCreateInstanceRequest(obj: OpsWorksCreateInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'LayerIds': obj.layerIds?.map(y => y),
+    'InstanceType': obj.instanceType,
+    'AutoScalingType': obj.autoScalingType,
+    'Hostname': obj.hostname,
+    'Os': obj.os,
+    'AmiId': obj.amiId,
+    'SshKeyName': obj.sshKeyName,
+    'AvailabilityZone': obj.availabilityZone,
+    'VirtualizationType': obj.virtualizationType,
+    'SubnetId': obj.subnetId,
+    'Architecture': obj.architecture,
+    'RootDeviceType': obj.rootDeviceType,
+    'BlockDeviceMappings': obj.blockDeviceMappings?.map(y => toJson_OpsWorksBlockDeviceMapping(y)),
+    'InstallUpdatesOnBoot': obj.installUpdatesOnBoot,
+    'EbsOptimized': obj.ebsOptimized,
+    'AgentVersion': obj.agentVersion,
+    'Tenancy': obj.tenancy,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksCreateInstanceResult
  */
 export interface OpsWorksCreateInstanceResult {
@@ -426,28 +639,42 @@ export interface OpsWorksCreateInstanceResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksCreateInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksCreateInstanceResult(obj: OpsWorksCreateInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceId': obj.instanceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksCreateLayerRequest
  */
 export interface OpsWorksCreateLayerRequest {
   /**
    * @schema OpsWorksCreateLayerRequest#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
   /**
    * @schema OpsWorksCreateLayerRequest#Type
    */
-  readonly type: string;
+  readonly type?: string;
 
   /**
    * @schema OpsWorksCreateLayerRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema OpsWorksCreateLayerRequest#Shortname
    */
-  readonly shortname: string;
+  readonly shortname?: string;
 
   /**
    * @schema OpsWorksCreateLayerRequest#Attributes
@@ -522,6 +749,37 @@ export interface OpsWorksCreateLayerRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksCreateLayerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksCreateLayerRequest(obj: OpsWorksCreateLayerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'Type': obj.type,
+    'Name': obj.name,
+    'Shortname': obj.shortname,
+    'Attributes': ((obj.attributes) === undefined) ? undefined : (Object.entries(obj.attributes).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'CloudWatchLogsConfiguration': toJson_OpsWorksCloudWatchLogsConfiguration(obj.cloudWatchLogsConfiguration),
+    'CustomInstanceProfileArn': obj.customInstanceProfileArn,
+    'CustomJson': obj.customJson,
+    'CustomSecurityGroupIds': obj.customSecurityGroupIds?.map(y => y),
+    'Packages': obj.packages?.map(y => y),
+    'VolumeConfigurations': obj.volumeConfigurations?.map(y => toJson_OpsWorksVolumeConfiguration(y)),
+    'EnableAutoHealing': obj.enableAutoHealing,
+    'AutoAssignElasticIps': obj.autoAssignElasticIps,
+    'AutoAssignPublicIps': obj.autoAssignPublicIps,
+    'CustomRecipes': toJson_OpsWorksRecipes(obj.customRecipes),
+    'InstallUpdatesOnBoot': obj.installUpdatesOnBoot,
+    'UseEbsOptimizedInstances': obj.useEbsOptimizedInstances,
+    'LifecycleEventConfiguration': toJson_OpsWorksLifecycleEventConfiguration(obj.lifecycleEventConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksCreateLayerResult
  */
 export interface OpsWorksCreateLayerResult {
@@ -533,18 +791,32 @@ export interface OpsWorksCreateLayerResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksCreateLayerResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksCreateLayerResult(obj: OpsWorksCreateLayerResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LayerId': obj.layerId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksCreateStackRequest
  */
 export interface OpsWorksCreateStackRequest {
   /**
    * @schema OpsWorksCreateStackRequest#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema OpsWorksCreateStackRequest#Region
    */
-  readonly region: string;
+  readonly region?: string;
 
   /**
    * @schema OpsWorksCreateStackRequest#VpcId
@@ -559,12 +831,12 @@ export interface OpsWorksCreateStackRequest {
   /**
    * @schema OpsWorksCreateStackRequest#ServiceRoleArn
    */
-  readonly serviceRoleArn: string;
+  readonly serviceRoleArn?: string;
 
   /**
    * @schema OpsWorksCreateStackRequest#DefaultInstanceProfileArn
    */
-  readonly defaultInstanceProfileArn: string;
+  readonly defaultInstanceProfileArn?: string;
 
   /**
    * @schema OpsWorksCreateStackRequest#DefaultOs
@@ -634,6 +906,38 @@ export interface OpsWorksCreateStackRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksCreateStackRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksCreateStackRequest(obj: OpsWorksCreateStackRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Region': obj.region,
+    'VpcId': obj.vpcId,
+    'Attributes': ((obj.attributes) === undefined) ? undefined : (Object.entries(obj.attributes).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'ServiceRoleArn': obj.serviceRoleArn,
+    'DefaultInstanceProfileArn': obj.defaultInstanceProfileArn,
+    'DefaultOs': obj.defaultOs,
+    'HostnameTheme': obj.hostnameTheme,
+    'DefaultAvailabilityZone': obj.defaultAvailabilityZone,
+    'DefaultSubnetId': obj.defaultSubnetId,
+    'CustomJson': obj.customJson,
+    'ConfigurationManager': toJson_OpsWorksStackConfigurationManager(obj.configurationManager),
+    'ChefConfiguration': toJson_OpsWorksChefConfiguration(obj.chefConfiguration),
+    'UseCustomCookbooks': obj.useCustomCookbooks,
+    'UseOpsworksSecurityGroups': obj.useOpsworksSecurityGroups,
+    'CustomCookbooksSource': toJson_OpsWorksSource(obj.customCookbooksSource),
+    'DefaultSshKeyName': obj.defaultSshKeyName,
+    'DefaultRootDeviceType': obj.defaultRootDeviceType,
+    'AgentVersion': obj.agentVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksCreateStackResult
  */
 export interface OpsWorksCreateStackResult {
@@ -645,13 +949,27 @@ export interface OpsWorksCreateStackResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksCreateStackResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksCreateStackResult(obj: OpsWorksCreateStackResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksCreateUserProfileRequest
  */
 export interface OpsWorksCreateUserProfileRequest {
   /**
    * @schema OpsWorksCreateUserProfileRequest#IamUserArn
    */
-  readonly iamUserArn: string;
+  readonly iamUserArn?: string;
 
   /**
    * @schema OpsWorksCreateUserProfileRequest#SshUsername
@@ -671,6 +989,23 @@ export interface OpsWorksCreateUserProfileRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksCreateUserProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksCreateUserProfileRequest(obj: OpsWorksCreateUserProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IamUserArn': obj.iamUserArn,
+    'SshUsername': obj.sshUsername,
+    'SshPublicKey': obj.sshPublicKey,
+    'AllowSelfManagement': obj.allowSelfManagement,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksCreateUserProfileResult
  */
 export interface OpsWorksCreateUserProfileResult {
@@ -682,15 +1017,43 @@ export interface OpsWorksCreateUserProfileResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksCreateUserProfileResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksCreateUserProfileResult(obj: OpsWorksCreateUserProfileResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IamUserArn': obj.iamUserArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDeleteAppRequest
  */
 export interface OpsWorksDeleteAppRequest {
   /**
    * @schema OpsWorksDeleteAppRequest#AppId
    */
-  readonly appId: string;
+  readonly appId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDeleteAppRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDeleteAppRequest(obj: OpsWorksDeleteAppRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AppId': obj.appId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDeleteInstanceRequest
@@ -699,7 +1062,7 @@ export interface OpsWorksDeleteInstanceRequest {
   /**
    * @schema OpsWorksDeleteInstanceRequest#InstanceId
    */
-  readonly instanceId: string;
+  readonly instanceId?: string;
 
   /**
    * @schema OpsWorksDeleteInstanceRequest#DeleteElasticIp
@@ -714,15 +1077,45 @@ export interface OpsWorksDeleteInstanceRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDeleteInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDeleteInstanceRequest(obj: OpsWorksDeleteInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceId': obj.instanceId,
+    'DeleteElasticIp': obj.deleteElasticIp,
+    'DeleteVolumes': obj.deleteVolumes,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDeleteLayerRequest
  */
 export interface OpsWorksDeleteLayerRequest {
   /**
    * @schema OpsWorksDeleteLayerRequest#LayerId
    */
-  readonly layerId: string;
+  readonly layerId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDeleteLayerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDeleteLayerRequest(obj: OpsWorksDeleteLayerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LayerId': obj.layerId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDeleteStackRequest
@@ -731,9 +1124,23 @@ export interface OpsWorksDeleteStackRequest {
   /**
    * @schema OpsWorksDeleteStackRequest#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDeleteStackRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDeleteStackRequest(obj: OpsWorksDeleteStackRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDeleteUserProfileRequest
@@ -742,9 +1149,23 @@ export interface OpsWorksDeleteUserProfileRequest {
   /**
    * @schema OpsWorksDeleteUserProfileRequest#IamUserArn
    */
-  readonly iamUserArn: string;
+  readonly iamUserArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDeleteUserProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDeleteUserProfileRequest(obj: OpsWorksDeleteUserProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IamUserArn': obj.iamUserArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDeregisterEcsClusterRequest
@@ -753,9 +1174,23 @@ export interface OpsWorksDeregisterEcsClusterRequest {
   /**
    * @schema OpsWorksDeregisterEcsClusterRequest#EcsClusterArn
    */
-  readonly ecsClusterArn: string;
+  readonly ecsClusterArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDeregisterEcsClusterRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDeregisterEcsClusterRequest(obj: OpsWorksDeregisterEcsClusterRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EcsClusterArn': obj.ecsClusterArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDeregisterElasticIpRequest
@@ -764,9 +1199,23 @@ export interface OpsWorksDeregisterElasticIpRequest {
   /**
    * @schema OpsWorksDeregisterElasticIpRequest#ElasticIp
    */
-  readonly elasticIp: string;
+  readonly elasticIp?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDeregisterElasticIpRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDeregisterElasticIpRequest(obj: OpsWorksDeregisterElasticIpRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ElasticIp': obj.elasticIp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDeregisterInstanceRequest
@@ -775,9 +1224,23 @@ export interface OpsWorksDeregisterInstanceRequest {
   /**
    * @schema OpsWorksDeregisterInstanceRequest#InstanceId
    */
-  readonly instanceId: string;
+  readonly instanceId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDeregisterInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDeregisterInstanceRequest(obj: OpsWorksDeregisterInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceId': obj.instanceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDeregisterRdsDbInstanceRequest
@@ -786,9 +1249,23 @@ export interface OpsWorksDeregisterRdsDbInstanceRequest {
   /**
    * @schema OpsWorksDeregisterRdsDbInstanceRequest#RdsDbInstanceArn
    */
-  readonly rdsDbInstanceArn: string;
+  readonly rdsDbInstanceArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDeregisterRdsDbInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDeregisterRdsDbInstanceRequest(obj: OpsWorksDeregisterRdsDbInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RdsDbInstanceArn': obj.rdsDbInstanceArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDeregisterVolumeRequest
@@ -797,9 +1274,23 @@ export interface OpsWorksDeregisterVolumeRequest {
   /**
    * @schema OpsWorksDeregisterVolumeRequest#VolumeId
    */
-  readonly volumeId: string;
+  readonly volumeId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDeregisterVolumeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDeregisterVolumeRequest(obj: OpsWorksDeregisterVolumeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VolumeId': obj.volumeId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribeAgentVersionsRequest
@@ -818,6 +1309,21 @@ export interface OpsWorksDescribeAgentVersionsRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeAgentVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeAgentVersionsRequest(obj: OpsWorksDescribeAgentVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'ConfigurationManager': toJson_OpsWorksStackConfigurationManager(obj.configurationManager),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeAgentVersionsResult
  */
 export interface OpsWorksDescribeAgentVersionsResult {
@@ -827,6 +1333,20 @@ export interface OpsWorksDescribeAgentVersionsResult {
   readonly agentVersions?: OpsWorksAgentVersion[];
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDescribeAgentVersionsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeAgentVersionsResult(obj: OpsWorksDescribeAgentVersionsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AgentVersions': obj.agentVersions?.map(y => toJson_OpsWorksAgentVersion(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribeAppsRequest
@@ -845,6 +1365,21 @@ export interface OpsWorksDescribeAppsRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeAppsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeAppsRequest(obj: OpsWorksDescribeAppsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'AppIds': obj.appIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeAppsResult
  */
 export interface OpsWorksDescribeAppsResult {
@@ -854,6 +1389,20 @@ export interface OpsWorksDescribeAppsResult {
   readonly apps?: OpsWorksApp[];
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDescribeAppsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeAppsResult(obj: OpsWorksDescribeAppsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Apps': obj.apps?.map(y => toJson_OpsWorksApp(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribeCommandsRequest
@@ -877,6 +1426,22 @@ export interface OpsWorksDescribeCommandsRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeCommandsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeCommandsRequest(obj: OpsWorksDescribeCommandsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeploymentId': obj.deploymentId,
+    'InstanceId': obj.instanceId,
+    'CommandIds': obj.commandIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeCommandsResult
  */
 export interface OpsWorksDescribeCommandsResult {
@@ -886,6 +1451,20 @@ export interface OpsWorksDescribeCommandsResult {
   readonly commands?: OpsWorksCommand[];
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDescribeCommandsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeCommandsResult(obj: OpsWorksDescribeCommandsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Commands': obj.commands?.map(y => toJson_OpsWorksCommand(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribeDeploymentsRequest
@@ -909,6 +1488,22 @@ export interface OpsWorksDescribeDeploymentsRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeDeploymentsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeDeploymentsRequest(obj: OpsWorksDescribeDeploymentsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'AppId': obj.appId,
+    'DeploymentIds': obj.deploymentIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeDeploymentsResult
  */
 export interface OpsWorksDescribeDeploymentsResult {
@@ -918,6 +1513,20 @@ export interface OpsWorksDescribeDeploymentsResult {
   readonly deployments?: OpsWorksDeployment[];
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDescribeDeploymentsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeDeploymentsResult(obj: OpsWorksDescribeDeploymentsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Deployments': obj.deployments?.map(y => toJson_OpsWorksDeployment(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribeEcsClustersRequest
@@ -946,6 +1555,23 @@ export interface OpsWorksDescribeEcsClustersRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeEcsClustersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeEcsClustersRequest(obj: OpsWorksDescribeEcsClustersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EcsClusterArns': obj.ecsClusterArns?.map(y => y),
+    'StackId': obj.stackId,
+    'NextToken': obj.nextToken,
+    'MaxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeEcsClustersResult
  */
 export interface OpsWorksDescribeEcsClustersResult {
@@ -960,6 +1586,21 @@ export interface OpsWorksDescribeEcsClustersResult {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDescribeEcsClustersResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeEcsClustersResult(obj: OpsWorksDescribeEcsClustersResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EcsClusters': obj.ecsClusters?.map(y => toJson_OpsWorksEcsCluster(y)),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribeElasticIpsRequest
@@ -983,6 +1624,22 @@ export interface OpsWorksDescribeElasticIpsRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeElasticIpsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeElasticIpsRequest(obj: OpsWorksDescribeElasticIpsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceId': obj.instanceId,
+    'StackId': obj.stackId,
+    'Ips': obj.ips?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeElasticIpsResult
  */
 export interface OpsWorksDescribeElasticIpsResult {
@@ -992,6 +1649,20 @@ export interface OpsWorksDescribeElasticIpsResult {
   readonly elasticIps?: OpsWorksElasticIp[];
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDescribeElasticIpsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeElasticIpsResult(obj: OpsWorksDescribeElasticIpsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ElasticIps': obj.elasticIps?.map(y => toJson_OpsWorksElasticIp(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribeElasticLoadBalancersRequest
@@ -1010,6 +1681,21 @@ export interface OpsWorksDescribeElasticLoadBalancersRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeElasticLoadBalancersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeElasticLoadBalancersRequest(obj: OpsWorksDescribeElasticLoadBalancersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'LayerIds': obj.layerIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeElasticLoadBalancersResult
  */
 export interface OpsWorksDescribeElasticLoadBalancersResult {
@@ -1019,6 +1705,20 @@ export interface OpsWorksDescribeElasticLoadBalancersResult {
   readonly elasticLoadBalancers?: OpsWorksElasticLoadBalancer[];
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDescribeElasticLoadBalancersResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeElasticLoadBalancersResult(obj: OpsWorksDescribeElasticLoadBalancersResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ElasticLoadBalancers': obj.elasticLoadBalancers?.map(y => toJson_OpsWorksElasticLoadBalancer(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribeInstancesRequest
@@ -1042,6 +1742,22 @@ export interface OpsWorksDescribeInstancesRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeInstancesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeInstancesRequest(obj: OpsWorksDescribeInstancesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'LayerId': obj.layerId,
+    'InstanceIds': obj.instanceIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeInstancesResult
  */
 export interface OpsWorksDescribeInstancesResult {
@@ -1051,6 +1767,20 @@ export interface OpsWorksDescribeInstancesResult {
   readonly instances?: OpsWorksInstance[];
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDescribeInstancesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeInstancesResult(obj: OpsWorksDescribeInstancesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Instances': obj.instances?.map(y => toJson_OpsWorksInstance(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribeLayersRequest
@@ -1069,6 +1799,21 @@ export interface OpsWorksDescribeLayersRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeLayersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeLayersRequest(obj: OpsWorksDescribeLayersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'LayerIds': obj.layerIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeLayersResult
  */
 export interface OpsWorksDescribeLayersResult {
@@ -1080,15 +1825,43 @@ export interface OpsWorksDescribeLayersResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeLayersResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeLayersResult(obj: OpsWorksDescribeLayersResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Layers': obj.layers?.map(y => toJson_OpsWorksLayer(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeLoadBasedAutoScalingRequest
  */
 export interface OpsWorksDescribeLoadBasedAutoScalingRequest {
   /**
    * @schema OpsWorksDescribeLoadBasedAutoScalingRequest#LayerIds
    */
-  readonly layerIds: string[];
+  readonly layerIds?: string[];
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDescribeLoadBasedAutoScalingRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeLoadBasedAutoScalingRequest(obj: OpsWorksDescribeLoadBasedAutoScalingRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LayerIds': obj.layerIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribeLoadBasedAutoScalingResult
@@ -1102,6 +1875,20 @@ export interface OpsWorksDescribeLoadBasedAutoScalingResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeLoadBasedAutoScalingResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeLoadBasedAutoScalingResult(obj: OpsWorksDescribeLoadBasedAutoScalingResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LoadBasedAutoScalingConfigurations': obj.loadBasedAutoScalingConfigurations?.map(y => toJson_OpsWorksLoadBasedAutoScalingConfiguration(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeMyUserProfileResult
  */
 export interface OpsWorksDescribeMyUserProfileResult {
@@ -1113,6 +1900,20 @@ export interface OpsWorksDescribeMyUserProfileResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeMyUserProfileResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeMyUserProfileResult(obj: OpsWorksDescribeMyUserProfileResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserProfile': toJson_OpsWorksSelfUserProfile(obj.userProfile),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeOperatingSystemsResponse
  */
 export interface OpsWorksDescribeOperatingSystemsResponse {
@@ -1122,6 +1923,20 @@ export interface OpsWorksDescribeOperatingSystemsResponse {
   readonly operatingSystems?: OpsWorksOperatingSystem[];
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDescribeOperatingSystemsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeOperatingSystemsResponse(obj: OpsWorksDescribeOperatingSystemsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'OperatingSystems': obj.operatingSystems?.map(y => toJson_OpsWorksOperatingSystem(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribePermissionsRequest
@@ -1140,6 +1955,21 @@ export interface OpsWorksDescribePermissionsRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribePermissionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribePermissionsRequest(obj: OpsWorksDescribePermissionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IamUserArn': obj.iamUserArn,
+    'StackId': obj.stackId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribePermissionsResult
  */
 export interface OpsWorksDescribePermissionsResult {
@@ -1149,6 +1979,20 @@ export interface OpsWorksDescribePermissionsResult {
   readonly permissions?: OpsWorksPermission[];
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDescribePermissionsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribePermissionsResult(obj: OpsWorksDescribePermissionsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Permissions': obj.permissions?.map(y => toJson_OpsWorksPermission(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribeRaidArraysRequest
@@ -1172,6 +2016,22 @@ export interface OpsWorksDescribeRaidArraysRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeRaidArraysRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeRaidArraysRequest(obj: OpsWorksDescribeRaidArraysRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceId': obj.instanceId,
+    'StackId': obj.stackId,
+    'RaidArrayIds': obj.raidArrayIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeRaidArraysResult
  */
 export interface OpsWorksDescribeRaidArraysResult {
@@ -1183,13 +2043,27 @@ export interface OpsWorksDescribeRaidArraysResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeRaidArraysResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeRaidArraysResult(obj: OpsWorksDescribeRaidArraysResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RaidArrays': obj.raidArrays?.map(y => toJson_OpsWorksRaidArray(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeRdsDbInstancesRequest
  */
 export interface OpsWorksDescribeRdsDbInstancesRequest {
   /**
    * @schema OpsWorksDescribeRdsDbInstancesRequest#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
   /**
    * @schema OpsWorksDescribeRdsDbInstancesRequest#RdsDbInstanceArns
@@ -1197,6 +2071,21 @@ export interface OpsWorksDescribeRdsDbInstancesRequest {
   readonly rdsDbInstanceArns?: string[];
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDescribeRdsDbInstancesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeRdsDbInstancesRequest(obj: OpsWorksDescribeRdsDbInstancesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'RdsDbInstanceArns': obj.rdsDbInstanceArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribeRdsDbInstancesResult
@@ -1208,6 +2097,20 @@ export interface OpsWorksDescribeRdsDbInstancesResult {
   readonly rdsDbInstances?: OpsWorksRdsDbInstance[];
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDescribeRdsDbInstancesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeRdsDbInstancesResult(obj: OpsWorksDescribeRdsDbInstancesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RdsDbInstances': obj.rdsDbInstances?.map(y => toJson_OpsWorksRdsDbInstance(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribeServiceErrorsRequest
@@ -1231,6 +2134,22 @@ export interface OpsWorksDescribeServiceErrorsRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeServiceErrorsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeServiceErrorsRequest(obj: OpsWorksDescribeServiceErrorsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'InstanceId': obj.instanceId,
+    'ServiceErrorIds': obj.serviceErrorIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeServiceErrorsResult
  */
 export interface OpsWorksDescribeServiceErrorsResult {
@@ -1242,15 +2161,43 @@ export interface OpsWorksDescribeServiceErrorsResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeServiceErrorsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeServiceErrorsResult(obj: OpsWorksDescribeServiceErrorsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ServiceErrors': obj.serviceErrors?.map(y => toJson_OpsWorksServiceError(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeStackProvisioningParametersRequest
  */
 export interface OpsWorksDescribeStackProvisioningParametersRequest {
   /**
    * @schema OpsWorksDescribeStackProvisioningParametersRequest#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDescribeStackProvisioningParametersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeStackProvisioningParametersRequest(obj: OpsWorksDescribeStackProvisioningParametersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribeStackProvisioningParametersResult
@@ -1269,15 +2216,44 @@ export interface OpsWorksDescribeStackProvisioningParametersResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeStackProvisioningParametersResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeStackProvisioningParametersResult(obj: OpsWorksDescribeStackProvisioningParametersResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AgentInstallerUrl': obj.agentInstallerUrl,
+    'Parameters': ((obj.parameters) === undefined) ? undefined : (Object.entries(obj.parameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeStackSummaryRequest
  */
 export interface OpsWorksDescribeStackSummaryRequest {
   /**
    * @schema OpsWorksDescribeStackSummaryRequest#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDescribeStackSummaryRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeStackSummaryRequest(obj: OpsWorksDescribeStackSummaryRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribeStackSummaryResult
@@ -1291,6 +2267,20 @@ export interface OpsWorksDescribeStackSummaryResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeStackSummaryResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeStackSummaryResult(obj: OpsWorksDescribeStackSummaryResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackSummary': toJson_OpsWorksStackSummary(obj.stackSummary),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeStacksRequest
  */
 export interface OpsWorksDescribeStacksRequest {
@@ -1300,6 +2290,20 @@ export interface OpsWorksDescribeStacksRequest {
   readonly stackIds?: string[];
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDescribeStacksRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeStacksRequest(obj: OpsWorksDescribeStacksRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackIds': obj.stackIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribeStacksResult
@@ -1313,15 +2317,43 @@ export interface OpsWorksDescribeStacksResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeStacksResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeStacksResult(obj: OpsWorksDescribeStacksResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Stacks': obj.stacks?.map(y => toJson_OpsWorksStack(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeTimeBasedAutoScalingRequest
  */
 export interface OpsWorksDescribeTimeBasedAutoScalingRequest {
   /**
    * @schema OpsWorksDescribeTimeBasedAutoScalingRequest#InstanceIds
    */
-  readonly instanceIds: string[];
+  readonly instanceIds?: string[];
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDescribeTimeBasedAutoScalingRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeTimeBasedAutoScalingRequest(obj: OpsWorksDescribeTimeBasedAutoScalingRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceIds': obj.instanceIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribeTimeBasedAutoScalingResult
@@ -1335,6 +2367,20 @@ export interface OpsWorksDescribeTimeBasedAutoScalingResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeTimeBasedAutoScalingResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeTimeBasedAutoScalingResult(obj: OpsWorksDescribeTimeBasedAutoScalingResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TimeBasedAutoScalingConfigurations': obj.timeBasedAutoScalingConfigurations?.map(y => toJson_OpsWorksTimeBasedAutoScalingConfiguration(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeUserProfilesRequest
  */
 export interface OpsWorksDescribeUserProfilesRequest {
@@ -1346,6 +2392,20 @@ export interface OpsWorksDescribeUserProfilesRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeUserProfilesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeUserProfilesRequest(obj: OpsWorksDescribeUserProfilesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IamUserArns': obj.iamUserArns?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeUserProfilesResult
  */
 export interface OpsWorksDescribeUserProfilesResult {
@@ -1355,6 +2415,20 @@ export interface OpsWorksDescribeUserProfilesResult {
   readonly userProfiles?: OpsWorksUserProfile[];
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDescribeUserProfilesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeUserProfilesResult(obj: OpsWorksDescribeUserProfilesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'UserProfiles': obj.userProfiles?.map(y => toJson_OpsWorksUserProfile(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDescribeVolumesRequest
@@ -1383,6 +2457,23 @@ export interface OpsWorksDescribeVolumesRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeVolumesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeVolumesRequest(obj: OpsWorksDescribeVolumesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceId': obj.instanceId,
+    'StackId': obj.stackId,
+    'RaidArrayId': obj.raidArrayId,
+    'VolumeIds': obj.volumeIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDescribeVolumesResult
  */
 export interface OpsWorksDescribeVolumesResult {
@@ -1394,20 +2485,49 @@ export interface OpsWorksDescribeVolumesResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDescribeVolumesResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDescribeVolumesResult(obj: OpsWorksDescribeVolumesResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Volumes': obj.volumes?.map(y => toJson_OpsWorksVolume(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDetachElasticLoadBalancerRequest
  */
 export interface OpsWorksDetachElasticLoadBalancerRequest {
   /**
    * @schema OpsWorksDetachElasticLoadBalancerRequest#ElasticLoadBalancerName
    */
-  readonly elasticLoadBalancerName: string;
+  readonly elasticLoadBalancerName?: string;
 
   /**
    * @schema OpsWorksDetachElasticLoadBalancerRequest#LayerId
    */
-  readonly layerId: string;
+  readonly layerId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDetachElasticLoadBalancerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDetachElasticLoadBalancerRequest(obj: OpsWorksDetachElasticLoadBalancerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ElasticLoadBalancerName': obj.elasticLoadBalancerName,
+    'LayerId': obj.layerId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDisassociateElasticIpRequest
@@ -1416,9 +2536,23 @@ export interface OpsWorksDisassociateElasticIpRequest {
   /**
    * @schema OpsWorksDisassociateElasticIpRequest#ElasticIp
    */
-  readonly elasticIp: string;
+  readonly elasticIp?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDisassociateElasticIpRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDisassociateElasticIpRequest(obj: OpsWorksDisassociateElasticIpRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ElasticIp': obj.elasticIp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksGetHostnameSuggestionRequest
@@ -1427,9 +2561,23 @@ export interface OpsWorksGetHostnameSuggestionRequest {
   /**
    * @schema OpsWorksGetHostnameSuggestionRequest#LayerId
    */
-  readonly layerId: string;
+  readonly layerId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksGetHostnameSuggestionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksGetHostnameSuggestionRequest(obj: OpsWorksGetHostnameSuggestionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LayerId': obj.layerId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksGetHostnameSuggestionResult
@@ -1448,13 +2596,28 @@ export interface OpsWorksGetHostnameSuggestionResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksGetHostnameSuggestionResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksGetHostnameSuggestionResult(obj: OpsWorksGetHostnameSuggestionResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LayerId': obj.layerId,
+    'Hostname': obj.hostname,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksGrantAccessRequest
  */
 export interface OpsWorksGrantAccessRequest {
   /**
    * @schema OpsWorksGrantAccessRequest#InstanceId
    */
-  readonly instanceId: string;
+  readonly instanceId?: string;
 
   /**
    * @schema OpsWorksGrantAccessRequest#ValidForInMinutes
@@ -1462,6 +2625,21 @@ export interface OpsWorksGrantAccessRequest {
   readonly validForInMinutes?: number;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksGrantAccessRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksGrantAccessRequest(obj: OpsWorksGrantAccessRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceId': obj.instanceId,
+    'ValidForInMinutes': obj.validForInMinutes,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksGrantAccessResult
@@ -1475,13 +2653,27 @@ export interface OpsWorksGrantAccessResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksGrantAccessResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksGrantAccessResult(obj: OpsWorksGrantAccessResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'TemporaryCredential': toJson_OpsWorksTemporaryCredential(obj.temporaryCredential),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksListTagsRequest
  */
 export interface OpsWorksListTagsRequest {
   /**
    * @schema OpsWorksListTagsRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema OpsWorksListTagsRequest#MaxResults
@@ -1494,6 +2686,22 @@ export interface OpsWorksListTagsRequest {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksListTagsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksListTagsRequest(obj: OpsWorksListTagsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'MaxResults': obj.maxResults,
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksListTagsResult
@@ -1512,15 +2720,44 @@ export interface OpsWorksListTagsResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksListTagsResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksListTagsResult(obj: OpsWorksListTagsResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'NextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksRebootInstanceRequest
  */
 export interface OpsWorksRebootInstanceRequest {
   /**
    * @schema OpsWorksRebootInstanceRequest#InstanceId
    */
-  readonly instanceId: string;
+  readonly instanceId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksRebootInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksRebootInstanceRequest(obj: OpsWorksRebootInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceId': obj.instanceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksRegisterEcsClusterRequest
@@ -1529,14 +2766,29 @@ export interface OpsWorksRegisterEcsClusterRequest {
   /**
    * @schema OpsWorksRegisterEcsClusterRequest#EcsClusterArn
    */
-  readonly ecsClusterArn: string;
+  readonly ecsClusterArn?: string;
 
   /**
    * @schema OpsWorksRegisterEcsClusterRequest#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksRegisterEcsClusterRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksRegisterEcsClusterRequest(obj: OpsWorksRegisterEcsClusterRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EcsClusterArn': obj.ecsClusterArn,
+    'StackId': obj.stackId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksRegisterEcsClusterResult
@@ -1550,20 +2802,49 @@ export interface OpsWorksRegisterEcsClusterResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksRegisterEcsClusterResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksRegisterEcsClusterResult(obj: OpsWorksRegisterEcsClusterResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EcsClusterArn': obj.ecsClusterArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksRegisterElasticIpRequest
  */
 export interface OpsWorksRegisterElasticIpRequest {
   /**
    * @schema OpsWorksRegisterElasticIpRequest#ElasticIp
    */
-  readonly elasticIp: string;
+  readonly elasticIp?: string;
 
   /**
    * @schema OpsWorksRegisterElasticIpRequest#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksRegisterElasticIpRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksRegisterElasticIpRequest(obj: OpsWorksRegisterElasticIpRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ElasticIp': obj.elasticIp,
+    'StackId': obj.stackId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksRegisterElasticIpResult
@@ -1577,13 +2858,27 @@ export interface OpsWorksRegisterElasticIpResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksRegisterElasticIpResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksRegisterElasticIpResult(obj: OpsWorksRegisterElasticIpResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ElasticIp': obj.elasticIp,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksRegisterInstanceRequest
  */
 export interface OpsWorksRegisterInstanceRequest {
   /**
    * @schema OpsWorksRegisterInstanceRequest#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
   /**
    * @schema OpsWorksRegisterInstanceRequest#Hostname
@@ -1618,6 +2913,26 @@ export interface OpsWorksRegisterInstanceRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksRegisterInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksRegisterInstanceRequest(obj: OpsWorksRegisterInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'Hostname': obj.hostname,
+    'PublicIp': obj.publicIp,
+    'PrivateIp': obj.privateIp,
+    'RsaPublicKey': obj.rsaPublicKey,
+    'RsaPublicKeyFingerprint': obj.rsaPublicKeyFingerprint,
+    'InstanceIdentity': toJson_OpsWorksInstanceIdentity(obj.instanceIdentity),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksRegisterInstanceResult
  */
 export interface OpsWorksRegisterInstanceResult {
@@ -1629,30 +2944,61 @@ export interface OpsWorksRegisterInstanceResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksRegisterInstanceResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksRegisterInstanceResult(obj: OpsWorksRegisterInstanceResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceId': obj.instanceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksRegisterRdsDbInstanceRequest
  */
 export interface OpsWorksRegisterRdsDbInstanceRequest {
   /**
    * @schema OpsWorksRegisterRdsDbInstanceRequest#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
   /**
    * @schema OpsWorksRegisterRdsDbInstanceRequest#RdsDbInstanceArn
    */
-  readonly rdsDbInstanceArn: string;
+  readonly rdsDbInstanceArn?: string;
 
   /**
    * @schema OpsWorksRegisterRdsDbInstanceRequest#DbUser
    */
-  readonly dbUser: string;
+  readonly dbUser?: string;
 
   /**
    * @schema OpsWorksRegisterRdsDbInstanceRequest#DbPassword
    */
-  readonly dbPassword: string;
+  readonly dbPassword?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksRegisterRdsDbInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksRegisterRdsDbInstanceRequest(obj: OpsWorksRegisterRdsDbInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'RdsDbInstanceArn': obj.rdsDbInstanceArn,
+    'DbUser': obj.dbUser,
+    'DbPassword': obj.dbPassword,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksRegisterVolumeRequest
@@ -1666,9 +3012,24 @@ export interface OpsWorksRegisterVolumeRequest {
   /**
    * @schema OpsWorksRegisterVolumeRequest#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksRegisterVolumeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksRegisterVolumeRequest(obj: OpsWorksRegisterVolumeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Ec2VolumeId': obj.ec2VolumeId,
+    'StackId': obj.stackId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksRegisterVolumeResult
@@ -1682,13 +3043,27 @@ export interface OpsWorksRegisterVolumeResult {
 }
 
 /**
+ * Converts an object of type 'OpsWorksRegisterVolumeResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksRegisterVolumeResult(obj: OpsWorksRegisterVolumeResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VolumeId': obj.volumeId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksSetLoadBasedAutoScalingRequest
  */
 export interface OpsWorksSetLoadBasedAutoScalingRequest {
   /**
    * @schema OpsWorksSetLoadBasedAutoScalingRequest#LayerId
    */
-  readonly layerId: string;
+  readonly layerId?: string;
 
   /**
    * @schema OpsWorksSetLoadBasedAutoScalingRequest#Enable
@@ -1708,18 +3083,35 @@ export interface OpsWorksSetLoadBasedAutoScalingRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksSetLoadBasedAutoScalingRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksSetLoadBasedAutoScalingRequest(obj: OpsWorksSetLoadBasedAutoScalingRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LayerId': obj.layerId,
+    'Enable': obj.enable,
+    'UpScaling': toJson_OpsWorksAutoScalingThresholds(obj.upScaling),
+    'DownScaling': toJson_OpsWorksAutoScalingThresholds(obj.downScaling),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksSetPermissionRequest
  */
 export interface OpsWorksSetPermissionRequest {
   /**
    * @schema OpsWorksSetPermissionRequest#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
   /**
    * @schema OpsWorksSetPermissionRequest#IamUserArn
    */
-  readonly iamUserArn: string;
+  readonly iamUserArn?: string;
 
   /**
    * @schema OpsWorksSetPermissionRequest#AllowSsh
@@ -1739,13 +3131,31 @@ export interface OpsWorksSetPermissionRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksSetPermissionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksSetPermissionRequest(obj: OpsWorksSetPermissionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'IamUserArn': obj.iamUserArn,
+    'AllowSsh': obj.allowSsh,
+    'AllowSudo': obj.allowSudo,
+    'Level': obj.level,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksSetTimeBasedAutoScalingRequest
  */
 export interface OpsWorksSetTimeBasedAutoScalingRequest {
   /**
    * @schema OpsWorksSetTimeBasedAutoScalingRequest#InstanceId
    */
-  readonly instanceId: string;
+  readonly instanceId?: string;
 
   /**
    * @schema OpsWorksSetTimeBasedAutoScalingRequest#AutoScalingSchedule
@@ -1755,15 +3165,44 @@ export interface OpsWorksSetTimeBasedAutoScalingRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksSetTimeBasedAutoScalingRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksSetTimeBasedAutoScalingRequest(obj: OpsWorksSetTimeBasedAutoScalingRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceId': obj.instanceId,
+    'AutoScalingSchedule': toJson_OpsWorksWeeklyAutoScalingSchedule(obj.autoScalingSchedule),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksStartInstanceRequest
  */
 export interface OpsWorksStartInstanceRequest {
   /**
    * @schema OpsWorksStartInstanceRequest#InstanceId
    */
-  readonly instanceId: string;
+  readonly instanceId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksStartInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksStartInstanceRequest(obj: OpsWorksStartInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceId': obj.instanceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksStartStackRequest
@@ -1772,9 +3211,23 @@ export interface OpsWorksStartStackRequest {
   /**
    * @schema OpsWorksStartStackRequest#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksStartStackRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksStartStackRequest(obj: OpsWorksStartStackRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksStopInstanceRequest
@@ -1783,7 +3236,7 @@ export interface OpsWorksStopInstanceRequest {
   /**
    * @schema OpsWorksStopInstanceRequest#InstanceId
    */
-  readonly instanceId: string;
+  readonly instanceId?: string;
 
   /**
    * @schema OpsWorksStopInstanceRequest#Force
@@ -1793,15 +3246,44 @@ export interface OpsWorksStopInstanceRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksStopInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksStopInstanceRequest(obj: OpsWorksStopInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceId': obj.instanceId,
+    'Force': obj.force,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksStopStackRequest
  */
 export interface OpsWorksStopStackRequest {
   /**
    * @schema OpsWorksStopStackRequest#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksStopStackRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksStopStackRequest(obj: OpsWorksStopStackRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksTagResourceRequest
@@ -1810,14 +3292,29 @@ export interface OpsWorksTagResourceRequest {
   /**
    * @schema OpsWorksTagResourceRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema OpsWorksTagResourceRequest#Tags
    */
-  readonly tags: { [key: string]: string };
+  readonly tags?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksTagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksTagResourceRequest(obj: OpsWorksTagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'Tags': ((obj.tags) === undefined) ? undefined : (Object.entries(obj.tags).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksUnassignInstanceRequest
@@ -1826,9 +3323,23 @@ export interface OpsWorksUnassignInstanceRequest {
   /**
    * @schema OpsWorksUnassignInstanceRequest#InstanceId
    */
-  readonly instanceId: string;
+  readonly instanceId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksUnassignInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksUnassignInstanceRequest(obj: OpsWorksUnassignInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceId': obj.instanceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksUnassignVolumeRequest
@@ -1837,9 +3348,23 @@ export interface OpsWorksUnassignVolumeRequest {
   /**
    * @schema OpsWorksUnassignVolumeRequest#VolumeId
    */
-  readonly volumeId: string;
+  readonly volumeId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksUnassignVolumeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksUnassignVolumeRequest(obj: OpsWorksUnassignVolumeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VolumeId': obj.volumeId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksUntagResourceRequest
@@ -1848,14 +3373,29 @@ export interface OpsWorksUntagResourceRequest {
   /**
    * @schema OpsWorksUntagResourceRequest#ResourceArn
    */
-  readonly resourceArn: string;
+  readonly resourceArn?: string;
 
   /**
    * @schema OpsWorksUntagResourceRequest#TagKeys
    */
-  readonly tagKeys: string[];
+  readonly tagKeys?: string[];
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksUntagResourceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksUntagResourceRequest(obj: OpsWorksUntagResourceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ResourceArn': obj.resourceArn,
+    'TagKeys': obj.tagKeys?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksUpdateAppRequest
@@ -1864,7 +3404,7 @@ export interface OpsWorksUpdateAppRequest {
   /**
    * @schema OpsWorksUpdateAppRequest#AppId
    */
-  readonly appId: string;
+  readonly appId?: string;
 
   /**
    * @schema OpsWorksUpdateAppRequest#Name
@@ -1919,13 +3459,37 @@ export interface OpsWorksUpdateAppRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksUpdateAppRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksUpdateAppRequest(obj: OpsWorksUpdateAppRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AppId': obj.appId,
+    'Name': obj.name,
+    'Description': obj.description,
+    'DataSources': obj.dataSources?.map(y => toJson_OpsWorksDataSource(y)),
+    'Type': obj.type,
+    'AppSource': toJson_OpsWorksSource(obj.appSource),
+    'Domains': obj.domains?.map(y => y),
+    'EnableSsl': obj.enableSsl,
+    'SslConfiguration': toJson_OpsWorksSslConfiguration(obj.sslConfiguration),
+    'Attributes': ((obj.attributes) === undefined) ? undefined : (Object.entries(obj.attributes).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'Environment': obj.environment?.map(y => toJson_OpsWorksEnvironmentVariable(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksUpdateElasticIpRequest
  */
 export interface OpsWorksUpdateElasticIpRequest {
   /**
    * @schema OpsWorksUpdateElasticIpRequest#ElasticIp
    */
-  readonly elasticIp: string;
+  readonly elasticIp?: string;
 
   /**
    * @schema OpsWorksUpdateElasticIpRequest#Name
@@ -1935,13 +3499,28 @@ export interface OpsWorksUpdateElasticIpRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksUpdateElasticIpRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksUpdateElasticIpRequest(obj: OpsWorksUpdateElasticIpRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ElasticIp': obj.elasticIp,
+    'Name': obj.name,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksUpdateInstanceRequest
  */
 export interface OpsWorksUpdateInstanceRequest {
   /**
    * @schema OpsWorksUpdateInstanceRequest#InstanceId
    */
-  readonly instanceId: string;
+  readonly instanceId?: string;
 
   /**
    * @schema OpsWorksUpdateInstanceRequest#LayerIds
@@ -2001,13 +3580,38 @@ export interface OpsWorksUpdateInstanceRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksUpdateInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksUpdateInstanceRequest(obj: OpsWorksUpdateInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceId': obj.instanceId,
+    'LayerIds': obj.layerIds?.map(y => y),
+    'InstanceType': obj.instanceType,
+    'AutoScalingType': obj.autoScalingType,
+    'Hostname': obj.hostname,
+    'Os': obj.os,
+    'AmiId': obj.amiId,
+    'SshKeyName': obj.sshKeyName,
+    'Architecture': obj.architecture,
+    'InstallUpdatesOnBoot': obj.installUpdatesOnBoot,
+    'EbsOptimized': obj.ebsOptimized,
+    'AgentVersion': obj.agentVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksUpdateLayerRequest
  */
 export interface OpsWorksUpdateLayerRequest {
   /**
    * @schema OpsWorksUpdateLayerRequest#LayerId
    */
-  readonly layerId: string;
+  readonly layerId?: string;
 
   /**
    * @schema OpsWorksUpdateLayerRequest#Name
@@ -2092,6 +3696,36 @@ export interface OpsWorksUpdateLayerRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksUpdateLayerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksUpdateLayerRequest(obj: OpsWorksUpdateLayerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LayerId': obj.layerId,
+    'Name': obj.name,
+    'Shortname': obj.shortname,
+    'Attributes': ((obj.attributes) === undefined) ? undefined : (Object.entries(obj.attributes).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'CloudWatchLogsConfiguration': toJson_OpsWorksCloudWatchLogsConfiguration(obj.cloudWatchLogsConfiguration),
+    'CustomInstanceProfileArn': obj.customInstanceProfileArn,
+    'CustomJson': obj.customJson,
+    'CustomSecurityGroupIds': obj.customSecurityGroupIds?.map(y => y),
+    'Packages': obj.packages?.map(y => y),
+    'VolumeConfigurations': obj.volumeConfigurations?.map(y => toJson_OpsWorksVolumeConfiguration(y)),
+    'EnableAutoHealing': obj.enableAutoHealing,
+    'AutoAssignElasticIps': obj.autoAssignElasticIps,
+    'AutoAssignPublicIps': obj.autoAssignPublicIps,
+    'CustomRecipes': toJson_OpsWorksRecipes(obj.customRecipes),
+    'InstallUpdatesOnBoot': obj.installUpdatesOnBoot,
+    'UseEbsOptimizedInstances': obj.useEbsOptimizedInstances,
+    'LifecycleEventConfiguration': toJson_OpsWorksLifecycleEventConfiguration(obj.lifecycleEventConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksUpdateMyUserProfileRequest
  */
 export interface OpsWorksUpdateMyUserProfileRequest {
@@ -2103,13 +3737,27 @@ export interface OpsWorksUpdateMyUserProfileRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksUpdateMyUserProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksUpdateMyUserProfileRequest(obj: OpsWorksUpdateMyUserProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SshPublicKey': obj.sshPublicKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksUpdateRdsDbInstanceRequest
  */
 export interface OpsWorksUpdateRdsDbInstanceRequest {
   /**
    * @schema OpsWorksUpdateRdsDbInstanceRequest#RdsDbInstanceArn
    */
-  readonly rdsDbInstanceArn: string;
+  readonly rdsDbInstanceArn?: string;
 
   /**
    * @schema OpsWorksUpdateRdsDbInstanceRequest#DbUser
@@ -2124,13 +3772,29 @@ export interface OpsWorksUpdateRdsDbInstanceRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksUpdateRdsDbInstanceRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksUpdateRdsDbInstanceRequest(obj: OpsWorksUpdateRdsDbInstanceRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RdsDbInstanceArn': obj.rdsDbInstanceArn,
+    'DbUser': obj.dbUser,
+    'DbPassword': obj.dbPassword,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksUpdateStackRequest
  */
 export interface OpsWorksUpdateStackRequest {
   /**
    * @schema OpsWorksUpdateStackRequest#StackId
    */
-  readonly stackId: string;
+  readonly stackId?: string;
 
   /**
    * @schema OpsWorksUpdateStackRequest#Name
@@ -2220,13 +3884,44 @@ export interface OpsWorksUpdateStackRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksUpdateStackRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksUpdateStackRequest(obj: OpsWorksUpdateStackRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'Name': obj.name,
+    'Attributes': ((obj.attributes) === undefined) ? undefined : (Object.entries(obj.attributes).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'ServiceRoleArn': obj.serviceRoleArn,
+    'DefaultInstanceProfileArn': obj.defaultInstanceProfileArn,
+    'DefaultOs': obj.defaultOs,
+    'HostnameTheme': obj.hostnameTheme,
+    'DefaultAvailabilityZone': obj.defaultAvailabilityZone,
+    'DefaultSubnetId': obj.defaultSubnetId,
+    'CustomJson': obj.customJson,
+    'ConfigurationManager': toJson_OpsWorksStackConfigurationManager(obj.configurationManager),
+    'ChefConfiguration': toJson_OpsWorksChefConfiguration(obj.chefConfiguration),
+    'UseCustomCookbooks': obj.useCustomCookbooks,
+    'CustomCookbooksSource': toJson_OpsWorksSource(obj.customCookbooksSource),
+    'DefaultSshKeyName': obj.defaultSshKeyName,
+    'DefaultRootDeviceType': obj.defaultRootDeviceType,
+    'UseOpsworksSecurityGroups': obj.useOpsworksSecurityGroups,
+    'AgentVersion': obj.agentVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksUpdateUserProfileRequest
  */
 export interface OpsWorksUpdateUserProfileRequest {
   /**
    * @schema OpsWorksUpdateUserProfileRequest#IamUserArn
    */
-  readonly iamUserArn: string;
+  readonly iamUserArn?: string;
 
   /**
    * @schema OpsWorksUpdateUserProfileRequest#SshUsername
@@ -2246,13 +3941,30 @@ export interface OpsWorksUpdateUserProfileRequest {
 }
 
 /**
+ * Converts an object of type 'OpsWorksUpdateUserProfileRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksUpdateUserProfileRequest(obj: OpsWorksUpdateUserProfileRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IamUserArn': obj.iamUserArn,
+    'SshUsername': obj.sshUsername,
+    'SshPublicKey': obj.sshPublicKey,
+    'AllowSelfManagement': obj.allowSelfManagement,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksUpdateVolumeRequest
  */
 export interface OpsWorksUpdateVolumeRequest {
   /**
    * @schema OpsWorksUpdateVolumeRequest#VolumeId
    */
-  readonly volumeId: string;
+  readonly volumeId?: string;
 
   /**
    * @schema OpsWorksUpdateVolumeRequest#Name
@@ -2265,6 +3977,22 @@ export interface OpsWorksUpdateVolumeRequest {
   readonly mountPoint?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksUpdateVolumeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksUpdateVolumeRequest(obj: OpsWorksUpdateVolumeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VolumeId': obj.volumeId,
+    'Name': obj.name,
+    'MountPoint': obj.mountPoint,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksStackConfigurationManager
@@ -2283,6 +4011,21 @@ export interface OpsWorksStackConfigurationManager {
 }
 
 /**
+ * Converts an object of type 'OpsWorksStackConfigurationManager' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksStackConfigurationManager(obj: OpsWorksStackConfigurationManager | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksChefConfiguration
  */
 export interface OpsWorksChefConfiguration {
@@ -2297,6 +4040,21 @@ export interface OpsWorksChefConfiguration {
   readonly berkshelfVersion?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksChefConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksChefConfiguration(obj: OpsWorksChefConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ManageBerkshelf': obj.manageBerkshelf,
+    'BerkshelfVersion': obj.berkshelfVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksSource
@@ -2335,6 +4093,25 @@ export interface OpsWorksSource {
 }
 
 /**
+ * Converts an object of type 'OpsWorksSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksSource(obj: OpsWorksSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'Url': obj.url,
+    'Username': obj.username,
+    'Password': obj.password,
+    'SshKey': obj.sshKey,
+    'Revision': obj.revision,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDataSource
  */
 export interface OpsWorksDataSource {
@@ -2356,18 +4133,34 @@ export interface OpsWorksDataSource {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDataSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDataSource(obj: OpsWorksDataSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Type': obj.type,
+    'Arn': obj.arn,
+    'DatabaseName': obj.databaseName,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksSslConfiguration
  */
 export interface OpsWorksSslConfiguration {
   /**
    * @schema OpsWorksSslConfiguration#Certificate
    */
-  readonly certificate: string;
+  readonly certificate?: string;
 
   /**
    * @schema OpsWorksSslConfiguration#PrivateKey
    */
-  readonly privateKey: string;
+  readonly privateKey?: string;
 
   /**
    * @schema OpsWorksSslConfiguration#Chain
@@ -2377,18 +4170,34 @@ export interface OpsWorksSslConfiguration {
 }
 
 /**
+ * Converts an object of type 'OpsWorksSslConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksSslConfiguration(obj: OpsWorksSslConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Certificate': obj.certificate,
+    'PrivateKey': obj.privateKey,
+    'Chain': obj.chain,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksEnvironmentVariable
  */
 export interface OpsWorksEnvironmentVariable {
   /**
    * @schema OpsWorksEnvironmentVariable#Key
    */
-  readonly key: string;
+  readonly key?: string;
 
   /**
    * @schema OpsWorksEnvironmentVariable#Value
    */
-  readonly value: string;
+  readonly value?: string;
 
   /**
    * @schema OpsWorksEnvironmentVariable#Secure
@@ -2398,13 +4207,29 @@ export interface OpsWorksEnvironmentVariable {
 }
 
 /**
+ * Converts an object of type 'OpsWorksEnvironmentVariable' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksEnvironmentVariable(obj: OpsWorksEnvironmentVariable | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Key': obj.key,
+    'Value': obj.value,
+    'Secure': obj.secure,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksDeploymentCommand
  */
 export interface OpsWorksDeploymentCommand {
   /**
    * @schema OpsWorksDeploymentCommand#Name
    */
-  readonly name: string;
+  readonly name?: string;
 
   /**
    * @schema OpsWorksDeploymentCommand#Args
@@ -2412,6 +4237,21 @@ export interface OpsWorksDeploymentCommand {
   readonly args?: { [key: string]: string[] };
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksDeploymentCommand' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDeploymentCommand(obj: OpsWorksDeploymentCommand | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Args': ((obj.args) === undefined) ? undefined : (Object.entries(obj.args).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1]?.map(y => y) }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksBlockDeviceMapping
@@ -2440,6 +4280,23 @@ export interface OpsWorksBlockDeviceMapping {
 }
 
 /**
+ * Converts an object of type 'OpsWorksBlockDeviceMapping' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksBlockDeviceMapping(obj: OpsWorksBlockDeviceMapping | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeviceName': obj.deviceName,
+    'NoDevice': obj.noDevice,
+    'VirtualName': obj.virtualName,
+    'Ebs': toJson_OpsWorksEbsBlockDevice(obj.ebs),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksCloudWatchLogsConfiguration
  */
 export interface OpsWorksCloudWatchLogsConfiguration {
@@ -2456,13 +4313,28 @@ export interface OpsWorksCloudWatchLogsConfiguration {
 }
 
 /**
+ * Converts an object of type 'OpsWorksCloudWatchLogsConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksCloudWatchLogsConfiguration(obj: OpsWorksCloudWatchLogsConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Enabled': obj.enabled,
+    'LogStreams': obj.logStreams?.map(y => toJson_OpsWorksCloudWatchLogsLogStream(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksVolumeConfiguration
  */
 export interface OpsWorksVolumeConfiguration {
   /**
    * @schema OpsWorksVolumeConfiguration#MountPoint
    */
-  readonly mountPoint: string;
+  readonly mountPoint?: string;
 
   /**
    * @schema OpsWorksVolumeConfiguration#RaidLevel
@@ -2472,12 +4344,12 @@ export interface OpsWorksVolumeConfiguration {
   /**
    * @schema OpsWorksVolumeConfiguration#NumberOfDisks
    */
-  readonly numberOfDisks: number;
+  readonly numberOfDisks?: number;
 
   /**
    * @schema OpsWorksVolumeConfiguration#Size
    */
-  readonly size: number;
+  readonly size?: number;
 
   /**
    * @schema OpsWorksVolumeConfiguration#VolumeType
@@ -2495,6 +4367,26 @@ export interface OpsWorksVolumeConfiguration {
   readonly encrypted?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksVolumeConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksVolumeConfiguration(obj: OpsWorksVolumeConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'MountPoint': obj.mountPoint,
+    'RaidLevel': obj.raidLevel,
+    'NumberOfDisks': obj.numberOfDisks,
+    'Size': obj.size,
+    'VolumeType': obj.volumeType,
+    'Iops': obj.iops,
+    'Encrypted': obj.encrypted,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksRecipes
@@ -2528,6 +4420,24 @@ export interface OpsWorksRecipes {
 }
 
 /**
+ * Converts an object of type 'OpsWorksRecipes' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksRecipes(obj: OpsWorksRecipes | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Setup': obj.setup?.map(y => y),
+    'Configure': obj.configure?.map(y => y),
+    'Deploy': obj.deploy?.map(y => y),
+    'Undeploy': obj.undeploy?.map(y => y),
+    'Shutdown': obj.shutdown?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksLifecycleEventConfiguration
  */
 export interface OpsWorksLifecycleEventConfiguration {
@@ -2537,6 +4447,20 @@ export interface OpsWorksLifecycleEventConfiguration {
   readonly shutdown?: OpsWorksShutdownEventConfiguration;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksLifecycleEventConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksLifecycleEventConfiguration(obj: OpsWorksLifecycleEventConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Shutdown': toJson_OpsWorksShutdownEventConfiguration(obj.shutdown),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksAgentVersion
@@ -2553,6 +4477,21 @@ export interface OpsWorksAgentVersion {
   readonly configurationManager?: OpsWorksStackConfigurationManager;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksAgentVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksAgentVersion(obj: OpsWorksAgentVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Version': obj.version,
+    'ConfigurationManager': toJson_OpsWorksStackConfigurationManager(obj.configurationManager),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksApp
@@ -2631,6 +4570,33 @@ export interface OpsWorksApp {
 }
 
 /**
+ * Converts an object of type 'OpsWorksApp' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksApp(obj: OpsWorksApp | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AppId': obj.appId,
+    'StackId': obj.stackId,
+    'Shortname': obj.shortname,
+    'Name': obj.name,
+    'Description': obj.description,
+    'DataSources': obj.dataSources?.map(y => toJson_OpsWorksDataSource(y)),
+    'Type': obj.type,
+    'AppSource': toJson_OpsWorksSource(obj.appSource),
+    'Domains': obj.domains?.map(y => y),
+    'EnableSsl': obj.enableSsl,
+    'SslConfiguration': toJson_OpsWorksSslConfiguration(obj.sslConfiguration),
+    'Attributes': ((obj.attributes) === undefined) ? undefined : (Object.entries(obj.attributes).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'CreatedAt': obj.createdAt,
+    'Environment': obj.environment?.map(y => toJson_OpsWorksEnvironmentVariable(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksCommand
  */
 export interface OpsWorksCommand {
@@ -2685,6 +4651,29 @@ export interface OpsWorksCommand {
   readonly type?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksCommand' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksCommand(obj: OpsWorksCommand | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'CommandId': obj.commandId,
+    'InstanceId': obj.instanceId,
+    'DeploymentId': obj.deploymentId,
+    'CreatedAt': obj.createdAt,
+    'AcknowledgedAt': obj.acknowledgedAt,
+    'CompletedAt': obj.completedAt,
+    'Status': obj.status,
+    'ExitCode': obj.exitCode,
+    'LogUrl': obj.logUrl,
+    'Type': obj.type,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksDeployment
@@ -2753,6 +4742,31 @@ export interface OpsWorksDeployment {
 }
 
 /**
+ * Converts an object of type 'OpsWorksDeployment' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksDeployment(obj: OpsWorksDeployment | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'DeploymentId': obj.deploymentId,
+    'StackId': obj.stackId,
+    'AppId': obj.appId,
+    'CreatedAt': obj.createdAt,
+    'CompletedAt': obj.completedAt,
+    'Duration': obj.duration,
+    'IamUserArn': obj.iamUserArn,
+    'Comment': obj.comment,
+    'Command': toJson_OpsWorksDeploymentCommand(obj.command),
+    'Status': obj.status,
+    'CustomJson': obj.customJson,
+    'InstanceIds': obj.instanceIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksEcsCluster
  */
 export interface OpsWorksEcsCluster {
@@ -2777,6 +4791,23 @@ export interface OpsWorksEcsCluster {
   readonly registeredAt?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksEcsCluster' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksEcsCluster(obj: OpsWorksEcsCluster | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'EcsClusterArn': obj.ecsClusterArn,
+    'EcsClusterName': obj.ecsClusterName,
+    'StackId': obj.stackId,
+    'RegisteredAt': obj.registeredAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksElasticIp
@@ -2808,6 +4839,24 @@ export interface OpsWorksElasticIp {
   readonly instanceId?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksElasticIp' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksElasticIp(obj: OpsWorksElasticIp | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Ip': obj.ip,
+    'Name': obj.name,
+    'Domain': obj.domain,
+    'Region': obj.region,
+    'InstanceId': obj.instanceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksElasticLoadBalancer
@@ -2859,6 +4908,28 @@ export interface OpsWorksElasticLoadBalancer {
   readonly ec2InstanceIds?: string[];
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksElasticLoadBalancer' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksElasticLoadBalancer(obj: OpsWorksElasticLoadBalancer | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ElasticLoadBalancerName': obj.elasticLoadBalancerName,
+    'Region': obj.region,
+    'DnsName': obj.dnsName,
+    'StackId': obj.stackId,
+    'LayerId': obj.layerId,
+    'VpcId': obj.vpcId,
+    'AvailabilityZones': obj.availabilityZones?.map(y => y),
+    'SubnetIds': obj.subnetIds?.map(y => y),
+    'Ec2InstanceIds': obj.ec2InstanceIds?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksInstance
@@ -3072,6 +5143,60 @@ export interface OpsWorksInstance {
 }
 
 /**
+ * Converts an object of type 'OpsWorksInstance' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksInstance(obj: OpsWorksInstance | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'AgentVersion': obj.agentVersion,
+    'AmiId': obj.amiId,
+    'Architecture': obj.architecture,
+    'Arn': obj.arn,
+    'AutoScalingType': obj.autoScalingType,
+    'AvailabilityZone': obj.availabilityZone,
+    'BlockDeviceMappings': obj.blockDeviceMappings?.map(y => toJson_OpsWorksBlockDeviceMapping(y)),
+    'CreatedAt': obj.createdAt,
+    'EbsOptimized': obj.ebsOptimized,
+    'Ec2InstanceId': obj.ec2InstanceId,
+    'EcsClusterArn': obj.ecsClusterArn,
+    'EcsContainerInstanceArn': obj.ecsContainerInstanceArn,
+    'ElasticIp': obj.elasticIp,
+    'Hostname': obj.hostname,
+    'InfrastructureClass': obj.infrastructureClass,
+    'InstallUpdatesOnBoot': obj.installUpdatesOnBoot,
+    'InstanceId': obj.instanceId,
+    'InstanceProfileArn': obj.instanceProfileArn,
+    'InstanceType': obj.instanceType,
+    'LastServiceErrorId': obj.lastServiceErrorId,
+    'LayerIds': obj.layerIds?.map(y => y),
+    'Os': obj.os,
+    'Platform': obj.platform,
+    'PrivateDns': obj.privateDns,
+    'PrivateIp': obj.privateIp,
+    'PublicDns': obj.publicDns,
+    'PublicIp': obj.publicIp,
+    'RegisteredBy': obj.registeredBy,
+    'ReportedAgentVersion': obj.reportedAgentVersion,
+    'ReportedOs': toJson_OpsWorksReportedOs(obj.reportedOs),
+    'RootDeviceType': obj.rootDeviceType,
+    'RootDeviceVolumeId': obj.rootDeviceVolumeId,
+    'SecurityGroupIds': obj.securityGroupIds?.map(y => y),
+    'SshHostDsaKeyFingerprint': obj.sshHostDsaKeyFingerprint,
+    'SshHostRsaKeyFingerprint': obj.sshHostRsaKeyFingerprint,
+    'SshKeyName': obj.sshKeyName,
+    'StackId': obj.stackId,
+    'Status': obj.status,
+    'SubnetId': obj.subnetId,
+    'Tenancy': obj.tenancy,
+    'VirtualizationType': obj.virtualizationType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksLayer
  */
 export interface OpsWorksLayer {
@@ -3193,6 +5318,42 @@ export interface OpsWorksLayer {
 }
 
 /**
+ * Converts an object of type 'OpsWorksLayer' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksLayer(obj: OpsWorksLayer | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Arn': obj.arn,
+    'StackId': obj.stackId,
+    'LayerId': obj.layerId,
+    'Type': obj.type,
+    'Name': obj.name,
+    'Shortname': obj.shortname,
+    'Attributes': ((obj.attributes) === undefined) ? undefined : (Object.entries(obj.attributes).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'CloudWatchLogsConfiguration': toJson_OpsWorksCloudWatchLogsConfiguration(obj.cloudWatchLogsConfiguration),
+    'CustomInstanceProfileArn': obj.customInstanceProfileArn,
+    'CustomJson': obj.customJson,
+    'CustomSecurityGroupIds': obj.customSecurityGroupIds?.map(y => y),
+    'DefaultSecurityGroupNames': obj.defaultSecurityGroupNames?.map(y => y),
+    'Packages': obj.packages?.map(y => y),
+    'VolumeConfigurations': obj.volumeConfigurations?.map(y => toJson_OpsWorksVolumeConfiguration(y)),
+    'EnableAutoHealing': obj.enableAutoHealing,
+    'AutoAssignElasticIps': obj.autoAssignElasticIps,
+    'AutoAssignPublicIps': obj.autoAssignPublicIps,
+    'DefaultRecipes': toJson_OpsWorksRecipes(obj.defaultRecipes),
+    'CustomRecipes': toJson_OpsWorksRecipes(obj.customRecipes),
+    'CreatedAt': obj.createdAt,
+    'InstallUpdatesOnBoot': obj.installUpdatesOnBoot,
+    'UseEbsOptimizedInstances': obj.useEbsOptimizedInstances,
+    'LifecycleEventConfiguration': toJson_OpsWorksLifecycleEventConfiguration(obj.lifecycleEventConfiguration),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksLoadBasedAutoScalingConfiguration
  */
 export interface OpsWorksLoadBasedAutoScalingConfiguration {
@@ -3219,6 +5380,23 @@ export interface OpsWorksLoadBasedAutoScalingConfiguration {
 }
 
 /**
+ * Converts an object of type 'OpsWorksLoadBasedAutoScalingConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksLoadBasedAutoScalingConfiguration(obj: OpsWorksLoadBasedAutoScalingConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LayerId': obj.layerId,
+    'Enable': obj.enable,
+    'UpScaling': toJson_OpsWorksAutoScalingThresholds(obj.upScaling),
+    'DownScaling': toJson_OpsWorksAutoScalingThresholds(obj.downScaling),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksSelfUserProfile
  */
 export interface OpsWorksSelfUserProfile {
@@ -3243,6 +5421,23 @@ export interface OpsWorksSelfUserProfile {
   readonly sshPublicKey?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksSelfUserProfile' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksSelfUserProfile(obj: OpsWorksSelfUserProfile | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IamUserArn': obj.iamUserArn,
+    'Name': obj.name,
+    'SshUsername': obj.sshUsername,
+    'SshPublicKey': obj.sshPublicKey,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksOperatingSystem
@@ -3286,6 +5481,26 @@ export interface OpsWorksOperatingSystem {
 }
 
 /**
+ * Converts an object of type 'OpsWorksOperatingSystem' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksOperatingSystem(obj: OpsWorksOperatingSystem | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Id': obj.id,
+    'Type': obj.type,
+    'ConfigurationManagers': obj.configurationManagers?.map(y => toJson_OpsWorksOperatingSystemConfigurationManager(y)),
+    'ReportedName': obj.reportedName,
+    'ReportedVersion': obj.reportedVersion,
+    'Supported': obj.supported,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksPermission
  */
 export interface OpsWorksPermission {
@@ -3315,6 +5530,24 @@ export interface OpsWorksPermission {
   readonly level?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksPermission' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksPermission(obj: OpsWorksPermission | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'IamUserArn': obj.iamUserArn,
+    'AllowSsh': obj.allowSsh,
+    'AllowSudo': obj.allowSudo,
+    'Level': obj.level,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksRaidArray
@@ -3388,6 +5621,32 @@ export interface OpsWorksRaidArray {
 }
 
 /**
+ * Converts an object of type 'OpsWorksRaidArray' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksRaidArray(obj: OpsWorksRaidArray | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RaidArrayId': obj.raidArrayId,
+    'InstanceId': obj.instanceId,
+    'Name': obj.name,
+    'RaidLevel': obj.raidLevel,
+    'NumberOfDisks': obj.numberOfDisks,
+    'Size': obj.size,
+    'Device': obj.device,
+    'MountPoint': obj.mountPoint,
+    'AvailabilityZone': obj.availabilityZone,
+    'CreatedAt': obj.createdAt,
+    'StackId': obj.stackId,
+    'VolumeType': obj.volumeType,
+    'Iops': obj.iops,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksRdsDbInstance
  */
 export interface OpsWorksRdsDbInstance {
@@ -3439,6 +5698,28 @@ export interface OpsWorksRdsDbInstance {
 }
 
 /**
+ * Converts an object of type 'OpsWorksRdsDbInstance' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksRdsDbInstance(obj: OpsWorksRdsDbInstance | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'RdsDbInstanceArn': obj.rdsDbInstanceArn,
+    'DbInstanceIdentifier': obj.dbInstanceIdentifier,
+    'DbUser': obj.dbUser,
+    'DbPassword': obj.dbPassword,
+    'Region': obj.region,
+    'Address': obj.address,
+    'Engine': obj.engine,
+    'StackId': obj.stackId,
+    'MissingOnRds': obj.missingOnRds,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksServiceError
  */
 export interface OpsWorksServiceError {
@@ -3475,6 +5756,25 @@ export interface OpsWorksServiceError {
 }
 
 /**
+ * Converts an object of type 'OpsWorksServiceError' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksServiceError(obj: OpsWorksServiceError | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ServiceErrorId': obj.serviceErrorId,
+    'StackId': obj.stackId,
+    'InstanceId': obj.instanceId,
+    'Type': obj.type,
+    'Message': obj.message,
+    'CreatedAt': obj.createdAt,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksStackSummary
  */
 export interface OpsWorksStackSummary {
@@ -3509,6 +5809,25 @@ export interface OpsWorksStackSummary {
   readonly instancesCount?: OpsWorksInstancesCount;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksStackSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksStackSummary(obj: OpsWorksStackSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'Name': obj.name,
+    'Arn': obj.arn,
+    'LayersCount': obj.layersCount,
+    'AppsCount': obj.appsCount,
+    'InstancesCount': toJson_OpsWorksInstancesCount(obj.instancesCount),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksStack
@@ -3627,6 +5946,41 @@ export interface OpsWorksStack {
 }
 
 /**
+ * Converts an object of type 'OpsWorksStack' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksStack(obj: OpsWorksStack | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'StackId': obj.stackId,
+    'Name': obj.name,
+    'Arn': obj.arn,
+    'Region': obj.region,
+    'VpcId': obj.vpcId,
+    'Attributes': ((obj.attributes) === undefined) ? undefined : (Object.entries(obj.attributes).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'ServiceRoleArn': obj.serviceRoleArn,
+    'DefaultInstanceProfileArn': obj.defaultInstanceProfileArn,
+    'DefaultOs': obj.defaultOs,
+    'HostnameTheme': obj.hostnameTheme,
+    'DefaultAvailabilityZone': obj.defaultAvailabilityZone,
+    'DefaultSubnetId': obj.defaultSubnetId,
+    'CustomJson': obj.customJson,
+    'ConfigurationManager': toJson_OpsWorksStackConfigurationManager(obj.configurationManager),
+    'ChefConfiguration': toJson_OpsWorksChefConfiguration(obj.chefConfiguration),
+    'UseCustomCookbooks': obj.useCustomCookbooks,
+    'UseOpsworksSecurityGroups': obj.useOpsworksSecurityGroups,
+    'CustomCookbooksSource': toJson_OpsWorksSource(obj.customCookbooksSource),
+    'DefaultSshKeyName': obj.defaultSshKeyName,
+    'CreatedAt': obj.createdAt,
+    'DefaultRootDeviceType': obj.defaultRootDeviceType,
+    'AgentVersion': obj.agentVersion,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksTimeBasedAutoScalingConfiguration
  */
 export interface OpsWorksTimeBasedAutoScalingConfiguration {
@@ -3641,6 +5995,21 @@ export interface OpsWorksTimeBasedAutoScalingConfiguration {
   readonly autoScalingSchedule?: OpsWorksWeeklyAutoScalingSchedule;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksTimeBasedAutoScalingConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksTimeBasedAutoScalingConfiguration(obj: OpsWorksTimeBasedAutoScalingConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceId': obj.instanceId,
+    'AutoScalingSchedule': toJson_OpsWorksWeeklyAutoScalingSchedule(obj.autoScalingSchedule),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksUserProfile
@@ -3672,6 +6041,24 @@ export interface OpsWorksUserProfile {
   readonly allowSelfManagement?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksUserProfile' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksUserProfile(obj: OpsWorksUserProfile | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'IamUserArn': obj.iamUserArn,
+    'Name': obj.name,
+    'SshUsername': obj.sshUsername,
+    'SshPublicKey': obj.sshPublicKey,
+    'AllowSelfManagement': obj.allowSelfManagement,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksVolume
@@ -3750,6 +6137,33 @@ export interface OpsWorksVolume {
 }
 
 /**
+ * Converts an object of type 'OpsWorksVolume' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksVolume(obj: OpsWorksVolume | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'VolumeId': obj.volumeId,
+    'Ec2VolumeId': obj.ec2VolumeId,
+    'Name': obj.name,
+    'RaidArrayId': obj.raidArrayId,
+    'InstanceId': obj.instanceId,
+    'Status': obj.status,
+    'Size': obj.size,
+    'Device': obj.device,
+    'MountPoint': obj.mountPoint,
+    'Region': obj.region,
+    'AvailabilityZone': obj.availabilityZone,
+    'VolumeType': obj.volumeType,
+    'Iops': obj.iops,
+    'Encrypted': obj.encrypted,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksTemporaryCredential
  */
 export interface OpsWorksTemporaryCredential {
@@ -3776,6 +6190,23 @@ export interface OpsWorksTemporaryCredential {
 }
 
 /**
+ * Converts an object of type 'OpsWorksTemporaryCredential' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksTemporaryCredential(obj: OpsWorksTemporaryCredential | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Username': obj.username,
+    'Password': obj.password,
+    'ValidForInMinutes': obj.validForInMinutes,
+    'InstanceId': obj.instanceId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksInstanceIdentity
  */
 export interface OpsWorksInstanceIdentity {
@@ -3790,6 +6221,21 @@ export interface OpsWorksInstanceIdentity {
   readonly signature?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksInstanceIdentity' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksInstanceIdentity(obj: OpsWorksInstanceIdentity | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Document': obj.document,
+    'Signature': obj.signature,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksAutoScalingThresholds
@@ -3833,6 +6279,26 @@ export interface OpsWorksAutoScalingThresholds {
 }
 
 /**
+ * Converts an object of type 'OpsWorksAutoScalingThresholds' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksAutoScalingThresholds(obj: OpsWorksAutoScalingThresholds | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'InstanceCount': obj.instanceCount,
+    'ThresholdsWaitTime': obj.thresholdsWaitTime,
+    'IgnoreMetricsTime': obj.ignoreMetricsTime,
+    'CpuThreshold': obj.cpuThreshold,
+    'MemoryThreshold': obj.memoryThreshold,
+    'LoadThreshold': obj.loadThreshold,
+    'Alarms': obj.alarms?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksWeeklyAutoScalingSchedule
  */
 export interface OpsWorksWeeklyAutoScalingSchedule {
@@ -3874,6 +6340,26 @@ export interface OpsWorksWeeklyAutoScalingSchedule {
 }
 
 /**
+ * Converts an object of type 'OpsWorksWeeklyAutoScalingSchedule' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksWeeklyAutoScalingSchedule(obj: OpsWorksWeeklyAutoScalingSchedule | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Monday': ((obj.monday) === undefined) ? undefined : (Object.entries(obj.monday).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'Tuesday': ((obj.tuesday) === undefined) ? undefined : (Object.entries(obj.tuesday).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'Wednesday': ((obj.wednesday) === undefined) ? undefined : (Object.entries(obj.wednesday).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'Thursday': ((obj.thursday) === undefined) ? undefined : (Object.entries(obj.thursday).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'Friday': ((obj.friday) === undefined) ? undefined : (Object.entries(obj.friday).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'Saturday': ((obj.saturday) === undefined) ? undefined : (Object.entries(obj.saturday).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'Sunday': ((obj.sunday) === undefined) ? undefined : (Object.entries(obj.sunday).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksEbsBlockDevice
  */
 export interface OpsWorksEbsBlockDevice {
@@ -3903,6 +6389,24 @@ export interface OpsWorksEbsBlockDevice {
   readonly deleteOnTermination?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksEbsBlockDevice' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksEbsBlockDevice(obj: OpsWorksEbsBlockDevice | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'SnapshotId': obj.snapshotId,
+    'Iops': obj.iops,
+    'VolumeSize': obj.volumeSize,
+    'VolumeType': obj.volumeType,
+    'DeleteOnTermination': obj.deleteOnTermination,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksCloudWatchLogsLogStream
@@ -3966,6 +6470,30 @@ export interface OpsWorksCloudWatchLogsLogStream {
 }
 
 /**
+ * Converts an object of type 'OpsWorksCloudWatchLogsLogStream' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksCloudWatchLogsLogStream(obj: OpsWorksCloudWatchLogsLogStream | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'LogGroupName': obj.logGroupName,
+    'DatetimeFormat': obj.datetimeFormat,
+    'TimeZone': obj.timeZone,
+    'File': obj.file,
+    'FileFingerprintLines': obj.fileFingerprintLines,
+    'MultiLineStartPattern': obj.multiLineStartPattern,
+    'InitialPosition': obj.initialPosition,
+    'Encoding': obj.encoding,
+    'BufferDuration': obj.bufferDuration,
+    'BatchCount': obj.batchCount,
+    'BatchSize': obj.batchSize,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksShutdownEventConfiguration
  */
 export interface OpsWorksShutdownEventConfiguration {
@@ -3980,6 +6508,21 @@ export interface OpsWorksShutdownEventConfiguration {
   readonly delayUntilElbConnectionsDrained?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksShutdownEventConfiguration' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksShutdownEventConfiguration(obj: OpsWorksShutdownEventConfiguration | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'ExecutionTimeout': obj.executionTimeout,
+    'DelayUntilElbConnectionsDrained': obj.delayUntilElbConnectionsDrained,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksReportedOs
@@ -4003,6 +6546,22 @@ export interface OpsWorksReportedOs {
 }
 
 /**
+ * Converts an object of type 'OpsWorksReportedOs' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksReportedOs(obj: OpsWorksReportedOs | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Family': obj.family,
+    'Name': obj.name,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema OpsWorksOperatingSystemConfigurationManager
  */
 export interface OpsWorksOperatingSystemConfigurationManager {
@@ -4017,6 +6576,21 @@ export interface OpsWorksOperatingSystemConfigurationManager {
   readonly version?: string;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksOperatingSystemConfigurationManager' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksOperatingSystemConfigurationManager(obj: OpsWorksOperatingSystemConfigurationManager | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Name': obj.name,
+    'Version': obj.version,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema OpsWorksInstancesCount
@@ -4123,3 +6697,36 @@ export interface OpsWorksInstancesCount {
   readonly unassigning?: number;
 
 }
+
+/**
+ * Converts an object of type 'OpsWorksInstancesCount' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_OpsWorksInstancesCount(obj: OpsWorksInstancesCount | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Assigning': obj.assigning,
+    'Booting': obj.booting,
+    'ConnectionLost': obj.connectionLost,
+    'Deregistering': obj.deregistering,
+    'Online': obj.online,
+    'Pending': obj.pending,
+    'Rebooting': obj.rebooting,
+    'Registered': obj.registered,
+    'Registering': obj.registering,
+    'Requested': obj.requested,
+    'RunningSetup': obj.runningSetup,
+    'SetupFailed': obj.setupFailed,
+    'ShuttingDown': obj.shuttingDown,
+    'StartFailed': obj.startFailed,
+    'StopFailed': obj.stopFailed,
+    'Stopped': obj.stopped,
+    'Stopping': obj.stopping,
+    'Terminated': obj.terminated,
+    'Terminating': obj.terminating,
+    'Unassigning': obj.unassigning,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

@@ -58,6 +58,42 @@ export class OutpostsClient extends cdk.Construct {
     return new OutpostsResponsesListSites(this, this.__resources, input);
   }
 
+  public listTagsForResource(input: shapes.OutpostsListTagsForResourceRequest): OutpostsResponsesListTagsForResource {
+    return new OutpostsResponsesListTagsForResource(this, this.__resources, input);
+  }
+
+  public tagResource(input: shapes.OutpostsTagResourceRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'tagResource',
+        service: 'Outposts',
+        physicalResourceId: cr.PhysicalResourceId.of('Outposts.TagResource'),
+        parameters: {
+          ResourceArn: input.resourceArn,
+          Tags: input.tags,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'TagResource', props);
+  }
+
+  public untagResource(input: shapes.OutpostsUntagResourceRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'untagResource',
+        service: 'Outposts',
+        physicalResourceId: cr.PhysicalResourceId.of('Outposts.UntagResource'),
+        parameters: {
+          ResourceArn: input.resourceArn,
+          TagKeys: input.tagKeys,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UntagResource', props);
+  }
+
 }
 
 export class OutpostsResponsesCreateOutpost {
@@ -296,6 +332,28 @@ export class OutpostsResponsesCreateOutpostOutpost {
     return resource.getResponseField('Outpost.Tags') as unknown as Record<string, string>;
   }
 
+  public get siteArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createOutpost',
+        service: 'Outposts',
+        physicalResourceId: cr.PhysicalResourceId.of('Outposts.CreateOutpost.Outpost.SiteArn'),
+        outputPath: 'Outpost.SiteArn',
+        parameters: {
+          Name: this.__input.name,
+          Description: this.__input.description,
+          SiteId: this.__input.siteId,
+          AvailabilityZone: this.__input.availabilityZone,
+          AvailabilityZoneId: this.__input.availabilityZoneId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateOutpost.Outpost.SiteArn', props);
+    return resource.getResponseField('Outpost.SiteArn') as unknown as string;
+  }
+
 }
 
 export class OutpostsResponsesFetchOutpost {
@@ -484,6 +542,23 @@ export class OutpostsResponsesFetchOutpostOutpost {
     return resource.getResponseField('Outpost.Tags') as unknown as Record<string, string>;
   }
 
+  public get siteArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getOutpost',
+        service: 'Outposts',
+        physicalResourceId: cr.PhysicalResourceId.of('Outposts.GetOutpost.Outpost.SiteArn'),
+        outputPath: 'Outpost.SiteArn',
+        parameters: {
+          OutpostId: this.__input.outpostId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetOutpost.Outpost.SiteArn', props);
+    return resource.getResponseField('Outpost.SiteArn') as unknown as string;
+  }
+
 }
 
 export class OutpostsResponsesFetchOutpostInstanceTypes {
@@ -585,6 +660,9 @@ export class OutpostsResponsesListOutposts {
         parameters: {
           NextToken: this.__input.nextToken,
           MaxResults: this.__input.maxResults,
+          LifeCycleStatusFilter: this.__input.lifeCycleStatusFilter,
+          AvailabilityZoneFilter: this.__input.availabilityZoneFilter,
+          AvailabilityZoneIdFilter: this.__input.availabilityZoneIdFilter,
         },
       },
     };
@@ -603,6 +681,9 @@ export class OutpostsResponsesListOutposts {
         parameters: {
           NextToken: this.__input.nextToken,
           MaxResults: this.__input.maxResults,
+          LifeCycleStatusFilter: this.__input.lifeCycleStatusFilter,
+          AvailabilityZoneFilter: this.__input.availabilityZoneFilter,
+          AvailabilityZoneIdFilter: this.__input.availabilityZoneIdFilter,
         },
       },
     };
@@ -651,6 +732,30 @@ export class OutpostsResponsesListSites {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListSites.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class OutpostsResponsesListTagsForResource {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.OutpostsListTagsForResourceRequest) {
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listTagsForResource',
+        service: 'Outposts',
+        physicalResourceId: cr.PhysicalResourceId.of('Outposts.ListTagsForResource.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          ResourceArn: this.__input.resourceArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListTagsForResource.Tags', props);
+    return resource.getResponseField('Tags') as unknown as Record<string, string>;
   }
 
 }

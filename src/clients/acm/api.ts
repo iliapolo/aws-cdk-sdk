@@ -47,6 +47,10 @@ export class AcmClient extends cdk.Construct {
     return new ACMResponsesExportCertificate(this, this.__resources, input);
   }
 
+  public fetchAccountConfiguration(): ACMResponsesFetchAccountConfiguration {
+    return new ACMResponsesFetchAccountConfiguration(this, this.__resources);
+  }
+
   public fetchCertificate(input: shapes.AcmGetCertificateRequest): ACMResponsesFetchCertificate {
     return new ACMResponsesFetchCertificate(this, this.__resources, input);
   }
@@ -61,6 +65,24 @@ export class AcmClient extends cdk.Construct {
 
   public listTagsForCertificate(input: shapes.AcmListTagsForCertificateRequest): ACMResponsesListTagsForCertificate {
     return new ACMResponsesListTagsForCertificate(this, this.__resources, input);
+  }
+
+  public putAccountConfiguration(input: shapes.AcmPutAccountConfigurationRequest): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'putAccountConfiguration',
+        service: 'ACM',
+        physicalResourceId: cr.PhysicalResourceId.of('ACM.PutAccountConfiguration'),
+        parameters: {
+          ExpiryEvents: {
+            DaysBeforeExpiry: input.expiryEvents?.daysBeforeExpiry,
+          },
+          IdempotencyToken: input.idempotencyToken,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'PutAccountConfiguration', props);
   }
 
   public removeTagsFromCertificate(input: shapes.AcmRemoveTagsFromCertificateRequest): void {
@@ -728,6 +750,38 @@ export class ACMResponsesExportCertificate {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ExportCertificate.PrivateKey', props);
     return resource.getResponseField('PrivateKey') as unknown as string;
+  }
+
+}
+
+export class ACMResponsesFetchAccountConfiguration {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get expiryEvents(): ACMResponsesFetchAccountConfigurationExpiryEvents {
+    return new ACMResponsesFetchAccountConfigurationExpiryEvents(this.__scope, this.__resources);
+  }
+
+}
+
+export class ACMResponsesFetchAccountConfigurationExpiryEvents {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[]) {
+  }
+
+  public get daysBeforeExpiry(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getAccountConfiguration',
+        service: 'ACM',
+        physicalResourceId: cr.PhysicalResourceId.of('ACM.GetAccountConfiguration.ExpiryEvents.DaysBeforeExpiry'),
+        outputPath: 'ExpiryEvents.DaysBeforeExpiry',
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetAccountConfiguration.ExpiryEvents.DaysBeforeExpiry', props);
+    return resource.getResponseField('ExpiryEvents.DaysBeforeExpiry') as unknown as number;
   }
 
 }

@@ -76,6 +76,10 @@ export class EsClient extends cdk.Construct {
     return new ESResponsesDeletePackage(this, this.__resources, input);
   }
 
+  public describeDomainAutoTunes(input: shapes.EsDescribeDomainAutoTunesRequest): ESResponsesDescribeDomainAutoTunes {
+    return new ESResponsesDescribeDomainAutoTunes(this, this.__resources, input);
+  }
+
   public describeElasticsearchDomain(input: shapes.EsDescribeElasticsearchDomainRequest): ESResponsesDescribeElasticsearchDomain {
     return new ESResponsesDescribeElasticsearchDomain(this, this.__resources, input);
   }
@@ -805,6 +809,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -863,6 +870,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -894,6 +906,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -952,6 +967,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -983,6 +1003,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -1041,6 +1064,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -1072,6 +1100,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -1130,6 +1161,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -1161,6 +1197,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -1219,6 +1258,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -1250,6 +1294,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -1308,6 +1355,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -1339,6 +1391,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -1397,6 +1452,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -1428,6 +1488,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -1486,6 +1549,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -1517,6 +1585,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -1575,6 +1646,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -1606,6 +1682,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -1664,6 +1743,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -1703,6 +1787,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -1761,6 +1848,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -1812,6 +1904,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -1870,6 +1965,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -1901,6 +2001,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -1959,6 +2062,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -1976,6 +2084,10 @@ export class ESResponsesCreateElasticsearchDomainDomainStatus {
 
   public get advancedSecurityOptions(): ESResponsesCreateElasticsearchDomainDomainStatusAdvancedSecurityOptions {
     return new ESResponsesCreateElasticsearchDomainDomainStatusAdvancedSecurityOptions(this.__scope, this.__resources, this.__input);
+  }
+
+  public get autoTuneOptions(): ESResponsesCreateElasticsearchDomainDomainStatusAutoTuneOptions {
+    return new ESResponsesCreateElasticsearchDomainDomainStatusAutoTuneOptions(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -2009,6 +2121,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -2067,6 +2182,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -2098,6 +2218,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -2156,6 +2279,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -2187,6 +2315,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -2245,6 +2376,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -2276,6 +2412,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -2334,6 +2473,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -2369,6 +2513,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -2427,6 +2574,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -2458,6 +2610,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -2516,6 +2671,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -2547,6 +2707,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -2605,6 +2768,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -2636,6 +2804,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -2694,6 +2865,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -2725,6 +2901,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -2783,11 +2962,20 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmCount', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmCount') as unknown as number;
+  }
+
+  public get coldStorageOptions(): ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchClusterConfigColdStorageOptions {
+    return new ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchClusterConfigColdStorageOptions(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -2821,6 +3009,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -2879,11 +3070,120 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchCluste
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
+  }
+
+}
+
+export class ESResponsesCreateElasticsearchDomainDomainStatusElasticsearchClusterConfigColdStorageOptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsCreateElasticsearchDomainRequest) {
+  }
+
+  public get enabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createElasticsearchDomain',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ColdStorageOptions.Enabled'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ColdStorageOptions.Enabled',
+        parameters: {
+          DomainName: this.__input.domainName,
+          ElasticsearchVersion: this.__input.elasticsearchVersion,
+          ElasticsearchClusterConfig: {
+            InstanceType: this.__input.elasticsearchClusterConfig?.instanceType,
+            InstanceCount: this.__input.elasticsearchClusterConfig?.instanceCount,
+            DedicatedMasterEnabled: this.__input.elasticsearchClusterConfig?.dedicatedMasterEnabled,
+            ZoneAwarenessEnabled: this.__input.elasticsearchClusterConfig?.zoneAwarenessEnabled,
+            ZoneAwarenessConfig: {
+              AvailabilityZoneCount: this.__input.elasticsearchClusterConfig?.zoneAwarenessConfig?.availabilityZoneCount,
+            },
+            DedicatedMasterType: this.__input.elasticsearchClusterConfig?.dedicatedMasterType,
+            DedicatedMasterCount: this.__input.elasticsearchClusterConfig?.dedicatedMasterCount,
+            WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
+            WarmType: this.__input.elasticsearchClusterConfig?.warmType,
+            WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
+          },
+          EBSOptions: {
+            EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
+            VolumeType: this.__input.ebsOptions?.volumeType,
+            VolumeSize: this.__input.ebsOptions?.volumeSize,
+            Iops: this.__input.ebsOptions?.iops,
+          },
+          AccessPolicies: this.__input.accessPolicies,
+          SnapshotOptions: {
+            AutomatedSnapshotStartHour: this.__input.snapshotOptions?.automatedSnapshotStartHour,
+          },
+          VPCOptions: {
+            SubnetIds: this.__input.vpcOptions?.subnetIds,
+            SecurityGroupIds: this.__input.vpcOptions?.securityGroupIds,
+          },
+          CognitoOptions: {
+            Enabled: this.__input.cognitoOptions?.enabled,
+            UserPoolId: this.__input.cognitoOptions?.userPoolId,
+            IdentityPoolId: this.__input.cognitoOptions?.identityPoolId,
+            RoleArn: this.__input.cognitoOptions?.roleArn,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          AdvancedOptions: this.__input.advancedOptions,
+          LogPublishingOptions: this.__input.logPublishingOptions,
+          DomainEndpointOptions: {
+            EnforceHTTPS: this.__input.domainEndpointOptions?.enforceHttps,
+            TLSSecurityPolicy: this.__input.domainEndpointOptions?.tlsSecurityPolicy,
+            CustomEndpointEnabled: this.__input.domainEndpointOptions?.customEndpointEnabled,
+            CustomEndpoint: this.__input.domainEndpointOptions?.customEndpoint,
+            CustomEndpointCertificateArn: this.__input.domainEndpointOptions?.customEndpointCertificateArn,
+          },
+          AdvancedSecurityOptions: {
+            Enabled: this.__input.advancedSecurityOptions?.enabled,
+            InternalUserDatabaseEnabled: this.__input.advancedSecurityOptions?.internalUserDatabaseEnabled,
+            MasterUserOptions: {
+              MasterUserARN: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserArn,
+              MasterUserName: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserName,
+              MasterUserPassword: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserPassword,
+            },
+            SAMLOptions: {
+              Enabled: this.__input.advancedSecurityOptions?.samlOptions?.enabled,
+              Idp: {
+                MetadataContent: this.__input.advancedSecurityOptions?.samlOptions?.idp?.metadataContent,
+                EntityId: this.__input.advancedSecurityOptions?.samlOptions?.idp?.entityId,
+              },
+              MasterUserName: this.__input.advancedSecurityOptions?.samlOptions?.masterUserName,
+              MasterBackendRole: this.__input.advancedSecurityOptions?.samlOptions?.masterBackendRole,
+              SubjectKey: this.__input.advancedSecurityOptions?.samlOptions?.subjectKey,
+              RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
+              SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
+            },
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ColdStorageOptions.Enabled', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ColdStorageOptions.Enabled') as unknown as boolean;
   }
 
 }
@@ -2917,6 +3217,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusEbsOptions {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -2975,6 +3278,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusEbsOptions {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -3006,6 +3314,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusEbsOptions {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -3064,6 +3375,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusEbsOptions {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -3095,6 +3411,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusEbsOptions {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -3153,6 +3472,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusEbsOptions {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -3184,6 +3508,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusEbsOptions {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -3242,6 +3569,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusEbsOptions {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -3280,6 +3612,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusSnapshotOptions {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -3338,6 +3673,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusSnapshotOptions {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -3376,6 +3716,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusVpcOptions {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -3434,6 +3777,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusVpcOptions {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -3465,6 +3813,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusVpcOptions {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -3523,6 +3874,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusVpcOptions {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -3554,6 +3910,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusVpcOptions {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -3612,6 +3971,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusVpcOptions {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -3643,6 +4007,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusVpcOptions {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -3701,6 +4068,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusVpcOptions {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -3739,6 +4111,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusCognitoOptions {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -3797,6 +4172,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusCognitoOptions {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -3828,6 +4208,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusCognitoOptions {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -3886,6 +4269,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusCognitoOptions {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -3917,6 +4305,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusCognitoOptions {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -3975,6 +4366,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusCognitoOptions {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -4006,6 +4402,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusCognitoOptions {
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -4064,6 +4463,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusCognitoOptions {
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -4102,6 +4506,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusEncryptionAtRestOpt
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -4160,6 +4567,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusEncryptionAtRestOpt
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -4191,6 +4603,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusEncryptionAtRestOpt
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -4249,6 +4664,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusEncryptionAtRestOpt
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -4287,6 +4707,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusNodeToNodeEncryptio
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -4345,6 +4768,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusNodeToNodeEncryptio
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -4383,6 +4811,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusServiceSoftwareOpti
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -4441,6 +4872,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusServiceSoftwareOpti
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -4472,6 +4908,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusServiceSoftwareOpti
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -4530,6 +4969,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusServiceSoftwareOpti
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -4561,6 +5005,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusServiceSoftwareOpti
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -4619,6 +5066,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusServiceSoftwareOpti
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -4650,6 +5102,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusServiceSoftwareOpti
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -4708,6 +5163,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusServiceSoftwareOpti
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -4739,6 +5199,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusServiceSoftwareOpti
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -4797,6 +5260,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusServiceSoftwareOpti
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -4828,6 +5296,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusServiceSoftwareOpti
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -4886,6 +5357,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusServiceSoftwareOpti
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -4917,6 +5393,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusServiceSoftwareOpti
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -4975,6 +5454,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusServiceSoftwareOpti
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -5006,6 +5490,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusServiceSoftwareOpti
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -5064,6 +5551,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusServiceSoftwareOpti
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -5102,6 +5594,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusDomainEndpointOptio
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -5160,6 +5655,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusDomainEndpointOptio
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -5191,6 +5691,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusDomainEndpointOptio
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -5249,6 +5752,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusDomainEndpointOptio
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -5280,6 +5788,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusDomainEndpointOptio
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -5338,6 +5849,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusDomainEndpointOptio
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -5369,6 +5885,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusDomainEndpointOptio
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -5427,6 +5946,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusDomainEndpointOptio
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -5458,6 +5982,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusDomainEndpointOptio
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -5516,6 +6043,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusDomainEndpointOptio
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -5554,6 +6086,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusAdvancedSecurityOpt
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -5612,6 +6147,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusAdvancedSecurityOpt
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -5643,6 +6183,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusAdvancedSecurityOpt
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -5701,6 +6244,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusAdvancedSecurityOpt
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -5743,6 +6291,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusAdvancedSecurityOpt
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -5801,6 +6352,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusAdvancedSecurityOpt
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -5836,6 +6392,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusAdvancedSecurityOpt
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -5894,6 +6453,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusAdvancedSecurityOpt
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -5925,6 +6489,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusAdvancedSecurityOpt
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -5983,6 +6550,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusAdvancedSecurityOpt
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -6014,6 +6586,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusAdvancedSecurityOpt
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -6072,6 +6647,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusAdvancedSecurityOpt
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -6110,6 +6690,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusAdvancedSecurityOpt
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -6168,6 +6751,11 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusAdvancedSecurityOpt
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
@@ -6199,6 +6787,9 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusAdvancedSecurityOpt
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -6257,11 +6848,217 @@ export class ESResponsesCreateElasticsearchDomainDomainStatusAdvancedSecurityOpt
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId') as unknown as string;
+  }
+
+}
+
+export class ESResponsesCreateElasticsearchDomainDomainStatusAutoTuneOptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsCreateElasticsearchDomainRequest) {
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createElasticsearchDomain',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AutoTuneOptions.State'),
+        outputPath: 'DomainStatus.AutoTuneOptions.State',
+        parameters: {
+          DomainName: this.__input.domainName,
+          ElasticsearchVersion: this.__input.elasticsearchVersion,
+          ElasticsearchClusterConfig: {
+            InstanceType: this.__input.elasticsearchClusterConfig?.instanceType,
+            InstanceCount: this.__input.elasticsearchClusterConfig?.instanceCount,
+            DedicatedMasterEnabled: this.__input.elasticsearchClusterConfig?.dedicatedMasterEnabled,
+            ZoneAwarenessEnabled: this.__input.elasticsearchClusterConfig?.zoneAwarenessEnabled,
+            ZoneAwarenessConfig: {
+              AvailabilityZoneCount: this.__input.elasticsearchClusterConfig?.zoneAwarenessConfig?.availabilityZoneCount,
+            },
+            DedicatedMasterType: this.__input.elasticsearchClusterConfig?.dedicatedMasterType,
+            DedicatedMasterCount: this.__input.elasticsearchClusterConfig?.dedicatedMasterCount,
+            WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
+            WarmType: this.__input.elasticsearchClusterConfig?.warmType,
+            WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
+          },
+          EBSOptions: {
+            EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
+            VolumeType: this.__input.ebsOptions?.volumeType,
+            VolumeSize: this.__input.ebsOptions?.volumeSize,
+            Iops: this.__input.ebsOptions?.iops,
+          },
+          AccessPolicies: this.__input.accessPolicies,
+          SnapshotOptions: {
+            AutomatedSnapshotStartHour: this.__input.snapshotOptions?.automatedSnapshotStartHour,
+          },
+          VPCOptions: {
+            SubnetIds: this.__input.vpcOptions?.subnetIds,
+            SecurityGroupIds: this.__input.vpcOptions?.securityGroupIds,
+          },
+          CognitoOptions: {
+            Enabled: this.__input.cognitoOptions?.enabled,
+            UserPoolId: this.__input.cognitoOptions?.userPoolId,
+            IdentityPoolId: this.__input.cognitoOptions?.identityPoolId,
+            RoleArn: this.__input.cognitoOptions?.roleArn,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          AdvancedOptions: this.__input.advancedOptions,
+          LogPublishingOptions: this.__input.logPublishingOptions,
+          DomainEndpointOptions: {
+            EnforceHTTPS: this.__input.domainEndpointOptions?.enforceHttps,
+            TLSSecurityPolicy: this.__input.domainEndpointOptions?.tlsSecurityPolicy,
+            CustomEndpointEnabled: this.__input.domainEndpointOptions?.customEndpointEnabled,
+            CustomEndpoint: this.__input.domainEndpointOptions?.customEndpoint,
+            CustomEndpointCertificateArn: this.__input.domainEndpointOptions?.customEndpointCertificateArn,
+          },
+          AdvancedSecurityOptions: {
+            Enabled: this.__input.advancedSecurityOptions?.enabled,
+            InternalUserDatabaseEnabled: this.__input.advancedSecurityOptions?.internalUserDatabaseEnabled,
+            MasterUserOptions: {
+              MasterUserARN: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserArn,
+              MasterUserName: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserName,
+              MasterUserPassword: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserPassword,
+            },
+            SAMLOptions: {
+              Enabled: this.__input.advancedSecurityOptions?.samlOptions?.enabled,
+              Idp: {
+                MetadataContent: this.__input.advancedSecurityOptions?.samlOptions?.idp?.metadataContent,
+                EntityId: this.__input.advancedSecurityOptions?.samlOptions?.idp?.entityId,
+              },
+              MasterUserName: this.__input.advancedSecurityOptions?.samlOptions?.masterUserName,
+              MasterBackendRole: this.__input.advancedSecurityOptions?.samlOptions?.masterBackendRole,
+              SubjectKey: this.__input.advancedSecurityOptions?.samlOptions?.subjectKey,
+              RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
+              SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
+            },
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateElasticsearchDomain.DomainStatus.AutoTuneOptions.State', props);
+    return resource.getResponseField('DomainStatus.AutoTuneOptions.State') as unknown as string;
+  }
+
+  public get errorMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createElasticsearchDomain',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AutoTuneOptions.ErrorMessage'),
+        outputPath: 'DomainStatus.AutoTuneOptions.ErrorMessage',
+        parameters: {
+          DomainName: this.__input.domainName,
+          ElasticsearchVersion: this.__input.elasticsearchVersion,
+          ElasticsearchClusterConfig: {
+            InstanceType: this.__input.elasticsearchClusterConfig?.instanceType,
+            InstanceCount: this.__input.elasticsearchClusterConfig?.instanceCount,
+            DedicatedMasterEnabled: this.__input.elasticsearchClusterConfig?.dedicatedMasterEnabled,
+            ZoneAwarenessEnabled: this.__input.elasticsearchClusterConfig?.zoneAwarenessEnabled,
+            ZoneAwarenessConfig: {
+              AvailabilityZoneCount: this.__input.elasticsearchClusterConfig?.zoneAwarenessConfig?.availabilityZoneCount,
+            },
+            DedicatedMasterType: this.__input.elasticsearchClusterConfig?.dedicatedMasterType,
+            DedicatedMasterCount: this.__input.elasticsearchClusterConfig?.dedicatedMasterCount,
+            WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
+            WarmType: this.__input.elasticsearchClusterConfig?.warmType,
+            WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
+          },
+          EBSOptions: {
+            EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
+            VolumeType: this.__input.ebsOptions?.volumeType,
+            VolumeSize: this.__input.ebsOptions?.volumeSize,
+            Iops: this.__input.ebsOptions?.iops,
+          },
+          AccessPolicies: this.__input.accessPolicies,
+          SnapshotOptions: {
+            AutomatedSnapshotStartHour: this.__input.snapshotOptions?.automatedSnapshotStartHour,
+          },
+          VPCOptions: {
+            SubnetIds: this.__input.vpcOptions?.subnetIds,
+            SecurityGroupIds: this.__input.vpcOptions?.securityGroupIds,
+          },
+          CognitoOptions: {
+            Enabled: this.__input.cognitoOptions?.enabled,
+            UserPoolId: this.__input.cognitoOptions?.userPoolId,
+            IdentityPoolId: this.__input.cognitoOptions?.identityPoolId,
+            RoleArn: this.__input.cognitoOptions?.roleArn,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          AdvancedOptions: this.__input.advancedOptions,
+          LogPublishingOptions: this.__input.logPublishingOptions,
+          DomainEndpointOptions: {
+            EnforceHTTPS: this.__input.domainEndpointOptions?.enforceHttps,
+            TLSSecurityPolicy: this.__input.domainEndpointOptions?.tlsSecurityPolicy,
+            CustomEndpointEnabled: this.__input.domainEndpointOptions?.customEndpointEnabled,
+            CustomEndpoint: this.__input.domainEndpointOptions?.customEndpoint,
+            CustomEndpointCertificateArn: this.__input.domainEndpointOptions?.customEndpointCertificateArn,
+          },
+          AdvancedSecurityOptions: {
+            Enabled: this.__input.advancedSecurityOptions?.enabled,
+            InternalUserDatabaseEnabled: this.__input.advancedSecurityOptions?.internalUserDatabaseEnabled,
+            MasterUserOptions: {
+              MasterUserARN: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserArn,
+              MasterUserName: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserName,
+              MasterUserPassword: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserPassword,
+            },
+            SAMLOptions: {
+              Enabled: this.__input.advancedSecurityOptions?.samlOptions?.enabled,
+              Idp: {
+                MetadataContent: this.__input.advancedSecurityOptions?.samlOptions?.idp?.metadataContent,
+                EntityId: this.__input.advancedSecurityOptions?.samlOptions?.idp?.entityId,
+              },
+              MasterUserName: this.__input.advancedSecurityOptions?.samlOptions?.masterUserName,
+              MasterBackendRole: this.__input.advancedSecurityOptions?.samlOptions?.masterBackendRole,
+              SubjectKey: this.__input.advancedSecurityOptions?.samlOptions?.subjectKey,
+              RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
+              SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
+            },
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+          TagList: this.__input.tagList,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreateElasticsearchDomain.DomainStatus.AutoTuneOptions.ErrorMessage', props);
+    return resource.getResponseField('DomainStatus.AutoTuneOptions.ErrorMessage') as unknown as string;
   }
 
 }
@@ -7112,6 +7909,10 @@ export class ESResponsesDeleteElasticsearchDomainDomainStatus {
     return new ESResponsesDeleteElasticsearchDomainDomainStatusAdvancedSecurityOptions(this.__scope, this.__resources, this.__input);
   }
 
+  public get autoTuneOptions(): ESResponsesDeleteElasticsearchDomainDomainStatusAutoTuneOptions {
+    return new ESResponsesDeleteElasticsearchDomainDomainStatusAutoTuneOptions(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class ESResponsesDeleteElasticsearchDomainDomainStatusElasticsearchClusterConfig {
@@ -7276,6 +8077,10 @@ export class ESResponsesDeleteElasticsearchDomainDomainStatusElasticsearchCluste
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmCount') as unknown as number;
   }
 
+  public get coldStorageOptions(): ESResponsesDeleteElasticsearchDomainDomainStatusElasticsearchClusterConfigColdStorageOptions {
+    return new ESResponsesDeleteElasticsearchDomainDomainStatusElasticsearchClusterConfigColdStorageOptions(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class ESResponsesDeleteElasticsearchDomainDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
@@ -7298,6 +8103,30 @@ export class ESResponsesDeleteElasticsearchDomainDomainStatusElasticsearchCluste
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
+  }
+
+}
+
+export class ESResponsesDeleteElasticsearchDomainDomainStatusElasticsearchClusterConfigColdStorageOptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsDeleteElasticsearchDomainRequest) {
+  }
+
+  public get enabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteElasticsearchDomain',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ColdStorageOptions.Enabled'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ColdStorageOptions.Enabled',
+        parameters: {
+          DomainName: this.__input.domainName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ColdStorageOptions.Enabled', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ColdStorageOptions.Enabled') as unknown as boolean;
   }
 
 }
@@ -8016,6 +8845,47 @@ export class ESResponsesDeleteElasticsearchDomainDomainStatusAdvancedSecurityOpt
 
 }
 
+export class ESResponsesDeleteElasticsearchDomainDomainStatusAutoTuneOptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsDeleteElasticsearchDomainRequest) {
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteElasticsearchDomain',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AutoTuneOptions.State'),
+        outputPath: 'DomainStatus.AutoTuneOptions.State',
+        parameters: {
+          DomainName: this.__input.domainName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteElasticsearchDomain.DomainStatus.AutoTuneOptions.State', props);
+    return resource.getResponseField('DomainStatus.AutoTuneOptions.State') as unknown as string;
+  }
+
+  public get errorMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deleteElasticsearchDomain',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AutoTuneOptions.ErrorMessage'),
+        outputPath: 'DomainStatus.AutoTuneOptions.ErrorMessage',
+        parameters: {
+          DomainName: this.__input.domainName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DeleteElasticsearchDomain.DomainStatus.AutoTuneOptions.ErrorMessage', props);
+    return resource.getResponseField('DomainStatus.AutoTuneOptions.ErrorMessage') as unknown as string;
+  }
+
+}
+
 export class ESResponsesDeleteInboundCrossClusterSearchConnection {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsDeleteInboundCrossClusterSearchConnectionRequest) {
@@ -8640,6 +9510,51 @@ export class ESResponsesDeletePackagePackageDetailsErrorDetails {
 
 }
 
+export class ESResponsesDescribeDomainAutoTunes {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsDescribeDomainAutoTunesRequest) {
+  }
+
+  public get autoTunes(): shapes.EsAutoTune[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDomainAutoTunes',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeDomainAutoTunes.AutoTunes'),
+        outputPath: 'AutoTunes',
+        parameters: {
+          DomainName: this.__input.domainName,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDomainAutoTunes.AutoTunes', props);
+    return resource.getResponseField('AutoTunes') as unknown as shapes.EsAutoTune[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDomainAutoTunes',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeDomainAutoTunes.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          DomainName: this.__input.domainName,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDomainAutoTunes.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
 export class ESResponsesDescribeElasticsearchDomain {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsDescribeElasticsearchDomainRequest) {
@@ -8917,6 +9832,10 @@ export class ESResponsesDescribeElasticsearchDomainDomainStatus {
     return new ESResponsesDescribeElasticsearchDomainDomainStatusAdvancedSecurityOptions(this.__scope, this.__resources, this.__input);
   }
 
+  public get autoTuneOptions(): ESResponsesDescribeElasticsearchDomainDomainStatusAutoTuneOptions {
+    return new ESResponsesDescribeElasticsearchDomainDomainStatusAutoTuneOptions(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class ESResponsesDescribeElasticsearchDomainDomainStatusElasticsearchClusterConfig {
@@ -9081,6 +10000,10 @@ export class ESResponsesDescribeElasticsearchDomainDomainStatusElasticsearchClus
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmCount') as unknown as number;
   }
 
+  public get coldStorageOptions(): ESResponsesDescribeElasticsearchDomainDomainStatusElasticsearchClusterConfigColdStorageOptions {
+    return new ESResponsesDescribeElasticsearchDomainDomainStatusElasticsearchClusterConfigColdStorageOptions(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class ESResponsesDescribeElasticsearchDomainDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
@@ -9103,6 +10026,30 @@ export class ESResponsesDescribeElasticsearchDomainDomainStatusElasticsearchClus
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
+  }
+
+}
+
+export class ESResponsesDescribeElasticsearchDomainDomainStatusElasticsearchClusterConfigColdStorageOptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsDescribeElasticsearchDomainRequest) {
+  }
+
+  public get enabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeElasticsearchDomain',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ColdStorageOptions.Enabled'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ColdStorageOptions.Enabled',
+        parameters: {
+          DomainName: this.__input.domainName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ColdStorageOptions.Enabled', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ColdStorageOptions.Enabled') as unknown as boolean;
   }
 
 }
@@ -9821,6 +10768,47 @@ export class ESResponsesDescribeElasticsearchDomainDomainStatusAdvancedSecurityO
 
 }
 
+export class ESResponsesDescribeElasticsearchDomainDomainStatusAutoTuneOptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsDescribeElasticsearchDomainRequest) {
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeElasticsearchDomain',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AutoTuneOptions.State'),
+        outputPath: 'DomainStatus.AutoTuneOptions.State',
+        parameters: {
+          DomainName: this.__input.domainName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeElasticsearchDomain.DomainStatus.AutoTuneOptions.State', props);
+    return resource.getResponseField('DomainStatus.AutoTuneOptions.State') as unknown as string;
+  }
+
+  public get errorMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeElasticsearchDomain',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AutoTuneOptions.ErrorMessage'),
+        outputPath: 'DomainStatus.AutoTuneOptions.ErrorMessage',
+        parameters: {
+          DomainName: this.__input.domainName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeElasticsearchDomain.DomainStatus.AutoTuneOptions.ErrorMessage', props);
+    return resource.getResponseField('DomainStatus.AutoTuneOptions.ErrorMessage') as unknown as string;
+  }
+
+}
+
 export class ESResponsesDescribeElasticsearchDomainConfig {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
@@ -9887,6 +10875,10 @@ export class ESResponsesDescribeElasticsearchDomainConfigDomainConfig {
 
   public get advancedSecurityOptions(): ESResponsesDescribeElasticsearchDomainConfigDomainConfigAdvancedSecurityOptions {
     return new ESResponsesDescribeElasticsearchDomainConfigDomainConfigAdvancedSecurityOptions(this.__scope, this.__resources, this.__input);
+  }
+
+  public get autoTuneOptions(): ESResponsesDescribeElasticsearchDomainConfigDomainConfigAutoTuneOptions {
+    return new ESResponsesDescribeElasticsearchDomainConfigDomainConfigAutoTuneOptions(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -10188,6 +11180,10 @@ export class ESResponsesDescribeElasticsearchDomainConfigDomainConfigElasticsear
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.WarmCount') as unknown as number;
   }
 
+  public get coldStorageOptions(): ESResponsesDescribeElasticsearchDomainConfigDomainConfigElasticsearchClusterConfigOptionsColdStorageOptions {
+    return new ESResponsesDescribeElasticsearchDomainConfigDomainConfigElasticsearchClusterConfigOptionsColdStorageOptions(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class ESResponsesDescribeElasticsearchDomainConfigDomainConfigElasticsearchClusterConfigOptionsZoneAwarenessConfig {
@@ -10210,6 +11206,30 @@ export class ESResponsesDescribeElasticsearchDomainConfigDomainConfigElasticsear
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessConfig.AvailabilityZoneCount', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
+  }
+
+}
+
+export class ESResponsesDescribeElasticsearchDomainConfigDomainConfigElasticsearchClusterConfigOptionsColdStorageOptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
+  }
+
+  public get enabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ColdStorageOptions.Enabled'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.ColdStorageOptions.Enabled',
+        parameters: {
+          DomainName: this.__input.domainName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ColdStorageOptions.Enabled', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.ColdStorageOptions.Enabled') as unknown as boolean;
   }
 
 }
@@ -12093,6 +13113,188 @@ export class ESResponsesDescribeElasticsearchDomainConfigDomainConfigAdvancedSec
 
 }
 
+export class ESResponsesDescribeElasticsearchDomainConfigDomainConfigAutoTuneOptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
+  }
+
+  public get options(): ESResponsesDescribeElasticsearchDomainConfigDomainConfigAutoTuneOptionsOptions {
+    return new ESResponsesDescribeElasticsearchDomainConfigDomainConfigAutoTuneOptionsOptions(this.__scope, this.__resources, this.__input);
+  }
+
+  public get status(): ESResponsesDescribeElasticsearchDomainConfigDomainConfigAutoTuneOptionsStatus {
+    return new ESResponsesDescribeElasticsearchDomainConfigDomainConfigAutoTuneOptionsStatus(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ESResponsesDescribeElasticsearchDomainConfigDomainConfigAutoTuneOptionsOptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
+  }
+
+  public get desiredState(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Options.DesiredState'),
+        outputPath: 'DomainConfig.AutoTuneOptions.Options.DesiredState',
+        parameters: {
+          DomainName: this.__input.domainName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Options.DesiredState', props);
+    return resource.getResponseField('DomainConfig.AutoTuneOptions.Options.DesiredState') as unknown as string;
+  }
+
+  public get rollbackOnDisable(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Options.RollbackOnDisable'),
+        outputPath: 'DomainConfig.AutoTuneOptions.Options.RollbackOnDisable',
+        parameters: {
+          DomainName: this.__input.domainName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Options.RollbackOnDisable', props);
+    return resource.getResponseField('DomainConfig.AutoTuneOptions.Options.RollbackOnDisable') as unknown as string;
+  }
+
+  public get maintenanceSchedules(): shapes.EsAutoTuneMaintenanceSchedule[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Options.MaintenanceSchedules'),
+        outputPath: 'DomainConfig.AutoTuneOptions.Options.MaintenanceSchedules',
+        parameters: {
+          DomainName: this.__input.domainName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Options.MaintenanceSchedules', props);
+    return resource.getResponseField('DomainConfig.AutoTuneOptions.Options.MaintenanceSchedules') as unknown as shapes.EsAutoTuneMaintenanceSchedule[];
+  }
+
+}
+
+export class ESResponsesDescribeElasticsearchDomainConfigDomainConfigAutoTuneOptionsStatus {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
+  }
+
+  public get creationDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.AutoTuneOptions.Status.CreationDate',
+        parameters: {
+          DomainName: this.__input.domainName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.AutoTuneOptions.Status.CreationDate') as unknown as string;
+  }
+
+  public get updateDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.AutoTuneOptions.Status.UpdateDate',
+        parameters: {
+          DomainName: this.__input.domainName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.AutoTuneOptions.Status.UpdateDate') as unknown as string;
+  }
+
+  public get updateVersion(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.AutoTuneOptions.Status.UpdateVersion',
+        parameters: {
+          DomainName: this.__input.domainName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.AutoTuneOptions.Status.UpdateVersion') as unknown as number;
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.State'),
+        outputPath: 'DomainConfig.AutoTuneOptions.Status.State',
+        parameters: {
+          DomainName: this.__input.domainName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.AutoTuneOptions.Status.State') as unknown as string;
+  }
+
+  public get errorMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.ErrorMessage'),
+        outputPath: 'DomainConfig.AutoTuneOptions.Status.ErrorMessage',
+        parameters: {
+          DomainName: this.__input.domainName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.ErrorMessage', props);
+    return resource.getResponseField('DomainConfig.AutoTuneOptions.Status.ErrorMessage') as unknown as string;
+  }
+
+  public get pendingDeletion(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.AutoTuneOptions.Status.PendingDeletion',
+        parameters: {
+          DomainName: this.__input.domainName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.AutoTuneOptions.Status.PendingDeletion') as unknown as boolean;
+  }
+
+}
+
 export class ESResponsesDescribeElasticsearchDomains {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsDescribeElasticsearchDomainsRequest) {
@@ -13464,6 +14666,10 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfig {
     return new ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecurityOptions(this.__scope, this.__resources, this.__input);
   }
 
+  public get autoTuneOptions(): ESResponsesUpdateElasticsearchDomainConfigDomainConfigAutoTuneOptions {
+    return new ESResponsesUpdateElasticsearchDomainConfigDomainConfigAutoTuneOptions(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearchVersion {
@@ -13494,6 +14700,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -13544,6 +14753,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -13586,6 +14807,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -13636,6 +14860,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -13667,6 +14903,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -13717,6 +14956,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -13748,6 +14999,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -13798,6 +15052,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -13829,6 +15095,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -13879,6 +15148,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -13910,6 +15191,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -13960,6 +15244,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -14013,6 +15309,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -14063,6 +15362,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -14094,6 +15405,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -14144,6 +15458,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -14175,6 +15501,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -14225,6 +15554,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -14256,6 +15597,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -14306,6 +15650,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -14341,6 +15697,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -14391,6 +15750,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -14422,6 +15793,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -14472,6 +15846,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -14503,6 +15889,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -14553,6 +15942,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -14584,6 +15985,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -14634,6 +16038,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -14665,6 +16081,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -14716,11 +16135,27 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmCount', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.WarmCount') as unknown as number;
+  }
+
+  public get coldStorageOptions(): ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearchClusterConfigOptionsColdStorageOptions {
+    return new ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearchClusterConfigOptionsColdStorageOptions(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -14753,6 +16188,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -14804,11 +16242,126 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessConfig.AvailabilityZoneCount', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
+  }
+
+}
+
+export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearchClusterConfigOptionsColdStorageOptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
+  }
+
+  public get enabled(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ColdStorageOptions.Enabled'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.ColdStorageOptions.Enabled',
+        parameters: {
+          DomainName: this.__input.domainName,
+          ElasticsearchClusterConfig: {
+            InstanceType: this.__input.elasticsearchClusterConfig?.instanceType,
+            InstanceCount: this.__input.elasticsearchClusterConfig?.instanceCount,
+            DedicatedMasterEnabled: this.__input.elasticsearchClusterConfig?.dedicatedMasterEnabled,
+            ZoneAwarenessEnabled: this.__input.elasticsearchClusterConfig?.zoneAwarenessEnabled,
+            ZoneAwarenessConfig: {
+              AvailabilityZoneCount: this.__input.elasticsearchClusterConfig?.zoneAwarenessConfig?.availabilityZoneCount,
+            },
+            DedicatedMasterType: this.__input.elasticsearchClusterConfig?.dedicatedMasterType,
+            DedicatedMasterCount: this.__input.elasticsearchClusterConfig?.dedicatedMasterCount,
+            WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
+            WarmType: this.__input.elasticsearchClusterConfig?.warmType,
+            WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
+          },
+          EBSOptions: {
+            EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
+            VolumeType: this.__input.ebsOptions?.volumeType,
+            VolumeSize: this.__input.ebsOptions?.volumeSize,
+            Iops: this.__input.ebsOptions?.iops,
+          },
+          SnapshotOptions: {
+            AutomatedSnapshotStartHour: this.__input.snapshotOptions?.automatedSnapshotStartHour,
+          },
+          VPCOptions: {
+            SubnetIds: this.__input.vpcOptions?.subnetIds,
+            SecurityGroupIds: this.__input.vpcOptions?.securityGroupIds,
+          },
+          CognitoOptions: {
+            Enabled: this.__input.cognitoOptions?.enabled,
+            UserPoolId: this.__input.cognitoOptions?.userPoolId,
+            IdentityPoolId: this.__input.cognitoOptions?.identityPoolId,
+            RoleArn: this.__input.cognitoOptions?.roleArn,
+          },
+          AdvancedOptions: this.__input.advancedOptions,
+          AccessPolicies: this.__input.accessPolicies,
+          LogPublishingOptions: this.__input.logPublishingOptions,
+          DomainEndpointOptions: {
+            EnforceHTTPS: this.__input.domainEndpointOptions?.enforceHttps,
+            TLSSecurityPolicy: this.__input.domainEndpointOptions?.tlsSecurityPolicy,
+            CustomEndpointEnabled: this.__input.domainEndpointOptions?.customEndpointEnabled,
+            CustomEndpoint: this.__input.domainEndpointOptions?.customEndpoint,
+            CustomEndpointCertificateArn: this.__input.domainEndpointOptions?.customEndpointCertificateArn,
+          },
+          AdvancedSecurityOptions: {
+            Enabled: this.__input.advancedSecurityOptions?.enabled,
+            InternalUserDatabaseEnabled: this.__input.advancedSecurityOptions?.internalUserDatabaseEnabled,
+            MasterUserOptions: {
+              MasterUserARN: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserArn,
+              MasterUserName: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserName,
+              MasterUserPassword: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserPassword,
+            },
+            SAMLOptions: {
+              Enabled: this.__input.advancedSecurityOptions?.samlOptions?.enabled,
+              Idp: {
+                MetadataContent: this.__input.advancedSecurityOptions?.samlOptions?.idp?.metadataContent,
+                EntityId: this.__input.advancedSecurityOptions?.samlOptions?.idp?.entityId,
+              },
+              MasterUserName: this.__input.advancedSecurityOptions?.samlOptions?.masterUserName,
+              MasterBackendRole: this.__input.advancedSecurityOptions?.samlOptions?.masterBackendRole,
+              SubjectKey: this.__input.advancedSecurityOptions?.samlOptions?.subjectKey,
+              RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
+              SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
+            },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ColdStorageOptions.Enabled', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.ColdStorageOptions.Enabled') as unknown as boolean;
   }
 
 }
@@ -14841,6 +16394,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -14891,6 +16447,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -14922,6 +16490,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -14972,6 +16543,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -15003,6 +16586,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -15053,6 +16639,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -15084,6 +16682,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -15134,6 +16735,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -15165,6 +16778,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -15215,6 +16831,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigElasticsearch
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -15268,6 +16896,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEbsOptionsOpt
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -15318,6 +16949,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEbsOptionsOpt
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -15349,6 +16992,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEbsOptionsOpt
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -15399,6 +17045,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEbsOptionsOpt
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -15430,6 +17088,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEbsOptionsOpt
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -15480,6 +17141,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEbsOptionsOpt
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -15511,6 +17184,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEbsOptionsOpt
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -15561,6 +17237,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEbsOptionsOpt
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -15599,6 +17287,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEbsOptionsSta
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -15649,6 +17340,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEbsOptionsSta
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -15680,6 +17383,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEbsOptionsSta
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -15730,6 +17436,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEbsOptionsSta
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -15761,6 +17479,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEbsOptionsSta
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -15811,6 +17532,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEbsOptionsSta
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -15842,6 +17575,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEbsOptionsSta
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -15892,6 +17628,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEbsOptionsSta
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -15923,6 +17671,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEbsOptionsSta
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -15973,6 +17724,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEbsOptionsSta
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -16011,6 +17774,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAccessPolicie
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -16061,6 +17827,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAccessPolicie
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -16103,6 +17881,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAccessPolicie
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -16153,6 +17934,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAccessPolicie
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -16184,6 +17977,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAccessPolicie
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -16234,6 +18030,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAccessPolicie
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -16265,6 +18073,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAccessPolicie
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -16315,6 +18126,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAccessPolicie
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -16346,6 +18169,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAccessPolicie
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -16396,6 +18222,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAccessPolicie
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -16427,6 +18265,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAccessPolicie
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -16477,6 +18318,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAccessPolicie
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -16530,6 +18383,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigSnapshotOptio
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -16580,6 +18436,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigSnapshotOptio
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -16618,6 +18486,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigSnapshotOptio
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -16668,6 +18539,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigSnapshotOptio
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -16699,6 +18582,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigSnapshotOptio
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -16749,6 +18635,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigSnapshotOptio
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -16780,6 +18678,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigSnapshotOptio
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -16830,6 +18731,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigSnapshotOptio
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -16861,6 +18774,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigSnapshotOptio
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -16911,6 +18827,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigSnapshotOptio
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -16942,6 +18870,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigSnapshotOptio
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -16992,6 +18923,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigSnapshotOptio
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -17045,6 +18988,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigVpcOptionsOpt
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -17095,6 +19041,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigVpcOptionsOpt
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -17126,6 +19084,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigVpcOptionsOpt
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -17176,6 +19137,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigVpcOptionsOpt
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -17207,6 +19180,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigVpcOptionsOpt
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -17257,6 +19233,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigVpcOptionsOpt
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -17288,6 +19276,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigVpcOptionsOpt
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -17338,6 +19329,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigVpcOptionsOpt
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -17376,6 +19379,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigVpcOptionsSta
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -17426,6 +19432,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigVpcOptionsSta
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -17457,6 +19475,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigVpcOptionsSta
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -17507,6 +19528,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigVpcOptionsSta
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -17538,6 +19571,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigVpcOptionsSta
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -17588,6 +19624,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigVpcOptionsSta
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -17619,6 +19667,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigVpcOptionsSta
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -17669,6 +19720,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigVpcOptionsSta
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -17700,6 +19763,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigVpcOptionsSta
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -17750,6 +19816,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigVpcOptionsSta
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -17803,6 +19881,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigCognitoOption
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -17853,6 +19934,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigCognitoOption
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -17884,6 +19977,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigCognitoOption
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -17934,6 +20030,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigCognitoOption
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -17965,6 +20073,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigCognitoOption
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -18015,6 +20126,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigCognitoOption
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -18046,6 +20169,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigCognitoOption
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -18096,6 +20222,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigCognitoOption
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -18134,6 +20272,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigCognitoOption
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -18184,6 +20325,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigCognitoOption
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -18215,6 +20368,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigCognitoOption
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -18265,6 +20421,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigCognitoOption
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -18296,6 +20464,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigCognitoOption
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -18346,6 +20517,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigCognitoOption
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -18377,6 +20560,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigCognitoOption
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -18427,6 +20613,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigCognitoOption
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -18458,6 +20656,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigCognitoOption
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -18508,6 +20709,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigCognitoOption
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -18561,6 +20774,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEncryptionAtR
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -18611,6 +20827,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEncryptionAtR
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -18642,6 +20870,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEncryptionAtR
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -18692,6 +20923,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEncryptionAtR
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -18730,6 +20973,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEncryptionAtR
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -18780,6 +21026,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEncryptionAtR
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -18811,6 +21069,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEncryptionAtR
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -18861,6 +21122,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEncryptionAtR
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -18892,6 +21165,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEncryptionAtR
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -18942,6 +21218,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEncryptionAtR
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -18973,6 +21261,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEncryptionAtR
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -19023,6 +21314,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEncryptionAtR
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -19054,6 +21357,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEncryptionAtR
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -19104,6 +21410,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigEncryptionAtR
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -19157,6 +21475,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigNodeToNodeEnc
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -19207,6 +21528,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigNodeToNodeEnc
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -19245,6 +21578,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigNodeToNodeEnc
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -19295,6 +21631,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigNodeToNodeEnc
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -19326,6 +21674,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigNodeToNodeEnc
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -19376,6 +21727,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigNodeToNodeEnc
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -19407,6 +21770,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigNodeToNodeEnc
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -19457,6 +21823,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigNodeToNodeEnc
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -19488,6 +21866,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigNodeToNodeEnc
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -19538,6 +21919,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigNodeToNodeEnc
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -19569,6 +21962,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigNodeToNodeEnc
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -19619,6 +22015,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigNodeToNodeEnc
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -19657,6 +22065,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedOptio
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -19707,6 +22118,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedOptio
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -19749,6 +22172,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedOptio
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -19799,6 +22225,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedOptio
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -19830,6 +22268,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedOptio
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -19880,6 +22321,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedOptio
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -19911,6 +22364,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedOptio
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -19961,6 +22417,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedOptio
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -19992,6 +22460,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedOptio
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -20042,6 +22513,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedOptio
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -20073,6 +22556,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedOptio
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -20123,6 +22609,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedOptio
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -20161,6 +22659,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigLogPublishing
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -20211,6 +22712,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigLogPublishing
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -20253,6 +22766,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigLogPublishing
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -20303,6 +22819,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigLogPublishing
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -20334,6 +22862,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigLogPublishing
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -20384,6 +22915,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigLogPublishing
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -20415,6 +22958,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigLogPublishing
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -20465,6 +23011,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigLogPublishing
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -20496,6 +23054,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigLogPublishing
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -20546,6 +23107,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigLogPublishing
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -20577,6 +23150,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigLogPublishing
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -20627,6 +23203,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigLogPublishing
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -20680,6 +23268,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -20730,6 +23321,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -20761,6 +23364,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -20811,6 +23417,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -20842,6 +23460,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -20892,6 +23513,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -20923,6 +23556,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -20973,6 +23609,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -21004,6 +23652,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -21054,6 +23705,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -21092,6 +23755,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -21142,6 +23808,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -21173,6 +23851,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -21223,6 +23904,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -21254,6 +23947,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -21304,6 +24000,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -21335,6 +24043,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -21385,6 +24096,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -21416,6 +24139,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -21466,6 +24192,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigDomainEndpoin
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -21519,6 +24257,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -21569,6 +24310,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -21600,6 +24353,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -21650,6 +24406,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -21692,6 +24460,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -21742,6 +24513,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -21777,6 +24560,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -21827,6 +24613,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -21858,6 +24656,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -21908,6 +24709,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -21939,6 +24752,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -21989,6 +24805,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -22027,6 +24855,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -22077,6 +24908,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -22108,6 +24951,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -22158,6 +25004,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -22196,6 +25054,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -22246,6 +25107,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -22277,6 +25150,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -22327,6 +25203,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -22358,6 +25246,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -22408,6 +25299,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -22439,6 +25342,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -22489,6 +25395,18 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
               RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
           },
         },
       },
@@ -22520,6 +25438,9 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
             WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
             WarmType: this.__input.elasticsearchClusterConfig?.warmType,
             WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
           },
           EBSOptions: {
             EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
@@ -22571,11 +25492,916 @@ export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAdvancedSecur
               SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
             },
           },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion') as unknown as boolean;
+  }
+
+}
+
+export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAutoTuneOptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
+  }
+
+  public get options(): ESResponsesUpdateElasticsearchDomainConfigDomainConfigAutoTuneOptionsOptions {
+    return new ESResponsesUpdateElasticsearchDomainConfigDomainConfigAutoTuneOptionsOptions(this.__scope, this.__resources, this.__input);
+  }
+
+  public get status(): ESResponsesUpdateElasticsearchDomainConfigDomainConfigAutoTuneOptionsStatus {
+    return new ESResponsesUpdateElasticsearchDomainConfigDomainConfigAutoTuneOptionsStatus(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAutoTuneOptionsOptions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
+  }
+
+  public get desiredState(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Options.DesiredState'),
+        outputPath: 'DomainConfig.AutoTuneOptions.Options.DesiredState',
+        parameters: {
+          DomainName: this.__input.domainName,
+          ElasticsearchClusterConfig: {
+            InstanceType: this.__input.elasticsearchClusterConfig?.instanceType,
+            InstanceCount: this.__input.elasticsearchClusterConfig?.instanceCount,
+            DedicatedMasterEnabled: this.__input.elasticsearchClusterConfig?.dedicatedMasterEnabled,
+            ZoneAwarenessEnabled: this.__input.elasticsearchClusterConfig?.zoneAwarenessEnabled,
+            ZoneAwarenessConfig: {
+              AvailabilityZoneCount: this.__input.elasticsearchClusterConfig?.zoneAwarenessConfig?.availabilityZoneCount,
+            },
+            DedicatedMasterType: this.__input.elasticsearchClusterConfig?.dedicatedMasterType,
+            DedicatedMasterCount: this.__input.elasticsearchClusterConfig?.dedicatedMasterCount,
+            WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
+            WarmType: this.__input.elasticsearchClusterConfig?.warmType,
+            WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
+          },
+          EBSOptions: {
+            EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
+            VolumeType: this.__input.ebsOptions?.volumeType,
+            VolumeSize: this.__input.ebsOptions?.volumeSize,
+            Iops: this.__input.ebsOptions?.iops,
+          },
+          SnapshotOptions: {
+            AutomatedSnapshotStartHour: this.__input.snapshotOptions?.automatedSnapshotStartHour,
+          },
+          VPCOptions: {
+            SubnetIds: this.__input.vpcOptions?.subnetIds,
+            SecurityGroupIds: this.__input.vpcOptions?.securityGroupIds,
+          },
+          CognitoOptions: {
+            Enabled: this.__input.cognitoOptions?.enabled,
+            UserPoolId: this.__input.cognitoOptions?.userPoolId,
+            IdentityPoolId: this.__input.cognitoOptions?.identityPoolId,
+            RoleArn: this.__input.cognitoOptions?.roleArn,
+          },
+          AdvancedOptions: this.__input.advancedOptions,
+          AccessPolicies: this.__input.accessPolicies,
+          LogPublishingOptions: this.__input.logPublishingOptions,
+          DomainEndpointOptions: {
+            EnforceHTTPS: this.__input.domainEndpointOptions?.enforceHttps,
+            TLSSecurityPolicy: this.__input.domainEndpointOptions?.tlsSecurityPolicy,
+            CustomEndpointEnabled: this.__input.domainEndpointOptions?.customEndpointEnabled,
+            CustomEndpoint: this.__input.domainEndpointOptions?.customEndpoint,
+            CustomEndpointCertificateArn: this.__input.domainEndpointOptions?.customEndpointCertificateArn,
+          },
+          AdvancedSecurityOptions: {
+            Enabled: this.__input.advancedSecurityOptions?.enabled,
+            InternalUserDatabaseEnabled: this.__input.advancedSecurityOptions?.internalUserDatabaseEnabled,
+            MasterUserOptions: {
+              MasterUserARN: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserArn,
+              MasterUserName: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserName,
+              MasterUserPassword: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserPassword,
+            },
+            SAMLOptions: {
+              Enabled: this.__input.advancedSecurityOptions?.samlOptions?.enabled,
+              Idp: {
+                MetadataContent: this.__input.advancedSecurityOptions?.samlOptions?.idp?.metadataContent,
+                EntityId: this.__input.advancedSecurityOptions?.samlOptions?.idp?.entityId,
+              },
+              MasterUserName: this.__input.advancedSecurityOptions?.samlOptions?.masterUserName,
+              MasterBackendRole: this.__input.advancedSecurityOptions?.samlOptions?.masterBackendRole,
+              SubjectKey: this.__input.advancedSecurityOptions?.samlOptions?.subjectKey,
+              RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
+              SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
+            },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Options.DesiredState', props);
+    return resource.getResponseField('DomainConfig.AutoTuneOptions.Options.DesiredState') as unknown as string;
+  }
+
+  public get rollbackOnDisable(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Options.RollbackOnDisable'),
+        outputPath: 'DomainConfig.AutoTuneOptions.Options.RollbackOnDisable',
+        parameters: {
+          DomainName: this.__input.domainName,
+          ElasticsearchClusterConfig: {
+            InstanceType: this.__input.elasticsearchClusterConfig?.instanceType,
+            InstanceCount: this.__input.elasticsearchClusterConfig?.instanceCount,
+            DedicatedMasterEnabled: this.__input.elasticsearchClusterConfig?.dedicatedMasterEnabled,
+            ZoneAwarenessEnabled: this.__input.elasticsearchClusterConfig?.zoneAwarenessEnabled,
+            ZoneAwarenessConfig: {
+              AvailabilityZoneCount: this.__input.elasticsearchClusterConfig?.zoneAwarenessConfig?.availabilityZoneCount,
+            },
+            DedicatedMasterType: this.__input.elasticsearchClusterConfig?.dedicatedMasterType,
+            DedicatedMasterCount: this.__input.elasticsearchClusterConfig?.dedicatedMasterCount,
+            WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
+            WarmType: this.__input.elasticsearchClusterConfig?.warmType,
+            WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
+          },
+          EBSOptions: {
+            EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
+            VolumeType: this.__input.ebsOptions?.volumeType,
+            VolumeSize: this.__input.ebsOptions?.volumeSize,
+            Iops: this.__input.ebsOptions?.iops,
+          },
+          SnapshotOptions: {
+            AutomatedSnapshotStartHour: this.__input.snapshotOptions?.automatedSnapshotStartHour,
+          },
+          VPCOptions: {
+            SubnetIds: this.__input.vpcOptions?.subnetIds,
+            SecurityGroupIds: this.__input.vpcOptions?.securityGroupIds,
+          },
+          CognitoOptions: {
+            Enabled: this.__input.cognitoOptions?.enabled,
+            UserPoolId: this.__input.cognitoOptions?.userPoolId,
+            IdentityPoolId: this.__input.cognitoOptions?.identityPoolId,
+            RoleArn: this.__input.cognitoOptions?.roleArn,
+          },
+          AdvancedOptions: this.__input.advancedOptions,
+          AccessPolicies: this.__input.accessPolicies,
+          LogPublishingOptions: this.__input.logPublishingOptions,
+          DomainEndpointOptions: {
+            EnforceHTTPS: this.__input.domainEndpointOptions?.enforceHttps,
+            TLSSecurityPolicy: this.__input.domainEndpointOptions?.tlsSecurityPolicy,
+            CustomEndpointEnabled: this.__input.domainEndpointOptions?.customEndpointEnabled,
+            CustomEndpoint: this.__input.domainEndpointOptions?.customEndpoint,
+            CustomEndpointCertificateArn: this.__input.domainEndpointOptions?.customEndpointCertificateArn,
+          },
+          AdvancedSecurityOptions: {
+            Enabled: this.__input.advancedSecurityOptions?.enabled,
+            InternalUserDatabaseEnabled: this.__input.advancedSecurityOptions?.internalUserDatabaseEnabled,
+            MasterUserOptions: {
+              MasterUserARN: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserArn,
+              MasterUserName: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserName,
+              MasterUserPassword: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserPassword,
+            },
+            SAMLOptions: {
+              Enabled: this.__input.advancedSecurityOptions?.samlOptions?.enabled,
+              Idp: {
+                MetadataContent: this.__input.advancedSecurityOptions?.samlOptions?.idp?.metadataContent,
+                EntityId: this.__input.advancedSecurityOptions?.samlOptions?.idp?.entityId,
+              },
+              MasterUserName: this.__input.advancedSecurityOptions?.samlOptions?.masterUserName,
+              MasterBackendRole: this.__input.advancedSecurityOptions?.samlOptions?.masterBackendRole,
+              SubjectKey: this.__input.advancedSecurityOptions?.samlOptions?.subjectKey,
+              RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
+              SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
+            },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Options.RollbackOnDisable', props);
+    return resource.getResponseField('DomainConfig.AutoTuneOptions.Options.RollbackOnDisable') as unknown as string;
+  }
+
+  public get maintenanceSchedules(): shapes.EsAutoTuneMaintenanceSchedule[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Options.MaintenanceSchedules'),
+        outputPath: 'DomainConfig.AutoTuneOptions.Options.MaintenanceSchedules',
+        parameters: {
+          DomainName: this.__input.domainName,
+          ElasticsearchClusterConfig: {
+            InstanceType: this.__input.elasticsearchClusterConfig?.instanceType,
+            InstanceCount: this.__input.elasticsearchClusterConfig?.instanceCount,
+            DedicatedMasterEnabled: this.__input.elasticsearchClusterConfig?.dedicatedMasterEnabled,
+            ZoneAwarenessEnabled: this.__input.elasticsearchClusterConfig?.zoneAwarenessEnabled,
+            ZoneAwarenessConfig: {
+              AvailabilityZoneCount: this.__input.elasticsearchClusterConfig?.zoneAwarenessConfig?.availabilityZoneCount,
+            },
+            DedicatedMasterType: this.__input.elasticsearchClusterConfig?.dedicatedMasterType,
+            DedicatedMasterCount: this.__input.elasticsearchClusterConfig?.dedicatedMasterCount,
+            WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
+            WarmType: this.__input.elasticsearchClusterConfig?.warmType,
+            WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
+          },
+          EBSOptions: {
+            EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
+            VolumeType: this.__input.ebsOptions?.volumeType,
+            VolumeSize: this.__input.ebsOptions?.volumeSize,
+            Iops: this.__input.ebsOptions?.iops,
+          },
+          SnapshotOptions: {
+            AutomatedSnapshotStartHour: this.__input.snapshotOptions?.automatedSnapshotStartHour,
+          },
+          VPCOptions: {
+            SubnetIds: this.__input.vpcOptions?.subnetIds,
+            SecurityGroupIds: this.__input.vpcOptions?.securityGroupIds,
+          },
+          CognitoOptions: {
+            Enabled: this.__input.cognitoOptions?.enabled,
+            UserPoolId: this.__input.cognitoOptions?.userPoolId,
+            IdentityPoolId: this.__input.cognitoOptions?.identityPoolId,
+            RoleArn: this.__input.cognitoOptions?.roleArn,
+          },
+          AdvancedOptions: this.__input.advancedOptions,
+          AccessPolicies: this.__input.accessPolicies,
+          LogPublishingOptions: this.__input.logPublishingOptions,
+          DomainEndpointOptions: {
+            EnforceHTTPS: this.__input.domainEndpointOptions?.enforceHttps,
+            TLSSecurityPolicy: this.__input.domainEndpointOptions?.tlsSecurityPolicy,
+            CustomEndpointEnabled: this.__input.domainEndpointOptions?.customEndpointEnabled,
+            CustomEndpoint: this.__input.domainEndpointOptions?.customEndpoint,
+            CustomEndpointCertificateArn: this.__input.domainEndpointOptions?.customEndpointCertificateArn,
+          },
+          AdvancedSecurityOptions: {
+            Enabled: this.__input.advancedSecurityOptions?.enabled,
+            InternalUserDatabaseEnabled: this.__input.advancedSecurityOptions?.internalUserDatabaseEnabled,
+            MasterUserOptions: {
+              MasterUserARN: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserArn,
+              MasterUserName: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserName,
+              MasterUserPassword: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserPassword,
+            },
+            SAMLOptions: {
+              Enabled: this.__input.advancedSecurityOptions?.samlOptions?.enabled,
+              Idp: {
+                MetadataContent: this.__input.advancedSecurityOptions?.samlOptions?.idp?.metadataContent,
+                EntityId: this.__input.advancedSecurityOptions?.samlOptions?.idp?.entityId,
+              },
+              MasterUserName: this.__input.advancedSecurityOptions?.samlOptions?.masterUserName,
+              MasterBackendRole: this.__input.advancedSecurityOptions?.samlOptions?.masterBackendRole,
+              SubjectKey: this.__input.advancedSecurityOptions?.samlOptions?.subjectKey,
+              RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
+              SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
+            },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Options.MaintenanceSchedules', props);
+    return resource.getResponseField('DomainConfig.AutoTuneOptions.Options.MaintenanceSchedules') as unknown as shapes.EsAutoTuneMaintenanceSchedule[];
+  }
+
+}
+
+export class ESResponsesUpdateElasticsearchDomainConfigDomainConfigAutoTuneOptionsStatus {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
+  }
+
+  public get creationDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.AutoTuneOptions.Status.CreationDate',
+        parameters: {
+          DomainName: this.__input.domainName,
+          ElasticsearchClusterConfig: {
+            InstanceType: this.__input.elasticsearchClusterConfig?.instanceType,
+            InstanceCount: this.__input.elasticsearchClusterConfig?.instanceCount,
+            DedicatedMasterEnabled: this.__input.elasticsearchClusterConfig?.dedicatedMasterEnabled,
+            ZoneAwarenessEnabled: this.__input.elasticsearchClusterConfig?.zoneAwarenessEnabled,
+            ZoneAwarenessConfig: {
+              AvailabilityZoneCount: this.__input.elasticsearchClusterConfig?.zoneAwarenessConfig?.availabilityZoneCount,
+            },
+            DedicatedMasterType: this.__input.elasticsearchClusterConfig?.dedicatedMasterType,
+            DedicatedMasterCount: this.__input.elasticsearchClusterConfig?.dedicatedMasterCount,
+            WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
+            WarmType: this.__input.elasticsearchClusterConfig?.warmType,
+            WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
+          },
+          EBSOptions: {
+            EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
+            VolumeType: this.__input.ebsOptions?.volumeType,
+            VolumeSize: this.__input.ebsOptions?.volumeSize,
+            Iops: this.__input.ebsOptions?.iops,
+          },
+          SnapshotOptions: {
+            AutomatedSnapshotStartHour: this.__input.snapshotOptions?.automatedSnapshotStartHour,
+          },
+          VPCOptions: {
+            SubnetIds: this.__input.vpcOptions?.subnetIds,
+            SecurityGroupIds: this.__input.vpcOptions?.securityGroupIds,
+          },
+          CognitoOptions: {
+            Enabled: this.__input.cognitoOptions?.enabled,
+            UserPoolId: this.__input.cognitoOptions?.userPoolId,
+            IdentityPoolId: this.__input.cognitoOptions?.identityPoolId,
+            RoleArn: this.__input.cognitoOptions?.roleArn,
+          },
+          AdvancedOptions: this.__input.advancedOptions,
+          AccessPolicies: this.__input.accessPolicies,
+          LogPublishingOptions: this.__input.logPublishingOptions,
+          DomainEndpointOptions: {
+            EnforceHTTPS: this.__input.domainEndpointOptions?.enforceHttps,
+            TLSSecurityPolicy: this.__input.domainEndpointOptions?.tlsSecurityPolicy,
+            CustomEndpointEnabled: this.__input.domainEndpointOptions?.customEndpointEnabled,
+            CustomEndpoint: this.__input.domainEndpointOptions?.customEndpoint,
+            CustomEndpointCertificateArn: this.__input.domainEndpointOptions?.customEndpointCertificateArn,
+          },
+          AdvancedSecurityOptions: {
+            Enabled: this.__input.advancedSecurityOptions?.enabled,
+            InternalUserDatabaseEnabled: this.__input.advancedSecurityOptions?.internalUserDatabaseEnabled,
+            MasterUserOptions: {
+              MasterUserARN: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserArn,
+              MasterUserName: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserName,
+              MasterUserPassword: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserPassword,
+            },
+            SAMLOptions: {
+              Enabled: this.__input.advancedSecurityOptions?.samlOptions?.enabled,
+              Idp: {
+                MetadataContent: this.__input.advancedSecurityOptions?.samlOptions?.idp?.metadataContent,
+                EntityId: this.__input.advancedSecurityOptions?.samlOptions?.idp?.entityId,
+              },
+              MasterUserName: this.__input.advancedSecurityOptions?.samlOptions?.masterUserName,
+              MasterBackendRole: this.__input.advancedSecurityOptions?.samlOptions?.masterBackendRole,
+              SubjectKey: this.__input.advancedSecurityOptions?.samlOptions?.subjectKey,
+              RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
+              SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
+            },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.AutoTuneOptions.Status.CreationDate') as unknown as string;
+  }
+
+  public get updateDate(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.AutoTuneOptions.Status.UpdateDate',
+        parameters: {
+          DomainName: this.__input.domainName,
+          ElasticsearchClusterConfig: {
+            InstanceType: this.__input.elasticsearchClusterConfig?.instanceType,
+            InstanceCount: this.__input.elasticsearchClusterConfig?.instanceCount,
+            DedicatedMasterEnabled: this.__input.elasticsearchClusterConfig?.dedicatedMasterEnabled,
+            ZoneAwarenessEnabled: this.__input.elasticsearchClusterConfig?.zoneAwarenessEnabled,
+            ZoneAwarenessConfig: {
+              AvailabilityZoneCount: this.__input.elasticsearchClusterConfig?.zoneAwarenessConfig?.availabilityZoneCount,
+            },
+            DedicatedMasterType: this.__input.elasticsearchClusterConfig?.dedicatedMasterType,
+            DedicatedMasterCount: this.__input.elasticsearchClusterConfig?.dedicatedMasterCount,
+            WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
+            WarmType: this.__input.elasticsearchClusterConfig?.warmType,
+            WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
+          },
+          EBSOptions: {
+            EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
+            VolumeType: this.__input.ebsOptions?.volumeType,
+            VolumeSize: this.__input.ebsOptions?.volumeSize,
+            Iops: this.__input.ebsOptions?.iops,
+          },
+          SnapshotOptions: {
+            AutomatedSnapshotStartHour: this.__input.snapshotOptions?.automatedSnapshotStartHour,
+          },
+          VPCOptions: {
+            SubnetIds: this.__input.vpcOptions?.subnetIds,
+            SecurityGroupIds: this.__input.vpcOptions?.securityGroupIds,
+          },
+          CognitoOptions: {
+            Enabled: this.__input.cognitoOptions?.enabled,
+            UserPoolId: this.__input.cognitoOptions?.userPoolId,
+            IdentityPoolId: this.__input.cognitoOptions?.identityPoolId,
+            RoleArn: this.__input.cognitoOptions?.roleArn,
+          },
+          AdvancedOptions: this.__input.advancedOptions,
+          AccessPolicies: this.__input.accessPolicies,
+          LogPublishingOptions: this.__input.logPublishingOptions,
+          DomainEndpointOptions: {
+            EnforceHTTPS: this.__input.domainEndpointOptions?.enforceHttps,
+            TLSSecurityPolicy: this.__input.domainEndpointOptions?.tlsSecurityPolicy,
+            CustomEndpointEnabled: this.__input.domainEndpointOptions?.customEndpointEnabled,
+            CustomEndpoint: this.__input.domainEndpointOptions?.customEndpoint,
+            CustomEndpointCertificateArn: this.__input.domainEndpointOptions?.customEndpointCertificateArn,
+          },
+          AdvancedSecurityOptions: {
+            Enabled: this.__input.advancedSecurityOptions?.enabled,
+            InternalUserDatabaseEnabled: this.__input.advancedSecurityOptions?.internalUserDatabaseEnabled,
+            MasterUserOptions: {
+              MasterUserARN: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserArn,
+              MasterUserName: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserName,
+              MasterUserPassword: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserPassword,
+            },
+            SAMLOptions: {
+              Enabled: this.__input.advancedSecurityOptions?.samlOptions?.enabled,
+              Idp: {
+                MetadataContent: this.__input.advancedSecurityOptions?.samlOptions?.idp?.metadataContent,
+                EntityId: this.__input.advancedSecurityOptions?.samlOptions?.idp?.entityId,
+              },
+              MasterUserName: this.__input.advancedSecurityOptions?.samlOptions?.masterUserName,
+              MasterBackendRole: this.__input.advancedSecurityOptions?.samlOptions?.masterBackendRole,
+              SubjectKey: this.__input.advancedSecurityOptions?.samlOptions?.subjectKey,
+              RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
+              SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
+            },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.AutoTuneOptions.Status.UpdateDate') as unknown as string;
+  }
+
+  public get updateVersion(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.AutoTuneOptions.Status.UpdateVersion',
+        parameters: {
+          DomainName: this.__input.domainName,
+          ElasticsearchClusterConfig: {
+            InstanceType: this.__input.elasticsearchClusterConfig?.instanceType,
+            InstanceCount: this.__input.elasticsearchClusterConfig?.instanceCount,
+            DedicatedMasterEnabled: this.__input.elasticsearchClusterConfig?.dedicatedMasterEnabled,
+            ZoneAwarenessEnabled: this.__input.elasticsearchClusterConfig?.zoneAwarenessEnabled,
+            ZoneAwarenessConfig: {
+              AvailabilityZoneCount: this.__input.elasticsearchClusterConfig?.zoneAwarenessConfig?.availabilityZoneCount,
+            },
+            DedicatedMasterType: this.__input.elasticsearchClusterConfig?.dedicatedMasterType,
+            DedicatedMasterCount: this.__input.elasticsearchClusterConfig?.dedicatedMasterCount,
+            WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
+            WarmType: this.__input.elasticsearchClusterConfig?.warmType,
+            WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
+          },
+          EBSOptions: {
+            EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
+            VolumeType: this.__input.ebsOptions?.volumeType,
+            VolumeSize: this.__input.ebsOptions?.volumeSize,
+            Iops: this.__input.ebsOptions?.iops,
+          },
+          SnapshotOptions: {
+            AutomatedSnapshotStartHour: this.__input.snapshotOptions?.automatedSnapshotStartHour,
+          },
+          VPCOptions: {
+            SubnetIds: this.__input.vpcOptions?.subnetIds,
+            SecurityGroupIds: this.__input.vpcOptions?.securityGroupIds,
+          },
+          CognitoOptions: {
+            Enabled: this.__input.cognitoOptions?.enabled,
+            UserPoolId: this.__input.cognitoOptions?.userPoolId,
+            IdentityPoolId: this.__input.cognitoOptions?.identityPoolId,
+            RoleArn: this.__input.cognitoOptions?.roleArn,
+          },
+          AdvancedOptions: this.__input.advancedOptions,
+          AccessPolicies: this.__input.accessPolicies,
+          LogPublishingOptions: this.__input.logPublishingOptions,
+          DomainEndpointOptions: {
+            EnforceHTTPS: this.__input.domainEndpointOptions?.enforceHttps,
+            TLSSecurityPolicy: this.__input.domainEndpointOptions?.tlsSecurityPolicy,
+            CustomEndpointEnabled: this.__input.domainEndpointOptions?.customEndpointEnabled,
+            CustomEndpoint: this.__input.domainEndpointOptions?.customEndpoint,
+            CustomEndpointCertificateArn: this.__input.domainEndpointOptions?.customEndpointCertificateArn,
+          },
+          AdvancedSecurityOptions: {
+            Enabled: this.__input.advancedSecurityOptions?.enabled,
+            InternalUserDatabaseEnabled: this.__input.advancedSecurityOptions?.internalUserDatabaseEnabled,
+            MasterUserOptions: {
+              MasterUserARN: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserArn,
+              MasterUserName: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserName,
+              MasterUserPassword: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserPassword,
+            },
+            SAMLOptions: {
+              Enabled: this.__input.advancedSecurityOptions?.samlOptions?.enabled,
+              Idp: {
+                MetadataContent: this.__input.advancedSecurityOptions?.samlOptions?.idp?.metadataContent,
+                EntityId: this.__input.advancedSecurityOptions?.samlOptions?.idp?.entityId,
+              },
+              MasterUserName: this.__input.advancedSecurityOptions?.samlOptions?.masterUserName,
+              MasterBackendRole: this.__input.advancedSecurityOptions?.samlOptions?.masterBackendRole,
+              SubjectKey: this.__input.advancedSecurityOptions?.samlOptions?.subjectKey,
+              RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
+              SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
+            },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.AutoTuneOptions.Status.UpdateVersion') as unknown as number;
+  }
+
+  public get state(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.State'),
+        outputPath: 'DomainConfig.AutoTuneOptions.Status.State',
+        parameters: {
+          DomainName: this.__input.domainName,
+          ElasticsearchClusterConfig: {
+            InstanceType: this.__input.elasticsearchClusterConfig?.instanceType,
+            InstanceCount: this.__input.elasticsearchClusterConfig?.instanceCount,
+            DedicatedMasterEnabled: this.__input.elasticsearchClusterConfig?.dedicatedMasterEnabled,
+            ZoneAwarenessEnabled: this.__input.elasticsearchClusterConfig?.zoneAwarenessEnabled,
+            ZoneAwarenessConfig: {
+              AvailabilityZoneCount: this.__input.elasticsearchClusterConfig?.zoneAwarenessConfig?.availabilityZoneCount,
+            },
+            DedicatedMasterType: this.__input.elasticsearchClusterConfig?.dedicatedMasterType,
+            DedicatedMasterCount: this.__input.elasticsearchClusterConfig?.dedicatedMasterCount,
+            WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
+            WarmType: this.__input.elasticsearchClusterConfig?.warmType,
+            WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
+          },
+          EBSOptions: {
+            EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
+            VolumeType: this.__input.ebsOptions?.volumeType,
+            VolumeSize: this.__input.ebsOptions?.volumeSize,
+            Iops: this.__input.ebsOptions?.iops,
+          },
+          SnapshotOptions: {
+            AutomatedSnapshotStartHour: this.__input.snapshotOptions?.automatedSnapshotStartHour,
+          },
+          VPCOptions: {
+            SubnetIds: this.__input.vpcOptions?.subnetIds,
+            SecurityGroupIds: this.__input.vpcOptions?.securityGroupIds,
+          },
+          CognitoOptions: {
+            Enabled: this.__input.cognitoOptions?.enabled,
+            UserPoolId: this.__input.cognitoOptions?.userPoolId,
+            IdentityPoolId: this.__input.cognitoOptions?.identityPoolId,
+            RoleArn: this.__input.cognitoOptions?.roleArn,
+          },
+          AdvancedOptions: this.__input.advancedOptions,
+          AccessPolicies: this.__input.accessPolicies,
+          LogPublishingOptions: this.__input.logPublishingOptions,
+          DomainEndpointOptions: {
+            EnforceHTTPS: this.__input.domainEndpointOptions?.enforceHttps,
+            TLSSecurityPolicy: this.__input.domainEndpointOptions?.tlsSecurityPolicy,
+            CustomEndpointEnabled: this.__input.domainEndpointOptions?.customEndpointEnabled,
+            CustomEndpoint: this.__input.domainEndpointOptions?.customEndpoint,
+            CustomEndpointCertificateArn: this.__input.domainEndpointOptions?.customEndpointCertificateArn,
+          },
+          AdvancedSecurityOptions: {
+            Enabled: this.__input.advancedSecurityOptions?.enabled,
+            InternalUserDatabaseEnabled: this.__input.advancedSecurityOptions?.internalUserDatabaseEnabled,
+            MasterUserOptions: {
+              MasterUserARN: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserArn,
+              MasterUserName: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserName,
+              MasterUserPassword: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserPassword,
+            },
+            SAMLOptions: {
+              Enabled: this.__input.advancedSecurityOptions?.samlOptions?.enabled,
+              Idp: {
+                MetadataContent: this.__input.advancedSecurityOptions?.samlOptions?.idp?.metadataContent,
+                EntityId: this.__input.advancedSecurityOptions?.samlOptions?.idp?.entityId,
+              },
+              MasterUserName: this.__input.advancedSecurityOptions?.samlOptions?.masterUserName,
+              MasterBackendRole: this.__input.advancedSecurityOptions?.samlOptions?.masterBackendRole,
+              SubjectKey: this.__input.advancedSecurityOptions?.samlOptions?.subjectKey,
+              RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
+              SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
+            },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.AutoTuneOptions.Status.State') as unknown as string;
+  }
+
+  public get errorMessage(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.ErrorMessage'),
+        outputPath: 'DomainConfig.AutoTuneOptions.Status.ErrorMessage',
+        parameters: {
+          DomainName: this.__input.domainName,
+          ElasticsearchClusterConfig: {
+            InstanceType: this.__input.elasticsearchClusterConfig?.instanceType,
+            InstanceCount: this.__input.elasticsearchClusterConfig?.instanceCount,
+            DedicatedMasterEnabled: this.__input.elasticsearchClusterConfig?.dedicatedMasterEnabled,
+            ZoneAwarenessEnabled: this.__input.elasticsearchClusterConfig?.zoneAwarenessEnabled,
+            ZoneAwarenessConfig: {
+              AvailabilityZoneCount: this.__input.elasticsearchClusterConfig?.zoneAwarenessConfig?.availabilityZoneCount,
+            },
+            DedicatedMasterType: this.__input.elasticsearchClusterConfig?.dedicatedMasterType,
+            DedicatedMasterCount: this.__input.elasticsearchClusterConfig?.dedicatedMasterCount,
+            WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
+            WarmType: this.__input.elasticsearchClusterConfig?.warmType,
+            WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
+          },
+          EBSOptions: {
+            EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
+            VolumeType: this.__input.ebsOptions?.volumeType,
+            VolumeSize: this.__input.ebsOptions?.volumeSize,
+            Iops: this.__input.ebsOptions?.iops,
+          },
+          SnapshotOptions: {
+            AutomatedSnapshotStartHour: this.__input.snapshotOptions?.automatedSnapshotStartHour,
+          },
+          VPCOptions: {
+            SubnetIds: this.__input.vpcOptions?.subnetIds,
+            SecurityGroupIds: this.__input.vpcOptions?.securityGroupIds,
+          },
+          CognitoOptions: {
+            Enabled: this.__input.cognitoOptions?.enabled,
+            UserPoolId: this.__input.cognitoOptions?.userPoolId,
+            IdentityPoolId: this.__input.cognitoOptions?.identityPoolId,
+            RoleArn: this.__input.cognitoOptions?.roleArn,
+          },
+          AdvancedOptions: this.__input.advancedOptions,
+          AccessPolicies: this.__input.accessPolicies,
+          LogPublishingOptions: this.__input.logPublishingOptions,
+          DomainEndpointOptions: {
+            EnforceHTTPS: this.__input.domainEndpointOptions?.enforceHttps,
+            TLSSecurityPolicy: this.__input.domainEndpointOptions?.tlsSecurityPolicy,
+            CustomEndpointEnabled: this.__input.domainEndpointOptions?.customEndpointEnabled,
+            CustomEndpoint: this.__input.domainEndpointOptions?.customEndpoint,
+            CustomEndpointCertificateArn: this.__input.domainEndpointOptions?.customEndpointCertificateArn,
+          },
+          AdvancedSecurityOptions: {
+            Enabled: this.__input.advancedSecurityOptions?.enabled,
+            InternalUserDatabaseEnabled: this.__input.advancedSecurityOptions?.internalUserDatabaseEnabled,
+            MasterUserOptions: {
+              MasterUserARN: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserArn,
+              MasterUserName: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserName,
+              MasterUserPassword: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserPassword,
+            },
+            SAMLOptions: {
+              Enabled: this.__input.advancedSecurityOptions?.samlOptions?.enabled,
+              Idp: {
+                MetadataContent: this.__input.advancedSecurityOptions?.samlOptions?.idp?.metadataContent,
+                EntityId: this.__input.advancedSecurityOptions?.samlOptions?.idp?.entityId,
+              },
+              MasterUserName: this.__input.advancedSecurityOptions?.samlOptions?.masterUserName,
+              MasterBackendRole: this.__input.advancedSecurityOptions?.samlOptions?.masterBackendRole,
+              SubjectKey: this.__input.advancedSecurityOptions?.samlOptions?.subjectKey,
+              RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
+              SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
+            },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.ErrorMessage', props);
+    return resource.getResponseField('DomainConfig.AutoTuneOptions.Status.ErrorMessage') as unknown as string;
+  }
+
+  public get pendingDeletion(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateElasticsearchDomainConfig',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.AutoTuneOptions.Status.PendingDeletion',
+        parameters: {
+          DomainName: this.__input.domainName,
+          ElasticsearchClusterConfig: {
+            InstanceType: this.__input.elasticsearchClusterConfig?.instanceType,
+            InstanceCount: this.__input.elasticsearchClusterConfig?.instanceCount,
+            DedicatedMasterEnabled: this.__input.elasticsearchClusterConfig?.dedicatedMasterEnabled,
+            ZoneAwarenessEnabled: this.__input.elasticsearchClusterConfig?.zoneAwarenessEnabled,
+            ZoneAwarenessConfig: {
+              AvailabilityZoneCount: this.__input.elasticsearchClusterConfig?.zoneAwarenessConfig?.availabilityZoneCount,
+            },
+            DedicatedMasterType: this.__input.elasticsearchClusterConfig?.dedicatedMasterType,
+            DedicatedMasterCount: this.__input.elasticsearchClusterConfig?.dedicatedMasterCount,
+            WarmEnabled: this.__input.elasticsearchClusterConfig?.warmEnabled,
+            WarmType: this.__input.elasticsearchClusterConfig?.warmType,
+            WarmCount: this.__input.elasticsearchClusterConfig?.warmCount,
+            ColdStorageOptions: {
+              Enabled: this.__input.elasticsearchClusterConfig?.coldStorageOptions?.enabled,
+            },
+          },
+          EBSOptions: {
+            EBSEnabled: this.__input.ebsOptions?.ebsEnabled,
+            VolumeType: this.__input.ebsOptions?.volumeType,
+            VolumeSize: this.__input.ebsOptions?.volumeSize,
+            Iops: this.__input.ebsOptions?.iops,
+          },
+          SnapshotOptions: {
+            AutomatedSnapshotStartHour: this.__input.snapshotOptions?.automatedSnapshotStartHour,
+          },
+          VPCOptions: {
+            SubnetIds: this.__input.vpcOptions?.subnetIds,
+            SecurityGroupIds: this.__input.vpcOptions?.securityGroupIds,
+          },
+          CognitoOptions: {
+            Enabled: this.__input.cognitoOptions?.enabled,
+            UserPoolId: this.__input.cognitoOptions?.userPoolId,
+            IdentityPoolId: this.__input.cognitoOptions?.identityPoolId,
+            RoleArn: this.__input.cognitoOptions?.roleArn,
+          },
+          AdvancedOptions: this.__input.advancedOptions,
+          AccessPolicies: this.__input.accessPolicies,
+          LogPublishingOptions: this.__input.logPublishingOptions,
+          DomainEndpointOptions: {
+            EnforceHTTPS: this.__input.domainEndpointOptions?.enforceHttps,
+            TLSSecurityPolicy: this.__input.domainEndpointOptions?.tlsSecurityPolicy,
+            CustomEndpointEnabled: this.__input.domainEndpointOptions?.customEndpointEnabled,
+            CustomEndpoint: this.__input.domainEndpointOptions?.customEndpoint,
+            CustomEndpointCertificateArn: this.__input.domainEndpointOptions?.customEndpointCertificateArn,
+          },
+          AdvancedSecurityOptions: {
+            Enabled: this.__input.advancedSecurityOptions?.enabled,
+            InternalUserDatabaseEnabled: this.__input.advancedSecurityOptions?.internalUserDatabaseEnabled,
+            MasterUserOptions: {
+              MasterUserARN: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserArn,
+              MasterUserName: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserName,
+              MasterUserPassword: this.__input.advancedSecurityOptions?.masterUserOptions?.masterUserPassword,
+            },
+            SAMLOptions: {
+              Enabled: this.__input.advancedSecurityOptions?.samlOptions?.enabled,
+              Idp: {
+                MetadataContent: this.__input.advancedSecurityOptions?.samlOptions?.idp?.metadataContent,
+                EntityId: this.__input.advancedSecurityOptions?.samlOptions?.idp?.entityId,
+              },
+              MasterUserName: this.__input.advancedSecurityOptions?.samlOptions?.masterUserName,
+              MasterBackendRole: this.__input.advancedSecurityOptions?.samlOptions?.masterBackendRole,
+              SubjectKey: this.__input.advancedSecurityOptions?.samlOptions?.subjectKey,
+              RolesKey: this.__input.advancedSecurityOptions?.samlOptions?.rolesKey,
+              SessionTimeoutMinutes: this.__input.advancedSecurityOptions?.samlOptions?.sessionTimeoutMinutes,
+            },
+          },
+          NodeToNodeEncryptionOptions: {
+            Enabled: this.__input.nodeToNodeEncryptionOptions?.enabled,
+          },
+          EncryptionAtRestOptions: {
+            Enabled: this.__input.encryptionAtRestOptions?.enabled,
+            KmsKeyId: this.__input.encryptionAtRestOptions?.kmsKeyId,
+          },
+          AutoTuneOptions: {
+            DesiredState: this.__input.autoTuneOptions?.desiredState,
+            RollbackOnDisable: this.__input.autoTuneOptions?.rollbackOnDisable,
+            MaintenanceSchedules: this.__input.autoTuneOptions?.maintenanceSchedules,
+          },
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateElasticsearchDomainConfig.DomainConfig.AutoTuneOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.AutoTuneOptions.Status.PendingDeletion') as unknown as boolean;
   }
 
 }

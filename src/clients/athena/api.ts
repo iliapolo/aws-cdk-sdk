@@ -39,6 +39,24 @@ export class AthenaClient extends cdk.Construct {
     return new AthenaResponsesCreateNamedQuery(this, this.__resources, input);
   }
 
+  public createPreparedStatement(input: shapes.AthenaCreatePreparedStatementInput): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPreparedStatement',
+        service: 'Athena',
+        physicalResourceId: cr.PhysicalResourceId.of('Athena.CreatePreparedStatement'),
+        parameters: {
+          StatementName: input.statementName,
+          WorkGroup: input.workGroup,
+          QueryStatement: input.queryStatement,
+          Description: input.description,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'CreatePreparedStatement', props);
+  }
+
   public createWorkGroup(input: shapes.AthenaCreateWorkGroupInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -60,6 +78,10 @@ export class AthenaClient extends cdk.Construct {
             PublishCloudWatchMetricsEnabled: input.configuration?.publishCloudWatchMetricsEnabled,
             BytesScannedCutoffPerQuery: input.configuration?.bytesScannedCutoffPerQuery,
             RequesterPaysEnabled: input.configuration?.requesterPaysEnabled,
+            EngineVersion: {
+              SelectedEngineVersion: input.configuration?.engineVersion?.selectedEngineVersion,
+              EffectiveEngineVersion: input.configuration?.engineVersion?.effectiveEngineVersion,
+            },
           },
           Description: input.description,
           Tags: input.tags,
@@ -99,6 +121,22 @@ export class AthenaClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'DeleteNamedQuery', props);
   }
 
+  public deletePreparedStatement(input: shapes.AthenaDeletePreparedStatementInput): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'deletePreparedStatement',
+        service: 'Athena',
+        physicalResourceId: cr.PhysicalResourceId.of('Athena.DeletePreparedStatement'),
+        parameters: {
+          StatementName: input.statementName,
+          WorkGroup: input.workGroup,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'DeletePreparedStatement', props);
+  }
+
   public deleteWorkGroup(input: shapes.AthenaDeleteWorkGroupInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -127,6 +165,10 @@ export class AthenaClient extends cdk.Construct {
     return new AthenaResponsesFetchNamedQuery(this, this.__resources, input);
   }
 
+  public fetchPreparedStatement(input: shapes.AthenaGetPreparedStatementInput): AthenaResponsesFetchPreparedStatement {
+    return new AthenaResponsesFetchPreparedStatement(this, this.__resources, input);
+  }
+
   public fetchQueryExecution(input: shapes.AthenaGetQueryExecutionInput): AthenaResponsesFetchQueryExecution {
     return new AthenaResponsesFetchQueryExecution(this, this.__resources, input);
   }
@@ -151,8 +193,16 @@ export class AthenaClient extends cdk.Construct {
     return new AthenaResponsesListDatabases(this, this.__resources, input);
   }
 
+  public listEngineVersions(input: shapes.AthenaListEngineVersionsInput): AthenaResponsesListEngineVersions {
+    return new AthenaResponsesListEngineVersions(this, this.__resources, input);
+  }
+
   public listNamedQueries(input: shapes.AthenaListNamedQueriesInput): AthenaResponsesListNamedQueries {
     return new AthenaResponsesListNamedQueries(this, this.__resources, input);
+  }
+
+  public listPreparedStatements(input: shapes.AthenaListPreparedStatementsInput): AthenaResponsesListPreparedStatements {
+    return new AthenaResponsesListPreparedStatements(this, this.__resources, input);
   }
 
   public listQueryExecutions(input: shapes.AthenaListQueryExecutionsInput): AthenaResponsesListQueryExecutions {
@@ -240,6 +290,24 @@ export class AthenaClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'UpdateDataCatalog', props);
   }
 
+  public updatePreparedStatement(input: shapes.AthenaUpdatePreparedStatementInput): void {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updatePreparedStatement',
+        service: 'Athena',
+        physicalResourceId: cr.PhysicalResourceId.of('Athena.UpdatePreparedStatement'),
+        parameters: {
+          StatementName: input.statementName,
+          WorkGroup: input.workGroup,
+          QueryStatement: input.queryStatement,
+          Description: input.description,
+        },
+      },
+    };
+    new cr.AwsCustomResource(this, 'UpdatePreparedStatement', props);
+  }
+
   public updateWorkGroup(input: shapes.AthenaUpdateWorkGroupInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -265,6 +333,10 @@ export class AthenaClient extends cdk.Construct {
             BytesScannedCutoffPerQuery: input.configurationUpdates?.bytesScannedCutoffPerQuery,
             RemoveBytesScannedCutoffPerQuery: input.configurationUpdates?.removeBytesScannedCutoffPerQuery,
             RequesterPaysEnabled: input.configurationUpdates?.requesterPaysEnabled,
+            EngineVersion: {
+              SelectedEngineVersion: input.configurationUpdates?.engineVersion?.selectedEngineVersion,
+              EffectiveEngineVersion: input.configurationUpdates?.engineVersion?.effectiveEngineVersion,
+            },
           },
           State: input.state,
         },
@@ -664,6 +736,114 @@ export class AthenaResponsesFetchNamedQueryNamedQuery {
 
 }
 
+export class AthenaResponsesFetchPreparedStatement {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AthenaGetPreparedStatementInput) {
+  }
+
+  public get preparedStatement(): AthenaResponsesFetchPreparedStatementPreparedStatement {
+    return new AthenaResponsesFetchPreparedStatementPreparedStatement(this.__scope, this.__resources, this.__input);
+  }
+
+}
+
+export class AthenaResponsesFetchPreparedStatementPreparedStatement {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AthenaGetPreparedStatementInput) {
+  }
+
+  public get statementName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getPreparedStatement',
+        service: 'Athena',
+        physicalResourceId: cr.PhysicalResourceId.of('Athena.GetPreparedStatement.PreparedStatement.StatementName'),
+        outputPath: 'PreparedStatement.StatementName',
+        parameters: {
+          StatementName: this.__input.statementName,
+          WorkGroup: this.__input.workGroup,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetPreparedStatement.PreparedStatement.StatementName', props);
+    return resource.getResponseField('PreparedStatement.StatementName') as unknown as string;
+  }
+
+  public get queryStatement(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getPreparedStatement',
+        service: 'Athena',
+        physicalResourceId: cr.PhysicalResourceId.of('Athena.GetPreparedStatement.PreparedStatement.QueryStatement'),
+        outputPath: 'PreparedStatement.QueryStatement',
+        parameters: {
+          StatementName: this.__input.statementName,
+          WorkGroup: this.__input.workGroup,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetPreparedStatement.PreparedStatement.QueryStatement', props);
+    return resource.getResponseField('PreparedStatement.QueryStatement') as unknown as string;
+  }
+
+  public get workGroupName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getPreparedStatement',
+        service: 'Athena',
+        physicalResourceId: cr.PhysicalResourceId.of('Athena.GetPreparedStatement.PreparedStatement.WorkGroupName'),
+        outputPath: 'PreparedStatement.WorkGroupName',
+        parameters: {
+          StatementName: this.__input.statementName,
+          WorkGroup: this.__input.workGroup,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetPreparedStatement.PreparedStatement.WorkGroupName', props);
+    return resource.getResponseField('PreparedStatement.WorkGroupName') as unknown as string;
+  }
+
+  public get description(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getPreparedStatement',
+        service: 'Athena',
+        physicalResourceId: cr.PhysicalResourceId.of('Athena.GetPreparedStatement.PreparedStatement.Description'),
+        outputPath: 'PreparedStatement.Description',
+        parameters: {
+          StatementName: this.__input.statementName,
+          WorkGroup: this.__input.workGroup,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetPreparedStatement.PreparedStatement.Description', props);
+    return resource.getResponseField('PreparedStatement.Description') as unknown as string;
+  }
+
+  public get lastModifiedTime(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getPreparedStatement',
+        service: 'Athena',
+        physicalResourceId: cr.PhysicalResourceId.of('Athena.GetPreparedStatement.PreparedStatement.LastModifiedTime'),
+        outputPath: 'PreparedStatement.LastModifiedTime',
+        parameters: {
+          StatementName: this.__input.statementName,
+          WorkGroup: this.__input.workGroup,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetPreparedStatement.PreparedStatement.LastModifiedTime', props);
+    return resource.getResponseField('PreparedStatement.LastModifiedTime') as unknown as string;
+  }
+
+}
+
 export class AthenaResponsesFetchQueryExecution {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AthenaGetQueryExecutionInput) {
@@ -762,6 +942,10 @@ export class AthenaResponsesFetchQueryExecutionQueryExecution {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetQueryExecution.QueryExecution.WorkGroup', props);
     return resource.getResponseField('QueryExecution.WorkGroup') as unknown as string;
+  }
+
+  public get engineVersion(): AthenaResponsesFetchQueryExecutionQueryExecutionEngineVersion {
+    return new AthenaResponsesFetchQueryExecutionQueryExecutionEngineVersion(this.__scope, this.__resources, this.__input);
   }
 
 }
@@ -1073,6 +1257,47 @@ export class AthenaResponsesFetchQueryExecutionQueryExecutionStatistics {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetQueryExecution.QueryExecution.Statistics.ServiceProcessingTimeInMillis', props);
     return resource.getResponseField('QueryExecution.Statistics.ServiceProcessingTimeInMillis') as unknown as number;
+  }
+
+}
+
+export class AthenaResponsesFetchQueryExecutionQueryExecutionEngineVersion {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AthenaGetQueryExecutionInput) {
+  }
+
+  public get selectedEngineVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getQueryExecution',
+        service: 'Athena',
+        physicalResourceId: cr.PhysicalResourceId.of('Athena.GetQueryExecution.QueryExecution.EngineVersion.SelectedEngineVersion'),
+        outputPath: 'QueryExecution.EngineVersion.SelectedEngineVersion',
+        parameters: {
+          QueryExecutionId: this.__input.queryExecutionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetQueryExecution.QueryExecution.EngineVersion.SelectedEngineVersion', props);
+    return resource.getResponseField('QueryExecution.EngineVersion.SelectedEngineVersion') as unknown as string;
+  }
+
+  public get effectiveEngineVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getQueryExecution',
+        service: 'Athena',
+        physicalResourceId: cr.PhysicalResourceId.of('Athena.GetQueryExecution.QueryExecution.EngineVersion.EffectiveEngineVersion'),
+        outputPath: 'QueryExecution.EngineVersion.EffectiveEngineVersion',
+        parameters: {
+          QueryExecutionId: this.__input.queryExecutionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetQueryExecution.QueryExecution.EngineVersion.EffectiveEngineVersion', props);
+    return resource.getResponseField('QueryExecution.EngineVersion.EffectiveEngineVersion') as unknown as string;
   }
 
 }
@@ -1500,6 +1725,10 @@ export class AthenaResponsesFetchWorkGroupWorkGroupConfiguration {
     return resource.getResponseField('WorkGroup.Configuration.RequesterPaysEnabled') as unknown as boolean;
   }
 
+  public get engineVersion(): AthenaResponsesFetchWorkGroupWorkGroupConfigurationEngineVersion {
+    return new AthenaResponsesFetchWorkGroupWorkGroupConfigurationEngineVersion(this.__scope, this.__resources, this.__input);
+  }
+
 }
 
 export class AthenaResponsesFetchWorkGroupWorkGroupConfigurationResultConfiguration {
@@ -1567,6 +1796,47 @@ export class AthenaResponsesFetchWorkGroupWorkGroupConfigurationResultConfigurat
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetWorkGroup.WorkGroup.Configuration.ResultConfiguration.EncryptionConfiguration.KmsKey', props);
     return resource.getResponseField('WorkGroup.Configuration.ResultConfiguration.EncryptionConfiguration.KmsKey') as unknown as string;
+  }
+
+}
+
+export class AthenaResponsesFetchWorkGroupWorkGroupConfigurationEngineVersion {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AthenaGetWorkGroupInput) {
+  }
+
+  public get selectedEngineVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getWorkGroup',
+        service: 'Athena',
+        physicalResourceId: cr.PhysicalResourceId.of('Athena.GetWorkGroup.WorkGroup.Configuration.EngineVersion.SelectedEngineVersion'),
+        outputPath: 'WorkGroup.Configuration.EngineVersion.SelectedEngineVersion',
+        parameters: {
+          WorkGroup: this.__input.workGroup,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetWorkGroup.WorkGroup.Configuration.EngineVersion.SelectedEngineVersion', props);
+    return resource.getResponseField('WorkGroup.Configuration.EngineVersion.SelectedEngineVersion') as unknown as string;
+  }
+
+  public get effectiveEngineVersion(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getWorkGroup',
+        service: 'Athena',
+        physicalResourceId: cr.PhysicalResourceId.of('Athena.GetWorkGroup.WorkGroup.Configuration.EngineVersion.EffectiveEngineVersion'),
+        outputPath: 'WorkGroup.Configuration.EngineVersion.EffectiveEngineVersion',
+        parameters: {
+          WorkGroup: this.__input.workGroup,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetWorkGroup.WorkGroup.Configuration.EngineVersion.EffectiveEngineVersion', props);
+    return resource.getResponseField('WorkGroup.Configuration.EngineVersion.EffectiveEngineVersion') as unknown as string;
   }
 
 }
@@ -1659,6 +1929,49 @@ export class AthenaResponsesListDatabases {
 
 }
 
+export class AthenaResponsesListEngineVersions {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AthenaListEngineVersionsInput) {
+  }
+
+  public get engineVersions(): shapes.AthenaEngineVersion[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listEngineVersions',
+        service: 'Athena',
+        physicalResourceId: cr.PhysicalResourceId.of('Athena.ListEngineVersions.EngineVersions'),
+        outputPath: 'EngineVersions',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListEngineVersions.EngineVersions', props);
+    return resource.getResponseField('EngineVersions') as unknown as shapes.AthenaEngineVersion[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listEngineVersions',
+        service: 'Athena',
+        physicalResourceId: cr.PhysicalResourceId.of('Athena.ListEngineVersions.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListEngineVersions.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
 export class AthenaResponsesListNamedQueries {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AthenaListNamedQueriesInput) {
@@ -1699,6 +2012,51 @@ export class AthenaResponsesListNamedQueries {
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'ListNamedQueries.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
+  }
+
+}
+
+export class AthenaResponsesListPreparedStatements {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.AthenaListPreparedStatementsInput) {
+  }
+
+  public get preparedStatements(): shapes.AthenaPreparedStatementSummary[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listPreparedStatements',
+        service: 'Athena',
+        physicalResourceId: cr.PhysicalResourceId.of('Athena.ListPreparedStatements.PreparedStatements'),
+        outputPath: 'PreparedStatements',
+        parameters: {
+          WorkGroup: this.__input.workGroup,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListPreparedStatements.PreparedStatements', props);
+    return resource.getResponseField('PreparedStatements') as unknown as shapes.AthenaPreparedStatementSummary[];
+  }
+
+  public get nextToken(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'listPreparedStatements',
+        service: 'Athena',
+        physicalResourceId: cr.PhysicalResourceId.of('Athena.ListPreparedStatements.NextToken'),
+        outputPath: 'NextToken',
+        parameters: {
+          WorkGroup: this.__input.workGroup,
+          NextToken: this.__input.nextToken,
+          MaxResults: this.__input.maxResults,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ListPreparedStatements.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
 

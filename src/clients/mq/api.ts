@@ -2517,6 +2517,11 @@ export class MQResponsesUpdateBroker {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
           },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
+          },
           SecurityGroups: this.__input.securityGroups,
         },
       },
@@ -2560,6 +2565,11 @@ export class MQResponsesUpdateBroker {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
           },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
+          },
           SecurityGroups: this.__input.securityGroups,
         },
       },
@@ -2602,6 +2612,11 @@ export class MQResponsesUpdateBroker {
           Logs: {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
+          },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
           },
           SecurityGroups: this.__input.securityGroups,
         },
@@ -2650,6 +2665,11 @@ export class MQResponsesUpdateBroker {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
           },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
+          },
           SecurityGroups: this.__input.securityGroups,
         },
       },
@@ -2693,6 +2713,11 @@ export class MQResponsesUpdateBroker {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
           },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
+          },
           SecurityGroups: this.__input.securityGroups,
         },
       },
@@ -2707,6 +2732,10 @@ export class MQResponsesUpdateBroker {
 
   public get logs(): MQResponsesUpdateBrokerLogs {
     return new MQResponsesUpdateBrokerLogs(this.__scope, this.__resources, this.__input);
+  }
+
+  public get maintenanceWindowStartTime(): MQResponsesUpdateBrokerMaintenanceWindowStartTime {
+    return new MQResponsesUpdateBrokerMaintenanceWindowStartTime(this.__scope, this.__resources, this.__input);
   }
 
   public get securityGroups(): string[] {
@@ -2743,6 +2772,11 @@ export class MQResponsesUpdateBroker {
           Logs: {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
+          },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
           },
           SecurityGroups: this.__input.securityGroups,
         },
@@ -2794,6 +2828,11 @@ export class MQResponsesUpdateBrokerConfiguration {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
           },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
+          },
           SecurityGroups: this.__input.securityGroups,
         },
       },
@@ -2836,6 +2875,11 @@ export class MQResponsesUpdateBrokerConfiguration {
           Logs: {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
+          },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
           },
           SecurityGroups: this.__input.securityGroups,
         },
@@ -2887,6 +2931,11 @@ export class MQResponsesUpdateBrokerLdapServerMetadata {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
           },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
+          },
           SecurityGroups: this.__input.securityGroups,
         },
       },
@@ -2929,6 +2978,11 @@ export class MQResponsesUpdateBrokerLdapServerMetadata {
           Logs: {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
+          },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
           },
           SecurityGroups: this.__input.securityGroups,
         },
@@ -2973,6 +3027,11 @@ export class MQResponsesUpdateBrokerLdapServerMetadata {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
           },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
+          },
           SecurityGroups: this.__input.securityGroups,
         },
       },
@@ -3015,6 +3074,11 @@ export class MQResponsesUpdateBrokerLdapServerMetadata {
           Logs: {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
+          },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
           },
           SecurityGroups: this.__input.securityGroups,
         },
@@ -3059,6 +3123,11 @@ export class MQResponsesUpdateBrokerLdapServerMetadata {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
           },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
+          },
           SecurityGroups: this.__input.securityGroups,
         },
       },
@@ -3101,6 +3170,11 @@ export class MQResponsesUpdateBrokerLdapServerMetadata {
           Logs: {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
+          },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
           },
           SecurityGroups: this.__input.securityGroups,
         },
@@ -3145,6 +3219,11 @@ export class MQResponsesUpdateBrokerLdapServerMetadata {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
           },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
+          },
           SecurityGroups: this.__input.securityGroups,
         },
       },
@@ -3187,6 +3266,11 @@ export class MQResponsesUpdateBrokerLdapServerMetadata {
           Logs: {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
+          },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
           },
           SecurityGroups: this.__input.securityGroups,
         },
@@ -3231,6 +3315,11 @@ export class MQResponsesUpdateBrokerLdapServerMetadata {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
           },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
+          },
           SecurityGroups: this.__input.securityGroups,
         },
       },
@@ -3273,6 +3362,11 @@ export class MQResponsesUpdateBrokerLdapServerMetadata {
           Logs: {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
+          },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
           },
           SecurityGroups: this.__input.securityGroups,
         },
@@ -3324,6 +3418,11 @@ export class MQResponsesUpdateBrokerLogs {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
           },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
+          },
           SecurityGroups: this.__input.securityGroups,
         },
       },
@@ -3367,12 +3466,168 @@ export class MQResponsesUpdateBrokerLogs {
             Audit: this.__input.logs?.audit,
             General: this.__input.logs?.general,
           },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
+          },
           SecurityGroups: this.__input.securityGroups,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBroker.Logs.General', props);
     return resource.getResponseField('Logs.General') as unknown as boolean;
+  }
+
+}
+
+export class MQResponsesUpdateBrokerMaintenanceWindowStartTime {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MqUpdateBrokerRequest) {
+  }
+
+  public get dayOfWeek(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBroker',
+        service: 'MQ',
+        physicalResourceId: cr.PhysicalResourceId.of('MQ.UpdateBroker.MaintenanceWindowStartTime.DayOfWeek'),
+        outputPath: 'MaintenanceWindowStartTime.DayOfWeek',
+        parameters: {
+          AuthenticationStrategy: this.__input.authenticationStrategy,
+          AutoMinorVersionUpgrade: this.__input.autoMinorVersionUpgrade,
+          BrokerId: this.__input.brokerId,
+          Configuration: {
+            Id: this.__input.configuration?.id,
+            Revision: this.__input.configuration?.revision,
+          },
+          EngineVersion: this.__input.engineVersion,
+          HostInstanceType: this.__input.hostInstanceType,
+          LdapServerMetadata: {
+            Hosts: this.__input.ldapServerMetadata?.hosts,
+            RoleBase: this.__input.ldapServerMetadata?.roleBase,
+            RoleName: this.__input.ldapServerMetadata?.roleName,
+            RoleSearchMatching: this.__input.ldapServerMetadata?.roleSearchMatching,
+            RoleSearchSubtree: this.__input.ldapServerMetadata?.roleSearchSubtree,
+            ServiceAccountPassword: this.__input.ldapServerMetadata?.serviceAccountPassword,
+            ServiceAccountUsername: this.__input.ldapServerMetadata?.serviceAccountUsername,
+            UserBase: this.__input.ldapServerMetadata?.userBase,
+            UserRoleName: this.__input.ldapServerMetadata?.userRoleName,
+            UserSearchMatching: this.__input.ldapServerMetadata?.userSearchMatching,
+            UserSearchSubtree: this.__input.ldapServerMetadata?.userSearchSubtree,
+          },
+          Logs: {
+            Audit: this.__input.logs?.audit,
+            General: this.__input.logs?.general,
+          },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
+          },
+          SecurityGroups: this.__input.securityGroups,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBroker.MaintenanceWindowStartTime.DayOfWeek', props);
+    return resource.getResponseField('MaintenanceWindowStartTime.DayOfWeek') as unknown as string;
+  }
+
+  public get timeOfDay(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBroker',
+        service: 'MQ',
+        physicalResourceId: cr.PhysicalResourceId.of('MQ.UpdateBroker.MaintenanceWindowStartTime.TimeOfDay'),
+        outputPath: 'MaintenanceWindowStartTime.TimeOfDay',
+        parameters: {
+          AuthenticationStrategy: this.__input.authenticationStrategy,
+          AutoMinorVersionUpgrade: this.__input.autoMinorVersionUpgrade,
+          BrokerId: this.__input.brokerId,
+          Configuration: {
+            Id: this.__input.configuration?.id,
+            Revision: this.__input.configuration?.revision,
+          },
+          EngineVersion: this.__input.engineVersion,
+          HostInstanceType: this.__input.hostInstanceType,
+          LdapServerMetadata: {
+            Hosts: this.__input.ldapServerMetadata?.hosts,
+            RoleBase: this.__input.ldapServerMetadata?.roleBase,
+            RoleName: this.__input.ldapServerMetadata?.roleName,
+            RoleSearchMatching: this.__input.ldapServerMetadata?.roleSearchMatching,
+            RoleSearchSubtree: this.__input.ldapServerMetadata?.roleSearchSubtree,
+            ServiceAccountPassword: this.__input.ldapServerMetadata?.serviceAccountPassword,
+            ServiceAccountUsername: this.__input.ldapServerMetadata?.serviceAccountUsername,
+            UserBase: this.__input.ldapServerMetadata?.userBase,
+            UserRoleName: this.__input.ldapServerMetadata?.userRoleName,
+            UserSearchMatching: this.__input.ldapServerMetadata?.userSearchMatching,
+            UserSearchSubtree: this.__input.ldapServerMetadata?.userSearchSubtree,
+          },
+          Logs: {
+            Audit: this.__input.logs?.audit,
+            General: this.__input.logs?.general,
+          },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
+          },
+          SecurityGroups: this.__input.securityGroups,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBroker.MaintenanceWindowStartTime.TimeOfDay', props);
+    return resource.getResponseField('MaintenanceWindowStartTime.TimeOfDay') as unknown as string;
+  }
+
+  public get timeZone(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updateBroker',
+        service: 'MQ',
+        physicalResourceId: cr.PhysicalResourceId.of('MQ.UpdateBroker.MaintenanceWindowStartTime.TimeZone'),
+        outputPath: 'MaintenanceWindowStartTime.TimeZone',
+        parameters: {
+          AuthenticationStrategy: this.__input.authenticationStrategy,
+          AutoMinorVersionUpgrade: this.__input.autoMinorVersionUpgrade,
+          BrokerId: this.__input.brokerId,
+          Configuration: {
+            Id: this.__input.configuration?.id,
+            Revision: this.__input.configuration?.revision,
+          },
+          EngineVersion: this.__input.engineVersion,
+          HostInstanceType: this.__input.hostInstanceType,
+          LdapServerMetadata: {
+            Hosts: this.__input.ldapServerMetadata?.hosts,
+            RoleBase: this.__input.ldapServerMetadata?.roleBase,
+            RoleName: this.__input.ldapServerMetadata?.roleName,
+            RoleSearchMatching: this.__input.ldapServerMetadata?.roleSearchMatching,
+            RoleSearchSubtree: this.__input.ldapServerMetadata?.roleSearchSubtree,
+            ServiceAccountPassword: this.__input.ldapServerMetadata?.serviceAccountPassword,
+            ServiceAccountUsername: this.__input.ldapServerMetadata?.serviceAccountUsername,
+            UserBase: this.__input.ldapServerMetadata?.userBase,
+            UserRoleName: this.__input.ldapServerMetadata?.userRoleName,
+            UserSearchMatching: this.__input.ldapServerMetadata?.userSearchMatching,
+            UserSearchSubtree: this.__input.ldapServerMetadata?.userSearchSubtree,
+          },
+          Logs: {
+            Audit: this.__input.logs?.audit,
+            General: this.__input.logs?.general,
+          },
+          MaintenanceWindowStartTime: {
+            DayOfWeek: this.__input.maintenanceWindowStartTime?.dayOfWeek,
+            TimeOfDay: this.__input.maintenanceWindowStartTime?.timeOfDay,
+            TimeZone: this.__input.maintenanceWindowStartTime?.timeZone,
+          },
+          SecurityGroups: this.__input.securityGroups,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdateBroker.MaintenanceWindowStartTime.TimeZone', props);
+    return resource.getResponseField('MaintenanceWindowStartTime.TimeZone') as unknown as string;
   }
 
 }

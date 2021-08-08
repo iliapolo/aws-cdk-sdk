@@ -32,6 +32,10 @@ export class ComprehendClient extends cdk.Construct {
     return new ComprehendResponsesClassifyDocument(this, this.__resources, input);
   }
 
+  public containsPiiEntities(input: shapes.ComprehendContainsPiiEntitiesRequest): ComprehendResponsesContainsPiiEntities {
+    return new ComprehendResponsesContainsPiiEntities(this, this.__resources, input);
+  }
+
   public createDocumentClassifier(input: shapes.ComprehendCreateDocumentClassifierRequest): ComprehendResponsesCreateDocumentClassifier {
     return new ComprehendResponsesCreateDocumentClassifier(this, this.__resources, input);
   }
@@ -597,6 +601,31 @@ export class ComprehendResponsesClassifyDocument {
 
 }
 
+export class ComprehendResponsesContainsPiiEntities {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ComprehendContainsPiiEntitiesRequest) {
+  }
+
+  public get labels(): shapes.ComprehendEntityLabel[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'containsPiiEntities',
+        service: 'Comprehend',
+        physicalResourceId: cr.PhysicalResourceId.of('Comprehend.ContainsPiiEntities.Labels'),
+        outputPath: 'Labels',
+        parameters: {
+          Text: this.__input.text,
+          LanguageCode: this.__input.languageCode,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ContainsPiiEntities.Labels', props);
+    return resource.getResponseField('Labels') as unknown as shapes.ComprehendEntityLabel[];
+  }
+
+}
+
 export class ComprehendResponsesCreateDocumentClassifier {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.ComprehendCreateDocumentClassifierRequest) {
@@ -632,6 +661,7 @@ export class ComprehendResponsesCreateDocumentClassifier {
             Subnets: this.__input.vpcConfig?.subnets,
           },
           Mode: this.__input.mode,
+          ModelKmsKeyId: this.__input.modelKmsKeyId,
         },
       },
     };
@@ -660,6 +690,7 @@ export class ComprehendResponsesCreateEndpoint {
           DesiredInferenceUnits: this.__input.desiredInferenceUnits,
           ClientRequestToken: this.__input.clientRequestToken,
           Tags: this.__input.tags,
+          DataAccessRoleArn: this.__input.dataAccessRoleArn,
         },
       },
     };
@@ -707,6 +738,7 @@ export class ComprehendResponsesCreateEntityRecognizer {
             SecurityGroupIds: this.__input.vpcConfig?.securityGroupIds,
             Subnets: this.__input.vpcConfig?.subnets,
           },
+          ModelKmsKeyId: this.__input.modelKmsKeyId,
         },
       },
     };
@@ -1239,6 +1271,23 @@ export class ComprehendResponsesDescribeDocumentClassifierDocumentClassifierProp
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDocumentClassifier.DocumentClassifierProperties.Mode', props);
     return resource.getResponseField('DocumentClassifierProperties.Mode') as unknown as string;
+  }
+
+  public get modelKmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeDocumentClassifier',
+        service: 'Comprehend',
+        physicalResourceId: cr.PhysicalResourceId.of('Comprehend.DescribeDocumentClassifier.DocumentClassifierProperties.ModelKmsKeyId'),
+        outputPath: 'DocumentClassifierProperties.ModelKmsKeyId',
+        parameters: {
+          DocumentClassifierArn: this.__input.documentClassifierArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeDocumentClassifier.DocumentClassifierProperties.ModelKmsKeyId', props);
+    return resource.getResponseField('DocumentClassifierProperties.ModelKmsKeyId') as unknown as string;
   }
 
 }
@@ -2046,6 +2095,23 @@ export class ComprehendResponsesDescribeEndpointEndpointProperties {
     return resource.getResponseField('EndpointProperties.LastModifiedTime') as unknown as string;
   }
 
+  public get dataAccessRoleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEndpoint',
+        service: 'Comprehend',
+        physicalResourceId: cr.PhysicalResourceId.of('Comprehend.DescribeEndpoint.EndpointProperties.DataAccessRoleArn'),
+        outputPath: 'EndpointProperties.DataAccessRoleArn',
+        parameters: {
+          EndpointArn: this.__input.endpointArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEndpoint.EndpointProperties.DataAccessRoleArn', props);
+    return resource.getResponseField('EndpointProperties.DataAccessRoleArn') as unknown as string;
+  }
+
 }
 
 export class ComprehendResponsesDescribeEntitiesDetectionJob {
@@ -2567,6 +2633,23 @@ export class ComprehendResponsesDescribeEntityRecognizerEntityRecognizerProperti
 
   public get vpcConfig(): ComprehendResponsesDescribeEntityRecognizerEntityRecognizerPropertiesVpcConfig {
     return new ComprehendResponsesDescribeEntityRecognizerEntityRecognizerPropertiesVpcConfig(this.__scope, this.__resources, this.__input);
+  }
+
+  public get modelKmsKeyId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeEntityRecognizer',
+        service: 'Comprehend',
+        physicalResourceId: cr.PhysicalResourceId.of('Comprehend.DescribeEntityRecognizer.EntityRecognizerProperties.ModelKmsKeyId'),
+        outputPath: 'EntityRecognizerProperties.ModelKmsKeyId',
+        parameters: {
+          EntityRecognizerArn: this.__input.entityRecognizerArn,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeEntityRecognizer.EntityRecognizerProperties.ModelKmsKeyId', props);
+    return resource.getResponseField('EntityRecognizerProperties.ModelKmsKeyId') as unknown as string;
   }
 
 }

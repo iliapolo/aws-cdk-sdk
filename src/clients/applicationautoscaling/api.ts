@@ -91,6 +91,7 @@ export class ApplicationAutoScalingClient extends cdk.Construct {
         parameters: {
           ServiceNamespace: input.serviceNamespace,
           Schedule: input.schedule,
+          Timezone: input.timezone,
           ScheduledActionName: input.scheduledActionName,
           ResourceId: input.resourceId,
           ScalableDimension: input.scalableDimension,

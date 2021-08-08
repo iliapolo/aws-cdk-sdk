@@ -8,6 +8,10 @@ export class MediaPackageVodClient extends cdk.Construct {
     super(scope, id);
   }
 
+  public configureLogs(input: shapes.MediaPackageVodConfigureLogsRequest): MediaPackageVodResponsesConfigureLogs {
+    return new MediaPackageVodResponsesConfigureLogs(this, this.__resources, input);
+  }
+
   public createAsset(input: shapes.MediaPackageVodCreateAssetRequest): MediaPackageVodResponsesCreateAsset {
     return new MediaPackageVodResponsesCreateAsset(this, this.__resources, input);
   }
@@ -127,6 +131,175 @@ export class MediaPackageVodClient extends cdk.Construct {
 
   public updatePackagingGroup(input: shapes.MediaPackageVodUpdatePackagingGroupRequest): MediaPackageVodResponsesUpdatePackagingGroup {
     return new MediaPackageVodResponsesUpdatePackagingGroup(this, this.__resources, input);
+  }
+
+}
+
+export class MediaPackageVodResponsesConfigureLogs {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageVodConfigureLogsRequest) {
+  }
+
+  public get arn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'configureLogs',
+        service: 'MediaPackageVod',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.ConfigureLogs.Arn'),
+        outputPath: 'Arn',
+        parameters: {
+          EgressAccessLogs: {
+            LogGroupName: this.__input.egressAccessLogs?.logGroupName,
+          },
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ConfigureLogs.Arn', props);
+    return resource.getResponseField('Arn') as unknown as string;
+  }
+
+  public get authorization(): MediaPackageVodResponsesConfigureLogsAuthorization {
+    return new MediaPackageVodResponsesConfigureLogsAuthorization(this.__scope, this.__resources, this.__input);
+  }
+
+  public get domainName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'configureLogs',
+        service: 'MediaPackageVod',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.ConfigureLogs.DomainName'),
+        outputPath: 'DomainName',
+        parameters: {
+          EgressAccessLogs: {
+            LogGroupName: this.__input.egressAccessLogs?.logGroupName,
+          },
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ConfigureLogs.DomainName', props);
+    return resource.getResponseField('DomainName') as unknown as string;
+  }
+
+  public get egressAccessLogs(): MediaPackageVodResponsesConfigureLogsEgressAccessLogs {
+    return new MediaPackageVodResponsesConfigureLogsEgressAccessLogs(this.__scope, this.__resources, this.__input);
+  }
+
+  public get id(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'configureLogs',
+        service: 'MediaPackageVod',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.ConfigureLogs.Id'),
+        outputPath: 'Id',
+        parameters: {
+          EgressAccessLogs: {
+            LogGroupName: this.__input.egressAccessLogs?.logGroupName,
+          },
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ConfigureLogs.Id', props);
+    return resource.getResponseField('Id') as unknown as string;
+  }
+
+  public get tags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'configureLogs',
+        service: 'MediaPackageVod',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.ConfigureLogs.Tags'),
+        outputPath: 'Tags',
+        parameters: {
+          EgressAccessLogs: {
+            LogGroupName: this.__input.egressAccessLogs?.logGroupName,
+          },
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ConfigureLogs.Tags', props);
+    return resource.getResponseField('Tags') as unknown as Record<string, string>;
+  }
+
+}
+
+export class MediaPackageVodResponsesConfigureLogsAuthorization {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageVodConfigureLogsRequest) {
+  }
+
+  public get cdnIdentifierSecret(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'configureLogs',
+        service: 'MediaPackageVod',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.ConfigureLogs.Authorization.CdnIdentifierSecret'),
+        outputPath: 'Authorization.CdnIdentifierSecret',
+        parameters: {
+          EgressAccessLogs: {
+            LogGroupName: this.__input.egressAccessLogs?.logGroupName,
+          },
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ConfigureLogs.Authorization.CdnIdentifierSecret', props);
+    return resource.getResponseField('Authorization.CdnIdentifierSecret') as unknown as string;
+  }
+
+  public get secretsRoleArn(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'configureLogs',
+        service: 'MediaPackageVod',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.ConfigureLogs.Authorization.SecretsRoleArn'),
+        outputPath: 'Authorization.SecretsRoleArn',
+        parameters: {
+          EgressAccessLogs: {
+            LogGroupName: this.__input.egressAccessLogs?.logGroupName,
+          },
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ConfigureLogs.Authorization.SecretsRoleArn', props);
+    return resource.getResponseField('Authorization.SecretsRoleArn') as unknown as string;
+  }
+
+}
+
+export class MediaPackageVodResponsesConfigureLogsEgressAccessLogs {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageVodConfigureLogsRequest) {
+  }
+
+  public get logGroupName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'configureLogs',
+        service: 'MediaPackageVod',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.ConfigureLogs.EgressAccessLogs.LogGroupName'),
+        outputPath: 'EgressAccessLogs.LogGroupName',
+        parameters: {
+          EgressAccessLogs: {
+            LogGroupName: this.__input.egressAccessLogs?.logGroupName,
+          },
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'ConfigureLogs.EgressAccessLogs.LogGroupName', props);
+    return resource.getResponseField('EgressAccessLogs.LogGroupName') as unknown as string;
   }
 
 }
@@ -352,6 +525,7 @@ export class MediaPackageVodResponsesCreatePackagingConfiguration {
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -359,6 +533,7 @@ export class MediaPackageVodResponsesCreatePackagingConfiguration {
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -370,6 +545,7 @@ export class MediaPackageVodResponsesCreatePackagingConfiguration {
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -432,6 +608,7 @@ export class MediaPackageVodResponsesCreatePackagingConfiguration {
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -439,6 +616,7 @@ export class MediaPackageVodResponsesCreatePackagingConfiguration {
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -450,6 +628,7 @@ export class MediaPackageVodResponsesCreatePackagingConfiguration {
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -504,6 +683,7 @@ export class MediaPackageVodResponsesCreatePackagingConfiguration {
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -511,6 +691,7 @@ export class MediaPackageVodResponsesCreatePackagingConfiguration {
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -522,6 +703,7 @@ export class MediaPackageVodResponsesCreatePackagingConfiguration {
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -572,6 +754,7 @@ export class MediaPackageVodResponsesCreatePackagingConfiguration {
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -579,6 +762,7 @@ export class MediaPackageVodResponsesCreatePackagingConfiguration {
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -590,6 +774,7 @@ export class MediaPackageVodResponsesCreatePackagingConfiguration {
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -651,6 +836,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationCmafPackage {
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -658,6 +844,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationCmafPackage {
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -669,6 +856,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationCmafPackage {
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -708,17 +896,18 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationCmafPackage {
     return resource.getResponseField('CmafPackage.HlsManifests') as unknown as shapes.MediaPackageVodHlsManifest[];
   }
 
-  public get segmentDurationSeconds(): number {
+  public get includeEncoderConfigurationInSegments(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
         action: 'createPackagingConfiguration',
         service: 'MediaPackageVod',
-        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.CreatePackagingConfiguration.CmafPackage.SegmentDurationSeconds'),
-        outputPath: 'CmafPackage.SegmentDurationSeconds',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.CreatePackagingConfiguration.CmafPackage.IncludeEncoderConfigurationInSegments'),
+        outputPath: 'CmafPackage.IncludeEncoderConfigurationInSegments',
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -726,6 +915,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationCmafPackage {
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -737,6 +927,78 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationCmafPackage {
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+          },
+          HlsPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              SpekeKeyProvider: {
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.hlsPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            MssManifests: this.__input.mssPackage?.mssManifests,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+          },
+          PackagingGroupId: this.__input.packagingGroupId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePackagingConfiguration.CmafPackage.IncludeEncoderConfigurationInSegments', props);
+    return resource.getResponseField('CmafPackage.IncludeEncoderConfigurationInSegments') as unknown as boolean;
+  }
+
+  public get segmentDurationSeconds(): number {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPackagingConfiguration',
+        service: 'MediaPackageVod',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.CreatePackagingConfiguration.CmafPackage.SegmentDurationSeconds'),
+        outputPath: 'CmafPackage.SegmentDurationSeconds',
+        parameters: {
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              SpekeKeyProvider: {
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+          },
+          DashPackage: {
+            DashManifests: this.__input.dashPackage?.dashManifests,
+            Encryption: {
+              SpekeKeyProvider: {
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -783,6 +1045,77 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationCmafPackageEncr
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageVodCreatePackagingConfigurationRequest) {
   }
 
+  public get constantInitializationVector(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPackagingConfiguration',
+        service: 'MediaPackageVod',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.CreatePackagingConfiguration.CmafPackage.Encryption.ConstantInitializationVector'),
+        outputPath: 'CmafPackage.Encryption.ConstantInitializationVector',
+        parameters: {
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              SpekeKeyProvider: {
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+          },
+          DashPackage: {
+            DashManifests: this.__input.dashPackage?.dashManifests,
+            Encryption: {
+              SpekeKeyProvider: {
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+          },
+          HlsPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              SpekeKeyProvider: {
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.hlsPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            MssManifests: this.__input.mssPackage?.mssManifests,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+          },
+          PackagingGroupId: this.__input.packagingGroupId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePackagingConfiguration.CmafPackage.Encryption.ConstantInitializationVector', props);
+    return resource.getResponseField('CmafPackage.Encryption.ConstantInitializationVector') as unknown as string;
+  }
+
   public get spekeKeyProvider(): MediaPackageVodResponsesCreatePackagingConfigurationCmafPackageEncryptionSpekeKeyProvider {
     return new MediaPackageVodResponsesCreatePackagingConfigurationCmafPackageEncryptionSpekeKeyProvider(this.__scope, this.__resources, this.__input);
   }
@@ -805,6 +1138,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationCmafPackageEncr
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -812,6 +1146,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationCmafPackageEncr
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -823,6 +1158,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationCmafPackageEncr
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -873,6 +1209,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationCmafPackageEncr
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -880,6 +1217,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationCmafPackageEncr
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -891,6 +1229,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationCmafPackageEncr
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -941,6 +1280,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationCmafPackageEncr
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -948,6 +1288,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationCmafPackageEncr
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -959,6 +1300,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationCmafPackageEncr
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -1016,6 +1358,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackage {
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1023,6 +1366,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackage {
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -1034,6 +1378,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackage {
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -1077,17 +1422,18 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackage {
     return new MediaPackageVodResponsesCreatePackagingConfigurationDashPackageEncryption(this.__scope, this.__resources, this.__input);
   }
 
-  public get periodTriggers(): string[] {
+  public get includeEncoderConfigurationInSegments(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
         action: 'createPackagingConfiguration',
         service: 'MediaPackageVod',
-        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.CreatePackagingConfiguration.DashPackage.PeriodTriggers'),
-        outputPath: 'DashPackage.PeriodTriggers',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.CreatePackagingConfiguration.DashPackage.IncludeEncoderConfigurationInSegments'),
+        outputPath: 'DashPackage.IncludeEncoderConfigurationInSegments',
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1095,6 +1441,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackage {
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -1106,6 +1453,78 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackage {
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
+            PeriodTriggers: this.__input.dashPackage?.periodTriggers,
+            SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
+            SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
+          },
+          HlsPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.hlsPackage?.encryption?.constantInitializationVector,
+              EncryptionMethod: this.__input.hlsPackage?.encryption?.encryptionMethod,
+              SpekeKeyProvider: {
+                RoleArn: this.__input.hlsPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.hlsPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.hlsPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.hlsPackage?.hlsManifests,
+            SegmentDurationSeconds: this.__input.hlsPackage?.segmentDurationSeconds,
+            UseAudioRenditionGroup: this.__input.hlsPackage?.useAudioRenditionGroup,
+          },
+          Id: this.__input.id,
+          MssPackage: {
+            Encryption: {
+              SpekeKeyProvider: {
+                RoleArn: this.__input.mssPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.mssPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.mssPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            MssManifests: this.__input.mssPackage?.mssManifests,
+            SegmentDurationSeconds: this.__input.mssPackage?.segmentDurationSeconds,
+          },
+          PackagingGroupId: this.__input.packagingGroupId,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePackagingConfiguration.DashPackage.IncludeEncoderConfigurationInSegments', props);
+    return resource.getResponseField('DashPackage.IncludeEncoderConfigurationInSegments') as unknown as boolean;
+  }
+
+  public get periodTriggers(): string[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPackagingConfiguration',
+        service: 'MediaPackageVod',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.CreatePackagingConfiguration.DashPackage.PeriodTriggers'),
+        outputPath: 'DashPackage.PeriodTriggers',
+        parameters: {
+          CmafPackage: {
+            Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
+              SpekeKeyProvider: {
+                RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.cmafPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
+            SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
+          },
+          DashPackage: {
+            DashManifests: this.__input.dashPackage?.dashManifests,
+            Encryption: {
+              SpekeKeyProvider: {
+                RoleArn: this.__input.dashPackage?.encryption?.spekeKeyProvider.roleArn,
+                SystemIds: this.__input.dashPackage?.encryption?.spekeKeyProvider.systemIds,
+                Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
+              },
+            },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -1156,6 +1575,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackage {
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1163,6 +1583,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackage {
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -1174,6 +1595,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackage {
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -1224,6 +1646,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackage {
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1231,6 +1654,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackage {
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -1242,6 +1666,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackage {
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -1310,6 +1735,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackageEncr
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1317,6 +1743,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackageEncr
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -1328,6 +1755,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackageEncr
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -1378,6 +1806,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackageEncr
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1385,6 +1814,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackageEncr
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -1396,6 +1826,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackageEncr
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -1446,6 +1877,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackageEncr
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1453,6 +1885,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackageEncr
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -1464,6 +1897,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationDashPackageEncr
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -1525,6 +1959,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackage {
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1532,6 +1967,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackage {
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -1543,6 +1979,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackage {
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -1593,6 +2030,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackage {
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1600,6 +2038,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackage {
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -1611,6 +2050,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackage {
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -1661,6 +2101,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackage {
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1668,6 +2109,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackage {
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -1679,6 +2121,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackage {
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -1736,6 +2179,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackageEncry
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1743,6 +2187,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackageEncry
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -1754,6 +2199,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackageEncry
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -1804,6 +2250,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackageEncry
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1811,6 +2258,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackageEncry
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -1822,6 +2270,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackageEncry
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -1883,6 +2332,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackageEncry
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1890,6 +2340,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackageEncry
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -1901,6 +2352,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackageEncry
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -1951,6 +2403,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackageEncry
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -1958,6 +2411,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackageEncry
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -1969,6 +2423,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackageEncry
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -2019,6 +2474,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackageEncry
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2026,6 +2482,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackageEncry
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -2037,6 +2494,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationHlsPackageEncry
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -2098,6 +2556,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationMssPackage {
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2105,6 +2564,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationMssPackage {
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -2116,6 +2576,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationMssPackage {
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -2166,6 +2627,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationMssPackage {
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2173,6 +2635,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationMssPackage {
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -2184,6 +2647,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationMssPackage {
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -2252,6 +2716,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationMssPackageEncry
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2259,6 +2724,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationMssPackageEncry
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -2270,6 +2736,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationMssPackageEncry
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -2320,6 +2787,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationMssPackageEncry
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2327,6 +2795,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationMssPackageEncry
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -2338,6 +2807,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationMssPackageEncry
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -2388,6 +2858,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationMssPackageEncry
         parameters: {
           CmafPackage: {
             Encryption: {
+              ConstantInitializationVector: this.__input.cmafPackage?.encryption?.constantInitializationVector,
               SpekeKeyProvider: {
                 RoleArn: this.__input.cmafPackage?.encryption?.spekeKeyProvider.roleArn,
                 SystemIds: this.__input.cmafPackage?.encryption?.spekeKeyProvider.systemIds,
@@ -2395,6 +2866,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationMssPackageEncry
               },
             },
             HlsManifests: this.__input.cmafPackage?.hlsManifests,
+            IncludeEncoderConfigurationInSegments: this.__input.cmafPackage?.includeEncoderConfigurationInSegments,
             SegmentDurationSeconds: this.__input.cmafPackage?.segmentDurationSeconds,
           },
           DashPackage: {
@@ -2406,6 +2878,7 @@ export class MediaPackageVodResponsesCreatePackagingConfigurationMssPackageEncry
                 Url: this.__input.dashPackage?.encryption?.spekeKeyProvider.url,
               },
             },
+            IncludeEncoderConfigurationInSegments: this.__input.dashPackage?.includeEncoderConfigurationInSegments,
             PeriodTriggers: this.__input.dashPackage?.periodTriggers,
             SegmentDurationSeconds: this.__input.dashPackage?.segmentDurationSeconds,
             SegmentTemplateFormat: this.__input.dashPackage?.segmentTemplateFormat,
@@ -2465,6 +2938,9 @@ export class MediaPackageVodResponsesCreatePackagingGroup {
             CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
             SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
           },
+          EgressAccessLogs: {
+            LogGroupName: this.__input.egressAccessLogs?.logGroupName,
+          },
           Id: this.__input.id,
           Tags: this.__input.tags,
         },
@@ -2491,6 +2967,9 @@ export class MediaPackageVodResponsesCreatePackagingGroup {
             CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
             SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
           },
+          EgressAccessLogs: {
+            LogGroupName: this.__input.egressAccessLogs?.logGroupName,
+          },
           Id: this.__input.id,
           Tags: this.__input.tags,
         },
@@ -2498,6 +2977,10 @@ export class MediaPackageVodResponsesCreatePackagingGroup {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreatePackagingGroup.DomainName', props);
     return resource.getResponseField('DomainName') as unknown as string;
+  }
+
+  public get egressAccessLogs(): MediaPackageVodResponsesCreatePackagingGroupEgressAccessLogs {
+    return new MediaPackageVodResponsesCreatePackagingGroupEgressAccessLogs(this.__scope, this.__resources, this.__input);
   }
 
   public get id(): string {
@@ -2512,6 +2995,9 @@ export class MediaPackageVodResponsesCreatePackagingGroup {
           Authorization: {
             CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
             SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          EgressAccessLogs: {
+            LogGroupName: this.__input.egressAccessLogs?.logGroupName,
           },
           Id: this.__input.id,
           Tags: this.__input.tags,
@@ -2534,6 +3020,9 @@ export class MediaPackageVodResponsesCreatePackagingGroup {
           Authorization: {
             CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
             SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          EgressAccessLogs: {
+            LogGroupName: this.__input.egressAccessLogs?.logGroupName,
           },
           Id: this.__input.id,
           Tags: this.__input.tags,
@@ -2564,6 +3053,9 @@ export class MediaPackageVodResponsesCreatePackagingGroupAuthorization {
             CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
             SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
           },
+          EgressAccessLogs: {
+            LogGroupName: this.__input.egressAccessLogs?.logGroupName,
+          },
           Id: this.__input.id,
           Tags: this.__input.tags,
         },
@@ -2586,6 +3078,9 @@ export class MediaPackageVodResponsesCreatePackagingGroupAuthorization {
             CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
             SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
           },
+          EgressAccessLogs: {
+            LogGroupName: this.__input.egressAccessLogs?.logGroupName,
+          },
           Id: this.__input.id,
           Tags: this.__input.tags,
         },
@@ -2593,6 +3088,38 @@ export class MediaPackageVodResponsesCreatePackagingGroupAuthorization {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'CreatePackagingGroup.Authorization.SecretsRoleArn', props);
     return resource.getResponseField('Authorization.SecretsRoleArn') as unknown as string;
+  }
+
+}
+
+export class MediaPackageVodResponsesCreatePackagingGroupEgressAccessLogs {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageVodCreatePackagingGroupRequest) {
+  }
+
+  public get logGroupName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'createPackagingGroup',
+        service: 'MediaPackageVod',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.CreatePackagingGroup.EgressAccessLogs.LogGroupName'),
+        outputPath: 'EgressAccessLogs.LogGroupName',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          EgressAccessLogs: {
+            LogGroupName: this.__input.egressAccessLogs?.logGroupName,
+          },
+          Id: this.__input.id,
+          Tags: this.__input.tags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'CreatePackagingGroup.EgressAccessLogs.LogGroupName', props);
+    return resource.getResponseField('EgressAccessLogs.LogGroupName') as unknown as string;
   }
 
 }
@@ -2874,6 +3401,23 @@ export class MediaPackageVodResponsesDescribePackagingConfigurationCmafPackage {
     return resource.getResponseField('CmafPackage.HlsManifests') as unknown as shapes.MediaPackageVodHlsManifest[];
   }
 
+  public get includeEncoderConfigurationInSegments(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePackagingConfiguration',
+        service: 'MediaPackageVod',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.DescribePackagingConfiguration.CmafPackage.IncludeEncoderConfigurationInSegments'),
+        outputPath: 'CmafPackage.IncludeEncoderConfigurationInSegments',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePackagingConfiguration.CmafPackage.IncludeEncoderConfigurationInSegments', props);
+    return resource.getResponseField('CmafPackage.IncludeEncoderConfigurationInSegments') as unknown as boolean;
+  }
+
   public get segmentDurationSeconds(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -2896,6 +3440,23 @@ export class MediaPackageVodResponsesDescribePackagingConfigurationCmafPackage {
 export class MediaPackageVodResponsesDescribePackagingConfigurationCmafPackageEncryption {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageVodDescribePackagingConfigurationRequest) {
+  }
+
+  public get constantInitializationVector(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePackagingConfiguration',
+        service: 'MediaPackageVod',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.DescribePackagingConfiguration.CmafPackage.Encryption.ConstantInitializationVector'),
+        outputPath: 'CmafPackage.Encryption.ConstantInitializationVector',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePackagingConfiguration.CmafPackage.Encryption.ConstantInitializationVector', props);
+    return resource.getResponseField('CmafPackage.Encryption.ConstantInitializationVector') as unknown as string;
   }
 
   public get spekeKeyProvider(): MediaPackageVodResponsesDescribePackagingConfigurationCmafPackageEncryptionSpekeKeyProvider {
@@ -2986,6 +3547,23 @@ export class MediaPackageVodResponsesDescribePackagingConfigurationDashPackage {
 
   public get encryption(): MediaPackageVodResponsesDescribePackagingConfigurationDashPackageEncryption {
     return new MediaPackageVodResponsesDescribePackagingConfigurationDashPackageEncryption(this.__scope, this.__resources, this.__input);
+  }
+
+  public get includeEncoderConfigurationInSegments(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePackagingConfiguration',
+        service: 'MediaPackageVod',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.DescribePackagingConfiguration.DashPackage.IncludeEncoderConfigurationInSegments'),
+        outputPath: 'DashPackage.IncludeEncoderConfigurationInSegments',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePackagingConfiguration.DashPackage.IncludeEncoderConfigurationInSegments', props);
+    return resource.getResponseField('DashPackage.IncludeEncoderConfigurationInSegments') as unknown as boolean;
   }
 
   public get periodTriggers(): string[] {
@@ -3432,6 +4010,10 @@ export class MediaPackageVodResponsesDescribePackagingGroup {
     return resource.getResponseField('DomainName') as unknown as string;
   }
 
+  public get egressAccessLogs(): MediaPackageVodResponsesDescribePackagingGroupEgressAccessLogs {
+    return new MediaPackageVodResponsesDescribePackagingGroupEgressAccessLogs(this.__scope, this.__resources, this.__input);
+  }
+
   public get id(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -3505,6 +4087,30 @@ export class MediaPackageVodResponsesDescribePackagingGroupAuthorization {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribePackagingGroup.Authorization.SecretsRoleArn', props);
     return resource.getResponseField('Authorization.SecretsRoleArn') as unknown as string;
+  }
+
+}
+
+export class MediaPackageVodResponsesDescribePackagingGroupEgressAccessLogs {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageVodDescribePackagingGroupRequest) {
+  }
+
+  public get logGroupName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describePackagingGroup',
+        service: 'MediaPackageVod',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.DescribePackagingGroup.EgressAccessLogs.LogGroupName'),
+        outputPath: 'EgressAccessLogs.LogGroupName',
+        parameters: {
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribePackagingGroup.EgressAccessLogs.LogGroupName', props);
+    return resource.getResponseField('EgressAccessLogs.LogGroupName') as unknown as string;
   }
 
 }
@@ -3717,6 +4323,10 @@ export class MediaPackageVodResponsesUpdatePackagingGroup {
     return resource.getResponseField('DomainName') as unknown as string;
   }
 
+  public get egressAccessLogs(): MediaPackageVodResponsesUpdatePackagingGroupEgressAccessLogs {
+    return new MediaPackageVodResponsesUpdatePackagingGroupEgressAccessLogs(this.__scope, this.__resources, this.__input);
+  }
+
   public get id(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
@@ -3806,6 +4416,34 @@ export class MediaPackageVodResponsesUpdatePackagingGroupAuthorization {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'UpdatePackagingGroup.Authorization.SecretsRoleArn', props);
     return resource.getResponseField('Authorization.SecretsRoleArn') as unknown as string;
+  }
+
+}
+
+export class MediaPackageVodResponsesUpdatePackagingGroupEgressAccessLogs {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.MediaPackageVodUpdatePackagingGroupRequest) {
+  }
+
+  public get logGroupName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'updatePackagingGroup',
+        service: 'MediaPackageVod',
+        physicalResourceId: cr.PhysicalResourceId.of('MediaPackageVod.UpdatePackagingGroup.EgressAccessLogs.LogGroupName'),
+        outputPath: 'EgressAccessLogs.LogGroupName',
+        parameters: {
+          Authorization: {
+            CdnIdentifierSecret: this.__input.authorization?.cdnIdentifierSecret,
+            SecretsRoleArn: this.__input.authorization?.secretsRoleArn,
+          },
+          Id: this.__input.id,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'UpdatePackagingGroup.EgressAccessLogs.LogGroupName', props);
+    return resource.getResponseField('EgressAccessLogs.LogGroupName') as unknown as string;
   }
 
 }

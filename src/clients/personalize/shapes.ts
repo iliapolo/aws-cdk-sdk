@@ -45,6 +45,27 @@ export interface PersonalizeCreateBatchInferenceJobRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeCreateBatchInferenceJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateBatchInferenceJobRequest(obj: PersonalizeCreateBatchInferenceJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobName': obj.jobName,
+    'solutionVersionArn': obj.solutionVersionArn,
+    'filterArn': obj.filterArn,
+    'numResults': obj.numResults,
+    'jobInput': toJson_PersonalizeBatchInferenceJobInput(obj.jobInput),
+    'jobOutput': toJson_PersonalizeBatchInferenceJobOutput(obj.jobOutput),
+    'roleArn': obj.roleArn,
+    'batchInferenceJobConfig': toJson_PersonalizeBatchInferenceJobConfig(obj.batchInferenceJobConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeCreateBatchInferenceJobResponse
  */
 export interface PersonalizeCreateBatchInferenceJobResponse {
@@ -54,6 +75,20 @@ export interface PersonalizeCreateBatchInferenceJobResponse {
   readonly batchInferenceJobArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeCreateBatchInferenceJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateBatchInferenceJobResponse(obj: PersonalizeCreateBatchInferenceJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'batchInferenceJobArn': obj.batchInferenceJobArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeCreateCampaignRequest
@@ -72,7 +107,7 @@ export interface PersonalizeCreateCampaignRequest {
   /**
    * @schema PersonalizeCreateCampaignRequest#minProvisionedTPS
    */
-  readonly minProvisionedTPS?: number;
+  readonly minProvisionedTps?: number;
 
   /**
    * @schema PersonalizeCreateCampaignRequest#campaignConfig
@@ -80,6 +115,23 @@ export interface PersonalizeCreateCampaignRequest {
   readonly campaignConfig?: PersonalizeCampaignConfig;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeCreateCampaignRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateCampaignRequest(obj: PersonalizeCreateCampaignRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'solutionVersionArn': obj.solutionVersionArn,
+    'minProvisionedTPS': obj.minProvisionedTps,
+    'campaignConfig': toJson_PersonalizeCampaignConfig(obj.campaignConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeCreateCampaignResponse
@@ -91,6 +143,20 @@ export interface PersonalizeCreateCampaignResponse {
   readonly campaignArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeCreateCampaignResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateCampaignResponse(obj: PersonalizeCreateCampaignResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'campaignArn': obj.campaignArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeCreateDatasetRequest
@@ -119,6 +185,23 @@ export interface PersonalizeCreateDatasetRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeCreateDatasetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateDatasetRequest(obj: PersonalizeCreateDatasetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'schemaArn': obj.schemaArn,
+    'datasetGroupArn': obj.datasetGroupArn,
+    'datasetType': obj.datasetType,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeCreateDatasetResponse
  */
 export interface PersonalizeCreateDatasetResponse {
@@ -128,6 +211,94 @@ export interface PersonalizeCreateDatasetResponse {
   readonly datasetArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeCreateDatasetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateDatasetResponse(obj: PersonalizeCreateDatasetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetArn': obj.datasetArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema PersonalizeCreateDatasetExportJobRequest
+ */
+export interface PersonalizeCreateDatasetExportJobRequest {
+  /**
+   * @schema PersonalizeCreateDatasetExportJobRequest#jobName
+   */
+  readonly jobName: string;
+
+  /**
+   * @schema PersonalizeCreateDatasetExportJobRequest#datasetArn
+   */
+  readonly datasetArn: string;
+
+  /**
+   * @schema PersonalizeCreateDatasetExportJobRequest#ingestionMode
+   */
+  readonly ingestionMode?: string;
+
+  /**
+   * @schema PersonalizeCreateDatasetExportJobRequest#roleArn
+   */
+  readonly roleArn: string;
+
+  /**
+   * @schema PersonalizeCreateDatasetExportJobRequest#jobOutput
+   */
+  readonly jobOutput: PersonalizeDatasetExportJobOutput;
+
+}
+
+/**
+ * Converts an object of type 'PersonalizeCreateDatasetExportJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateDatasetExportJobRequest(obj: PersonalizeCreateDatasetExportJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobName': obj.jobName,
+    'datasetArn': obj.datasetArn,
+    'ingestionMode': obj.ingestionMode,
+    'roleArn': obj.roleArn,
+    'jobOutput': toJson_PersonalizeDatasetExportJobOutput(obj.jobOutput),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema PersonalizeCreateDatasetExportJobResponse
+ */
+export interface PersonalizeCreateDatasetExportJobResponse {
+  /**
+   * @schema PersonalizeCreateDatasetExportJobResponse#datasetExportJobArn
+   */
+  readonly datasetExportJobArn?: string;
+
+}
+
+/**
+ * Converts an object of type 'PersonalizeCreateDatasetExportJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateDatasetExportJobResponse(obj: PersonalizeCreateDatasetExportJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetExportJobArn': obj.datasetExportJobArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeCreateDatasetGroupRequest
@@ -151,6 +322,22 @@ export interface PersonalizeCreateDatasetGroupRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeCreateDatasetGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateDatasetGroupRequest(obj: PersonalizeCreateDatasetGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'roleArn': obj.roleArn,
+    'kmsKeyArn': obj.kmsKeyArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeCreateDatasetGroupResponse
  */
 export interface PersonalizeCreateDatasetGroupResponse {
@@ -160,6 +347,20 @@ export interface PersonalizeCreateDatasetGroupResponse {
   readonly datasetGroupArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeCreateDatasetGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateDatasetGroupResponse(obj: PersonalizeCreateDatasetGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetGroupArn': obj.datasetGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeCreateDatasetImportJobRequest
@@ -188,6 +389,23 @@ export interface PersonalizeCreateDatasetImportJobRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeCreateDatasetImportJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateDatasetImportJobRequest(obj: PersonalizeCreateDatasetImportJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobName': obj.jobName,
+    'datasetArn': obj.datasetArn,
+    'dataSource': toJson_PersonalizeDataSource(obj.dataSource),
+    'roleArn': obj.roleArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeCreateDatasetImportJobResponse
  */
 export interface PersonalizeCreateDatasetImportJobResponse {
@@ -197,6 +415,20 @@ export interface PersonalizeCreateDatasetImportJobResponse {
   readonly datasetImportJobArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeCreateDatasetImportJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateDatasetImportJobResponse(obj: PersonalizeCreateDatasetImportJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetImportJobArn': obj.datasetImportJobArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeCreateEventTrackerRequest
@@ -215,6 +447,21 @@ export interface PersonalizeCreateEventTrackerRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeCreateEventTrackerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateEventTrackerRequest(obj: PersonalizeCreateEventTrackerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'datasetGroupArn': obj.datasetGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeCreateEventTrackerResponse
  */
 export interface PersonalizeCreateEventTrackerResponse {
@@ -229,6 +476,21 @@ export interface PersonalizeCreateEventTrackerResponse {
   readonly trackingId?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeCreateEventTrackerResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateEventTrackerResponse(obj: PersonalizeCreateEventTrackerResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventTrackerArn': obj.eventTrackerArn,
+    'trackingId': obj.trackingId,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeCreateFilterRequest
@@ -252,6 +514,22 @@ export interface PersonalizeCreateFilterRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeCreateFilterRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateFilterRequest(obj: PersonalizeCreateFilterRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'datasetGroupArn': obj.datasetGroupArn,
+    'filterExpression': obj.filterExpression,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeCreateFilterResponse
  */
 export interface PersonalizeCreateFilterResponse {
@@ -261,6 +539,20 @@ export interface PersonalizeCreateFilterResponse {
   readonly filterArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeCreateFilterResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateFilterResponse(obj: PersonalizeCreateFilterResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filterArn': obj.filterArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeCreateSchemaRequest
@@ -279,6 +571,21 @@ export interface PersonalizeCreateSchemaRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeCreateSchemaRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateSchemaRequest(obj: PersonalizeCreateSchemaRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'schema': obj.schema,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeCreateSchemaResponse
  */
 export interface PersonalizeCreateSchemaResponse {
@@ -288,6 +595,20 @@ export interface PersonalizeCreateSchemaResponse {
   readonly schemaArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeCreateSchemaResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateSchemaResponse(obj: PersonalizeCreateSchemaResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'schemaArn': obj.schemaArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeCreateSolutionRequest
@@ -301,12 +622,12 @@ export interface PersonalizeCreateSolutionRequest {
   /**
    * @schema PersonalizeCreateSolutionRequest#performHPO
    */
-  readonly performHPO?: boolean;
+  readonly performHpo?: boolean;
 
   /**
    * @schema PersonalizeCreateSolutionRequest#performAutoML
    */
-  readonly performAutoML?: boolean;
+  readonly performAutoMl?: boolean;
 
   /**
    * @schema PersonalizeCreateSolutionRequest#recipeArn
@@ -331,6 +652,26 @@ export interface PersonalizeCreateSolutionRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeCreateSolutionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateSolutionRequest(obj: PersonalizeCreateSolutionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'performHPO': obj.performHpo,
+    'performAutoML': obj.performAutoMl,
+    'recipeArn': obj.recipeArn,
+    'datasetGroupArn': obj.datasetGroupArn,
+    'eventType': obj.eventType,
+    'solutionConfig': toJson_PersonalizeSolutionConfig(obj.solutionConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeCreateSolutionResponse
  */
 export interface PersonalizeCreateSolutionResponse {
@@ -340,6 +681,20 @@ export interface PersonalizeCreateSolutionResponse {
   readonly solutionArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeCreateSolutionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateSolutionResponse(obj: PersonalizeCreateSolutionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solutionArn': obj.solutionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeCreateSolutionVersionRequest
@@ -358,6 +713,21 @@ export interface PersonalizeCreateSolutionVersionRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeCreateSolutionVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateSolutionVersionRequest(obj: PersonalizeCreateSolutionVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solutionArn': obj.solutionArn,
+    'trainingMode': obj.trainingMode,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeCreateSolutionVersionResponse
  */
 export interface PersonalizeCreateSolutionVersionResponse {
@@ -367,6 +737,20 @@ export interface PersonalizeCreateSolutionVersionResponse {
   readonly solutionVersionArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeCreateSolutionVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCreateSolutionVersionResponse(obj: PersonalizeCreateSolutionVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solutionVersionArn': obj.solutionVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDeleteCampaignRequest
@@ -380,6 +764,20 @@ export interface PersonalizeDeleteCampaignRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDeleteCampaignRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDeleteCampaignRequest(obj: PersonalizeDeleteCampaignRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'campaignArn': obj.campaignArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDeleteDatasetRequest
  */
 export interface PersonalizeDeleteDatasetRequest {
@@ -389,6 +787,20 @@ export interface PersonalizeDeleteDatasetRequest {
   readonly datasetArn: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDeleteDatasetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDeleteDatasetRequest(obj: PersonalizeDeleteDatasetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetArn': obj.datasetArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDeleteDatasetGroupRequest
@@ -402,6 +814,20 @@ export interface PersonalizeDeleteDatasetGroupRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDeleteDatasetGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDeleteDatasetGroupRequest(obj: PersonalizeDeleteDatasetGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetGroupArn': obj.datasetGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDeleteEventTrackerRequest
  */
 export interface PersonalizeDeleteEventTrackerRequest {
@@ -411,6 +837,20 @@ export interface PersonalizeDeleteEventTrackerRequest {
   readonly eventTrackerArn: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDeleteEventTrackerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDeleteEventTrackerRequest(obj: PersonalizeDeleteEventTrackerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventTrackerArn': obj.eventTrackerArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDeleteFilterRequest
@@ -424,6 +864,20 @@ export interface PersonalizeDeleteFilterRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDeleteFilterRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDeleteFilterRequest(obj: PersonalizeDeleteFilterRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filterArn': obj.filterArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDeleteSchemaRequest
  */
 export interface PersonalizeDeleteSchemaRequest {
@@ -433,6 +887,20 @@ export interface PersonalizeDeleteSchemaRequest {
   readonly schemaArn: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDeleteSchemaRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDeleteSchemaRequest(obj: PersonalizeDeleteSchemaRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'schemaArn': obj.schemaArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDeleteSolutionRequest
@@ -446,6 +914,20 @@ export interface PersonalizeDeleteSolutionRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDeleteSolutionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDeleteSolutionRequest(obj: PersonalizeDeleteSolutionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solutionArn': obj.solutionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDescribeAlgorithmRequest
  */
 export interface PersonalizeDescribeAlgorithmRequest {
@@ -455,6 +937,20 @@ export interface PersonalizeDescribeAlgorithmRequest {
   readonly algorithmArn: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDescribeAlgorithmRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeAlgorithmRequest(obj: PersonalizeDescribeAlgorithmRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'algorithmArn': obj.algorithmArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDescribeAlgorithmResponse
@@ -468,6 +964,20 @@ export interface PersonalizeDescribeAlgorithmResponse {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDescribeAlgorithmResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeAlgorithmResponse(obj: PersonalizeDescribeAlgorithmResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'algorithm': toJson_PersonalizeAlgorithm(obj.algorithm),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDescribeBatchInferenceJobRequest
  */
 export interface PersonalizeDescribeBatchInferenceJobRequest {
@@ -477,6 +987,20 @@ export interface PersonalizeDescribeBatchInferenceJobRequest {
   readonly batchInferenceJobArn: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDescribeBatchInferenceJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeBatchInferenceJobRequest(obj: PersonalizeDescribeBatchInferenceJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'batchInferenceJobArn': obj.batchInferenceJobArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDescribeBatchInferenceJobResponse
@@ -490,6 +1014,20 @@ export interface PersonalizeDescribeBatchInferenceJobResponse {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDescribeBatchInferenceJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeBatchInferenceJobResponse(obj: PersonalizeDescribeBatchInferenceJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'batchInferenceJob': toJson_PersonalizeBatchInferenceJob(obj.batchInferenceJob),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDescribeCampaignRequest
  */
 export interface PersonalizeDescribeCampaignRequest {
@@ -499,6 +1037,20 @@ export interface PersonalizeDescribeCampaignRequest {
   readonly campaignArn: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDescribeCampaignRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeCampaignRequest(obj: PersonalizeDescribeCampaignRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'campaignArn': obj.campaignArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDescribeCampaignResponse
@@ -512,6 +1064,20 @@ export interface PersonalizeDescribeCampaignResponse {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDescribeCampaignResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeCampaignResponse(obj: PersonalizeDescribeCampaignResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'campaign': toJson_PersonalizeCampaign(obj.campaign),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDescribeDatasetRequest
  */
 export interface PersonalizeDescribeDatasetRequest {
@@ -521,6 +1087,20 @@ export interface PersonalizeDescribeDatasetRequest {
   readonly datasetArn: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDescribeDatasetRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeDatasetRequest(obj: PersonalizeDescribeDatasetRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetArn': obj.datasetArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDescribeDatasetResponse
@@ -534,6 +1114,70 @@ export interface PersonalizeDescribeDatasetResponse {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDescribeDatasetResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeDatasetResponse(obj: PersonalizeDescribeDatasetResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dataset': toJson_PersonalizeDataset(obj.dataset),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema PersonalizeDescribeDatasetExportJobRequest
+ */
+export interface PersonalizeDescribeDatasetExportJobRequest {
+  /**
+   * @schema PersonalizeDescribeDatasetExportJobRequest#datasetExportJobArn
+   */
+  readonly datasetExportJobArn: string;
+
+}
+
+/**
+ * Converts an object of type 'PersonalizeDescribeDatasetExportJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeDatasetExportJobRequest(obj: PersonalizeDescribeDatasetExportJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetExportJobArn': obj.datasetExportJobArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema PersonalizeDescribeDatasetExportJobResponse
+ */
+export interface PersonalizeDescribeDatasetExportJobResponse {
+  /**
+   * @schema PersonalizeDescribeDatasetExportJobResponse#datasetExportJob
+   */
+  readonly datasetExportJob?: PersonalizeDatasetExportJob;
+
+}
+
+/**
+ * Converts an object of type 'PersonalizeDescribeDatasetExportJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeDatasetExportJobResponse(obj: PersonalizeDescribeDatasetExportJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetExportJob': toJson_PersonalizeDatasetExportJob(obj.datasetExportJob),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDescribeDatasetGroupRequest
  */
 export interface PersonalizeDescribeDatasetGroupRequest {
@@ -543,6 +1187,20 @@ export interface PersonalizeDescribeDatasetGroupRequest {
   readonly datasetGroupArn: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDescribeDatasetGroupRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeDatasetGroupRequest(obj: PersonalizeDescribeDatasetGroupRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetGroupArn': obj.datasetGroupArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDescribeDatasetGroupResponse
@@ -556,6 +1214,20 @@ export interface PersonalizeDescribeDatasetGroupResponse {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDescribeDatasetGroupResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeDatasetGroupResponse(obj: PersonalizeDescribeDatasetGroupResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetGroup': toJson_PersonalizeDatasetGroup(obj.datasetGroup),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDescribeDatasetImportJobRequest
  */
 export interface PersonalizeDescribeDatasetImportJobRequest {
@@ -565,6 +1237,20 @@ export interface PersonalizeDescribeDatasetImportJobRequest {
   readonly datasetImportJobArn: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDescribeDatasetImportJobRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeDatasetImportJobRequest(obj: PersonalizeDescribeDatasetImportJobRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetImportJobArn': obj.datasetImportJobArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDescribeDatasetImportJobResponse
@@ -578,6 +1264,20 @@ export interface PersonalizeDescribeDatasetImportJobResponse {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDescribeDatasetImportJobResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeDatasetImportJobResponse(obj: PersonalizeDescribeDatasetImportJobResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetImportJob': toJson_PersonalizeDatasetImportJob(obj.datasetImportJob),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDescribeEventTrackerRequest
  */
 export interface PersonalizeDescribeEventTrackerRequest {
@@ -587,6 +1287,20 @@ export interface PersonalizeDescribeEventTrackerRequest {
   readonly eventTrackerArn: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDescribeEventTrackerRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeEventTrackerRequest(obj: PersonalizeDescribeEventTrackerRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventTrackerArn': obj.eventTrackerArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDescribeEventTrackerResponse
@@ -600,6 +1314,20 @@ export interface PersonalizeDescribeEventTrackerResponse {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDescribeEventTrackerResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeEventTrackerResponse(obj: PersonalizeDescribeEventTrackerResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventTracker': toJson_PersonalizeEventTracker(obj.eventTracker),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDescribeFeatureTransformationRequest
  */
 export interface PersonalizeDescribeFeatureTransformationRequest {
@@ -609,6 +1337,20 @@ export interface PersonalizeDescribeFeatureTransformationRequest {
   readonly featureTransformationArn: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDescribeFeatureTransformationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeFeatureTransformationRequest(obj: PersonalizeDescribeFeatureTransformationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'featureTransformationArn': obj.featureTransformationArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDescribeFeatureTransformationResponse
@@ -622,6 +1364,20 @@ export interface PersonalizeDescribeFeatureTransformationResponse {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDescribeFeatureTransformationResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeFeatureTransformationResponse(obj: PersonalizeDescribeFeatureTransformationResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'featureTransformation': toJson_PersonalizeFeatureTransformation(obj.featureTransformation),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDescribeFilterRequest
  */
 export interface PersonalizeDescribeFilterRequest {
@@ -631,6 +1387,20 @@ export interface PersonalizeDescribeFilterRequest {
   readonly filterArn: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDescribeFilterRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeFilterRequest(obj: PersonalizeDescribeFilterRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filterArn': obj.filterArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDescribeFilterResponse
@@ -644,6 +1414,20 @@ export interface PersonalizeDescribeFilterResponse {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDescribeFilterResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeFilterResponse(obj: PersonalizeDescribeFilterResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'filter': toJson_PersonalizeFilter(obj.filter),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDescribeRecipeRequest
  */
 export interface PersonalizeDescribeRecipeRequest {
@@ -653,6 +1437,20 @@ export interface PersonalizeDescribeRecipeRequest {
   readonly recipeArn: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDescribeRecipeRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeRecipeRequest(obj: PersonalizeDescribeRecipeRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'recipeArn': obj.recipeArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDescribeRecipeResponse
@@ -666,6 +1464,20 @@ export interface PersonalizeDescribeRecipeResponse {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDescribeRecipeResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeRecipeResponse(obj: PersonalizeDescribeRecipeResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'recipe': toJson_PersonalizeRecipe(obj.recipe),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDescribeSchemaRequest
  */
 export interface PersonalizeDescribeSchemaRequest {
@@ -675,6 +1487,20 @@ export interface PersonalizeDescribeSchemaRequest {
   readonly schemaArn: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDescribeSchemaRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeSchemaRequest(obj: PersonalizeDescribeSchemaRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'schemaArn': obj.schemaArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDescribeSchemaResponse
@@ -688,6 +1514,20 @@ export interface PersonalizeDescribeSchemaResponse {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDescribeSchemaResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeSchemaResponse(obj: PersonalizeDescribeSchemaResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'schema': toJson_PersonalizeDatasetSchema(obj.schema),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDescribeSolutionRequest
  */
 export interface PersonalizeDescribeSolutionRequest {
@@ -697,6 +1537,20 @@ export interface PersonalizeDescribeSolutionRequest {
   readonly solutionArn: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDescribeSolutionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeSolutionRequest(obj: PersonalizeDescribeSolutionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solutionArn': obj.solutionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDescribeSolutionResponse
@@ -710,6 +1564,20 @@ export interface PersonalizeDescribeSolutionResponse {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDescribeSolutionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeSolutionResponse(obj: PersonalizeDescribeSolutionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solution': toJson_PersonalizeSolution(obj.solution),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDescribeSolutionVersionRequest
  */
 export interface PersonalizeDescribeSolutionVersionRequest {
@@ -719,6 +1587,20 @@ export interface PersonalizeDescribeSolutionVersionRequest {
   readonly solutionVersionArn: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDescribeSolutionVersionRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeSolutionVersionRequest(obj: PersonalizeDescribeSolutionVersionRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solutionVersionArn': obj.solutionVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDescribeSolutionVersionResponse
@@ -732,6 +1614,20 @@ export interface PersonalizeDescribeSolutionVersionResponse {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDescribeSolutionVersionResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDescribeSolutionVersionResponse(obj: PersonalizeDescribeSolutionVersionResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solutionVersion': toJson_PersonalizeSolutionVersion(obj.solutionVersion),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeGetSolutionMetricsRequest
  */
 export interface PersonalizeGetSolutionMetricsRequest {
@@ -741,6 +1637,20 @@ export interface PersonalizeGetSolutionMetricsRequest {
   readonly solutionVersionArn: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeGetSolutionMetricsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeGetSolutionMetricsRequest(obj: PersonalizeGetSolutionMetricsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solutionVersionArn': obj.solutionVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeGetSolutionMetricsResponse
@@ -757,6 +1667,21 @@ export interface PersonalizeGetSolutionMetricsResponse {
   readonly metrics?: { [key: string]: number };
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeGetSolutionMetricsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeGetSolutionMetricsResponse(obj: PersonalizeGetSolutionMetricsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solutionVersionArn': obj.solutionVersionArn,
+    'metrics': ((obj.metrics) === undefined) ? undefined : (Object.entries(obj.metrics).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeListBatchInferenceJobsRequest
@@ -780,6 +1705,22 @@ export interface PersonalizeListBatchInferenceJobsRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeListBatchInferenceJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListBatchInferenceJobsRequest(obj: PersonalizeListBatchInferenceJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solutionVersionArn': obj.solutionVersionArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeListBatchInferenceJobsResponse
  */
 export interface PersonalizeListBatchInferenceJobsResponse {
@@ -794,6 +1735,21 @@ export interface PersonalizeListBatchInferenceJobsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeListBatchInferenceJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListBatchInferenceJobsResponse(obj: PersonalizeListBatchInferenceJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'batchInferenceJobs': obj.batchInferenceJobs?.map(y => toJson_PersonalizeBatchInferenceJobSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeListCampaignsRequest
@@ -817,6 +1773,22 @@ export interface PersonalizeListCampaignsRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeListCampaignsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListCampaignsRequest(obj: PersonalizeListCampaignsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solutionArn': obj.solutionArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeListCampaignsResponse
  */
 export interface PersonalizeListCampaignsResponse {
@@ -831,6 +1803,89 @@ export interface PersonalizeListCampaignsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeListCampaignsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListCampaignsResponse(obj: PersonalizeListCampaignsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'campaigns': obj.campaigns?.map(y => toJson_PersonalizeCampaignSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema PersonalizeListDatasetExportJobsRequest
+ */
+export interface PersonalizeListDatasetExportJobsRequest {
+  /**
+   * @schema PersonalizeListDatasetExportJobsRequest#datasetArn
+   */
+  readonly datasetArn?: string;
+
+  /**
+   * @schema PersonalizeListDatasetExportJobsRequest#nextToken
+   */
+  readonly nextToken?: string;
+
+  /**
+   * @schema PersonalizeListDatasetExportJobsRequest#maxResults
+   */
+  readonly maxResults?: number;
+
+}
+
+/**
+ * Converts an object of type 'PersonalizeListDatasetExportJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListDatasetExportJobsRequest(obj: PersonalizeListDatasetExportJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetArn': obj.datasetArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema PersonalizeListDatasetExportJobsResponse
+ */
+export interface PersonalizeListDatasetExportJobsResponse {
+  /**
+   * @schema PersonalizeListDatasetExportJobsResponse#datasetExportJobs
+   */
+  readonly datasetExportJobs?: PersonalizeDatasetExportJobSummary[];
+
+  /**
+   * @schema PersonalizeListDatasetExportJobsResponse#nextToken
+   */
+  readonly nextToken?: string;
+
+}
+
+/**
+ * Converts an object of type 'PersonalizeListDatasetExportJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListDatasetExportJobsResponse(obj: PersonalizeListDatasetExportJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetExportJobs': obj.datasetExportJobs?.map(y => toJson_PersonalizeDatasetExportJobSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeListDatasetGroupsRequest
@@ -849,6 +1904,21 @@ export interface PersonalizeListDatasetGroupsRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeListDatasetGroupsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListDatasetGroupsRequest(obj: PersonalizeListDatasetGroupsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeListDatasetGroupsResponse
  */
 export interface PersonalizeListDatasetGroupsResponse {
@@ -863,6 +1933,21 @@ export interface PersonalizeListDatasetGroupsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeListDatasetGroupsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListDatasetGroupsResponse(obj: PersonalizeListDatasetGroupsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetGroups': obj.datasetGroups?.map(y => toJson_PersonalizeDatasetGroupSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeListDatasetImportJobsRequest
@@ -886,6 +1971,22 @@ export interface PersonalizeListDatasetImportJobsRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeListDatasetImportJobsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListDatasetImportJobsRequest(obj: PersonalizeListDatasetImportJobsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetArn': obj.datasetArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeListDatasetImportJobsResponse
  */
 export interface PersonalizeListDatasetImportJobsResponse {
@@ -900,6 +2001,21 @@ export interface PersonalizeListDatasetImportJobsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeListDatasetImportJobsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListDatasetImportJobsResponse(obj: PersonalizeListDatasetImportJobsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetImportJobs': obj.datasetImportJobs?.map(y => toJson_PersonalizeDatasetImportJobSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeListDatasetsRequest
@@ -923,6 +2039,22 @@ export interface PersonalizeListDatasetsRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeListDatasetsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListDatasetsRequest(obj: PersonalizeListDatasetsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetGroupArn': obj.datasetGroupArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeListDatasetsResponse
  */
 export interface PersonalizeListDatasetsResponse {
@@ -937,6 +2069,21 @@ export interface PersonalizeListDatasetsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeListDatasetsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListDatasetsResponse(obj: PersonalizeListDatasetsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasets': obj.datasets?.map(y => toJson_PersonalizeDatasetSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeListEventTrackersRequest
@@ -960,6 +2107,22 @@ export interface PersonalizeListEventTrackersRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeListEventTrackersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListEventTrackersRequest(obj: PersonalizeListEventTrackersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetGroupArn': obj.datasetGroupArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeListEventTrackersResponse
  */
 export interface PersonalizeListEventTrackersResponse {
@@ -974,6 +2137,21 @@ export interface PersonalizeListEventTrackersResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeListEventTrackersResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListEventTrackersResponse(obj: PersonalizeListEventTrackersResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventTrackers': obj.eventTrackers?.map(y => toJson_PersonalizeEventTrackerSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeListFiltersRequest
@@ -997,6 +2175,22 @@ export interface PersonalizeListFiltersRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeListFiltersRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListFiltersRequest(obj: PersonalizeListFiltersRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetGroupArn': obj.datasetGroupArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeListFiltersResponse
  */
 export interface PersonalizeListFiltersResponse {
@@ -1011,6 +2205,21 @@ export interface PersonalizeListFiltersResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeListFiltersResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListFiltersResponse(obj: PersonalizeListFiltersResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'Filters': obj.filters?.map(y => toJson_PersonalizeFilterSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeListRecipesRequest
@@ -1034,6 +2243,22 @@ export interface PersonalizeListRecipesRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeListRecipesRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListRecipesRequest(obj: PersonalizeListRecipesRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'recipeProvider': obj.recipeProvider,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeListRecipesResponse
  */
 export interface PersonalizeListRecipesResponse {
@@ -1048,6 +2273,21 @@ export interface PersonalizeListRecipesResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeListRecipesResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListRecipesResponse(obj: PersonalizeListRecipesResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'recipes': obj.recipes?.map(y => toJson_PersonalizeRecipeSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeListSchemasRequest
@@ -1066,6 +2306,21 @@ export interface PersonalizeListSchemasRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeListSchemasRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListSchemasRequest(obj: PersonalizeListSchemasRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeListSchemasResponse
  */
 export interface PersonalizeListSchemasResponse {
@@ -1080,6 +2335,21 @@ export interface PersonalizeListSchemasResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeListSchemasResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListSchemasResponse(obj: PersonalizeListSchemasResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'schemas': obj.schemas?.map(y => toJson_PersonalizeDatasetSchemaSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeListSolutionVersionsRequest
@@ -1103,6 +2373,22 @@ export interface PersonalizeListSolutionVersionsRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeListSolutionVersionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListSolutionVersionsRequest(obj: PersonalizeListSolutionVersionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solutionArn': obj.solutionArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeListSolutionVersionsResponse
  */
 export interface PersonalizeListSolutionVersionsResponse {
@@ -1117,6 +2403,21 @@ export interface PersonalizeListSolutionVersionsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeListSolutionVersionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListSolutionVersionsResponse(obj: PersonalizeListSolutionVersionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solutionVersions': obj.solutionVersions?.map(y => toJson_PersonalizeSolutionVersionSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeListSolutionsRequest
@@ -1140,6 +2441,22 @@ export interface PersonalizeListSolutionsRequest {
 }
 
 /**
+ * Converts an object of type 'PersonalizeListSolutionsRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListSolutionsRequest(obj: PersonalizeListSolutionsRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetGroupArn': obj.datasetGroupArn,
+    'nextToken': obj.nextToken,
+    'maxResults': obj.maxResults,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeListSolutionsResponse
  */
 export interface PersonalizeListSolutionsResponse {
@@ -1154,6 +2471,46 @@ export interface PersonalizeListSolutionsResponse {
   readonly nextToken?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeListSolutionsResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeListSolutionsResponse(obj: PersonalizeListSolutionsResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solutions': obj.solutions?.map(y => toJson_PersonalizeSolutionSummary(y)),
+    'nextToken': obj.nextToken,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema PersonalizeStopSolutionVersionCreationRequest
+ */
+export interface PersonalizeStopSolutionVersionCreationRequest {
+  /**
+   * @schema PersonalizeStopSolutionVersionCreationRequest#solutionVersionArn
+   */
+  readonly solutionVersionArn: string;
+
+}
+
+/**
+ * Converts an object of type 'PersonalizeStopSolutionVersionCreationRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeStopSolutionVersionCreationRequest(obj: PersonalizeStopSolutionVersionCreationRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solutionVersionArn': obj.solutionVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeUpdateCampaignRequest
@@ -1172,7 +2529,7 @@ export interface PersonalizeUpdateCampaignRequest {
   /**
    * @schema PersonalizeUpdateCampaignRequest#minProvisionedTPS
    */
-  readonly minProvisionedTPS?: number;
+  readonly minProvisionedTps?: number;
 
   /**
    * @schema PersonalizeUpdateCampaignRequest#campaignConfig
@@ -1180,6 +2537,23 @@ export interface PersonalizeUpdateCampaignRequest {
   readonly campaignConfig?: PersonalizeCampaignConfig;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeUpdateCampaignRequest' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeUpdateCampaignRequest(obj: PersonalizeUpdateCampaignRequest | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'campaignArn': obj.campaignArn,
+    'solutionVersionArn': obj.solutionVersionArn,
+    'minProvisionedTPS': obj.minProvisionedTps,
+    'campaignConfig': toJson_PersonalizeCampaignConfig(obj.campaignConfig),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeUpdateCampaignResponse
@@ -1193,6 +2567,20 @@ export interface PersonalizeUpdateCampaignResponse {
 }
 
 /**
+ * Converts an object of type 'PersonalizeUpdateCampaignResponse' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeUpdateCampaignResponse(obj: PersonalizeUpdateCampaignResponse | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'campaignArn': obj.campaignArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeBatchInferenceJobInput
  */
 export interface PersonalizeBatchInferenceJobInput {
@@ -1202,6 +2590,20 @@ export interface PersonalizeBatchInferenceJobInput {
   readonly s3DataSource: PersonalizeS3DataConfig;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeBatchInferenceJobInput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeBatchInferenceJobInput(obj: PersonalizeBatchInferenceJobInput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    's3DataSource': toJson_PersonalizeS3DataConfig(obj.s3DataSource),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeBatchInferenceJobOutput
@@ -1215,6 +2617,20 @@ export interface PersonalizeBatchInferenceJobOutput {
 }
 
 /**
+ * Converts an object of type 'PersonalizeBatchInferenceJobOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeBatchInferenceJobOutput(obj: PersonalizeBatchInferenceJobOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    's3DataDestination': toJson_PersonalizeS3DataConfig(obj.s3DataDestination),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeBatchInferenceJobConfig
  */
 export interface PersonalizeBatchInferenceJobConfig {
@@ -1224,6 +2640,20 @@ export interface PersonalizeBatchInferenceJobConfig {
   readonly itemExplorationConfig?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeBatchInferenceJobConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeBatchInferenceJobConfig(obj: PersonalizeBatchInferenceJobConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'itemExplorationConfig': ((obj.itemExplorationConfig) === undefined) ? undefined : (Object.entries(obj.itemExplorationConfig).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeCampaignConfig
@@ -1237,6 +2667,45 @@ export interface PersonalizeCampaignConfig {
 }
 
 /**
+ * Converts an object of type 'PersonalizeCampaignConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCampaignConfig(obj: PersonalizeCampaignConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'itemExplorationConfig': ((obj.itemExplorationConfig) === undefined) ? undefined : (Object.entries(obj.itemExplorationConfig).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema PersonalizeDatasetExportJobOutput
+ */
+export interface PersonalizeDatasetExportJobOutput {
+  /**
+   * @schema PersonalizeDatasetExportJobOutput#s3DataDestination
+   */
+  readonly s3DataDestination: PersonalizeS3DataConfig;
+
+}
+
+/**
+ * Converts an object of type 'PersonalizeDatasetExportJobOutput' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDatasetExportJobOutput(obj: PersonalizeDatasetExportJobOutput | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    's3DataDestination': toJson_PersonalizeS3DataConfig(obj.s3DataDestination),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDataSource
  */
 export interface PersonalizeDataSource {
@@ -1246,6 +2715,20 @@ export interface PersonalizeDataSource {
   readonly dataLocation?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDataSource' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDataSource(obj: PersonalizeDataSource | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'dataLocation': obj.dataLocation,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeSolutionConfig
@@ -1274,9 +2757,33 @@ export interface PersonalizeSolutionConfig {
   /**
    * @schema PersonalizeSolutionConfig#autoMLConfig
    */
-  readonly autoMLConfig?: PersonalizeAutoMlConfig;
+  readonly autoMlConfig?: PersonalizeAutoMlConfig;
+
+  /**
+   * @schema PersonalizeSolutionConfig#optimizationObjective
+   */
+  readonly optimizationObjective?: PersonalizeOptimizationObjective;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeSolutionConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeSolutionConfig(obj: PersonalizeSolutionConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'eventValueThreshold': obj.eventValueThreshold,
+    'hpoConfig': toJson_PersonalizeHpoConfig(obj.hpoConfig),
+    'algorithmHyperParameters': ((obj.algorithmHyperParameters) === undefined) ? undefined : (Object.entries(obj.algorithmHyperParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'featureTransformationParameters': ((obj.featureTransformationParameters) === undefined) ? undefined : (Object.entries(obj.featureTransformationParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'autoMLConfig': toJson_PersonalizeAutoMlConfig(obj.autoMlConfig),
+    'optimizationObjective': toJson_PersonalizeOptimizationObjective(obj.optimizationObjective),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeAlgorithm
@@ -1333,6 +2840,29 @@ export interface PersonalizeAlgorithm {
   readonly lastUpdatedDateTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeAlgorithm' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeAlgorithm(obj: PersonalizeAlgorithm | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'algorithmArn': obj.algorithmArn,
+    'algorithmImage': toJson_PersonalizeAlgorithmImage(obj.algorithmImage),
+    'defaultHyperParameters': ((obj.defaultHyperParameters) === undefined) ? undefined : (Object.entries(obj.defaultHyperParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'defaultHyperParameterRanges': toJson_PersonalizeDefaultHyperParameterRanges(obj.defaultHyperParameterRanges),
+    'defaultResourceConfig': ((obj.defaultResourceConfig) === undefined) ? undefined : (Object.entries(obj.defaultResourceConfig).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'trainingInputMode': obj.trainingInputMode,
+    'roleArn': obj.roleArn,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeBatchInferenceJob
@@ -1406,6 +2936,32 @@ export interface PersonalizeBatchInferenceJob {
 }
 
 /**
+ * Converts an object of type 'PersonalizeBatchInferenceJob' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeBatchInferenceJob(obj: PersonalizeBatchInferenceJob | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobName': obj.jobName,
+    'batchInferenceJobArn': obj.batchInferenceJobArn,
+    'filterArn': obj.filterArn,
+    'failureReason': obj.failureReason,
+    'solutionVersionArn': obj.solutionVersionArn,
+    'numResults': obj.numResults,
+    'jobInput': toJson_PersonalizeBatchInferenceJobInput(obj.jobInput),
+    'jobOutput': toJson_PersonalizeBatchInferenceJobOutput(obj.jobOutput),
+    'batchInferenceJobConfig': toJson_PersonalizeBatchInferenceJobConfig(obj.batchInferenceJobConfig),
+    'roleArn': obj.roleArn,
+    'status': obj.status,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeCampaign
  */
 export interface PersonalizeCampaign {
@@ -1427,7 +2983,7 @@ export interface PersonalizeCampaign {
   /**
    * @schema PersonalizeCampaign#minProvisionedTPS
    */
-  readonly minProvisionedTPS?: number;
+  readonly minProvisionedTps?: number;
 
   /**
    * @schema PersonalizeCampaign#campaignConfig
@@ -1460,6 +3016,29 @@ export interface PersonalizeCampaign {
   readonly latestCampaignUpdate?: PersonalizeCampaignUpdateSummary;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeCampaign' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCampaign(obj: PersonalizeCampaign | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'campaignArn': obj.campaignArn,
+    'solutionVersionArn': obj.solutionVersionArn,
+    'minProvisionedTPS': obj.minProvisionedTps,
+    'campaignConfig': toJson_PersonalizeCampaignConfig(obj.campaignConfig),
+    'status': obj.status,
+    'failureReason': obj.failureReason,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+    'latestCampaignUpdate': toJson_PersonalizeCampaignUpdateSummary(obj.latestCampaignUpdate),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDataset
@@ -1508,6 +3087,106 @@ export interface PersonalizeDataset {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDataset' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDataset(obj: PersonalizeDataset | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'datasetArn': obj.datasetArn,
+    'datasetGroupArn': obj.datasetGroupArn,
+    'datasetType': obj.datasetType,
+    'schemaArn': obj.schemaArn,
+    'status': obj.status,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema PersonalizeDatasetExportJob
+ */
+export interface PersonalizeDatasetExportJob {
+  /**
+   * @schema PersonalizeDatasetExportJob#jobName
+   */
+  readonly jobName?: string;
+
+  /**
+   * @schema PersonalizeDatasetExportJob#datasetExportJobArn
+   */
+  readonly datasetExportJobArn?: string;
+
+  /**
+   * @schema PersonalizeDatasetExportJob#datasetArn
+   */
+  readonly datasetArn?: string;
+
+  /**
+   * @schema PersonalizeDatasetExportJob#ingestionMode
+   */
+  readonly ingestionMode?: string;
+
+  /**
+   * @schema PersonalizeDatasetExportJob#roleArn
+   */
+  readonly roleArn?: string;
+
+  /**
+   * @schema PersonalizeDatasetExportJob#status
+   */
+  readonly status?: string;
+
+  /**
+   * @schema PersonalizeDatasetExportJob#jobOutput
+   */
+  readonly jobOutput?: PersonalizeDatasetExportJobOutput;
+
+  /**
+   * @schema PersonalizeDatasetExportJob#creationDateTime
+   */
+  readonly creationDateTime?: string;
+
+  /**
+   * @schema PersonalizeDatasetExportJob#lastUpdatedDateTime
+   */
+  readonly lastUpdatedDateTime?: string;
+
+  /**
+   * @schema PersonalizeDatasetExportJob#failureReason
+   */
+  readonly failureReason?: string;
+
+}
+
+/**
+ * Converts an object of type 'PersonalizeDatasetExportJob' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDatasetExportJob(obj: PersonalizeDatasetExportJob | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobName': obj.jobName,
+    'datasetExportJobArn': obj.datasetExportJobArn,
+    'datasetArn': obj.datasetArn,
+    'ingestionMode': obj.ingestionMode,
+    'roleArn': obj.roleArn,
+    'status': obj.status,
+    'jobOutput': toJson_PersonalizeDatasetExportJobOutput(obj.jobOutput),
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+    'failureReason': obj.failureReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDatasetGroup
  */
 export interface PersonalizeDatasetGroup {
@@ -1552,6 +3231,27 @@ export interface PersonalizeDatasetGroup {
   readonly failureReason?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDatasetGroup' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDatasetGroup(obj: PersonalizeDatasetGroup | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'datasetGroupArn': obj.datasetGroupArn,
+    'status': obj.status,
+    'roleArn': obj.roleArn,
+    'kmsKeyArn': obj.kmsKeyArn,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+    'failureReason': obj.failureReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDatasetImportJob
@@ -1605,6 +3305,28 @@ export interface PersonalizeDatasetImportJob {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDatasetImportJob' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDatasetImportJob(obj: PersonalizeDatasetImportJob | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'jobName': obj.jobName,
+    'datasetImportJobArn': obj.datasetImportJobArn,
+    'datasetArn': obj.datasetArn,
+    'dataSource': toJson_PersonalizeDataSource(obj.dataSource),
+    'roleArn': obj.roleArn,
+    'status': obj.status,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+    'failureReason': obj.failureReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeEventTracker
  */
 export interface PersonalizeEventTracker {
@@ -1651,6 +3373,27 @@ export interface PersonalizeEventTracker {
 }
 
 /**
+ * Converts an object of type 'PersonalizeEventTracker' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeEventTracker(obj: PersonalizeEventTracker | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'eventTrackerArn': obj.eventTrackerArn,
+    'accountId': obj.accountId,
+    'trackingId': obj.trackingId,
+    'datasetGroupArn': obj.datasetGroupArn,
+    'status': obj.status,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeFeatureTransformation
  */
 export interface PersonalizeFeatureTransformation {
@@ -1685,6 +3428,25 @@ export interface PersonalizeFeatureTransformation {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeFeatureTransformation' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeFeatureTransformation(obj: PersonalizeFeatureTransformation | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'featureTransformationArn': obj.featureTransformationArn,
+    'defaultParameters': ((obj.defaultParameters) === undefined) ? undefined : (Object.entries(obj.defaultParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeFilter
@@ -1731,6 +3493,27 @@ export interface PersonalizeFilter {
   readonly status?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeFilter' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeFilter(obj: PersonalizeFilter | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'filterArn': obj.filterArn,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+    'datasetGroupArn': obj.datasetGroupArn,
+    'failureReason': obj.failureReason,
+    'filterExpression': obj.filterExpression,
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeRecipe
@@ -1784,6 +3567,28 @@ export interface PersonalizeRecipe {
 }
 
 /**
+ * Converts an object of type 'PersonalizeRecipe' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeRecipe(obj: PersonalizeRecipe | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'recipeArn': obj.recipeArn,
+    'algorithmArn': obj.algorithmArn,
+    'featureTransformationArn': obj.featureTransformationArn,
+    'status': obj.status,
+    'description': obj.description,
+    'creationDateTime': obj.creationDateTime,
+    'recipeType': obj.recipeType,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDatasetSchema
  */
 export interface PersonalizeDatasetSchema {
@@ -1815,6 +3620,24 @@ export interface PersonalizeDatasetSchema {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDatasetSchema' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDatasetSchema(obj: PersonalizeDatasetSchema | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'schemaArn': obj.schemaArn,
+    'schema': obj.schema,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeSolution
  */
 export interface PersonalizeSolution {
@@ -1831,12 +3654,12 @@ export interface PersonalizeSolution {
   /**
    * @schema PersonalizeSolution#performHPO
    */
-  readonly performHPO?: boolean;
+  readonly performHpo?: boolean;
 
   /**
    * @schema PersonalizeSolution#performAutoML
    */
-  readonly performAutoML?: boolean;
+  readonly performAutoMl?: boolean;
 
   /**
    * @schema PersonalizeSolution#recipeArn
@@ -1861,7 +3684,7 @@ export interface PersonalizeSolution {
   /**
    * @schema PersonalizeSolution#autoMLResult
    */
-  readonly autoMLResult?: PersonalizeAutoMlResult;
+  readonly autoMlResult?: PersonalizeAutoMlResult;
 
   /**
    * @schema PersonalizeSolution#status
@@ -1886,6 +3709,32 @@ export interface PersonalizeSolution {
 }
 
 /**
+ * Converts an object of type 'PersonalizeSolution' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeSolution(obj: PersonalizeSolution | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'solutionArn': obj.solutionArn,
+    'performHPO': obj.performHpo,
+    'performAutoML': obj.performAutoMl,
+    'recipeArn': obj.recipeArn,
+    'datasetGroupArn': obj.datasetGroupArn,
+    'eventType': obj.eventType,
+    'solutionConfig': toJson_PersonalizeSolutionConfig(obj.solutionConfig),
+    'autoMLResult': toJson_PersonalizeAutoMlResult(obj.autoMlResult),
+    'status': obj.status,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+    'latestSolutionVersion': toJson_PersonalizeSolutionVersionSummary(obj.latestSolutionVersion),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeSolutionVersion
  */
 export interface PersonalizeSolutionVersion {
@@ -1902,12 +3751,12 @@ export interface PersonalizeSolutionVersion {
   /**
    * @schema PersonalizeSolutionVersion#performHPO
    */
-  readonly performHPO?: boolean;
+  readonly performHpo?: boolean;
 
   /**
    * @schema PersonalizeSolutionVersion#performAutoML
    */
-  readonly performAutoML?: boolean;
+  readonly performAutoMl?: boolean;
 
   /**
    * @schema PersonalizeSolutionVersion#recipeArn
@@ -1942,7 +3791,7 @@ export interface PersonalizeSolutionVersion {
   /**
    * @schema PersonalizeSolutionVersion#tunedHPOParams
    */
-  readonly tunedHPOParams?: PersonalizeTunedHpoParams;
+  readonly tunedHpoParams?: PersonalizeTunedHpoParams;
 
   /**
    * @schema PersonalizeSolutionVersion#status
@@ -1965,6 +3814,34 @@ export interface PersonalizeSolutionVersion {
   readonly lastUpdatedDateTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeSolutionVersion' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeSolutionVersion(obj: PersonalizeSolutionVersion | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solutionVersionArn': obj.solutionVersionArn,
+    'solutionArn': obj.solutionArn,
+    'performHPO': obj.performHpo,
+    'performAutoML': obj.performAutoMl,
+    'recipeArn': obj.recipeArn,
+    'eventType': obj.eventType,
+    'datasetGroupArn': obj.datasetGroupArn,
+    'solutionConfig': toJson_PersonalizeSolutionConfig(obj.solutionConfig),
+    'trainingHours': obj.trainingHours,
+    'trainingMode': obj.trainingMode,
+    'tunedHPOParams': toJson_PersonalizeTunedHpoParams(obj.tunedHpoParams),
+    'status': obj.status,
+    'failureReason': obj.failureReason,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeBatchInferenceJobSummary
@@ -2008,6 +3885,26 @@ export interface PersonalizeBatchInferenceJobSummary {
 }
 
 /**
+ * Converts an object of type 'PersonalizeBatchInferenceJobSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeBatchInferenceJobSummary(obj: PersonalizeBatchInferenceJobSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'batchInferenceJobArn': obj.batchInferenceJobArn,
+    'jobName': obj.jobName,
+    'status': obj.status,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+    'failureReason': obj.failureReason,
+    'solutionVersionArn': obj.solutionVersionArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeCampaignSummary
  */
 export interface PersonalizeCampaignSummary {
@@ -2042,6 +3939,80 @@ export interface PersonalizeCampaignSummary {
   readonly failureReason?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeCampaignSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCampaignSummary(obj: PersonalizeCampaignSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'campaignArn': obj.campaignArn,
+    'status': obj.status,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+    'failureReason': obj.failureReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema PersonalizeDatasetExportJobSummary
+ */
+export interface PersonalizeDatasetExportJobSummary {
+  /**
+   * @schema PersonalizeDatasetExportJobSummary#datasetExportJobArn
+   */
+  readonly datasetExportJobArn?: string;
+
+  /**
+   * @schema PersonalizeDatasetExportJobSummary#jobName
+   */
+  readonly jobName?: string;
+
+  /**
+   * @schema PersonalizeDatasetExportJobSummary#status
+   */
+  readonly status?: string;
+
+  /**
+   * @schema PersonalizeDatasetExportJobSummary#creationDateTime
+   */
+  readonly creationDateTime?: string;
+
+  /**
+   * @schema PersonalizeDatasetExportJobSummary#lastUpdatedDateTime
+   */
+  readonly lastUpdatedDateTime?: string;
+
+  /**
+   * @schema PersonalizeDatasetExportJobSummary#failureReason
+   */
+  readonly failureReason?: string;
+
+}
+
+/**
+ * Converts an object of type 'PersonalizeDatasetExportJobSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDatasetExportJobSummary(obj: PersonalizeDatasetExportJobSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetExportJobArn': obj.datasetExportJobArn,
+    'jobName': obj.jobName,
+    'status': obj.status,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+    'failureReason': obj.failureReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDatasetGroupSummary
@@ -2080,6 +4051,25 @@ export interface PersonalizeDatasetGroupSummary {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDatasetGroupSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDatasetGroupSummary(obj: PersonalizeDatasetGroupSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'datasetGroupArn': obj.datasetGroupArn,
+    'status': obj.status,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+    'failureReason': obj.failureReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDatasetImportJobSummary
  */
 export interface PersonalizeDatasetImportJobSummary {
@@ -2114,6 +4104,25 @@ export interface PersonalizeDatasetImportJobSummary {
   readonly failureReason?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDatasetImportJobSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDatasetImportJobSummary(obj: PersonalizeDatasetImportJobSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'datasetImportJobArn': obj.datasetImportJobArn,
+    'jobName': obj.jobName,
+    'status': obj.status,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+    'failureReason': obj.failureReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDatasetSummary
@@ -2152,6 +4161,25 @@ export interface PersonalizeDatasetSummary {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDatasetSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDatasetSummary(obj: PersonalizeDatasetSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'datasetArn': obj.datasetArn,
+    'datasetType': obj.datasetType,
+    'status': obj.status,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeEventTrackerSummary
  */
 export interface PersonalizeEventTrackerSummary {
@@ -2181,6 +4209,24 @@ export interface PersonalizeEventTrackerSummary {
   readonly lastUpdatedDateTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeEventTrackerSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeEventTrackerSummary(obj: PersonalizeEventTrackerSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'eventTrackerArn': obj.eventTrackerArn,
+    'status': obj.status,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeFilterSummary
@@ -2224,6 +4270,26 @@ export interface PersonalizeFilterSummary {
 }
 
 /**
+ * Converts an object of type 'PersonalizeFilterSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeFilterSummary(obj: PersonalizeFilterSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'filterArn': obj.filterArn,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+    'datasetGroupArn': obj.datasetGroupArn,
+    'failureReason': obj.failureReason,
+    'status': obj.status,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeRecipeSummary
  */
 export interface PersonalizeRecipeSummary {
@@ -2255,6 +4321,24 @@ export interface PersonalizeRecipeSummary {
 }
 
 /**
+ * Converts an object of type 'PersonalizeRecipeSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeRecipeSummary(obj: PersonalizeRecipeSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'recipeArn': obj.recipeArn,
+    'status': obj.status,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDatasetSchemaSummary
  */
 export interface PersonalizeDatasetSchemaSummary {
@@ -2279,6 +4363,23 @@ export interface PersonalizeDatasetSchemaSummary {
   readonly lastUpdatedDateTime?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDatasetSchemaSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDatasetSchemaSummary(obj: PersonalizeDatasetSchemaSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'schemaArn': obj.schemaArn,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeSolutionVersionSummary
@@ -2312,6 +4413,24 @@ export interface PersonalizeSolutionVersionSummary {
 }
 
 /**
+ * Converts an object of type 'PersonalizeSolutionVersionSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeSolutionVersionSummary(obj: PersonalizeSolutionVersionSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solutionVersionArn': obj.solutionVersionArn,
+    'status': obj.status,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+    'failureReason': obj.failureReason,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeSolutionSummary
  */
 export interface PersonalizeSolutionSummary {
@@ -2343,6 +4462,24 @@ export interface PersonalizeSolutionSummary {
 }
 
 /**
+ * Converts an object of type 'PersonalizeSolutionSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeSolutionSummary(obj: PersonalizeSolutionSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'solutionArn': obj.solutionArn,
+    'status': obj.status,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeS3DataConfig
  */
 export interface PersonalizeS3DataConfig {
@@ -2357,6 +4494,21 @@ export interface PersonalizeS3DataConfig {
   readonly kmsKeyArn?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeS3DataConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeS3DataConfig(obj: PersonalizeS3DataConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'path': obj.path,
+    'kmsKeyArn': obj.kmsKeyArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeHpoConfig
@@ -2380,6 +4532,22 @@ export interface PersonalizeHpoConfig {
 }
 
 /**
+ * Converts an object of type 'PersonalizeHpoConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeHpoConfig(obj: PersonalizeHpoConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'hpoObjective': toJson_PersonalizeHpoObjective(obj.hpoObjective),
+    'hpoResourceConfig': toJson_PersonalizeHpoResourceConfig(obj.hpoResourceConfig),
+    'algorithmHyperParameterRanges': toJson_PersonalizeHyperParameterRanges(obj.algorithmHyperParameterRanges),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeAutoMlConfig
  */
 export interface PersonalizeAutoMlConfig {
@@ -2396,6 +4564,52 @@ export interface PersonalizeAutoMlConfig {
 }
 
 /**
+ * Converts an object of type 'PersonalizeAutoMlConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeAutoMlConfig(obj: PersonalizeAutoMlConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'metricName': obj.metricName,
+    'recipeList': obj.recipeList?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema PersonalizeOptimizationObjective
+ */
+export interface PersonalizeOptimizationObjective {
+  /**
+   * @schema PersonalizeOptimizationObjective#itemAttribute
+   */
+  readonly itemAttribute?: string;
+
+  /**
+   * @schema PersonalizeOptimizationObjective#objectiveSensitivity
+   */
+  readonly objectiveSensitivity?: string;
+
+}
+
+/**
+ * Converts an object of type 'PersonalizeOptimizationObjective' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeOptimizationObjective(obj: PersonalizeOptimizationObjective | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'itemAttribute': obj.itemAttribute,
+    'objectiveSensitivity': obj.objectiveSensitivity,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeAlgorithmImage
  */
 export interface PersonalizeAlgorithmImage {
@@ -2407,9 +4621,24 @@ export interface PersonalizeAlgorithmImage {
   /**
    * @schema PersonalizeAlgorithmImage#dockerURI
    */
-  readonly dockerURI?: string;
+  readonly dockerUri?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeAlgorithmImage' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeAlgorithmImage(obj: PersonalizeAlgorithmImage | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'dockerURI': obj.dockerUri,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDefaultHyperParameterRanges
@@ -2433,6 +4662,22 @@ export interface PersonalizeDefaultHyperParameterRanges {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDefaultHyperParameterRanges' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDefaultHyperParameterRanges(obj: PersonalizeDefaultHyperParameterRanges | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'integerHyperParameterRanges': obj.integerHyperParameterRanges?.map(y => toJson_PersonalizeDefaultIntegerHyperParameterRange(y)),
+    'continuousHyperParameterRanges': obj.continuousHyperParameterRanges?.map(y => toJson_PersonalizeDefaultContinuousHyperParameterRange(y)),
+    'categoricalHyperParameterRanges': obj.categoricalHyperParameterRanges?.map(y => toJson_PersonalizeDefaultCategoricalHyperParameterRange(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeCampaignUpdateSummary
  */
 export interface PersonalizeCampaignUpdateSummary {
@@ -2444,7 +4689,7 @@ export interface PersonalizeCampaignUpdateSummary {
   /**
    * @schema PersonalizeCampaignUpdateSummary#minProvisionedTPS
    */
-  readonly minProvisionedTPS?: number;
+  readonly minProvisionedTps?: number;
 
   /**
    * @schema PersonalizeCampaignUpdateSummary#campaignConfig
@@ -2474,6 +4719,26 @@ export interface PersonalizeCampaignUpdateSummary {
 }
 
 /**
+ * Converts an object of type 'PersonalizeCampaignUpdateSummary' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCampaignUpdateSummary(obj: PersonalizeCampaignUpdateSummary | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'solutionVersionArn': obj.solutionVersionArn,
+    'minProvisionedTPS': obj.minProvisionedTps,
+    'campaignConfig': toJson_PersonalizeCampaignConfig(obj.campaignConfig),
+    'status': obj.status,
+    'failureReason': obj.failureReason,
+    'creationDateTime': obj.creationDateTime,
+    'lastUpdatedDateTime': obj.lastUpdatedDateTime,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeAutoMlResult
  */
 export interface PersonalizeAutoMlResult {
@@ -2485,6 +4750,20 @@ export interface PersonalizeAutoMlResult {
 }
 
 /**
+ * Converts an object of type 'PersonalizeAutoMlResult' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeAutoMlResult(obj: PersonalizeAutoMlResult | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'bestRecipeArn': obj.bestRecipeArn,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeTunedHpoParams
  */
 export interface PersonalizeTunedHpoParams {
@@ -2494,6 +4773,20 @@ export interface PersonalizeTunedHpoParams {
   readonly algorithmHyperParameters?: { [key: string]: string };
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeTunedHpoParams' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeTunedHpoParams(obj: PersonalizeTunedHpoParams | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'algorithmHyperParameters': ((obj.algorithmHyperParameters) === undefined) ? undefined : (Object.entries(obj.algorithmHyperParameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeHpoObjective
@@ -2517,6 +4810,22 @@ export interface PersonalizeHpoObjective {
 }
 
 /**
+ * Converts an object of type 'PersonalizeHpoObjective' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeHpoObjective(obj: PersonalizeHpoObjective | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'type': obj.type,
+    'metricName': obj.metricName,
+    'metricRegex': obj.metricRegex,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeHpoResourceConfig
  */
 export interface PersonalizeHpoResourceConfig {
@@ -2531,6 +4840,21 @@ export interface PersonalizeHpoResourceConfig {
   readonly maxParallelTrainingJobs?: string;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeHpoResourceConfig' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeHpoResourceConfig(obj: PersonalizeHpoResourceConfig | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'maxNumberOfTrainingJobs': obj.maxNumberOfTrainingJobs,
+    'maxParallelTrainingJobs': obj.maxParallelTrainingJobs,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeHyperParameterRanges
@@ -2552,6 +4876,22 @@ export interface PersonalizeHyperParameterRanges {
   readonly categoricalHyperParameterRanges?: PersonalizeCategoricalHyperParameterRange[];
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeHyperParameterRanges' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeHyperParameterRanges(obj: PersonalizeHyperParameterRanges | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'integerHyperParameterRanges': obj.integerHyperParameterRanges?.map(y => toJson_PersonalizeIntegerHyperParameterRange(y)),
+    'continuousHyperParameterRanges': obj.continuousHyperParameterRanges?.map(y => toJson_PersonalizeContinuousHyperParameterRange(y)),
+    'categoricalHyperParameterRanges': obj.categoricalHyperParameterRanges?.map(y => toJson_PersonalizeCategoricalHyperParameterRange(y)),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeDefaultIntegerHyperParameterRange
@@ -2580,6 +4920,23 @@ export interface PersonalizeDefaultIntegerHyperParameterRange {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDefaultIntegerHyperParameterRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDefaultIntegerHyperParameterRange(obj: PersonalizeDefaultIntegerHyperParameterRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'minValue': obj.minValue,
+    'maxValue': obj.maxValue,
+    'isTunable': obj.isTunable,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDefaultContinuousHyperParameterRange
  */
 export interface PersonalizeDefaultContinuousHyperParameterRange {
@@ -2606,6 +4963,23 @@ export interface PersonalizeDefaultContinuousHyperParameterRange {
 }
 
 /**
+ * Converts an object of type 'PersonalizeDefaultContinuousHyperParameterRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDefaultContinuousHyperParameterRange(obj: PersonalizeDefaultContinuousHyperParameterRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'minValue': obj.minValue,
+    'maxValue': obj.maxValue,
+    'isTunable': obj.isTunable,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeDefaultCategoricalHyperParameterRange
  */
 export interface PersonalizeDefaultCategoricalHyperParameterRange {
@@ -2625,6 +4999,22 @@ export interface PersonalizeDefaultCategoricalHyperParameterRange {
   readonly isTunable?: boolean;
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeDefaultCategoricalHyperParameterRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeDefaultCategoricalHyperParameterRange(obj: PersonalizeDefaultCategoricalHyperParameterRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'values': obj.values?.map(y => y),
+    'isTunable': obj.isTunable,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
 
 /**
  * @schema PersonalizeIntegerHyperParameterRange
@@ -2648,6 +5038,22 @@ export interface PersonalizeIntegerHyperParameterRange {
 }
 
 /**
+ * Converts an object of type 'PersonalizeIntegerHyperParameterRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeIntegerHyperParameterRange(obj: PersonalizeIntegerHyperParameterRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'minValue': obj.minValue,
+    'maxValue': obj.maxValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeContinuousHyperParameterRange
  */
 export interface PersonalizeContinuousHyperParameterRange {
@@ -2669,6 +5075,22 @@ export interface PersonalizeContinuousHyperParameterRange {
 }
 
 /**
+ * Converts an object of type 'PersonalizeContinuousHyperParameterRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeContinuousHyperParameterRange(obj: PersonalizeContinuousHyperParameterRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'minValue': obj.minValue,
+    'maxValue': obj.maxValue,
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
  * @schema PersonalizeCategoricalHyperParameterRange
  */
 export interface PersonalizeCategoricalHyperParameterRange {
@@ -2683,3 +5105,18 @@ export interface PersonalizeCategoricalHyperParameterRange {
   readonly values?: string[];
 
 }
+
+/**
+ * Converts an object of type 'PersonalizeCategoricalHyperParameterRange' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_PersonalizeCategoricalHyperParameterRange(obj: PersonalizeCategoricalHyperParameterRange | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'name': obj.name,
+    'values': obj.values?.map(y => y),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */

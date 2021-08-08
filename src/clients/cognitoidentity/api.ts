@@ -59,6 +59,10 @@ export class CognitoIdentityClient extends cdk.Construct {
     return new CognitoIdentityResponsesFetchOpenIdTokenForDeveloperIdentity(this, this.__resources, input);
   }
 
+  public fetchPrincipalTagAttributeMap(input: shapes.CognitoIdentityGetPrincipalTagAttributeMapInput): CognitoIdentityResponsesFetchPrincipalTagAttributeMap {
+    return new CognitoIdentityResponsesFetchPrincipalTagAttributeMap(this, this.__resources, input);
+  }
+
   public listIdentities(input: shapes.CognitoIdentityListIdentitiesInput): CognitoIdentityResponsesListIdentities {
     return new CognitoIdentityResponsesListIdentities(this, this.__resources, input);
   }
@@ -94,6 +98,10 @@ export class CognitoIdentityClient extends cdk.Construct {
       },
     };
     new cr.AwsCustomResource(this, 'SetIdentityPoolRoles', props);
+  }
+
+  public putPrincipalTagAttributeMap(input: shapes.CognitoIdentitySetPrincipalTagAttributeMapInput): CognitoIdentityResponsesPutPrincipalTagAttributeMap {
+    return new CognitoIdentityResponsesPutPrincipalTagAttributeMap(this, this.__resources, input);
   }
 
   public tagResource(input: shapes.CognitoIdentityTagResourceInput): void {
@@ -959,6 +967,7 @@ export class CognitoIdentityResponsesFetchOpenIdTokenForDeveloperIdentity {
           IdentityPoolId: this.__input.identityPoolId,
           IdentityId: this.__input.identityId,
           Logins: this.__input.logins,
+          PrincipalTags: this.__input.principalTags,
           TokenDuration: this.__input.tokenDuration,
         },
       },
@@ -979,12 +988,92 @@ export class CognitoIdentityResponsesFetchOpenIdTokenForDeveloperIdentity {
           IdentityPoolId: this.__input.identityPoolId,
           IdentityId: this.__input.identityId,
           Logins: this.__input.logins,
+          PrincipalTags: this.__input.principalTags,
           TokenDuration: this.__input.tokenDuration,
         },
       },
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'GetOpenIdTokenForDeveloperIdentity.Token', props);
     return resource.getResponseField('Token') as unknown as string;
+  }
+
+}
+
+export class CognitoIdentityResponsesFetchPrincipalTagAttributeMap {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CognitoIdentityGetPrincipalTagAttributeMapInput) {
+  }
+
+  public get identityPoolId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getPrincipalTagAttributeMap',
+        service: 'CognitoIdentity',
+        physicalResourceId: cr.PhysicalResourceId.of('CognitoIdentity.GetPrincipalTagAttributeMap.IdentityPoolId'),
+        outputPath: 'IdentityPoolId',
+        parameters: {
+          IdentityPoolId: this.__input.identityPoolId,
+          IdentityProviderName: this.__input.identityProviderName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetPrincipalTagAttributeMap.IdentityPoolId', props);
+    return resource.getResponseField('IdentityPoolId') as unknown as string;
+  }
+
+  public get identityProviderName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getPrincipalTagAttributeMap',
+        service: 'CognitoIdentity',
+        physicalResourceId: cr.PhysicalResourceId.of('CognitoIdentity.GetPrincipalTagAttributeMap.IdentityProviderName'),
+        outputPath: 'IdentityProviderName',
+        parameters: {
+          IdentityPoolId: this.__input.identityPoolId,
+          IdentityProviderName: this.__input.identityProviderName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetPrincipalTagAttributeMap.IdentityProviderName', props);
+    return resource.getResponseField('IdentityProviderName') as unknown as string;
+  }
+
+  public get useDefaults(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getPrincipalTagAttributeMap',
+        service: 'CognitoIdentity',
+        physicalResourceId: cr.PhysicalResourceId.of('CognitoIdentity.GetPrincipalTagAttributeMap.UseDefaults'),
+        outputPath: 'UseDefaults',
+        parameters: {
+          IdentityPoolId: this.__input.identityPoolId,
+          IdentityProviderName: this.__input.identityProviderName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetPrincipalTagAttributeMap.UseDefaults', props);
+    return resource.getResponseField('UseDefaults') as unknown as boolean;
+  }
+
+  public get principalTags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'getPrincipalTagAttributeMap',
+        service: 'CognitoIdentity',
+        physicalResourceId: cr.PhysicalResourceId.of('CognitoIdentity.GetPrincipalTagAttributeMap.PrincipalTags'),
+        outputPath: 'PrincipalTags',
+        parameters: {
+          IdentityPoolId: this.__input.identityPoolId,
+          IdentityProviderName: this.__input.identityProviderName,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'GetPrincipalTagAttributeMap.PrincipalTags', props);
+    return resource.getResponseField('PrincipalTags') as unknown as Record<string, string>;
   }
 
 }
@@ -1216,6 +1305,93 @@ export class CognitoIdentityResponsesMergeDeveloperIdentities {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'MergeDeveloperIdentities.IdentityId', props);
     return resource.getResponseField('IdentityId') as unknown as string;
+  }
+
+}
+
+export class CognitoIdentityResponsesPutPrincipalTagAttributeMap {
+
+  constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CognitoIdentitySetPrincipalTagAttributeMapInput) {
+  }
+
+  public get identityPoolId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'setPrincipalTagAttributeMap',
+        service: 'CognitoIdentity',
+        physicalResourceId: cr.PhysicalResourceId.of('CognitoIdentity.SetPrincipalTagAttributeMap.IdentityPoolId'),
+        outputPath: 'IdentityPoolId',
+        parameters: {
+          IdentityPoolId: this.__input.identityPoolId,
+          IdentityProviderName: this.__input.identityProviderName,
+          UseDefaults: this.__input.useDefaults,
+          PrincipalTags: this.__input.principalTags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SetPrincipalTagAttributeMap.IdentityPoolId', props);
+    return resource.getResponseField('IdentityPoolId') as unknown as string;
+  }
+
+  public get identityProviderName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'setPrincipalTagAttributeMap',
+        service: 'CognitoIdentity',
+        physicalResourceId: cr.PhysicalResourceId.of('CognitoIdentity.SetPrincipalTagAttributeMap.IdentityProviderName'),
+        outputPath: 'IdentityProviderName',
+        parameters: {
+          IdentityPoolId: this.__input.identityPoolId,
+          IdentityProviderName: this.__input.identityProviderName,
+          UseDefaults: this.__input.useDefaults,
+          PrincipalTags: this.__input.principalTags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SetPrincipalTagAttributeMap.IdentityProviderName', props);
+    return resource.getResponseField('IdentityProviderName') as unknown as string;
+  }
+
+  public get useDefaults(): boolean {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'setPrincipalTagAttributeMap',
+        service: 'CognitoIdentity',
+        physicalResourceId: cr.PhysicalResourceId.of('CognitoIdentity.SetPrincipalTagAttributeMap.UseDefaults'),
+        outputPath: 'UseDefaults',
+        parameters: {
+          IdentityPoolId: this.__input.identityPoolId,
+          IdentityProviderName: this.__input.identityProviderName,
+          UseDefaults: this.__input.useDefaults,
+          PrincipalTags: this.__input.principalTags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SetPrincipalTagAttributeMap.UseDefaults', props);
+    return resource.getResponseField('UseDefaults') as unknown as boolean;
+  }
+
+  public get principalTags(): Record<string, string> {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'setPrincipalTagAttributeMap',
+        service: 'CognitoIdentity',
+        physicalResourceId: cr.PhysicalResourceId.of('CognitoIdentity.SetPrincipalTagAttributeMap.PrincipalTags'),
+        outputPath: 'PrincipalTags',
+        parameters: {
+          IdentityPoolId: this.__input.identityPoolId,
+          IdentityProviderName: this.__input.identityProviderName,
+          UseDefaults: this.__input.useDefaults,
+          PrincipalTags: this.__input.principalTags,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'SetPrincipalTagAttributeMap.PrincipalTags', props);
+    return resource.getResponseField('PrincipalTags') as unknown as Record<string, string>;
   }
 
 }
